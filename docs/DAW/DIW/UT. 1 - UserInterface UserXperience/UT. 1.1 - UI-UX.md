@@ -4,7 +4,7 @@ subtitle: "Módulo: Diseño de Interfaces Web"
 author: Javier Egea Blasco  
 year: Año 24-25  
 keywords: DAW, DIW
-layout: default  
+layout: default    
 ---
   
 <div style="text-align: center">
