@@ -399,7 +399,22 @@ Tipos (iconos disponibles).
 - quote     
 
 # Enlace a documentacion sobre mkdocs
-<a href=https://squidfunk.github.io/mkdocs-material/>Clic aqui</a>
+<a href=https://squidfunk.github.io/mkdocs-material>Clic aqui</a>
+
+# Diagramas (superfences)
+<div style="text-align:center;">
+```mermaid
+flowchart TD
+  A(["Start"])
+  A --> B{"Decision"}
+  B --> C["Option A"]
+  B --> D["Option B"]
+```
+</div>
+
+<a href=https://mermaid.js.org>Editor de diagramas</a>
+
+
 
 | **Licencia Creative Commons:** | |
 | - | - |

@@ -14,6 +14,7 @@ theme:
     - navigation.tabs.sticky
     - navigation.sections
     - navigation.expand
+#    - navigation.footer #añade flechas de navegacion en el footer
 #    - toc.integrate
     - navigation.top
     - search.suggest
@@ -66,9 +67,25 @@ markdown_extensions:
       alternate_style: true    
   - admonition
   - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
 
 nav: 
 #  - Home: index.md
 #  - About: about.md
 #  - Code docs:
 #    - Java: ruta/archivo.md
+
+
+extra: 
+    generator: false #eliminar el made with""
+#   social: #sirve para añadir enlaces a RRSS
+#     - icon: simple/youtube
+#       link: https://youtube.com
+#     - icon: simple/youtube
+#       link: https://youtube.com
+    
+copyright: Copyright &copy; 2025 - Javier Egea Blasco     
