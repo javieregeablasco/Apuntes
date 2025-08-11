@@ -365,9 +365,45 @@ layout: default
   </tr>    
 </table>
 
+# Content tabs.
+
+=== "Tabla 1"
+    Este es su contendi
+
+=== "Tabla 2"
+    Otra contenido
+
+=== "Tabla 3"
+    Contenido final 
+
+# Admonition tabs
+
+!!! note "Title of the callout"
+    Aquí va el texto, no se si se puede cambiar el icono
+
+??? info "Title of the content"
+    Aquí va el texto, no se si se puede cambiar el icono    
+
+Tipos (iconos disponibles).  
+- abstract  
+- info  
+- tip  
+- success  
+- octicons  
+- question  
+- warning  
+- failure  
+- danger  
+- bug  
+- example  
+- quote     
+
+# Enlace a documentacion sobre mkdocs
+<a href=https://squidfunk.github.io/mkdocs-material/>Clic aqui</a>
+
 | **Licencia Creative Commons:** | |
 | - | - |
-| ![alt text](./img/by-nc-nd-eu_.png) | **Reconocimiento-NoComercial-CompartirIgual CC BY-NC-SA:** No se permite un uso comercial de la obra original ni de las posibles obras derivadas, la distribución de la cuales se debe hace con una licencia igual a la que regula la obra original. | 
+| ![alt text](../../../assets/by-nc-nd-eu_.png) | **Reconocimiento-NoComercial-CompartirIgual CC BY-NC-SA:**  No se permite un uso comercial de la obra original ni de las posibles obras derivadas, la distribución de la cuales se debe hace con una licencia igual a la que regula la obra original. | 
   
  
 
