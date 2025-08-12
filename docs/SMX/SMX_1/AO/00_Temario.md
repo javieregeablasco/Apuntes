@@ -12,6 +12,164 @@ layout: default
 
 <br>
 
+# Contenidos
+A continuación, se presentan los contenidos de este módulo tal y como aparecen en **ORDEN de 29 de julio 2009**, de la Conselleria de Educación, por la que se establece para la Comunitat Valenciana el currículo del ciclo formativo de Grado Medio correspondiente al título de Técnico en Sistemas Microinformáticos y Redes.
+  
+## Instalación de aplicaciones:
+??? info "Contenidos"
+    - Tipos de aplicaciones ofimáticas y aplicaciones corporativas.
+    - Paquetes ofimáticos.
+    - Tipos de licencias software.
+    - Necesidades de los entornos de explotación.
+    - Procedimientos de instalación y configuración.
+    - Diagnóstico y resolución de problemas.
+
+## Elaboración de documentos y plantillas mediante procesadores de texto
+??? info "Contenidos"
+    – El entorno de trabajo. Personalización.  
+    – Formateo de textos. Párrafos. Páginas y Estilos.  
+    – Encabezamientos. Pies de Página. Notas a pie.  
+    – Esquemas: Viñetas. Listas numeradas.  
+    – Gráficos. Imágenes.  
+    – Índices y Tablas.  
+    – Formularios.  
+    – Impresión de documentos.  
+    – Combinar documentos.  
+    – Creación y uso de plantillas.  
+    – Importación y exportación de documentos.  
+    – Trabajo en grupo: comparar documentos, versiones de documento, verificar cambios, entre otros.  
+    – Diseño y creación de macros.  
+    – Utilización de software y hardware para introducir textos e imágenes.  
+    – Elaboración de distintos tipos de documentos (manuales, partes de incidencias, entre otros).
+
+## Elaboración de documentos y plantillas mediante hojas de cálculo
+??? info "Contenidos"
+    – Entorno de trabajo. Personalización.  
+    – Conceptos básicos: Libro, hoja, celda, rango, etc…  
+    – Formateo de celdas. Estilos.  
+    – Manipulación de datos.  
+    – Rangos.  
+    – Impresión de documentos.  
+    – Utilización de fórmulas y funciones.  
+    – Creación de tablas y gráficos dinámicos.  
+    – Dibujos e imágenes.  
+    – Uso de plantillas y asistentes.  
+    – Importación y exportación de hojas de cálculo.  
+    – Utilización de opciones de trabajo en grupo, control de versiones,verificación de cambios, entre otros.  
+    – Elaboración de distintos tipos de documentos (presupuestos, facturas, inventarios, entre otros).  
+    – Diseño y creación de macros.  
+
+
+## Utilización de bases de datos ofimáticas
+??? info "Contenidos"
+    – Elementos de las bases de datos relacionales.  
+    – Organización de bases de datos relacionales.  
+    – Creación de bases de datos.  
+    – Creación y manejo de tablas.  
+    – Manejo de asistentes.  
+    – Manipulación de datos: Inserción, modificación y borrado.  
+    – Consultas, formularios e informes.  
+
+## Manipulación de imágenes:
+??? info "Contenidos"
+    – Formatos y resolución de imágenes.  
+    – Manipulación de selecciones, máscaras y capas.  
+    – Utilización de retoque fotográfico, ajustes de imagen y de color.  
+    – Aplicación de filtros y efectos.  
+    – Importación y exportación de imágenes.  
+    – Utilización de dispositivos para obtener imágenes.  
+
+## Manipulación de vídeos:
+??? info "Contenidos"
+    – Formatos de vídeo. Codecs.  
+    – Manipulación de la línea de tiempo.  
+    – Selección de escenas y transiciones.  
+    – Introducción de títulos y audio.  
+    – Creación y grabación de videos.  
+    – Importación y exportación de vídeos.  
+
+## Elaboración de presentaciones:
+??? info "Contenidos"
+    – El entorno de trabajo. Personalización.  
+    – Impresión de presentaciones.  
+    – Gráficos, imágenes, dibujos y organigramas.  
+    – Diseño y edición de diapositivas.  
+    – Manipulación de diapositivas. Modo de visualización.  
+    – Formateo de diapositivas, textos y objetos.  
+    – Aplicación de efectos de animación y efectos de transición.  
+    – Aplicación de sonido y vídeo.  
+    – Importación y exportación de presentaciones.  
+    – Utilización de plantillas y asistentes. Patrones de diapositivas.  
+    – Diseño y creación de macros.  
+
+## Gestión de correo y agenda electrónica:
+??? info "Contenidos"
+    – Entorno de trabajo: configuración y personalización.  
+    – Tipos de cuentas de correo.  
+    – Plantillas y firmas corporativas.  
+    – Foros de noticias (news). Configuración, uso y sincronización de mensajes.  
+    – La libreta de direcciones: importar, exportar, añadir contactos, crear listas de distribución, poner la lista a disposición de otras aplicaciones ofimáticas.  
+    – Gestión de correos: enviar, borrar, guardar, copias de seguridad, entre otros.  
+    – Gestión de la agenda: citas, calendario, avisos, tareas, entre otros.  
+    – Sincronización con dispositivos móviles.  
+
+## Aplicación de técnicas de soporte:
+??? info "Contenidos"
+    – Elaboración de guías y manuales de uso de aplicaciones.  
+    – Formación al usuario.  
+    – Resolución de incidencias.  
+    – Aplicaciones para la gestión y control de incidencias.  
+
+<br>
+
+# Metodología de aprendizaje:
+- Introducción de los **aspectos teóricos** para que después **sean aplicados mediante práctica y ejercicios**.  
+- Prácticas **individuales y colectivas**. 
+- **Realización de trabajos obligatorios**. Algunos trabajos podrán ser realizados en grupo. 
+- Realización de **actividades voluntarias** de investigación y ampliación para **profundizar en los conocimientos adquiridos**.  
+- **PBL (Problem Based Learning)**, aprendizaje basado en problemas. Se plantea un problema real, y los alumnos elaborarán una solución justificada y probada, incluyendo estudio de necesidades y costes. 
+- **Proyección de videos**. 
+
+# Evaluación 
+
+## Metodología de evaluación
+- La evaluación será **contínua y sumativa**.   
+- Se adaptará a las diferentes metodologías de aprendizaje. 
+- Se basará en la comprobación de la superación de los resultados de aprendizaje en las condiciones de calidad establecidas en el currículo.
+
+## Instrumentos de evaluación
+- Exámenes.  
+    - Preguntas tipo test.
+    - Examen escrito (ejercicios).   
+    - Entrega de tareas de clase.   
+- Entrega de tareas.  
+- Exposiciones orales.  
+- Prácticas en empresa.
+
+## Sesiones de evaluación
+- Evaluación inicial (primer mes).
+- **Una evaluación parcial por cada trimestre**. La última de las cuales se desarrollará durante el mes de *mayo*. Para tener el aprobado será necesario haber alcanzado una puntuación superior (o igual) a 5 en los **Resultados de Aprendizaje RA** completados.
+- **Evaluación ordinaria** para recuperar los **RA no superados**.
+- **Evaluacion extraordinaria** para los alumnos/as que no hayan superado el módulo en las evaluaciones parciales u ordinaria. Para esta evaluación se realizarán varias pruebas teórico-prácticas que evaluarán la totalidad del módulo. 
+- **Recuperaciones** que permitirán recuperar los **criterios de evaluación** no superados.
+
+# Criterios de cualificación
+
+## Relación entre nota final y Resultados de aprendizaje
+Los criterios de calificación dependerán del peso de cada **Resultado de Aprendizaje** en la nota final del curso. 
+
+|Resultado de aprendizaje|Porcentage|
+|-|-|
+|**RA1.** Instala y actualiza aplicaciones ofimáticas, interpretando especificaciones y describiendo los pasos a seguir en el proceso.|5%|
+|**RA2.** Elabora documentos y plantillas, describiendo y aplicando las opciones avanzadas de procesadores de textos.|19%|
+|**RA3.** Elabora documentos y plantillas de cálculo, describiendo y aplicando opciones avanzadas de hojas de cálculo.|18%|
+|**RA4.** Elabora documentos con bases de datos ofimáticas describiendo y aplicando operaciones de manipulación de datos.|18%|
+|**RA5.**  Manipula imágenes digitales analizando las posibilidades de distintos programas y aplicando técnicas de captura y edición básicas.|10%|
+|**RA6.** Manipula secuencias de video analizando las posibilidades de distintos programas y aplicando técnicas de captura y edición básicas.|5%|
+|**RA7.** Elabora presentaciones multimedia describiendo y aplicando normas básicas de composición y diseño.|10%|
+|**RA8.** Realiza operaciones de gestión del correo y la agenda electrónica, relacionando necesidades de uso con su configuración.|10%|
+|**RA9.** Aplica técnicas de soporte en el uso de aplicaciones, identificando y resolviendo incidencias.|5%|
+
 # Resultados de aprendizaje y criterios de evaluación del módulo:  
 Los resultados de aprendizaje y criterios de evaluación asociados al módulo **Aplicaciones Ofimáticas** constituyen los logros que los alumnos/as tienen que alcanzar para **superar el módulo**.
 
@@ -367,166 +525,6 @@ Los resultados de aprendizaje y criterios de evaluación asociados al módulo **
 </table>
 
 <br>
-# Contenidos
-A continuación, se presentan los contenidos de este módulo tal y como aparecen en **ORDEN de 29 de julio 2009**, de la Conselleria de Educación, por la que se establece para la Comunitat Valenciana el currículo del ciclo formativo de Grado Medio correspondiente al título de Técnico en Sistemas Microinformáticos y Redes.
-  
-## Instalación de aplicaciones:
-??? info "Contenidos"
-    - Tipos de aplicaciones ofimáticas y aplicaciones corporativas.
-    - Paquetes ofimáticos.
-    - Tipos de licencias software.
-    - Necesidades de los entornos de explotación.
-    - Procedimientos de instalación y configuración.
-    - Diagnóstico y resolución de problemas.
-
-## Elaboración de documentos y plantillas mediante procesadores de texto
-??? info "Contenidos"
-    – El entorno de trabajo. Personalización.  
-    – Formateo de textos. Párrafos. Páginas y Estilos.  
-    – Encabezamientos. Pies de Página. Notas a pie.  
-    – Esquemas: Viñetas. Listas numeradas.  
-    – Gráficos. Imágenes.  
-    – Índices y Tablas.  
-    – Formularios.  
-    – Impresión de documentos.  
-    – Combinar documentos.  
-    – Creación y uso de plantillas.  
-    – Importación y exportación de documentos.  
-    – Trabajo en grupo: comparar documentos, versiones de documento, verificar cambios, entre otros.  
-    – Diseño y creación de macros.  
-    – Utilización de software y hardware para introducir textos e imágenes.  
-    – Elaboración de distintos tipos de documentos (manuales, partes de incidencias, entre otros).
-
-## Elaboración de documentos y plantillas mediante hojas de cálculo
-??? info "Contenidos"
-    – Entorno de trabajo. Personalización.  
-    – Conceptos básicos: Libro, hoja, celda, rango, etc…  
-    – Formateo de celdas. Estilos.  
-    – Manipulación de datos.  
-    – Rangos.  
-    – Impresión de documentos.  
-    – Utilización de fórmulas y funciones.  
-    – Creación de tablas y gráficos dinámicos.  
-    – Dibujos e imágenes.  
-    – Uso de plantillas y asistentes.  
-    – Importación y exportación de hojas de cálculo.  
-    – Utilización de opciones de trabajo en grupo, control de versiones,verificación de cambios, entre otros.  
-    – Elaboración de distintos tipos de documentos (presupuestos, facturas, inventarios, entre otros).  
-    – Diseño y creación de macros.  
-
-
-## Utilización de bases de datos ofimáticas
-??? info "Contenidos"
-    – Elementos de las bases de datos relacionales.  
-    – Organización de bases de datos relacionales.  
-    – Creación de bases de datos.  
-    – Creación y manejo de tablas.  
-    – Manejo de asistentes.  
-    – Manipulación de datos: Inserción, modificación y borrado.  
-    – Consultas, formularios e informes.  
-
-## Manipulación de imágenes:
-??? info "Contenidos"
-    – Formatos y resolución de imágenes.  
-    – Manipulación de selecciones, máscaras y capas.  
-    – Utilización de retoque fotográfico, ajustes de imagen y de color.  
-    – Aplicación de filtros y efectos.  
-    – Importación y exportación de imágenes.  
-    – Utilización de dispositivos para obtener imágenes.  
-
-## Manipulación de vídeos:
-??? info "Contenidos"
-    – Formatos de vídeo. Codecs.  
-    – Manipulación de la línea de tiempo.  
-    – Selección de escenas y transiciones.  
-    – Introducción de títulos y audio.  
-    – Creación y grabación de videos.  
-    – Importación y exportación de vídeos.  
-
-## Elaboración de presentaciones:
-??? info "Contenidos"
-    – El entorno de trabajo. Personalización.  
-    – Impresión de presentaciones.  
-    – Gráficos, imágenes, dibujos y organigramas.  
-    – Diseño y edición de diapositivas.  
-    – Manipulación de diapositivas. Modo de visualización.  
-    – Formateo de diapositivas, textos y objetos.  
-    – Aplicación de efectos de animación y efectos de transición.  
-    – Aplicación de sonido y vídeo.  
-    – Importación y exportación de presentaciones.  
-    – Utilización de plantillas y asistentes. Patrones de diapositivas.  
-    – Diseño y creación de macros.  
-
-## Gestión de correo y agenda electrónica:
-??? info "Contenidos"
-    – Entorno de trabajo: configuración y personalización.  
-    – Tipos de cuentas de correo.  
-    – Plantillas y firmas corporativas.  
-    – Foros de noticias (news). Configuración, uso y sincronización de mensajes.  
-    – La libreta de direcciones: importar, exportar, añadir contactos, crear listas de distribución, poner la lista a disposición de otras aplicaciones ofimáticas.  
-    – Gestión de correos: enviar, borrar, guardar, copias de seguridad, entre otros.  
-    – Gestión de la agenda: citas, calendario, avisos, tareas, entre otros.  
-    – Sincronización con dispositivos móviles.  
-
-## Aplicación de técnicas de soporte:
-??? info "Contenidos"
-    – Elaboración de guías y manuales de uso de aplicaciones.  
-    – Formación al usuario.  
-    – Resolución de incidencias.  
-    – Aplicaciones para la gestión y control de incidencias.  
-
-<br>
-
-# Metodología de aprendizaje:
-- Introducción de los **aspectos teóricos** para que después **sean aplicados mediante práctica y ejercicios**.  
-- Prácticas **individuales y colectivas**. 
-- **Realización de trabajos obligatorios**. Algunos trabajos podrán ser realizados en grupo. 
-- Realización de **actividades voluntarias** de investigación y ampliación para **profundizar en los conocimientos adquiridos**.  
-- **PBL (Problem Based Learning)**, aprendizaje basado en problemas. Se plantea un problema real, y los alumnos elaborarán una solución justificada y probada, incluyendo estudio de necesidades y costes. 
-- **Proyección de videos**. 
-
-<br>
-
-# Evaluación 
-
-## Metodología de evaluación
-- La evaluación será **contínua y sumativa**.   
-- Se adaptará a las diferentes metodologías de aprendizaje. 
-- Se basará en la comprobación de la superación de los resultados de aprendizaje en las condiciones de calidad establecidas en el currículo.
-
-## Instrumentos de evaluación
-- Exámenes.  
-    - Preguntas tipo test.
-    - Examen escrito (ejercicios).   
-    - Entrega de tareas de clase.   
-- Entrega de tareas.  
-- Exposiciones orales.  
-- Prácticas en empresa.
-
-## Sesiones de evaluación
-- Evaluación inicial (primer mes).
-- **Una evaluación parcial por cada trimestre**. La última de las cuales se desarrollará durante el mes de *mayo*. Para tener el aprobado será necesario haber alcanzado una puntuación superior (o igual) a 5 en los **Resultados de Aprendizaje RA** completados.
-- **Evaluación ordinaria** para recuperar los **RA no superados**.
-- **Evaluacion extraordinaria** para los alumnos/as que no hayan superado el módulo en las evaluaciones parciales u ordinaria. Para esta evaluación se realizarán varias pruebas teórico-prácticas que evaluarán la totalidad del módulo. 
-- **Recuperaciones** que permitirán recuperar los **criterios de evaluación** no superados.
-
-<br>
-# Criterios de cualificación
-
-## Relación entre nota final y Resultados de aprendizaje
-Los criterios de calificación dependerán del peso de cada **Resultado de Aprendizaje** en la nota final del curso. 
-
-|Resultado de aprendizaje|Porcentage|
-|-|-|
-|**RA1.** Instala y actualiza aplicaciones ofimáticas, interpretando especificaciones y describiendo los pasos a seguir en el proceso.|5%|
-|**RA2.** Elabora documentos y plantillas, describiendo y aplicando las opciones avanzadas de procesadores de textos.|19%|
-|**RA3.** Elabora documentos y plantillas de cálculo, describiendo y aplicando opciones avanzadas de hojas de cálculo.|18%|
-|**RA4.** Elabora documentos con bases de datos ofimáticas describiendo y aplicando operaciones de manipulación de datos.|18%|
-|**RA5.**  Manipula imágenes digitales analizando las posibilidades de distintos programas y aplicando técnicas de captura y edición básicas.|10%|
-|**RA6.** Manipula secuencias de video analizando las posibilidades de distintos programas y aplicando técnicas de captura y edición básicas.|5%|
-|**RA7.** Elabora presentaciones multimedia describiendo y aplicando normas básicas de composición y diseño.|10%|
-|**RA8.** Realiza operaciones de gestión del correo y la agenda electrónica, relacionando necesidades de uso con su configuración.|10%|
-|**RA9.** Aplica técnicas de soporte en el uso de aplicaciones, identificando y resolviendo incidencias.|5%|
 
 ## Relación entre Criterios de Evaluación y Resultados de Aprendizaje
 **Los criterios de evaluación** asociados a los **resultados de aprendizaje** son los siguientes
