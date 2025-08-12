@@ -72,12 +72,14 @@ markdown_extensions:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
+  - tables        
 
 nav: 
-#  - Home: index.md
-#  - About: about.md
-#  - Code docs:
-#    - Java: ruta/archivo.md
+  - Aplicaciones Ofimáticas: SMX/SMX_1/AO/00_Temario.md
+  - Programación en Python: about.md
+  - prueba: SMX/SMX_2/Opt_Python/00_Temario.md
+  # - Code docs:
+  #   - Java: ruta/archivo.md
 
 
 extra: 
@@ -88,4 +90,7 @@ extra:
 #     - icon: simple/youtube
 #       link: https://youtube.com
     
+extra_css:
+  - stylesheets/extra.css
+
 copyright: Copyright &copy; 2025 - Javier Egea Blasco     
