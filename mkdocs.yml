@@ -1,6 +1,6 @@
 site_name: Javier Egea Blasco
 
-site_url: https://javieregeablasco.github.io/apuntes
+site_url: https://javieregeablasco.github.io/Apuntes
 
 theme:
   language: es
@@ -14,6 +14,7 @@ theme:
     - navigation.tabs.sticky
     - navigation.sections
     - navigation.expand
+    - toc.follow
 #    - navigation.footer #añade flechas de navegacion en el footer
     - toc.integrate
     - navigation.top
@@ -75,7 +76,9 @@ markdown_extensions:
   - tables        
 
 nav: 
-  - Aplicaciones Ofimáticas: SMX/SMX_1/AO/00_Temario.md
+  - Aplicaciones Ofimáticas: 
+    - Presentación módulo: SMX/SMX_1/AO/00_Temario.md
+    - UT_1: SMX/SMX_1/AO/01_Instalacion de aplicaciones ofimaticas.md
   - Programación en Python: about.md
   # - Code docs:
   #   - Java: ruta/archivo.md

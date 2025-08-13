@@ -12,10 +12,15 @@ layout: default
 
 <br>
 
-# Contenidos
-A continuación, se presentan los contenidos de este módulo tal y como aparecen en **ORDEN de 29 de julio 2009**, de la Conselleria de Educación, por la que se establece para la Comunitat Valenciana el currículo del ciclo formativo de Grado Medio correspondiente al título de Técnico en Sistemas Microinformáticos y Redes.
+## Calendario escolar
+
+## Horario de sesiones
+
+## Contenidos
+
+A continuación, se presentan los contenidos de este módulo tal y como aparecen en <a href=https://dogv.gva.es/datos/2009/09/03/pdf/2009_9808.pdf>**ORDEN de 29 de julio 2009**</a>, de la Conselleria de Educación, por la que se establece para la Comunitat Valenciana el currículo del ciclo formativo de Grado Medio correspondiente al título de Técnico en Sistemas Microinformáticos y Redes.
   
-## Instalación de aplicaciones:
+### Instalación de aplicaciones ofimáticas
 ??? info "Contenidos"
     - Tipos de aplicaciones ofimáticas y aplicaciones corporativas.
     - Paquetes ofimáticos.
@@ -24,7 +29,7 @@ A continuación, se presentan los contenidos de este módulo tal y como aparecen
     - Procedimientos de instalación y configuración.
     - Diagnóstico y resolución de problemas.
 
-## Elaboración de documentos y plantillas mediante procesadores de texto
+### Elaboración de documentos y plantillas mediante procesadores de texto
 ??? info "Contenidos"
     – El entorno de trabajo. Personalización.  
     – Formateo de textos. Párrafos. Páginas y Estilos.  
@@ -42,7 +47,7 @@ A continuación, se presentan los contenidos de este módulo tal y como aparecen
     – Utilización de software y hardware para introducir textos e imágenes.  
     – Elaboración de distintos tipos de documentos (manuales, partes de incidencias, entre otros).
 
-## Elaboración de documentos y plantillas mediante hojas de cálculo
+### Elaboración de documentos y plantillas mediante hojas de cálculo
 ??? info "Contenidos"
     – Entorno de trabajo. Personalización.  
     – Conceptos básicos: Libro, hoja, celda, rango, etc…  
@@ -60,7 +65,7 @@ A continuación, se presentan los contenidos de este módulo tal y como aparecen
     – Diseño y creación de macros.  
 
 
-## Utilización de bases de datos ofimáticas
+### Utilización de bases de datos ofimáticas
 ??? info "Contenidos"
     – Elementos de las bases de datos relacionales.  
     – Organización de bases de datos relacionales.  
@@ -70,7 +75,7 @@ A continuación, se presentan los contenidos de este módulo tal y como aparecen
     – Manipulación de datos: Inserción, modificación y borrado.  
     – Consultas, formularios e informes.  
 
-## Manipulación de imágenes:
+### Manipulación de imágenes
 ??? info "Contenidos"
     – Formatos y resolución de imágenes.  
     – Manipulación de selecciones, máscaras y capas.  
@@ -79,7 +84,7 @@ A continuación, se presentan los contenidos de este módulo tal y como aparecen
     – Importación y exportación de imágenes.  
     – Utilización de dispositivos para obtener imágenes.  
 
-## Manipulación de vídeos:
+### Manipulación de vídeos
 ??? info "Contenidos"
     – Formatos de vídeo. Codecs.  
     – Manipulación de la línea de tiempo.  
@@ -88,7 +93,7 @@ A continuación, se presentan los contenidos de este módulo tal y como aparecen
     – Creación y grabación de videos.  
     – Importación y exportación de vídeos.  
 
-## Elaboración de presentaciones:
+### Elaboración de presentaciones
 ??? info "Contenidos"
     – El entorno de trabajo. Personalización.  
     – Impresión de presentaciones.  
@@ -102,7 +107,7 @@ A continuación, se presentan los contenidos de este módulo tal y como aparecen
     – Utilización de plantillas y asistentes. Patrones de diapositivas.  
     – Diseño y creación de macros.  
 
-## Gestión de correo y agenda electrónica:
+### Gestión de correo y agenda electrónica
 ??? info "Contenidos"
     – Entorno de trabajo: configuración y personalización.  
     – Tipos de cuentas de correo.  
@@ -113,7 +118,7 @@ A continuación, se presentan los contenidos de este módulo tal y como aparecen
     – Gestión de la agenda: citas, calendario, avisos, tareas, entre otros.  
     – Sincronización con dispositivos móviles.  
 
-## Aplicación de técnicas de soporte:
+### Aplicación de técnicas de soporte
 ??? info "Contenidos"
     – Elaboración de guías y manuales de uso de aplicaciones.  
     – Formación al usuario.  
@@ -122,40 +127,62 @@ A continuación, se presentan los contenidos de este módulo tal y como aparecen
 
 <br>
 
-# Metodología de aprendizaje:
-- Introducción de los **aspectos teóricos** para que después **sean aplicados mediante práctica y ejercicios**.  
-- Prácticas **individuales y colectivas**. 
+## Metodología de aprendizaje
+- Introducción de los **aspectos teóricos** para que después **sean aplicados mediante prácticas y ejercicios**.  
+- Prácticas **individuales y/o colectivas**. 
 - **Realización de trabajos obligatorios**. Algunos trabajos podrán ser realizados en grupo. 
 - Realización de **actividades voluntarias** de investigación y ampliación para **profundizar en los conocimientos adquiridos**.  
 - **PBL (Problem Based Learning)**, aprendizaje basado en problemas. Se plantea un problema real, y los alumnos elaborarán una solución justificada y probada, incluyendo estudio de necesidades y costes. 
-- **Proyección de videos**. 
+- **Proyección de vídeos**. 
 
-# Evaluación 
+<br>
 
-## Metodología de evaluación
-- La evaluación será **contínua y sumativa**.   
-- Se adaptará a las diferentes metodologías de aprendizaje. 
-- Se basará en la comprobación de la superación de los resultados de aprendizaje en las condiciones de calidad establecidas en el currículo.
+## Evaluación 
 
-## Instrumentos de evaluación
+### Tipo de evaluación
+- Las evaluaciones serán **por resultados de aprendizaje (RA) y criterios de evaluación (CE)** (<a href=https://www.boe.es/boe/dias/2023/07/22/pdfs/BOE-A-2023-16889.pdf>R.D. 659/2023</a>). 
+- Cada unidad de trabajo (UT) representará un **RA**.
+- En cada unidad de trabajo (UT) se evaluaran los **CE** correspondientes al **RA**.
+
+### Resultados de aprendizaje
+Por motivos de simplicidad **se asocia un RA (contenidos) a cada Unidad de Trabajo (UT)**.  
+
+- RA1 :arrow_right: UT1 :arrow_right: Instalación de aplicaciones ofimáticas.
+- RA2 :arrow_right: UT2 :arrow_right: Elaboración de documentos y plantillas mediante procesadores de texto.
+- RA3 :arrow_right: UT3 :arrow_right: Elaboración de documentos y plantillas mediante hojas de cálculo.
+- RA4 :arrow_right: UT4 :arrow_right: Utilización de bases de datos ofimáticas.
+- RA5 :arrow_right: UT5 :arrow_right: Manipulación de imágenes.
+- RA6 :arrow_right: UT6 :arrow_right: Manipulación de vídeos.
+- RA7 :arrow_right: UT7 :arrow_right: Elaboración de presentaciones.
+- RA8 :arrow_right: UT8 :arrow_right: Gestión de correo y agenda electrónica.
+- RA9 :arrow_right: UT9 :arrow_right: Aplicación de técnicas de soporte.
+
+### Metodología de evaluación
+- La evaluación será **contínua**.   
+- Se basará en la comprobación de la superación de los **resultados de aprendizaje (RA)** en las condiciones de calidad establecidas en el currículo.
+- La evaluación se hará sobre **todos los RA y todos los CE** del currículo.
+
+### Instrumentos de evaluación
 - Exámenes.  
     - Preguntas tipo test.
-    - Examen escrito (ejercicios).   
-    - Entrega de tareas de clase.   
+    - Examen escrito (ejercicios).          
 - Entrega de tareas.  
 - Exposiciones orales.  
 - Prácticas en empresa.
 
-## Sesiones de evaluación
-- Evaluación inicial (primer mes).
-- **Una evaluación parcial por cada trimestre**. La última de las cuales se desarrollará durante el mes de *mayo*. Para tener el aprobado será necesario haber alcanzado una puntuación superior (o igual) a 5 en los **Resultados de Aprendizaje RA** completados.
-- **Evaluación ordinaria** para recuperar los **RA no superados**.
-- **Evaluacion extraordinaria** para los alumnos/as que no hayan superado el módulo en las evaluaciones parciales u ordinaria. Para esta evaluación se realizarán varias pruebas teórico-prácticas que evaluarán la totalidad del módulo. 
+### Instrumentos de recuperación
 - **Recuperaciones** que permitirán recuperar los **criterios de evaluación** no superados.
+- Si el alumno **no entrega los trabajos obligatorios o presenta tasas de absentismo altas**, perderá la evaluación continua y deberá presentarse a la evaluación ordinaria y/o extraordinaria.  
 
-# Criterios de cualificación
+### Evaluaciones
+- Evaluación inicial (primer mes).
+- **Una evaluación parcial por cada trimestre**. Para tener el aprobado será necesario haber alcanzado una puntuación superior o igual a 5 en los **Resultados de Aprendizaje RA** completados.
+- **Evaluación ordinaria** permitirá recuperar los **RA no superados**.
+- **Evaluacion extraordinaria** solo para los alumnos/as que no hayan superado el módulo en las evaluaciones parciales u ordinaria. Para esta evaluación se realizarán varias pruebas teórico-prácticas que evaluarán la totalidad del módulo. 
 
-## Relación entre nota final y Resultados de aprendizaje
+## Criterios de cualificación
+
+### Relación entre nota final y Resultados de aprendizaje
 Los criterios de calificación dependerán del peso de cada **Resultado de Aprendizaje** en la nota final del curso. 
 
 |Resultado de aprendizaje|Porcentage|
@@ -170,11 +197,10 @@ Los criterios de calificación dependerán del peso de cada **Resultado de Apren
 |**RA8.** Realiza operaciones de gestión del correo y la agenda electrónica, relacionando necesidades de uso con su configuración.|10%|
 |**RA9.** Aplica técnicas de soporte en el uso de aplicaciones, identificando y resolviendo incidencias.|5%|
 
-# Resultados de aprendizaje y criterios de evaluación del módulo:  
+## Resultados de aprendizaje y criterios de evaluación del módulo  
 Los resultados de aprendizaje y criterios de evaluación asociados al módulo **Aplicaciones Ofimáticas** constituyen los logros que los alumnos/as tienen que alcanzar para **superar el módulo**.
 
-
-<table>
+<!-- <table>
   <tr>
     <td style="white-space: nowrap;">RA. 1:</td>
     <td>
@@ -524,9 +550,9 @@ Los resultados de aprendizaje y criterios de evaluación asociados al módulo **
   </tr>    
 </table>
 
-<br>
+<br> -->
 
-## Relación entre Criterios de Evaluación y Resultados de Aprendizaje
+### Relación entre Criterios de Evaluación y Resultados de Aprendizaje
 **Los criterios de evaluación** asociados a los **resultados de aprendizaje** son los siguientes
 
 === "RA 1"
@@ -630,62 +656,113 @@ Los resultados de aprendizaje y criterios de evaluación asociados al módulo **
     |**g)** Se han utilizado los recursos disponibles (documentación técnica, ayudas en línea, soporte    técnico, entre otros) para solventar incidencias.|20%|
     |**h)** Se han solventado las incidencias en el tiempo adecuado y con el nivel adecuado.|10%|
 
+### Responsable evaluación de los Resultados de Aprendizaje
 
+=== "RA 1"
+    Tutor prácticas (Empresa). 
 
-# Content tabs.
+=== "RA 2"
+    Profesor módulo (Instituto).
 
-=== "Tabla 1"
-    Este es su contendi
+=== "RA 3"
+    Profesor módulo (Instituto).
 
-=== "Tabla 2"
-    Otra contenido
+=== "RA 4"
+    Profesor módulo (Instituto).
+    
+=== "RA 5"
+    Profesor módulo (Instituto).
 
-=== "Tabla 3"
-    Contenido final 
+=== "RA 6"
+    Profesor módulo (Instituto).
 
-# Admonition tabs
+=== "RA 7"
+    Profesor módulo (Instituto).
 
-!!! note "Title of the callout"
-    Aquí va el texto, no se si se puede cambiar el icono
+=== "RA 8"
+    Tutor prácticas (Empresa).
 
-??? info "Title of the content"
-    Aquí va el texto, no se si se puede cambiar el icono    
+=== "RA 9"
+    Tutor prácticas (Empresa).    
 
-Tipos (iconos disponibles).  
-- abstract  
-- info  
-- tip  
-- success  
-- octicons  
-- question  
-- warning  
-- failure  
-- danger  
-- bug  
-- example  
-- quote     
+## Secuenciación y duración de cada Unidad de Trabajo
 
-# Enlace a documentacion sobre mkdocs
-<a href=https://squidfunk.github.io/mkdocs-material>Clic aqui</a>
-
-# Diagramas (superfences)
 <div style="text-align:center;">
 ```mermaid
-flowchart TD
-  A(["Start"])
-  A --> B{"Decision"}
-  B --> C["Option A"]
-  B --> D["Option B"]
+flowchart TB 
+  A["Instalación de aplicaciones ofimáticas"]
+  B["Elaboración de documentos y plantillas mediante procesadores de texto"]
+  C["Elaboración de documentos y plantillas mediante hojas de cálculo"]
+  D["Utilización de bases de datos ofimáticas"]
+  E["Manipulación de imágenes"]
+  F["Manipulación de vídeos"]
+  G["Elaboración de presentaciones"]
+  H["Gestión de correo y agenda electrónica"]
+  I["Aplicación de técnicas de soporte"]
+  AA["8h"]
+  BB["40h"]
+  CC["40h"]
+  DD["40h"]
+  EE["28h"]
+  FF["28h"]
+  GG["20h"]
+  HH["12h"]
+  II["8h"]
+
+  subgraph **Orden y duración de las UT**
+
+    subgraph **UT9** 
+      direction LR
+      I --> II
+    end
+    
+    subgraph **UT8**  
+      direction LR
+      H --> HH
+    end
+    
+    subgraph **UT7**  
+      direction LR
+      G --> GG
+    end
+    
+    subgraph **UT6**  
+      direction LR
+      F --> FF
+    end
+    
+    subgraph **UT5**  
+      direction LR
+      E --> EE
+    end
+    
+    subgraph **UT4**  
+      direction LR
+      D --> DD
+    end
+    
+    subgraph **UT3**  
+      direction LR
+      C --> CC
+    end
+
+    subgraph **UT2** 
+      direction LR
+      B --> BB
+    end  
+
+    subgraph **UT1** 
+      direction LR
+      A --> AA
+    end
+
+  end
 ```
 </div>
-
-<a href=https://mermaid.js.org>Editor de diagramas</a>
-
-
+   
+ 
 
 | **Licencia Creative Commons:** | |
 | - | - |
-| ![alt text](../../../assets/by-nc-nd-eu_.png) | **Reconocimiento-NoComercial-CompartirIgual CC BY-NC-SA:**  No se permite un uso comercial de la obra original ni de las posibles obras derivadas, la distribución de la cuales se debe hace con una licencia igual a la que regula la obra original. | 
+| ![alt text](../../../assets/by-nc-nd-eu_.png) {style="width:10rem;"} | **Reconocimiento-NoComercial-CompartirIgual CC BY-NC-SA:**  No se permite un uso comercial de la obra original ni de las posibles obras derivadas, la distribución de la cuales se debe hace con una licencia igual a la que regula la obra original. | 
   
- 
-
