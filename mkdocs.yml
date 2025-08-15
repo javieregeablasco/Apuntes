@@ -78,7 +78,10 @@ markdown_extensions:
 nav: 
   - Aplicaciones Ofimáticas: 
     - Presentación módulo: SMX/SMX_1/AO/00_Temario.md
-    - UT_1: SMX/SMX_1/AO/01_Instalacion de aplicaciones ofimaticas.md
+    - UT 1 : SMX/SMX_1/AO/01_Instalacion de aplicaciones ofimaticas.md
+    - UT 2 - Procesadores de texto:
+        - UT 2 - Características de los procesadores de texto: SMX/SMX_1/AO/021_Procesadores de texto.md
+        - UT 2 - LibreOffice Writer: SMX/SMX_1/AO/022_LibreOffice Writer.md
   - Programación en Python: about.md
   # - Code docs:
   #   - Java: ruta/archivo.md
