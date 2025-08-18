@@ -1,6 +1,6 @@
 ---
 title: CFGM - Técnico en Sistemas Microinformáticos y Redes
-lesson: UD. 2.2 - LibreOffice Writer  
+lesson: UD. 2.2 - LibreOffice Writer instalación  
 #subtitle: "Módulo: 0223 - Aplicaciones ofimáticas"
 author: Javier Egea Blasco  
 year: Año 25-26  
@@ -8,7 +8,7 @@ keywords: SMX, AO
 layout: default  
 ---
 
-![Descripción de la imagen](./img/UT1/LOwriter.jpg){ .img1 }
+![Descripción de la imagen](../img/UT1/LOwriter.jpg){ .img1 }
 
 ## Procesador de texto LibreOffice writer.
 LibreOffice Writer es un procesador de texto que forma parte de la suite de ofimática LibreOffice. Permite la creación, edición y diseño de documentos de texto como cartas, informes, currículums, entre otros. Cuenta con herramientas para el manejo de formatos, inserción de imágenes, tablas, gráficos y otros elementos, además de ser compatible con múltiples formatos de archivo, incluido Microsoft Word (.doc y .docx).
@@ -62,16 +62,16 @@ sudo pacman -S libreoffice-fresh
 ```
 
 ## Enlaces de interés
-<a href=https://books.libreoffice.org/es>Libros de ayuda de LibreOffice</>
-<a href=https://documentation.libreoffice.org/es/documentacion-en-espanol>Documentación y guías de LibreOffice</>
-<a href=https://www.youtube.com/watch?v=17qiQOzf4GU&list=PLLLaU95AMQPqAgeXCjQgXawAPABR19U2k>Tutoriales de LibreOffice Writer</>
+<a href=https://books.libreoffice.org/es>Libros de ayuda de LibreOffice</a>  
+<a href=https://documentation.libreoffice.org/es/documentacion-en-espanol>Documentación y guías de LibreOffice</a>  
+<a href=https://www.youtube.com/watch?v=17qiQOzf4GU&list=PLLLaU95AMQPqAgeXCjQgXawAPABR19U2k>Tutoriales de LibreOffice Writer</a>  
 
 
 
 
 | **Licencia Creative Commons:** | |
 | - | - |
-| ![alt text](../../../assets/by-nc-nd-eu_.png) { .by-nc-nd-eu_ } | **Reconocimiento-NoComercial-CompartirIgual CC BY-NC-SA:**  No se permite un uso comercial de la obra original ni de las posibles obras derivadas, la distribución de la cuales se debe hace con una licencia igual a la que regula la obra original. | 
+| ![alt text](../../../../assets/by-nc-nd-eu_.png) { .by-nc-nd-eu_ } | **Reconocimiento-NoComercial-CompartirIgual CC BY-NC-SA:**  No se permite un uso comercial de la obra original ni de las posibles obras derivadas, la distribución de la cuales se debe hace con una licencia igual a la que regula la obra original. | 
   
  
 

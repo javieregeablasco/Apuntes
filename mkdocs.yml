@@ -80,9 +80,14 @@ nav:
     - Presentación módulo: SMX/SMX_1/AO/00_Temario.md
     - UT 1 : SMX/SMX_1/AO/01_Instalacion de aplicaciones ofimaticas.md
     - UT 2 - Procesadores de texto:
-        - UT 2 - Características de los procesadores de texto: SMX/SMX_1/AO/021_Procesadores de texto.md
-        - UT 2 - LibreOffice Writer: SMX/SMX_1/AO/022_LibreOffice Writer.md
-  - Programación en Python: about.md
+        - UT 21 - Características de los procesadores de texto: SMX/SMX_1/AO/02_Procesadores_de_texto/021_Procesadores_de_texto.md
+        - UT 22 - Instalación de LibreOffice Writer: SMX/SMX_1/AO/02_Procesadores_de_texto/022_LibreOffice_Writer_Instalacion.md
+                                                  
+  - Programación en Python: 
+    - Presentación módulo: SMX/SMX_2/Opt_Python/00_Temario.md
+    - UT 1 Introduccion a la programación : SMX/SMX_2/Opt_Python/01_Introduccion_a_la_programacion.md
+    - UT 2 Instalacion Python y IDE: SMX/SMX_2/Opt_Python/02_IDE_Instalacion.md
+    - UT 3 : SMX/SMX_2/Opt_Python/03_PORDEFINIR.md
   # - Code docs:
   #   - Java: ruta/archivo.md
 

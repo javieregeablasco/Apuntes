@@ -1,16 +1,15 @@
 ---
 title: CFGM - Técnico en Sistemas Microinformáticos y Redes
 lesson: UD. 0.0 - Métodos de evaluación  
-subtitle: "Módulo: 0223 - Aplicaciones ofimáticas"
+# subtitle: "Módulo: 0223 - Introducción a Python"
 author: Javier Egea Blasco  
 year: Año 25-26  
-keywords: SMX, AO
+keywords: SMX, Optativa, Python
 layout: default  
 ---
 
-<div style="text-align: center">
-  <img alt="alt text" src="./img/installpython.png" width="75%">
-</div>  
+![Descripción de la imagen](./img/Python-logo.png){ .img1 }
+<!-- { .img1 } --> 
 
 <br>
 

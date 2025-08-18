@@ -8,7 +8,7 @@ keywords: SMX, AO
 layout: default  
 ---
 
-![Descripción de la imagen](./img/UT1/Wordperfect-5.1-dos.png){ .img1 }
+![Descripción de la imagen](../img/UT1/Wordperfect-5.1-dos.png){ .img1 }
 
 ## Procesadores de texto.
 Un procesador de texto es una herramienta (software o dispositivo físico), diseñada para crear, guardar e imprimir documentos. Con él, se puede redactar y editar texto, ver cómo quedará en pantalla, guardarlo digitalmente o imprimirlo.
