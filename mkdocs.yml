@@ -85,8 +85,8 @@ nav:
                                                   
   - Programación en Python: 
     - Presentación módulo: SMX/SMX_2/Opt_Python/00_Temario.md
-    - UT 1 Introduccion a la programación : SMX/SMX_2/Opt_Python/01_Introduccion_a_la_programacion.md
-    - UT 2 Instalacion Python y IDE: SMX/SMX_2/Opt_Python/02_IDE_Instalacion.md
+    - UT 1 Introducción a la programación : SMX/SMX_2/Opt_Python/01_Introduccion_a_la_programacion.md
+    - UT 2 Python, instalación y IDE: SMX/SMX_2/Opt_Python/02_Python_Presentacion.md
     - UT 3 : SMX/SMX_2/Opt_Python/03_PORDEFINIR.md
   # - Code docs:
   #   - Java: ruta/archivo.md
