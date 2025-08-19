@@ -17,8 +17,9 @@ layout: default
 - <a href=https://www.python.org>Python</a> es un lenguaje de programación interpretado cuya filosofía hace hincapié en una sintaxis muy limpia y un código facilmente legible.
 - Ideado por <a href="https://es.wikipedia.org/wiki/Guido_van_Rossum">Guido van Rossum</a>, empezó su desarrollo en 1989.
 - Es un lenguaje de <a href=https://es.wikipedia.org/wiki/Lenguaje_de_alto_nivel>alto nivel</a> con una gramática sencilla, clara y muy legible.
-- Tipado dinámico y fuerte (no se declaran tipos explícitamente, pero las operaciones entre tipos incompatibles generan error).
-- Es un <a href=https://es.wikipedia.org/wiki/Python#Caracter%C3%ADsticas_y_paradigmas>lenguaje multiparadigma</a>: soporta la orientación a objetos, la programación estructurada y la programación funcional.
+- Es dinámicamente tipado: Es decir, el tipo de las variables se decide en tiempo de ejecución.
+- Es fuertemente tipado: No se puede usar una variable en un contexto fuera de su tipo. Si se quisiera, habría que hacer una conversión de tipos.
+- Es un <a href=https://es.wikipedia.org/wiki/Python#Caracter%C3%ADsticas_y_paradigmas>lenguaje multiparadigma</a>: soporta la orientación a objetos, <a href=https://es.wikipedia.org/wiki/Programaci%C3%B3n_estructurada>la programación estructurada</a> y <a href=https://es.wikipedia.org/wiki/Programaci%C3%B3n_funcional>la programación funcional</a>.
 - Open Source, de código abierto y gratuito.
 - Relativamente fácil de aprender.
 - Presenta numerosas <a href=https://docs.python.org/3.13/library/index.html>librerías</a> que lo convierten en un firme candidato para la programación de IA, ciencia de datos, desarrollo web y mucho más.
@@ -45,21 +46,22 @@ Con la figura de aquí abajo podemos ver las popularidades sobre un periodo de t
 ![Descripción de la imagen](../Opt_Python/img/tiobe_community.png)
 
 
-## **IDE (Integrated Development Environment)**
+## **Entorno de Desarrollo Integrado**
 Un **IDE** (**Integrated Development Environment o Entorno de Desarrollo Integrado**) es un **programa que reúne en una sola aplicación todas las herramientas necesarias para desarrollar software**.
 
 📌 Sus componentes principales suelen ser:
 
-* **Editor de código**: para escribir el programa con resaltado de sintaxis y ayudas.
-* **Compilador o intérprete**: para traducir el código fuente a un lenguaje que el ordenador pueda ejecutar.
-* **Depurador (debugger)**: para detectar y corregir errores durante la ejecución.
-* **Gestión de proyectos**: organiza archivos, dependencias y librerías.
-* **Autocompletado y sugerencias**: acelera la escritura de código.
+- **Editor de código**: para escribir el programa con resaltado de sintaxis y ayudas.
+- **Compilador o intérprete**: para traducir el código fuente a un lenguaje que el ordenador pueda ejecutar.
+- **Depurador (debugger)**: para detectar y corregir errores durante la ejecución.
+- **Gestión de proyectos**: organiza archivos, dependencias y librerías.
+- **Autocompletado y sugerencias**: acelera la escritura de código.
 
 ### **IDE en línea**
 Un IDE en línea (Entorno de Desarrollo Integrado en la nube) es una plataforma accesible desde un navegador web que permite a los programadores escribir, ejecutar, depurar y colaborar en proyectos de software sin necesidad de instalar herramientas pesadas en el ordenador local.
 
 🔧 Ejemplos de IDE en línea:
+
 - Replit → Muy usado en educación y proyectos colaborativos, soporta muchos lenguajes, permite ejecución inmediata y tiene integración con bases de datos.
 - GitHub Codespaces → Entorno de desarrollo basado en Visual Studio Code pero en la nube, directamente desde los repositorios de GitHub.
 - Codeanywhere → Ofrece entornos Docker personalizables y colaboración en tiempo real.
@@ -129,20 +131,23 @@ python --version
    De haberse instalado correctamente el resultado será similar al de la siguiente imagen.  
    ![Descripción de la imagen](../Opt_Python/img/inst5_py.png)
 
+## **Primer programa en Python**
+Vamos a escribir nuestro primer programa Python que muestre un saludo por pantalla. Para ello creamos un archivo fuente Python llamado, HolaMundo.py en la carpeta donde queramos trabajar, y lo guardamos con este contenido:
+```python linenums="1"
+print("Hola mundo")
+```
 
-   
+**Nota:** Es probable que al crear el archivo VSC detecte la necesidad de instalar alguna extensión para Python:
+![alt text](../Opt_Python/img/ext_py.png)
 
+Para ejecutar el programa, simplemente pulsaremos el boton de **play**. 
+![alt text](../Opt_Python/img/vsc_run.png)
 
+El resultado de la  ejecución tendrá el siguiente resultado.  
+![alt text](../Opt_Python/img/first_run.png)
 
+Ya estamos listos para aprender el lenguaje de programación Python.
 
-
-  no cambiar nada de todas las opciones seleccionadas y seguir las instrucciones.
-
-
-
-https://arturoblasco.github.io/prg/ut01/ut0102/#representacion-de-algoritmos
-
-https://nachoiborraies.github.io/python/01.html
 
 
  
