@@ -977,7 +977,22 @@ print("Equivalente en porcentaje de 0.85: {:.1%}".format(0.85))
     ```
 
 ### La función input()
-La entrada de datos en Python se realiza con la función **input()** pero hay una consideración a tener en cuenta al momento de usar input(): **La función input solo devuelve cadenas de caracteres**.
+La entrada de datos en Python se realiza con la función **input()** 
+```py
+valor = input(texto)
+```
+
+Donde **texto** es el mensaje que se muestra al usuario en la terminal y **valor** es la variable en la cual se almacena lo que el usuario ha escrito después de pulsar la tecla **Enter**.
+
+**Ejemplo:**
+```py
+nombre = input("Introducir nombre: ")
+print(f"Hola {nombre}, buenos días")
+```
+<br>
+Hay una consideración a tener en cuenta al momento de usar input(): **La función input solo devuelve cadenas de caracteres**.  
+En el siguiente programa vemos que, independientemente de los valores introducidos, el tipo de las variables siempre es de **tipo string**.
+
 ```py
 # definimos una variable de tipo lista
 datos = []
@@ -1003,9 +1018,33 @@ print(f"La suma de {dato1} + {dato2} + {dato3} es: {dato1+dato2+dato3}")
 Si queremos introducir  un valor de tipo numérico y realizar operaciones con él, entonces, deberemos **convertir el string a un tipo numérico de manera explícita**, de lo contrario el programa podría lanzar un error, o en el mejor de los casos, funcionar de manera incorrecta.  
 El proceso de convertir el tipo de una variable a otro se llama **casting de variables**.
 
-Se puede hacer casting de variables **solamente entre tipos compatibles**. 
+### **Refundición (casting) de variables:**
+Hacer un cast o casting significa convertir un tipo de dato a otro.  
+Para hacer un casting, simplemente envolveremos la variable con el tipo de dato al que deseamos convertirla.
 
-- Convertir string a entero
+```py
+cadena = "1234"
+numero = int(cadena)
+```
+
+Ejemplo de casting sobre una variable de input:
+```py
+variable = int(input("Introduce un valor: "))
+print("El tipo de la variable es: ", type(variable))
+```
+
+!!! Warning "Pregunta"  
+    ¿Qué ocurre sin introducimos un valor decimal en el ejemplo anterior?
+
+Es necesario recordar que la asignación de la variables es dinámica, es decir que el interprete de Python decide en cada momento el tipo de los datos que contiene una variable. Eso nos lleva a distinguir 2 tipos de conversiones.  
+
+- **Conversión implícita**: Es realizada **automáticamente** por Python. Sucede cuando se realizan operaciones con dos tipos distintos.
+- **Conversión explícita**: Es realizada **expresamente** por el **programador** (convertir un string a int).
+
+**Nota importante**:
+Solo se puede hacer casting de variables **solamente entre tipos compatibles**.  
+
+#### **Convertir string a entero**
 ```py
 cadena1 = "10"
 cadena2 = "20"
@@ -1015,23 +1054,49 @@ print("sin casting", cadena1+cadena2)
 print("con casting", valor1+valor2)
 ```
 
-- Convertir string a flotante
+#### **Convertir string a flotante**
+```py
+cadena1 = "10.125"
+valor1 = float(cadena1)
+print("sin casting", type(cadena1))
+print("con casting", type(float(valor1)))
+```
 
+#### **Convertir a booleano**
+```py
+x = 0
+y = bool(x)    # 0 es False, cualquier otro número es True
+print(y)       # False
+```
 
+#### **Otros tipos de conversiones**
+También se puede hacer conversiones sobre objetos como las **listas, tuplas, diccionarios y sets** pero no hablaremos, de momento, de ellos ya que aún no los hemos visto.
 
+#### **Tabla resumen de refundiciones**
+| Tipo de destino | Ejemplo de conversión     | Resultado       | Notas                                                                                          |
+| --------------- | ------------------------- | --------------- | ---------------------------------------------------------------------------------------------- |
+| **int**         | `int("10")`               | `10`            | Convierte strings numéricos o floats (trunca decimales). No funciona con strings no numéricos. |
+| **float**       | `float("10.5")`           | `10.5`          | Convierte strings numéricos y enteros.                                                         |
+| **str**         | `str(100)`                | `"100"`         | Convierte cualquier tipo a string.                                                             |
+| **bool**        | `bool(0)`                 | `False`         | `0`, `0.0`, `""`, `[]`, `{}` → False; resto → True                                             |
+| **list**        | `list((1,2,3))`           | `[1,2,3]`       | Convierte tuplas, sets o strings en listas de elementos.                                       |
+| **tuple**       | `tuple([1,2,3])`          | `(1,2,3)`       | Convierte listas, sets o strings en tuplas.                                                    |
+| **set**         | `set([1,2,2,3])`          | `{1,2,3}`       | Convierte listas, tuplas o strings en conjuntos eliminando duplicados.                         |
+| **dict**        | `dict([("a",1),("b",2)])` | `{"a":1,"b":2}` | Convierte listas o tuplas de pares clave-valor en diccionarios.                                |
 
 
 
 
 ---
 HASTA AQUI  
-https://jorgedelossantos.github.io/apuntes-python/Cadenas%20de%20caracteres.html
+https://jorgedelossantos.github.io/apuntes-python/Funciones.html
  
-https://www.learnpython.org/  
-https://docs.python.org/es/3/tutorial/  
+https://www.learnpython.org/en/Input_and_Output
+https://docs.python.org/es/3/tutorial/inputoutput.html#the-string-format-method
+
 https://arturoblasco.github.io/prg/ut01/actividades/ut01ac1f/  
 https://ellibrodepython.com/  
-IA BD PIA UT 2. ... pagina 25.  
+IA BD PIA UT 2. ... pagina 37.  
 
 ---
 

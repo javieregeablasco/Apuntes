@@ -110,9 +110,25 @@ texto1 = "Pablo"
 # dato3 = input("Introducor un valor: ")
 # print(f"La suma de {dato1} + {dato2} + {dato3} es: {dato1+dato2+dato3}")
 
-cadena1 = "10"
-cadena2 = "20"
-valor1 = int(cadena1)
-valor2 = int(cadena2) 
-print("sin casting", cadena1+cadena2)
-print("con casting", valor1+valor2)
+# cadena1 = "10"
+# cadena2 = "20"
+# valor1 = int(cadena1)
+# valor2 = int(cadena2) 
+# print("sin casting", cadena1+cadena2)
+# print("con casting", valor1+valor2)
+
+# nombre = input("Introducir nombre")
+# print(f"Hola {nombre}, buenos días")
+
+# variable = int(input("Introduce un valor: "))
+# print("El tipo de la variable es: ", type(variable))
+
+
+# cadena = "1234"
+# numero = int(cadena)
+# print(type(numero))
+
+cadena1 = "10.125"
+valor1 = float(cadena1)
+print("sin casting", type(cadena1))
+print("con casting", type(float(valor1)))
