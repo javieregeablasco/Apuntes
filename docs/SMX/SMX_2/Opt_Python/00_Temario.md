@@ -5,11 +5,10 @@ lesson: UD. 0.0 - Métodos de evaluación
 author: Javier Egea Blasco  
 year: Año 25-26  
 keywords: SMX, Optativa, Python
-layout: default  
 ---
 
 ![Descripción de la imagen](./img/Python-logo.png){ .img1 }
-<!-- { .img1 } --> 
+ 
 
 <br>
 

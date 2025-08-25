@@ -82,6 +82,7 @@ nav:
     - UT 2 - Procesadores de texto:
       - UT 21 - Características de los procesadores de texto: SMX/SMX_1/AO/02_Procesadores_de_texto/021_Procesadores_de_texto.md
       - UT 22 - Instalación de LibreOffice Writer: SMX/SMX_1/AO/02_Procesadores_de_texto/022_LibreOffice_Writer_Instalacion.md
+      - UT 23 - LibreOffice Writer: SMX/SMX_1/AO/02_Procesadores_de_texto/023_LibreOffice_Writer.md
                                                   
   - Programación en Python: 
     - Presentación módulo: SMX/SMX_2/Opt_Python/00_Temario.md
@@ -90,6 +91,10 @@ nav:
     - UT 3 Elementos básicos de Python: SMX/SMX_2/Opt_Python/03_Python_Basico.md
   # - Code docs:
   #   - Java: ruta/archivo.md
+
+  - Cloud Computing:
+    - Presentación módulo: DAW/DAW_2/AWS/UT. 0-Temario.md
+    - UT 1 Introducción al Cloud Computing: DAW/DAW_2/AWS/UT. 1-Introduccion.md
 
 
 extra: 

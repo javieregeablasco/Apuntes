@@ -23,3 +23,44 @@
 .operadores {
   text-align: center !important;
 }
+
+.m_archivo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.m_ver {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  /*width: 50%;*/
+}
+
+.doscinco {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 25%;
+}
+
+.cincozero {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+.sietecinco {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
+}
+
+.cien {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
