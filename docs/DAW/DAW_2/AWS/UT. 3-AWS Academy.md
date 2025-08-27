@@ -1,106 +1,164 @@
 ---
 title: CFGS - Desarrollo de Aplicaciones Web
-lesson: UD. 1 - Introducción  
+lesson: UD. 3 - AWS Academy  
 author: Javier Egea Blasco  
 year: Año 25-26  
 keywords: DAW, Optativa, AWS
 ---
 
-![Descripción de la imagen](../AWS/img/aws.png){ .cincozero }
+![Descripción de la imagen](../AWS/ut3/awsdemy.png){ .sietecinco }
 <br>
 
-## **Orígenes de AWS**
-Amazon Web Services (AWS) nació como una rama de Amazon enfocada en ofrecer servicios tecnológicos a otras empresas. Sus orígenes se remontan a principios de la década de 2000, cuando Amazon, como compañía de comercio electrónico, enfrentaba el reto de escalar su infraestructura interna para manejar millones de usuarios y grandes volúmenes de datos.
+## **Preliminares**
+Descargar una distribución de **Linux ligera** (Lubuntu, Mint) e instalarla sobre una máquina virtual.
 
-- 2000-2002 Amazon tenía una infraestructura muy fragmentada. Cada equipo desarrollaba sus propias herramientas, lo que generaba ineficiencias. Para resolverlo, comenzaron a crear una plataforma interna estandarizada de servicios reutilizables.  
+## **Learner Lab**
+### **Invitación a Learner Lab** 
+En vuestros **correos corporativos** habréis recibido un mensaje de **AWS Academy**.
+
+![alt text](../AWS/ut3/invi.png)
+
+Si habéis recibido ese correo, significa que se os ha dado de alta en un laboratorio (Leaner Lab) donde haremos la formación del curso.  
+Este laboratorio cuenta con un presupuesto de 50$. Como lo veremos a lo largo del curso, convendrá **administrarlo correctamente**.  
+Si se excede el límite de 50$, el acceso quedará bloqueado y no será posible recuperar los trabajos realizados en él.
+
+### **Registro en AWS Academy**
+1. Hacer click en **Comenzar** y registraros en el servicio que se indica.
+1. Luego os saldrá una ventana que os pedirá de acceder a vuestra cuenta de **Canvas**.  
+Si no tenéis cuenta de Canvas, pinchar en **Create my account**.  
 <br>
-- 2002 Amazon decidió abrir parte de estas capacidades a desarrolladores externos a través de APIs (por ejemplo, para su marketplace). Esto sentó las bases del concepto de ofrecer “servicios como producto”.   
+![Descripción de la imagen](../AWS/ut3/canvas.png){ .cincozero }
 <br>
-- 2003 Durante una reunión ejecutiva, se planteó la visión de ofrecer a terceros la misma infraestructura que Amazon usaba internamente, pero como un servicio en la nube. Esto incluía cómputo, almacenamiento y bases de datos bajo demanda.  
+
+1. Un vez registrados, podréis acceder a vuestra cuenta de AWS Academy.  
 <br>
-- 2004 Se desarrollaron servicios iniciales como S3 (Simple Storage Service) y EC2 (Elastic Compute Cloud). El objetivo era ofrecer recursos bajo demanda, pagados por uso.  
+![Descripción de la imagen](../AWS/ut3/panel.png){ .cincozero }
+
+### **Acceso al curso**
+Pinchar en el curso. Si es la primera vez que usáis el **Learner Lab** sólo os aparecerá un curso.   
 <br>
-- 2006 Lanzamiento oficial, AWS se lanzó al público con S3 y EC2, marcando el nacimiento de la nube moderna. A partir de ahí, fue añadiendo más servicios como RDS (base de datos relacional), CloudFront (CDN) y otros.  
+![Descripción de la imagen](../AWS/ut3/login.png){ .cincozero }
 <br>
-- 2025 Servicios ofertados por AWS en la actualidad.  
+
+### **Acceder al laboratorio**
+1. Seguir el enlace **Launch AWS Acedemy Leaner Lab**.  
 <br>
-[![](./img/awsservices.png)](https://docs.aws.amazon.com/whitepapers/latest/aws-overview/amazon-web-services-cloud-platform.html?pg=cloudessentials)
+![Descripción de la imagen](../AWS/ut3/course.png){ .cien }
+<br>  
 
-## **Infraestructura global de AWS**
-### **Definición**
-La infraestructura global de AWS es el conjunto de componentes físicos y lógicos que AWS ha desplegado en todo el mundo para ofrecer sus servicios en la nube de forma segura, escalable y de baja latencia.  
-
-Está diseñada para que los clientes puedan ejecutar aplicaciones y almacenar datos cerca de sus usuarios finales, cumpliendo requisitos de disponibilidad, redundancia y cumplimiento normativo.
-
-Sus principales elementos son las **regiones** y las **zonas de disponibilidad** pero no son los únicos, otros elementos como las **zonas locales** los **outposts** y **puntos de presencia** también forman parte de la infraestructura global de AWS.
-
-### Regiones (Regions)
-Son ubicaciones físicas en todo el mundo que agrupan varios centros de datos.
-Cada región **es independiente** y está aislada de las demás.
-
-Regiones de cobertura de AWS en Europa.  
+1. El siguiente paso será lanzar el laboratorio de AWS.  
+Previamente tendremos que conceder permisos y decir que nos hemos leído los términos
+de uso.  
 <br>
-![](./img/regiones.png)
-
-[Regiones de AWS](https://aws.amazon.com/es/about-aws/global-infrastructure)
-
-### Zonas de Disponibilidad (Availability Zones, AZs)
-Cada región contiene dos o más zonas de disponibilidad (AZ).
-
-Una AZ es un conjunto de uno o más centros de datos independientes, con energía, refrigeración y redes redundantes.
-
-Dentro de una región de AWS, las **Zonas de Disponibilidad (AZs)** están conectadas mediante **enlaces privados de alta velocidad y baja latencia**, lo que permite replicar datos y distribuir cargas de trabajo entre ellas. Al mismo tiempo, cada AZ está **físicamente separada** (generalmente en ubicaciones distintas) para reducir el riesgo de que un único evento (fallo eléctrico, desastre natural, etc.) afecte a todas las AZs de la región.  
-Esto es lo que permite a AWS ofrecer **alta disponibilidad**, **tolerancia a fallos** y **recuperación ante desastres**.
-
-Zonas de disponibilidad para la región de AWS España.  
+![Descripción de la imagen](../AWS/ut3/terms.png){ .cincozero }
 <br>
-![](./img/az.png)
 
-### Zonas locales (local zones)
-Las **local zones de AWS** son un tipo de infraestructura que ubica servicios de AWS **cerca de grandes centros de población e industria**. Por ejemplo, se pueden usar servicios como computación y almacenamiento en la zona local para aplicaciones que requieren unas latencias ultrabajas.
-
-Las **zonas locales** cuentan con entrada y salida de internet a nivel local para reducir la latencia, pero también están conectadas a su **Región principal** a través de la red privada de Amazon. Esto proporciona a las aplicaciones que se ejecutan en las Zonas locales de AWS un acceso rápido, seguro y fluido a todos los servicios disponibles en esa región.
-
-
-Zonas locales actuales (2025).  
+1. Una vez aceptados los términos y condiciones, esperar a que aparezca el spinner de **vocareum**  
 <br>
-![](./img/localzone.png)
+![Descripción de la imagen](../AWS/ut3/voca.png){ .cincozero }
+<br>  
 
-Más info sobre las zonas locales [aquí](https://aws.amazon.com/es/about-aws/global-infrastructure/localzones).
+1. Si todo ha ido bien, accederemos al **Learner Lab**.  
+<br>
+![Descripción de la imagen](../AWS/ut3/learnerlab.png){ .cien }
+<br>  
 
-### AWS Outposts
-**AWS Outposts** es una familia de soluciones que llevan la infraestructura y los servicios de AWS a prácticamente **cualquier entorno local (on-premise)** (o edge location). 
-
-Las soluciones de Outposts permiten extender y ejecutar servicios nativos de AWS **en las instalaciones del cliente**, y están disponibles en una variedad de formatos, desde servidores Outposts de 1U y 2U, hasta racks de 42U y despliegues de múltiples racks.
-
-Con AWS Outposts, se pueden ejecutar servicios de AWS de forma local y conectarte a una amplia gama de servicios disponibles en la Región principal de AWS. 
-
-Más info [aquí](https://aws.amazon.com/es/outposts/)
-
-
-### Points of presence (PoPs)
-**Los Points of Presence (PoPs)** de AWS son ubicaciones físicas distribuidas en todo el mundo que AWS utiliza para acercar el contenido y los servicios a los usuarios finales, reduciendo la latencia y mejorando el rendimiento.
-
-Dentro de los PoPs se incluyen dos tipos principales:
-
-1. **Edge Locations** (Ubicaciones de borde)  
-A diferencia de las Regiones y Zonas de Disponibilidad (AZ), que son centros de datos completos, las Edge locations son centros de datos más pequeños y están distribuidos geográficamente más cerca de los usuarios finales.
-1. **Regional Edge Caches**  
-Son cachés de contenido más grandes que se ubican entre las Edge Locations y las regiones principales.
-Sirven para reducir la carga sobre las regiones al almacenar contenido que no cambia con frecuencia.
+### **Lanzar el laboratorio**
+Para poder acceder a la consola de AWS y poder empezar a usar sus servicios pulsaremos **Start Lab**.  
+Una vez iniciado, dispondremos de una sesión de 4 horas de duración para hacer las prácticas. Si vemos que nos vamos a quedar cortos de tiempo, siempre podremos pulsar de nuevo **Start Lab** antes de que finalicen las 4 horas.  
 
 <br>
-**Distribución física de las edge location y regional cachés.**
-![](./img/pop.png)
+![Descripción de la imagen](../AWS/ut3/llon.png)
+<br> 
 
-Más info [aquí](https://docs.aws.amazon.com/whitepapers/latest/aws-fault-isolation-boundaries/points-of-presence.html)
+**Consecuencias de apurar el tiempo del learner lab:**  
+1. Se cierra la sesión al llegar al tiempo máximo autorizado.  
+2. Todas los servicios se paran, es decir, **dejamos de pagar por utilizarlos**.   
+3. **Seguimos pagando por tener creados esos servicios**. Por lo cual, durante las prácticas, **siempre** se deberá eliminar los **servicios** que ya no utilizaremos. 
 
-### Red troncal global (AWS Global Network)
-Conecta todas las regiones, AZs y puntos de presencia a través de una red privada de alta capacidad y baja latencia.
-Esto evita depender exclusivamente de Internet público para la comunicación interna.
+## **Panel de AWS**
+Una vez que el enlace de AWS haya pasado a **color verde**, hacemos clic en él y accederemos al panel de control de AWS.
+
+
+![Descripción de la imagen](../AWS/ut3/AWSCLI/awspanel.png)
+<br>  
+
+!!! Exercice "Ejercicio 1"  
+    Localizar vuestras credenciales de usuario.
+
+!!! Exercice "Ejercicio 2"  
+    ¿En qué región nos encontramos nada más acceder con nuestra cuenta de alumno a AWS?    
+    ¿Podemos acceder a otras regiones como, por ejemplo, España (Madrid)?
+    ¿Podemos ver las zonas de disponibilidad dentro de la región que tenemos asignada?
+
+## **Tarea 1 - Creación de una alerta de costes**
+Ir a **Administración de facturación y costos** y crear una alerta de costos con las siguientes condiciones.  
+
+1. Umbral de coste alcanzado: 5$.
+2. Frecuencia de las altertas: Resúmenes semanales.
+
+## **Instalar el cliente de AWS CLI**
+AWS CLI es el cliente de AWS mediante el cual podremos utilizar la terminal para poder
+trabajar con nuestro entorno. 
+En el siguiente [enlace](https://docs.aws.amazon.com/es_es/cli/latest/userguide/getting-started-install.html) encontraréis las instrucciones de instalación del CLI de AWS.    
+
+Una vez finalizada la instalación podremos comprobar la versión instalada con el comando:
+```bash
+~ $ aws --version
+```
+![Descripción de la imagen](../AWS/ut3/AWSCLI/awsversion.png){ .sietecinco }
+
+## **Introducir las credenciales del laboratorio en el cliente de AWS**
+Tenemos el **laboratorio** en marcha y el **cliente** de AWS instalado. Para poder conectarnos desde nuestra máquina a nuestro cliente de AWS (y sobre todo a los servivios que crearemos en él) necesitaremos autenticarnos. Para ello  utilizaremos las credenciales del
+laboratorio para configurar nuestro cliente.
+
+1. Credenciales del laboratorio en el apartado AWS Details.  
+<br>
+![Descripción de la imagen](../AWS/ut3/AWSCLI/awscli1.png){ .cincozero }  
+<br>
+
+1. Credenciales de AWS CLI  
+<br>
+![Descripción de la imagen](../AWS/ut3/AWSCLI/awscli2.png){ .cincozero }  
+<br>
+
+1. Para cargar las credenciales del laboratorio en nuestra máquina usaremos **aws configure** y pondremos los datos que nos irá pidiendo.
+```bash
+~$ aws configure
+```
+<br>
+![Descripción de la imagen](../AWS/ut3/AWSCLI/awsconfig.png){ .original }  
+<br>
+
+1. Para finalizar y poder conectarse desde nuestro cliente, haremos lo siguiente:
+    - Accedemos a la carpeta **.aws** (creada con aws configure) de nuestra máquina y editamos el archivo **credentials**.  
+    ```bash
+    ~$ cd .aws
+    ~$ .aws/nano credentials
+    ```
+    <br>
+    ![Descripción de la imagen](../AWS/ut3/AWSCLI/awspanelnano.png){ .original }  
+    <br>
+
+    
+    - A continuación borramos **todo el contenido** y copiamos **toda la información de AWS
+Details**.  
+<br>
+![Descripción de la imagen](../AWS/ut3/AWSCLI/awscredencials.png){ .original }  
+<br>
+
+1. Si todo ha ido bien, al ejecutar el comando **aws sts get-caller-identity** nos devolverá:
+
+![Descripción de la imagen](../AWS/ut3/AWSCLI/awssts.png){ .original }  
+<br>
+
+**Nota:**   
+Habrá que repetir este proceso cada vez que cambie el token de sesión y necesitemos usar comandos de CLI desde nuestra máquina para trabajar sobre nuestra nube de AWS. No suele ser habitual, pero en caso de hacer **un reset del laboratorio** (borrado total de todo el entorno creado) es posible que haya que repetir el proceso. 
+
+<br>
+![Descripción de la imagen](../AWS/ut3/AWSCLI/awsreset.png){ .original }  
+<br>
+
 
 ## Enlaces de interés
-[Canal de YT de AWS](https://www.youtube.com/user/AmazonWebServices/Cloud)  
-[Wikipedia](https://es.wikipedia.org/wiki/Amazon_Web_Services)  
-[Infraestructura global de AWS](https://aws.amazon.com/es/about-aws/global-infrastructure)  
-[whitepapers de AWS infraestructure](https://docs.aws.amazon.com/whitepapers/latest/aws-fault-isolation-boundaries/aws-infrastructure.html)
+Documentación de [AWS](https://docs.aws.amazon.com).

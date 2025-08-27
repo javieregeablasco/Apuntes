@@ -1,6 +1,6 @@
 ---
 title: CFGS - Desarrollo de Aplicaciones Web
-lesson: UD. 1 - Introducción  
+lesson: UD. 1 - AWS  
 author: Javier Egea Blasco  
 year: Año 25-26  
 keywords: DAW, Optativa, AWS
@@ -97,7 +97,11 @@ Más info [aquí](https://docs.aws.amazon.com/whitepapers/latest/aws-fault-isola
 
 ### Red troncal global (AWS Global Network)
 Conecta todas las regiones, AZs y puntos de presencia a través de una red privada de alta capacidad y baja latencia.
-Esto evita depender exclusivamente de Internet público para la comunicación interna.
+Esto evita depender del Internet Público para la comunicación interna.
+
+![](./img/Infraestructura%20global%20de%20AWS.png){ .sietecinco}
+
+
 
 ## Enlaces de interés
 [Canal de YT de AWS](https://www.youtube.com/user/AmazonWebServices/Cloud)  
