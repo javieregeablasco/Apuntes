@@ -1,0 +1,1266 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Javier Egea Blasco">
+      
+      
+        <link rel="canonical" href="https://javieregeablasco.github.io/Apuntes/DAW/DAW_2/AWS/UT.%205-Instancias/">
+      
+      
+        <link rel="prev" href="../UT.%204-Infraestructura/">
+      
+      
+      
+      <link rel="icon" href="../../../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>CFGS - Desarrollo de Aplicaciones Web - Javier Egea Blasco</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduccion" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../../../.." title="Javier Egea Blasco" class="md-header__button md-logo" aria-label="Javier Egea Blasco" data-md-component="logo">
+      
+  <img src="../../../../assets/mre.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Javier Egea Blasco
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              CFGS - Desarrollo de Aplicaciones Web
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Compartir" aria-label="Compartir" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../SMX/SMX_1/AO/00_Temario/" class="md-tabs__link">
+          
+  
+  
+  Aplicaciones Ofimáticas
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../SMX/SMX_2/Opt_Python/00_Temario/" class="md-tabs__link">
+          
+  
+  
+  Programación en Python
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../UT.%200-Temario/" class="md-tabs__link">
+          
+  
+  
+  Cloud Computing
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Javier Egea Blasco" class="md-nav__button md-logo" aria-label="Javier Egea Blasco" data-md-component="logo">
+      
+  <img src="../../../../assets/mre.png" alt="logo">
+
+    </a>
+    Javier Egea Blasco
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Aplicaciones Ofimáticas
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Aplicaciones Ofimáticas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_1/AO/00_Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Presentación módulo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_1/AO/01_Instalacion%20de%20aplicaciones%20ofimaticas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 1
+    
+      <br>
+      <small>Módulo: 0223 - Aplicaciones ofimáticas</small>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    UT 2 - Procesadores de texto
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            UT 2 - Procesadores de texto
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_1/AO/02_Procesadores_de_texto/021_Procesadores_de_texto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 21 - Características de los procesadores de texto
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_1/AO/02_Procesadores_de_texto/022_LibreOffice_Writer_Instalacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 22 - Instalación de LibreOffice Writer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_1/AO/02_Procesadores_de_texto/023_LibreOffice_Writer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 23 - LibreOffice Writer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Programación en Python
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Programación en Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_2/Opt_Python/00_Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Presentación módulo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_2/Opt_Python/01_Introduccion_a_la_programacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 1 Introducción a la programación
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_2/Opt_Python/02_Python_Presentacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 2 Python, instalación y IDE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_2/Opt_Python/03_Python_Basico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 3 Elementos básicos de Python
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Cloud Computing
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Cloud Computing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UT.%200-Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Presentación módulo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UT.%201-Introduccion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 1 Introducción al Cloud Computing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UT.%202-AWS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 2 AWS - Amazon Web Services
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UT.%203-AWS%20Academy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 3 AWS Academy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UT.%204-Infraestructura/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 4 Infraestruturas en AWS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    UT 5 Instancias y grupos de seguridad
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 5 Instancias y grupos de seguridad
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introducción
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instancias-ec2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instancias EC2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hay-que-hablar-de-las-ami" class="md-nav__link">
+    <span class="md-ellipsis">
+      hay que hablar de las AMI
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funcionamiento-basico" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚙️ Funcionamiento básico
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caracteristicas-importantes" class="md-nav__link">
+    <span class="md-ellipsis">
+      💡 Características importantes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplo-practico" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Ejemplo práctico
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grupos-de-seguridad" class="md-nav__link">
+    <span class="md-ellipsis">
+      Grupos de seguridad
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tarea-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tarea 1
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enlaces-de-interes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enlaces de interés
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>UT 5 Instancias y grupos de seguridad</h1>
+
+<p><img alt="Descripción de la imagen" class="sietecinco" src="../ut5/initi.png" />
+<br></p>
+<h2 id="introduccion"><strong>Introducción</strong></h2>
+<p>Uno de los servicios más utilizados de AWS es <strong>Amazon EC2 (Elastic Compute Cloud)</strong>, que permite lanzar y administrar <strong>instancias</strong>, es decir, <strong>máquinas virtuales</strong> que funcionan de manera similar a un ordenador físico.  </p>
+<p>Estas instancias pueden configurarse con distintos sistemas operativos, hardware para adaptarse a las necesidades de cada proyecto (aplicación web, base de datos...).</p>
+<p>Al igual que cualquier dispositivo, las instancias necesitan un mecanismo de control de tráfico para <strong>garantizar su seguridad</strong>. En este contexto aparecen los <strong>grupos de seguridad</strong> (Security Groups, SG). Un grupo de seguridad no es más que un firewall virtual, que supervisa (y restrinje) el tráfico entrante y saliente a las instancias.</p>
+<p>En conjunto, las EC2 y los SG constituyen la base de la infraestructura en la nube: las instancias proporcionan la capacidad de cómputo, mientras que los grupos de seguridad ofrecen la primera línea de defensa para proteger los recursos desplegados.</p>
+<h2 id="instancias-ec2"><strong>Instancias EC2</strong></h2>
+<p>Como hemos dicho, una instancia EC2 es básicamente una computadora en la nube. Al igual que los equipos físicos se caracterizan por una serie de características como la potencia de computo, su RAM y otras que veremos a continuación.</p>
+<p><strong>Nomenclatura de las instancias EC2</strong><br />
+El nombre de la instancia define las especificaciones de la misma es decir, la familia, la generación, la capacidad adicional y el tamaño.</p>
+<p><img alt="" class="doscinco" src="../ut5/ec2.webp" /></p>
+<ul>
+<li>
+<p><strong>Familia</strong><br />
+La familia define la optimización principal de la máquina, dicho en otras palabras, el uso preferente que debemos dar a esas máquinas.<br />
+C → Compute Optimized. Para cargas de trabajo que requieren mucha CPU (alta relación CPU/memoria).<br />
+M → General Purpose. Equilibrio entre CPU, memoria y almacenamiento. Usadas para la mayoría de aplicaciones estándar.<br />
+R → Memory Optimized. Diseñadas para cargas de trabajo que requieren gran cantidad de memoria en relación con la CPU.<br />
+I → Storage Optimized (I/O Optimized). Pensadas para cargas que requieren altísimo rendimiento en disco local (NVMe/SSD). <br />
+G → <strong>Graphics / GPU-based</strong>. Para machine learning (basadas en GPU NVIDIA).<br />
+P → <strong>Accelerated Computing (GPU)</strong>. Para entrenamiento de deep learning, computación científica, simulaciones de alto nivel.<br />
+X → Extra Memory Optimized. Instancias con terabytes de RAM, usadas para grandes bases de datos o aplicaciones que requieren mucha memoria.<br />
+<br></p>
+</li>
+<li>
+<p><strong>Generaciones</strong><br />
+Representan la evolución tecnológica de las instancias. Cada nueva generación trae mejor rendimiento, menor coste por hora y mejor eficiencia energética.<br />
+Se identifican por el número que acompaña a la familia.<br />
+👉 Ejemplo:  </p>
+<ul>
+<li>t2.micro → 2ª generación de instancias de uso general.  </li>
+<li>t3.micro → 3ª generación, más eficiente que t2.  </li>
+<li>t4g.micro → 4ª generación, basada en procesadores ARM Graviton2 de AWS.<br />
+<br>  </li>
+</ul>
+</li>
+<li>
+<p><strong>Capacidad adicional</strong><br />
+La capacidad adicional de EC2 se refiere a esas optimizaciones extra (almacenamiento, red, EBS, GPU, bare metal, etc.) que hacen que dos instancias de la misma familia y tamaño puedan comportarse de forma distinta.<br />
+Las letras utilizadas en el nombre de instancia y las propiedades asociadas se explican en la tabla siguiente.  </p>
+<table>
+<thead>
+<tr>
+<th>Nombre</th>
+<th>Propiedad</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a</td>
+<td>Procesador AMD</td>
+<td>m5a</td>
+</tr>
+<tr>
+<td>d</td>
+<td>Almacenamiento SSD NVMe local</td>
+<td>m5d</td>
+</tr>
+<tr>
+<td>e</td>
+<td>Capacidad extra</td>
+<td>P6e</td>
+</tr>
+<tr>
+<td>g</td>
+<td>Procesador Graviton(ARM)</td>
+<td>m6g</td>
+</tr>
+<tr>
+<td>n</td>
+<td>Redes de alta velocidad</td>
+<td>c5n</td>
+</tr>
+<tr>
+<td>z</td>
+<td>Alta frecuencia de CPU</td>
+<td>m5zn</td>
+</tr>
+<tr>
+<td>.metal</td>
+<td>Bare metal</td>
+<td>m8g.metal</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>Tamaño de la instancia</strong></p>
+</li>
+</ul>
+<p>El tamaño de la instancia de AWS EC2 muestra el número de recursos de hardware (capacidad) aprovisionados a la instancia. Diferentes tamaños de instancia de AWS pueden utilizar el mismo hardware pero con diferentes ampliaciones. A veces, instancias de distintos tamaños pueden ejecutarse en hardware diferente, por ejemplo, utilizar dispositivos de almacenamiento SSD o HDD. Un ejemplo sencillo es la cantidad de memoria. El tamaño de instancia más bajo contiene la menor cantidad de memoria, y los tamaños de instancia de AWS EC2 más grandes contienen proporcionalmente más memoria.</p>
+<p>Para mayor comodidad, veamos cuatro tamaños de instancia AWS EC2 para instancias R5d y visualicémoslos en la imagen siguiente.</p>
+<div class="language-text highlight"><pre><span></span><code>xlarge es la instancia más pequeña de nuestra comparación de instancias EC2 utilizada en este ejemplo, y este tamaño de instancia llena el área más baja de un rectángulo.
+2xlarge ocupa el doble de superficie en el rectángulo que la instancia R5d.xlarge.
+4xlarge es cuatro veces mayor que R5d .xlarge y dos veces mayor que R5d.2xlarge.
+8xlarge tiene una capacidad igual a ocho instancias R5d .xlarge, cuatro instancias R5d.2xlarge o dos instancias R5d.4xlarge.
+</code></pre></div>
+<p>https://www.nakivo.com/es/blog/the-definitive-guide-to-aws-ec2-instance-types/
+https://dondeaprendoaws.com/blog/tipos-y-tamanos-de-instancias-ec2-guia-completa/</p>
+<hr />
+<p>https://docs.aws.amazon.com/es_es/AWSEC2/latest/UserGuide/ComponentsAMIs.html</p>
+<h2 id="hay-que-hablar-de-las-ami">hay que hablar de las AMI</h2>
+<p>EC2 está diseñado para integrarse con otros servicios de Amazon Web Services, como Amazon S3 o Amazon SQS, el primero como almacenamiento de soporte y el segundo para la automatización del envío de notificaciones. Además, Amazon EC2 incluye herramientas complementarias de optimización como:</p>
+<div class="language-text highlight"><pre><span></span><code>Amazon EC2 Container Service: sirve para gestionar los contenedores Docker dentro de un clúster de instancias en Amazon EC2. Mediante la API, se pueden desplegar y suprimir aplicaciones de contenedores Docker y otro tipo de opciones dentro del entorno virtual.
+Elastic Load Balancing: permite distribuir de forma automática el tráfico que reciben las aplicaciones entre distintas instancias de Amazon EC2. Al distribuir de forma equilibrada el tráfico, la carga necesaria para cada instancia se reduce, así como la posibilidad de errores por sobrecarga.
+Auto Scaling: como su nombre indica, este servicio para Amazon EC2 permite escalar de forma automática la capacidad de las instancias. De esta forma, se podrá mantener en ejecución el número de máquinas virtuales adecuadas para la carga de trabajo de las instancias de Amazon EC2.
+Amazon CloudWatch: un servicio web disponible para los usuarios de AWS que muestra datos en tiempo real sobre el uso de recursos de las instancias de Amazon EC2. La CPU o la cantidad de tráfico web son los elementos básicos que analiza este servicio, aunque puede instalarse software adicional en una instancia si se desea monitorizar la memoria, el espacio en disco o la carga de trabajo.
+</code></pre></div>
+<hr />
+<p>familia de la instancia: t,m,c,r,x,p,g,z
+generacion de la instancia: 1,2,3...6
+sufijos: nano, micro, small, medium, large,... 8xlarge</p>
+<hr />
+<p>Cuando lanzas una instancia EC2 con acceso a Internet, AWS puede darle automáticamente una <strong>IP pública dinámica</strong>.</p>
+<ul>
+<li>Problema: si la instancia se detiene y vuelve a iniciarse, esa IP <strong>cambia</strong>.</li>
+<li>Solución: si necesitas una IP que no cambie (para DNS, aplicaciones críticas, accesos seguros, etc.), usas una <strong>Elastic IP</strong>.</li>
+</ul>
+<hr />
+<h2 id="funcionamiento-basico">⚙️ Funcionamiento básico</h2>
+<ol>
+<li>
+<p><strong>Asignación</strong></p>
+</li>
+<li>
+<p>Pides una IP elástica desde la consola de AWS (o vía CLI/API).</p>
+</li>
+<li>
+<p>AWS te reserva una dirección IPv4 pública.</p>
+</li>
+<li>
+<p><strong>Asociación</strong></p>
+</li>
+<li>
+<p>La puedes asociar a:</p>
+<ul>
+<li>Una <strong>instancia EC2</strong>.</li>
+<li>Una <strong>interfaz de red (ENI)</strong>.</li>
+<li>Un <strong>NAT Gateway</strong>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Reasignación</strong></p>
+</li>
+<li>
+<p>Si tu instancia falla, puedes <strong>reasignar la IP</strong> a otra instancia en cuestión de segundos, sin necesidad de cambiar DNS o configuraciones externas.</p>
+</li>
+</ol>
+<hr />
+<h2 id="caracteristicas-importantes">💡 Características importantes</h2>
+<ul>
+<li><strong>Gratis solo si está en uso</strong>: AWS <strong>no cobra</strong> por una IP elástica que esté asociada a una instancia en ejecución.
+  Pero si la reservas y no la usas, sí genera coste (para evitar desperdicio de direcciones IPv4).</li>
+<li>Son solo <strong>IPv4</strong>. En IPv6 no hacen falta porque las direcciones son abundantes y estables.</li>
+<li>Una cuenta AWS tiene un <strong>límite predeterminado</strong> de EIPs (normalmente 5 por región), aunque puedes pedir aumento.</li>
+</ul>
+<hr />
+<h2 id="ejemplo-practico">🎯 Ejemplo práctico</h2>
+<p>Imagina que tienes una aplicación en una instancia EC2:</p>
+<ul>
+<li>Si solo usas la IP pública automática y la instancia se reinicia → <strong>la IP cambia</strong> → tus usuarios no podrán conectarse si la tenían guardada.</li>
+<li>Si usas una <strong>Elastic IP</strong> → la IP se mantiene siempre igual, aunque detengas, reinicies o reemplaces la máquina.</li>
+</ul>
+<hr />
+<p>👉 En resumen:
+Una <strong>Elastic IP en AWS</strong> es como tener una <strong>dirección fija en Internet</strong> para tus recursos, lo que te da <strong>estabilidad y flexibilidad</strong> en caso de fallos o cambios en la infraestructura.</p>
+<hr />
+<p>¿Quieres que te prepare un <strong>esquema visual con un ejemplo</strong> de cómo una IP elástica se reasigna entre instancias EC2 en caso de fallo?</p>
+<p>IGW de solo salida: Similar al Internet Gateway, pero solo para <strong>tráfico saliente de IPv6</strong>. </p>
+<p>https://www.youtube.com/watch?v=DSkO0ZJ8PxA</p>
+<p>https://www.youtube.com/watch?v=lTUUJBa1dp4&amp;list=PLDbrnXa6SAzV0J3Un9jRnbbFpuQH-_y-C&amp;index=11</p>
+<p>https://www.youtube.com/watch?v=iAYYssYrGms</p>
+<p>https://www.youtube.com/watch?v=CGmTvukObOw</p>
+<h2 id="grupos-de-seguridad"><strong>Grupos de seguridad</strong></h2>
+<h2 id="tarea-1"><strong>Tarea 1</strong></h2>
+<p>file:///C:/Users/titan/Documents/Javier128/Eclipse/AWS/Arqui%20y%20despliegues%20en%20AWS/Tema%202/Tema2.VPC-IGW-subred.pdf</p>
+<h2 id="enlaces-de-interes"><strong>Enlaces de interés</strong></h2>
+<p>Documentación de <a href="https://docs.aws.amazon.com">AWS</a>.
+Instancias <a href="https://docs.aws.amazon.com/es_es/ec2/?icmpid=docs_homepage_featuredsvcs">EC2</a>.
+Tipos de instancias <a href="https://aws.amazon.com/es/ec2/instance-types">EC2</a>.</p>
+<p>https://docs.aws.amazon.com/es_es/vpc/latest/userguide/VPC_Route_Tables.html
+https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 - Javier Egea Blasco
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.instant.preview", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "toc.follow", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "search.share", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>
