@@ -159,6 +159,14 @@ Habrá que repetir este proceso cada vez que cambie el token de sesión y necesi
 ![Descripción de la imagen](../AWS/ut3/AWSCLI/awsreset.png){ .original }  
 <br>
 
+## **Cerrar el Learner Lab**
+Para cerrar el **Learner Lab** basta con pulsar el botón de **End Lab**.  
+Todos los servicios que tengamos se detendrán pero **seguirán existiendo y AWS nos facturará por tenerlos**.
 
-## Enlaces de interés
+<br>
+![Descripción de la imagen](../AWS/ut3/AWSCLI/awsend.png){ .original }  
+<br>
+
+
+## **Enlaces de interés**
 Documentación de [AWS](https://docs.aws.amazon.com).
