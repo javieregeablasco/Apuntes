@@ -64,4 +64,26 @@ flowchart TD
 ```
 </div>
 
+ Admonition tabs
+
+!!! note "Title of the callout"
+    Aquí va el texto, no se si se puede cambiar el icono
+
+??? info "Title of the content"
+    Aquí va el texto, no se si se puede cambiar el icono    
+
+Tipos (iconos disponibles).  
+- abstract  
+- info  
+- tip  
+- success  
+- octicons  
+- question  
+- warning  
+- failure  
+- danger  
+- bug  
+- example  
+- quote    
+
 <a href=https://mermaid.js.org>Editor de diagramas</a>
