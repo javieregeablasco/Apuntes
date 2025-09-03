@@ -1,12 +1,15 @@
 ---
 title: CFGM - Técnico en Sistemas Microinformáticos y Redes
+subtitle: Aplicaciones ofimáticas
+module number: 0223
 lesson: UD. 0.0 - Métodos de evaluación  
-#subtitle: "Módulo: 0223 - Aplicaciones ofimáticas"
 author: Javier Egea Blasco  
 year: Año 25-26  
 keywords: SMX, AO
 layout: default  
+schedule: 7h/w
 ---
+
 
 ![Descripción de la imagen](./img/img1.jpg){ .img1 }
 

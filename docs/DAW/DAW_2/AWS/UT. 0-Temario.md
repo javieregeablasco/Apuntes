@@ -1,15 +1,16 @@
 ---
-title: CFGS - Desarrollo de aplicaciones web
+cicle: CFGS - Desarrollo de aplicaciones web
+title: "Introducción a la nube pública"
+module number: 
 lesson: UD. 0.0 - Temario y métodos de evaluación  
-
 author: Javier Egea Blasco  
 year: Año 25-26  
 keywords: CFGS, Optativa, AWS
-schedule: 96h
+schedule: 96h - 3h/s 
 ---
 
-# **INTRODUCCIÓN A LA NUBE PÚBLICA**
-![Descripción de la imagen](./img/presentacion.png){.cincozero}
+# **Introducción a la nube pública**
+![Descripción de la imagen](./img/publiccloud.webp){.cincozero}
  
 
 ## **1. - Calendario escolar**
@@ -96,8 +97,8 @@ A continuación, se presentan los contenidos de este módulo tal y como aparecen
 === "RA 1"
     |RA1. Comprende los fundamentos de la computación en la nube, sus ventajas frente a sistemas tradicionales, el marco de adopción, los principios de migración y los aspectos clave de facturación, como estimación y optimización de costos.||
     |-|-|
-    |**a)** Se ha comprendido los conceptos fundamentales de la computación en la nube. |15%|
-    |**b)** Se ha demostrado la capacidad para explicar las ventajas de la nube frente a sistemas tradicionales.|15%|
+    |**a)** Se ha comprendido los conceptos fundamentales de la computación en la nube.|15%|  
+    |**b)** Se ha demostrado la capacidad para explicar las ventajas de la nube frente a sistemas tradicionales.|15%|  
     |**c)** Se ha participado en actividades relacionadas con el ecosistema de servicios en la nube.|15%|
     |**d)** Se han identificado los principios básicos de la facturación y costos en la nube.|5%|
     |**e)** Se ha hecho uso correcto de herramientas para estimar y gestionar presupuestos.|10%|
@@ -132,6 +133,7 @@ A continuación, se presentan los contenidos de este módulo tal y como aparecen
     |**d)** Se ha diseñado arquitecturas escalables y resilientes basadas en las mejores prácticas.|15%|
     |**e)** Se ha hecho uso de herramientas de monitoreo y recomendaciones de optimización.|15%|
     |**f)** Se ha participado en actividades que simulen el análisis y mejora de arquitecturas existentes.|15%|
+
     
 ### **5.2. - Metodología de evaluación**
 1. La evaluación será **contínua**.   
@@ -182,9 +184,8 @@ En caso de no superar el módulo, el alumna/o dispondrá de un proceso de recupe
 ### **6.3. - Calendario de evaluaciones**
 - Evaluación inicial (primer mes).
 - **Una evaluación parcial por cada trimestre**. Para tener el aprobado será necesario haber alcanzado una puntuación superior o igual a 5 en los **Resultados de Aprendizaje RA** completados.
-- **Evaluación ordinaria** permitirá recuperar los **RA o CE no superados**.
-- **Evaluacion extraordinaria** solo para los alumnos/as que no hayan superado el módulo en las evaluaciones parciales u ordinaria. Para esta evaluación se realizarán varias pruebas teórico-prácticas que evaluarán **la totalidad del módulo**. 
-   
+- **Evaluación ordinaria** y **extraordinaria**: permitiran recuperar los **RA no superados**.
+ 
  
 ## **7. - Secuenciación y duración de cada Unidad de Trabajo**
 Por motivos de simplicidad **se asocia un RA a cada Unidad de Trabajo (UT)**.  
