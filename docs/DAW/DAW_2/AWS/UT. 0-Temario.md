@@ -4,7 +4,7 @@ title: "Introducción a la nube pública"
 module number: 
 lesson: UD. 0.0 - Temario y métodos de evaluación  
 author: Javier Egea Blasco  
-year: Año 25-26  
+year: 25-26  
 keywords: CFGS, Optativa, AWS
 schedule: 96h - 3h/s 
 ---
@@ -19,6 +19,7 @@ schedule: 96h - 3h/s
 Aclarar fechas de las practicas -->
 
 ## **2. - Horario de sesiones**
+
 
 ## **3. - Contenidos del módulo**
 A continuación, se presentan los contenidos de este módulo tal y como aparecen en el <a href=https://ceice.gva.es/documents/388109149/391641510/ANEXOS_Optativas_Propuesta_Decreto_Curris_LFP_GMGS.pdf>**Anexo X: Módulos optativos**</a>, seguiendo las <a href=https://ceice.gva.es/documents/388109149/392955746/Instrucciones_optativas_FP_definitivas_firmado_.pdf>**Instrucciones de la dirección de formación profesional**</a> sobre la oferta de módulos optativos para el curso 2025-2026.
@@ -79,17 +80,17 @@ A continuación, se presentan los contenidos de este módulo tal y como aparecen
 
 1. Prácticas **individuales y/o colectivas**. 
 
-1. Realización de **actividades voluntarias** de investigación y ampliación para **profundizar en los conocimientos adquiridos**.  
+1. **Actividades voluntarias** de investigación y ampliación para **profundizar en los conocimientos adquiridos**.  
 
-1. Método de aprendizaje **PBL (Problem Based Learning)**, aprendizaje basado en problemas. Se planteará un problema real, y los alumnos elaborarán una solución. 
+1. **PBL (Problem Based Learning)**. Se planteará un problema real, y los alumnos elaborarán una solución. 
 
 1. Proyección de vídeos. 
 
 
 ## **5. - Evaluación** 
 1. Las evaluaciones serán **por resultados de aprendizaje RA**. <a href=https://www.boe.es/boe/dias/2023/07/22/pdfs/BOE-A-2023-16889.pdf>R.D. 659/2023</a>. 
-1. Cada resultado de aprendizaje **RA** se evalúa a través de los criterios de evaluación **CE**. Los **CE** actúan como “desglose” del **RA**, facilitando medir de forma objetiva si el aprendizaje se ha alcanzado.
 1. Los resultados de aprendizaje y criterios de evaluación asociados al módulo **Introducción a la nube pública** constituyen los logros que los alumnos/as tienen que alcanzar para **superar el módulo**.
+1. Cada resultado de aprendizaje **RA** se evalúa a través de los criterios de evaluación **CE**. Los **CE** actúan como “desglose” del **RA**, facilitando medir de forma objetiva si el aprendizaje se ha alcanzado.
 
 ### **5.1. - Relación entre Criterios de Evaluación y Resultados de Aprendizaje**
 **Los criterios de evaluación** asociados a los **resultados de aprendizaje** son los siguientes:
@@ -144,14 +145,17 @@ A continuación, se presentan los contenidos de este módulo tal y como aparecen
 1. Exámenes.  
     - Preguntas tipo test.
     - Examen escrito (ejercicios).          
-2. Entrega de tareas.  
-3. Exposiciones orales.  
-4. Prácticas en empresa.
+1. Tareas entregables.  
+1. Exposiciones orales.  
+1. Prácticas en empresa.
 
 ### **5.4. - Responsable evaluación de los RA's y/o CE's**
+1. Evaluación por profesor:
+**Todos lo que no se evaluarán en empresa**.
 
+1. Evaluación por tutor empresa: 
 === "RA 1"
-    Tutor prácticas (Empresa). 
+    CE Tutor prácticas (Empresa). 
 
 === "RA 2"
     Profesor módulo (Instituto).
@@ -172,10 +176,10 @@ En caso de no superar el módulo, el alumna/o dispondrá de un proceso de recupe
 
 |Resultado de aprendizaje|Porcentage|
 |-|-|
-|**RA1.** Comprende los fundamentos de la computación en la nube, sus ventajas frente a sistemas tradicionales, el marco de adopción, los principios de migración y los aspectos clave de facturación, como estimación y optimización de costos.|5%|
-|**RA2.** dentifica los componentes clave de la infraestructura global de la nube, diferenciando servicios principales, regiones, zonas de disponibilidad y aplicando medidas básicas de seguridad como el modelo de responsabilidad compartida, gestión de accesos y protección de datos.|19%|
-|**RA3.** Diseña y configura redes virtuales y servicios de cómputo en la nube, aplicando buenas prácticas de seguridad, estrategias de balanceo de carga, escalado automático y aprovechando tecnologías serverless, contenedores y máquinas virtuales según casos de uso específicos.|18%|
-|**RA4.** Gestiona servicios de almacenamiento y bases de datos en la nube, seleccionando tecnologías adecuadas para casos específicos, y diseña arquitecturas escalables y resilientes utilizando herramientas de monitoreo y optimización para mejorar el rendimiento.|18%|
+|**RA1.** Comprende los fundamentos de la computación en la nube, sus ventajas frente a sistemas tradicionales, el marco de adopción, los principios de migración y los aspectos clave de facturación, como estimación y optimización de costos.|25%|
+|**RA2.** dentifica los componentes clave de la infraestructura global de la nube, diferenciando servicios principales, regiones, zonas de disponibilidad y aplicando medidas básicas de seguridad como el modelo de responsabilidad compartida, gestión de accesos y protección de datos.|25%|
+|**RA3.** Diseña y configura redes virtuales y servicios de cómputo en la nube, aplicando buenas prácticas de seguridad, estrategias de balanceo de carga, escalado automático y aprovechando tecnologías serverless, contenedores y máquinas virtuales según casos de uso específicos.|25%|
+|**RA4.** Gestiona servicios de almacenamiento y bases de datos en la nube, seleccionando tecnologías adecuadas para casos específicos, y diseña arquitecturas escalables y resilientes utilizando herramientas de monitoreo y optimización para mejorar el rendimiento.|25%|
 
 ### **6.2. - Instrumentos de recuperación**
 - Se propondrá a los alumnos una serie de **recuperaciones** que le permitirán recuperar los **criterios de evaluación** no superados.
@@ -183,12 +187,15 @@ En caso de no superar el módulo, el alumna/o dispondrá de un proceso de recupe
 
 ### **6.3. - Calendario de evaluaciones**
 - Evaluación inicial (primer mes).
-- **Una evaluación parcial por cada trimestre**. Para tener el aprobado será necesario haber alcanzado una puntuación superior o igual a 5 en los **Resultados de Aprendizaje RA** completados.
-- **Evaluación ordinaria** y **extraordinaria**: permitiran recuperar los **RA no superados**.
+- **Una evaluación parcial por cada trimestre**. 
+    - Se daran las notas de los **RA** completados y también la nota **parcial** de los **RA** incompletos.
+    - Para tener el aprobado será necesario haber alcanzado una puntuación superior o igual a 5 en los **Resultados de Aprendizaje RA** completados.
+
+- **Evaluación ordinaria** y **extraordinaria**: Permitiran recuperar los **RA no superados**.
  
  
 ## **7. - Secuenciación y duración de cada Unidad de Trabajo**
-Por motivos de simplicidad **se asocia un RA a cada Unidad de Trabajo (UT)**.  
+Por motivos de simplicidad **se asocia un RA a cada tema. Los temas se dibidirán en varias Unidad de Trabajo (UT)**.  
 
 <div style="text-align:center;">
 ```mermaid
