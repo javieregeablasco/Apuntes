@@ -1,0 +1,2441 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Javier Egea Blasco">
+      
+      
+        <link rel="canonical" href="https://javieregeablasco.github.io/Apuntes/SMX/SMX_1/AO/00_Temario/">
+      
+      
+      
+        <link rel="next" href="../01_Instalacion%20de%20aplicaciones%20ofimaticas/">
+      
+      
+      <link rel="icon" href="../../../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>CFGM - Técnico en Sistemas Microinformáticos y Redes - Javier Egea Blasco</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#calendario-escolar" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../../../.." title="Javier Egea Blasco" class="md-header__button md-logo" aria-label="Javier Egea Blasco" data-md-component="logo">
+      
+  <img src="../../../../assets/mre.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Javier Egea Blasco
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              CFGM - Técnico en Sistemas Microinformáticos y Redes
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Compartir" aria-label="Compartir" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Aplicaciones Ofimáticas
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../SMX_2/Opt_Python/00_Temario/" class="md-tabs__link">
+          
+  
+  
+  Programación en Python
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../FPB/FPB_1/MMSCI/UT.0-Temario/" class="md-tabs__link">
+          
+  
+  
+  MMSCI
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../DAW/DAW_2/AWS/UT.%200-Temario/" class="md-tabs__link">
+          
+  
+  
+  Cloud Computing
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Javier Egea Blasco" class="md-nav__button md-logo" aria-label="Javier Egea Blasco" data-md-component="logo">
+      
+  <img src="../../../../assets/mre.png" alt="logo">
+
+    </a>
+    Javier Egea Blasco
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Aplicaciones Ofimáticas
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Aplicaciones Ofimáticas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Presentación módulo
+    
+      <br>
+      <small>Aplicaciones ofimáticas</small>
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Presentación módulo
+    
+      <br>
+      <small>Aplicaciones ofimáticas</small>
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#calendario-escolar" class="md-nav__link">
+    <span class="md-ellipsis">
+      Calendario escolar
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#horario-de-sesiones" class="md-nav__link">
+    <span class="md-ellipsis">
+      Horario de sesiones
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contenidos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contenidos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Contenidos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#instalacion-de-aplicaciones-ofimaticas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instalación de aplicaciones ofimáticas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elaboracion-de-documentos-y-plantillas-mediante-procesadores-de-texto" class="md-nav__link">
+    <span class="md-ellipsis">
+      Elaboración de documentos y plantillas mediante procesadores de texto
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elaboracion-de-documentos-y-plantillas-mediante-hojas-de-calculo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Elaboración de documentos y plantillas mediante hojas de cálculo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#utilizacion-de-bases-de-datos-ofimaticas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Utilización de bases de datos ofimáticas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manipulacion-de-imagenes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manipulación de imágenes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manipulacion-de-videos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manipulación de vídeos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elaboracion-de-presentaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      Elaboración de presentaciones
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gestion-de-correo-y-agenda-electronica" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gestión de correo y agenda electrónica
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aplicacion-de-tecnicas-de-soporte" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aplicación de técnicas de soporte
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metodologia-de-aprendizaje" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metodología de aprendizaje
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evaluacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Evaluación
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Evaluación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tipo-de-evaluacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tipo de evaluación
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resultados-de-aprendizaje" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resultados de aprendizaje
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metodologia-de-evaluacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metodología de evaluación
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instrumentos-de-evaluacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instrumentos de evaluación
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#instrumentos-de-recuperacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instrumentos de recuperación
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evaluaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      Evaluaciones
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#criterios-de-cualificacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Criterios de cualificación
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Criterios de cualificación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#relacion-entre-nota-final-y-resultados-de-aprendizaje" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relación entre nota final y Resultados de aprendizaje
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resultados-de-aprendizaje-y-criterios-de-evaluacion-del-modulo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Resultados de aprendizaje y criterios de evaluación del módulo
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Resultados de aprendizaje y criterios de evaluación del módulo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#relacion-entre-criterios-de-evaluacion-y-resultados-de-aprendizaje" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relación entre Criterios de Evaluación y Resultados de Aprendizaje
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responsable-evaluacion-de-los-resultados-de-aprendizaje" class="md-nav__link">
+    <span class="md-ellipsis">
+      Responsable evaluación de los Resultados de Aprendizaje
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#secuenciacion-y-duracion-de-cada-unidad-de-trabajo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Secuenciación y duración de cada Unidad de Trabajo
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_Instalacion%20de%20aplicaciones%20ofimaticas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 1
+    
+      <br>
+      <small>Módulo: 0223 - Aplicaciones ofimáticas</small>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    UT 2 - Procesadores de texto
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            UT 2 - Procesadores de texto
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_Procesadores_de_texto/021_Procesadores_de_texto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 21 - Características de los procesadores de texto
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_Procesadores_de_texto/022_LibreOffice_Writer_Instalacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 22 - Instalación de LibreOffice Writer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_Procesadores_de_texto/023_LibreOffice_Writer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 23 - LibreOffice Writer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Programación en Python
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Programación en Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SMX_2/Opt_Python/00_Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Presentación módulo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SMX_2/Opt_Python/01_Introduccion_a_la_programacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 1 Introducción a la programación
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SMX_2/Opt_Python/02_Python_Presentacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 2 Python, instalación y IDE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SMX_2/Opt_Python/03_Python_Basico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 3 Elementos básicos de Python
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    MMSCI
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            MMSCI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../FPB/FPB_1/MMSCI/UT.0-Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT0
+    
+      <br>
+      <small>Montaje y mantenimiento de sistemas y componentes informáticos</small>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Cloud Computing
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Cloud Computing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../DAW/DAW_2/AWS/UT.%200-Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Presentación módulo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../DAW/DAW_2/AWS/UT.%201-Introduccion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 1 Introducción al Cloud Computing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../DAW/DAW_2/AWS/UT.%202-AWS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 2 AWS - Amazon Web Services
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../DAW/DAW_2/AWS/UT.%203-AWS%20Academy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 3 AWS Academy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../DAW/DAW_2/AWS/UT.%204-Infraestructura/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 4 Infraestruturas en AWS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../DAW/DAW_2/AWS/UT.%205-Instancias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 5 Instancias y grupos de seguridad
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Presentación módulo</h1>
+
+<p><img alt="Descripción de la imagen" class="img1" src="../img/img1.jpg" /></p>
+<p><br></p>
+<h2 id="calendario-escolar">Calendario escolar</h2>
+<!-- Aclarar horas de practicas
+Aclarar fechas de las practicas -->
+
+<h2 id="horario-de-sesiones">Horario de sesiones</h2>
+<h2 id="contenidos">Contenidos</h2>
+<p>A continuación, se presentan los contenidos de este módulo tal y como aparecen en <a href=https://dogv.gva.es/datos/2009/09/03/pdf/2009_9808.pdf><strong>ORDEN de 29 de julio 2009</strong></a>, de la Conselleria de Educación, por la que se establece para la Comunitat Valenciana el currículo del ciclo formativo de Grado Medio correspondiente al título de Técnico en Sistemas Microinformáticos y Redes.</p>
+<h3 id="instalacion-de-aplicaciones-ofimaticas">Instalación de aplicaciones ofimáticas</h3>
+<details class="info">
+<summary>Contenidos</summary>
+<ul>
+<li>Tipos de aplicaciones ofimáticas y aplicaciones corporativas.</li>
+<li>Paquetes ofimáticos.</li>
+<li>Tipos de licencias software.</li>
+<li>Necesidades de los entornos de explotación.</li>
+<li>Procedimientos de instalación y configuración.</li>
+<li>Diagnóstico y resolución de problemas.</li>
+</ul>
+</details>
+<h3 id="elaboracion-de-documentos-y-plantillas-mediante-procesadores-de-texto">Elaboración de documentos y plantillas mediante procesadores de texto</h3>
+<details class="info">
+<summary>Contenidos</summary>
+<p>– El entorno de trabajo. Personalización.<br />
+– Formateo de textos. Párrafos. Páginas y Estilos.<br />
+– Encabezamientos. Pies de Página. Notas a pie.<br />
+– Esquemas: Viñetas. Listas numeradas.<br />
+– Gráficos. Imágenes.<br />
+– Índices y Tablas.<br />
+– Formularios.<br />
+– Impresión de documentos.<br />
+– Combinar documentos.<br />
+– Creación y uso de plantillas.<br />
+– Importación y exportación de documentos.<br />
+– Trabajo en grupo: comparar documentos, versiones de documento, verificar cambios, entre otros.<br />
+– Diseño y creación de macros.<br />
+– Utilización de software y hardware para introducir textos e imágenes.<br />
+– Elaboración de distintos tipos de documentos (manuales, partes de incidencias, entre otros).</p>
+</details>
+<h3 id="elaboracion-de-documentos-y-plantillas-mediante-hojas-de-calculo">Elaboración de documentos y plantillas mediante hojas de cálculo</h3>
+<details class="info">
+<summary>Contenidos</summary>
+<p>– Entorno de trabajo. Personalización.<br />
+– Conceptos básicos: Libro, hoja, celda, rango, etc…<br />
+– Formateo de celdas. Estilos.<br />
+– Manipulación de datos.<br />
+– Rangos.<br />
+– Impresión de documentos.<br />
+– Utilización de fórmulas y funciones.<br />
+– Creación de tablas y gráficos dinámicos.<br />
+– Dibujos e imágenes.<br />
+– Uso de plantillas y asistentes.<br />
+– Importación y exportación de hojas de cálculo.<br />
+– Utilización de opciones de trabajo en grupo, control de versiones,verificación de cambios, entre otros.<br />
+– Elaboración de distintos tipos de documentos (presupuestos, facturas, inventarios, entre otros).<br />
+– Diseño y creación de macros.  </p>
+</details>
+<h3 id="utilizacion-de-bases-de-datos-ofimaticas">Utilización de bases de datos ofimáticas</h3>
+<details class="info">
+<summary>Contenidos</summary>
+<p>– Elementos de las bases de datos relacionales.<br />
+– Organización de bases de datos relacionales.<br />
+– Creación de bases de datos.<br />
+– Creación y manejo de tablas.<br />
+– Manejo de asistentes.<br />
+– Manipulación de datos: Inserción, modificación y borrado.<br />
+– Consultas, formularios e informes.  </p>
+</details>
+<h3 id="manipulacion-de-imagenes">Manipulación de imágenes</h3>
+<details class="info">
+<summary>Contenidos</summary>
+<p>– Formatos y resolución de imágenes.<br />
+– Manipulación de selecciones, máscaras y capas.<br />
+– Utilización de retoque fotográfico, ajustes de imagen y de color.<br />
+– Aplicación de filtros y efectos.<br />
+– Importación y exportación de imágenes.<br />
+– Utilización de dispositivos para obtener imágenes.  </p>
+</details>
+<h3 id="manipulacion-de-videos">Manipulación de vídeos</h3>
+<details class="info">
+<summary>Contenidos</summary>
+<p>– Formatos de vídeo. Codecs.<br />
+– Manipulación de la línea de tiempo.<br />
+– Selección de escenas y transiciones.<br />
+– Introducción de títulos y audio.<br />
+– Creación y grabación de videos.<br />
+– Importación y exportación de vídeos.  </p>
+</details>
+<h3 id="elaboracion-de-presentaciones">Elaboración de presentaciones</h3>
+<details class="info">
+<summary>Contenidos</summary>
+<p>– El entorno de trabajo. Personalización.<br />
+– Impresión de presentaciones.<br />
+– Gráficos, imágenes, dibujos y organigramas.<br />
+– Diseño y edición de diapositivas.<br />
+– Manipulación de diapositivas. Modo de visualización.<br />
+– Formateo de diapositivas, textos y objetos.<br />
+– Aplicación de efectos de animación y efectos de transición.<br />
+– Aplicación de sonido y vídeo.<br />
+– Importación y exportación de presentaciones.<br />
+– Utilización de plantillas y asistentes. Patrones de diapositivas.<br />
+– Diseño y creación de macros.  </p>
+</details>
+<h3 id="gestion-de-correo-y-agenda-electronica">Gestión de correo y agenda electrónica</h3>
+<details class="info">
+<summary>Contenidos</summary>
+<p>– Entorno de trabajo: configuración y personalización.<br />
+– Tipos de cuentas de correo.<br />
+– Plantillas y firmas corporativas.<br />
+– Foros de noticias (news). Configuración, uso y sincronización de mensajes.<br />
+– La libreta de direcciones: importar, exportar, añadir contactos, crear listas de distribución, poner la lista a disposición de otras aplicaciones ofimáticas.<br />
+– Gestión de correos: enviar, borrar, guardar, copias de seguridad, entre otros.<br />
+– Gestión de la agenda: citas, calendario, avisos, tareas, entre otros.<br />
+– Sincronización con dispositivos móviles.  </p>
+</details>
+<h3 id="aplicacion-de-tecnicas-de-soporte">Aplicación de técnicas de soporte</h3>
+<details class="info">
+<summary>Contenidos</summary>
+<p>– Elaboración de guías y manuales de uso de aplicaciones.<br />
+– Formación al usuario.<br />
+– Resolución de incidencias.<br />
+– Aplicaciones para la gestión y control de incidencias.  </p>
+</details>
+<p><br></p>
+<h2 id="metodologia-de-aprendizaje">Metodología de aprendizaje</h2>
+<ul>
+<li>Introducción de los <strong>aspectos teóricos</strong> para que después <strong>sean aplicados mediante prácticas y ejercicios</strong>.  </li>
+<li>Prácticas <strong>individuales y/o colectivas</strong>. </li>
+<li><strong>Realización de trabajos obligatorios</strong>. Algunos trabajos podrán ser realizados en grupo. </li>
+<li>Realización de <strong>actividades voluntarias</strong> de investigación y ampliación para <strong>profundizar en los conocimientos adquiridos</strong>.  </li>
+<li><strong>PBL (Problem Based Learning)</strong>, aprendizaje basado en problemas. Se plantea un problema real, y los alumnos elaborarán una solución justificada y probada, incluyendo estudio de necesidades y costes. </li>
+<li><strong>Proyección de vídeos</strong>. </li>
+</ul>
+<p><br></p>
+<h2 id="evaluacion">Evaluación</h2>
+<h3 id="tipo-de-evaluacion">Tipo de evaluación</h3>
+<ul>
+<li>Las evaluaciones serán <strong>por resultados de aprendizaje (RA) y criterios de evaluación (CE)</strong> (<a href=https://www.boe.es/boe/dias/2023/07/22/pdfs/BOE-A-2023-16889.pdf>R.D. 659/2023</a>). </li>
+<li>Cada unidad de trabajo (UT) representará un <strong>RA</strong>.</li>
+<li>En cada unidad de trabajo (UT) se evaluaran los <strong>CE</strong> correspondientes al <strong>RA</strong>.</li>
+</ul>
+<h3 id="resultados-de-aprendizaje">Resultados de aprendizaje</h3>
+<p>Por motivos de simplicidad <strong>se asocia un RA (contenidos) a cada Unidad de Trabajo (UT)</strong>.  </p>
+<ul>
+<li>RA1 <img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/27a1.svg" title=":arrow_right:" /> UT1 <img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/27a1.svg" title=":arrow_right:" /> Instalación de aplicaciones ofimáticas.</li>
+<li>RA2 <img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/27a1.svg" title=":arrow_right:" /> UT2 <img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/27a1.svg" title=":arrow_right:" /> Elaboración de documentos y plantillas mediante procesadores de texto.</li>
+<li>RA3 <img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/27a1.svg" title=":arrow_right:" /> UT3 <img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/27a1.svg" title=":arrow_right:" /> Elaboración de documentos y plantillas mediante hojas de cálculo.</li>
+<li>RA4 <img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/27a1.svg" title=":arrow_right:" /> UT4 <img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/27a1.svg" title=":arrow_right:" /> Utilización de bases de datos ofimáticas.</li>
+<li>RA5 <img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/27a1.svg" title=":arrow_right:" /> UT5 <img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/27a1.svg" title=":arrow_right:" /> Manipulación de imágenes.</li>
+<li>RA6 <img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/27a1.svg" title=":arrow_right:" /> UT6 <img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/27a1.svg" title=":arrow_right:" /> Manipulación de vídeos.</li>
+<li>RA7 <img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/27a1.svg" title=":arrow_right:" /> UT7 <img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/27a1.svg" title=":arrow_right:" /> Elaboración de presentaciones.</li>
+<li>RA8 <img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/27a1.svg" title=":arrow_right:" /> UT8 <img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/27a1.svg" title=":arrow_right:" /> Gestión de correo y agenda electrónica.</li>
+<li>RA9 <img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/27a1.svg" title=":arrow_right:" /> UT9 <img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/27a1.svg" title=":arrow_right:" /> Aplicación de técnicas de soporte.</li>
+</ul>
+<h3 id="metodologia-de-evaluacion">Metodología de evaluación</h3>
+<ul>
+<li>La evaluación será <strong>contínua</strong>.   </li>
+<li>Se basará en la comprobación de la superación de los <strong>resultados de aprendizaje (RA)</strong> en las condiciones de calidad establecidas en el currículo.</li>
+<li>La evaluación se hará sobre <strong>todos los RA y todos los CE</strong> del currículo.</li>
+</ul>
+<h3 id="instrumentos-de-evaluacion">Instrumentos de evaluación</h3>
+<ul>
+<li>Exámenes.  <ul>
+<li>Preguntas tipo test.</li>
+<li>Examen escrito (ejercicios).          </li>
+</ul>
+</li>
+<li>Entrega de tareas.  </li>
+<li>Exposiciones orales.  </li>
+<li>Prácticas en empresa.</li>
+</ul>
+<h3 id="instrumentos-de-recuperacion">Instrumentos de recuperación</h3>
+<ul>
+<li><strong>Recuperaciones</strong> que permitirán recuperar los <strong>criterios de evaluación</strong> no superados.</li>
+<li>Si el alumno <strong>no entrega los trabajos obligatorios o presenta tasas de absentismo altas</strong>, perderá la evaluación continua y deberá presentarse a la evaluación ordinaria y/o extraordinaria.  </li>
+</ul>
+<h3 id="evaluaciones">Evaluaciones</h3>
+<ul>
+<li>Evaluación inicial (primer mes).</li>
+<li><strong>Una evaluación parcial por cada trimestre</strong>. Para tener el aprobado será necesario haber alcanzado una puntuación superior o igual a 5 en los <strong>Resultados de Aprendizaje RA</strong> completados.</li>
+<li><strong>Evaluación ordinaria</strong> permitirá recuperar los <strong>RA no superados</strong>.</li>
+<li><strong>Evaluacion extraordinaria</strong> solo para los alumnos/as que no hayan superado el módulo en las evaluaciones parciales u ordinaria. Para esta evaluación se realizarán varias pruebas teórico-prácticas que evaluarán la totalidad del módulo. </li>
+</ul>
+<h2 id="criterios-de-cualificacion">Criterios de cualificación</h2>
+<h3 id="relacion-entre-nota-final-y-resultados-de-aprendizaje">Relación entre nota final y Resultados de aprendizaje</h3>
+<p>Los criterios de calificación dependerán del peso de cada <strong>Resultado de Aprendizaje</strong> en la nota final del curso. </p>
+<table>
+<thead>
+<tr>
+<th>Resultado de aprendizaje</th>
+<th>Porcentage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RA1.</strong> Instala y actualiza aplicaciones ofimáticas, interpretando especificaciones y describiendo los pasos a seguir en el proceso.</td>
+<td>5%</td>
+</tr>
+<tr>
+<td><strong>RA2.</strong> Elabora documentos y plantillas, describiendo y aplicando las opciones avanzadas de procesadores de textos.</td>
+<td>19%</td>
+</tr>
+<tr>
+<td><strong>RA3.</strong> Elabora documentos y plantillas de cálculo, describiendo y aplicando opciones avanzadas de hojas de cálculo.</td>
+<td>18%</td>
+</tr>
+<tr>
+<td><strong>RA4.</strong> Elabora documentos con bases de datos ofimáticas describiendo y aplicando operaciones de manipulación de datos.</td>
+<td>18%</td>
+</tr>
+<tr>
+<td><strong>RA5.</strong>  Manipula imágenes digitales analizando las posibilidades de distintos programas y aplicando técnicas de captura y edición básicas.</td>
+<td>10%</td>
+</tr>
+<tr>
+<td><strong>RA6.</strong> Manipula secuencias de video analizando las posibilidades de distintos programas y aplicando técnicas de captura y edición básicas.</td>
+<td>5%</td>
+</tr>
+<tr>
+<td><strong>RA7.</strong> Elabora presentaciones multimedia describiendo y aplicando normas básicas de composición y diseño.</td>
+<td>10%</td>
+</tr>
+<tr>
+<td><strong>RA8.</strong> Realiza operaciones de gestión del correo y la agenda electrónica, relacionando necesidades de uso con su configuración.</td>
+<td>10%</td>
+</tr>
+<tr>
+<td><strong>RA9.</strong> Aplica técnicas de soporte en el uso de aplicaciones, identificando y resolviendo incidencias.</td>
+<td>5%</td>
+</tr>
+</tbody>
+</table>
+<h2 id="resultados-de-aprendizaje-y-criterios-de-evaluacion-del-modulo">Resultados de aprendizaje y criterios de evaluación del módulo</h2>
+<p>Los resultados de aprendizaje y criterios de evaluación asociados al módulo <strong>Aplicaciones Ofimáticas</strong> constituyen los logros que los alumnos/as tienen que alcanzar para <strong>superar el módulo</strong>.</p>
+<!-- <table>
+  <tr>
+    <td style="white-space: nowrap;">RA. 1:</td>
+    <td>
+      Instala y actualiza aplicaciones ofimáticas, interpretando especificaciones y describiendo los pasos a seguir en el proceso. 
+      <details>
+        <summary>Ver los criterios de evaluación</summary>
+        <table>
+          <tr>
+            <td>a)</td>
+            <td>Se han identificado y establecido las fases del proceso de instalación.</td>
+          </tr>
+          <tr>
+            <td>b)</td>
+            <td>Se han respetado las especificaciones técnicas del proceso de instalación.</td>
+          </tr>
+          <tr>
+            <td>c)</td>
+            <td>Se han configurado las aplicaciones según los criterios establecidos.</td>
+          </tr>
+          <tr>
+            <td>d)</td>
+            <td>Se han documentado las incidencias.</td>
+          </tr>
+          <tr>
+            <td>e)</td>
+            <td>Se han solucionado problemas en la instalación o integración con el sistema informático.</td>
+          </tr>
+          <tr>
+            <td>f)</td>
+            <td>Se han eliminado y/o añadido componentes de la instalación en el equipo.</td>
+          </tr>
+          <tr>
+            <td>g)</td>
+            <td>Se han actualizado las aplicaciones.</td>
+          </tr>
+          <tr>
+            <td>h)</td>
+            <td>Se han respetado las licencias software.</td>
+          </tr>
+          <tr>
+            <td>i)</td>
+            <td>Se han propuesto soluciones software para entornos de aplicación.</td>
+          </tr>
+        </table>
+      </details>
+    </td> 
+  </tr>  
+  <tr>
+    <td>RA. 2:</td>
+    <td>
+      Elabora documentos y plantillas, describiendo y aplicando las opciones avanzadas de procesadores de textos.  
+      <details>
+        <summary>Ver los criterios de evaluación</summary>
+        <table>
+          <tr>
+            <td>a)</td>
+            <td>Se ha personalizado las opciones de software y barra de herramientas.</td>
+          </tr>
+          <tr>
+            <td>b)</td>
+            <td>Se han diseñado plantillas.</td>
+          </tr>
+          <tr>
+            <td>c)</td>
+            <td>Se han utilizado aplicaciones y periféricos para introducir textos e imágenes.</td>
+          </tr>
+          <tr>
+            <td>d)</td>
+            <td>Se han importado y exportado documentos creados con otras aplicaciones y en otros formatos.</td>
+          </tr>
+          <tr>
+            <td>e)</td>
+            <td>Se han creado y utilizado macros en la realización de documentos.</td>
+          </tr>
+          <tr>
+            <td>f)</td>
+            <td>Se han elaborado manuales específicos.</td>
+          </tr>
+        </table>
+      </details>
+    </td>
+  </tr> 
+  <tr> 
+    <td>RA. 3:</td>
+    <td>
+      Elabora documentos y plantillas de cálculo, describiendo y aplicando opciones avanzadas de hojas de  cálculo.
+      <details>
+        <summary>Ver los criterios de evaluación</summary>
+        <table>
+          <tr>
+            <td>a)</td>
+            <td>Se ha personalizado las opciones de software y barra de herramientas.</td>
+          </tr>
+          <tr>
+            <td>b)</td>
+            <td>Se han utilizado los diversos tipos de datos y referencia para celdas, rangos, hojas y libros.  </td>
+          </tr>
+          <tr>
+            <td>c)</td>
+            <td>Se han aplicado fórmulas y funciones.</td>
+          </tr>
+          <tr>
+            <td>d)</td>
+            <td>Se han generado y modificado gráficos de diferentes tipos.</td>
+          </tr>
+          <tr>
+            <td>e)</td>
+            <td>Se han empleado macros para la realización de documentos y plantillas.</td>
+          </tr>
+          <tr>
+            <td>f)</td>
+            <td>Se han importado y exportado hojas de cálculo creadas con otras aplicaciones y en otros  formatos.</td>
+          </tr>
+          <tr>
+            <td>g)</td>
+            <td>Se ha utilizado la hoja de cálculo como base de datos: formularios, creación delistas,       filtrado,   protección y ordenación de datos.</td>
+          </tr>
+          <tr>
+            <td>h)</td>
+            <td>Se han utilizado aplicaciones y periféricos para introducir textos, números, códigos e  imágenes.</td>
+          </tr>
+        </table>
+      </details>
+    </td>
+  </tr>
+  <tr>  
+    <td>RA. 4:</td>
+    <td>
+      Elabora documentos con bases de datos ofimáticas describiendo y aplicando operaciones de manipulación de datos. 
+      <details>
+        <summary>Ver los criterios de evaluación</summary>
+        <table>
+          <tr>
+            <td>a)</td>
+            <td>Se han identificado los elementos de las bases de datos relacionales.</td>
+          </tr>
+          <tr>
+            <td>b)</td>
+            <td>Se han creado bases de datos ofimáticas.</td>
+          </tr>
+          <tr>
+            <td>c)</td>
+            <td>Se han utilizado las tablas de la base de datos (insertar, modificar y eliminar registros).</td>
+          </tr>
+          <tr>
+            <td>d)</td>
+            <td>Se han utilizado asistentes en la creación de consultas.</td>
+          </tr>
+          <tr>
+            <td>e)</td>
+            <td>Se han utilizado asistentes en la creación de formularios.</td>
+          </tr>
+          <tr>
+            <td>f)</td>
+            <td>Se han utilizado asistentes en la creación de informes.</td>
+          </tr>
+          <tr>
+            <td>g)</td>
+            <td>Se ha realizado búsqueda y filtrado sobre la información almacenada.</td>
+          </tr>
+          <tr>
+            <td>h)</td>
+            <td>Se han creado y utilizado macros.</td>
+          </tr>
+        </table>
+      </details>
+    </td>
+  </tr>  
+  <tr>
+    <td>RA. 5:</td>
+    <td>
+      Manipula imágenes digitales analizando las posibilidades de distintos programas y aplicando técnicas de captura y edición básicas.
+      <details>
+        <summary>Ver los criterios de evaluación</summary>
+        <table>
+          <tr>
+            <td>a)</td>
+            <td>Se han analizado los distintos formatos de imágenes.</td>
+          </tr>
+          <tr>
+            <td>b)</td>
+            <td>Se ha realizado la adquisición de imágenes con periféricos.</td>
+          </tr>
+          <tr>
+            <td>c)</td>
+            <td>Se ha trabajado con imágenes a diferentes resoluciones, según su finalidad.</td>
+          </tr>
+          <tr>
+            <td>d)</td>
+            <td>Se han empleado herramientas para la edición de imagen digital.</td>
+          </tr>
+          <tr>
+            <td>e)</td>
+            <td>Se han importado y exportado imágenes en diversos formatos.</td>
+          </tr>
+        </table>
+      </details>
+    </td>
+  </tr>    
+  <tr>
+    <td>RA. 6:</td>
+    <td>
+      Manipula secuencias de vídeo analizando las posibilidades de distintos programas y aplicando técnicas de captura y edición básicas.
+      <details>
+        <summary>Ver los criterios de evaluación</summary>
+        <table>
+          <tr>
+            <td>a)</td>
+            <td>Se han reconocido los elementos que componen una secuencia de vídeo.</td>
+          </tr>
+          <tr>
+            <td>b)</td>
+            <td>Se han estudiado los tipos de formatos y codecs más empleados.</td>
+          </tr>
+          <tr>
+            <td>c)</td>
+            <td>Se han importado y exportado secuencias de vídeo.</td>
+          </tr>
+          <tr>
+            <td>d)</td>
+            <td>Se han capturado secuencias de vídeo con recursos adecuados.</td>
+          </tr>
+          <tr>
+            <td>e)</td>
+            <td>Se han elaborado vídeo tutoriales.</td>
+          </tr>
+        </table>
+      </details>
+    </td>
+  </tr>    
+  <tr>
+    <td>RA. 7:</td>
+    <td>
+      Elabora presentaciones multimedia describiendo y aplicando normas básicas de composición y diseño.
+      <details>
+        <summary>Ver los criterios de evaluación</summary>
+        <table>
+          <tr>
+            <td>a)</td>
+            <td>Se han identificado las opciones básicas de las aplicaciones de presentaciones.</td>
+          </tr>
+          <tr>
+            <td>b)</td>
+            <td>Se han reconocido los distintos tipos de vista asociados a una presentación.</td>
+          </tr>
+          <tr>
+            <td>c)</td>
+            <td>Se han aplicado y reconocido las distintas tipografías y normas básicas de composición, diseño y       utilización del color.</td>
+          </tr>
+          <tr>
+            <td>d)</td>
+            <td>Se han diseñado plantillas de presentaciones.</td>
+          </tr>
+          <tr>
+            <td>e)</td>
+            <td>Se han creado presentaciones.</td>
+          </tr>
+          <tr>
+            <td>f)</td>
+            <td>Se han utilizado periféricos para ejecutar presentaciones.</td>
+          </tr>
+        </table>
+      </details>
+    </td>
+  </tr>
+  <tr>
+    <td>RA. 8:</td>
+    <td>
+      Realiza operaciones de gestión del correo y la agenda electrónica, relacionando necesidades de uso con su configuración.
+      <details>
+        <summary>Ver los criterios de evaluación</summary>
+        <table>
+          <tr>
+            <td>a)</td>
+            <td>Se han descrito los elementos que componen un correo electrónico.</td>
+          </tr>
+          <tr>
+            <td>b)</td>
+            <td>Se han analizado las necesidades básicas de gestión de correo y agenda electrónica.</td>
+          </tr>
+          <tr>
+            <td>c)</td>
+            <td>Se han configurado distintos tipos de cuentas de correo electrónico.</td>
+          </tr>
+          <tr>
+            <td>d)</td>
+            <td>Se han conectado y sincronizado agendas del equipo informático con dispositivos móviles.</td>
+          </tr>
+          <tr>
+            <td>e)</td>
+            <td>Se ha operado con la libreta de direcciones.</td>
+          </tr>
+          <tr>
+            <td>f)</td>
+            <td>Se ha trabajado con todas las opciones de gestión de correo electrónico (etiquetas, filtros,   carpetas, entre otros).</td>
+          </tr>
+          <tr>
+            <td>g)</td>
+            <td>Se han utilizado opciones de agenda electrónica.</td>
+          </tr>
+        </table>
+      </details>
+    </td>
+  </tr>    
+  <tr>
+    <td>RA. 9:</td>
+    <td>
+      Aplica técnicas de soporte en el uso de aplicaciones, identificando y resolviendo incidencias. 
+      <details>
+        <summary>Ver los criterios de evaluación</summary>
+        <table>
+          <tr>
+            <td>a)</td>
+            <td>Se han elaborado guías visuales con los conceptos básicos de uso de una aplicación.</td>
+          </tr>
+          <tr>
+            <td>b)</td>
+            <td>Se han identificado problemas relacionados con el uso de aplicaciones ofimáticas.</td>
+          </tr>
+          <tr>
+            <td>c)</td>
+            <td>Se han utilizado manuales de usuario para instruir en el uso de aplicaciones.</td>
+          </tr>
+          <tr>
+            <td>d)</td>
+            <td>Se han aplicado técnicas de asesoramiento en el uso de aplicaciones.</td>
+          </tr>
+          <tr>
+            <td>e)</td>
+            <td>Se han realizado informes de incidencias.</td>
+          </tr>
+          <tr>
+            <td>f)</td>
+            <td>Se han aplicado los procedimientos necesarios para salvaguardar la información y su recuperación.</td>
+          </tr>
+          <tr>
+            <td>g)</td>
+            <td>Se han utilizado los recursos disponibles (documentación técnica, ayudas en línea, soporte     técnico, entre otros) para solventar incidencias.</td>
+          </tr>
+          <tr>
+            <td>h)</td>
+            <td>Se han solventando las incidencias en el tiempo adecuado y con el nivel de calidad esperado.</td>
+          </tr>
+        </table>
+      </details>
+    </td>
+  </tr>    
+</table>
+
+<br> -->
+
+<h3 id="relacion-entre-criterios-de-evaluacion-y-resultados-de-aprendizaje">Relación entre Criterios de Evaluación y Resultados de Aprendizaje</h3>
+<p><strong>Los criterios de evaluación</strong> asociados a los <strong>resultados de aprendizaje</strong> son los siguientes</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:9"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">RA 1</label><label for="__tabbed_1_2">RA 2</label><label for="__tabbed_1_3">RA 3</label><label for="__tabbed_1_4">RA 4</label><label for="__tabbed_1_5">RA 5</label><label for="__tabbed_1_6">RA 6</label><label for="__tabbed_1_7">RA 7</label><label for="__tabbed_1_8">RA 8</label><label for="__tabbed_1_9">RA 9</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>RA1. Instala y actualiza aplicaciones ofimáticas, interpretando especificaciones y describiendo los pasos a seguir en el proceso.</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>a)</strong> Se han identificado y establecido las fases del proceso de instalación.</td>
+<td>15%</td>
+</tr>
+<tr>
+<td><strong>b)</strong> Se han respetado las especificaciones técnicas del proceso de instalación.</td>
+<td>15%</td>
+</tr>
+<tr>
+<td><strong>c)</strong> Se han configurado las aplicaciones según los criterios establecidos.</td>
+<td>15%</td>
+</tr>
+<tr>
+<td><strong>d)</strong> Se han documentado las incidencias.</td>
+<td>5%</td>
+</tr>
+<tr>
+<td><strong>e)</strong> Se han solucionado problemas en la instalación o integración con el sistema informático.</td>
+<td>10%</td>
+</tr>
+<tr>
+<td><strong>f)</strong> Se han eliminado y/o añadido componentes de la instalación en el equipo.</td>
+<td>15%</td>
+</tr>
+<tr>
+<td><strong>g)</strong> Se han actualizado las aplicaciones.</td>
+<td>10%</td>
+</tr>
+<tr>
+<td><strong>h)</strong> Se han respetado las licencias software.</td>
+<td>10%</td>
+</tr>
+<tr>
+<td><strong>i)</strong> Se han propuesto soluciones software para entornos de aplicación</td>
+<td>5%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>RA2. Elabora documentos y plantillas, describiendo y aplicando las opciones avanzadas de procesadores de textos.</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>a)</strong> Se ha personalizado las opciones de software y barra de herramientas.</td>
+<td>15%</td>
+</tr>
+<tr>
+<td><strong>b)</strong> Se han utilizado los elementos básicos en la elaboración de documentos.</td>
+<td>25%</td>
+</tr>
+<tr>
+<td><strong>c)</strong> Se han diseñado plantillas.</td>
+<td>10%</td>
+</tr>
+<tr>
+<td><strong>d)</strong> Se han utilizado aplicaciones y periféricos para introducir textos e imágenes.</td>
+<td>15%</td>
+</tr>
+<tr>
+<td><strong>e)</strong> Se han importado y exportado documentos creados con otras aplicaciones y en otros formatos.</td>
+<td>15%</td>
+</tr>
+<tr>
+<td><strong>f)</strong> Se han creado y utilizado macros en la realización de documentos.</td>
+<td>10%</td>
+</tr>
+<tr>
+<td><strong>g)</strong> Se han elaborado manuales específicos.</td>
+<td>10%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>RA3. Elabora documentos y plantillas de cálculo, describiendo y aplicando opciones avanzadas de hojas     de cálculo.</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>a)</strong> Se ha personalizado las opciones de software y barra de herramientas.</td>
+<td>10%</td>
+</tr>
+<tr>
+<td><strong>b)</strong> Se han utilizado los elementos básicos en la elaboración de hojas de cálculo.</td>
+<td>15%</td>
+</tr>
+<tr>
+<td><strong>c)</strong> Se han utilizado los diversos tipos de datos y referencia para celdas, rangos, hojas y     libros.</td>
+<td>10%</td>
+</tr>
+<tr>
+<td><strong>d)</strong> Se han aplicado fórmulas y funciones.</td>
+<td>15%</td>
+</tr>
+<tr>
+<td><strong>e)</strong> Se han generado y modificado gráficos de diferentes tipos.</td>
+<td>10%</td>
+</tr>
+<tr>
+<td><strong>f)</strong> Se han empleado macros para la realización de documentos y plantillas.</td>
+<td>10%</td>
+</tr>
+<tr>
+<td><strong>g)</strong> Se han importado y exportado hojas de cálculo creadas con otras aplicaciones y en otros         formatos.</td>
+<td>10%</td>
+</tr>
+<tr>
+<td><strong>h)</strong> Se ha utilizado la hoja de cálculo como base de datos: formularios, creación de listas,         filtrado, protección y ordenación de datos.</td>
+<td>10%</td>
+</tr>
+<tr>
+<td><strong>i)</strong> Se han utilizado aplicaciones y periféricos para introducir textos,números, códigos e     imágenes.</td>
+<td>10%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>RA4. Elabora documentos con bases de datos ofimáticas describiendo y aplicando operaciones de    manipulación de datos.</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>a)</strong> Se han identificado los elementos de las bases de datos relacionales.</td>
+<td>10%</td>
+</tr>
+<tr>
+<td><strong>b)</strong> Se han creado bases de datos ofimáticas.</td>
+<td>15%</td>
+</tr>
+<tr>
+<td><strong>c)</strong> Se han utilizado las tablas de la base de datos (insertar, modificar y eliminar registros).</td>
+<td>10%</td>
+</tr>
+<tr>
+<td><strong>d)</strong> Se han utilizado asistentes en la creación de consultas.</td>
+<td>15%</td>
+</tr>
+<tr>
+<td><strong>e)</strong> Se han utilizado asistentes en la creación de formularios.</td>
+<td>15%</td>
+</tr>
+<tr>
+<td><strong>f)</strong> Se han utilizado asistentes en la creación de informes.</td>
+<td>15%</td>
+</tr>
+<tr>
+<td><strong>g)</strong> Se ha realizado búsqueda y filtrado sobre la información almacenada.</td>
+<td>15%</td>
+</tr>
+<tr>
+<td><strong>h)</strong> Se han creado y utilizado macros.</td>
+<td>10%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>RA5. Manipula imágenes digitales analizando las posibilidades de distintos programas y aplicando     técnicas de captura y edición básicas.</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>a)</strong> Se han analizado los distintos formatos de imágenes.</td>
+<td>22,5%</td>
+</tr>
+<tr>
+<td><strong>b)</strong> Se ha realizado la adquisición de imágenes con periféricos.</td>
+<td>22,5%</td>
+</tr>
+<tr>
+<td><strong>c)</strong> Se ha trabajado con imágenes a diferentes resoluciones, según su finalidad.</td>
+<td>22,5%</td>
+</tr>
+<tr>
+<td><strong>d)</strong> Se han empleado herramientas para la edición de imagen digital.</td>
+<td>22,5%</td>
+</tr>
+<tr>
+<td><strong>e)</strong> Se han importado y exportado imágenes en diversos formatos.</td>
+<td>10%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>RA6. Manipula secuencias de video analizando las posibilidades de distintos programas y aplicando     écnicas de captura y edición básicas.</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>a)</strong> Se han reconocido los elementos que componen una secuencia de video.</td>
+<td>20%</td>
+</tr>
+<tr>
+<td><strong>b)</strong> Se han estudiado los tipos de formatos y códecs más empleados.</td>
+<td>20%</td>
+</tr>
+<tr>
+<td><strong>c)</strong> Se han importado y exportado secuencias de video.</td>
+<td>20%</td>
+</tr>
+<tr>
+<td><strong>d)</strong> Se han capturado secuencias de video con recursos adecuados.</td>
+<td>20%</td>
+</tr>
+<tr>
+<td><strong>e)</strong> Se han elaborado video tutoriales.</td>
+<td>20%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>RA7. Elabora presentaciones multimedia describiendo y aplicando normas básicas de composición y    diseño.</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>a)</strong> Se han identificado las opciones básicas de las aplicaciones de presentaciones.</td>
+<td>15%</td>
+</tr>
+<tr>
+<td><strong>b)</strong> Se han reconocido los distintos tipos de vista asociados a una presentación.</td>
+<td>10%</td>
+</tr>
+<tr>
+<td><strong>c)</strong> Se han aplicado y reconocido las distintas tipografías y normas básicas de composición, diseño    y utilización del color.</td>
+<td>20%</td>
+</tr>
+<tr>
+<td><strong>d)</strong> Se han diseñado plantillas de presentaciones.</td>
+<td>20%</td>
+</tr>
+<tr>
+<td><strong>e)</strong> Se han creado presentaciones.</td>
+<td>30%</td>
+</tr>
+<tr>
+<td><strong>f)</strong> Se han utilizado periféricos para ejecutar presentaciones.</td>
+<td>5%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>RA8. Realiza operaciones de gestión del correo y la agenda electrónica, relacionando necesidades de    uso con su configuración.</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>a)</strong> Se han descrito los elementos que componen un correo electrónico.</td>
+<td>5%</td>
+</tr>
+<tr>
+<td><strong>b)</strong> Se han analizado las necesidades básicas de gestión de correo y agenda electrónica.</td>
+<td>20%</td>
+</tr>
+<tr>
+<td><strong>c)</strong> Se han configurado distintos tipos de cuentas de correo electrónico.</td>
+<td>20%</td>
+</tr>
+<tr>
+<td><strong>d)</strong> Se han conectado y sincronizado agendas del equipo informático con dispositivos móviles.</td>
+<td>15%</td>
+</tr>
+<tr>
+<td><strong>e)</strong> Se ha operado con la libreta de direcciones.</td>
+<td>5%</td>
+</tr>
+<tr>
+<td><strong>f)</strong> Se ha trabajado con todas las opciones de gestión de correo electrónico (etiquetas, filtros,    carpetas, entre otros).</td>
+<td>30%</td>
+</tr>
+<tr>
+<td><strong>g)</strong> Se han utilizado opciones de agenda electrónica.</td>
+<td>5%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>RA9. Aplica técnicas de soporte en el uso de aplicaciones, identificando y resolviendo incidencias.</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>a)</strong> Se han elaborado guías visuales con los conceptos básicos de uso de una aplicación.</td>
+<td>5%</td>
+</tr>
+<tr>
+<td><strong>b)</strong> Se han identificado problemas relacionados con el uso de aplicaciones ofimáticas.</td>
+<td>25%</td>
+</tr>
+<tr>
+<td><strong>c)</strong> Se han utilizado manuales de usuario para instruir en el uso de aplicaciones.</td>
+<td>5%</td>
+</tr>
+<tr>
+<td><strong>d)</strong> Se han aplicado técnicas de asesoramiento en el uso de aplicaciones.</td>
+<td>10%</td>
+</tr>
+<tr>
+<td><strong>e)</strong> Se han realizado informes de incidencias.</td>
+<td>5%</td>
+</tr>
+<tr>
+<td><strong>f)</strong> Se han aplicado los procedimientos necesarios para salvaguardar la información y su     recuperación.</td>
+<td>20%</td>
+</tr>
+<tr>
+<td><strong>g)</strong> Se han utilizado los recursos disponibles (documentación técnica, ayudas en línea, soporte    técnico, entre otros) para solventar incidencias.</td>
+<td>20%</td>
+</tr>
+<tr>
+<td><strong>h)</strong> Se han solventado las incidencias en el tiempo adecuado y con el nivel adecuado.</td>
+<td>10%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<h3 id="responsable-evaluacion-de-los-resultados-de-aprendizaje">Responsable evaluación de los Resultados de Aprendizaje</h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:9"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><input id="__tabbed_2_9" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">RA 1</label><label for="__tabbed_2_2">RA 2</label><label for="__tabbed_2_3">RA 3</label><label for="__tabbed_2_4">RA 4</label><label for="__tabbed_2_5">RA 5</label><label for="__tabbed_2_6">RA 6</label><label for="__tabbed_2_7">RA 7</label><label for="__tabbed_2_8">RA 8</label><label for="__tabbed_2_9">RA 9</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Tutor prácticas (Empresa). </p>
+</div>
+<div class="tabbed-block">
+<p>Profesor módulo (Instituto).</p>
+</div>
+<div class="tabbed-block">
+<p>Profesor módulo (Instituto).</p>
+</div>
+<div class="tabbed-block">
+<p>Profesor módulo (Instituto).</p>
+</div>
+<div class="tabbed-block">
+<p>Profesor módulo (Instituto).</p>
+</div>
+<div class="tabbed-block">
+<p>Profesor módulo (Instituto).</p>
+</div>
+<div class="tabbed-block">
+<p>Profesor módulo (Instituto).</p>
+</div>
+<div class="tabbed-block">
+<p>Tutor prácticas (Empresa).</p>
+</div>
+<div class="tabbed-block">
+<p>Tutor prácticas (Empresa).    </p>
+</div>
+</div>
+</div>
+<h2 id="secuenciacion-y-duracion-de-cada-unidad-de-trabajo">Secuenciación y duración de cada Unidad de Trabajo</h2>
+<div style="text-align:center;">
+<pre class="mermaid"><code>flowchart TB 
+  A["Instalación de aplicaciones ofimáticas"]
+  B["Elaboración de documentos y plantillas mediante procesadores de texto"]
+  C["Elaboración de documentos y plantillas mediante hojas de cálculo"]
+  D["Utilización de bases de datos ofimáticas"]
+  E["Manipulación de imágenes"]
+  F["Manipulación de vídeos"]
+  G["Elaboración de presentaciones"]
+  H["Gestión de correo y agenda electrónica"]
+  I["Aplicación de técnicas de soporte"]
+  AA["8h"]
+  BB["40h"]
+  CC["40h"]
+  DD["40h"]
+  EE["28h"]
+  FF["28h"]
+  GG["20h"]
+  HH["12h"]
+  II["8h"]
+
+  subgraph **Orden y duración de las UT**
+
+    subgraph **UT9** 
+      direction LR
+      I --&gt; II
+    end
+
+    subgraph **UT8**  
+      direction LR
+      H --&gt; HH
+    end
+
+    subgraph **UT7**  
+      direction LR
+      G --&gt; GG
+    end
+
+    subgraph **UT6**  
+      direction LR
+      F --&gt; FF
+    end
+
+    subgraph **UT5**  
+      direction LR
+      E --&gt; EE
+    end
+
+    subgraph **UT4**  
+      direction LR
+      D --&gt; DD
+    end
+
+    subgraph **UT3**  
+      direction LR
+      C --&gt; CC
+    end
+
+    subgraph **UT2** 
+      direction LR
+      B --&gt; BB
+    end  
+
+    subgraph **UT1** 
+      direction LR
+      A --&gt; AA
+    end
+
+  end</code></pre>
+</div>
+
+<table>
+<thead>
+<tr>
+<th><strong>Licencia Creative Commons:</strong></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="by-nc-nd-eu_"><img alt="alt text" src="../../../../assets/by-nc-nd-eu_.png" /></td>
+<td><strong>Reconocimiento-NoComercial-CompartirIgual CC BY-NC-SA:</strong>  No se permite un uso comercial de la obra original ni de las posibles obras derivadas, la distribución de la cuales se debe hace con una licencia igual a la que regula la obra original.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 - Javier Egea Blasco
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.instant.preview", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "toc.follow", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "search.share", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>

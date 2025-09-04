@@ -1,0 +1,1648 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Javier Egea Blasco">
+      
+      
+        <link rel="canonical" href="https://javieregeablasco.github.io/Apuntes/DAW/DAW_2/AWS/UT.%201-Introduccion/">
+      
+      
+        <link rel="prev" href="../UT.%200-Temario/">
+      
+      
+        <link rel="next" href="../UT.%202-AWS/">
+      
+      
+      <link rel="icon" href="../../../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>CFGS - Desarrollo de Aplicaciones Web - Javier Egea Blasco</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#fundamentos-de-la-computacion-en-la-nube" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../../../.." title="Javier Egea Blasco" class="md-header__button md-logo" aria-label="Javier Egea Blasco" data-md-component="logo">
+      
+  <img src="../../../../assets/mre.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Javier Egea Blasco
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              CFGS - Desarrollo de Aplicaciones Web
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Compartir" aria-label="Compartir" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../SMX/SMX_1/AO/00_Temario/" class="md-tabs__link">
+          
+  
+  
+  Aplicaciones Ofimáticas
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../SMX/SMX_2/Opt_Python/00_Temario/" class="md-tabs__link">
+          
+  
+  
+  Programación en Python
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../FPB/FPB_1/MMSCI/UT.0-Temario/" class="md-tabs__link">
+          
+  
+  
+  MMSCI
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../UT.%200-Temario/" class="md-tabs__link">
+          
+  
+  
+  Cloud Computing
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Javier Egea Blasco" class="md-nav__button md-logo" aria-label="Javier Egea Blasco" data-md-component="logo">
+      
+  <img src="../../../../assets/mre.png" alt="logo">
+
+    </a>
+    Javier Egea Blasco
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Aplicaciones Ofimáticas
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Aplicaciones Ofimáticas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_1/AO/00_Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Presentación módulo
+    
+      <br>
+      <small>Aplicaciones ofimáticas</small>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_1/AO/01_Instalacion%20de%20aplicaciones%20ofimaticas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 1
+    
+      <br>
+      <small>Módulo: 0223 - Aplicaciones ofimáticas</small>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    UT 2 - Procesadores de texto
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            UT 2 - Procesadores de texto
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_1/AO/02_Procesadores_de_texto/021_Procesadores_de_texto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 21 - Características de los procesadores de texto
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_1/AO/02_Procesadores_de_texto/022_LibreOffice_Writer_Instalacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 22 - Instalación de LibreOffice Writer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_1/AO/02_Procesadores_de_texto/023_LibreOffice_Writer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 23 - LibreOffice Writer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Programación en Python
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Programación en Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_2/Opt_Python/00_Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Presentación módulo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_2/Opt_Python/01_Introduccion_a_la_programacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 1 Introducción a la programación
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_2/Opt_Python/02_Python_Presentacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 2 Python, instalación y IDE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_2/Opt_Python/03_Python_Basico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 3 Elementos básicos de Python
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    MMSCI
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            MMSCI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../FPB/FPB_1/MMSCI/UT.0-Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT0
+    
+      <br>
+      <small>Montaje y mantenimiento de sistemas y componentes informáticos</small>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Cloud Computing
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Cloud Computing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UT.%200-Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Presentación módulo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    UT 1 Introducción al Cloud Computing
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 1 Introducción al Cloud Computing
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#arquitecturas-empresariales" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arquitecturas empresariales
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Arquitecturas empresariales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introducción
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arquitecturas-on-premise" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arquitecturas on premise
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arquitecturas-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arquitecturas cloud
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloud-computing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cloud computing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cloud computing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#introduccion_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introducción
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beneficios-de-la-computacion-en-la-nube" class="md-nav__link">
+    <span class="md-ellipsis">
+      Beneficios de la computación en la nube
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#servicios-en-la-nube" class="md-nav__link">
+    <span class="md-ellipsis">
+      Servicios en la nube
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Servicios en la nube">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#iaas-infrastructure-as-a-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      Iaas (Infrastructure as a Service)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paas-platform-as-a-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      PaaS (Platform as a Service)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#saas-software-as-a-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      SaaS (Software as a Service)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modelo-de-responsabilidad-compartida" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modelo de responsabilidad compartida
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plataformas-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      Plataformas Cloud
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Plataformas Cloud">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#proveedores-de-nube-publica" class="md-nav__link">
+    <span class="md-ellipsis">
+      Proveedores de nube pública
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nube-privada" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nube privada
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplos-de-proveedores-segun-tipo-de-servicio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplos de proveedores según tipo de servicio
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estado-actual-del-mercado-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      Estado actual del mercado Cloud
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Estado actual del mercado Cloud">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cuotas-de-mercado-globales" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cuotas de mercado globales
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#principales-proveedores-y-posicion-global" class="md-nav__link">
+    <span class="md-ellipsis">
+      Principales proveedores y posición global
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proveedores-europeos-ej-ovhcloud-sap-deutsche-telekom" class="md-nav__link">
+    <span class="md-ellipsis">
+      Proveedores europeos (ej. OVHcloud, SAP, Deutsche Telekom)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mercado-en-espana" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mercado en España
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enlaces-de-interes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enlaces de interés
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UT.%202-AWS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 2 AWS - Amazon Web Services
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UT.%203-AWS%20Academy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 3 AWS Academy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UT.%204-Infraestructura/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 4 Infraestruturas en AWS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UT.%205-Instancias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 5 Instancias y grupos de seguridad
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="fundamentos-de-la-computacion-en-la-nube"><strong>Fundamentos de la computación en la nube</strong></h1>
+<p><img alt="Descripción de la imagen" class="cincozero" src="../img/01cloud.png" />
+<br></p>
+<h2 id="arquitecturas-empresariales"><strong>Arquitecturas empresariales</strong></h2>
+<h3 id="introduccion"><strong>Introducción</strong></h3>
+<p>En el entorno empresarial, la infraestructura de TI es un componente crítico para el funcionamiento de cualquier organización. Tradicionalmente, las empresas gestionaban sus propios servidores, almacenamiento y redes, adoptando lo que se conoce como <strong>arquitectura on-premises</strong>. Este enfoque permite <strong>un control total</strong> sobre los recursos y la seguridad, pero también implica altos costos de mantenimiento, actualización y escalabilidad.</p>
+<p>Con la llegada del <strong>cloud computing</strong>, las organizaciones pueden acceder a recursos de computación, almacenamiento y aplicaciones de manera flexible, escalable y bajo demanda, sin necesidad de poseer físicamente toda la infraestructura. Este cambio ha dado lugar a distintos modelos de arquitectura empresarial que combinan recursos internos y servicios en la nube, permitiendo a las empresas optimizar costos, mejorar la disponibilidad y adaptarse rápidamente a nuevas necesidades tecnológicas.</p>
+<h3 id="arquitecturas-on-premise"><strong>Arquitecturas on premise</strong></h3>
+<p>También llamadas in-house, son aquellas en las que la empresa adquiere y gestiona directamente el hardware y la infraestructura de TI. En este modelo, la organización tiene control total sobre los recursos, la seguridad y la configuración, pero también asume la responsabilidad completa del mantenimiento, las actualizaciones y la escalabilidad de sus sistemas.</p>
+<h3 id="arquitecturas-cloud"><strong>Arquitecturas cloud</strong></h3>
+<p>En este caso, parte o la totalidad de los recursos están virtualizados y no son propiedad directa de la empresa, sino que se consumen como servicios ofrecidos por un proveedor externo. Dicho de otra manera, con las arquitecturas cloud, podemos dejar de considerar la arquitectura como un conjunto físico de hardware y verla como un servicio basado en software.</p>
+<p>Dentro del ámbito de las nubes, podemos distinguir entre:</p>
+<ul>
+<li>
+<p><strong>Nube pública</strong><br />
+Los recursos virtualizados son compartidos entre varios clientes y se accede a ellos a través de internet. Pertenecen y son administrados por un proveedor de servicios en la nube, que ofrece capacidad de cómputo, almacenamiento y otros recursos de forma flexible, rápida y con pago por uso o suscripción.</p>
+</li>
+<li>
+<p><strong>Nube privada</strong><br />
+Los recursos virtualizados son exclusivos de una única organización y se ejecutan en un entorno dedicado, que puede estar alojado en las instalaciones de la empresa o gestionado por un tercero en un centro de datos externo. Se accede normalmente mediante redes privadas o conexiones seguras, y proporciona mayor control y personalización.</p>
+</li>
+<li>
+<p><strong>Arquitecturas híbridas</strong><br />
+Combinan elementos de la nube privada y la nube pública, ofreciendo gran flexibilidad para ejecutar cargas de trabajo en el entorno más adecuado según cada necesidad.</p>
+<p><strong>1.</strong> Permiten que las aplicaciones críticas y los datos confidenciales se mantengan en entornos privados, mientras que aplicaciones menos sensibles, entornos de prueba o picos de demanda pueden aprovechar recursos públicos.</p>
+<p><strong>2.</strong> Este modelo es muy común, ya que facilita una migración progresiva hacia la nube, coexistiendo con la infraestructura ya existente (on premise) y permitiendo ampliar recursos cuando sea necesario.</p>
+</li>
+</ul>
+<h2 id="cloud-computing"><strong>Cloud computing</strong></h2>
+<p><img alt="" class="original" src="../ut1/cloudcomputing.png" /></p>
+<h3 id="introduccion_1"><strong>Introducción</strong></h3>
+<p>El cloud computing o <strong>computación en la nube</strong> es la entrega de recursos informáticos, como servidores, almacenamiento, bases de datos, software y redes, <strong>a través de Internet</strong> a cambio de <strong>pago por uso</strong>. </p>
+<p>Este modelo permite a las organizaciones y a los usuarios acceder a multitud de servicios, de forma remota, <strong>eliminando la necesidad de gestionar</strong> su propia infraestructura física y reduciendo los costes operativos. </p>
+<h3 id="beneficios-de-la-computacion-en-la-nube"><strong>Beneficios de la computación en la nube</strong></h3>
+<p><img alt="" class="sietecinco" src="../ut1/cloudbenefits.png" /></p>
+<ul>
+<li>
+<p>Flexibilidad y accesibilidad: Los servicios se pueden acceder desde cualquier lugar del mundo. Los recursos se pueden ajustar fácilmente a las necesidades de la empresa/proyecto, de manera casi instantánea.</p>
+</li>
+<li>
+<p>Escalabilidad: Los recursos informáticos pueden aumentarse o disminuirse rápidamente según las necesidades de cada momento.</p>
+</li>
+<li>
+<p>Actualizaciones automáticas: Los servicios en la nube mejoran y se actualizan con regularidad. Ya no es necesario, sustituir, descargar o instalar nada.</p>
+</li>
+<li>
+<p>Reducción de costes iniciales: Eliminación de los gastos de compra y mantenimiento de hardware y software. En caso de necesitar más recursos, se puede ampliar la infraestrutura que hemos desplegado con solo <strong>unos pocos clics</strong>. </p>
+</li>
+<li>
+<p>Cálculo de costes de manera predictiva ya que sólo se paga por los recursos que se utilizan.</p>
+</li>
+<li>
+<p>Pago por uso: Solo se paga por el tiempo de uso (cantidad + capacidad) de los recursos informáticos que hemos contratado. </p>
+</li>
+<li>
+<p>Facilita el mantenimiento de los datos: Con el cloud computing los datos siempre están disponibles independietemento del dispositivo utilizado. </p>
+</li>
+<li>
+<p>Mejora de la latencia: al estar los recursos distribuidos globalmente, se puede desplegar la aplicación en regiones cercanas a los usuarios, reduciendo el tiempo de respuesta.</p>
+</li>
+<li>
+<p>Impacto ambiental: Al reducir la necesidad de hardware físico y centros de datos locales, se disminuye la demanda de energía y recursos, contribuyendo así a la sostenibilidad del medio ambiente.</p>
+</li>
+<li>
+<p>Alcance global: cualquier usuario autorizado puede acceder o actualizar información desde cualquier lugar del mundo, en cualquier momento y mediante cualquier dispositivo.</p>
+</li>
+<li>
+<p>Alta disponibilidad: capacidad de una aplicación para seguir operativa incluso ante fallos, gracias a la redundancia de recursos en varias zonas y servidores.</p>
+</li>
+<li>
+<p>Tolerancia a fallos, ya que ofrecen una arquitectura de respaldo de copias de seguridad y a prueba de ataques.</p>
+</li>
+</ul>
+<div class="admonition question">
+<p class="admonition-title">Pregunta</p>
+<p>¿Cuales pueden ser los inconvenientes de contratar los servicios en la nube?</p>
+</div>
+<h3 id="servicios-en-la-nube"><strong>Servicios en la nube</strong></h3>
+<p>En el modelo de computación en la nube, los recursos informáticos se ofrecen como <strong>servicios</strong>, lo que permite a las empresas y usuarios acceder a una infraestructura, plataformas y aplicaciones sin necesidad de adquirir y mantener hardware o software propios.</p>
+<p><img alt="Descripción de la imagen" class="cincozero" src="../img/servicios.png" /></p>
+<p>Estos servicios se organizan en distintos niveles según el grado de control y responsabilidad del usuario:</p>
+<ul>
+<li>
+<p><strong>IaaS</strong> (Infrastructure as a Service)</p>
+</li>
+<li>
+<p><strong>PaaS</strong> (Platform as a Service)</p>
+</li>
+<li>
+<p><strong>SaaS</strong> (Software as a Service)</p>
+</li>
+</ul>
+<p>Cada modelo responde a distintas necesidades y niveles de gestión, desde el mayor control <strong>IaaS</strong> hasta la mayor comodidad y abstracción <strong>SaaS</strong>.</p>
+<p><img alt="Descripción de la imagen" class="sietecinco" src="../img/paasiaassaas.png" />
+<br></p>
+<h4 id="iaas-infrastructure-as-a-service">Iaas (Infrastructure as a Service)</h4>
+<ol>
+<li>
+<p>La infraestructura como servicio (IaaS) es la categoría más flexible de servicios en la nube, ya que proporciona la cantidad máxima de control para los recursos en la nube.<br />
+En un modelo IaaS, <strong>el proveedor</strong> de nube es responsable de mantener el hardware, la conectividad de red (a Internet) y la seguridad física. </p>
+</li>
+<li>
+<p><strong>El cliente es responsable de todo lo demás</strong> (Instalación, configuración y mantenimiento del sistema operativo, configuración de red, configuración de base de datos y almacenamiento, etc).</p>
+</li>
+<li>
+<p>Con IaaS, básicamente se está alquilando el hardware en un centro de datos en la nube, pero lo que hace con ese hardware le corresponde al cliente. </p>
+</li>
+</ol>
+<h4 id="paas-platform-as-a-service">PaaS (Platform as a Service)</h4>
+<ol>
+<li>
+<p>La plataforma como servicio (PaaS) se sitúa entre el alquiler de infraestructura (IaaS) y el uso de aplicaciones completamente gestionadas (SaaS).</p>
+</li>
+<li>
+<p>En este modelo, el proveedor cloud ofrece no solo la infraestructura, sino también una plataforma completa con entornos de desarrollo, servidores de aplicaciones, frameworks, bases de datos y herramientas de integración para que los usuarios puedan crear, probar y desplegar sus aplicaciones personalizadas.</p>
+</li>
+<li>
+<p>El cliente no necesita administrar el hardware, el sistema operativo, las licencias ni las actualizaciones de la plataforma, ya que el proveedor se encarga de su mantenimiento, escalabilidad y seguridad.</p>
+</li>
+<li>
+<p>La seguridad y calidad de la aplicación desarrollada sigue siendo responsabilidad del cliente.</p>
+</li>
+</ol>
+<h4 id="saas-software-as-a-service">SaaS (Software as a Service)</h4>
+<p>El modelo SaaS es el más completo desde el punto de vista del producto en la nube, ya que el usuario accede a una aplicación totalmente desarrollada y lista para usar.</p>
+<ol>
+<li>
+<p>El cliente no compra el software, sino que paga una suscripción o un modelo de pago por uso para acceder a la aplicación, normalmente a través de un navegador web, una app o incluso integraciones mediante API, desde cualquier dispositivo con conexión a internet.</p>
+</li>
+<li>
+<p>El proveedor administra todo: el software, la infraestructura subyacente, las actualizaciones, la disponibilidad y la seguridad. El cliente solo debe gestionar el uso de la aplicación (por ejemplo, configurar usuarios, permisos o datos).</p>
+</li>
+<li>
+<p>Aunque es el modelo menos flexible en cuanto a personalización, es el más fácil de implementar y requiere menos conocimientos técnicos.</p>
+</li>
+</ol>
+<div class="admonition question">
+<p class="admonition-title">Pregunta</p>
+<p>¿Qué servicio SaaS usamos a diario?</p>
+</div>
+<h3 id="modelo-de-responsabilidad-compartida"><strong>Modelo de responsabilidad compartida</strong></h3>
+<p>En cloud computing, el modelo de responsabilidad compartida define claramente qué tareas corresponden al proveedor de servicios en la nube y cuáles son responsabilidad del cliente, dependiendo del tipo de servicio contratado (IaaS, PaaS o SaaS).  </p>
+<p>La idea es que la seguridad y la gestión no son completamente delegadas: cada parte tiene un rol específico.</p>
+<p><br>
+<img alt="Descripción de la imagen" class="sietecinco" src="../img/respcomp.svg" />
+<br></p>
+<ul>
+<li>
+<p><strong>IaaS (Infrastructure as a Service)</strong><br />
+<strong>Proveedor:</strong> administra centros de datos, servidores, almacenamiento, red, virtualización y, en muchos casos, la seguridad física y de la plataforma.</p>
+<p><strong>Cliente:</strong> gestiona sistemas operativos, parches, configuraciones de red (firewalls, reglas), aplicaciones, datos, copias de seguridad y gestión de identidades.</p>
+</li>
+<li>
+<p><strong>PaaS (Platform as a Service)</strong><br />
+<strong>Proveedor:</strong> gestiona todo lo anterior y añade plataformas de desarrollo, servidores de aplicaciones, bases de datos, middleware y entornos de ejecución.  </p>
+<p><strong>Cliente:</strong> es responsable del código, la lógica de negocio, la configuración de la aplicación y la protección de los datos que maneja.</p>
+</li>
+<li>
+<p><strong>SaaS (Software as a Service)</strong><br />
+<strong>Proveedor:</strong> gestiona la infraestructura, la plataforma y el software completo, incluyendo actualizaciones, mantenimiento y seguridad del servicio.</p>
+<p><strong>Cliente:</strong> se ocupa del uso correcto del software, la configuración de usuarios, permisos, cumplimiento normativo y la protección de la información que introduce.</p>
+</li>
+</ul>
+<p><strong>Importancia del modelo de responsabilidad compartida</strong>  </p>
+<ol>
+<li>Evita malentendidos: ayuda a saber quién debe actuar ante incidentes.  </li>
+<li>Mejora la seguridad: obliga a ambas partes a cumplir con sus responsabilidades.  </li>
+<li>Cumplimiento normativo: es clave en auditorías y certificaciones.</li>
+</ol>
+<h2 id="plataformas-cloud"><strong>Plataformas Cloud</strong></h2>
+<p><img alt="" class="cincozero" src="../ut1/cloudprovider.png" /></p>
+<p>Actualmente existen numerosos proveedores que ofrecen servicios en la nube, clasificados según el <strong>modelo de servicio</strong> (IaaS, PaaS, SaaS).<br />
+A continuación, se presentan los más conocidos y utilizados:  </p>
+<h3 id="proveedores-de-nube-publica"><strong>Proveedores de nube pública</strong></h3>
+<ul>
+<li>
+<p><strong>Amazon Web Services (AWS)</strong> – <a href="https://aws.amazon.com/es/">AWS</a><br />
+  Amazon fue uno de los primeros proveedores cloud y ha mantenido un crecimiento constante. AWS ofrece una plataforma confiable utilizada por miles de empresas en todo el mundo, con servicios en todas las capas (IaaS, PaaS y SaaS).  </p>
+</li>
+<li>
+<p><strong>Microsoft Azure</strong> – <a href="https://azure.microsoft.com">Azure</a><br />
+  Azure ha experimentado un fuerte crecimiento en los últimos años y ofrece una amplia gama de servicios en la nube, incluyendo IaaS, PaaS y SaaS.  </p>
+</li>
+<li>
+<p><strong>Google Cloud Platform (GCP)</strong> – <a href="https://cloud.google.com">Google</a><br />
+  Google tardó en consolidarse en el mercado cloud, pero actualmente GCP es ampliamente utilizada por grandes empresas, ofreciendo servicios tanto de infraestructura como de plataforma y aplicaciones.  </p>
+</li>
+</ul>
+<h3 id="nube-privada"><strong>Nube privada</strong></h3>
+<ul>
+<li>
+<p><strong>OpenStack</strong> – <a href="https://www.openstack.org">Openstack</a><br />
+  Es un proyecto de <strong>software de infraestructura en la nube de código abierto</strong>, ampliamente utilizado para crear nubes privadas. OpenStack es uno de los proyectos open source más activos y flexibles del mundo, permitiendo a las empresas controlar su infraestructura y mantener entornos privados seguros. </p>
+</li>
+<li>
+<p><strong>Pure Storage</strong> - <a href="https://www.purestorage.com/es/">Pure Storage</a>
+  Pure Storage es un proveedor de soluciones de almacenamiento en la nube privada con un enfoque en el rendimiento y la eficiencia. Ofrece una plataforma all-flash escalable y segura, reconocida durante diez años consecutivos como líder en el Cuadrante Mágico de Gartner para Almacenamiento Primario.</p>
+</li>
+<li>
+<p><strong>Cisco</strong> - <a href="https://www.cisco.com/c/en/us/solutions/cloud/index.html">Cisco</a>
+  Cisco destaca por su experiencia en redes y seguridad, ofreciendo infraestructuras de nube privada seguras y confiables. Ha colaborado con Pure Storage y NetApp en FlashStack, una solución de infraestructura convergente que integra entornos locales y en la nube.</p>
+</li>
+<li>
+<p><strong>IBM</strong> - <a href="https://www.ibm.com/es-es/cloud">IBM Cloud</a>
+  IBM combina su experiencia en la nube pública con soluciones de nube privada enfocadas en la seguridad y la gestión de datos. Ofrece a las organizaciones una plataforma confiable para integrar y administrar su información.</p>
+</li>
+<li>
+<p><strong>NetApp</strong> - <a href="https://www.netapp.com/es/">NetApp</a>
+  NetApp es líder en almacenamiento y gestión de datos en la nube privada. Sus soluciones priorizan la flexibilidad y la eficiencia, ofreciendo opciones como almacenamiento flash, híbrido y definido por software.</p>
+</li>
+</ul>
+<h3 id="ejemplos-de-proveedores-segun-tipo-de-servicio"><strong>Ejemplos de proveedores según tipo de servicio</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Tipo de Servicio</th>
+<th>Proveedor</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>IaaS</strong></td>
+<td>AWS EC2</td>
+<td>Máquinas virtuales con CPU, memoria y almacenamiento configurables.</td>
+</tr>
+<tr>
+<td></td>
+<td>Azure VMs</td>
+<td>Máquinas virtuales equivalentes en Microsoft Azure.</td>
+</tr>
+<tr>
+<td></td>
+<td>Google Compute Engine</td>
+<td>Máquinas virtuales equivalentes en Google Cloud.</td>
+</tr>
+<tr>
+<td><strong>PaaS</strong></td>
+<td>AWS RDS, AWS Lambda</td>
+<td>Servicios de bases de datos gestionadas y funciones <em>serverless</em>.</td>
+</tr>
+<tr>
+<td></td>
+<td>Google App Engine</td>
+<td>Plataforma para alojamiento y despliegue web.</td>
+</tr>
+<tr>
+<td></td>
+<td>Heroku</td>
+<td>Plataforma que permite desplegar aplicaciones en la nube de manera sencilla.</td>
+</tr>
+<tr>
+<td><strong>SaaS</strong></td>
+<td>Microsoft 365</td>
+<td>Paquete ofimático completo en la nube.</td>
+</tr>
+<tr>
+<td></td>
+<td>Aplicaciones web de Google</td>
+<td>Correo electrónico, calendario, almacenamiento y más.</td>
+</tr>
+<tr>
+<td></td>
+<td>Trello, Notion, GitHub, Dropbox, Spotify</td>
+<td>Gestión de tareas, repositorios de código, almacenamiento en la nube y servicios multimedia.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="estado-actual-del-mercado-cloud"><strong>Estado actual del mercado Cloud</strong></h2>
+<p>El <strong>cloud computing</strong> se ha consolidado como un pilar fundamental de la transformación digital, permitiendo a empresas de todos los tamaños acceder a recursos de computación bajo demanda. Los principales proveedores lideran un mercado global en constante crecimiento, con importantes inversiones estratégicas en países <a href="https://www.aboutamazon.es/noticias/aws/nueva-inversion-de-15700-millones-de-aws-en-espana">como España</a>.</p>
+<h3 id="cuotas-de-mercado-globales"><strong>Cuotas de mercado globales</strong></h3>
+<p><img alt="Descripción de la imagen" class="sietecinco" src="../img/share.webp" /></p>
+<p>Como podemos ver en la imagen, AWS sigue disponiendo de la mayor cuota de mercado, siguida cada vez más de cerca por Microsoft y su cloud Azure.</p>
+<h3 id="principales-proveedores-y-posicion-global"><strong>Principales proveedores y posición global</strong></h3>
+<p>En el cuarto trimestre de 2024, el gasto global en servicios en la nube <strong>aumentó un 20%</strong> interanual, alcanzando los 86 mil millones de dólares. Durante todo el año 2024, el gasto también creció un 20%, pasando de 267,7 mil millones de dólares en 2023 a 321,3 mil millones de dólares en 2024.</p>
+<p>El principal impulsor de este crecimiento fue la expansión de los modelos de inteligencia artificial (IA), que aceleró significativamente la adopción de la nube. Para la segunda mitad de 2024, los principales proveedores de nube reportaron retornos positivos de sus inversiones en IA, y las aplicaciones de IA tuvieron un impacto notable en el desempeño general de su negocio en la nube.</p>
+<p>A medida que la competencia en el mercado de IA se intensifica, los hiperescaladores de la nube planean aumentar aún más sus inversiones en infraestructura cloud y de IA en 2025 para satisfacer la creciente demanda.  </p>
+<p><strong>Amazon Web Services (AWS)</strong>  </p>
+<ul>
+<li><strong>Cuota de mercado global:</strong> 33% (Q4 2024)  </li>
+<li><strong>Facturación:</strong> &gt;$100.000.000.000$ (+19% interanual)  </li>
+<li><strong>Inversiones en España:</strong> $15 mil millones en 2024 para expandir infraestructura cloud y AI, 6,800 empleos generados.<br />
+<br></li>
+</ul>
+<p><strong>Microsoft Azure</strong>  </p>
+<ul>
+<li><strong>Cuota de mercado global:</strong> 20%    </li>
+<li><strong>Facturación:</strong> &gt;$75.000.000.000$ (+31% interanual)  </li>
+<li><strong>Inversiones en España:</strong> expansión de servicios cloud y AI<br />
+<br></li>
+</ul>
+<p><strong>Google Cloud</strong></p>
+<ul>
+<li><strong>Cuota de mercado global:</strong> 11%</li>
+<li><strong>Facturación:</strong> &gt;$50.000.000$ (+32% interanual)</li>
+<li><strong>Inversiones:</strong> contratos estratégicos de infraestructura cloud y AI, incluyendo acuerdos con grandes empresas
+<br></li>
+</ul>
+<h3 id="proveedores-europeos-ej-ovhcloud-sap-deutsche-telekom"><strong>Proveedores europeos (ej. OVHcloud, SAP, Deutsche Telekom)</strong></h3>
+<ul>
+<li><strong>Cuota de mercado en Europa:</strong> 15%</li>
+<li><strong>Inversiones en España:</strong> OVHcloud lanzó dos zonas locales de nube pública en Madrid, asegurando cumplimiento de residencia de datos
+<br></li>
+</ul>
+<h3 id="mercado-en-espana"><strong>Mercado en España</strong></h3>
+<ul>
+<li><strong>Tamaño estimado:</strong> $9.66 mil millones en 2025; crecerá a $21.84 mil millones en 2030 (Tasa anual 17.7%)</li>
+<li><strong>Tendencias:</strong> expansión de infraestructura cloud, servicios de AI y cumplimiento normativo.</li>
+</ul>
+<p><a href="https://www.canalys.com/newsroom/worldwide-cloud-service-q4-2024">Articulo completo</a> de canalsys.</p>
+<h2 id="enlaces-de-interes"><strong>Enlaces de interés</strong></h2>
+<p><a href=https://aws.amazon.com/es/getting-started/cloud-essentials>Conceptos básicos de la nube de AWS</a>.<br />
+<a href=https://es.wikipedia.org/wiki/Computaci%C3%B3n_en_la_nube>Wikipedia</a>.<br />
+<a href=https://learn.microsoft.com/es-es/training/paths/  microsoft-azure-fundamentals-describe-cloud-concepts>Microsoft Azure, conceptos de la nube</a>.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 - Javier Egea Blasco
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.instant.preview", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "toc.follow", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "search.share", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>

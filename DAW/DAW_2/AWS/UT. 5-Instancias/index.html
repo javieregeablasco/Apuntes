@@ -1,0 +1,1561 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Javier Egea Blasco">
+      
+      
+        <link rel="canonical" href="https://javieregeablasco.github.io/Apuntes/DAW/DAW_2/AWS/UT.%205-Instancias/">
+      
+      
+        <link rel="prev" href="../UT.%204-Infraestructura/">
+      
+      
+      
+      <link rel="icon" href="../../../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>CFGS - Desarrollo de Aplicaciones Web - Javier Egea Blasco</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduccion" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../../../.." title="Javier Egea Blasco" class="md-header__button md-logo" aria-label="Javier Egea Blasco" data-md-component="logo">
+      
+  <img src="../../../../assets/mre.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Javier Egea Blasco
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              CFGS - Desarrollo de Aplicaciones Web
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Compartir" aria-label="Compartir" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../SMX/SMX_1/AO/00_Temario/" class="md-tabs__link">
+          
+  
+  
+  Aplicaciones Ofimáticas
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../SMX/SMX_2/Opt_Python/00_Temario/" class="md-tabs__link">
+          
+  
+  
+  Programación en Python
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../FPB/FPB_1/MMSCI/UT.0-Temario/" class="md-tabs__link">
+          
+  
+  
+  MMSCI
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../UT.%200-Temario/" class="md-tabs__link">
+          
+  
+  
+  Cloud Computing
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Javier Egea Blasco" class="md-nav__button md-logo" aria-label="Javier Egea Blasco" data-md-component="logo">
+      
+  <img src="../../../../assets/mre.png" alt="logo">
+
+    </a>
+    Javier Egea Blasco
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Aplicaciones Ofimáticas
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Aplicaciones Ofimáticas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_1/AO/00_Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Presentación módulo
+    
+      <br>
+      <small>Aplicaciones ofimáticas</small>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_1/AO/01_Instalacion%20de%20aplicaciones%20ofimaticas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 1
+    
+      <br>
+      <small>Módulo: 0223 - Aplicaciones ofimáticas</small>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    UT 2 - Procesadores de texto
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            UT 2 - Procesadores de texto
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_1/AO/02_Procesadores_de_texto/021_Procesadores_de_texto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 21 - Características de los procesadores de texto
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_1/AO/02_Procesadores_de_texto/022_LibreOffice_Writer_Instalacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 22 - Instalación de LibreOffice Writer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_1/AO/02_Procesadores_de_texto/023_LibreOffice_Writer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 23 - LibreOffice Writer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Programación en Python
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Programación en Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_2/Opt_Python/00_Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Presentación módulo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_2/Opt_Python/01_Introduccion_a_la_programacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 1 Introducción a la programación
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_2/Opt_Python/02_Python_Presentacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 2 Python, instalación y IDE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_2/Opt_Python/03_Python_Basico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 3 Elementos básicos de Python
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    MMSCI
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            MMSCI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../FPB/FPB_1/MMSCI/UT.0-Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT0
+    
+      <br>
+      <small>Montaje y mantenimiento de sistemas y componentes informáticos</small>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Cloud Computing
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Cloud Computing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UT.%200-Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Presentación módulo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UT.%201-Introduccion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 1 Introducción al Cloud Computing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UT.%202-AWS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 2 AWS - Amazon Web Services
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UT.%203-AWS%20Academy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 3 AWS Academy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UT.%204-Infraestructura/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 4 Infraestruturas en AWS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    UT 5 Instancias y grupos de seguridad
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 5 Instancias y grupos de seguridad
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introducción
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instancias-ec2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instancias EC2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ami-amazon-machine-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      AMI (Amazon Machine Image)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AMI (Amazon Machine Image)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tipos-de-ami" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tipos de AMI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regiones-y-amis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Regiones y AMIs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#crear-una-ami" class="md-nav__link">
+    <span class="md-ellipsis">
+      Crear una AMI
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grupos-de-seguridad-y-acls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Grupos de seguridad y ACL's
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Grupos de seguridad y ACL&#39;s">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#introduccion_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introducción
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grupos-de-seguridad" class="md-nav__link">
+    <span class="md-ellipsis">
+      Grupos de seguridad
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acl-de-red" class="md-nav__link">
+    <span class="md-ellipsis">
+      ACL de red
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tabla-comparativa-entre-sg-y-acl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tabla comparativa entre SG y ACL
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tarea-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tarea 1:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tarea-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tarea 2:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amplicacio" class="md-nav__link">
+    <span class="md-ellipsis">
+      am,plicacio
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enlaces-de-interes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enlaces de interés
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>UT 5 Instancias y grupos de seguridad</h1>
+
+<p><img alt="Descripción de la imagen" class="sietecinco" src="../ut5/initi.png" />
+<br></p>
+<h2 id="introduccion"><strong>Introducción</strong></h2>
+<p>Uno de los servicios más utilizados de AWS es <strong>Amazon EC2 (Elastic Compute Cloud)</strong>, que permite lanzar y administrar <strong>instancias</strong>, es decir, <strong>máquinas virtuales</strong> que funcionan de manera similar a un ordenador físico.  </p>
+<p>Estas instancias pueden configurarse con distintos sistemas operativos, hardware para adaptarse a las necesidades de cada proyecto (aplicación web, base de datos...).</p>
+<p>Al igual que cualquier dispositivo, las instancias necesitan un mecanismo de control de tráfico para <strong>garantizar su seguridad</strong>. En este contexto aparecen los <strong>grupos de seguridad</strong> (Security Groups, SG). Un grupo de seguridad no es más que un firewall virtual, que supervisa (y restrinje) el tráfico entrante y saliente a las instancias.</p>
+<p>En conjunto, las EC2 y los SG constituyen la base de la infraestructura en la nube: las instancias proporcionan la capacidad de cómputo, mientras que los grupos de seguridad ofrecen la primera línea de defensa para proteger los recursos desplegados.</p>
+<h2 id="instancias-ec2"><strong>Instancias EC2</strong></h2>
+<p>Como hemos dicho, una instancia EC2 es básicamente una computadora en la nube. Al igual que los equipos físicos se caracterizan por una serie de características como la potencia de computo, su RAM y otras que veremos a continuación.</p>
+<p><strong>Nomenclatura de las instancias EC2</strong><br />
+El nombre de la instancia define las especificaciones de la misma es decir, la familia, la generación, la capacidad adicional y el tamaño.</p>
+<p><img alt="" class="doscinco" src="../ut5/ec2.webp" /></p>
+<ul>
+<li>
+<p><strong>Familia</strong><br />
+La familia define la optimización principal de la máquina, dicho en otras palabras, el uso preferente que debemos dar a esas máquinas.<br />
+C → Compute Optimized. Para cargas de trabajo que requieren mucha CPU (alta relación CPU/memoria).<br />
+M → General Purpose. Equilibrio entre CPU, memoria y almacenamiento. Usadas para la mayoría de aplicaciones estándar.<br />
+R → Memory Optimized. Diseñadas para cargas de trabajo que requieren gran cantidad de memoria en relación con la CPU.<br />
+I → Storage Optimized (I/O Optimized). Pensadas para cargas que requieren altísimo rendimiento en disco local (NVMe/SSD). <br />
+G → <strong>Graphics / GPU-based</strong>. Para machine learning (basadas en GPU NVIDIA).<br />
+P → <strong>Accelerated Computing (GPU)</strong>. Para entrenamiento de deep learning, computación científica, simulaciones de alto nivel.<br />
+X → Extra Memory Optimized. Instancias con terabytes de RAM, usadas para grandes bases de datos o aplicaciones que requieren mucha memoria.<br />
+<br></p>
+</li>
+<li>
+<p><strong>Generación</strong><br />
+Representan la evolución tecnológica de las instancias. Cada nueva generación trae mejor rendimiento, menor coste por hora y mejor eficiencia energética.<br />
+Se identifican por el número que acompaña a la familia.<br />
+👉 Ejemplo:  </p>
+<ul>
+<li>t2.micro → 2ª generación de instancias de uso general.  </li>
+<li>t3.micro → 3ª generación, más eficiente que t2.  </li>
+<li>t4g.micro → 4ª generación, basada en procesadores ARM Graviton2 de AWS.<br />
+<br>  </li>
+</ul>
+</li>
+<li>
+<p><strong>Capacidad adicional</strong><br />
+La capacidad adicional de EC2 se refiere a esas optimizaciones extra (almacenamiento, red, EBS, GPU, bare metal, etc.) que hacen que dos instancias de la misma familia y tamaño puedan comportarse de forma distinta.<br />
+Las letras utilizadas en el nombre de instancia y las propiedades asociadas se explican en la tabla siguiente.  </p>
+<table>
+<thead>
+<tr>
+<th>Nombre</th>
+<th>Propiedad</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a</td>
+<td>Procesador AMD</td>
+<td>m5a</td>
+</tr>
+<tr>
+<td>d</td>
+<td>Almacenamiento SSD NVMe local</td>
+<td>m5d</td>
+</tr>
+<tr>
+<td>e</td>
+<td>Capacidad extra</td>
+<td>P6e</td>
+</tr>
+<tr>
+<td>g</td>
+<td>Procesador Graviton(ARM)</td>
+<td>m6g</td>
+</tr>
+<tr>
+<td>n</td>
+<td>Redes de alta velocidad</td>
+<td>c5n</td>
+</tr>
+<tr>
+<td>z</td>
+<td>Alta frecuencia de CPU</td>
+<td>m5zn</td>
+</tr>
+<tr>
+<td>.metal</td>
+<td>Bare metal</td>
+<td>m8g.metal</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>Tamaño de la instancia</strong>
+El <strong>tamaño de una instancia de EC2 en AWS</strong> se refiere a la combinación de recursos de hardware virtualizados (vCPU, memoria RAM, almacenamiento y capacidad de red) que se asignan a una máquina virtual. En otras palabras, define la <strong>potencia y capacidad de cómputo</strong> que tendrá la instancia dentro de la familia de instancias elegida.<br />
+<br></p>
+<p><strong>Tabla comparativa de tamaños de instancias:</strong>  </p>
+<table>
+<thead>
+<tr>
+<th>Instancia</th>
+<th>vCPU</th>
+<th>RAM (GB)</th>
+<th>Almacenamiento (GB)</th>
+<th>Red (Gbit/s)</th>
+<th>Ancho de banda de EBS</th>
+<th>Precio USD/h (% aumento)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>r5d.xlarge</td>
+<td>4</td>
+<td>32</td>
+<td>1 x 150</td>
+<td>Hasta 10</td>
+<td>Hasta 4750</td>
+<td>0.288</td>
+</tr>
+<tr>
+<td>r5d.2xlarge</td>
+<td>8</td>
+<td>64</td>
+<td>1 x 300</td>
+<td>Hasta 10</td>
+<td>Hasta 4750</td>
+<td>0.576 (+100%)</td>
+</tr>
+<tr>
+<td>r5d.4xlarge</td>
+<td>16</td>
+<td>128</td>
+<td>2 x 300</td>
+<td>Hasta 10</td>
+<td>4750</td>
+<td>1.152 (+100%)</td>
+</tr>
+<tr>
+<td>r5d.8xlarge</td>
+<td>32</td>
+<td>256</td>
+<td>2 x 600</td>
+<td>10</td>
+<td>6800</td>
+<td>2.304 (+100%)</td>
+</tr>
+<tr>
+<td><br></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h2 id="ami-amazon-machine-image"><strong>AMI (Amazon Machine Image)</strong></h2>
+<p>Una AMI es una plantilla que contiene la información necesaria para lanzar una instancia de EC2. Es como si fuera la <code>imagen base</code> de una máquina virtual.</p>
+<p>Cada AMI incluye:</p>
+<ul>
+<li><strong>Un sistema operativo</strong> (Amazon Linux, Ubuntu, Windows Server, etc.).</li>
+<li><strong>Software preinstalado</strong> (Apache, Nginx, MySQL, Docker, etc.).</li>
+<li><strong>Configuración de permisos</strong> (qué usuarios pueden usar la AMI, no es posible hacerlo con las cuentas de ALB).</li>
+<li><strong>Configuración de volumen raíz</strong> (el disco donde se instala el sistema).</li>
+<li>...</li>
+</ul>
+<p>Cuando se lanza una <strong>instancia EC2</strong>, se elige una AMI como punto de partida, y a partir de ahí la instancia puede configurarse, modificarse y <strong>personalizarse</strong>.</p>
+<h3 id="tipos-de-ami"><strong>Tipos de AMI</strong></h3>
+<ol>
+<li>
+<p><strong>AMIs públicas</strong></p>
+<ul>
+<li>Disponibles en el catálogo de AWS.</li>
+<li>Incluyen imágenes oficiales de Amazon (Amazon Linux, Windows, etc.) y distribuciones de Linux mantenidas por la comunidad o proveedores (Ubuntu, Debian, RHEL…).</li>
+</ul>
+</li>
+<li>
+<p><strong>AMIs privadas</strong></p>
+<ul>
+<li>Creadas por <strong>un usuario</strong>.</li>
+<li>Solo accesibles para la cuenta propietaria (posibilidad de compartir).</li>
+</ul>
+</li>
+<li>
+<p><strong>AMIs del AWS Marketplace</strong></p>
+<ul>
+<li>Imágenes de terceros (generalmente de pago) con aplicaciones ya listas (WordPress, SAP, soluciones de seguridad, etc.).</li>
+</ul>
+</li>
+</ol>
+<h3 id="regiones-y-amis"><strong>Regiones y AMIs</strong></h3>
+<ul>
+<li>Una AMI está <strong>ligada a una región</strong>.</li>
+<li>Si se necesita usarla en otra región, se debe <strong>copiar</strong>.</li>
+</ul>
+<h3 id="crear-una-ami"><strong>Crear una AMI</strong></h3>
+<p>Se pueden crear AMI's desde:</p>
+<ol>
+<li><strong>Una instancia EC2 existente</strong> → Tomar un snapshot y convertir en AMI.</li>
+<li><strong>Un snapshot de EBS</strong> → Luego convertir en AMI.</li>
+<li><strong>Importar una VM</strong> (desde VMware, VirtualBox o Hyper-V con la herramienta VM Import/Export).</li>
+</ol>
+<h2 id="grupos-de-seguridad-y-acls"><strong>Grupos de seguridad y ACL's</strong></h2>
+<h3 id="introduccion_1"><strong>Introducción</strong></h3>
+<p>Los <strong>grupos de seguridad</strong> y las <strong>ACL de red y de VPC</strong> son componentes fundamentales de la seguridad en un entorno de nube. Aunque funcionan de manera similar a los <strong>firewalls</strong>, no son exactamente lo mismo, ya que presentan diferencias en su uso y alcance.</p>
+<p>Dentro del modelo de <strong>nube pública</strong>, el proveedor está obligado contractualmente a cumplir con su parte del modelo de <strong>responsabilidad compartida</strong>. Sin embargo, la configuración de los grupos de seguridad es <strong>responsabilidad del cliente</strong>.</p>
+<p>Por defecto, al lanzar una instancia <strong>EC2 en AWS</strong>, la única regla permitida es la apertura del <strong>puerto 22</strong> para el <strong>acceso SSH</strong>.</p>
+<p>Para garantizar el correcto despliegue de las aplicaciones, será necesario ampliar las reglas de los grupos de seguridad, asegurando siempre que estas configuraciones no comprometan la seguridad del entorno.</p>
+<h3 id="grupos-de-seguridad"><strong>Grupos de seguridad</strong></h3>
+<p>En AWS, un grupo de seguridad es <strong>un conjunto de reglas de firewall virtual</strong> que controlan el <strong>tráfico entrante y saliente</strong> de una <strong>instancia</strong>.</p>
+<p>Los grupos de seguridad se aplican a <strong>nivel de instancia</strong>, no a <strong>nivel de subred</strong> (esa función la cumplen las <strong>ACL de red</strong>).</p>
+<p>Los grupos de seguridad son <strong>con estado</strong> (stateful): la entrada es igual a la salida. El tráfico que cumple <strong>una regla en una dirección también se permitirá automáticamente en la dirección opuesta</strong> sin tener una regla explícita para ello.</p>
+<p><strong>Las reglas no tienen un orden de prioridad</strong>. Las reglas de un grupo de seguridad no tienen prioridad ni orden. Todas se evalúan en conjunto y únicamente permiten tráfico. Si no existe una regla que lo permita, el tráfico se deniega por defecto.</p>
+<p><strong>Ejemplo de SG</strong><br />
+En el siguiente ejemplo tenemos una VPC, una subred con <strong>una instancia EC2</strong>, una puerta de enlace de Internet y <strong>un grupo de seguridad</strong>.<br />
+Como hemos dicho <strong>el grupo de seguridad se asigna a la instancia</strong> y actúa como un firewall virtual.<br />
+El único tráfico que llega a la instancia es el permitido por las reglas del grupo de seguridad. 
+<img alt="" class="original" src="../ut5/SG.png" /></p>
+<h3 id="acl-de-red">ACL de red</h3>
+<p>Las <strong>Network ACL (NACL)</strong> son un componente de seguridad que actúa a nivel de <strong>subred</strong> dentro de una <strong>VPC</strong>.</p>
+<p><strong>Se aplican a nivel de subred</strong>: Todas las instancias dentro de esa subred quedan sujetas a las reglas de la ACL.</p>
+<p>Cada <strong>VPC</strong> en AWS tiene <strong>una ACL por defecto</strong>, y se pueden crear ACLs personalizadas para afinar el control del tráfico.</p>
+<p><strong>Son sin estado</strong> (stateless): No recuerdan el estado de la conexión. Por ejemplo, si se permite el tráfico entrante en un puerto, <strong>también se debe</strong> permitir explícitamente el tráfico de salida de respuesta.</p>
+<p><strong>Soportan reglas de entrada y salida</strong>:    </p>
+<ul>
+<li>Reglas de entrada → Controlan tráfico <strong>entrante a la subred</strong>.</li>
+<li>Reglas de salida → Controlan tráfico <strong>saliente desde la subred</strong>.</li>
+</ul>
+<p><strong>Orden numérico de las reglas</strong></p>
+<ul>
+<li>Cada regla tiene un número (del 1 al 32766).</li>
+<li>Se evalúan en <strong>orden ascendente</strong> → la primera regla que coincida se aplica, y se ignoran las siguientes.</li>
+</ul>
+<p><strong>Acciones posibles</strong></p>
+<ul>
+<li><code>ALLOW</code>: Permitir tráfico.</li>
+<li><code>DENY</code>: Bloquear tráfico.</li>
+</ul>
+<p><strong>ACL por defecto</strong></p>
+<ul>
+<li>La <strong>ACL por defecto</strong> de una VPC permite todo el tráfico entrante y saliente.</li>
+<li>Las <strong>ACL personalizadas</strong> niegan todo el tráfico hasta que se configuren reglas.</li>
+</ul>
+<p><strong>Ejemplo de ACL</strong> 
+En el siguiente ejemplo, tenemos una VPC con dos subredes. Cada <strong>subred tiene una ACL de red</strong>. Cuando el tráfico entra en la VPC, el enrutador envía el tráfico a su destino.<br />
+La ACL de red A determina qué tráfico destinado a la subred 1 puede entrar en la subred 1, y qué tráfico destinado a una ubicación fuera de la subred 1 puede salir de la subred 1.<br />
+Del mismo modo, la ACL de red B determina qué tráfico puede entrar y salir de la subred 2.
+<img alt="" class="original" src="../ut5/acl.png" /></p>
+<p><br></p>
+<h3 id="tabla-comparativa-entre-sg-y-acl">Tabla comparativa entre SG y ACL</h3>
+<table>
+<thead>
+<tr>
+<th>Característica</th>
+<th><strong>Security Groups (SG)</strong></th>
+<th><strong>Network ACLs (NACL)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Naturaleza</strong></td>
+<td><em>Stateful</em> (tienen “efecto memoria”)</td>
+<td><em>Stateless</em> (no recuerdan conexiones)</td>
+</tr>
+<tr>
+<td><strong>Nivel de aplicación</strong></td>
+<td>Asociados a <strong>instancias EC2</strong> (interfaz de red)</td>
+<td>Asociados a <strong>subredes</strong></td>
+</tr>
+<tr>
+<td><strong>Reglas de entrada y salida</strong></td>
+<td>Reglas de entrada y salida se procesan <strong>por separado</strong>, pero las respuestas se permiten automáticamente</td>
+<td>Se deben definir reglas para entrada <strong>y</strong> salida; si no, el tráfico será bloqueado</td>
+</tr>
+<tr>
+<td><strong>Orden de evaluación</strong></td>
+<td>No tienen orden; se procesan todas las reglas</td>
+<td>Se procesan en orden ascendente por número de regla (más bajo = mayor prioridad)</td>
+</tr>
+<tr>
+<td><strong>Acciones</strong></td>
+<td>Solo permiten <strong>Allow</strong> (permitir tráfico)</td>
+<td>Admiten <strong>Allow</strong> y <strong>Deny</strong> (puedes denegar explícitamente)</td>
+</tr>
+<tr>
+<td><strong>Predeterminado</strong></td>
+<td>Todo el tráfico está <strong>denegado por defecto</strong> (excepto lo que se permita explícitamente)</td>
+<td>Todo el tráfico está <strong>permitido por defecto</strong> (excepto lo que se niegue explícitamente)</td>
+</tr>
+<tr>
+<td><strong>Casos de uso típicos</strong></td>
+<td>Control fino del tráfico a instancias (ej. abrir 22/SSH o 443/HTTPS)</td>
+<td>Control global a nivel de subred, aplicar restricciones más amplias (ej. denegar rangos IP completos)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="tarea-1"><strong>Tarea 1:</strong></h2>
+<p>Realizar el siguiente escenario y poblar las reglas del grupo de seguridad.
+Acceder por ssh a la instancia y comprobar su dirección ip privada. </p>
+<p><img alt="" class="sietecinco" src="../ut5/pr%C3%A1ctica1.png" /></p>
+<h2 id="tarea-2"><strong>Tarea 2:</strong></h2>
+<p>lo mismo con una subred privada.
+Acceder por ssh a la instancia y comprobar su dirección ip privada. </p>
+<h2 id="amplicacio">am,plicacio</h2>
+<p>hablar de los nat para permitir a las ec2 de las subredes privadas poder acceder a inet sin tener ipv4 pública.</p>
+<h2 id="enlaces-de-interes"><strong>Enlaces de interés</strong></h2>
+<p>Documentación de <a href="https://docs.aws.amazon.com">AWS</a>.
+Instancias <a href="https://docs.aws.amazon.com/es_es/ec2/?icmpid=docs_homepage_featuredsvcs">EC2</a>.
+Tipos de instancias <a href="https://aws.amazon.com/es/ec2/instance-types">EC2</a>.
+Controlar el tráfico hacia los recursos de AWS mediante <a href="https://docs.aws.amazon.com/es_es/vpc/latest/userguide/vpc-security-groups.html#security-group-basics">grupos de seguridad</a>.
+<a href="https://docs.aws.amazon.com/es_es/AWSEC2/latest/UserGuide/ec2-security-groups.html">Grupos de seguridad de instancias EC2</a>.
+Control del tráfico de la subred con <a href="https://docs.aws.amazon.com/es_es/vpc/latest/userguide/vpc-network-acls.html">listas de control de acceso a la red</a>
+Tipos y caracteristicas de <a href="https://docs.aws.amazon.com/es_es/AWSEC2/latest/UserGuide/ComponentsAMIs.html">AMI en Amazon EC2</a></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 - Javier Egea Blasco
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.instant.preview", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "toc.follow", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "search.share", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1807 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Javier Egea Blasco">
+      
+      
+        <link rel="canonical" href="https://javieregeablasco.github.io/Apuntes/DAW/DAW_2/DIW/UT.%201%20-%20UserInterface%20UserXperience/UT.%201.1%20-%20UI-UX/">
+      
+      
+      
+      
+      <link rel="icon" href="../../../../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>UD. 1.1 - User Interface, User Experience UI/UX - Javier Egea Blasco</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-introduccion" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../../../../.." title="Javier Egea Blasco" class="md-header__button md-logo" aria-label="Javier Egea Blasco" data-md-component="logo">
+      
+  <img src="../../../../../assets/mre.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Javier Egea Blasco
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              UD. 1.1 - User Interface, User Experience UI/UX
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Compartir" aria-label="Compartir" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../SMX/SMX_1/AO/00_Temario/" class="md-tabs__link">
+          
+  
+  
+  Aplicaciones Ofimáticas
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../SMX/SMX_2/Opt_Python/00_Temario/" class="md-tabs__link">
+          
+  
+  
+  Programación en Python
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../FPB/FPB_1/MMSCI/UT.0-Temario/" class="md-tabs__link">
+          
+  
+  
+  MMSCI
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../AWS/UT.%200-Temario/" class="md-tabs__link">
+          
+  
+  
+  Cloud Computing
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="Javier Egea Blasco" class="md-nav__button md-logo" aria-label="Javier Egea Blasco" data-md-component="logo">
+      
+  <img src="../../../../../assets/mre.png" alt="logo">
+
+    </a>
+    Javier Egea Blasco
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Aplicaciones Ofimáticas
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Aplicaciones Ofimáticas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../SMX/SMX_1/AO/00_Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Presentación módulo
+    
+      <br>
+      <small>Aplicaciones ofimáticas</small>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../SMX/SMX_1/AO/01_Instalacion%20de%20aplicaciones%20ofimaticas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 1
+    
+      <br>
+      <small>Módulo: 0223 - Aplicaciones ofimáticas</small>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    UT 2 - Procesadores de texto
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            UT 2 - Procesadores de texto
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../SMX/SMX_1/AO/02_Procesadores_de_texto/021_Procesadores_de_texto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 21 - Características de los procesadores de texto
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../SMX/SMX_1/AO/02_Procesadores_de_texto/022_LibreOffice_Writer_Instalacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 22 - Instalación de LibreOffice Writer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../SMX/SMX_1/AO/02_Procesadores_de_texto/023_LibreOffice_Writer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 23 - LibreOffice Writer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Programación en Python
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Programación en Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../SMX/SMX_2/Opt_Python/00_Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Presentación módulo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../SMX/SMX_2/Opt_Python/01_Introduccion_a_la_programacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 1 Introducción a la programación
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../SMX/SMX_2/Opt_Python/02_Python_Presentacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 2 Python, instalación y IDE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../SMX/SMX_2/Opt_Python/03_Python_Basico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 3 Elementos básicos de Python
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    MMSCI
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            MMSCI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../FPB/FPB_1/MMSCI/UT.0-Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT0
+    
+      <br>
+      <small>Montaje y mantenimiento de sistemas y componentes informáticos</small>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Cloud Computing
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Cloud Computing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../AWS/UT.%200-Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Presentación módulo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../AWS/UT.%201-Introduccion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 1 Introducción al Cloud Computing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../AWS/UT.%202-AWS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 2 AWS - Amazon Web Services
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../AWS/UT.%203-AWS%20Academy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 3 AWS Academy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../AWS/UT.%204-Infraestructura/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 4 Infraestruturas en AWS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../AWS/UT.%205-Instancias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UT 5 Instancias y grupos de seguridad
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<div style="text-align: center">
+  <img alt="alt text" src="./img/uiux.webp" width="75%">
+</div>
+
+<p><br></p>
+<table>
+<thead>
+<tr>
+<th><strong>Resultados de aprendizaje de la unidad didáctica:</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RA. 1:</strong> Planifica la creación de una interfaz web valorando y aplicando especificaciones de diseño.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<table>
+<thead>
+<tr>
+<th><strong>Criterios de evaluación de la unidad didáctica:</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CE. a&#41;</strong> Se ha reconocido la importancia de la comunicación visual y sus principios básicos.</td>
+</tr>
+<tr>
+<td><strong>CE. b&#41;</strong> Se han analizado y seleccionado los colores y tipografías adecuados para su visualización en pantalla.</td>
+</tr>
+<tr>
+<td><strong>CE. c&#41;</strong> Se han analizado alternativas para la presentación de la información en documentos web.</td>
+</tr>
+<tr>
+<td><strong>CE. d&#41;</strong> Se ha valorado la importancia de definir y aplicar la guía de estilo en el desarrollo de una aplicación web.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<table>
+<thead>
+<tr>
+<th><strong>Licencia Creative Commons:</strong></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="alt text" src="../img/by-nc-nd-eu_.png" /></td>
+<td><strong>Reconocimiento-NoComercial-CompartirIgual CC BY-NC-SA:</strong> No se permite un uso comercial de la obra original ni de las posibles obras derivadas, la distribución de la cuales se debe hace con una licencia igual a la que regula la obra original.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="1-introduccion">1. Introducción</h1>
+<p>Las aplicaciones y sitios web son esenciales en nuestra vida diaria para consultar información, gestionar trámites o comunicarnos. 
+Independientemente del dispositivo, la web representa la imagen de una entidad, por eso es crucial que el contenido y las funcionalidades sean atractivos, accesibles y fáciles de usar (User Experience), con un diseño agradable que capte la atención del usuario (User Interface). </p>
+<h1 id="2-evolucion-del-diseno-web">2. Evolución del diseño web</h1>
+<div style="text-align: center">
+  <img alt="alt text" src="./img/evolucionhtml.png">
+</div>
+
+<p><br></p>
+<p><strong>1991-1994 inicios de la web</strong><br />
+- <strong>1991:</strong> Tim Berners-Lee crea la primera página web con solo texto y enlaces en HTML.<br />
+- <strong>1993:</strong> Mosaic, primer navegador, permitiendo imágenes junto con texto.<br />
+- <strong>1994:</strong> Netscape Navigator introduce mejoras en el renderizado de páginas y establece el estándar de navegación.  </p>
+<p><br></p>
+<p><strong>1995-1999: HTML y el diseño en tablas</strong><br />
+- <strong>1995:</strong> Lanzamiento de JavaScript que aporta interactividad en el navegador.<br />
+- <strong>1996:</strong> Aparece CSS (Cascading Style Sheets) para separar contenido y presentación. También surge Flash, revolucionando la animación en la web.<br />
+- <strong>1997:</strong> HTML 4.0 se populariza con el uso de tablas para estructurar páginas web.<br />
+- <strong>1998:</strong> Google aparece y cambia la forma de buscar información en la web.<br />
+- <strong>1999:</strong> Se consolida el uso de Flash y JavaScript en la creación de interfaces interactivas.  </p>
+<p><br></p>
+<p><strong>2000-2006: CSS y el auge del diseño web</strong><br />
+- <strong>2000:</strong> Se adopta CSS para diseños, reemplazando las tablas.<br />
+- <strong>2003:</strong> Aparece WordPress, facilitando la creación de sitios web sin necesidad de programar.<br />
+- <strong>2004:</strong> Se popularizan las técnicas de diseño líquido y adaptable.<br />
+- <strong>2005:</strong> Nace AJAX, permitiendo recargar contenido sin necesidad de actualizar la página completa.  </p>
+<p><br></p>
+<p><strong>2007-2012: Móviles y responsive design</strong><br />
+- <strong>2007:</strong> Apple lanza el iPhone.<br />
+- <strong>2010:</strong> Ethan Marcotte introduce el término <strong>Responsive Web Design (RWD)</strong>, impulsando el diseño adaptable a cualquier dispositivo.<br />
+- <strong>2011:</strong> HTML5 y CSS3 se consolidan, permitiendo animaciones sin Flash.<br />
+- <strong>2012:</strong> Se expande el diseño minimalista con estilos planos y colores vibrantes.  </p>
+<p><br></p>
+<p><strong>2013-2019: UI/UX, frameworks y accesibilidad</strong><br />
+- <strong>2013:</strong> Google presenta Material Design, estableciendo un estándar visual con sombras y animaciones realistas.<br />
+- <strong>2015:</strong> Se popularizan frameworks como Bootstrap y Foundation para acelerar el desarrollo web.<br />
+- <strong>2016:</strong> La velocidad y la accesibilidad se convierten en prioridades con la optimización para SEO y Core Web Vitals.<br />
+- <strong>2019:</strong> Dark mode se convierte en una tendencia en muchas interfaces web.  </p>
+<p><br></p>
+<p><strong>2020-presente: IA, diseño sin código y Web 3.0</strong><br />
+- <strong>2020:</strong> Herramientas como Webflow y Figma facilitan la creación de sitios sin necesidad de programar.<br />
+- <strong>2022:</strong> La IA empieza a usarse para generar diseños y mejorar la experiencia del usuario.<br />
+- <strong>2024-2025:</strong> Web 3.0, con blockchain y aplicaciones descentralizadas, empieza a redefinir la propiedad y seguridad en la web.  </p>
+<p><br></p>
+<h1 id="3-conceptos-de-ipo-ui-y-ux">3. Conceptos de IPO, UI y UX</h1>
+<h2 id="31-interaccion-persona-ordenador-ipo">3.1. - Interacción Persona-Ordenador (IPO)</h2>
+<p>La <strong>Interacción Persona-Ordenador (IPO)</strong> es la ciencia que estudia la relación entre los seres humanos y los sistemas informáticos. Su objetivo principal es diseñar interfaces que permitan una comunicación eficiente, intuitiva y accesible entre los usuarios y las computadoras.  </p>
+<p>Dentro de la IPO encontramos:<br />
+- <strong>Ergonomía y usabilidad</strong>: Se busca que los sistemas sean fáciles de usar y reduzcan la carga cognitiva del usuario.<br />
+- <strong>Modelos de interacción</strong>: Analiza cómo las personas perciben, aprenden y usan la tecnología.<br />
+- <strong>Diseño centrado en el usuario</strong>: Enfatiza la importancia de diseñar software basado en las necesidades y comportamientos del usuario final.<br />
+- <strong>Accesibilidad</strong>: Considera a usuarios con diferentes capacidades físicas o cognitivas para garantizar una experiencia inclusiva.
+<br></p>
+<h2 id="32-interfaz-de-usuario-ui-user-interface">3.2. - Interfaz de Usuario (UI - User Interface)</h2>
+<div style="text-align:center">
+  <img alt="alt text" src="./img/ui.png" width="50%">
+</div>
+
+<p><br></p>
+<p>La <strong>Interfaz de Usuario</strong> es el medio a través del cual los usuarios interactúan con un sistema o aplicación. Puede incluir elementos visuales, táctiles y auditivos. Existen distintos tipos de interfaces:  </p>
+<ul>
+<li><strong>Interfaz gráfica (GUI - Graphical User Interface)</strong>: Es la más común y se compone de menús, iconos y ventanas.  </li>
+<li><strong>Interfaz de línea de comandos (CLI - Command Line Interface)</strong>: Utilizada principalmente por usuarios avanzados, no está diseñada para el gran público.  </li>
+<li><strong>Interfaces de voz (VUI - Voice User Interface)</strong>: Usadas en asistentes virtuales como Alexa o Google Assistant.  </li>
+<li><strong>Interfaces hápticas</strong>: Basadas en el tacto, como los dispositivos con retroalimentación por vibración.  </li>
+</ul>
+<p><br></p>
+<h2 id="33-experiencia-de-usuario-ux-user-experience">3.3. - Experiencia de Usuario (UX - User Experience)</h2>
+<div style="text-align:center">
+  <img alt="alt text" src="./img/ux.png" width="50%">
+</div>
+<p><br></p>
+<p>La <strong>Experiencia de Usuario (UX)</strong> abarca todos los aspectos de la interacción de una persona con un producto o servicio digital. Va más allá de la interfaz y se enfoca en la percepción global del usuario sobre la usabilidad, accesibilidad y satisfacción con el sistema.  </p>
+<p>Los principales factores que influyen en la UX son:<br />
+- <strong>Usabilidad</strong>: Facilidad con la que el usuario puede aprender y utilizar el sistema.<br />
+- <strong>Diseño visual</strong>: La estética y la disposición de los elementos en la interfaz.<br />
+- <strong>Accesibilidad</strong>: Adaptabilidad para usuarios con diversas capacidades.<br />
+- <strong>Flujo de interacción</strong>: La estructura lógica de la navegación dentro de la aplicación o sitio web.<br />
+- <strong>Emoción y confianza</strong>: La percepción del usuario sobre la seguridad y eficiencia del sistema.  </p>
+<h1 id="4-componentes-de-una-interfaz-web">4. Componentes de una interfaz web</h1>
+<p>La <strong>interfaz web</strong> o <strong>interfaz de usuario</strong> es el punto de interacción entre el usuario y un sitio web o una aplicación. Para que sea efectiva, debe ser intuitiva, accesible y atractiva. </p>
+<p>Muchos de los componentes de una interfaz web, como la cabecera, los menús de navegación, el cuerpo, la barra lateral y el pie de página, se replican en la mayoría de los sitios web.  </p>
+<div style="text-align:center">
+  <img alt="alt text" src="./img/estructura.png" width="60%">
+</div>
+<p><br></p>
+<p>Si convertimos esta estructura a código HTML, obtendremos el siguiente resultado.</p>
+<div style="text-align:center">
+  <img alt="alt text" src="./img/estructura2.png" width="60%">
+</div>
+<p><br></p>
+<p>A continuación, veremos los componentes clave que toda interfaz web debe incorporar.  </p>
+<h2 id="41-elementos-de-identificacion">4.1. - Elementos de identificación</h2>
+<p>Los elementos de identificación son aquellos que permiten a los usuarios reconocer y recordar un sitio web específico. Su función principal es establecer la identidad visual y de marca, facilitando la navegación y la confianza del usuario.</p>
+<ul>
+<li><strong>Logotipo:</strong> Un buen diseño es crucial para el recuerdo y la identidad visual.  </li>
+<li><strong>Nombre de dominio:</strong> Debe ser claro y fácil de recordar.  </li>
+<li><strong>Título de la página:</strong> Aparece en la pestaña del navegador y en <strong>los resultados de búsqueda</strong>. Debe ser conciso y descriptivo del contenido de la página.  </li>
+<li><strong>Imagen de cabecera:</strong> Generalemente, aparece en la parte superior de la página y ayuda a entender el contenido de la web.  </li>
+<li><strong>Elementos de marca:</strong> Incluyen colores, tipografía y otros elementos visuales que refuerzan la identidad corporativa de una marca.  </li>
+<li><strong>Favicon:</strong> Icono que aparece en la pestaña del navegador junto al título de la página.  </li>
+</ul>
+<h2 id="42-elementos-de-navegacion-y-acceso-a-contenidos">4.2. - Elementos de navegación y acceso a contenidos</h2>
+<p>Son los elementos encargados de organizar la información y permiten acceder de forma rápida e intuitiva a los diversos contenidos del sitio:  </p>
+<ul>
+<li><strong>Cabecera (Header):</strong> Zona de la interfaz web situada en la parte superior y que sirve para identificar la empresa o marca. </li>
+<li><strong>Barra de navegación (Navbar):</strong> Menú que facilita el acceso a las diferentes secciones del sitio.</li>
+<li><strong>Menús y submenús</strong>: Dentro de la barra de navegación, podemos encontrar listas de opciones, organizadas jerárquicamente para mejorar la experiencia de navegación.  </li>
+<li><strong>Barra lateral (sidebar):</strong> La barra lateral es una área ubicada a la izquierda o derecha del contenido principal y contiene información adicional, enlaces a otras páginas o secciones...</li>
+<li><strong>Cuerpo de la página:</strong> Parte en la cual se muestran los contenidos.  </li>
+<li><strong>Pie de página (Footer)</strong>: Contiene enlaces, términos de uso y redes sociales.  </li>
+</ul>
+<h2 id="43-elementos-de-ordenacion-de-contenidos">4.3. - Elementos de ordenación de contenidos</h2>
+<p>Son los componentes que presentan la información al usuario:  </p>
+<ul>
+<li><strong>Encabezados y texto</strong>: Estructuran la jerarquía del contenido.  </li>
+<li><strong>Imágenes e íconos</strong>: Refuerzan el mensaje visual y mejoran la estética del sitio.  </li>
+<li><strong>Videos y multimedia</strong>: Se utilizan para presentar información de manera más dinámica.  </li>
+<li><strong>Tablas y listas</strong>: Organizan la información en formatos estructurados.  </li>
+</ul>
+<h2 id="44-elementos-interactivos">4.4. - Elementos Interactivos</h2>
+<p>Facilitan la interacción del usuario con la web, entre ellos tenemos:  </p>
+<ul>
+<li><strong>Botones</strong>: Permiten realizar acciones como enviar formularios o navegar entre páginas.  </li>
+<li><strong>Formularios y campos de entrada</strong>: Recolectan la información del usuario y realizan consultas a bases de datos.  </li>
+<li><strong>Sliders y carruseles</strong>: Muestran contenido de forma dinámica en un espacio reducido.  </li>
+<li><strong>Pestañas y acordeones</strong>: Organizan contenido en secciones colapsables para mejorar la usabilidad.  </li>
+<li><strong>Modales y pop-ups</strong>: Ventanas emergentes que muestran información adicional o alertas.  </li>
+</ul>
+<h2 id="45-elementos-de-retroalimentacion">4.5. - Elementos de Retroalimentación</h2>
+<p>En todo momento, informan al usuario del estado de sus acciones o consultas:  </p>
+<ul>
+<li><strong>Mensajes de éxito o error</strong>: Notificaciones sobre el resultado de una acción, como el envío de un formulario.  </li>
+<li><strong>Tooltips y ayudas</strong>: Pequeños textos emergentes que explican el uso de un elemento.  </li>
+<li><strong>Indicadores de carga (Spinners, progress bars)</strong>: Informan sobre el estado de procesos en ejecución.  </li>
+</ul>
+<h2 id="46-tarea-ra1-cea">4.6. - Tarea RA1-CEa</h2>
+<p>Elige una página web comercial e identifica sus diferentes componentes.
+<br><br></p>
+<h1 id="5-diseno-de-una-interfaz-web">5. Diseño de una interfaz web</h1>
+<p>Generalmente esta área de desarrollo la llevan a cabo diseñadores gráficos. Entre sus tareas, destacan:
+ 1. Función estética.
+ 2. Función publicitaria.
+ 3. Función comunicativa.</p>
+<p>Dentro de los elementos del diseño de interfaces se distinguen cuatro grupos: </p>
+<h2 id="51-elementos-conceptuales">5.1. - Elementos conceptuales</h2>
+<p><strong>Los elementos conceptuales</strong> son aquellos que son presentes en el diseño, pero que no son visibles a la vista. El punto, la línea, el plano y el volumen son la base del diseño y sobre ellos se asientan los otros elementos.</p>
+<div style="text-align:center">
+  <img alt="alt text" src="./img/conceptual.png" width="40%">
+</div>
+
+<p><br></p>
+<p><strong>Ejercicio</strong><br />
+Identificar los elementos conceptuales de la siguiente página web.</p>
+<div style="text-align:center">
+  <img alt="alt text" src="./img/conceptualEjercicio.png">
+</div>
+
+<h2 id="52-elementos-visuales">5.2. - Elementos visuales</h2>
+<p>En el diseño web, los elementos visuales fundamentales incluyen <strong>forma, color, medida y textura</strong>.  </p>
+<div style="text-align:center">
+  <img alt="alt text" src="./img/elementVisual.png" width="40%">
+</div>
+
+<h3 id="521-forma">5.2.1. - Forma</h3>
+<p>Define la estructura visual de los elementos dentro de una página web. Puede ser:<br />
+- <strong>Geométrica</strong>: Cuadrados, círculos, triángulos, usados en botones, iconos o tarjetas.</p>
+<div style="text-align:center">
+    <a href="http://www.usefulsimple.co.uk/"><img alt="alt text" src="./img/geometrica.png"></a>
+  </div>
+
+<p><br></p>
+<ul>
+<li><strong>Orgánica</strong>: Formas irregulares o naturales, aportan dinamismo y originalidad.  </li>
+</ul>
+<div style="text-align:center">
+     <a href="http://www.sageblue.com/"><img alt="alt text" src="./img/natural.png"></a>
+  </div>
+
+<p><br></p>
+<ul>
+<li><strong>Abstracta</strong>: Se utilizan para generar impacto visual sin representar objetos reales.  </li>
+</ul>
+<div style="text-align:center">
+     <a href="https://lovefreelancing.com/"><img alt="alt text" src="./img/abstract.png"></a>
+  </div>
+
+<p><br></p>
+<h3 id="522-color">5.2.2. - Color</h3>
+<p>Influye en la percepción y la emoción del usuario. Se utiliza para:<br />
+- <strong>Generar identidad visual</strong> (branding).  </p>
+<div style="text-align:center">
+     <img alt="alt text" src="./img/color.png">
+  </div>
+
+<p><br></p>
+<ul>
+<li><strong>Crear contrastes</strong> y mejorar la accesibilidad.  </li>
+</ul>
+<div style="text-align:center">
+     <img alt="alt text" src="./img/contrast.png" width="35%">
+  </div>
+
+<p><br></p>
+<ul>
+<li><strong>Diferenciar secciones</strong> o establecer jerarquías.  </li>
+</ul>
+<div style="text-align:center">
+     <img alt="alt text" src="./img/secciones.png">
+  </div>
+
+<p><br></p>
+<h3 id="523-medida">5.2.3. - Medida</h3>
+<p>Hace referencia al tamaño y la escala de los elementos en una interfaz:<br />
+- <strong>Tipografía</strong>: Tamaños de fuente adaptables para distintos dispositivos o contenidos.</p>
+<div style="text-align:center">
+     <img alt="alt text" src="./img/fonsize.webp" width="75%">
+  </div>
+
+<p><br></p>
+<ul>
+<li><strong>Imágenes y gráficos</strong>: Se escalan correctamente para mantener calidad y rendimiento.</li>
+</ul>
+<div style="text-align:center">
+     <img alt="alt text" src="./img/image.webp" width="75%" >
+  </div>
+
+<p><br></p>
+<ul>
+<li><strong>Espaciado y proporción</strong>: Márgenes, padding y grids permiten un diseño equilibrado.</li>
+</ul>
+<div style="text-align:center">
+     <img alt="alt text" src="./img/marginpadding.png">
+  </div>
+
+<p><br></p>
+<h3 id="524-textura">5.2.4. - Textura</h3>
+<p>Aunque el diseño web es bidimensional, se pueden simular texturas para dar profundidad y sensación táctil:<br />
+- <strong>Fondos con degradados o patrones</strong> para misterio y sofisticación.  </p>
+<div style="text-align:center">
+    <img alt="alt text" src="./img/degradados.jpg" width="75%">
+  </div>
+
+<p><br></p>
+<ul>
+<li><strong>Sombras y efectos de iluminación</strong> para realismo.  </li>
+</ul>
+<div style="text-align:center">
+    <img alt="alt text" src="./img/iluminacion.gif">
+  </div>
+
+<p><br>
+<br></p>
+<ul>
+<li><strong>Superposiciones y transparencias</strong> para dinamismo.  </li>
+</ul>
+<div style="text-align:center">
+    <img alt="alt text" src="./img/superposicion.png" width="75%">
+  </div>
+
+<p><br></p>
+<h3 id="525-tarea-ra1-cec">5.2.5. - Tarea RA1-CEc</h3>
+<p>Identificar los errores visuales de las siguientes interfaces web. Comentar el tipo de error encontrado.   </p>
+<p><strong>Interfaz</strong> 1️⃣</p>
+<div style="text-align:center">
+    <img alt="alt text" src="./img/ra1ceb1.png">
+  </div>
+
+<p><br></p>
+<!-- 
+| 1️⃣   | `1️⃣`                                |
+| 2️⃣   | `2️⃣`                                |
+| 3️⃣   | `3️⃣`                                |
+| 4️⃣   | `4️⃣`                                |
+| 5️⃣   | `5️⃣`                                |
+| 6️⃣   | `6️⃣`                                |
+| 7️⃣   | `7️⃣`                                |
+| 8️⃣   | `8️⃣`                                |
+| 9️⃣   | `9️⃣`                                |
+| 🔟    | `🔟`                                 | 
+-->
+
+<p><strong>Interfaz</strong> 2️⃣</p>
+<div style="text-align:center">
+    <img alt="alt text" src="./img/ra1ceb2.png">
+  </div>
+
+<p><br></p>
+<p><strong>Interfaz</strong> 3️⃣</p>
+<div style="text-align:center">
+    <img alt="alt text" src="./img/ra1ceb3.png">
+  </div>
+
+<p><br></p>
+<p><strong>Interfaz</strong> 4️⃣</p>
+<div style="text-align:center">
+    <img alt="alt text" src="./img/ra1ceb4.png">
+  </div>
+
+<p><br></p>
+<p><strong>Interfaz</strong> 5️⃣</p>
+<div style="text-align:center">
+    <img alt="alt text" src="./img/ra1ceb5.png">
+  </div>
+
+<p><br></p>
+<p><strong>Interfaz</strong> 6️⃣</p>
+<div style="text-align:center">
+    <img alt="alt text" src="./img/ra1ceb6.png">
+  </div>
+
+<p><br></p>
+<p><strong>Interfaz</strong> 7️⃣</p>
+<div style="text-align:center">
+    <img alt="alt text" src="./img/ra1ceb7.png">
+  </div>
+
+<p><br></p>
+<p><strong>Interfaz</strong> 8️⃣</p>
+<div style="text-align:center">
+    <img alt="alt text" src="./img/ra1ceb8.png">
+  </div>
+
+<p><br></p>
+<h2 id="53-elementos-de-relacion">5.3. - Elementos de relación</h2>
+<p>Este grupo de elementos está relacionado con la ubicación y la interrelación de las formas dentro de una composición. La dirección y la posición pueden ser percibidas mientras que el espacio y la gravedad son sentidas.
+<br />
+<div style="text-align:center">
+    <img alt="alt text" src="./img/relacion.png" width="40%">
+  </div>
+</p>
+<p><br>
+  <br></p>
+<ul>
+<li><strong>Dirección:</strong> Guía la mirada del usuario y se usa para organizar la información y definir el flujo de navegación (<strong>Horizontal</strong>, <strong>vertical</strong> y en <strong>diagonal o Z</strong>).   </li>
+</ul>
+<div style="text-align:center">
+    <img alt="alt text" src="./img/direccionZ.png">
+  </div>
+
+<p><br>
+  <br></p>
+<ul>
+<li><strong>Posición:</strong> La posición define dónde se colocan los elementos en la pantalla en relación con otros. Esto afecta la usabilidad y la coherencia visual.  </li>
+</ul>
+<div style="text-align:center">
+    <img alt="alt text" src="./img/posicion.png">
+  </div>
+
+<p><br>
+  <br></p>
+<ul>
+<li><strong>Espacio:</strong> El espacio (white space) es fundamental para la legibilidad y la organización del contenido.  </li>
+</ul>
+<div style="text-align:center">
+    <img alt="alt text" src="./img/espacio.jpg">
+  </div>
+
+<p><br>
+  <br></p>
+<ul>
+<li>
+<p><strong>Gravedad:</strong> La gravedad visual se refiere a la percepción del peso de los elementos en un diseño. Algunos factores que influyen en ella son: <strong>Tamaño y color</strong>, <strong>sombra y profundidad</strong> y <strong>equilibrio visual</strong>. </p>
+<p><img alt="alt text" src="../img/gravedad.jpg" />
+<br></p>
+</li>
+</ul>
+<h2 id="54-elementos-practicos">5.4. - Elementos prácticos</h2>
+<p>En el diseño web, los <strong>elementos prácticos</strong> son aquellos que van más allá de la estética y se centran en la comunicación y la experiencia del usuario. Estos incluyen, entre otros, la representación, el significado y la función</p>
+<div style="text-align:center">
+    <img alt="alt text" src="./img/elementosPracticos.png">
+  </div>
+
+<p><br>
+  <br></p>
+<ul>
+<li><strong>Representación:</strong> Se refiere a cómo se presentan los elementos visuales en la interfaz y su relación con la realidad o la abstracción.</li>
+</ul>
+<div style="text-align:center">
+    <img alt="alt text" src="./img/representacion.png">
+  </div>
+
+<p><br>
+  <br></p>
+<ul>
+<li><strong>Significado:</strong> Es el mensaje o la idea que transmite un elemento dentro del diseño. Puede ser, <strong>explícito</strong> o <strong>implícito</strong>. </li>
+</ul>
+<div style="text-align:center">
+    <img alt="alt text" src="./img/significado.png">
+  </div>
+
+<p><br>
+  <br></p>
+<ul>
+<li><strong>Función:</strong> Es el propósito práctico de cada elemento en la interfaz y cómo contribuye a la experiencia del usuario. La función puede ser <strong>informativa</strong>, <strong>interactiva</strong> o <strong>estructural</strong>.</li>
+</ul>
+<div style="text-align:center">
+    <img alt="alt text" src="./img/funcion.png">
+  </div>
+
+<p><br>
+  <br></p>
+<h2 id="55-patrones-de-diseno-psicologia-de-la-gestalt">5.5. - Patrones de diseño, psicología de la Gestalt</h2>
+<div style="text-align:center">
+    <img alt="alt text" src="./img/gestals.png">
+  </div>
+
+<p><br>
+  <br></p>
+<h3 id="551-introduccion">5.5.1. - Introducción</h3>
+<p>La psicología de la Gestalt es una corriente de la psicología moderna, surgida en Alemania a principios del siglo XX, cuyos exponentes más reconocidos fueron Max Wertheimer, Wolfgang Köhler, Kurt Koffka​ y Kurt Lewin.</p>
+<p>Su premisa principal es que "el todo es más que la suma de sus partes", es decir, la mente organiza la información <strong>en patrones y estructuras significativas en lugar de procesar elementos aislados</strong>.</p>
+<h3 id="552-principios-de-la-gestalt">5.5.2. - Principios de la Gestalt</h3>
+<p>La Gestalt propone una serie de principios que explican cómo organizamos la información visual y cognitiva. En <strong>el diseño de la UX/UI</strong>, los principios de la Gestalt se aplican para mejorar la experiencia del usuario.<br />
+<br></p>
+<ul>
+<li>
+<p><strong>Principio de la experiencia:</strong><br />
+    Este principio se basa en el hecho que la percepción del ser humano está fundamentado de acuerdo <strong>sus propias experiencias</strong>. Así pues, buscaremos que los diseños compartan similitudes con las experiencias de los usuarios.</p>
+<p><img alt="alt text" src="../img/experiencia.png" /> 
+<br><br></p>
+</li>
+<li>
+<p><strong>Iconos de FontAwesome</strong> cuyas funciones identificamos inmediatamente.  </p>
+<p><img alt="alt text" src="../img/experiencia2.png" />
+<br><br></p>
+</li>
+<li>
+<p><strong>Principio de simetría:</strong> <br />
+    Las imágenes simétricas son percibidas como iguales, como un solo elemento, en la distancia. </p>
+<p><img alt="alt text" src="../img/simetria.png" />
+<br><br></p>
+</li>
+<li>
+<p><strong>Contenidos</strong> organizados de forma simetrica.  </p>
+<p><img alt="alt text" src="../img/simetria2.png" />
+<br><br></p>
+</li>
+<li>
+<p><strong>Principio de proximidad</strong><br />
+    Los objetos adjuntos tienden a ser vistos como una unidad. Los estímulos que están próximos tienden a percibirse como parte de la misma unidad.  </p>
+<p><img alt="alt text" src="../img/proximidad.png" />
+<br><br></p>
+</li>
+<li>
+<p><strong>Organización de contenidos</strong> siguiendo el principio de proximidad. </p>
+<p><img alt="alt text" src="../img/proximidad2.png" />
+<br><br></p>
+</li>
+<li>
+<p><strong>Principio de similitud</strong><br />
+    La mente agrupa los elementos similares en una entidad. La semejanza depende de la forma, del tamaño, del color y de otros aspectos visuales de los elementos.  </p>
+<p><img alt="alt text" src="../img/similitud.png" />
+<br><br></p>
+</li>
+<li>
+<p><strong>Similitud</strong> entre 2 secciones de precios.  </p>
+<p><img alt="alt text" src="../img/similitud2.png" />
+<br><br></p>
+</li>
+<li>
+<p><strong>Principio de continuidad</strong><br />
+    Los detalles que mantienen un patrón o dirección tienden a agruparse juntos, como parte de un modelo. Es decir, percibimos elementos continuos, aunque estén interrumpidos entre sí.  </p>
+<p><img alt="alt text" src="../img/continuidad.png" />
+<br><br></p>
+</li>
+<li>
+<p><strong>Percepción de continuidad</strong> del carrusel a pesar de la interrupción abrupta de los contenidos.</p>
+<p><img alt="alt text" src="../img/continuidad2.png" />
+<br><br></p>
+</li>
+<li>
+<p><strong>Principio de simplicidad</strong><br />
+    El individuo organiza sus campos perceptuales con rasgos simples y regulares.  </p>
+<p><img alt="alt text" src="../img/simplicidad.png" />
+<br><br></p>
+</li>
+<li>
+<p><strong>Página simplificada</strong> al máximo para evitar de crear malestar entre los posibles clientes.</p>
+<p><img alt="alt text" src="../img/simplicidad2.png" />
+<br><br></p>
+</li>
+<li>
+<p><strong>Principio de dirección común</strong><br />
+    Implica que los elementos que parecen construir un patrón o un flujo en la misma dirección se perciben como una figura.  </p>
+<p><img alt="alt text" src="../img/comun.png" />
+<br><br></p>
+</li>
+<li>
+<p><strong>Las flechas del carrusel</strong> no indican la posibilidad de movimiento horizontal del elemento.  </p>
+<p><img alt="alt text" src="../img/comun2.png" />
+<br><br></p>
+</li>
+<li>
+<p><strong>Principio de figura y fondo</strong><br />
+    Este principio describe la tendencia del ojo humano a ver y separar los elementos de su entorno. No podemos percibir una misma forma como figura y fondo a la vez. El fondo es todo el que no se percibe como figura.  </p>
+<p><img alt="alt text" src="../img/figurafondo.png" />
+<br><br></p>
+</li>
+<li>
+<p><strong>El contraste entre figura y fondo</strong> nos hace separar el elemento principal del resto de la imagen.</p>
+<p><img alt="alt text" src="../img/figurafondo2.png" />
+<br><br></p>
+</li>
+<li>
+<p><strong>Principio del cierre</strong><br />
+    Es una tendencia del ojo humano a completar una infomración parcial.</p>
+<p><img alt="alt text" src="../img/cierre.png" />
+<br><br></p>
+</li>
+<li>
+<p><strong>El contraste de las flechas</strong> nos hace entender que falta información en la página web. </p>
+<p><img alt="alt text" src="../img/cierre2.png" /> 
+<br><br></p>
+</li>
+</ul>
+<h2 id="56-colores-y-teoria-del-color">5.6. - Colores y teoría del color</h2>
+<p>El color es el <strong>medio esencial</strong> para tocar las emociones de los visitantes del sitio web porque crea una reacción física y emocional. Los colores son capaces de establecer el tono adecuado (calmar, excitar, estimular a las acciones). 
+Cuando se establece un <strong>esquema de color</strong> para el diseño web es importante hacerlo correctamente, guiándose por los principios de la teoría del color.</p>
+<p>El color es un <strong>elemento fundamental</strong> en el diseño web, ya que influye en las emociones y reacciones de los visitantes. Puede ayudar a establecer el tono adecuado del sitio (calma, excitación, estímulo a la acción) y generar una conexión emocional con los usuarios. 
+Sin embargo, su impacto es más efectivo cuando se combina con otros aspectos del diseño, como la tipografía, la disposición de los elementos y las imágenes. 
+Al definir un esquema de color, es importante hacerlo de manera estratégica, basándose en los principios de la <strong>teoría del color</strong> para lograr una experiencia visual coherente y atractiva. </p>
+<h3 id="561-circulo-cromatico">5.6.1. - Círculo cromático</h3>
+<p><img alt="alt text" src="../img/circulo.png" /></p>
+<p>El círculo cromático es una herramienta indispensable para diseñadores. Consiste en 6 colores básicos (rojo, naranja, amarillo, verde, azul y violeta).<br />
+Para elegir una gama o mezcla armoniosa, hay que elegir dos colores opuestos entre sí (por ejemplo 1 y 2), y otros 2 igualmente espaciados entre sí (p.e. 3 y 4).
+Al final obtendremos el triángulo de colores de la figura también llamado <strong>esquema de colores</strong>.</p>
+<p>Para este ejemplo distinguiremos:
+- Colores primarios: <strong>Rojo</strong>, <strong>amarillo</strong> y <strong>azul</strong>.<br />
+- Colores secundarios: <strong>Naranja</strong>, <strong>verde</strong> y <strong>violeta</strong>.
+- Colores terciarios: Se obtienen mezclando un color primario con otro secundario.
+- Colores complementarios: Son los colores opuestos en el círculo cromático (rojo - verde, azul - naranja, violeta - amarillo).</p>
+<p>Cada combinación (esquema) de colores transmite una sensación diferente.</p>
+<h3 id="562-esquemas-de-color">5.6.2. - Esquemas de color</h3>
+<p>Se pueden aplicar diferentes combinaciones de colores dependiendo de su finalidad. </p>
+<p>1️⃣ <strong>Monocromático</strong>: Usa diferentes tonos de un solo color. Proporciona un diseño limpio y armonioso.<br />
+2️⃣ <strong>Complementario</strong>: Usa colores opuestos en el círculo cromático (ej. azul y naranja). Crea alto contraste y dinamismo.<br />
+3️⃣ <strong>Análogo</strong>: Usa colores adyacentes (ej. azul, azul verdoso y verde). Genera una apariencia equilibrada y natural.<br />
+4️⃣ <strong>Triádico</strong>: Usa tres colores equidistantes (ej. rojo, amarillo y azul). Aporta diversidad y equilibrio.<br />
+5️⃣ <strong>Tetrádico</strong>: Usa dos pares de colores complementarios. Es vibrante, pero requiere equilibrio para no saturar el diseño.  </p>
+<h3 id="563-enlaces-de-interes">5.6.3. - Enlaces de interés</h3>
+<p>Para facilitar la selección de colores en diseño web, existen herramientas como:<br />
+✔ <a href="https://color.adobe.com/">Adobe Color</a><br />
+✔ <a href="https://coolors.co/">Coolors</a><br />
+✔ <a href="https://paletton.com/">Paletton</a>  </p>
+<h3 id="564-ejemplos-del-uso-de-esquemas-de-colores-en-paginas-web">5.6.4. - Ejemplos del uso de esquemas de colores en páginas web</h3>
+<p>1️⃣ El blanco y el negro transmiten elegancia, simplicidad y eficiencia. Es el mismo que busca Apple en todos sus productos.  </p>
+<p><img alt="alt text" src="../img/color0.png" /> 
+<br><br />
+<br></p>
+<p>2️⃣ Un fondo negro combinado con colores grises y cafés apagados generan un ambiente lúgubre.  </p>
+<p><img alt="alt text" src="../img/color1.png" />
+<br>
+<br></p>
+<p>3️⃣ Sección Amarilla elige el negro y el amarillo para captar la atención.  </p>
+<p><img alt="alt text" src="../img/color2.png" /> <br />
+<br>
+<br></p>
+<p>4️⃣ Los colores claros hacen destacar el color rojo.  </p>
+<p><img alt="alt text" src="../img/color3.png" />  <br />
+<br>
+<br></p>
+<p>5️⃣ Fingerspelling enseña el lenguaje de signos. En su paleta de colores solo se encuentran el morado y el amarillo que son complementarios entre sí.  </p>
+<p><img alt="alt text" src="../img/color4.png" />
+<br>
+<br></p>
+<p>6️⃣ La combinación del azul y verde transmite calma y seguridad.  </p>
+<p><img alt="alt text" src="../img/color5.png" /> 
+<br>
+<br></p>
+<p>7️⃣ En la página de Schweppes, predomina el amarillo para expresar su personalidad alegre y desenfadada.  </p>
+<p><img alt="alt text" src="../img/color6.png" />
+<br>
+<br></p>
+<p>8️⃣ Los gradientes permiten combinar diferentes tonos de un mismo color de manera suave y gradual, creando añadiendo profundidad a los elementos del sitio web.  </p>
+<p><img alt="alt text" src="../img/color7.png" /><br />
+<br>
+<br></p>
+<p>9️⃣ Las transparencias añaden profundidad y permiten una integración más armoniosa de los elementos en la página.  </p>
+<p><img alt="alt text" src="../img/color8.png" /> 
+<br>
+<br></p>
+<p>🔟 Las ilustraciones en 2D transmiten un aspecto sofisticado y moderno a los diseños.  </p>
+<p><a href="https://www.peppasauce.love/"><img alt="alt text" src="../img/color9.png" /></a>
+<br>
+<br></p>
+<p>1️⃣1️⃣ Los colores suaves y naturales como el beige, marrones y verdes apagados crean una sensación de calma y tranquilidad.  </p>
+<p><img alt="alt text" src="../img/color10.png" /> 
+<br>
+<br></p>
+<p>1️⃣2️⃣ Los colores brillantes y llamativos se utilizan para atraer la atención del usuario y resaltar elementos importantes.  </p>
+<p><img alt="alt text" src="../img/color11.png" /> 
+<br>
+<br></p>
+<h1 id="6-guias-de-estilo">6. Guías de estilo</h1>
+<p>Las <strong>guías de estilo</strong> son documentos que establecen las reglas visuales y funcionales para garantizar la coherencia en una página web. Estas guías ayudan a mantener una identidad de marca clara y una experiencia de usuario uniforme en todos los dispositivos y plataformas.</p>
+<h2 id="61-elementos-clave-de-una-guia-de-estilo">6.1. - Elementos clave de una guía de estilo</h2>
+<p>1️⃣ <strong>Logotipos y colores corporativos</strong><br />
+   - Logotipos de empresa. 
+   - Paleta de colores. <br />
+   - Tamaños y diseños recomendados.<br />
+<br></p>
+<p>2️⃣ <strong>Componentes UI</strong><br />
+   - Botones, formularios, iconos y otros elementos interactivos.<br />
+   - Consistencia en tamaños, bordes y sombreados.
+<br></p>
+<p>3️⃣ <strong>Paleta de colores</strong><br />
+   - Colores primarios y secundarios.<br />
+   - Variaciones y usos específicos (botones, fondos, enlaces, etc.).<br />
+   - Contraste y accesibilidad.
+<br></p>
+<p>4️⃣ <strong>Tipografía</strong><br />
+   - Fuentes principales y secundarias.<br />
+   - Tamaños y pesos para títulos, subtítulos y cuerpo de texto.<br />
+   - Espaciado entre líneas y párrafos.
+<br></p>
+<p>5️⃣ <strong>Imágenes e Ilustraciones</strong><br />
+   - Logotipos de empresa.
+   - Estilo de imágenes (fotografía, ilustración, gráficos SVG).<br />
+<br>    </p>
+<p>6️⃣ <strong>Espaciado y Layout</strong><br />
+   - Márgenes y paddings para mantener una estructura uniforme.<br />
+   - Breakpoints y diseño responsivo.
+<br></p>
+<p>7️⃣ <strong>Estilo de Interacciones</strong><br />
+   - Efectos de hover y transiciones.<br />
+   - Animaciones y microinteracciones.<br />
+   - animaciones visuales en formularios y botones.
+<br></p>
+<p>8️⃣ <strong>Accesibilidad</strong><br />
+   - Buen contraste de colores.<br />
+   - Uso correcto de etiquetas semánticas en HTML.<br />
+   - Soporte para lectores de pantalla.</p>
+<p><strong>Nota:</strong> Lista no exhaustiva.</p>
+<h2 id="62-tarea-ra1-ced">6.2. - Tarea RA1-CEd</h2>
+<p>Elegir una página web al azar y extraer la guía de estilos. </p>
+<h2 id="63-ejemplos-de-guias-de-estilos">6.3. - Ejemplos de guías de estilos</h2>
+<p>1️⃣ <strong>airbnb</strong></p>
+<p><img alt="alt text" src="./img/airbnb.png" width="50%">
+<br>
+<br></p>
+<p>2️⃣ <strong>Bacardi</strong>  </p>
+<p><img alt="alt text" src="../img/bacardi.png" /> 
+<br>
+<br></p>
+<p>3️⃣ <strong>Cruz roja Americana</strong>    </p>
+<p><img alt="alt text" src="../img/aRedCross.png" />
+<br></p>
+<h2 id="64-documentacion-de-guias-de-estilos">6.4. - Documentación de guías de estilos</h2>
+<p>Algunas marcas y plataformas han publicado sus guías de estilo para que los desarrolladores y diseñadores puedan seguir sus estándares:</p>
+<ul>
+<li><a href="https://material.io/"><strong>Material Design</strong> (Google)</a></li>
+<li><a href="https://developer.apple.com/design/"><strong>Human Interface Guidelines</strong> (Apple)</a></li>
+<li><a href="https://carbondesignsystem.com/"><strong>Carbon Design System</strong> (IBM)</a></li>
+<li><a href="https://design.samsung.com/global/contents/one-ui/download/oneui_design_guide_eng.pdf"><strong>Samsung Design</strong> (Samsung)</a>. <a href="https://design.samsung.com/global/contents/one-ui/download/oneui_design_guide_eng.pdf">Guía de estilo en formato pdf</a></li>
+</ul>
+<!-- poner en otro lado no hace nada aquí -->
+<h1 id="7-responsive-design">7. Responsive design</h1>
+<h2 id="71-que-es-el-responsive-design">7.1. - ¿Qué es el Responsive Design?</h2>
+<p>Un sitio web que no se muestra correctamente en una variedad de dispositivos genera una experiencia negativa para los usuarios. A partir de esta necesidad surge el Responsive Design.</p>
+<p>El <strong>Responsive Design, o diseño adaptativo</strong>, es la técnica utilizada actualmente para lograr que una página web se adapte a cualquier dispositivo tecnológico, como ordenadores, tabletas, teléfonos inteligentes y relojes inteligentes.</p>
+<h2 id="72-breakpoints">7.2. - Breakpoints</h2>
+<p>Un <strong>breakpoint</strong> en diseño web responsivo es el <strong>punto en el que el contenido y el diseño</strong> de un sitio web <strong>se ajustan</strong> de manera específica para brindar la <strong>mejor experiencia de usuario posible</strong>. En otras palabras, los puntos de corte determinan cómo se visualiza un sitio web en función del tamaño de la pantalla.  </p>
+<p>Agregar <strong>breakpoints</strong> mejora la legibilidad en cualquier dispositivo, ya que existen puntos de corte específicos para distintos tamaños de pantalla. Sin embargo, estos pueden personalizarse para garantizar una mayor flexibilidad y adaptabilidad a diferentes dispositivos.</p>
+<h2 id="73-metodologia-para-obtener-un-diseno-web-responsive">7.3. - Métodologia para obtener un diseño web responsive</h2>
+<ul>
+<li><strong>HTML y CSS.</strong> Estas dos tecnologías permiten redimensionar, ocultar, reducir o ampliar automáticamente los elementos de un sitio web para mejorar su adaptabilidad.  </li>
+<li><strong>Consultas de medios (<em>media queries</em>).</strong> Técnica de CSS que ajusta el diseño de sitios web y aplicaciones según el tipo de dispositivo o características específicas, como el tamaño y la resolución de la pantalla.  </li>
+<li><strong>Diseño (<em>layout</em>).</strong> Un diseño fluido utiliza valores en porcentaje para adaptarse al tamaño de la pantalla, mientras que técnicas como <em>flexbox</em> y <em>grid</em> permiten distribuir los elementos de manera más eficiente.  </li>
+<li><strong>Imágenes responsivas.</strong> Permiten ajustar automáticamente el ancho y la altura de las imágenes para adaptarlas a cualquier tamaño de pantalla, mejorando la experiencia de usuario y la carga del sitio.  </li>
+<li><strong>Velocidad.</strong> Un sitio web más rápido mejora la experiencia del usuario y el posicionamiento en buscadores (<em>SEO</em>). Optimizar imágenes, reducir solicitudes innecesarias y mejorar la caché contribuye a una carga más eficiente.</li>
+</ul>
+<h2 id="74-buenas-practicas-de-diseno-web-responsive">7.4. - Buenas prácticas de diseño web responsive</h2>
+<ul>
+<li>
+<p><strong>Priorizar el contenido</strong><br />
+Asegurarse de que los usuarios puedan encontrar la información con el mínimo desplazamiento o navegación. Mientras que en un escritorio se requiere menos desplazamiento para visualizar el contenido, en un dispositivo móvil la misma información puede generar una mala experiencia de usuario si el contenido es demasiado extenso o si la tipografía y las imágenes no se adaptan correctamente a la pantalla.  </p>
+</li>
+<li>
+<p><strong>Reducir la fricción</strong><br />
+Es fundamental adaptar cada versión del sitio web según el dispositivo. Adoptar un enfoque <em>mobile-first</em> ayuda a los diseñadores a definir qué elementos son realmente necesarios para alcanzar los objetivos principales de la pa´gina web (compra de un producto o servicio).  </p>
+</li>
+<li>
+<p><strong>Pensar con los dedos</strong><br />
+Asegúrate de que las partes más importantes de la página sean fácilmente accesibles para quienes navegan desde un dispositivo móvil. Este factor cambia la forma en que los diseñadores crean áreas táctiles y otros elementos interactivos. </p>
+</li>
+<li>
+<p><strong>Diseño y desarrollo en conjunto</strong><br />
+El diseño web responsivo implica que tanto el diseño como el desarrollo deben adaptarse al comportamiento y entorno del usuario, por lo que es fundamental que trabajen de manera conjunta. Diseñadores y desarrolladores deben colaborar para definir cómo se reorganizará el contenido y cuál será el resultado final.  </p>
+</li>
+<li>
+<p><strong>Probar, probar y probar de nuevo</strong><br />
+Es fundamental realizar pruebas de usabilidad en diferentes plataformas de forma regular. Se debe evaluar la navegación del sitio, ya que esta debe adaptarse al dispositivo utilizado. Es esencial verificar que los diseños de navegación funcionen correctamente en distintas pantallas y no generen una mala experiencia de usuario.  </p>
+</li>
+</ul>
+<p>También se deben probar las tipografías en varios dispositivos. Aunque se utilicen diferentes fuentes y métodos de diseño para presentar el contenido, algunas tipografías pueden no ser compatibles con todos los sistemas, lo que podría provocar que se transformen en caracteres aleatorios o códigos ilegibles. Por ello, es importante probarlas antes de implementar cambios en el sitio web.  </p>
+<p>Asimismo, es recomendable probar combinaciones de dispositivos y navegadores. Analizar el tráfico web y móvil con herramientas como Google Analytics permite identificar los navegadores más utilizados para acceder al sitio y optimizar la compatibilidad.  </p>
+<p>Por último, es crucial evaluar la velocidad del sitio web, considerando el tiempo de carga de imágenes, videos y otros elementos en distintos dispositivos.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 - Javier Egea Blasco
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.instant.preview", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "toc.follow", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "search.share", "content.code.copy"], "search": "../../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>
