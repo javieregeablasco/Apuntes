@@ -22,6 +22,7 @@ theme:
     - search.highlight
     - search.share
     - content.code.copy
+    - content.tabs.link
 
   logo: assets/mre.png
   favicon: assets/favicon.png
@@ -73,12 +74,14 @@ markdown_extensions:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
-  - tables        
+  - tables   
+     
 
 nav: 
   - Aplicaciones Ofimáticas: 
     - Presentación módulo: SMX/SMX_1/AO/00_Temario.md
-    - UT 1 : SMX/SMX_1/AO/01_Instalacion de aplicaciones ofimaticas.md
+    - UT 1 - Instalación de aplicaciones Ofimáticas:
+      - UT 11 - : SMX/SMX_1/AO/01_Instalacion de aplicaciones ofimaticas.md
     - UT 2 - Procesadores de texto:
       - UT 21 - Características de los procesadores de texto: SMX/SMX_1/AO/02_Procesadores_de_texto/021_Procesadores_de_texto.md
       - UT 22 - Instalación de LibreOffice Writer: SMX/SMX_1/AO/02_Procesadores_de_texto/022_LibreOffice_Writer_Instalacion.md
@@ -89,8 +92,8 @@ nav:
     - UT 1 Introducción a la programación : SMX/SMX_2/Opt_Python/01_Introduccion_a_la_programacion.md
     - UT 2 Python, instalación y IDE: SMX/SMX_2/Opt_Python/02_Python_Presentacion.md
     - UT 3 Elementos básicos de Python: SMX/SMX_2/Opt_Python/03_Python_Basico.md
-  - MMSCI:
-    - UT0: FPB/FPB_1/MMSCI/UT.0-Temario.md
+#  - MMSCI:
+#    - UT0: FPB/FPB_1/MMSCI/UT.0-Temario.md
 
   - Cloud Computing:
     - Presentación módulo: DAW/DAW_2/AWS/UT. 0-Temario.md

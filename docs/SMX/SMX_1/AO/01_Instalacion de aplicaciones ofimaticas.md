@@ -1,422 +1,296 @@
 ---
-title: CFGM - Técnico en Sistemas Microinformáticos y Redes
-lesson: UD. 0.0 - Métodos de evaluación  
-subtitle: "Módulo: 0223 - Aplicaciones ofimáticas"
+ciclo: CFGM - Técnico en Sistemas Microinformáticos y Redes
+title: Aplicaciones ofimáticas
+module number: 0223
+lesson: UD. 1 - Instalación de aplicaciones ofimáticas  
 author: Javier Egea Blasco  
-year: Año 25-26  
+year: 25-26  
 keywords: SMX, AO
 layout: default  
+schedule: 224h - 7h/w
 ---
 
-![Descripción de la imagen](./img/img1.jpg){ .img-center width=75% }
+# **Instalación de aplicaciones ofimáticas.**
+---
 
-<!-- <div style="text-align: center">
-  <img alt="alt text" src="./img/img1.jpg" width="75%">
-</div>   -->
+![Descripción de la imagen](./img/UT1/Installing%20Software.png){ .img-center width=75% }
+
+## **Objetivos didácticos**
+**¿Qué veremos en esta unidad?**  
+
+- Identificar las distintas fases del proceso de instalación.
+- Instalar, configurar, personalizar, actualizar y desinstalar aplicaciones.
+- Resolver problemas surgidos durante la instalación.
+- Distinguir los distintos tipos de licencias software.
+- *Realizar informes de incidencias*.
+- *Solucionar problemas utilizando documentación, ayuda y soporte técnico*.
 
 <br>
 
-**Resultados de aprendizaje y criterios de evaluación del módulo:**  
-<table>
-  <tr>
-    <td style="white-space: nowrap;">RA. 1:</td>
-    <td>
-      Instala y actualiza aplicaciones ofimáticas, interpretando especificaciones y describiendo los pasos a seguir en el proceso. 
-      <details>
-        <summary>Ver los criterios de evaluación</summary>
-        <table>
-          <tr>
-            <td>a)</td>
-            <td>Se han identificado y establecido las fases del proceso de instalación.</td>
-          </tr>
-          <tr>
-            <td>b)</td>
-            <td>Se han respetado las especificaciones técnicas del proceso de instalación.</td>
-          </tr>
-          <tr>
-            <td>c)</td>
-            <td>Se han configurado las aplicaciones según los criterios establecidos.</td>
-          </tr>
-          <tr>
-            <td>d)</td>
-            <td>Se han documentado las incidencias.</td>
-          </tr>
-          <tr>
-            <td>e)</td>
-            <td>Se han solucionado problemas en la instalación o integración con el sistema informático.</td>
-          </tr>
-          <tr>
-            <td>f)</td>
-            <td>Se han eliminado y/o añadido componentes de la instalación en el equipo.</td>
-          </tr>
-          <tr>
-            <td>g)</td>
-            <td>Se han actualizado las aplicaciones.</td>
-          </tr>
-          <tr>
-            <td>h)</td>
-            <td>Se han respetado las licencias software.</td>
-          </tr>
-          <tr>
-            <td>i)</td>
-            <td>Se han propuesto soluciones software para entornos de aplicación.</td>
-          </tr>
-        </table>
-      </details>
-    </td> 
-  </tr>  
-  <tr>
-    <td>RA. 2:</td>
-    <td>
-      Elabora documentos y plantillas, describiendo y aplicando las opciones avanzadas de procesadores de textos.  
-      <details>
-        <summary>Ver los criterios de evaluación</summary>
-        <table>
-          <tr>
-            <td>a)</td>
-            <td>Se ha personalizado las opciones de software y barra de herramientas.</td>
-          </tr>
-          <tr>
-            <td>b)</td>
-            <td>Se han diseñado plantillas.</td>
-          </tr>
-          <tr>
-            <td>c)</td>
-            <td>Se han utilizado aplicaciones y periféricos para introducir textos e imágenes.</td>
-          </tr>
-          <tr>
-            <td>d)</td>
-            <td>Se han importado y exportado documentos creados con otras aplicaciones y en otros formatos.</td>
-          </tr>
-          <tr>
-            <td>e)</td>
-            <td>Se han creado y utilizado macros en la realización de documentos.</td>
-          </tr>
-          <tr>
-            <td>f)</td>
-            <td>Se han elaborado manuales específicos.</td>
-          </tr>
-        </table>
-      </details>
-    </td>
-  </tr> 
-  <tr> 
-    <td>RA. 3:</td>
-    <td>
-      Elabora documentos y plantillas de cálculo, describiendo y aplicando opciones avanzadas de hojas de  cálculo.
-      <details>
-        <summary>Ver los criterios de evaluación</summary>
-        <table>
-          <tr>
-            <td>a)</td>
-            <td>Se ha personalizado las opciones de software y barra de herramientas.</td>
-          </tr>
-          <tr>
-            <td>b)</td>
-            <td>Se han utilizado los diversos tipos de datos y referencia para celdas, rangos, hojas y libros.  </td>
-          </tr>
-          <tr>
-            <td>c)</td>
-            <td>Se han aplicado fórmulas y funciones.</td>
-          </tr>
-          <tr>
-            <td>d)</td>
-            <td>Se han generado y modificado gráficos de diferentes tipos.</td>
-          </tr>
-          <tr>
-            <td>e)</td>
-            <td>Se han empleado macros para la realización de documentos y plantillas.</td>
-          </tr>
-          <tr>
-            <td>f)</td>
-            <td>Se han importado y exportado hojas de cálculo creadas con otras aplicaciones y en otros  formatos.</td>
-          </tr>
-          <tr>
-            <td>g)</td>
-            <td>Se ha utilizado la hoja de cálculo como base de datos: formularios, creación delistas,       filtrado,   protección y ordenación de datos.</td>
-          </tr>
-          <tr>
-            <td>h)</td>
-            <td>Se han utilizado aplicaciones y periféricos para introducir textos, números, códigos e  imágenes.</td>
-          </tr>
-        </table>
-      </details>
-    </td>
-  </tr>
-  <tr>  
-    <td>RA. 4:</td>
-    <td>
-      Elabora documentos con bases de datos ofimáticas describiendo y aplicando operaciones de manipulación de datos. 
-      <details>
-        <summary>Ver los criterios de evaluación</summary>
-        <table>
-          <tr>
-            <td>a)</td>
-            <td>Se han identificado los elementos de las bases de datos relacionales.</td>
-          </tr>
-          <tr>
-            <td>b)</td>
-            <td>Se han creado bases de datos ofimáticas.</td>
-          </tr>
-          <tr>
-            <td>c)</td>
-            <td>Se han utilizado las tablas de la base de datos (insertar, modificar y eliminar registros).</td>
-          </tr>
-          <tr>
-            <td>d)</td>
-            <td>Se han utilizado asistentes en la creación de consultas.</td>
-          </tr>
-          <tr>
-            <td>e)</td>
-            <td>Se han utilizado asistentes en la creación de formularios.</td>
-          </tr>
-          <tr>
-            <td>f)</td>
-            <td>Se han utilizado asistentes en la creación de informes.</td>
-          </tr>
-          <tr>
-            <td>g)</td>
-            <td>Se ha realizado búsqueda y filtrado sobre la información almacenada.</td>
-          </tr>
-          <tr>
-            <td>h)</td>
-            <td>Se han creado y utilizado macros.</td>
-          </tr>
-        </table>
-      </details>
-    </td>
-  </tr>  
-  <tr>
-    <td>RA. 5:</td>
-    <td>
-      Manipula imágenes digitales analizando las posibilidades de distintos programas y aplicando técnicas de captura y edición básicas.
-      <details>
-        <summary>Ver los criterios de evaluación</summary>
-        <table>
-          <tr>
-            <td>a)</td>
-            <td>Se han analizado los distintos formatos de imágenes.</td>
-          </tr>
-          <tr>
-            <td>b)</td>
-            <td>Se ha realizado la adquisición de imágenes con periféricos.</td>
-          </tr>
-          <tr>
-            <td>c)</td>
-            <td>Se ha trabajado con imágenes a diferentes resoluciones, según su finalidad.</td>
-          </tr>
-          <tr>
-            <td>d)</td>
-            <td>Se han empleado herramientas para la edición de imagen digital.</td>
-          </tr>
-          <tr>
-            <td>e)</td>
-            <td>Se han importado y exportado imágenes en diversos formatos.</td>
-          </tr>
-        </table>
-      </details>
-    </td>
-  </tr>    
-  <tr>
-    <td>RA. 6:</td>
-    <td>
-      Manipula secuencias de vídeo analizando las posibilidades de distintos programas y aplicando técnicas de captura y edición básicas.
-      <details>
-        <summary>Ver los criterios de evaluación</summary>
-        <table>
-          <tr>
-            <td>a)</td>
-            <td>Se han reconocido los elementos que componen una secuencia de vídeo.</td>
-          </tr>
-          <tr>
-            <td>b)</td>
-            <td>Se han estudiado los tipos de formatos y codecs más empleados.</td>
-          </tr>
-          <tr>
-            <td>c)</td>
-            <td>Se han importado y exportado secuencias de vídeo.</td>
-          </tr>
-          <tr>
-            <td>d)</td>
-            <td>Se han capturado secuencias de vídeo con recursos adecuados.</td>
-          </tr>
-          <tr>
-            <td>e)</td>
-            <td>Se han elaborado vídeo tutoriales.</td>
-          </tr>
-        </table>
-      </details>
-    </td>
-  </tr>    
-  <tr>
-    <td>RA. 7:</td>
-    <td>
-      Elabora presentaciones multimedia describiendo y aplicando normas básicas de composición y diseño.
-      <details>
-        <summary>Ver los criterios de evaluación</summary>
-        <table>
-          <tr>
-            <td>a)</td>
-            <td>Se han identificado las opciones básicas de las aplicaciones de presentaciones.</td>
-          </tr>
-          <tr>
-            <td>b)</td>
-            <td>Se han reconocido los distintos tipos de vista asociados a una presentación.</td>
-          </tr>
-          <tr>
-            <td>c)</td>
-            <td>Se han aplicado y reconocido las distintas tipografías y normas básicas de composición, diseño y       utilización del color.</td>
-          </tr>
-          <tr>
-            <td>d)</td>
-            <td>Se han diseñado plantillas de presentaciones.</td>
-          </tr>
-          <tr>
-            <td>e)</td>
-            <td>Se han creado presentaciones.</td>
-          </tr>
-          <tr>
-            <td>f)</td>
-            <td>Se han utilizado periféricos para ejecutar presentaciones.</td>
-          </tr>
-        </table>
-      </details>
-    </td>
-  </tr>
-  <tr>
-    <td>RA. 8:</td>
-    <td>
-      Realiza operaciones de gestión del correo y la agenda electrónica, relacionando necesidades de uso con su configuración.
-      <details>
-        <summary>Ver los criterios de evaluación</summary>
-        <table>
-          <tr>
-            <td>a)</td>
-            <td>Se han descrito los elementos que componen un correo electrónico.</td>
-          </tr>
-          <tr>
-            <td>b)</td>
-            <td>Se han analizado las necesidades básicas de gestión de correo y agenda electrónica.</td>
-          </tr>
-          <tr>
-            <td>c)</td>
-            <td>Se han configurado distintos tipos de cuentas de correo electrónico.</td>
-          </tr>
-          <tr>
-            <td>d)</td>
-            <td>Se han conectado y sincronizado agendas del equipo informático con dispositivos móviles.</td>
-          </tr>
-          <tr>
-            <td>e)</td>
-            <td>Se ha operado con la libreta de direcciones.</td>
-          </tr>
-          <tr>
-            <td>f)</td>
-            <td>Se ha trabajado con todas las opciones de gestión de correo electrónico (etiquetas, filtros,   carpetas, entre otros).</td>
-          </tr>
-          <tr>
-            <td>g)</td>
-            <td>Se han utilizado opciones de agenda electrónica.</td>
-          </tr>
-        </table>
-      </details>
-    </td>
-  </tr>    
-  <tr>
-    <td>RA. 9:</td>
-    <td>
-      Aplica técnicas de soporte en el uso de aplicaciones, identificando y resolviendo incidencias. 
-      <details>
-        <summary>Ver los criterios de evaluación</summary>
-        <table>
-          <tr>
-            <td>a)</td>
-            <td>Se han elaborado guías visuales con los conceptos básicos de uso de una aplicación.</td>
-          </tr>
-          <tr>
-            <td>b)</td>
-            <td>Se han identificado problemas relacionados con el uso de aplicaciones ofimáticas.</td>
-          </tr>
-          <tr>
-            <td>c)</td>
-            <td>Se han utilizado manuales de usuario para instruir en el uso de aplicaciones.</td>
-          </tr>
-          <tr>
-            <td>d)</td>
-            <td>Se han aplicado técnicas de asesoramiento en el uso de aplicaciones.</td>
-          </tr>
-          <tr>
-            <td>e)</td>
-            <td>Se han realizado informes de incidencias.</td>
-          </tr>
-          <tr>
-            <td>f)</td>
-            <td>Se han aplicado los procedimientos necesarios para salvaguardar la información y su recuperación.</td>
-          </tr>
-          <tr>
-            <td>g)</td>
-            <td>Se han utilizado los recursos disponibles (documentación técnica, ayudas en línea, soporte     técnico, entre otros) para solventar incidencias.</td>
-          </tr>
-          <tr>
-            <td>h)</td>
-            <td>Se han solventando las incidencias en el tiempo adecuado y con el nivel de calidad esperado.</td>
-          </tr>
-        </table>
-      </details>
-    </td>
-  </tr>    
-</table>
+**Resultados de aprendizaje y criterios de evaluacion que se evaluarán en esta unidad.**  
 
-# Content tabs.
-
-=== "Tabla 1"
-    Este es su contendi
-
-=== "Tabla 2"
-    Otra contenido
-
-=== "Tabla 3"
-    Contenido final 
-
-# Admonition tabs
-
-!!! note "Title of the callout"
-    Aquí va el texto, no se si se puede cambiar el icono
-
-??? info "Title of the content"
-    Aquí va el texto, no se si se puede cambiar el icono    
-
-Tipos (iconos disponibles).  
-- abstract  
-- info  
-- tip  
-- success  
-- octicons  
-- question  
-- warning  
-- failure  
-- danger  
-- bug  
-- example  
-- quote     
-
-# Enlace a documentacion sobre mkdocs
-<a href=https://squidfunk.github.io/mkdocs-material>Clic aqui</a>
-
-# Diagramas (superfences)
-<div style="text-align:center;">
-```mermaid
-flowchart TD
-  A(["Start"])
-  A --> B{"Decision"}
-  B --> C["Option A"]
-  B --> D["Option B"]
-```
-</div>
-
-<a href=https://mermaid.js.org>Editor de diagramas</a>
+| **Resultados de aprendizaje de la unidad didáctica:** |
+|-|
+| **RA. 1:** Se han identificado y establecido las fases del proceso de instalación.|  
 
 
+
+|**Criterios de evaluación de la unidad didáctica:**||
+|-|-|
+|a) Se han identificado y establecido las fases del proceso de instalación. 	|
+|b) Se han respetado las especificaciones técnicas del proceso de instalación. |	
+|c) Se han configurado las aplicaciones según los criterios establecidos. 	|
+|*d) Se han documentado las incidencias.* 	|Evaluado en empresa|
+|e) Se han solucionado problemas en la instalación o integración con el sistema informático.|
+|f) Se han eliminado y/o añadido componentes de la instalación en el equipo. 	|
+|g) Se han actualizado las aplicaciones. 	|
+|h) Se han respetado las licencias software.| 	
+|*i) Se han propuesto soluciones software para entornos de aplicación.*|Evaluado en empresa| 
+
+<br>
+
+
+## **Indice**
+1. Concepto de aplicación ofimática.
+1. Tipos de aplicaciones ofimáticas.
+1. Gestores de agenda y correo electrónico
+1. Suites de aplicaciones ofimáticas.
+1. Necesidades de los entornos de aplicación.
+1. Procedimientos de instalación.
+1. Configuración y actualizaciones.
+1. Documentación y soporte técnico.
+
+## **1 - Concepto de aplicación ofimática**
+Una **aplicación ofimática** es un tipo de **software** diseñado para realizar tareas comunes en una oficina o entorno laboral. Su propósito es **automatizar, simplificar y mejorar la productividad** en actividades cotidianas.
+
+Originalmente, estas herramientas se centraban en funciones básicas como:
+
+- **Procesadores de texto**: Para crear y editar documentos escritos.
+- **Hojas de cálculo**: Para realizar cálculos numéricos y análisis de datos.
+- **Programas de presentación**: Para elaborar diapositivas con textos e imágenes para exposiciones.
+- **Gestores de bases de datos**: Para organizar y gestionar grandes volúmenes de información.
+
+Con la evolución de la tecnología, las suites ofimáticas se han expandido para incluir una variedad de herramientas, desde **clientes de correo electrónico** y **calendarios** hasta **editores de gráficos** y **software de videoconferencia**. 
+
+<br>
+Actualmente, muchas de estas aplicaciones se ofrecen como servicios en la nube (online), lo que permite a los usuarios acceder a sus documentos y trabajar de forma colaborativa desde cualquier dispositivo con conexión a internet.
+
+!!! question "¿Qué servicio en la nube usamos habitualmente sin darnos cuenta?"
+
+<br>
+
+|**Resumen:**||
+|-|-|  
+|**Informática**| Tratamiento automático de la información con ordenadores.|
+|**Ofimática**| **Ofi**cina + Infor**mática**, se refiere al uso de la informática para facilitar las tareas habituales que surgen en el hogar y la empresa.|
+
+!!! question "¿Cuáles son las diferencias entre MS Office y LibreOffice?"
+
+## **2 - Tipos de aplicaciones ofimáticas**
+Citaremos las más habituales para las personas no expertas.
+
+- **Procesadores de texto**
+- **Hojas de cálculo**
+- **Gestores de bases de datos**
+- **Editores de imagen y vídeo**
+- **Programa de presentaciones**
+- **Gestores de agenda y correo electrónico**
+
+!!! question "Nombrar desarrolladores de aplicaciones ofimáticas."
+!!! question "Dar ejemplos de aplicaciones ofimáticas gratuitas o de pago."
+<br>
+
+### **2.1 - Procesador de texto**
+**¿Qué podemos hacer con un procesador de texto?**  
+
+- Formato de caracteres: tamaño, tipo, color, etc.
+- Formato de párrafos con sangrías, espacio entre líneas, justificación del texto, etc.
+- Formato de página que define márgenes, pie, encabezado y es compatible con etiquetas, cartas, sobres, etc.
+- Impresión del trabajo por impresora.
+- Incorporación de gráficos, imágenes, tablas, etc.
+- Corrección ortográfica y gramatical.
+- Inclusión de hipervínculos, índices, etc.
+- Dispone de pequeños detalles que permiten una buena presentación de los textos, como la enumeración, la combinación de correspondencia, i plantillas predefinidas.
+- Macros
+
+### **2.2 - Hoja de cáculo**
+**¿Qué podemos hacer con una hoja de cáculo?**
+
+- Permite el tratamiento de datos en una o diversas hojas.
+- Incorpora fórmulas de todo tipo.
+- Permite formatear los datos con la misma amplitud que el procesador de textos.
+- Permite recorrer las fórmulas, para saber de donde proceden los datos.
+- Gráficas.
+- Permite copiar fórmulas de manera inteligente.
+- Corrección ortográfica, uso de macros, imágenes, vídeo y sonido
+
+### **2.3 - Gestor de base de datos**
+**¿Qué podemos hacer con un gestor de base de datos?**
+
+- Creación y mantenimiento de tablas.
+- Posibilidad de incluir consultas automatizadas.
+- Formularios para la introducción de los datos.
+- Informes para la presentación de los datos.
+- Asistentes para facilitar el acceso a todas las funciones.
+
+### **2.4 - Editores de imagen y vídeo**
+**¿Qué podemos hacer con un editor audiovisual?**
+
+- Realizar el tratamiento de material audiovisual.
+- Editar y retocar imágenes digitales (ajuste de color, brillo, contraste, recortes, capas, filtros, etc.).
+- Editar vídeos: cortar y unir fragmentos, añadir transiciones, títulos, efectos visuales y de sonido.
+- Exportar proyectos en diferentes formatos (imagen, secuencia de vídeo, GIF animado, etc.).
+
+### **2.5 - Programa de presentaciones**
+**Permiten, entre otros:**
+
+- Elaborar presentaciones basadas en diapositivas.
+- Incluir y editar texto de forma sencilla.
+- Insertar imágenes, gráficos, tablas, sonido y vídeo.
+- Aplicar efectos y animaciones a los contenidos.
+- Configurar transiciones entre diapositivas.
+- Facilitar la exposición de ideas de manera visual y estructurada.
+- Exportar la presentación en distintos formatos (PDF, vídeo, imágenes, etc.).
+
+### **2.6 - Gestores de agenda y correo electrónico**
+**Permiten, entre otros:**
+
+- Las cuentas de correo nos permiten comunicarnos e intercambiar documentación de
+forma inmediata.
+- La agenda electrónica organiza nuestras tareas, nos avisa de los plazos y programa
+reuniones.
+- **¡Nos recuerda si tenemos tareas por entregar!**
+
+
+
+## **3 - Clasificación del software ofimático**
+Las aplicaciones ofimáticas se pueden clasificar según el tipo de software en diferentes categorías, basadas en cómo se distribuyen, cómo se usan y cómo se gestionan. Las más comunes son:
+
+- **Software de escritorio**: Se instalan y ejecutan localmente en el ordenador del usuario.
+Ejemplos: Microsoft Office, LibreOffice, Apple iWork.
+
+- **Software en la nube**: Se accede y utiliza directamente desde el navegador web, sin necesidad de instalación local.
+Ejemplos: Google Workspace, Microsoft 365 (versión online).
+
+- **Software híbrido**: Combina características de escritorio y de la nube. Se instalan en el dispositivo, pero se integran con servicios online para sincronización y acceso desde cualquier lugar.
+Ejemplo: Microsoft 365 (aplicaciones de escritorio integradas con OneDrive).
+
+!!! question "¿Cuales son las ventajas e inconvenientes del software de escritorio?"
+!!! question "¿Cuales son las ventajas e inconvenientes del software en la nube?"
+
+## **4 - Licencias de uso del software ofimático**
+La **licencia software es el contrato** que suscribe el desarrollador de un programa con el usuario que lo quiere utilizar.
+
+Este contrato regula:  
+
+- Lo que el usuario puede hacer con el programa.
+- Lo que el usuario puede exigir al desarrollador.
+
+Son los conocidos **términos y condiciones** para la instalación de software que aparecen cada vez que instalamos software (no solo software ofimático).
+
+![](./img/UT1/rh_licence.png){.original}
+
+<br>
+
+### **4.1 - Tipos de licencias de uso, software propietario y software libre**
+![](./img/UT1/libreprivativo.webp){.cincozero}
+
+- **Software propietario**  
+En el software propietario, privativo o no libre, el desarrollador establece a través de la licencia sus propios términos de uso del programa. Habitualmente se prohíbe la distribución del mismo y el acceso a su código fuente, pero estas licencias pueden impedir además su uso para un determinado fin o incluso limitar el número de veces que el usuario puede instalar el programa.
+
+<br>
+
+- **Software libre**  
+El software libre es aquel que nos garantiza como usuarios la posibilidad de realizar
+cuatro acciones sin restricción alguna:  
+
+    1. Utilizar el programa en cualquier contexto.
+    1. Compartir copias del programa con otros usuarios.
+    1. Acceder al código fuente, y poder mejorarlo o modificarlo para que el programa se comporte de acuerdo con nuestras necesidades.
+    1. Compartir ese programa modificado o mejorado con otros usuarios
+
+!!! question "¿Qué diferencia elemental existe entre el software propietario y el software libre?"
+
+
+### **4.2 - Tipos de licencias de uso, Copyright, dominio público y copyleft**
+![](./img/UT1/copy.webp){.doscinco}
+
+Antes de instalar cualquier programa, es importante conocer quién posee los derechos sobre él. Conceptos como copyright, dominio público y copyleft nos ayudan a entender qué podemos hacer legalmente con ese software.
+
+📌 **Copyright**  
+
+- Es el **derecho de autor** tradicional.
+- El creador de una obra (texto, música, software, imagen, etc.) obtiene derechos exclusivos sobre su uso, reproducción y distribución.
+- Nadie puede usar la obra sin su permiso, salvo en casos específicos como la *copia privada* o el *uso justo*.
+
+---
+
+📌 **Dominio público**
+
+- Obras que **no tienen restricciones de copyright**.
+- Puede ser porque el plazo legal de protección expiró o porque el autor renunció a sus derechos.
+- Cualquiera puede usarlas, copiarlas, modificarlas y distribuirlas sin necesidad de pedir permiso.
+
+---
+
+📌 **Copyleft**
+
+- Es un modelo de licencia alternativa dentro del copyright.
+- Permite usar, modificar y redistribuir la obra **libremente**, siempre que las versiones derivadas se distribuyan bajo las mismas condiciones.
+- Muy común en el software libre (ej.: licencia GPL).
+
+---
+
+👉 **En resumen**:
+
+- **Copyright** = Todos los derechos reservados.
+- **Dominio público** = Ningún derecho exclusivo, uso totalmente libre.
+- **Copyleft** = Algunos derechos reservados, pero con obligación de mantener la libertad en las versiones derivadas.
+
+### **4.3 - Comprobación de conocimientos RA1 CEh**
+Ir a Aules, descargar rellenar y volver a subir el documento RA1 CEh.
+
+## **5 - Suites de aplicaciones ofimáticas**
+Las **suites de aplicaciones ofimáticas** son conjuntos de programas diseñados para facilitar las tareas habituales en entornos de oficina, estudio o trabajo colaborativo. Estas suites **integran diferentes tipos de aplicaciones** que permiten crear, editar, organizar y compartir documentos de texto, hojas de cálculo, presentaciones, bases de datos, entre otros.
+
+### **5.1 - Características principales**
+* **Integración:** Las aplicaciones suelen compartir un entorno común y permiten intercambio de datos entre ellas (p.e., insertar una tabla de una hoja de cálculo en un documento de texto).
+* **Colaboración:** las versiones modernas permiten la edición simultánea en línea y la sincronización en la nube.
+* **Multiplataforma:** Existen programas de instalación de suites para todos los sistemas operativos del mercado (Windows, macOS, Linux, Android, iOS).
+
+### **5.2 - Componentes habituales**
+
+1. **Procesador de textos:** para redactar y dar formato a documentos (ej. Microsoft Word, Writer en LibreOffice, Google Docs).
+1. **Hoja de cálculo:** para gestionar datos numéricos y cálculos (ej. Excel, Calc, Google Sheets).
+. **Presentaciones:** para crear diapositivas (ej. PowerPoint, Impress, Google Slides).
+1. **Gestor de bases de datos:** para organizar y consultar información (ej. Microsoft Access, Base en LibreOffice).
+1. **Clientes de correo y agenda:** (ej. Outlook, Thunderbird).
+1. **Otras utilidades:** editores de gráficos, herramientas de dibujo, aplicaciones para tomar notas, etc.
+
+### **5.3 - Tipos de suites**
+
+1. **De escritorio:** Es decir instaladas en el ordenador.
+1. **En la nube:** Accesibles desde un navegador (Google Workspace, Microsoft 365 Online...).
+1. **Híbridas:** Se instalan localmente por se pueden sincronizar en la nube (Microsoft 365, OnlyOffice).
+
+### **5.4 - Ejemplos de suites**
+
+* **Microsoft Office / Microsoft 365**
+* **LibreOffice** alternativa libre y gratuita, basada en el proyecto OpenOffice.
+* **OpenOffice**
+* **Google Workspace:** Totalmente en la nube, está claramente orientada al trabajo colaborativo.
+* **OnlyOffice y WPS Office:** opciones ligeras y compatibles con múltiples formatos.
+
+## **6 - Instalación de suites de aplicaciones ofimáticas**
+
+
+
+
+[Enric](https://aules.edu.gva.es/docent/pluginfile.php/4882779/mod_resource/content/3/Tema_1_Instalaci%C3%B3n%20de%20aplicaciones%20ofim%C3%A1ticas.pdf): pag 15/21
+
+https://fricardoac.wordpress.com/wp-content/uploads/2015/02/aplicaciones-ofimaticas-2013-grado-medio-mcgraw-hill.pdf pag 11
+
+file:///C:/Users/titan/Documents/Javier128/Modulos/FPB/FPB_1/MMSCI/materiales/unidad1-instalacion-aplicaciones-ofimaticas.pdf 21/43
 
 | **Licencia Creative Commons:** | |
 | - | - |

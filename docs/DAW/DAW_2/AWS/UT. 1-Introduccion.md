@@ -258,6 +258,6 @@ A medida que la competencia en el mercado de IA se intensifica, los hiperescalad
 [Articulo completo](https://www.canalys.com/newsroom/worldwide-cloud-service-q4-2024) de canalsys.
 
 ## **Enlaces de interés**
-<a href=https://aws.amazon.com/es/getting-started/cloud-essentials>Conceptos básicos de la nube de AWS</a>.  
 <a href=https://es.wikipedia.org/wiki/Computaci%C3%B3n_en_la_nube>Wikipedia</a>.  
+<a href=https://aws.amazon.com/es/getting-started/cloud-essentials>Conceptos básicos de la nube de AWS</a>.  
 <a href=https://learn.microsoft.com/es-es/training/paths/  microsoft-azure-fundamentals-describe-cloud-concepts>Microsoft Azure, conceptos de la nube</a>.

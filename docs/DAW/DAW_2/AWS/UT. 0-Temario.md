@@ -12,13 +12,12 @@ schedule: 96h - 3h/s
 # **Introducción a la nube pública**
 ![Descripción de la imagen](./img/publiccloud.webp){.cincozero}
  
-
 ## **1. - Calendario escolar**
+![](./img/CAL_2025-2026.png){.sietecinco}
 
-<!-- Aclarar horas de practicas
-Aclarar fechas de las practicas -->
 
 ## **2. - Horario de sesiones**
+![](./img/opt.png){.cincozero}
 
 
 ## **3. - Contenidos del módulo**
@@ -98,42 +97,42 @@ A continuación, se presentan los contenidos de este módulo tal y como aparecen
 === "RA 1"
     |RA1. Comprende los fundamentos de la computación en la nube, sus ventajas frente a sistemas tradicionales, el marco de adopción, los principios de migración y los aspectos clave de facturación, como estimación y optimización de costos.||
     |-|-|
-    |**a)** Se ha comprendido los conceptos fundamentales de la computación en la nube.|15%|  
-    |**b)** Se ha demostrado la capacidad para explicar las ventajas de la nube frente a sistemas tradicionales.|15%|  
+    |**a)** Se ha comprendido los conceptos fundamentales de la computación en la nube.|20%|  
+    |**b)** Se ha demostrado la capacidad para explicar las ventajas de la nube frente a sistemas tradicionales.|20%|  
     |**c)** Se ha participado en actividades relacionadas con el ecosistema de servicios en la nube.|15%|
-    |**d)** Se han identificado los principios básicos de la facturación y costos en la nube.|5%|
-    |**e)** Se ha hecho uso correcto de herramientas para estimar y gestionar presupuestos.|10%|
+    |**d)** Se han identificado los principios básicos de la facturación y costos en la nube.|15%|
+    |**e)** Se ha hecho uso correcto de herramientas para estimar y gestionar presupuestos.|15%|
     |**f)** Se ha participado en actividades prácticas sobre gestión de costos.|15%|
     
 === "RA 2"
     |RA2. Identifica los componentes clave de la infraestructura global de la nube, diferenciando servicios principales, regiones, zonas de disponibilidad y aplicando medidas básicas de seguridad como el modelo de responsabilidad compartida, gestión de accesos y protección de datos.||
     |-|-|
-    |**a)** Se ha adquirido conocimiento de los componentes de una infraestructura global en la nube. |15%|
-    |**b)** Se ha demostrado la capacidad para explorar y describir las principales categorías de servicios disponibles.|25%|
-    |**c)** Se ha realizado una evaluación del uso adecuado de servicios básicos en ejercicios prácticos.|10%|
-    |**d)** Se ha comprendido el modelo de responsabilidad compartida en la nube.|15%|
-    |**e)** Se ha aplicado medidas de seguridad básicas mediante herramientas de gestión de acceso.|15%|
-    |**f)** Se han realizado ejercicios sobre gestión de usuarios y políticas de seguridad.|10%|
+    |**a)** Se ha adquirido conocimiento de los componentes de una infraestructura global en la nube. |xxx|
+    |**b)** Se ha demostrado la capacidad para explorar y describir las principales categorías de servicios disponibles.|xxx|
+    |**c)** Se ha realizado una evaluación del uso adecuado de servicios básicos en ejercicios prácticos.|xxx|
+    |**d)** Se ha comprendido el modelo de responsabilidad compartida en la nube.|xxx|
+    |**e)** Se ha aplicado medidas de seguridad básicas mediante herramientas de gestión de acceso.|xxx|
+    |**f)** Se han realizado ejercicios sobre gestión de usuarios y políticas de seguridad.|xxx|
 
 === "RA 3"
     |RA3. Diseña y configura redes virtuales y servicios de cómputo en la nube, aplicando buenas prácticas de seguridad, estrategias de balanceo de carga, escalado automático y aprovechando tecnologías serverless, contenedores y máquinas virtuales según casos de uso específicos.||
     |-|-|
-    |**a)** Se ha realizado el diseño y configuración de redes virtuales privadas.|10%|
-    |**b)** Se ha aplicado buenas prácticas de seguridad en redes y arquitecturas.|15%|
-    |**c)** Se ha participado activamente en la creación y configuración de una red funcional.|10%|
-    |**d)** Se ha realizado la selección de servicios de computación adecuados según casos de uso.|15%|
-    |**e)** Se ha llevado a cabo la configuración y gestión de balanceo de carga y escalado automático.|10%|
-    |**f)** Se han desarrollado prácticas relacionadas con la optimización de recursos computacionales.|10%|
+    |**a)** Se ha realizado el diseño y configuración de redes virtuales privadas.|xxx|
+    |**b)** Se ha aplicado buenas prácticas de seguridad en redes y arquitecturas.|xxx|
+    |**c)** Se ha participado activamente en la creación y configuración de una red funcional.|xxx|
+    |**d)** Se ha realizado la selección de servicios de computación adecuados según casos de uso.|xxx|
+    |**e)** Se ha llevado a cabo la configuración y gestión de balanceo de carga y escalado automático.|xxx|
+    |**f)** Se han desarrollado prácticas relacionadas con la optimización de recursos computacionales.|xxx|
 
 === "RA 4"
     |RA4. Gestiona servicios de almacenamiento y bases de datos en la nube, seleccionando tecnologías adecuadas para casos específicos, y diseña arquitecturas escalables y resilientes utilizando herramientas de monitoreo y optimización para mejorar el rendimiento.||
     |-|-|
-    |**a)** Se ha realizado la diferenciación entre tecnologías de almacenamiento en la nube.|10%|
-    |**b)** Se ha llevado a cabo la configuración y gestión de bases de datos en un entorno de nube.|15%|
-    |**c)** Se ha trabajado en la resolución de problemas prácticos sobre almacenamiento y bases de datos.|10%|
-    |**d)** Se ha diseñado arquitecturas escalables y resilientes basadas en las mejores prácticas.|15%|
-    |**e)** Se ha hecho uso de herramientas de monitoreo y recomendaciones de optimización.|15%|
-    |**f)** Se ha participado en actividades que simulen el análisis y mejora de arquitecturas existentes.|15%|
+    |**a)** Se ha realizado la diferenciación entre tecnologías de almacenamiento en la nube.|xxx|
+    |**b)** Se ha llevado a cabo la configuración y gestión de bases de datos en un entorno de nube.|xxx|
+    |**c)** Se ha trabajado en la resolución de problemas prácticos sobre almacenamiento y bases de datos.|xxx|
+    |**d)** Se ha diseñado arquitecturas escalables y resilientes basadas en las mejores prácticas.|xxx|
+    |**e)** Se ha hecho uso de herramientas de monitoreo y recomendaciones de optimización.|xxx|
+    |**f)** Se ha participado en actividades que simulen el análisis y mejora de arquitecturas existentes.|xxx|
 
     
 ### **5.2. - Metodología de evaluación**
@@ -204,10 +203,10 @@ flowchart TB
   B["Identifica los componentes clave de la infraestructura global de la nube, diferenciando servicios principales, regiones, zonas de disponibilidad y aplicando medidas básicas de seguridad como el modelo de responsabilidad compartida, gestión de accesos y protección de datos."]
   C["Diseña y configura redes virtuales y servicios de cómputo en la nube, aplicando buenas prácticas de seguridad, estrategias de balanceo de carga, escalado automático y aprovechando tecnologías serverless, contenedores y máquinas virtuales según casos de uso específicos."]
   D["Gestiona servicios de almacenamiento y bases de datos en la nube, seleccionando tecnologías adecuadas para casos específicos, y diseña arquitecturas escalables y resilientes utilizando herramientas de monitoreo y optimización para mejorar el rendimiento."]
-  AA["8h"]
-  BB["40h"]
-  CC["40h"]
-  DD["40h"]
+  AA["9h"]
+  BB["xx"]
+  CC["xx"]
+  DD["xx"]
     
   subgraph **Orden y duración de las UT**
 

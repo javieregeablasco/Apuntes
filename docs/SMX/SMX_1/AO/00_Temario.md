@@ -1,33 +1,34 @@
 ---
-title: CFGM - Técnico en Sistemas Microinformáticos y Redes
-subtitle: Aplicaciones ofimáticas
+ciclo: CFGM - Técnico en Sistemas Microinformáticos y Redes
+title: Aplicaciones ofimáticas
 module number: 0223
-lesson: UD. 0.0 - Métodos de evaluación  
+lesson: UD. 0.0 - Temario y métodos de evaluación  
 author: Javier Egea Blasco  
-year: Año 25-26  
+year: 25-26  
 keywords: SMX, AO
 layout: default  
-schedule: 7h/w
+schedule: 224h - 7h/w
 ---
 
-
+# **Aplicaciones ofimáticas**
+---
 ![Descripción de la imagen](./img/img1.jpg){ .img1 }
 
 <br>
 
-## Calendario escolar
-
+## **1 - Calendario escolar**
+![](../AO/img/UT0/CAL_2025-2026.png){.sietecinco}
 <!-- Aclarar horas de practicas
 Aclarar fechas de las practicas -->
 
-## Horario de sesiones
+## **2 - Horario de sesiones**
+![](../AO/img/UT0/horario.png){.cincozero}
 
-## Contenidos
 
-A continuación, se presentan los contenidos de este módulo tal y como aparecen en <a href=https://dogv.gva.es/datos/2009/09/03/pdf/2009_9808.pdf>**ORDEN de 29 de julio 2009**</a>, de la Conselleria de Educación, por la que se establece para la Comunitat Valenciana el currículo del ciclo formativo de Grado Medio correspondiente al título de Técnico en Sistemas Microinformáticos y Redes.
+## **3 - Contenidos**
+A continuación, se presentan los contenidos de este módulo tal y como aparecen en <a href=https://dogv.gva.es/datos/2009/09/03/pdf/2009_9808.pdf>**ORDEN de 29 de julio 2009**</a>, de la Conselleria de Educación, por la que se establece para la Comunitat Valenciana el currículo del ciclo formativo de Grado Medio correspondiente al título de **Técnico en Sistemas Microinformáticos y Redes**.
   
-### Instalación de aplicaciones ofimáticas
-??? info "Contenidos"
+!!! info "Instalación de aplicaciones ofimáticas"
     - Tipos de aplicaciones ofimáticas y aplicaciones corporativas.
     - Paquetes ofimáticos.
     - Tipos de licencias software.
@@ -35,8 +36,8 @@ A continuación, se presentan los contenidos de este módulo tal y como aparecen
     - Procedimientos de instalación y configuración.
     - Diagnóstico y resolución de problemas.
 
-### Elaboración de documentos y plantillas mediante procesadores de texto
-??? info "Contenidos"
+<!-- ### Elaboración de documentos y plantillas mediante procesadores de texto -->
+!!! info "Elaboración de documentos y plantillas mediante procesadores de texto"
     – El entorno de trabajo. Personalización.  
     – Formateo de textos. Párrafos. Páginas y Estilos.  
     – Encabezamientos. Pies de Página. Notas a pie.  
@@ -53,8 +54,8 @@ A continuación, se presentan los contenidos de este módulo tal y como aparecen
     – Utilización de software y hardware para introducir textos e imágenes.  
     – Elaboración de distintos tipos de documentos (manuales, partes de incidencias, entre otros).
 
-### Elaboración de documentos y plantillas mediante hojas de cálculo
-??? info "Contenidos"
+<!-- ### Elaboración de documentos y plantillas mediante hojas de cálculo -->
+!!! info "Elaboración de documentos y plantillas mediante hojas de cálculo"
     – Entorno de trabajo. Personalización.  
     – Conceptos básicos: Libro, hoja, celda, rango, etc…  
     – Formateo de celdas. Estilos.  
@@ -71,8 +72,8 @@ A continuación, se presentan los contenidos de este módulo tal y como aparecen
     – Diseño y creación de macros.  
 
 
-### Utilización de bases de datos ofimáticas
-??? info "Contenidos"
+<!-- ### Utilización de bases de datos ofimáticas -->
+!!! info "Utilización de bases de datos ofimáticas"
     – Elementos de las bases de datos relacionales.  
     – Organización de bases de datos relacionales.  
     – Creación de bases de datos.  
@@ -81,8 +82,8 @@ A continuación, se presentan los contenidos de este módulo tal y como aparecen
     – Manipulación de datos: Inserción, modificación y borrado.  
     – Consultas, formularios e informes.  
 
-### Manipulación de imágenes
-??? info "Contenidos"
+<!-- ### Manipulación de imágenes -->
+!!! info "Manipulación de imágenes"
     – Formatos y resolución de imágenes.  
     – Manipulación de selecciones, máscaras y capas.  
     – Utilización de retoque fotográfico, ajustes de imagen y de color.  
@@ -90,8 +91,8 @@ A continuación, se presentan los contenidos de este módulo tal y como aparecen
     – Importación y exportación de imágenes.  
     – Utilización de dispositivos para obtener imágenes.  
 
-### Manipulación de vídeos
-??? info "Contenidos"
+<!-- ### Manipulación de vídeos -->
+!!! info "Manipulación de vídeos"
     – Formatos de vídeo. Codecs.  
     – Manipulación de la línea de tiempo.  
     – Selección de escenas y transiciones.  
@@ -99,8 +100,8 @@ A continuación, se presentan los contenidos de este módulo tal y como aparecen
     – Creación y grabación de videos.  
     – Importación y exportación de vídeos.  
 
-### Elaboración de presentaciones
-??? info "Contenidos"
+<!-- ### Elaboración de presentaciones -->
+!!! info "Elaboración de presentaciones"
     – El entorno de trabajo. Personalización.  
     – Impresión de presentaciones.  
     – Gráficos, imágenes, dibujos y organigramas.  
@@ -113,8 +114,8 @@ A continuación, se presentan los contenidos de este módulo tal y como aparecen
     – Utilización de plantillas y asistentes. Patrones de diapositivas.  
     – Diseño y creación de macros.  
 
-### Gestión de correo y agenda electrónica
-??? info "Contenidos"
+<!-- ### Gestión de correo y agenda electrónica -->
+!!! info "Gestión de correo y agenda electrónica"
     – Entorno de trabajo: configuración y personalización.  
     – Tipos de cuentas de correo.  
     – Plantillas y firmas corporativas.  
@@ -124,8 +125,8 @@ A continuación, se presentan los contenidos de este módulo tal y como aparecen
     – Gestión de la agenda: citas, calendario, avisos, tareas, entre otros.  
     – Sincronización con dispositivos móviles.  
 
-### Aplicación de técnicas de soporte
-??? info "Contenidos"
+<!-- ### Aplicación de técnicas de soporte -->
+!!! info "Aplicación de técnicas de soporte"
     – Elaboración de guías y manuales de uso de aplicaciones.  
     – Formación al usuario.  
     – Resolución de incidencias.  
@@ -133,436 +134,25 @@ A continuación, se presentan los contenidos de este módulo tal y como aparecen
 
 <br>
 
-## Metodología de aprendizaje
-- Introducción de los **aspectos teóricos** para que después **sean aplicados mediante prácticas y ejercicios**.  
-- Prácticas **individuales y/o colectivas**. 
-- **Realización de trabajos obligatorios**. Algunos trabajos podrán ser realizados en grupo. 
-- Realización de **actividades voluntarias** de investigación y ampliación para **profundizar en los conocimientos adquiridos**.  
-- **PBL (Problem Based Learning)**, aprendizaje basado en problemas. Se plantea un problema real, y los alumnos elaborarán una solución justificada y probada, incluyendo estudio de necesidades y costes. 
-- **Proyección de vídeos**. 
-
+## **4 - Metodología de aprendizaje**
+1. Exposición de los **aspectos teóricos** para que después **sean aplicados mediante prácticas y ejercicios**.  
+1. La metodología de trabajo será el **Aprendizaje Basado en Problemas (ABP/PBL)**. Se propondrá un problema real y los alumnos tendrán que buscar una solución, justificándola y comprobando que funciona. Además, si procede, incluirán un pequeño estudio de necesidades y costes para valorar su viabilidad.  
+1. Las prácticas podrán ser **individuales o colectivas**. 
+1. Realización de **actividades voluntarias** de investigación y ampliación para **profundizar en los conocimientos adquiridos**.  
+1. **Proyección de vídeos**. 
 <br>
 
-## Evaluación 
+## **5 - Evaluación** 
+1. La evaluación se hará **por resultados de aprendizaje RA**. <a href=https://www.boe.es/boe/dias/2023/07/22/pdfs/BOE-A-2023-16889.pdf>R.D. 659/2023</a>. 
+1. Los resultados de aprendizaje y criterios de evaluación asociados al módulo **Aplicaciones Ofimáticas** constituyen los logros que los alumnos/as tienen que alcanzar para **superar el módulo**.
+1. Cada resultado de aprendizaje **RA** se evalúa a través de los criterios de evaluación **CE**. Los **CE** actúan como “desglose” del **RA**, facilitando medir de forma objetiva si el aprendizaje se ha alcanzado.
 
-### Tipo de evaluación
-- Las evaluaciones serán **por resultados de aprendizaje (RA) y criterios de evaluación (CE)** (<a href=https://www.boe.es/boe/dias/2023/07/22/pdfs/BOE-A-2023-16889.pdf>R.D. 659/2023</a>). 
-- Cada unidad de trabajo (UT) representará un **RA**.
-- En cada unidad de trabajo (UT) se evaluaran los **CE** correspondientes al **RA**.
 
-### Resultados de aprendizaje
-Por motivos de simplicidad **se asocia un RA (contenidos) a cada Unidad de Trabajo (UT)**.  
-
-- RA1 :arrow_right: UT1 :arrow_right: Instalación de aplicaciones ofimáticas.
-- RA2 :arrow_right: UT2 :arrow_right: Elaboración de documentos y plantillas mediante procesadores de texto.
-- RA3 :arrow_right: UT3 :arrow_right: Elaboración de documentos y plantillas mediante hojas de cálculo.
-- RA4 :arrow_right: UT4 :arrow_right: Utilización de bases de datos ofimáticas.
-- RA5 :arrow_right: UT5 :arrow_right: Manipulación de imágenes.
-- RA6 :arrow_right: UT6 :arrow_right: Manipulación de vídeos.
-- RA7 :arrow_right: UT7 :arrow_right: Elaboración de presentaciones.
-- RA8 :arrow_right: UT8 :arrow_right: Gestión de correo y agenda electrónica.
-- RA9 :arrow_right: UT9 :arrow_right: Aplicación de técnicas de soporte.
-
-### Metodología de evaluación
-- La evaluación será **contínua**.   
-- Se basará en la comprobación de la superación de los **resultados de aprendizaje (RA)** en las condiciones de calidad establecidas en el currículo.
-- La evaluación se hará sobre **todos los RA y todos los CE** del currículo.
-
-### Instrumentos de evaluación
-- Exámenes.  
-    - Preguntas tipo test.
-    - Examen escrito (ejercicios).          
-- Entrega de tareas.  
-- Exposiciones orales.  
-- Prácticas en empresa.
-
-### Instrumentos de recuperación
-- **Recuperaciones** que permitirán recuperar los **criterios de evaluación** no superados.
-- Si el alumno **no entrega los trabajos obligatorios o presenta tasas de absentismo altas**, perderá la evaluación continua y deberá presentarse a la evaluación ordinaria y/o extraordinaria.  
-
-### Evaluaciones
-- Evaluación inicial (primer mes).
-- **Una evaluación parcial por cada trimestre**. Para tener el aprobado será necesario haber alcanzado una puntuación superior o igual a 5 en los **Resultados de Aprendizaje RA** completados.
-- **Evaluación ordinaria** permitirá recuperar los **RA no superados**.
-- **Evaluacion extraordinaria** solo para los alumnos/as que no hayan superado el módulo en las evaluaciones parciales u ordinaria. Para esta evaluación se realizarán varias pruebas teórico-prácticas que evaluarán la totalidad del módulo. 
-
-## Criterios de cualificación
-
-### Relación entre nota final y Resultados de aprendizaje
-Los criterios de calificación dependerán del peso de cada **Resultado de Aprendizaje** en la nota final del curso. 
-
-|Resultado de aprendizaje|Porcentage|
-|-|-|
-|**RA1.** Instala y actualiza aplicaciones ofimáticas, interpretando especificaciones y describiendo los pasos a seguir en el proceso.|5%|
-|**RA2.** Elabora documentos y plantillas, describiendo y aplicando las opciones avanzadas de procesadores de textos.|19%|
-|**RA3.** Elabora documentos y plantillas de cálculo, describiendo y aplicando opciones avanzadas de hojas de cálculo.|18%|
-|**RA4.** Elabora documentos con bases de datos ofimáticas describiendo y aplicando operaciones de manipulación de datos.|18%|
-|**RA5.**  Manipula imágenes digitales analizando las posibilidades de distintos programas y aplicando técnicas de captura y edición básicas.|10%|
-|**RA6.** Manipula secuencias de video analizando las posibilidades de distintos programas y aplicando técnicas de captura y edición básicas.|5%|
-|**RA7.** Elabora presentaciones multimedia describiendo y aplicando normas básicas de composición y diseño.|10%|
-|**RA8.** Realiza operaciones de gestión del correo y la agenda electrónica, relacionando necesidades de uso con su configuración.|10%|
-|**RA9.** Aplica técnicas de soporte en el uso de aplicaciones, identificando y resolviendo incidencias.|5%|
-
-## Resultados de aprendizaje y criterios de evaluación del módulo  
-Los resultados de aprendizaje y criterios de evaluación asociados al módulo **Aplicaciones Ofimáticas** constituyen los logros que los alumnos/as tienen que alcanzar para **superar el módulo**.
-
-<!-- <table>
-  <tr>
-    <td style="white-space: nowrap;">RA. 1:</td>
-    <td>
-      Instala y actualiza aplicaciones ofimáticas, interpretando especificaciones y describiendo los pasos a seguir en el proceso. 
-      <details>
-        <summary>Ver los criterios de evaluación</summary>
-        <table>
-          <tr>
-            <td>a)</td>
-            <td>Se han identificado y establecido las fases del proceso de instalación.</td>
-          </tr>
-          <tr>
-            <td>b)</td>
-            <td>Se han respetado las especificaciones técnicas del proceso de instalación.</td>
-          </tr>
-          <tr>
-            <td>c)</td>
-            <td>Se han configurado las aplicaciones según los criterios establecidos.</td>
-          </tr>
-          <tr>
-            <td>d)</td>
-            <td>Se han documentado las incidencias.</td>
-          </tr>
-          <tr>
-            <td>e)</td>
-            <td>Se han solucionado problemas en la instalación o integración con el sistema informático.</td>
-          </tr>
-          <tr>
-            <td>f)</td>
-            <td>Se han eliminado y/o añadido componentes de la instalación en el equipo.</td>
-          </tr>
-          <tr>
-            <td>g)</td>
-            <td>Se han actualizado las aplicaciones.</td>
-          </tr>
-          <tr>
-            <td>h)</td>
-            <td>Se han respetado las licencias software.</td>
-          </tr>
-          <tr>
-            <td>i)</td>
-            <td>Se han propuesto soluciones software para entornos de aplicación.</td>
-          </tr>
-        </table>
-      </details>
-    </td> 
-  </tr>  
-  <tr>
-    <td>RA. 2:</td>
-    <td>
-      Elabora documentos y plantillas, describiendo y aplicando las opciones avanzadas de procesadores de textos.  
-      <details>
-        <summary>Ver los criterios de evaluación</summary>
-        <table>
-          <tr>
-            <td>a)</td>
-            <td>Se ha personalizado las opciones de software y barra de herramientas.</td>
-          </tr>
-          <tr>
-            <td>b)</td>
-            <td>Se han diseñado plantillas.</td>
-          </tr>
-          <tr>
-            <td>c)</td>
-            <td>Se han utilizado aplicaciones y periféricos para introducir textos e imágenes.</td>
-          </tr>
-          <tr>
-            <td>d)</td>
-            <td>Se han importado y exportado documentos creados con otras aplicaciones y en otros formatos.</td>
-          </tr>
-          <tr>
-            <td>e)</td>
-            <td>Se han creado y utilizado macros en la realización de documentos.</td>
-          </tr>
-          <tr>
-            <td>f)</td>
-            <td>Se han elaborado manuales específicos.</td>
-          </tr>
-        </table>
-      </details>
-    </td>
-  </tr> 
-  <tr> 
-    <td>RA. 3:</td>
-    <td>
-      Elabora documentos y plantillas de cálculo, describiendo y aplicando opciones avanzadas de hojas de  cálculo.
-      <details>
-        <summary>Ver los criterios de evaluación</summary>
-        <table>
-          <tr>
-            <td>a)</td>
-            <td>Se ha personalizado las opciones de software y barra de herramientas.</td>
-          </tr>
-          <tr>
-            <td>b)</td>
-            <td>Se han utilizado los diversos tipos de datos y referencia para celdas, rangos, hojas y libros.  </td>
-          </tr>
-          <tr>
-            <td>c)</td>
-            <td>Se han aplicado fórmulas y funciones.</td>
-          </tr>
-          <tr>
-            <td>d)</td>
-            <td>Se han generado y modificado gráficos de diferentes tipos.</td>
-          </tr>
-          <tr>
-            <td>e)</td>
-            <td>Se han empleado macros para la realización de documentos y plantillas.</td>
-          </tr>
-          <tr>
-            <td>f)</td>
-            <td>Se han importado y exportado hojas de cálculo creadas con otras aplicaciones y en otros  formatos.</td>
-          </tr>
-          <tr>
-            <td>g)</td>
-            <td>Se ha utilizado la hoja de cálculo como base de datos: formularios, creación delistas,       filtrado,   protección y ordenación de datos.</td>
-          </tr>
-          <tr>
-            <td>h)</td>
-            <td>Se han utilizado aplicaciones y periféricos para introducir textos, números, códigos e  imágenes.</td>
-          </tr>
-        </table>
-      </details>
-    </td>
-  </tr>
-  <tr>  
-    <td>RA. 4:</td>
-    <td>
-      Elabora documentos con bases de datos ofimáticas describiendo y aplicando operaciones de manipulación de datos. 
-      <details>
-        <summary>Ver los criterios de evaluación</summary>
-        <table>
-          <tr>
-            <td>a)</td>
-            <td>Se han identificado los elementos de las bases de datos relacionales.</td>
-          </tr>
-          <tr>
-            <td>b)</td>
-            <td>Se han creado bases de datos ofimáticas.</td>
-          </tr>
-          <tr>
-            <td>c)</td>
-            <td>Se han utilizado las tablas de la base de datos (insertar, modificar y eliminar registros).</td>
-          </tr>
-          <tr>
-            <td>d)</td>
-            <td>Se han utilizado asistentes en la creación de consultas.</td>
-          </tr>
-          <tr>
-            <td>e)</td>
-            <td>Se han utilizado asistentes en la creación de formularios.</td>
-          </tr>
-          <tr>
-            <td>f)</td>
-            <td>Se han utilizado asistentes en la creación de informes.</td>
-          </tr>
-          <tr>
-            <td>g)</td>
-            <td>Se ha realizado búsqueda y filtrado sobre la información almacenada.</td>
-          </tr>
-          <tr>
-            <td>h)</td>
-            <td>Se han creado y utilizado macros.</td>
-          </tr>
-        </table>
-      </details>
-    </td>
-  </tr>  
-  <tr>
-    <td>RA. 5:</td>
-    <td>
-      Manipula imágenes digitales analizando las posibilidades de distintos programas y aplicando técnicas de captura y edición básicas.
-      <details>
-        <summary>Ver los criterios de evaluación</summary>
-        <table>
-          <tr>
-            <td>a)</td>
-            <td>Se han analizado los distintos formatos de imágenes.</td>
-          </tr>
-          <tr>
-            <td>b)</td>
-            <td>Se ha realizado la adquisición de imágenes con periféricos.</td>
-          </tr>
-          <tr>
-            <td>c)</td>
-            <td>Se ha trabajado con imágenes a diferentes resoluciones, según su finalidad.</td>
-          </tr>
-          <tr>
-            <td>d)</td>
-            <td>Se han empleado herramientas para la edición de imagen digital.</td>
-          </tr>
-          <tr>
-            <td>e)</td>
-            <td>Se han importado y exportado imágenes en diversos formatos.</td>
-          </tr>
-        </table>
-      </details>
-    </td>
-  </tr>    
-  <tr>
-    <td>RA. 6:</td>
-    <td>
-      Manipula secuencias de vídeo analizando las posibilidades de distintos programas y aplicando técnicas de captura y edición básicas.
-      <details>
-        <summary>Ver los criterios de evaluación</summary>
-        <table>
-          <tr>
-            <td>a)</td>
-            <td>Se han reconocido los elementos que componen una secuencia de vídeo.</td>
-          </tr>
-          <tr>
-            <td>b)</td>
-            <td>Se han estudiado los tipos de formatos y codecs más empleados.</td>
-          </tr>
-          <tr>
-            <td>c)</td>
-            <td>Se han importado y exportado secuencias de vídeo.</td>
-          </tr>
-          <tr>
-            <td>d)</td>
-            <td>Se han capturado secuencias de vídeo con recursos adecuados.</td>
-          </tr>
-          <tr>
-            <td>e)</td>
-            <td>Se han elaborado vídeo tutoriales.</td>
-          </tr>
-        </table>
-      </details>
-    </td>
-  </tr>    
-  <tr>
-    <td>RA. 7:</td>
-    <td>
-      Elabora presentaciones multimedia describiendo y aplicando normas básicas de composición y diseño.
-      <details>
-        <summary>Ver los criterios de evaluación</summary>
-        <table>
-          <tr>
-            <td>a)</td>
-            <td>Se han identificado las opciones básicas de las aplicaciones de presentaciones.</td>
-          </tr>
-          <tr>
-            <td>b)</td>
-            <td>Se han reconocido los distintos tipos de vista asociados a una presentación.</td>
-          </tr>
-          <tr>
-            <td>c)</td>
-            <td>Se han aplicado y reconocido las distintas tipografías y normas básicas de composición, diseño y       utilización del color.</td>
-          </tr>
-          <tr>
-            <td>d)</td>
-            <td>Se han diseñado plantillas de presentaciones.</td>
-          </tr>
-          <tr>
-            <td>e)</td>
-            <td>Se han creado presentaciones.</td>
-          </tr>
-          <tr>
-            <td>f)</td>
-            <td>Se han utilizado periféricos para ejecutar presentaciones.</td>
-          </tr>
-        </table>
-      </details>
-    </td>
-  </tr>
-  <tr>
-    <td>RA. 8:</td>
-    <td>
-      Realiza operaciones de gestión del correo y la agenda electrónica, relacionando necesidades de uso con su configuración.
-      <details>
-        <summary>Ver los criterios de evaluación</summary>
-        <table>
-          <tr>
-            <td>a)</td>
-            <td>Se han descrito los elementos que componen un correo electrónico.</td>
-          </tr>
-          <tr>
-            <td>b)</td>
-            <td>Se han analizado las necesidades básicas de gestión de correo y agenda electrónica.</td>
-          </tr>
-          <tr>
-            <td>c)</td>
-            <td>Se han configurado distintos tipos de cuentas de correo electrónico.</td>
-          </tr>
-          <tr>
-            <td>d)</td>
-            <td>Se han conectado y sincronizado agendas del equipo informático con dispositivos móviles.</td>
-          </tr>
-          <tr>
-            <td>e)</td>
-            <td>Se ha operado con la libreta de direcciones.</td>
-          </tr>
-          <tr>
-            <td>f)</td>
-            <td>Se ha trabajado con todas las opciones de gestión de correo electrónico (etiquetas, filtros,   carpetas, entre otros).</td>
-          </tr>
-          <tr>
-            <td>g)</td>
-            <td>Se han utilizado opciones de agenda electrónica.</td>
-          </tr>
-        </table>
-      </details>
-    </td>
-  </tr>    
-  <tr>
-    <td>RA. 9:</td>
-    <td>
-      Aplica técnicas de soporte en el uso de aplicaciones, identificando y resolviendo incidencias. 
-      <details>
-        <summary>Ver los criterios de evaluación</summary>
-        <table>
-          <tr>
-            <td>a)</td>
-            <td>Se han elaborado guías visuales con los conceptos básicos de uso de una aplicación.</td>
-          </tr>
-          <tr>
-            <td>b)</td>
-            <td>Se han identificado problemas relacionados con el uso de aplicaciones ofimáticas.</td>
-          </tr>
-          <tr>
-            <td>c)</td>
-            <td>Se han utilizado manuales de usuario para instruir en el uso de aplicaciones.</td>
-          </tr>
-          <tr>
-            <td>d)</td>
-            <td>Se han aplicado técnicas de asesoramiento en el uso de aplicaciones.</td>
-          </tr>
-          <tr>
-            <td>e)</td>
-            <td>Se han realizado informes de incidencias.</td>
-          </tr>
-          <tr>
-            <td>f)</td>
-            <td>Se han aplicado los procedimientos necesarios para salvaguardar la información y su recuperación.</td>
-          </tr>
-          <tr>
-            <td>g)</td>
-            <td>Se han utilizado los recursos disponibles (documentación técnica, ayudas en línea, soporte     técnico, entre otros) para solventar incidencias.</td>
-          </tr>
-          <tr>
-            <td>h)</td>
-            <td>Se han solventando las incidencias en el tiempo adecuado y con el nivel de calidad esperado.</td>
-          </tr>
-        </table>
-      </details>
-    </td>
-  </tr>    
-</table>
-
-<br> -->
-
-### Relación entre Criterios de Evaluación y Resultados de Aprendizaje
-**Los criterios de evaluación** asociados a los **resultados de aprendizaje** son los siguientes
+### **5.1 - Relación entre Criterios de Evaluación y Resultados de Aprendizaje** 
+**Los criterios de evaluación** asociados a los **resultados de aprendizaje** del módulo **Aplicaciones Ofimáticas**, <a href=https://www.boe.es/diario_boe/txt.php?id=BOE-A-2008-819>R.D. 1691/2007</a>, son los siguientes :
 
 === "RA 1"
-    |RA1. Instala y actualiza aplicaciones ofimáticas, interpretando especificaciones y describiendo los pasos a seguir en el proceso.||
+    |RA1. Instala y actualiza aplicaciones ofimáticas, interpretando especificaciones y describiendo los pasos a seguir en el proceso.|Peso|
     |-|-|
     |**a)** Se han identificado y establecido las fases del proceso de instalación. |15%|
     |**b)** Se han respetado las especificaciones técnicas del proceso de instalación. |15%|
@@ -572,11 +162,11 @@ Los resultados de aprendizaje y criterios de evaluación asociados al módulo **
     |**f)** Se han eliminado y/o añadido componentes de la instalación en el equipo. |15%|
     |**g)** Se han actualizado las aplicaciones. |10%|
     |**h)** Se han respetado las licencias software. |10%|
-    |**i)** Se han propuesto soluciones software para entornos de aplicación |5%|
+    |**i)** Se han propuesto soluciones software para entornos de aplicación. |5%|
 
 
 === "RA 2"
-    |RA2. Elabora documentos y plantillas, describiendo y aplicando las opciones avanzadas de procesadores de textos.||
+    |RA2. Elabora documentos y plantillas, describiendo y aplicando las opciones avanzadas de procesadores de textos.|peso|
     |-|-|
     |**a)** Se ha personalizado las opciones de software y barra de herramientas. |15%|
     |**b)** Se han utilizado los elementos básicos en la elaboración de documentos. |25%|
@@ -587,20 +177,20 @@ Los resultados de aprendizaje y criterios de evaluación asociados al módulo **
     |**g)** Se han elaborado manuales específicos. |10%|
 
 === "RA 3"
-    |RA3. Elabora documentos y plantillas de cálculo, describiendo y aplicando opciones avanzadas de hojas     de cálculo.||
+    |RA3. Elabora documentos y plantillas de cálculo, describiendo y aplicando opciones avanzadas de hojas de cálculo.||
     |-|-|
     |**a)** Se ha personalizado las opciones de software y barra de herramientas. |10%|
     |**b)** Se han utilizado los elementos básicos en la elaboración de hojas de cálculo. |15%|
-    |**c)** Se han utilizado los diversos tipos de datos y referencia para celdas, rangos, hojas y     libros. |    10%|
+    |**c)** Se han utilizado los diversos tipos de datos y referencia para celdas, rangos, hojas y libros. |    10%|
     |**d)** Se han aplicado fórmulas y funciones. |15%|
     |**e)** Se han generado y modificado gráficos de diferentes tipos. |10%|
     |**f)** Se han empleado macros para la realización de documentos y plantillas.|10%|
-    |**g)** Se han importado y exportado hojas de cálculo creadas con otras aplicaciones y en otros         formatos.|10%|
-    |**h)** Se ha utilizado la hoja de cálculo como base de datos: formularios, creación de listas,         filtrado, protección y ordenación de datos. |10%|
-    |**i)** Se han utilizado aplicaciones y periféricos para introducir textos,números, códigos e     imágenes.|    10%|
+    |**g)** Se han importado y exportado hojas de cálculo creadas con otras aplicaciones y en otros formatos.|10%|
+    |**h)** Se ha utilizado la hoja de cálculo como base de datos: formularios, creación de listas, filtrado, protección y ordenación de datos. |10%|
+    |**i)** Se han utilizado aplicaciones y periféricos para introducir textos,números, códigos e imágenes.|    10%|
 
 === "RA 4"
-    |RA4. Elabora documentos con bases de datos ofimáticas describiendo y aplicando operaciones de    manipulación de datos. ||
+    |RA4. Elabora documentos con bases de datos ofimáticas describiendo y aplicando operaciones de manipulación de datos. ||
     |-|-|
     |**a)** Se han identificado los elementos de las bases de datos relacionales. |10%|
     |**b)** Se han creado bases de datos ofimáticas. |15%|
@@ -608,20 +198,20 @@ Los resultados de aprendizaje y criterios de evaluación asociados al módulo **
     |**d)** Se han utilizado asistentes en la creación de consultas. |15%|
     |**e)** Se han utilizado asistentes en la creación de formularios. |15%|
     |**f)** Se han utilizado asistentes en la creación de informes. |15%|
-    |**g)** Se ha realizado búsqueda y filtrado sobre la información almacenada.|15%|
+    |**g)** Se ha realizado búsqueda y filtrado sobre la información almacenada.|10%|
     |**h)** Se han creado y utilizado macros. |10%|
 
 === "RA 5"
-    |RA5. Manipula imágenes digitales analizando las posibilidades de distintos programas y aplicando     técnicas de captura y edición básicas.||
+    |RA5. Manipula imágenes digitales analizando las posibilidades de distintos programas y aplicando técnicas de captura y edición básicas.||
     |-|-|
-    |**a)** Se han analizado los distintos formatos de imágenes. |22,5%|
-    |**b)** Se ha realizado la adquisición de imágenes con periféricos. |22,5%|
-    |**c)** Se ha trabajado con imágenes a diferentes resoluciones, según su finalidad.|22,5%|
-    |**d)** Se han empleado herramientas para la edición de imagen digital. |22,5%|
+    |**a)** Se han analizado los distintos formatos de imágenes. |20%|
+    |**b)** Se ha realizado la adquisición de imágenes con periféricos. |25%|
+    |**c)** Se ha trabajado con imágenes a diferentes resoluciones, según su finalidad.|25%|
+    |**d)** Se han empleado herramientas para la edición de imagen digital. |20%|
     |**e)** Se han importado y exportado imágenes en diversos formatos. |10%|
 
 === "RA 6"
-    |RA6. Manipula secuencias de video analizando las posibilidades de distintos programas y aplicando     écnicas de captura y edición básicas. ||
+    |RA6. Manipula secuencias de video analizando las posibilidades de distintos programas y aplicando técnicas de captura y edición básicas. ||
     |-|-|
     |**a)** Se han reconocido los elementos que componen una secuencia de video.|20%|
     |**b)** Se han estudiado los tipos de formatos y códecs más empleados. |20%|
@@ -630,24 +220,24 @@ Los resultados de aprendizaje y criterios de evaluación asociados al módulo **
     |**e)** Se han elaborado video tutoriales. |20%|
 
 === "RA 7"
-    |RA7. Elabora presentaciones multimedia describiendo y aplicando normas básicas de composición y    diseño.||
+    |RA7. Elabora presentaciones multimedia describiendo y aplicando normas básicas de composición y diseño.||
     |-|-|
     |**a)** Se han identificado las opciones básicas de las aplicaciones de presentaciones.|15%|
     |**b)** Se han reconocido los distintos tipos de vista asociados a una presentación. |10%|
-    |**c)** Se han aplicado y reconocido las distintas tipografías y normas básicas de composición, diseño    y utilización del color. |20%|
+    |**c)** Se han aplicado y reconocido las distintas tipografías y normas básicas de composición, diseño y utilización del color. |20%|
     |**d)** Se han diseñado plantillas de presentaciones. |20%|
     |**e)** Se han creado presentaciones. |30%|
     |**f)** Se han utilizado periféricos para ejecutar presentaciones. |5%|
 
 === "RA 8"
-    |RA8. Realiza operaciones de gestión del correo y la agenda electrónica, relacionando necesidades de    uso con su configuración.||
+    |RA8. Realiza operaciones de gestión del correo y la agenda electrónica, relacionando necesidades de uso con su configuración.||
     |-|-|
     |**a)** Se han descrito los elementos que componen un correo electrónico. |5%|
     |**b)** Se han analizado las necesidades básicas de gestión de correo y agenda electrónica.|20%|
     |**c)** Se han configurado distintos tipos de cuentas de correo electrónico. |20%|
     |**d)** Se han conectado y sincronizado agendas del equipo informático con dispositivos móviles. |15%|
     |**e)** Se ha operado con la libreta de direcciones. |5%|
-    |**f)** Se ha trabajado con todas las opciones de gestión de correo electrónico (etiquetas, filtros,    carpetas, entre otros).|30%|
+    |**f)** Se ha trabajado con todas las opciones de gestión de correo electrónico (etiquetas, filtros, carpetas, entre otros).|30%|
     |**g)** Se han utilizado opciones de agenda electrónica. |5%|
 
 === "RA 9"
@@ -658,62 +248,136 @@ Los resultados de aprendizaje y criterios de evaluación asociados al módulo **
     |**c)** Se han utilizado manuales de usuario para instruir en el uso de aplicaciones. |5%|
     |**d)** Se han aplicado técnicas de asesoramiento en el uso de aplicaciones.|10%|
     |**e)** Se han realizado informes de incidencias. |5%|
-    |**f)** Se han aplicado los procedimientos necesarios para salvaguardar la información y su     recuperación. |20%|
-    |**g)** Se han utilizado los recursos disponibles (documentación técnica, ayudas en línea, soporte    técnico, entre otros) para solventar incidencias.|20%|
+    |**f)** Se han aplicado los procedimientos necesarios para salvaguardar la información y su recuperación. |20%|
+    |**g)** Se han utilizado los recursos disponibles (documentación técnica, ayudas en línea, soporte técnico, entre otros) para solventar incidencias.|20%|
     |**h)** Se han solventado las incidencias en el tiempo adecuado y con el nivel adecuado.|10%|
 
-### Responsable evaluación de los Resultados de Aprendizaje
 
-=== "RA 1"
-    Tutor prácticas (Empresa). 
 
-=== "RA 2"
-    Profesor módulo (Instituto).
+### **5.2 - Resultados de aprendizaje**
+En cada unidad de trabajo (UT) se evaluarán los **criterios de evaluación (CE)** correspondientes al **RA**.  
+En el caso concreto del módulo **Aplicaciones Ofimáticas**, en cada unidad de trabajo (UT), **se evaluará un RA**.  
 
-=== "RA 3"
-    Profesor módulo (Instituto).
+!!! info "RA 1 - Instala y actualiza aplicaciones ofimaticas, interpretando especificaciones y describiendo los pasos a seguir en el proceso."
+    **UT 1** - Instalación de aplicaciones ofimáticas.
 
-=== "RA 4"
-    Profesor módulo (Instituto).
+!!! info "RA 2 - Elabora documentos y plantillas, describiendo y aplicando las opciones avanzadas de procesadores de textos."
+    **UT 2** - Elaboración de documentos de texto.
+
+!!! info "RA 7 - Elabora presentaciones multimedia describiendo y aplicando normas básicas de composición y diseño."
+    **UT 3** - Elaboración de presentaciones.
+
+!!! info "RA 3 - Elabora documentos y plantillas de calculo, describiendo y aplicando opciones avanzadas de hojas de calculo."
+    **UT 4** - Elaboración de hojas de cálculo.
+
+!!! info "RA 4 - Elabora documentos con bases de datos ofimaticas describiendo y aplicando operaciones de manipulacion de datos"
+    **UT 5** - Elaboración de bases de datos ofimáticas.
+
+!!! info "RA 5 - Manipula imágenes digitales analizando las posibilidades de distintos programas y aplicando técnicas de captura y edición básicas"
+    **UT 6** - Edición digital de imágenes. 
+
+!!! info "RA 6 - Manipula secuencias de vídeo analizando las posibilidades de distintos programas y aplicando técnicas de captura y edicion basicas"
+    **UT 7** - Edición de videos digital. 
+
+!!! info "RA 8 - Realiza operaciones de gestión del correo y la agenda electrónica, relacionando necesidades de uso con su configuración."
+    **UT 8** - Gestión del correo electrónico.  
+
+!!! info "RA 9 - Aplica técnicas de soporte en el uso de aplicaciones, identificando y resolviendo incidencias."
+    **UT 9** - Resolución de incidencias. 
+
+
+### **5.3 - Metodología de evaluación**
+- La evaluación será **contínua**.   
+- Se basará en la comprobación de la superación de los **resultados de aprendizaje (RA)**.
+- La evaluación se hará sobre **todos los RA y todos los CE** del currículo.
+
+
+### **5.4 - Instrumentos de evaluación**
+- Exámenes.  
+    - Preguntas tipo test.
+    - Examen escrito (ejercicios).          
+- Entrega de tareas.  
+- Exposiciones orales.  
+- **Prácticas en empresa**.
+
+### **5.5. - Responsable evaluación de los RA's y/o CE's**
+1. Evaluación por profesor:  
+**Todos lo que no serán evaluados en empresa**.
+<br><br>
+
+1. Evaluación por tutor empresa (dualización de los RA y CE): 
+
+    === "RA 1"
+        **d)** Se han documentado las incidencias. 
+        **i)** Se han propuesto soluciones software para entornos de aplicación.  
     
-=== "RA 5"
-    Profesor módulo (Instituto).
+    === "RA 2"
+        **g)** Se han elaborado manuales específicos. 
+    
+    === "RA 3"
+        **g)** Se han importado y exportado hojas de cálculo creadas con otras aplicaciones y en otros formatos.
+    
+    === "RA 8"
+        **e)** Se ha operado con la libreta de direcciones.  
+        **g)** Se han utilizado opciones de agenda electrónica.
+    
+    === "RA 9"
+        **h)** Se han solventado las incidencias en el tiempo adecuado y con el nivel adecuado.
 
-=== "RA 6"
-    Profesor módulo (Instituto).
+## **6. - Criterio de superación del módulo**
+### **6.1. - Nota final**
+La nota final será la suma ponderada de **los resultados de aprendizaje** obtenidos en cada evaluación.  
 
-=== "RA 7"
-    Profesor módulo (Instituto).
+La superación del módulo requerirá obtener una media mínima de **5 sobre 10 en cada resultado de aprendizaje**. 
 
-=== "RA 8"
-    Tutor prácticas (Empresa).
+En caso de no superar el módulo, el alumna/o dispondrá de un proceso de recuperación orientado a reforzar específicamente los resultados de aprendizaje no alcanzados.
 
-=== "RA 9"
-    Tutor prácticas (Empresa).    
+|Resultado de aprendizaje|Porcentage|
+|-|-|
+|**RA 1** - Instala y actualiza aplicaciones ofimaticas, interpretando especificaciones y describiendo los pasos a seguir en el proceso.|5%|
+|**RA 2** - Elabora documentos y plantillas, describiendo y aplicando las opciones avanzadas de procesadores de textos.|19%|
+|**RA 3** - Elabora documentos y plantillas de calculo, describiendo y aplicando opciones avanzadas de hojas de calculo.|18%|
+|**RA 4** - Elabora documentos con bases de datos ofimaticas describiendo y aplicando operaciones de manipulacion de datos.|18%|
+|**RA 5** - Manipula imágenes digitales analizando las posibilidades de distintos programas y aplicando técnicas de captura y edicion basicas.|10%|
+|**RA 6** - Manipula secuencias de vídeo analizando las posibilidades de distintos programas y aplicando técnicas de captura y edición básicas.|5%|
+|**RA 7** - Elabora presentaciones multimedia describiendo y aplicando normas basicas de composicion y diseño.|10%|
+|**RA 8** - Realiza operaciones de gestion del correo y la agenda electronica, relacionando necesidades de uso con su configuración.|10%|
+|**RA 9** - Aplica técnicas de soporte en el uso de aplicaciones, identificando y resolviendo incidencias.|5%|
 
-## Secuenciación y duración de cada Unidad de Trabajo
+### **6.2 - Instrumentos de recuperación**
+- Se propondrá a los alumnos una serie de **recuperaciones** que le permitirán recuperar los **criterios de evaluación** no superados.
+- Si el alumno **no entrega los trabajos obligatorios o presenta tasas de absentismo elevadas**, perderá la evaluación continua y deberá presentarse a la evaluación **ordinaria** y/o **extraordinaria**.
 
+### **6.3. - Calendario de evaluaciones**
+- Evaluación inicial (primer mes).
+- **Una evaluación parcial por cada trimestre**. 
+    - Se daran las notas de los **RA** completados y también la nota **parcial** de los **RA** incompletos.
+    - Para tener el aprobado será necesario haber alcanzado una puntuación superior o igual a 5 en los **Resultados de Aprendizaje RA** completados.
+- **Evaluación ordinaria** y **extraordinaria**: Permitirán recuperar los **RA no superados**.
+
+## **7 - Secuenciación y duración de cada Unidad de Trabajo**
 <div style="text-align:center;">
 ```mermaid
 flowchart TB 
-  A["Instalación de aplicaciones ofimáticas"]
-  B["Elaboración de documentos y plantillas mediante procesadores de texto"]
-  C["Elaboración de documentos y plantillas mediante hojas de cálculo"]
-  D["Utilización de bases de datos ofimáticas"]
-  E["Manipulación de imágenes"]
-  F["Manipulación de vídeos"]
-  G["Elaboración de presentaciones"]
-  H["Gestión de correo y agenda electrónica"]
-  I["Aplicación de técnicas de soporte"]
+  A["Instalación de aplicaciones ofimáticas."]
+  B["Elaboración de documentos de texto."]
+  C["Elaboración de presentaciones."]
+  D["Elaboración de hojas de cálculo."]
+  E["Elaboración de bases de datos ofimáticas."]
+  F["Edición digital de imágenes."]
+  G["Edición de videos digital."]
+  H["Gestión de correo electrónico."]
+  I["Resolución de incidencias."]
   AA["8h"]
   BB["40h"]
-  CC["40h"]
+  CC["20h"]
   DD["40h"]
-  EE["28h"]
+  EE["40h"]
   FF["28h"]
-  GG["20h"]
+  GG["28h"]
   HH["12h"]
   II["8h"]
+
 
   subgraph **Orden y duración de las UT**
 
@@ -759,16 +423,26 @@ flowchart TB
 
     subgraph **UT1** 
       direction LR
-      A --> AA
+      A --> AA  
     end
 
   end
 ```
 </div>
    
- 
+--- 
 
 | **Licencia Creative Commons:** | |
 | - | - |
 | ![alt text](../../../assets/by-nc-nd-eu_.png) { .by-nc-nd-eu_ } | **Reconocimiento-NoComercial-CompartirIgual CC BY-NC-SA:**  No se permite un uso comercial de la obra original ni de las posibles obras derivadas, la distribución de la cuales se debe hace con una licencia igual a la que regula la obra original. | 
   
+
+
+
+
+    
+
+
+
+
+
