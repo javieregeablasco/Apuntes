@@ -263,11 +263,11 @@ En caso de no superar el módulo, el alumna/o dispondrá de un proceso de recupe
 ```mermaid
 flowchart TB 
   A["Reconoce la estructura de un programa informático, identificando y relacionando los elementos propios del lenguaje de programación utilizado."]
-  B["Escribe y prueba programas sencillos, reconociendo y aplicando los fundamentos de la programación orientada a objetos."]
   C["Escribe y depura código, analizando y utilizando las estructuras de control del lenguaje."]
-  D["Desarrolla programas organizados en clases analizando y aplicando los principios de la programación orientada a objetos."]
   E["Realiza operaciones de entrada y salida de información, utilizando procedimientos específicos del lenguaje y librerías de clases."]
   F["Escribe programas que manipulen información, seleccionando y utilizando tipos avanzados de datos."]
+  B["Escribe y prueba programas sencillos, reconociendo y aplicando los fundamentos de la programación orientada a objetos."]
+  D["Desarrolla programas organizados en clases analizando y aplicando los principios de la programación orientada a objetos."]
   AA["6h"]
   BB["18h"]
   CC["18h"]
@@ -282,25 +282,26 @@ flowchart TB
       F --> FF
     end
     
-    subgraph **UT5**  
+    subgraph **UT5** 
+      direction LR
+      B --> BB
+    end
+
+    subgraph **UT4**  
       direction LR
       E --> EE
     end
     
-    subgraph **UT4**  
+    subgraph **UT3**  
       direction LR
       D --> DD
     end
     
-    subgraph **UT3**  
+    subgraph **UT2**  
       direction LR
       C --> CC
     end
 
-    subgraph **UT2** 
-      direction LR
-      B --> BB
-    end  
 
     subgraph **UT1** 
       direction LR

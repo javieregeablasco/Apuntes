@@ -80,8 +80,7 @@ markdown_extensions:
 nav: 
   - Aplicaciones Ofimáticas: 
     - Presentación módulo: SMX/SMX_1/AO/00_Temario.md
-    - UT 1 - Instalación de aplicaciones Ofimáticas:
-      - UT 11 - : SMX/SMX_1/AO/01_Instalacion de aplicaciones ofimaticas.md
+    - UT 1 - Instalación de aplicaciones Ofimáticas: SMX/SMX_1/AO/01_Instalacion de aplicaciones ofimaticas.md
     - UT 2 - Procesadores de texto:
       - UT 21 - Características de los procesadores de texto: SMX/SMX_1/AO/02_Procesadores_de_texto/021_Procesadores_de_texto.md
       - UT 22 - Instalación de LibreOffice Writer: SMX/SMX_1/AO/02_Procesadores_de_texto/022_LibreOffice_Writer_Instalacion.md

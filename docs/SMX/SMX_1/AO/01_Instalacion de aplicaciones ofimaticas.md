@@ -245,7 +245,7 @@ Antes de instalar cualquier programa, es importante conocer quién posee los der
 
 - **Copyright** = Todos los derechos reservados.
 - **Dominio público** = Ningún derecho exclusivo, uso totalmente libre.
-- **Copyleft** = Algunos derechos reservados, pero con obligación de mantener la libertad en las versiones derivadas.
+- **Copyleft** = Algunos derechos reservados, pero con obligación de mantener la libertad de derechos en las versiones derivadas.
 
 ### **4.3 - Comprobación de conocimientos RA1 CEh**
 Ir a Aules, descargar rellenar y volver a subir el documento RA1 CEh.
@@ -282,15 +282,97 @@ Las **suites de aplicaciones ofimáticas** son conjuntos de programas diseñados
 * **OnlyOffice y WPS Office:** opciones ligeras y compatibles con múltiples formatos.
 
 ## **6 - Instalación de suites de aplicaciones ofimáticas**
+El proceso de instalación de una suite de aplicaciones ofimáticas suele ser sencillo y guiado, pero es importante conocer las distintas posibilidades: instalación local en el equipo, instalación en red para varios usuarios o incluso el uso de versiones en la nube.  
+En nuestro caso nos limitaremos a una instalación local en un solo ordenador por lo que será importante ver si el hardware y software del ordenador es capaz de soportar dicha instalación. 
+
+### **6.1 - Requisitos de las suites ofimáticas más conocidas**
+A continuación una tabla con los requisitos minimos de algunas suites.
+
+![](../AO/img/UT1/requisitos.png){.sietecinco}
+
+Como queda evidente, esos requisitos son de hardware y software obsoletos...
+
+!!! task "Tarea RA1-CEb: Se han respetado las especificaciones técnicas del proceso de instalación."
+    - Buscar los requisitos de la última versión de OpenOffice.  
+    - Comprobar si vuestro equipo cumple con los requisitos mínimos para poder instalarlo.
+    - Realizar capturas de pantalla tanto de los requisitos de OpenOffice como de las especificaciones de vuestro equipo.
+    - Responder a la siguiente pregunta: ¿Bajo qué versión de licencia se permite el uso de OpenOffice? 
+    - Subir el documento a Aules en la tarea **Tarea RA1-CEb**.
+
+### **6.2 - Instalación típica de OpenOffice**
+Según el sistema operativo, descargar el paquete de instalación correspondiente y proceder a la instalación. 
+
+!!! task "Tarea RA1-CEa: Se han identificado y establecido las fases del proceso de instalación."
+    - Realizar capturas de pantalla de los momentos clave de la instalación.  
+    - Comentar brevemente lo que se realiza en cada momento.
+    - Subir el documento a Aules en la tarea **Tarea RA1-CEa**.
+
+### **6.3 - Reinstalación de OpenOffice y personalización**
+Después de finalizar la instalación y de comprobar que el software instalado funciona correctamente, volver a ejecutar el instalador.  
+Al detectarse una instalación anterior el programa propondrá:
+    - Modificar la instalación, es decir, añadir o eliminar programas de la suite (p.e., no instalar el módulo `OpenOffice Math`).
+    - Reparar la instalación anterior si se han producido errores durante la instalación o si más simplemente el programa ha emprezado a dar errores durante el uso normal del mismo.
+    - Desinstalar completamente la suite. 
 
 
+!!! task "Tarea RA1-CEcf: Se han configurado las aplicaciones según los criterios establecidos / Se han eliminado y/o añadido componentes de la instalación en el equipo"
+    - Repetir la instalación de OpenOffice y esta vez **no instalar**:
+        1. OpenOffice Impress
+        1. OpenOffice Math  
+    - Comentar brevemente lo que se realiza en cada momento.
+    - Subir el documento a Aules en la tarea **Tarea RA1-CEcf**.
+
+### **6.4 - Actualizaciones de OpenOffice**
+Las actualizaciones de cualquier programa forman parte del proceso de mantenimiento normal del software. Su finalidad es garantizar **la seguridad, estabilidad y mejora continua** del software instalado.  
+A través de estas actualizaciones se corrigen errores detectados en versiones anteriores, se cierran posibles vulnerabilidades de seguridad y, en ocasiones, se incorporan nuevas funciones.
+
+Es importante entender que actualizar un programa no solo significa “tener la última versión”, sino también asegurar que el software se adapta a los cambios tecnológicos y a las necesidades de los usuarios.  
+
+<br>
+En el caso de OpenOffice, estas actualizaciones pueden realizarse de dos formas principales:
+
+  - Actualización automática: el propio programa puede avisar al usuario cuando existe una nueva versión disponible, simplificando el proceso.
+
+  - Actualización manual: el usuario descarga la última versión desde la página oficial y realiza la instalación de manera directa.
 
 
-[Enric](https://aules.edu.gva.es/docent/pluginfile.php/4882779/mod_resource/content/3/Tema_1_Instalaci%C3%B3n%20de%20aplicaciones%20ofim%C3%A1ticas.pdf): pag 15/21
+!!! task "Tarea RA1-CEg: Se han actualizado las aplicaciones."
+    - Lanzar OpenOffice y familiarizarse con el entorno gráfico.
+    - Buscar la opción que permita comprobar si OpenOffice se encuentra totalmente actualizado.   
+    - Realizar una captura de pantalla donde se muestra que OpenOffice está actualizado (o no). 
+    - Subir el documento a Aules en la tarea **Tarea RA1-CEg**.
+    - Responder a la siguiente pregunta: ¿Qué se debería hacer si aparece que OpenOffice no está actualizado? 
+    - Responder a la siguiente pregunta: ¿Como se debería actualizar OpenOffice si aparece que está actualizado? 
 
-https://fricardoac.wordpress.com/wp-content/uploads/2015/02/aplicaciones-ofimaticas-2013-grado-medio-mcgraw-hill.pdf pag 11
+### **6.5 - Resolución de problemas durante la instalación**
+Durante la instalación de un programa pueden surgir distintos problemas que afectarán a su funcionamiento o integración con el sistema informático.  
 
-file:///C:/Users/titan/Documents/Javier128/Modulos/FPB/FPB_1/MMSCI/materiales/unidad1-instalacion-aplicaciones-ofimaticas.pdf 21/43
+Estos problemas pueden estar relacionados con la compatibilidad del software, la configuración del sistema operativo, la falta de recursos disponibles o incluso con errores de permisos.
+
+Comprender y resolver estas situaciones es fundamental, ya que garantiza que las aplicaciones ofimáticas funcionen correctamente. 
+
+!!! task "Tarea RA1-CEe: Se han solucionado problemas en la instalación o integración con el sistema informático."
+    **Actividad en grupos con exposición oral.**  
+
+    **Formación de grupos:**      
+    - Componer grupos de 3-4 personas.
+    
+    **Escenarios a debatir:**  
+    - La instalación se interrumpe por falta de permisos de administrador.  
+    - El sistema muestra incompatibilidad con la versión descargada.  
+    - Tras la instalación, los archivos .docx o .xlsx no se abren con la suite instalada por defecto.  
+    - Conflictos entre versiones previas y la nueva instalación.  
+    - Error al actualizar la suite por falta de espacio en disco.  
+
+    **Tarea del grupo:**  
+    - Identificar el problema principal del caso.  
+    - Proponer posibles soluciones técnicas.  
+    - Redactar un breve informe de resolución con pasos claros.  
+
+    **Puesta en común:**  
+    - Cada grupo expone sus soluciones, las dificultades detectadas y la solución adoptada.
+
+
 
 | **Licencia Creative Commons:** | |
 | - | - |

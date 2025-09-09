@@ -108,10 +108,10 @@ orígenes de información; procedimientos de implantación de imágenes y répli
 === "RA 3"
     |Instala sistemas operativos monopuesto identificando las fases del proceso y relacionándolas con la funcionalidad de la instalación.||
     |-|-|
-    |**a)** Se han descrito los pasos a seguir para la instalación o actualización.|10%|
+    |**a)** Se han descrito los pasos a seguir para la instalación o actualización.|15%|
     |**b)** Se ha verificado la ausencia de errores durante el proceso de carga del sistema operativo.|15%|
     |**c)** Se han utilizado las herramientas de control para la estructura de directorios y la gestión de permisos.|10%|
-    |**d)** Se han instalado actualizaciones y parches del sistema operativo según las instrucciones recibidas.|15%|
+    |**d)** Se han instalado actualizaciones y parches del sistema operativo según las instrucciones recibidas.|10%|
     |**e)** Se han realizado copias de seguridad de los datos.|10%|
     |**f)** Se han anotado los posibles fallos producidos en la fase de arranque del equipo microinformático.|10%|
     |**g)** Se han descrito las funciones de replicación física («clonación») de discos y particiones en sistemas microinformáticos.|10%|
@@ -130,22 +130,22 @@ orígenes de información; procedimientos de implantación de imágenes y répli
     |**g)** Se han registrado los resultados y las incidencias producidas en los procesos de comprobación.|15%|
 
 === "RA 5"
-    |Realiza el mantenimiento básico de sistemas informáticos, soportes y periféricos, relacionando las intervenciones con los resultados que hay que conseguir..||
+    |Realiza el mantenimiento básico de sistemas informáticos, soportes y periféricos, relacionando las intervenciones con los resultados que hay que conseguir.||
     |-|-|
-    |**a)** Se ha comprobado por medio de indicadores luminosos, que los periféricos conectados tienen alimentación eléctrica y las conexiones de datos.|10%|
-    |**b)** Se han descrito los elementos consumibles necesarios para ser utilizados en los periféricos de sistemas microinformáticos.|10%|
+    |**a)** Se ha comprobado por medio de indicadores luminosos, que los periféricos conectados tienen alimentación eléctrica y las conexiones de datos.|15%|
+    |**b)** Se han descrito los elementos consumibles necesarios para ser utilizados en los periféricos de sistemas microinformáticos.|15%|
     |**c)** Se han utilizado las guías técnicas detalladas para sustituir elementos consumibles.|10%|
-    |**d)** Se han descrito las características de los componentes, de los soportes y de los periféricos para conocer los aspectos que afecten a su mantenimiento.|10%|
-    |**e)** Se han utilizado las guías de los fabricantes para identificar los procedimientos de limpieza de componentes, soportes y periféricos.|10%|
-    |**f)** Se ha realizado la limpieza de componentes, soportes y periféricos respetando las disposiciones técnicas establecidas por el fabricante manteniendo su funcionalidad..|10%|
-    |**g)** Se han recogido los residuos y elementos desechables de manera adecuada para su eliminación o reciclaje.|10%|
+    |**d)** Se han descrito las características de los componentes, de los soportes y de los periféricos para conocer los aspectos que afecten a su mantenimiento.|15%|
+    |**e)** Se han utilizado las guías de los fabricantes para identificar los procedimientos de limpieza de componentes, soportes y periféricos.|15%|
+    |**f)** Se ha realizado la limpieza de componentes, soportes y periféricos respetando las disposiciones técnicas establecidas por el fabricante manteniendo su funcionalidad..|15%|
+    |**g)** Se han recogido los residuos y elementos desechables de manera adecuada para su eliminación o reciclaje.|15%|
 
 === "RA 6"
     |Almacena equipos, periféricos y consumibles, describiendo las condiciones de conservación y etiquetado.||
     |-|-|
-    |**a)** Se han descrito las condiciones para manipular, transportar y almacenar componentes y periféricos de un sistema microinformático.|10%|        
-    |**b)** Se han identificado los tipos de embalaje para el transporte y/o almacenaje de cada dispositivo, periférico y consumible.|10%|        
-    |**c)** e han utilizado las herramientas necesarias para realizar las tareas de etiquetado previas al embalaje y/o almacenamiento de sistemas, periféricos y consumibles.|10%|        
+    |**a)** Se han descrito las condiciones para manipular, transportar y almacenar componentes y periféricos de un sistema microinformático.|20%|        
+    |**b)** Se han identificado los tipos de embalaje para el transporte y/o almacenaje de cada dispositivo, periférico y consumible.|20%|        
+    |**c)** Se han utilizado las herramientas necesarias para realizar las tareas de etiquetado previas al embalaje y/o almacenamiento de sistemas, periféricos y consumibles.|10%|        
     |**d)** Se han utilizado los medios auxiliares adecuados a los elementos a transportar.|10%|        
     |**e)** Se han aplicado las normas de seguridad en la manipulación y el transporte de elementos y equipos.|10%|        
     |**f)** Se ha comprobado que los componentes recepcionados se corresponden con el albarán de entrega y que se encuentran en buen estado. |10%|   
