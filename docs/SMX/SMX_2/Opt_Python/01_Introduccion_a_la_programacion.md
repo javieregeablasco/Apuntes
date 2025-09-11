@@ -12,6 +12,21 @@ layout: default
 
 <br>
 
+**Resultados de aprendizaje y criterios de evaluacion que se evaluarán en esta unidad.**  
+
+| **Resultados de aprendizaje de la unidad didáctica:** |
+|-|
+| **RA. 1:** Reconoce la estructura de un programa informático, identificando y relacionando los elementos propios del lenguaje de programación utilizado.|  
+
+
+|**Criterios de evaluación de la unidad didáctica:**|
+||
+|**a)** Se han identificado los bloques que componen la estructura de un programa informático.|  
+
+<br>
+
+
+
 ## **1 - ¿Qué es un programa?**
 Un **programa informático** es un conjunto de instrucciones escritas en un lenguaje de programación que indican al ordenador cómo realizar una tarea. Estas instrucciones, llamadas código, deben ser traducidas mediante un compilador o un intérprete para que la máquina pueda ejecutarlas.
 
@@ -216,10 +231,42 @@ Al diseñar y desarrollar un programa informático es fundamental comprender su 
 ![](./img/UT1/structure.png){.sietecinco}
 
 
-## **7 - Ejercicios**
-### **6.1 - Calcular promedio**
+## **6 - Ejercicios RA1-CEa**
+### **6.1 - Calcular promedio (ejemplo)**
+Desarrollar la estructura del programa del siguiente enunciado. 
+
+1. Se necesita obtener la nota media de un estudiante a partir de sus tres notas parciales.
+??? example "Solución"
+      1. **Cabecera**  
+      Programa escrito por el alumno xxx...   
+      
+      1. **Algoritmos**   
+      Calcular_media.  
+      
+      1. **Declaraciones**  
+      Nota1  
+      Nota2  
+      Nota3  
+      Media  
+        
+      1. **Asignaciones**   
+      Nota1 = 0  
+      Nota2 = 0  
+      Nota3 = 0  
+      Media = 0  
+        
+      1. **Control del flujo**  
+      Leer Nota1  
+      Leer Nota2  
+      Leer Nota3  
+      Media = Calcular_media(Nota1, Nota2, Nota3)  
+    
+      1. **Salidas**  
+      Mostrar en pantalla Media  
+
+<!-- https://www.profmatiasgarcia.com.ar/uploads/tutoriales/Ej_resueltos_algoritmos.pdf -->
 
 ## **7 - Conclusión**
-Los lenguajes de programación son sólo **un medio para expresar el algoritmo** y el ordenador un medio para ejecutarlo. El diseño de los algoritmos será una tarea que necesitará de la creatividad y conocimientos de las técnicas de programación. Estilos distintos, de distintos programadores a la hora de obtener la solución del problema, darán lugar a programas diferentes, igualmente válidos.
+Los lenguajes de programación son herramientas para expresar algoritmos, y los ordenadores los ejecutan. Diseñar un algoritmo requiere creatividad y conocimientos, y distintos programadores pueden llegar a soluciones diferentes pero igualmente válidas.
 
-Cuando los problemas son complejos, es necesario descomponer éstos en subproblemas más simples y, a su vez, en otros más pequeños. Estas estrategias reciben el nombre de diseño descendente (Metodología de diseño de programas, consistente en la descomposición del problema en problemas más sencillos de resolver) o diseño modular (top‐down design) (Metodología de diseño de programas, que consiste en dividir la solución a un problema en módulos más pequeños o subprogramas; las soluciones de los módulos se unirán para obtener la solución general del problema). 
+Cuando un problema es complejo, conviene dividirlo en partes más simples. A esta estrategia se le llama diseño descendente o modular, porque consiste en resolver pequeños subproblemas y luego unir sus soluciones para obtener la solución completa.
