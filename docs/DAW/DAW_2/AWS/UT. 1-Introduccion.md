@@ -1,42 +1,83 @@
 ---
-title: CFGS - Desarrollo de Aplicaciones Web
+cicle: CFGS - Desarrollo de aplicaciones web
+title: "Introducción a la nube pública"
 lesson: UD. 1 - Fundamentos de la computación en la nube  
 author: Javier Egea Blasco  
-year: Año 25-26  
+year: 25-26  
 keywords: DAW, Optativa, AWS
+schedule: 96h - 3h/s 
 ---
+
 # **Fundamentos de la computación en la nube**
 ![Descripción de la imagen](../AWS/img/01cloud.png){ .cincozero }
 <br>
 
+<br>
+
+**Resultados de aprendizaje y criterios de evaluacion que se evaluarán en esta unidad.**  
+
+| **Resultados de aprendizaje de la unidad didáctica:** |
+|-|
+| **RA. 1:** Comprende los fundamentos de la computación en la nube, sus ventajas frente a sistemas tradicionales, el marco de adopción, los principios de migración y los aspectos clave de facturación, como estimación y optimización de costos.|  
+
+
+|**Criterios de evaluación de la unidad didáctica:**|
+||
+|**a)** Se ha comprendido los conceptos fundamentales de la computación en la nube.|  
+|**b)** Se ha demostrado la capacidad para explicar las ventajas de la nube frente a sistemas tradicionales.| 
+
+<br>
+
+
+
 ## **Arquitecturas empresariales**
 ### **Introducción**
-En el entorno empresarial, la infraestructura de TI es un componente crítico para el funcionamiento de cualquier organización. Tradicionalmente, las empresas gestionaban sus propios servidores, almacenamiento y redes, adoptando lo que se conoce como **arquitectura on-premises**. Este enfoque permite **un control total** sobre los recursos y la seguridad, pero también implica altos costos de mantenimiento, actualización y escalabilidad.
+En el entorno empresarial, la infraestructura de IT es un componente crítico para el funcionamiento de cualquier organización. Tradicionalmente, las empresas gestionaban sus propios servidores, almacenamiento y redes, adoptando lo que se conoce como **arquitectura on-premise**. Este enfoque permite **un control total** sobre los recursos y la seguridad, pero también implica altos costos de mantenimiento, actualización y escalabilidad.
 
 Con la llegada del **cloud computing**, las organizaciones pueden acceder a recursos de computación, almacenamiento y aplicaciones de manera flexible, escalable y bajo demanda, sin necesidad de poseer físicamente toda la infraestructura. Este cambio ha dado lugar a distintos modelos de arquitectura empresarial que combinan recursos internos y servicios en la nube, permitiendo a las empresas optimizar costos, mejorar la disponibilidad y adaptarse rápidamente a nuevas necesidades tecnológicas.
 
-### **Arquitecturas on premise**
-También llamadas in-house, son aquellas en las que la empresa adquiere y gestiona directamente el hardware y la infraestructura de TI. En este modelo, la organización tiene control total sobre los recursos, la seguridad y la configuración, pero también asume la responsabilidad completa del mantenimiento, las actualizaciones y la escalabilidad de sus sistemas.
+### **Arquitecturas on-premise**
+![](./ut1/onpremise.png){.doscinco} 
+
+También llamadas in-house, son aquellas en las que la empresa adquiere y gestiona directamente el hardware y la infraestructura de IT. En este modelo, la organización tiene control total sobre los recursos, la seguridad y la configuración, pero también asume la responsabilidad completa del mantenimiento, las actualizaciones y la escalabilidad de sus sistemas.
 
 ### **Arquitecturas cloud**
-En este caso, parte o la totalidad de los recursos están virtualizados y no son propiedad directa de la empresa, sino que se consumen como servicios ofrecidos por un proveedor externo. Dicho de otra manera, con las arquitecturas cloud, podemos dejar de considerar la arquitectura como un conjunto físico de hardware y verla como un servicio basado en software.
+![](./ut1/cloud.png){.doscinco} 
+
+En este caso, parte o la totalidad de los recursos están virtualizados y no son propiedad directa de la empresa, sino que se consumen como servicios ofrecidos por un proveedor externo. Dicho de otra manera, con las arquitecturas cloud, podemos dejar de considerar la arquitectura como un **conjunto físico de hardware** y verla como un **servicio basado en software**.
 
 Dentro del ámbito de las nubes, podemos distinguir entre:
+
+![](./ut1/arquitecturas.png){.sietecinco} 
+<br>
 
 - **Nube pública**  
 Los recursos virtualizados son compartidos entre varios clientes y se accede a ellos a través de internet. Pertenecen y son administrados por un proveedor de servicios en la nube, que ofrece capacidad de cómputo, almacenamiento y otros recursos de forma flexible, rápida y con pago por uso o suscripción.
 
+<br>
 
 - **Nube privada**  
 Los recursos virtualizados son exclusivos de una única organización y se ejecutan en un entorno dedicado, que puede estar alojado en las instalaciones de la empresa o gestionado por un tercero en un centro de datos externo. Se accede normalmente mediante redes privadas o conexiones seguras, y proporciona mayor control y personalización.
 
-- **Arquitecturas híbridas**  
+<br>
+
+- **Nubes híbridas**  
 Combinan elementos de la nube privada y la nube pública, ofreciendo gran flexibilidad para ejecutar cargas de trabajo en el entorno más adecuado según cada necesidad.
 
     **1.** Permiten que las aplicaciones críticas y los datos confidenciales se mantengan en entornos privados, mientras que aplicaciones menos sensibles, entornos de prueba o picos de demanda pueden aprovechar recursos públicos.
 
     **2.** Este modelo es muy común, ya que facilita una migración progresiva hacia la nube, coexistiendo con la infraestructura ya existente (on premise) y permitiendo ampliar recursos cuando sea necesario.
 
+<br>
+
+- **Nube pública multi cloud**  
+
+![](./ut1/multicloud.png){.cincozero} 
+
+El término multicloud hace referencia a la estrategia de utilizar **varias nubes públicas** de distintos proveedores al mismo tiempo, en lugar de depender de uno solo.  
+Se puede combinar AWS + Azure + Google Cloud + ... en la misma organización.  
+Cada nube se elige según sus ventajas específicas (precio, rendimiento, servicios exclusivos).  
+Permite diversificación de riesgos: si un proveedor falla, otro puede cubrir la carga.
 
 ## **Cloud computing**
 ![](../AWS/ut1/cloudcomputing.png){.original}
@@ -44,6 +85,9 @@ Combinan elementos de la nube privada y la nube pública, ofreciendo gran flexib
 El cloud computing o **computación en la nube** es la entrega de recursos informáticos, como servidores, almacenamiento, bases de datos, software y redes, **a través de Internet** a cambio de **pago por uso**. 
 
 Este modelo permite a las organizaciones y a los usuarios acceder a multitud de servicios, de forma remota, **eliminando la necesidad de gestionar** su propia infraestructura física y reduciendo los costes operativos. 
+
+!!! question "Pregunta"
+    ¿Qué diferencia hay entre los términos cloud y cloud computing?"
 
 
 ### **Beneficios de la computación en la nube**
@@ -77,7 +121,7 @@ Este modelo permite a las organizaciones y a los usuarios acceder a multitud de 
     ¿Cuales pueden ser los inconvenientes de contratar los servicios en la nube?
 
 ### **Servicios en la nube**
-En el modelo de computación en la nube, los recursos informáticos se ofrecen como **servicios**, lo que permite a las empresas y usuarios acceder a una infraestructura, plataformas y aplicaciones sin necesidad de adquirir y mantener hardware o software propios.
+En el modelo de computación en la nube, los recursos informáticos se ofrecen como **servicios**, lo que permite a las empresas y usuarios acceder a **una infraestructura, plataformas y aplicaciones** sin necesidad de adquirir y mantener hardware o software propios.
 
 ![Descripción de la imagen](../AWS/img/servicios.png){ .cincozero }
 
@@ -124,11 +168,11 @@ El modelo SaaS es el más completo desde el punto de vista del producto en la nu
 1. Aunque es el modelo menos flexible en cuanto a personalización, es el más fácil de implementar y requiere menos conocimientos técnicos.
 
 !!! question "Pregunta" 
-    ¿Qué servicio SaaS usamos a diario?
+    ¿Qué servicio SaaS usamos a diario (hasta tal punto que ni nos damos cuenta de que estamos usando un servicio SaaS)?
 
 
 ### **Modelo de responsabilidad compartida**
-En cloud computing, el modelo de responsabilidad compartida define claramente qué tareas corresponden al proveedor de servicios en la nube y cuáles son responsabilidad del cliente, dependiendo del tipo de servicio contratado (IaaS, PaaS o SaaS).  
+**En cloud computing, el modelo de responsabilidad compartida define claramente qué tareas corresponden al proveedor de servicios en la nube y cuáles son responsabilidad del cliente, dependiendo del tipo de servicio contratado (IaaS, PaaS o SaaS).**
 
 La idea es que la seguridad y la gestión no son completamente delegadas: cada parte tiene un rol específico.
 
@@ -180,16 +224,16 @@ A continuación, se presentan los más conocidos y utilizados:
 - **OpenStack** – [Openstack](https://www.openstack.org)  
   Es un proyecto de **software de infraestructura en la nube de código abierto**, ampliamente utilizado para crear nubes privadas. OpenStack es uno de los proyectos open source más activos y flexibles del mundo, permitiendo a las empresas controlar su infraestructura y mantener entornos privados seguros. 
 
-- **Pure Storage** - [Pure Storage](https://www.purestorage.com/es/)
+- **Pure Storage** - [Pure Storage](https://www.purestorage.com/es/)  
   Pure Storage es un proveedor de soluciones de almacenamiento en la nube privada con un enfoque en el rendimiento y la eficiencia. Ofrece una plataforma all-flash escalable y segura, reconocida durante diez años consecutivos como líder en el Cuadrante Mágico de Gartner para Almacenamiento Primario.
 
-- **Cisco** - [Cisco](https://www.cisco.com/c/en/us/solutions/cloud/index.html)
+- **Cisco** - [Cisco](https://www.cisco.com/c/en/us/solutions/cloud/index.html)  
   Cisco destaca por su experiencia en redes y seguridad, ofreciendo infraestructuras de nube privada seguras y confiables. Ha colaborado con Pure Storage y NetApp en FlashStack, una solución de infraestructura convergente que integra entornos locales y en la nube.
 
-- **IBM** - [IBM Cloud](https://www.ibm.com/es-es/cloud)
+- **IBM** - [IBM Cloud](https://www.ibm.com/es-es/cloud)  
   IBM combina su experiencia en la nube pública con soluciones de nube privada enfocadas en la seguridad y la gestión de datos. Ofrece a las organizaciones una plataforma confiable para integrar y administrar su información.
 
-- **NetApp** - [NetApp](https://www.netapp.com/es/)
+- **NetApp** - [NetApp](https://www.netapp.com/es/)  
   NetApp es líder en almacenamiento y gestión de datos en la nube privada. Sus soluciones priorizan la flexibilidad y la eficiencia, ofreciendo opciones como almacenamiento flash, híbrido y definido por software.
 
 
@@ -209,7 +253,8 @@ A continuación, se presentan los más conocidos y utilizados:
   |  | Trello, Notion, GitHub, Dropbox, Spotify | Gestión de tareas, repositorios de código, almacenamiento en la nube y servicios multimedia. |
 
 ## **Estado actual del mercado Cloud**
-El **cloud computing** se ha consolidado como un pilar fundamental de la transformación digital, permitiendo a empresas de todos los tamaños acceder a recursos de computación bajo demanda. Los principales proveedores lideran un mercado global en constante crecimiento, con importantes inversiones estratégicas en países [como España](https://www.aboutamazon.es/noticias/aws/nueva-inversion-de-15700-millones-de-aws-en-espana).
+El **cloud computing** se ha consolidado como un pilar fundamental de la transformación digital, permitiendo a empresas de todos los tamaños acceder a recursos de computación bajo demanda.  
+Los principales proveedores lideran un mercado global en constante crecimiento, con importantes inversiones estratégicas en países como [España](https://www.aboutamazon.es/noticias/aws/nueva-inversion-de-15700-millones-de-aws-en-espana).
 
 ### **Cuotas de mercado globales**
 ![Descripción de la imagen](../AWS/img/share.webp){ .sietecinco }
@@ -217,7 +262,7 @@ El **cloud computing** se ha consolidado como un pilar fundamental de la transfo
 Como podemos ver en la imagen, AWS sigue disponiendo de la mayor cuota de mercado, siguida cada vez más de cerca por Microsoft y su cloud Azure.
 
 ### **Principales proveedores y posición global**
-En el cuarto trimestre de 2024, el gasto global en servicios en la nube **aumentó un 20%** interanual, alcanzando los 86 mil millones de dólares. Durante todo el año 2024, el gasto también creció un 20%, pasando de 267,7 mil millones de dólares en 2023 a 321,3 mil millones de dólares en 2024.
+En el cuarto trimestre de 2024, el gasto global en servicios en la nube **aumentó un 20%** interanual, alcanzando los 86 mil millones de dólares. Durante todo el año 2024, el gasto también creció un 20%, pasando de 267,7 mil millones de dólares en 2023 a **321,3 mil millones de dólares en 2024**.
 
 El principal impulsor de este crecimiento fue la expansión de los modelos de inteligencia artificial (IA), que aceleró significativamente la adopción de la nube. Para la segunda mitad de 2024, los principales proveedores de nube reportaron retornos positivos de sus inversiones en IA, y las aplicaciones de IA tuvieron un impacto notable en el desempeño general de su negocio en la nube.
 
@@ -261,3 +306,39 @@ A medida que la competencia en el mercado de IA se intensifica, los hiperescalad
 <a href=https://es.wikipedia.org/wiki/Computaci%C3%B3n_en_la_nube>Wikipedia</a>.  
 <a href=https://aws.amazon.com/es/getting-started/cloud-essentials>Conceptos básicos de la nube de AWS</a>.  
 <a href=https://learn.microsoft.com/es-es/training/paths/  microsoft-azure-fundamentals-describe-cloud-concepts>Microsoft Azure, conceptos de la nube</a>.
+
+## **Tarea 1 - RA1-CEa**
+- **Ejercicio 1:**  
+Completar la siguiente tabla.  
+Podeís acceder a cualquier recurso pero es importante que la redacción sea personal. 
+
+    | Concepto |	Explicación con tus palabras |	Ejemplo práctico (real o inventado) | 
+    |-|-|-|
+    |IaaS	|||	
+    PaaS		
+    SaaS		
+    Nube pública		
+    Nube privada		
+    Nube híbrida		
+
+
+- **Ejercicio 2:**  
+Estudiar el siguiente caso y responder a las preguntas:
+>Una startup de desarrollo web necesita un entorno flexible para crear y probar aplicaciones.  
+Tiene pocos recursos económicos, quiere reducir la inversión inicial y planea crecer rápidamente.  
+El equipo duda entre contratar servidores propios o usar servicios en la nube.  
+
+    **Preguntas:**  
+      1. ¿Qué modelo de servicio de la nube sería más adecuado para esta empresa? ¿Por qué?  
+      2. ¿Qué modelo de despliegue (pública, privada, híbrida) tendría más sentido en este caso?  
+      3. Menciona al menos dos ventajas y un posible inconveniente  de la decisión.  
+
+- **Condiciones de la entrega.**  
+Subir el documento con vuestras respuestas a Aules en la tarea correspondiente.
+
+## **Tarea 2 - RA1-CEb**  
+- **Trabajo de investigación.**   
+Dar, al menos, 5 ventajas de uso de la nube frente a sistemas on premise.   
+
+- **Condiciones de la entrega.**    
+Subir el documento con vuestras respuestas a Aules en la tarea correspondiente.

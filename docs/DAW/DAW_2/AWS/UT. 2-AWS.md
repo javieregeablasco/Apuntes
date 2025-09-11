@@ -9,6 +9,19 @@ keywords: DAW, Optativa, AWS
 ![Descripción de la imagen](../AWS/img/aws.png){ .cincozero }
 <br>
 
+**Resultados de aprendizaje y criterios de evaluacion que se evaluarán en esta unidad.**  
+
+| **Resultados de aprendizaje de la unidad didáctica:** |
+|-|
+| **RA. 1:** Comprende los fundamentos de la computación en la nube, sus ventajas frente a sistemas tradicionales, el marco de adopción, los principios de migración y los aspectos clave de facturación, como estimación y optimización de costos.|  
+
+
+|**Criterios de evaluación de la unidad didáctica:**|
+||
+|**c)** Se ha participado en actividades relacionadas con el ecosistema de servicios en la nube.|
+
+<br>
+
 ## **Orígenes de AWS**
 Amazon Web Services (AWS) nació como una rama de Amazon enfocada en ofrecer servicios tecnológicos a otras empresas. Sus orígenes se remontan a principios de la década de 2000, cuando Amazon, como compañía de comercio electrónico, enfrentaba el reto de escalar su infraestructura interna para manejar millones de usuarios y grandes volúmenes de datos.
 
@@ -34,7 +47,7 @@ Está diseñada para que los clientes puedan ejecutar aplicaciones y almacenar d
 
 Sus principales elementos son las **regiones** y las **zonas de disponibilidad** pero no son los únicos, otros elementos como las **zonas locales** los **outposts** y **puntos de presencia** también forman parte de la infraestructura global de AWS.
 
-### Regiones (Regions)
+### **Regiones (Regions)**
 Son ubicaciones físicas en todo el mundo que agrupan varios centros de datos.
 Cada región **es independiente** y está aislada de las demás.
 
@@ -44,7 +57,7 @@ Regiones de cobertura de AWS en Europa.
 
 [Regiones de AWS](https://aws.amazon.com/es/about-aws/global-infrastructure)
 
-### Zonas de Disponibilidad (Availability Zones, AZs)
+### **Zonas de Disponibilidad (Availability Zones, AZs)**
 Cada región contiene dos o más zonas de disponibilidad (AZ).
 
 Una AZ es un conjunto de uno o más centros de datos independientes, con energía, refrigeración y redes redundantes.
@@ -56,7 +69,7 @@ Zonas de disponibilidad para la región de AWS España.
 <br>
 ![](./img/az.png)
 
-### Zonas locales (local zones)
+### **Zonas locales (local zones)**
 Las **local zones de AWS** son un tipo de infraestructura que ubica servicios de AWS **cerca de grandes centros de población e industria**. Por ejemplo, se pueden usar servicios como computación y almacenamiento en la zona local para aplicaciones que requieren unas latencias ultrabajas.
 
 Las **zonas locales** cuentan con entrada y salida de internet a nivel local para reducir la latencia, pero también están conectadas a su **Región principal** a través de la red privada de Amazon. Esto proporciona a las aplicaciones que se ejecutan en las Zonas locales de AWS un acceso rápido, seguro y fluido a todos los servicios disponibles en esa región.
@@ -68,7 +81,7 @@ Zonas locales actuales (2025).
 
 Más info sobre las zonas locales [aquí](https://aws.amazon.com/es/about-aws/global-infrastructure/localzones).
 
-### AWS Outposts
+### **AWS Outposts**
 **AWS Outposts** es una familia de soluciones que llevan la infraestructura y los servicios de AWS a prácticamente **cualquier entorno local (on-premise)** (o edge location). 
 
 Las soluciones de Outposts permiten extender y ejecutar servicios nativos de AWS **en las instalaciones del cliente**, y están disponibles en una variedad de formatos, desde servidores Outposts de 1U y 2U, hasta racks de 42U y despliegues de múltiples racks.
@@ -78,7 +91,7 @@ Con AWS Outposts, se pueden ejecutar servicios de AWS de forma local y conectart
 Más info [aquí](https://aws.amazon.com/es/outposts/)
 
 
-### Points of presence (PoPs)
+### **Points of presence (PoPs)**
 **Los Points of Presence (PoPs)** de AWS son ubicaciones físicas distribuidas en todo el mundo que AWS utiliza para acercar el contenido y los servicios a los usuarios finales, reduciendo la latencia y mejorando el rendimiento.
 
 Dentro de los PoPs se incluyen dos tipos principales:
@@ -95,11 +108,46 @@ Sirven para reducir la carga sobre las regiones al almacenar contenido que no ca
 
 Más info [aquí](https://docs.aws.amazon.com/whitepapers/latest/aws-fault-isolation-boundaries/points-of-presence.html)
 
-### Red troncal global (AWS Global Network)
+### **Red troncal global (AWS Global Network)**
 Conecta todas las regiones, AZs y puntos de presencia a través de una red privada de alta capacidad y baja latencia.
 Esto evita depender del Internet Público para la comunicación interna.
 
 ![](./img/Infraestructura%20global%20de%20AWS.png){ .sietecinco}
+
+## **Tarea 1 - RA1-CEc**
+**Ejercicio 1:**  
+Responder a las siguientes preguntas. Podeís acceder a cualquier recurso pero es importante que **la redacción sea personal**. 
+
+<br>
+
+**Regiones y zonas de disponibilidad:**  
+
+   - ¿Qué es una región de AWS?
+
+   - ¿Qué es una zona de disponibilidad (AZ)?
+
+   - ¿Por qué AWS no recomienda desplegar todo en una sola AZ?
+
+**Mapa de regiones:**  
+
+   - Usando el sitio oficial [AWS Global Infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/), localizad **al menos 5 regiones** de AWS en distintos continentes.
+   - Anotad:
+
+     1. Nombre de la región (ej. *eu-west-1*).
+     1. Ciudad/país aproximado.
+     1. Número de zonas de disponibilidad disponibles en esa región.
+
+**Caso práctico:**  
+
+   - Una empresa de streaming quiere dar servicio a usuarios en Europa, América y Asia. 
+     1. ¿Qué regiones escogeríais para desplegar la aplicación y por qué?
+     1. ¿Cómo distribuiríais los recursos entre varias AZs para garantizar **alta disponibilidad**?
+     1. ¿Qué riesgos tendría concentrar la infraestructura en una sola región?
+
+
+**Condiciones de la entrega:**  
+Subir el documento con vuestras respuestas a Aules en la tarea correspondiente.
+
 
 
 

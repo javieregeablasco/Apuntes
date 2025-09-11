@@ -12,7 +12,7 @@ layout: default
 
 <br>
 
-## ¿Qué es un programa?
+## **1 - ¿Qué es un programa?**
 Un **programa informático** es un conjunto de instrucciones escritas en un lenguaje de programación que indican al ordenador cómo realizar una tarea. Estas instrucciones, llamadas código, deben ser traducidas mediante un compilador o un intérprete para que la máquina pueda ejecutarlas.
 
 En términos sencillos, un programa permite que una computadora lleve a cabo acciones específicas: desde responder a las órdenes de un usuario hasta ejecutar procesos de manera automática. Dichas acciones pueden realizarse de forma secuencial (una tras otra) o paralela (varias al mismo tiempo).
@@ -44,7 +44,7 @@ No todos los programas requieren de una interacción humana. Dentro del contexto
 
 <br>
 
-## ¿Qué datos procesa un programa informático?
+## **2 - ¿Qué datos procesa un programa informático?**
 El tipo de datos que procesa un programa depende de su finalidad:
 
 - Un editor de texto procesa principalmente caracteres, palabras y formatos de documentos escritos.
@@ -54,13 +54,13 @@ El tipo de datos que procesa un programa depende de su finalidad:
 
 En definitiva, cada programa informático está diseñado para manejar **un conjunto específico de datos**, transformarlos y presentar un resultado útil al usuario.
 
-## Tarea del programador 
+## **3 - Tarea del programador** 
 La tarea de un programador informático consiste en diseñar y escribir instrucciones que conforman un programa, determinando qué operaciones se deben realizar, en qué orden y sobre qué datos deben aplicarse.
 
-La dificultad de esta labor depende, en gran medida, de la complejidad del algoritmo que se quiera implementar, así como de otros factores como la claridad del problema, el lenguaje utilizado y la calidad del diseño previo.
+La dificultad de esta labor depende, en gran medida, de la complejidad del **algoritmo que se quiera implementar**, así como de otros factores como la claridad del problema, el lenguaje utilizado y la calidad del diseño previo.
 
 
-## Algoritmos
+## **4 - Algoritmos**
 Un algoritmo es un conjunto de reglas o pasos que indican cómo resolver un determinado problema.
 
 ???+ example "Ejemplo del algoritmo"
@@ -88,7 +88,7 @@ Como acabamos de ver, un algoritmo no es más que la secuencia de pasos que se d
 ???+ info 
     Piensa en una receta de cocina, ésta puede ser expresada en castellano, inglés o francés, podría ser cocinada en fogón o vitrocerámica, por un cocinero o más, etc. Pero independientemente de todas estas circunstancias, el plato se preparará siguiendo los mismos pasos.
 
-### Características de los algoritmos
+### **4.1 - Características de los algoritmos**
 Para que sea válido, un algoritmo tiene que tener ciertas características fundamentales:
 
 1. Generalidad: han de definirse de forma general, utilizando identificadores o parámetros. Un algoritmo debe resolver toda una clase de problemas y no un problema aislado particular.
@@ -96,11 +96,11 @@ Para que sea válido, un algoritmo tiene que tener ciertas características fund
 1. Definibilidad: han de estar definidos de forma exacta y precisa, sin ambigüedades.
 1. Eficiencia: han de resolver el problema de forma rápida y eficiente.
 
-### Representación de algoritmos
+### **4.2 - Representación de los algoritmos**
 Los métodos más usuales para representar algoritmos son los **diagramas de flujo y el pseudocódigo**.  
 El diseño de un algoritmo constituye **el paso previo a la codificación de un programa** en un lenguaje de programación determinado. 
 
-#### Diagrama de flujo (Flowchart)
+#### **4.2.1 - Diagrama de flujo (Flowchart)**
 Es una de las técnicas de representación de algoritmos más antiguas y más utilizadas, aunque su empleo disminuyó considerablemente con los lenguajes de programación estructurados. Un diagrama de flujo utiliza símbolos estándar que contienen los pasos del algoritmo escritos en esos símbolos, unidos por flechas denominadas líneas de flujo que indican la secuencia en que deben ejecutarse.
 
 - Algunos de los símbolos más usuales son:
@@ -150,12 +150,15 @@ Es una de las técnicas de representación de algoritmos más antiguas y más ut
         
     ```
 
-#### Pseudocódigo
+!!! question "Pregunta"
+    ¿Qué hace este algoritmo?
+
+#### **4.2.2 - Pseudocódigo**
 El pseudocódigo es un lenguaje de descripción de algoritmos muy próximo a la sintaxis de los lenguajes de programación. Nace como medio para representar las estructuras de control de **programación estructurada**.
 
 El pseudocódigo no se puede ejecutar nunca en el ordenador, sino que tiene que traducirse a un lenguaje de programación (codificación). La ventaja del pseudocódigo, frente a los diagramas de flujo, es que se puede modificar más fácilmente si detecta un error en la lógica del algoritmo, y puede ser traducido fácilmente a los lenguajes de programación estructurados.
 
-El Pseudocódigo utiliza palabras reservadas (en sus orígenes se escribían en inglés) para representar las sucesivas acciones. Para mayor legibilidad utiliza la identación -sangría en el margen izquierdo- de sus líneas.
+El Pseudocódigo utiliza palabras reservadas (en sus orígenes se escribían en inglés) para representar las sucesivas acciones. Para mayor legibilidad utiliza la identación `sangría en el margen izquierdo` de sus líneas.
         
 ???+ example "Mostrar dos números ordenados de menor a mayor"
     ```basic linenums="1"
@@ -169,7 +172,54 @@ El Pseudocódigo utiliza palabras reservadas (en sus orígenes se escribían en 
     Fin
     ```
 
-## Conclusión
+
+## **5 - Estructura de un programa informático**
+### **5.1 - Contenidos esenciales de un programa informático**
+Como hemos visto, un programa informático es una secuencia de acciones (instrucciones o comandos) que manipulan un conjunto de **objetos** (datos e información).  
+Cada lenguaje de programación tiene sus especificaciones a la hora de estructurar el código pero, básicamente contendrá bloques de declaraciones y bloques de instrucciones. 
+
+   1. **Bloque de declaraciones**: En él, se **declaran** detallan todos los objetos que utiliza el programa (constantes, variables, archivos, etc).
+   1. **Bloque de instrucciones**: Aquí se definen el conjunto de acciones u operaciones que se han de llevar a cabo para conseguir los resultados esperados. Dicho en otras palabras, se define **el algoritmo** del programa.
+
+<br>
+
+**El bloque de instrucciones** de un programa puede dividirse conceptualmente en tres partes: **entrada de datos, procesamiento y salida de resultados**. Aunque no siempre aparezcan claramente separadas en el código, esta estructura ayuda a entender y diseñar los programas.
+
+![](./img/UT1/inout.png){.cincozero}
+
+1. **Entrada de datos**  
+Es la parte del programa encargada de recibir la información necesaria para su ejecución. Puede provenir de archivos, bases de datos, dispositivos de entrada o del propio usuario.
+
+1. **Procesamiento**  
+Aquí se realizan las operaciones, cálculos o transformaciones sobre los datos recibidos. Es el “núcleo” lógico del programa, donde se aplican **los algoritmos**.
+
+1. **Salida de resultados**  
+Corresponde a la presentación o almacenamiento del resultado final del procesamiento. Puede ser en pantalla, en un archivo, en una base de datos, etc.
+
+### **5.2 - Estructura típica de un programa informático**
+Al diseñar y desarrollar un programa informático es fundamental comprender su estructura interna, ya que esta organización facilita la lectura, el mantenimiento y **la reutilización del código**.  
+
+1. **La cabecera** suele incluir **comentarios** con información descriptiva del programa, como su nombre, los datos de entrada que requiere y los datos de salida que genera. Esta documentación inicial ayuda tanto al propio programador como a otros desarrolladores a entender rápidamente el propósito del código.
+
+1. **Las algoritmos** creados para ser (re)utilizadas en distintas partes del programa, favoreciendo así **la modularidad** y evitando duplicar instrucciones.
+
+1. **Sección de declaraciones** donde se especificarán las definiciones y tipos de datos que se utilizarán, incluyendo variables, constantes, etc.
+
+1. **Las asignaciones** se encargan de establecer los valores iniciales de los datos declarados previamente, mientras que las entradas permiten almacenar en memoria los valores de algunos datos iniciales que pueden provenir del usuario u otras fuentes externas.
+
+1. **El control del flujo** del programa se gestiona mediante instrucciones secuenciales, que marcan **el orden en que se ejecutan las distintas operaciones**.
+
+1. **Las salidas** contienen las instrucciones necesarias para devolver o mostrar los resultados obtenidos tras la ejecución del programa.
+
+**Tabla resumen**
+
+![](./img/UT1/structure.png){.sietecinco}
+
+
+## **7 - Ejercicios**
+### **6.1 - Calcular promedio**
+
+## **7 - Conclusión**
 Los lenguajes de programación son sólo **un medio para expresar el algoritmo** y el ordenador un medio para ejecutarlo. El diseño de los algoritmos será una tarea que necesitará de la creatividad y conocimientos de las técnicas de programación. Estilos distintos, de distintos programadores a la hora de obtener la solución del problema, darán lugar a programas diferentes, igualmente válidos.
 
 Cuando los problemas son complejos, es necesario descomponer éstos en subproblemas más simples y, a su vez, en otros más pequeños. Estas estrategias reciben el nombre de diseño descendente (Metodología de diseño de programas, consistente en la descomposición del problema en problemas más sencillos de resolver) o diseño modular (top‐down design) (Metodología de diseño de programas, que consiste en dividir la solución a un problema en módulos más pequeños o subprogramas; las soluciones de los módulos se unirán para obtener la solución general del problema). 
