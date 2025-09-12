@@ -216,11 +216,13 @@ Al diseñar y desarrollar un programa informático es fundamental comprender su 
 
 1. **La cabecera** suele incluir **comentarios** con información descriptiva del programa, como su nombre, los datos de entrada que requiere y los datos de salida que genera. Esta documentación inicial ayuda tanto al propio programador como a otros desarrolladores a entender rápidamente el propósito del código.
 
-1. **Las algoritmos** creados para ser (re)utilizadas en distintas partes del programa, favoreciendo así **la modularidad** y evitando duplicar instrucciones.
-
 1. **Sección de declaraciones** donde se especificarán las definiciones y tipos de datos que se utilizarán, incluyendo variables, constantes, etc.
 
-1. **Las asignaciones** se encargan de establecer los valores iniciales de los datos declarados previamente, mientras que las entradas permiten almacenar en memoria los valores de algunos datos iniciales que pueden provenir del usuario u otras fuentes externas.
+1. **Las asignaciones** se encargan de establecer los valores iniciales de los datos declarados previamente. 
+
+1. **Las entradas** permiten almacenar en memoria los valores de algunos datos iniciales que pueden provenir del usuario u otras fuentes externas.
+
+1. **Las algoritmos** creados para ser (re)utilizadas en distintas partes del programa, favoreciendo así **la modularidad** y evitando duplicar instrucciones.
 
 1. **El control del flujo** del programa se gestiona mediante instrucciones secuenciales, que marcan **el orden en que se ejecutan las distintas operaciones**.
 
@@ -235,13 +237,10 @@ Al diseñar y desarrollar un programa informático es fundamental comprender su 
 ### **6.1 - Calcular promedio (ejemplo)**
 Desarrollar la estructura del programa del siguiente enunciado. 
 
-1. Se necesita obtener la nota media de un estudiante a partir de sus tres notas parciales.
+Se necesita obtener la nota media de un estudiante a partir de sus tres notas parciales.
 ??? example "Solución"
       1. **Cabecera**  
       Programa escrito por el alumno xxx...   
-      
-      1. **Algoritmos**   
-      Calcular_media.  
       
       1. **Declaraciones**  
       Nota1  
@@ -254,19 +253,59 @@ Desarrollar la estructura del programa del siguiente enunciado.
       Nota2 = 0  
       Nota3 = 0  
       Media = 0  
+      
+      1. **Entradas**
+      Preguntar valor Nota1   
+      Preguntar valor Nota2   
+      Preguntar valor Nota3   
+      
+      1. **Algoritmo(s)**   
+      Calcular_media = (Nota1 + Nota2 + Nota3) / 3  
         
       1. **Control del flujo**  
-      Leer Nota1  
-      Leer Nota2  
-      Leer Nota3  
-      Media = Calcular_media(Nota1, Nota2, Nota3)  
-    
+        - Inicio programa  
+            1. Leer Nota1  
+            1. Leer Nota2  
+            1. Leer Nota3
+            1. Media = Calcular_media(Nota1, Nota2, Nota3)   
+            1. Mostrar Media
+        - Fin programa  
+        
       1. **Salidas**  
-      Mostrar en pantalla Media  
+      Mostrar en pantalla el valor Media  
 
-<!-- https://www.profmatiasgarcia.com.ar/uploads/tutoriales/Ej_resueltos_algoritmos.pdf -->
+### **6.2 - Calculador de notas de exámenes tipo test**
+Desarrollar la estructura del programa del siguiente enunciado. 
+
+Elaborar un programa que solicite, el número de respuestas correctas, incorrectas y en blanco y finalmente muestre la nota final al usuario.  
+La nota final se calculará de la siguiente manera: Cada respuesta correcta tendrá 2 puntos, cada respuesta incorrecta tendrá -1 punto y las respuestas en blanco tendrán 0.
+
+### **6.3 - Calculador de puntos de equipo de fútbol**
+Desarrollar la estructura del programa del siguiente enunciado.
+
+Elaborar un programa que pida el número de partidos ganados, perdidos y empatados de un equipo de fútbol y que devuelva los puntos totales.  
+El cálculo de los puntos se hará de la siguiente manera: En cada partido ganado se obtendrán 3 puntos, empatado 1 punto y perdido 0 puntos.
+
+### **6.4 - Calculador de la nómina de un empleado**
+Desarrollar la estructura del programa del siguiente enunciado.
+
+Elaborar un programa que calcule la nónima de un empleado. Para ello se dispone de sus horas trabajadas en el mes, así como de la tarifa por hora.
+
+### **6.5 - Calculador de edad para derecho de entrada**
+Desarrollar la estructura del programa del siguiente enunciado.
+
+Elaborar un programa que determine el derecho de entrada de una persona a una discoteca. El algoritmo calculará la edad de la persona al pedir la fecha de nacimiento. Si la persona es mayor de edad, podrá pasar. Si no lo es, le dirá que no puede pasar.  
+
+**Nota:** Usar el ejemplo del apartado **4.2.2** para elaborar el algoritmo.
+
+
+### **6.6 - Calculador de quién es el mayor de 2 hermanos y si además alguno es mayor de edad**
+Desarrollar la estructura del programa del siguiente enunciado.
+
+Elaborar un programa que solicite la fecha de nacimiento de 2 hermanos (año, mes y día). Un algoritmo determinará el mayor de los 2 hermanos. El otro algoritmo determinará si además, alguno (o los 2 hermanos) son mayores de edad. 
+
 
 ## **7 - Conclusión**
-Los lenguajes de programación son herramientas para expresar algoritmos, y los ordenadores los ejecutan. Diseñar un algoritmo requiere creatividad y conocimientos, y distintos programadores pueden llegar a soluciones diferentes pero igualmente válidas.
+Los lenguajes de programación son herramientas para expresar algoritmos. Diseñar un algoritmo requiere creatividad y conocimientos, y **distintos programadores pueden llegar a soluciones diferentes pero igualmente válidas**.
 
 Cuando un problema es complejo, conviene dividirlo en partes más simples. A esta estrategia se le llama diseño descendente o modular, porque consiste en resolver pequeños subproblemas y luego unir sus soluciones para obtener la solución completa.

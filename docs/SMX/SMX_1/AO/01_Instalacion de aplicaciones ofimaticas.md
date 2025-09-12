@@ -194,6 +194,7 @@ Son los conocidos **términos y condiciones** para la instalación de software q
 
 ### **4.1 - Tipos de licencias de uso, software propietario y software libre**
 ![](./img/UT1/libreprivativo.webp){.cincozero}
+<br>
 
 - **Software propietario**  
 En el software propietario, privativo o no libre, el desarrollador establece a través de la licencia sus propios términos de uso del programa. Habitualmente se prohíbe la distribución del mismo y el acceso a su código fuente, pero estas licencias pueden impedir además su uso para un determinado fin o incluso limitar el número de veces que el usuario puede instalar el programa.
@@ -207,10 +208,11 @@ cuatro acciones sin restricción alguna:
     1. Utilizar el programa en cualquier contexto.
     1. Compartir copias del programa con otros usuarios.
     1. Acceder al código fuente, y poder mejorarlo o modificarlo para que el programa se comporte de acuerdo con nuestras necesidades.
-    1. Compartir ese programa modificado o mejorado con otros usuarios
+    1. Compartir ese programa modificado o mejorado con otros usuarios.
 
 !!! question "¿Qué diferencia elemental existe entre el software propietario y el software libre?"
 
+<br>
 
 ### **4.2 - Tipos de licencias de uso, Copyright, dominio público y copyleft**
 ![](./img/UT1/copy.webp){.doscinco}
@@ -237,7 +239,7 @@ Antes de instalar cualquier programa, es importante conocer quién posee los der
 
 - Es un modelo de licencia alternativa dentro del copyright.
 - Permite usar, modificar y redistribuir la obra **libremente**, siempre que las versiones derivadas se distribuyan bajo las mismas condiciones.
-- Muy común en el software libre (ej.: licencia GPL).
+- Muy común en el software libre (ej.: licencia GPL (**G**eneral **P**ublic **L**icense).
 
 ---
 
