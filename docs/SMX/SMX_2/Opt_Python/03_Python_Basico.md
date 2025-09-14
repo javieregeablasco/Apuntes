@@ -1,12 +1,15 @@
 ---
-title: CFGM - Técnico en Sistemas Microinformáticos y Redes
+ciclo: CFGM - Técnico en Sistemas Microinformáticos y Redes
+title: Introducción a la programación en Python
+modulo number: 
 lesson: UD. 3 - Python básico  
-#subtitle: "Módulo: 0223 - Aplicaciones ofimáticas"
 author: Javier Egea Blasco  
-year: Año 25-26  
-keywords: SMX, Py
 layout: default  
+year: 25-26  
+keywords: SMX, Python
+schedule: 96h - 3h/w
 ---
+
 
 ![Descripción de la imagen](../Opt_Python/img/Python-logo.png){ .img1 }
 
@@ -189,6 +192,11 @@ Se puede acceder al listado de las palabras reservadas desde la ayuda de IDLE (P
 
 ## **Variables**
 De forma general, una variable es **un espacio de memoria** con un nombre asociado que se utiliza para **almacenar y manipular datos** que pueden **cambiar durante la ejecución** del programa.
+
+### **Convenciones de nomenclatura**
+https://adrianalonsodev.medium.com/convenci%C3%B3n-de-nombres-desde-el-camelcase-hasta-el-kebab-case-787e56d6d023
+https://www.aluracursos.com/blog/convenciones-de-nomenclatura-camel-pascal-kebab-snake-case
+
 
 ### Declaración de variables
 Python es un lenguaje de tipado dinámico por lo que no hace falta declarar **el tipo de dato** que se asignará a una variable. De igual manera una variable puede cambiar de tipo conforme la ejecución del programa (lo que no se considera una buena práctica de programación), por ello, se debe tener cuidado con la sintaxis para definir cada tipo de dato.

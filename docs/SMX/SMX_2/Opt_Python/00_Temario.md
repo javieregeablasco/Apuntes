@@ -4,12 +4,14 @@ title: Introducción a la programación en Python
 module number: 
 lesson: UD. 0.0 - Temario y métodos de evaluación  
 author: Javier Egea Blasco  
+layout: default  
 year: 25-26  
 keywords: SMX, Optativa, Python
 schedule: 96h - 3h/w
 ---
 
-# **INTRODUCCIÓN A LA PROGRAMACIÓN**
+# **Introducción a la programación**
+
 ![Descripción de la imagen](./img/Python-logo.png){ .img1 }
  
 

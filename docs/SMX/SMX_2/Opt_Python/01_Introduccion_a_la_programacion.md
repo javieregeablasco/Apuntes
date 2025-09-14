@@ -1,12 +1,16 @@
 ---
-title: CFGM - Técnico en Sistemas Microinformáticos y Redes
+ciclo: CFGM - Técnico en Sistemas Microinformáticos y Redes
+title: Introducción a la programación en Python
+modulo number: 
 lesson: UD. 1 - Introducción a la programación  
-#subtitle: "Módulo: 0223 - Aplicaciones ofimáticas"
 author: Javier Egea Blasco  
-year: Año 25-26  
-keywords: SMX, Py
 layout: default  
+year: 25-26  
+keywords: SMX, Python
+schedule: 96h - 3h/w
 ---
+
+# **UT 1 - Programas informáticos y algoritmos**
 
 ![Descripción de la imagen](./img/1537795569153_3.avif){ .img1 }
 

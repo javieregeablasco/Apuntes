@@ -1,49 +1,58 @@
 ---
-title: CFGM - Técnico en Sistemas Microinformáticos y Redes
+ciclo: CFGM - Técnico en Sistemas Microinformáticos y Redes
+title: Aplicaciones ofimáticas
+module number: 0223
 lesson: UD. 2.2 - LibreOffice Writer instalación  
-#subtitle: "Módulo: 0223 - Aplicaciones ofimáticas"
 author: Javier Egea Blasco  
-year: Año 25-26  
+year: 25-26  
 keywords: SMX, AO
 layout: default  
+schedule: 224h - 7h/w
 ---
 
-![Descripción de la imagen](../img/UT1/LOwriter.jpg){ .img1 }
+# **UD. 2.2 - Instalación de LibreOffice Writer**
 
-## Procesador de texto LibreOffice writer.
-LibreOffice Writer es un procesador de texto que forma parte de la suite de ofimática LibreOffice. Permite la creación, edición y diseño de documentos de texto como cartas, informes, currículums, entre otros. Cuenta con herramientas para el manejo de formatos, inserción de imágenes, tablas, gráficos y otros elementos, además de ser compatible con múltiples formatos de archivo, incluido Microsoft Word (.doc y .docx).
+![Descripción de la imagen](../img/UT2/LOwriter.jpg){ .img1 }
 
-## Instalación de LibreOffice writer.
-LibreOffice Writer forma parte de la suite LibreOffice, así que no se instala por separado: al instalar LibreOffice, obtendremos el Writer pero también Calc (hojas de cálculo), Impress (presentaciones), Draw (dibujo vectorial) y otras herramientas.
+## **1 - Procesador de texto LibreOffice writer**
+LibreOffice Writer es un procesador de texto que forma parte de la suite de ofimática LibreOffice y es compatible con múltiples formatos de archivo, incluido Microsoft Word (.doc, .rtf y .docx).
 
-### Requisitos previos
-- Sistema operativo: Windows, macOS o GNU/Linux (LibreOffice es multiplataforma).  
-- Memoria RAM: mínimo 512 MB (1 GB recomendado).
-- Espacio en disco: ~1,5 GB.
-- Procesador: cualquiera relativamente moderno.
-- Conexión a internet (solo para la descarga).
+## **2 - Instalación de LibreOffice writer**
+Como LibreOffice Writer forma parte de la suite LibreOffice, basta con instalar la suite para poder usarlo.
 
-### Descargar el paquete LibreOffice
-Para instalar el paquete LibreOffice que contiene el procesador de texto LibreOffice Writer seguir las instrucciones del siguiente <a href=https://es.libreoffice.org/descarga/libreoffice>enlace</a>.  
+### **2.1 - Requisitos de instalación**
+|Requisito	|Microsoft Windows	|Apple macOS |	GNU/Linux|
+|-|-|-|-|
+|Sistema Operativo	|Windows 7 o superior |	macOS 10.12 o superior	|Núcleo Linux 3.10 o superior|
+|Procesador	|Pentium III, Athlon o superior|	Intel o Apple Silicon |	Pentium III, Athlon o superior|
+|Memoria RAM|	256 MB (512 MB recomendados)	|512 MB|	256 MB (512 MB recomendados)|
+|Espacio en Disco	|1.5 GB|	800 MB	|1.55 GB|
+|Gráficos	|1024x768 de resolución |1024x768 de resolución||	Servidor X con 1024x768 de resolución |
+|Otros Requisitos	|Privilegios de administrador. Java requerido para Base.|
+
+### **2.2 - Descargar el paquete LibreOffice**
+Para instalar el paquete LibreOffice seguir las instrucciones del siguiente <a href=https://es.libreoffice.org/descarga/libreoffice>enlace</a>.  
 
 !!! warning "Importante"
     Descargar el paquete de software correspondiente al sistema operativo de la máquina con la que estamos trabajando.
 
-### Instalación en cada sistema operativo
-#### Windows
-- Después de la descarga ejecutar el instalador
-- Seguir el asistente
-- Elegir instalación típica (recomendada para la mayoría).
+### **2.3 - Instalación en cada sistema operativo**
+#### **2.3.1 - Windows**
+Ejecutar el instalador, seguir el asistente y elegir **instalación típica**.
 
-#### macOS
+<br>
+#### **2.3.2 - macOS**
 - Descargar el paquete .dmg desde el enlace oficial.
 - Montar la imagen haciendo doble clic en el archivo descargado.
 - Arrastrar LibreOffice a Aplicaciones.
 - (Opcional) Descargar e instalar el paquete de traducción al español si no se incluyó.
 - Abrir Writer desde Launchpad o Aplicaciones.
 
-#### Linux
-LibreOffice suele venir preinstalado en muchas distribuciones, pero si no:  
+<br>
+#### **2.3.3 - Linux**
+LibreOffice suele venir preinstalado en muchas distribuciones así que no es necesario instalarlo  
+
+Si debemos instalarlo en una distribución linux entonces:   
 
 - Ubuntu/Debian y derivados
 ```bash

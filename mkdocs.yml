@@ -81,15 +81,15 @@ nav:
   - Aplicaciones Ofimáticas: 
     - Presentación módulo: SMX/SMX_1/AO/00_Temario.md
     - UT 1 - Instalación de aplicaciones Ofimáticas: SMX/SMX_1/AO/01_Instalacion de aplicaciones ofimaticas.md
-#    - UT 2 - Procesadores de texto:
-#      - UT 21 - Características de los procesadores de texto: SMX/SMX_1/AO/02_Procesadores_de_texto/021_Procesadores_de_texto.md
-#      - UT 22 - Instalación de LibreOffice Writer: SMX/SMX_1/AO/02_Procesadores_de_texto/022_LibreOffice_Writer_Instalacion.md
-#      - UT 23 - LibreOffice Writer: SMX/SMX_1/AO/02_Procesadores_de_texto/023_LibreOffice_Writer.md
+    - UT 2 - Procesadores de texto:
+      - UT 21 - Características de los procesadores de texto: SMX/SMX_1/AO/02_Procesadores_de_texto/021_Procesadores_de_texto.md
+      - UT 22 - Instalación de LibreOffice Writer: SMX/SMX_1/AO/02_Procesadores_de_texto/022_LibreOffice_Writer_Instalacion.md
+      - UT 23 - LibreOffice Writer: SMX/SMX_1/AO/02_Procesadores_de_texto/023_LibreOffice_Writer.md
                                                   
   - Programación en Python: 
     - Presentación módulo: SMX/SMX_2/Opt_Python/00_Temario.md
     - UT 1 Introducción a la programación : SMX/SMX_2/Opt_Python/01_Introduccion_a_la_programacion.md
-#    - UT 2 Python, instalación y IDE: SMX/SMX_2/Opt_Python/02_Python_Presentacion.md
+    - UT 2 Python, instalación y IDE: SMX/SMX_2/Opt_Python/02_Python_Presentacion.md
 #    - UT 3 Elementos básicos de Python: SMX/SMX_2/Opt_Python/03_Python_Basico.md
 #  - MMSCI:
 #    - UT0: FPB/FPB_1/MMSCI/UT.0-Temario.md

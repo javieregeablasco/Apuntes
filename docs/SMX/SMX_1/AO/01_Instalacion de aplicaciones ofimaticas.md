@@ -239,7 +239,7 @@ Antes de instalar cualquier programa, es importante conocer quién posee los der
 
 - Es un modelo de licencia alternativa dentro del copyright.
 - Permite usar, modificar y redistribuir la obra **libremente**, siempre que las versiones derivadas se distribuyan bajo las mismas condiciones.
-- Muy común en el software libre (ej.: licencia GPL (**G**eneral **P**ublic **L**icense).
+- Muy común en el software libre (ej.: licencia GPL (**G**eneral **P**ublic **L**icense)).
 
 ---
 
