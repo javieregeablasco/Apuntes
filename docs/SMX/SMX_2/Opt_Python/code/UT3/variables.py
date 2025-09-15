@@ -48,11 +48,16 @@
 
 
 # Diccionario
-mi_diccionario = {
-    "nombre": "Ana",
-    "edad": 25,
-    "ciudad": "Madrid"
-}
-print(mi_diccionario)
-print(mi_diccionario["nombre"])  # Acceder al valor de una clave
-print(mi_diccionario.get("edad")) # Otra manera de extraer valores del diccionario
+# mi_diccionario = {
+#     "nombre": "Ana",
+#     "edad": 25,
+#     "ciudad": "Madrid"
+# }
+# print(mi_diccionario)
+# print(mi_diccionario["nombre"])  # Acceder al valor de una clave
+# print(mi_diccionario.get("edad")) # Otra manera de extraer valores del diccionario
+
+
+a = "Hola"
+b = "mundo"
+print(a,b)

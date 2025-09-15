@@ -1335,6 +1335,11 @@ https://docs.python.org/es/3/tutorial/inputoutput.html#the-string-format-method
 
 https://arturoblasco.github.io/prg/ut01/actividades/ut01ac1f/  
 https://ellibrodepython.com/  
+
+https://aprendeconalf.es/docencia/python/ejercicios/tipos-datos/
+
+https://lopegonzalez.es/eso-y-bachillerato/creacion-digital-y-pensamiento-computacional-1o-bachillerato/tema-1-introduccion-a-la-programacion/ejercicios-resueltos-sobre-variables-operadores-e-interaccion-con-el-usuario-en-python/
+
 IA BD PIA UT 2. ... pagina 37.  
 
 ---
