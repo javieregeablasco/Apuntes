@@ -90,7 +90,7 @@ nav:
     - Presentación módulo: SMX/SMX_2/Opt_Python/00_Temario.md
     - UT 1 Introducción a la programación : SMX/SMX_2/Opt_Python/01_Introduccion_a_la_programacion.md
     - UT 2 Python, instalación y IDE: SMX/SMX_2/Opt_Python/02_Python_Presentacion.md
-#    - UT 3 Elementos básicos de Python: SMX/SMX_2/Opt_Python/03_Python_Basico.md
+    - UT 3 Elementos básicos de Python: SMX/SMX_2/Opt_Python/03_Python_Basico.md
 #  - MMSCI:
 #    - UT0: FPB/FPB_1/MMSCI/UT.0-Temario.md
 
