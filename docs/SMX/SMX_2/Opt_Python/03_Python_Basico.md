@@ -10,13 +10,34 @@ keywords: SMX, Python
 schedule: 96h - 3h/w
 ---
 
+# **UT 3 - Conceptos básicos de Python**
 
 ![Descripción de la imagen](../Opt_Python/img/Python-logo.png){ .img1 }
 
 <br>
 
+**Resultados de aprendizaje y criterios de evaluacion que se evaluarán en esta unidad.**  
 
-## **Sintáxis básica**
+| **Resultados de aprendizaje de la unidad didáctica:** |
+|-|
+| **RA. 1:** Reconoce la estructura de un programa informático, identificando y relacionando los elementos propios del lenguaje de programación utilizado.|  
+
+
+|**Criterios de evaluación de la unidad didáctica:**|
+||
+|**d)** Se han identificado los distintos tipos de variables y la utilidad específica de cada uno. |
+|**e)** Se ha modificado el código de un programa para crear y utilizar variables. |
+|**f)** Se han creado y utilizado constantes y literales. |
+|**g)** Se han clasificado, reconocido y utilizado en expresiones los operadores del lenguaje. |
+|**h)** Se ha comprobado el funcionamiento de las conversiones de tipo explícitas e implícitas. |
+|**i)** Se han introducido comentarios en el código. |
+
+
+
+<br>
+
+
+## **3 - Sintáxis básica**
 La sintaxis es a la programación lo que la gramática es a los idiomas. De la misma forma que la frase “Yo estamos aquí” no es correcta ...tampoco lo es un programa con errores de sintaxis, ya que el ordenador no podrá interpretarlo ni ejecutarlo de la manera esperada.
 
 Ejemplo de sintaxis correcta de un programa hecho en Python.  
@@ -44,7 +65,7 @@ if imprimir:
 !!! Pregunta 
     ¿Qué realiza el programa anterior?
 
-### Elementos de un programa de Python
+### **3.1 - Elementos de un programa de Python**
 Un programa de Python es un fichero de texto (codificado en formato UTF-8) que contiene expresiones y sentencias que se consiguen combinando los elementos básicos del lenguaje.  
 
 El lenguaje Python está formado por elementos (tokens) de diferentes tipos:
@@ -63,7 +84,7 @@ En la documentación de Python se puede consultar una descripción mucho más de
 
 Para que un programa se pueda ejecutar, el programa debe ser sintácticamente correcto, es decir, utilizar los elementos del lenguaje Python respetando su reglas de "ensamblaje". 
 
-### Líneas y espacios
+### **3.2 - Líneas y espacios**
 Básicamente, un programa de Python está formado por líneas de texto.
 ```python
 radio = 5
@@ -90,17 +111,18 @@ def suma(a,b):
 print(suma(2,3))
 ```
 
-### Delimitadores
+### **3.3 - Delimitadores**
 Los delimitadores son los caracteres que permiten delimitar, separar o representar expresiones. 
 
-🔹 1. Paréntesis, corchetes y llaves  
+🔹 **1. Paréntesis, corchetes y llaves**  
 
 - ( ) → agrupar expresiones, llamadas a funciones, tuplas  
 - [ ] → listas, indexación, slicing  
 - { } → diccionarios, conjuntos, bloques en f-strings  
 
 <br>
-🔹 2. Separadores de código
+
+🔹 **2. Separadores de código**
 
 - coma ( , ) → separa elementos en listas, tuplas, parámetros de funciones
 - 2 puntos ( : ) → define bloques (if, for, def, class, etc.) o pares clave:valor en diccionarios
@@ -108,14 +130,16 @@ Los delimitadores son los caracteres que permiten delimitar, separar o represent
 - punto y coma ( ; ) → separa varias instrucciones en una misma línea
 
 <br>
-🔹 3. Delimitadores de cadenas
+
+🔹 **3. Delimitadores de cadenas**
 
 - Comillas simples: 'texto'
 - Comillas dobles: "texto"
 - Comillas triples: '''texto''' o """texto""" (también para docstrings y cadenas multilínea)
 
 <br>
-🔹 4. Delimitadores especiales
+
+🔹 **4. Delimitadores especiales**
 
 - Igual ( = ) → asignación
 - Flecha ( -> ) → anotaciones de tipo en funciones (def f(x) -> int:)
@@ -133,12 +157,26 @@ Los delimitadores son los caracteres que permiten delimitar, separar o represent
 Los delimitadores no se pueden usar para otra cosa que no sea su uso como delimitador. Cualquier uso indebido generará un error en tiempo de ejecución.
 
 !!! Ejercicio
-    Escribir un programa que pretenda asignar el valor 64 a una variable de nombre vari@bl&.
+    Escribir un programa que pretenda asignar el valor 64 a una variable de nombre vari@bl&.  
     Comprobar lo que ocurre entonces. 
 
 <br>
-**Nota**:  
-Los delimitadores # y “”” “”” permiten insertar comentarios dentro de un programa.
+
+
+### **3.4 - Comentarios**
+Los comentarios sirven para explicar el código y hacerlo más comprensible. El intérprete de Python ignora por completo.
+
+¿Por qué es importante poner comentarios?
+
+-   Claridad: Hacen que un código complejo sea más fácil de entender.
+
+-   Mantenimiento: Facilitan la depuración y modificación del código. 
+
+-   Colaboración: Permiten a los equipos de desarrollo trabajar juntos de forma más eficiente, ya que todos pueden entender rápidamente el propósito de cada línea de código.  
+
+
+
+Los **delimitadores** `#` y `“”” “””` permiten insertar comentarios dentro de un programa.
 ```py
 # Esta linea está comentada. El interprete no la ejecutará
 # 
@@ -153,11 +191,36 @@ print("El valor de 'b' es:", b, "y es de tipo: ", type(a))
 ```
 
 !!! Ejercicio 
-    En el código del ejemplo anterior encontrar la línea dónde se hace uso a la ver de comillas simples y comillas dobles.  
+    En el código del ejemplo anterior encontrar la línea dónde se hace uso a la vez de comillas simples y comillas dobles.  
     ¿Por qué se usa esa sintaxis?
 
 <br>
-**Nota**:  
+
+### **3.5 - Tarea RA1-CEi** 
+Analizar el programa y deducir dónde hay que poner los comentarios que se dan más abajo.
+
+```py
+import math # Importamos el módulo 'math' para usar la constante pi.
+radio = 5 
+area = math.pi * (radio ** 2)
+print(f"El radio del círculo es: {radio}")
+print(f"El área del círculo es: {area}")
+```
+<br>
+Listado de comentarios.
+```py
+# El área se calcula con la fórmula: pi * radio^2.
+# Este programa calcula el área de un círculo dado su radio.
+# Fin del programa.
+# Definimos una variable para el radio.
+# Imprimimos el resultado de forma clara.
+```
+
+<br>
+
+Crear un archivo `*.py` y subirlo a AULES en la **tarea RA1-CEi**.
+
+### **3.6 - Delimitador contrabarra**
 El delimitador contrabarra ( \ ) permite truncar una linea muy larga en varias líneas.
 Por motivos de legibilidad, se recomienda que las líneas no superen los 79 caracteres. Si una instrucción supera esa longitud, se puede dividir en varias líneas usando la contrabarra ( \ ):
 
@@ -177,9 +240,9 @@ print(texto)
     Escribir el programa anterior y comprobar el resultado.  
     Intentar arreglarlo de forma intuitiva. 
 
-### **Palabras reservadas**
+### **3.7 - Palabras reservadas**
 Las palabras reservadas de Python son las que forman **el núcleo del lenguaje** Python y **no se pueden usar para nombrar otros elementos** (variables, funciones, …).  
-Se puede acceder al listado de las palabras reservadas desde la ayuda de IDLE (Python 3.11, 64bits).
+Se puede acceder al listado de las palabras reservadas desde la **ayuda de IDLE** ( > Python 3.11, 64bits).
 
 ![Descripción de la imagen](../Opt_Python/img/help_idle.png){ .img1 }
 
@@ -190,12 +253,12 @@ Se puede acceder al listado de las palabras reservadas desde la ayuda de IDLE (P
 !!! Ejercicio 2
     ¿Podéis intuir el significado de alguna palabra reservada?
 
-## **Variables**
+## **4 - Variables**
 De forma general, una variable es **un espacio de memoria** con un nombre asociado que se utiliza para **almacenar y manipular datos** que pueden **cambiar durante la ejecución** del programa.
 
 ### **Convenciones de nomenclatura**
-https://adrianalonsodev.medium.com/convenci%C3%B3n-de-nombres-desde-el-camelcase-hasta-el-kebab-case-787e56d6d023
-https://www.aluracursos.com/blog/convenciones-de-nomenclatura-camel-pascal-kebab-snake-case
+<!-- https://adrianalonsodev.medium.com/convenci%C3%B3n-de-nombres-desde-el-camelcase-hasta-el-kebab-case-787e56d6d023
+https://www.aluracursos.com/blog/convenciones-de-nomenclatura-camel-pascal-kebab-snake-case -->
 
 
 ### Declaración de variables
