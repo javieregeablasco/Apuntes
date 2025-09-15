@@ -200,7 +200,7 @@ print("El valor de 'b' es:", b, "y es de tipo: ", type(a))
 Analizar el programa y deducir dónde hay que poner los comentarios que se dan más abajo.
 
 ```py
-import math # Importamos el módulo 'math' para usar la constante pi.
+import math 
 radio = 5 
 area = math.pi * (radio ** 2)
 print(f"El radio del círculo es: {radio}")
@@ -212,6 +212,7 @@ Listado de comentarios.
 # El área se calcula con la fórmula: pi * radio^2.
 # Este programa calcula el área de un círculo dado su radio.
 # Fin del programa.
+# Importamos el módulo 'math' para usar la constante pi.
 # Definimos una variable para el radio.
 # Imprimimos el resultado de forma clara.
 ```
@@ -256,13 +257,89 @@ Se puede acceder al listado de las palabras reservadas desde la **ayuda de IDLE*
 ## **4 - Variables**
 De forma general, una variable es **un espacio de memoria** con un nombre asociado que se utiliza para **almacenar y manipular datos** que pueden **cambiar durante la ejecución** del programa.
 
-### **Convenciones de nomenclatura**
-<!-- https://adrianalonsodev.medium.com/convenci%C3%B3n-de-nombres-desde-el-camelcase-hasta-el-kebab-case-787e56d6d023
-https://www.aluracursos.com/blog/convenciones-de-nomenclatura-camel-pascal-kebab-snake-case -->
+### **4.1 - Convenciones de nomenclatura**
+Una forma de aplicar buenas prácticas de programación es seguir una convención para nombrar identificadores (variables, funciones, etc.) de manera que el código sea más limpio, legible y fácil de entender. 
+
+Dentro de las más conocidas tenemos: **Camel, Pascal, Kebab y Snake case**.
+
+1. **Camel case**
+En Camel case se empezar a nombrar los identificadores con la primera letra minúscula y la primera letra de cada nueva palabra subsecuente en mayúscula:
+```py
+cosasParaHacer
+edadDelAmigo
+valorFinal
+```
+
+1. **Pascal case**
+También conocido como "upper camel case" o "capital case", Pascal case combina palabras poniéndolas todas con la primera letra en mayúscula:
+```py
+CosasParaHacer
+EdadDelAmigo
+ValorFinal
+```
+
+1. **Snake case**
+En Snake case, se utiliza guión bajo (underscore) para separar las palabras. Cuando snake case está en mayúsculas, se le conoce como "screaming snake case":
+```py
+cosas_para_hacer
+edad_del_amigo
+valor_final
+PRIMER_NOMBRE
+LISTA_INICIAL
+```
+
+1. **Kebab case**
+En Kebab case se utiliza el guión para combinar las palabras. Cuando el Kebab case está en mayúsculas, se llama "screaming kebab case":
+```py
+cosas-para-hacer
+edad-del-amigo
+valor-final
+PRIMER-NOMBRE
+LISTA-INICIAL
+```
+
+### **4.2 - Convenciones Python**
+El [PEP8](https://peps.python.org/pep-0008/) es la guía de estilo para la programación en Python. Es así decirlo, el código de buenas prácticas del lenguaje.
+
+Se recomienda usar:
+
+1. snake_case para variables, funciones y métodos;
+1. PascalCase para clases;
+1. SCREAMING_SNAKE_CASE para constantes.
+
+**Ejemplo de código**
+```py
+class Persona:
+    def __init__(self, nombre: str, documento_identidad: str) -> None:
+        self.nombre: str = nombre
+        self.documento_identidad: str = documento_identidad
+
+    def exibir_primer_nombre(self) -> None:
+        print(self.nombre)
 
 
-### Declaración de variables
-Python es un lenguaje de tipado dinámico por lo que no hace falta declarar **el tipo de dato** que se asignará a una variable. De igual manera una variable puede cambiar de tipo conforme la ejecución del programa (lo que no se considera una buena práctica de programación), por ello, se debe tener cuidado con la sintaxis para definir cada tipo de dato.
+persona_uno: Persona = Persona('Alice', '123456789')
+persona_uno.exibir_primer_nombre()
+```
+
+**El código dado a continuación** es más habitual e igual de válido. Como se puede ver, contiene menos información que puede dificultar entender su finalidad o más simplemente, entender el tipo de los datos que maneja el programa. Es tambien bastnate más rápido de escribir. 
+
+```py
+class Persona:
+    def __init__(self, nombre, documento_identidad):
+        self.nombre = nombre
+        self.documento_identidad = documento_identidad
+    
+    def exibir_primer_nombre(self):
+        print(self.nombre)
+
+persona_uno = Persona('Alice', '123456789')
+print(persona_uno.exibir_primer_nombre())
+```
+
+### **4.3 - Declaración de variables**
+Python es un lenguaje de tipado dinámico por lo que no hace falta declarar **el tipo de dato** que se asignará a una variable. De igual manera una variable puede cambiar de tipo mientras se ejecuta el programa (lo que no se considera una buena práctica de programación), por ello, se debe tener cuidado con la sintaxis para definir cada tipo de dato.
+
 ```py
 a = 5
 b = 6
@@ -274,7 +351,7 @@ print(c, a+b)
     Ampliar el programa anterior dónde se le asignará un nuevo valor a la variable 'b' y se le asignará un valor númerico a 'c'.  
     Escribir en pantalla (print()) el resultado de la suma de b+c. 
     
-### Variables de tipo entero (int)
+### **4.4 - Variables de tipo entero (int)**
 Los enteros son un tipo de dato básico en cualquier lenguaje de programación.  
 ```py
 a = 5
@@ -293,7 +370,7 @@ print(c)
 !!! Ejercicio
     Ampliar el programa anterior para evidenciar la asingación dinámica del tipo de variable en python. 
 
-### Variables de tipo coma flotante (float)
+### **4.5 - Variables de tipo coma flotante (float)**
 Las variables de tipo coma flotante (o float) son aquellas que almacenan números reales (es decir, con parte decimal).
 ```py
 x = 3.14   # float
@@ -316,14 +393,18 @@ avogadro = 6.022e23   # 6.022 × 10^23
 electron = 1.6e-19    # 1.6 × 10^-19
 ```
 
-1. Precisión de las variables de tipo flotante.
-    - Los float en Python son de doble precisión (64 bits, estándar IEEE 754) lo que da ~15–17 cifras decimales de precisión.
+<br>
+
+!!! warning "Precisión de las variables de tipo flotante."
+
+
+- Los float en Python son de doble precisión (64 bits, estándar IEEE 754) lo que da ~15–17 cifras decimales de precisión.
     ```py
     a = 7.0
     b = 5.0
     print(a, b, a+b, type(a+b))
     ```
-    - No son exactos en muchos casos por cómo se representan en binario.
+- No son exactos en muchos casos por cómo se representan en binario.
     ```py
     # Demostración del problema de precisión con float en Python
     print("¿La suma de 0.1 y 0.2 es igual a 0.3?", 0.1 + 0.2 == 0.3) 
@@ -337,7 +418,7 @@ electron = 1.6e-19    # 1.6 × 10^-19
     print("Con Decimal:", a + b == c)
     ```
 
-### Variables de tipo booleano (bool)
+### **4.6 - Variables de tipo booleano (bool)**
 Las variables booleanas sólo pueden adoptar dos valores: **verdadero (True)** o **falso (False)**.
 ```py
 a = True
@@ -347,11 +428,10 @@ print(type(a), type(b))
 
 
 !!! Ejercicio
-    Ampliar el programa anterior para que compara el tipo resultante de la suma lógica de a y b, y también compare a con la negación de b. 
+    Ampliar el programa anterior para que devuelva el tipo resultante de la suma lógica de a y b, y también a con la negación de b. 
 
-### Variables de tipo número complejo
-En Python, los números complejos se representan literalmente con el tipo complex.  
-En python, uUn número complejo tiene la forma: a + bj donde j es la unidad unidad imaginaria (en matemáticas se usa i).
+### **4.7 - Variables de tipo número complejo**
+En python, un número complejo tiene la forma: **a + bj** donde j es la unidad unidad imaginaria (en matemáticas se usa i).
 ```py
 # Forma literal de escribir números complejos
 a = 5 + 7j
@@ -366,10 +446,10 @@ print(d)
 ```
 
 !!! Ejercicio
-    Calcular con papel y boli el resultado de la variable 'f'.
+    Calcular con papel y bolígrafo el resultado de la variable 'f'.
 
-### Variables de tipo cadena de caracteres (string) 
-Es un tipo de dato que contiene símbolos (alfanuméricos). Los strings se definen utilizando **comillas dobles o simples**.
+### **4.8 - Variables de tipo cadena de caracteres (string)** 
+Los strings se definen utilizando **comillas dobles o simples**.
 ```py
 a = "hello"
 b = " "
@@ -380,8 +460,96 @@ print(d)
 ```
 
 !!! Ejercicio
-    Rehacer el programa anterior para que esta vez, las variables de tipo string contengan valores númericos.
+    Rehacer el programa anterior para que esta vez, las variables de tipo string contengan únicamente valores númericos.
 
+### **4.9 - Variables de tipo lista**
+Las listas se definen utilizando **corchetes []** y pueden contener elementos de distintos tipos.
+```py
+# Lista
+mi_lista = [1, 2, 3, "cuatro", True]
+print(mi_lista)
+print(mi_lista[0])      # Primer elemento
+print(mi_lista[-1])     # Último elemento
+```
+
+!!! Ejercicio
+    Crear una matriz de 3x3 utilizando listas.
+
+
+### **4.10 - Variables de tipo tupla**
+Las tuplas se definen utilizando **paréntesis ()**. Son similares a las listas pero **inmutables** (no se pueden modificar).
+
+```py
+mi_tupla = (1, 2, 3, "cuatro", True)
+print(mi_tupla)
+print(mi_tupla[0])     
+print(mi_tupla[-1])     
+```
+!!! Ejercicio
+    Ampliar el programa para que esta vez la tupla contenga los valores **1,3,3, "cuatro", True,[1,2,3,"verde"]**.
+    ¿Qué ocure entonces?
+     
+### **4.11 - Diccionarios**     
+Los diccionarios se definen utilizando **llaves {}** y almacenan pares **clave:valor**.
+
+```py
+# Diccionario
+mi_diccionario = {
+    "nombre": "Ana",
+    "edad": 25,
+    "ciudad": "Madrid"
+}
+print(mi_diccionario)
+print(mi_diccionario["nombre"])  # Acceder al valor de una clave
+print(mi_diccionario.get("edad")) # Otra manera de extraer valores del diccionario
+``` 
+
+### **4.12 - Tarea RA1-CEde**
+Realizar los siguientes programas, declarando las variables necesarias y usando buenas prácticas de programación en Python.
+
+1. **Ejercicio:**
+Escriba un programa que defina dos números enteros y que calcule y muestre en consola su media aritmética. El programa también deberá mostrar el tipo de la variable resultante del cálculo de la media.  
+
+1. **Ejercicio:**
+Escribe un programa que defina el radio de un círculo y calcule su área.
+
+1. **Ejercicio:**
+Escribe un programa que convierta el valor de la temperatura de una variable de grados Celsius a grados Fahrenheit.
+
+1. **Ejercicio:**
+Escribe un programa que defina 2 variables de texto y luego muestre ambas variables concatenadas en una sola línea.
+
+1. **Ejercicio:**
+Pegar el siguiente código y rellenar los datos faltantes (podéis inventaros los datos).  
+```py
+# Actividad: Tipos de variables en Python
+
+# 1. Crea una variable entera con tu edad
+edad = ___
+
+# 2. Crea una variable decimal con tu altura en metros
+altura = ___
+
+# 3. Crea una variable de texto con tu nombre
+nombre = ___
+
+# 4. Crea una variable booleana que indique si te gusta la programación (True o False)
+gusta_programar = ___
+
+# 5. Crea una lista con tres de tus colores favoritos
+colores_favoritos = [___, ___, ___]
+
+# Muestra por pantalla el contenido de cada variable y su tipo:
+print("Edad:", edad, "Tipo:", type(edad))
+print("Altura:", altura, "Tipo:", type(altura))
+print("Nombre:", nombre, "Tipo:", type(nombre))
+print("¿Te gusta programar?:", gusta_programar, "Tipo:", type(gusta_programar))
+print("Colores favoritos:", colores_favoritos, "Tipo:", type(colores_favoritos))
+```
+
+
+
+<!-- 
 ## **Operadores**
 Los operadores son símbolos que indican al programa que realice una operación específica, como aritmética, comparación, lógica, etc.
 
@@ -1204,5 +1372,5 @@ print(*nums, sep="\n")  # una llamada en vez de 10k prints
 
 
 
-
+ -->
 

@@ -38,20 +38,20 @@ calificacion = 7
 
 
 
-# calificacion = 150
+calificacion = 150
 
-# if calificacion < 0 or calificacion > 100:
-#     print("La calificación debe estar en la escala de 0 a 100")
-# elif calificacion >= 95 and calificacion <= 100:
-#     print("Excelente")
-# elif calificacion >= 85 and calificacion <= 94:
-#     print("Muy bien")
-# elif calificacion >= 75 and calificacion <= 84:
-#     print("Bien")
-# elif calificacion >= 70 and calificacion <= 74:
-#     print("Regular")
-# else:
-#     print("Insuficiente")
+if calificacion < 0 or calificacion > 100:
+    print("La calificación debe estar en la escala de 0 a 100")
+elif calificacion >= 95 and calificacion <= 100:
+    print("Excelente")
+elif calificacion >= 85 and calificacion <= 94:
+    print("Muy bien")
+elif calificacion >= 75 and calificacion <= 84:
+    print("Bien")
+elif calificacion >= 70 and calificacion <= 74:
+    print("Regular")
+else:
+    print("Insuficiente")
 
 # for i in "interacción":
 #   print("Iteración: ", i)
