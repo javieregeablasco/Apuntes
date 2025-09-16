@@ -12,7 +12,7 @@ schedule: 96h - 3h/s
 ![Descripción de la imagen](../AWS/img/01cloud.png){ .cincozero }
 <br>
 
-<br>
+
 
 **Resultados de aprendizaje y criterios de evaluacion que se evaluarán en esta unidad.**  
 

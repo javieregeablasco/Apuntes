@@ -1,13 +1,20 @@
 ---
-title: CFGS - Desarrollo de Aplicaciones Web
-lesson: UD. 1 - AWS  
+cicle: CFGS - Desarrollo de aplicaciones web
+title: "Introducción a la nube pública"
+module number: 
+lesson: UD. 2 - AWS  
 author: Javier Egea Blasco  
-year: Año 25-26  
+year: 25-26  
 keywords: DAW, Optativa, AWS
+layout: default  
+schedule: 96h - 3h/s 
 ---
 
+
+# **AWS**
 ![Descripción de la imagen](../AWS/img/aws.png){ .cincozero }
 <br>
+
 
 **Resultados de aprendizaje y criterios de evaluacion que se evaluarán en esta unidad.**  
 

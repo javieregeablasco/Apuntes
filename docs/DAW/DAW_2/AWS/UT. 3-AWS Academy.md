@@ -1,10 +1,17 @@
 ---
-title: CFGS - Desarrollo de Aplicaciones Web
+cicle: CFGS - Desarrollo de aplicaciones web
+title: "Introducción a la nube pública"
+module number: 
 lesson: UD. 3 - AWS Academy  
 author: Javier Egea Blasco  
-year: Año 25-26  
+year: 25-26  
 keywords: DAW, Optativa, AWS
+layout: default  
+schedule: 96h - 3h/s 
 ---
+
+
+# **AWS Academy**
 
 ![Descripción de la imagen](../AWS/ut3/awsdemy.png){ .sietecinco }
 
@@ -25,11 +32,11 @@ keywords: DAW, Optativa, AWS
 <br>
 
 
-## **Preliminares**
+## **1 - Preliminares**
 Descargar una distribución de **Linux ligera** (Lubuntu, Mint) e instalarla sobre una máquina virtual.
 
-## **Learner Lab**
-### **Invitación a Learner Lab** 
+## **2 - Learner Lab**
+### **2.1 - Invitación a Learner Lab** 
 En vuestros **correos corporativos** habréis recibido un mensaje de **AWS Academy**.
 
 ![alt text](../AWS/ut3/invi.png)
@@ -38,7 +45,7 @@ Si habéis recibido ese correo, significa que se os ha dado de alta en un labora
 Este laboratorio cuenta con un presupuesto de 50$. Como lo veremos a lo largo del curso, convendrá **administrarlo correctamente**.  
 Si se excede el límite de 50$, el acceso quedará bloqueado y no será posible recuperar los trabajos realizados en él.
 
-### **Registro en AWS Academy**
+### **2.2 - Registro en AWS Academy**
 1. Hacer click en **Comenzar** y registraros en el servicio que se indica.
 1. Luego os saldrá una ventana que os pedirá de acceder a vuestra cuenta de **Canvas**.  
 Si no tenéis cuenta de Canvas, pinchar en **Create my account**.  
@@ -50,13 +57,13 @@ Si no tenéis cuenta de Canvas, pinchar en **Create my account**.
 <br>
 ![Descripción de la imagen](../AWS/ut3/panel.png){ .cincozero }
 
-### **Acceso al curso**
+### **2.3 - Acceso al curso**
 Pinchar en el curso. Si es la primera vez que usáis el **Learner Lab** sólo os aparecerá un curso.   
 <br>
 ![Descripción de la imagen](../AWS/ut3/login.png){ .cincozero }
 <br>
 
-### **Acceder al laboratorio**
+### **2.4 - Acceder al laboratorio**
 1. Seguir el enlace **Launch AWS Acedemy Leaner Lab**.  
 <br>
 ![Descripción de la imagen](../AWS/ut3/course.png){ .cien }
@@ -79,7 +86,7 @@ de uso.
 ![Descripción de la imagen](../AWS/ut3/learnerlab.png){ .cien }
 <br>  
 
-### **Lanzar el laboratorio**
+### **2.5 - Lanzar el laboratorio**
 Para poder acceder a la consola de AWS y poder empezar a usar sus servicios pulsaremos **Start Lab**.  
 Una vez iniciado, dispondremos de una sesión de 4 horas de duración para hacer las prácticas. Si vemos que nos vamos a quedar cortos de tiempo, siempre podremos pulsar de nuevo **Start Lab** antes de que finalicen las 4 horas.  
 
@@ -92,7 +99,7 @@ Una vez iniciado, dispondremos de una sesión de 4 horas de duración para hacer
 2. Todas los servicios se paran, es decir, **dejamos de pagar por utilizarlos**.   
 3. **Seguimos pagando por tener creados esos servicios**. Por lo cual, durante las prácticas, **siempre** se deberá eliminar los **servicios** que ya no utilizaremos. 
 
-## **Panel de AWS**
+### **2.6 - Panel de AWS**
 Una vez que el enlace de AWS haya pasado a **color verde**, hacemos clic en él y accederemos al panel de control de AWS.
 
 
@@ -109,7 +116,7 @@ Una vez que el enlace de AWS haya pasado a **color verde**, hacemos clic en él 
 
 
 
-## **Instalar el cliente de AWS CLI**
+### **2.7 - Instalar el cliente de AWS CLI**
 AWS CLI es el cliente de AWS mediante el cual podremos utilizar la terminal para poder
 trabajar con nuestro entorno. 
 En el siguiente [enlace](https://docs.aws.amazon.com/es_es/cli/latest/userguide/getting-started-install.html) encontraréis las instrucciones de instalación del CLI de AWS.    
@@ -120,7 +127,7 @@ Una vez finalizada la instalación podremos comprobar la versión instalada con 
 ```
 ![Descripción de la imagen](../AWS/ut3/AWSCLI/awsversion.png){ .sietecinco }
 
-## **Introducir las credenciales del laboratorio en el cliente de AWS**
+### **2.8 - Introducir las credenciales del laboratorio en el cliente de AWS**
 Tenemos el **laboratorio** en marcha y el **cliente** de AWS instalado. Para poder conectarnos desde nuestra máquina a nuestro cliente de AWS (y sobre todo a los servivios que crearemos en él) necesitaremos autenticarnos. Para ello  utilizaremos las credenciales del
 laboratorio para configurar nuestro cliente.
 
@@ -171,7 +178,7 @@ Habrá que repetir este proceso cada vez que cambie el token de sesión y necesi
 ![Descripción de la imagen](../AWS/ut3/AWSCLI/awsreset.png){ .original }  
 <br>
 
-## **Cerrar el Learner Lab**
+### **2.9 - Cerrar el Learner Lab**
 Para cerrar el **Learner Lab** basta con pulsar el botón de **End Lab**.  
 Todos los servicios que tengamos se detendrán pero **seguirán existiendo y AWS nos facturará por tenerlos**.
 
@@ -179,11 +186,10 @@ Todos los servicios que tengamos se detendrán pero **seguirán existiendo y AWS
 ![Descripción de la imagen](../AWS/ut3/AWSCLI/awsend.png){ .original }  
 <br>
 
-## **Costes de los servicios en AWS (y de la nube en general)**
+## **3 - Costes de los servicios en AWS (y de la nube en general)**
 En AWS **la facturación y la optimización de costos** son dos áreas básicas que todo usuario debe conocer para **evitar sorpresas en la factura** y aprovechar mejor los recursos. 
 
-### **Conceptos básicos para la administración de costes en AWS**
-
+### **3.1 - Conceptos básicos para la administración de costes en AWS**
 
 * **Modelo de pago por uso**  
   Solo se paga por los recursos que se consumen (horas de cómputo, GB almacenados, transferencias de datos...).
@@ -196,22 +202,16 @@ En AWS **la facturación y la optimización de costos** son dos áreas básicas 
 
 
  
-### **Consola de Billing & Cost Management**
-  Desde la consola de AWS se puede:
 
-  * Ver facturas detalladas por servicio y por región.
-  * Configurar presupuestos y alertas.
-  * Descargar informes para análisis.
-
-### **Planes y estrategias de uso**  
+### **3.2 - Planes y estrategias de uso**  
 En AWS existen varios **planes y estrategias de uso** que permiten **optimizar los costes**, es decir, pagar menos por un mismo recurso. 
 
-#### **Instancias bajo demanda (On-Demand)**
+#### **a. Instancias bajo demanda (On-Demand)**
 * Se paga por **hora o segundo de uso**, sin compromisos a largo plazo.
 * **Ventaja:** flexibilidad máxima, perfecto para cargas variables o temporales.
 * **Desventaja:** es más caro que otros planes si el uso es continuo.
 
-#### **Instancias reservadas (Reserved Instances, RI)**
+#### **b. Instancias reservadas (Reserved Instances, RI)**
 * Compromiso a usar una instancia **por 1 o 3 años**, a cambio de un **descuento significativo** (30–70 %).
 * **Tipos de pago:**
     1. Pago completo por adelantado: → máximo descuento.
@@ -220,7 +220,7 @@ En AWS existen varios **planes y estrategias de uso** que permiten **optimizar l
 * **Ventaja:** ideal para cargas estables y continuas.
 * **Desventaja:** compromiso a largo plazo.
 
-#### **Savings Plans**
+#### **c. Savings Plans**
 * Son similares a las RIs, pero más **flexibles**: no se está ligado a una instancia concreta.
 * Compromiso a gastar **cierta cantidad de dinero** durante 1 o 3 años para obtener descuentos.
 * **Tipos:**
@@ -230,18 +230,18 @@ En AWS existen varios **planes y estrategias de uso** que permiten **optimizar l
 
 * **Ventaja:** combina ahorro y flexibilidad.
 
-#### **Instancias Spot (Spot Instances)**
+#### **d. Instancias Spot (Spot Instances)**
 * Son **instancias sobrantes de AWS** que se venden a precio reducido (hasta 90 % más barato que On-Demand).
 * **Ventaja:** muy barato para cargas **flexibles o tolerantes a interrupciones**, como procesamiento batch o pruebas.
 * **Desventaja:** AWS puede interrumpir la instancia si necesita la capacidad.
 
-#### **Optimización de almacenamiento y servicios adicionales**
+#### **e. Optimización de almacenamiento y servicios adicionales**
 Aunque no son “planes de uso” como tal, se combinan con ellos para reducir costes:
 * **S3 Storage Classes:** Standard, Standard-IA, Glacier → para ajustar coste según frecuencia de acceso.
 * **Lifecycle policies:** mover archivos automáticamente entre tipos de almacenamiento según antigüedad.
 * **Auto Scaling:** encender y apagar instancias automáticamente según demanda.
 
-#### **Resumen**
+#### **f. Resumen**
 
 | Plan/Servicio               | Cuándo usarlo                    | Descuento/ventaja principal      |
 | --------------------------- | -------------------------------- | -------------------------------- |
@@ -251,10 +251,176 @@ Aunque no son “planes de uso” como tal, se combinan con ellos para reducir c
 | Spot Instances              | Procesos batch o interrumpibles  | Hasta 90 % más barato            |
 | Optimización almacenamiento | Datos según frecuencia de acceso | Reduce costes de almacenamiento  |
 
-### **Aspectos básicos de la optimización de costos**
+
+### **3.3 - Consola de Billing & Cost Management**
+  Desde la consola de AWS se puede:
+
+  * Ver facturas detalladas por servicio y por región.
+  * Configurar presupuestos y alertas.
+  * Descargar informes para análisis.
+  <br>
+
+#### **a. Acceder al panel de facturación de AWS**
+Después de iniciar sesión en su cuenta, en el menú de la cuenta, seleccione Panel de facturación.
+
+![](../AWS/ut3/costos/billdash.png){.sietecinco}
+
+<br>
+
+#### **b. Revisar el panel de facturación**
+En la sección **Resumen de AWS**, se podrá ver un resumen de los costos del mes hasta la fecha. También se podrá ver la tendencia de los costos de los cinco servicios principales durante los tres a seis períodos de facturación cerrados más recientes. 
+
+![](../AWS/ut3/costos/billdash1.png){.sietecinco}
+
+<br>
+
+#### **c. Modificar las alertas de correo electrónico del límite de uso** 
+De manera predeterminada, la mayoría de las cuentas se activan automáticamente para recibir alertas por correo electrónico respecto del límite **del nivel gratuito de AWS** cuando el uso de su servicio excede el 85 % de un límite determinado.
+ 
+Para cambiar quién recibe estas alertas por correo electrónico, seleccione Preferencias de facturación en la barra de navegación izquierda.
+ 
+Para que otras personas puedan recibir alertas de uso del nivel gratuito, agregue su dirección de correo electrónico en el campo de Dirección de correo electrónico y seleccione Guardar preferencias. 
+
+<br>
+
+
+### **3.4 - Creación de un presupuesto básico de control de costos**
+En este apartado crearemos un presupuesto de costos en la Consola de facturación de AWS con AWS Budgets. Como parte de su presupuesto de costos, establecerá tres notificaciones: una por si sus costos alcanzan el 80 % de su presupuesto, otra por si se pronostica que sus costos excederán su presupuesto y otra si sus costos exceden su presupuesto.
+
+#### **a. Crear un presupuesto**
+En el menú de navegación de la izquierda, seleccione **Presupuestos** y, a continuación, seleccione **Crear un presupuesto** en la página de la consola de AWS Budgets. 
+
+![](../AWS/ut3/costos/budget.png){.sietecinco}
+
+<br>
+
+#### **b. Elejir el tipo de presupuesto**
+En la página **Elegir tipo de presupuesto**, elija **Presupuesto de costos** en Tipos de presupuesto.
+
+![](../AWS/ut3/costos/budget1.png){.sietecinco}
+
+<br>
+
+#### **c. Establecer los detalles del presupuesto**
+En la página **Defina su presupuesto**, editar el campo **Nombre del presupuesto** y personalizarlo. 
+ 
+En la sección Establecer el importe del presupuesto, mantener las selecciones predeterminadas e introducir 100 USD en el campo **Introduzca el importe presupuestado (USD)**.
+ 
+En la sección **Parámetros de presupuesto**, se puede utilizar estas características para crear presupuestos que rastreen los costos asociados con un **conjunto particular** de servicios de AWS. 
+
+![](../AWS/ut3/costos/budget2.png){.sietecinco}
+
+<br>
+
+#### **d. Tarea RA1-CEd - Creación de una alerta de costes y un resumen de facturación**
+!!! task "Ir a **Administración de facturación y costos** y crear lo siguiente:"
+    **Alerta de costos con las siguientes condiciones:**    
+    &nbsp;&nbsp;&nbsp;&nbsp;1. Presupuesto: 50$   
+    &nbsp;&nbsp;&nbsp;&nbsp;2. Umbral de la alerta: 50%.  
+    &nbsp;&nbsp;&nbsp;&nbsp;3. Correos: El vuestro y el del profesor: j.egeablasco@edu.gva.es  
+    &nbsp;&nbsp;&nbsp;&nbsp;4. Frecuencia de las alertas: Resúmenes semanales.  
+
+    **Resumen de facturación:**    
+    &nbsp;&nbsp;&nbsp;&nbsp;1. Frecuencia de regeneración: Semanal   
+    &nbsp;&nbsp;&nbsp;&nbsp;2. Día de la semana de emisión: Martes  
+    &nbsp;&nbsp;&nbsp;&nbsp;3. Correos: El vuestro y el del profesor: j.egeablasco@edu.gva.es  
+
+    **Condiciones de la entrega**
+    subir una captura de pantalla de la alerta a la tarea **RA1-CEd** de Aules
+
+**Ayuda:** Como crear [una alerta de costes](https://www.youtube.com/watch?v=O0sofGVT7uw) en AWS. 
+
+### **4 - Presupuesto de una infraestructura básica**
+Para estimar de forma precisa el coste de desplegar una infraestructura en la nube es fundamental utilizar herramientas que nos permitan simularla.  
+Para ello, AWS ofrece una **Calculadora de Costes oficial**, con la que se puede configurar servicios (instancias EC2, almacenamiento, bases de datos, redes ...) y obtener de esa manera un presupuesto aproximado antes de su puesta en marcha.
+
+Se puede acceder a la calculadora en el siguiente enlace: [AWS Pricing Calculator](https://calculator.aws.amazon.com/)
+
+<br>
+
+#### **a. Precios**
+Antes de usar la calculadora podremos ver en la pestaña precios el coste de los diferentes servicios de AWS. 
+
+![](../AWS/ut3/presupuestos/presu.png){.sietecinco}
+
+<br>
+
+#### **b. Ejemplo de cálculo de coste de una infraestructura**
+Para ello usaremos la calculadora de AWS. Como se puede ver en la imagen, primero agregaremos los servicios, luego los configuraremos y para terminar tendremos una estimación bastante exacta del coste de la infraestructura que queremos implementar.
+
+![](../AWS/ut3/presupuestos/presu1.png){.sietecinco}
+
+<br>
+
+:one: **Añadir servicio**  
+En este caso usaremos una instancia de Amazon EC2.
+
+![](../AWS/ut3/presupuestos/presu2.png){.sietecinco}
+
+<br>
+
+:two: **Configurar el servicio**  
+:two: :one: Elegimos la región dónde montaremos la infraestructura (recordar que el precio de los servicios puede variar de una región a otra).  
+
+![](../AWS/ut3/presupuestos/presu3.png){.sietecinco}
+
+<br>
+
+:two: :two: Dentro del tipo de instancias de EC2 seleccionamos una instancia **t4g.micro** 
+
+![](../AWS/ut3/presupuestos/presu4.png){.sietecinco}
+
+<br>
+
+:two: :three: Dejamos la opciones de pago por defecto.
+
+![](../AWS/ut3/presupuestos/presu5.png){.sietecinco}
+
+<br>
+
+:two: :four: Definimos una unidad de almacenamiento
+
+![](../AWS/ut3/presupuestos/presu6.png){.sietecinco}
+
+<br>
+
+!!! question "¿Por qué debemos definir una unidad de almacenamiento?"
+
+<br>
+
+:two: :five: Definimos la cantidad de datos transferidos
+
+![](../AWS/ut3/presupuestos/presu6.png){.sietecinco}
+
+<br>
+
+:three: Estimación del servicio  
+Pulsamos guardar y ver resumen y obtendremos el presupuesto. 
+
+![](../AWS/ut3/presupuestos/presu6.png){.sietecinco}
+
+<br>
+
+#### **c. Tarea RA1-CEe - Estimación del coste de un servicio**
+!!! task "Ir a **Administración de facturación y costos** y crear lo siguiente:"
+    **Alerta de costos con las siguientes condiciones:**    
+    &nbsp;&nbsp;&nbsp;&nbsp;1. Presupuesto: 50$   
+    &nbsp;&nbsp;&nbsp;&nbsp;2. Umbral de la alerta: 50%.  
+    &nbsp;&nbsp;&nbsp;&nbsp;3. Correos: El vuestro y el del profesor: j.egeablasco@edu.gva.es  
+    &nbsp;&nbsp;&nbsp;&nbsp;4. Frecuencia de las alertas: Resúmenes semanales.  
+
+    **Resumen de facturación:**    
+    &nbsp;&nbsp;&nbsp;&nbsp;1. Frecuencia de regeneración: Semanal   
+    &nbsp;&nbsp;&nbsp;&nbsp;2. Día de la semana de emisión: Martes  
+    &nbsp;&nbsp;&nbsp;&nbsp;3. Correos: El vuestro y el del profesor: j.egeablasco@edu.gva.es  
+
+    **Condiciones de la entrega**
+    subir una captura de pantalla de la alerta a la tarea **RA1-CEd** de Aules
+
 
 <!-- https://www.ackstorm.com/blog/herramientas-costes-aws/ 
 
+https://www.youtube.com/watch?v=4OLpOZ77crc
 
 ---
 https://dondeaprendoaws.com/blog/gestion-de-facturacion-de-aws-guia-completa/
@@ -276,14 +442,6 @@ Microsoft o distribuciones específicas de linux.
 • ABC: AWS Billing Conductor es más fácil que nunca para los equipos de FinOps
 configurar, generar y compartir las tarifas correctas con los usuarios finales,
 independientemente de las tarifas que el cliente haya negociado con AWS
-
----
-
-https://aws.amazon.com/es/getting-started/hands-on/control-your-costs-free-tier-budgets/?ref=gsrchandson&id=itprohandson
----
----
-
-
 
 
 * **Elegir el tamaño adecuado de recursos**
@@ -325,11 +483,6 @@ https://aws.amazon.com/es/getting-started/hands-on/control-your-costs-free-tier-
 
 
 -->
-## **Tarea 1 - Creación de una alerta de costes**
-Ir a **Administración de facturación y costos** y crear una alerta de costos con las siguientes condiciones.  
-
-1. Umbral de coste alcanzado: 5$.
-2. Frecuencia de las alertas: Resúmenes semanales.
 
 
 ## **Enlaces de interés**
