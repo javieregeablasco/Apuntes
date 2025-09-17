@@ -76,6 +76,8 @@ Zonas de disponibilidad para la región de AWS España.
 <br>
 ![](./img/az.png)
 
+[Regiones y AZ en AWS](https://docs.aws.amazon.com/es_es/global-infrastructure/latest/regions/aws-regions.html)
+
 ### **Zonas locales (local zones)**
 Las **local zones de AWS** son un tipo de infraestructura que ubica servicios de AWS **cerca de grandes centros de población e industria**. Por ejemplo, se pueden usar servicios como computación y almacenamiento en la zona local para aplicaciones que requieren unas latencias ultrabajas.
 

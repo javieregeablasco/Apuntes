@@ -105,7 +105,7 @@ orígenes de información; procedimientos de implantación de imágenes y répli
     |**e)** Se ha fijado cada dispositivo o tarjeta en la ranura o bahía correspondiente, según guías detalladas de instalación.|15%|
     |**f)** Se han conectado adecuadamente aquellos componentes hardware internos (disco duro, DVD, CD-ROM, entre otros) que necesiten cables de conexión para su integración en el sistema microinformático.|10%|
 
-=== "RA 3"
+=== "RA 3 -> Flexibilización"
     |Instala sistemas operativos monopuesto identificando las fases del proceso y relacionándolas con la funcionalidad de la instalación.||
     |-|-|
     |**a)** Se han descrito los pasos a seguir para la instalación o actualización.|15%|
@@ -118,7 +118,7 @@ orígenes de información; procedimientos de implantación de imágenes y répli
     |**h)** Se han utilizado herramientas software para la instalación de imágenes de discos o particiones señalando las restricciones de aplicación de las mismas.|10%|
     |**i)** Se ha verificado la funcionalidad de la imagen instalada, teniendo en cuenta el tipo de «clonación» realizada.|10%|
 
-=== "RA 4"
+=== "RA 4 -> Flexibilización"
     |Comprueba la funcionalidad de los sistemas, soportes y periféricos instalados relacionando las intervenciones con los resultados a conseguir.||
     |-|-|
     |**a)** Se ha aplicado a cada componente hardware y periférico el procedimiento de testeo adecuado.|10%|

@@ -284,8 +284,8 @@ Para que otras personas puedan recibir alertas de uso del nivel gratuito, agregu
 <br>
 
 
-### **3.4 - Creación de un presupuesto básico de control de costos**
-En este apartado crearemos un presupuesto de costos en la Consola de facturación de AWS con AWS Budgets. Como parte de su presupuesto de costos, establecerá tres notificaciones: una por si sus costos alcanzan el 80 % de su presupuesto, otra por si se pronostica que sus costos excederán su presupuesto y otra si sus costos exceden su presupuesto.
+### **3.4 - Creación de un controlador de costos básico**
+En este apartado crearemos un controlador de costos en la **consola de facturación** de AWS con **AWS Budgets**. Se establecerán tres notificaciones: una por si sus costos alcanzan el 80 % de su presupuesto, otra por si se pronostica que sus costos excederán su presupuesto y otra si sus costos exceden el presupuesto asignado.
 
 #### **a. Crear un presupuesto**
 En el menú de navegación de la izquierda, seleccione **Presupuestos** y, a continuación, seleccione **Crear un presupuesto** en la página de la consola de AWS Budgets. 
@@ -317,20 +317,20 @@ En la sección **Parámetros de presupuesto**, se puede utilizar estas caracter�
     **Alerta de costos con las siguientes condiciones:**    
     &nbsp;&nbsp;&nbsp;&nbsp;1. Presupuesto: 50$   
     &nbsp;&nbsp;&nbsp;&nbsp;2. Umbral de la alerta: 50%.  
-    &nbsp;&nbsp;&nbsp;&nbsp;3. Correos: El vuestro y el del profesor: j.egeablasco@edu.gva.es  
+    &nbsp;&nbsp;&nbsp;&nbsp;3. Correos: **El vuestro** y el del profesor: j.egeablasco@edu.gva.es  
     &nbsp;&nbsp;&nbsp;&nbsp;4. Frecuencia de las alertas: Resúmenes semanales.  
 
     **Resumen de facturación:**    
     &nbsp;&nbsp;&nbsp;&nbsp;1. Frecuencia de regeneración: Semanal   
     &nbsp;&nbsp;&nbsp;&nbsp;2. Día de la semana de emisión: Martes  
-    &nbsp;&nbsp;&nbsp;&nbsp;3. Correos: El vuestro y el del profesor: j.egeablasco@edu.gva.es  
+    &nbsp;&nbsp;&nbsp;&nbsp;3. Correos: **El vuestro** y el del profesor: j.egeablasco@edu.gva.es  
 
     **Condiciones de la entrega**
     subir una captura de pantalla de la alerta a la tarea **RA1-CEd** de Aules
 
 **Ayuda:** Como crear [una alerta de costes](https://www.youtube.com/watch?v=O0sofGVT7uw) en AWS. 
 
-### **4 - Presupuesto de una infraestructura básica**
+### **3.4 - Presupuesto de una infraestructura básica**
 Para estimar de forma precisa el coste de desplegar una infraestructura en la nube es fundamental utilizar herramientas que nos permitan simularla.  
 Para ello, AWS ofrece una **Calculadora de Costes oficial**, con la que se puede configurar servicios (instancias EC2, almacenamiento, bases de datos, redes ...) y obtener de esa manera un presupuesto aproximado antes de su puesta en marcha.
 
@@ -401,91 +401,96 @@ Pulsamos guardar y ver resumen y obtendremos el presupuesto.
 
 <br>
 
-#### **c. Tarea RA1-CEe - Estimación del coste de un servicio**
-!!! task "Ir a **Administración de facturación y costos** y crear lo siguiente:"
-    **Alerta de costos con las siguientes condiciones:**    
-    &nbsp;&nbsp;&nbsp;&nbsp;1. Presupuesto: 50$   
-    &nbsp;&nbsp;&nbsp;&nbsp;2. Umbral de la alerta: 50%.  
-    &nbsp;&nbsp;&nbsp;&nbsp;3. Correos: El vuestro y el del profesor: j.egeablasco@edu.gva.es  
-    &nbsp;&nbsp;&nbsp;&nbsp;4. Frecuencia de las alertas: Resúmenes semanales.  
+#### **c. Tarea RA1-CEe - Estimación del coste de una página web**
+!!! task "Ir a **calculadora de costes oficial** y crear un presupuesto con las siguientes especificaciones:"
+    | **Componente** | **Parámetro** | **Valor** |
+    |-|-|-|
+    | **General** | Región | Europe (Spain) `eu-south-2` | 
+    | | Periodo de cálculo| Mensual |
+    | | Modelo de precios | On-Demand |
+    | **Instancia Web (EC2)** | Tipo de instancia | t3.small |
+    | | Nº de instancias | 1 |
+    | | Sistema operativo | Linux |
+    | | Horas/mes | 730 h |
+    | **Almacenamiento Web (EBS)** | Tipo de volumen | gp3 | 
+    | | Capacidad (GB) | 50 GB |
+    | | IOPS adicionales | 0 (3.000 incluidas) |
+    | | Throughput adicional | 0 (125 MB/s incluidos) |
+    | | Snapshots (GB/mes)  | 20 GB | 
+    | **Instancia Base de Datos (EC2)** | Tipo de instancia | t3.medium |
+    | | Nº de instancias | 1 | | 
+    | |Sistema operativo | Linux |
+    | | Horas/mes | 730 h |
+    | **Almacenamiento BD (EBS)** | Tipo de volumen | gp3 |
+    | | Capacidad (GB) | 200 GB |
+    | | IOPS adicionales | 3.000 IOPS extra (para llegar a 6.000 totales) |
+    | | Throughput adicional | 0 (125 MB/s incluidos) |
+    | | Snapshots (GB/mes) | 100 GB |
+    | **Transferencia de Datos**    | Data Transfer Out to Internet (GB/mes) | 150 GB (100 GB gratuitos + 50 GB facturables)  |
+    | | Data Transfer In (GB/mes) | 50 GB (gratis) |
+    | | Tráfico entre AZs (GB/mes) | 0 |
+    | **Red / IP** | Nº de Elastic IPs | 2 (una por instancia) |
+    | | Horas asociadas | 730 h (gratis mientras estén asociadas) |
+    | | NAT Gateway | 0 |
+    | **Servicios adicionales** | CloudWatch Logs (GB/mes) | 10 GB |
+    | | Load Balancer | No |
+    | **Observaciones / notas** | Picos de tráfico asumidos; crecimiento de BD previsto 20 % anual. |                                                |
 
-    **Resumen de facturación:**    
-    &nbsp;&nbsp;&nbsp;&nbsp;1. Frecuencia de regeneración: Semanal   
-    &nbsp;&nbsp;&nbsp;&nbsp;2. Día de la semana de emisión: Martes  
-    &nbsp;&nbsp;&nbsp;&nbsp;3. Correos: El vuestro y el del profesor: j.egeablasco@edu.gva.es  
+    
+    **Condiciones de la entrega:**  
+    Subir una captura del presupuesto final después de introducir todos los datos.
 
-    **Condiciones de la entrega**
-    subir una captura de pantalla de la alerta a la tarea **RA1-CEd** de Aules
-
-
-<!-- https://www.ackstorm.com/blog/herramientas-costes-aws/ 
-
-https://www.youtube.com/watch?v=4OLpOZ77crc
-
----
-https://dondeaprendoaws.com/blog/gestion-de-facturacion-de-aws-guia-completa/
-
-https://www.prosperops.com/blog/aws-billing-and-cost-management/
-https://www.cloudkeeper.com/aws-billing-cost-management
-
----
-https://vergaracarmona.es/apuntes-aws-y-resumen-de-sus-servicios/#costes
-
-38.1. - Administración de costes
-• Cost Explorer: Una buena vista de todos los costes de AWS. Importante revisarlo
-periódicamente y crear alguna alarma, para controlar los costes mensuales
-• Budgets: Añade o crea presupuestos y alarmas para avisarte cuando tus costes pasan de un
-umbral.
-• Marketplace Subscriptions: Aquí dispones de todo un catálogo de soluciones de terceros,
-listos para usar con la tecnología AWS, por ejemplo suscripciones de PFsese, Citrix,
-Microsoft o distribuciones específicas de linux.
-• ABC: AWS Billing Conductor es más fácil que nunca para los equipos de FinOps
-configurar, generar y compartir las tarifas correctas con los usuarios finales,
-independientemente de las tarifas que el cliente haya negociado con AWS
-
-
-* **Elegir el tamaño adecuado de recursos**
-  No usar instancias sobredimensionadas ni almacenamiento innecesario.
-  → *Right-sizing*: ajusta el recurso al uso real.
-
-* **Apagar o eliminar recursos no usados**
-  Instancias EC2, volúmenes EBS, direcciones IP elásticas o snapshots olvidados generan costes aunque no se usen.
-
-* **Reservar instancias**
-  Para cargas estables puedes usar **Reserved Instances** o **Savings Plans**, que ofrecen descuentos del 30-70 % a cambio de un compromiso a 1 o 3 años.
-
-* **Usar instancias Spot**
-  Para trabajos flexibles o batch puedes usar instancias Spot (sobrantes) con descuentos de hasta el 90 %.
-
-* **Optimizar almacenamiento**
-
-  * S3 ofrece clases de almacenamiento más baratas para datos poco accedidos (*S3 Glacier*, *S3 Infrequent Access*).
-  * Hacer *lifecycle policies* para mover datos automáticamente.
-
-* **Elegir bien la región**
-
-  * Algunas regiones son más baratas que otras.
-  * También influye la latencia y las normativas.
-
-* **Monitorizar y poner alertas**
-  Configurar en Billing → *Budgets* y *Cost Anomaly Detection* para recibir avisos si los gastos superan un umbral.
-
----
-
-## 3️⃣ Buenas prácticas generales
-
-* Revisar la **AWS Pricing Calculator** antes de desplegar.
-* Activar el **Cost Explorer** para analizar tendencias de gasto.
-* Etiquetar recursos (*tags*) para saber a qué proyecto o departamento pertenece cada coste.
-* Automatizar la limpieza de recursos huérfanos.
-
-¿Quieres que te prepare una **actividad práctica** para que el alumnado explore la consola de facturación y configure alertas de presupuesto en AWS? (sirve mucho para interiorizar estos conceptos).
+!!! question "**Buscar información para un hosting convencional de similares caracteristicas.**
 
 
--->
+### **3.5 - Resumen de servicios para el control de costos en AWS** 
+:one: &nbsp;&nbsp;**Herramientas esenciales de AWS**  
 
+|Herramienta |	Para qué sirve |	Beneficio principal |
+|-|-|-|
+|Cost Explorer |	Ver y analizar gastos |	Identifica dónde se gasta más |
+|AWS Budgets |	Alertas de gastos |	Evita sorpresas en la factura |
+|Cost Reports |	Detalles de uso |	Analiza cada céntimo gastado |
+|Organizations |	Control multi-cuenta |	Una sola factura para todo |
 
-## **Enlaces de interés**
+<br>
+:two: &nbsp;&nbsp;**3 formas inmediatas de ahorrar**
+
+- Usa instancias reservadas: ahorra hasta 72%
+- Implementa Spot Instances: ahorra hasta 90%
+- Activa Savings Plans: ahorra hasta 66%
+
+<br>
+:three: &nbsp;&nbsp;**Uso del panel de facturación**  
+El panel se actualiza cada 24 horas y muestra entre otras cosas:
+
+|¿Qué se ve? |	¿Qué significa?| 	¿Cuándo se actualiza?|
+|-|-|:-:|
+|Gastos actuales |	Lo que se lleva gastado este mes |	Cada día|
+|Predicción| 	Lo que AWS cree que se gastará |	Cada día|
+|Top servicios| 	Dónde más se gastas	|Cada día|
+|Historial |	Gasto histórico mes a mes| 	Cada mes|
+
+:four: &nbsp;&nbsp;**Términos comunes de facturación**  
+
+|Término |	¿Qué es?|
+|-|-|
+|On-Demand |	Pago por uso, sin compromisos |
+|Savings Plans| 	Descuentos con permanencia de 1 a 3 años|
+|Spot Instances |	Ahorros grandes |
+|Reserved Instances |	Descuentos por reservar con specs fijas|
+
+:five: &nbsp;&nbsp;**Problemas Frecuentes de Facturación**  
+
+|Problema| 	Solución| 	Acción preventiva|
+|-|-|-|
+|Recursos olvidados |	Instancias EC2, volúmenes EBS, Ip's elásticas o snapshots olvidados generan costes aunque no se usen. |	Activar alertas de CloudWatch.|
+|Tamaño inadecuado de recursos |	No usar instancias sobredimensionadas ni almacenamiento innecesario. |	**Right-sizing**: ajustar el recurso al uso real.|
+|Almacenamiento mal optimizado| S3 ofrece clases de almacenamiento más baratas para datos poco accedidos (**S3 Glacier**, **S3 Infrequent Access**).| Hacer **lifecycle policies** para mover datos automáticamente.|
+|Región mal elegida|Algunas regiones son más baratas que otras.|Ver si influye la latencia y las normativas.|
+|No configurar alertas|Configurar en Billing → *Budgets* y *Cost Anomaly Detection* para recibir avisos si los gastos superan un umbral.|Crear alertas|
+
+## **4 - Enlaces de interés**
 Documentación de [AWS](https://docs.aws.amazon.com).  
 [Aspectos básicos de control de costes en AWS](https://aws.amazon.com/es/getting-started/cost-optimization-essentials)  
 [Supervision y control de costes](https://docs.aws.amazon.com/es_es/res/latest/ug/cost-management.html)  
