@@ -137,11 +137,37 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
 #### Condiciones de entrega de la práctica.
 Realizar una captura de un documento dónde se vean las personalizaciones de las barras de herramientas. Subir la captura a Aules en **Tarea RA2-CEa**.
 
+### **Enlaces de interés**
+<a href=https://books.libreoffice.org/es/WG73/WG7320-ConfiguracionDeWriter.html>Configuración writer</a>
 
 ## **2 - Familiarización con el uso de Writer**
 
-## **Enlaces de interés**
-<a href=https://books.libreoffice.org/es/WG73/WG7320-ConfiguracionDeWriter.html>Configuración writer</a>
+
+## **2.1 - Creación y edición básica de un documento de texto**
+!!! task "Tarea RA2-CEb a entregar en RA2-CEb-1"
+    **1. Abre un nuevo documento y copia el siguiente texto:**  
+    Michael Jeffrey Jordan (Brooklyn, Nueva York, 17 de febrero de 1963) es un exjugador de baloncesto estadounidense. Con 1,98 metros de altura, jugaba en la posición de escolta. Es considerado por la mayoría de aficionados y especialistas como el mejor jugador de baloncesto de todos los tiempos.​ Se retiró definitivamente a los cuarenta años en 2003 en los Washington Wizards, tras haberlo hecho en dos ocasiones anteriores, en 1993 y 1998, después de haber jugado 13 temporadas en los Chicago Bulls.
+
+    Ganó 6 anillos con Chicago Bulls, promediando 30,1 puntos por partido en toda su carrera deportiva, el mayor promedio en la historia de la liga. También ganó 10 títulos de máximo anotador, 5 MVP de la temporada, 6 MVP de las Finales; fue nombrado en el mejor quinteto de la NBA en diez ocasiones, en el defensivo nueve veces, líder en robos de balón durante tres años y un premio al mejor defensor de la temporada.
+
+    Desde 1983, ha aparecido en la portada de la prestigiosa revista deportiva Sports Illustrated en 50 ocasiones, todo un récord, además de ser designado deportista del año en 1991 y mejor atleta del siglo XX por ESPN y segundo tras Babe Ruth por Associated Press.​ 
+
+    **2. Seleccionar y mover texto:**  
+    Selecciona el segundo párrafo, cortalo y pegalo después del último párrafo.
+
+    **3. Buscar y reemplazar texto:**  
+    Con la herramienta de **buscar** y/o **buscar reemplazar** localizar el texto: **10 títulos** y reemplazarlo por **15 MPV**.
+
+    **4. Corrección ortográfica:**  
+    &nbsp;&nbsp;&nbsp;&nbsp;a. Pasar el idioma del primer párrafo a idioma inglés. Es decir el Writer deberá revisar el primer párrafo como si estuviera escrito en idioma inglés.  
+    &nbsp;&nbsp;&nbsp;&nbsp;b. Pasar el idioma de la palabra **Desde** a catalán.  
+
+    **5. Guardar y guardar como:**  
+    &nbsp;&nbsp;&nbsp;&nbsp;a. **Guardar** el documento y darle como nombre: **RA2-CEb-1-Nombre Alumno**.  
+    &nbsp;&nbsp;&nbsp;&nbsp;b. **Guardar como** el documento, **protegerlo con la contraseña 1234** y darle como nombre **Copia RA2-CEb-1-Nombre Alumno**.
+
+    **6. Entregar la tarea:**  
+    Subir los 2 archivos **RA2-CEb-1-Nombre Alumno** y **Copia RA2-CEb-1-Nombre Alumno** a la **tarea RA2-CEb-1**.  
 
 
 | **Licencia Creative Commons:** | |
