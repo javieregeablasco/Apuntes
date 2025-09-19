@@ -233,6 +233,7 @@ Realizar una captura de un documento dónde se vean las personalizaciones de las
     ![](./img_ut2/ra2ceb23.png){.doscinco}
 
    
+## **2.3 - Formatos de párrafo**
 
 
 
