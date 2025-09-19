@@ -144,7 +144,7 @@ Realizar una captura de un documento dónde se vean las personalizaciones de las
 
 
 ## **2.1 - Creación y edición básica de un documento de texto**
-!!! task "Tarea RA2-CEb a entregar en RA2-CEb-1"
+!!! task "Tarea a entregar en RA2-CEb-1"
     **1. Abre un nuevo documento y copia el siguiente texto:**  
     Michael Jeffrey Jordan (Brooklyn, Nueva York, 17 de febrero de 1963) es un exjugador de baloncesto estadounidense. Con 1,98 metros de altura, jugaba en la posición de escolta. Es considerado por la mayoría de aficionados y especialistas como el mejor jugador de baloncesto de todos los tiempos.​ Se retiró definitivamente a los cuarenta años en 2003 en los Washington Wizards, tras haberlo hecho en dos ocasiones anteriores, en 1993 y 1998, después de haber jugado 13 temporadas en los Chicago Bulls.
 
@@ -168,6 +168,72 @@ Realizar una captura de un documento dónde se vean las personalizaciones de las
 
     **6. Entregar la tarea:**  
     Subir los 2 archivos **RA2-CEb-1-Nombre Alumno** y **Copia RA2-CEb-1-Nombre Alumno** a la **tarea RA2-CEb-1**.  
+
+## **2.2 - Formatos de texto**
+!!! task "Tarea a entregar en RA2-CEb-2"
+    **1. Abre un nuevo documento y copia el siguiente texto:**  
+    Michael, hijo de James y Deloris Jordan, nació en Brooklyn, Nueva York. Su familia se mudó a Wilmington, Carolina del Norte, cuando él era niño. Estudió en la Ogden Elementary School, y posteriormente asistió a la preparatoria Emsley A. Laney, donde, debido a sus impresionantes condiciones atléticas, jugó al baloncesto, béisbol y fútbol americano. Sin embargo, fue apartado del equipo de baloncesto en su segundo año porque para su altura (1,80 metros) estaba aparentemente subdesarrollado. El verano siguiente, creció 10 centímetros y se entrenó rigurosamente.​ En su último año en Laney High, promedió un triple-doble: 29,2 puntos, 11,6 rebotes y 10,1 asistencias,​ y fue seleccionado en el McDonald's All-American Team.​ 
+    
+    **Todo el texto deberá estar inicialmente en ARIAL**
+
+    **2. Modificar el texto de la sigiente manera:**  
+    &nbsp;&nbsp;&nbsp;&nbsp;a. Poner la primera frase **en negrita**.  
+    &nbsp;&nbsp;&nbsp;&nbsp;b. Poner la frase siguiente **en itálica**.  
+    &nbsp;&nbsp;&nbsp;&nbsp;c. Poner la frase siguiente **en subrayado**.  
+    &nbsp;&nbsp;&nbsp;&nbsp;d. Poner la frase siguiente **tachado**.  
+    &nbsp;&nbsp;&nbsp;&nbsp;e. Poner la frase siguiente **subrayado + onda**.  
+    &nbsp;&nbsp;&nbsp;&nbsp;f. Poner la frase siguiente **en color de fondo, verde realzado**.  
+    &nbsp;&nbsp;&nbsp;&nbsp;g. Poner dentro de la última frase las palabras "McDonald's All-American Team":  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Bordes superiores e inferiores, **color green 1**.  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Separación superior e inferior, **0.2 y 0.1**.    
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Estilo de sombra: **inferior izquierda**.    
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Color de sombra: **Naranja 3**.    
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Distancia de sombra: **0.1cm**.    
+
+    &nbsp;&nbsp;&nbsp;&nbsp;h. Añadir los números 2 y 10 y ponerles respectivamente el superíndice 125 y subíndice 512.  
+
+    &nbsp;&nbsp;&nbsp;&nbsp;**El texto quedará de la siguiente manera:**
+
+    ![](./img_ut2/ra2ceb2.png){.sietecinco}
+
+    <br>
+    **3. Copiar y pegar el texto y limpiar los formatos.**  
+    &nbsp;&nbsp;&nbsp;&nbsp;a. Poner la primera frase **color RGB 125 135 247**.  
+    &nbsp;&nbsp;&nbsp;&nbsp;b. Poner la frase siguiente **color RGB 125 135 247 y tamaño de fuente 16pt**.  
+    &nbsp;&nbsp;&nbsp;&nbsp;c. Poner la frase siguiente **fuente mistral**.  
+    &nbsp;&nbsp;&nbsp;&nbsp;d. Poner la frase siguiente **color púrpura y todo en mayúsculas**.  
+    &nbsp;&nbsp;&nbsp;&nbsp;e. Poner la frase siguiente **primera letra de cada palabra en mayúsculas**.  
+    &nbsp;&nbsp;&nbsp;&nbsp;f. Poner la frase siguiente **fue seleccionada con un hiperenlace https://es.wikipedia.org/wiki/Michael_Jordan**.  
+
+    &nbsp;&nbsp;&nbsp;&nbsp;**El texto quedará de la siguiente manera:**
+
+    ![](./img_ut2/ra2ceb21.png){.sietecinco}
+
+    <br>
+    **4. Copiar y pegar el texto y limpiar los formatos.**  
+    &nbsp;&nbsp;&nbsp;&nbsp;a. Poner **Deloris Jordan** en tamaño de fuente 14, negrita y con un escalado de anchura del 85%.   
+    &nbsp;&nbsp;&nbsp;&nbsp;b. Poner **Nueva York** en  negrita, púrpura 2 y **sombra**.  
+    &nbsp;&nbsp;&nbsp;&nbsp;c. Poner **Carolina del norte** en  negrita, green 1 y giro de 270 grados.  
+    &nbsp;&nbsp;&nbsp;&nbsp;d. Poner **Ogden Elementary School** en azul 2 y un espaciado entre caracteres de 1.0pt.  
+    &nbsp;&nbsp;&nbsp;&nbsp;e. Poner **Sin embargo** en naranja 1 y con efecto contorno.  
+    &nbsp;&nbsp;&nbsp;&nbsp;f. Poner **centímetros** en naranja 2 y giro de 90 grados.  
+    
+    &nbsp;&nbsp;&nbsp;&nbsp;**El texto quedará de la siguiente manera:**
+
+    ![](./img_ut2/ra2ceb22.png){.sietecinco}
+
+    **5. Aprendiendo a insertar caracteres especiales:**  
+    Escribar la siguiente frase.  
+    Ω es el símbolo de la unidad de medida, <u>el ohmio</u> , que se usa para la resistencia eléctrica. 
+
+    Deberéis insertar el **carácter especial** `omega` del bloque de carácteres `Griego y copto`. Acordaros de subrayar la palabra **ohmio**. 
+
+    **6. Aprendiendo a escribir fórmulas:**  
+    Ir a **Insertar &rarr; Objeto OLE &rarr; Objeto de fórmula...** y escribir la siguiente fórmula.
+    ![](./img_ut2/ra2ceb23.png){.doscinco}
+
+   
+
 
 
 | **Licencia Creative Commons:** | |

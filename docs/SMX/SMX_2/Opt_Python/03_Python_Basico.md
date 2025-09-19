@@ -306,6 +306,7 @@ Se recomienda usar:
 1. snake_case para variables, funciones y métodos;
 1. PascalCase para clases;
 1. SCREAMING_SNAKE_CASE para constantes.
+1. **Nunca** empezar el nombre de una variable con un dígito.
 
 **Ejemplo de código**
 ```py

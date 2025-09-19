@@ -19,23 +19,23 @@
 # print(c)
 
 # Declaracion de variables
-texto = 'La "superificie" es:'
-radio =     5
-area = 3.1415 * radio ** 2
+# texto = 'La "superificie" es:'
+# radio =     5
+# area = 3.1415 * radio ** 2
 
 #algoritmo
 # print(texto, area)
 
 
-def suma(a,b):
-  resultado = a + b
-  return resultado
+# def suma(a,b):
+#   resultado = a + b
+#   return resultado
 
-print(suma(2,3))
-
-
+# print(suma(2,3))
 
 
+bienvenida = "print"
+print(bienvenida)
 
 
 
