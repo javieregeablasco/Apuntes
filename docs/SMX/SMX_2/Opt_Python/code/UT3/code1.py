@@ -34,9 +34,27 @@
 # print(suma(2,3))
 
 
-bienvenida = "print"
-print(bienvenida)
+# bienvenida = "print"
+# print(bienvenida)
 
 
 
 
+# print("El valor de 'b' es:", "y es de tipo: ")
+
+# radio = 5
+# area = 3.14159265358979323846 \
+#        * radio **2
+# print(area) 
+
+# texto = "Perdóname, amigo, de la ocasión que te he dado de parecer \
+#          loco como yo, haciéndote caer en el error en que yo he caído de que hubo y hay caballeros andantes en el mundo."
+# print(texto)
+
+# Demostración del problema de precisión con float en Python
+
+
+a = True
+b = False
+c= a or not(b)
+print(c, type(c))

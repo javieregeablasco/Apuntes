@@ -176,7 +176,7 @@ Realizar una captura de un documento dónde se vean las personalizaciones de las
     
     **Todo el texto deberá estar inicialmente en ARIAL**
 
-    **2. Modificar el texto de la sigiente manera:**  
+    **2. Modificar el texto de la siguiente manera:**  
     &nbsp;&nbsp;&nbsp;&nbsp;a. Poner la primera frase **en negrita**.  
     &nbsp;&nbsp;&nbsp;&nbsp;b. Poner la frase siguiente **en itálica**.  
     &nbsp;&nbsp;&nbsp;&nbsp;c. Poner la frase siguiente **en subrayado**.  
@@ -234,7 +234,109 @@ Realizar una captura de un documento dónde se vean las personalizaciones de las
 
    
 ## **2.3 - Formatos de párrafo**
+!!! task "Tarea a entregar en RA2-CEb-3"
+    **1. Abre un nuevo documento y copia el siguiente texto:**  
+    Michael Jordan
+    No debe confundirse con Michael B. Jordan.  
+    Michael Jeffrey Jordan (Brooklyn, Nueva York, 17 de febrero de 1963) es un exjugador de baloncesto estadounidense. Con 1,98 metros de altura, jugaba en la posición de escolta. Es considerado por la mayoría de aficionados y especialistas como el mejor jugador de baloncesto de todos los tiempos.[2]​[3] ​Se retiró definitivamente a los cuarenta años en 2003 en los Washington Wizards, tras haberlo hecho en dos ocasiones anteriores, en 1993 y 1998, después de haber jugado 13 temporadas en los Chicago Bulls.[4]​  
+    Ganó 6 anillos con Chicago Bulls, promediando 30,1 puntos por partido en toda su carrera deportiva, el mayor promedio en la historia de la liga. También ganó 10 títulos de máximo anotador, 5 MVP de la temporada, 6 MVP de las Finales; fue nombrado en el mejor quinteto de la NBA en diez ocasiones, en el defensivo nueve veces, líder en robos de balón durante tres años y un premio al mejor defensor de la temporada.   
+    Desde 1983, ha aparecido en la portada de la prestigiosa revista deportiva Sports Illustrated en 50 ocasiones, todo un récord, además de ser designado  deportista del año en 1991 y mejor atleta del siglo XX por ESPN y segundo tras Babe Ruth por Associated Press.[5]​  
+    En la actualidad es el propietario del equipo 23XI Racing en la Copa NASCAR,[6]​ y, desde 2010 a 2023, fue propietario de los Charlotte Hornets en la NBA.[7]​[8]​   
+    En 2021 se calculaba que su patrimonio neto era de $1600 millones,[9]​[10]​ fortuna que ascendió a los $3000 millones en octubre de 2023, entrando en la lista Forbes 400, siendo la primera vez que un deportista profesional figura entre las personas más ricas de Estados Unidos.[11]
 
+    **2. Modificar los párrafos de la siguiente manera:**  
+    &nbsp;&nbsp;&nbsp;&nbsp;a. Primer párrafo: **centrado**.  
+    &nbsp;&nbsp;&nbsp;&nbsp;b. Párrafo siguiente: **alinear a la izquierda**.  
+    &nbsp;&nbsp;&nbsp;&nbsp;c. Párrafo siguiente: **alinear a la izquierda**.  
+    &nbsp;&nbsp;&nbsp;&nbsp;d. Párrafo siguiente: **alinear a la derecha**.  
+    &nbsp;&nbsp;&nbsp;&nbsp;e. Párrafo siguiente: **justificado**.  
+    &nbsp;&nbsp;&nbsp;&nbsp;f. Párrafo siguiente: **aumentar sangria una vez**.  
+    &nbsp;&nbsp;&nbsp;&nbsp;f. Párrafo siguiente: **aumentar sangria 2 veces**.  
+
+    &nbsp;&nbsp;&nbsp;&nbsp;**El texto quedará de la siguiente manera:**
+
+    ![](./img_ut2/ra2ceb24.png){.sietecinco}
+
+    <br>
+    **3. Copiar y pegar los párrafos en el mismo documento de la siguiente manera:**  
+    &nbsp;&nbsp;&nbsp;&nbsp;a. Copiar el pegar el documento creado anteriormente **insertando un salto de página**.  
+    &nbsp;&nbsp;&nbsp;&nbsp;b. Todos los párrafos: **ver imagen**  
+    &nbsp;&nbsp;&nbsp;&nbsp;c. Primer párrafo: **Espacio sobre el párrafo 0.5cm, debajo 1.5cm**  
+    &nbsp;&nbsp;&nbsp;&nbsp;c. Párrafo siguiente: **Espacio sobre el párrafo 0.0cm, debajo 0.50cm**  
+    &nbsp;&nbsp;&nbsp;&nbsp;c. Resto párrafos: **Espacio sobre el párrafo 0.0cm, debajo 0.75cm**
+    
+    **4. Seguir con el texto anterior y además modificar los estilos de párrafos con:**  
+    &nbsp;&nbsp;&nbsp;&nbsp;**a. Párrafo 4:**   
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Interlineado 1.5 renglones.  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Sangría antes de texto: 0.5cm.  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Sangría después de texto: 0.3cm.  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Primer renglón: 0.5cm  
+    &nbsp;&nbsp;&nbsp;&nbsp;**b. Párrafo 5:**     
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Interlineado 2 renglones.  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Sangría antes de texto: 1cm.  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Sangría después de texto: 1cm.  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Primer renglón: 1cm.  
+    &nbsp;&nbsp;&nbsp;&nbsp;**b. Párrafo 6:**     
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Interlineado 2 renglones.  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Sangría antes de texto: 0cm.  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Sangría después de texto: 0cm.  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Primer renglón: 1cm.  
+    &nbsp;&nbsp;&nbsp;&nbsp;**b. Párrafo 7:**     
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Interlineado 1.5 renglones.  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Sangría antes de texto: 0.5cm.  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Sangría después de texto: 0.3cm.  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Primer renglón: 0.5cm  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Letras capitulares: Caracteres=2, Renglones=2.  
+ 
+    &nbsp;&nbsp;&nbsp;&nbsp;**El texto quedará de la siguiente manera:**
+    !!!warning "¡Cuidado con los estilos de texto o de párrafo que se han incorporado pero no se han mencionado!"
+
+    ![](./img_ut2/ra2ceb25.png){.sietecinco}
+
+    <br>
+
+!!! task "Tarea a entregar en RA2-CEb-4"
+    **1. Abre un nuevo documento y copia el texto:**
+    Michael Jordan
+	No debe confundirse con Michael B. Jordan.
+	Michael Jeffrey Jordan (Brooklyn, Nueva York, 17 de febrero de 1963) es un exjugador de baloncesto estadounidense. Con 1,98 metros de altura, jugaba en la posición de escolta. Es considerado por la mayoría de aficionados y especialistas como el mejor jugador de baloncesto de todos los tiempos.[2]​[3]​ Se retiró definitivamente a los cuarenta años en 2003 en los Washington Wizards, tras haberlo hecho en dos ocasiones anteriores, en 1993 y 1998, después de haber jugado 13 temporadas en los Chicago Bulls.[4]
+	Ganó 6 anillos con Chicago Bulls, promediando 30,1 puntos por partido en toda su carrera deportiva, el mayor promedio en la historia de la liga. También ganó 10 títulos de máximo anotador, 5 MVP de la temporada, 6 MVP de las Finales; fue nombrado en el mejor quinteto de la NBA en diez ocasiones, en el defensivo nueve veces, líder en robos de balón durante tres años y un premio al mejor defensor de la temporada. 
+	
+	Desde 1983, ha aparecido en la portada de la prestigiosa revista deportiva Sports Illustrated en 50 ocasiones, todo un récord, además de ser designado deportista del año en 1991 y mejor atleta del siglo XX por ESPN y segundo tras Babe Ruth por Associated Press.[5]​ 
+    En la actualidad es el propietario del equipo 23XI Racing en la Copa NASCAR,[6]​ y, desde 2010 a 2023, fue propietario de los Charlotte Hornets en la NBA.[7]​[8]
+    ​ 
+	12,366 11251,695 6,22566 1259,26 3,2256  
+
+    **2. Modificar los párrafos de la siguiente manera:**  
+    &nbsp;&nbsp;&nbsp;&nbsp;a. Primer párrafo: **no hacer nada**.  
+    &nbsp;&nbsp;&nbsp;&nbsp;b. Párrafo siguiente: **añadir un tabulador izquierdo a 0.5cm**.  
+    &nbsp;&nbsp;&nbsp;&nbsp;c. Párrafo siguiente: **añadir un tabulador izquierdo a 1.5cm**.  
+    &nbsp;&nbsp;&nbsp;&nbsp;d. Párrafo siguiente: **añadir un tabulador izquierdo a 1.5cm**.  
+    &nbsp;&nbsp;&nbsp;&nbsp;e. Párrafo siguiente: **añadir un tabulador derecho a 10cm**.  
+    &nbsp;&nbsp;&nbsp;&nbsp;f. Párrafo siguiente: **añadir un tabulador centrado a 5cm**.  
+    &nbsp;&nbsp;&nbsp;&nbsp;g. Párrafo siguiente: **añadir un tabulador decimal a 12cm**.  
+    &nbsp;&nbsp;&nbsp;&nbsp;h. Primer párrafo: **añadir un tabulador para que el texto quede como se ve an la imagen**.  
+    
+    &nbsp;&nbsp;&nbsp;&nbsp;**El texto quedará de la siguiente manera:**
+    
+    ![](./img_ut2/ra2ceb27.png){.sietecinco}
+
+    <br>
+   
+!!! task "Tarea a entregar en RA2-CEb-5"
+    **1. Abre un nuevo documento y copia el siguiente texto:**  
+    El que suscribe, Don **PATRICIO RUIZ MAÑOSA**, de 21 años de edad, hijo de Don Críspulo Ruiz Beltrán y de Doña Leonor Mañosa Abad, natural de Alcaudete (Jaén) y con domicilio en esta ciudad, Avenida de Coria, 17,  
+    **EXPONE:** Que siendo una persona con gran interés en la música y la danza, como acredita con los documentos y vídeos que acompaña, se halla incluido en los criterios que las bases del concurso para el Festival de Verano señalan para la participación en el mismo. Acogiéndose a lo dispuesto en ellas, y con el propósito de aportar su talento y contribuir a la alegría del festival,  
+    **SOLICITA:** Se sirva ordenar que le sea concedida, si es que lo merece en justicia, una de las plazas para actuar en la gran final.
+    En Sevilla, a cuatro de marzo de 2025.  
+ 
+    **2. Modifica los estilos de párrafos para que quede la siguiente manera (sangría francesa):**
+
+    ![](./img_ut2/ra2ceb26.png){.sietecinco}
+
+    <br>
+
+## **2.4 - Insertar Texto e imágenes**
 
 
 | **Licencia Creative Commons:** | |
