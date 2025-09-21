@@ -331,6 +331,8 @@ Realizar una captura de un documento dónde se vean las personalizaciones de las
     En Sevilla, a cuatro de marzo de 2025.  
  
     **2. Modifica los estilos de párrafos para que quede la siguiente manera (sangría francesa):**
+    
+    **3. Añade el texto de la imagen usando tabuladores.**
 
     ![](./img_ut2/ra2ceb26.png){.sietecinco}
 
