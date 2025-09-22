@@ -338,7 +338,13 @@ Realizar una captura de un documento dónde se vean las personalizaciones de las
 
     <br>
 
-## **2.4 - Insertar Texto e imágenes**
+## **2.5 - Examen**
+
+## **2.6 - Viñetas, Numeración y Tablas**
+<!-- https://jesusfabianpinto.wordpress.com/7-numeracion-y-vinetas/ -->
+## **2.7 - Insertar**
+
+## **2.8 - Páginación**
 
 
 | **Licencia Creative Commons:** | |
