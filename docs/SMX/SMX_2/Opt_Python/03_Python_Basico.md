@@ -548,7 +548,155 @@ print("¿Te gusta programar?:", gusta_programar, "Tipo:", type(gusta_programar))
 print("Colores favoritos:", colores_favoritos, "Tipo:", type(colores_favoritos))
 ```
 
+## **5 - Constantes y literales**
+### **5.1 - Constantes**
+Una constante es un nombre simbólico que permite referenciar un objeto cuyo **valor no cambia** durante la ejecución del programa. 
 
+#### **5.1.1 - Convención de nombres**
+En Python, salvo el uso de snake_case + mayúsculas, no existe una sintaxis específica para las constantes (como en otros lenguajes de programación). Por esta razón, en Python, las constantes son realmente variables a las que, por convención no se les podrá asignar varios valores en tiempo de ejecución. 
+
+**Ejemplo de declaraciones de constantes**
+```py
+PI = 3.1416
+EULER_NUMBER = 2.718281828459045
+LIGHT_SPEED = 299792458
+GRAVEDAD = 9.8
+BASE_PATH = "/proyectos"
+```
+
+!!! question "¿Existe otra manera para recuperar el valor de PI?"
+
+#### **5.1.2 - Uso de módulos para blindar las constantes**
+Un buena práctica para guardar las constantes es declararlas en un módulo aparte (p.e. contantes.py)
+
+**Módulo donde se almacenan las constantes**
+```py 
+# constantes.py
+CONSTANTE_1 = 25.6
+CONSTANTE_2 = 59.6
+CONSTANTE_3 = 125.856
+```
+
+**Programa donde se utilizan las contantes**
+```py
+# uso_constantes.py
+import constantes as cst
+
+valor_1 = cst.CONSTANTE_1
+valor_2 = cst.CONSTANTE_2
+valor_3 = cst.CONSTANTE_3
+
+print("El valor de la suma de 'valor_1'+'valor_2'+'valor_3' es:",\
+       valor_1+valor_2+valor_3)
+```
+!!! question "¿Cuál es el resultado de la operación?"
+
+#### **5.1.3 - Constantes con clases y decorador @property**
+El decorador @property permite establecer y asociar **métodos getters y setters** a un atributo.
+
+A @property se le puede indicar cuáles serán los métodos encargados de gestionar el atributo en cuestión. 
+La protección del valor consiste en no definir ningún atributo ni **método set** que permita alterar el valor. Solo se crea un **método get** para accceder al valor. 
+
+```py
+class Constantes:
+    def __init__(self): # aquí definimos la constante
+        self._PI = 3.141592
+
+    @property
+    def PI(self):  
+        return self._PI
+
+
+constantes = Constantes()  # creamos el objeto Constantes
+
+print("Valor de PI =", constantes.PI)  # accedemos a la consstante PI
+
+constantes.PI = 10  # intentar alterar la constante
+```
+!!! question "Ejecutar el programa y ver el resultado"
+
+#### **5.1.4 - Constantes con Final**
+El módulo typing introduce **Final** para indicar a herramientas de análisis estático que una variable **no debe reasignarse**:
+```py
+from typing import Final
+
+PI: Final = 3.14159
+
+PI = 2.14159
+```
+
+Como podemos ver el código se ejecuta correctamente a pesar de utilizar la propiedad Final, no obstante, si instalamos la extensión `Mypy Type Checker` saldrá una advertencia.
+
+![](./img/UT3/final.png){.cincozero}
+
+!!! question "¿Qué objeto que hemos visto anteriormente no permite modificar directamente su contenido?"
+
+
+### **5.2 - Literales**
+En programación, **un literal** es un valor escrito directamente en el código fuente que representa un dato fijo.  
+No es una variable ni una constante con nombre: es **literalmente el dato tal cual**.
+
+**Literales numéricos**
+```py
+entero = 42
+flotante = 3.14
+complejo = 2 + 3j
+```
+
+**Literales de texto**
+```py
+cadena_comilla_simple = 'Hola, mundo!'
+cadena_comilla_doble = "Python es 'fácil' de aprender"
+```
+
+**Literales de lista y tupla**
+```py
+lista = [1, 2, 3]
+tupla = (4, 5, 6)
+```
+
+**Literales de diccionario**
+```py
+diccionario = {'clave_1': 'valor', 
+               'clave_2': 42,
+               'clave_3': [1,2,3.3],
+               'clave_4': ("Bienvenido",[25,36,42],("Hola","mundo",4+9j))}
+```
+ 
+### **5.3 - Tarea RA1-CEf**
+Completar y comentar las líneas de código de los siguientes ejercicios para poner en evidencia el dominio de lo que son contantes, literales, etc.  
+
+- **Ejercicio 1** 
+```py
+PI = _______   
+radio = _____  
+area = PI * radio ** 2
+print("Área:", area)
+```
+<br>
+- **Ejercicio 2**
+```py
+MAX_ALUMNOS = ______
+clases = ______      # poner una lista de valores
+for num in clases:
+    if num > MAX_ALUMNOS:
+        print("Clase sobrepasada")
+    else:
+        print("Clase OK")
+```
+<br>
+- **Ejercicio 3**
+```py
+DESCUENTO = ______  
+
+precio = 100  
+precio_final = precio * (1 - DESCUENTO)
+print("Precio final:", precio_final)
+
+DESCUENTO = 0.50  
+precio_final2 = precio * (1 - DESCUENTO)
+print("Precio con descuento alterado:", precio_final2)
+```
 
 <!-- 
 ## **Operadores**
@@ -1375,8 +1523,8 @@ print("Aprobado" if aprobado >= 5 else "Suspenso")
 nums = list(range(10_000))
 print(*nums, sep="\n")  # una llamada en vez de 10k prints
 
-
-
-
  -->
+
+
+  
 

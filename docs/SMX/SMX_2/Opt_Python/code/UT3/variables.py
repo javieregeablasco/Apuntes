@@ -58,6 +58,36 @@
 # print(mi_diccionario.get("edad")) # Otra manera de extraer valores del diccionario
 
 
-a = "Hola"
-b = "mundo"
-print(a,b)
+# a = "Hola"
+# b = "mundo"
+# print(a,b)
+
+# a = True
+# b = False
+# c = a and b
+# print(type(c))
+# # print(c)  
+
+# d = complex(2, 3)   
+# e = complex(-1, -5)  
+# print("resultado",d,e, d*e)
+
+ # Lista
+# mi_lista = [1, 2, 3, "cuatro", True]
+# print(mi_lista)
+# # print(mi_lista[0])      # Primer elemento
+# # print(mi_lista[-1])     # Último elemento
+
+
+# mi_lista.append(3)
+# print(mi_lista)
+
+# Diccionario
+mi_diccionario = {
+    1: "Ana",
+    2: 25,
+    3: "Madrid"
+}
+print(mi_diccionario)
+print(mi_diccionario["nombre"])  # Acceder al valor de una clave
+print(mi_diccionario.get("edad")) # Otra manera de extraer valores del diccionario
