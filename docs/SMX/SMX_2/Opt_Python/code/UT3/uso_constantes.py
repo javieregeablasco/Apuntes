@@ -1,8 +1,8 @@
-# import constantes as cst
+import constantes as cst
 
-# valor_1 = cst.CONSTANTE_1
-# valor_2 = cst.CONSTANTE_2
-# valor_3 = cst.CONSTANTE_3
+valor_1 = cst.CONSTANTE_1
+valor_2 = cst.CONSTANTE_2
+valor_3 = cst.CONSTANTE_3
 
 # # print("El valor de la suma de 'valor_1'+'valor_2'+'valor_3' es:",\
 #       #  valor_1+valor_2+valor_3)

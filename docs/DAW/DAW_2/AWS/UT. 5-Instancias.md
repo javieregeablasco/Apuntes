@@ -1,25 +1,53 @@
 ---
-title: CFGS - Desarrollo de Aplicaciones Web
-lesson: UD. 5 - Instancias EC2 y grupos de seguridad  
+cicle: CFGS - Desarrollo de aplicaciones web
+title: "Introducción a la nube pública"
+module number: 
+lesson: UD. 4 - Instancias y seguridad  
 author: Javier Egea Blasco  
-year: Año 25-26  
+year: 25-26  
 keywords: DAW, Optativa, AWS
+layout: default  
+schedule: 96h - 3h/s 
 ---
 
+# **Instancias y seguridad en AWS**
+
 ![Descripción de la imagen](../AWS/ut5/initi.png){ .sietecinco }
+
 <br>
 
-## **Introducción**
+**Resultados de aprendizaje y criterios de evaluacion que se evaluarán en esta unidad.**  
+
+| **Resultados de aprendizaje de la unidad didáctica:** |
+|-|
+| **RA. 2:** Identifica los componentes clave de la infraestructura global de la nube, diferenciando servicios principales, regiones, zonas de disponibilidad y aplicando medidas básicas de seguridad como el modelo de responsabilidad compartida, gestión de accesos y protección de datos.|  
+
+
+|**Criterios de evaluación de la unidad didáctica:**|
+||
+|**b)** Se ha demostrado la capacidad para explorar y describir las principales categorías de servicios disponibles.|
+|**c)** Se ha realizado una evaluación del uso adecuado de servicios básicos en ejercicios prácticos.|
+|**d)** Se ha comprendido el modelo de responsabilidad compartida en la nube.|
+|**e)** Se ha aplicado medidas de seguridad básicas mediante herramientas de gestión de acceso.|
+|**f)** Se han realizado ejercicios sobre gestión de usuarios y políticas de seguridad.|
+
+<br>
+
+
+
+## **1 - Introducción**
 Uno de los servicios más utilizados de AWS es **Amazon EC2 (Elastic Compute Cloud)**, que permite lanzar y administrar **instancias**, es decir, **máquinas virtuales** que funcionan de manera similar a un ordenador físico.  
 
-Estas instancias pueden configurarse con distintos sistemas operativos, hardware para adaptarse a las necesidades de cada proyecto (aplicación web, base de datos...).
+Estas **instancias** pueden configurarse con distintos sistemas operativos, hardware para adaptarse a las necesidades de cada proyecto (aplicación web, base de datos...).
 
-Al igual que cualquier dispositivo, las instancias necesitan un mecanismo de control de tráfico para **garantizar su seguridad**. En este contexto aparecen los **grupos de seguridad** (Security Groups, SG). Un grupo de seguridad no es más que un firewall virtual, que supervisa (y restrinje) el tráfico entrante y saliente a las instancias.
+Al igual que cualquier dispositivo, las instancias necesitan un mecanismo de control de tráfico para **garantizar su seguridad**. En este contexto aparecen los **grupos de seguridad** (Security Groups, SG). Un grupo de seguridad no es más que un **firewall virtual**, que supervisa y restrinje el tráfico entrante y saliente de las instancias.
 
 En conjunto, las EC2 y los SG constituyen la base de la infraestructura en la nube: las instancias proporcionan la capacidad de cómputo, mientras que los grupos de seguridad ofrecen la primera línea de defensa para proteger los recursos desplegados.
 
-## **Instancias EC2**
-Como hemos dicho, una instancia EC2 es básicamente una computadora en la nube. Al igual que los equipos físicos se caracterizan por una serie de características como la potencia de computo, su RAM y otras que veremos a continuación.
+## **2 - Instancias EC2**
+### **2.1 - Instancias de AWS**
+Como hemos dicho, una instancia EC2 (**E**lastic **C**loud **C**ompute) es básicamente una computadora en la nube.  
+**Al igual que los equipos físicos**, las instancias se caracterizan por una serie de características como potencia de computo, RAM y otras características que veremos a continuación.
 
 **Nomenclatura de las instancias EC2**  
 El nombre de la instancia define las especificaciones de la misma es decir, la familia, la generación, la capacidad adicional y el tamaño.
@@ -28,23 +56,31 @@ El nombre de la instancia define las especificaciones de la misma es decir, la f
 
 - **Familia**  
 La familia define la optimización principal de la máquina, dicho en otras palabras, el uso preferente que debemos dar a esas máquinas.  
-C → Compute Optimized. Para cargas de trabajo que requieren mucha CPU (alta relación CPU/memoria).  
-M → General Purpose. Equilibrio entre CPU, memoria y almacenamiento. Usadas para la mayoría de aplicaciones estándar.  
-R → Memory Optimized. Diseñadas para cargas de trabajo que requieren gran cantidad de memoria en relación con la CPU.  
-I → Storage Optimized (I/O Optimized). Pensadas para cargas que requieren altísimo rendimiento en disco local (NVMe/SSD).   
-G → **Graphics / GPU-based**. Para machine learning (basadas en GPU NVIDIA).  
-P → **Accelerated Computing (GPU)**. Para entrenamiento de deep learning, computación científica, simulaciones de alto nivel.  
-X → Extra Memory Optimized. Instancias con terabytes de RAM, usadas para grandes bases de datos o aplicaciones que requieren mucha memoria.  
-<br>
+
+      |Familia|Aplicación|
+      |:-:|-|
+      |C|  Compute Optimized. Para cargas de trabajo que requieren mucha CPU (alta      relación CPU/memoria).  |
+      |M | General Purpose. Equilibrio entre CPU, memoria y almacenamiento. Usadas para       la mayoría de aplicaciones estándar.  |
+      |R| Memory Optimized. Diseñadas para cargas de trabajo que requieren gran     cantidad de memoria en relación con la CPU.  |
+      |I| Storage Optimized (I/O Optimized). Pensadas para cargas que requieren     altísimo rendimiento en disco local (NVMe/SSD).   |
+      |G | **Graphics / GPU-based**. Para machine learning (basadas en GPU NVIDIA).  |
+      |P|  **Accelerated Computing (GPU)**. Para entrenamiento de deep learning,     computación científica, simulaciones de alto nivel.  |
+      |X|  Extra Memory Optimized. Instancias con terabytes de RAM, usadas para grandes       bases de datos o aplicaciones que requieren mucha memoria.  |
+
+
 
 - **Generación**  
 Representan la evolución tecnológica de las instancias. Cada nueva generación trae mejor rendimiento, menor coste por hora y mejor eficiencia energética.  
-Se identifican por el número que acompaña a la familia.  
-👉 Ejemplo:  
-      - t2.micro → 2ª generación de instancias de uso general.  
-      - t3.micro → 3ª generación, más eficiente que t2.  
-      - t4g.micro → 4ª generación, basada en procesadores ARM Graviton2 de AWS.  
-<br>  
+La generación de una instancia EC2 se identifica por el número que acompaña a la familia.<br>  
+**Ejemplos:**  
+
+      |Instancias|Descripción|
+      |-|-|
+      |t**2**.micro | 2ª generación de instancias de uso general.  |
+      |t**3**.micro | 3ª generación, más eficiente que t2.  |
+      |t**4**g.micro | 4ª generación, basada en procesadores ARM Graviton2 de AWS. |
+
+  
 
 - **Capacidad adicional**  
 La capacidad adicional de EC2 se refiere a esas optimizaciones extra (almacenamiento, red, EBS, GPU, bare metal, etc.) que hacen que dos instancias de la misma familia y tamaño puedan comportarse de forma distinta.  
@@ -60,7 +96,7 @@ Las letras utilizadas en el nombre de instancia y las propiedades asociadas se e
        |z|Alta frecuencia de CPU|m5zn|
        |.metal|Bare metal|m8g.metal|
              
-- **Tamaño de la instancia**
+- **Tamaño de la instancia**  
 El **tamaño de una instancia de EC2 en AWS** se refiere a la combinación de recursos de hardware virtualizados (vCPU, memoria RAM, almacenamiento y capacidad de red) que se asignan a una máquina virtual. En otras palabras, define la **potencia y capacidad de cómputo** que tendrá la instancia dentro de la familia de instancias elegida.  
 <br>
  
@@ -75,7 +111,7 @@ El **tamaño de una instancia de EC2 en AWS** se refiere a la combinación de re
       | r5d.8xlarge | 32   | 256      | 2 x 600             | 10           | 6800                   | 2.304 (+100%)            |
 <br>
 
-## **AMI (Amazon Machine Image)**
+### **2.2 - AMI (Amazon Machine Image)**
 Una AMI es una plantilla que contiene la información necesaria para lanzar una instancia de EC2. Es como si fuera la `imagen base` de una máquina virtual.
 
 Cada AMI incluye:
@@ -88,7 +124,7 @@ Cada AMI incluye:
 
 Cuando se lanza una **instancia EC2**, se elige una AMI como punto de partida, y a partir de ahí la instancia puede configurarse, modificarse y **personalizarse**.
 
-### **Tipos de AMI**
+#### **2.1.1 - Tipos de AMI**
 
 1. **AMIs públicas**
 
@@ -104,12 +140,12 @@ Cuando se lanza una **instancia EC2**, se elige una AMI como punto de partida, y
 
      * Imágenes de terceros (generalmente de pago) con aplicaciones ya listas (WordPress, SAP, soluciones de seguridad, etc.).
 
-### **Regiones y AMIs**
+#### **2.1.2 - Regiones y AMIs**
 
 * Una AMI está **ligada a una región**.
 * Si se necesita usarla en otra región, se debe **copiar**.
 
-### **Crear una AMI**
+#### **2.1.3 - Crear una AMI**
 
 Se pueden crear AMI's desde:
 
@@ -117,11 +153,51 @@ Se pueden crear AMI's desde:
 2. **Un snapshot de EBS** → Luego convertir en AMI.
 3. **Importar una VM** (desde VMware, VirtualBox o Hyper-V con la herramienta VM Import/Export).
 
+### **2.3 - EBS (Elastic Block Store)**
+**EBS (Elastic Block Store)** es el servicio de **almacenamiento en bloque** que se usa para las instancias EC2. Dicho en otras palabras, es el **disco duro** de las instancias y se puede usar para instalar el sistema operativo, guardar bases de datos, etc.
 
+#### **2.3.1 - Concepto básico**
+!!! info "Características principales"
+    * **Persistente**: los datos persisten aunque la instancia EC2 se detenga o se termine (si el volumen no se borra automáticamente al terminar la instancia).
+    * **Redimensionable**: Se puede cambiar el tamaño, tipo o rendimiento sin reiniciar la instancia (en muchos casos).
+    * **Alta disponibilidad**: cada volumen EBS se replica automáticamente dentro de la zona de disponibilidad (AZ) para protegerlo de fallos de hardware.
+    * **Snapshots**: Se pueden programar copias de seguridad incrementales en S3 (Snapshots EBS).
+    * **Tipos de volumen**: AWS ofrece varios tipos (SSD y HDD) adaptados a rendimiento y coste:  
+    &nbsp;&nbsp;&nbsp;&nbsp; **gp3/gp2**: SSD de uso general.  
+    &nbsp;&nbsp;&nbsp;&nbsp; **io1/io2**: SSD de alto rendimiento para IOPS elevados.  
+    &nbsp;&nbsp;&nbsp;&nbsp; **st1**: HDD optimizado para throughput.  
+    &nbsp;&nbsp;&nbsp;&nbsp; **sc1**: HDD de bajo coste para datos menos usados.
 
-## **Grupos de seguridad y ACL's**
-### **Introducción**
-Los **grupos de seguridad** y las **ACL de red y de VPC** son componentes fundamentales de la seguridad en un entorno de nube. Aunque funcionan de manera similar a los **firewalls**, no son exactamente lo mismo, ya que presentan diferencias en su uso y alcance.
+---
+#### **2.3.2 - Uso con EC2**
+* Al lanzar una instancia EC2, se crea automáticamente un volumen EBS para el sistema operativo.
+* Se puede **adjuntar** varios volúmenes EBS a una misma instancia EC2.
+* **Se deben montar** como dispositivos de bloque en el sistema operativo y luego se formatean y usan como cualquier disco.
+* Es posible **desadjuntar** un volumen de una instancia y **adjuntarlo** a otra (útil para migrar datos).
+---
+
+#### **2.3.3 - Otros tipos de almacenamientos de AWS**
+
+* **Instance store**: almacenamiento efímero local (desaparece al detener/terminar la instancia).
+* **S3**: almacenamiento de objetos, no en bloques.
+* **EFS**: almacenamiento de archivos (compartido NFS).
+---
+#### **2.3.4 - Tarea RA2-CEb**
+Realizar el siguiente escenario.
+De momento, no tener en cuenta los grupos de seguridad.  
+
+![](./ut5/práctica1.png){ .sietecinco }
+
+!!! question "Preguntas a responder:"
+    1. ¿Qué debemos hacer para ampliar la infraestructura e incorporar un servidor para el backend?
+    2. Queremos, además, guardar imágenes, PDFs y vídeos para que los clientes puedan descargarlos.  
+    ¿Qué tipo de almacenamiento de AWS sería el más adecuado?  
+    Buscar un ejemplo de tipo de almacenamiento adecuado en AWS. 
+---
+
+## **3 - Grupos de seguridad y listas de control de acceso (ACL)**
+### **3.1 - Introducción**
+Los **grupos de seguridad** y las **ACL de red y de VPC** son componentes fundamentales de la **seguridad** en un entorno de nube. Aunque funcionan de manera similar a los **firewalls**, no son exactamente lo mismo, ya que presentan diferencias en su uso y alcance.
 
 Dentro del modelo de **nube pública**, el proveedor está obligado contractualmente a cumplir con su parte del modelo de **responsabilidad compartida**. Sin embargo, la configuración de los grupos de seguridad es **responsabilidad del cliente**.
 
@@ -129,7 +205,7 @@ Por defecto, al lanzar una instancia **EC2 en AWS**, la única regla permitida e
 
 Para garantizar el correcto despliegue de las aplicaciones, será necesario ampliar las reglas de los grupos de seguridad, asegurando siempre que estas configuraciones no comprometan la seguridad del entorno.
 
-### **Grupos de seguridad**
+### **3.2 - Grupos de seguridad**
 En AWS, un grupo de seguridad es **un conjunto de reglas de firewall virtual** que controlan el **tráfico entrante y saliente** de una **instancia**.
 
 Los grupos de seguridad se aplican a **nivel de instancia**, no a **nivel de subred** (esa función la cumplen las **ACL de red**).
@@ -138,51 +214,71 @@ Los grupos de seguridad son **con estado** (stateful): la entrada es igual a la 
 
 **Las reglas no tienen un orden de prioridad**. Las reglas de un grupo de seguridad no tienen prioridad ni orden. Todas se evalúan en conjunto y únicamente permiten tráfico. Si no existe una regla que lo permita, el tráfico se deniega por defecto.
 
-**Ejemplo de SG**  
+!!! warning "Configuración de las reglas de entrada y salida."
+    Para que una instancia funcione correctamente **y esté segura**, es imprescindible definir las reglas de entrada (inbound) y de salida (outbound) del grupo de seguridad:
+
+    - **Reglas de entrada**  
+    Controlan qué tráfico puede entrar a la instancia desde Internet u otras redes.  
+    Ejemplo: permitir el puerto 80 (HTTP) o 443 (HTTPS) para que una web sea accesible públicamente.  
+    **Restringir** todo lo que no sea necesario: Todo lo que no está **permitido explicitamente** está prohibido.  
+
+    - **Reglas de salida**
+    Controlan qué tráfico puede salir desde la instancia **hacia otras redes o Internet**.  
+    **Por defecto**, AWS permite todo el **tráfico de salida**.
+
+
+### **3.3 - Ejemplo de SG**  
 En el siguiente ejemplo tenemos una VPC, una subred con **una instancia EC2**, una puerta de enlace de Internet y **un grupo de seguridad**.  
 Como hemos dicho **el grupo de seguridad se asigna a la instancia** y actúa como un firewall virtual.  
 El único tráfico que llega a la instancia es el permitido por las reglas del grupo de seguridad. 
-![](./ut5/SG.png){.original}
+![](./ut5/SG.png){.original}  
+![](./ut5/sg-rules.png){.sietecinco}  
 
+### **3.4 - Tarea RA2-CEc**  
+1. Retomar el escenario de la tarea RA2-CEc. 
+1. Ampliar el escenario con una segunda instancia que se encontrará en una subred privada.
+El escenario quedará de la siguiente manera:
+![](./ut5/VPC2.png){.sietecinco}  
 
-### ACL de red
+1. Poblar los grupos de seguridad de la siguiente manera:  
+
+     |Instancia	|Subred	|Grupo de Seguridad	|Reglas de Entrada|	Reglas de Salida|
+     |-|-|-|-|-|
+     |Web|	Pública	|SG-Web|	80, 443 desde Internet;  22 desde IP admin	|Todo permitido (o restringir a lo necesario)|
+     |DB	|Privada|	SG-DB|	3306 desde SG-Web	|Todo permitido (o restringir a lo necesario)|
+
+### **3.6 - ACL de red**
 Las **Network ACL (NACL)** son un componente de seguridad que actúa a nivel de **subred** dentro de una **VPC**.
 
-**Se aplican a nivel de subred**: Todas las instancias dentro de esa subred quedan sujetas a las reglas de la ACL.
+<br>
+![](./ut5/nacl.webp){.sietecinco}  
 
-Cada **VPC** en AWS tiene **una ACL por defecto**, y se pueden crear ACLs personalizadas para afinar el control del tráfico.
+1. **Se aplican a nivel de subred**: Todas las instancias dentro de esa subred quedan sujetas a las reglas de la ACL.  
+1. Cada **VPC** en AWS tiene **una ACL por defecto**, y se pueden crear ACLs personalizadas para afinar el control del tráfico.
+1. **Son sin estado** (stateless): No recuerdan el estado de la conexión. Por ejemplo, si se permite el tráfico entrante en un puerto, **también se debe** permitir explícitamente el tráfico de salida de respuesta.
+1. **Soportan reglas de entrada y salida**:    
+      * Reglas de entrada → Controlan tráfico **entrante a la subred**.
+      * Reglas de salida → Controlan tráfico **saliente desde la subred**.
+1. **Orden numérico de las reglas**
+      * Cada regla tiene un número (del 1 al 32766).
+      * Se evalúan en **orden ascendente** → la primera regla que coincida se aplica, y se ignoran las siguientes.
+1. **Acciones posibles**
+      * `ALLOW`: Permitir tráfico.
+      * `DENY`: Bloquear tráfico.
+1. **ACL por defecto**  
+!!! warning "¡Todo está abierto en las ACL por defecto!"
+       * La **ACL por defecto** de una VPC permite todo el tráfico entrante y saliente.
+       * Las **ACL personalizadas** niegan todo el tráfico hasta que se configuren reglas.
 
-**Son sin estado** (stateless): No recuerdan el estado de la conexión. Por ejemplo, si se permite el tráfico entrante en un puerto, **también se debe** permitir explícitamente el tráfico de salida de respuesta.
-
-
-**Soportan reglas de entrada y salida**:    
-
-   * Reglas de entrada → Controlan tráfico **entrante a la subred**.
-   * Reglas de salida → Controlan tráfico **saliente desde la subred**.
-
-**Orden numérico de las reglas**
-
-   * Cada regla tiene un número (del 1 al 32766).
-   * Se evalúan en **orden ascendente** → la primera regla que coincida se aplica, y se ignoran las siguientes.
-
-**Acciones posibles**
-
-   * `ALLOW`: Permitir tráfico.
-   * `DENY`: Bloquear tráfico.
-
-**ACL por defecto**
-
-   * La **ACL por defecto** de una VPC permite todo el tráfico entrante y saliente.
-   * Las **ACL personalizadas** niegan todo el tráfico hasta que se configuren reglas.
-
-**Ejemplo de ACL** 
-En el siguiente ejemplo, tenemos una VPC con dos subredes. Cada **subred tiene una ACL de red**. Cuando el tráfico entra en la VPC, el enrutador envía el tráfico a su destino.  
+**Ejemplo de ACL**  
+En el siguiente ejemplo, tenemos una VPC con dos subredes. Cada **subred tiene una ACL de red**. Cuando el tráfico entra en la VPC, el enrutador envía el tráfico a su destino.    
 La ACL de red A determina qué tráfico destinado a la subred 1 puede entrar en la subred 1, y qué tráfico destinado a una ubicación fuera de la subred 1 puede salir de la subred 1.  
 Del mismo modo, la ACL de red B determina qué tráfico puede entrar y salir de la subred 2.
 ![](./ut5/acl.png){.original}
 
 <br>
-### Tabla comparativa entre SG y ACL
+
+### **3.7 - Tabla comparativa entre SG y ACL**
 | Característica                 | **Security Groups (SG)**                                                                                 | **Network ACLs (NACL)**                                                                               |
 | ------------------------------ | -------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
 | **Naturaleza**                 | *Stateful* (tienen “efecto memoria”)                                                                     | *Stateless* (no recuerdan conexiones)                                                                 |
@@ -193,20 +289,18 @@ Del mismo modo, la ACL de red B determina qué tráfico puede entrar y salir de 
 | **Predeterminado**             | Todo el tráfico está **denegado por defecto** (excepto lo que se permita explícitamente)                 | Todo el tráfico está **permitido por defecto** (excepto lo que se niegue explícitamente)              |
 | **Casos de uso típicos**       | Control fino del tráfico a instancias (ej. abrir 22/SSH o 443/HTTPS)                                     | Control global a nivel de subred, aplicar restricciones más amplias (ej. denegar rangos IP completos) |
 
-
-## **Tarea 1:**
-Realizar el siguiente escenario y poblar las reglas del grupo de seguridad.
-Acceder por ssh a la instancia y comprobar su dirección ip privada. 
+#### **3.8 - Tarea RA2-CEd
+Entender el concepto de responsabilidad compartida en el desarrollo de una infraestructura en AWS.
 
 
-![](./ut5/práctica1.png){ .sietecinco }
-
-## **Tarea 2:**
-lo mismo con una subred privada.
-Acceder por ssh a la instancia y comprobar su dirección ip privada. 
+<!-- Acceder por ssh a la instancia y comprobar su dirección ip privada.  -->
  
-## am,plicacio
-hablar de los nat para permitir a las ec2 de las subredes privadas poder acceder a inet sin tener ipv4 pública.
+<!-- https://medium.com/@mrdevsecops/network-acls-security-group-68f2dd901ee6 -->
+
+<!-- ## am,plicacio
+hablar de los nat para permitir a las ec2 de las subredes privadas poder acceder a inet sin tener ipv4 pública. -->
+
+<!-- modelo responsabilidad compartida https://www.corestack.io/aws-security-best-practices/aws-security-group-best-practices/ -->
 
 ## **Enlaces de interés**
 Documentación de [AWS](https://docs.aws.amazon.com).
@@ -215,5 +309,5 @@ Tipos de instancias [EC2](https://aws.amazon.com/es/ec2/instance-types).
 Controlar el tráfico hacia los recursos de AWS mediante [grupos de seguridad](https://docs.aws.amazon.com/es_es/vpc/latest/userguide/vpc-security-groups.html#security-group-basics).
 [Grupos de seguridad de instancias EC2](https://docs.aws.amazon.com/es_es/AWSEC2/latest/UserGuide/ec2-security-groups.html).
 Control del tráfico de la subred con [listas de control de acceso a la red](https://docs.aws.amazon.com/es_es/vpc/latest/userguide/vpc-network-acls.html)
-Tipos y caracteristicas de [AMI en Amazon EC2](https://docs.aws.amazon.com/es_es/AWSEC2/latest/UserGuide/ComponentsAMIs.html)
+Tipos y caracteristicas de las [EBS](https://docs.aws.amazon.com/es_es/ebs/latest/userguide/ebs-volume-types.html)
 

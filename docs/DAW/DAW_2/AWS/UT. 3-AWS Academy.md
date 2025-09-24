@@ -235,8 +235,9 @@ En AWS existen varios **planes y estrategias de uso** que permiten **optimizar l
 * **Ventaja:** muy barato para cargas **flexibles o tolerantes a interrupciones**, como procesamiento batch o pruebas.
 * **Desventaja:** AWS puede interrumpir la instancia si necesita la capacidad.
 
-#### **e. Optimización de almacenamiento y servicios adicionales**
-Aunque no son “planes de uso” como tal, se combinan con ellos para reducir costes:
+#### **e. Optimización de almacenamiento y servicios adicionales**  
+Aunque no son “planes de uso” como tal, se combinan con ellos para reducir costes:  
+
 * **S3 Storage Classes:** Standard, Standard-IA, Glacier → para ajustar coste según frecuencia de acceso.
 * **Lifecycle policies:** mover archivos automáticamente entre tipos de almacenamiento según antigüedad.
 * **Auto Scaling:** encender y apagar instancias automáticamente según demanda.
@@ -261,7 +262,7 @@ Aunque no son “planes de uso” como tal, se combinan con ellos para reducir c
   <br>
 
 #### **a. Acceder al panel de facturación de AWS**
-Después de iniciar sesión en su cuenta, en el menú de la cuenta, seleccione Panel de facturación.
+Después de iniciar sesión en su cuenta, en el menú de la cuenta, seleccione `Panel de facturación`.
 
 ![](../AWS/ut3/costos/billdash.png){.sietecinco}
 
@@ -277,7 +278,7 @@ En la sección **Resumen de AWS**, se podrá ver un resumen de los costos del me
 #### **c. Modificar las alertas de correo electrónico del límite de uso** 
 De manera predeterminada, la mayoría de las cuentas se activan automáticamente para recibir alertas por correo electrónico respecto del límite **del nivel gratuito de AWS** cuando el uso de su servicio excede el 85 % de un límite determinado.
  
-Para cambiar quién recibe estas alertas por correo electrónico, seleccione Preferencias de facturación en la barra de navegación izquierda.
+Para cambiar quién recibe estas alertas por correo electrónico, seleccione **Preferencias de facturación** en la barra de navegación izquierda.
  
 Para que otras personas puedan recibir alertas de uso del nivel gratuito, agregue su dirección de correo electrónico en el campo de Dirección de correo electrónico y seleccione Guardar preferencias. 
 
@@ -312,7 +313,10 @@ En la sección **Parámetros de presupuesto**, se puede utilizar estas caracter�
 
 <br>
 
-#### **d. Tarea RA1-CEd - Creación de una alerta de costes y un resumen de facturación**
+#### **d. Tarea RA1-CEd Billing dashboard**
+Realizar una captura de pantalla de vuestro **Panel de facturación**. 
+
+#### **e. Tarea RA1-CEf Creación de una alerta de costes y un resumen de facturación**
 !!! task "Ir a **Administración de facturación y costos** y crear lo siguiente:"
     **Alerta de costos con las siguientes condiciones:**    
     &nbsp;&nbsp;&nbsp;&nbsp;1. Presupuesto: 50$   
@@ -330,11 +334,11 @@ En la sección **Parámetros de presupuesto**, se puede utilizar estas caracter�
 
 **Ayuda:** Como crear [una alerta de costes](https://www.youtube.com/watch?v=O0sofGVT7uw) en AWS. 
 
-### **3.4 - Presupuesto de una infraestructura básica**
+### **3.5 - Presupuesto de una infraestructura básica**
 Para estimar de forma precisa el coste de desplegar una infraestructura en la nube es fundamental utilizar herramientas que nos permitan simularla.  
 Para ello, AWS ofrece una **Calculadora de Costes oficial**, con la que se puede configurar servicios (instancias EC2, almacenamiento, bases de datos, redes ...) y obtener de esa manera un presupuesto aproximado antes de su puesta en marcha.
 
-Se puede acceder a la calculadora en el siguiente enlace: [AWS Pricing Calculator](https://calculator.aws.amazon.com/)
+Se puede acceder a la calculadora en el siguiente enlace: [AWS Pricing Calculator](https://calculator.aws/#/)
 
 <br>
 
@@ -401,7 +405,7 @@ Pulsamos guardar y ver resumen y obtendremos el presupuesto.
 
 <br>
 
-#### **c. Tarea RA1-CEe - Estimación del coste de una página web**
+#### **c. Tarea RA1-CEe Estimación del coste de una página web**
 !!! task "Ir a **calculadora de costes oficial** y crear un presupuesto con las siguientes especificaciones:"
     | **Componente** | **Parámetro** | **Valor** |
     |-|-|-|
@@ -440,10 +444,10 @@ Pulsamos guardar y ver resumen y obtendremos el presupuesto.
     **Condiciones de la entrega:**  
     Subir una captura del presupuesto final después de introducir todos los datos.
 
-!!! question "**Buscar información para un hosting convencional de similares caracteristicas.**
+!!! question "Buscar información para un hosting convencional de similares caracteristicas y comparar precios."
 
 
-### **3.5 - Resumen de servicios para el control de costos en AWS** 
+### **3.6 - Resumen de servicios para el control de costos en AWS** 
 :one: &nbsp;&nbsp;**Herramientas esenciales de AWS**  
 
 |Herramienta |	Para qué sirve |	Beneficio principal |
