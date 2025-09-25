@@ -338,10 +338,89 @@ Realizar una captura de un documento dónde se vean las personalizaciones de las
 
     <br>
 
+## **2.5 - Viñetas y numeración de títulos y párrafos**
+!!! task "Tarea a entregar en RA2-CEb-6"
+    **1. Abre un nuevo documento y copia el siguiente texto:**  
+    OPERACIONES BÁSICAS:
+    Entrar en el programa.
+    Guardar un documento por primera vez.
+    Recuperar un archivo.
+    Fuentes, tamaños y colores.
+    ENTRAR EN EL PROGRAMA:
+    Desplegar el menú Inicio.
+    Seleccionar el apartado Programas.
+    En el segundo menú pinchar sobre la opción correspondiente.
+    GUARDAR UN DOCUMENTO POR 1a VEZ:
+    Desplegar el menú Archivo.
+    Elegir la opción Guardar como.
+    Seleccionar la unidad de almacenamiento.
+    Escribir el nombre con el que se vaya a guardar el documento.
+    Pulsar el botón Guardar.
+    RECUPERAR UN ARCHIVO:
+    Desplegar el menú Archivo.
+    Elegir la opción Abrir.
+    Indicar la unidad en la que está almacenado el documento.
+    Seleccionar el archivo de la lista.
+    Pulsar el botón Abrir.
+    FUENTES, TAMAÑOS Y COLORES:
+    Desplegar el menú Formato.
+    Seleccionar la opción Fuentes.
+    Seleccionar una fuente, un tamaño para el texto y un color.
+
+    **2. Incorporar numeraciones y viñetas para que el texto quede de la siguiente manera.**  
+    Tener en cuenta los formatos que ya conoceís: Parrafo, texto, etc. Cualquier aportación personal para aportar vistosidad y legibilidad al texto será bienvenida.  
+    No hacer **fontaneria**. El espacio entre elementos de texto deberá realizarse eligiendo correctamente los parametros de cada elemento, **no realizando saltos de línea**.  
+
+    ![](./img_ut2/ra2ceb29.png){.trescinco}
+
+    **3. Realiza un salto de página en el documento anterior y copia el siguiente texto:**  
+    Introducción al programa
+    Utilidad del Procesador de Texto.
+    Entrar en Procesador de Texto.
+    Los elementos de la pantalla.
+    Barra de Título.
+    Barra de menús.
+    Barra de herramientas Estándar.
+    Barra de Formato.
+    Barra de Regla.
+    Barra de Estado.
+    Salir del programa.
+    Gestión de archivos
+    Guardar un documento nuevo.
+    Recuperar un archivo.
+    Guardar cambios.
+    Diferencias entre Guardar y Guardar como. Guardar actualiza un documento existente, sobrescribiendo la versión anterior con los cambios que has hecho. Por otro lado, Guardar como te permite guardar una nueva copia del documento. Puedes elegir una nueva ubicación, un nuevo nombre de archivo o un formato de archivo diferente, dejando el documento original sin modificar. 
+    Formato del documento
+    Márgenes.
+    Interlineado.
+    Espacio entre párrafos.
+    Sangrías.
+    Sangría 1ª línea.
+    Sangría izquierda.
+    Sangría derecha.
+
+    **4. Incorporar numeraciones y viñetas para que el texto quede de la siguiente manera.**
+
+    ![](./img_ut2/ra2ceb30.png){.cincozero}
+
+
+## **2.6 - Estilos**
+En esta apartado aprenderemos a definir estilos para todos los elementos de nuestro documento de texto, lo que permetrá ahorrar un tiempo considerable en la redacción o modificación del mismo.
+!!! task "Tarea a entregar en RA2-CEb-7"
+    **1. Descargar y abrir el archivo 'RA2- aplicar estilos' pinchando en el enlace siguiente:** [Descargar archivo](./archivos/RA2%20-%20aplicar%20estilos.odt)  
+    2. Crear un nuevo estilo **MisEstilos**. Dejar la configuración por defecto y solo modificar el tipo de letra a **Arial 12**.  
+    3. Crear 2 sub estilos **Párrafos** y **Títulos**. Los estilos quedarán de la siguiente manera.
+
+    ![](./img_ut2/ra2ceb31.png){.doscinco}
+
+    4.
+
+
+
+
+
 ## **2.5 - Examen**
 
-## **2.6 - Viñetas, Numeración y Tablas**
-<!-- https://jesusfabianpinto.wordpress.com/7-numeracion-y-vinetas/ -->
 ## **2.7 - Insertar**
 
 ## **2.8 - Páginación**
