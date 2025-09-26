@@ -125,7 +125,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
      1. Configurar el procesador de texto para que realice un guardado del documento cada 1 minuto.
      1. ¿Qué opción permite al usuario introducir metadatos dentro del archivo creado?
      1. ¿Cómo se realiza un zoom? Es decir ¿Qué debo hacer para ver el documento más grande en pantalla?
-     1. ¿Puedo cambiar la forma en la que me aparece el documento en pantalla? Ed decir ¿Qué debo hacer para poder ver el documento en vista de     páginas múltiples o en vista de libro?
+     1. ¿Puedo cambiar la forma en la que me aparece el documento en pantalla? Ed decir ¿Qué debo hacer para poder ver el documento en vista de páginas múltiples o en vista de libro?
      1. ¿Qué opción me permite cambiar la forma de seleccionar palabras, letras, imágenes?
      1. Cambiar el tipo de letra básico de **Liberation Sans** a **Arial**.
      1. Configurar el archivo guardado para que solo se pueda abrir mediante **contraseña**.
@@ -138,8 +138,8 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
     1. Seleccionar la opción que permite mostrar la barra de estilos (pista: ver).
     1. Cambiar la interfaz de usuario para que esta sea similar a la de Microsoft Word (pista: ver).
     1. Mostrar, en la interfaz de usuario, varias barras de herramientas que no aparecen por defecto (p.e. Controles de formulario y Tabla).
-    1. Después de mostrar esas barras de herramientas, eliminar varios iconos de esas barras de herramientas de la interfaz de usuario (pista:     personalizar).
-    1. Cambiar la opción para que, en vez de una coma, sea un punto lo que aparezca en pantalla después de presionar el ‘punto’ del teclado     numérico (pista: personalizar, configurar idioma, separador decimal).
+    1. Después de mostrar esas barras de herramientas, eliminar varios iconos de esas barras de herramientas de la interfaz de usuario (pista: personalizar).
+    1. Cambiar la opción para que, en vez de una coma, sea un punto lo que aparezca en pantalla después de presionar el ‘punto’ del teclado numérico (pista: personalizar, configurar idioma, separador decimal).
 
 #### Condiciones de entrega de la práctica.
 Realizar una captura de un documento dónde se vean las personalizaciones de las barras de herramientas. Subir la captura a Aules en **Tarea RA2-CEa**.
