@@ -686,6 +686,7 @@ for num in clases:
 ```
 <br>
 - **Ejercicio 3**
+
 ```py
 DESCUENTO = ______  
 
@@ -698,8 +699,7 @@ precio_final2 = precio * (1 - DESCUENTO)
 print("Precio con descuento alterado:", precio_final2)
 ```
 
-<!-- 
-## **Operadores**
+## **6 - Operadores**
 Los operadores son símbolos que indican al programa que realice una operación específica, como aritmética, comparación, lógica, etc.
 
 <div class="operadores">
@@ -753,7 +753,7 @@ kanban
 ``` 
 </div>
 
-### **Operadores aritméticos**
+### **6.1 - Operadores aritméticos**
 Los operadores aritméticos permiten realizar operaciones aritméticas básicas con las variables de tipo numérico. 
 
 |Operador |	Descripción |	Ejemplo|
@@ -795,7 +795,7 @@ print(c)
     ¿Qué se debería hacer para que sean correctos?
 
 
-### **Operadores de comparación**
+### **6.2 - Operadores de comparación**
 Permiten efectuar comparaciones entre objetos de Python.  
 El resultado de una comparación es un valor booleano (True o False).  
 
@@ -818,7 +818,7 @@ Los operadores relacionales solo se pueden ejecutar para comparar valores del mi
 !!! Ejercicio  
     Transcribir a python las expresiones que acabamos de ver.      
 
-### **Operadores lógicos**
+### **6.3 - Operadores lógicos**
 Sirven para realizar operaciones de lógica booleana entre valores de tipo bool. Los operadores lógicos son (las palabras reservadas) **and, or y not**.  
 
 |Operador|	Descripción |	Ejemplo|
@@ -830,7 +830,7 @@ Sirven para realizar operaciones de lógica booleana entre valores de tipo bool.
 **Nota:**  
 Cuidado con la sintaxis. Si usamos los símbolos de la lógica combinatoria (+, *, ...) los resultados pueden no ser los esperados.
 
-### **Operadores de asignación**
+### **6.4 - Operadores de asignación**
 Un operador de asignación sirve para **asignar un valor** a una variable. Generalmente se combina con otros operadores (aritmética, bit a bit, ...) donde la operación se realiza en los operandos y el resultado se asigna **al operando izquierdo**.
 
 |Operador|	Descripción |	
@@ -844,7 +844,7 @@ Un operador de asignación sirve para **asignar un valor** a una variable. Gener
 |**= |	a **= 3 es equivalente a a = a ** 3|
 |//= |	a //= 3 es equivalente a a = a // 3|
 
-### **Operadores de pertenencia**
+### **6.5 - Operadores de pertenencia**
 Un operador de pertenencia se emplea para identificar pertenencia en alguna secuencia (listas, strings, tuplas).  
 
 - **in** y **not in** son operadores de pertenencia.
@@ -872,7 +872,7 @@ print("world" in str) # Muestra False
 print("code" not in str) # Muestra True
 ```
 
-### **Operadores de identidad**
+### **6.6 - Operadores de identidad**
 Un operador de identidad se emplea para comprobar si dos variables emplean la misma ubicación en memoria.
 
 - **is** → comprueba si dos variables hacen referencia al mismo objeto en memoria.
@@ -894,9 +894,85 @@ print(a is not c)  # True, porque no son el mismo objeto (las listas son objetos
 - **is** no se debe usar para **comparar valores**, solo para identidad de objetos.
 - Para comparar valores, siempre se usará ==.
 
-### **Ejercicios con operadores**
-FALTA
+### **6.7 - Ejercicios con operadores**
+Completar el código de los siguiente ejercicios.
+#### **Ejercicio 1**
+Realiza un programa que determine los siguientes aspectos (es suficiente con mostrar True o False):
 
+- Si los dos números son iguales
+- Si los dos números son diferentes
+- Si el primero es mayor que el segundo
+- Si el segundo es mayor o igual que el primero
+
+```py
+# Ejercicio 1
+
+# Leer dos números por teclado
+num1 = float(input("Introduce el primer número: "))
+num2 = float(input("Introduce el segundo número: "))
+
+# Código a aportar por el alumno
+...
+...
+...
+...
+```
+<br>
+
+#### **Ejercicio 2**
+Utilizando operadores lógicos, determina si una cadena de texto introducida por el usuario tiene una longitud mayor o igual que 3 y a su vez es menor que 10.  
+**Nota:** Para determinar el largo de una cadena usar **la función len()**.  
+Ejemplo:
+```py
+texto = "Esta es una frase"
+print(len(texto))
+```
+
+Fragmento de código a completar.
+```py
+# Leer una cadena de texto por teclado
+texto = input("Introduce una cadena de texto: ")
+
+# Comprobar si su longitud es mayor o igual que 3 y menor que 10
+...
+
+# Mostrar True o False
+... 
+```
+
+<br>
+
+#### **Ejercicio 3**
+Realiza un programa que cumpla el siguiente algoritmo utilizando siempre que sea posible operadores en asignación:
+
+- Guarda en una variable numero_magico el valor 12345679 (sin el 8)
+- Lee por pantalla otro numero_usuario, especifica que sea entre 1 y 9
+- Multiplica el numero_usuario por 9 en sí mismo
+- Multiplica el numero_magico por el numero_usuario en sí mismo
+- Finalmente muestra el valor final del numero_magico por pantalla
+
+```py
+# Ejercicio 3
+
+# 1. Guardar en una variable numero_magico el valor 12345679
+...
+
+# 2. Leer por pantalla otro numero_usuario entre 1 y 9
+numero_usuario = int(input("Introduce un número entre 1 y 9: "))
+
+# 3. Multiplicar numero_usuario por 9 en sí mismo
+...
+
+# 4. Multiplicar numero_magico por numero_usuario en sí mismo
+...
+
+# 5. Mostrar el valor final de número_magico
+print("El número mágico es:", numero_magico)
+```
+
+
+
+<!--
 ## **Estructuras de control**
 Un código es una secuencia de instrucciones, que por norma general son ejecutadas una tras otra.   
 Sin embargo, en muchas ocasiones no basta con ejecutar las instrucciones una tras otra desde el principio hasta llegar al final. Puede ser que ciertas instrucciones se tengan que ejecutar si y sólo si se cumple una determinada condición.

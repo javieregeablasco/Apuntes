@@ -408,12 +408,35 @@ Realizar una captura de un documento dónde se vean las personalizaciones de las
 En esta apartado aprenderemos a definir estilos para todos los elementos de nuestro documento de texto, lo que permetrá ahorrar un tiempo considerable en la redacción o modificación del mismo.
 !!! task "Tarea a entregar en RA2-CEb-7"
     **1. Descargar y abrir el archivo 'RA2- aplicar estilos' pinchando en el enlace siguiente:** [Descargar archivo](./archivos/RA2%20-%20aplicar%20estilos.odt)  
-    2. Crear un nuevo estilo **MisEstilos**. Dejar la configuración por defecto y solo modificar el tipo de letra a **Arial 12**.  
-    3. Crear 2 sub estilos **Párrafos** y **Títulos**. Los estilos quedarán de la siguiente manera.
+    **2.** Crear un nuevo estilo **MisEstilos**. Dejar la configuración por defecto y solo modificar el tipo de letra a **Arial 12**.  
+    **3.** Crear 3 sub estilos **Cabeceras**, **Párrafos** y **Títulos** (realmente no son estilo sino carpetas donde iremos creando los estilos para cada apartado del documento).     
+    ![](./img_ut2/ra2ceb31.png){.doscinco} <br>
+    **4.** Dentro de **Cabecera** crear el estilo **Cabecera centrada** con un resultado similar al de la siguiente imagen. (Sois libres de incorporar más características al estilo).  
+    ![](./img_ut2/ra2ceb32.png){.sietecinco}  
+    **5.** Dentro de **Párrafos crear 3 estilos **Párrafo centrado**, Párrafo izquierdo** y **Párrafo normal** con el resultado siguiente:  
+          &nbsp;&nbsp;&nbsp;&nbsp;- **Párrafo normal** (cuidado con los márgenes izquierdo y derecho)
+              ![](./img_ut2/ra2ceb33.png){.sietecinco}          
+          &nbsp;&nbsp;&nbsp;&nbsp;- **Párrafo centrado**  
+              ![](./img_ut2/ra2ceb34.png){.sietecinco}          
+          &nbsp;&nbsp;&nbsp;&nbsp;- **Párrafo izquierdo**  
+              ![](./img_ut2/ra2ceb35.png){.sietecinco} <br>
+    **6.** Dentro de **Cabeceras** crear el estilo **Cabecera conclusión** con el resultado siguiente: 
+    **Nota importante:** Cada vez que se use ese estilo se deberá insertar automáticamente un salto de página. 
+              ![](./img_ut2/ra2ceb37.png){.sietecinco} <br>
+    **7.** Dentro de **Párrafos** crear el estilo **Viñeta 1** con el resultado siguiente: 
+              ![](./img_ut2/ra2ceb38.png){.sietecinco} <br>
+    **8.** Estos son los estilos creados hasta ahora: 
+              ![](./img_ut2/ra2ceb39.png){.trescinco} <br>
+    **9.** Dentro de **Párrafos** crear el estilo **Numeración 1** con el resultado siguiente:
+    **Nota** Ese estilo es idéntico al estilo **Párrafo normal**. Para evitar de buscar una a una las características del estilo **Párrafo normal** lo que haremos es, al definir **Numeración 1** es **heredar** los estilos de **Párrafo normal**.  
+    El estilo **Numeración 1** quedará de la siguiente manera:  
+    (Como podeís ver se ha aplicado un estilo de carácter especial al numerador).  
+              ![](./img_ut2/ra2ceb40.png){.sietecinco} <br>  
+              
+    **10.** Podeís descargar el documento con todos los estilos aplicados [aquí](./archivos/RA2%20-%20aplicar%20estilos%20terminado.pdf). 
 
-    ![](./img_ut2/ra2ceb31.png){.doscinco}
 
-    4.
+
 
 
 
