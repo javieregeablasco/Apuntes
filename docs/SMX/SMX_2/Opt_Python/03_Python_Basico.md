@@ -895,6 +895,7 @@ print(a is not c)  # True, porque no son el mismo objeto (las listas son objetos
 - Para comparar valores, siempre se usará ==.
 
 ### **6.7 - Ejercicios con operadores**
+#### Tarea RA1-CEg
 Completar el código de los siguiente ejercicios.
 #### **Ejercicio 1**
 Realiza un programa que determine los siguientes aspectos (es suficiente con mostrar True o False):
