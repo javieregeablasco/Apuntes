@@ -110,29 +110,36 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
 ![Descripción de la imagen](../02_Procesadores_de_texto/img_ut2/m_ayuda.png){ .m_ver }
 <br>
 
-### **1.12 - Tarea RA2-CEa: Configuración del entorno de trabajo**
-#### Personalización del software utilizado (hecha en clase).
-1. Buscar la opción que permite cambiar el modo (día/noche) de la interfaz de usuario ¿Qué occure cuando escribimos texto?
-1. Buscar la opción que permite cambiar el diseño de los iconos (Opciones LibreOffice Tema).
-1. Buscar la opción que permite cambiar el diseño de la interfaz de usuario.
-1. ¿Dónde se encuentra la opción para cambiar el idioma del documento?
-1. ¿Qué debo hacer para que al crear un documento, este siempre esté en un languaje en concreto?
-1. ¿Existe la posibilidad de asignar idiomas específicos a cada párrafo?
-1. Configurar el procesador de texto para que realice un guardado del documento cada 1 minuto.
-1. ¿Qué opción permite al usuario introducir metadatos dentro del archivo creado?
-1. ¿Cómo se realiza un zoom? Es decir ¿Qué debo hacer para ver el documento más grande en pantalla?
-1. ¿Puedo cambiar la forma en la que me aparece el documento en pantalla? Ed decir ¿Qué debo hacer para poder ver el documento en vista de páginas múltiples o en vista de libro?
-1. ¿Qué opción me permite cambiar la forma de seleccionar palabras, letras, imágenes?
-1. Cambiar el tipo de letra básico de **Liberation Sans** a **Arial**.
-1. Configurar el archivo guardado para que solo se pueda abrir mediante **contraseña**.
+### **1.12 - Configuración del entorno de trabajo**
+#### Tarea RA2-CEa:
 
-#### Personalización de las barras de herramientas (a entregar).
-1. Seleccionar las opciones que permitan mostrar las reglas, tanto superior como vertical (pista: ver).
-1. Seleccionar la opción que permite mostrar la barra de estilos (pista: ver).
-1. Cambiar la interfaz de usuario para que esta sea similar a la de Microsoft Word (pista: ver).
-1. Mostrar, en la interfaz de usuario, varias barras de herramientas que no aparecen por defecto (p.e. Controles de formulario y Tabla).
-1. Después de mostrar esas barras de herramientas, eliminar varios iconos de esas barras de herramientas de la interfaz de usuario (pista: personalizar).
-1. Cambiar la opción para que, en vez de una coma, sea un punto lo que aparezca en pantalla después de presionar el ‘punto’ del teclado numérico (pista: personalizar, configurar idioma, separador decimal).
+!!! task "Tarea - Personalización del software utilizado."
+     **Parte hecha en clase:**  
+
+     1. Buscar la opción que permite cambiar el modo (día/noche) de la interfaz de usuario ¿Qué occure cuando escribimos texto?
+     1. Buscar la opción que permite cambiar el diseño de los iconos (Opciones LibreOffice Tema).
+     1. Buscar la opción que permite cambiar el diseño de la interfaz de usuario.
+     1. ¿Dónde se encuentra la opción para cambiar el idioma del documento?
+     1. ¿Qué debo hacer para que al crear un documento, este siempre esté en un languaje en concreto?
+     1. ¿Existe la posibilidad de asignar idiomas específicos a cada párrafo?
+     1. Configurar el procesador de texto para que realice un guardado del documento cada 1 minuto.
+     1. ¿Qué opción permite al usuario introducir metadatos dentro del archivo creado?
+     1. ¿Cómo se realiza un zoom? Es decir ¿Qué debo hacer para ver el documento más grande en pantalla?
+     1. ¿Puedo cambiar la forma en la que me aparece el documento en pantalla? Ed decir ¿Qué debo hacer para poder ver el documento en vista de     páginas múltiples o en vista de libro?
+     1. ¿Qué opción me permite cambiar la forma de seleccionar palabras, letras, imágenes?
+     1. Cambiar el tipo de letra básico de **Liberation Sans** a **Arial**.
+     1. Configurar el archivo guardado para que solo se pueda abrir mediante **contraseña**.
+    
+
+!!! task "Tarea - Personalización de las barras de herramientas."
+     **Parte a entregar**:  
+
+    1. Seleccionar las opciones que permitan mostrar las reglas, tanto superior como vertical (pista: ver).
+    1. Seleccionar la opción que permite mostrar la barra de estilos (pista: ver).
+    1. Cambiar la interfaz de usuario para que esta sea similar a la de Microsoft Word (pista: ver).
+    1. Mostrar, en la interfaz de usuario, varias barras de herramientas que no aparecen por defecto (p.e. Controles de formulario y Tabla).
+    1. Después de mostrar esas barras de herramientas, eliminar varios iconos de esas barras de herramientas de la interfaz de usuario (pista:     personalizar).
+    1. Cambiar la opción para que, en vez de una coma, sea un punto lo que aparezca en pantalla después de presionar el ‘punto’ del teclado     numérico (pista: personalizar, configurar idioma, separador decimal).
 
 #### Condiciones de entrega de la práctica.
 Realizar una captura de un documento dónde se vean las personalizaciones de las barras de herramientas. Subir la captura a Aules en **Tarea RA2-CEa**.
@@ -144,6 +151,7 @@ Realizar una captura de un documento dónde se vean las personalizaciones de las
 
 
 ## **2.1 - Creación y edición básica de un documento de texto**
+### Tarea - RA2-CEb-1
 !!! task "Tarea a entregar en RA2-CEb-1"
     **1. Abre un nuevo documento y copia el siguiente texto:**  
     Michael Jeffrey Jordan (Brooklyn, Nueva York, 17 de febrero de 1963) es un exjugador de baloncesto estadounidense. Con 1,98 metros de altura, jugaba en la posición de escolta. Es considerado por la mayoría de aficionados y especialistas como el mejor jugador de baloncesto de todos los tiempos.​ Se retiró definitivamente a los cuarenta años en 2003 en los Washington Wizards, tras haberlo hecho en dos ocasiones anteriores, en 1993 y 1998, después de haber jugado 13 temporadas en los Chicago Bulls.
@@ -170,6 +178,7 @@ Realizar una captura de un documento dónde se vean las personalizaciones de las
     Subir los 2 archivos **RA2-CEb-1-Nombre Alumno** y **Copia RA2-CEb-1-Nombre Alumno** a la **tarea RA2-CEb-1**.  
 
 ## **2.2 - Formatos de texto**
+### Tarea - RA2-CEb-2
 !!! task "Tarea a entregar en RA2-CEb-2"
     **1. Abre un nuevo documento y copia el siguiente texto:**  
     Michael, hijo de James y Deloris Jordan, nació en Brooklyn, Nueva York. Su familia se mudó a Wilmington, Carolina del Norte, cuando él era niño. Estudió en la Ogden Elementary School, y posteriormente asistió a la preparatoria Emsley A. Laney, donde, debido a sus impresionantes condiciones atléticas, jugó al baloncesto, béisbol y fútbol americano. Sin embargo, fue apartado del equipo de baloncesto en su segundo año porque para su altura (1,80 metros) estaba aparentemente subdesarrollado. El verano siguiente, creció 10 centímetros y se entrenó rigurosamente.​ En su último año en Laney High, promedió un triple-doble: 29,2 puntos, 11,6 rebotes y 10,1 asistencias,​ y fue seleccionado en el McDonald's All-American Team.​ 
@@ -234,6 +243,7 @@ Realizar una captura de un documento dónde se vean las personalizaciones de las
 
    
 ## **2.3 - Formatos de párrafo**
+### **Tarea - RA2-CEb-3**
 !!! task "Tarea a entregar en RA2-CEb-3"
     **1. Abre un nuevo documento y copia el siguiente texto:**  
     Michael Jordan
@@ -295,6 +305,7 @@ Realizar una captura de un documento dónde se vean las personalizaciones de las
 
     <br>
 
+### **Tarea - RA2-CEb-4**
 !!! task "Tarea a entregar en RA2-CEb-4"
     **1. Abre un nuevo documento y copia el texto:**
     Michael Jordan  
@@ -322,7 +333,8 @@ Realizar una captura de un documento dónde se vean las personalizaciones de las
     ![](./img_ut2/ra2ceb27.png){.sietecinco}
 
     <br>
-   
+
+### **Tarea - RA2-CEb-5**   
 !!! task "Tarea a entregar en RA2-CEb-5"
     **1. Abre un nuevo documento y copia el siguiente texto:**  
     El que suscribe, Don **PATRICIO RUIZ MAÑOSA**, de 21 años de edad, hijo de Don Críspulo Ruiz Beltrán y de Doña Leonor Mañosa Abad, natural de Alcaudete (Jaén) y con domicilio en esta ciudad, Avenida de Coria, 17,  
@@ -339,6 +351,8 @@ Realizar una captura de un documento dónde se vean las personalizaciones de las
     <br>
 
 ## **2.5 - Viñetas y numeración de títulos y párrafos**
+
+### **Tarea - RA2-CEb-6**
 !!! task "Tarea a entregar en RA2-CEb-6"
     **1. Abre un nuevo documento y copia el siguiente texto:**  
     OPERACIONES BÁSICAS:
@@ -406,6 +420,7 @@ Realizar una captura de un documento dónde se vean las personalizaciones de las
 
 ## **2.6 - Estilos**
 En esta apartado aprenderemos a definir estilos para todos los elementos de nuestro documento de texto, lo que permetrá ahorrar un tiempo considerable en la redacción o modificación del mismo.
+### **Tarea - RA2-CEb-7**
 !!! task "Tarea a entregar en RA2-CEb-7"
     **1. Descargar y abrir el archivo 'RA2- aplicar estilos' pinchando en el enlace siguiente:** [Descargar archivo](./archivos/RA2%20-%20aplicar%20estilos.odt)  
     **2.** Crear un nuevo estilo **MisEstilos**. Dejar la configuración por defecto y solo modificar el tipo de letra a **Arial 12**.  
