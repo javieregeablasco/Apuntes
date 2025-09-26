@@ -344,7 +344,7 @@ Realizar una captura de un documento dónde se vean las personalizaciones de las
  
     **2. Modifica los estilos de párrafos para que quede la siguiente manera (sangría francesa):**
     
-    **3. Añade después del texto anteior el texto que aparece en la imagen y usa tabuladores para ordenarlo.**
+    **3. Añade después del texto anterior el texto que aparece en la imagen y usa tabuladores para ordenarlo.**
 
     ![](./img_ut2/ra2ceb26.png){.sietecinco}
 
