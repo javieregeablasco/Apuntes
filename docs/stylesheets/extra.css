@@ -78,3 +78,10 @@
   margin-right: auto;   
 }
 
+.marco {
+  padding: 0.5rem;
+  border: 0.1rem solid rgb(233, 206, 206);
+  border-radius: 0.25rem;
+  box-shadow: 0.2rem 0.2rem 0.5rem rgb(182, 172, 172);
+}
+

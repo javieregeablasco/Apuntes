@@ -1,4 +1,48 @@
-calificacion = 7
+continuar = True
+
+while continuar:
+  opcion = int(input("Elige una opción (1, 2 o 3): "))
+  match opcion:
+    case 1:
+      print("Has elegido la opción 1.")
+    case 2:
+      print("Has elegido la opción 2.")
+    case 3:
+      print("Has elegido la opción 3.")
+    case _:
+      print("Opción no válida.")
+  
+  decision = input("Desea continua, intro para 'Sí', teclar 'no' para salir: ") 
+  if decision.lower() == "no": 
+    print("Programa finalizado")
+    # continuar = False
+    break
+
+print("Salida del bucle while")
+
+  
+
+
+# import os
+
+# try:
+#     ruta_archivo = os.path.join(os.path.dirname(__file__), "datos.txt")
+#     with open(ruta_archivo, "r") as archivo:
+#         contenido = archivo.read()
+#         numero = int(contenido)  # puede lanzar ValueError si el contenido no es número
+# except FileNotFoundError:
+#     print("El archivo no existe.")
+# except ValueError:
+#     print("El contenido del archivo no es un número.")
+# else:
+#     print("El número leído es:", numero)
+# finally:
+#     print("Operación de lectura finalizada")
+
+
+  #print("Vamos por la letra:", letra)
+
+# calificacion = 7
 
 # if calificacion >=5 & calificacion <7:
 #  print("Enhorabuena, has aprobado el examen")
@@ -38,20 +82,20 @@ calificacion = 7
 
 
 
-calificacion = 150
+# calificacion = 150
 
-if calificacion < 0 or calificacion > 100:
-    print("La calificación debe estar en la escala de 0 a 100")
-elif calificacion >= 95 and calificacion <= 100:
-    print("Excelente")
-elif calificacion >= 85 and calificacion <= 94:
-    print("Muy bien")
-elif calificacion >= 75 and calificacion <= 84:
-    print("Bien")
-elif calificacion >= 70 and calificacion <= 74:
-    print("Regular")
-else:
-    print("Insuficiente")
+# if calificacion < 0 or calificacion > 100:
+#     print("La calificación debe estar en la escala de 0 a 100")
+# elif calificacion >= 95 and calificacion <= 100:
+#     print("Excelente")
+# elif calificacion >= 85 and calificacion <= 94:
+#     print("Muy bien")
+# elif calificacion >= 75 and calificacion <= 84:
+#     print("Bien")
+# elif calificacion >= 70 and calificacion <= 74:
+#     print("Regular")
+# else:
+#     print("Insuficiente")
 
 # for i in "interacción":
 #   print("Iteración: ", i)
@@ -82,8 +126,7 @@ else:
 # for numero in range(1, 501, 1):
 #   #print(numero)
 #   if numero % 6 == 0 and numero % 7 == 0:
-#     cantidad = cantidad + 1
-#     #cantidad += 1 #manera más común de autoincrementar un valor
+#     cantidad =+ 1
 #     print(numero)
 # print("Cantidad total de número encontrados:",cantidad)
 
@@ -164,18 +207,18 @@ else:
 #         producto = i * j
 #         print(i, "x", j, "=", producto)
 
-print("Tabla de multiplicación hasta 10")
-input("Pulsar enter para continuar")
+# print("Tabla de multiplicación hasta 10")
+# input("Pulsar enter para continuar")
 
-salir = False
+# salir = False
 
-for i in range(1, 11):  # bucle externo
-    print("Tabla del:", i)
-    for j in range(1, 11):  # bucle interno
-        if i == 5 and j > 7:
-            salir =True
-            break
-        print(i, "x", j, "=", i * j)
-    if salir:
-        print("Limite alcanzado, finalizando el programa.")
-        break 
+# for i in range(1, 11):  # bucle externo
+#     print("Tabla del:", i)
+#     for j in range(1, 11):  # bucle interno
+#         if i == 5 and j > 7:
+#             salir =True
+#             break
+#         print(i, "x", j, "=", i * j)
+#     if salir:
+#         print("Limite alcanzado, finalizando el programa.")
+#         break 

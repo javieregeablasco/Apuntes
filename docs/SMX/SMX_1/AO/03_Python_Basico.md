@@ -18,9 +18,13 @@ schedule: 96h - 3h/w
 
 **Resultados de aprendizaje y criterios de evaluacion que se evaluarán en esta unidad.**  
 
-
-| **RA. 1:** Reconoce la estructura de un programa informático, identificando y relacionando los elementos propios del lenguaje de programación utilizado.|  
+| **Resultados de aprendizaje de la unidad didáctica:** |
 |-|
+| **RA. 1:** Reconoce la estructura de un programa informático, identificando y relacionando los elementos propios del lenguaje de programación utilizado.|  
+
+
+|**Criterios de evaluación de la unidad didáctica:**|
+||
 |**d)** Se han identificado los distintos tipos de variables y la utilidad específica de cada uno. |
 |**e)** Se ha modificado el código de un programa para crear y utilizar variables. |
 |**f)** Se han creado y utilizado constantes y literales. |
@@ -28,21 +32,6 @@ schedule: 96h - 3h/w
 |**h)** Se ha comprobado el funcionamiento de las conversiones de tipo explícitas e implícitas. |
 |**i)** Se han introducido comentarios en el código. |
 
-
-| **RA. 3:** Escribe y depura código, analizando y utilizando las estructuras de control del lenguaje.| 
-|-|
-|**a)** Se ha escrito y probado código que haga uso de estructuras de selección.|
-|**b)** Se han utilizado estructuras de repetición. |
-|**c)** Se han reconocido las posibilidades de las sentencias de salto. |
-|**d)** Se ha escrito código utilizando control de excepciones. 	|
-|**e)** Se han creado programas ejecutables utilizando diferentes estructuras de control. 	|
-|**h)** Se han creado excepciones.|
-
-
-| **RA. 5:** Realiza operaciones de entrada y salida de información, utilizando procedimientos específicos del lenguaje y librerías de clases.| 
-|-|
-|**a)** Se ha utilizado la consola para realizar operaciones de entrada y salida de información. |
-|**b)** Se han aplicado formatos en la visualización de la información.|
 
 
 <br>
@@ -908,86 +897,88 @@ print(a is not c)  # True, porque no son el mismo objeto (las listas son objetos
 ### **6.7 - Ejercicios con operadores**
 #### Tarea RA1-CEg
 Completar el código de los siguiente ejercicios.
+#### **Ejercicio 1**
+Realiza un programa que determine los siguientes aspectos (es suficiente con mostrar True o False):
 
-!!! question "Ejercicio 1"
-    Realiza un programa que determine los siguientes aspectos (es suficiente con mostrar True o False):
+- Si los dos números son iguales
+- Si los dos números son diferentes
+- Si el primero es mayor que el segundo
+- Si el segundo es mayor o igual que el primero
 
-    - Si los dos números son iguales
-    - Si los dos números son diferentes
-    - Si el primero es mayor que el segundo
-    - Si el segundo es mayor o igual que el primero
-    
-    ```py
-    # Ejercicio 1
-    
-    # Leer dos números por teclado
-    num1 = float(input("Introduce el primer número: "))
-    num2 = float(input("Introduce el segundo número: "))
-    
-    # Código a aportar por el alumno
-    ...
-    ...
-    ...
-    ...
-    ```
-    <br>
+```py
+# Ejercicio 1
 
-!!! question "Ejercicio 2"
-    Utilizando operadores lógicos, determina si una cadena de texto introducida por el usuario tiene una longitud mayor o igual que 3 y a su vez es menor que 10.  
-    **Nota:** Para determinar el largo de una cadena usar **la función len()**.  
-    Ejemplo:
-    ```py
-    texto = "Esta es una frase"
-    print(len(texto))
-    ```
+# Leer dos números por teclado
+num1 = float(input("Introduce el primer número: "))
+num2 = float(input("Introduce el segundo número: "))
 
-    Fragmento de código a completar.
-    ```py
-    # Leer una cadena de texto por teclado
-    texto = input("Introduce una cadena de texto: ")
+# Código a aportar por el alumno
+...
+...
+...
+...
+```
+<br>
 
-    # Comprobar si su longitud es mayor o igual que 3 y menor que 10
-    ...
+#### **Ejercicio 2**
+Utilizando operadores lógicos, determina si una cadena de texto introducida por el usuario tiene una longitud mayor o igual que 3 y a su vez es menor que 10.  
+**Nota:** Para determinar el largo de una cadena usar **la función len()**.  
+Ejemplo:
+```py
+texto = "Esta es una frase"
+print(len(texto))
+```
 
-    # Mostrar True o False
-    ... 
-    ```
+Fragmento de código a completar.
+```py
+# Leer una cadena de texto por teclado
+texto = input("Introduce una cadena de texto: ")
+
+# Comprobar si su longitud es mayor o igual que 3 y menor que 10
+...
+
+# Mostrar True o False
+... 
+```
+
+<br>
+
+#### **Ejercicio 3**
+Realiza un programa que cumpla el siguiente algoritmo utilizando siempre que sea posible operadores en asignación:
+
+- Guarda en una variable numero_magico el valor 12345679 (sin el 8)
+- Lee por pantalla otro numero_usuario, especifica que sea entre 1 y 9
+- Multiplica el numero_usuario por 9 en sí mismo
+- Multiplica el numero_magico por el numero_usuario en sí mismo
+- Finalmente muestra el valor final del numero_magico por pantalla
+
+```py
+# Ejercicio 3
+
+# 1. Guardar en una variable numero_magico el valor 12345679
+...
+
+# 2. Leer por pantalla otro numero_usuario entre 1 y 9
+numero_usuario = int(input("Introduce un número entre 1 y 9: "))
+
+# 3. Multiplicar numero_usuario por 9 en sí mismo
+...
+
+# 4. Multiplicar numero_magico por numero_usuario en sí mismo
+...
+
+# 5. Mostrar el valor final de número_magico
+print("El número mágico es:", numero_magico)
+```
 
 
-!!! question "Ejercicio 3"
-    Realiza un programa que cumpla el siguiente algoritmo utilizando siempre que sea posible operadores en asignación:
 
-    - Guarda en una variable numero_magico el valor 12345679 (sin el 8)
-    - Lee por pantalla otro numero_usuario, especifica que sea entre 1 y 9
-    - Multiplica el numero_usuario por 9 en sí mismo
-    - Multiplica el numero_magico por el numero_usuario en sí mismo
-    - Finalmente muestra el valor final del numero_magico por pantalla
-
-    ```py
-    # Ejercicio 3
-
-    # 1. Guardar en una variable numero_magico el valor 12345679
-    ...
-
-    # 2. Leer por pantalla otro numero_usuario entre 1 y 9
-    numero_usuario = int(input("Introduce un número entre 1 y 9: "))
-
-    # 3. Multiplicar numero_usuario por 9 en sí mismo
-    ...
-
-    # 4. Multiplicar numero_magico por numero_usuario en sí mismo
-    ...
-
-    # 5. Mostrar el valor final de número_magico
-    print("El número mágico es:", numero_magico)
-    ```
-
-## **7 - Estructuras de control**
+<!--
+## **Estructuras de control**
 Un código es una secuencia de instrucciones, que por norma general son ejecutadas una tras otra.   
-Sin embargo, en muchas ocasiones no basta con ejecutar las instrucciones una tras otra desde el principio hasta llegar al final.  
-Puede ser que ciertas instrucciones se tengan que ejecutar **si y sólo si** se cumple una determinada condición.
+Sin embargo, en muchas ocasiones no basta con ejecutar las instrucciones una tras otra desde el principio hasta llegar al final. Puede ser que ciertas instrucciones se tengan que ejecutar si y sólo si se cumple una determinada condición.
 
-![Descripción de la imagen](../Opt_Python/img/estructuras-de-control.svg){ .img1 .marco }
+![Descripción de la imagen](../Opt_Python/img/estructuras-de-control.svg){ .img1 }
 
 En un lenguaje de programación, las estructuras de control permiten modificar el flujo de ejecución de un conjunto de instrucciones. Los tipos más comunes son:
 
@@ -996,10 +987,9 @@ En un lenguaje de programación, las estructuras de control permiten modificar e
 |**if, elif, else**|Estructura condicionales|
 |**for**|Bucle (o iteración)|
 |**while**|Bucle (o iteración)|
-|**match**|Bucle de selección|
-|**try-except**|Manejo de excepciones (errores)|  
+|**try-except**|Manejo de excepciones(errores)|  
 
-### **7.1 - Bucle condicional if-elif-else**
+### **Bucle condicional if-elif-else**
 - La estructura de control **if** permite que un programa ejecute unas instrucciones cuando se cumpla una condición.
 ```py
 if cond1:
@@ -1007,14 +997,12 @@ if cond1:
     pass
 ```
 
-**Nota:** `pass` es una declaración que se usa como un marcador de posición (placeholder). Es **una operación nula** que no hace nada. Se utiliza cuando **la sintaxis del lenguaje** requiere un bloque de código, pero este aun no se ha desarrollado.
-
 !!! Ejercicio  
     Realizar un programa con un bucle **condicional if** que haga lo siguiente:  
     1. El programa evaluará la nota de un alumno  
     2. Si la nota es superior o igual a 5, se mostrará por terminal el texto: "Enhorabuena, has aprobado el examen".  
-    3. Si la nota es inferior a 5, se mostrará por terminal el texto: "Lamentablemente, no has aprobado el examen".        
-
+    3. ¿De qué manera podriamos sacar por terminal un mensaje de "Lamentablemente, no has aprobado el examen" si el alumno saca una nota inferior a 5?  
+    4. ¿Cuál es la función del placeholder **pass**?  
 
 - La estructura de control **if else** permite que un programa ejecute unas instrucciones **cuando se cumple** una condición y otras instrucciones **cuando no se cumple** esa condición.
 ```py
@@ -1047,14 +1035,14 @@ else:
     # hacer un cosa por defecto
 ```
 
-!!! Ejercicio  
+!!! Ejercicio 1  
     Realizar un programa con un bucle **condicional if elif else** que haga lo siguiente:  
     1. El programa evaluará la nota de un alumno.  
     2. Si la nota es superior o igual a 5 e inferior a 7, se mostrará por terminal el texto: "Has aprobado el examen".  
-    3. Si la nota es superior o igual a 7, se mostrará por terminal el texto: "Excelente examen"  
+    3. Si la nota es superior o igual a 7, se mostrará por terminal el texto: "Excelente examen"
     4. Si la mota es inferior a 5, se mostrará por terminal el texto: "Lamentablemente, no has aprobado el examen".
 
-!!! Ejercicio 
+!!! Ejercicio 2  
     Realizar un programa con un bucle **condicional if elif else** que haga lo siguiente:  
     1. El programa evaluará la nota de un alumno. Esa nota deberá estar comprendida entre 0 y 100. Si la nota está fuera de rango se mostrará en la terminal "La calificación debe estar en la escala de 0 a 100"   
     2. Si la nota es superior o igual a 70 e inferior o igual a 74, se mostrará por terminal el texto: "Regular".  
@@ -1063,13 +1051,13 @@ else:
     5. Si la nota es superior o igual a 95 e inferior o igual a 100, se mostrará por terminal el texto: "Excelente".
     6. Si no se cumple ninguna de esas condiciones, mostraremos en la terminal: "Insuficiente".  
  
-!!! Ejercicio  
+!!! Ejercicio 3  
     1. Supongamos que tenemos una lista de nota: lista = [1,2,4,7,9].  
     2. Supongamos que tenemos la nota = 8 y queremos saber si algun alumno ha sacado esa nota.  
     3. Realizar un programa con un bucle **condicional if else** que permita saber si el valor de **nota** está incluido dentro de lista. 
 
 
-### **7.2 - Bucle de repetición for**
+### **Bucle de repetición for**
 El **bucle for** es una estructura de control de repetición, en la cual se conocen (a priori) el número de iteraciones a realizar. El **bucle for** usa **un iterable** que define las veces que se ejecutará el código. 
 ```py
 for valores in iterador:
@@ -1077,7 +1065,7 @@ for valores in iterador:
     pass
 ```
 
-#### **7.2.1 - Iterador range()**
+#### **Iterador range()**
 **range()** es una función que devuelve un iterador de números enteros en un rango definido.  
 ```py
 range(inicio, fin, paso)
@@ -1111,23 +1099,22 @@ for i in range(10, 0, -2):
     print(i)
 ```
 
-!!! Ejercicio   
+!!! Ejercicio 1  
     Ejecutar los bucles **for** y comprobar los resultados obtenidos.    
 
-!!! Ejercicio  
-    Realizar un programa que determine:  
-    1. Cuantos números entre 1 y 500 son, **a la vez**, **múltiplos de 7 y 8**.  
+!!! Ejercicio 2 
+    Realizar un programa que determine:
+    1. Cuantos números entre 1 y 500 son, a la vez, **múltiplos de 7 y 8**.
     2. Muestre los números encontrados.    
 
-#### **7.2.2 - Objetos iterables**
-En Python se puede iterar sobre cualquier objeto iterable, como por ejemplo un string, una lista, una tupla o un diccionario...  
-A continuación varios ejemplos de objetos iterables.
+#### **Objetos iteradores**
+En Python se puede iterar prácticamente sobre cualquier objeto iterable, como por ejemplo un string, una lista, una tupla o un diccionario... A continuación varios ejemplos de objetos iterables.
 
 - Bucle **for** sobre variable numérica. 
 ```py
-iteración = 5
+interación = 5
 
-for i in "iteración":
+for i in "interación":
   print("Iteración: ", i)
 ```
 
@@ -1138,7 +1125,7 @@ lista= ["Este", "es", "un", "gran", "día"]
 for i in lista:
   print("Iteración: ", i)
 ```
-- Otra forma de iterar sobre las propiedades de una lista. 
+- Otra forma de iterar sobre una lista. 
 ```py
 lista = ["Este", "es", "un", "gran", "día"]
 
@@ -1152,7 +1139,7 @@ lista = ["Este", "es", "un", "gran", "día"]
 for indice,valor in enumerate(lista):
     print("Iteración:", indice, "Elemento:", lista[indice])
 ```
-- También se puede iterar sobre varios iterables a la vez usando **la función zip()**.
+- También se puede iterar sobre varios iterables a la vez usando la función zip()
 ```py
 nombres = ["Ana", "Luis", "Marta"]
 edades = [25, 30, 22]
@@ -1163,7 +1150,7 @@ for nombre, edad in zip(nombres, edades):
 **zip()**, como su nombre lo deja entrever **une** los elementos de las listas, posición a posición.  
 Si una lista es más larga que la otra, zip se detiene en la más corta.
 
-### **7.3 - Bucle de repetición while**
+#### Bucle de repetición while
 El bucle while ejecuta un bloque de instrucciones mientras se cumpla una condición. A diferencia del bucle **for**, en el **while** normalmente no sabemos de entrada cuántas veces se va a repetir."
 ```py
 while condicion:
@@ -1179,11 +1166,11 @@ while k < len(nombre):
     k += 1
 ```
 
-### **7.4 - Sentencias de control de flujo: break y continue**
-#### **7.4.1 - Sentencia break**
+### **Sentencias de control de flujo: break y continue**
+#### **Sentencia break**
 La sentencia **break** permite alterar el comportamiento de los bucles **while** y **for**. Concretamente, permite **terminar de manera anticipada** con la ejecución del bucle.
 
-!!! example "Break en un bucle for:"
+- Break en un bucle **for**:
 ```py
 palabra = "Python"
 letra_a_encontrar = "o"
@@ -1193,11 +1180,11 @@ for letra in palabra:
     print(f"Hemos encontrado la letra {letra_a_encontrar}")
     # print("hemos encontrado la letra ", letra_a_encontrar)
     break
-  else: print(f"Vamos por la letra: {letra}")
+  print(f"Vamos por la letra: {letra}")
   #print("Vamos por la letra:", letra)
 ```
 
-!!! example "Break en un bucle while:"
+- Break en un bucle **while**:
 ```py
 from random import randint
 
@@ -1215,7 +1202,7 @@ while True: #definimos un bucle while infinito
   intentos += 1 
 ```  
 
-#### **7.4.2 - Sentencia continue**
+#### **Sentencia continue**
 Al igual que break, la sentencia continue permite modificar el comportamiento de los bucles while y for.  
 En el caso de continue, **se salta todo el código restante en la iteración actual** y vuelve al principio en el caso de que aún queden iteraciones por completar.  
 La diferencia entre break y continue es que continue no rompe el bucle, sino que pasa a la siguiente iteración saltando el código pendiente.
@@ -1231,29 +1218,13 @@ for letra in cadena:
   print(letra, end="") #end="" evita el salto de línea
 ```
 
-### **7.5 - Sentencia de control de excepciones** 
-#### **7.5.1 - Sentencias try-except**
-Las sentencias de control **try** y **except** se usan para manejar errores (más comúnmente llamados excepciones) y evitar que nuestro programa se detenga inesperadamente.  
-
-!!! tip "Concepto básico."  
-
-- El bloque try contiene el código que podría generar un error.  
-- El bloque except contiene el código que se ejecuta si ocurre un error dentro del try.  
-Esto permite “atrapar” errores y manejarlos de forma controlada.  
-
-```py
-try:
-    # Bloque de código que puede generar un error
-    numero = int(input("Introduce un número: "))
-    print("El número es:", numero)
-except:
-    # Bloque de código que se ejecuta si ocurre un ValueError
-    print("¡Error! Debes introducir un número válido.")
-```    
-
-
-
-!!! tip "Ejemplo encadenando excepciones y especificando el tipo de excepción."   
+### **Sentencia de control try-except**
+Las sentencias de control **try** y **except** se usan para manejar errores (más comúnmente llamados excepciones) y evitar que nuestro programa se detenga inesperadamente.
+🔹 Concepto básico.
+- El bloque try contiene el código que podría generar un error.
+- El bloque except contiene el código que se ejecuta si ocurre un error dentro del try.
+Esto permite “atrapar” errores y manejarlos de forma controlada.
+🔹 Ejemplo sin especificar la excepción. 
 ```py
 while True:
     entrada = input("Introduce un número (o 'salir' para terminar): ")
@@ -1272,51 +1243,9 @@ while True:
         print("Estás intentando dividir por cero.")
 
 ```
-#### **7.5.2 - Sentencias try, except, else y finnally**
-En Python también podemos usar los bloques **else y finally** junto con **try y except** para tener un control más fino sobre el flujo del programa cuando ocurren excepciones.
 
-- **try:** Contiene el código que podría provocar un error.
-
-- **except:** Contiene el código que se ejecuta si ocurre un error en el bloque try.
-
-- **else:** Contiene el código que se ejecuta solo si NO se produjo ninguna excepción en el bloque try.
-
-- **finally:** Contiene el código que se ejecuta siempre, ocurra o no una excepción (cerrar archivos, conexiones, liberar recursos, etc.).
-
-!!! tip "Estructura básica"
-```py
-try:
-    # Código que puede provocar error
-except TipoDeError:
-    # Se ejecuta si ocurre ese tipo de error
-else:
-    # Se ejecuta solo si no hubo error
-finally:
-    # Se ejecuta siempre, ocurra o no error
-```
-
-!!! tip "Ejemplo práctico"
-```py
-import os
-
-try:
-    ruta_archivo = os.path.join(os.path.dirname(__file__), "datos.txt")
-    with open(ruta_archivo, "r") as archivo:
-        contenido = archivo.read()
-        numero = int(contenido)  # puede lanzar ValueError si el contenido no es número
-except FileNotFoundError:
-    print("El archivo no existe.")
-except ValueError:
-    print("El contenido del archivo no es un número.")
-else:
-    print("El número leído es:", numero)
-finally:
-    print("operación de lectura finalizada") 
-```
-
-### **7.6 - Bucle anidados**
-Ya hemos visto algún que otro bucle anidado sin decirlo.  
-Un **bucle anidado** es un bucle que se **encuentra incluido** en el **bloque de sentencias** de otro bloque.  
+### Bucle anidados.
+Ya hemos visto algún que otro bucle anidado sin decirlo. Un **bucle anidado** es un bucle que se **encuentra incluido** en el **bloque de sentencias** de otro bloque.  
 Los bucles pueden tener muchos niveles de anidamiento, lo que suele disparar resultados inesperados en tiempos de ejecución. De igual manera se deberá prestar una especial atención a la ubicación de las sentencias **break** y **continue**.
 ```py
 print("Tabla de multiplicación hasta 10")
@@ -1335,51 +1264,6 @@ for i in range(1, 11):  # bucle externo
     Modificar el programa anterior para que, al alcanzar **el bucle externo** el valor **5** y **el bucle interno** el valor **7**, se salga de la ejecución del programa con un mensaje de despedida.  
     ¿Por qué incluir un mensaje de despedida?
 
-### **7.7 - Sentencia de selección match**
-**A partir de Python 3.10**, se introdujo la **sentencia match**, que funciona como una estructura de selección múltiple (parecida a switch en otros lenguajes como java).
-Permite comparar un valor contra varios patrones y ejecutar código según el que coincida.
-Es mucho más potente que un simple **if/elif/else** porque admite patrones estructurados, desempaquetado y condiciones adicionales (guards).
-
-!!! tip "Sintaxis básica"
-
-```py
-match expresión:
-    case patrón1:
-        # código si expresión coincide con patrón1
-    case patrón2:
-        # código si expresión coincide con patrón2
-    case _:
-        # código por defecto (como "else")
-```
-
-!!! tip "Ejemplo"
-```py
-opcion = input("Elige una opción (1, 2 o 3): ")
-
-match opcion:
-    case "1":
-        print("Has elegido la opción 1.")
-    case "2":
-        print("Has elegido la opción 2.")
-    case "3":
-        print("Has elegido la opción 3.")
-    case _:
-        print("Opción no válida.")
-```
-
-!!! question "Modificar el programa anterior para que:"
-    1. Hacer que el programa se repita siempre.
-    1. Añadir un bucle condicional donde se pedirá al usuario si desea continuar.
-    1. El usuario deberá elegir entre pulsar intro o introducir la palabra 'no'.
-    1. Si el usuario elige 'no' la repetición finalizará y se saldrá del programa. 
- 
-### **7.8 - Tarea RA3-CEa** 
-### **7.9 - Tarea RA3-CEb** 
-### **7.10 - Tarea RA3-CEc** 
-### **7.11 - Tarea RA3-CEdh** 
-### **7.12 - Tarea RA3-CEe** 
-
-<!--
 ## Funciones de entrada y salida.
 Hasta ahora hemos usado la función print() principalmente para mostrar mensajes en pantalla, sin detenernos demasiado en todas las cosas que podemos hacer con ella. Pero, a medida que aprendemos más de Python, necesitamos crear programas más completos que puedan interactuar con el usuario. Para lograrlo, conoceremos también la función input(), que nos servirá para pedir datos por teclado y guardarlos en variables que después usaremos en nuestros programas. 
 
