@@ -124,7 +124,7 @@ Cada AMI incluye:
 
 Cuando se lanza una **instancia EC2**, se elige una AMI como punto de partida, y a partir de ahí la instancia puede configurarse, modificarse y **personalizarse**.
 
-#### **2.1.1 - Tipos de AMI**
+#### **2.2.1 - Tipos de AMI**
 
 1. **AMIs públicas**
 
@@ -140,12 +140,12 @@ Cuando se lanza una **instancia EC2**, se elige una AMI como punto de partida, y
 
      * Imágenes de terceros (generalmente de pago) con aplicaciones ya listas (WordPress, SAP, soluciones de seguridad, etc.).
 
-#### **2.1.2 - Regiones y AMIs**
+#### **2.2.2 - Regiones y AMIs**
 
 * Una AMI está **ligada a una región**.
 * Si se necesita usarla en otra región, se debe **copiar**.
 
-#### **2.1.3 - Crear una AMI**
+#### **2.2.3 - Crear una AMI**
 
 Se pueden crear AMI's desde:
 
@@ -182,18 +182,137 @@ Se pueden crear AMI's desde:
 * **S3**: almacenamiento de objetos, no en bloques.
 * **EFS**: almacenamiento de archivos (compartido NFS).
 ---
-#### **2.3.4 - Tarea RA2-CEb**
+### **2.4 - Tarea RA2-CEb**
 Realizar el siguiente escenario.
 De momento, no tener en cuenta los grupos de seguridad.  
 
 ![](./ut5/práctica1.png){ .sietecinco }
 
 !!! question "Preguntas a responder:"
-    1. ¿Qué debemos hacer para ampliar la infraestructura e incorporar un servidor para el backend?
+    1. Suponiendo que queremos usar la EC2 de la subred pública como servidor web (frontend), ¿Qué debemos hacer para ampliar la infraestructura e incorporar un servidor para el backend?
     2. Queremos, además, guardar imágenes, PDFs y vídeos para que los clientes puedan descargarlos.  
     ¿Qué tipo de almacenamiento de AWS sería el más adecuado?  
     Buscar un ejemplo de tipo de almacenamiento adecuado en AWS. 
 ---
+
+#### **2.4.1 - Infraestructura de red básica**
+![](./ut5/RA2CEb.png){ .original .marco }
+<br>
+
+#### **2.4.2 - Lanzar instancia 1/3**
+!!! tip "Vamos a EC2"
+Una vez dentro del menú de instancias veremos los apartados principales de EC2
+
+- **Instances (Instancias):**  
+Donde se puede lanzar, detener, reiniciar o terminar instancias EC2.
+
+- **Images (Imágenes):**
+Donde se puede gestionar las AMIs, que son plantillas para lanzar nuevas instancias con un sistema operativo y software preinstalado.
+
+- **Elastic Block Store (EBS):**
+Servicio de almacenamiento en bloques persistente. Permite crear y asociar volúmenes a las instancias EC2.  
+**Nota:** EBS no es específico de EC2 pero, tiene su propio menú aquí.
+
+- **Network & Security (Red y seguridad):**
+Desde aquí se gestion los Security Groups, Elastic IPs, Key Pairs y VPCs asociadas a las instancias.
+Básicamente, es donde se definen las reglas de seguridad y de conectividad.
+
+- **Load Balancing (Balanceo de carga):**
+Sección para crear y administrar Elastic Load Balancers (ELB), que reparten el tráfico entre varias instancias.
+
+- **Auto Scaling:**
+Aquí se configuran los **Auto Scaling Groups**, que crean o destruyen instancias automáticamente según las métricas (CPU, tráfico, etc.) para mantener el rendimiento.
+
+!!! tip "Lanzamos una instancia."
+![](./ut5/RA2CEb1.png){ .original .marco }
+<br>
+
+#### **2.4.3 - Lanzar instancia 2/3**
+1. Damos un nombre a la instancia.
+1. Seleccionamos el tipo de instancia, la AMI adecuada a nuestras necesidades.
+
+    ![](./ut5/RA2CEb2.png){ .original .marco }
+    <br>
+
+#### **2.4.4 - Lanzar instancia 3/3**
+1. Elegimos el par de claves con el que podremos conectarnos por SSH a nuestra instancia.
+1. Configuración de seguridad
+    ![](./ut5/RA2CEb3.png){ .original .marco }
+
+<br>    
+
+#### **2.4.5 - Panel de control de las instancias**
+- **Instancias**
+    ![](./ut5/RA2CEb4.png){ .original .marco }
+<br>
+
+- **Resumen de las instancias**  
+**Nota:** Asegurarse de que tenemos un IPv4 pública. De lo contrario no será posible conectarse remotamente con la instancia.
+    ![](./ut5/RA2CEb5.png){ .original .marco }
+<br>
+
+#### **2.4.6 - Conexión remota con la instancia**
+El laboratorio crea por defecto una clave llamada **vockey**. Esa llave que ya hemos usado a la hora de configurar nustra instancia EC2 permitirá a un cliente SSH conectarse a ella de forma remota.
+
+1. **Descargar el archivo de clave privada labsuser.pem**  
+El fichero labsuser.pem se encuentra disponible en **AWS Academy Learner Lab** en `AWS Details`.
+El fichero labsuser.pem contiene la parte privada de la clave que necesitará el cliente SSH para conectarse a la EC2 en la cual se encuentra instalada la parte pública de la clave.
+
+![](./ut5/RA2CEb6.png){ .cincozero .marco }
+<br>
+
+1. **Cambiar los permisos del archivo labsuser.pem**  
+Para cambiar los permisos a solo lectura por el propietario usaremos:
+```bash
+chmod 400 labsuser.pem
+```
+<br>
+
+1. **Conexión remota por SSH a la instancia**  
+Para conectarnos a la instancia por SSH usaremos el cliente de ssh con los siguientes argumentos:
+```bash
+ssh -i labsuser.pem ec2-user@3.90.114.96   
+```
+
+    !!! info "Explicación del comando"
+        🔹**ssh:** Cliente de Secure Shell, que permite conectarte de forma remota y segura a otro equipo.  
+        🔹**-i labsuser.pem:** La opción -i especifica la clave privada (**labsuser.pem**) que se usará para autenticarse.  
+        🔹**ec2-user@3.90.114.96:** Indica usuario y dirección de la instancia a la que nos queremos conectar.   
+
+    !!! info "¿Cómo saber nuestro nombre de usuario?"
+        ![](./ut5/RA2CEb8.png) 
+
+    !!! info "¿Cómo saber la ip de la instancia?"
+        ![](./ut5/RA2CEb7.png) 
+<br>
+
+#### **2.4.7 - Conexión con la instancia desde la consola de AWS**  
+También es posible conectarse a la instancia desde el panel de control de AWS.
+
+![](./ut5/RA2CEb9.png){ .original .marco }
+
+<br>
+
+Una vez hecha la conexión podremos usar ese servicio virtualizado.
+
+![](./ut5/RA2CEb11.png){ .original .marco }
+
+<br>
+
+#### **2.4.8 - Realizar Ping a la instancia**  
+Si queremos realizar un ping a la instancia desde cualquier ordenador veremos que no es posible.
+
+![](./ut5/RA2CEb12.png){ .cincozero }
+<br>
+
+Para poder realizar el ping deberemos agregar reglas **al grupo de seguridad de la instancia**. En este caso añadiremos una regla de protocolo de mensajes de control de Internet **ICMP**.  
+
+![](./ut5/RA2CEb13.png){ .original .marco }
+<br>
+
+Después de agregar la regla ICMP sí que será posible realizar un ping a nuestra instancia.   
+
+![](./ut5/RA2CEb14.png){ .cincozero }
 
 ## **3 - Grupos de seguridad y listas de control de acceso (ACL)**
 ### **3.1 - Introducción**
@@ -215,14 +334,15 @@ Los grupos de seguridad son **con estado** (stateful): la entrada es igual a la 
 **Las reglas no tienen un orden de prioridad**. Las reglas de un grupo de seguridad no tienen prioridad ni orden. Todas se evalúan en conjunto y únicamente permiten tráfico. Si no existe una regla que lo permita, el tráfico se deniega por defecto.
 
 !!! warning "Configuración de las reglas de entrada y salida."
-    Para que una instancia funcione correctamente **y esté segura**, es imprescindible definir las reglas de entrada (inbound) y de salida (outbound) del grupo de seguridad:
+    Para que una instancia funcione correctamente **y esté segura**, es imprescindible definir las reglas de entrada (inbound) y de salida (outbound) del grupo de seguridad:  
 
-    - **Reglas de entrada**  
+    - **Reglas de entrada:**  
     Controlan qué tráfico puede entrar a la instancia desde Internet u otras redes.  
-    Ejemplo: permitir el puerto 80 (HTTP) o 443 (HTTPS) para que una web sea accesible públicamente.  
-    **Restringir** todo lo que no sea necesario: Todo lo que no está **permitido explicitamente** está prohibido.  
+    <u>Ejemplo:</u>  
+    &nbsp;&nbsp;&nbsp;&nbsp;**Permitir** el puerto 80 (HTTP) o 443 (HTTPS) para que una web sea accesible públicamente.  
+    &nbsp;&nbsp;&nbsp;&nbsp;**Restringir** todo lo que no sea necesario: Todo lo que no está **permitido explicitamente** está prohibido.  
 
-    - **Reglas de salida**
+    - **Reglas de salida:**  
     Controlan qué tráfico puede salir desde la instancia **hacia otras redes o Internet**.  
     **Por defecto**, AWS permite todo el **tráfico de salida**.
 
@@ -231,11 +351,17 @@ Los grupos de seguridad son **con estado** (stateful): la entrada es igual a la 
 En el siguiente ejemplo tenemos una VPC, una subred con **una instancia EC2**, una puerta de enlace de Internet y **un grupo de seguridad**.  
 Como hemos dicho **el grupo de seguridad se asigna a la instancia** y actúa como un firewall virtual.  
 El único tráfico que llega a la instancia es el permitido por las reglas del grupo de seguridad. 
+
+- **Infraestructura**
 ![](./ut5/SG.png){.original}  
-![](./ut5/sg-rules.png){.sietecinco}  
+<br>
+
+- **Configuración de las reglas de entrada de la instancia** 
+
+    ![](./ut5/sg-rules.png){.original .marco}  
 
 ### **3.4 - Tarea RA2-CEc**  
-1. Retomar el escenario de la tarea RA2-CEc. 
+1. Retomar el escenario de la tarea RA2-CEb. 
 1. Ampliar el escenario con una segunda instancia que se encontrará en una subred privada.
 El escenario quedará de la siguiente manera:
 ![](./ut5/VPC2.png){.sietecinco}  
@@ -247,7 +373,7 @@ El escenario quedará de la siguiente manera:
      |Web|	Pública	|SG-Web|	80, 443 desde Internet;  22 desde IP admin	|Todo permitido (o restringir a lo necesario)|
      |DB	|Privada|	SG-DB|	3306 desde SG-Web	|Todo permitido (o restringir a lo necesario)|
 
-### **3.6 - ACL de red**
+### **3.5 - ACL de red**
 Las **Network ACL (NACL)** son un componente de seguridad que actúa a nivel de **subred** dentro de una **VPC**.
 
 <br>
@@ -289,7 +415,7 @@ Del mismo modo, la ACL de red B determina qué tráfico puede entrar y salir de 
 | **Predeterminado**             | Todo el tráfico está **denegado por defecto** (excepto lo que se permita explícitamente)                 | Todo el tráfico está **permitido por defecto** (excepto lo que se niegue explícitamente)              |
 | **Casos de uso típicos**       | Control fino del tráfico a instancias (ej. abrir 22/SSH o 443/HTTPS)                                     | Control global a nivel de subred, aplicar restricciones más amplias (ej. denegar rangos IP completos) |
 
-#### **3.8 - Tarea RA2-CEd
+#### **3.8 - Tarea RA2-CEd**
 Entender el concepto de responsabilidad compartida en el desarrollo de una infraestructura en AWS.
 
 

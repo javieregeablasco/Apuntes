@@ -115,6 +115,8 @@ En esta tarea crearemos una VPC que nos permetrá ir familiarizandonos con la co
 !!! Exercice "**Pregunta 3**" 
     ¿Cuantas direcciones IP admite una subred de CIDR 10.1.1.0/25?
 
+<br>
+
 #### **1.2.3 - Enrutamiento de subredes y puerta de salida**
 Como acabamos de ver en la práctica anterior, un VPC se puede dividir en varias subredes. 
 En este apartado veremos las configuraciones a aportar para que las diferentes subredes puedan comunicarse entre si y tambien acceder a internet. 
@@ -132,6 +134,19 @@ De manera general, las tablas de enrutamiento (RT) contienen una lista de rutas 
         - Es de práctica habitual tener al menos 2 RT's en una VPC.
         - Una tabla de enrutamiento para las redes privadas (redes a las que **no se puede** acceder desde internet).
         - Una tabla de enrutamiento para las redes públicas (redes a las que **si se puede** acceder desde internet).
+<br>
+**Ejemplo de tabla de enrutamiento en AWS**
+<br>
+
+    ![](./ut4/RT.png){.original .marco}
+<br>
+
+    En este ejemplo, vemos cómo el tráfico destinado a la red 172.18.0.0/16 se enruta localmente, es decir, todo el tráfico interno dentro de ese rango IP se queda dentro de la VPC / subred.
+    También vemos cómo el tráfico con destino a direcciones no especificadas (0.0.0.0/0) se enruta hacia la puerta de enlace de Internet (IGW) para salir de la VPC / subred.
+
+    [**Otro ejemplo**](./ut4/CloudWolf%20-%20AWS%20CCP%20Route%20Tables.pdf)
+
+<br>
 
 - **Internet gateway (puerta de enlace)**  
 Una puerta de enlace (gateway) es el dispositivo que permite que un equipo de una red local pueda comunicarse con otras redes (por ejemplo, con Internet).  
@@ -140,17 +155,17 @@ En AWS, el concepto es el mismo, pero en lugar de tener un router físico, se us
     !!! info "🔑 Tipos principales de puertas de enlace en AWS"  
         - **Internet Gateway (IGW):** Es la puerta de enlace que permite la comunicación entre la VPC y Internet. 
         - **NAT Gateway (Network Address Translation):** Puerta de enlace para que las **subredes privadas puedan salir a Internet**, pero sin permitir conexiones entrantes desde Internet.
-        - **IP elástica:** Es una **dirección IPv4 pública estática** que se puede asignar a los recursos dentro de una VPC en AWS. No permenece a la VPC sino a la cuenta de usuario de AWS. Permite mantener la IP pública de una instancia aunque la paremos y lanzemos de nuevo.   
+        - **IP elástica:** Es una **dirección IPv4 pública estática** que se puede asignar a los recursos dentro de una VPC en AWS. **No permenece a la VPC** sino a la cuenta de usuario de AWS. Permite mantener la IP pública de una instancia aunque la paremos y lanzemos de nuevo.   
         - **IGW de solo salida:** Similar al Internet Gateway, pero solo para **tráfico saliente de IPv6**. 
 
-#### **Tarea RA2-CEa-2 Creación de una VPC con acceso a internet**
+#### **1.2.4 - Tarea RA2-CEa-2 Creación de una VPC con acceso a internet**
 Realizar el siguiente escenario y poblar las tablas de enroutamiento de las subredes públicas y privadas.
 
 ![](./ut4/practica2.png){ .sietecinco }
 
 ## **2 - Enlaces de interés**
-Documentación de [AWS](https://docs.aws.amazon.com).
-Más info sobre las [tablas de enroutamiento](https://docs.aws.amazon.com/es_es/vpc/latest/userguide/VPC_Route_Tables.html).
+Documentación de [AWS](https://docs.aws.amazon.com).  
+Más info sobre las [tablas de enroutamiento](https://docs.aws.amazon.com/es_es/vpc/latest/userguide/VPC_Route_Tables.html).  
 Más info sobre las [puertas de enlace](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html).
 
 

@@ -85,3 +85,7 @@
   box-shadow: 0.2rem 0.2rem 0.5rem rgb(182, 172, 172);
 }
 
+.underline {
+  text-decoration: underline;
+}
+
