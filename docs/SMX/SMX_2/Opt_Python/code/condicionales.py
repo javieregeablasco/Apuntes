@@ -1,24 +1,35 @@
-continuar = True
 
-while continuar:
-  opcion = int(input("Elige una opción (1, 2 o 3): "))
-  match opcion:
-    case 1:
-      print("Has elegido la opción 1.")
-    case 2:
-      print("Has elegido la opción 2.")
-    case 3:
-      print("Has elegido la opción 3.")
-    case _:
-      print("Opción no válida.")
+
+
+
+
+
+
+
+
+
+
+# continuar = True
+
+# while continuar:
+#   opcion = int(input("Elige una opción (1, 2 o 3): "))
+#   match opcion:
+#     case 1:
+#       print("Has elegido la opción 1.")
+#     case 2:
+#       print("Has elegido la opción 2.")
+#     case 3:
+#       print("Has elegido la opción 3.")
+#     case _:
+#       print("Opción no válida.")
   
-  decision = input("Desea continua, intro para 'Sí', teclar 'no' para salir: ") 
-  if decision.lower() == "no": 
-    print("Programa finalizado")
-    # continuar = False
-    break
+#   decision = input("Desea continua, intro para 'Sí', teclar 'no' para salir: ") 
+#   if decision.lower() == "no": 
+#     print("Programa finalizado")
+#     # continuar = False
+#     break
 
-print("Salida del bucle while")
+# print("Salida del bucle while")
 
   
 
@@ -42,17 +53,21 @@ print("Salida del bucle while")
 
   #print("Vamos por la letra:", letra)
 
-# calificacion = 7
 
-# if calificacion >=5 & calificacion <7:
-#  print("Enhorabuena, has aprobado el examen")
-#  #pass #se usa pass como placeholder para que no haya error
 
-# if calificacion >= 7:
-#  print("Excelente examen")   
 
-# else:
-#  print("Lamentablemente no has aprobado el examen")
+
+calificacion = 7
+
+if calificacion >=5 & calificacion <7:
+ print("Enhorabuena, has aprobado el examen")
+ #pass se usa pass como placeholder para que no haya error
+
+elif calificacion >= 7 and calificacion<=10:
+  print("Excelente examen")   
+
+else:
+ print("Lamentablemente no has aprobado el examen")
 
 # # seguir con el programa
 
