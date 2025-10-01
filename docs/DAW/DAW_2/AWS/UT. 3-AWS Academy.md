@@ -11,7 +11,7 @@ schedule: 96h - 3h/s
 ---
 
 
-# **AWS Academy**
+# **UT. 3 - AWS Academy**
 
 ![Descripción de la imagen](../AWS/ut3/awsdemy.png){ .sietecinco }
 

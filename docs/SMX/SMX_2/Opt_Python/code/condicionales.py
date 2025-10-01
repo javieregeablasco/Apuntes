@@ -57,17 +57,17 @@
 
 
 
-calificacion = 7
+# calificacion = 7
 
-if calificacion >=5 & calificacion <7:
- print("Enhorabuena, has aprobado el examen")
- #pass se usa pass como placeholder para que no haya error
+# if calificacion >=5 & calificacion <7:
+#  print("Enhorabuena, has aprobado el examen")
+#  #pass se usa pass como placeholder para que no haya error
 
-elif calificacion >= 7 and calificacion<=10:
-  print("Excelente examen")   
+# elif calificacion >= 7 and calificacion<=10:
+#   print("Excelente examen")   
 
-else:
- print("Lamentablemente no has aprobado el examen")
+# else:
+#  print("Lamentablemente no has aprobado el examen")
 
 # # seguir con el programa
 
@@ -84,23 +84,24 @@ else:
 
 # # seguir con el programa
 
-# notas = [1,2,4,7,9]
+notas = [1,2,4,7,9]
 
-# calificacion = 8
+calificacion = 8
 
-# if calificacion in notas:
-#   print("Al menos 1 alumno ha sacado la nota de", calificacion)   
-# else:
-#   print(f"Ningun alumno ha sacado un {calificacion}")
+if calificacion in notas:
+   print("Al menos 1 alumno ha sacado la nota de", calificacion)   
+else:
+   print(f"Ningun alumno ha sacado un {calificacion}")
 
 # # # seguir con el programa
 
 
 
-# calificacion = 150
+# calificacion = 70
 
 # if calificacion < 0 or calificacion > 100:
 #     print("La calificación debe estar en la escala de 0 a 100")
+   
 # elif calificacion >= 95 and calificacion <= 100:
 #     print("Excelente")
 # elif calificacion >= 85 and calificacion <= 94:

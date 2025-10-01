@@ -10,7 +10,7 @@ layout: default
 schedule: 96h - 3h/s 
 ---
 
-# **Instancias y seguridad en AWS**
+# **UT. 5 - Instancias y seguridad en AWS**
 
 ![Descripción de la imagen](../AWS/ut5/initi.png){ .sietecinco }
 
@@ -366,6 +366,7 @@ El único tráfico que llega a la instancia es el permitido por las reglas del g
 El escenario quedará de la siguiente manera:
 ![](./ut5/VPC2.png){.sietecinco}  
 
+1. Poblar las RT para que las instancias de las subredes solo se puedan comunicar **la una con la otra y no con toda la VPC**.  
 1. Poblar los grupos de seguridad de la siguiente manera:  
 
      |Instancia	|Subred	|Grupo de Seguridad	|Reglas de Entrada|	Reglas de Salida|
@@ -400,7 +401,12 @@ Las **Network ACL (NACL)** son un componente de seguridad que actúa a nivel de 
 En el siguiente ejemplo, tenemos una VPC con dos subredes. Cada **subred tiene una ACL de red**. Cuando el tráfico entra en la VPC, el enrutador envía el tráfico a su destino.    
 La ACL de red A determina qué tráfico destinado a la subred 1 puede entrar en la subred 1, y qué tráfico destinado a una ubicación fuera de la subred 1 puede salir de la subred 1.  
 Del mismo modo, la ACL de red B determina qué tráfico puede entrar y salir de la subred 2.
-![](./ut5/acl.png){.original}
+![](./ut5/acl.png){.original}  
+
+Si vamos a AWS y consultamos las ACL de cada red veremos que, como hemos dicho anteriormente, **todo el tráfico entrante y saliente está permitido por defecto**.
+
+![](./ut5/acl1.png){.original}  
+
 
 <br>
 
@@ -415,15 +421,17 @@ Del mismo modo, la ACL de red B determina qué tráfico puede entrar y salir de 
 | **Predeterminado**             | Todo el tráfico está **denegado por defecto** (excepto lo que se permita explícitamente)                 | Todo el tráfico está **permitido por defecto** (excepto lo que se niegue explícitamente)              |
 | **Casos de uso típicos**       | Control fino del tráfico a instancias (ej. abrir 22/SSH o 443/HTTPS)                                     | Control global a nivel de subred, aplicar restricciones más amplias (ej. denegar rangos IP completos) |
 
-#### **3.8 - Tarea RA2-CEd**
+### **3.8 - Tarea RA2-CEd**
+
+<!-- (https://www.corestack.io/aws-security-best-practices/aws-nacl/) -->
 Entender el concepto de responsabilidad compartida en el desarrollo de una infraestructura en AWS.
 
-
+<!-- https://www.raulprietofernandez.net/blog/packet-tracer/configuracion-de-acls-con-packet-tracer -->
 <!-- Acceder por ssh a la instancia y comprobar su dirección ip privada.  -->
  
 <!-- https://medium.com/@mrdevsecops/network-acls-security-group-68f2dd901ee6 -->
 
-<!-- ## am,plicacio
+<!-- ## amplicacio
 hablar de los nat para permitir a las ec2 de las subredes privadas poder acceder a inet sin tener ipv4 pública. -->
 
 <!-- modelo responsabilidad compartida https://www.corestack.io/aws-security-best-practices/aws-security-group-best-practices/ -->
