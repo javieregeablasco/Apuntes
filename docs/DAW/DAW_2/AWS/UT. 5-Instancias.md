@@ -421,10 +421,19 @@ Si vamos a AWS y consultamos las ACL de cada red veremos que, como hemos dicho a
 | **Predeterminado**             | Todo el tráfico está **denegado por defecto** (excepto lo que se permita explícitamente)                 | Todo el tráfico está **permitido por defecto** (excepto lo que se niegue explícitamente)              |
 | **Casos de uso típicos**       | Control fino del tráfico a instancias (ej. abrir 22/SSH o 443/HTTPS)                                     | Control global a nivel de subred, aplicar restricciones más amplias (ej. denegar rangos IP completos) |
 
+## **4 - NAT gateway sobre subredes privadas**
+<!-- https://www.youtube.com/watch?v=JhC5XJ3b9t0 -->
+
+## **5 - IP elástica**
+<!-- https://www.youtube.com/watch?v=ZRwsQNMlM2g -->
 ### **3.8 - Tarea RA2-CEd**
+Escenario de una VPC con NACL, SG y 
+
 
 <!-- (https://www.corestack.io/aws-security-best-practices/aws-nacl/) -->
 Entender el concepto de responsabilidad compartida en el desarrollo de una infraestructura en AWS.
+<!-- https://jayendrapatil.com/aws-vpc-security-group-vs-nacls/ -->
+<!-- https://docs.aws.amazon.com/es_es/vpc/latest/userguide/nacl-examples.html -->
 
 <!-- https://www.raulprietofernandez.net/blog/packet-tracer/configuracion-de-acls-con-packet-tracer -->
 <!-- Acceder por ssh a la instancia y comprobar su dirección ip privada.  -->
@@ -436,6 +445,72 @@ hablar de los nat para permitir a las ec2 de las subredes privadas poder acceder
 
 <!-- modelo responsabilidad compartida https://www.corestack.io/aws-security-best-practices/aws-security-group-best-practices/ -->
 
+<!-- SR publica -->
+<!-- 📥 Reglas de entrada (Inbound Rules) -->
+<!-- | Nº  | Regla                    | Protocolo | Puerto(s)  | Origen                          | Descripción                                                                |
+| --- | ------------------------ | --------- | ---------- | ------------------------------- | -------------------------------------------------------------------------- |
+| 100 | Permitir HTTP            | TCP       | 80         | 0.0.0.0/0                       | Acceso web desde cualquier lugar                                           |
+| 110 | Permitir HTTPS           | TCP       | 443        | 0.0.0.0/0                       | Acceso web seguro desde cualquier lugar                                    |
+| 120 | Permitir SSH             | TCP       | 22         | X.X.X.X/32                      | Acceso de administración desde IP del profesor (ej. IP pública del centro) |
+| 130 | Permitir tráfico interno | TCP/UDP   | 1024–65535 | Subred interna (CIDR de la VPC) | Respuestas de conexiones internas                                          |
+| 140 | Denegar todo lo demás    | ALL       | ALL        | 0.0.0.0/0                       | Política de seguridad implícita                                            | -->
+
+<!-- 📤 Reglas de salida (Outbound Rules) -->
+<!-- | Nº  | Regla                 | Protocolo | Puerto(s)  | Destino   | Descripción                                             |
+| --- | --------------------- | --------- | ---------- | --------- | ------------------------------------------------------- |
+| 100 | Permitir HTTP         | TCP       | 80         | 0.0.0.0/0 | Salida para actualizaciones y llamadas API              |
+| 110 | Permitir HTTPS        | TCP       | 443        | 0.0.0.0/0 | Salida segura para actualizaciones y servicios externos |
+| 120 | Permitir DNS          | UDP       | 53         | 0.0.0.0/0 | Resolución de nombres                                   |
+| 130 | Permitir respuestas   | TCP/UDP   | 1024–65535 | 0.0.0.0/0 | Respuestas de tráfico iniciado por la subred            |
+| 140 | Denegar todo lo demás | ALL       | ALL        | 0.0.0.0/0 | Regla de seguridad explícita                            | -->
+
+<!-- subred privada -->
+<!-- 📥 Reglas de entrada (Inbound Rules) — Subred privada (BD)
+| Nº  | Regla                          | Protocolo | Puerto(s)  | Origen                    | Descripción                                    |
+| --- | ------------------------------ | --------- | ---------- | ------------------------- | ---------------------------------------------- |
+| 100 | Permitir MySQL                 | TCP       | 3306       | CIDR de la subred pública | Acceso de la app web al motor de BD            |
+| 110 | Permitir PostgreSQL (opcional) | TCP       | 5432       | CIDR de la subred pública | Acceso en caso de usar Postgres                |
+| 120 | Permitir tráfico interno       | TCP/UDP   | 1024–65535 | CIDR de la VPC            | Comunicación interna                           |
+| 130 | Permitir ICMP                  | ICMP      | ALL        | CIDR de la VPC            | Permitir ping interno (opcional, para pruebas) |
+| 140 | Denegar todo lo demás          | ALL       | ALL        | 0.0.0.0/0                 | Seguridad por defecto                          |
+
+📤 Reglas de salida (Outbound Rules) — Subred privada (BD)
+| Nº  | Regla                 | Protocolo | Puerto(s)  | Destino   | Descripción                                            |
+| --- | --------------------- | --------- | ---------- | --------- | ------------------------------------------------------ |
+| 100 | Permitir HTTP         | TCP       | 80         | 0.0.0.0/0 | Actualizaciones y descargas (a través del NAT Gateway) |
+| 110 | Permitir HTTPS        | TCP       | 443        | 0.0.0.0/0 | Descargas seguras (a través del NAT Gateway)           |
+| 120 | Permitir DNS          | UDP       | 53         | 0.0.0.0/0 | Resolución de nombres                                  |
+| 130 | Permitir respuestas   | TCP/UDP   | 1024–65535 | 0.0.0.0/0 | Respuestas de tráfico iniciado desde la BD             |
+| 140 | Denegar todo lo demás | ALL       | ALL        | 0.0.0.0/0 | Seguridad explícita                                    | -->
+
+<!-- grupos de seguridad
+🖥️ Instancia EC2 en la subred pública (Servidor Web)
+
+Esta será la máquina accesible desde Internet.
+
+Reglas de entrada (Inbound)
+
+HTTP (80/TCP) → Origen: 0.0.0.0/0 → Acceso web desde cualquier sitio.
+
+HTTPS (443/TCP) → Origen: 0.0.0.0/0 → Acceso seguro desde cualquier sitio.
+
+SSH (22/TCP) → Origen: X.X.X.X/32 (IP pública del profesor/centro) → Administración segura solo desde la IP autorizada.
+
+(No hace falta configurar salida, porque SG permite todo el tráfico saliente por defecto.)
+
+🖥️ Instancia EC2 en la subred privada (Base de Datos)
+
+Esta máquina solo debe ser accesible por el servidor web.
+
+Reglas de entrada (Inbound)
+
+MySQL (3306/TCP) → Origen: SG del servidor web → Solo el servidor web puede conectarse a la BD.
+
+PostgreSQL (5432/TCP) (si se usa) → Origen: SG del servidor web → Acceso restringido desde la app web.
+
+SSH (22/TCP) → Origen: SG del servidor web (o bastion host si lo usas) → Acceso indirecto desde la red pública vía salto. -->
+
+
 ## **Enlaces de interés**
 Documentación de [AWS](https://docs.aws.amazon.com).
 Instancias [EC2](https://docs.aws.amazon.com/es_es/ec2/?icmpid=docs_homepage_featuredsvcs).
@@ -444,4 +519,5 @@ Controlar el tráfico hacia los recursos de AWS mediante [grupos de seguridad](h
 [Grupos de seguridad de instancias EC2](https://docs.aws.amazon.com/es_es/AWSEC2/latest/UserGuide/ec2-security-groups.html).
 Control del tráfico de la subred con [listas de control de acceso a la red](https://docs.aws.amazon.com/es_es/vpc/latest/userguide/vpc-network-acls.html)
 Tipos y caracteristicas de las [EBS](https://docs.aws.amazon.com/es_es/ebs/latest/userguide/ebs-volume-types.html)
+[Gateways NAT](https://docs.aws.amazon.com/es_es/vpc/latest/userguide/vpc-nat-gateway.html)
 
