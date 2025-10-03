@@ -421,13 +421,40 @@ Si vamos a AWS y consultamos las ACL de cada red veremos que, como hemos dicho a
 | **Predeterminado**             | Todo el tráfico está **denegado por defecto** (excepto lo que se permita explícitamente)                 | Todo el tráfico está **permitido por defecto** (excepto lo que se niegue explícitamente)              |
 | **Casos de uso típicos**       | Control fino del tráfico a instancias (ej. abrir 22/SSH o 443/HTTPS)                                     | Control global a nivel de subred, aplicar restricciones más amplias (ej. denegar rangos IP completos) |
 
-## **4 - NAT gateway sobre subredes privadas**
+## **4 - NAT gateway**
+- NAT gateway permite que las instancias en una subred privada tengan acceso a Internet o a otros servicios de AWS, **sin exponer** sus IP privadas.
+- NAT gateway es un servicio de traducción de direcciones de red (NAT): La instancia privada sale a Internet usando la IP pública del NAT Gateway.
+- Este servicio resulta particularmente útil por necesidad de los servicios de las EC2 de la subred privada o más simplemente para actualizarse manteniendo la imposibilidad a servicios externos, iniciar una conexión con esas instancias.
+
+### **4.1 - Tipos de despliegue** 
+- **NAT Gateway público**  
+!!! info "" 
+    Se ubica en una subred pública.  
+    Se le asigna una Elastic IP.
+    Permite que las instancias en una subred privada puedan acceder a Internet. 
+    No permite que el tráfico desde Internet inicie conexiones hacia las instancias privadas.
+
+🔎 **Ejemplo:**  
+Una base de datos en una subred privada necesita instalar actualizaciones desde repositorios públicos de Linux → se conecta a Internet a través del NAT Gateway público.
+
+- **NAT Gateway privado**
+!!! info ""
+    Se ubica en una subred privada pero se usa en conjunto con un Transit Gateway o una VPN/Direct Connect.
+    No tiene Elastic IP.
+    Sirve para enrutamiento privado: Las instancias en una subred privada pueden comunicarse con otras redes (VPCs, etc.) y ocultan sus direcciones privadas detrás de una IP en el lado del NAT.
+
+Este tipo de despliegue es útil en arquitecturas multi-VPC o híbridas (AWS ↔ on-premise).
+
+🔎 **Ejemplo:**
+Montar un NAT Gateway privado para que todas las conexiones de una VPC hacia una red on-premise salgan por la esa IP.
+
+### **Tarea RA2-CEd-1
+Escenario de una VPC con NACL, SG y 
+
 <!-- https://www.youtube.com/watch?v=JhC5XJ3b9t0 -->
 
 ## **5 - IP elástica**
 <!-- https://www.youtube.com/watch?v=ZRwsQNMlM2g -->
-### **3.8 - Tarea RA2-CEd**
-Escenario de una VPC con NACL, SG y 
 
 
 <!-- (https://www.corestack.io/aws-security-best-practices/aws-nacl/) -->
