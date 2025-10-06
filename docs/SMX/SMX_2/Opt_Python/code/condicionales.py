@@ -1,12 +1,26 @@
+# # 7.2.2 ej 1
+# for i in range(1, 21):
+#     if i % 2 == 0:
+#         print(i)
+
+# 7.2.2 ej 2
+# numero = int(input("Introducir un número: "))
+
+# for i in range(1, 11):
+#     print("Resultado= ", numero * i)
 
 
+# 7.2.2 ej 3
+frutas = ["manzana", "pera", "naranja", "plátano", "kiwi"]
+colores = ["rojo", "verde", "naranja", "amarillo", "verde", "morado", "azul"]
 
+for fruta, color in zip(frutas, colores):
+  print("Fruta:",fruta + ", color:", color)
 
+# lista = ["Este", "es", "un", "gran", "día"]
 
-
-
-
-
+# for (indice,valor) in enumerate(lista):
+#     print("Iteración:", indice, "Elemento:", valor)
 
 
 # continuar = True
@@ -84,14 +98,14 @@
 
 # # seguir con el programa
 
-notas = [1,2,4,7,9]
+# notas = [1,2,4,7,9]
 
-calificacion = 8
+# calificacion = 8
 
-if calificacion in notas:
-   print("Al menos 1 alumno ha sacado la nota de", calificacion)   
-else:
-   print(f"Ningun alumno ha sacado un {calificacion}")
+# if calificacion in notas:
+#    print("Al menos 1 alumno ha sacado la nota de", calificacion)   
+# else:
+#    print(f"Ningun alumno ha sacado un {calificacion}")
 
 # # # seguir con el programa
 

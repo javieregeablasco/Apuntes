@@ -754,7 +754,7 @@ kanban
     [Exponente de: <br> **=]
     [División entera de: <br> //=]
 
-  [Pertenecia]
+  [Pertenencia]
     [in]
     [not in]
   
@@ -1123,10 +1123,8 @@ for i in range(10, 0, -2):
 En Python se puede iterar sobre cualquier objeto iterable, como por ejemplo un string, una lista, una tupla o un diccionario...  
 A continuación varios ejemplos de objetos iterables.
 
-- Bucle **for** sobre variable numérica. 
+- Bucle **for** sobre un string. 
 ```py
-iteración = 5
-
 for i in "iteración":
   print("Iteración: ", i)
 ```
@@ -1149,8 +1147,8 @@ for i in range(len(lista)):
 ```py
 lista = ["Este", "es", "un", "gran", "día"]
 
-for indice,valor in enumerate(lista):
-    print("Iteración:", indice, "Elemento:", lista[indice])
+for (indice,valor) in enumerate(lista):
+    print("Iteración:", indice, "Elemento:", valor)
 ```
 - También se puede iterar sobre varios iterables a la vez usando **la función zip()**.
 ```py
@@ -1162,6 +1160,25 @@ for nombre, edad in zip(nombres, edades):
 ```
 **zip()**, como su nombre lo deja entrever **une** los elementos de las listas, posición a posición.  
 Si una lista es más larga que la otra, zip se detiene en la más corta.
+
+#### **7.2.3 - Ejercicios**
+!!! Ejercicio "Ejercicio 1"  
+    **Contar números pares:**  
+    - Mostrar los números pares del 1 al 20 usando un bucle for. 
+
+!!! Ejercicio "Ejercicio 2"  
+    **Tabla de multiplicar:**  
+    - El programa pedirá al usuario un número con el código:
+    ```py
+    numero = int(input("Introducir un número: "))
+    ```
+    - Completar el programa para que devuelva la tabla de multiplicar del número introducido desde el 1 hasta en 10. 
+
+!!! Ejercicio "Ejercicio 3"  
+    **Recorrer una lista:**  
+    - Crear una lista con 5 frutas (manzana, pera, naranja, plátano, kiwi).  
+    - Crear una lista con 7 colores (rojo, verde, naranja, amarillo, verde, morado, azul).  
+    - El programa deberá imprimir el contenido de las 2 listas usando **zip**.  
 
 ### **7.3 - Bucle de repetición while**
 El bucle while ejecuta un bloque de instrucciones mientras se cumpla una condición. A diferencia del bucle **for**, en el **while** normalmente no sabemos de entrada cuántas veces se va a repetir."
@@ -1178,6 +1195,7 @@ while k < len(nombre):
     print(nombre[k])
     k += 1
 ```
+
 
 ### **7.4 - Sentencias de control de flujo: break y continue**
 #### **7.4.1 - Sentencia break**

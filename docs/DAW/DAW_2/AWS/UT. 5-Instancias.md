@@ -199,7 +199,7 @@ De momento, no tener en cuenta los grupos de seguridad.
 ![](./ut5/RA2CEb.png){ .original .marco }
 <br>
 
-#### **2.4.2 - Lanzar instancia 1/3**
+#### **2.4.2 - Lanzar instancia 1/4**
 !!! tip "Vamos a EC2"
 Una vez dentro del menú de instancias veremos los apartados principales de EC2
 
@@ -227,27 +227,49 @@ Aquí se configuran los **Auto Scaling Groups**, que crean o destruyen instancia
 ![](./ut5/RA2CEb1.png){ .original .marco }
 <br>
 
-#### **2.4.3 - Lanzar instancia 2/3**
+#### **2.4.3 - Lanzar instancia 2/4**
 1. Damos un nombre a la instancia.
-1. Seleccionamos el tipo de instancia, la AMI adecuada a nuestras necesidades.
+1. Seleccionamos el tipo de instancia y la AMI adecuada a nuestras necesidades.
 
-    ![](./ut5/RA2CEb2.png){ .original .marco }
+    ![](./ut5/RA2CEb2.png){ .original }
+    <br>
+    ![](./ut5/RA2CEb2-1.png){ .original }
     <br>
 
-#### **2.4.4 - Lanzar instancia 3/3**
+#### **2.4.4 - Lanzar instancia 3/4**
 1. Elegimos el par de claves con el que podremos conectarnos por SSH a nuestra instancia.
-1. Configuración de seguridad
-    ![](./ut5/RA2CEb3.png){ .original .marco }
+  
+    ![](./ut5/RA2CEb3-1.png){ .original }
+<br>
 
+1. Configuración de red y seguridad
+
+    ![](./ut5/RA2CEb3.png){ .original }
 <br>    
+
+#### **2.4.5 - Lanzar instancia 4/4**
+1. Elegimos el tamaño del almacenamiento del volumen raíz. 
+
+
+    ![](./ut5/RA2CEb3-2.png){ .original }
+<br>    
+
+1. Modificar volumen (sí necesario)  
+Es posible **aumentar** el tamaño del volumen raíz. Para ello, basta con detener la instancia, ir al menú de los volumenes EBS y modificar el tamaño.  
+**Nota:** Ampliar la capacidad del volumen no presenta ninguna dificultad. Reducirlo implica realizar una **snapshot del mismo**, **eliminar** el EBS original, **crear y poner otro** de menor tamaño.     
+
+    ![](./ut5/RA2CEb3-3.png){ .original .marco }
+<br>   
 
 #### **2.4.5 - Panel de control de las instancias**
 - **Instancias**
+
     ![](./ut5/RA2CEb4.png){ .original .marco }
 <br>
 
 - **Resumen de las instancias**  
 **Nota:** Asegurarse de que tenemos un IPv4 pública. De lo contrario no será posible conectarse remotamente con la instancia.
+
     ![](./ut5/RA2CEb5.png){ .original .marco }
 <br>
 
@@ -313,6 +335,40 @@ Para poder realizar el ping deberemos agregar reglas **al grupo de seguridad de 
 Después de agregar la regla ICMP sí que será posible realizar un ping a nuestra instancia.   
 
 ![](./ut5/RA2CEb14.png){ .cincozero }
+<br>
+
+#### **2.4.9 - Añadir un EBS a la instancia**  
+Aunque en la consola de EC2 podamos gestionar los volúmenes EBS asociados a nuestras instancias, EC2 y EBS son **servicios independientes** dentro de AWS.
+En muchos casos puede resultar necesario añadir volúmenes EBS adicionales a una instancia, ya sea para ampliar capacidad, separar datos del sistema operativo, realizar migraciones o incluso compartir información entre diferentes instancias (adjuntando y desadjuntando volúmenes).
+
+1. **Crear un volumen EBS**
+
+      ![](./ut5/RA2CEb16.png){ .original .marco }
+ <br>
+
+    **Nota importante:**  
+    El volumen debe crearse en la misma **zona de disponibilidad** que la EC2. 
+
+    ![](./ut5/RA2CEb17.png){ .original .marco }
+ <br>
+
+1. **Adjuntar el volumen EBS a la instancia EC2**  
+Si volvemos al menú de volúmenes EBS, veremos que el nuevo volumen aparece como disponible.
+
+    ![](./ut5/RA2CEb18.png){ .original .marco }
+ <br>
+
+    Seleccionamos el EBS disponible y lo asociamos.
+
+    ![](./ut5/RA2CEb20.png){ .original .marco }
+ <br>
+
+    Si volvemos a la EC2, en el apartado **Almacenamiento** veremos los EBS asociados a la instancia.
+
+    ![](./ut5/RA2CEb21.png){ .original .marco }
+ <br>
+
+1. **Montar el volumen**
 
 ## **3 - Grupos de seguridad y listas de control de acceso (ACL)**
 ### **3.1 - Introducción**
@@ -547,4 +603,5 @@ Controlar el tráfico hacia los recursos de AWS mediante [grupos de seguridad](h
 Control del tráfico de la subred con [listas de control de acceso a la red](https://docs.aws.amazon.com/es_es/vpc/latest/userguide/vpc-network-acls.html)
 Tipos y caracteristicas de las [EBS](https://docs.aws.amazon.com/es_es/ebs/latest/userguide/ebs-volume-types.html)
 [Gateways NAT](https://docs.aws.amazon.com/es_es/vpc/latest/userguide/vpc-nat-gateway.html)
+[Adjuntar volúmenes EBS a EC2](https://docs.aws.amazon.com/es_es/ebs/latest/userguide/ebs-attaching-volume.html)
 
