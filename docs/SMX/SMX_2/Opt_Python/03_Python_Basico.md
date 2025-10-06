@@ -1290,7 +1290,7 @@ while True:
         print("Estás intentando dividir por cero.")
 
 ```
-#### **7.5.2 - Sentencias try, except, else y finnally**
+#### **7.5.2 - Sentencias try, except, else y finally**
 En Python también podemos usar los bloques **else y finally** junto con **try y except** para tener un control más fino sobre el flujo del programa cuando ocurren excepciones.
 
 - **try:** Contiene el código que podría provocar un error.

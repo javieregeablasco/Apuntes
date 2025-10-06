@@ -1,3 +1,11 @@
+cadena = "Python es mi lenguaje de programacion favorito"
+letra_a_eliminar = "a"
+
+for letra in cadena:
+  if letra == letra_a_eliminar:
+    continue
+  print(letra, end="") #end="" evita el salto de línea
+
 # # 7.2.2 ej 1
 # for i in range(1, 21):
 #     if i % 2 == 0:
@@ -11,11 +19,11 @@
 
 
 # 7.2.2 ej 3
-frutas = ["manzana", "pera", "naranja", "plátano", "kiwi"]
-colores = ["rojo", "verde", "naranja", "amarillo", "verde", "morado", "azul"]
+# frutas = ["manzana", "pera", "naranja", "plátano", "kiwi"]
+# colores = ["rojo", "verde", "naranja", "amarillo", "verde", "morado", "azul"]
 
-for fruta, color in zip(frutas, colores):
-  print("Fruta:",fruta + ", color:", color)
+# for fruta, color in zip(frutas, colores):
+#   print("Fruta:",fruta + ", color:", color)
 
 # lista = ["Este", "es", "un", "gran", "día"]
 
