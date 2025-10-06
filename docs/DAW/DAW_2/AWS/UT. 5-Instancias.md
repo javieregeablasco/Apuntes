@@ -337,8 +337,72 @@ Después de agregar la regla ICMP sí que será posible realizar un ping a nuest
 ![](./ut5/RA2CEb14.png){ .cincozero }
 <br>
 
-#### **2.4.9 - Añadir un EBS a la instancia**  
+#### **2.4.9 - Modificar el tamaño de un EBS**
 Aunque en la consola de EC2 podamos gestionar los volúmenes EBS asociados a nuestras instancias, EC2 y EBS son **servicios independientes** dentro de AWS.
+
+1. **Modificar volumen**
+Desde el menú de la instancia o directamente desde el menú EBS seleccionamos modificar volumen y lo ajustamos al tamaño deseado (p.e. 20 GiB).
+
+      ![](./ut5/RA2CEb31.png){ .original .marco }
+ <br>
+
+    No saldrá el siguiente mensaje de advertencia:
+
+      ![](./ut5/RA2CEb32.png){ .cincozero }
+ <br>
+    Confirmamos y seguimos.
+
+<br>
+
+1. **Ampliación de un sistema de archivos después de cambiar el tamaño de un volumen de Amazon EBS**  
+Toda la información [aquí](https://docs.aws.amazon.com/es_es/ebs/latest/userguide/recognize-expanded-volume-linux.html)  
+
+<!-- desde aqui -->
+    !!! tip "Conéctarse a la instancia mediante SSH"  
+    Utilizaremos el comando **lsblk** para ver los dispositivos de disco disponibles y sus puntos de montaje (si los hay).
+    
+    ![](./ut5/RA2CEb22.png){ .original }
+    <br>
+    
+    Como podemos ver en la imagen el volumen adjunto es **/dev/nvme1n1**. No tiene particiones ni se ha montado aún.  
+
+    !!! tip "Determinar si hay un sistema de archivos en el volumen"  
+    Utilizaremos el comando **file -s** para obtener información sobre un dispositivo. Si el resultado es **data**, significa que no se encuentra ningún sistema de archivos en el dispositivo. 
+
+    ![](./ut5/RA2CEb23.png){ .original }
+    <br>
+
+    !!! tip "Obtener información sobre todos los dispositivos asociados a la instancia"  
+    Utilizaremos el comando **lsblk -f** para obtener información sobre todos los dispositivos asociados a la instancia. 
+
+    ![](./ut5/RA2CEb24.png){ .original }
+    <br>
+
+    La columna FSTYPE muestra el tipo de sistema de archivos. Si la columna está vacía para un dispositivo específico, significa que el dispositivo no tiene un sistema de archivos.
+
+    !!! tip "Crear un sistema de archivos"  
+    Si tenemos un volumen vacío, crearemos el sistema de archivos con **mkfs -t**.  
+
+    ![](./ut5/RA2CEb25.png){ .original }
+    <br>
+  
+    !!! tip "Crear un directorio para el punto de montaje"  
+    Utilizaremos el comando **mkdir** para crear un directorio para el punto de montaje del volumen.   
+
+    ![](./ut5/RA2CEb26.png){ .original }
+    <br>
+
+    !!! tip "Montar el volumen"  
+    Montaremos el volumen con **mount**.   
+
+    ![](./ut5/RA2CEb27.png){ .original }
+    <br>
+
+<!-- hasta aqui -->
+
+
+
+#### **2.4.10 - Añadir un EBS a la instancia**  
 En muchos casos puede resultar necesario añadir volúmenes EBS adicionales a una instancia, ya sea para ampliar capacidad, separar datos del sistema operativo, realizar migraciones o incluso compartir información entre diferentes instancias (adjuntando y desadjuntando volúmenes).
 
 1. **Crear un volumen EBS**
@@ -368,7 +432,70 @@ Si volvemos al menú de volúmenes EBS, veremos que el nuevo volumen aparece com
     ![](./ut5/RA2CEb21.png){ .original .marco }
  <br>
 
-1. **Montar el volumen**
+1. **Adjuntar un volumen de Amazon EBS a una instancia de Amazon EC2**  
+Toda la información [aquí](https://docs.aws.amazon.com/es_es/ebs/latest/userguide/ebs-attaching-volume.html)  
+
+    !!! tip "Conéctarse a la instancia mediante SSH"  
+    Utilizaremos el comando **lsblk** para ver los dispositivos de disco disponibles y sus puntos de montaje (si los hay).
+    
+    ![](./ut5/RA2CEb22.png){ .original }
+    <br>
+    
+    Como podemos ver en la imagen el volumen adjunto es **/dev/nvme1n1**. No tiene particiones ni se ha montado aún.  
+
+    !!! tip "Determinar si hay un sistema de archivos en el volumen"  
+    Utilizaremos el comando **file -s** para obtener información sobre un dispositivo. Si el resultado es **data**, significa que no se encuentra ningún sistema de archivos en el dispositivo. 
+
+    ![](./ut5/RA2CEb23.png){ .original }
+    <br>
+
+    !!! tip "Obtener información sobre todos los dispositivos asociados a la instancia"  
+    Utilizaremos el comando **lsblk -f** para obtener información sobre todos los dispositivos asociados a la instancia. 
+
+    ![](./ut5/RA2CEb24.png){ .original }
+    <br>
+
+    La columna FSTYPE muestra el tipo de sistema de archivos. Si la columna está vacía para un dispositivo específico, significa que el dispositivo no tiene un sistema de archivos.
+
+    !!! tip "Crear un sistema de archivos"  
+    Si tenemos un volumen vacío, crearemos el sistema de archivos con **mkfs -t**.  
+
+    ![](./ut5/RA2CEb25.png){ .original }
+    <br>
+  
+    !!! tip "Crear un directorio para el punto de montaje"  
+    Utilizaremos el comando **mkdir** para crear un directorio para el punto de montaje del volumen.   
+
+    ![](./ut5/RA2CEb26.png){ .original }
+    <br>
+
+    !!! tip "Montar el volumen"  
+    Montaremos el volumen con **mount**.   
+
+    ![](./ut5/RA2CEb27.png){ .original }
+    <br>
+
+    !!! tip "Montar el volumen automáticamente después de un reinicio"  
+    :one: Usaremos **blkid** para encontrar el **UUID** del dispositivo.   
+
+    ![](./ut5/RA2CEb28.png){ .original }
+    <br>
+    :two: Editamos el archivo **/etc/fstab** (p.e. nano ) y añadimos los campos UUID, el punto de montaje, el sistema de archivos y las opciones de montaje.  
+
+
+    ![](./ut5/RA2CEb29.png){ .original }
+    <br>
+
+    :three: Verificar que la entrada funciona correctamente.  
+    Para ello usaremos:
+    ```bash
+    sudo umount /data
+    sudo mount -a
+    ```
+    Para desmontar y montar automáticamente el dispositivo. Si no hay errores la operación se habrá realizado correctamente.
+
+    ![](./ut5/RA2CEb30.png){ .original }
+    <br>
 
 ## **3 - Grupos de seguridad y listas de control de acceso (ACL)**
 ### **3.1 - Introducción**
@@ -603,5 +730,6 @@ Controlar el tráfico hacia los recursos de AWS mediante [grupos de seguridad](h
 Control del tráfico de la subred con [listas de control de acceso a la red](https://docs.aws.amazon.com/es_es/vpc/latest/userguide/vpc-network-acls.html)
 Tipos y caracteristicas de las [EBS](https://docs.aws.amazon.com/es_es/ebs/latest/userguide/ebs-volume-types.html)
 [Gateways NAT](https://docs.aws.amazon.com/es_es/vpc/latest/userguide/vpc-nat-gateway.html)
-[Adjuntar volúmenes EBS a EC2](https://docs.aws.amazon.com/es_es/ebs/latest/userguide/ebs-attaching-volume.html)
+[Ampliar volúmenes EBS](https://docs.aws.amazon.com/es_es/ebs/latest/userguide/recognize-expanded-volume-linux.html)
+[Adjuntar volúmenes EBS](https://docs.aws.amazon.com/es_es/ebs/latest/userguide/ebs-attaching-volume.html)
 

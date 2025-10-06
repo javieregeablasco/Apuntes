@@ -1,29 +1,35 @@
-cadena = "Python es mi lenguaje de programacion favorito"
-letra_a_eliminar = "a"
+for i in range(1, 500, 1):
+  if i%7==0 and i%8==0:
+    print(i)
 
-for letra in cadena:
-  if letra == letra_a_eliminar:
-    continue
-  print(letra, end="") #end="" evita el salto de línea
+    
+
+# cadena = "Python es mi lenguaje de programacion favorito"
+# letra_a_eliminar = "a"
+
+# for letra in cadena:
+#   if letra == letra_a_eliminar:
+#     continue
+#   print(letra, end="") #end="" evita el salto de línea
 
 # # 7.2.2 ej 1
 # for i in range(1, 21):
-#     if i % 2 == 0:
-#         print(i)
+#   if i % 2 == 0:
+#     print(i)
 
 # 7.2.2 ej 2
-# numero = int(input("Introducir un número: "))
+numero = int(input("Introducir un número: "))
 
-# for i in range(1, 11):
-#     print("Resultado= ", numero * i)
+for i in range(1, 11):
+    print("Resultado= ", numero * i)
 
 
 # 7.2.2 ej 3
-# frutas = ["manzana", "pera", "naranja", "plátano", "kiwi"]
-# colores = ["rojo", "verde", "naranja", "amarillo", "verde", "morado", "azul"]
+frutas = ["manzana", "pera", "naranja", "plátano", "kiwi"]
+colores = ["rojo", "verde", "naranja", "amarillo", "verde", "morado", "azul"]
 
-# for fruta, color in zip(frutas, colores):
-#   print("Fruta:",fruta + ", color:", color)
+for fruta, color in zip(frutas, colores):
+  print("Fruta:",fruta + ", color:", color)
 
 # lista = ["Este", "es", "un", "gran", "día"]
 
