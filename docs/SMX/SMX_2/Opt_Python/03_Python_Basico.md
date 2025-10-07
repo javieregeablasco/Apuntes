@@ -697,7 +697,6 @@ for num in clases:
 ```
 <br>
 - **Ejercicio 3**
-
 ```py
 DESCUENTO = ______  
 
@@ -1161,7 +1160,7 @@ for nombre, edad in zip(nombres, edades):
 **zip()**, como su nombre lo deja entrever **une** los elementos de las listas, posición a posición.  
 Si una lista es más larga que la otra, zip se detiene en la más corta.
 
-#### **7.2.3 - Ejercicios**
+#### **7.2.3 - Ejercicios con bucles e iteradores**
 !!! Ejercicio "Ejercicio 1"  
     **Contar números pares:**  
     - Mostrar los números pares del 1 al 20 usando un bucle for. 
@@ -1196,6 +1195,25 @@ while k < len(nombre):
     k += 1
 ```
 
+#### **7.3.1 - Ejercicios con bucles while**
+!!! Ejercicio "Ejercicio 1. Crear un programa con un bucle while con las siguientes condiciones."  
+    - Cada vez que se realice un bucle se incrementará **+1** el valor de una variable.
+    - Cada vez que se realice un bucle se imprimirá el valor de esa variable.
+    - El programa finalizará cuando se hayan realizado 10 bucles.  
+
+!!! Ejercicio "Ejercicio 2. Crear un programa con un bucle while con las siguientes condiciones."  
+    - El programa preguntará al usuario que introduzca un número entre 1 y 10.
+    - Mientras el número introducido no esté dentro de ese rango, el programa volverá a pedir que se introduzca un número. 
+    - Para introducir un valor por teclado usar:
+    ```py
+    numero = int(input("Introducir un número entre 1 y 10"))    
+    ```
+
+!!! Ejercicio "Ejercicio 3. Crear un programa con un bucle while con las siguientes condiciones."  
+    - El programa pedirá al usuario que introduzca un número.
+    - Si el valor introducido es positivo, entonces se calculará la raíz cuadrada de ese número y se mostrará por pantalla.
+    - Si el valor introducido es negativo, se mostrará un mensaje de error y se volverá a pedir introducir un valor.
+    - El usuario solo tendrá derecho a 5 intentos, superados los cuales el programa finalizará.
 
 ### **7.4 - Sentencias de control de flujo: break y continue**
 #### **7.4.1 - Sentencia break**
@@ -1231,6 +1249,8 @@ while True: #definimos un bucle while infinito
   else:
     print(f"{valor} no es el numero correcto, intentalo nuevamente\n")
   intentos += 1 
+
+print("Programa terminado")  
 ```  
 
 #### **7.4.2 - Sentencia continue**
@@ -1248,6 +1268,17 @@ for letra in cadena:
     continue
   print(letra, end="") #end="" evita el salto de línea
 ```
+
+#### **7.4.3 - Ejercicios con break y continue**
+!!! Ejercicio "Ejercicio 1. Crear un programa con un bucle while y la sentencia break con las siguientes condiciones."  
+    - El programa pedirá al usuario que introduzca un número.
+    - Si el valor introducido es positivo, entonces se calculará la raíz cuadrada de ese número y se mostrará por pantalla.
+    - Si el valor introducido es negativo, se mostrará un mensaje de error y se volverá a pedir introducir un valor.
+    - El usuario solo tendrá derecho a 5 intentos, superados los cuales el programa finalizará.
+
+!!! Ejercicio "Ejercicio 2. Crear un programa que use la sentencia continue y realice lo siguiente."  
+    - El programa pedirá al usuario que introduzca un número (el valor introducido será un entero positivo).
+    - El programa realizará un bucle desde 0 hasta el valor introducido dentro del cual solo mostrará en pantalla los valores pares.    
 
 ### **7.5 - Sentencia de control de excepciones** 
 #### **7.5.1 - Sentencias try-except**

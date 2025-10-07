@@ -357,50 +357,42 @@ Desde el menú de la instancia o directamente desde el menú EBS seleccionamos m
 1. **Ampliación de un sistema de archivos después de cambiar el tamaño de un volumen de Amazon EBS**  
 Toda la información [aquí](https://docs.aws.amazon.com/es_es/ebs/latest/userguide/recognize-expanded-volume-linux.html)  
 
-<!-- desde aqui -->
     !!! tip "Conéctarse a la instancia mediante SSH"  
-    Utilizaremos el comando **lsblk** para ver los dispositivos de disco disponibles y sus puntos de montaje (si los hay).
+    Utilizaremos el comando **lsblk** para comparar el tamaño de la partición con el tamaño del volumen.
     
-    ![](./ut5/RA2CEb22.png){ .original }
+    ![](./ut5/RA2CEb33.png){ .original }
+    <br>
+
+    !!! tip "Ampliar la partición"  
+    Al no coincidir el tamaño del volumen con el  tamaño de la partición deberemos ampliarla con **growpart**. 
+    
+    ![](./ut5/RA2CEb34.png){ .original }
     <br>
     
-    Como podemos ver en la imagen el volumen adjunto es **/dev/nvme1n1**. No tiene particiones ni se ha montado aún.  
+    !!! tip "Comprobar que la partición se ha ampliado"  
 
-    !!! tip "Determinar si hay un sistema de archivos en el volumen"  
-    Utilizaremos el comando **file -s** para obtener información sobre un dispositivo. Si el resultado es **data**, significa que no se encuentra ningún sistema de archivos en el dispositivo. 
-
-    ![](./ut5/RA2CEb23.png){ .original }
+    ![](./ut5/RA2CEb35.png){ .original }
     <br>
 
-    !!! tip "Obtener información sobre todos los dispositivos asociados a la instancia"  
-    Utilizaremos el comando **lsblk -f** para obtener información sobre todos los dispositivos asociados a la instancia. 
+    !!! tip "Comprobar el tamaño del sistema de archivos"  
+    Con **df -hT** podemos comprobar el tamaño y el tipo de sistema de archivos de cada dispositivo. En este caso, verificaremos si **/dev/nvme0n1p1** (la partición actual) y **/dev/nvme1n1** (el nuevo volumen EBS) tienen el mismo tamaño.
+    Si el tamaño del nuevo volumen es mayor, será necesario ampliar el sistema de archivos para aprovechar todo el espacio adicional disponible en el volumen.  
 
-    ![](./ut5/RA2CEb24.png){ .original }
-    <br>
-
-    La columna FSTYPE muestra el tipo de sistema de archivos. Si la columna está vacía para un dispositivo específico, significa que el dispositivo no tiene un sistema de archivos.
-
-    !!! tip "Crear un sistema de archivos"  
-    Si tenemos un volumen vacío, crearemos el sistema de archivos con **mkfs -t**.  
-
-    ![](./ut5/RA2CEb25.png){ .original }
+    ![](./ut5/RA2CEb36.png){ .original }
     <br>
   
-    !!! tip "Crear un directorio para el punto de montaje"  
-    Utilizaremos el comando **mkdir** para crear un directorio para el punto de montaje del volumen.   
+    !!! tip "Ampliar el sistema de archivos"  
+    Para un sistema de archivos XFS usaremos **xfs_growfs**.    
 
-    ![](./ut5/RA2CEb26.png){ .original }
+    ![](./ut5/RA2CEb37.png){ .original }
     <br>
 
-    !!! tip "Montar el volumen"  
-    Montaremos el volumen con **mount**.   
-
-    ![](./ut5/RA2CEb27.png){ .original }
+    Comprobamos de nuevo el tamaño de la partición:
+    ![](./ut5/RA2CEb38.png){ .original }
     <br>
 
-<!-- hasta aqui -->
-
-
+    Ya podemos usar esa partición.  
+<br>
 
 #### **2.4.10 - Añadir un EBS a la instancia**  
 En muchos casos puede resultar necesario añadir volúmenes EBS adicionales a una instancia, ya sea para ampliar capacidad, separar datos del sistema operativo, realizar migraciones o incluso compartir información entre diferentes instancias (adjuntando y desadjuntando volúmenes).

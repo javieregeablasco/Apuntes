@@ -451,17 +451,27 @@ En esta apartado aprenderemos a definir estilos para todos los elementos de nues
     **10.** Podeís descargar el documento con todos los estilos aplicados [aquí](./archivos/RA2%20-%20aplicar%20estilos%20terminado.pdf). 
 
 
+<!-- 
+falta estilos: 3h.
+diseño plantillas: 2h.
+Importar exportar tablas textos e imagenes: 1h.
+importar exportar a otros formatos: salida pdf: 1h.
+crear macros: 1h.  -->
 
 
+## **2.7 - Insertar tablas, texto e imágenes**
+### **Tarea - RA2-CEd**
+!!! task "Tarea a entregar en RA2-CEd"
+## **2.8 - Plantillas y páginación**
+### **Tarea - RA2-CEc**
+!!! task "Tarea a entregar en RA2-CEc"
+## **2.9 - Exportar a otros formatos**
+### **Tarea - RA2-CEe**
+!!! task "Tarea a entregar en RA2-CEe"
+## **2.10 - Macros**
+### **Tarea - RA2-CEf**
+!!! task "Tarea a entregar en RA2-CEf"
 
-
-
-
-## **2.5 - Examen**
-
-## **2.7 - Insertar**
-
-## **2.8 - Páginación**
 
 
 | **Licencia Creative Commons:** | |
