@@ -11,7 +11,7 @@ schedule: 96h - 3h/s
 ---
 
 
-# **UT. 2 - AWS**
+# **UT. 2 - AWS, Amazon Web Services**
 ![Descripción de la imagen](../AWS/img/aws.png){ .cincozero }
 <br>
 

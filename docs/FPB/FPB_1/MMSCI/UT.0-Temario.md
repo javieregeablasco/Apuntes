@@ -14,10 +14,7 @@ schedule: 195h - 6h/s
 
 ## **1. - Calendario escolar**
 
-<!-- Aclarar horas de practicas
-Aclarar fechas de las practicas -->
-<!-- file:///C:/Users/titan/Downloads/1CFGB_MMSCI_2024-2025.pdf
--->
+
 ## **2. - Horario de sesiones**
 
 ## **3. - Contenidos del módulo**

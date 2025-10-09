@@ -29,7 +29,6 @@ schedule: 96h - 3h/s
 |**c)** Se ha realizado una evaluación del uso adecuado de servicios básicos en ejercicios prácticos.|
 |**d)** Se ha comprendido el modelo de responsabilidad compartida en la nube.|
 |**e)** Se ha aplicado medidas de seguridad básicas mediante herramientas de gestión de acceso.|
-|**f)** Se han realizado ejercicios sobre gestión de usuarios y políticas de seguridad.|
 
 <br>
 

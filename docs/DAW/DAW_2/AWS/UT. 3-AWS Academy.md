@@ -11,7 +11,7 @@ schedule: 96h - 3h/s
 ---
 
 
-# **UT. 3 - AWS Academy**
+# **UT. 3 - AWS Academy y control de costos**
 
 ![Descripción de la imagen](../AWS/ut3/awsdemy.png){ .sietecinco }
 

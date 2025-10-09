@@ -1,6 +1,28 @@
-for i in range(1, 500, 1):
-  if i%7==0 and i%8==0:
-    print(i)
+# numero = int(input("Introducir un número entre 1 y 10: "))
+
+# while numero<0 or numero>10:
+#    print("Introducir de nuevo el numero")
+#    numero = int(input("Introducir un número entre 1 y 10: "))
+
+# print("Programa terminado")
+
+
+# condicion = True
+# contador = 0
+
+# while condicion:
+#    contador += 3
+#    print("Iteracion:",contador)
+#    if contador==10:
+#       condicion= False
+
+# print("Programa terminado")
+
+
+
+# for i in range(1, 500, 1):
+#   if i%7==0 and i%8==0:
+#     print(i)
 
     
 
@@ -18,18 +40,18 @@ for i in range(1, 500, 1):
 #     print(i)
 
 # 7.2.2 ej 2
-numero = int(input("Introducir un número: "))
+# numero = int(input("Introducir un número: "))
 
-for i in range(1, 11):
-    print("Resultado= ", numero * i)
+# for i in range(1, 11):
+#     print("Resultado= ", numero * i)
 
 
-# 7.2.2 ej 3
-frutas = ["manzana", "pera", "naranja", "plátano", "kiwi"]
-colores = ["rojo", "verde", "naranja", "amarillo", "verde", "morado", "azul"]
+# # 7.2.2 ej 3
+# frutas = ["manzana", "pera", "naranja", "plátano", "kiwi"]
+# colores = ["rojo", "verde", "naranja", "amarillo", "verde", "morado", "azul"]
 
-for fruta, color in zip(frutas, colores):
-  print("Fruta:",fruta + ", color:", color)
+# for fruta, color in zip(frutas, colores):
+#   print("Fruta:",fruta + ", color:", color)
 
 # lista = ["Este", "es", "un", "gran", "día"]
 

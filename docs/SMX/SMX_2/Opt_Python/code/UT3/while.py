@@ -1,3 +1,14 @@
+palabra = "Python"
+letra_a_encontrar = "o"
+
+for letra in palabra:
+  if letra == letra_a_encontrar:
+    print(f"Hemos encontrado la letra {letra_a_encontrar}")
+    # print("hemos encontrado la letra ", letra_a_encontrar)
+    break
+  else: print(f"Vamos por la letra: {letra}")
+  #print("Vamos por la letra:", letra)
+
 # i = 1
 # while i<=10:
 #   print(i)
@@ -56,29 +67,29 @@
 # print("Programa terminado")  
 
 
-# print("Programa que calcula la raíz cuadrada de un valor")
-# numero = int(input("Introducir un valor positivo: "))
-# intentos = 1
-
-# while numero < 0:
-#   intentos +=1  
-#   if intentos>5: break
-#   print("El valor introducido no es correcto")
-#   print("Intento: ", intentos)
-#   numero = int(input("Introducir un valor positivo: "))
-
-# if numero >0: print("El valor de la raíz cuadrada es:", numero**0.5)
-# else: print("No se ha podido calcular la raíz cuadrada del número introducido.")
-
-print("Programa que solo muestra los valores pares")
+print("Programa que calcula la raíz cuadrada de un valor")
 numero = int(input("Introducir un valor positivo: "))
+intentos = 1
 
-for i in range(numero+1):
+while numero < 0:
+  intentos +=1  
+  if intentos>5: break
+  print("El valor introducido no es correcto")
+  print("Intento: ", intentos)
+  numero = int(input("Introducir un valor positivo: "))
+
+if numero >0: print("El valor de la raíz cuadrada es:", numero**0.5)
+else: print("No se ha podido calcular la raíz cuadrada del número introducido.")
+
+# print("Programa que solo muestra los valores pares")
+# numero = int(input("Introducir un valor positivo: "))
+
+# for i in range(numero+1):
   
-  if i%2 != 0: 
-    continue
+#   if i%2 != 0: 
+#     continue
   
-  else: 
-    print("Resultado división:",i)
+#   else: 
+#     print("Resultado división:",i)
     
-print("Programa finalizado.")
+# print("Programa finalizado.")

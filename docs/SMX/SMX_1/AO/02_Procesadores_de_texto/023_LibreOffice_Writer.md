@@ -270,10 +270,11 @@ Realizar una captura de un documento dónde se vean las personalizaciones de las
     <br>
     **3. Copiar y pegar los párrafos en el mismo documento de la siguiente manera:**  
     &nbsp;&nbsp;&nbsp;&nbsp;a. Copiar el pegar el documento creado anteriormente **insertando un salto de página**.  
-    &nbsp;&nbsp;&nbsp;&nbsp;b. Todos los párrafos: **ver imagen**  
-    &nbsp;&nbsp;&nbsp;&nbsp;c. Primer párrafo: **Espacio sobre el párrafo 0.5cm, debajo 1.5cm**  
+    &nbsp;&nbsp;&nbsp;&nbsp;b. Primer párrafo: **Espacio sobre el párrafo 0.5cm, debajo 1.5cm**  
     &nbsp;&nbsp;&nbsp;&nbsp;c. Párrafo siguiente: **Espacio sobre el párrafo 0.0cm, debajo 0.50cm**  
-    &nbsp;&nbsp;&nbsp;&nbsp;c. Resto párrafos: **Espacio sobre el párrafo 0.0cm, debajo 0.75cm**
+    &nbsp;&nbsp;&nbsp;&nbsp;d. Resto párrafos: **Espacio sobre el párrafo 0.0cm, debajo 0.75cm**
+
+    <!-- falta imagen -->
     
     **4. Seguir con el texto anterior y además modificar los estilos de párrafos con:**  
     &nbsp;&nbsp;&nbsp;&nbsp;**a. Párrafo 4:**   
@@ -456,18 +457,130 @@ falta estilos: 3h.
 diseño plantillas: 2h.
 Importar exportar tablas textos e imagenes: 1h.
 importar exportar a otros formatos: salida pdf: 1h.
-crear macros: 1h.  -->
+crear macros: 1h.  
+https://libros.catedu.es/books/libreoffice-la-suite-ofimatica-libre/page/25-agregar-plantillas#:~:text=Se%20puede%20acceder%20al%20repositorio,barra%20de%20direcciones%20del%20navegador.
+-->
 
 
-## **2.7 - Insertar tablas, texto e imágenes**
+## **2.7 - Paginación, insertar tablas, cuadros de texto e imágenes**
 ### **Tarea - RA2-CEd**
 !!! task "Tarea a entregar en RA2-CEd"
-## **2.8 - Plantillas y páginación**
+    **1. Descargar y descomprimir el archivo 'Tarea RA2-CEd pinchando en el enlace siguiente:** [Descargar archivo]()  
+    **2. Estilos de página.**  
+    &nbsp;&nbsp;&nbsp;&nbsp;**a.** Ir a **Estilos de página** → **Primera página** → **Editar estilo** → Configurar con los siguientes datos.
+
+    ![](./img_ut2/RA2CEd/img1.png){.sietecinco} <br>
+    ![](./img_ut2/RA2CEd/img2.png){.sietecinco} <br>
+    ![](./img_ut2/RA2CEd/img3.png){.sietecinco} <br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;**b.** Ir a **Estilo de página predeterminado** y configurar con los siguientes datos.
+
+    ![](./img_ut2/RA2CEd/img4.png){.sietecinco} <br>
+    ![](./img_ut2/RA2CEd/img5.png){.sietecinco} <br>
+    ![](./img_ut2/RA2CEd/img6.png){.sietecinco} <br>
+    ![](./img_ut2/RA2CEd/img7.png){.sietecinco} <br>
+    ![](./img_ut2/RA2CEd/img8.png){.sietecinco} <br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;**c.** Dentro de los estilos de página **crear** el **Estilo de página especial** y configurar con los siguientes datos.
+
+    ![](./img_ut2/RA2CEd/img34.png){.doscinco} <br>
+    ![](./img_ut2/RA2CEd/img30.png){.sietecinco} <br>
+    ![](./img_ut2/RA2CEd/img31.png){.sietecinco} <br>
+    ![](./img_ut2/RA2CEd/img32.png){.sietecinco} <br>
+    ![](./img_ut2/RA2CEd/img33.png){.sietecinco} <br>
+
+    **3. Estilos de títulos.**  
+    &nbsp;&nbsp;&nbsp;&nbsp;**a.** Editar el estilo **Título 1** → Configurar con los siguientes datos.
+   
+    ![](./img_ut2/RA2CEd/img9.png){.sietecinco} <br>
+    ![](./img_ut2/RA2CEd/img10.png){.sietecinco} <br>
+    ![](./img_ut2/RA2CEd/img11.png){.sietecinco} <br>
+    
+    &nbsp;&nbsp;&nbsp;&nbsp;**b.** Editar el estilo **Título 2** → Configurar con los siguientes datos.
+   
+    ![](./img_ut2/RA2CEd/img12.png){.sietecinco} <br>
+    ![](./img_ut2/RA2CEd/img13.png){.sietecinco} <br>
+    ![](./img_ut2/RA2CEd/img14.png){.sietecinco} <br>
+    
+    &nbsp;&nbsp;&nbsp;&nbsp;**c.** Editar el estilo **Título 3** → Configurar con los siguientes datos.
+   
+    ![](./img_ut2/RA2CEd/img15.png){.sietecinco} <br>
+    ![](./img_ut2/RA2CEd/img16.png){.sietecinco} <br>
+    ![](./img_ut2/RA2CEd/img17.png){.sietecinco} <br>
+    
+    **3. Estilos de texto.**  
+    &nbsp;&nbsp;&nbsp;&nbsp;**a.** Ir al estilo **Cuerpo de texto** y configurar con los siguientes datos.
+   
+    ![](./img_ut2/RA2CEd/img18.png){.sietecinco} <br>
+    ![](./img_ut2/RA2CEd/img19.png){.sietecinco} <br>
+    ![](./img_ut2/RA2CEd/img20.png){.sietecinco} <br>
+   
+    &nbsp;&nbsp;&nbsp;&nbsp;**b.** Ir al estilo **Contenido de la tabla** y configurar con los siguientes datos.
+   
+    ![](./img_ut2/RA2CEd/img21.png){.sietecinco} <br>
+    ![](./img_ut2/RA2CEd/img22.png){.sietecinco} <br>
+    
+    &nbsp;&nbsp;&nbsp;&nbsp;**c.** Ir al estilo **Título de la tabla** y configurar con los siguientes datos.
+   
+    ![](./img_ut2/RA2CEd/img23.png){.sietecinco} <br>
+    ![](./img_ut2/RA2CEd/img24.png){.sietecinco} <br>
+    ![](./img_ut2/RA2CEd/img25.png){.sietecinco} <br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;**d.** Ir al estilo **Leyenda** y configurar con los siguientes datos.
+   
+    ![](./img_ut2/RA2CEd/img27.png){.sietecinco} <br>
+    ![](./img_ut2/RA2CEd/img28.png){.sietecinco} <br>
+    ![](./img_ut2/RA2CEd/img29.png){.sietecinco} <br>
+    
+    **4. Estilos de marco.**  
+    &nbsp;&nbsp;&nbsp;&nbsp;Ir a **Estilos de marco** → **Imagen** y configurar con los siguientes datos.
+   
+    ![](./img_ut2/RA2CEd/img26.png){.sietecinco} <br>
+    
+    **5. Aplicar estilos de página.**  
+    Aplicar los estilos a las páginas de la siguiente manera:  
+    &nbsp;&nbsp;&nbsp;&nbsp;**a.** Página 1 → Estilo **Primera página**.  
+    &nbsp;&nbsp;&nbsp;&nbsp;**b.** Página 2 → Estilo **Estilo de página predeterminado**.  
+    &nbsp;&nbsp;&nbsp;&nbsp;**c.** Página 3 → Estilo **Estilo de página especial**.  
+      
+    **6. Aplicar estilos de títulos.**
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+https://es.wikipedia.org/wiki/Michael_B._Jordan
+
+
+## **2.8 - Plantillas**
 ### **Tarea - RA2-CEc**
 !!! task "Tarea a entregar en RA2-CEc"
+
 ## **2.9 - Exportar a otros formatos**
 ### **Tarea - RA2-CEe**
 !!! task "Tarea a entregar en RA2-CEe"
+    Exportar la tarea RA2-CEd a formato pdf y subirla a la **tarea RA2-CEe**.
+
+
 ## **2.10 - Macros**
 ### **Tarea - RA2-CEf**
 !!! task "Tarea a entregar en RA2-CEf"
