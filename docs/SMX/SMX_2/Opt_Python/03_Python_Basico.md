@@ -1428,6 +1428,10 @@ match opcion:
 ### **7.11 - Tarea RA3-CEdh** 
 ### **7.12 - Tarea RA3-CEe** 
 
+<!-- ideas para tareas -->
+<!-- https://aprendeconalf.es/docencia/python/ejercicios/condicionales/ -->
+
+
 <!--
 ## Funciones de entrada y salida.
 Hasta ahora hemos usado la función print() principalmente para mostrar mensajes en pantalla, sin detenernos demasiado en todas las cosas que podemos hacer con ella. Pero, a medida que aprendemos más de Python, necesitamos crear programas más completos que puedan interactuar con el usuario. Para lograrlo, conoceremos también la función input(), que nos servirá para pedir datos por teclado y guardarlos en variables que después usaremos en nuestros programas. 
@@ -1714,7 +1718,9 @@ También se puede hacer conversiones sobre objetos como las **listas, tuplas, di
 | **set**         | `set([1,2,2,3])`          | `{1,2,3}`       | Convierte listas, tuplas o strings en conjuntos eliminando duplicados.                         |
 | **dict**        | `dict([("a",1),("b",2)])` | `{"a":1,"b":2}` | Convierte listas o tuplas de pares clave-valor en diccionarios.                                |
 
-
+|Tarea RA1CEh** Se ha comprobado el funcionamiento de las conversiones de tipo explícitas e implícitas. |
+|Tarea RA5CEa** Se ha utilizado la consola para realizar operaciones de entrada y salida de información. |
+|Tarea RA5CEb** Se han aplicado formatos en la visualización de la información.|
 
 
 ---

@@ -353,17 +353,17 @@ Desde el menú de la instancia o directamente desde el menú EBS seleccionamos m
 
 <br>
 
-1. **Ampliación de un sistema de archivos después de cambiar el tamaño de un volumen de Amazon EBS**  
+1. **Ampliación de un sistema de archivos después de cambiar el tamaño de un volumen de Amazon EBS (solo EC2 amazon linux)**  
 Toda la información [aquí](https://docs.aws.amazon.com/es_es/ebs/latest/userguide/recognize-expanded-volume-linux.html)  
 
-    !!! tip "Conéctarse a la instancia mediante SSH"  
+    !!! tip "Conéctarse a la instancia con SSH y listar dispositivos (de bloque)."  
     Utilizaremos el comando **lsblk** para comparar el tamaño de la partición con el tamaño del volumen.
     
     ![](./ut5/RA2CEb33.png){ .original }
     <br>
 
     !!! tip "Ampliar la partición"  
-    Al no coincidir el tamaño del volumen con el  tamaño de la partición deberemos ampliarla con **growpart**. 
+    Si no coincide el tamaño del volumen con el tamaño de la partición deberemos ampliarla con **growpart**. 
     
     ![](./ut5/RA2CEb34.png){ .original }
     <br>
@@ -505,7 +505,7 @@ Los grupos de seguridad se aplican a **nivel de instancia**, no a **nivel de sub
 
 Los grupos de seguridad son **con estado** (stateful): la entrada es igual a la salida. El tráfico que cumple **una regla en una dirección también se permitirá automáticamente en la dirección opuesta** sin tener una regla explícita para ello.
 
-**Las reglas no tienen un orden de prioridad**. Las reglas de un grupo de seguridad no tienen prioridad ni orden. Todas se evalúan en conjunto y únicamente permiten tráfico. Si no existe una regla que lo permita, el tráfico se deniega por defecto.
+**Las reglas de un SG no tienen un orden de prioridad**. Todas se evalúan en conjunto y **únicamente permiten tráfico**. Si no existe una regla que lo permita, el tráfico se deniega por defecto.
 
 !!! warning "Configuración de las reglas de entrada y salida."
     Para que una instancia funcione correctamente **y esté segura**, es imprescindible definir las reglas de entrada (inbound) y de salida (outbound) del grupo de seguridad:  
@@ -519,6 +519,14 @@ Los grupos de seguridad son **con estado** (stateful): la entrada es igual a la 
     - **Reglas de salida:**  
     Controlan qué tráfico puede salir desde la instancia **hacia otras redes o Internet**.  
     **Por defecto**, AWS permite todo el **tráfico de salida**.
+
+    - **Resumen:**
+
+        | Tipo de regla         | Qué tráfico puede iniciar una conexión        | Ejemplo                           |
+        | --------------------- | ---------------------------------------------------- | --------------------------------- |
+        | **Entrada (Inbound)** | Qué tráfico puede **iniciar** conexión **hacia** la instancia.  | Permitir SSH (22) desde determinadas IP's.     |
+        | **Salida (Outbound)** | **Hacia** qué destinos puede **iniciar** conexión la instancia. | Permitir HTTP (80) hacia Internet. |
+
 
 
 ### **3.3 - Ejemplo de SG**  
@@ -598,7 +606,8 @@ Si vamos a AWS y consultamos las ACL de cada red veremos que, como hemos dicho a
 ## **4 - NAT gateway**
 - NAT gateway permite que las instancias en una subred privada tengan acceso a Internet o a otros servicios de AWS, **sin exponer** sus IP privadas.
 - NAT gateway es un servicio de traducción de direcciones de red (NAT): La instancia privada sale a Internet usando la IP pública del NAT Gateway.
-- Este servicio resulta particularmente útil por necesidad de los servicios de las EC2 de la subred privada o más simplemente para actualizarse manteniendo la imposibilidad a servicios externos, iniciar una conexión con esas instancias.
+- Este servicio resulta particularmente útil por necesidad de los servicios de las EC2 de la subred privada o más simplemente para actualizarse manteniendo la imposibilidad que servicios externos inicien una conexión con esas instancias.
+
 
 ### **4.1 - Tipos de despliegue** 
 - **NAT Gateway público**  
@@ -608,31 +617,37 @@ Si vamos a AWS y consultamos las ACL de cada red veremos que, como hemos dicho a
     Permite que las instancias en una subred privada puedan acceder a Internet. 
     No permite que el tráfico desde Internet inicie conexiones hacia las instancias privadas.
 
-🔎 **Ejemplo:**  
-Una base de datos en una subred privada necesita instalar actualizaciones desde repositorios públicos de Linux → se conecta a Internet a través del NAT Gateway público.
-
 - **NAT Gateway privado**
 !!! info ""
     Se ubica en una subred privada pero se usa en conjunto con un Transit Gateway o una VPN/Direct Connect.
     No tiene Elastic IP.
     Sirve para enrutamiento privado: Las instancias en una subred privada pueden comunicarse con otras redes (VPCs, etc.) y ocultan sus direcciones privadas detrás de una IP en el lado del NAT.
 
-Este tipo de despliegue es útil en arquitecturas multi-VPC o híbridas (AWS ↔ on-premise).
+### **4.2 - Tarea RA2-CEd-1**
+Para realizar la tarea retomaremos el escenario de la **Tarea RA2-CEc** al que le podremos un NAT gateway público para que las instancias de la subred privada puedan acceder a internet.
 
-🔎 **Ejemplo:**
-Montar un NAT Gateway privado para que todas las conexiones de una VPC hacia una red on-premise salgan por la esa IP.
+![](./ut5/VPC2-nat.png){.sietecinco}  
 
-### **Tarea RA2-CEd-1
-Escenario de una VPC con NACL, SG y 
+Este esquema tiene un error de concepto aunque siempre se representa de esa manera ¿Cuál?
+
+
+### **4.3 - Tarea RA2-CEd-2**
+Seguimmos con el escenario de la tarea anterior y añadiremos una instancia en la subred privada.  
+En esta caso haremos uso de reglas **encadenadas** para impedir que las 2 instancias de la subred privada puedan comunicarse la una con la otra pero sí ambas podrán hacerlo con la instancia de la subred pública. 
+---
+<!-- usar para las conexiones a las ec2 en subred privadas -->
+<!-- file:///C:/Users/titan/Documents/Javier128/Modulos/DAW/DAW_2/AWS/UT/UT5/Tema%203/Tema%203.%20NAT%20Gateway,%20reglas%20encadenadas%20y%20subredes%20privadas.pdf -->
+---
 
 <!-- https://www.youtube.com/watch?v=JhC5XJ3b9t0 -->
 
-## **5 - IP elástica**
+
+
+
 <!-- https://www.youtube.com/watch?v=ZRwsQNMlM2g -->
 
 
 <!-- (https://www.corestack.io/aws-security-best-practices/aws-nacl/) -->
-Entender el concepto de responsabilidad compartida en el desarrollo de una infraestructura en AWS.
 <!-- https://jayendrapatil.com/aws-vpc-security-group-vs-nacls/ -->
 <!-- https://docs.aws.amazon.com/es_es/vpc/latest/userguide/nacl-examples.html -->
 

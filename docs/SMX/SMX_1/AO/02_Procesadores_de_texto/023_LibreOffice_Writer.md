@@ -30,8 +30,6 @@ schedule: 224h - 7h/w
     |**d)** Se han utilizado aplicaciones y periféricos para introducir textos e imágenes. |
     |**e)** Se han importado y exportado documentos creados con otras aplicaciones y en otros formatos.|
     |**f)** Se han creado y utilizado macros en la realización de documentos.|
-    |**g)** Se han elaborado manuales específicos. |
-
 
 ## **1 - Interfaz de trabajo en Writer**
 Después de hacer doble clic sobre el icono de **LibreOffice** seleccionamos **Nuevo &rarr; Documento de texto** y nos encontraremos con la siguiente interfaz.
@@ -248,11 +246,11 @@ Realizar una captura de un documento dónde se vean las personalizaciones de las
     **1. Abre un nuevo documento y copia el siguiente texto:**  
     Michael Jordan
     No debe confundirse con Michael B. Jordan.  
-    Michael Jeffrey Jordan (Brooklyn, Nueva York, 17 de febrero de 1963) es un exjugador de baloncesto estadounidense. Con 1,98 metros de altura, jugaba en la posición de escolta. Es considerado por la mayoría de aficionados y especialistas como el mejor jugador de baloncesto de todos los tiempos.[2]​[3] ​Se retiró definitivamente a los cuarenta años en 2003 en los Washington Wizards, tras haberlo hecho en dos ocasiones anteriores, en 1993 y 1998, después de haber jugado 13 temporadas en los Chicago Bulls.[4]​  
+    Michael Jeffrey Jordan (Brooklyn, Nueva York, 17 de febrero de 1963) es un exjugador de baloncesto estadounidense. Con 1,98 metros de altura, jugaba en la posición de escolta. Es considerado por la mayoría de aficionados y especialistas como el mejor jugador de baloncesto de todos los tiempos. ​Se retiró definitivamente a los cuarenta años en 2003 en los Washington Wizards, tras haberlo hecho en dos ocasiones anteriores, en 1993 y 1998, después de haber jugado 13 temporadas en los Chicago Bulls.​  
     Ganó 6 anillos con Chicago Bulls, promediando 30,1 puntos por partido en toda su carrera deportiva, el mayor promedio en la historia de la liga. También ganó 10 títulos de máximo anotador, 5 MVP de la temporada, 6 MVP de las Finales; fue nombrado en el mejor quinteto de la NBA en diez ocasiones, en el defensivo nueve veces, líder en robos de balón durante tres años y un premio al mejor defensor de la temporada.   
-    Desde 1983, ha aparecido en la portada de la prestigiosa revista deportiva Sports Illustrated en 50 ocasiones, todo un récord, además de ser designado  deportista del año en 1991 y mejor atleta del siglo XX por ESPN y segundo tras Babe Ruth por Associated Press.[5]​  
-    En la actualidad es el propietario del equipo 23XI Racing en la Copa NASCAR,[6]​ y, desde 2010 a 2023, fue propietario de los Charlotte Hornets en la NBA.[7]​[8]​   
-    En 2021 se calculaba que su patrimonio neto era de $1600 millones,[9]​[10]​ fortuna que ascendió a los $3000 millones en octubre de 2023, entrando en la lista Forbes 400, siendo la primera vez que un deportista profesional figura entre las personas más ricas de Estados Unidos.[11]
+    Desde 1983, ha aparecido en la portada de la prestigiosa revista deportiva Sports Illustrated en 50 ocasiones, todo un récord, además de ser designado  deportista del año en 1991 y mejor atleta del siglo XX por ESPN y segundo tras Babe Ruth por Associated Press.​  
+    En la actualidad es el propietario del equipo 23XI Racing en la Copa NASCAR,​ y, desde 2010 a 2023, fue propietario de los Charlotte Hornets en la NBA.​   
+    En 2021 se calculaba que su patrimonio neto era de $1600 millones,​ fortuna que ascendió a los $3000 millones en octubre de 2023, entrando en la lista Forbes 400, siendo la primera vez que un deportista profesional figura entre las personas más ricas de Estados Unidos.
 
     **2. Modificar los párrafos de la siguiente manera:**  
     &nbsp;&nbsp;&nbsp;&nbsp;a. Primer párrafo: **centrado**.  
@@ -419,53 +417,77 @@ Realizar una captura de un documento dónde se vean las personalizaciones de las
     ![](./img_ut2/ra2ceb30.png){.cincozero}
 
 
-## **2.6 - Estilos**
-En esta apartado aprenderemos a definir estilos para todos los elementos de nuestro documento de texto, lo que permetrá ahorrar un tiempo considerable en la redacción o modificación del mismo.
-### **Tarea - RA2-CEb-7**
-!!! task "Tarea a entregar en RA2-CEb-7"
-    **1. Descargar y abrir el archivo 'RA2- aplicar estilos' pinchando en el enlace siguiente:** [Descargar archivo](./archivos/RA2%20-%20aplicar%20estilos.odt)  
+## **2.6 - Estilos y plantillas**
+### **Tarea - RA2-CEc-1**
+En este apartado aprenderemos a definir estilos para todos los elementos de nuestro documento de texto.
+
+!!! task "Tarea a entregar en RA2-CEc-1"
+    **1. Descargar y abrir el archivo 'RA2-CEc-1' pinchando en el enlace siguiente:** [Descargar archivo](./archivos/RA2-CEc-1.rar)  
     **2.** Crear un nuevo estilo **MisEstilos**. Dejar la configuración por defecto y solo modificar el tipo de letra a **Arial 12**.  
-    **3.** Crear 3 sub estilos **Cabeceras**, **Párrafos** y **Títulos** (realmente no son estilo sino carpetas donde iremos creando los estilos para cada apartado del documento).     
-    ![](./img_ut2/ra2ceb31.png){.doscinco} <br>
-    **4.** Dentro de **Cabecera** crear el estilo **Cabecera centrada** con un resultado similar al de la siguiente imagen. (Sois libres de incorporar más características al estilo).  
+    Acordaros de elegir **Heredar de ninguno** si no, creará el estilo dentro de **Estilo de párrafo predeterminado**.  
+    **3.** Crear 3 sub estilos **Cabeceras**, **Párrafos** y **Títulos** (realmente no son estilos, sino carpetas donde iremos creando los estilos para cada apartado del documento). 
+
+    ![](./img_ut2/ra2ceb31.png){.doscinco} <br>  
+
+    **4.** Dentro de **Cabeceras** crear el estilo **Cabecera centrada** con un resultado similar al de la siguiente imagen. (Sois libres de incorporar más características al estilo).
+     
     ![](./img_ut2/ra2ceb32.png){.sietecinco}  
-    **5.** Dentro de **Párrafos crear 3 estilos **Párrafo centrado**, Párrafo izquierdo** y **Párrafo normal** con el resultado siguiente:  
+
+    **5.** Dentro de **Cabeceras** crear el estilo **Cabecera conclusión** con un resultado similar al de la siguiente imagen.  
+    **Nota importante:** Cada vez que se use ese estilo se deberá insertar automáticamente un salto de página. 
+    ![](./img_ut2/ra2ceb37.png){.sietecinco} <br>
+
+
+    **6.** Dentro de **Párrafos** crear 4 estilos **Párrafo centrado**, **Párrafo izquierdo**, **Párrafo normal** y **viñeta 1** con el resultado siguiente:  
+    <br>
           &nbsp;&nbsp;&nbsp;&nbsp;- **Párrafo normal** (cuidado con los márgenes izquierdo y derecho)
               ![](./img_ut2/ra2ceb33.png){.sietecinco}          
           &nbsp;&nbsp;&nbsp;&nbsp;- **Párrafo centrado**  
               ![](./img_ut2/ra2ceb34.png){.sietecinco}          
           &nbsp;&nbsp;&nbsp;&nbsp;- **Párrafo izquierdo**  
-              ![](./img_ut2/ra2ceb35.png){.sietecinco} <br>
-    **6.** Dentro de **Cabeceras** crear el estilo **Cabecera conclusión** con el resultado siguiente: 
-    **Nota importante:** Cada vez que se use ese estilo se deberá insertar automáticamente un salto de página. 
-              ![](./img_ut2/ra2ceb37.png){.sietecinco} <br>
-    **7.** Dentro de **Párrafos** crear el estilo **Viñeta 1** con el resultado siguiente: 
-              ![](./img_ut2/ra2ceb38.png){.sietecinco} <br>
-    **8.** Estos son los estilos creados hasta ahora: 
-              ![](./img_ut2/ra2ceb39.png){.trescinco} <br>
-    **9.** Dentro de **Párrafos** crear el estilo **Numeración 1** con el resultado siguiente:
-    **Nota** Ese estilo es idéntico al estilo **Párrafo normal**. Para evitar de buscar una a una las características del estilo **Párrafo normal** lo que haremos es, al definir **Numeración 1** es **heredar** los estilos de **Párrafo normal**.  
-    El estilo **Numeración 1** quedará de la siguiente manera:  
-    (Como podeís ver se ha aplicado un estilo de carácter especial al numerador).  
+              ![](./img_ut2/ra2ceb35.png){.sietecinco} 
+          &nbsp;&nbsp;&nbsp;&nbsp;- **viñeta 1**  
+              ![](./img_ut2/ra2ceb43.png){.cincozero} 
+    <br>
+
+    **7.** Dentro de **Párrafo normal** crear el estilo **Párrafo numerado** con el resultado siguiente:  
+    **Nota** Ese estilo es idéntico al estilo **Párrafo normal**. Para evitar de buscar una a una las características del estilo **Párrafo normal** lo que haremos es, al definir **Párrafo numerado** es **heredar** los estilos de **Párrafo normal**.  
+    El estilo **Párrafo numerado** quedará de la siguiente manera (Como podeís ver se ha aplicado un estilo de carácter especial al numerador):  
               ![](./img_ut2/ra2ceb40.png){.sietecinco} <br>  
-              
-    **10.** Podeís descargar el documento con todos los estilos aplicados [aquí](./archivos/RA2%20-%20aplicar%20estilos%20terminado.pdf). 
 
 
-<!-- 
-falta estilos: 3h.
-diseño plantillas: 2h.
-Importar exportar tablas textos e imagenes: 1h.
-importar exportar a otros formatos: salida pdf: 1h.
-crear macros: 1h.  
-https://libros.catedu.es/books/libreoffice-la-suite-ofimatica-libre/page/25-agregar-plantillas#:~:text=Se%20puede%20acceder%20al%20repositorio,barra%20de%20direcciones%20del%20navegador.
--->
+    **8.** Dentro de **Títulos** crear el estilo **Títulos-1** con el siguiente resultado.  
+    **Nota 1:** Cuando se aplique ese estilo, se insertará **automáticamente** un salto de página antes del texto seleccionado.  
+    **Nota 2:** Cuando se aplique ese estilo, **se insertará automáticamente la numeración 'Apartado xx.'**.  
+    <br>
+    ![](./img_ut2/ra2ceb41.png){.sietecinco} <br>
+    
+    **9.** Resumen de todos los estilos:  
+    <br>
+    ![](./img_ut2/ra2ceb39.png){.doscinco} <br>
+
+    **10.** Aplicar los estilos al texto del documento. Recordad que también **teneís que terminar de modificar los estilos** para respetar los márgenes, fuentes y tamaño de fuentes del documento de muestra.     
+
+    **11.** **Entrega de la tarea**.  
+    Subir el archivo en **formato .odt (open text document)** a la tarea RA2-CEc-1. No se admitirá ningún otro tipo de formato.
+  
+### **Tarea - RA2-CEc-2**
+En este apartado aprenderemos a definir plantillas sobre los estilos creados anteriormente, lo que permetrá **ahorrar un tiempo considerable** en la redacción de documentos nuevos.
+
+!!! task "Tarea a entregar en RA2-CEc-2"
+    Crear una plantilla de un documento de texto no es otra cosa que crear un archivo que contendrá todos los estilos y los campos  que se repiten documento a documento.  
+    **1.** **Recuperar vuestro documento de la tarea RA2-CEc-1**.  
+    **2.** **Eliminar todo el texto y solo dejar un texto con el nombre de los estilos**. Os podéis ayudar con [el siguiente documento](./archivos/RA2-CEc/RA2-CEc-2.pdf)  
+    **3.** **Guardar el documento como plantilla**, categoría **Mis plantillas** con el siguiente nombre: Tarea RA2-CEc Nombre Apellidos.   
+    **4.** **Recuperar la plantilla** y subidla a la **tarea RA2-CEc-2** de Aules.    
 
 
-## **2.7 - Paginación, insertar tablas, cuadros de texto e imágenes**
+<!-- crear macros: 1h.   -->
+
+## **2.7 - Paginación, tablas, encabezado, pie de página e imágenes**
 ### **Tarea - RA2-CEd**
 !!! task "Tarea a entregar en RA2-CEd"
-    **1. Descargar y descomprimir el archivo 'Tarea RA2-CEd pinchando en el enlace siguiente:** [Descargar archivo]()  
+    **1. Descargar y descomprimir el archivo 'Tarea RA2-CEd pinchando en el enlace siguiente:** [Descargar archivo](./archivos/RA2-CEd.rar)  
     **2. Estilos de página.**  
     &nbsp;&nbsp;&nbsp;&nbsp;**a.** Ir a **Estilos de página** → **Primera página** → **Editar estilo** → Configurar con los siguientes datos.
 
@@ -489,6 +511,14 @@ https://libros.catedu.es/books/libreoffice-la-suite-ofimatica-libre/page/25-agre
     ![](./img_ut2/RA2CEd/img32.png){.sietecinco} <br>
     ![](./img_ut2/RA2CEd/img33.png){.sietecinco} <br>
 
+    &nbsp;&nbsp;&nbsp;&nbsp;**d.** Concatenar estilos. No es exclusivo de los estilos de página, pero sí, es obligatorio hacerlo (versión 25.8.1.1).  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Concatenar** los estilos de la siguiente manera: **Primera página** → **Estilo de página predeterminado** → **Estilo de página especial**.
+
+    ![](./img_ut2/RA2CEd/img42.png){.sietecinco} <br>
+    ![](./img_ut2/RA2CEd/img43.png){.sietecinco} <br>
+    ![](./img_ut2/RA2CEd/img41.png){.sietecinco} <br>
+
+
     **3. Estilos de títulos.**  
     &nbsp;&nbsp;&nbsp;&nbsp;**a.** Editar el estilo **Título 1** → Configurar con los siguientes datos.
    
@@ -508,7 +538,7 @@ https://libros.catedu.es/books/libreoffice-la-suite-ofimatica-libre/page/25-agre
     ![](./img_ut2/RA2CEd/img16.png){.sietecinco} <br>
     ![](./img_ut2/RA2CEd/img17.png){.sietecinco} <br>
     
-    **3. Estilos de texto.**  
+    **4. Estilos de texto.**  
     &nbsp;&nbsp;&nbsp;&nbsp;**a.** Ir al estilo **Cuerpo de texto** y configurar con los siguientes datos.
    
     ![](./img_ut2/RA2CEd/img18.png){.sietecinco} <br>
@@ -532,58 +562,140 @@ https://libros.catedu.es/books/libreoffice-la-suite-ofimatica-libre/page/25-agre
     ![](./img_ut2/RA2CEd/img28.png){.sietecinco} <br>
     ![](./img_ut2/RA2CEd/img29.png){.sietecinco} <br>
     
-    **4. Estilos de marco.**  
+    **5. Estilos de marco.**  
     &nbsp;&nbsp;&nbsp;&nbsp;Ir a **Estilos de marco** → **Imagen** y configurar con los siguientes datos.
    
     ![](./img_ut2/RA2CEd/img26.png){.sietecinco} <br>
+
+    **6. Estilos de cabecera y pie de página.**  
+    &nbsp;&nbsp;&nbsp;&nbsp;**a.** Cabecera.
+   
+    ![](./img_ut2/RA2CEd/img35.png){.sietecinco}  
+    ![](./img_ut2/RA2CEd/img36.png){.sietecinco}  
+    ![](./img_ut2/RA2CEd/img37.png){.sietecinco} 
+
+    &nbsp;&nbsp;&nbsp;&nbsp;**b.** Pie de página.
+    ![](./img_ut2/RA2CEd/img38.png){.sietecinco}  
+    ![](./img_ut2/RA2CEd/img39.png){.sietecinco}   
+    ![](./img_ut2/RA2CEd/img40.png){.sietecinco}   
+   
     
-    **5. Aplicar estilos de página.**  
+    **7. Aplicar estilos de página.**  
     Aplicar los estilos a las páginas de la siguiente manera:  
     &nbsp;&nbsp;&nbsp;&nbsp;**a.** Página 1 → Estilo **Primera página**.  
     &nbsp;&nbsp;&nbsp;&nbsp;**b.** Página 2 → Estilo **Estilo de página predeterminado**.  
     &nbsp;&nbsp;&nbsp;&nbsp;**c.** Página 3 → Estilo **Estilo de página especial**.  
       
-    **6. Aplicar estilos de títulos.**
+    **8. Aplicar estilos de títulos y texto.**
+    Aplicar los estilos de títulos de la siguiente manera:  
+    &nbsp;&nbsp;&nbsp;&nbsp;**a.** Título 1 → Michael Jordan.  
+    &nbsp;&nbsp;&nbsp;&nbsp;**b.** Título 2 → Biografía, Trayectoria profesional.  
+    &nbsp;&nbsp;&nbsp;&nbsp;**c.** Título 3 → Universidad, Estadísticas, Primeros años.  
+    &nbsp;&nbsp;&nbsp;&nbsp;**d.** Cuerpo de texto → Todo el texto.  
+
+    **9.** **Modificar las propiedades de partes del texto** para que se vean como en el documento adjuntado a la práctica.
+    
+    **10.** **Modificar las propiedades de los párrafos** para que se vean como en el documento adjuntado a la práctica.
+
+    **11.** **Insertar una tabla**.  
+    &nbsp;&nbsp;&nbsp;&nbsp;**a.** Modificar las propiedades de la siguiente manera
+    ![](./img_ut2/RA2CEd/img44.png){.cincozero}   
+    ![](./img_ut2/RA2CEd/img45.png){.cincozero} <br>  
+     
+    &nbsp;&nbsp;&nbsp;&nbsp;**b.** Personalizar las propiedades de celdas y texto para que el resultado sea como el siguiente.
+
+    ![](./img_ut2/RA2CEd/img46.png){.cincozero} <br>  
    
+    **12.** **Insertar las 2 imágenes**.  
+    &nbsp;&nbsp;&nbsp;&nbsp;**a. Imagen 1**    
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Insertar** la imagen de Michael Jordan.  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Insertar** una leyenda sobre la imagen.  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Como podemos ver**, al insertar la leyenda hemos creado un marco que contiene la imagen.  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Editamos las propiedades del marco de la siguiente manera:**
+
+    ![](./img_ut2/RA2CEd/img47.png){.cincozero}   
+    ![](./img_ut2/RA2CEd/img48.png){.cincozero}  
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Una vez el marco a la escala, movemos el marco a la posición deseada. 
+
+    &nbsp;&nbsp;&nbsp;&nbsp;**a. Imagen 2**    
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Insertar** la imagen de las camisetas.  
+    ![](./img_ut2/RA2CEd/img49.png){.cincozero}   
+    ![](./img_ut2/RA2CEd/img50.png){.cincozero}  
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Una vez el marco a la escala, movemos el marco a la posición deseada. 
+
+    **13.** **Cabecera y pie de página**.  
+    &nbsp;&nbsp;&nbsp;&nbsp;**a. Cabecera página 1**     
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Anclar** la imagen al párrafo de la cabecera.  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Podéis** ajustar la posición al gusto de cada uno.  
+    ![](./img_ut2/RA2CEd/img51.png){.cincozero}  
+    &nbsp;&nbsp;&nbsp;&nbsp;**a. Cabecera páginas 2 y 3**     
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Anclar** la imagen al párrafo de la cabecera **como en la página 1**.  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Escribir Tarea RA2-CEd y vuestro nombre y apellidos**.  
+
+    &nbsp;&nbsp;&nbsp;&nbsp;**b. Pie de página, página 2 y 3**  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Escribir el texto del pie de página** y además **insertar un campo con la página actual y el recuento de páginas**.  
 
 
+    **14.** **Entrega de la tarea**.  
+    Subir el archivo en **formato .odt (open text document)** a la tarea RA2-CEd. No se admitirá ningún otro tipo de formato.  
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-https://es.wikipedia.org/wiki/Michael_B._Jordan
-
-
-## **2.8 - Plantillas**
-### **Tarea - RA2-CEc**
-!!! task "Tarea a entregar en RA2-CEc"
-
-## **2.9 - Exportar a otros formatos**
+## **2.8 - Exportar a otros formatos**
 ### **Tarea - RA2-CEe**
 !!! task "Tarea a entregar en RA2-CEe"
     Exportar la tarea RA2-CEd a formato pdf y subirla a la **tarea RA2-CEe**.
 
 
-## **2.10 - Macros**
+## **2.9 - Macros**
+### **2.9.1 - Instalar JRE**
+Antes de nada comprobaremos si tenemos el JRE (Java Runtime Environment) instalado en nuestro ordenador. Para ello abriremos una terminal y escribiremos: 
+```bash
+java --version 
+```
+Si no devuelve la versión de JRE, significa que lo tenemos instalado.
+
+![](./img_ut2/RA2-CEf/img2.png){.cincozero}
+<br>
+De lo contrario, iremos a la [página de descarga](https://www.java.com/es/download/manual.jsp), descargaremos la versión adecuada a nuestro sistema operativo y lo instalaremos. 
+
+### **2.9.2 - Habilitar la grabación de macros en LibreOffice**
+La grabación de macro viene **deshabilitado por defecto** en LibreOffice. Para habilitar las grabaciones de macros iremos a **Herramientas → Opciones → Avanzadas** y activaremos la grabación de macros.
+
+![](./img_ut2/RA2-CEf/img3.png){.cincozero}
+<br>
+
 ### **Tarea - RA2-CEf**
 !!! task "Tarea a entregar en RA2-CEf"
+    **Descargar y descomprimir el archivo 'Tarea RA2-CEf pinchando en el enlace siguiente:** [Descargar archivo](./archivos/RA2-CEf/RA2-CEf.rar)  
+
+    **Ejercicio 1**
+    **Grabar una macro que inserte automáticamente un encabezado con el siguiente texto:**  
+    **1.** Documento escrito por el alumno: Insertar campo → Autor → Nombre completo. (Arial, 16, negrita, gris, centrado).  
+    **2.** Fecha de redacción: Insertar campo → Fecha fija (Arial, 12, cursiva, centrado, formato de fecha ISO: AAAA-MM-DD).  
+    **3.** Hora de redacción: Insertar campo → Hora fija (Arial, 12, cursiva, centrado, formato de hora: hh-mm-ss).
+    **4.** Guardar la macro dentro del documento para que **al exportar el archivo la macro acompañe al documento**.
+    **5.** Crear un atajo de teclado que permita ejecutar la macro con (p.e.) **ctrl q**.
+
+    **Resultado esperado:**
+    ![](./img_ut2/RA2-CEf/img1.png){.sietecinco}
+    <br>
+
+    **Ejercicio 2**
+    **Grabar una macro que modifique un párrafo de la siguiente manera:**  
+    **1.** Interlineado doble, justificado y espaciado sobre y debajo del párrafo: 0.5cm.  
+    **2.** Insertar un borde con una separación de 0.5cm.  
+    **3.** Aplicar la macro al documento alternando párrafos.  
+    **4.** Guardar la macro dentro del documento para que **al exportar el archivo la macro acompañe al documento**.  
+    **5.** Crear un atajo de teclado que permita ejecutar la macro con (p.e.) **ctrl a**.  
+
+    **Resultado esperado:**
+    ![](./img_ut2/RA2-CEf/img4.png){.seiscinco .marco}
+    <br>
+
+    **Entrega de la tarea**.  
+    Subir el archivo en **formato .odt (open text document)** a la tarea RA2-CEf. No se admitirá ningún otro tipo de formato.  
+
 
 
 
