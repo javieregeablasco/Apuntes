@@ -260,7 +260,7 @@ Es posible **aumentar** el tamaño del volumen raíz. Para ello, basta con deten
     ![](./ut5/RA2CEb3-3.png){ .original .marco }
 <br>   
 
-#### **2.4.5 - Panel de control de las instancias**
+#### **2.4.6 - Panel de control de las instancias**
 - **Instancias**
 
     ![](./ut5/RA2CEb4.png){ .original .marco }
@@ -272,7 +272,7 @@ Es posible **aumentar** el tamaño del volumen raíz. Para ello, basta con deten
     ![](./ut5/RA2CEb5.png){ .original .marco }
 <br>
 
-#### **2.4.6 - Conexión remota con la instancia**
+#### **2.4.7 - Conexión remota con la instancia**
 El laboratorio crea por defecto una clave llamada **vockey**. Esa llave que ya hemos usado a la hora de configurar nustra instancia EC2 permitirá a un cliente SSH conectarse a ella de forma remota.
 
 1. **Descargar el archivo de clave privada labsuser.pem**  
@@ -307,7 +307,7 @@ ssh -i labsuser.pem ec2-user@3.90.114.96
         ![](./ut5/RA2CEb7.png) 
 <br>
 
-#### **2.4.7 - Conexión con la instancia desde la consola de AWS**  
+#### **2.4.8 - Conexión con la instancia desde la consola de AWS**  
 También es posible conectarse a la instancia desde el panel de control de AWS.
 
 ![](./ut5/RA2CEb9.png){ .original .marco }
@@ -320,7 +320,7 @@ Una vez hecha la conexión podremos usar ese servicio virtualizado.
 
 <br>
 
-#### **2.4.8 - Realizar Ping a la instancia**  
+#### **2.4.9 - Realizar Ping a la instancia**  
 Si queremos realizar un ping a la instancia desde cualquier ordenador veremos que no es posible.
 
 ![](./ut5/RA2CEb12.png){ .cincozero }
@@ -336,7 +336,7 @@ Después de agregar la regla ICMP sí que será posible realizar un ping a nuest
 ![](./ut5/RA2CEb14.png){ .cincozero }
 <br>
 
-#### **2.4.9 - Modificar el tamaño de un EBS**
+#### **2.4.10 - Modificar el tamaño de un EBS**
 Aunque en la consola de EC2 podamos gestionar los volúmenes EBS asociados a nuestras instancias, EC2 y EBS son **servicios independientes** dentro de AWS.
 
 1. **Modificar volumen**
@@ -393,7 +393,7 @@ Toda la información [aquí](https://docs.aws.amazon.com/es_es/ebs/latest/usergu
     Ya podemos usar esa partición.  
 <br>
 
-#### **2.4.10 - Añadir un EBS a la instancia**  
+#### **2.4.11 - Añadir un EBS a la instancia**  
 En muchos casos puede resultar necesario añadir volúmenes EBS adicionales a una instancia, ya sea para ampliar capacidad, separar datos del sistema operativo, realizar migraciones o incluso compartir información entre diferentes instancias (adjuntando y desadjuntando volúmenes).
 
 1. **Crear un volumen EBS**
@@ -604,12 +604,21 @@ Si vamos a AWS y consultamos las ACL de cada red veremos que, como hemos dicho a
 | **Casos de uso típicos**       | Control fino del tráfico a instancias (ej. abrir 22/SSH o 443/HTTPS)                                     | Control global a nivel de subred, aplicar restricciones más amplias (ej. denegar rangos IP completos) |
 
 ## **4 - NAT gateway**
-- NAT gateway permite que las instancias en una subred privada tengan acceso a Internet o a otros servicios de AWS, **sin exponer** sus IP privadas.
-- NAT gateway es un servicio de traducción de direcciones de red (NAT): La instancia privada sale a Internet usando la IP pública del NAT Gateway.
-- Este servicio resulta particularmente útil por necesidad de los servicios de las EC2 de la subred privada o más simplemente para actualizarse manteniendo la imposibilidad que servicios externos inicien una conexión con esas instancias.
+- NAT gateway es un servicio de traducción de direcciones de red (NAT) que permite a las instancias de una subred privada tener acceso a Internet o a otros servicios de AWS, **sin exponer** sus IP privadas.
+- Este servicio resulta particularmente útil por necesidad de los servicios de las EC2 de la subred privada (p.e. actualización de software) a la vez que impide que servicios externos inicien una conexión con esas instancias.
+
+### **4.1 - Características de un NAT Gateway de AWS**
+1. Solo existe un tipo de NAT Gateway, pero puede actuar como:  
+
+    - NAT Gateway público: cuando está en una subred pública y tiene asociada una Elastic IP (EIP).
+    - NAT Gateway privado: cuando está en una subred privada y se usa para enrutar tráfico hacia otra VPC o VPN, sin acceso a Internet.  
+
+1. Debe crearse en una zona de disponibilidad específica (AZ).
+1. Soporta los protocolos: TCP, UDP y ICMP.
+1. No se le puede asociar un grupo de seguridad (Security Group); en su lugar, se controlan los accesos mediante las Listas de Control de Acceso (ACLs) de red.
 
 
-### **4.1 - Tipos de despliegue** 
+### **4.2 - Tipos de despliegue** 
 - **NAT Gateway público**  
 !!! info "" 
     Se ubica en una subred pública.  
@@ -623,16 +632,44 @@ Si vamos a AWS y consultamos las ACL de cada red veremos que, como hemos dicho a
     No tiene Elastic IP.
     Sirve para enrutamiento privado: Las instancias en una subred privada pueden comunicarse con otras redes (VPCs, etc.) y ocultan sus direcciones privadas detrás de una IP en el lado del NAT.
 
-### **4.2 - Tarea RA2-CEd-1**
+- **Resumen comparativo:**
+!!! info ""
+    | **Característica**        | **NAT Gateway Público**                                                        | **NAT Gateway Privado**                                 |
+    | ------------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------- |
+    | **Ubicación**             | Subred pública                                                                 | Subred privada                                          |
+    | **Elastic IP**            | Requiere una Elastic IP                            | No necesita Elastic IP           |
+    | **Acceso a Internet**     | Permite que las instancias privadas accedan a Internet                         | No tiene acceso directo a Internet                      |
+    | **Rutas (Route Table)**   | Las subredes privadas deben tener una ruta hacia el NAT Gateway                | Se usa para enrutar tráfico hacia otra VPC o VPN        |
+    | **Uso típico**            | Salida a Internet desde instancias privadas (actualizaciones, descargas, etc.) | Comunicación privada entre redes sin exposición pública |
+    | **Seguridad**             | No admite SG's, solo ACL de red                | No admite SG, solo ACL de red           |
+    | **Alta disponibilidad**   | Se debe desplegar **uno por zona de disponibilidad (AZ)**     | Uno por AZ si se requiere redundancia            |
+    | **Protocolos soportados** | TCP, UDP, ICMP                                            | TCP, UDP, ICMP                  |
+
+### **4.3 - Tarea RA2-CEd-1**
 Para realizar la tarea retomaremos el escenario de la **Tarea RA2-CEc** al que le podremos un NAT gateway público para que las instancias de la subred privada puedan acceder a internet.
 
 ![](./ut5/VPC2-nat.png){.sietecinco}  
 
 Este esquema tiene un error de concepto aunque siempre se representa de esa manera ¿Cuál?
 
+### **4.3.1 - Crear el NAT Gateway**
+Vamos al menú de NAT Gateway y creamos nuestro NAT Gateway.  
+Si no tenemos ninguna IP elástica, dejaremos que AWS le asigne una. 
 
-### **4.3 - Tarea RA2-CEd-2**
-Seguimmos con el escenario de la tarea anterior y añadiremos una instancia en la subred privada.  
+![](./ut5/RA2CEc1.png){.original .marco}  
+
+### **4.3.2 - Modificar la tabla de enrutamiento**
+Enlazamos todo el tráfico hacia internet de la tabla de enrutamiento de la subred privada hacia el NAT Gateway
+
+![](./ut5/RA2CEc2.png){.original .marco}  
+
+### **4.3.3 - Conexión a la EC2 de la subred privada**
+Al carecer, la EC2 de la subred privada de IP pública, para poder conectarnos a ella, primero deberemos conectarnos a la EC2 de la subred pública, y luego, desde ella, conectarnos a la EC2 de la subred privada. 
+
+<!-- volver a montar el natgateway -->
+
+### **4.4 - Tarea RA2-CEd-2**
+Seguimos con el escenario de la tarea anterior y añadiremos una instancia en la subred privada.  
 En esta caso haremos uso de reglas **encadenadas** para impedir que las 2 instancias de la subred privada puedan comunicarse la una con la otra pero sí ambas podrán hacerlo con la instancia de la subred pública. 
 ---
 <!-- usar para las conexiones a las ec2 en subred privadas -->
