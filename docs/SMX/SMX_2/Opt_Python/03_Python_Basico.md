@@ -1443,12 +1443,32 @@ match opcion:
     1. En función del número introducido el programa hará lo siguiente:
         - Si valor < −1, el programa retornará por terminal el valor de **e<sup>-valor</sup>**. 
         - Si  -1 &le; valor &le; −1, el programa retornará por terminal el valor de **e**. 
-        - Si  valor > 1, el programa retornará por terminal el valor de **e<sup>valor</sup>**. 
+        - Si  valor > 1, el programa retornará por terminal el valor de **e<sup>valor</sup>**.  
+
+    **Nota:** Para poder usar la funcion exponencial **e** importar la función exp() del módulo math.
+    ```py
+    from math import exp
+    print(exp(1),exp(-1),exp(0))
+    ```     
 
 ### **7.9 - Tarea RA3-CEb** 
-<!-- repeticion -->
-<!-- http://anyp.fcaglp.unlp.edu.ar/Practicas-2025/ANyP-01b.pdf -->
+!!! task "Ejercicio - Comprobar si un año es bisiesto"
+    1. Escribe un programa que pida un valor
+    1. El programa estimará qué años son bisiestos desde 0 hasta el valor introducido.
+    1. Un año es bisiesto si cumple las siguientes condiciones:
+        - Es **divisible** por 4. 
+        - **Pero no** es divisible por 100.
+        - **Excepto** si también es divisible por 400.
+
+    📘 **Ejemplos:**  
+
+    - El año 1988 fue bisiesto.  
+    - El año 2000 también fue bisiesto.  
+    - El año 1800 **no fue** bisiesto.  
+
 ### **7.10 - Tarea RA3-CEc** 
+<!-- sentencias de salto -->
+<!-- http://anyp.fcaglp.unlp.edu.ar/Practicas-2025/ANyP-01b.pdf -->
 ### **7.11 - Tarea RA3-CEdh** 
 ### **7.12 - Tarea RA3-CEe** 
 
