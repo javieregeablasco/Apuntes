@@ -54,7 +54,7 @@
 # Demostración del problema de precisión con float en Python
 
 
-a = True
-b = False
-c= a or not(b)
-print(c, type(c))
+# a = True
+# b = False
+# c= a or not(b)
+# print(c, type(c))

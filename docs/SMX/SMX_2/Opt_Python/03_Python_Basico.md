@@ -1315,7 +1315,7 @@ while True:
         numero = int(entrada)
         resultado = 10 / numero
         print("El resultado es:", resultado)
-    except ValueError: # detecta si se no ha introducido un valor numerico
+    except ValueError: # detecta si no ha introducido un valor numerico
         print("¡Eso no es un valor numérico!")
     except ZeroDivisionError: # detecta si se intenta dividir por '0'
         print("Estás intentando dividir por cero.")
@@ -1423,12 +1423,37 @@ match opcion:
     1. Si el usuario elige 'no' la repetición finalizará y se saldrá del programa. 
  
 ### **7.8 - Tarea RA3-CEa** 
+!!! task "Ejercicio 1 - Naturaleza de las raíces de una ecuación cuadrática"
+    1. Una **ecuación cuadrática** tiene la forma:  
+    **a x<sup>2</sup> + b x + c = 0**
+    1. El tipo de raíces (reales o complejas) depende del **discriminante**, que se calcula con la fórmula:  
+    **Δ = b<sup>2</sup> - 4ac**  
+    1. Escribe un programa que:  
+    Pida los valores de `a`, `b` y `c`.  
+    Determine la **naturaleza de las raíces** de la ecuación:  
+        - Si `Δ > 0`: Retornará por terminal "Las raíces son **reales y diferentes**".  
+        - Si `Δ = 0`: Retornará por terminal "Las raíces son **reales e iguales**".  
+        - Si `Δ < 0`: Retornará por terminal "Las raíces son **complejas**".
+
+!!! task "Ejercicio 2 - Determinar el mayor de 3 números"
+    Escribe un programa que pida tres números reales diferentes y determine cuál de ellos es el mayor.  
+
+!!! task "Ejercicio 3 - Calcular una función"
+    1. Escribe un programa que pida un número real.
+    1. En función del número introducido el programa hará lo siguiente:
+        - Si valor < −1, el programa retornará por terminal el valor de **e<sup>-valor</sup>**. 
+        - Si  -1 &le; valor &le; −1, el programa retornará por terminal el valor de **e**. 
+        - Si  valor > 1, el programa retornará por terminal el valor de **e<sup>valor</sup>**. 
+
 ### **7.9 - Tarea RA3-CEb** 
+<!-- repeticion -->
+<!-- http://anyp.fcaglp.unlp.edu.ar/Practicas-2025/ANyP-01b.pdf -->
 ### **7.10 - Tarea RA3-CEc** 
 ### **7.11 - Tarea RA3-CEdh** 
 ### **7.12 - Tarea RA3-CEe** 
 
 <!-- ideas para tareas -->
+<!-- destructuracion?? -->
 <!-- https://aprendeconalf.es/docencia/python/ejercicios/condicionales/ -->
 
 
