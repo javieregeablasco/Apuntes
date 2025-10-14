@@ -83,11 +83,14 @@
 # print(mi_lista)
 
 # Diccionario
-mi_diccionario = {
-    1: "Ana",
-    2: 25,
-    3: "Madrid"
-}
-print(mi_diccionario)
-print(mi_diccionario["nombre"])  # Acceder al valor de una clave
-print(mi_diccionario.get("edad")) # Otra manera de extraer valores del diccionario
+# mi_diccionario = {
+#     "nombre": "Ana",
+#     "edad": 25,
+#     "lugar de nacimiento": "Madrid"
+# }
+
+# print(mi_diccionario)
+# print(mi_diccionario["nombre"])  # Acceder al valor de una clave
+# print(mi_diccionario.get("edad")) # Otra manera de extraer valores del diccionario
+
+print("o"*6)

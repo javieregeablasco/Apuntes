@@ -48,7 +48,7 @@ schedule: 96h - 3h/w
 <br>
 
 
-## **3 - Sintáxis básica**
+## **1 - Sintáxis básica**
 La sintaxis es a la programación lo que la gramática es a los idiomas. De la misma forma que la frase “Yo estamos aquí” no es correcta ...tampoco lo es un programa con errores de sintaxis, ya que el ordenador no podrá interpretarlo ni ejecutarlo de la manera esperada.
 
 Ejemplo de sintaxis correcta de un programa hecho en Python.  
@@ -76,7 +76,7 @@ if imprimir:
 !!! Pregunta 
     ¿Qué realiza el programa anterior?
 
-### **3.1 - Elementos de un programa de Python**
+### **1.1 - Elementos de un programa de Python**
 Un programa de Python es un fichero de texto (codificado en formato UTF-8) que contiene expresiones y sentencias que se consiguen combinando los elementos básicos del lenguaje.  
 
 El lenguaje Python está formado por elementos (tokens) de diferentes tipos:
@@ -95,7 +95,7 @@ En la documentación de Python se puede consultar una descripción mucho más de
 
 Para que un programa se pueda ejecutar, el programa debe ser sintácticamente correcto, es decir, utilizar los elementos del lenguaje Python respetando su reglas de "ensamblaje". 
 
-### **3.2 - Líneas y espacios**
+### **1.2 - Líneas y espacios**
 Básicamente, un programa de Python está formado por líneas de texto.
 ```python
 radio = 5
@@ -122,7 +122,7 @@ def suma(a,b):
 print(suma(2,3))
 ```
 
-### **3.3 - Delimitadores**
+### **1.3 - Delimitadores**
 Los delimitadores son los caracteres que permiten delimitar, separar o representar expresiones. 
 
 🔹 **1. Paréntesis, corchetes y llaves**  
@@ -174,7 +174,7 @@ Los delimitadores no se pueden usar para otra cosa que no sea su uso como delimi
 <br>
 
 
-### **3.4 - Comentarios**
+### **1.4 - Comentarios**
 Los comentarios sirven para explicar el código y hacerlo más comprensible. El intérprete de Python ignora por completo.
 
 ¿Por qué es importante poner comentarios?
@@ -207,7 +207,7 @@ print("El valor de 'b' es:", b, "y es de tipo: ", type(a))
 
 <br>
 
-### **3.5 - Tarea RA1-CEi** 
+### **1.5 - Tarea RA1-CEi** 
 Analizar el programa y deducir dónde hay que poner los comentarios que se dan más abajo.
 
 ```py
@@ -232,7 +232,7 @@ Listado de comentarios.
 
 Crear un archivo `*.py` y subirlo a AULES en la **tarea RA1-CEi**.
 
-### **3.6 - Delimitador contrabarra**
+### **1.6 - Delimitador contrabarra**
 El delimitador contrabarra ( \ ) permite truncar una linea muy larga en varias líneas.
 Por motivos de legibilidad, se recomienda que las líneas no superen los 79 caracteres. Si una instrucción supera esa longitud, se puede dividir en varias líneas usando la contrabarra ( \ ):
 
@@ -252,7 +252,7 @@ print(texto)
     Escribir el programa anterior y comprobar el resultado.  
     Intentar arreglarlo de forma intuitiva. 
 
-### **3.7 - Palabras reservadas**
+### **1.7 - Palabras reservadas**
 Las palabras reservadas de Python son las que forman **el núcleo del lenguaje** Python y **no se pueden usar para nombrar otros elementos** (variables, funciones, …).  
 Se puede acceder al listado de las palabras reservadas desde la **ayuda de IDLE** ( > Python 3.11, 64bits).
 
@@ -265,10 +265,10 @@ Se puede acceder al listado de las palabras reservadas desde la **ayuda de IDLE*
 !!! Ejercicio 2
     ¿Podéis intuir el significado de alguna palabra reservada?
 
-## **4 - Variables**
+## **2 - Variables**
 De forma general, una variable es **un espacio de memoria** con un nombre asociado que se utiliza para **almacenar y manipular datos** que pueden **cambiar durante la ejecución** del programa.
 
-### **4.1 - Convenciones de nomenclatura**
+### **2.1 - Convenciones de nomenclatura**
 Una forma de aplicar buenas prácticas de programación es seguir una convención para nombrar identificadores (variables, funciones, etc.) de manera que el código sea más limpio, legible y fácil de entender. 
 
 Dentro de las más conocidas tenemos: **Camel, Pascal, Kebab y Snake case**.
@@ -309,7 +309,7 @@ PRIMER-NOMBRE
 LISTA-INICIAL
 ```
 
-### **4.2 - Convenciones Python**
+### **2.2 - Convenciones Python**
 El [PEP8](https://peps.python.org/pep-0008/) es la guía de estilo para la programación en Python. Es así decirlo, el código de buenas prácticas del lenguaje.
 
 Se recomienda usar:
@@ -349,7 +349,7 @@ persona_uno = Persona('Alice', '123456789')
 print(persona_uno.exibir_primer_nombre())
 ```
 
-### **4.3 - Declaración de variables**
+### **2.3 - Declaración de variables**
 Python es un lenguaje de tipado dinámico por lo que no hace falta declarar **el tipo de dato** que se asignará a una variable. De igual manera una variable puede cambiar de tipo mientras se ejecuta el programa (lo que no se considera una buena práctica de programación), por ello, se debe tener cuidado con la sintaxis para definir cada tipo de dato.
 
 ```py
@@ -363,7 +363,7 @@ print(c, a+b)
     Ampliar el programa anterior dónde se le asignará un nuevo valor a la variable 'b' y se le asignará un valor númerico a 'c'.  
     Escribir en pantalla (print()) el resultado de la suma de b+c. 
     
-### **4.4 - Variables de tipo entero (int)**
+### **2.4 - Variables de tipo entero (int)**
 Los enteros son un tipo de dato básico en cualquier lenguaje de programación.  
 ```py
 a = 5
@@ -382,7 +382,7 @@ print(c)
 !!! Ejercicio
     Ampliar el programa anterior para evidenciar la asingación dinámica del tipo de variable en python. 
 
-### **4.5 - Variables de tipo coma flotante (float)**
+### **2.5 - Variables de tipo coma flotante (float)**
 Las variables de tipo coma flotante (o float) son aquellas que almacenan números reales (es decir, con parte decimal).
 ```py
 x = 3.14   # float
@@ -430,7 +430,7 @@ electron = 1.6e-19    # 1.6 × 10^-19
     print("Con Decimal:", a + b == c)
     ```
 
-### **4.6 - Variables de tipo booleano (bool)**
+### **2.6 - Variables de tipo booleano (bool)**
 Las variables booleanas sólo pueden adoptar dos valores: **verdadero (True)** o **falso (False)**.
 ```py
 a = True
@@ -442,7 +442,7 @@ print(type(a), type(b))
 !!! Ejercicio
     Ampliar el programa anterior para que devuelva el tipo resultante de la suma lógica de a y b, y también a con la negación de b. 
 
-### **4.7 - Variables de tipo número complejo**
+### **2.7 - Variables de tipo número complejo**
 En python, un número complejo tiene la forma: **a + bj** donde j es la unidad unidad imaginaria (en matemáticas se usa i).
 ```py
 # Forma literal de escribir números complejos
@@ -460,7 +460,7 @@ print(d)
 !!! Ejercicio
     Calcular con papel y bolígrafo el resultado de la variable 'f'.
 
-### **4.8 - Variables de tipo cadena de caracteres (string)** 
+### **2.8 - Variables de tipo cadena de caracteres (string)** 
 Los strings se definen utilizando **comillas dobles o simples**.
 ```py
 a = "hello"
@@ -474,7 +474,7 @@ print(d)
 !!! Ejercicio
     Rehacer el programa anterior para que esta vez, las variables de tipo string contengan únicamente valores númericos.
 
-### **4.9 - Variables de tipo lista**
+### **2.9 - Variables de tipo lista**
 Las listas se definen utilizando **corchetes []** y pueden contener elementos de distintos tipos.
 ```py
 # Lista
@@ -488,7 +488,7 @@ print(mi_lista[-1])     # Último elemento
     Crear una matriz de 3x3 utilizando listas.
 
 
-### **4.10 - Variables de tipo tupla**
+### **2.10 - Variables de tipo tupla**
 Las tuplas se definen utilizando **paréntesis ()**. Son similares a las listas pero **inmutables** (no se pueden modificar).
 
 ```py
@@ -501,7 +501,7 @@ print(mi_tupla[-1])
     Ampliar el programa para que esta vez la tupla contenga los valores **1,3,3, "cuatro", True,[1,2,3,"verde"]**.
     ¿Qué ocure entonces?
      
-### **4.11 - Diccionarios**     
+### **2.11 - Diccionarios**     
 Los diccionarios se definen utilizando **llaves {}** y almacenan pares **clave:valor**.
 
 ```py
@@ -516,7 +516,7 @@ print(mi_diccionario["nombre"])  # Acceder al valor de una clave
 print(mi_diccionario.get("edad")) # Otra manera de extraer valores del diccionario
 ``` 
 
-### **4.12 - Tarea RA1-CEde**
+### **2.12 - Tarea RA1-CEde**
 Realizar los siguientes programas, declarando las variables necesarias y usando buenas prácticas de programación en Python.
 
 1. **Ejercicio:**
@@ -559,11 +559,11 @@ print("¿Te gusta programar?:", gusta_programar, "Tipo:", type(gusta_programar))
 print("Colores favoritos:", colores_favoritos, "Tipo:", type(colores_favoritos))
 ```
 
-## **5 - Constantes y literales**
-### **5.1 - Constantes**
+## **3 - Constantes y literales**
+### **3.1 - Constantes**
 Una constante es un nombre simbólico que permite referenciar un objeto cuyo **valor no cambia** durante la ejecución del programa. 
 
-#### **5.1.1 - Convención de nombres**
+#### **3.1.1 - Convención de nombres**
 En Python, salvo el uso de snake_case + mayúsculas, no existe una sintaxis específica para las constantes (como en otros lenguajes de programación). Por esta razón, en Python, las constantes son realmente variables a las que, por convención no se les podrá asignar varios valores en tiempo de ejecución. 
 
 **Ejemplo de declaraciones de constantes**
@@ -577,15 +577,15 @@ BASE_PATH = "/proyectos"
 
 !!! question "¿Existe otra manera para recuperar el valor de PI?"
 
-#### **5.1.2 - Uso de módulos para blindar las constantes**
+#### **3.1.2 - Uso de módulos para blindar las constantes**
 Un buena práctica para guardar las constantes es declararlas en un módulo aparte (p.e. contantes.py)
 
 **Módulo donde se almacenan las constantes**
 ```py 
 # constantes.py
-CONSTANTE_1 = 25.6
+CONSTANTE_1 = 23.6
 CONSTANTE_2 = 59.6
-CONSTANTE_3 = 125.856
+CONSTANTE_3 = 123.856
 ```
 
 **Programa donde se utilizan las contantes**
@@ -602,7 +602,7 @@ print("El valor de la suma de 'valor_1'+'valor_2'+'valor_3' es:",\
 ```
 !!! question "¿Cuál es el resultado de la operación?"
 
-#### **5.1.3 - Constantes con clases y decorador @property**
+#### **3.1.3 - Constantes con clases y decorador @property**
 El decorador @property permite establecer y asociar **métodos getters y setters** a un atributo.
 
 A @property se le puede indicar cuáles serán los métodos encargados de gestionar el atributo en cuestión. 
@@ -626,7 +626,7 @@ constantes.PI = 10  # intentar alterar la constante
 ```
 !!! question "Ejecutar el programa y ver el resultado"
 
-#### **5.1.4 - Constantes con Final**
+#### **3.1.4 - Constantes con Final**
 El módulo typing introduce **Final** para indicar a herramientas de análisis estático que una variable **no debe reasignarse**:
 ```py
 from typing import Final
@@ -643,7 +643,7 @@ Como podemos ver el código se ejecuta correctamente a pesar de utilizar la prop
 !!! question "¿Qué objeto que hemos visto anteriormente no permite modificar directamente su contenido?"
 
 
-### **5.2 - Literales**
+### **3.2 - Literales**
 En programación, **un literal** es un valor escrito directamente en el código fuente que representa un dato fijo.  
 No es una variable ni una constante con nombre: es **literalmente el dato tal cual**.
 
@@ -674,7 +674,7 @@ diccionario = {'clave_1': 'valor',
                'clave_4': ("Bienvenido",[25,36,42],("Hola","mundo",4+9j))}
 ```
  
-### **5.3 - Tarea RA1-CEf**
+### **3.3 - Tarea RA1-CEf**
 Completar y comentar las líneas de código de los siguientes ejercicios para poner en evidencia el dominio de lo que son contantes, literales, etc.  
 
 - **Ejercicio 1** 
@@ -709,7 +709,7 @@ precio_final2 = precio * (1 - DESCUENTO)
 print("Precio con descuento alterado:", precio_final2)
 ```
 
-## **6 - Operadores**
+## **4 - Operadores**
 Los operadores son símbolos que indican al programa que realice una operación específica, como aritmética, comparación, lógica, etc.
 
 <div class="operadores">
@@ -763,7 +763,7 @@ kanban
 ``` 
 </div>
 
-### **6.1 - Operadores aritméticos**
+### **4.1 - Operadores aritméticos**
 Los operadores aritméticos permiten realizar operaciones aritméticas básicas con las variables de tipo numérico. 
 
 |Operador |	Descripción |	Ejemplo|
@@ -805,7 +805,7 @@ print(c)
     ¿Qué se debería hacer para que sean correctos?
 
 
-### **6.2 - Operadores de comparación**
+### **4.2 - Operadores de comparación**
 Permiten efectuar comparaciones entre objetos de Python.  
 El resultado de una comparación es un valor booleano (True o False).  
 
@@ -828,7 +828,7 @@ Los operadores relacionales solo se pueden ejecutar para comparar valores del mi
 !!! Ejercicio  
     Transcribir a python las expresiones que acabamos de ver.      
 
-### **6.3 - Operadores lógicos**
+### **4.3 - Operadores lógicos**
 Sirven para realizar operaciones de lógica booleana entre valores de tipo bool. Los operadores lógicos son (las palabras reservadas) **and, or y not**.  
 
 |Operador|	Descripción |	Ejemplo|
@@ -840,7 +840,7 @@ Sirven para realizar operaciones de lógica booleana entre valores de tipo bool.
 **Nota:**  
 Cuidado con la sintaxis. Si usamos los símbolos de la lógica combinatoria (+, *, ...) los resultados pueden no ser los esperados.
 
-### **6.4 - Operadores de asignación**
+### **4.4 - Operadores de asignación**
 Un operador de asignación sirve para **asignar un valor** a una variable. Generalmente se combina con otros operadores (aritmética, bit a bit, ...) donde la operación se realiza en los operandos y el resultado se asigna **al operando izquierdo**.
 
 |Operador|	Descripción |	
@@ -854,7 +854,7 @@ Un operador de asignación sirve para **asignar un valor** a una variable. Gener
 |**= |	a **= 3 es equivalente a a = a ** 3|
 |//= |	a //= 3 es equivalente a a = a // 3|
 
-### **6.5 - Operadores de pertenencia**
+### **4.5 - Operadores de pertenencia**
 Un operador de pertenencia se emplea para identificar pertenencia en alguna secuencia (listas, strings, tuplas).  
 
 - **in** y **not in** son operadores de pertenencia.
@@ -882,7 +882,7 @@ print("world" in str) # Muestra False
 print("code" not in str) # Muestra True
 ```
 
-### **6.6 - Operadores de identidad**
+### **4.6 - Operadores de identidad**
 Un operador de identidad se emplea para comprobar si dos variables emplean la misma ubicación en memoria.
 
 - **is** → comprueba si dos variables hacen referencia al mismo objeto en memoria.
@@ -904,7 +904,7 @@ print(a is not c)  # True, porque no son el mismo objeto (las listas son objetos
 - **is** no se debe usar para **comparar valores**, solo para identidad de objetos.
 - Para comparar valores, siempre se usará ==.
 
-### **6.7 - Ejercicios con operadores**
+### **4.7 - Ejercicios con operadores**
 #### Tarea RA1-CEg
 Completar el código de los siguiente ejercicios.
 
@@ -981,7 +981,7 @@ Completar el código de los siguiente ejercicios.
     print("El número mágico es:", numero_magico)
     ```
 
-## **7 - Estructuras de control**
+## **5 - Estructuras de control**
 Un código es una secuencia de instrucciones, que por norma general son ejecutadas una tras otra.   
 Sin embargo, en muchas ocasiones no basta con ejecutar las instrucciones una tras otra desde el principio hasta llegar al final.  
 Puede ser que ciertas instrucciones se tengan que ejecutar **si y sólo si** se cumple una determinada condición.
@@ -998,7 +998,7 @@ En un lenguaje de programación, las estructuras de control permiten modificar e
 |**match**|Bucle de selección|
 |**try-except**|Manejo de excepciones (errores)|  
 
-### **7.1 - Bucle condicional if-elif-else**
+### **5.1 - Bucle condicional if-elif-else**
 - La estructura de control **if** permite que un programa ejecute unas instrucciones cuando se cumpla una condición.
 ```py
 if cond1:
@@ -1068,7 +1068,7 @@ else:
     3. Realizar un programa con un bucle **condicional if else** que permita saber si el valor de **nota** está incluido dentro de lista. 
 
 
-### **7.2 - Bucle de repetición for**
+### **5.2 - Bucle de repetición for**
 El **bucle for** es una estructura de control de repetición, en la cual se conocen (a priori) el número de iteraciones a realizar. El **bucle for** usa **un iterable** que define las veces que se ejecutará el código. 
 ```py
 for valores in iterador:
@@ -1076,7 +1076,7 @@ for valores in iterador:
     pass
 ```
 
-#### **7.2.1 - Iterador range()**
+#### **5.2.1 - Iterador range()**
 **range()** es una función que devuelve un iterador de números enteros en un rango definido.  
 ```py
 range(inicio, fin, paso)
@@ -1118,7 +1118,7 @@ for i in range(10, 0, -2):
     1. Cuantos números entre 1 y 500 son, **a la vez**, **múltiplos de 7 y 8**.  
     2. Muestre los números encontrados.    
 
-#### **7.2.2 - Objetos iterables**
+#### **5.2.2 - Objetos iterables**
 En Python se puede iterar sobre cualquier objeto iterable, como por ejemplo un string, una lista, una tupla o un diccionario...  
 A continuación varios ejemplos de objetos iterables.
 
@@ -1160,7 +1160,7 @@ for nombre, edad in zip(nombres, edades):
 **zip()**, como su nombre lo deja entrever **une** los elementos de las listas, posición a posición.  
 Si una lista es más larga que la otra, zip se detiene en la más corta.
 
-#### **7.2.3 - Ejercicios con bucles e iteradores**
+#### **5.2.3 - Ejercicios con bucles e iteradores**
 !!! Ejercicio "Ejercicio 1"  
     **Contar números pares:**  
     - Mostrar los números pares del 1 al 20 usando un bucle for. 
@@ -1179,7 +1179,7 @@ Si una lista es más larga que la otra, zip se detiene en la más corta.
     - Crear una lista con 7 colores (rojo, verde, naranja, amarillo, verde, morado, azul).  
     - El programa deberá imprimir el contenido de las 2 listas usando **zip**.  
 
-### **7.3 - Bucle de repetición while**
+### **5.3 - Bucle de repetición while**
 El bucle while ejecuta un bloque de instrucciones mientras se cumpla una condición. A diferencia del bucle **for**, en el **while** normalmente no sabemos de entrada cuántas veces se va a repetir."
 ```py
 while condicion:
@@ -1195,7 +1195,7 @@ while k < len(nombre):
     k += 1
 ```
 
-#### **7.3.1 - Ejercicios con bucles while**
+#### **5.3.1 - Ejercicios con bucles while**
 !!! Ejercicio "Ejercicio 1. Crear un programa con un bucle while con las siguientes condiciones."  
     - Cada vez que se realice un bucle se incrementará **+1** el valor de una variable.
     - Cada vez que se realice un bucle se imprimirá el valor de esa variable.
@@ -1215,8 +1215,8 @@ while k < len(nombre):
     - Si el valor introducido es negativo, se mostrará un mensaje de error y se volverá a pedir introducir un valor.
     - El usuario solo tendrá derecho a 5 intentos, superados los cuales el programa finalizará.
 
-### **7.4 - Sentencias de control de flujo: break y continue**
-#### **7.4.1 - Sentencia break**
+### **5.4 - Sentencias de control de flujo: break y continue**
+#### **5.4.1 - Sentencia break**
 La sentencia **break** permite alterar el comportamiento de los bucles **while** y **for**. Concretamente, permite **terminar de manera anticipada** con la ejecución del bucle.
 
 !!! example "Break en un bucle for:"
@@ -1253,7 +1253,7 @@ while True: #definimos un bucle while infinito
 print("Programa terminado")  
 ```  
 
-#### **7.4.2 - Sentencia continue**
+#### **5.4.2 - Sentencia continue**
 Al igual que break, la sentencia continue permite modificar el comportamiento de los bucles while y for.  
 En el caso de continue, **se salta todo el código restante en la iteración actual** y vuelve al principio en el caso de que aún queden iteraciones por completar.  
 La diferencia entre break y continue es que continue no rompe el bucle, sino que pasa a la siguiente iteración saltando el código pendiente.
@@ -1269,7 +1269,7 @@ for letra in cadena:
   print(letra, end="") #end="" evita el salto de línea
 ```
 
-#### **7.4.3 - Ejercicios con break y continue**
+#### **5.4.3 - Ejercicios con break y continue**
 !!! Ejercicio "Ejercicio 1. Crear un programa con un bucle while y la sentencia break con las siguientes condiciones."  
     - El programa pedirá al usuario que introduzca un número.
     - Si el valor introducido es positivo, entonces se calculará la raíz cuadrada de ese número y se mostrará por pantalla.
@@ -1280,8 +1280,8 @@ for letra in cadena:
     - El programa pedirá al usuario que introduzca un número (el valor introducido será un entero positivo).
     - El programa realizará un bucle desde 0 hasta el valor introducido dentro del cual solo mostrará en pantalla los valores pares.    
 
-### **7.5 - Sentencia de control de excepciones** 
-#### **7.5.1 - Sentencias try-except**
+### **5.5 - Sentencia de control de excepciones** 
+#### **5.5.1 - Sentencias try-except**
 Las sentencias de control **try** y **except** se usan para manejar errores (más comúnmente llamados excepciones) y evitar que nuestro programa se detenga inesperadamente.  
 
 !!! tip "Concepto básico."  
@@ -1321,7 +1321,7 @@ while True:
         print("Estás intentando dividir por cero.")
 
 ```
-#### **7.5.2 - Sentencias try, except, else y finally**
+#### **5.5.2 - Sentencias try, except, else y finally**
 En Python también podemos usar los bloques **else y finally** junto con **try y except** para tener un control más fino sobre el flujo del programa cuando ocurren excepciones.
 
 - **try:** Contiene el código que podría provocar un error.
@@ -1363,7 +1363,7 @@ finally:
     print("operación de lectura finalizada") 
 ```
 
-### **7.6 - Bucle anidados**
+### **5.6 - Bucle anidados**
 Ya hemos visto algún que otro bucle anidado sin decirlo.  
 Un **bucle anidado** es un bucle que se **encuentra incluido** en el **bloque de sentencias** de otro bloque.  
 Los bucles pueden tener muchos niveles de anidamiento, lo que suele disparar resultados inesperados en tiempos de ejecución. De igual manera se deberá prestar una especial atención a la ubicación de las sentencias **break** y **continue**.
@@ -1384,7 +1384,7 @@ for i in range(1, 11):  # bucle externo
     Modificar el programa anterior para que, al alcanzar **el bucle externo** el valor **5** y **el bucle interno** el valor **7**, se salga de la ejecución del programa con un mensaje de despedida.  
     ¿Por qué incluir un mensaje de despedida?
 
-### **7.7 - Sentencia de selección match**
+### **5.7 - Sentencia de selección match**
 **A partir de Python 3.10**, se introdujo la **sentencia match**, que funciona como una estructura de selección múltiple (parecida a switch en otros lenguajes como java).
 Permite comparar un valor contra varios patrones y ejecutar código según el que coincida.
 Es mucho más potente que un simple **if/elif/else** porque admite patrones estructurados, desempaquetado y condiciones adicionales (guards).
@@ -1422,7 +1422,7 @@ match opcion:
     1. El usuario deberá elegir entre pulsar intro o introducir la palabra 'no'.
     1. Si el usuario elige 'no' la repetición finalizará y se saldrá del programa. 
  
-### **7.8 - Tarea RA3-CEa** 
+### **5.8 - Tarea RA3-CEa** 
 !!! task "Ejercicio 1 - Naturaleza de las raíces de una ecuación cuadrática"
     1. Una **ecuación cuadrática** tiene la forma:  
     **a x<sup>2</sup> + b x + c = 0**
@@ -1451,7 +1451,7 @@ match opcion:
     print(exp(1),exp(-1),exp(0))
     ```     
 
-### **7.9 - Tarea RA3-CEb** 
+### **5.9 - Tarea RA3-CEb** 
 !!! task "Ejercicio - Comprobar si un año es bisiesto"
     1. Escribe un programa que pida un valor
     1. El programa estimará qué años son bisiestos desde 0 hasta el valor introducido.
@@ -1466,13 +1466,61 @@ match opcion:
     - El año 2000 también fue bisiesto.  
     - El año 1800 **no fue** bisiesto.  
 
-### **7.10 - Tarea RA3-CEc** 
-<!-- sentencias de salto -->
-<!-- http://anyp.fcaglp.unlp.edu.ar/Practicas-2025/ANyP-01b.pdf -->
-### **7.11 - Tarea RA3-CEdh** 
-### **7.12 - Tarea RA3-CEe** 
+### **5.10 - Tarea RA3-CEc** 
+!!! task "Ejercicio - Sumar fracciones"
+    1. El programa debe pedir al usuario que introduzca un valor entero positivo.
+    1. A partir de ese valor, el programa sumará una serie de fracciones correspondientes a todos los números enteros comprendidos entre -valor y +valor (ambos incluidos), siguiendo las siguientes condiciones:
+        - Si el iterador es negativo, se sumará 2 / iterador a una variable acumuladora.
+        - Si el iterador es cero, no se sumará ningún valor.
+        - Si el iterador es positivo, se sumará 1 / iterador a la variable acumuladora.
 
-<!-- ideas para tareas -->
+!!! task "Ejercicio - Sumar hasta superar el límite"
+    1. El programa debe pedir al usuario que introduzca un valor entero positivo.
+    1. A partir de ese valor, el programa irá sumando los números consecutivos 1 + 2 + 3 + ... + valor.
+    1. Si durante el proceso la suma alcanza o supera 100, el programa se detendrá y mostrará un mensaje indicando el valor en el que la suma se ha detenido.
+    1. Si la suma no alcanza 100, el programa finalizará mostrando un mensaje que indique que no se ha alcanzado el límite de 100.
+
+### **5.11 - Tarea RA3-CEdh** 
+!!! task "Ejercicio - Calculadora básica"
+    1. El programa debe pedir al usuario que introduzca dos valores enteros.
+    1. A continuación, el programa debe solicitar al usuario que indique la operación que desea realizar: sumar, restar, multiplicar o dividir.
+    1. En el caso de la división, el programa debe incluir un control de excepciones para evitar errores cuando el segundo valor sea nulo (cero).
+    1. En todos los casos, el programa debe mostrar el resultado de la operación o una advertencia si no se puede realizar.
+    1. El programa debe repetirse indefinidamente hasta que el usuario introduzca la palabra salir en lugar de un operador.
+
+
+### **5.12 - Tarea RA3-CEe** 
+!!! task "Ejercicio - Dibujar la letra “o”"
+    1. El programa debe pedir al usuario que introduzca un valor entero positivo `n`.
+    1. A continuación, el programa mostrará por pantalla una figura que represente la letra “o” formada por el carácter 'o', siguiendo estas condiciones:
+        - La primera línea contendrá 'n' veces la letra 'o'.
+        - Las líneas intermedias (en total n - 2) comenzarán y terminarán con una 'o', y tendrán espacios en blanco entre ambas.
+        - La última línea contendrá nuevamente 'n' veces la letra 'o'.
+    1. Si el valor introducido es menor que 2, el programa mostrará un mensaje de advertencia indicando que el valor no es válido.  
+
+    1. **Ejemplos de código y ejecución:**   
+       Imprimir varias veces un mismo carácter:
+       ```py
+       print("o"*6)
+       ```
+       ```
+       oooooo
+       ```
+       Ejemplo de ejecución con el valor 6:
+       ```
+       oooooo
+       o    o
+       o    o
+       o    o
+       o    o
+       oooooo
+       ```
+
+
+
+<!-- http://anyp.fcaglp.unlp.edu.ar/Practicas-2025/ANyP-01b.pdf -->
+
+
 <!-- destructuracion?? -->
 <!-- https://aprendeconalf.es/docencia/python/ejercicios/condicionales/ -->
 
