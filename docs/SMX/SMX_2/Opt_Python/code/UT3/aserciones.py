@@ -1,0 +1,21 @@
+# def dividir(a, b):
+#     assert b != 0, "El divisor no puede ser cero"
+#     return a / b
+
+# print(dividir(10, 2))  # OK
+# print(dividir(10, 0))  # AssertionError: El divisor no puede ser cero
+
+
+# x = -5
+
+# try:
+#     if x < 0:
+#        raise ValueError("x no puede ser negativo")
+#     print("El valor de x es válido:", x)
+
+# except ValueError as error:
+#     print("Se ha producido un error:", error)
+
+# print("El programa continúa su ejecución normalmente.")
+
+ 

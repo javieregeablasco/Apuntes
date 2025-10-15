@@ -37,6 +37,7 @@ schedule: 96h - 3h/w
 |**d)** Se ha escrito código utilizando control de excepciones. 	|
 |**e)** Se han creado programas ejecutables utilizando diferentes estructuras de control. 	|
 |**h)** Se han creado excepciones.|
+|**i)** Se han utilizado aserciones para la detección y corrección de errores durante la fase de desarrollo.|
 
 
 | **RA. 5:** Realiza operaciones de entrada y salida de información, utilizando procedimientos específicos del lenguaje y librerías de clases.| 
@@ -1280,16 +1281,23 @@ for letra in cadena:
     - El programa pedirá al usuario que introduzca un número (el valor introducido será un entero positivo).
     - El programa realizará un bucle desde 0 hasta el valor introducido dentro del cual solo mostrará en pantalla los valores pares.    
 
-### **5.5 - Sentencia de control de excepciones** 
+### **5.5 - Control de excepciones** 
+Una excepción es **un evento** que ocurre durante la ejecución de un programa y que **interrumpe el flujo normal de las instrucciones** cuando sucede un error o una situación inesperada.
+
 #### **5.5.1 - Sentencias try-except**
-Las sentencias de control **try** y **except** se usan para manejar errores (más comúnmente llamados excepciones) y evitar que nuestro programa se detenga inesperadamente.  
+Las sentencias de control **try** y **except** se usan para manejar errores y evitar que nuestro programa se detenga inesperadamente.  
 
-!!! tip "Concepto básico."  
-
+!!! tip "Estructura básica."  
 - El bloque try contiene el código que podría generar un error.  
-- El bloque except contiene el código que se ejecuta si ocurre un error dentro del try.  
-Esto permite “atrapar” errores y manejarlos de forma controlada.  
+- El bloque except contiene el código que se ejecuta si ocurre un error dentro del try. Esto permite “atrapar” errores y manejarlos de forma controlada.  
+```PY
+try:
+    # Bloque de código que puede generar un error
+except:
+    # Bloque de código que se ejecuta si ocurre un ValueError    
+```
 
+!!! tip "Ejemplo básico."  
 ```py
 try:
     # Bloque de código que puede generar un error
@@ -1300,9 +1308,12 @@ except:
     print("¡Error! Debes introducir un número válido.")
 ```    
 
+!!! tip "Ejemplo encadenando excepciones y especificando el tipo de excepción."
+Existen muchos tipos de excepciones en Python, cada una asociada a un error específico. Las más comunes son: **TypeError** (operaciones con tipos inapropiados), **ZeroDivisionError** (división por cero), **IndexError** (índice fuera de rango en una secuencia) y KeyError (clave inexistente en un diccionario). Otros tipos habituales incluyen **FileNotFoundError, ImportError, ValueError y AttributeError**.
+
+En Python se puede **y se recomienda** especificar el tipo de error cuando se define el bloque except. Por ese motivo, es habitual encontrar múltiples bloques except en un mismo try. **Si no se especifica el tipo de error, la excepción se capturará igualmente**, pero no se dispondrá de información precisa sobre el origen del fallo.
 
 
-!!! tip "Ejemplo encadenando excepciones y especificando el tipo de excepción."   
 ```py
 while True:
     entrada = input("Introduce un número (o 'salir' para terminar): ")
@@ -1363,7 +1374,63 @@ finally:
     print("operación de lectura finalizada") 
 ```
 
-### **5.6 - Bucle anidados**
+
+#### **5.5.3 - Control de excepciones con assert**
+La instrucción **assert** permite **depurar el código** y verificar condiciones que deben cumplirse mientras el programa se ejecuta.
+Si la condición evaluada por assert es **False**, Python lanzará un error (AssertionError) y opcionalmente, mostrará un mensaje de ayuda.  
+<br>
+!!! tip "Estructura básica."  
+```py
+assert condicion, mensaje_opcional
+```
+condicion → Es una expresión que debe evaluarse como True.  
+mensaje_opcional → (opcional) Texto que se mostrará si la aserción falla.  
+<br>
+
+!!! tip "Ejemplo básico."
+```py
+x = int(input("Introducir un valor entero positivo"))
+y = 20
+assert x > 0, "condicion: x debe ser mayor que cero"
+print("Condicion assert superada, el usuario ha introducido un valor >0")
+```
+Si el assert() devuelve `False` en la terminal saldrá un aviso del tipo:  
+```bash
+AssertionError: x debe ser mayor que cero
+```
+<br>
+!!! warning "Limitaciones de assert"  
+En entornos de producción, **todas las aserciones pueden desactivarse** (por ejemplo, al ejecutar Python con la opción -O), y por lo tanto no se ejecutan. Por este motivo, **assert debe usarse únicamente durante el desarrollo y la validación del código**, y nunca en producción. (La instrucción assert está pensada exclusivamente para tareas de prueba y depuración).  
+<br>
+
+#### **5.5.4 - Control de excepciones con raise()**
+La instrucción raise se usa para lanzar (o generar) **una excepción de forma manual**.  
+Cuando se ejecuta un raise, el interprete de Python interrumpe la ejecución normal del programa y busca un bloque **try...except** que pueda manejar la excepción. Si no lo encuentra, el programa termina con un error.
+
+!!! tip "Estructura básica." 
+```py
+raise [Excepcion] [from otra_excepcion]
+```
+Excepcion → Puede ser una instancia o clase de una excepción (por ejemplo, ValueError, TypeError, etc.).  
+from otra_excepcion → (opcional) se usa para encadenar excepciones.  
+<br>
+
+!!! tip "Ejemplo básico"
+```py
+x = -5
+
+try:
+    if x < 0:
+        raise ValueError("x no puede ser negativo")
+    print("El valor de x es válido:", x)
+
+except ValueError as error:
+    print("Se ha producido un error:", error)
+
+print("El programa continúa su ejecución normalmente.")
+```
+
+### **5.6 - Bucles anidados**
 Ya hemos visto algún que otro bucle anidado sin decirlo.  
 Un **bucle anidado** es un bucle que se **encuentra incluido** en el **bloque de sentencias** de otro bloque.  
 Los bucles pueden tener muchos niveles de anidamiento, lo que suele disparar resultados inesperados en tiempos de ejecución. De igual manera se deberá prestar una especial atención a la ubicación de las sentencias **break** y **continue**.
@@ -1488,6 +1555,12 @@ match opcion:
     1. En todos los casos, el programa debe mostrar el resultado de la operación o una advertencia si no se puede realizar.
     1. El programa debe repetirse indefinidamente hasta que el usuario introduzca la palabra salir en lugar de un operador.
 
+!!! task "Ejercicio - Calculadora básica con assert"
+    1. El programa debe pedir al usuario que introduzca dos valores enteros.
+    1. A continuación, el programa debe solicitar al usuario que indique la operación que desea realizar: sumar, restar, multiplicar o dividir.
+    1. En el caso de la división, el programa debe incluir un control de excepciones **con assert** para evitar errores cuando el segundo valor sea nulo (cero).
+    1. En todos los casos, el programa debe mostrar el resultado de la operación o una advertencia si no se puede realizar.
+    1. El programa debe repetirse indefinidamente hasta que el usuario introduzca la palabra salir en lugar de un operador.
 
 ### **5.12 - Tarea RA3-CEe** 
 !!! task "Ejercicio - Dibujar la letra “o”"
@@ -1516,43 +1589,28 @@ match opcion:
        oooooo
        ```
 
-
-
-<!-- http://anyp.fcaglp.unlp.edu.ar/Practicas-2025/ANyP-01b.pdf -->
-
-
-<!-- destructuracion?? -->
-<!-- https://aprendeconalf.es/docencia/python/ejercicios/condicionales/ -->
-
-
-<!--
-## Funciones de entrada y salida.
+## **6 - Funciones en python**
+### **6.1 - Funciones predefinidas print & input**
 Hasta ahora hemos usado la función print() principalmente para mostrar mensajes en pantalla, sin detenernos demasiado en todas las cosas que podemos hacer con ella. Pero, a medida que aprendemos más de Python, necesitamos crear programas más completos que puedan interactuar con el usuario. Para lograrlo, conoceremos también la función input(), que nos servirá para pedir datos por teclado y guardarlos en variables que después usaremos en nuestros programas. 
 
-### La función print()
+#### **6.1.1 - La función print()**
 La función **print()** es una función incorporada (builtin) de Python que escribe texto en un flujo (por defecto, la consola) y no **devuelve nada**. 
 
-**Sintaxis de print()**
-```py
-print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)
-```
-**Dónde:**
+!!! info "Sintaxis de print()"
+    ```py
+    print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)
+    ```
+    **Dónde:**
+    
+    - ***objects**: cualquier número de valores a imprimir. Cada uno se convierte con str().  
+    - **sep**: separador entre objetos (por defecto un espacio).  
+    - **end**: lo que se añade al final (por defecto salto de línea).  
+    - **file**: flujo destino; por defecto sys.stdout (puedes usar sys.stderr o un archivo abierto).  
+    - **flush**: si True, vacia el buffer inmediatamente.  
 
-- ***objects**: cualquier número de valores a imprimir. Cada uno se convierte con str().  
-- **sep**: separador entre objetos (por defecto un espacio).  
-- **end**: lo que se añade al final (por defecto salto de línea).  
-- **file**: flujo destino; por defecto sys.stdout (puedes usar sys.stderr o un archivo abierto).  
-- **flush**: si True, vacia el buffer inmediatamente.  
+#### **6.1.2 - Argumentos de print()**  
 
-!!! Warning "Atención"  
-    Las funciones se diferencian en lo que hacen después de ejecutarse.  
-
-    - Funciones que devuelven algo: realizan una tarea y entregan un resultado usando **la palabra clave return**. Ese valor puede guardarse en una variable o usarse en otros cálculos.  
-    - Funciones que no devuelven nada: realizan una acción (por ejemplo, mostrar un mensaje en pantalla), pero no entregan ningún valor; su resultado no puede almacenarse ni usarse más adelante.
-
-#### **Argumentos de print()**  
-
-- **Separadores**
+- **Separadores**  
 En python se puede configurar como aparecerán los datos en la terminal.
 ```py
 print("A", "B", "C")                     
@@ -1563,7 +1621,8 @@ print("A", "B", "C", sep=" >>> ")
 print("A", "B", "C", sep=" \U0001F600 ") # sep admite símbolos soportados por python
 ```
 <br>
-- **Fin de línea \n**
+
+- **Fin de línea \n**  
 En Python, el valor predeterminado de end es **\n** (salto de línea).  
 Si el valor no es nulo, entonces se imprimirá al final de la línea el contenido de end **y no se saltará a la linea siguiente si no añadimos \n**.
 ```py
@@ -1626,16 +1685,18 @@ aprobado = 7.2
 print("Aprobado" if aprobado >= 5 else "Suspenso")
 ```
 
-#### Ejercicios con print()
+#### **6.1.3 - Ejercicios con print()**
 !!! Exercice "Ejercicio 1"  
     Escribir un código cuya salida en terminal sea la siguiente.   
     ![Descripción de la imagen](../Opt_Python/img/UT3/print1.png)
 
+!!! Exercice "Ejercicio 2"
 
+!!! Exercice "Ejercicio 3"  
 
-#### **Formato de cadenas de caracteres para su uso con (o sin) print()**
+#### **6.1.4 - Formato de cadenas de caracteres para su uso con (o sin) print()**
 - **Cadenas f**  
-Muchas veces puede resultar tiedoso ir intercalando texto y valores de variables. A partir de python 3.6, la nueva notación **cadena f{}** soluciona es problema.  
+Muchas veces puede resultar tiedoso ir intercalando texto y valores de variables. A partir de python 3.6, la nueva notación **cadena f{}** soluciona ese problema.  
 Una cadena f contiene **variables y expresiones** entre llaves "{}" que se sustituyen directamente por su valor. 
 ```py
 valor1 = 5
@@ -1702,6 +1763,33 @@ print("Equivalente en porcentaje de 0.85: {:.1%}".format(0.85))
     valor2 = 7.3915896
     print(f"El resultado de la mutiplicacion de {valor1 :.2f} por {valor2} es {valor1*valor2}")
     ```
+
+
+
+
+
+
+
+
+#### **6.1.2 - La función input()**
+#### **6.1.3 - Refundición (casting) de variables** 
+### **6.2 - Programación de funciones (custom)** 
+
+
+
+
+<!--
+
+!!! Warning "Atención"  
+    Las funciones se diferencian en lo que hacen después de ejecutarse.  
+
+    - Funciones que devuelven algo: realizan una tarea y entregan un resultado usando **la palabra clave return**. Ese valor puede guardarse en una variable o usarse en otros cálculos.  
+    - Funciones que no devuelven nada: realizan una acción (por ejemplo, mostrar un mensaje en pantalla), pero no entregan ningún valor; su resultado no puede almacenarse ni usarse más adelante.
+
+
+
+
+
 
 ### La función input()
 La entrada de datos en Python se realiza con la función **input()** 
@@ -1816,6 +1904,7 @@ También se puede hacer conversiones sobre objetos como las **listas, tuplas, di
 |Tarea RA5CEb** Se han aplicado formatos en la visualización de la información.|
 
 
+
 ---
 HASTA AQUI  
 https://jorgedelossantos.github.io/apuntes-python/Funciones.html
@@ -1834,11 +1923,16 @@ IA BD PIA UT 2. ... pagina 37.
 
 ---
 
+<!-- http://anyp.fcaglp.unlp.edu.ar/Practicas-2025/ANyP-01b.pdf -->
+
+
+<!-- destructuracion?? -->
+<!-- https://aprendeconalf.es/docencia/python/ejercicios/condicionales/ -->
 
 
 
 
-
+<!--
 Progreso / sobrescribir línea
 
 Con \r vuelves al inicio de la línea:
