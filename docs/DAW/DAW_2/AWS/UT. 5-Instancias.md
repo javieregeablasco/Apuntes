@@ -666,11 +666,76 @@ Enlazamos todo el tráfico hacia internet de la tabla de enrutamiento de la subr
 ### **4.3.3 - Conexión a la EC2 de la subred privada**
 Al carecer, la EC2 de la subred privada de IP pública, para poder conectarnos a ella, primero deberemos conectarnos a la EC2 de la subred pública, y luego, desde ella, conectarnos a la EC2 de la subred privada. 
 
+!!! info "Preparación de las variables de entorno"
+Antes de conectar por SSH a una instancia, es recomendable preparar el entorno de autenticación cargando la clave privada en el agente SSH.
+
+1. Ejecutar ssh-agent en segundo plano
+```bash
+eval $(ssh-agent)
+```
+
+1. Cargar en memoria la clave privada de la instancia
+```bash
+ssh-add labsuser.pem
+```
+
+1. Comprobar las claves añadidas al agente ssh
+```bash
+ssh-add -l 
+```
+
+!!! tip "¿Por qué usar ssh-agent?"
+    El agente SSH permite mantener las claves privadas cargadas en memoria durante la sesión.  
+    **Ventajas:**  
+    - Evita tener que escribir la ruta o la contraseña de la clave en cada conexión.  
+    - Mejora la seguridad, ya que la clave no se guarda en texto plano ni se reenvía en cada conexión.  
+    - Facilita la autenticación si se conectan varias veces a la misma instancia o a distintos servidores dentro del mismo entorno.
+
+<br>
+!!! info "Conexión a la instancia EC2 mediante SSH"
+Una vez configurado el agente SSH y cargada la clave privada, nos conectaremos a la instancia EC2 de la subred pública.
+
+```bash
+ssh -A ec2-user@dirección-ip-pública
+```
+**Nota:**  
+Con la **opción -A**, las claves se mantienen en memoria.  
+Ya no es necesario utilizar la **opción -i** para especificar la clave privada que se usará.
+
+<br>
+!!! info "Conexión a la instancia EC2 de la subred privada"
+Una vez conectados a la instancia pública, desde ella nos conectaremos a la instancia de la subred privada.  
+```bash
+ssh ec2-user@direccion-ip-privada
+```
+<br>
+!!! task "Tarea RA2-CEc (continuación): Pruebas de ping"
+    **Comprobar:**  
+    Realizar una prueba de ping entre instancias es decir hacer ping desde la EC2 pública hacia la EC2 privada y a la inversa.
+    Realizar una prueba de ping de las 2 instancias hacia internet (p.e google.es).  
+    Realizar capturas (3 capturas en total).
+
+
+<br>
+!!! task "Tarea RA2-CEc (continuación): Montar un servidor web y un agente mysql"
+    **1. Instancia pública**  
+    Instalar un servidor web Apache, que será accesible desde cualquier equipo externo a la VPC por el puerto 80, utilizando tanto su nombre DNS como su dirección IP pública.
+
+    **2. Instancia privada**  
+    Instala un servicio de MySQL. 
+
+    **3. Conexión a la BBDD**  
+    Conectarse a la instancia de la subred pública y realizar una prueba de conexión **al servidor de base de datos**. Para esa conexión, se utilizará un cliente mysql.
+
+    **4. Realizar capturas**  
+    De la conexión a la base de datos.  
+    El servidor web desplegado.
+
 <!-- volver a montar el natgateway -->
 
-### **4.4 - Tarea RA2-CEd-2**
+<!-- ### **4.4 - Tarea RA2-CEd-2**
 Seguimos con el escenario de la tarea anterior y añadiremos una instancia en la subred privada.  
-En esta caso haremos uso de reglas **encadenadas** para impedir que las 2 instancias de la subred privada puedan comunicarse la una con la otra pero sí ambas podrán hacerlo con la instancia de la subred pública. 
+En esta caso haremos uso de reglas **encadenadas** para impedir que las 2 instancias de la subred privada puedan comunicarse la una con la otra pero sí ambas podrán hacerlo con la instancia de la subred pública.  -->
 ---
 <!-- usar para las conexiones a las ec2 en subred privadas -->
 <!-- file:///C:/Users/titan/Documents/Javier128/Modulos/DAW/DAW_2/AWS/UT/UT5/Tema%203/Tema%203.%20NAT%20Gateway,%20reglas%20encadenadas%20y%20subredes%20privadas.pdf -->
@@ -765,14 +830,14 @@ SSH (22/TCP) → Origen: SG del servidor web (o bastion host si lo usas) → Acc
 
 
 ## **Enlaces de interés**
-Documentación de [AWS](https://docs.aws.amazon.com).
-Instancias [EC2](https://docs.aws.amazon.com/es_es/ec2/?icmpid=docs_homepage_featuredsvcs).
-Tipos de instancias [EC2](https://aws.amazon.com/es/ec2/instance-types).
-Controlar el tráfico hacia los recursos de AWS mediante [grupos de seguridad](https://docs.aws.amazon.com/es_es/vpc/latest/userguide/vpc-security-groups.html#security-group-basics).
-[Grupos de seguridad de instancias EC2](https://docs.aws.amazon.com/es_es/AWSEC2/latest/UserGuide/ec2-security-groups.html).
-Control del tráfico de la subred con [listas de control de acceso a la red](https://docs.aws.amazon.com/es_es/vpc/latest/userguide/vpc-network-acls.html)
-Tipos y caracteristicas de las [EBS](https://docs.aws.amazon.com/es_es/ebs/latest/userguide/ebs-volume-types.html)
-[Gateways NAT](https://docs.aws.amazon.com/es_es/vpc/latest/userguide/vpc-nat-gateway.html)
-[Ampliar volúmenes EBS](https://docs.aws.amazon.com/es_es/ebs/latest/userguide/recognize-expanded-volume-linux.html)
-[Adjuntar volúmenes EBS](https://docs.aws.amazon.com/es_es/ebs/latest/userguide/ebs-attaching-volume.html)
+Documentación de [AWS](https://docs.aws.amazon.com)  
+Instancias [EC2](https://docs.aws.amazon.com/es_es/ec2/?icmpid=docs_homepage_featuredsvcs)  
+Tipos de instancias [EC2](https://aws.amazon.com/es/ec2/instance-types)  
+Controlar el tráfico hacia los recursos de AWS mediante [grupos de seguridad](https://docs.aws.amazon.com/es_es/vpc/latest/userguide/vpc-security-groups.html#security-group-basics)  
+[Grupos de seguridad de instancias EC2](https://docs.aws.amazon.com/es_es/AWSEC2/latest/UserGuide/ec2-security-groups.html)  
+Control del tráfico de la subred con [listas de control de acceso a la red](https://docs.aws.amazon.com/es_es/vpc/latest/userguide/vpc-network-acls.html)  
+Tipos y caracteristicas de las [EBS](https://docs.aws.amazon.com/es_es/ebs/latest/userguide/ebs-volume-types.html)  
+[Gateways NAT](https://docs.aws.amazon.com/es_es/vpc/latest/userguide/vpc-nat-gateway.html)  
+[Ampliar volúmenes EBS](https://docs.aws.amazon.com/es_es/ebs/latest/userguide/recognize-expanded-volume-linux.html)  
+[Adjuntar volúmenes EBS](https://docs.aws.amazon.com/es_es/ebs/latest/userguide/ebs-attaching-volume.html)  
 
