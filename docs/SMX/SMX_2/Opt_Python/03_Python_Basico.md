@@ -1591,10 +1591,10 @@ match opcion:
 
 ## **6 - Funciones en python**
 ### **6.1 - Funciones predefinidas print & input**
-Hasta ahora hemos usado la función print() principalmente para mostrar mensajes en pantalla, sin detenernos demasiado en todas las cosas que podemos hacer con ella. Pero, a medida que aprendemos más de Python, necesitamos crear programas más completos que puedan interactuar con el usuario. Para lograrlo, conoceremos también la función input(), que nos servirá para pedir datos por teclado y guardarlos en variables que después usaremos en nuestros programas. 
-
+Hasta ahora hemos usado la función print() principalmente para mostrar mensajes en pantalla, sin detenernos demasiado en todas las cosas que podemos hacer con ella. Pero, a medida que aprendemos más de Python, necesitamos crear programas más completos que puedan interactuar con el usuario. Para lograrlo, conoceremos también la función input(), que nos servirá para pedir datos por teclado y guardarlos en variables que después usaremos en nuestros programas.  
+<br>  
 #### **6.1.1 - La función print()**
-La función **print()** es una función incorporada (builtin) de Python que escribe texto en un flujo (por defecto, la consola) y no **devuelve nada**. 
+La función **print()** es una función incorporada (builtin) de Python que escribe **texto** en un flujo (por defecto, la consola) y no **devuelve nada**. 
 
 !!! info "Sintaxis de print()"
     ```py
@@ -1607,7 +1607,7 @@ La función **print()** es una función incorporada (builtin) de Python que escr
     - **end**: lo que se añade al final (por defecto salto de línea).  
     - **file**: flujo destino; por defecto sys.stdout (puedes usar sys.stderr o un archivo abierto).  
     - **flush**: si True, vacia el buffer inmediatamente.  
-
+<br>
 #### **6.1.2 - Argumentos de print()**  
 
 - **Separadores**  
@@ -1624,7 +1624,7 @@ print("A", "B", "C", sep=" \U0001F600 ") # sep admite símbolos soportados por p
 
 - **Fin de línea \n**  
 En Python, el valor predeterminado de end es **\n** (salto de línea).  
-Si el valor no es nulo, entonces se imprimirá al final de la línea el contenido de end **y no se saltará a la linea siguiente si no añadimos \n**.
+Si el valor no es nulo, entonces se imprimirá al final de la línea el contenido de end **y no se saltará a la linea siguiente** si no añadimos \n**.
 ```py
 print("No saltamos de linea.", end="")             
 print(" Este contenido sigue en la primera linea.")             
@@ -1665,7 +1665,7 @@ print("\r-sobreescribo-")
 <br>
 
 - **Escribir variables, texto y ejecutar código**  
-Como ya hemos visto, la función print() permite combinar texto (**siempre entre comillas)**, mostrar valores de variables y ejecutar código.
+Como ya hemos visto, la función print() permite combinar texto (**siempre entre comillas y separando los argumentos con comas)**, mostrar valores de variables y ejecutar código.
 ```py
 valor = 12
 texto = "El precio del articulo es de"
@@ -1715,14 +1715,16 @@ print(f"El resultado de la mutiplicacion de {valor1} por {valor2} es {valor1*val
 print(f"El resultado del examen de {texto1} cuya nota el {valor2} es {"Aprobado" if valor2 >= 5 else "Suspenso"}")
 ```
 
+<br>
+
 - **format()**
-Otra manera de dar formato a cadenas de carácteres puede hacerse usando el método format() 
+Otra manera de dar formato a cadenas de carácteres puede hacerse usando el **método format()** 
 ```py
 print("El resultado del examen de {} cuya nota el {} es {}".format(texto1,valor2,"Aprobado" if valor2 >= 5 else "Suspenso"))
 ```
 
-#### **Formato de valores para su uso con (o sin) print()**
-También podemos dar formato a los valores. Esta posibilidad resulta particularme útil cuando la usamos con print() ya que podemos controlar cómo se ven los números, cadenas o fechas (decimales, ancho, alineación, relleno, etc.).
+#### **6.1.5 - Formato de valores**
+También podemos dar formato a los valores. Esta posibilidad resulta particularme útil cuando la usamos con print() ya que podemos controlar cómo se verán los números, cadenas o fechas (decimales, ancho, alineación, relleno, etc.).
 
 - Decimales y números:
 ```py
