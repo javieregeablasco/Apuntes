@@ -488,7 +488,9 @@ Toda la información [aquí](https://docs.aws.amazon.com/es_es/ebs/latest/usergu
     ![](./ut5/RA2CEb30.png){ .original }
     <br>
 
-## **3 - Grupos de seguridad y listas de control de acceso (ACL)**
+## **3 - Grupos de seguridad (SG) y listas de control de acceso (ACL)**
+
+
 ### **3.1 - Introducción**
 Los **grupos de seguridad** y las **ACL de red y de VPC** son componentes fundamentales de la **seguridad** en un entorno de nube. Aunque funcionan de manera similar a los **firewalls**, no son exactamente lo mismo, ya que presentan diferencias en su uso y alcance.
 
@@ -499,33 +501,77 @@ Por defecto, al lanzar una instancia **EC2 en AWS**, la única regla permitida e
 Para garantizar el correcto despliegue de las aplicaciones, será necesario ampliar las reglas de los grupos de seguridad, asegurando siempre que estas configuraciones no comprometan la seguridad del entorno.
 
 ### **3.2 - Grupos de seguridad**
-En AWS, un grupo de seguridad es **un conjunto de reglas de firewall virtual** que controlan el **tráfico entrante y saliente** de una **instancia**.
+![](./ut5/SG-0.png){ .sietecinco }
+    <br>
+!!! tip "¿Qué es un grupo de seguridad?"
 
-Los grupos de seguridad se aplican a **nivel de instancia**, no a **nivel de subred** (esa función la cumplen las **ACL de red**).
+Un grupo de seguridad es **un conjunto de reglas de firewall virtual** que controlan el **tráfico entrante y saliente** de una **instancia**.  
+- **Tráfico entrante:** Qué puede entrar a la instancia.  
+- **Tráfico saliente:** Qué puede salir de la instancia.
 
-Los grupos de seguridad son **con estado** (stateful): la entrada es igual a la salida. El tráfico que cumple **una regla en una dirección también se permitirá automáticamente en la dirección opuesta** sin tener una regla explícita para ello.
+>**Ejemplo:**   
+>- **Permitir** que todo el mundo (0.0.0.0/32) visite mi sitio web en el puerto 443 (HTTPS).  
+>- **Bloquear todo lo demás** (entre otros, rechazar conexiones HTTP sobre el puerto 80).
 
-**Las reglas de un SG no tienen un orden de prioridad**. Todas se evalúan en conjunto y **únicamente permiten tráfico**. Si no existe una regla que lo permita, el tráfico se deniega por defecto.
+Los grupos de seguridad se aplican a **nivel de instancia**, no a **nivel de subred** (de esa función se encargan las **ACL de red**).
+<br>
 
-!!! warning "Configuración de las reglas de entrada y salida."
-    Para que una instancia funcione correctamente **y esté segura**, es imprescindible definir las reglas de entrada (inbound) y de salida (outbound) del grupo de seguridad:  
+!!! tip "Características de un grupo de seguridad"
 
-    - **Reglas de entrada:**  
-    Controlan qué tráfico puede entrar a la instancia desde Internet u otras redes.  
-    <u>Ejemplo:</u>  
-    &nbsp;&nbsp;&nbsp;&nbsp;**Permitir** el puerto 80 (HTTP) o 443 (HTTPS) para que una web sea accesible públicamente.  
-    &nbsp;&nbsp;&nbsp;&nbsp;**Restringir** todo lo que no sea necesario: Todo lo que no está **permitido explicitamente** está prohibido.  
+1. Todo lo que no está **permitido explícitamente** está **prohibido**.
+1. Configuración por defecto del SG:
+    - **Tráfico entrante:** Solo se aceptan conexiones SSH sobre el puerto 22 (TCP).
+    - **Tráfico saliente:** Todo está permitido. Es decir, la instancia puede conectarse a cualquier IP.
+1. Los grupos de seguridad son por naturaleza **con estado** (*stateful*):  
+   las respuestas al tráfico permitido se **aceptan automáticamente** sin necesidad de una regla explícita en la dirección opuesta.  
+   No obstante, esto **no significa que la entrada y la salida sean simétricas**, sino que **el tráfico de retorno** está permitido.
+   > **Ejemplo:**  
+   > - Si **permites tráfico ICMP de salida**, la instancia podrá hacer `ping` a cualquier IP pública.  
+   > - Las **respuestas ICMP** (eco reply) se permitirán automáticamente.  
+   > - Pero si no tienes una regla ICMP de **entrada**, **nadie podrá iniciar un ping hacia la instancia**.
 
-    - **Reglas de salida:**  
-    Controlan qué tráfico puede salir desde la instancia **hacia otras redes o Internet**.  
-    **Por defecto**, AWS permite todo el **tráfico de salida**.
+1. **Las reglas de un SG no tienen orden de prioridad**.  
+   Todas se evalúan **en conjunto** y solo pueden **permitir tráfico**.  
+   Si no existe una regla que lo permita, el tráfico se **deniega por defecto**.
+1. Una instancia **debe tener** un grupo de seguridad.   
+1. Varias instancias **pueden compartir** un mismo grupo de seguridad.   
+1. Los grupos de seguridad **son específicos a una zona y VPC**.
 
-    - **Resumen:**
 
-        | Tipo de regla         | Qué tráfico puede iniciar una conexión        | Ejemplo                           |
-        | --------------------- | ---------------------------------------------------- | --------------------------------- |
-        | **Entrada (Inbound)** | Qué tráfico puede **iniciar** conexión **hacia** la instancia.  | Permitir SSH (22) desde determinadas IP's.     |
-        | **Salida (Outbound)** | **Hacia** qué destinos puede **iniciar** conexión la instancia. | Permitir HTTP (80) hacia Internet. |
+!!! tip "Configuración de las reglas de entrada y salida."
+
+Para que una instancia funcione correctamente **y esté segura**, es imprescindible definir **las reglas de entrada (inbound) y de salida (outbound) del grupo de seguridad (SG)**:  
+
+- **Reglas de entrada:**  
+Controlan qué tráfico puede entrar a la instancia desde Internet u otras redes.  
+Por defecto las EC2 solo aceptan conexiones SSH. 
+
+    ![](./ut5/sg-1.png){.original .marco}
+<br>
+
+    >**Ejemplo:**  
+        &nbsp;&nbsp;&nbsp;&nbsp;**Permitir** el puerto 80 (HTTP) o 443 (HTTPS) para que una web sea accesible públicamente.  
+        &nbsp;&nbsp;&nbsp;&nbsp;**Restringir** todo lo que no sea necesario: Todo lo que no está **permitido explicitamente** está  prohibido.  
+
+<br>
+
+- **Reglas de salida:**  
+Controlan qué tráfico puede salir desde la instancia **hacia otras redes o Internet**.  
+**Por defecto**, AWS permite todo el **tráfico de salida**.
+
+    ![](./ut5/sg-2.png){.original .marco}
+<br>
+
+- **El destino** y el **origen** del tráfico puede ser un **CIDR** o **otro grupo de seguridad** (lo veremos más adelante).  
+    ![](./ut5/sg-3.png){.original .marco}
+<br>
+
+- **Resumen:**
+
+    | Tipo de regla         | Qué tráfico puede iniciar una conexión        | Ejemplo                           |
+    | --------------------- | ---------------------------------------------------- | --------------------------------- |
+    | **Entrada (Inbound)** | Qué tráfico puede **iniciar** conexión **hacia** la instancia.  | Permitir SSH (22) desde determinadas IP's.     |
+    | **Salida (Outbound)** | **Hacia** qué destinos puede **iniciar** conexión la instancia. | Permitir HTTP (80) hacia Internet. |
 
 
 
@@ -542,7 +588,7 @@ El único tráfico que llega a la instancia es el permitido por las reglas del g
 
     ![](./ut5/sg-rules.png){.original .marco}  
 
-### **3.4 - Tarea RA2-CEc**  
+### **3.4 - Tarea RA2-CEc (parte 1)**  
 1. Retomar el escenario de la tarea RA2-CEb. 
 1. Ampliar el escenario con una segunda instancia que se encontrará en una subred privada.
 El escenario quedará de la siguiente manera:
@@ -557,11 +603,16 @@ El escenario quedará de la siguiente manera:
      |DB	|Privada|	SG-DB|	3306 desde SG-Web	|Todo permitido (o restringir a lo necesario)|
 
 ### **3.5 - ACL de red**
+![](./ut5/acl.jpg){ .doscinco }
+    <br>
+
+!!! tip "¿Qué es una lista de control de acceso ACL?"
 Las **Network ACL (NACL)** son un componente de seguridad que actúa a nivel de **subred** dentro de una **VPC**.
 
 <br>
-![](./ut5/nacl.webp){.sietecinco}  
+![](./ut5/nacl.png){.sietecinco}  
 
+!!! tip "Características de las NACL"
 1. **Se aplican a nivel de subred**: Todas las instancias dentro de esa subred quedan sujetas a las reglas de la ACL.  
 1. Cada **VPC** en AWS tiene **una ACL por defecto**, y se pueden crear ACLs personalizadas para afinar el control del tráfico.
 1. **Son sin estado** (stateless): No recuerdan el estado de la conexión. Por ejemplo, si se permite el tráfico entrante en un puerto, **también se debe** permitir explícitamente el tráfico de salida de respuesta.
@@ -575,12 +626,15 @@ Las **Network ACL (NACL)** son un componente de seguridad que actúa a nivel de 
       * `ALLOW`: Permitir tráfico.
       * `DENY`: Bloquear tráfico.
 1. **ACL por defecto**  
-!!! warning "¡Todo está abierto en las ACL por defecto!"
-       * La **ACL por defecto** de una VPC permite todo el tráfico entrante y saliente.
-       * Las **ACL personalizadas** niegan todo el tráfico hasta que se configuren reglas.
+
+    !!! warning "¡Por defecto, tTodo está abierto en las NACL!"
+        * La **NACL por defecto** de una VPC permite todo el tráfico entrante y saliente.
+        * Las **ACL personalizadas** niegan todo el tráfico hasta que se configuren reglas.
+        
 
 **Ejemplo de ACL**  
-En el siguiente ejemplo, tenemos una VPC con dos subredes. Cada **subred tiene una ACL de red**. Cuando el tráfico entra en la VPC, el enrutador envía el tráfico a su destino.    
+En el siguiente ejemplo, tenemos una VPC con dos subredes.  
+Cada **subred tiene una ACL de red**. Cuando el tráfico entra en la VPC, el enrutador envía el tráfico a su destino.    
 La ACL de red A determina qué tráfico destinado a la subred 1 puede entrar en la subred 1, y qué tráfico destinado a una ubicación fuera de la subred 1 puede salir de la subred 1.  
 Del mismo modo, la ACL de red B determina qué tráfico puede entrar y salir de la subred 2.
 ![](./ut5/acl.png){.original}  
@@ -602,6 +656,14 @@ Si vamos a AWS y consultamos las ACL de cada red veremos que, como hemos dicho a
 | **Acciones**                   | Solo permiten **Allow** (permitir tráfico)                                                               | Admiten **Allow** y **Deny** (puedes denegar explícitamente)                                          |
 | **Predeterminado**             | Todo el tráfico está **denegado por defecto** (excepto lo que se permita explícitamente)                 | Todo el tráfico está **permitido por defecto** (excepto lo que se niegue explícitamente)              |
 | **Casos de uso típicos**       | Control fino del tráfico a instancias (ej. abrir 22/SSH o 443/HTTPS)                                     | Control global a nivel de subred, aplicar restricciones más amplias (ej. denegar rangos IP completos) |
+
+### **3.8 - Tarea RA2-CEc (parte 2)**
+1. Ampliar el escenario para que quede de la siguiente manera:
+![](./ut5/VPC2-2.png){.sietecinco}
+1. Reflexionar sobre como impedir que las instancias de la subred privada no puedan establecer conexiones la una con la otra.
+1. Realizar las modificaciones necesarias a los SG y ACL para impedir dicho tráfico.
+1. Realizar capturas de pantallas de los SG ACL y mapa de recursos de la VPC y subirlas a la tarea **RA2-CEc** de AULES.
+
 
 ## **4 - NAT gateway**
 - NAT gateway es un servicio de traducción de direcciones de red (NAT) que permite a las instancias de una subred privada tener acceso a Internet o a otros servicios de AWS, **sin exponer** sus IP privadas.
@@ -646,7 +708,7 @@ Si vamos a AWS y consultamos las ACL de cada red veremos que, como hemos dicho a
     | **Protocolos soportados** | TCP, UDP, ICMP                                            | TCP, UDP, ICMP                  |
 
 ### **4.3 - Tarea RA2-CEd-1**
-Para realizar la tarea retomaremos el escenario de la **Tarea RA2-CEc** al que le podremos un NAT gateway público para que las instancias de la subred privada puedan acceder a internet.
+Para realizar la tarea retomaremos el escenario de la **Tarea RA2-CEc**, limpiando lo necesario y pondremos un NAT gateway público para que las instancias de la subred privada puedan acceder a internet.
 
 ![](./ut5/VPC2-nat.png){.sietecinco}  
 
@@ -730,6 +792,12 @@ ssh ec2-user@direccion-ip-privada
     **4. Realizar capturas**  
     De la conexión a la base de datos.  
     El servidor web desplegado.
+
+
+ ## **5 - Aislamiento de instancias**
+
+ 
+
 
 <!-- volver a montar el natgateway -->
 
