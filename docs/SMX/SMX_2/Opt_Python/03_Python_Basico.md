@@ -1608,6 +1608,7 @@ La función **print()** es una función incorporada (builtin) de Python que escr
     - **file**: flujo destino; por defecto sys.stdout (puedes usar sys.stderr o un archivo abierto).  
     - **flush**: si True, vacia el buffer inmediatamente.  
 <br>
+
 #### **6.1.2 - Argumentos de print()**  
 
 - **Separadores**  
@@ -1624,7 +1625,7 @@ print("A", "B", "C", sep=" \U0001F600 ") # sep admite símbolos soportados por p
 
 - **Fin de línea \n**  
 En Python, el valor predeterminado de end es **\n** (salto de línea).  
-Si el valor no es nulo, entonces se imprimirá al final de la línea el contenido de end **y no se saltará a la linea siguiente** si no añadimos \n**.
+Si el valor no es nulo, entonces se imprimirá al final de la línea el contenido de end **y no se saltará a la linea siguiente** si no añadimos **\n**.
 ```py
 print("No saltamos de linea.", end="")             
 print(" Este contenido sigue en la primera linea.")             
@@ -1685,14 +1686,51 @@ aprobado = 7.2
 print("Aprobado" if aprobado >= 5 else "Suspenso")
 ```
 
-#### **6.1.3 - Ejercicios con print()**
+#### **6.1.3 - Tarea RA5-CEa, ejercicios con print()**
 !!! Exercice "Ejercicio 1"  
     Escribir un código cuya salida en terminal sea la siguiente.   
-    ![Descripción de la imagen](../Opt_Python/img/UT3/print1.png)
+    ```
+    1    1     1
+    2    4     8
+    3    9     27
+    4    16    64
+    5    25    125
+    6    36    216
+    7    49    343
+    8    64    512
+    9    81    729
+    10   100   1000
+    ```
+    <!-- ![Descripción de la imagen](../Opt_Python/img/UT3/print1.png) -->
 
 !!! Exercice "Ejercicio 2"
+    1. Disponemos de estas 2 listas.  
+    lista_1 = [1,2,3,4,5,6,7,8,9]  
+    lista_2 = ["azul","verde","amarillo","naranja","cian","magenta","ambar","negro","blanco"]  
+    2. Realizar un programa, **lo más simple posible** que devuelva por terminal, el siguiente resultado:
+    ```
+    Indice   y      color: 
+    >>>1>>>         >>>azul>>> 
+    Indice   y      color: 
+    >>>2>>>         >>>verde>>> 
+    Indice   y      color: 
+    >>>3>>>         >>>amarillo>>> 
+    Indice   y      color: 
+    >>>4>>>         >>>naranja>>> 
+    Indice   y      color: 
+    >>>5>>>         >>>cian>>> 
+    Indice   y      color: 
+    >>>6>>>         >>>magenta>>> 
+    Indice   y      color: 
+    >>>7>>>         >>>ambar>>> 
+    Indice   y      color: 
+    >>>8>>>         >>>negro>>> 
+    Indice   y      color: 
+    >>>9>>>         >>>blanco>>> 
+    ```
 
-!!! Exercice "Ejercicio 3"  
+
+ 
 
 #### **6.1.4 - Formato de cadenas de caracteres para su uso con (o sin) print()**
 - **Cadenas f**  
