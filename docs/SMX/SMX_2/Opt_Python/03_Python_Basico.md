@@ -1792,7 +1792,7 @@ print("Equivalente en porcentaje de 0.85: {:.1%}".format(0.85))
 ```
 <br>
 
-#### **Ejercicios**
+#### **Tarea RA5-CEb, ejercicios con formatos**
 !!! Exercice "Ejercicio 1"  
     De los ejemplos anteriores, escribir el código para que, en vez de format, se usen cadenas f.
 
