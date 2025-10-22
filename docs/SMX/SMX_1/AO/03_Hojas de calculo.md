@@ -1,420 +1,133 @@
 ---
-title: CFGM - Técnico en Sistemas Microinformáticos y Redes
-lesson: UD. 0.0 - Métodos de evaluación  
-subtitle: "Módulo: 0223 - Aplicaciones ofimáticas"
+ciclo: CFGM - Técnico en Sistemas Microinformáticos y Redes
+title: Aplicaciones ofimáticas
+module number: 0223
+lesson: UD. 3 - LibreOffice Calc  
 author: Javier Egea Blasco  
-year: Año 25-26  
+year: 25-26  
 keywords: SMX, AO
 layout: default  
+schedule: 224h - 7h/w
 ---
 
-![Descripción de la imagen](./img/img1.jpg){ .img-center width=75% }
+# **UD. 3 - LibreOffice Calc**
 
-<!-- <div style="text-align: center">
-  <img alt="alt text" src="./img/img1.jpg" width="75%">
-</div>   -->
-
+![Descripción de la imagen](./03_hojas_de_calculo/img/loc.avif){ .sietecinco }
 <br>
 
-**Resultados de aprendizaje y criterios de evaluación del módulo:**  
-<table>
-  <tr>
-    <td style="white-space: nowrap;">RA. 1:</td>
-    <td>
-      Instala y actualiza aplicaciones ofimáticas, interpretando especificaciones y describiendo los pasos a seguir en el proceso. 
-      <details>
-        <summary>Ver los criterios de evaluación</summary>
-        <table>
-          <tr>
-            <td>a)</td>
-            <td>Se han identificado y establecido las fases del proceso de instalación.</td>
-          </tr>
-          <tr>
-            <td>b)</td>
-            <td>Se han respetado las especificaciones técnicas del proceso de instalación.</td>
-          </tr>
-          <tr>
-            <td>c)</td>
-            <td>Se han configurado las aplicaciones según los criterios establecidos.</td>
-          </tr>
-          <tr>
-            <td>d)</td>
-            <td>Se han documentado las incidencias.</td>
-          </tr>
-          <tr>
-            <td>e)</td>
-            <td>Se han solucionado problemas en la instalación o integración con el sistema informático.</td>
-          </tr>
-          <tr>
-            <td>f)</td>
-            <td>Se han eliminado y/o añadido componentes de la instalación en el equipo.</td>
-          </tr>
-          <tr>
-            <td>g)</td>
-            <td>Se han actualizado las aplicaciones.</td>
-          </tr>
-          <tr>
-            <td>h)</td>
-            <td>Se han respetado las licencias software.</td>
-          </tr>
-          <tr>
-            <td>i)</td>
-            <td>Se han propuesto soluciones software para entornos de aplicación.</td>
-          </tr>
-        </table>
-      </details>
-    </td> 
-  </tr>  
-  <tr>
-    <td>RA. 2:</td>
-    <td>
-      Elabora documentos y plantillas, describiendo y aplicando las opciones avanzadas de procesadores de textos.  
-      <details>
-        <summary>Ver los criterios de evaluación</summary>
-        <table>
-          <tr>
-            <td>a)</td>
-            <td>Se ha personalizado las opciones de software y barra de herramientas.</td>
-          </tr>
-          <tr>
-            <td>b)</td>
-            <td>Se han diseñado plantillas.</td>
-          </tr>
-          <tr>
-            <td>c)</td>
-            <td>Se han utilizado aplicaciones y periféricos para introducir textos e imágenes.</td>
-          </tr>
-          <tr>
-            <td>d)</td>
-            <td>Se han importado y exportado documentos creados con otras aplicaciones y en otros formatos.</td>
-          </tr>
-          <tr>
-            <td>e)</td>
-            <td>Se han creado y utilizado macros en la realización de documentos.</td>
-          </tr>
-          <tr>
-            <td>f)</td>
-            <td>Se han elaborado manuales específicos.</td>
-          </tr>
-        </table>
-      </details>
-    </td>
-  </tr> 
-  <tr> 
-    <td>RA. 3:</td>
-    <td>
-      Elabora documentos y plantillas de cálculo, describiendo y aplicando opciones avanzadas de hojas de  cálculo.
-      <details>
-        <summary>Ver los criterios de evaluación</summary>
-        <table>
-          <tr>
-            <td>a)</td>
-            <td>Se ha personalizado las opciones de software y barra de herramientas.</td>
-          </tr>
-          <tr>
-            <td>b)</td>
-            <td>Se han utilizado los diversos tipos de datos y referencia para celdas, rangos, hojas y libros.  </td>
-          </tr>
-          <tr>
-            <td>c)</td>
-            <td>Se han aplicado fórmulas y funciones.</td>
-          </tr>
-          <tr>
-            <td>d)</td>
-            <td>Se han generado y modificado gráficos de diferentes tipos.</td>
-          </tr>
-          <tr>
-            <td>e)</td>
-            <td>Se han empleado macros para la realización de documentos y plantillas.</td>
-          </tr>
-          <tr>
-            <td>f)</td>
-            <td>Se han importado y exportado hojas de cálculo creadas con otras aplicaciones y en otros  formatos.</td>
-          </tr>
-          <tr>
-            <td>g)</td>
-            <td>Se ha utilizado la hoja de cálculo como base de datos: formularios, creación delistas,       filtrado,   protección y ordenación de datos.</td>
-          </tr>
-          <tr>
-            <td>h)</td>
-            <td>Se han utilizado aplicaciones y periféricos para introducir textos, números, códigos e  imágenes.</td>
-          </tr>
-        </table>
-      </details>
-    </td>
-  </tr>
-  <tr>  
-    <td>RA. 4:</td>
-    <td>
-      Elabora documentos con bases de datos ofimáticas describiendo y aplicando operaciones de manipulación de datos. 
-      <details>
-        <summary>Ver los criterios de evaluación</summary>
-        <table>
-          <tr>
-            <td>a)</td>
-            <td>Se han identificado los elementos de las bases de datos relacionales.</td>
-          </tr>
-          <tr>
-            <td>b)</td>
-            <td>Se han creado bases de datos ofimáticas.</td>
-          </tr>
-          <tr>
-            <td>c)</td>
-            <td>Se han utilizado las tablas de la base de datos (insertar, modificar y eliminar registros).</td>
-          </tr>
-          <tr>
-            <td>d)</td>
-            <td>Se han utilizado asistentes en la creación de consultas.</td>
-          </tr>
-          <tr>
-            <td>e)</td>
-            <td>Se han utilizado asistentes en la creación de formularios.</td>
-          </tr>
-          <tr>
-            <td>f)</td>
-            <td>Se han utilizado asistentes en la creación de informes.</td>
-          </tr>
-          <tr>
-            <td>g)</td>
-            <td>Se ha realizado búsqueda y filtrado sobre la información almacenada.</td>
-          </tr>
-          <tr>
-            <td>h)</td>
-            <td>Se han creado y utilizado macros.</td>
-          </tr>
-        </table>
-      </details>
-    </td>
-  </tr>  
-  <tr>
-    <td>RA. 5:</td>
-    <td>
-      Manipula imágenes digitales analizando las posibilidades de distintos programas y aplicando técnicas de captura y edición básicas.
-      <details>
-        <summary>Ver los criterios de evaluación</summary>
-        <table>
-          <tr>
-            <td>a)</td>
-            <td>Se han analizado los distintos formatos de imágenes.</td>
-          </tr>
-          <tr>
-            <td>b)</td>
-            <td>Se ha realizado la adquisición de imágenes con periféricos.</td>
-          </tr>
-          <tr>
-            <td>c)</td>
-            <td>Se ha trabajado con imágenes a diferentes resoluciones, según su finalidad.</td>
-          </tr>
-          <tr>
-            <td>d)</td>
-            <td>Se han empleado herramientas para la edición de imagen digital.</td>
-          </tr>
-          <tr>
-            <td>e)</td>
-            <td>Se han importado y exportado imágenes en diversos formatos.</td>
-          </tr>
-        </table>
-      </details>
-    </td>
-  </tr>    
-  <tr>
-    <td>RA. 6:</td>
-    <td>
-      Manipula secuencias de vídeo analizando las posibilidades de distintos programas y aplicando técnicas de captura y edición básicas.
-      <details>
-        <summary>Ver los criterios de evaluación</summary>
-        <table>
-          <tr>
-            <td>a)</td>
-            <td>Se han reconocido los elementos que componen una secuencia de vídeo.</td>
-          </tr>
-          <tr>
-            <td>b)</td>
-            <td>Se han estudiado los tipos de formatos y codecs más empleados.</td>
-          </tr>
-          <tr>
-            <td>c)</td>
-            <td>Se han importado y exportado secuencias de vídeo.</td>
-          </tr>
-          <tr>
-            <td>d)</td>
-            <td>Se han capturado secuencias de vídeo con recursos adecuados.</td>
-          </tr>
-          <tr>
-            <td>e)</td>
-            <td>Se han elaborado vídeo tutoriales.</td>
-          </tr>
-        </table>
-      </details>
-    </td>
-  </tr>    
-  <tr>
-    <td>RA. 7:</td>
-    <td>
-      Elabora presentaciones multimedia describiendo y aplicando normas básicas de composición y diseño.
-      <details>
-        <summary>Ver los criterios de evaluación</summary>
-        <table>
-          <tr>
-            <td>a)</td>
-            <td>Se han identificado las opciones básicas de las aplicaciones de presentaciones.</td>
-          </tr>
-          <tr>
-            <td>b)</td>
-            <td>Se han reconocido los distintos tipos de vista asociados a una presentación.</td>
-          </tr>
-          <tr>
-            <td>c)</td>
-            <td>Se han aplicado y reconocido las distintas tipografías y normas básicas de composición, diseño y       utilización del color.</td>
-          </tr>
-          <tr>
-            <td>d)</td>
-            <td>Se han diseñado plantillas de presentaciones.</td>
-          </tr>
-          <tr>
-            <td>e)</td>
-            <td>Se han creado presentaciones.</td>
-          </tr>
-          <tr>
-            <td>f)</td>
-            <td>Se han utilizado periféricos para ejecutar presentaciones.</td>
-          </tr>
-        </table>
-      </details>
-    </td>
-  </tr>
-  <tr>
-    <td>RA. 8:</td>
-    <td>
-      Realiza operaciones de gestión del correo y la agenda electrónica, relacionando necesidades de uso con su configuración.
-      <details>
-        <summary>Ver los criterios de evaluación</summary>
-        <table>
-          <tr>
-            <td>a)</td>
-            <td>Se han descrito los elementos que componen un correo electrónico.</td>
-          </tr>
-          <tr>
-            <td>b)</td>
-            <td>Se han analizado las necesidades básicas de gestión de correo y agenda electrónica.</td>
-          </tr>
-          <tr>
-            <td>c)</td>
-            <td>Se han configurado distintos tipos de cuentas de correo electrónico.</td>
-          </tr>
-          <tr>
-            <td>d)</td>
-            <td>Se han conectado y sincronizado agendas del equipo informático con dispositivos móviles.</td>
-          </tr>
-          <tr>
-            <td>e)</td>
-            <td>Se ha operado con la libreta de direcciones.</td>
-          </tr>
-          <tr>
-            <td>f)</td>
-            <td>Se ha trabajado con todas las opciones de gestión de correo electrónico (etiquetas, filtros,   carpetas, entre otros).</td>
-          </tr>
-          <tr>
-            <td>g)</td>
-            <td>Se han utilizado opciones de agenda electrónica.</td>
-          </tr>
-        </table>
-      </details>
-    </td>
-  </tr>    
-  <tr>
-    <td>RA. 9:</td>
-    <td>
-      Aplica técnicas de soporte en el uso de aplicaciones, identificando y resolviendo incidencias. 
-      <details>
-        <summary>Ver los criterios de evaluación</summary>
-        <table>
-          <tr>
-            <td>a)</td>
-            <td>Se han elaborado guías visuales con los conceptos básicos de uso de una aplicación.</td>
-          </tr>
-          <tr>
-            <td>b)</td>
-            <td>Se han identificado problemas relacionados con el uso de aplicaciones ofimáticas.</td>
-          </tr>
-          <tr>
-            <td>c)</td>
-            <td>Se han utilizado manuales de usuario para instruir en el uso de aplicaciones.</td>
-          </tr>
-          <tr>
-            <td>d)</td>
-            <td>Se han aplicado técnicas de asesoramiento en el uso de aplicaciones.</td>
-          </tr>
-          <tr>
-            <td>e)</td>
-            <td>Se han realizado informes de incidencias.</td>
-          </tr>
-          <tr>
-            <td>f)</td>
-            <td>Se han aplicado los procedimientos necesarios para salvaguardar la información y su recuperación.</td>
-          </tr>
-          <tr>
-            <td>g)</td>
-            <td>Se han utilizado los recursos disponibles (documentación técnica, ayudas en línea, soporte     técnico, entre otros) para solventar incidencias.</td>
-          </tr>
-          <tr>
-            <td>h)</td>
-            <td>Se han solventando las incidencias en el tiempo adecuado y con el nivel de calidad esperado.</td>
-          </tr>
-        </table>
-      </details>
-    </td>
-  </tr>    
-</table>
+**Resultados de aprendizaje y criterios de evaluacion que se evaluarán en esta unidad.**  
 
-# Content tabs.
+| **Resultados de aprendizaje de la unidad didáctica:** |
+|-|
+| **RA3. Elabora documentos y plantillas de cálculo, describiendo y aplicando opciones avanzadas de hojas de cálculo.**  
 
-=== "Tabla 1"
-    Este es su contendi
 
-=== "Tabla 2"
-    Otra contenido
+|**Criterios de evaluación de la unidad didáctica:**|
+    |-|
+    |**a)** Se ha personalizado las opciones de software y barra de herramientas. |
+    |**b)** Se han utilizado los elementos básicos en la elaboración de hojas de cálculo. |
+    |**c)** Se han utilizado los diversos tipos de datos y referencia para celdas, rangos, hojas y libros. |    
+    |**d)** Se han aplicado fórmulas y funciones. |
+    |**e)** Se han generado y modificado gráficos de diferentes tipos. |
+    |**f)** Se han empleado macros para la realización de documentos y plantillas.|
+    |**h)** Se ha utilizado la hoja de cálculo como base de datos: formularios, creación de listas, filtrado, protección y ordenación de datos. |
+    |**i)** Se han utilizado aplicaciones y periféricos para introducir textos,números, códigos e imágenes.|    
 
-=== "Tabla 3"
-    Contenido final 
 
-# Admonition tabs
+## **1 - Interfaz de trabajo en Calc**
+Después de hacer doble clic sobre el icono de **LibreOffice** seleccionamos **Nuevo &rarr; Hoja de cálculo** y nos encontraremos con la siguiente interfaz.
 
-!!! note "Title of the callout"
-    Aquí va el texto, no se si se puede cambiar el icono
+![Descripción de la imagen](./03_hojas_de_calculo/img/calc1.png)
 
-??? info "Title of the content"
-    Aquí va el texto, no se si se puede cambiar el icono    
+!!! question "Pregunta"
+    ¿Qué es lo primero que debemos hacer cuando creamos un nuevo documento?
 
-Tipos (iconos disponibles).  
-- abstract  
-- info  
-- tip  
-- success  
-- octicons  
-- question  
-- warning  
-- failure  
-- danger  
-- bug  
-- example  
-- quote     
+### **1.1 - Menú: Archivo**
+Permite la creación de un archivo de hoja de cálculo y su posterior guardado, firmado digital o impresión, etc.
+<br>  
+**Idéntico al de LibreOffice writer.**
 
-# Enlace a documentacion sobre mkdocs
-<a href=https://squidfunk.github.io/mkdocs-material>Clic aqui</a>
+### **1.2 - Menú: Editar**
+Aparte del conocido “copiar pegar” también permite buscar, editar celdas...  
+<br>
+**Muy parecido al de LibreOffice writer.**
 
-# Diagramas (superfences)
-<div style="text-align:center;">
-```mermaid
-flowchart TD
-  A(["Start"])
-  A --> B{"Decision"}
-  B --> C["Option A"]
-  B --> D["Option B"]
-```
-</div>
+### **1.3 - Menú: Ver**
+El menú "Ver" sirve para controlar cómo se muestra el documento en pantalla y qué elementos visuales de la interfaz deseamos ver u ocultar. 
+**No modifica el contenido del documento**, solo la forma en que se visualiza mientras trabajamos.  
+<br>
+**Muy parecido al de LibreOffice writer.**
 
-<a href=https://mermaid.js.org>Editor de diagramas</a>
+### **1.4 - Menú: Insertar**
+Ofrece opciones para incluir objetos en nuestro documento: fotografías, dibujos, tablas, ecuaciones matemáticas o incluso otros archivos.  
+<br>
+**Muy parecido al de LibreOffice writer.**
+
+### **1.5 - Menú: Formato**
+Es, la ventana que más se utilizará ya que, permite dar formato y propiedades a las celdas de nuestras hojas de cálculo.
+
+![Descripción de la imagen](./03_hojas_de_calculo/img/calc2.png){ .m_ver }
+<br>
+
+### **1.6 - Menú: Estilos**
+Casi tan importante como el menú formato, es sin duda el gran olvidado de la mayoría de usuarios.
+
+![Descripción de la imagen](./03_hojas_de_calculo/img/calc3.png){ .m_ver }
+<br>
+
+### **1.7 - Menú: Hoja**
+Contiene todo lo relacionado con la gestión de las filas y columnas de las hojas de cálculo así como la gestión de las propias hojas.
+
+![Descripción de la imagen](./03_hojas_de_calculo/img/calc4.png){ .m_ver }
+<br>
+
+### **1.8 - Menú: Datos**
+Sirve para para gestionar, manipular y analizar la información de las hojas de cálculo.
+
+![Descripción de la imagen](./03_hojas_de_calculo/img/calc5.png){ .m_ver }
+<br>
+
+### **1.9 - Menú: Herramientas**
+Es el menú de la mayoría de herramientas de validación de un documento: En ese menú se encuentran las funciones de ortografía, autocorrección, macros, configuración de idioma, complementos, etc. 
+<br>
+**Muy parecido al de LibreOffice writer.**
+
+### **1.10 - Menú: Ventana**
+El menú "Ventana" está pensado para gestionar las distintas ventanas o instancias del programa abiertas en ese momento.
+No afecta al contenido del documento, sino a cómo se interactúa con varios documentos o vistas al mismo tiempo.
+<br>
+**Idéntico al de LibreOffice writer.**
+
+### **1.11 - Menú: Ayuda**
+Reúne todas las opciones para obtener asistencia, acceder a la documentación oficial y consultar información sobre la instalación de LibreOffice
+<br>
+**Idéntico al de LibreOffice writer.**
+
+### **Tarea RA3-CEa - Personalización de la interfaz de usuario**
+!!! exercice "Tarea RA3-CEa - Configuración del software utilizado"
+    1. Crear un documento y guardarlo con el nombre **Tarea-RA3CEa-NombreApellidosDelAlumno.ods**.
+    1. Cambiar el tipo de letra básico de Liberation Sans a **Arial**.
+    1. Cambiar el idioma del documento a español
+    1. Configurar la hoja de cálculo para que realice una copia de resplado cada 5 minutos.
+    1. En Opciones → LibreOffice → Datos de identidad → Introducir vuestros nombres apellidos e iniciales.
+    1. Modificar la interfaz de usuario para que, aparte de los menús que salen por defecto, también se vean:
+        - Insertar celda.
+        - Controles de formulario.
+        - Navegación de formulario.
+    1. Condiciones de entrega de la práctica: Subir el archivo en **formato .ods** a la tarea RA3-CEa. No se admitirá ningún otro tipo de formato. 
+   
+### **Tarea RA3-CEb-1 - Personalización de la interfaz de usuario**
+
+
+
+
+
+<!-- https://help.libreoffice.org/latest/es/text/scalc/04/01020000.html?DbPAR=CALC -->
+
+
+
+
+
 
 
 

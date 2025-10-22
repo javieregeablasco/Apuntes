@@ -664,6 +664,99 @@ Si vamos a AWS y consultamos las ACL de cada red veremos que, como hemos dicho a
 1. Realizar las modificaciones necesarias a los SG y ACL para impedir dicho tráfico.
 1. Realizar capturas de pantallas de los SG ACL y mapa de recursos de la VPC y subirlas a la tarea **RA2-CEc** de AULES.
 
+### **3.9 - Tarea RA2-CEc (parte 3)**
+**Formas de conectarse a las instancias (públicas y privadas).**  
+
+1. **Conexión a la EC2 pública.**  
+    - **Conexión a la EC2 pública mediante interfaz de AWS**
+    ![](./ut5/RA2CEc3.png){.original} <br> 
+    Luego:  
+    ![](./ut5/RA2CEc4.png){.original}  <br>
+    Desde esa conexión podremos hacer ping a las EC2 de la subred privada.
+    ![](./ut5/RA2CEc5.png){.cincozero}  <br>
+  
+    - **Conexión a la EC2 pública mediante SSH**
+    Como ya hemos visto, en linux usaremos el comando:  
+    ```bash 
+    ssh -i <CLAVE_PRIVADA> <NOMBRE_DE_USUARIO>@<IP_DE_LA_INSTANCIA>
+    ```
+    ![](./ut5/RA2CEc6.png){.cincozero}  <br>
+
+    - **Conexión a la EC2 pública mediante AWS CLI y EC2 Instance Connect **  
+    Para ello usaremos el comando de aws:  
+    ```bash 
+    aws ec2-instance-connect ssh --instance-id <ID_DE_LA_INSTANCIA> --os-user <NOMBRE_DE_USUARIO>
+    ```
+![](./ut5/RA2CEc7.png){.sietecinco}  <br>
+
+
+1. **Conexión a las EC2 privadas.**  
+    - **Mediante interfaz de AWS**
+    El procedimiento es identico al anterior pero, al no disponer de **IP pública** haremos la conexión a través de un punto de conexión.  
+    **Nota importante:**
+    - Para crear el punto de conexión, se recomienda usar el mismo grupo de seguridad que el de la instancia a la que queremos acceder.   
+    ![](./ut5/RA2CEc8.png){.sietecinco}  <br>
+    Luego
+    ![](./ut5/RA2CEc9.png){.sietecinco}
+    ![](./ut5/RA2CEc10.png){.sietecinco}  <br>
+    Esperamos a que esté disponible... Puede tardar varios minutos.
+    ![](./ut5/RA2CEc11.png){.sietecinco}  <br>
+    Una vez disponible, lo seleccionamos y seguimos con la conexión.
+    ![](./ut5/RA2CEc12.png){.sietecinco}  <br>
+    Intentaremos conectarnos pero no podremos hacerlo.
+    ![](./ut5/RA2CEc14.png){.sietecinco}  <br>
+
+    
+    - **Conexión mediante AWS CLI y EC2 Instance Connect EndPoint**  
+    Para ello usaremos el comando de aws:  
+    ```bash
+    aws ec2-instance-connect ssh --instance-id i-1234567890example --connection-type eice
+    ```
+    Que nos devolverá el siguiente error:
+    ![](./ut5/RA2CEc13.png){.sietecinco}  <br>
+    Ese error se debe a las limitaciones de los permisos del usuario **labrole** dentro del recurso IAM (Identity and Access Management).
+    Si vamos a **IAM → Panel**, veremos que nuestra cuenta tiene 24 roles asignados...
+    ![](./ut5/RA2CEc15.png){.sietecinco}  <br>
+    ...Dentro de los cuales encontraremos el LabRole.
+    ![](./ut5/RA2CEc16.png){.sietecinco}  <br>
+    Permisos del LabRole. De disponer de las credenciales necesarias, podriamos agregar más roles al nuestro usuario pero no será posible hacerlo.
+    ![](./ut5/RA2CEc17.png){.sietecinco}  <br>
+
+    - **Conexión mediante instancia bastión**  
+    En este caso, utilizaremos la instancia pública a la que tenemos acceso como una instancia bastión. Es decir, primero nos conectaremos a ella y, desde allí, estableceremos una conexión SSH hacia las instancias ubicadas en la subred privada.
+    Para poder conectarnos por SSH a la EC2 de la subred privada, necesitaremos trasladar el archivo de la clave privada a la EC2 pública.  
+    Mover nuestra clave privada no se considera una buena práctica desde el punto de vista de la seguridad informática, pero nos permitirá familiarizarnos con nuevas funcionalidades de AWS.
+
+        - **Opción 1: Mover archivo con scp**  
+        En este caso usaremos el comando `scp` (Secure CoPy) para enviar el archivo *.pem desde la máquina local a la instancia EC2 pública.<br>  
+        En linux usaremos el comando:  
+        ```bash
+        scp -i <ARCHIVO_PEM> <ARCHIVO_A_TRANSFERIR> <NOMBRE_DE_USUARIO>@<IP_DE_LA_INSTANCIA>:<RUTA_ARCHIVO_DESTINO>
+        ```  
+        Donde -i especifica la clave privada.<br>
+        ![](./ut5/RA2CEc19.png){.original}<br>  
+        A partir de entonces, ya tendremos disponible dentro de nuestra EC2 pública la clave privada para conectarnos a las EC2 privadas.
+        
+        ![](./ut5/RA2CEc20.png){.original}  <br>
+
+        - **Opción 2: Mover archivo con Cloud9**  
+        Cloud9 es un entorno de desarrollo integrado (IDE) basado en la nube que permite escribir, ejecutar y depurar código directamente desde el navegador web, sin necesidad de instalar nada en el equipo local.  
+        Está completamente integrado con los servicios de AWS (como EC2, Lambda, S3 o CloudFormation) y propone una terminal Linux completa dentro del entorno, como si estuvieramos conectado por SSH a una instancia EC2.<br>  
+        **Creamos el entorno.**
+        ![](./ut5/RA2CEc21.png){.original}  <br>
+        Rellenamos los campos necesarios.
+        ![](./ut5/RA2CEc22.png){.original}  <br>
+
+
+
+
+     
+
+<!-- https://www.youtube.com/watch?v=hgVZnhcQlKg -->
+
+
+
+
 
 ## **4 - NAT gateway**
 - NAT gateway es un servicio de traducción de direcciones de red (NAT) que permite a las instancias de una subred privada tener acceso a Internet o a otros servicios de AWS, **sin exponer** sus IP privadas.
@@ -908,4 +1001,6 @@ Tipos y caracteristicas de las [EBS](https://docs.aws.amazon.com/es_es/ebs/lates
 [Gateways NAT](https://docs.aws.amazon.com/es_es/vpc/latest/userguide/vpc-nat-gateway.html)  
 [Ampliar volúmenes EBS](https://docs.aws.amazon.com/es_es/ebs/latest/userguide/recognize-expanded-volume-linux.html)  
 [Adjuntar volúmenes EBS](https://docs.aws.amazon.com/es_es/ebs/latest/userguide/ebs-attaching-volume.html)  
+[Rquisitos para CE2 Instance Connect](https://docs.aws.amazon.com/es_es/AWSEC2/latest/UserGuide/ec2-instance-connect-prerequisites.html)  
+[EC2 Instance Connect](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-connect-methods.html#connect-linux-inst-eic-cli-ssh)  
 
