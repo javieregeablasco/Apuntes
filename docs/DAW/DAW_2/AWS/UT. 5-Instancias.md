@@ -719,7 +719,7 @@ Si vamos a AWS y consultamos las ACL de cada red veremos que, como hemos dicho a
     ![](./ut5/RA2CEc15.png){.sietecinco}  <br>
     ...Dentro de los cuales encontraremos el LabRole.
     ![](./ut5/RA2CEc16.png){.sietecinco}  <br>
-    Permisos del LabRole. De disponer de las credenciales necesarias, podriamos agregar más roles al nuestro usuario pero no será posible hacerlo.
+    Dentro de LabRole encontraremos la política de permisos de ese rol. De disponer de las credenciales necesarias, podriamos agregar más roles a nuestro usuario (y apmpliar o reducir la política de permisos). Con el rol asignado por el **learner lab** no es posible hacerlo.
     ![](./ut5/RA2CEc17.png){.sietecinco}  <br>
 
     - **Conexión mediante instancia bastión**  
@@ -741,22 +741,28 @@ Si vamos a AWS y consultamos las ACL de cada red veremos que, como hemos dicho a
 
         - **Opción 2: Mover archivo con Cloud9**  
         Cloud9 es un entorno de desarrollo integrado (IDE) basado en la nube que permite escribir, ejecutar y depurar código directamente desde el navegador web, sin necesidad de instalar nada en el equipo local.  
-        Está completamente integrado con los servicios de AWS (como EC2, Lambda, S3 o CloudFormation) y propone una terminal Linux completa dentro del entorno, como si estuvieramos conectado por SSH a una instancia EC2.<br>  
+        Está completamente integrado con los servicios de AWS (como EC2, Lambda, S3 o CloudFormation) y propone una terminal Linux completa dentro del entorno, como si estuvieramos conectado por SSH a una instancia EC2.
+
+            !!! warning "Nota importante:"
+                Cloud9 no es un servicio para mover archivos. Es un IDE para compartir, ejecutar y depurar código sin necesidad de tener ningún programa instalado en nuestro ordenador local.  
+                Lo usaremos como excusa para descubrir sus funcionalidades y por la facilidad que incorpora a la hora de subir y descargar archivos.
+
         **Creamos el entorno.**
         ![](./ut5/RA2CEc21.png){.original}  <br>
         Rellenamos los campos necesarios.
         ![](./ut5/RA2CEc22.png){.original}  <br>
+        ![](./ut5/RA2CEc23.png){.original}  <br>
+        ![](./ut5/RA2CEc24.png){.original}  <br>
+        Esperamos a que el servicio esté disponible y luego ya lo podremos usar.
+        ![](./ut5/RA2CEc25.png){.original}  <br>
+        Ejemplo de ejecución de un programa de python.
+        ![](./ut5/RA2CEc26.png){.original}  <br>
 
-
-
-
-     
-
-<!-- https://www.youtube.com/watch?v=hgVZnhcQlKg -->
-
-
-
-
+### **3.10 - Tarea RA2-CEc (parte 4)**
+Mediante conexiones a las diferentes instancias, comprobar (mediantes ping) que las configuraciones de los grupos de seguridad y de las listas de control de acceso a las subredes (NACL) cumplen con los objetivos propuestos (instancias de la subred privada aisladas). 
+1. Realizar capturas de pantallas de los pings entre instancias de la subred privada.
+1. Realizar capturas de pantallas de los pings entre instancias de la subred privada y la instancia de la subred pública.
+1. Crear un documento con las capturas y subirlo a la tarea RA2-CEc de aules. 
 
 ## **4 - NAT gateway**
 - NAT gateway es un servicio de traducción de direcciones de red (NAT) que permite a las instancias de una subred privada tener acceso a Internet o a otros servicios de AWS, **sin exponer** sus IP privadas.
@@ -886,8 +892,8 @@ ssh ec2-user@direccion-ip-privada
     De la conexión a la base de datos.  
     El servidor web desplegado.
 
+## **5 - Reglas encadenadas en grupos de seguridad**
 
- ## **5 - Aislamiento de instancias**
 
  
 
