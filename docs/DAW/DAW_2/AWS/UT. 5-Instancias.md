@@ -692,9 +692,9 @@ Si vamos a AWS y consultamos las ACL de cada red veremos que, como hemos dicho a
 
 1. **Conexión a las EC2 privadas.**  
     - **Mediante interfaz de AWS**
-    El procedimiento es identico al anterior pero, al no disponer de **IP pública** haremos la conexión a través de un punto de conexión.  
+    El procedimiento es identico al anterior pero, al no disponer de **IP pública** haremos la conexión a través de un punto de conexión.<br>  
     **Nota importante:**
-    - Para crear el punto de conexión, se recomienda usar el mismo grupo de seguridad que el de la instancia a la que queremos acceder.   
+    Para crear el punto de conexión, se recomienda usar el mismo grupo de seguridad que el de la instancia a la que queremos acceder.   
     ![](./ut5/RA2CEc8.png){.sietecinco}  <br>
     Luego
     ![](./ut5/RA2CEc9.png){.sietecinco}
@@ -739,7 +739,7 @@ Si vamos a AWS y consultamos las ACL de cada red veremos que, como hemos dicho a
         
         ![](./ut5/RA2CEc20.png){.original}  <br>
 
-        - **Opción 2: Mover archivo con Cloud9**  
+        - **Opción 2: Mover archivo.pem con Cloud9**  
         Cloud9 es un entorno de desarrollo integrado (IDE) basado en la nube que permite escribir, ejecutar y depurar código directamente desde el navegador web, sin necesidad de instalar nada en el equipo local.  
         Está completamente integrado con los servicios de AWS (como EC2, Lambda, S3 o CloudFormation) y propone una terminal Linux completa dentro del entorno, como si estuvieramos conectado por SSH a una instancia EC2.
 
@@ -747,23 +747,27 @@ Si vamos a AWS y consultamos las ACL de cada red veremos que, como hemos dicho a
                 Cloud9 no es un servicio para mover archivos. Es un IDE para compartir, ejecutar y depurar código sin necesidad de tener ningún programa instalado en nuestro ordenador local.  
                 Lo usaremos como excusa para descubrir sus funcionalidades y por la facilidad que incorpora a la hora de subir y descargar archivos.
 
-        **Creamos el entorno.**
-        ![](./ut5/RA2CEc21.png){.original}  <br>
-        Rellenamos los campos necesarios.
-        ![](./ut5/RA2CEc22.png){.original}  <br>
-        ![](./ut5/RA2CEc23.png){.original}  <br>
-        ![](./ut5/RA2CEc24.png){.original}  <br>
-        Esperamos a que el servicio esté disponible y luego ya lo podremos usar.
-        ![](./ut5/RA2CEc25.png){.original}  <br>
-        Ejemplo de ejecución de un programa de python.
-        ![](./ut5/RA2CEc26.png){.original}  <br>
+            **Creamos el entorno.**
+            ![](./ut5/RA2CEc21.png){.original}  <br>
+            Rellenamos los campos necesarios.
+            ![](./ut5/RA2CEc22.png){.original}  <br>
+            ![](./ut5/RA2CEc23.png){.original}  <br>
+            ![](./ut5/RA2CEc24.png){.original}  <br>
+            Esperamos a que el servicio esté disponible y luego ya lo podremos usar.
+            ![](./ut5/RA2CEc25.png){.original}  <br>
+            Ejemplo de ejecución de un programa de python.
+            ![](./ut5/RA2CEc26.png){.original}  <br>
+            Intentamos conectarnos por ssh a cualquier otra instancia pero tampoco funciona.
+            ![](./ut5/RA2CEc27.png){.original}  <br>
+
 
 ### **3.10 - Tarea RA2-CEc (parte 4)**
-Mediante conexiones a las diferentes instancias, comprobar (mediantes ping) que las configuraciones de los grupos de seguridad y de las listas de control de acceso a las subredes (NACL) cumplen con los objetivos propuestos (instancias de la subred privada aisladas). 
-1. Realizar capturas de pantallas de los pings entre instancias de la subred privada.
+Mediante conexiones a las diferentes instancias, comprobar (mediantes ping) que las configuraciones de los grupos de seguridad y de las listas de control de acceso a las subredes (NACL) cumplen con los objetivos propuestos (instancias de la subred privada aisladas).  
+
+1. Realizar capturas de pantallas de los pings entre instancias de la subred privada.  
 1. Realizar capturas de pantallas de los pings entre instancias de la subred privada y la instancia de la subred pública.
-1. ¿Qué conclusión podemos sacar?
-1. Crear un documento con las capturas y subirlo a la tarea RA2-CEc de aules. 
+1. ¿Qué conclusión podemos sacar?  
+1. Crear un documento con las capturas y subirlo a la tarea RA2-CEc de aules.   
 
 ## **4 - NAT gateway**
 - NAT gateway es un servicio de traducción de direcciones de red (NAT) que permite a las instancias de una subred privada tener acceso a Internet o a otros servicios de AWS, **sin exponer** sus IP privadas.
@@ -807,10 +811,10 @@ Mediante conexiones a las diferentes instancias, comprobar (mediantes ping) que 
     | **Alta disponibilidad**   | Se debe desplegar **uno por zona de disponibilidad (AZ)**     | Uno por AZ si se requiere redundancia            |
     | **Protocolos soportados** | TCP, UDP, ICMP                                            | TCP, UDP, ICMP                  |
 
-### **4.3 - Tarea RA2-CEd-1**
-Para realizar la tarea retomaremos el escenario de la **Tarea RA2-CEc**, limpiando lo necesario y pondremos un NAT gateway público para que las instancias de la subred privada puedan acceder a internet.
+### **4.3 - Tarea RA2-CEd**
+Para realizar la tarea retomaremos el escenario de la **Tarea RA2-CEc**, y pondremos un NAT gateway público para que las instancias de la subred privada puedan acceder a internet.
 
-![](./ut5/VPC2-nat.png){.sietecinco}  
+![falta imagen]()
 
 Este esquema tiene un error de concepto aunque siempre se representa de esa manera ¿Cuál?
 
@@ -871,15 +875,23 @@ Una vez conectados a la instancia pública, desde ella nos conectaremos a la ins
 ssh ec2-user@direccion-ip-privada
 ```
 <br>
-!!! task "Tarea RA2-CEc (continuación): Pruebas de ping"
+!!! task "Tarea RA2-CEd (continuación): Pruebas de ping"
     **Comprobar:**  
-    Realizar una prueba de ping entre instancias es decir hacer ping desde la EC2 pública hacia la EC2 privada y a la inversa.
+    Instalar el software necesario para que las instancias privadas no se puedan ver mutuamente pero sí, para el resto de conexiones, poder operar normalmente.
     Realizar una prueba de ping de las 2 instancias hacia internet (p.e google.es).  
     Realizar capturas (3 capturas en total).
 
 
 <br>
-!!! task "Tarea RA2-CEc (continuación): Montar un servidor web y un agente mysql"
+
+!!! warning "Documento sujeto a cambios!!!!" 
+
+## **5 - Reglas encadenadas en grupos de seguridad**
+
+## **6 - Caso práctico**
+### Tarea RA3-CEabc: Montar un servidor web y un agente mysql 
+![](./ut5/VPC2-nat.png){.sietecinco}  
+!!! task "Tarea RA3-CEabc (continuación): Montar un servidor web y un agente mysql"
     **1. Instancia pública**  
     Instalar un servidor web Apache, que será accesible desde cualquier equipo externo a la VPC por el puerto 80, utilizando tanto su nombre DNS como su dirección IP pública.
 
@@ -893,7 +905,6 @@ ssh ec2-user@direccion-ip-privada
     De la conexión a la base de datos.  
     El servidor web desplegado.
 
-## **5 - Reglas encadenadas en grupos de seguridad**
 
 <!-- instalar firewall sobre una EC2 Amazon linux 
 -Instalar el firewall
