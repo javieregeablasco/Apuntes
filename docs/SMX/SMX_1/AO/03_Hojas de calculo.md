@@ -116,9 +116,35 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
         - Navegación de formulario.
     1. Condiciones de entrega de la práctica: Subir el archivo en **formato .ods** a la tarea RA3-CEa. No se admitirá ningún otro tipo de formato. 
    
-### **Tarea RA3-CEb-1 - Personalización de la interfaz de usuario**
+### **Tarea RA3-CEb-1 - Elaboración de hojas de cálculo**
+
+<sub>Configuración básica de los estilos</sub> 
+Formato Predeterminado: Arial 12
+Título: 16
+Título 1: 12 negrita
+Título 2: 12 cursiva
+Aplicar los estilos según se vea en la imagen.
+
+<sub>Tamaño de celdas</sub> 
+Anchura columna 1: 2cm
+Anchura columnas 2, 3, 4 y 5,: 1cm
+Altura fila 1: 1cm
+Altura fila 2: 0.7cm
+Altura fila 3: 0.6cm
+Altura fila 4, 5, 6, 7, y 8: 0.5cm
+<!-- file:///C:/Users/titan/Documents/Javier128/Modulos/SMX/SMX_1/AO/materiales/RA3/Exercici%20Calc%201.pdf -->
 
 
+<!-- 
+ |**b)** Se han utilizado los elementos básicos en la elaboración de hojas de cálculo. |15%|
+    |**c)** Se han utilizado los diversos tipos de datos y referencia para celdas, rangos, hojas y libros. |    10%|
+    |**d)** Se han aplicado fórmulas y funciones. |15%|
+    |**e)** Se han generado y modificado gráficos de diferentes tipos. |10%|
+    |**f)** Se han empleado macros para la realización de documentos y plantillas.|10%|
+    |**g)** Se han importado y exportado hojas de cálculo creadas con otras aplicaciones y en otros formatos.|10%|
+    |**h)** Se ha utilizado la hoja de cálculo como base de datos: formularios, creación de listas, filtrado, protección y ordenación de datos. |10%|
+    |**i)** Se han utilizado aplicaciones y periféricos para introducir textos,números, códigos e imágenes.|    10%|
+ -->
 
 
 

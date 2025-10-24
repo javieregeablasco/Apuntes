@@ -762,6 +762,7 @@ Si vamos a AWS y consultamos las ACL de cada red veremos que, como hemos dicho a
 Mediante conexiones a las diferentes instancias, comprobar (mediantes ping) que las configuraciones de los grupos de seguridad y de las listas de control de acceso a las subredes (NACL) cumplen con los objetivos propuestos (instancias de la subred privada aisladas). 
 1. Realizar capturas de pantallas de los pings entre instancias de la subred privada.
 1. Realizar capturas de pantallas de los pings entre instancias de la subred privada y la instancia de la subred pública.
+1. ¿Qué conclusión podemos sacar?
 1. Crear un documento con las capturas y subirlo a la tarea RA2-CEc de aules. 
 
 ## **4 - NAT gateway**
@@ -894,8 +895,20 @@ ssh ec2-user@direccion-ip-privada
 
 ## **5 - Reglas encadenadas en grupos de seguridad**
 
+<!-- instalar firewall sobre una EC2 Amazon linux 
+-Instalar el firewall
+sudo dnf install firewalld -y
+-Habilitar y levantar
+sudo systemctl enable firewalld
+sudo systemctl start firewalld
+-Comprobar su estado:
+sudo firewall-cmd --state
+-Configurar las instancias
+sudo firewall-cmd --permanent --add-rich-rule='rule family="ipv4" source address="172.18.2.184" reject' && sudo firewall-cmd --reload
+sudo firewall-cmd --permanent --add-rich-rule='rule family="ipv4" source address="172.18.2.193" reject' && sudo firewall-cmd --reload -->
 
- 
+
+
 
 
 <!-- volver a montar el natgateway -->
