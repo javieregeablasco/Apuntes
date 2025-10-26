@@ -96,3 +96,38 @@
   text-decoration: underline;
 }
 
+.leftdoscinco {
+  justify-content: left;
+  display: block;
+  width: 25%;
+}
+
+.leftsietecinco {
+  justify-content: left;
+  display: block;
+  width: 75%;
+}
+
+.leftcincocero {
+  justify-content: left;
+  display: block;
+  width: 50%;
+}
+
+.leftdoscinco {
+  justify-content: left;
+  display: block;
+  width: 25%;
+}
+
+.leftunodos {
+  justify-content: left;
+  display: block;
+  width: 12%;
+}
+
+.lefdosceo {
+  justify-content: left;
+  display: block;
+  width: 20%;
+}

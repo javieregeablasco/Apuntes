@@ -1805,8 +1805,8 @@ print("Equivalente en porcentaje de 0.85: {:.1%}".format(0.85))
     ```
 
 
-
-
+<!-- https://www.picuino.com/es/python-textos-formateo.html -->
+<!-- https://oregoom.com/python/formato-de-cadenas/ -->
 
 
 

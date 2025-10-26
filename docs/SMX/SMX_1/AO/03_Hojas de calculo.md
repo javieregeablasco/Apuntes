@@ -116,22 +116,138 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
         - Navegación de formulario.
     1. Condiciones de entrega de la práctica: Subir el archivo en **formato .ods** a la tarea RA3-CEa. No se admitirá ningún otro tipo de formato. 
    
-### **Tarea RA3-CEb-1 - Elaboración de hojas de cálculo**
+### **Tarea RA3-CEb-1 - Elaboración básica de hojas de cálculo**
+!!! exercice "Tarea RA3-CEb-1 - Elaboración de una tabla en un hoja de cálculo"
+    **Ejercicio parte 1**
+    <u>Creación de estilos</u>  
+    Crear los estilos **Valores, Columnas, Indices** según se vea a continuación.  
 
-<sub>Configuración básica de los estilos</sub> 
-Formato Predeterminado: Arial 12
-Título: 16
-Título 1: 12 negrita
-Título 2: 12 cursiva
-Aplicar los estilos según se vea en la imagen.
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc6.png){ .leftdoscinco }
 
-<sub>Tamaño de celdas</sub> 
-Anchura columna 1: 2cm
-Anchura columnas 2, 3, 4 y 5,: 1cm
-Altura fila 1: 1cm
-Altura fila 2: 0.7cm
-Altura fila 3: 0.6cm
-Altura fila 4, 5, 6, 7, y 8: 0.5cm
+    <u>**Configuración de los estilos**</u>  
+    **1. Predeterminado:**  
+    &emsp;Tipo de letra: Arial 12 normal   
+    
+    **2. Estilo Valores**  
+    &emsp;Tipo de letra: Arial 12 normal Añil oscuro, centrado horizontalmente.  
+    &emsp;Bordes: Grosor 0.5pt, Añil oscuro 2, separación 0.35mm.  
+    &emsp;Fondo: Gris claro 5.  
+
+    **3. Estilo Columnas**  
+    &emsp;Tipo de letra: Arial 16 negrita blanco, centrado horizontalmente y verticalmente.   
+    &emsp;Bordes: Grosor 0.5pt, oro, separación 0.35mm.  
+    &emsp;Fondo: Oro claro 4.
+
+    **4. Estilo Índices**  
+    &emsp;Tipo de letra: Arial 12 cursiva, azul oscuro 1, alineación derecha.   
+    &emsp;Bordes: Grosor 0.5pt, oro, separación 0.35mm.  
+    &emsp;Fondo: Rojo claro 4.  
+    
+    **3. Estilo Título 1**  
+    &emsp;Tipo de letra: Arial 16 negrita blanco, centrado horizontalmente y verticalmente.   
+    &emsp;Bordes: Grosor 0.05pt, lima, separación 0.5mm.  
+    &emsp;Fondo: Lima oscura 4.  
+
+    **4. Estilo Título 2**  
+    &emsp;Tipo de letra: Arial 12 negrita cursiva, rojo, centrado horizontalmente.   
+    &emsp;Bordes: Grosor 0.5pt, lima, separación 0.5mm.  
+    &emsp;Fondo: Magenta claro 4.  
+      
+    <u>**Tamaño de celdas**</u>   
+    &emsp;Anchura columna 1: 2cm  
+    &emsp;Anchura columnas 2, 3, 4 y 5,: 1cm  
+    &emsp;Altura fila 1: 1cm  
+    &emsp;Altura fila 2: 0.7cm  
+    &emsp;Altura fila 3: 0.6cm  
+    &emsp;Altura fila 4, 5, 6, 7, y 8: 0.5cm
+
+    <u>**Datos a introducir dentro de las celdas**</u>  
+    &emsp;Introducir los datos a mano para que quede de la siguiente manera.
+
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc9.png){ .leftsietecinco }
+    
+    <u>**Trabajo adicional**</u>  
+    &emsp;Combinar celdas A1, B1, C1, D1 y E1   
+    &emsp;Insertar una fila y una columna.  
+    &emsp;Redimensionar la columna para que quede de la siguiente manera.       
+
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc7.png){ .leftsietecinco }
+
+    **Ejercicio parte 2**  
+    Dentro del mismo documento crear una hoja nueva.  
+    Renombrar las hojas a:  
+    &emsp;&emsp;Hoja 1 → Ejercicio 1  
+    &emsp;&emsp;Hoja 2 → Ejercicio 2  
+    En la hoja 2, copiar y pegar todos los datos de la hoja 1.  
+    En la hoja 2, ampliar las filas de los meses y modificar los datos hasta completar todos los meses del año.  
+    
+    <u>**Trabajo adicional**</u>  
+    &emsp;Arreglar el ancho de la columna de los meses para que el texto no quede cortado.  
+    &emsp;Para evitar que los datos se repinan poner la formula **ALEATORIO.ENTRE(-10;35) como valor de las celdas de las temperaturas**.  
+    &emsp;Al final la tabla quedará de la siguiente manera.  
+
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc8.png){ .leftsietecinco }
+
+    <u>**Condiciones de entrega**</u>  
+    &emsp;Guardar el documento con NombreApellidos-Tarea-RA3-CEb-1   
+    &emsp;Subir la hoja de cálculo en **formato ods** a la tarea RA3-CEb-1  
+    &emsp;**No se aceptará ningun formato que no sea ods**.
+
+### **Tarea RA3-CEb-2 - Elaboración básica de hojas de cálculo**
+!!! exercice "Tarea RA3-CEb-2 - Trabajando con series"
+    **Ejercicio parte 1**  
+    Realizar un diseño similar al del ejemplo.
+
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc10.png){ .original }<br>
+    
+    **Ejercicio parte 2**  
+    Insertar series para obtener **el mismo resultado** que a continuación.  <br>  
+    
+    <u>**Series aritméticas**</u>  
+
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc11.png){ .leftcincocero }<br>
+    
+    <u>**Series geométricas**</u>  
+
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc12.png){ .leftdoscero }<br>  
+    
+    <u>**Fechas**</u>  
+
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc13.png){ .leftdoscero }<br>  
+    
+    <u>**Personalizadas**</u>  
+
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc14.png){ .leftdoscero }<br>  
+
+    <u>**Trabajo adicional**</u>  
+    &emsp;Inmobilizar la **columna adecuada** para obtener el siguiente resultado.
+    &emsp;Ampliar la columna B para que la numeración coincida con la cantidad de provincias.  
+    &emsp;Resultado esperado.
+      
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc15.png){ .leftdoscero }<br>  
+    
+    <u>**Condiciones de entrega**</u>  
+    &emsp;Guardar el documento con NombreApellidos-Tarea-RA3-CEb-2   
+    &emsp;Subir la hoja de cálculo en **formato ods** a la tarea RA3-CEb-2  
+    &emsp;**No se aceptará ningun formato que no sea ods**.  
+
+
+
+
+<!-- ### **Tarea RA3-CEc-1 - **
+### **Tarea RA3-CEc-2 - **
+### **Tarea RA3-CEc-3 - **
+### **Tarea RA3-CEd-1 - **
+### **Tarea RA3-CEd-2 - **
+### **Tarea RA3-CEd-3 - **
+### **Tarea RA3-CEe-1 - **
+### **Tarea RA3-CEe-2 - **
+### **Tarea RA3-CEf - **
+### **Tarea RA3-CEh-1 - **
+### **Tarea RA3-CEh-2 - **
+### **Tarea RA3-CEi - ** -->
+
+
 <!-- file:///C:/Users/titan/Documents/Javier128/Modulos/SMX/SMX_1/AO/materiales/RA3/Exercici%20Calc%201.pdf -->
 
 

@@ -18,4 +18,6 @@
 
 # print("El programa continúa su ejecución normalmente.")
 
- 
+valor1 = 5.2536524
+valor2 = 7.3915896
+print(f"El resultado de la mutiplicacion de {valor1 :.2f} por {valor2} es {valor1*valor2}")
