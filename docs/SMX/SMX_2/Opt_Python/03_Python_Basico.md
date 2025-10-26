@@ -1623,7 +1623,7 @@ print("A", "B", "C", sep=" \U0001F600 ") # sep admite símbolos soportados por p
 ```
 <br>
 
-- **Fin de línea \n**  
+- **Secuencia de escape fin de línea \n**  
 En Python, el valor predeterminado de end es **\n** (salto de línea).  
 Si el valor no es nulo, entonces se imprimirá al final de la línea el contenido de end **y no se saltará a la linea siguiente** si no añadimos **\n**.
 ```py
@@ -1636,7 +1636,8 @@ print("Final de linea personalizado CON salto de linea", end="... \n")
 print("Final de linea con caracteres especiales", end=" ✅\n") 
 ```
 <br>
-- **Tabulación \t**  
+
+- **Secuencia de escape tabulación \t**  
 El simbolo **\t debe incorporarse al texto** que queremos tabular.
 ```py
 print("Menu del dia")
@@ -1647,7 +1648,8 @@ print("-------------------------")
 print("---\tPrecio\tFinal.")
 ```
 <br>
-- **Retroceso \r**  
+
+- **Secuencia de escape retroceso \r**  
 A la inversa de **tabulación** el símbolo **\r** permite realizar retrocesos a **inicio de línea**.
 ```py
 print("Menu del dia")
@@ -1664,6 +1666,16 @@ print("Segundo plato.", end="")
 print("\r-sobreescribo-")
 ```
 <br>
+
+- **Más secuencias de escape**
+
+    | Secuencia de escape | Descripción                         | Ejemplo |
+    |----------------------|--------------------------------------|----------|
+    | `\\` | Muestra una barra invertida (`\`) | `print('Mírala volar\\como oscila el péndulo')` |
+    | `\'` | Muestra una comilla simple | `print('No importa cuán duro lo intentes')` |
+    | `\"` | Muestra una comilla doble | `print('Es tan \"irreal\"')` |
+    | `\a` | Emite un sonido (campanilla) | `print('\a')` |
+
 
 - **Escribir variables, texto y ejecutar código**  
 Como ya hemos visto, la función print() permite combinar texto (**siempre entre comillas y separando los argumentos con comas)**, mostrar valores de variables y ejecutar código.
@@ -1707,8 +1719,8 @@ print("Aprobado" if aprobado >= 5 else "Suspenso")
     1. Disponemos de estas 2 listas.  
     lista_1 = [1,2,3,4,5,6,7,8,9]  
     lista_2 = ["azul","verde","amarillo","naranja","cian","magenta","ambar","negro","blanco"]  
-    2. Realizar un programa, **lo más simple posible** que devuelva por terminal, el siguiente resultado:
-    ```
+    2. Realizar un programa, **que solo utilice un print()** y que devuelva por terminal, el siguiente resultado:
+    ```bash
     Indice   y      color: 
     >>>1>>>         >>>azul>>> 
     Indice   y      color: 
@@ -1729,11 +1741,8 @@ print("Aprobado" if aprobado >= 5 else "Suspenso")
     >>>9>>>         >>>blanco>>> 
     ```
 
-
- 
-
-#### **6.1.4 - Formato de cadenas de caracteres para su uso con (o sin) print()**
-- **Cadenas f**  
+#### **6.1.4 - Formato de cadenas y variables para su uso con (o sin) print()**
+- **Cadenas f (f strings)**  
 Muchas veces puede resultar tiedoso ir intercalando texto y valores de variables. A partir de python 3.6, la nueva notación **cadena f{}** soluciona ese problema.  
 Una cadena f contiene **variables y expresiones** entre llaves "{}" que se sustituyen directamente por su valor. 
 ```py
@@ -1743,77 +1752,178 @@ valor3 = 35
 texto = "euros"
 texto1 = "Pablo"
 
+f_string = f"El resultado de la mutiplicacion de {valor1} por {valor2} es {valor3} {texto}"
+
 # sin cadenas f
 print("El resultado de la mutiplicacion de",valor1,"por",valor2,"es",valor3,texto)
+
 # con cadenas f
+#print(f_string)
 print(f"El resultado de la mutiplicacion de {valor1} por {valor2} es {valor3} {texto}")
+
 # Tambien se ejecutan funciones dentro de f
 print(f"El resultado de la mutiplicacion de {valor1} por {valor2} es {valor1*valor2} {texto}")
+
 # Tambien se ejecuta código dentro de f
 print(f"El resultado del examen de {texto1} cuya nota el {valor2} es {"Aprobado" if valor2 >= 5 else "Suspenso"}")
 ```
 
 <br>
 
-- **format()**
-Otra manera de dar formato a cadenas de carácteres puede hacerse usando el **método format()** 
+- **format()**  
+Otra manera de dar formato a cadenas puede hacerse usando el **método format()** 
 ```py
+# Especificando el orden de los argumentos:
+nombre = "Carlos"
+edad = 30
+frase1 = "Tengo {1} años y me llamo {0}.".format(nombre, edad)
+print(frase1)
+
+# Utilizando el nombre de variables:
+nombre = "Carlos"
+edad = 30
+frase2 = "Hola, mi nombre es {nombre} y tengo {edad} años.".format(nombre, edad)
+
+# Sintaxis más corta a la anterior, definiendo las variables directamente en format():
+frase3 = "Hola, mi nombre es {nombre} y tengo {edad} años.".format(nombre="Carlos", edad=30)
+print(frase3)
+
+# Orden de argumentos implicito (string, valores, funciones): 
+texto1 = "Juan"
+valor2 = 6
 print("El resultado del examen de {} cuya nota el {} es {}".format(texto1,valor2,"Aprobado" if valor2 >= 5 else "Suspenso"))
 ```
 
-#### **6.1.5 - Formato de valores**
-También podemos dar formato a los valores. Esta posibilidad resulta particularme útil cuando la usamos con print() ya que podemos controlar cómo se verán los números, cadenas o fechas (decimales, ancho, alineación, relleno, etc.).
+#### **6.1.5 - Formateo de cadenas y valores**  
+También podemos dar formato a los valores (números, cadenas o fechas) que pasamos a la función print(). Esto resulta particularmente útil, ya que nos permite controlar cómo se mostrarán los valores, ajustando aspectos como el número de decimales, el ancho, la alineación o el carácter de relleno.
 
-- Decimales y números:
-```py
-# con cadenas f
-hexa = 255
-print(f"Representacion en hexadecimal de 255: {hexa :X}")
+- **Formateo de cadenas de texto**
+Las f-strings, no solo aportan claridad al código, sino que también permiten formatear el texto de los valores que se insertan dentro de las llaves {}.
+Gracias a esta sintaxis, es posible controlar cómo se mostrará la información: la alineación, el ancho del campo o el carácter de relleno, entre otros aspectos.
 
-# con format
-print("Representacion en hexadecimal de 255: {:X}".format(255)) 
-```
-<br>
-- Mostrar con ceros a la izquierda:
-```py
-print("Número: {:05d}".format(42))  # 00042
-```
-<br>
-- Separador de miles:
-```py
-print("Precio: {:,}".format(12000000))  # 12,000,000
-```
-<br>
-- Hexadecimal, binario, porcentaje:
-```py
-print("Representacion en hexadecimal de 255: {:X}".format(255)) 
-print("Representacion en binario de 8: {:b}".format(8))      
-print("Equivalente en porcentaje de 0.85: {:.1%}".format(0.85))  
-```
-<br>
-
-#### **Tarea RA5-CEb, ejercicios con formatos**
-!!! Exercice "Ejercicio 1"  
-    De los ejemplos anteriores, escribir el código para que, en vez de format, se usen cadenas f.
-
-!!! Exercice "Ejercicio 2"  
-    Adaptar el siguiente código para que la salida por terminal solo muestre 2 decimales.
+    Por ejemplo:
     ```py
-    valor1 = 5.2536524
-    valor2 = 7.3915896
-    print(f"El resultado de la mutiplicacion de {valor1 :.2f} por {valor2} es {valor1*valor2}")
+    nombre = 'Pedro'
+    print(f'{nombre:>20}')    # Justificado a la derecha
+    print(f'{nombre:<20}')    # Justificado a la izquierda
+    print(f'{nombre:^20}')    # Centrado
+    print(f'{nombre:_^20}')   # Centrado con relleno '_'
     ```
 
+    Dónde:
+    :> → alinea el texto a la derecha dentro de un ancho de 20 caracteres.  
+    :< → alinea el texto a la izquierda dentro de un ancho de 20 caracteres.  
+    :^ → centra el texto dentro de un ancho de 20 caracteres.  
+    :_^ → centra el texto, rellenando los espacios sobrantes con el carácter _.  
 
-<!-- https://www.picuino.com/es/python-textos-formateo.html -->
-<!-- https://oregoom.com/python/formato-de-cadenas/ -->
+
+- **Formateo de valores con especificadores de tipos**
+    1. Decimales y números:
+    ```py
+    # con cadenas f
+    hexa = 255
+    print(f"Representacion en hexadecimal de 255: {hexa :X}")
+
+    # con format
+    print("Representacion en hexadecimal de 255: {:X}".format(255)) 
+    ```
+    <br>
+    - Mostrar con ceros a la izquierda:
+    ```py
+    print("Número: {:05d}".format(42))  # 00042
+    ```
+    <br>
+
+    - Separador de miles:
+    ```py
+    print("Precio: {:,}".format(12000000))  # 12,000,000
+    ```
+    <br>
+
+    - Hexadecimal, binario, porcentaje:
+    ```py
+    print("Representacion en hexadecimal de 255: {:X}".format(255)) 
+    print("Representacion en binario de 8: {:b}".format(8))      
+    print("Equivalente en porcentaje de 0.85: {:.1%}".format(0.85))  
+    ```
+    <br>
+
+    - Tabla resumen de los formatos más habituales  
+    De una manera general, para dar un formato de salida especifico a un valor, deberemos usar la sintaxis siguiente:
+    ```bash
+    f'{variable:formato}'
+    ``` 
+    
+    
+        | Especificador | Tipo de valor | Descripción | Ejemplo | Salida |
+        |----------------|----------------|--------------|----------|---------|
+        | `d` | Enteros | Muestra un número entero en base 10 | `f"{42:d}"` | `42` |
+        | `b` | Enteros | Muestra el número en binario | `f"{42:b}"` | `101010` |
+        | `o` | Enteros | Muestra el número en octal | `f"{42:o}"` | `52` |
+        | `x` | Enteros | Muestra el número en hexadecimal (minúsculas) | `f"{42:x}"` | `2a` |
+        | `X` | Enteros | Muestra el número en hexadecimal (mayúsculas) | `f"{42:X}"` | `2A` |
+        | `f` | Números reales | Formatea un número de punto flotante con 6 decimales por defecto | `f"{3.14159:f}"` | `3.141590` |
+        | `.nf` | Números reales | Limita el número de decimales a *n* | `f"{3.14159:.2f}"` | `3.14` |
+        | `e` | Números reales | Notación científica (minúsculas) | `f"{3141.59:e}"` | `3.141590e+03` |
+        | `E` | Números reales | Notación científica (mayúsculas) | `f"{3141.59:E}"` | `3.141590E+03` |
+        | `%` | Números reales | Muestra el valor multiplicado por 100 con un símbolo `%` | `f"{0.85:%}"` | `85.000000%` |
+        | `c` | Enteros o caracteres | Muestra el carácter correspondiente al código Unicode del número | `f"{65:c}"` | `A` |
+        | `g` | Números reales | Usa formato fijo o científico (según el tamaño del número) | `f"{123456789:g}"` | `1.23457e+08` |
+        | `G` | Números reales | Igual que `g`, pero con `E` en notación científica | `f"{0.0001234:G}"` | `1.234E-04` |
 
 
+- **Combinacíón de especificadores de tipos con secuencias de escape**  
+Es posible combinar los especificadores con las secuencias de escape.  
+  ```py
+  pi = 3.14159265359
+  print(f"{pi:>10.3f}") # Alinea a la derecha, ancho de 10 caracteres, flotante de 3 decimales
+  print(f"{255:0>6x}") # Hexadecimal, centrado derecha con relleno de ceros y anche de 6 caracteres
+  print(f'{pi:010.5f}') # Cinco decimales ancho de 10 caracteres y relleno de ceros
+  print(f'{pi:.0f}')  # Cero decimales ancho de 10 caracteres
+  print(f'{pi:10.4e}')  # Notación científica, ancho 10 caracteres
+  ```
 
+
+#### **Tarea RA5-CEb, ejercicios con formatos**
+!!! Exercice "Ejercicio"  
+    Escribir un programa cuya salida por terminal sea la siguiente:
+    ```bash
+    ---------------------------------
+    |   d   |   b   |   o   |   x   |
+    ---------------------------------
+    |   0   |     0 |     0 | 0     |
+    |   1   |     1 |     1 | 1     |
+    |   2   |    10 |     2 | 2     |
+    |   3   |    11 |     3 | 3     |
+    |   4   |   100 |     4 | 4     |
+    |   5   |   101 |     5 | 5     |
+    |   6   |   110 |     6 | 6     |
+    |   7   |   111 |     7 | 7     |
+    |   8   |  1000 |    10 | 8     |
+    |   9   |  1001 |    11 | 9     |
+    |  10   |  1010 |    12 | a     |
+    |  11   |  1011 |    13 | b     |
+    |  12   |  1100 |    14 | c     |
+    |  13   |  1101 |    15 | d     |
+    |  14   |  1110 |    16 | e     |
+    |  15   |  1111 |    17 | f     |
+    |  16   | 10000 |    20 | 10    |
+    |  17   | 10001 |    21 | 11    |
+    |  18   | 10010 |    22 | 12    |
+    |  19   | 10011 |    23 | 13    |
+    |  20   | 10100 |    24 | 14    |
+    |  21   | 10101 |    25 | 15    |
+    |  22   | 10110 |    26 | 16    |
+    |  23   | 10111 |    27 | 17    |
+    |  24   | 11000 |    30 | 18    |
+    ---------------------------------
+    ```
 
 #### **6.1.2 - La función input()**
+
 #### **6.1.3 - Refundición (casting) de variables** 
-### **6.2 - Programación de funciones (custom)** 
+
+### **6.2 - Funciones** 
 
 
 
