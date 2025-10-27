@@ -1830,18 +1830,32 @@ Gracias a esta sintaxis, es posible controlar cómo se mostrará la información
     <br>
     - Mostrar con ceros a la izquierda:
     ```py
+    # con cadenas f
+    print(f"Número: {42:05d}")  # 00042
+    
+    # con format
     print("Número: {:05d}".format(42))  # 00042
     ```
     <br>
 
     - Separador de miles:
     ```py
+    # con cadenas f
+    print(f"Precio: {12000000:,}")  # 12,000,000
+
+    # con format
     print("Precio: {:,}".format(12000000))  # 12,000,000
     ```
     <br>
 
     - Hexadecimal, binario, porcentaje:
     ```py
+    # con cadenas f
+    print(f"Representacion en hexadecimal de 255: {255:X}") 
+    print(f"Representacion en binario de 8: {8:b}")      
+    print(f"Equivalente en porcentaje de 0.85: {0.85:.1%}")  
+    
+    # con format
     print("Representacion en hexadecimal de 255: {:X}".format(255)) 
     print("Representacion en binario de 8: {:b}".format(8))      
     print("Equivalente en porcentaje de 0.85: {:.1%}".format(0.85))  
@@ -1851,7 +1865,11 @@ Gracias a esta sintaxis, es posible controlar cómo se mostrará la información
     - Tabla resumen de los formatos más habituales  
     De una manera general, para dar un formato de salida especifico a un valor, deberemos usar la sintaxis siguiente:
     ```bash
-    f'{variable:formato}'
+    # Cadenas f
+    f"{variable:formato}"
+
+    # Format
+    "{:formato}".format(variable)
     ``` 
     
     
@@ -1918,45 +1936,139 @@ Es posible combinar los especificadores con las secuencias de escape.
     |  24   | 11000 |    30 | 18    |
     ---------------------------------
     ```
-
+<br>
 #### **6.1.2 - La función input()**
+La entrada de datos en Python se realiza con la función **input()** 
+```py
+valor = input(texto)
+```
+Donde **texto** es el mensaje que se muestra al usuario en la terminal y **valor** es la variable en la cual se almacena lo que el usuario ha escrito después de pulsar la tecla **Enter**.
+
+**Ejemplo:**  
+```py
+nombre = input("Introducir nombre: ")
+print(f"Hola {nombre}, buenos días") # con cadenas f
+print("Hola {}, buenos dias".format(nombre)) # con format
+```
+<br>
+Hay una consideración a tener en cuenta al momento de usar input(): **La función input solo devuelve cadenas de caracteres**.  
+En el siguiente programa vemos que, independientemente de los valores introducidos, el tipo de las variables siempre es de **tipo string**.
+
+**Ejemplo:**
+```py
+while(True):
+  valor = input("Introducir un valor entero: ")
+  if valor=="salir":break 
+  print(f"Hola, el valor introducido es: {valor}")
+  print("El tipo de valor es: ", type(valor))
+print("Programa finalizado.")
+```
+
+Si queremos introducir  un valor de tipo numérico y realizar operaciones con él, entonces, deberemos **convertir el string a un tipo numérico de manera explícita**, de lo contrario el programa podría lanzar un error, o en el mejor de los casos, funcionar de manera incorrecta.  
+El proceso de convertir el tipo de una variable a otro se llama **casting de variables** y lo veremos en el párrafo siguiente.  
+<br>
 
 #### **6.1.3 - Refundición (casting) de variables** 
+Hacer un cast o casting significa convertir un tipo de dato a otro. En python, distinguiremos entre conversiones implícitas y explícitas.   
+
+- Conversión implícita: Es realizada automáticamente por Python. Sucede cuando realizamos operaciones con tipos distintos.
+
+- Conversión explícita: Es realizada expresamente por el programa.
+
+**Ejemplo:**  
+```py
+# Ejemplo de casting implícito
+num_entero = 5       # tipo int
+num_decimal = 2.5    # tipo float
+
+resultado = num_entero + num_decimal  # Python convierte automáticamente num_entero a float
+
+print(resultado)      # 7.5
+print(type(resultado))  # <class 'float'>
+
+# Ejemplo de casting implícito
+num_entero = 5       # tipo int
+num_decimal = 2.5    # tipo float
+
+resultado = num_entero + float(num_decimal)  # el programa convierte num_entero a float para igualar los tipos.
+print(resultado)      # 7.5
+print(type(resultado))  # <class 'float'>
+```
+
+<br>
+Para hacer un **casting explicito**, simplemente envolveremos la variable con el tipo de dato al que deseamos convertirla.
+
+!!! warning "¡Solo se puede hacer casting entre tipos compatibles!"
+
+- Convertir string a int  
+```py
+# Sintaxis de string a decimal
+a = "1234"
+b = int(a)
+print(b, type(b))
+```
+
+- Convertir list a set  
+```py
+list = ["la", "lista",  "de", "la", "compra", "la", "hare", "manyana"]
+print(set(list))
+```
+
+#### **6.1.4 - Tabla resumen de refundiciones**
+| Tipo de destino | Ejemplo de conversión     | Resultado       | Notas                                                                                          |
+| --------------- | ------------------------- | --------------- | ---------------------------------------------------------------------------------------------- |
+| **int**         | `int("10")`               | `10`            | Convierte strings numéricos o floats (trunca decimales). No funciona con strings no numéricos. |
+| **float**       | `float("10.5")`           | `10.5`          | Convierte strings numéricos y enteros.                                                         |
+| **str**         | `str(100)`                | `"100"`         | Convierte cualquier tipo a string.                                                             |
+| **bool**        | `bool(0)`                 | `False`         | `0`, `0.0`, `""`, `[]`, `{}` → False; resto → True                                             |
+| **list**        | `list((1,2,3))`           | `[1,2,3]`       | Convierte tuplas, sets o strings en listas de elementos.                                       |
+| **tuple**       | `tuple([1,2,3])`          | `(1,2,3)`       | Convierte listas, sets o strings en tuplas.                                                    |
+| **set**         | `set([1,2,2,3])`          | `{1,2,3}`       | Convierte listas, tuplas o strings en conjuntos eliminando duplicados.                         |
+| **dict**        | `dict([("a",1),("b",2)])` | `{"a":1,"b":2}` | Convierte listas o tuplas de pares clave-valor en diccionarios.                                |
+
+#### **Tarea RA1CEa-h**
+!!! task "Detección del tipo de dato introducido"  
+    1. Crea un programa en Python que pida al usuario introducir cualquier valor por teclado.  
+    2. El programa intentará convertir ese valor a número entero (int) o a número decimal (float).  
+    3. Si la conversión es posible, mostrará un mensaje indicando el tipo de dato detectado.  
+    4. Si no se puede convertir, el programa asumirá que el valor introducido es una cadena de texto (str).
+    5. El programa se ejecutará continuamente hasta que el usuario introduzca la palabra clave **salir**.  
+
+        **Ejemplo**
+
+        ```bash
+        Introduce cualquier cosa: 23
+        → El valor introducido es de tipo int.
+
+        Introduce cualquier cosa: 4.7
+        → El valor introducido es de tipo float.
+
+        Introduce cualquier cosa: hola
+        → El valor introducido es de tipo string.
+
+        Introduce cualquier cosa: salir
+        → Programa finalizado
+        ```
 
 ### **6.2 - Funciones** 
+!!! Warning "Atención"  
+    Las funciones se diferencian en lo que hacen después de ejecutarse.  
+
+    - Funciones que devuelven algo: Realizan una tarea y entregan un resultado usando **la palabra clave return**. Ese valor puede guardarse en una variable o usarse en otros cálculos.  
+    - Funciones que no devuelven nada: Realizan una acción (por ejemplo, mostrar un mensaje en pantalla), pero no entregan ningún valor; su resultado no puede almacenarse ni usarse más adelante.
 
 
 
 
 <!--
-
-!!! Warning "Atención"  
-    Las funciones se diferencian en lo que hacen después de ejecutarse.  
-
-    - Funciones que devuelven algo: realizan una tarea y entregan un resultado usando **la palabra clave return**. Ese valor puede guardarse en una variable o usarse en otros cálculos.  
-    - Funciones que no devuelven nada: realizan una acción (por ejemplo, mostrar un mensaje en pantalla), pero no entregan ningún valor; su resultado no puede almacenarse ni usarse más adelante.
+https://ellibrodepython.com/funciones-python
 
 
 
 
 
 
-### La función input()
-La entrada de datos en Python se realiza con la función **input()** 
-```py
-valor = input(texto)
-```
 
-Donde **texto** es el mensaje que se muestra al usuario en la terminal y **valor** es la variable en la cual se almacena lo que el usuario ha escrito después de pulsar la tecla **Enter**.
-
-**Ejemplo:**
-```py
-nombre = input("Introducir nombre: ")
-print(f"Hola {nombre}, buenos días")
-```
-<br>
-Hay una consideración a tener en cuenta al momento de usar input(): **La función input solo devuelve cadenas de caracteres**.  
-En el siguiente programa vemos que, independientemente de los valores introducidos, el tipo de las variables siempre es de **tipo string**.
 
 ```py
 # definimos una variable de tipo lista
@@ -1970,146 +2082,18 @@ for i in range(5):
  # print(f"Posición {i}, valor {datos[i]}, tipo {type(datos[i])}") 
   print(f"Posición {i}, valor {datos[i]}, tipo: {'string' if isinstance(datos[i],str) else ''}")
 ```
-<br>
-Si decidimos sumar los valores almacenados dentro de un varaible inicializadas con input(), obtendremos lo siguiente:
-```py
-dato1 = input("Introducor un valor: ")
-dato2 = input("Introducor un valor: ")
-dato3 = input("Introducor un valor: ")
-print(f"La suma de {dato1} + {dato2} + {dato3} es: {dato1+dato2+dato3}")
-```
-<br>
-
-Si queremos introducir  un valor de tipo numérico y realizar operaciones con él, entonces, deberemos **convertir el string a un tipo numérico de manera explícita**, de lo contrario el programa podría lanzar un error, o en el mejor de los casos, funcionar de manera incorrecta.  
-El proceso de convertir el tipo de una variable a otro se llama **casting de variables**.
-
-### **Refundición (casting) de variables:**
-Hacer un cast o casting significa convertir un tipo de dato a otro.  
-Para hacer un casting, simplemente envolveremos la variable con el tipo de dato al que deseamos convertirla.
-
-```py
-cadena = "1234"
-numero = int(cadena)
-```
-
-Ejemplo de casting sobre una variable de input:
-```py
-variable = int(input("Introduce un valor: "))
-print("El tipo de la variable es: ", type(variable))
-```
-
-!!! Warning "Pregunta"  
-    ¿Qué ocurre sin introducimos un valor decimal en el ejemplo anterior?
-
-Es necesario recordar que la asignación de la variables es dinámica, es decir que el interprete de Python decide en cada momento el tipo de los datos que contiene una variable. Eso nos lleva a distinguir 2 tipos de conversiones.  
-
-- **Conversión implícita**: Es realizada **automáticamente** por Python. Sucede cuando se realizan operaciones con dos tipos distintos.
-- **Conversión explícita**: Es realizada **expresamente** por el **programador** (convertir un string a int).
-
-**Nota importante**:
-Solo se puede hacer casting de variables **solamente entre tipos compatibles**.  
-
-#### **Convertir string a entero**
-```py
-cadena1 = "10"
-cadena2 = "20"
-valor1 = int(cadena1)
-valor2 = int(cadena2) 
-print("sin casting", cadena1+cadena2)
-print("con casting", valor1+valor2)
-```
-
-#### **Convertir string a flotante**
-```py
-cadena1 = "10.125"
-valor1 = float(cadena1)
-print("sin casting", type(cadena1))
-print("con casting", type(float(valor1)))
-```
-
-#### **Convertir a booleano**
-```py
-x = 0
-y = bool(x)    # 0 es False, cualquier otro número es True
-print(y)       # False
-```
-
-#### **Otros tipos de conversiones**
-También se puede hacer conversiones sobre objetos como las **listas, tuplas, diccionarios y sets** pero no hablaremos, de momento, de ellos ya que aún no los hemos visto.
-
-#### **Tabla resumen de refundiciones**
-| Tipo de destino | Ejemplo de conversión     | Resultado       | Notas                                                                                          |
-| --------------- | ------------------------- | --------------- | ---------------------------------------------------------------------------------------------- |
-| **int**         | `int("10")`               | `10`            | Convierte strings numéricos o floats (trunca decimales). No funciona con strings no numéricos. |
-| **float**       | `float("10.5")`           | `10.5`          | Convierte strings numéricos y enteros.                                                         |
-| **str**         | `str(100)`                | `"100"`         | Convierte cualquier tipo a string.                                                             |
-| **bool**        | `bool(0)`                 | `False`         | `0`, `0.0`, `""`, `[]`, `{}` → False; resto → True                                             |
-| **list**        | `list((1,2,3))`           | `[1,2,3]`       | Convierte tuplas, sets o strings en listas de elementos.                                       |
-| **tuple**       | `tuple([1,2,3])`          | `(1,2,3)`       | Convierte listas, sets o strings en tuplas.                                                    |
-| **set**         | `set([1,2,2,3])`          | `{1,2,3}`       | Convierte listas, tuplas o strings en conjuntos eliminando duplicados.                         |
-| **dict**        | `dict([("a",1),("b",2)])` | `{"a":1,"b":2}` | Convierte listas o tuplas de pares clave-valor en diccionarios.                                |
-
-|Tarea RA1CEh** Se ha comprobado el funcionamiento de las conversiones de tipo explícitas e implícitas. |
-|Tarea RA5CEa** Se ha utilizado la consola para realizar operaciones de entrada y salida de información. |
-|Tarea RA5CEb** Se han aplicado formatos en la visualización de la información.|
-
-
-
----
-HASTA AQUI  
+  
 https://jorgedelossantos.github.io/apuntes-python/Funciones.html
  
-https://www.learnpython.org/en/Input_and_Output
-https://docs.python.org/es/3/tutorial/inputoutput.html#the-string-format-method
 
 https://arturoblasco.github.io/prg/ut01/actividades/ut01ac1f/  
-https://ellibrodepython.com/  
-
-https://aprendeconalf.es/docencia/python/ejercicios/tipos-datos/
-
-https://lopegonzalez.es/eso-y-bachillerato/creacion-digital-y-pensamiento-computacional-1o-bachillerato/tema-1-introduccion-a-la-programacion/ejercicios-resueltos-sobre-variables-operadores-e-interaccion-con-el-usuario-en-python/
-
-IA BD PIA UT 2. ... pagina 37.  
-
----
-
+  
 <!-- http://anyp.fcaglp.unlp.edu.ar/Practicas-2025/ANyP-01b.pdf -->
 
-
 <!-- destructuracion?? -->
-<!-- https://aprendeconalf.es/docencia/python/ejercicios/condicionales/ -->
-
-
-
 
 <!--
-Progreso / sobrescribir línea
-
-Con \r vuelves al inicio de la línea:
-for i in range(1, 6):
-    print(f"\rPaso {i}/5", end="", flush=True)
-print("\nHecho")
-
-
-Mini-recetas útiles
-1) Tabla rápida con separador
-print("id", "nombre", "nota", sep="\t")
-print(1, "Ana", 9.1, sep="\t")
-
-2) Formato con f-strings
-user, score = "ana", 9.1
-print(f"Usuario {user!r} → nota: {score:.2f}")
-
-4) Impresión condicional compacta
-aprobado = 7.2
-print("Aprobado" if aprobado >= 5 else "Suspenso")
-
 5) Desempeño al imprimir listas grandes
 nums = list(range(10_000))
 print(*nums, sep="\n")  # una llamada en vez de 10k prints
-
  -->
-
-
-  
-

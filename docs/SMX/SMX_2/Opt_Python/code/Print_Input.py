@@ -46,11 +46,11 @@
 # aprobado = 7.2
 # print("Aprobado" if aprobado >= 5 else "Suspenso")
 
-valor1 = 5
-valor2 = 7
-valor3 = 35
-texto = "euros"
-texto1 = "Pablo"
+# valor1 = 5
+# valor2 = 7
+# valor3 = 35
+# texto = "euros"
+# texto1 = "Pablo"
 
 # print("El resultado de la mutiplicacion de",valor1,"por",valor2,"es",valor3,texto)
 # # con cadenas f
@@ -128,7 +128,20 @@ texto1 = "Pablo"
 # numero = int(cadena)
 # print(type(numero))
 
-cadena1 = "10.125"
-valor1 = float(cadena1)
-print("sin casting", type(cadena1))
-print("con casting", type(float(valor1)))
+# cadena1 = "10.125"
+# valor1 = float(cadena1)
+# print("sin casting", type(cadena1))
+# print("con casting", type(float(valor1)))
+
+
+# nombre = input("Introducir nombre: ")
+# print(f"Hola {nombre}, buenos días")
+# print("Hola {}, buenos dias".format(nombre))
+# while(True):
+#   valor = input("Introducir un valor entero: ")
+#   if valor=="salir":break 
+#   print(f"Hola, el valor introducido es: {valor}")
+#   print("El tipo de valor es: ", type(valor))
+# print("Programa finalizado.")
+
+print(f"Equivalente en porcentaje de 0.85: {0.85:.1%}")
