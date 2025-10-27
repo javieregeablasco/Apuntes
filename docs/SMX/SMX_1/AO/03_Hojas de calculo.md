@@ -155,7 +155,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
       
     <u>**Tamaño de celdas**</u>   
     &emsp;Anchura columna 1: 2cm  
-    &emsp;Anchura columnas 2, 3, 4 y 5,: 1cm  
+    &emsp;Anchura columnas 2, 3, 4 y 5,: 3cm  
     &emsp;Altura fila 1: 1cm  
     &emsp;Altura fila 2: 0.7cm  
     &emsp;Altura fila 3: 0.6cm  
