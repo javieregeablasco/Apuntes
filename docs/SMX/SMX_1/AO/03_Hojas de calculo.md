@@ -157,7 +157,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
     &emsp;Anchura columna 1: 2cm  
     &emsp;Anchura columnas 2, 3, 4 y 5,: 3cm  
     &emsp;Altura fila 1: 1cm  
-    &emsp;Altura fila 2: 0.7cm  
+    &emsp;Altura fila 2: 0.75cm  
     &emsp;Altura fila 3: 0.6cm  
     &emsp;Altura fila 4, 5, 6, 7, y 8: 0.5cm
 
@@ -168,6 +168,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
     
     <u>**Trabajo adicional**</u>  
     &emsp;Combinar celdas A1, B1, C1, D1 y E1   
+    &emsp;Combinar celdas B3 con C3 y D3 con E3   
     &emsp;Insertar una fila y una columna.  
     &emsp;Redimensionar la columna para que quede de la siguiente manera.       
 
