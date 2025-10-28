@@ -126,31 +126,30 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
 
     <u>**Configuración de los estilos**</u>  
     **1. Predeterminado:**  
-    &emsp;Tipo de letra: Arial 12 normal   
+    &emsp;Tipo de letra: Arial 12 normal, alineación izquierda.   
     
     **2. Estilo Valores**  
     &emsp;Tipo de letra: Arial 12 normal Añil oscuro, centrado horizontalmente.  
-    &emsp;Bordes: Grosor 0.5pt, Añil oscuro 2, separación 0.35mm.  
+    &emsp;Bordes: Grosor 0.5pt, Añil oscuro 2.  
     &emsp;Fondo: Gris claro 5.  
 
     **3. Estilo Columnas**  
-    &emsp;Tipo de letra: Arial 16 negrita blanco, centrado horizontalmente y verticalmente.   
-    &emsp;Bordes: Grosor 0.5pt, oro, separación 0.35mm.  
+    &emsp;Tipo de letra: Arial 12 cursiva verde, centrado horizontalmente.   
+    &emsp;Bordes: Grosor 0.05pt, oro.  
     &emsp;Fondo: Oro claro 4.
 
     **4. Estilo Índices**  
-    &emsp;Tipo de letra: Arial 12 cursiva, azul oscuro 1, alineación derecha.   
-    &emsp;Bordes: Grosor 0.5pt, oro, separación 0.35mm.  
+    &emsp;Tipo de letra: Arial 12 cursiva, azul oscuro 1, alineación izquierda.   
+    &emsp;Bordes: Grosor 0.5pt, oro claro 1.  
     &emsp;Fondo: Rojo claro 4.  
     
     **3. Estilo Título 1**  
     &emsp;Tipo de letra: Arial 16 negrita blanco, centrado horizontalmente y verticalmente.   
-    &emsp;Bordes: Grosor 0.05pt, lima, separación 0.5mm.  
-    &emsp;Fondo: Lima oscura 4.  
+    &emsp;Fondo: Negro.  
 
     **4. Estilo Título 2**  
-    &emsp;Tipo de letra: Arial 12 negrita cursiva, rojo, centrado horizontalmente.   
-    &emsp;Bordes: Grosor 0.5pt, lima, separación 0.5mm.  
+    &emsp;Tipo de letra: Arial 12 negrita, rojo, centrado horizontalmente.   
+    &emsp;Bordes: Grosor 0.5pt, lima.  
     &emsp;Fondo: Magenta claro 4.  
       
     <u>**Tamaño de celdas**</u>   
@@ -164,13 +163,19 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
     <u>**Datos a introducir dentro de las celdas**</u>  
     &emsp;Introducir los datos a mano para que quede de la siguiente manera.
 
-    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc9.png){ .leftsietecinco }
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc16.png){ .leftsietecinco }
     
     <u>**Trabajo adicional**</u>  
-    &emsp;Combinar celdas A1, B1, C1, D1 y E1   
-    &emsp;Combinar celdas B3 con C3 y D3 con E3   
-    &emsp;Insertar una fila y una columna.  
-    &emsp;Redimensionar la columna para que quede de la siguiente manera.       
+    &emsp;Aplicar los estilos de la siguiente manera.
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc9.png){ .leftsietecinco }
+
+    
+    <u>**Trabajo adicional**</u>  
+    &emsp;Combinar las celdas A1, B1, C1, D1 y E1   
+    &emsp;Combinar las celdas B3 con C3 y D3 con E3   
+    &emsp;Insertar una fila en la posición 1 y una columna en la posición A.  
+    &emsp;Redimensionar la columna A al gusto.       
+    &emsp;El resultado final deberá ser similar al de la imagen.       
 
     ![Descripción de la imagen](./03_hojas_de_calculo/img/calc7.png){ .leftsietecinco }
 
@@ -184,7 +189,10 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
     
     <u>**Trabajo adicional**</u>  
     &emsp;Arreglar el ancho de la columna de los meses para que el texto no quede cortado.  
-    &emsp;Para evitar que los datos se repinan poner la formula **ALEATORIO.ENTRE(-10;35) como valor de las celdas de las temperaturas**.  
+    &emsp;Para evitar que los datos se repitan, poner la formula **=ALEATORIO.ENTRE(-10;35) como valor de las celdas de las temperaturas**.  
+    
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc17.png){ .leftsietecinco }
+
     &emsp;Al final la tabla quedará de la siguiente manera.  
 
     ![Descripción de la imagen](./03_hojas_de_calculo/img/calc8.png){ .leftsietecinco }
@@ -197,12 +205,14 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
 ### **Tarea RA3-CEb-2 - Elaboración básica de hojas de cálculo**
 !!! exercice "Tarea RA3-CEb-2 - Trabajando con series"
     **Ejercicio parte 1**  
-    Realizar un diseño similar al del ejemplo.
+    Realizar un diseño similar al del ejemplo. 
+    Teneis **libertad total** en cuanto a anchos, altos, bordes, colores y ancho del bordes columnas así como tamaño color tipo de letra y fondo de celdas.
 
-    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc10.png){ .original }<br>
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc18.png){ .original }<br>
     
     **Ejercicio parte 2**  
-    Insertar series para obtener **el mismo resultado** que a continuación.  <br>  
+    Insertar series para obtener **el mismo resultado** que a continuación.  
+    **Se dará la explicación en clase de como hacer series**. <br>  
     
     <u>**Series aritméticas**</u>  
 
@@ -220,9 +230,14 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
 
     ![Descripción de la imagen](./03_hojas_de_calculo/img/calc14.png){ .leftdoscero }<br>  
 
+    <u>**Resultado final**</u>
+
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc10.png){ .leftdoscero }<br>  
+
     <u>**Trabajo adicional**</u>  
-    &emsp;Inmobilizar la **columna adecuada** para obtener el siguiente resultado.
-    &emsp;Ampliar la columna B para que la numeración coincida con la cantidad de provincias.  
+    &emsp;Inmobilizar la **columna adecuada** y actuar sobre la barra de desplazamiento para obtener el siguiente resultado.  
+    &emsp;**No debeis copiar / pegar las columnas**.  
+ 
     &emsp;Resultado esperado.
       
     ![Descripción de la imagen](./03_hojas_de_calculo/img/calc15.png){ .leftdoscero }<br>  
