@@ -315,28 +315,31 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
 
 
 
-### **Tarea RA3-CEc-2 - Referencias de celdas**
+### **Tarea RA3-CEc-2 - Referencias de celdas, relativas, absolutas y mixtas**
+
+### **Tarea RA3-CEc-3 - Formúlas básicas, referencias de celdas relativas absolutas y mixtas**
 
 
-<!-- file:///C:/Users/titan/Documents/Javier128/Modulos/SMX/SMX_1/AO/materiales/RA3/M2P11-FormatoCondicional-Voluntaria.pdf 
+<!-- 
+https://www.youtube.com/watch?v=UFob_EWdWLA&list=PLU8oAlHdN5BkCs-P-AnQhxsSyxSxv9jfI&index=11file:///C:/Users/titan/Documents/Javier128/Modulos/SMX/SMX_1/AO/materiales/RA3/M2P11-FormatoCondicional-Voluntaria.pdf 
 file:///C:/Users/titan/Documents/Javier128/Modulos/SMX/SMX_1/AO/materiales/RA3/M2P9-CuentaBancaria.pdf
 
 
 file:///C:/Users/titan/Documents/Javier128/Modulos/SMX/SMX_1/AO/materiales/RA3/M1P8-RefenrenciasCeldas.pdf
 file:///C:/Users/titan/Documents/Javier128/Modulos/SMX/SMX_1/AO/materiales/RA3/Actividad_referencias.pdf
 <!-- https://www.youtube.com/watch?v=QnIJmDmk0YA -->
+<!-- https://www.youtube.com/watch?v=rK2gM-n0oaM&list=PLU8oAlHdN5BkCs-P-AnQhxsSyxSxv9jfI&index=20 -->
 <!--
-### **Tarea RA3-CEc-2 - **
 ### **Tarea RA3-CEc-3 - **
 ### **Tarea RA3-CEd-1 - **
 ### **Tarea RA3-CEd-2 - **
 ### **Tarea RA3-CEd-3 - **
 ### **Tarea RA3-CEe-1 - **
 ### **Tarea RA3-CEe-2 - **
-### **Tarea RA3-CEf - **
+### **Tarea RA3-CEf **
 ### **Tarea RA3-CEh-1 - **
 ### **Tarea RA3-CEh-2 - **
-### **Tarea RA3-CEi - ** -->
+### **Tarea RA3-CEi ** -->
 
 
 <!-- file:///C:/Users/titan/Documents/Javier128/Modulos/SMX/SMX_1/AO/materiales/RA3/Exercici%20Calc%201.pdf -->
