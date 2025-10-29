@@ -114,7 +114,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
         - Insertar celda.
         - Controles de formulario.
         - Navegación de formulario.
-    1. Condiciones de entrega de la práctica: Subir el archivo en **formato .ods** a la tarea RA3-CEa. No se admitirá ningún otro tipo de formato. 
+    1. Condiciones de entrega de la práctica: Subir el archivo en **formato ods, nativo de LibreOffice** a la tarea RA3-CEa. No se admitirá ningún otro tipo de formato. 
    
 ### **Tarea RA3-CEb-1 - Elaboración básica de hojas de cálculo**
 !!! exercice "Tarea RA3-CEb-1 - Elaboración de una tabla en un hoja de cálculo"
@@ -199,7 +199,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
 
     <u>**Condiciones de entrega**</u>  
     &emsp;Guardar el documento con NombreApellidos-Tarea-RA3-CEb-1   
-    &emsp;Subir la hoja de cálculo en **formato ods** a la tarea RA3-CEb-1  
+    &emsp;Subir la hoja de cálculo en **formato ods, nativo de LibreOffice** a la tarea RA3-CEb-1  
     &emsp;**No se aceptará ningun formato que no sea ods**.
 
 ### **Tarea RA3-CEb-2 - Elaboración básica de hojas de cálculo**
@@ -216,7 +216,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
     
     <u>**Series aritméticas**</u>  
 
-    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc11.png){ .leftcincocero }<br>
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc11.png){ .lefttrescero }<br>
     
     <u>**Series geométricas**</u>  
 
@@ -228,11 +228,11 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
     
     <u>**Personalizadas**</u>  
 
-    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc14.png){ .leftdoscero }<br>  
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc14.png){ .leftcuatrocero }<br>  
 
     <u>**Resultado final**</u>
 
-    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc10.png){ .leftdoscero }<br>  
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc10.png){ .leftoriginal }<br>  
 
     <u>**Trabajo adicional**</u>  
     &emsp;Inmobilizar la **columna adecuada** y actuar sobre la barra de desplazamiento para obtener el siguiente resultado.  
@@ -240,17 +240,87 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
  
     &emsp;Resultado esperado.
       
-    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc15.png){ .leftdoscero }<br>  
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc15.png){ .lefttrescero }<br>  
     
     <u>**Condiciones de entrega**</u>  
     &emsp;Guardar el documento con NombreApellidos-Tarea-RA3-CEb-2   
-    &emsp;Subir la hoja de cálculo en **formato ods** a la tarea RA3-CEb-2  
+    &emsp;Subir la hoja de cálculo en **formato ods, nativo de LibreOffice** a la tarea RA3-CEb-2  
     &emsp;**No se aceptará ningun formato que no sea ods**.  
 
+### **Tarea RA3-CEc-1 - Datos, columnas y referencias de celdas**
+!!! exercice "Tarea RA3-CEc-1 - Trabajando con formatos celdas"
+    !!! tip "1. Descargar el archivo"
+     Descargar y abrir el archivo 'RA3-CEc-1' pinchando en el enlace siguiente:** [Descargar archivo](./03_hojas_de_calculo/tareas/RA3-CEc-1%20alumno.ods)  
+    
+    !!! tip "2. Realizar un diseño similar al del ejemplo"  
+    Teneis **libertad total** en cuanto a anchos, altos, bordes, colores y ancho del bordes columnas así como tamaño color tipo de letra y fondo de celdas.  
+
+    **Nota importante:** Cosas a tener en cuenta para realizar el diseño.  
+    &emsp; Fila 1: Datos centrados tanto verticalmente como horizontalmente.  
+    &emsp;&emsp;&emsp;&emsp; Bordes personalizados.    
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc19.png){ .leftsietecinco .marginseiszero }<br>   
+
+    &emsp; Filas datos: Sangrías (o márgenes) a la izquierda o a la derecha.
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc20.png){ .leftsietecinco .marginseiszero }<br>   
+
+    &emsp; Formato de datos: Fechas, moneda, hora...
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc22.png){ .leftsietecinco .marginseiszero }<br>   
 
 
+    &emsp; Resultado final.
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc21.png){ .leftsietecinco .marginseiszero }<br>   
+    !!! tip "3. Insertar una columna de segundo apellido"  
+    Insertar una columna de segundo apellido para que quede de la siguiente manera (ojo con la cabecera de la columna).
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc23.png){ .leftcuatrocero .marginseiszero }<br>   
+    &emsp;&emsp;&emsp;&emsp;Apellidos a añadir:  
+    &emsp;&emsp;&emsp;&emsp;&emsp;García  
+    &emsp;&emsp;&emsp;&emsp;&emsp;Fernández  
+    &emsp;&emsp;&emsp;&emsp;&emsp;González  
+    &emsp;&emsp;&emsp;&emsp;&emsp;Rodríguez  
+    &emsp;&emsp;&emsp;&emsp;&emsp;López  
+    &emsp;&emsp;&emsp;&emsp;&emsp;Martínez  
+    &emsp;&emsp;&emsp;&emsp;&emsp;Sánchez  
+    &emsp;&emsp;&emsp;&emsp;&emsp;Pérez  
+    &emsp;&emsp;&emsp;&emsp;&emsp;Gómez  
+    &emsp;&emsp;&emsp;&emsp;&emsp;Martín  <br>
+    
+    !!! tip "4. Insertar una columna Salario actual"
+    Insertar una columna **Salario actual** con los datos que aparecen en la imagen.  
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc25.png){ .leftcuatrocero .marginseiszero }<br>   
 
-<!-- ### **Tarea RA3-CEc-1 - **
+    !!! tip "5. Insertar la columna "Diferencia actual-inicial""
+    Insertar la columna **Diferencia actual-inicial** que será la diferencia entre las 2 columnas anteriores.   
+    Os dejo la fórmula para calcular esa diferencia.
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc26.png){ .leftcuatrocero .marginseiszero }<br>   
+
+    !!! tip "6. Aplicar un formato condicional a la columna "Diferencia actual-inicial""
+    Para diferencias superiores a 200 se aplicará el estilo Alerta (o cualquier otro, incluso podreís crear uno).  
+    Para diferencias entre 0 y 200 se aplicará el estilo Neutro (...).  
+    Para diferencias inferiores a 0 se aplicará el estilo Bueno (...).   
+    Resultado final (cuidado con los estilos propios de los datos).  
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc27.png){ .lefttrescero .marginseiszero }<br>   
+
+    !!! tip "6. Insertar una columna "Horas trabajadas diarias""
+    Insertar una columna **Horas trabajadas diarias** cuyos valores seran la diferencia entre las columnas **Hora salida** y **Hora entrada**.  
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc24.png){ .leftcuatrocero .marginseiszero }<br>   
+
+    !!! tip "7. Aplicar un formato condicional a la columna "Horas trabajadas diarias""
+    Para valores superiores a 8 horas 200 se aplicará el estilo Bueno (o cualquier otro, incluso podreís crear uno).  
+    Para valores iguales a 8 horas se aplicará el estilo Neutro (...).  
+    Para valores inferiores a 8 horas se aplicará el estilo Alerta (...).    
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc28.png){ .lefttrescero .marginseiszero }<br>   
+
+### **Tarea RA3-CEc-2 - Referencias de celdas**
+
+
+<!-- file:///C:/Users/titan/Documents/Javier128/Modulos/SMX/SMX_1/AO/materiales/RA3/M2P11-FormatoCondicional-Voluntaria.pdf 
+file:///C:/Users/titan/Documents/Javier128/Modulos/SMX/SMX_1/AO/materiales/RA3/M2P9-CuentaBancaria.pdf
+
+
+file:///C:/Users/titan/Documents/Javier128/Modulos/SMX/SMX_1/AO/materiales/RA3/M1P8-RefenrenciasCeldas.pdf
+file:///C:/Users/titan/Documents/Javier128/Modulos/SMX/SMX_1/AO/materiales/RA3/Actividad_referencias.pdf
+<!-- https://www.youtube.com/watch?v=QnIJmDmk0YA -->
+<!--
 ### **Tarea RA3-CEc-2 - **
 ### **Tarea RA3-CEc-3 - **
 ### **Tarea RA3-CEd-1 - **
@@ -268,8 +338,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
 
 
 <!-- 
- |**b)** Se han utilizado los elementos básicos en la elaboración de hojas de cálculo. |15%|
-    |**c)** Se han utilizado los diversos tipos de datos y referencia para celdas, rangos, hojas y libros. |    10%|
+     |**c)** Se han utilizado los diversos tipos de datos y referencia para celdas, rangos, hojas y libros. |    10%|
     |**d)** Se han aplicado fórmulas y funciones. |15%|
     |**e)** Se han generado y modificado gráficos de diferentes tipos. |10%|
     |**f)** Se han empleado macros para la realización de documentos y plantillas.|10%|

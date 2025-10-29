@@ -2051,6 +2051,9 @@ print(set(list))
         ```
 
 ### **6.2 - Funciones** 
+#### **6.2.1 - Funciones built-in
+Python dispone de algunas funciones nativas que se cargan cuando se inicia el intérprete. Por ejemplo la función max devuelve el mayor valor numérico de una lista de números:
+
 !!! Warning "Atención"  
     Las funciones se diferencian en lo que hacen después de ejecutarse.  
 
