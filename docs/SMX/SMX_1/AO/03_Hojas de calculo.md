@@ -300,15 +300,20 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
     Resultado final (cuidado con los estilos propios de los datos).  
     ![Descripción de la imagen](./03_hojas_de_calculo/img/calc27.png){ .lefttrescero .marginseiszero }<br>   
 
-    !!! tip "6. Insertar una columna "Horas trabajadas diarias""
+    !!! tip "7. Insertar una columna "Horas trabajadas diarias""
     Insertar una columna **Horas trabajadas diarias** cuyos valores seran la diferencia entre las columnas **Hora salida** y **Hora entrada**.  
     ![Descripción de la imagen](./03_hojas_de_calculo/img/calc24.png){ .leftcuatrocero .marginseiszero }<br>   
 
-    !!! tip "7. Aplicar un formato condicional a la columna "Horas trabajadas diarias""
+    !!! tip "8. Aplicar un formato condicional a la columna "Horas trabajadas diarias""
     Para valores superiores a 8 horas 200 se aplicará el estilo Bueno (o cualquier otro, incluso podreís crear uno).  
     Para valores iguales a 8 horas se aplicará el estilo Neutro (...).  
     Para valores inferiores a 8 horas se aplicará el estilo Alerta (...).    
     ![Descripción de la imagen](./03_hojas_de_calculo/img/calc28.png){ .lefttrescero .marginseiszero }<br>   
+
+    !!! tip "9. Aspecto final de la práctica""
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc29.png){ .leftoriginal }<br>   
+
+
 
 ### **Tarea RA3-CEc-2 - Referencias de celdas**
 

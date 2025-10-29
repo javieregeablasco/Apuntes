@@ -148,6 +148,36 @@
 .marginseiszero {
   margin-top: 10px;
   margin-left: 60px;
-
-
 }
+
+
+
+/*tabla built-in apuntes de python*/
+.table-funciones {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: small;
+}
+.table-funciones th {
+  text-align: left;
+  background-color: #222;
+  color: white;
+  padding: 8px;
+  font-size: 1.1em;
+}
+.table-funciones td {
+  vertical-align: top;
+  width: 14%;
+  padding: 6px;
+  background-color: #1e1e1e;
+  color: #ddd;
+}
+.table-funciones a {
+  color: #4da3ff;
+  text-decoration: none;
+}
+.table-funciones a:hover {
+  text-decoration: underline;
+}
+/*tabla built-in apuntes de python*/
