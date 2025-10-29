@@ -2051,8 +2051,51 @@ print(set(list))
         ```
 
 ### **6.2 - Funciones** 
-#### **6.2.1 - Funciones built-in
-Python dispone de algunas funciones nativas que se cargan cuando se inicia el intérprete. Por ejemplo la función max devuelve el mayor valor numérico de una lista de números:
+#### **6.2.1 - Funciones built-in**
+Python dispone de una serie de funciones nativas que se cargan cuando se inicia el intérprete. 
+
+<table class="table-funciones">
+  <thead>
+    <tr><th colspan="7">Funciones built-in</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>A</b><br>abs()<br>aiter()<br>all()<br>anext()<br>any()<br>ascii()</td>
+      <td><b>B</b><br>bin()<br>bool()<br>breakpoint()<br>bytearray()<br>bytes()</td>
+      <td><b>C</b><br>callable()<br>chr()<br>classmethod()<br>compile()<br>complex()</td>
+      <td><b>D</b><br>delattr()<br>dict()<br>dir()<br>divmod()</td>
+      <td><b>E</b><br>enumerate()<br>eval()<br>exec()</td>
+      <td><b>F</b><br>filter()<br>float()<br>format()<br>frozenset()</td>
+      <td><b>G</b><br>getattr()<br>globals()</td>
+    </tr>
+    <tr>
+      <td><b>H</b><br>hasattr()<br>hash()<br>help()<br>hex()</td>
+      <td><b>I</b><br>id()<br>input()<br>int()<br>isinstance()<br>issubclass()<br>iter()</td>
+      <td><b>L</b><br>len()<br>list()<br>locals()</td>
+      <td><b>M</b><br>map()<br>max()<br>memoryview()<br>min()</td>
+      <td><b>N</b><br>next()</td>
+      <td><b>O</b><br>object()<br>oct()<br>open()<br>ord()</td>
+      <td><b>P</b><br>pow()<br>print()<br>property()</td>
+    </tr>
+    <tr>
+      <td><b>R</b><br>range()<br>repr()<br>reversed()<br>round()</td>
+      <td><b>S</b><br>set()<br>setattr()<br>slice()<br>sorted()<br>staticmethod()<br>str()<br>sum()<br>super()</td>
+      <td><b>T</b><br>tuple()<br>type()</td>
+      <td><b>V</b><br>vars()</td>
+      <td><b>Z</b><br>zip()</td>
+      <td><b>_</b><br>__import__()</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+
+<!-- 
+
+https://jorgedelossantos.github.io/apuntes-python/Funciones.html
+https://ellibrodepython.com/funciones-python
+https://docs.python.org/es/3.13/library/functions.html
+
 
 !!! Warning "Atención"  
     Las funciones se diferencian en lo que hacen después de ejecutarse.  
@@ -2060,19 +2103,125 @@ Python dispone de algunas funciones nativas que se cargan cuando se inicia el in
     - Funciones que devuelven algo: Realizan una tarea y entregan un resultado usando **la palabra clave return**. Ese valor puede guardarse en una variable o usarse en otros cálculos.  
     - Funciones que no devuelven nada: Realizan una acción (por ejemplo, mostrar un mensaje en pantalla), pero no entregan ningún valor; su resultado no puede almacenarse ni usarse más adelante.
 
+| Funciones incorporadas |
+|-|-|-|-|
+|A
+abs()
+aiter()
+all()
+anext()
+any()
+ascii()
+
+B
+bin()
+bool()
+breakpoint()
+bytearray()
+bytes()
+
+C
+callable()
+chr()
+classmethod()
+compile()
+complex()
+
+D
+delattr()
+dict()
+dir()
+divmod()|
+E
+enumerate()
+eval()
+exec()
+
+F
+filter()
+float()
+format()
+frozenset()
+
+G
+getattr()
+globals()
+
+H
+hasattr()
+hash()
+help()
+hex()
+
+I
+id()
+input()
+int()
+isinstance()
+issubclass()
+iter()
+|	
+L
+len()
+list()
+locals()
+
+M
+map()
+max()
+memoryview()
+min()
+
+N
+next()
+
+O
+object()
+oct()
+open()
+ord()
+
+P
+pow()
+print()
+property()
+|
 
 
+
+	
+R
+range()
+repr()
+reversed()
+round()
+
+S
+set()
+setattr()
+slice()
+sorted()
+staticmethod()
+str()
+sum()
+super()
+
+T
+tuple()
+type()
+
+V
+vars()
+
+Z
+zip()
+
+_
+__import__()
+|
+ -->
 
 <!--
-https://ellibrodepython.com/funciones-python
-
-
-
-
-
-
-
-
 ```py
 # definimos una variable de tipo lista
 datos = []
