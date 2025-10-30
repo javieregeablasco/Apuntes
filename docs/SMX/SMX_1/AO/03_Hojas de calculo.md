@@ -250,7 +250,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
 ### **Tarea RA3-CEc-1 - Datos, columnas y referencias de celdas**
 !!! exercice "Tarea RA3-CEc-1 - Trabajando con formatos celdas"
     !!! tip "1. Descargar el archivo"
-     Descargar y abrir el archivo 'RA3-CEc-1' pinchando en el enlace siguiente:** [Descargar archivo](./03_hojas_de_calculo/tareas/RA3-CEc-1%20alumno.ods)  
+     Descargar y abrir el archivo 'RA3-CEc-1' pinchando en el enlace siguiente: [Descargar archivo](./03_hojas_de_calculo/tareas/RA3-CEc-1%20alumno.ods)  
     
     !!! tip "2. Realizar un diseño similar al del ejemplo"  
     Teneis **libertad total** en cuanto a anchos, altos, bordes, colores y ancho del bordes columnas así como tamaño color tipo de letra y fondo de celdas.  
