@@ -313,27 +313,88 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
     !!! tip "9. Aspecto final de la práctica""
     ![Descripción de la imagen](./03_hojas_de_calculo/img/calc29.png){ .leftoriginal }<br>   
 
+<!-- ### **Tarea RA3-CEc-2 - Formúlas básicas, referencias de celdas, relativas, absolutas y mixtas**
+!!! tip "Un poco de teoría sobre referencias y rangos de celdas."
 
+Todas las celdas de una hoja de cálculo tienen referencias (coordenadas). Por convención, las columnas se identifican por **letras** y las filas por **números**.  
+![Descripción de la imagen](./03_hojas_de_calculo/img/calc30.png){ .lefdoscinco }<br>   
 
-### **Tarea RA3-CEc-2 - Referencias de celdas, relativas, absolutas y mixtas**
+**Un rango de celdas** es un conjunto de celdas adyacentes.
+Para hacer referencia a un rango de celdas, introduciremos la referencia de la celda en la **esquina
+superior izquierda**, seguida de dos puntos (:) y, a continuación, la referencia a la celda en la esquina inferior
+derecha del rango.  
 
-### **Tarea RA3-CEc-3 - Formúlas básicas, referencias de celdas relativas absolutas y mixtas**
+!!! tip "Ejemplo de rangos."  
+![Descripción de la imagen](./03_hojas_de_calculo/img/calc31.png){ .lefdoscinco }<br>   
+![Descripción de la imagen](./03_hojas_de_calculo/img/calc32.png){ .lefdoscinco }<br>   
+![Descripción de la imagen](./03_hojas_de_calculo/img/calc33.png){ .lefdoscinco }<br>   
+
+!!! warning "Tarea parte 1. Descargar el archivo"
+Descargar y abrir el archivo 'RA3-CEc-2' pinchando en el enlace siguiente: [Descargar archivo](./03_hojas_de_calculo/tareas/RA3-CEc-2%20alumno.ods)  
+
+!!! warning "Tarea parte 2. Aplicar fórmulas básicas a las celdas"
+En la hoja 1 encontrareís unas tablas con valores.  
+
+Trabajos a realizar: 
+
+1. Conjunto de la hoja de cálculo: Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. **Tenéis libertad total en este apartado**.       
+1. Columna **Prima**: Asignar a mano la prima del empleado haciendo uso de la tabla. (Esta operación se puede automatizar, como lo veremos en otra tarea).      
+1. Columna **Sueldo + prima**: Calcular el resultado de la suma de las columnas **Prima** y **Sueldo**.
+1. Columna **Porcentaje sobre el sueldo**: Calcular el porcentaje que representa la prima sobre el sueldo (sin prima) para cada empleado.
+
+!!! tip "Un poco de teoría sobre referencias relativas, absolutas y mixtas."
+    !!! info "Referencias relativas"
+    Las referencias relativas se basan en la posición relativa de la celda que contiene la fórmula y de la celda a la que hace referencia. Si se copia una fórmula en filas o columnas, la referencia se ajusta automáticamente es decir:  
+
+    - Si cambia la posición de la celda que contiene la fórmula, se cambia la referencia. 
+    - Si se copia la fórmula en filas o columnas, la referencia se ajusta automáticamente.  
+
+    **Nota:** De forma predeterminada todos los editores de hojas de cálculo utilizan referencias relativas.
+
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc34.png){ .lefdoscinco }<br>   
+
+!!! warning "Tarea parte 3. Aplicar una fórmula usando referencias relativas."
+    Ir a la hoja 2 del documento RA3-CEc-2 
+
+    1. Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. **Tenéis libertad total en este apartado**.   
+    1. Completar la tabla de multiplicar por 5.
+
+!!! tip "Un poco de teoría sobre referencias relativas, absolutas y mixtas."
+    !!! info "Referencias absolutas"
+    Una referencia absoluta hace referencia a una **celda en una ubicación específica**. Se caracteriza por incluir el carácter $.  
+    Si cambia la posición de la celda que contiene la fórmula, la referencia absoluta **permanecerá invariable**. A diferencia de las referencias relativas, si se copia / pega la fórmula en filas o columnas, la referencia absoluta no se ajustará.
+
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc35.png){ .lefdoscinco }<br>   
+
+!!! warning "Tarea parte 4. Aplicar una fórmula usando referencias absolutas."
+    Ir a la hoja 3 del documento RA3-CEc-2
+
+    1. Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. **Tenéis libertad total en este apartado**.   
+    1. Completar la columna **Préstamo en Euros** usando referencias absolutas.
+
+!!! tip "Un poco de teoría sobre referencias relativas, absolutas y mixtas."
+    !!! info "Referencias mixtas"
+    Una referencia mixta se compone de una columna (fila) absoluta y una fila (columna) relativa.  
+    Una referencia de **columna absoluta** adopta la forma **$A1, $B1, etc** y una referencia de fila absoluta la forma **A$1, B$1, etc**.
+    Si cambia la posición de la celda que contiene la fórmula, se cambia la referencia relativa y la referencia absoluta permanece invariable. Si se copia y pega la fórmula en filas o columnas, la referencia relativa se ajusta automáticamente y la referencia absoluta no se ajusta.
+
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc36.png){ .lefdoscinco }<br>    -->
 
 
 <!-- 
+file:///C:/Users/titan/Downloads/mat%20excel/Taller_REFERENCIAS_Excel_9no.pdf
+
 https://www.youtube.com/watch?v=UFob_EWdWLA&list=PLU8oAlHdN5BkCs-P-AnQhxsSyxSxv9jfI&index=11file:///C:/Users/titan/Documents/Javier128/Modulos/SMX/SMX_1/AO/materiales/RA3/M2P11-FormatoCondicional-Voluntaria.pdf 
 file:///C:/Users/titan/Documents/Javier128/Modulos/SMX/SMX_1/AO/materiales/RA3/M2P9-CuentaBancaria.pdf
 
-
+https://www.youtube.com/watch?v=keahyLxtOfQ&t=37s
 file:///C:/Users/titan/Documents/Javier128/Modulos/SMX/SMX_1/AO/materiales/RA3/M1P8-RefenrenciasCeldas.pdf
 file:///C:/Users/titan/Documents/Javier128/Modulos/SMX/SMX_1/AO/materiales/RA3/Actividad_referencias.pdf
 <!-- https://www.youtube.com/watch?v=QnIJmDmk0YA -->
 <!-- https://www.youtube.com/watch?v=rK2gM-n0oaM&list=PLU8oAlHdN5BkCs-P-AnQhxsSyxSxv9jfI&index=20 -->
 <!--
-### **Tarea RA3-CEc-3 - **
 ### **Tarea RA3-CEd-1 - **
 ### **Tarea RA3-CEd-2 - **
-### **Tarea RA3-CEd-3 - **
 ### **Tarea RA3-CEe-1 - **
 ### **Tarea RA3-CEe-2 - **
 ### **Tarea RA3-CEf **
@@ -341,9 +402,8 @@ file:///C:/Users/titan/Documents/Javier128/Modulos/SMX/SMX_1/AO/materiales/RA3/A
 ### **Tarea RA3-CEh-2 - **
 ### **Tarea RA3-CEi ** -->
 
-
-<!-- file:///C:/Users/titan/Documents/Javier128/Modulos/SMX/SMX_1/AO/materiales/RA3/Exercici%20Calc%201.pdf -->
-
+<!-- ### **Tarea RA3-CEc-3 - ** usar para otra cosa -->
+<!-- ### **Tarea RA3-CEd-3 - usar para otra cosa** -->
 
 <!-- 
      |**c)** Se han utilizado los diversos tipos de datos y referencia para celdas, rangos, hojas y libros. |    10%|
