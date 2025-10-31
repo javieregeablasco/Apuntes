@@ -2051,8 +2051,19 @@ print(set(list))
         ```
 
 ### **6.2 - Funciones** 
+Por el momento, solo se ha escrito código sin ningún tipo de estructura, lo que implica que todas las líneas del programa se ejecuten de forma lineal. Además, si debemos realizar en varias partes del programa la misma operación, deberemos volver a escribir exactamente el mismo código.
+
+Estos dos inconvenientes contradicen dos principios de buenas prácticas de programación:
+
+- El principio **DRY (Don't Repeat Yourself)**, que aboga por la reusabilidad: Si un fragmento se usa en muchos sitios, la mejor solución será encapsularlo.
+
+- El principio de Modularidad defiende que en vez de escribir largos bloques de código, es mejor crear funciones o módulos pequeños y autocontenidos que agrupen ciertas tareas. Esto hace que el código sea más fácil de leer, mantener y probar.
+
+Para resolver esos inconvenientes, se hace uso de funciones.
+
 #### **6.2.1 - Funciones built-in**
-Python dispone de una serie de funciones nativas que se cargan cuando se inicia el intérprete. 
+Python dispone de una serie de funciones nativas que se cargan cuando se inicia el intérprete.  
+Más información [aquí](https://docs.python.org/es/3.13/library/functions.html).
 
 <table class="table-funciones">
   <thead>
@@ -2089,6 +2100,196 @@ Python dispone de una serie de funciones nativas que se cargan cuando se inicia 
   </tbody>
 </table>
 
+**Ejemplos de uso de funciones built-in.**
+```py
+print(max([10,35,5,110,48,30,112,98,87]))
+print(bin(10))
+round(3.141592653589793, 6)
+print("Hola", 90, 80, sep=" \u21e8 ")
+```
+<br>
+
+#### **6.2.2 - Funciones definidas por el usuario**
+Por supuesto, es posible definir funciones propias usando la palabra **def**.
+
+**Sintaxis básica:**
+```py
+def nombre_fun(arg1, arg2, ..., argN):
+    # código que se ejecuta dentro de la función
+    # ...
+    # ...
+    # ...
+    return val1, val2, ..., valN #opcional
+```
+
+!!! Warning "Atención"  
+    Las funciones se diferencian en lo que hacen después de ejecutarse.  
+
+    - Funciones que devuelven algo: Realizan una tarea y entregan un resultado usando **la palabra clave return**. Ese valor puede guardarse en una variable o usarse en otros cálculos.  
+    - Funciones que no devuelven nada: Realizan una acción (por ejemplo, mostrar un mensaje en pantalla), pero no entregan ningún valor; su resultado no puede almacenarse ni usarse más adelante.
+
+
+#### **6.2.3 - Paso de argumentos a la función**
+Cuando se realiza una llamda a una función, los argumentos (o parámetros) son los valores que se pasan a la función para que pueda ejercutarse correctamente. Es la forma en que el código fuera de la función se comunica con el código dentro de ella.
+
+!!! tip "Funciones sin argumentos"
+Es la función más elemental de todas. No se le pasa ningún argumento y generalmente, tampoco devuelve nada. 
+```py 
+di_hola("Juan")
+
+def hola():
+    print("Hola")
+```
+!!! question "¿Este código está bien escrito?" 
+
+!!! tip "Funciones con argumentos"
+Las funciones pueden recibir distintos tipos de argumentos que determinan cómo se pasan los valores a los parámetros de la función.  
+
+- **Argumentos por posición**  
+Son los más comunes. Los valores se asignan a los parámetros según el orden en el que se pasan.
+```py
+def sumar(a, b):
+    return a + b
+
+resultado = sumar(3, 5)  
+```
+<br>
+
+- **Argumentos por nombre**  
+Permite especificar el parámetro al que se asigna cada valor, sin importar el orden.
+```py
+def saludar(nombre, mensaje):
+    print(f"{mensaje}, {nombre}")
+
+saludar(mensaje="Buenos días", nombre="Ana")
+```
+<br>
+
+- **Argumentos por defecto**  
+Si no se pasan todos los valores, se utiliza los valores por defecto.
+```py
+def potencia(base, exponente=2):
+    return base ** exponente
+
+print(potencia(4))      
+print(potencia(4, 3))   
+```
+<br>
+
+- **Argumentos de longitud variable**  
+Permiten pasar **un número indeterminado** de argumentos.  
+&emsp;&emsp; `*args` recibe una **tupla** de argumentos posicionales.  
+&emsp;&emsp; `**kwargs` recibe un **diccionario** de argumentos con nombre.
+```py
+def sumar_todo(*args):
+    print("Tipo de variable arg: ", type(args))
+    return sum(args)
+
+print(sumar_todo(1, 2, 3, 4))  
+
+def mostrar_info(**kwargs):
+    print("Tipo de variable kwargs: ", type(kwargs))
+    for clave, valor in kwargs.items():
+        print(f"{clave}: {valor}")
+
+mostrar_info(nombre="Luis", edad=25, ciudad="Valencia")
+```
+
+#### **6.2.4 - Sentencia return**
+La sentencia return permite realizar dos cosas:
+
+- **Salir** de la función y seguir con la ejecución del programa **desde donde** se realizó la llamada.
+- **Devolver** uno o varios parámetros, resultado de la ejecución de la función.
+
+```py
+def funcion():
+    print("Ejecución de la funcion")
+    return
+    print("No llega") # esta línea no se ejecutará
+
+funcion()
+```
+<br>
+
+**Nota 1:**  
+Podemos recuperar los valores de vuelta de manera selectiva usando su indice dentro de la sentencia return.
+```py
+def funcion(a,b,c):
+    return a*10, b-5, c-32
+    
+funcion(10,20,40)
+
+print("Solo recuperamos el primer valor:",funcion(10,20,40)[0])
+print("Solo recuperamos el segundo valor:",funcion(10,20,40)[1])
+print("Solo recuperamos el tercer valor:",funcion(10,20,40)[2])
+```
+<br>
+
+**Nota 2:**  
+Cuando una función devuelve varios valores (separados por comas), en realidad está devolviendo una tupla.
+Por eso se pueden recuperar los valores de manera selectiva usando su índice, o también **desempaquetar** (desconstruir en otros lenguajes):
+```py
+x, y, z = funcion(10, 20, 40)
+print(x, y, z) 
+```
+<br>
+
+#### **6.2.5 - Anotaciones en funciones**
+Las anotaciones (function annotations) sirven para documentar **el tipo de los parámetros y/o el valor de retorno** de una función.  
+No modifican el comportamiento de la función, solo aportan información que pueden usar herramientas externas (como mypy o pylint).
+```py
+def sumar(a: int, b: int) -> int:
+    return a + b
+
+print(sumar(3, 4))
+```
+<br>
+
+#### **6.2.6 - Decoradores en funciones**
+<!-- Un decorador, es **una función que modifica otra función**.
+Se usa con el prefijo @ y puede **alterar o extender** el comportamiento de la función decorada.
+
+- Estructura de un decorador
+    - Son 3 funciones (A, B y C) donde A recibe como parámetro a B y luego devuelve C
+    - Un decorador devuelve una función que le da más funcionalidades a la función a decorar.
+```py
+def funcion_decorador(funcion): # funcion A(funcion B) 
+    def funcion_interna():
+        #codigo
+    return funcion_interna # funcion C
+https://www.youtube.com/watch?v=DQXm6bIZgvk&t=722s
+
+```py
+def mayusculas(func):
+    def envoltura():
+        resultado = func()
+        return resultado.upper()
+    return envoltura
+
+@mayusculas
+def saludar():
+    return "hola mundo"
+
+print(saludar())  # "HOLA MUNDO"
+```
+
+El mismo programa pero sin usar decorador:
+```py
+def mayusculas(func):
+    def envoltura():
+        resultado = func()
+        return resultado.upper()
+    return envoltura
+
+def saludar():
+    return "hola mundo"
+
+# Aplicamos manualmente el decorador
+saludar = mayusculas(saludar)
+
+print(saludar())  # "HOLA MUNDO"
+``` -->
+<!-- https://codigofacilito.com/articulos/decoradores-python -->
 
 <!-- 
 
@@ -2097,131 +2298,6 @@ https://ellibrodepython.com/funciones-python
 https://docs.python.org/es/3.13/library/functions.html
 
 
-!!! Warning "Atención"  
-    Las funciones se diferencian en lo que hacen después de ejecutarse.  
-
-    - Funciones que devuelven algo: Realizan una tarea y entregan un resultado usando **la palabra clave return**. Ese valor puede guardarse en una variable o usarse en otros cálculos.  
-    - Funciones que no devuelven nada: Realizan una acción (por ejemplo, mostrar un mensaje en pantalla), pero no entregan ningún valor; su resultado no puede almacenarse ni usarse más adelante.
-
-| Funciones incorporadas |
-|-|-|-|-|
-|A
-abs()
-aiter()
-all()
-anext()
-any()
-ascii()
-
-B
-bin()
-bool()
-breakpoint()
-bytearray()
-bytes()
-
-C
-callable()
-chr()
-classmethod()
-compile()
-complex()
-
-D
-delattr()
-dict()
-dir()
-divmod()|
-E
-enumerate()
-eval()
-exec()
-
-F
-filter()
-float()
-format()
-frozenset()
-
-G
-getattr()
-globals()
-
-H
-hasattr()
-hash()
-help()
-hex()
-
-I
-id()
-input()
-int()
-isinstance()
-issubclass()
-iter()
-|	
-L
-len()
-list()
-locals()
-
-M
-map()
-max()
-memoryview()
-min()
-
-N
-next()
-
-O
-object()
-oct()
-open()
-ord()
-
-P
-pow()
-print()
-property()
-|
-
-
-
-	
-R
-range()
-repr()
-reversed()
-round()
-
-S
-set()
-setattr()
-slice()
-sorted()
-staticmethod()
-str()
-sum()
-super()
-
-T
-tuple()
-type()
-
-V
-vars()
-
-Z
-zip()
-
-_
-__import__()
-|
- -->
-
-<!--
 ```py
 # definimos una variable de tipo lista
 datos = []
