@@ -288,6 +288,19 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
     Insertar una columna **Salario actual** con los datos que aparecen en la imagen.  
     ![Descripción de la imagen](./03_hojas_de_calculo/img/calc25.png){ .leftcuatrocero .marginseiszero }<br>   
 
+    &emsp;&emsp;&emsp;&emsp;Datos a introducir:  
+    &emsp;&emsp;&emsp;&emsp;&emsp;2269  
+    &emsp;&emsp;&emsp;&emsp;&emsp;2500  
+    &emsp;&emsp;&emsp;&emsp;&emsp;2159  
+    &emsp;&emsp;&emsp;&emsp;&emsp;2800  
+    &emsp;&emsp;&emsp;&emsp;&emsp;1750  
+    &emsp;&emsp;&emsp;&emsp;&emsp;1898  
+    &emsp;&emsp;&emsp;&emsp;&emsp;2215  
+    &emsp;&emsp;&emsp;&emsp;&emsp;2352  
+    &emsp;&emsp;&emsp;&emsp;&emsp;2075  
+    &emsp;&emsp;&emsp;&emsp;&emsp;2624  
+    
+
     !!! tip "5. Insertar la columna "Diferencia actual-inicial""
     Insertar la columna **Diferencia actual-inicial** que será la diferencia entre las 2 columnas anteriores.   
     Os dejo la fórmula para calcular esa diferencia.
@@ -377,10 +390,18 @@ Trabajos a realizar:
     Una referencia mixta se compone de una columna (fila) absoluta y una fila (columna) relativa.  
     Una referencia de **columna absoluta** adopta la forma **$A1, $B1, etc** y una referencia de fila absoluta la forma **A$1, B$1, etc**.
     Si cambia la posición de la celda que contiene la fórmula, se cambia la referencia relativa y la referencia absoluta permanece invariable. Si se copia y pega la fórmula en filas o columnas, la referencia relativa se ajusta automáticamente y la referencia absoluta no se ajusta.
+    <br>
 
-    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc36.png){ .lefdoscinco }<br>    -->
+    **Ejemplo**
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc36.png){ .leftseiscero }<br>   
+    En la celda D7 introducimos la fórmula = `$C7*D$4`.  
+    Al incluir el símbolo de $ delante del 4 **fijamos la fila** pero no la columna.  
+    Igualmente fijamos la columna C, de forma que al arrastrar la fórmula se mantiene fija la columna.
 
-
+!!! warning "Tarea parte 4. Aplicar una fórmula usando referencias absolutas."
+    Ir a la hoja 4 del documento RA3-CEc-2
+    1. Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. **Tenéis libertad total en este apartado**.   
+    1. Completar la tabla **Tabla de multiplicar** usando referencias relativas. -->
 <!-- 
 file:///C:/Users/titan/Downloads/mat%20excel/Taller_REFERENCIAS_Excel_9no.pdf
 

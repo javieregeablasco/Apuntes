@@ -2293,6 +2293,9 @@ print(saludar())  # "HOLA MUNDO"
 
 <!-- 
 
+#### **6.2.7 - Paso por valor y paso por referencia a una función.**
+#### **6.2.8 - Funciones Lambda.**
+
 https://jorgedelossantos.github.io/apuntes-python/Funciones.html
 https://ellibrodepython.com/funciones-python
 https://docs.python.org/es/3.13/library/functions.html

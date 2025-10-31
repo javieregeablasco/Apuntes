@@ -109,6 +109,12 @@
   width: 75%;
 }
 
+.leftseiscero {
+  justify-content: left;
+  display: block;
+  width: 50%;
+}
+
 .leftcincocero {
   justify-content: left;
   display: block;
@@ -143,6 +149,12 @@
   justify-content: left;
   display: block;
   width: 25%;
+}
+
+.leftunocinco {
+  justify-content: left;
+  display: block;
+  width: 15%;
 }
 
 .marginseiszero {
