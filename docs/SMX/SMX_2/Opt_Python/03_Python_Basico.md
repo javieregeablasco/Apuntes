@@ -1555,6 +1555,7 @@ match opcion:
     1. En todos los casos, el programa debe mostrar el resultado de la operación o una advertencia si no se puede realizar.
     1. El programa debe repetirse indefinidamente hasta que el usuario introduzca la palabra salir en lugar de un operador.
 
+### **5.12 - Tarea RA3-CEi** 
 !!! task "Ejercicio - Calculadora básica con assert"
     1. El programa debe pedir al usuario que introduzca dos valores enteros.
     1. A continuación, el programa debe solicitar al usuario que indique la operación que desea realizar: sumar, restar, multiplicar o dividir.
@@ -1562,7 +1563,7 @@ match opcion:
     1. En todos los casos, el programa debe mostrar el resultado de la operación o una advertencia si no se puede realizar.
     1. El programa debe repetirse indefinidamente hasta que el usuario introduzca la palabra salir en lugar de un operador.
 
-### **5.12 - Tarea RA3-CEe** 
+### **5.13 - Tarea RA3-CEe** 
 !!! task "Ejercicio - Dibujar la letra “o”"
     1. El programa debe pedir al usuario que introduzca un valor entero positivo `n`.
     1. A continuación, el programa mostrará por pantalla una figura que represente la letra “o” formada por el carácter 'o', siguiendo estas condiciones:
@@ -2245,26 +2246,30 @@ print(sumar(3, 4))
 ```
 <br>
 
-#### **6.2.6 - Decoradores en funciones**
-<!-- Un decorador, es **una función que modifica otra función**.
+#### **6.2.6 - Decoradores de funciones**
+Un decorador, es **una función que agrega funcionalidades a otra función**.
 Se usa con el prefijo @ y puede **alterar o extender** el comportamiento de la función decorada.
 
-- Estructura de un decorador
-    - Son 3 funciones (A, B y C) donde A recibe como parámetro a B y luego devuelve C
-    - Un decorador devuelve una función que le da más funcionalidades a la función a decorar.
-```py
-def funcion_decorador(funcion): # funcion A(funcion B) 
-    def funcion_interna():
-        #codigo
-    return funcion_interna # funcion C
-https://www.youtube.com/watch?v=DQXm6bIZgvk&t=722s
+!!! tip "Estructura de un decorador"
+    La estructura de un decorador se compone de 3 funciones (A, B y C).  
+    El decorador A recibe como parámetro la función B y luego devuelve la función C.  
+    Un decorador devuelve una función que le da más funcionalidades a la función a decorar.  
 
+!!! tip "Sntaxis de un decorador"    
+    ```py
+    def decorador(funcion): # funcion_A(funcion_B) 
+        def funcion_interna(): # funcion_C
+        #codigo de la funcion interna
+    return funcion_interna # funcion_ C
+    ```
+
+**Ejemplo con decorador @**
 ```py
-def mayusculas(func):
-    def envoltura():
-        resultado = func()
-        return resultado.upper()
-    return envoltura
+def mayusculas(saludar):
+    def funcion_interna():
+        texto = saludar()
+        return texto.upper()
+    return funcion_interna
 
 @mayusculas
 def saludar():
@@ -2273,13 +2278,13 @@ def saludar():
 print(saludar())  # "HOLA MUNDO"
 ```
 
-El mismo programa pero sin usar decorador:
+**Mismo ejemplo pero sin decorador:**
 ```py
-def mayusculas(func):
-    def envoltura():
-        resultado = func()
-        return resultado.upper()
-    return envoltura
+def mayusculas(saludar):
+    def funcion_interna():
+        texto = saludar()
+        return texto.upper()
+    return funcion_interna
 
 def saludar():
     return "hola mundo"
@@ -2288,12 +2293,74 @@ def saludar():
 saludar = mayusculas(saludar)
 
 print(saludar())  # "HOLA MUNDO"
-``` -->
+```
+<br>
+
+#### **6.2.7 - Decoradores con parámetros**
+- `*args`: Argumentos de tipo tupla.
+```py
+def decorador(funcion):
+  def funcion_interna(*args):         # ← paso de argumentos
+    print("Inicio funcion decoradora")
+    print(f"Valores recibidos: a={args[0]}, b={args[1]}")
+    print(funcion(*args))             # ← paso de argumentos
+    print("Fin funcion decoradora")
+  return funcion_interna
+
+@decorador
+def sumar(a,b):
+  return a+b 
+
+def restar(a,b):
+  return a-b 
+
+def multiplicar(a,b):
+  return a*b 
+
+def dividir(a,b):
+  return a/b 
+
+sumar(3,5)
+```
+<br>
+
+- `*kwargs`: Argumentos de tipo clave valor.
+```py 
+def decorador(funcion):
+  def funcion_interna(**kwargs):         # ← paso de argumentos
+    print("Inicio funcion decoradora")
+    print(f"Valores recibidos: a={kwargs['a']}, b={kwargs['b']}")
+    print(funcion(**kwargs))             # ← paso de argumentos
+    print("Fin funcion decoradora")
+  return funcion_interna
+
+@decorador
+def sumar(a,b):
+  return a+b 
+
+def restar(a,b):
+  return a-b 
+
+def multiplicar(a,b):
+  return a*b 
+
+def dividir(a,b):
+  return a/b 
+
+sumar(a=3,b=5)
+```
+
+!!! exercice "Modificar el programa anterior para que la función decoradora pueda recibir tanto tuplas con diccionarios"
+
+#### **6.2.7 - Paso por valor y paso por referencia a una función.**
+
+
+
+<!-- https://www.youtube.com/watch?v=DQXm6bIZgvk&t=722s -->
 <!-- https://codigofacilito.com/articulos/decoradores-python -->
 
 <!-- 
 
-#### **6.2.7 - Paso por valor y paso por referencia a una función.**
 #### **6.2.8 - Funciones Lambda.**
 
 https://jorgedelossantos.github.io/apuntes-python/Funciones.html
@@ -2328,3 +2395,69 @@ https://arturoblasco.github.io/prg/ut01/actividades/ut01ac1f/
 nums = list(range(10_000))
 print(*nums, sep="\n")  # una llamada en vez de 10k prints
  -->
+
+
+ <!-- === "RA 1"
+    |RA1. Reconoce la estructura de un programa informático, identificando y relacionando los elementos propios del lenguaje de programación utilizado.|Peso|
+    |-|-|
+    *|**a)** Se han identificado los bloques que componen la estructura de un programa informático. |12%|
+    *|**b)** Se han respetado las especificaciones técnicas del proceso de instalación. |11%|
+    *|**c)** Se han utilizado entornos integrados de desarrollo. |11%|
+    *|**d)** Se han identificado los distintos tipos de variables y la utilidad específica de cada uno. |11%|
+    *|**e)** Se ha modificado el código de un programa para crear y utilizar variables. |11%|
+    *|**f)** Se han creado y utilizado constantes y literales. |11%|
+    *|**g)** Se han clasificado, reconocido y utilizado en expresiones los operadores del lenguaje. |11%|
+    *|**h)** Se ha comprobado el funcionamiento de las conversiones de tipo explícitas e implícitas. |11%|
+    *|**i)** Se han introducido comentarios en el código. |11%|
+
+
+=== "RA 2"
+    |RA2. Escribe y prueba programas sencillos, reconociendo y aplicando los fundamentos de la programación orientada a objetos.|Peso|
+    |-|-|
+    |**a)** Se han identificado los fundamentos de la programación orientada a objetos. |12%|    
+    |**c)** Se han instanciado objetos a partir de clases predefinidas.|11%|
+    |**d)** Se han utilizado métodos y propiedades de los objetos.|11%|
+    |**e)** Se han escrito llamadas a métodos estáticos.|11%|
+    |**f)** Se han utilizado parámetros en la llamada a métodos.|11%|
+
+=== "RA 3"
+    |RA3. Escribe y depura código, analizando y utilizando las estructuras de control del lenguaje.|Peso|
+    |-|-|
+    *|**a)** Se ha escrito y probado código que haga uso de estructuras de selección.|12%|
+    *|**b)** Se han utilizado estructuras de repetición.|11%|
+    *|**c)** Se han reconocido las posibilidades de las sentencias de salto.|11%|
+    *|**d)** Se ha escrito código utilizando control de excepciones.|11%|
+    *|**e)** Se han creado programas ejecutables utilizando diferentes estructuras de control.|11%|
+    *|**h)** Se han creado excepciones.|11%|
+    *|**i)** Se han utilizado aserciones para la detección y corrección de errores durante la fase de desarrollo.|11%|
+
+=== "RA 4"
+    |RA4. Desarrolla programas organizados en clases analizando y aplicando los principios de la programación orientada a objetos.|Peso|
+    |-|-|
+    |**a)** Se ha reconocido la sintaxis, estructura y componentes típicos de una clase.|12%|
+    |**b)** Se han definido clases.|11%|
+    |**c)** Se han definido propiedades y métodos.|11%|
+    |**d)** Se han creado constructores.|11%|
+    |**e)** Se han desarrollado programas que instancien y utilicen objetos de las clases creadas anteriormente.|11%|
+    
+=== "RA 5"
+    |RA5. Realiza operaciones de entrada y salida de información, utilizando procedimientos específicos del lenguaje y librerías de clases.|Peso|
+    |-|-|
+    *|**a)** Se ha utilizado la consola para realizar operaciones de entrada y salida de información.|16%|
+    *|**b)** Se han aplicado formatos en la visualización de la información.|12%|
+    |**c)** Se han reconocido las posibilidades de entrada / salida del lenguaje y las librerías asociadas.|12%|
+    |**d)** Se han utilizado ficheros para almacenar y recuperar información.|12%|
+    |**e)** Se han creado programas que utilicen diversos métodos de acceso al contenido de los ficheros.|12%|
+    |**f)** Se han utilizado las herramientas del entorno de desarrollo para crear interfaces gráficos de usuario simples.|12%|
+    |**g)** Se han programado controladores de eventos.|12%|
+    |**h)** Se han escrito programas que utilicen interfaces gráficos para la entrada y salida de información.|12%|
+
+=== "RA 6"
+    |RA6. Escribe programas que manipulen información, seleccionando y utilizando tipos avanzados de datos.|Peso|
+    |-|-|
+    |**c)** Se han utilizado listas para almacenar y procesar información.|10%|
+    |**e)** Se han reconocido las características y ventajas de cada una de las colecciones de datos disponibles.|10%|
+    |**f)** Se han creado clases y métodos genéricos.|10%|
+    |**g)** Se han utilizado expresiones regulares en la búsqueda de patrones en cadenas de texto.|10%|
+    |**i)** Se han realizado programas que realicen manipulaciones sobre documentos escritos en diferentes lenguajes de intercambio de datos.|10%|
+    |**j)** Se han utilizado operaciones agregadas para el manejo de información almacenada en colecciones.|10%| -->

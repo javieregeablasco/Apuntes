@@ -1,21 +1,75 @@
-# class Constantes:
-#     def __init__(self): # aquí definimos la constante
-#         self._PI = 3.141592
+# def mayusculas(saludar):
+#     def funcion_interna():
+#         texto = saludar()
+#         return texto.upper()
+#     return funcion_interna
 
-#     @property
-#     def PI(self):  
-#         return self._PI
+# @mayusculas
+# def saludar():
+#     return "hola mundo"
+
+# print(saludar())  # "HOLA MUNDO"
+
+# def mayusculas(saludar):
+#     def funcion_interna():
+#         texto = saludar()
+#         return texto.upper()
+#     return funcion_interna
+
+# def saludar():
+#     return "hola mundo"
+
+# # Aplicamos manualmente el decorador
+# saludar = mayusculas(saludar)
+
+# print(saludar())  # "HOLA MUNDO"
 
 
-# constantes = Constantes()  # creamos el objeto Constantes
+def decorador(funcion):
+  def funcion_interna(*args):         # ← paso de argumentos
+    print("Inicio funcion decoradora")
+    print(f"Valores recibidos: a={args[0]}, b={args[1]}")
+    print(funcion(*args))             # ← paso de argumentos
+    print("Fin funcion decoradora")
+  return funcion_interna
 
-# print("Valor de PI =", constantes.PI)  # accedemos a la consstante PI
+@decorador
+def sumar(a,b):
+  return a+b 
 
-# constantes.PI = 10  # intentar alterar la constante
+def restar(a,b):
+  return a-b 
 
-from typing import Final
+def multiplicar(a,b):
+  return a*b 
 
-PI: Final = 3.14159
+def dividir(a,b):
+  return a/b 
 
-# PI = 2.14159
+sumar(3,5)
+
+
+# def decorador(funcion):
+#   def funcion_interna(**kwargs):         # ← paso de argumentos
+#     print("Inicio funcion decoradora")
+#     print(f"Valores recibidos: a={kwargs['a']}, b={kwargs['b']}")
+#     print(funcion(**kwargs))             # ← paso de argumentos
+#     print("Fin funcion decoradora")
+#   return funcion_interna
+
+# @decorador
+# def sumar(a,b):
+#   return a+b 
+
+# def restar(a,b):
+#   return a-b 
+
+# def multiplicar(a,b):
+#   return a*b 
+
+# def dividir(a,b):
+#   return a/b 
+
+# sumar(a=3,b=5)
+
 

@@ -326,7 +326,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
     !!! tip "9. Aspecto final de la práctica""
     ![Descripción de la imagen](./03_hojas_de_calculo/img/calc29.png){ .leftoriginal }<br>   
 
-<!-- ### **Tarea RA3-CEc-2 - Formúlas básicas, referencias de celdas, relativas, absolutas y mixtas**
+### **Tarea RA3-CEc-2 - Formúlas básicas, referencias de celdas, relativas, absolutas y mixtas**
 !!! tip "Un poco de teoría sobre referencias y rangos de celdas."
 
 Todas las celdas de una hoja de cálculo tienen referencias (coordenadas). Por convención, las columnas se identifican por **letras** y las filas por **números**.  
@@ -346,7 +346,7 @@ derecha del rango.
 Descargar y abrir el archivo 'RA3-CEc-2' pinchando en el enlace siguiente: [Descargar archivo](./03_hojas_de_calculo/tareas/RA3-CEc-2%20alumno.ods)  
 
 !!! warning "Tarea parte 2. Aplicar fórmulas básicas a las celdas"
-En la hoja 1 encontrareís unas tablas con valores.  
+En la hoja 1 encontrareís unas tablas con valores.
 
 Trabajos a realizar: 
 
@@ -401,7 +401,7 @@ Trabajos a realizar:
 !!! warning "Tarea parte 4. Aplicar una fórmula usando referencias absolutas."
     Ir a la hoja 4 del documento RA3-CEc-2
     1. Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. **Tenéis libertad total en este apartado**.   
-    1. Completar la tabla **Tabla de multiplicar** usando referencias relativas. -->
+    1. Completar la tabla **Tabla de multiplicar** usando referencias relativas.
 <!-- 
 file:///C:/Users/titan/Downloads/mat%20excel/Taller_REFERENCIAS_Excel_9no.pdf
 

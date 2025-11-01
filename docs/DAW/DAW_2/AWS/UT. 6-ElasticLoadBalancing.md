@@ -37,6 +37,13 @@ schedule: 96h - 3h/s
 peer connection
 escalado automatico
 elastic load balancing 
+<!-- https://www.grycap.upv.es/cursocloudaws/contenido.php 
+https://luisdieguez.com/tutorial-ansible-desde-0-herramienta-de-gestion-de-servidores/
+https://ualmtorres.github.io/SeminarioDockerPresentacion/
+https://www.youtube.com/watch?v=qNIniDftAcU
+https://www.youtube.com/watch?v=TRLK6ZNpjB8
+
+-->
 
 <!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/AWS/Arqui%20y%20despliegues%20en%20AWS/Tema%203/Tema%203.%20NAT%20Gateway,%20reglas%20encadenadas%20y%20subredes%20privadas.pdf -->
 
