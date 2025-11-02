@@ -2353,7 +2353,123 @@ sumar(a=3,b=5)
 !!! exercice "Modificar el programa anterior para que la función decoradora pueda recibir tanto tuplas con diccionarios"
 
 #### **6.2.7 - Paso por valor y paso por referencia a una función.**
+En muchos lenguajes de programación existen los conceptos de paso por valor y paso por referencia, que definen cómo trata una función los parámetros que se le pasan.
 
+- **Paso por valor:** se pasa una **copia del valor** → los cambios dentro de la función **no afectan al valor original**.  
+- **Paso por referencia:** se pasa una **referencia al objeto original** → los cambios dentro de la función **sí pueden afectar al original**.
+
+> En **Python**, los argumentos se pasan **por referencia de objeto** (o **por asignación de objeto**).  
+> Es decir, la función recibe una **referencia al objeto**, pero el comportamiento dependerá de si este es **mutable** o **inmutable**.
+
+#### **6.2.7.1 - Tipos mutables e inmutables**
+
+| Tipo de dato | ¿Es mutable? | Ejemplos |
+|---------------|--------------|-----------|
+| 🔒 Inmutable   | ❌ No        | `int`, `float`, `str`, `tuple`, `bool` |
+| 🔓 Mutable     | ✅ Sí        | `list`, `dict`, `set`, objetos definidos por el usuario |
+
+---
+
+#### **6.2.7.2 - Ejemplo con tipo inmutable**
+```python
+def incrementar(x):
+    x = x + 1
+    print("Dentro de la función:", x)
+
+a = 10
+incrementar(a)
+print("Fuera de la función:", a)
+
+# Salida
+# Dentro de la función: 11
+# Fuera de la función: 10
+```
+
+**Explicación:**  
+- `a` es un número entero de tipo inmutable.  
+- Dentro de la función, `x` crea un nuevo objeto con el valor 11.  
+- La variable `a` fuera de la función no se modifica.  
+
+#### 6.2.7.4 - Ejemplo con tipo mutable
+```py
+def agregar_elemento(lista):
+    lista.append(4)
+    print("Dentro de la función:", lista)
+
+numeros = [1, 2, 3]
+agregar_elemento(numeros)
+print("Fuera de la función:", numeros)
+
+# Salida
+# Dentro de la función: [1, 2, 3, 4]
+# Fuera de la función: [1, 2, 3, 4]
+```
+
+**Explicación:**
+- La lista numeros es mutable, por lo que la función recibe una referencia al mismo objeto.  
+- El método append() modifica el contenido original, afectando también a la lista fuera de la función.
+
+#### 6.2.7.5 - Evitar compartamientos inesperados
+Si no se desea modificar el objeto original, se puede pasar una copia del mismo:
+
+```py
+def agregar_elemento(lista):
+    lista.append(4)
+    print("Dentro de la función:", lista)
+
+numeros = [1, 2, 3]
+agregar_elemento(numeros[:])   # Se pasa una copia de la lista
+print("Fuera de la función:", numeros)
+
+# Salida
+# Dentro de la función: [1, 2, 3, 4]
+# Fuera de la función: [1, 2, 3]
+```
+
+#### 6.2.7.6 - Ver el paso por valor o por referencia: funcion id()
+Una forma de observar cómo actúa el intérprete de Python es usando la función id(), que devuelve un identificador único de cada objeto en memoria.
+Si dos variables tienen el mismo id, apuntan al mismo objeto (paso por referencia).
+Si tienen id distintos, se ha creado una nueva copia (paso por valor o por asignación a un nuevo objeto).
+
+**Paso por referencia objeto inmutable**
+```py
+def modificar(x):
+    print("ID dentro de la función (antes):", id(x)) # 140715771130920
+    x += 1
+    print("ID dentro de la función (después):", id(x)) # 140715771130952
+    return x
+
+a = 5
+print("ID fuera de la función:", id(a)) # 140715771130920
+x = modificar(a)
+print("ID fuera de la función (final):", id(a)) # 140715771130920
+print("ID devuelto por la función (final):", id(x)) # 140715771130952
+print("Valor final de a:", a) # 5
+```
+
+**Paso por referencia objeto mutable**
+```py
+def modificar_lista(lst):
+    print("ID dentro de la función (antes):", id(lst)) # 1971487072512
+    lst.append(4)
+    print("ID dentro de la función (después):", id(lst)) # 1971487072512
+    return lst
+
+numeros = [1, 2, 3]
+print("ID fuera de la función (antes):", id(numeros)) # 1971487072512
+
+resultado = modificar_lista(numeros)
+
+print("ID fuera de la función (final):", id(numeros)) # 1971487072512
+print("ID devuelto por la función (final):", id(resultado)) # 1971487072512
+print("Contenido final de la lista:", numeros)  # [1, 2, 3, 4]
+```
+
+
+
+
+
+#### **6.2.8 - Funciones Lambda.**
 
 
 <!-- https://www.youtube.com/watch?v=DQXm6bIZgvk&t=722s -->
@@ -2361,7 +2477,6 @@ sumar(a=3,b=5)
 
 <!-- 
 
-#### **6.2.8 - Funciones Lambda.**
 
 https://jorgedelossantos.github.io/apuntes-python/Funciones.html
 https://ellibrodepython.com/funciones-python
