@@ -338,12 +338,12 @@ superior izquierda**, seguida de dos puntos (:) y, a continuación, la referenci
 derecha del rango.  
 
 !!! tip "Ejemplo de rangos."  
-![Descripción de la imagen](./03_hojas_de_calculo/img/calc31.png){ .lefdoscinco }<br>   
-![Descripción de la imagen](./03_hojas_de_calculo/img/calc32.png){ .lefdoscinco }<br>   
-![Descripción de la imagen](./03_hojas_de_calculo/img/calc33.png){ .lefdoscinco }<br>   
+![Descripción de la imagen](./03_hojas_de_calculo/img/calc31.png){ .leftdoscinco }<br>   
+![Descripción de la imagen](./03_hojas_de_calculo/img/calc32.png){ .leftdoscinco }<br>   
+![Descripción de la imagen](./03_hojas_de_calculo/img/calc33.png){ .leftdoscinco }<br>   
 
 !!! warning "Tarea parte 1. Descargar el archivo"
-Descargar y abrir el archivo 'RA3-CEc-2' pinchando en el enlace siguiente: [Descargar archivo](./03_hojas_de_calculo/tareas/RA3-CEc-2%20alumno.ods)  
+Descargar y abrir el archivo 'RA3-CEc-2' pinchando en el enlace siguiente: [Descargar archivo](./03_hojas_de_calculo/tareas/RA3-CEc-2%20nombreapellidos.ods)  
 
 !!! warning "Tarea parte 2. Aplicar fórmulas básicas a las celdas"
 En la hoja 1 encontrareís unas tablas con valores.
@@ -354,6 +354,7 @@ Trabajos a realizar:
 1. Columna **Prima**: Asignar a mano la prima del empleado haciendo uso de la tabla. (Esta operación se puede automatizar, como lo veremos en otra tarea).      
 1. Columna **Sueldo + prima**: Calcular el resultado de la suma de las columnas **Prima** y **Sueldo**.
 1. Columna **Porcentaje sobre el sueldo**: Calcular el porcentaje que representa la prima sobre el sueldo (sin prima) para cada empleado.
+1. Celdas **Suma primas** y **Suma Sueldos + primas**: Justo debajo de esas celdas poner el resultado de la suma de los valores de la columna **Prima** y de la columna **Sueldos + primas**.
 
 !!! tip "Un poco de teoría sobre referencias relativas, absolutas y mixtas."
     !!! info "Referencias relativas"
@@ -364,7 +365,7 @@ Trabajos a realizar:
 
     **Nota:** De forma predeterminada todos los editores de hojas de cálculo utilizan referencias relativas.
 
-    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc34.png){ .lefdoscinco }<br>   
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc34.png){ .leftdoscinco }<br>   
 
 !!! warning "Tarea parte 3. Aplicar una fórmula usando referencias relativas."
     Ir a la hoja 2 del documento RA3-CEc-2 
@@ -377,7 +378,7 @@ Trabajos a realizar:
     Una referencia absoluta hace referencia a una **celda en una ubicación específica**. Se caracteriza por incluir el carácter $.  
     Si cambia la posición de la celda que contiene la fórmula, la referencia absoluta **permanecerá invariable**. A diferencia de las referencias relativas, si se copia / pega la fórmula en filas o columnas, la referencia absoluta no se ajustará.
 
-    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc35.png){ .lefdoscinco }<br>   
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc35.png){ .lefttrescero }<br>   
 
 !!! warning "Tarea parte 4. Aplicar una fórmula usando referencias absolutas."
     Ir a la hoja 3 del documento RA3-CEc-2
@@ -387,21 +388,72 @@ Trabajos a realizar:
 
 !!! tip "Un poco de teoría sobre referencias relativas, absolutas y mixtas."
     !!! info "Referencias mixtas"
-    Una referencia mixta se compone de una columna (fila) absoluta y una fila (columna) relativa.  
-    Una referencia de **columna absoluta** adopta la forma **$A1, $B1, etc** y una referencia de fila absoluta la forma **A$1, B$1, etc**.
+    Una referencia mixta se compone de **una columna (fila) absoluta y una fila (columna) relativa**.   
+    Una referencia de **columna absoluta** adopta la forma **$A1, $B1, etc** y una referencia de fila absoluta la forma **A$1, B$1, etc**.  
     Si cambia la posición de la celda que contiene la fórmula, se cambia la referencia relativa y la referencia absoluta permanece invariable. Si se copia y pega la fórmula en filas o columnas, la referencia relativa se ajusta automáticamente y la referencia absoluta no se ajusta.
     <br>
 
     **Ejemplo**
-    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc36.png){ .leftseiscero }<br>   
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc36.png){ .leftcuatrocero }<br>   
     En la celda D7 introducimos la fórmula = `$C7*D$4`.  
     Al incluir el símbolo de $ delante del 4 **fijamos la fila** pero no la columna.  
     Igualmente fijamos la columna C, de forma que al arrastrar la fórmula se mantiene fija la columna.
 
-!!! warning "Tarea parte 4. Aplicar una fórmula usando referencias absolutas."
-    Ir a la hoja 4 del documento RA3-CEc-2
+!!! warning "Tarea parte 5. Aplicar una fórmula usando referencias mixtas."
+    Ir a la hoja 4 del documento RA3-CEc-2  
+
     1. Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. **Tenéis libertad total en este apartado**.   
-    1. Completar la tabla **Tabla de multiplicar** usando referencias relativas.
+    1. Completar la tabla **Tabla de multiplicar** usando referencias mixtas.
+
+!!! warning "Tarea parte 6."
+    Ir a la hoja 5 del documento RA3-CEc-2  
+
+    1. Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. **Tenéis libertad total en este apartado**.   
+    1. Para este ejercicio se deberá hacer uso de referencias relativas, absolutas o mixtas.    
+    1. Añadir una columna, llamada **Total de ventas** y utilizar una fórmula básica para calcular el total por producto.
+    1. **Ir a la hoja 6 del documento** y crear una tabla **Comisión sobre ventas** con los valores: 10%, 15%, 20%, 25%.  
+    1. A la tabla de la hoja 5, añadir 4 columnas C10, C15, C20 y C25.
+    1. Rellenar los valores de la celdas de las columnas C10, C15, C20 y C25 **aplicando los porcentajes de la hoja 6**. 
+
+    Aspecto final sin aplicar estilos:
+
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc37.png){ .leftcincocero }<br>   
+
+!!! warning "Tarea parte 7."
+    Ir a la hoja 7 del documento RA3-CEc-2  
+
+    1. Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. **Tenéis libertad total en este apartado**.
+    1. Para este ejercicio se deberá hacer uso de referencias relativas, absolutas o mixtas.    
+    1. Aplicar las formulas necesarias para realizar los siguientes calculos:
+        - Calcular el porcentaje de los resultados obtenidos sobre el total de los electores.
+        - Calcular el porcentaje de los resultados obtenidos sobre el  número de los votantes.
+    
+!!! warning "Tarea parte 8."
+    Ir a la hoja 8 del documento RA3-CEc-2  
+
+    1. Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. **Tenéis libertad total en este apartado**.
+    1. Para este ejercicio se deberá hacer uso de referencias relativas, absolutas o mixtas.    
+    1. Aplicar las formulas necesarias para realizar una tabla de calcular básica.
+
+!!! warning "Tarea parte 9."
+    Ir a la hoja 9 del documento RA3-CEc-2  
+
+    1. Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. **Tenéis libertad total en este apartado**.
+    1. Para este ejercicio se deberá hacer uso de referencias relativas, absolutas o mixtas.    
+    1. Aplicar las formulas necesarias para realizar los cálculos necesarios para completar la tabla.
+
+!!! warning "Tarea parte 10."
+    Ir a la hoja 10 del documento RA3-CEc-2  
+
+    1. Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. **Tenéis libertad total en este apartado**.
+    1. Para este ejercicio se deberá hacer uso de referencias relativas, absolutas o mixtas.    
+    1. Aplicar las formulas necesarias para realizar los cálculos necesarios para completar la tabla.
+
+### **Tarea RA3-CEd-1 - Formúlas y funciones**
+
+
+
+
 <!-- 
 file:///C:/Users/titan/Downloads/mat%20excel/Taller_REFERENCIAS_Excel_9no.pdf
 
@@ -414,7 +466,7 @@ file:///C:/Users/titan/Documents/Javier128/Modulos/SMX/SMX_1/AO/materiales/RA3/A
 <!-- https://www.youtube.com/watch?v=QnIJmDmk0YA -->
 <!-- https://www.youtube.com/watch?v=rK2gM-n0oaM&list=PLU8oAlHdN5BkCs-P-AnQhxsSyxSxv9jfI&index=20 -->
 <!--
-### **Tarea RA3-CEd-1 - **
+
 ### **Tarea RA3-CEd-2 - **
 ### **Tarea RA3-CEe-1 - **
 ### **Tarea RA3-CEe-2 - **

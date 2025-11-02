@@ -133,22 +133,28 @@
   width: 30%;
 }
 
+.leftdoscinco {
+  justify-content: left;
+  display: block;
+  width: 25%;
+}
+
 .leftdoscero {
   justify-content: left;
   display: block;
   width: 20%;
 }
 
+.leftunocinco {
+  justify-content: left;
+  display: block;
+  width: 15%;
+}
+
 .leftunocero {
   justify-content: left;
   display: block;
   width: 10%;
-}
-
-.leftdoscinco {
-  justify-content: left;
-  display: block;
-  width: 25%;
 }
 
 .leftunocinco {
