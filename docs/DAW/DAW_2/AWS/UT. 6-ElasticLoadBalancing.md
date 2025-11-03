@@ -35,6 +35,7 @@ schedule: 96h - 3h/s
 
 ## **Introducción**
 peer connection
+transit gateway
 escalado automatico
 elastic load balancing 
 <!-- https://www.grycap.upv.es/cursocloudaws/contenido.php 

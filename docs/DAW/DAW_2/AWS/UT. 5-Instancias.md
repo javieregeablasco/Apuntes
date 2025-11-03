@@ -888,6 +888,8 @@ ssh ec2-user@direccion-ip-privada
 
 ## **5 - Reglas encadenadas en grupos de seguridad**
 
+<!-- https://agrlayush.medium.com/enhancing-aws-security-with-security-groups-chaining-fb2f2d96cb3d -->
+
 ## **6 - Caso práctico**
 ### Tarea RA3-CEabc: Montar un servidor web y un agente mysql 
 ![](./ut5/VPC2-nat.png){.sietecinco}  
@@ -903,7 +905,7 @@ ssh ec2-user@direccion-ip-privada
 
     **4. Realizar capturas**  
     De la conexión a la base de datos.  
-    El servidor web desplegado.
+    El servidor web desplegado.  
 
 
 <!-- instalar firewall sobre una EC2 Amazon linux 
@@ -919,78 +921,14 @@ sudo firewall-cmd --permanent --add-rich-rule='rule family="ipv4" source address
 sudo firewall-cmd --permanent --add-rich-rule='rule family="ipv4" source address="172.18.2.193" reject' && sudo firewall-cmd --reload -->
 
 
-
-
-
-<!-- volver a montar el natgateway -->
-
-<!-- ### **4.4 - Tarea RA2-CEd-2**
-Seguimos con el escenario de la tarea anterior y añadiremos una instancia en la subred privada.  
-En esta caso haremos uso de reglas **encadenadas** para impedir que las 2 instancias de la subred privada puedan comunicarse la una con la otra pero sí ambas podrán hacerlo con la instancia de la subred pública.  -->
----
-<!-- usar para las conexiones a las ec2 en subred privadas -->
-<!-- file:///C:/Users/titan/Documents/Javier128/Modulos/DAW/DAW_2/AWS/UT/UT5/Tema%203/Tema%203.%20NAT%20Gateway,%20reglas%20encadenadas%20y%20subredes%20privadas.pdf -->
----
+<!-- https://docs.aws.amazon.com/es_es/vpc/latest/userguide/nacl-examples.html -->
 
 <!-- https://www.youtube.com/watch?v=JhC5XJ3b9t0 -->
 
-
-
-
 <!-- https://www.youtube.com/watch?v=ZRwsQNMlM2g -->
-
-
-<!-- (https://www.corestack.io/aws-security-best-practices/aws-nacl/) -->
-<!-- https://jayendrapatil.com/aws-vpc-security-group-vs-nacls/ -->
-<!-- https://docs.aws.amazon.com/es_es/vpc/latest/userguide/nacl-examples.html -->
-
-<!-- https://www.raulprietofernandez.net/blog/packet-tracer/configuracion-de-acls-con-packet-tracer -->
-<!-- Acceder por ssh a la instancia y comprobar su dirección ip privada.  -->
  
-<!-- https://medium.com/@mrdevsecops/network-acls-security-group-68f2dd901ee6 -->
-
-<!-- ## amplicacio
-hablar de los nat para permitir a las ec2 de las subredes privadas poder acceder a inet sin tener ipv4 pública. -->
-
-<!-- modelo responsabilidad compartida https://www.corestack.io/aws-security-best-practices/aws-security-group-best-practices/ -->
-
-<!-- SR publica -->
-<!-- 📥 Reglas de entrada (Inbound Rules) -->
-<!-- | Nº  | Regla                    | Protocolo | Puerto(s)  | Origen                          | Descripción                                                                |
-| --- | ------------------------ | --------- | ---------- | ------------------------------- | -------------------------------------------------------------------------- |
-| 100 | Permitir HTTP            | TCP       | 80         | 0.0.0.0/0                       | Acceso web desde cualquier lugar                                           |
-| 110 | Permitir HTTPS           | TCP       | 443        | 0.0.0.0/0                       | Acceso web seguro desde cualquier lugar                                    |
-| 120 | Permitir SSH             | TCP       | 22         | X.X.X.X/32                      | Acceso de administración desde IP del profesor (ej. IP pública del centro) |
-| 130 | Permitir tráfico interno | TCP/UDP   | 1024–65535 | Subred interna (CIDR de la VPC) | Respuestas de conexiones internas                                          |
-| 140 | Denegar todo lo demás    | ALL       | ALL        | 0.0.0.0/0                       | Política de seguridad implícita                                            | -->
-
-<!-- 📤 Reglas de salida (Outbound Rules) -->
-<!-- | Nº  | Regla                 | Protocolo | Puerto(s)  | Destino   | Descripción                                             |
-| --- | --------------------- | --------- | ---------- | --------- | ------------------------------------------------------- |
-| 100 | Permitir HTTP         | TCP       | 80         | 0.0.0.0/0 | Salida para actualizaciones y llamadas API              |
-| 110 | Permitir HTTPS        | TCP       | 443        | 0.0.0.0/0 | Salida segura para actualizaciones y servicios externos |
-| 120 | Permitir DNS          | UDP       | 53         | 0.0.0.0/0 | Resolución de nombres                                   |
-| 130 | Permitir respuestas   | TCP/UDP   | 1024–65535 | 0.0.0.0/0 | Respuestas de tráfico iniciado por la subred            |
-| 140 | Denegar todo lo demás | ALL       | ALL        | 0.0.0.0/0 | Regla de seguridad explícita                            | -->
-
-<!-- subred privada -->
-<!-- 📥 Reglas de entrada (Inbound Rules) — Subred privada (BD)
-| Nº  | Regla                          | Protocolo | Puerto(s)  | Origen                    | Descripción                                    |
-| --- | ------------------------------ | --------- | ---------- | ------------------------- | ---------------------------------------------- |
-| 100 | Permitir MySQL                 | TCP       | 3306       | CIDR de la subred pública | Acceso de la app web al motor de BD            |
-| 110 | Permitir PostgreSQL (opcional) | TCP       | 5432       | CIDR de la subred pública | Acceso en caso de usar Postgres                |
-| 120 | Permitir tráfico interno       | TCP/UDP   | 1024–65535 | CIDR de la VPC            | Comunicación interna                           |
-| 130 | Permitir ICMP                  | ICMP      | ALL        | CIDR de la VPC            | Permitir ping interno (opcional, para pruebas) |
-| 140 | Denegar todo lo demás          | ALL       | ALL        | 0.0.0.0/0                 | Seguridad por defecto                          |
-
-📤 Reglas de salida (Outbound Rules) — Subred privada (BD)
-| Nº  | Regla                 | Protocolo | Puerto(s)  | Destino   | Descripción                                            |
-| --- | --------------------- | --------- | ---------- | --------- | ------------------------------------------------------ |
-| 100 | Permitir HTTP         | TCP       | 80         | 0.0.0.0/0 | Actualizaciones y descargas (a través del NAT Gateway) |
-| 110 | Permitir HTTPS        | TCP       | 443        | 0.0.0.0/0 | Descargas seguras (a través del NAT Gateway)           |
-| 120 | Permitir DNS          | UDP       | 53         | 0.0.0.0/0 | Resolución de nombres                                  |
-| 130 | Permitir respuestas   | TCP/UDP   | 1024–65535 | 0.0.0.0/0 | Respuestas de tráfico iniciado desde la BD             |
-| 140 | Denegar todo lo demás | ALL       | ALL        | 0.0.0.0/0 | Seguridad explícita                                    | -->
+<!-- https://www.raulprietofernandez.net/blog/packet-tracer/configuracion-de-acls-con-packet-tracer -->
+ 
 
 <!-- grupos de seguridad
 🖥️ Instancia EC2 en la subred pública (Servidor Web)

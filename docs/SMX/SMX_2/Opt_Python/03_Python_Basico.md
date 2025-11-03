@@ -2246,6 +2246,30 @@ print(sumar(3, 4))
 ```
 <br>
 
+#### **6.2.6 - Tarea RA5-CEc**
+!!! exercice "Ejercicio 1**
+    **Función Vectorial**
+    Escribir una función que pida un número y devuelva el factorial de ese número.
+    Cálculo de un factorial: n! = `n*(n-1)*(n-2)*(n-3)*...*1` 
+
+!!! exercice "Ejercicio 2**
+    **Función Intercambiar**
+    Escribir una función que pida dos números y devuelva los números ordenados de mayor a menor
+     
+!!! exercice "Ejercicio 3**
+    **Función EsMultiplo**
+    Escribir un programa que pida 2 números e indique si el primero el múltiplo del segundo. 
+    
+!!! exercice "Ejercicio 4**
+    **Conversor a segundos o a horas, minutos y segundos (HMS).**
+    Escribir un programa que estará dentro de un bucle infinito y que pedirá al usuario elegir entre 3 opciones.
+    - Opción 1: Convertir a segundos. El programa pedirá entonces introducir las horas, minutos y segundos y devolverá la conversión a segundos.
+    - Opción 2: Convertor a HMS. El programa pedirá introducir los segundos y devolverá las horas, minutos y segundos. 
+    - Opción 3: Salir. Si el usuario elige este opción, el programa finalizará.
+    - Contemplar la posibilidad de que el usuario introduza un dato incorrecto.
+    
+
+
 #### **6.2.6 - Decoradores de funciones**
 Un decorador, es **una función que agrega funcionalidades a otra función**.
 Se usa con el prefijo @ y puede **alterar o extender** el comportamiento de la función decorada.
@@ -2465,10 +2489,6 @@ print("ID devuelto por la función (final):", id(resultado)) # 1971487072512
 print("Contenido final de la lista:", numeros)  # [1, 2, 3, 4]
 ```
 
-
-
-
-
 #### **6.2.8 - Funciones Lambda.**
 
 
@@ -2560,7 +2580,7 @@ print(*nums, sep="\n")  # una llamada en vez de 10k prints
     |-|-|
     *|**a)** Se ha utilizado la consola para realizar operaciones de entrada y salida de información.|16%|
     *|**b)** Se han aplicado formatos en la visualización de la información.|12%|
-    |**c)** Se han reconocido las posibilidades de entrada / salida del lenguaje y las librerías asociadas.|12%|
+    *|**c)** Se han reconocido las posibilidades de entrada / salida del lenguaje y las librerías asociadas.|12%|
     |**d)** Se han utilizado ficheros para almacenar y recuperar información.|12%|
     |**e)** Se han creado programas que utilicen diversos métodos de acceso al contenido de los ficheros.|12%|
     |**f)** Se han utilizado las herramientas del entorno de desarrollo para crear interfaces gráficos de usuario simples.|12%|
