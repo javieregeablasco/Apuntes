@@ -2252,20 +2252,20 @@ print(sumar(3, 4))
 #### **6.2.6 - Tarea RA5-CEc**
 
 !!! exercice "Ejercicio 1"
-    **Función Vectorial**
+    **Función Vectorial**  
     Escribir una función que pida un número y devuelva el factorial de ese número.
     Cálculo de un factorial: n! = `n*(n-1)*(n-2)*(n-3)*...*1` 
 
 !!! exercice "Ejercicio 2"
-    **Función Intercambiar**
+    **Función Intercambiar**  
     Escribir una función que pida dos números y devuelva los números ordenados de mayor a menor
      
 !!! exercice "Ejercicio 3"
-    **Función EsMultiplo**
+    **Función EsMultiplo**  
     Escribir un programa que pida 2 números e indique si el primero el múltiplo del segundo. 
     
 !!! exercice "Ejercicio 4"
-    **Conversor a segundos o a horas, minutos y segundos (HMS).**
+    **Conversor a segundos o a horas, minutos y segundos (HMS).**  
     Escribir un programa que estará dentro de un bucle infinito y que pedirá al usuario elegir entre 3 opciones.
     - Opción 1: Convertir a segundos. El programa pedirá entonces introducir las horas, minutos y segundos y devolverá la conversión a segundos.
     - Opción 2: Convertor a HMS. El programa pedirá introducir los segundos y devolverá las horas, minutos y segundos. 
