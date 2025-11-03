@@ -2139,7 +2139,7 @@ Cuando se realiza una llamda a una función, los argumentos (o parámetros) son 
 !!! tip "Funciones sin argumentos"
 Es la función más elemental de todas. No se le pasa ningún argumento y generalmente, tampoco devuelve nada. 
 ```py 
-di_hola("Juan")
+hola()
 
 def hola():
     print("Hola")
@@ -2266,11 +2266,11 @@ print(sumar(3, 4))
     
 !!! exercice "Ejercicio 4"
     **Conversor a segundos o a horas, minutos y segundos (HMS).**  
-    Escribir un programa que estará dentro de un bucle infinito y que pedirá al usuario elegir entre 3 opciones.
-    - Opción 1: Convertir a segundos. El programa pedirá entonces introducir las horas, minutos y segundos y devolverá la conversión a segundos.
-    - Opción 2: Convertor a HMS. El programa pedirá introducir los segundos y devolverá las horas, minutos y segundos. 
-    - Opción 3: Salir. Si el usuario elige este opción, el programa finalizará.
-    - Contemplar la posibilidad de que el usuario introduza un dato incorrecto.
+    Escribir un programa que estará dentro de un bucle infinito y que pedirá al usuario elegir entre 3 opciones.  
+    - Opción 1: Convertir a segundos. El programa pedirá entonces introducir las horas, minutos y segundos y devolverá la conversión a segundos.   
+    - Opción 2: Convertir a HMS. El programa pedirá introducir los segundos y devolverá las horas, minutos y segundos.  
+    - Opción 3: Salir. Si el usuario elige este opción, el programa finalizará.  
+    - Contemplar la posibilidad de que el usuario introduza un dato incorrecto.  
     
 
 
