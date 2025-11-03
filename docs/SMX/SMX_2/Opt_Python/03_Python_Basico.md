@@ -1490,6 +1490,7 @@ match opcion:
     1. Si el usuario elige 'no' la repetición finalizará y se saldrá del programa. 
  
 ### **5.8 - Tarea RA3-CEa** 
+
 !!! task "Ejercicio 1 - Naturaleza de las raíces de una ecuación cuadrática"
     1. Una **ecuación cuadrática** tiene la forma:  
     **a x<sup>2</sup> + b x + c = 0**
@@ -1519,6 +1520,7 @@ match opcion:
     ```     
 
 ### **5.9 - Tarea RA3-CEb** 
+
 !!! task "Ejercicio - Comprobar si un año es bisiesto"
     1. Escribe un programa que pida un valor
     1. El programa estimará qué años son bisiestos desde 0 hasta el valor introducido.
@@ -1534,6 +1536,7 @@ match opcion:
     - El año 1800 **no fue** bisiesto.  
 
 ### **5.10 - Tarea RA3-CEc** 
+
 !!! task "Ejercicio - Sumar fracciones"
     1. El programa debe pedir al usuario que introduzca un valor entero positivo.
     1. A partir de ese valor, el programa sumará una serie de fracciones correspondientes a todos los números enteros comprendidos entre -valor y +valor (ambos incluidos), siguiendo las siguientes condiciones:
@@ -2247,20 +2250,21 @@ print(sumar(3, 4))
 <br>
 
 #### **6.2.6 - Tarea RA5-CEc**
-!!! exercice "Ejercicio 1**
+
+!!! exercice "Ejercicio 1"
     **Función Vectorial**
     Escribir una función que pida un número y devuelva el factorial de ese número.
     Cálculo de un factorial: n! = `n*(n-1)*(n-2)*(n-3)*...*1` 
 
-!!! exercice "Ejercicio 2**
+!!! exercice "Ejercicio 2"
     **Función Intercambiar**
     Escribir una función que pida dos números y devuelva los números ordenados de mayor a menor
      
-!!! exercice "Ejercicio 3**
+!!! exercice "Ejercicio 3"
     **Función EsMultiplo**
     Escribir un programa que pida 2 números e indique si el primero el múltiplo del segundo. 
     
-!!! exercice "Ejercicio 4**
+!!! exercice "Ejercicio 4"
     **Conversor a segundos o a horas, minutos y segundos (HMS).**
     Escribir un programa que estará dentro de un bucle infinito y que pedirá al usuario elegir entre 3 opciones.
     - Opción 1: Convertir a segundos. El programa pedirá entonces introducir las horas, minutos y segundos y devolverá la conversión a segundos.
