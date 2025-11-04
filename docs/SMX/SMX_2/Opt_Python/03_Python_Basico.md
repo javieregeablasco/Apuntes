@@ -2352,8 +2352,8 @@ sumar(3,5)
 ```
 <br>
 
-- `*kwargs`: Argumentos de tipo clave valor.
-```py 
+- `**kwargs`: Argumentos de tipo clave valor.
+```py   
 def decorador(funcion):
   def funcion_interna(**kwargs):         # ← paso de argumentos
     print("Inicio funcion decoradora")
@@ -2493,7 +2493,12 @@ print("ID devuelto por la función (final):", id(resultado)) # 1971487072512
 print("Contenido final de la lista:", numeros)  # [1, 2, 3, 4]
 ```
 
-#### **6.2.8 - Funciones Lambda.**
+#### **6.2.8 - Funciones Lambda**
+<!-- https://www.luisllamas.es/programacion-funciones-lambda/ -->
+<!-- https://jsp.shiksha/index.php/portfolio/bcse101e-computer-programming-python/introduction-python/lambda-functions -->
+#### **6.2.9 - Funciones recursivas**
+<!-- https://python.sdv.u-paris.fr/13_plus_sur_les_fonctions/ -->
+
 
 
 <!-- https://www.youtube.com/watch?v=DQXm6bIZgvk&t=722s -->

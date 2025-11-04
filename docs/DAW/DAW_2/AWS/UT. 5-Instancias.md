@@ -875,7 +875,7 @@ Una vez conectados a la instancia pública, desde ella nos conectaremos a la ins
 ssh ec2-user@direccion-ip-privada
 ```
 <br>
-!!! task "Tarea RA2-CEd (continuación): Pruebas de ping"
+!!! task "Tarea RA2-CEd (fin): Pruebas de ping"
     **Comprobar:**  
     Instalar el software necesario para que las instancias privadas no se puedan ver mutuamente pero sí, para el resto de conexiones, poder operar normalmente.
     Realizar una prueba de ping de las 2 instancias hacia internet (p.e google.es).  
@@ -884,9 +884,54 @@ ssh ec2-user@direccion-ip-privada
 
 <br>
 
-!!! warning "Documento sujeto a cambios!!!!" 
-
 ## **5 - Reglas encadenadas en grupos de seguridad**
+Como hemos visto, AWS ofrece diferentes herramientas para proteger una infraestructura en la nube, como los grupos de seguridad (**Security Groups**) y las listas de control de acceso a red (**NACL**).  
+Una funcionalidad especialmente interesante es la posibilidad de encadenar grupos de seguridad (**Security Groups Chaining**), lo que permite aplicar un modelo de seguridad por capas dentro de una VPC.
+
+**Comprendiendo el encadenamiento de grupos de seguridad**  
+
+- Encadenar grupos de seguridad significa referenciar un grupo de seguridad dentro de otro.  
+- De esta forma, se pueden crear reglas que **solo permiten el tráfico procedente de instancias asociadas a un grupo de seguridad concreto**, añadiendo una capa adicional de control y segmentación del tráfico.
+
+<br>
+!!! tip "Ejemplo:"
+    **Tenemos:**
+
+    1. Un grupo de seguridad para los servidores web, que permite conexiones HTTP y HTTPS.
+    1. Otro grupo de seguridad para los servidores de base de datos, que **solo acepta tráfico desde el grupo de seguridad del servidor web**.
+
+De esa manera, conseguimos un entorno más seguro, en el que cada capa (web, base de datos, etc.) solo puede comunicarse con las capas que realmente necesita.
+
+Esta técnica facilita una gestión más ordenada y modular de la seguridad, ya que podemos reutilizar y combinar grupos de seguridad según las necesidades de cada componente de la infraestructura.
+
+### **Tarea RA3-CEab**
+Para entender mejor la posiblidad de las reglas encadenas, usaremos el siguiente escenario:
+
+![](./ut5/RA3-CEab.png){.cincozero .marco}  
+
+**Condiciones especificas de la infraestructura:**
+
+1. Lanzar 3 instancias en la subred pública. La **instancia 1 tendrá IP pública**, las otras 2 no. 
+1. Los grupos de seguridad de las instancias (2 y 3) de la subred pública serán encadenados **directamente** al grupo de seguridad de la instancia 1.
+1. Crear un grupo de seguridad (SG-Bastion) que no será asociado a ninguna instancia y encadenadlo al grupo de seguridad de la instancia 1.
+1. Lanzar 2 instancias en la subred privada y encadenar los grupos de seguridad de esas instancias al grupo de seguridad anterior (SG-Bastion).
+
+**Comprobaciones a realizar:**  
+
+1. Realizar una conexión SSH a la **instancia 1**.
+1. Desde la instancia 1 realizar pings al resto de instancias (4 pings en total). 
+1. Propagarse a una de las 2 instancias de la subred pública y realizar pings a las otras instancias (4 pings en total). Si no hay errores solo se podrá hacer ping a la instancia 1. Al resto de instancias (2 en la subred pública y 2 en la subred privada, no se les podrá hacer ping.)
+1. Desde la instancia dónde nos encontramos, intentar propagarse a otra instancia (da igual que sea de la subred pública o privada). 
+1. Desde la instancia 1, propagarse a una de las instancias de la subred privada y realizar pings a las otras instancias (4 pings en total). 
+1. Cambiar la configuración del grupo de seguridad **SG-Bastión**. En vez de estar encadenado a grupo de seguridad de la instancia 1, encardenarlo al grupo de seguridad de una de las 2 instancias de la subred pública (que no sean la instancia 1).
+1. Acceder a una de las 2 instancias de la subred privada (tendreís que hacer una regla de entrada especifica para ello) y realizar un ping al resto de instancias (4 pings en total).
+
+**Condiciones de la entrega:**  
+- Realizar capturas de pantalla de los pings. Comentar brevemente cada captura para entender a qué corresponde y subir el documento a la tarea RA3-CEab de AULES.
+
+
+
+
 
 <!-- https://agrlayush.medium.com/enhancing-aws-security-with-security-groups-chaining-fb2f2d96cb3d -->
 
