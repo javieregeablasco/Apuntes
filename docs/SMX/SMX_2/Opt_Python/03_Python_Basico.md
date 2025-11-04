@@ -2272,8 +2272,6 @@ print(sumar(3, 4))
     - Opción 3: Salir. Si el usuario elige este opción, el programa finalizará.  
     - Contemplar la posibilidad de que el usuario introduza un dato incorrecto.  
     
-
-
 #### **6.2.6 - Decoradores de funciones**
 Un decorador, es **una función que agrega funcionalidades a otra función**.
 Se usa con el prefijo @ y puede **alterar o extender** el comportamiento de la función decorada.
@@ -2493,16 +2491,70 @@ print("ID devuelto por la función (final):", id(resultado)) # 1971487072512
 print("Contenido final de la lista:", numeros)  # [1, 2, 3, 4]
 ```
 
+<br>
 #### **6.2.8 - Funciones Lambda**
-<!-- https://www.luisllamas.es/programacion-funciones-lambda/ -->
-<!-- https://jsp.shiksha/index.php/portfolio/bcse101e-computer-programming-python/introduction-python/lambda-functions -->
-#### **6.2.9 - Funciones recursivas**
-<!-- https://python.sdv.u-paris.fr/13_plus_sur_les_fonctions/ -->
+Las funciones lambda (también conocidas como arrow functions) son una sintaxis para declarar funciones anónimas de forma concisa y expresiva, típicamente se definen en una línea y el código a ejecutar suele ser pequeño. 
 
+!!! tip "Definición de una función Lambda:"
+```py
+# Sintaxis de una funcion lambda
+lambda argumentos: código
+```
+<br>
+!!! tip "Ejemplo básico de función lambda:"
+```py
+sumar = lambda x, y: x+y
 
+print(sumar(2,3))
+```
+<br>
+!!! tip "Función lambda pasada como argumento a una función:"
+```py
+def mi_funcion(lambda_func):
+    return lambda_func(2,4)
 
-<!-- https://www.youtube.com/watch?v=DQXm6bIZgvk&t=722s -->
-<!-- https://codigofacilito.com/articulos/decoradores-python -->
+mi_funcion(lambda a, b: a + b)
+```
+<br>
+!!! tip "Función encapsulada dentro de una función lambda:"
+```py
+def mi_otra_funcion(a, b):
+    return a + b
+
+(lambda a, b: mi_otra_funcion(a, b))(2, 4)
+```
+<br>
+!!! tip "Función lambda y valores por defecto:"
+```py
+(lambda a, b, c=3: print(a + b + c))(1, 2)
+```
+<br>
+!!! tip "*args y **kwargs en funciones lambda:"
+```py
+(lambda *args: print(sum(args)))(1, 2, 3) 
+(lambda **kwargs: print(sum(kwargs.values())))(a=1, b=2, c=3) 
+```
+
+#### **6.2.9 - Otras funciones**
+En Python existen algunas técnicas de programación que permiten escribir funciones más potentes y eficientes. Entre ellas destacan las funciones recursivas, los generadores y el caching de funciones. 
+
+**Funciones recursivas:**  
+
+- Son funciones que se llaman a sí mismas dentro de su propio código. Se utilizan cuando un problema puede dividirse en versiones más pequeñas de sí mismo.
+- Por ejemplo, calcular el factorial de un número o recorrer carpetas dentro de carpetas.
+Aunque son muy útiles, hay que tener cuidado con los casos base para evitar bucles infinitos.
+
+**Generadores:**
+
+- Son un tipo especial de función que no devuelve todos los valores de golpe, sino que los produce uno a uno cada vez que se solicitan.
+- Se definen con la palabra clave yield y son muy útiles para procesar listas grandes o flujos de datos sin ocupar mucha memoria.
+- Por ejemplo, se pueden usar para leer archivos grandes línea a línea.
+
+**Caching de funciones:**
+
+- El “caching” o almacenamiento en caché consiste en guardar el resultado de una función para no volver a calcularlo si se vuelve a necesitar con los mismos datos.
+- En Python se puede hacer fácilmente con el decorador @lru_cache del módulo functools.
+- Esto permite que los programas sean más rápidos, especialmente si las funciones realizan operaciones costosas o repetitivas.
 
 <!-- 
 

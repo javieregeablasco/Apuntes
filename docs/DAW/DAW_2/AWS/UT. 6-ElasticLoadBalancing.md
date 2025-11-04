@@ -64,7 +64,7 @@ https://www.youtube.com/watch?v=CGmTvukObOw -->
 
 
 ## **Enlaces de interés**
-Documentación de [AWS](https://docs.aws.amazon.com).
-
+Documentación de [AWS](https://docs.aws.amazon.com)
+[Elastic Load Balancing](https://docs.aws.amazon.com/es_es/elasticloadbalancing/latest/userguide/what-is-load-balancing.html)
 
 <!-- https://aws.amazon.com/es/products/storage/ -->
