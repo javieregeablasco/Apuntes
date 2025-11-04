@@ -929,14 +929,9 @@ Para entender mejor la posiblidad de las reglas encadenas, usaremos el siguiente
 **Condiciones de la entrega:**  
 - Realizar capturas de pantalla de los pings. Comentar brevemente cada captura para entender a qué corresponde y subir el documento a la tarea RA3-CEab de AULES.
 
-
-
-
-
-<!-- https://agrlayush.medium.com/enhancing-aws-security-with-security-groups-chaining-fb2f2d96cb3d -->
-
 ## **6 - Caso práctico**
-### Tarea RA3-CEabc: Montar un servidor web y un agente mysql 
+### Tarea RA3-CEc: Montar un servidor web y una base de datos mysql 
+**Escenario propuesto:**
 ![](./ut5/VPC2-nat.png){.sietecinco}  
 !!! task "Tarea RA3-CEabc (continuación): Montar un servidor web y un agente mysql"
     **1. Instancia pública**  
