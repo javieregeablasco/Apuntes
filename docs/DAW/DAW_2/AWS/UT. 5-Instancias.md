@@ -814,7 +814,7 @@ Mediante conexiones a las diferentes instancias, comprobar (mediantes ping) que 
 ### **4.3 - Tarea RA2-CEd**
 Para realizar la tarea retomaremos el escenario de la **Tarea RA2-CEc**, y pondremos un NAT gateway público para que las instancias de la subred privada puedan acceder a internet.
 
-![falta imagen]()
+![](./ut5/VPC2-nat.png){.sietecinco}  
 
 Este esquema tiene un error de concepto aunque siempre se representa de esa manera ¿Cuál?
 
