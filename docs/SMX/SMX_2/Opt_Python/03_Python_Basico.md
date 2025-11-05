@@ -2556,43 +2556,6 @@ Aunque son muy útiles, hay que tener cuidado con los casos base para evitar buc
 - En Python se puede hacer fácilmente con el decorador @lru_cache del módulo functools.
 - Esto permite que los programas sean más rápidos, especialmente si las funciones realizan operaciones costosas o repetitivas.
 
-<!-- 
-
-
-https://jorgedelossantos.github.io/apuntes-python/Funciones.html
-https://ellibrodepython.com/funciones-python
-https://docs.python.org/es/3.13/library/functions.html
-
-
-```py
-# definimos una variable de tipo lista
-datos = []
-# Usamos un iterador para llenar la lista
-for i in range(5):
-  dato = input("Introducir cualquier cosa: ")
-  datos.append(dato)
-# Usamos otro iterador para leer la lista y sacamos el tipo de variable que contiene
-for i in range(5):
- # print(f"Posición {i}, valor {datos[i]}, tipo {type(datos[i])}") 
-  print(f"Posición {i}, valor {datos[i]}, tipo: {'string' if isinstance(datos[i],str) else ''}")
-```
-  
-https://jorgedelossantos.github.io/apuntes-python/Funciones.html
- 
-
-https://arturoblasco.github.io/prg/ut01/actividades/ut01ac1f/  
-  
-<!-- http://anyp.fcaglp.unlp.edu.ar/Practicas-2025/ANyP-01b.pdf -->
-
-<!-- destructuracion?? -->
-
-<!--
-5) Desempeño al imprimir listas grandes
-nums = list(range(10_000))
-print(*nums, sep="\n")  # una llamada en vez de 10k prints
- -->
-
-
  <!-- === "RA 1"
     |RA1. Reconoce la estructura de un programa informático, identificando y relacionando los elementos propios del lenguaje de programación utilizado.|Peso|
     |-|-|

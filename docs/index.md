@@ -33,7 +33,7 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 !!! note "Title of the callout"
     Aquí va el texto, no se si se puede cambiar el icono
 
-??? info "Title of the content"
+??? quote "Title of the content"
     Aquí va el texto, no se si se puede cambiar el icono    
 
 Tipos (iconos disponibles).  
