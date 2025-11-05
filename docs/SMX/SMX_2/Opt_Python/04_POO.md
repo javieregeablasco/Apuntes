@@ -247,17 +247,221 @@ print(mi_coche.color)     # Muestra el color del coche
 print(mi_coche.ruedas)    # Muestra el número de ruedas
 ```
 
-!!! danger "¡Si no tomamos las  medidas oportunas, podremos modificarlos los atributos del objeto desde fuenra de la clase!"
+!!! danger "¡Si no tomamos las  medidas oportunas, podremos modificarlos los atributos del objeto desde fuera de la clase!"
     ```py
     print("Color coche original", mi_coche.color)
     mi_coche.color = "Azul"
     print("Color coche repintado", mi_coche.color)
     ```
 
+#### **3.4 - Tarea RA4-CEa**
+!!! exercise "Ejercicio 1"
+    Realizar un programa que conste de lo siguiente:
+    1. Una clase llamada **Estudiante**, que tenga como atributos el nombre y la nota del alumno.  
+    1. La clase tendrá los métodos para inicializar sus atributos, imprimirlos por terminal y mostrar un mensaje con el resultado de la nota y si ha aprobado o no.
+    1. Contruir 2 objetos (utilizar los inputs necesarios) e instanciar sus clases. 
+
+!!! exercise "Ejercicio 2"
+    Realizar un programa que conste de lo siguiente:
+    1. Una clase llamada calculadora. que tendrá, entre otros los métodos sumar, restar, multiplicar y dividir.  
+    1. El código necesario para que el usuario pueda introducir 2 valores **enteros**.  
+    1. El código necesario para imprimir la suma, resta, multiplicación y división de los 2 valores.
+    1. Si el usuario ha introducido un valor nulo y no se puede realizar la división, el programa imprimirá por pantalla **No se puede realizar la operación solicitada.
+
+#### **3.4 - Métodos de instancia, clase y estáticos**
+Como hemos visto, los métodos son funciones incluidas dentro de la definición de una clase.  
+Existen tres tipos de métodos, que se diferencian en cómo se definen y a qué tienen acceso: 
+
+- **Método de instancia**: se utiliza cuando el método necesita acceder o modificar los datos específicos de un objeto (una instancia concreta de la clase).
+- **Método de clase**: se utiliza cuando el método trabaja con datos que pertenecen a la clase en general, no a una instancia concreta (por ejemplo, atributos de clase compartidos).
+- **Método estático**: se utiliza cuando el método no depende ni de los datos de instancia ni de los datos de clase. Realiza una operación independiente del estado del objeto o de la clase.
+
+!!! tip "Métodos de instancia"
+Los métodos de instancia son métodos que actúan sobre las instancias de una clase. Tienen acceso a los atributos de esas instancias a través del parámetro **self**.
+
+Son los métodos más comunes en Python y se definen dentro de una clase utilizando def.
+
+**Ejemplo**
+```py
+class Persona:
+    def __init__(self, nombre, edad):
+        self.nombre = nombre
+        self.edad = edad
+
+    def saludar(self):
+        return f"Hola, soy {self.nombre} y tengo {self.edad} años."
+
+# Creación de instancia de persona
+persona1 = Persona("Luis", 30)
+
+# Llamada al método de instancia
+print(persona1.saludar())  # Salida: Hola, soy Luis y tengo 30 años.
+```
+→ saludar() es un método de instancia.  
+→ Utiliza self para acceder a los atributos nombre y edad de la instancia persona1.
+
+!!! tip "Métodos de clase"
+Los métodos de clase son aquellos que actúan sobre **la clase en sí**, en lugar de hacerlo **sobre las instancias individuales**.
+Se definen utilizando el decorador **@classmethod** y reciben como primer parámetro cls, que representa la propia clase y permite acceder o modificar sus atributos y métodos de clase.
+```py
+class Coche:
+    # Atributo de clase (compartido por todas las instancias)
+    ruedas = 4  
+
+    # Constructor
+    def __init__(self, marca, modelo, color):
+        self.marca = marca
+        self.modelo = modelo
+        self.color = color
+        self.abs_serie = True    
+
+    # Métodos de instancia
+    def arrancar(self):
+        print("El coche está arrancando.")
+    
+    def acelerar(self):
+        print("El coche está acelerando.")
+    
+    def frenar(self):
+        print("El coche está frenando.")
+    
+    def girar(self):
+        print("El coche está girando.")
+
+    # Método de clase
+    @classmethod
+    def cambiar_ruedas(cls, nuevas_ruedas):
+        cls.ruedas = nuevas_ruedas
+        print(f"Ahora todos los coches tienen {cls.ruedas} ruedas.")
+
+# Intanciar el metodo de clase no el objeto
+Coche.cambiar_ruedas(6)
+
+# Crear nuevo objeto
+mi_nuevo_coche = Coche
+print("Ahora todos los coches de esa clase tendran", mi_nuevo_coche.ruedas,"ruedas")
+```
+
+!!! tip "Métodos estáticos"
+Los métodos estáticos son métodos que están relacionados con la clase, pero no necesitan acceder ni a los atributos de instancia ni a los atributos de clase.
+Se definen utilizando el decorador @staticmethod y no reciben los parámetros self ni cls, ya que no dependen del estado del objeto ni de la clase.
+
+```py
+class Coche:
+    def __init__(self, marca, modelo, color, kilometros):
+        self.marca = marca
+        self.modelo = modelo
+        self.color = color
+        self.kilometros = kilometros
+        self.ruedas = 4
+        self.abs_serie = True    
+
+    def arrancar(self):
+        print("El coche está arrancando.")
+    
+    def acelerar(self):
+        print("El coche está acelerando.")
+    
+    def frenar(self):
+        print("El coche está frenando.")
+    
+    def girar(self):
+        print("El coche está girando.")
+
+    @staticmethod
+    def es_nuevo(kilometros):
+        if kilometros >= 10000: 
+            return "de segunda mano"
+        elif kilometros > 500 and kilometros <10000: 
+            return "semi nuevo"
+        else: 
+            return "nuevo"
+
+coche1 = Coche("Toyota", "Corolla", "gris", 0)
+coche2 = Coche("Ford", "Focus", "rojo", 3000)
+coche3 = Coche("Seat", "Ibiza", "azul", 15000)           
+```
+<br>
+**Ejemplo con los 3 métodos**
+```py
+class Coche:
+    # Atributo de clase (compartido por todas las instancias)
+    ruedas = 4
+    
+    def __init__(self, marca, modelo, color, kilometros = 0):
+        self.marca = marca
+        self.modelo = modelo
+        self.color = color
+        self.kilometros = kilometros
+        self.abs_serie = True    
+
+    # Métodos de instancia
+    def arrancar(self):
+        print("El coche está arrancando.")
+    
+    def acelerar(self):
+        print("El coche está acelerando.")
+    
+    def frenar(self):
+        print("El coche está frenando.")
+    
+    def girar(self):
+        print("El coche está girando.")
+
+    def mostrar_marca(self):
+        return f"Este coche es un {self.marca}"
+
+    # Método estático
+    @staticmethod
+    def es_nuevo(kilometros):
+        """Devuelve el estado del coche según los kilómetros."""
+        if kilometros >= 10000: 
+            return "de segunda mano"
+        elif 500 < kilometros < 10000: 
+            return "semi nuevo"
+        else: 
+            return "nuevo"
+
+    # Métodos de clase
+    @classmethod
+    def cambiar_ruedas(cls, nuevas_ruedas):
+        cls.ruedas = nuevas_ruedas
+        print(f"Ahora todos los coches tienen {cls.ruedas} ruedas.")     
+
+    @classmethod
+    def crear_coche_predeterminado(cls):
+        """Crea un coche con valores estándar."""
+        return cls("Toyota", "Corolla", "gris", 0)       
+
+
+# Ejemplo de uso
+coche_1 = Coche("Toyota", "Corolla", "gris")
+coche_2 = Coche("Ford", "Focus", "rojo", 8000)
+
+# Método de instancia → depende del objeto
+print(coche_1.mostrar_marca())  # "Este coche es un Toyota"
+
+# Método de clase → afecta a la clase entera
+Coche.cambiar_ruedas(6)  
+print(f"El coche coche_2 tiene {coche_2.ruedas} ruedas")  # 6 (se actualizó para todas las instancias)
+
+# Método estático → independiente de la clase o instancia
+print("El coche 1 es", Coche.es_nuevo(coche_1.kilometros))  # nuevo
+print("El coche 2 es",Coche.es_nuevo(coche_2.kilometros))  # semi nuevo
+
+# Método de clase que crea un coche predefinido
+coche_3 = Coche.crear_coche_predeterminado()
+print(f"Coche 3 (predeterminado): {coche_3.marca}, {coche_3.modelo}, {coche_3.color}, {coche_3.kilometros} km")
+```
+
+
+
 
 <!-- Cómo usar los objetos
  https://www.luisllamas.es/que-es-un-objeto-en-programacion/ -->
 <!-- https://gitlab.com/josedom24/curso_programacion_python3/-/tree/master/curso/u39?ref_type=heads -->
+<!-- https://ellibrodepython.com/programacion-orientada-a-objetos-python -->
+
 <!-- 
 
 ```py
@@ -274,9 +478,8 @@ for i in range(5):
 ```
   
 <!-- https://jsp.shiksha/index.php/portfolio/bacse101-problem-solving-using-python/introduction-python -->
-<!-- https://nachoiborraies.github.io/python/08.html -->
+ 
 <!-- https://www.luisllamas.es/que-es-un-objeto-en-programacion/ -->
-<!-- https://ellibrodepython.com/programacion-orientada-a-objetos-python -->
 <!-- https://gitlab.com/josedom24/curso_programacion_python3/-/tree/master/curso/u39?ref_type=heads -->
 
 
