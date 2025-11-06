@@ -907,14 +907,13 @@ Esta técnica facilita una gestión más ordenada y modular de la seguridad, ya 
 ### **Tarea RA3-CEab**
 Para entender mejor la posiblidad de las reglas encadenas, usaremos el siguiente escenario:
 
-![](./ut5/RA3-CEab.png){.cincozero .marco}  
+![](./ut5/RA3-CEab-ver2.png){.cincozero .marco}  
 
 **Condiciones especificas de la infraestructura:**
 
 1. Lanzar 3 instancias en la subred pública. La **instancia 1 tendrá IP pública**, las otras 2 no. 
 1. Los grupos de seguridad de las instancias (2 y 3) de la subred pública serán encadenados **directamente** al grupo de seguridad de la instancia 1.
-1. Crear un grupo de seguridad (SG-Bastion) que no será asociado a ninguna instancia y encadenadlo al grupo de seguridad de la instancia 1.
-1. Lanzar 2 instancias en la subred privada y encadenar los grupos de seguridad de esas instancias al grupo de seguridad anterior (SG-Bastion).
+1. Lanzar 2 instancias en la subred privada y encadenar los grupos de seguridad de esas instancias al grupo de seguridad de la instancia 1.
 
 **Comprobaciones a realizar:**  
 
@@ -923,11 +922,23 @@ Para entender mejor la posiblidad de las reglas encadenas, usaremos el siguiente
 1. Propagarse a una de las 2 instancias de la subred pública y realizar pings a las otras instancias (4 pings en total). Si no hay errores solo se podrá hacer ping a la instancia 1. Al resto de instancias (2 en la subred pública y 2 en la subred privada, no se les podrá hacer ping.)
 1. Desde la instancia dónde nos encontramos, intentar propagarse a otra instancia (da igual que sea de la subred pública o privada). 
 1. Desde la instancia 1, propagarse a una de las instancias de la subred privada y realizar pings a las otras instancias (4 pings en total). 
-1. Cambiar la configuración del grupo de seguridad **SG-Bastión**. En vez de estar encadenado a grupo de seguridad de la instancia 1, encardenarlo al grupo de seguridad de una de las 2 instancias de la subred pública (que no sean la instancia 1).
-1. Acceder a una de las 2 instancias de la subred privada (tendreís que hacer una regla de entrada especifica para ello) y realizar un ping al resto de instancias (4 pings en total).
 
+**Ejemplos de pings entre instancias:**
+
+!!! tip "Instancia 1 al resto de instancias"
+![](./ut5/RA3-CEab-1.png){.cincozero}  
+
+!!! tip "Instancia subred pública al resto de instancias"
+![](./ut5/RA3-CEab-2.png){.cincozero}  
+
+!!! tip "Instancia subred privada al resto de instancias"
+![](./ut5/RA3-CEab-3.png){.cincozero}  
+
+<br>
 **Condiciones de la entrega:**  
-- Realizar capturas de pantalla de los pings. Comentar brevemente cada captura para entender a qué corresponde y subir el documento a la tarea RA3-CEab de AULES.
+
+- Realizar capturas de pantalla de los pings. 
+- Comentar brevemente cada captura para entender a qué corresponde y subir el documento a la tarea RA3-CEab de AULES.
 
 ## **6 - Caso práctico**
 ### Tarea RA3-CEc: Montar un servidor web y una base de datos mysql 
