@@ -255,19 +255,22 @@ print(mi_coche.ruedas)    # Muestra el número de ruedas
     ```
 
 #### **3.4 - Tarea RA4-CEa**
-!!! exercise "Ejercicio 1"
-    Realizar un programa que conste de lo siguiente:
-    1. Una clase llamada **Estudiante**, que tenga como atributos el nombre y la nota del alumno.  
-    1. La clase tendrá los métodos para inicializar sus atributos, imprimirlos por terminal y mostrar un mensaje con el resultado de la nota y si ha aprobado o no.
-    1. Contruir 2 objetos (utilizar los inputs necesarios) e instanciar sus clases. 
+!!! exercise "Ejercicio 1"  
+    Realizar un programa que conste de lo siguiente:  
+
+    1. Una clase llamada **Estudiante**, que tenga como atributos el nombre y la nota del alumno.    
+    1. La clase tendrá los métodos para inicializar sus atributos, imprimirlos por terminal y mostrar un mensaje con el resultado de la nota y si ha aprobado o no.  
+    1. Contruir 2 objetos (utilizar los inputs necesarios) e instanciar sus clases.   
 
 !!! exercise "Ejercicio 2"
     Realizar un programa que conste de lo siguiente:
+
     1. Una clase llamada calculadora. que tendrá, entre otros los métodos sumar, restar, multiplicar y dividir.  
     1. El código necesario para que el usuario pueda introducir 2 valores **enteros**.  
     1. El código necesario para imprimir la suma, resta, multiplicación y división de los 2 valores.
-    1. Si el usuario ha introducido un valor nulo y no se puede realizar la división, el programa imprimirá por pantalla **No se puede realizar la operación solicitada.
+    1. Si el usuario ha introducido un valor nulo y no se puede realizar la división, el programa imprimirá por pantalla **No se puede realizar la operación solicitada**.
 
+<br>
 #### **3.4 - Métodos de instancia, clase y estáticos**
 Como hemos visto, los métodos son funciones incluidas dentro de la definición de una clase.  
 Existen tres tipos de métodos, que se diferencian en cómo se definen y a qué tienen acceso: 
@@ -300,6 +303,7 @@ print(persona1.saludar())  # Salida: Hola, soy Luis y tengo 30 años.
 → saludar() es un método de instancia.  
 → Utiliza self para acceder a los atributos nombre y edad de la instancia persona1.
 
+<br>
 !!! tip "Métodos de clase"
 Los métodos de clase son aquellos que actúan sobre **la clase en sí**, en lugar de hacerlo **sobre las instancias individuales**.
 Se definen utilizando el decorador **@classmethod** y reciben como primer parámetro cls, que representa la propia clase y permite acceder o modificar sus atributos y métodos de clase.
@@ -342,6 +346,7 @@ mi_nuevo_coche = Coche
 print("Ahora todos los coches de esa clase tendran", mi_nuevo_coche.ruedas,"ruedas")
 ```
 
+<br>
 !!! tip "Métodos estáticos"
 Los métodos estáticos son métodos que están relacionados con la clase, pero no necesitan acceder ni a los atributos de instancia ni a los atributos de clase.
 Se definen utilizando el decorador @staticmethod y no reciben los parámetros self ni cls, ya que no dependen del estado del objeto ni de la clase.

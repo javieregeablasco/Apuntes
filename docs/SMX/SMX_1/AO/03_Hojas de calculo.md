@@ -450,11 +450,67 @@ Trabajos a realizar:
     1. Aplicar las formulas necesarias para realizar los cálculos necesarios para completar la tabla.
 
 ### **Tarea RA3-CEd-1 - Formúlas y funciones**
+Las fórmulas son uno de los elementos fundamentales de cualquier hoja de cálculo.  
+Permiten automatizar cálculos, analizar datos y obtener resultados dinámicos a partir de la información introducida en las celdas. 
+
+!!! warning "Tarea parte 1. Descargar el archivo"
+Descargar y abrir el archivo 'RA3-CEd-1' pinchando en el enlace siguiente: [Descargar archivo](./03_hojas_de_calculo/tareas/RA3-CEd-1%20nombreapellidos.ods)  
+
+!!! warning "Tarea parte 2. Aplicar fórmulas a las celdas"
+En la hoja 1 encontrareís unas tablas con valores.
+
+Trabajos a realizar: 
+
+1. Conjunto de la hoja de cálculo: Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. **Tenéis libertad total en este apartado**.
+1. Fila **Total producto** → Rellenar las celdas con la fórmula que suma el total de las celdas **Producto ##** y **Total vendedor**.
+1. Fila **Promedio venta** → Rellenar las celdas con la fórmula que cálcula la media de las celdas **Producto ##** y **Total vendedor**.
+1. Fila **Total producto** → Rellenar las celdas con la fórmula que saca el valor máximo de las celdas **Producto ##** y **Total vendedor** .
+1. Fila **Total producto** → Rellenar las celdas con la fórmula que saca el valor mínimo de las celdas **Producto ##** y **Total vendedor**.
+1. Columna **Proporción del total** → Rellenar las celdas con la fórmula que permita sacar la división entre el **total por cada vendedor** y el valor de la celda **Total producto**.
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc38.png){ .leftdoscero }<br>   
+
+**Aspecto final de la hoja** (debéis aplicar vuestros estilos).
+
+![Descripción de la imagen](./03_hojas_de_calculo/img/calc40.png){ .leftsietecero } <br>   
 
 
+!!! warning "Tarea parte 3. Aplicar fórmulas a las celdas"
+En la hoja 2 encontrareís unas tablas con valores.
+
+1. Conjunto de la hoja de cálculo: Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. **Tenéis libertad total en este apartado**.
+1. Campos "Hoja, documento y fecha": En la celda contigua insertar el campo **nombre de la hoja**, **nombre del documento** y **fecha**.
+1. Usar la fórmula necesaria para rellenar la columna **Total precio sin IVA**.
+1. Rellenar a mano la columna **Porcentaje IVA** consultando la columna **Código IVA** y la tabla **Porcentaje IVA**.
+1. Calcular la columna **Monto IVA** usando los datos de las columnas **Total precio sin IVA** y **Porcentaje IVA**   
+1. Calcular la columna **Total precio con IVA** usando los datos de las columnas **Total precio sin IVA** y **Monto IVA**.
+1. Usar las fórmulas necesarias para rellenar la tabla **Total factura sin IVA**.
+
+**Aspecto final de la hoja** (debéis aplicar vuestros estilos).
+
+![Descripción de la imagen](./03_hojas_de_calculo/img/calc41.png){ .leftsietecero } <br>   
+
+!!! warning "Tarea parte 4. Aplicar fórmulas a las celdas"
+1. Conjunto de la hoja de cálculo: Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. **Tenéis libertad total en este apartado**.
+1. Dentro del mismo documento, crear una hoja nueva (Hoja3).
+1. **Columna 1**: Crear una serie de rango 0 → 2 con incrementos de 0.1.
+1. **Columna 2**: Buscar la fórmula que permita insertar **un número aleatorio entre 0 y 2**. Pista: **Asistente para funciones** → categoría **matemáticas** → **aleatorio**... 
+1. **Columna 3**: Buscar la fórmula que permita redondear los valores de la columna 2 a 3 decimales. Pista: **Asistente para funciones** → categoría **matemáticas** → **redondear**...
+1. **Columna 4**: Buscar la fórmula que devuelva verdadero o falso si comparamos los valores de las columnas **Series** y **Redondear**.
+1. **Columna 5**: Generar unas fechas aleatorias.  
+&emsp;**Pista:** Internamente, las fechas se almacenan como cifras. La parte entera se corresponde a la fecha y la parte decimal a la hora.   
+&emsp;&emsp;&emsp;La fecha 30/12/1899 se almacena como el número 0.  
+&emsp;&emsp;&emsp;La fecha 01/01/1900 se almacena como el número 2.  
+&emsp;&emsp;&emsp;...  
+&emsp;&emsp;&emsp;La fecha 6/11/25 se almacena como el número 45963.  
+1. **Columna 6, 7 y 8**: Introducir unos nombres y apellidos a mano y concaternarlos insertando un espacio o cualquier otro carácter entre nombre y appelidos.  
+<br>
+**Aspecto final de la hoja** (sin aplicar estilos).
+
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc39.png){ .leftsietecero }<br>   
 
 
 <!-- 
+file:///C:/Users/titan/Documents/Javier128/Modulos/SMX/SMX_1/AO/materiales/RA3/PracticaNOTES-Func-SI_Curs_2022.pdf
 file:///C:/Users/titan/Downloads/mat%20excel/Taller_REFERENCIAS_Excel_9no.pdf
 
 https://www.youtube.com/watch?v=UFob_EWdWLA&list=PLU8oAlHdN5BkCs-P-AnQhxsSyxSxv9jfI&index=11file:///C:/Users/titan/Documents/Javier128/Modulos/SMX/SMX_1/AO/materiales/RA3/M2P11-FormatoCondicional-Voluntaria.pdf 
