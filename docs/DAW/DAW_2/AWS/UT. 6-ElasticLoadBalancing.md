@@ -38,6 +38,7 @@ peer connection
 transit gateway
 escalado automatico
 elastic load balancing 
+<!-- https://www.youtube.com/watch?v=89N3u6W01IQ -->
 <!-- https://www.grycap.upv.es/cursocloudaws/contenido.php 
 https://luisdieguez.com/tutorial-ansible-desde-0-herramienta-de-gestion-de-servidores/
 https://ualmtorres.github.io/SeminarioDockerPresentacion/

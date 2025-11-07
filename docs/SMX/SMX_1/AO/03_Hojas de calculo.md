@@ -22,17 +22,19 @@ schedule: 224h - 7h/w
 | **RA3. Elabora documentos y plantillas de cálculo, describiendo y aplicando opciones avanzadas de hojas de cálculo.**  
 
 
-|**Criterios de evaluación de la unidad didáctica:**|
-    |-|
-    |**a)** Se ha personalizado las opciones de software y barra de herramientas. |
-    |**b)** Se han utilizado los elementos básicos en la elaboración de hojas de cálculo. |
-    |**c)** Se han utilizado los diversos tipos de datos y referencia para celdas, rangos, hojas y libros. |    
-    |**d)** Se han aplicado fórmulas y funciones. |
-    |**e)** Se han generado y modificado gráficos de diferentes tipos. |
-    |**f)** Se han empleado macros para la realización de documentos y plantillas.|
-    |**h)** Se ha utilizado la hoja de cálculo como base de datos: formularios, creación de listas, filtrado, protección y ordenación de datos. |
-    |**i)** Se han utilizado aplicaciones y periféricos para introducir textos,números, códigos e imágenes.|    
+|**Criterios de evaluación de la unidad didáctica:**||
+    |-|-|
+    |**a)** Se ha personalizado las opciones de software y barra de herramientas. |5%|
+    |**b)** Se han utilizado los diversos tipos de datos y referencia para celdas, rangos, hojas y libros. |15%|
+    |**c)** Se han aplicado fórmulas y funciones. |30%|
+    |**d)** Se han generado y modificado gráficos de diferentes tipos. |10%|
+    |**e)** Se han empleado macros para la realización de documentos y plantillas.|5%|
+    |**f)** **Se han importado y exportado hojas de cálculo creadas con otras aplicaciones y en otros formatos.**|5%|
+    |**g)** Se ha utilizado la hoja de cálculo como base de datos: formularios, creación de listas, filtrado, protección y ordenación de datos. |25%|
+    |**h)** Se han utilizado aplicaciones y periféricos para introducir textos, números, códigos e imágenes.|5%|
 
+!!! warning "Nota:" 
+    El criterio de evaluación **f) Se han importado y exportado hojas de cálculo creadas con otras aplicaciones y en otros formatos** será evaluado durante la FCT.
 
 ## **1 - Interfaz de trabajo en Calc**
 Después de hacer doble clic sobre el icono de **LibreOffice** seleccionamos **Nuevo &rarr; Hoja de cálculo** y nos encontraremos con la siguiente interfaz.
@@ -449,12 +451,12 @@ Trabajos a realizar:
     1. Para este ejercicio se deberá hacer uso de referencias relativas, absolutas o mixtas.    
     1. Aplicar las formulas necesarias para realizar los cálculos necesarios para completar la tabla.
 
-### **Tarea RA3-CEd-1 - Formúlas y funciones**
+### **Tarea RA3-CEc-3 - Formúlas y funciones**
 Las fórmulas son uno de los elementos fundamentales de cualquier hoja de cálculo.  
 Permiten automatizar cálculos, analizar datos y obtener resultados dinámicos a partir de la información introducida en las celdas. 
 
 !!! warning "Tarea parte 1. Descargar el archivo"
-Descargar y abrir el archivo 'RA3-CEd-1' pinchando en el enlace siguiente: [Descargar archivo](./03_hojas_de_calculo/tareas/RA3-CEd-1%20nombreapellidos.ods)  
+Descargar y abrir el archivo 'RA3-CEc-3' pinchando en el enlace siguiente: [Descargar archivo](./03_hojas_de_calculo/tareas/RA3-CEc-3%20nombreapellidos.ods)  
 
 !!! warning "Tarea parte 2. Aplicar fórmulas a las celdas"
 En la hoja 1 encontrareís unas tablas con valores.
@@ -492,22 +494,24 @@ En la hoja 2 encontrareís unas tablas con valores.
 !!! warning "Tarea parte 4. Aplicar fórmulas a las celdas"
 1. Conjunto de la hoja de cálculo: Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. **Tenéis libertad total en este apartado**.
 1. Dentro del mismo documento, crear una hoja nueva (Hoja3).
-1. **Columna 1**: Crear una serie de rango 0 → 2 con incrementos de 0.1.
-1. **Columna 2**: Buscar la fórmula que permita insertar **un número aleatorio entre 0 y 2**. Pista: **Asistente para funciones** → categoría **matemáticas** → **aleatorio**... 
-1. **Columna 3**: Buscar la fórmula que permita redondear los valores de la columna 2 a 3 decimales. Pista: **Asistente para funciones** → categoría **matemáticas** → **redondear**...
-1. **Columna 4**: Buscar la fórmula que devuelva verdadero o falso si comparamos los valores de las columnas **Series** y **Redondear**.
-1. **Columna 5**: Generar unas fechas aleatorias.  
+1. **Columna A**: Crear una serie de rango 0 → 2 con incrementos de 0.1.
+1. **Columna B**: Buscar la fórmula que permita insertar **un número aleatorio entre 0 y 2**. Pista: **Asistente para funciones** → categoría **matemáticas** → **aleatorio**... 
+1. **Columna C**: Buscar la fórmula que permita redondear los valores de la columna 2 a 3 decimales. Pista: **Asistente para funciones** → categoría **matemáticas** → **redondear**...
+1. **Columna D**: Buscar la fórmula que devuelva verdadero o falso si comparamos los valores de las columnas **Series** y **Redondear**.
+1. **Columna E**: Generar unas fechas aleatorias.  
 &emsp;**Pista:** Internamente, las fechas se almacenan como cifras. La parte entera se corresponde a la fecha y la parte decimal a la hora.   
 &emsp;&emsp;&emsp;La fecha 30/12/1899 se almacena como el número 0.  
 &emsp;&emsp;&emsp;La fecha 01/01/1900 se almacena como el número 2.  
 &emsp;&emsp;&emsp;...  
 &emsp;&emsp;&emsp;La fecha 6/11/25 se almacena como el número 45963.  
-1. **Columna 6, 7 y 8**: Introducir unos nombres y apellidos a mano y concaternarlos insertando un espacio o cualquier otro carácter entre nombre y appelidos.  
+1. **Columna F, G y H**: Introducir unos nombres y apellidos a mano y concaternarlos insertando un espacio o cualquier otro carácter entre nombre y appelidos.  
 <br>
 **Aspecto final de la hoja** (sin aplicar estilos).
 
     ![Descripción de la imagen](./03_hojas_de_calculo/img/calc39.png){ .leftsietecero }<br>   
 
+1. **Entrega de la tarea**:  
+Subir la tarea a AULES en el apartado correspondiente. El archivo a subir deberá ser de tipo **.ods** (formato nativo de LibreOffice Calc). **No se aceptará ningún otro formato de archivo**.  
 
 <!-- 
 file:///C:/Users/titan/Documents/Javier128/Modulos/SMX/SMX_1/AO/materiales/RA3/PracticaNOTES-Func-SI_Curs_2022.pdf
@@ -535,13 +539,16 @@ file:///C:/Users/titan/Documents/Javier128/Modulos/SMX/SMX_1/AO/materiales/RA3/A
 <!-- ### **Tarea RA3-CEd-3 - usar para otra cosa** -->
 
 <!-- 
-     |**c)** Se han utilizado los diversos tipos de datos y referencia para celdas, rangos, hojas y libros. |    10%|
-    |**d)** Se han aplicado fórmulas y funciones. |15%|
-    |**e)** Se han generado y modificado gráficos de diferentes tipos. |10%|
-    |**f)** Se han empleado macros para la realización de documentos y plantillas.|10%|
-    |**g)** Se han importado y exportado hojas de cálculo creadas con otras aplicaciones y en otros formatos.|10%|
-    |**h)** Se ha utilizado la hoja de cálculo como base de datos: formularios, creación de listas, filtrado, protección y ordenación de datos. |10%|
-    |**i)** Se han utilizado aplicaciones y periféricos para introducir textos,números, códigos e imágenes.|    10%|
+  |RA3. Elabora documentos y plantillas de cálculo, describiendo y aplicando opciones avanzadas de hojas de cálculo.||
+    |-|-|
+    |**a)** Se ha personalizado las opciones de software y barra de herramientas. |10%|
+    |**b)** Se han utilizado los diversos tipos de datos y referencia para celdas, rangos, hojas y libros. |    10%|
+    |**c)** Se han aplicado fórmulas y funciones. |15%|
+    |**d)** Se han generado y modificado gráficos de diferentes tipos. |10%|
+    |**e)** Se han empleado macros para la realización de documentos y plantillas.|10%|
+    |**f)** `Se han importado y exportado hojas de cálculo creadas con otras aplicaciones y en otros formatos.`|10%|
+    |**g)** Se ha utilizado la hoja de cálculo como base de datos: formularios, creación de listas, filtrado, protección y ordenación de datos. |10%|
+    |**h)** Se han utilizado aplicaciones y periféricos para introducir textos, números, códigos e imágenes.|    10%|
  -->
 
 

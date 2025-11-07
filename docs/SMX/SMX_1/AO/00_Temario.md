@@ -154,40 +154,38 @@ A continuación, se presentan los contenidos de este módulo tal y como aparecen
 === "RA 1"
     |RA1. Instala y actualiza aplicaciones ofimáticas, interpretando especificaciones y describiendo los pasos a seguir en el proceso.|Peso|
     |-|-|
-    |**a)** Se han identificado y establecido las fases del proceso de instalación. |15%|
-    |**b)** Se han respetado las especificaciones técnicas del proceso de instalación. |15%|
+    |**a)** Se han identificado y establecido las fases del proceso de instalación. |15%|5
+    |**b)** Se han respetado las especificaciones técnicas del proceso de instalación. |15%|5
     |**c)** Se han configurado las aplicaciones según los criterios establecidos. |15%|
-    |**d)** Se han documentado las incidencias. |5%|
+    |**d)** `Se han documentado las incidencias.` |5%|
     |**e)** Se han solucionado problemas en la instalación o integración con el sistema informático. |10%|
     |**f)** Se han eliminado y/o añadido componentes de la instalación en el equipo. |15%|
     |**g)** Se han actualizado las aplicaciones. |10%|
     |**h)** Se han respetado las licencias software. |10%|
-    |**i)** Se han propuesto soluciones software para entornos de aplicación. |5%|
+    |**i)** `Se han propuesto soluciones software para entornos de aplicación.` |5%|
 
 
 === "RA 2"
     |RA2. Elabora documentos y plantillas, describiendo y aplicando las opciones avanzadas de procesadores de textos.|peso|
     |-|-|
     |**a)** Se ha personalizado las opciones de software y barra de herramientas. |15%|
-    |**b)** Se han utilizado los elementos básicos en la elaboración de documentos. |25%|
-    |**c)** Se han diseñado plantillas. |10%|
-    |**d)** Se han utilizado aplicaciones y periféricos para introducir textos e imágenes. |15%|
-    |**e)** Se han importado y exportado documentos creados con otras aplicaciones y en otros formatos.|15%|
-    |**f)** Se han creado y utilizado macros en la realización de documentos.|10%|
-    |**g)** Se han elaborado manuales específicos. |10%|
+    |**b)** Se han diseñado plantillas. |10%|
+    |**c)** Se han utilizado aplicaciones y periféricos para introducir textos e imágenes. |15%|
+    |**d)** Se han importado y exportado documentos creados con otras aplicaciones y en otros formatos.|15%|
+    |**e)** Se han creado y utilizado macros en la realización de documentos.|10%|
+    |**f)** `Se han elaborado manuales específicos.` |10%|
 
 === "RA 3"
     |RA3. Elabora documentos y plantillas de cálculo, describiendo y aplicando opciones avanzadas de hojas de cálculo.||
     |-|-|
     |**a)** Se ha personalizado las opciones de software y barra de herramientas. |10%|
-    |**b)** Se han utilizado los elementos básicos en la elaboración de hojas de cálculo. |15%|
-    |**c)** Se han utilizado los diversos tipos de datos y referencia para celdas, rangos, hojas y libros. |    10%|
-    |**d)** Se han aplicado fórmulas y funciones. |15%|
-    |**e)** Se han generado y modificado gráficos de diferentes tipos. |10%|
-    |**f)** Se han empleado macros para la realización de documentos y plantillas.|10%|
-    |**g)** Se han importado y exportado hojas de cálculo creadas con otras aplicaciones y en otros formatos.|10%|
-    |**h)** Se ha utilizado la hoja de cálculo como base de datos: formularios, creación de listas, filtrado, protección y ordenación de datos. |10%|
-    |**i)** Se han utilizado aplicaciones y periféricos para introducir textos,números, códigos e imágenes.|    10%|
+    |**b)** Se han utilizado los diversos tipos de datos y referencia para celdas, rangos, hojas y libros. |    10%|
+    |**c)** Se han aplicado fórmulas y funciones. |15%|
+    |**d)** Se han generado y modificado gráficos de diferentes tipos. |10%|
+    |**e)** Se han empleado macros para la realización de documentos y plantillas.|10%|
+    |**f)** `Se han importado y exportado hojas de cálculo creadas con otras aplicaciones y en otros formatos.`|10%|
+    |**g)** Se ha utilizado la hoja de cálculo como base de datos: formularios, creación de listas, filtrado, protección y ordenación de datos. |10%|
+    |**h)** Se han utilizado aplicaciones y periféricos para introducir textos, números, códigos e imágenes.|    10%|
 
 === "RA 4"
     |RA4. Elabora documentos con bases de datos ofimáticas describiendo y aplicando operaciones de manipulación de datos. ||
@@ -236,9 +234,9 @@ A continuación, se presentan los contenidos de este módulo tal y como aparecen
     |**b)** Se han analizado las necesidades básicas de gestión de correo y agenda electrónica.|20%|
     |**c)** Se han configurado distintos tipos de cuentas de correo electrónico. |20%|
     |**d)** Se han conectado y sincronizado agendas del equipo informático con dispositivos móviles. |15%|
-    |**e)** Se ha operado con la libreta de direcciones. |5%|
+    |**e)** `Se ha operado con la libreta de direcciones.` |5%|
     |**f)** Se ha trabajado con todas las opciones de gestión de correo electrónico (etiquetas, filtros, carpetas, entre otros).|30%|
-    |**g)** Se han utilizado opciones de agenda electrónica. |5%|
+    |**g)** `Se han utilizado opciones de agenda electrónica.` |5%|
 
 === "RA 9"
     |RA9. Aplica técnicas de soporte en el uso de aplicaciones, identificando y resolviendo incidencias.||
@@ -250,7 +248,7 @@ A continuación, se presentan los contenidos de este módulo tal y como aparecen
     |**e)** Se han realizado informes de incidencias. |5%|
     |**f)** Se han aplicado los procedimientos necesarios para salvaguardar la información y su recuperación. |20%|
     |**g)** Se han utilizado los recursos disponibles (documentación técnica, ayudas en línea, soporte técnico, entre otros) para solventar incidencias.|20%|
-    |**h)** Se han solventado las incidencias en el tiempo adecuado y con el nivel adecuado.|10%|
+    |**h)** `Se han solventado las incidencias en el tiempo adecuado y con el nivel adecuado.`|10%|
 
 
 
