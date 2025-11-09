@@ -515,12 +515,153 @@ Permiten automatizar cálculos, analizar datos y obtener resultados dinámicos a
         **No se aceptará ningún otro formato de archivo**.  
 
 ### **Tarea RA3-CEc-4 - Formúlas y funciones avanzadas**
+En este ejercicio desarrollaremos un calificador de notas aplicado a la nueva ley de FP, es decir:  
+
+- Los alumnos deberan obtener **una nota superior a 5** en todos los RA's para superar el módulo.
+- En cada RA, **la nota mínima** de cada **criterio de evaluación** deberá ser **superior a 3**.
+- En **cada criterio de evaluación** la nota de **cada tarea** deberá ser **superior a 3**.
+- Para el cálculo de la nota final de cada alumno se aplicará **una ponderación entre RA's**.
+- Para el cálculo de **la nota de cada RA** se aplicará **una ponderación entre CE's**.
+
 !!! exercice "Tarea RA3-CEc-4 - Trabajando con fórmulas y funciones avanzadas"
-    !!! exercise "Tarea parte 1. Descargar el archivo"
-    Descargar y abrir el archivo 'RA3-CEc-4' pinchando en el enlace siguiente: [Descargar archivo](./03_hojas_de_calculo/tareas/RA3-CEc-4%20nombreapellidos.ods)  
+    En este ejercicio, haremos una calificador similar al que se usa para evaluar los alumnos en los ciclos formativos de formacion profesional. Para ello haremos uso de todo lo aprendido hasta ahora y empezaremos a usar **el asistente para funciones LibreOffice Calc para elaborar fórmulas avanzadas**.   
 
+
+    **Condiciones para la evaluación del alumnado**  
+
+    - **El alumno será evaluado por resultados de aprendizaje (RA) que a la vez se componen de criterios de evaluación (CE)**. Para aprobar el módulo, el alumno deberá sacar **una nota superior o igual a 5 en todos los RA's**.  
+    - **La nota final** que abtendrá el alumno en **el módulo** será **la media ponderada de todos los RA's**. **Ejemplo:** `Nota final módulo = 0.25*RA1 + 0.40*RA2 + 0.35*RA3`.    
+    - Cada RA se compone de **una serie de criterios de evaluación**. Para aprobar el RA el alumno deberá sacar **una nota superior a 5 en el RA y además una nota superior a 3 en cada criterio de evaluación (CE)**.  
+    - **La nota final de cada RA** será **la media ponderada de todos los criterios de evaluación**. **Ejemplo:** `Nota final RA2 = 0.25*CEa + 0.50*CEb + 0.25*CEc`.  
+    - **Cada criterio de evaluación** se compone de **una serie de métodos de evaluación** (tareas, exámenes, exposiciones orales...).  
+    - **Para poder mediar**, el alumno deberá obtener **una nota no inferior a 3 en cada método de evaluación**.
+    - **La nota final del criterio de evaluación** será **la media ponderada** de todos **los métodos de evaluación**. **Ejemplo:** `Nota CEa = 0.50*CEa1 + 0.25*CEa2 + 0.25*CEa3`.     
+
+    **Ejemplo real:**  
+
+    **RA3. Elabora documentos y plantillas de cálculo, describiendo y aplicando opciones avanzadas de hojas de cálculo.**  
+
+    |**Criterios de evaluación de la unidad didáctica:**|Ponderación|
+    |-|:-:|
+    |**a)** Se ha personalizado las opciones de software y barra de herramientas. |5%|
+    |**CEa** = RA3-CEa||
+    |**b)** Se han utilizado los diversos tipos de datos y referencia para celdas, rangos, hojas y libros. |15%|
+    |**CEb** = 0.5xRA3-CEb-1 + 0.5xRA3-CEb-2  ||
+    |**c)** Se han aplicado fórmulas y funciones. |30%|
+    |CEc = 0.15xRA3-CEc-1 + 0.15xRA3-CEc-2 + 0.15xRA3-CEc-3 + 0.15xRA3-CEc-4 + 0.40xRA3-CEc-5 ||
+    |**d)** Se han generado y modificado gráficos de diferentes tipos. |10%|
+    |**CEd** = 0.4xRA3-CEd-1 + 0.6xRA3-CEd-2. ||
+    |**e)** Se han empleado macros para la realización de documentos y plantillas.|5%|
+    |**CEe** = RA3-CEe.||
+    |**f)** Se han importado y exportado hojas de cálculo creadas con otras aplicaciones y en otros formatos.|5%|
+    |**CEf** = Evaluado en empresa. ||
+    |**g)** = Se ha utilizado la hoja de cálculo como base de datos: formularios, creación de listas, filtrado, protección y ordenación de datos. |25%|
+    |**CEg** = 0.5xRA3-CEg-1 + 0.5xRA3-CEg-2.||
+    |**h)** Se han utilizado aplicaciones y periféricos para introducir textos, números, códigos e imágenes.|5%|
+    |**CEh** = RA3-CEh||
+
+    !!! exercise "Tarea parte 1. Descargar el archivo"  
+    Descargar y abrir el archivo 'RA3-CEc-4' pinchando en el enlace siguiente: [Descargar archivo](./03_hojas_de_calculo/tareas/RA3-CEc-4%20nombreapellidos.ods).  
+    La hoja de cálculo se compone de 7 hojas.
+
+    - En la hoja **Módulo** encontraréis las notas de cada RA y más elementos de control estadístico.
+    - En la hojas **RA1, RA2 y RA3** encontraréis las notas de cada criterio de evaluación.
+    - En la hojas **RA1 Ponderaciones, RA2 Ponderaciones y RA3 Ponderaciones** encontraréis todas las ponderaciones que se usarán para **el cálculo de los RA's, CE's y nota final del módulo**.
+    
     !!! exercise "Tarea parte 2"
+    
+    - Conjunto de la hoja de cálculo: Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. **Tenéis libertad total en este apartado**.
+    - Aunque se ponga como primer elemento de la tarea, **no se recomienda empezar por aplicar estilos**, esperar a tener la tarea completada para hacerlo.
 
+    !!! exercise "Tarea parte 3"
+    **Hojas RA1 Ponderaciones, RA2 Ponderaciones y RA3 Ponderaciones**.
+    
+    - Poner una fórmula que sume el total de los porcentajes de las hojas, RA1 Ponderaciones, RA2 Ponderaciones y RA3 Ponderaciones.
+    - Poner un formato condicional que aplique el estilo **bueno** si el resultado es igual a 100% y **error** si no lo es. 
+    <br>
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3cec4-1.png){ .leftsietecero .margintopbottom10 }<br>   
+    
+    - Poner una fórmula que sume el total de las ponderaciones de los CE dentro del RA.
+    - Poner un formato condicional que aplique el estilo **bueno** si el resultado es igual a 100% y **error** si no lo es. 
+    <br>
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3cec4-2.png){ .leftsietecero .margintopbottom10}<br>   
+
+    - Poner una fórmula que sume el total de las ponderaciones dentro de cada CE.
+    - Poner un formato condicional que aplique el estilo **bueno** si el resultado es igual a 100% y **error** si no lo es. 
+    <br>
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3cec4-3.png){ .leftsietecero .margintopbottom10}<br>   
+
+    !!! exercise "Tarea parte 4"
+    **Hojas RA1, RA2 y RA3**.
+    
+    - Insertar la columna **Todas entregadas** y aplicar **la fórmula lógica Y(condición_1;condición_2;...)** que **devolverá verdadero si todas las tareas se han entregado** es decir tienen una nota superior (o diferente) a 0.   
+    - Insertar la columna **Todas superiores a 3** y aplicar **una fórmula lógica Y()** que **devolverá verdadero si todas las tareas tienen una nota superior a 3**.  
+    - Insertar la columna **Válido** y aplicar **una fórmula lógica Y()** que **devolverá verdadero si las 2 columnas anteriores son verdaderas**. De lo contrario devolverá **falso**.
+    - Poner un formato condicional y aplicar el estilo **bueno** si el resultado verdadero y **alerta** si no lo es.  
+    <br>
+    **Resultado esperado hasta ahora (sin aplicar estilos)**.  
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3cec4-4.png){ .leftsietecero .margintopbottom10}<br>   
+    <br>
+    - Insertar la columna **Nota CEa** y aplicar **la fórmula matricial SUMA.PRODUCTO(intervalo de valores;intervalo de ponderadores)** que **calcule la nota ponderada del CEa** con la ayuda de los valores de la hoja **RA1 Ponderaciones** (también se puede hacer sumando y ponderado las notas de los CEa).  
+    - Insertar la columna **Primer crivado** y aplicar **la fórmula lógica SI(condición; Resultado si condición es verdadero; Resultado si condición es falso)** que **devolverá el valor de la columna anterior si la columna Válido es verdadero** y **Recuperar** si **la columna Válido es falsa**.   
+    - Insertar la columna **Nota final CE** y aplicar **la fórmula lógica SI()** que **devolverá el valor de la columna anterior con las siguientes condiciones**:  
+    &emsp; Si la nota es **superior a 3**, la fórmula devolverá el valor de la columna **Primer crivado**.   
+    &emsp; Si la nota es **inferior o igual a 3** o el valor de la celda es **Recuperar**, la fórmula devolverá
+     **Recuperar**.   
+    - Poner un formato condicional a la columna Nota CEa de la siguiente manera:  
+    &emsp; Si la nota es superior a 5 aplicar el estilo **bueno**.  
+    &emsp; Si la nota es igual a 5 aplicar el estilo **neutro**.  
+    &emsp; Si la nota está entre 4.99 y 3.01 aplicar el estilo **malo**.  
+    &emsp; Si la nota es inferior o igual a 3 aplicar el estilo **error**.  
+    - Poner un formato condicional a **las columna Primer crivado y Nota final CE** de la siguiente manera:  
+    &emsp; Si la celda contiene "Recuperar", aplicar el estilo **malo**.  
+    &emsp; Si la celda **no contiene** "Recuperar", aplicar el estilo **neutro**.  
+    <br>  
+    **Resultado esperado hasta ahora (sin aplicar estilos e inmovilizando una columna)**.  
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3cec4-5.png){ .leftsietecero .margintopbottom10}<br>   
+
+    - Repetir los pasos anteriores con los criterios de evaluación CEb y CEc.
+    <br>
+    **Resultado esperado hasta ahora (sin aplicar estilos)**.  
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3cec4-6.png){ .left .margintopbottom10}<br>
+
+    - La columna **Nota final RA** ya tiene la fórmula que calcula la nota final del RA que devuelve la nota del alumno o Ordinaria si el alumno debe recuperar algún RA. Aplicarle un formato condicional que aplique el estilo **Malo** si el contenido de la celda es igual a "Ordinaria" y "Bueno" si es diferente. 
+    - Las columnas **CEa, CEb, CEc** ya tienen la fórmula que decide si el alumno ha de recuperar el CE correspondiente. Aplicarle un formato condicional que aplique el estilo **Error** si el contenido de la celda es igual a "X" y "Neutro" si es diferente a "X".    
+    <br>
+    **Resultado esperado hasta ahora (sin aplicar estilos)**.  
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3cec4-7.png){ .left .margintopbottom10}<br>   
+    **Resultado final de la hoja RA1**.  
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3cec4-8.png){ .left .margintopbottom10}<br>   
+    **Repetir las instrucciones anteriores con las hojas RA2 y RA3 y también con las hojas RA1 Ponderaciones, RA2 Ponderaciones y RA3 Ponderaciones**.  
+    **Resultado esperado para RA2**
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3cec4-9.png){ .left .margintopbottom10}<br>   
+    **Resultado esperado para RA3**
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3cec4-10.png){ .left .margintopbottom10}<br>   
+
+    !!! exercise "Tarea parte 5"
+    **Hoja: Módulo**.
+
+    **Columnas RA1, RA2 y RA3**.  
+    
+    - Recuperar los valores de la columna "Nota final RA" (columna AC) de las hojas RA1, RA2 y RA3.
+    - Aplicar un formato condicional **Malo** si el valor de la celda contiene "Ordinaria" y **Neutro** si no lo contiene. 
+
+    **Columna Nota final módulo**  
+
+    - Aplicar la fórmula: SI(ESNUMERICO(suma ponderada de RA1, RA2 y RA3); (suma ponderada de RA1, RA2 y RA3); "Ordinaria")
+     
+    **Celda aprobados**  
+
+    - En esta celda aparecerá la cantidad de alumnos que han aprobado el módulo es decir, solo contaremos las celdas que contienen valores numéricos. 
+    - Para ello usar la fórmula CONTAR(intervalo de celdas a contar)
+
+    **Celda suspensos**
+
+    - En esta celda aparecerá la cantidad de alumnos que no han aprobado el módulo es decir, solo contaremos las celdas que contienen la palabra "Ordinaria". 
+    - Para ello usar la fórmula CONTAR.SI(intervalo de celdas a contar; criterio de selección).
+    
+    **Resultado esperado para la hoja 'Módulo'**  
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3cec4-11.png){ .left .margintopbottom10}<br>   
 
   
     !!! warning "Entrega de la tarea"

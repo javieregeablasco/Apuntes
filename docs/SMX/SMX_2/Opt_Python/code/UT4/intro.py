@@ -42,3 +42,4 @@ coche_nuevo = Coche("Toyota", "Corolla", "Rojo")
 # Usar un método del objeto
 print(coche_nuevo.acelerar("superRápido"))
 
+
