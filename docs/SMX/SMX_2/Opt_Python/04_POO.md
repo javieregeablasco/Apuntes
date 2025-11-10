@@ -271,7 +271,7 @@ print(mi_coche.ruedas)    # Muestra el número de ruedas
     1. Si el usuario ha introducido un valor nulo y no se puede realizar la división, el programa imprimirá por pantalla **No se puede realizar la operación solicitada**.
 
 <br>
-#### **3.4 - Métodos de instancia, clase y estáticos**
+#### **3.4 - Métodos de instancia, de clase y estáticos**
 Como hemos visto, los métodos son funciones incluidas dentro de la definición de una clase.  
 Existen tres tipos de métodos, que se diferencian en cómo se definen y a qué tienen acceso: 
 
@@ -305,7 +305,7 @@ print(persona1.saludar())  # Salida: Hola, soy Luis y tengo 30 años.
 
 <br>
 !!! tip "Métodos de clase"
-Los métodos de clase son aquellos que actúan sobre **la clase en sí**, en lugar de hacerlo **sobre las instancias individuales**.
+Los métodos de clase son aquellos que actúan sobre **la clase en sí**, en lugar de hacerlo **sobre las instancias individuales**.   
 Se definen utilizando el decorador **@classmethod** y reciben como primer parámetro cls, que representa la propia clase y permite acceder o modificar sus atributos y métodos de clase.
 ```py
 class Coche:
@@ -459,7 +459,10 @@ coche_3 = Coche.crear_coche_predeterminado()
 print(f"Coche 3 (predeterminado): {coche_3.marca}, {coche_3.modelo}, {coche_3.color}, {coche_3.kilometros} km")
 ```
 
-
+<!-- para ejercicios
+https://pythones.net/variables-de-clases-estaticas-instancia-python-oop/ 
+https://www.ionos.es/digitalguide/paginas-web/desarrollo-web/python-static-method/
+https://articles.pywombat.com/tipos-metodos-python-->
 
 
 <!-- Cómo usar los objetos

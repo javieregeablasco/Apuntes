@@ -663,6 +663,10 @@ En este ejercicio desarrollaremos un calificador de notas aplicado a la nueva le
     **Resultado esperado para la hoja 'Módulo'**  
     ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3cec4-11.png){ .left .margintopbottom10}<br>   
 
+    **Celdas 'Notas entre 5 y 7' y 'Notas entre 7 y 10'**
+
+    - En estas celdas apareceran la cantidad de alumnos que han obtenido una nota entre 5 y 7 y entre 7 y 10 respectivamente. 
+    - Para ello usar la fórmula CONTAR.SI.CONJUNTO(intervalo_1 de celdas a contar; criterio_1 de selección; intervalo_2 de celdas a contar; criterio_2 de selección; ...).
   
     !!! warning "Entrega de la tarea"
         Subir la tarea a AULES en el apartado correspondiente.  
