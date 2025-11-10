@@ -484,10 +484,12 @@ print(f"Coche 3 (predeterminado): {coche_3.marca}, {coche_3.modelo}, {coche_3.co
     1. El programa debe realizar una sola conversión y terminar su ejecución.  
     1. Se deben manejar errores de entrada con try y except para evitar que el programa se detenga ante datos incorrectos.  
 
-    **Ayuda para la introducción de datos**
-    Para la introducción de los datos HMS se puede usar la función integrada map():
+    **Ayuda para la introducción de datos**  
+    Para la introducción de los datos HMS se puede usar la función integrada map():  
+    Ejemplo:
+    ```py
     h, m, s = map(int, input("Introduce la hora en formato HH MM SS (separados por espacios): ").split())
-
+    ```
 <!-- para ejercicios
 https://pythones.net/variables-de-clases-estaticas-instancia-python-oop/ 
 https://www.ionos.es/digitalguide/paginas-web/desarrollo-web/python-static-method/-->
