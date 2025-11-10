@@ -254,7 +254,7 @@ print(mi_coche.ruedas)    # Muestra el número de ruedas
     print("Color coche repintado", mi_coche.color)
     ```
 
-#### **3.4 - Tarea RA4-CEa**
+#### **3.4 - Tarea RA4-CEac**
 !!! exercise "Ejercicio 1"  
     Realizar un programa que conste de lo siguiente:  
 
@@ -271,7 +271,7 @@ print(mi_coche.ruedas)    # Muestra el número de ruedas
     1. Si el usuario ha introducido un valor nulo y no se puede realizar la división, el programa imprimirá por pantalla **No se puede realizar la operación solicitada**.
 
 <br>
-#### **3.4 - Métodos de instancia, de clase y estáticos**
+#### **3.5 - Métodos de instancia, de clase y estáticos**
 Como hemos visto, los métodos son funciones incluidas dentro de la definición de una clase.  
 Existen tres tipos de métodos, que se diferencian en cómo se definen y a qué tienen acceso: 
 
@@ -459,10 +459,38 @@ coche_3 = Coche.crear_coche_predeterminado()
 print(f"Coche 3 (predeterminado): {coche_3.marca}, {coche_3.modelo}, {coche_3.color}, {coche_3.kilometros} km")
 ```
 
+#### **3.6 - Tarea RA4-CEde**
+!!! exercise "Conversor que permita convertir valores de tiempo"
+    Crea una clase llamada Conversor que permita convertir valores de tiempo entre:
+    
+    - Segundos → Horas, minutos y segundos (HH:MM:SS)
+    - Horas, minutos y segundos (HH:MM:SS) → Segundos
+    - El programa debe solicitar al usuario el tipo de conversión que desea realizar y los datos necesarios, mostrando el resultado por pantalla.
+
+    **Guía para la creación del programa**
+
+    1. Clase principal: Conversor
+    1. La clase debe incluir al menos tres métodos:  
+    &emsp;&emsp;- Un método estático segundos_a_hms(segundos) que:  
+    &emsp;&emsp;&emsp;&emsp;Reciba un número entero de segundos.  
+    &emsp;&emsp;&emsp;&emsp;Devuelva una cadena en formato "HH:MM:SS".  
+    &emsp;&emsp;- Un método de clase desde_hms(cls, horas, minutos, segundos) que:      
+    &emsp;&emsp;&emsp;&emsp;Reciba tres enteros (horas, minutos, segundos).  
+    &emsp;&emsp;&emsp;&emsp;Devuelva el total en segundos.  
+    &emsp;&emsp;- Un método de instancia ejecutar_conversion() que:  
+    &emsp;&emsp;&emsp;Muestre un pequeño menú.  
+    &emsp;&emsp;&emsp;Use la estructura match para decidir qué tipo de conversión hacer.  
+    &emsp;&emsp;&emsp;Solicite al usuario los datos y muestre el resultado.  
+    1. El programa debe realizar una sola conversión y terminar su ejecución.  
+    1. Se deben manejar errores de entrada con try y except para evitar que el programa se detenga ante datos incorrectos.  
+
+    **Ayuda para la introducción de datos**
+    Para la introducción de los datos HMS se puede usar la función integrada map():
+    h, m, s = map(int, input("Introduce la hora en formato HH MM SS (separados por espacios): ").split())
+
 <!-- para ejercicios
 https://pythones.net/variables-de-clases-estaticas-instancia-python-oop/ 
-https://www.ionos.es/digitalguide/paginas-web/desarrollo-web/python-static-method/
-https://articles.pywombat.com/tipos-metodos-python-->
+https://www.ionos.es/digitalguide/paginas-web/desarrollo-web/python-static-method/-->
 
 
 <!-- Cómo usar los objetos
@@ -508,10 +536,10 @@ for i in range(5):
 === "RA 2"
     |RA2. Escribe y prueba programas sencillos, reconociendo y aplicando los fundamentos de la programación orientada a objetos.|Peso|
     |-|-|
-    |**a)** Se han identificado los fundamentos de la programación orientada a objetos. |12%|    
-    |**c)** Se han instanciado objetos a partir de clases predefinidas.|11%|
-    |**d)** Se han utilizado métodos y propiedades de los objetos.|11%|
-    |**e)** Se han escrito llamadas a métodos estáticos.|11%|
+    *|**a)** Se han identificado los fundamentos de la programación orientada a objetos. |12%|    
+    *|**c)** Se han instanciado objetos a partir de clases predefinidas.|11%|
+    *|**d)** Se han utilizado métodos y propiedades de los objetos.|11%|
+    *|**e)** Se han escrito llamadas a métodos estáticos.|11%|
     |**f)** Se han utilizado parámetros en la llamada a métodos.|11%|
 
 === "RA 3"
