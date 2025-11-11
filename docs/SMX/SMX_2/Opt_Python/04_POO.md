@@ -166,10 +166,11 @@ concesionario = Concesionario(mi_coche)
 concesionario.mostrar_coche()
 ```
 
-### **3 - Cómo usar los objetos**
-Ahora que sabemos qué es un objeto, veamos paso a paso cómo trabajar con ellos en Python.
+## **3 - Creación y uso de un objeto**
+En la Programación Orientada a Objetos (POO), una **clase** representa la **abstracción**: el modelo o plantilla que describe cómo serán los objetos.  
+Cuando creamos un **objeto** a partir de una clase, estamos generando una **instancia concreta** de esa abstracción.
 
-#### **3.1 - Crear una clase**
+### **3.1 - Crear una clase**
 Una clase es como un molde o plantilla que define cómo serán los objetos que creemos a partir de ella.
 Dentro de una clase se especifican sus atributos (las características) y sus métodos (las acciones que puede realizar).
 
@@ -210,7 +211,7 @@ Representa al objeto actual (la instancia) que está utilizando el método.
 Gracias a self, la clase puede acceder y modificar sus propios atributos.
 Por convención se llama self, aunque podría llarmarse de cualquier otra forma, pero se recomienda mantener esta convención.
 
-#### **3.2 - Instanciar una clase y usar métodos**
+### **3.2 - Instanciar una clase y usar métodos**
 Una vez definida la clase, podemos crear objetos (también llamados instancias) a partir de ella.
 Cada objeto es independiente, aunque comparta la misma estructura y métodos definidos en la clase.
 
@@ -239,7 +240,7 @@ print(coche3.marca, coche3.color)
 
 ```
 
-#### **3.3 - Acceder a los atributos del objeto**
+### **3.3 - Acceder a los atributos del objeto**
 Los atributos definidos dentro del método __init__() pueden consultarse o modificarse directamente a través del nombre del objeto seguido de un punto (.):
 ```py
 print(mi_coche.marca)     # Muestra la marca del coche
@@ -254,7 +255,7 @@ print(mi_coche.ruedas)    # Muestra el número de ruedas
     print("Color coche repintado", mi_coche.color)
     ```
 
-#### **3.4 - Tarea RA4-CEac**
+### **3.4 - Tarea RA4-CEac**
 !!! exercise "Ejercicio 1"  
     Realizar un programa que conste de lo siguiente:  
 
@@ -271,7 +272,7 @@ print(mi_coche.ruedas)    # Muestra el número de ruedas
     1. Si el usuario ha introducido un valor nulo y no se puede realizar la división, el programa imprimirá por pantalla **No se puede realizar la operación solicitada**.
 
 <br>
-#### **3.5 - Métodos de instancia, de clase y estáticos**
+### **3.5 - Métodos de instancia, de clase y estáticos**
 Como hemos visto, los métodos son funciones incluidas dentro de la definición de una clase.  
 Existen tres tipos de métodos, que se diferencian en cómo se definen y a qué tienen acceso: 
 
@@ -459,7 +460,7 @@ coche_3 = Coche.crear_coche_predeterminado()
 print(f"Coche 3 (predeterminado): {coche_3.marca}, {coche_3.modelo}, {coche_3.color}, {coche_3.kilometros} km")
 ```
 
-#### **3.6 - Tarea RA4-CEde**
+### **3.6 - Tarea RA4-CEd**
 !!! exercise "Conversor que permita convertir valores de tiempo"
     Crea una clase llamada Conversor que permita convertir valores de tiempo entre:
     
@@ -490,6 +491,291 @@ print(f"Coche 3 (predeterminado): {coche_3.marca}, {coche_3.modelo}, {coche_3.co
     ```py
     h, m, s = map(int, input("Introduce la hora en formato HH MM SS (separados por espacios): ").split())
     ```
+
+
+## **4 - Encapsulamiento en la POO y Python**
+Como podemos ver en el ejemplo siguiente, resulta muy fácil en python, **modificar los atributos y acceder a los métodos de una clase** desde el exterior. 
+```py
+# Definición de la clase
+class Coche:
+    def __init__(self, marca, modelo, color):
+        # Atributos de instancia
+        self.marca = marca
+        self.modelo = modelo
+        self.color = color
+        self.velocidad = 0  # valor inicial
+
+    # Método para acelerar
+    def acelerar(self, cantidad):
+        self.velocidad += cantidad
+        print(f"El coche ha acelerado. Velocidad actual: {self.velocidad} km/h")
+
+    # Método para frenar
+    def frenar(self, cantidad):
+        self.velocidad = max(0, self.velocidad - cantidad)
+        print(f"El coche ha frenado. Velocidad actual: {self.velocidad} km/h")
+
+    # Método para mostrar información
+    def mostrar_info(self):
+        print(f"{self.marca} {self.modelo} ({self.color}) - {self.velocidad} km/h")
+
+# Intancia y manipulación de atributos
+
+# Crear un objeto (instancia de la clase)
+mi_coche = Coche("Toyota", "Corolla", "Rojo")
+
+# Acceder a los atributos
+print(mi_coche.marca)     # Toyota
+print(mi_coche.color)     # Rojo
+
+# Modificar un atributo directamente
+mi_coche.color = "Azul"
+print(mi_coche.color)     # Azul
+
+# Usar métodos
+mi_coche.mostrar_info()   # Toyota Corolla (Azul) - 0 km/h
+mi_coche.acelerar(50)     # Acelera a 50 km/h
+mi_coche.frenar(20)       # Baja a 30 km/h
+
+# Comprobar valores modificados
+mi_coche.mostrar_info()   # Toyota Corolla (Azul) - 30 km/h
+```
+
+El encapsulamiento consiste en hacer que **los atributos y/o métodos internos a una clase no se puedan acceder ni modificar desde fuera**. Sera solamente el propio objeto el que pueda acceder a ellos.
+
+### **4.1 - Atributos y métodos privados**
+Los atributos y métodos que comienzan por un doble guión bajo '__' se consideran privados. Intentar modificarlos o instanciarlos lanzará un error.
+```py
+class Coche:
+    def __init__(self, marca, modelo, color):
+        # Atributos de instancia
+        self.marca = marca
+        self.modelo = modelo
+        self.color = color
+        self.velocidad = 0  # valor inicial
+        self.__ruedas = 4
+
+    # Método para acelerar
+    def acelerar(self, cantidad):
+        self.velocidad += cantidad
+        print(f"El coche ha acelerado. Velocidad actual: {self.velocidad} km/h")
+
+    # Método para frenar
+    def frenar(self, cantidad):
+        self.velocidad = max(0, self.velocidad - cantidad)
+        print(f"El coche ha frenado. Velocidad actual: {self.velocidad} km/h")
+
+    # Método para mostrar información
+    def __mostrar_info(self):
+        print(f"{self.marca} {self.modelo} ({self.color}) - {self.velocidad} km/h")
+
+# Intancia y manipulación de atributos
+
+# Crear un objeto (instancia de la clase)
+mi_coche = Coche("Toyota", "Corolla", "Rojo")
+
+# Acceder a los atributos
+print(mi_coche.marca)     # Toyota
+print(mi_coche.color)     # Rojo
+
+# Modificar un atributo directamente
+mi_coche.color = "Azul"
+print(mi_coche.color)     # Azul
+
+# Usar métodos
+mi_coche.mostrar_info()   # Toyota Corolla (Azul) - 0 km/h
+mi_coche.acelerar(50)     # Acelera a 50 km/h
+mi_coche.frenar(20)       # Baja a 30 km/h
+
+# Comprobar valores modificados
+mi_coche.mostrar_info()   # Toyota Corolla (Azul) - 30 km/h
+
+# Acceder a un atributo o un método de instancia encapsulado
+mi_coche.__mostrar_info() # Esta linea producirá un error
+print(mi_coche.__ruedas)  # Esta linea producirá un error
+```
+
+### **4.2 - Modificadores de atributos privados con métodos getters y setters**
+Muy habituales en otros lenguajes de programación (Java, C#) los métodos getters y setters no se recomiendan en python.
+
+```py
+class Persona:
+    def __init__(self, nombre, edad):
+        self.__nombre = nombre   
+        self.__edad = edad
+
+    # Setter para nombre
+    def set_nombre(self, nuevo_Nombre):
+        self.__nombre = nuevo_Nombre
+
+    # Getter para nombre
+    def get_nombre(self):
+        return self.__nombre
+
+
+# --- Uso del objeto ---
+persona = Persona("Ana", 25)
+
+# Acceso mediante metodos
+#print("Edad de la persona", persona.__edad)      # Producira un error
+#print("Nombre de la persona", persona.__nombre)  # Producira un error
+
+# Modificar mediante getters 
+persona.set_nombre("Arturo")       
+
+# Acceder mediante setters 
+print("Nuevo nombre de la persona:", persona.get_nombre())   
+```
+
+En Python no se recomienda usar getters y setters tradicionales (como get_Nombre() o set_Nombre()) porque van en contra de la filosofía del lenguaje que apuesta por la simplicidad y la legibilidad.
+
+**Python confía en el programador** y no impone un control estricto sobre los atributos.
+
+Si se necesita validar o controlar el acceso, puede hacerse usando los decoradores @property y @<atributo>.setter, manteniendo la misma sintaxis y evitando romper el código existente.
+
+### **4.3 - Decoradores @propiedad y @<atributo>.setter para atributos y métodos privados**
+En Python, los decoradores @property y @<atributo>.setter permiten controlar el acceso a los atributos de un objeto. 
+
+1. **@property**  
+Convierte un método en un “getter”, de manera que se pueda acceder a él como si fuera un atributo.
+
+1. **@<atributo>.setter**  
+Se utiliza junto a @property para definir un “setter”, es decir, cómo se modifica un atributo.
+
+#### **4.3.1 - Atributos**
+**Ejemplo anterior modificado**
+```py
+class Persona:
+    def __init__(self, nombre, edad):
+        self.__nombre = nombre
+        self.__edad = edad
+
+    # Getter para nombre
+    @property
+    def nombre(self):
+        return self.__nombre
+
+    # Setter para nombre
+    @nombre.setter
+    def nombre(self, nuevo_nombre):
+        self.__nombre = nuevo_nombre
+
+
+# --- Uso del objeto ---
+persona = Persona("Ana", 25)
+
+# Modificar usando el setter
+persona.nombre = "Arturo"
+
+# Acceder usando el getter
+print("Nuevo nombre de la persona:", persona.nombre)  
+```
+
+#### **4.3.2 - Métodos privados**
+```py 
+class Cuenta:
+    def __init__(self, saldo):
+        self.__saldo = saldo  # atributo privado
+
+    # Método privado que devuelve el saldo
+    def __obtener_saldo(self):
+        return self.__saldo
+    
+    # Método privado que fija el saldo
+    def __fijar_saldo_inicial(self, nuevo_saldo):
+        self.__saldo = nuevo_saldo
+
+    # Getter de la propiedad
+    @property
+    def visualizar_saldo(self):
+        return self.__obtener_saldo()
+    
+    # Setter de la propiedad
+    @visualizar_saldo.setter
+    def visualizar_saldo(self, nuevo_saldo):
+        self.__fijar_saldo_inicial(nuevo_saldo)
+
+
+# --- Uso del objeto ---
+cuenta = Cuenta(100)
+print("Saldo inicial:", cuenta.visualizar_saldo)  # 100
+
+cuenta.visualizar_saldo = 80  # usar el setter
+print("Saldo actualizado:", cuenta.visualizar_saldo)  # 80
+```
+
+### **4.4 - Tarea RA2-CEe**
+Teneís el siguiente programa:
+```py
+class Limon:
+    def __init__(self, peso=200):
+        self.__peso = peso
+        
+    @property
+    def peso(self):
+        return print("El valor de __peso es =:",self.__peso)
+
+    @peso.setter
+    def peso(self, nuevo_peso):
+        self._peso = nuevo_peso        
+```
+
+Ampliar el programa para que la ejecución devuelva en la terminal el siguiente log:  
+```bash
+Empezamos el programa
+---------------------
+Pulsar intro para continuar...
+Voy a instanciar la clase Limon con limon = Limon(peso)
+Tambien puede hacerlo con limon = Limon(), entonces me asignara por defecto peso=200
+Antes de todo pediré por consola el peso del limón
+---------------------
+Pulsar intro para instanciar la clase limón
+---------------------
+Introducir el peso del limon: 212
+Estoy en el método construtor __init__ y me han pasado el valor peso = 212
+Pulsar intro para seguir
+---------------------
+El atributo estático __peso ya tiene el valor de peso = 212
+Pulsar intro para seguir
+---------------------
+Con isinstance(objeto, clase), podemos verificar que el objeto creado pertenece a la clase correcta
+Pulsar intro para continuar...
+---------------------
+¿Pertenece limon a la clase Limon? → True
+Pulsar intro para continuar...
+---------------------
+Tenemos a nuestra disposicion el objeto 'limon'
+Pulsar intro para continuar...
+---------------------
+Vamos a obtener el valor de __peso
+Pulsar intro para continuar...
+---------------------
+Con el método peso con decorador @property obtendremos el valor de __peso
+Pulsar intro para continuar...
+---------------------
+Pulsar intro para instanciar limon.peso
+Estoy dentro de property (getter) pero aún no he hecho nada
+Pulsar intro para seguir...
+El valor de __peso dentro de @property es: 212
+Pulsar intro para seguir...
+Voy a devolver el valor de __peso
+El valor de __peso fuera de la clase es: 212
+Pulsar intro para continuar...
+---------------------
+Con el método peso con decorador @peso.setter modificaremos el valor de __peso
+Pulsar intro para continuar...
+Introducir el nuevo peso del limon: 258
+Estoy dentro de @peso.setter pero aun no he hecho nada
+Pulsar intro para continuar...
+El valor de __peso dentro de @peso.setter antes de hacer anda es: 212
+Pulsar intro para continuar...
+---------------------
+Acabo de modificar el valor de __peso a:  258
+---------------------
+Fin del programa
+```
+
+
 <!-- para ejercicios
 https://pythones.net/variables-de-clases-estaticas-instancia-python-oop/ 
 https://www.ionos.es/digitalguide/paginas-web/desarrollo-web/python-static-method/-->

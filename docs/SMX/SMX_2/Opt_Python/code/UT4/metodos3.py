@@ -66,5 +66,3 @@ print("El coche 2 es",Coche.es_nuevo(coche_2.kilometros))  # semi nuevo
 # Método de clase que crea un coche predefinido
 coche_3 = Coche.crear_coche_predeterminado()
 print(f"Coche 3 (predeterminado): {coche_3.marca}, {coche_3.modelo}, {coche_3.color}, {coche_3.kilometros} km")
-
-
