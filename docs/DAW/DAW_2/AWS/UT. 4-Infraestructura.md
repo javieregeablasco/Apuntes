@@ -115,6 +115,10 @@ En esta tarea crearemos una VPC que nos permetrá ir familiarizandonos con la co
 !!! Exercice "**Pregunta 3**" 
     ¿Cuantas direcciones IP admite una subred de CIDR 10.1.1.0/25?
 
+!!! warning "Condiciones de la entrega" 
+    
+    - Realizar capturas de pantalla del mapa de recursos de la VPC. 
+    - Comentar brevemente cada captura para entender a qué corresponde y subir el documento a la tarea correspondiente de AULES.
 <br>
 
 #### **1.2.3 - Enrutamiento de subredes y puerta de salida**
@@ -162,6 +166,12 @@ En AWS, el concepto es el mismo, pero en lugar de tener un router físico, se us
 Realizar el siguiente escenario y poblar las tablas de enroutamiento de las subredes públicas y privadas.
 
 ![](./ut4/practica2.png){ .sietecinco }
+
+!!! warning "Condiciones de la entrega" 
+    
+    - Realizar capturas de pantalla del mapa de recursos de la VPC. 
+    - Realizar capturas de la tabla de enrutamiento de la subred pública y privada. 
+    - Comentar brevemente cada captura para entender a qué corresponde y subir el documento a la tarea correspondiente de AULES.
 
 ## **2 - Enlaces de interés**
 Documentación de [AWS](https://docs.aws.amazon.com).  

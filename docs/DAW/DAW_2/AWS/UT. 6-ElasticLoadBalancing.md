@@ -11,7 +11,8 @@ schedule: 96h - 3h/s
 ---
 
 # **UT. 6 - Interconexión, equilibrado y escalado de infraestructuras**
-
+route 53... 
+pilas... 
 ![Descripción de la imagen](../AWS/ut6/elb.png){ .trescinco }
 
 <br>

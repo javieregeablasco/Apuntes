@@ -488,6 +488,16 @@ Toda la información [aquí](https://docs.aws.amazon.com/es_es/ebs/latest/usergu
     ![](./ut5/RA2CEb30.png){ .original }
     <br>
 
+#### **2.4.12 - Condiciones de entrega de la tarea RA2-CEb**  
+
+!!! warning "Condiciones de la entrega" 
+    
+    - Realizar capturas de pantalla del mapa de recursos de la VPC. 
+    - Realizar capturas de pantalla del ping desde vuestro ordenador a la instancia. 
+    - Realizar capturas de pantalla de la conexión por SSH a la instancia desde vuestro ordenador. 
+    - Realizar capturas de pantalla con el tamaño del EBS de la instancia modificado. 
+    - Realizar capturas de pantalla con el nuevo EBS asociado a la instancia. 
+    - Comentar brevemente cada captura para entender a qué corresponde y subir el documento a la tarea correspondiente de AULES.
 ## **3 - Grupos de seguridad (SG) y listas de control de acceso (ACL)**
 
 
@@ -761,13 +771,15 @@ Si vamos a AWS y consultamos las ACL de cada red veremos que, como hemos dicho a
             ![](./ut5/RA2CEc27.png){.original}  <br>
 
 
-### **3.10 - Tarea RA2-CEc (parte 4)**
-Mediante conexiones a las diferentes instancias, comprobar (mediantes ping) que las configuraciones de los grupos de seguridad y de las listas de control de acceso a las subredes (NACL) cumplen con los objetivos propuestos (instancias de la subred privada aisladas).  
+### **3.10 - Condiciones de entrega de la tarea RA2-CEc**
+Mediante conexiones a las diferentes instancias, comprobar (mediantes ping) que las configuraciones de los grupos de seguridad y de las listas de control de acceso a las subredes (NACL) cumplen (o no) con los objetivos propuestos (instancias de la subred privada aisladas).  
 
-1. Realizar capturas de pantallas de los pings entre instancias de la subred privada.  
-1. Realizar capturas de pantallas de los pings entre instancias de la subred privada y la instancia de la subred pública.
-1. ¿Qué conclusión podemos sacar?  
-1. Crear un documento con las capturas y subirlo a la tarea RA2-CEc de aules.   
+!!! warning "Condiciones de la entrega" 
+    1. Realizar capturas de pantallas de los pings entre instancias de la subred privada.  
+    1. Realizar capturas de pantallas de los pings entre instancias de la subred privada y la instancia de la subred pública.
+    1. Comentar brevemente cada captura para entender a qué corresponde.
+    1. ¿Qué conclusión podemos sacar?  
+    1. Subir el documento a la tarea correspondiente de AULES.
 
 ## **4 - NAT gateway**
 - NAT gateway es un servicio de traducción de direcciones de red (NAT) que permite a las instancias de una subred privada tener acceso a Internet o a otros servicios de AWS, **sin exponer** sus IP privadas.
@@ -875,7 +887,9 @@ Una vez conectados a la instancia pública, desde ella nos conectaremos a la ins
 ssh ec2-user@direccion-ip-privada
 ```
 <br>
-!!! task "Tarea RA2-CEd (fin): Pruebas de ping"
+
+### **4.3.4 - Condiciones de entrega de la tarea RA2-CEd**
+!!! task "Tarea RA2-CEd: Pruebas de ping"
     **Comprobar:**  
     Instalar el software necesario para que las instancias privadas no se puedan ver mutuamente pero sí, para el resto de conexiones, poder operar normalmente.
     Realizar una prueba de ping de las 2 instancias hacia internet (p.e google.es).  
@@ -935,16 +949,16 @@ Para entender mejor la posiblidad de las reglas encadenas, usaremos el siguiente
 ![](./ut5/RA3-CEab-3.png){.cincozero}  
 
 <br>
-**Condiciones de la entrega:**  
-
-- Realizar capturas de pantalla de los pings. 
-- Comentar brevemente cada captura para entender a qué corresponde y subir el documento a la tarea RA3-CEab de AULES.
+!!! warning "Condiciones de la entrega:"  
+    - Realizar capturas de pantalla de los pings entre instancias. 
+    - Comentar brevemente cada captura para entender a qué corresponde
+    - Subir el documento a la tarea correspondiente de AULES.
 
 ## **6 - Caso práctico**
 ### Tarea RA3-CEc: Montar un servidor web y una base de datos mysql 
 **Escenario propuesto:**
 ![](./ut5/VPC2-nat.png){.sietecinco}  
-!!! task "Tarea RA3-CEabc (continuación): Montar un servidor web y un agente mysql"
+!!! task "Tarea RA3-CEc (continuación): Montar un servidor web y un agente mysql"
     **1. Instancia pública**  
     Instalar un servidor web Apache, que será accesible desde cualquier equipo externo a la VPC por el puerto 80, utilizando tanto su nombre DNS como su dirección IP pública.
 
