@@ -28,11 +28,18 @@ schedule: 96h - 3h/s
 |**b)** Se ha demostrado la capacidad para explorar y describir las principales categorías de servicios disponibles.|
 |**c)** Se ha realizado una evaluación del uso adecuado de servicios básicos en ejercicios prácticos.|
 |**d)** Se ha comprendido el modelo de responsabilidad compartida en la nube.|
-|**e)** Se ha aplicado medidas de seguridad básicas mediante herramientas de gestión de acceso.|
+
+| **Resultados de aprendizaje de la unidad didáctica:** |
+|-|
+|**RA. 3:** Diseña y configura redes virtuales y servicios de cómputo en la nube, aplicando buenas prácticas de seguridad, estrategias de balanceo de carga, escalado automático y aprovechando tecnologías serverless, contenedores y máquinas virtuales según casos de uso específicos.|
+|-|
+|**a)** Se ha realizado el diseño y configuración de redes virtuales privadas.|20%|
+|**b)** Se ha aplicado buenas prácticas de seguridad en redes y arquitecturas.|20%|
+|**c)** Se ha participado activamente en la creación y configuración de una red funcional.|15%|
 
 <br>
 
-
+  
 
 ## **1 - Introducción**
 Uno de los servicios más utilizados de AWS es **Amazon EC2 (Elastic Compute Cloud)**, que permite lanzar y administrar **instancias**, es decir, **máquinas virtuales** que funcionan de manera similar a un ordenador físico.  

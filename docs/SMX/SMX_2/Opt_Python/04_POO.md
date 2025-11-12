@@ -717,7 +717,7 @@ class Limon:
 
     @peso.setter
     def peso(self, nuevo_peso):
-        self._peso = nuevo_peso        
+        self.__peso = nuevo_peso        
 ```
 
 Ampliar el programa para que la ejecución devuelva en la terminal el siguiente log:  
@@ -774,6 +774,13 @@ Acabo de modificar el valor de __peso a:  258
 ---------------------
 Fin del programa
 ```
+
+## **5 - Herencia en python**
+
+<!-- https://ellibrodepython.com/herencia-en-python -->
+<!-- https://www.luisllamas.es/herencia-en-python/ -->
+<!-- https://python.sdv.u-paris.fr/24_avoir_plus_la_classe_avec_les_objets/#243-heritage -->
+
 
 
 <!-- para ejercicios

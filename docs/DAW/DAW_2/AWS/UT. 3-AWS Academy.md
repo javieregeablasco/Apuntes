@@ -25,9 +25,10 @@ schedule: 96h - 3h/s
 
 
 |**Criterios de evaluación de la unidad didáctica:**|
-||
+|-|
 |**d)** Se han identificado los principios básicos de la facturación y costos en la nube.|
 |**e)** Se ha hecho uso correcto de herramientas para estimar y gestionar presupuestos.| 
+|**f)** Se ha participado en actividades prácticas sobre gestión de costos.|
 
 <br>
 
