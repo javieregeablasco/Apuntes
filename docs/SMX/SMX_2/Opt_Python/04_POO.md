@@ -776,10 +776,118 @@ Fin del programa
 ```
 
 ## **5 - Herencia en python**
+- La herencia permite crear nuevas clases basadas en clases ya existentes.
+- La nueva clase (subclase) hereda los atributos y métodos de la clase base (superclase) y puede agregar sus propios atributos y métodos o sobrescribir los ya definidos. De esta forma, la subclase puede extender o modificar el comportamiento de la superclase.
 
-<!-- https://ellibrodepython.com/herencia-en-python -->
+!!! warning "Conceptos importanes"
+    - Superclase (clase padre): Es la clase de la cual se heredan los métodos y atributos.
+    - Subclase (clase hija): Es la clase que hereda métodos y atributos de la superclase.
+    - super(): Función que permite acceder a los métodos y atributos de la superclase desde la subclase
+
+
+### **5.1 - Herencia simple**
+**Sintáxis básica**
+```py
+class Superclase:
+    # Definición de la clase base
+    pass
+
+class Subclase(Superclase):
+    # Definición de la subclase
+    pass
+
+```
+
+
+**Ejemplo práctico**
+```py
+# Clase padre
+class Persona:
+
+    def __init__(self, nombre, edad):
+        self.nombre = nombre
+        self.edad = edad
+
+    def mostrar(self):
+        return self.nombre + ", " + str(self.edad) + " años"
+
+    # Otros métodos...
+
+# Clase hija
+class Programador(Persona):
+
+    def __init__(self, nombre, edad, lenguaje):
+        super().__init__(nombre, edad)
+        self.lenguaje = lenguaje
+
+
+    def mostrar(self):
+       return super().mostrar() + "\nPrograma en " + self.lenguaje
+    
+
+persona_1 = Programador("Pedro", 28,"Python")
+print(persona_1.mostrar())
+```            
+
+!!! tip "Puntos clave"
+    1. Si una subclase no redefine el constructor (__init__()), usará automáticamente el de la superclase.
+    1. Se puede sobrescribir cualquier método heredado simplemente volviéndolo a definir en la subclase.
+    1. super() permite acceder a métodos o atributos de la superclase, incluso cuando están sobrescritos.
+    1. Python admite herencia múltiple, es decir, una clase puede heredar de más de una superclase:
+
+### **5.2 - Herencia multiple**
+Python permite que una clase herede de más de una superclase.
+Esto significa que una subclase puede combinar el comportamiento de varias clases base.  
+
+**Sintáxis básica**
+```PY
+class ClaseHija(ClasePadre1, ClasePadre2, ...):
+    # Definición de la subclase
+    pass
+```
+
+**Ejemplo práctico**
+```py
+# Clase base 1
+class Persona:
+    def __init__(self, nombre, dni):
+        self.nombre = nombre
+        self.dni = dni
+
+    def mostrar(self):
+        return f"Nombre: {self.nombre} con DNI: {self.dni}"
+
+# Clase base 2
+class Trabajador:
+    def __init__(self, perfil):
+        self.perfil = perfil
+
+    def mostrar_puesto_trabajo(self):
+        return f"Puesto: {self.perfil}"
+
+# Clase hija que hereda de Persona y Trabajador
+class Empleado(Persona, Trabajador):
+    def __init__(self, nombre, dni, perfil, salario):
+        # Llamadas a los constructores de ambas superclases
+        Persona.__init__(self, nombre, dni)
+        Trabajador.__init__(self, perfil)
+        self.salario = salario
+
+    def mostrar(self):
+        # Combina los métodos heredados
+        return f"{super().mostrar()} | {super().mostrar_puesto_trabajo()} | Salario: {self.salario}€"
+
+# Uso de la clase
+e1 = Empleado("Carlos", "22656198Y", "Desarrollador", 2800)
+print(e1.mostrar())
+```
+
+
+<!-- https://dat-science.com/clases-y-objetos-en-python/#Metodos_especiales
+https://ellibrodepython.com/herencia-en-python -->
 <!-- https://www.luisllamas.es/herencia-en-python/ -->
-<!-- https://python.sdv.u-paris.fr/24_avoir_plus_la_classe_avec_les_objets/#243-heritage -->
+<!-- https://python.sdv.u-paris.fr/24_avoir_plus_la_classe_avec_les_objets/#243-heritage 
+-->
 
 
 

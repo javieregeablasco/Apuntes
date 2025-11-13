@@ -116,7 +116,22 @@ Una vez creada la infraestructura (VPC + subred + EC2 + IGW) iniciaremos las int
   ![](../AWS/ut6/peering15.png){ .cien .marco .margin2020 } <br>
 
 ### **1.2.5 - Configuración de los grupos de seguridad de las instancias**
+- **EC2 Oregón**
+  ![](../AWS/ut6/peering16.png){ .cien .marco .margin2020 } <br>
 
+- **EC2 Norte de Virginia**
+  ![](../AWS/ut6/peering17.png){ .cien .marco .margin2020 } <br>
+
+### **1.2.6 - Pruebas de conexión**
+- ping de EC2 Norte de Virginia hacia Oregon  
+  ![](../AWS/ut6/peering18.png){ .leftcincocero .margin2020   } <br>
+
+- ping de EC2 Oregon hacia Norte de Virginia  
+  ![](../AWS/ut6/peering19.png){ .leftcincocero .margin2020   } <br>
+
+### **1.3 - Transit Gateway**  
+
+<!-- file:///C:/Users/titan/Documents/Javier128/Modulos/DAW/DAW_2/AWS/UT/UT6/Tema%204/Tema%204.%20Peer%20connection%20y%20transit%20gw.pdf -->
 
 <!-- https://www.youtube.com/watch?v=qMppxz4Ou0A -->
 <!-- route 53... 
