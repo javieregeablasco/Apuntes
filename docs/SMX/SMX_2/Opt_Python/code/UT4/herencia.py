@@ -1,4 +1,4 @@
-# Clase base 1
+#Clase base 1
 class Persona:
     def __init__(self, nombre, dni):
         self.nombre = nombre

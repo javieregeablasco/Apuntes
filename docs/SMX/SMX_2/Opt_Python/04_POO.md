@@ -875,14 +875,81 @@ class Empleado(Persona, Trabajador):
 
     def mostrar(self):
         # Combina los métodos heredados
-        return f"{super().mostrar()} | {super().mostrar_puesto_trabajo()} | Salario: {self.salario}€"
+        return f"{super().mostrar()} | {self().mostrar_puesto_trabajo()} | Salario: {self.salario}€"
 
 # Uso de la clase
-e1 = Empleado("Carlos", "22656198Y", "Desarrollador", 2800)
-print(e1.mostrar())
+nuevo_empleado = Empleado("Carlos", "22656198Y", "Desarrollador", 2800)
+print(nuevo_empleado.mostrar())
 ```
 
+!!! warning "Explicación de return f"{super().mostrar()} | {self().mostrar_puesto_trabajo()} | Salario: {self.salario}€""
+    **super()** devuelve una referencia al siguiente método en el orden de resolución de métodos MRO (method resolution order).
+    ```py
+    super().mostrar()
+    ```
+    Cuando una clase hereda de varias clases padre, el MRO decide qué método se ejecuta si hay un conflicto, es decir, si varios padres tienen un método con el mismo nombre. 
+    En este caso el método está **sobrescrito** así que la llamada se hace al **método original**.
 
+    Cuando usamos self, Python busca el método en **la propia instancia** (siguiendo también el orden MRO).
+    ```py
+    self.mostrar_puesto()
+    ```
+    Queremos simplemente llamar al método heredado **tal cual**.
+
+### **5.3 - Tarea - RA2-CEf**
+!!! exercice "Ejercicio 1"
+    **Herencia simple**. En este ejercicio se creará una **clase base** Vehiculo y una **clase hija** Coche.
+    
+    1. La clase Vehiculo debe tener:  
+    &emsp;&emsp;Atributos: marca, modelo  
+    &emsp;&emsp;Método mostrar() que devuelva: "Vehículo: marca modelo"
+
+    1. La clase Coche hereda de Vehiculo y añade:  
+    &emsp;&emsp;Atributo: num_puertas  
+    &emsp;&emsp;Método mostrar() que utilice el de la superclase y añada " | Puertas: X"
+
+    1. Crear dos objetos Coche distintos y mostrarlos con print(obj.mostrar()).
+
+    **Ejemplo de salida**
+    ```bash
+    Vehículo: Toyota Corolla | Puertas: 5
+    Vehículo: Ford Focus | Puertas: 3
+    ```
+
+
+
+!!! exercice "Ejercicio 2"
+    **Herencia multiple**. En este ejercicio se creará una **clase Persona**, otra **Estudiante** y una **clase hija Becado** que herede de ambas.  
+    
+    1. Clase Persona:  
+    &emsp;&emsp;Atributos: nombre, edad  
+    &emsp;&emsp;Método mostrar() → "Nombre: ___ | Edad: ___"
+
+    1. Clase Estudiante:  
+    &emsp;&emsp;Atributo: carrera   
+    &emsp;&emsp;Método mostrar_estudios() → "Carrera: ___"
+
+    1. La clase Becado hereda de Persona y Estudiante, y añade:  
+    &emsp;&emsp;Atributo: importe_beca  
+    &emsp;&emsp;Método mostrar() que combine:  
+    &emsp;&emsp;&emsp;&emsp;super().mostrar() (de Persona)  
+    &emsp;&emsp;&emsp;&emsp;self.mostrar_estudios() (de Estudiante)  
+    &emsp;&emsp;&emsp;&emsp;Beca: "___ €" al final    
+
+    1. Crear un objeto Becado y mostrarlo usando print(obj.mostrar()).
+
+    **Ejemplo de salida**
+    ```bash
+    Nombre: Marta | Edad: 21 | Carrera: Ingeniería Informática | Beca: 1200 €
+    ```
+
+
+    
+
+
+<!-- polimorfismo
+https://programacionpython.ecyt.unsam.edu.ar/material/09_Clases_y_Objetos/03_Herencia/
+https://lathack.com/roadmap/nivel-basico/herencia-y-polimorfismo-en-python/#herencia-multiple -->
 <!-- https://dat-science.com/clases-y-objetos-en-python/#Metodos_especiales
 https://ellibrodepython.com/herencia-en-python -->
 <!-- https://www.luisllamas.es/herencia-en-python/ -->
