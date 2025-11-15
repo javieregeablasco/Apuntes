@@ -644,7 +644,7 @@ Las **Network ACL (NACL)** son un componente de seguridad que actúa a nivel de 
       * `DENY`: Bloquear tráfico.
 1. **ACL por defecto**  
 
-    !!! warning "¡Por defecto, tTodo está abierto en las NACL!"
+    !!! warning "¡Por defecto, todo está abierto en las NACL!"
         * La **NACL por defecto** de una VPC permite todo el tráfico entrante y saliente.
         * Las **ACL personalizadas** niegan todo el tráfico hasta que se configuren reglas.
         

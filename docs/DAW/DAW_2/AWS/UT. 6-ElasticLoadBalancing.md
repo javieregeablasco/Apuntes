@@ -10,7 +10,7 @@ layout: default
 schedule: 96h - 3h/s 
 ---
 
-# **UT. 6 - Interconexión, equilibrado y escalado de infraestructuras**
+# **UT. 6 - Interconexión, balanceo y escalado de infraestructuras**
 ![Descripción de la imagen](../AWS/ut6/elb.png){ .trescinco }
 <br>
 
@@ -62,14 +62,14 @@ Para familiarizarnos con el peering en AWS, usaremos el siguiente escenario:
 
 ![](../AWS/ut6/peering2.png){ .seiscinco }
 
-### **1.2.1 - Crear los elementos básicos**
+#### **1.2.1 - Crear los elementos básicos**
 En un primer momento crearemos:
 
 1. Las 2 VPC (us-east-1 (N. Virginia) y us.east-2 (Oregon)). 
 1. Las subredes (públicas) y sus respectivas tablas de enrutamiento.
 1. Las instancias EC2 y sus grupos de seguridad para posibilitar pings y conexiones SSH.
 
-### **1.2.2 - Realizar el peering entre VPC's**
+#### **1.2.2 - Realizar el peering entre VPC's**
 Una vez creada la infraestructura (VPC + subred + EC2 + IGW) iniciaremos las interconección desde la región us-east-1 (N. Virginia).
 
 - Desde el menú VPC buscamos **Interconexiones**. 
@@ -98,7 +98,7 @@ Una vez creada la infraestructura (VPC + subred + EC2 + IGW) iniciaremos las int
 
 - En la otra región aceptamos (o rechazamos la petición). 
 
-### **1.2.3 - Configuración de la interconexión**
+#### **1.2.3 - Configuración de la interconexión**
 - Para evitar problemas con la resolución de nombres en el servicio de interconexión, en Interconexiones → DNS, habilitaremos la opción de resolver el dns.
   ![](../AWS/ut6/peering11.png){ .original .marco .margin2020 } 
   ![](../AWS/ut6/peering12.png){ .original .marco .margin2020 } <br>
@@ -106,7 +106,7 @@ Una vez creada la infraestructura (VPC + subred + EC2 + IGW) iniciaremos las int
 - Si no deja hacerlo, iremos a la VPC receptora y comprobaremos la configuración de DNS. 
   ![](../AWS/ut6/peering13.png){ .sietecinco .marco .margin2020 } <br>
  
-### **1.2.4 - Configuración de la tablas de enrutamiento**
+#### **1.2.4 - Configuración de la tablas de enrutamiento**
 - De la misma manera que para una puerta de enlace de internet (IGW) añadiremos una ruta a las IP's de las VPC's, tanto en la VPC Norte de Virginia como en la VPC Oregón (acordaros de asociar explícitamente la subred a la tabla de enrutamiento).
 <br><br>
 - **VPC Oregón**
@@ -115,14 +115,14 @@ Una vez creada la infraestructura (VPC + subred + EC2 + IGW) iniciaremos las int
 - **VPC Norte de Virginia**
   ![](../AWS/ut6/peering15.png){ .cien .marco .margin2020 } <br>
 
-### **1.2.5 - Configuración de los grupos de seguridad de las instancias**
+#### **1.2.5 - Configuración de los grupos de seguridad de las instancias**
 - **EC2 Oregón**
   ![](../AWS/ut6/peering16.png){ .cien .marco .margin2020 } <br>
 
 - **EC2 Norte de Virginia**
   ![](../AWS/ut6/peering17.png){ .cien .marco .margin2020 } <br>
 
-### **1.2.6 - Pruebas de conexión**
+#### **1.2.6 - Pruebas de conexión**
 - ping de EC2 Norte de Virginia hacia Oregon  
   ![](../AWS/ut6/peering18.png){ .leftcincocero .margin2020   } <br>
 
@@ -173,6 +173,33 @@ No conectamos a la instancia 1 (por consola o por SSH) y vemos al hacer ping, qu
 
 #### **1.3.6 - Pruebas adicionales**
 !!! exercise "Propargarse a otra instancia y comprobar si esa instancia tiene conexión a internet"
+    ¿Qué soluciones podemos aplicar para que las instancias de la VPC-2 y VPC-3 tengan conexión a internet?
+ 
+### **1.4 - Tarea RA3-CEd**
+Monta el siguiente escenario:
+
+- Se trabajará en 2 regiones distintas (us-east-1 / N-Virginia y us-west-2 / Oregón). 
+- En cada región estarán ubicadas dos VPCs con sus correspondientes subredes interconectadas por un Transit Gateway. 
+- Para interconectar las regiones colocaremos un peer connection. 
+- Conectarse a la instnacia 1 y realizar capturas de pings al resto de instancias (1 captura). 
+- Realizar capturas de la propagación y pings con éxito a todas las instancias del escenario (3 capturas).
+
+![](../AWS/ut6/RA3-CEd.png){ .sietecinco }<br>
+
+<!-- ## **2 - Equilibrado y escalado de infraestructuras**
+### **2.1 - Introducción**
+En entornos de computación en la nube, el equilibrio de carga y el escalado automático son dos componentes esenciales para garantizar la disponibilidad, el rendimiento y la eficiencia de las aplicaciones y servicios. AWS ofrece herramientas robustas para implementar estas funcionalidades, permitiendo a las organizaciones adaptarse dinámicamente a las demandas cambiantes del tráfico y optimizar el uso de recursos.
+- **Elastic Load Balancing (ELB)**: Distribuye automáticamente el tráfico entrante entre múltiples instancias de Amazon EC2, contenedores y direcciones IP en una o más zonas de disponibilidad. Esto asegura que ninguna instancia se sobrecargue y que las aplicaciones permanezcan disponibles incluso si una o más instancias fallan.
+- **Auto Scaling**: Permite ajustar automáticamente la capacidad de las instancias EC2 en función de las condiciones definidas por el usuario. Esto significa que se pueden añadir o eliminar instancias según la demanda del tráfico, lo que ayuda a mantener el rendimiento óptimo y a controlar los costos operativos.
+
+### **2.2 - Elastic Load Balancing (ELB)**
+Elastic Load Balancing (ELB) es un servicio de AWS que distribuye automáticamente el tráfico entrante entre múltiples instancias de Amazon EC2, contenedores y direcciones IP en una o más zonas de disponibilidad. ELB ayuda a mejorar la disponibilidad y la tolerancia a fallos de las aplicaciones al garantizar que el tráfico se dirija solo a las instancias saludables. ELB ofrece varios tipos de balanceadores de carga, incluyendo Application Load Balancer (ALB), Network Load Balancer (NLB) y Classic Load Balancer (CLB), cada uno diseñado para diferentes casos de uso y requisitos de rendimiento.
+### **2.3 - Auto Scaling** -->
+
+
+
+
+<!-- https://docs.aws.amazon.com/es_es/autoscaling/ec2/userguide/tutorial-ec2-auto-scaling-load-balancer.html -->
 
 <!-- bbdd
 https://www.youtube.com/watch?v=vp_uulb5phM
