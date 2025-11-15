@@ -943,7 +943,9 @@ print(nuevo_empleado.mostrar())
     Nombre: Marta | Edad: 21 | Carrera: Ingeniería Informática | Beca: 1200 €
     ```
 
-
+<!--
+poner __str__()
+ https://hektorprofe.github.io/python/herencia-en-la-poo/ejercicios/ -->
     
 
 

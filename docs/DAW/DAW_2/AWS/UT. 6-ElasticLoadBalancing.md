@@ -130,7 +130,66 @@ Una vez creada la infraestructura (VPC + subred + EC2 + IGW) iniciaremos las int
   ![](../AWS/ut6/peering19.png){ .leftcincocero .margin2020   } <br>
 
 ### **1.3 - Transit Gateway**  
+Un AWS Transit Gateway (TGW) es un servicio de red de Amazon Web Services diseñado para interconectar de forma centralizada múltiples VPC, conexiones VPN, Direct Connect y redes on-premise dentro de **una misma región**. Actúa como **un router regional** de alto rendimiento, simplificando arquitecturas complejas y reduciendo la necesidad de crear múltiples VPC Peering.
 
+#### **1.3.1 - Escenario**
+Para familiarizarnos con el Transit gateway de AWS, usaremos el siguiente escenario:
+
+![](../AWS/ut6/TGW1.png){ .cincozero }
+
+#### **1.3.2 - Creación del transit gateway**
+Una vez implementada la arquitectura de red, pasaremos a crear y configurar el Transit gateway.
+
+![](../AWS/ut6/TGW2.png){ .marco .ochocinco }<br>
+![](../AWS/ut6/TGW3.png){ .marco .ochocinco }<br>  
+Nos esperamos  a que su estado pase de **pending** a **available**.
+
+![](../AWS/ut6/TGW4.png){ .marco .ochocinco }<br>  
+
+#### **1.3.3 - Conexiones del transit gateway**
+Como tenemos 3 VPC's necesitaremos crear 3 conexiones.
+
+![](../AWS/ut6/TGW5.png){ .marco .ochocinco }<br>
+Repetiremos este paso para las otras 2 VPC's.  
+
+![](../AWS/ut6/TGW6.png){ .marco .sietecinco }<br>
+Resultado final con las 3 conexiones creadas.  
+
+![](../AWS/ut6/TGW7.png){ .marco .sietecinco }<br>
+
+#### **1.3.4 - Modificar las tablas de enrutamiento de las VPC's**
+Podemos ver que AWS ha creado una tabla de enrutamiento para el TGW pero, no es aquí donde configuraremos las nuevas rutas sino en la tabla de enrutamiento de cada VPC.
+
+![](../AWS/ut6/TGW8.png){ .marco .ochocinco }<br>
+
+Tabla de enrutamiento de la VPC-1 (no es necesario ser tan restrictivo con las rutas ya que la propia conexión del TGW se ha creado para una VPC y una subred concreta).
+
+![](../AWS/ut6/TGW9.png){ .marco .ochocinco }<br>
+
+#### **1.3.5 - Pruebas de conexión**
+No conectamos a la instancia 1 (por consola o por SSH) y vemos al hacer ping, que hay comunicacion entre instancias a pesar de encontrarse en VPC's distintas (dentro de una misma región).
+
+![](../AWS/ut6/TGW10.png){ .cincozero }<br>
+
+#### **1.3.6 - Pruebas adicionales**
+!!! exercise "Propargarse a otra instancia y comprobar si esa instancia tiene conexión a internet"
+
+<!-- bbdd
+https://www.youtube.com/watch?v=vp_uulb5phM
+https://www.youtube.com/watch?v=eK_umMYxZfM
+https://www.youtube.com/watch?v=6E30Yr2UATw
+  https://www.youtube.com/watch?v=kNm0z_hRJlw
+  https://www.youtube.com/watch?v=wLTFaDebTBY
+  https://www.youtube.com/watch?v=BTg1JbmE3x4
+  https://www.youtube.com/watch?v=tykcCf-Zz1M -->
+
+
+<!-- ecs
+https://prezi.com/p/5jffku-0bqyl/amazon-elastic-container-service-overview/
+https://www.youtube.com/watch?v=TRLK6ZNpjB8
+https://www.youtube.com/watch?v=qbEPae8YNbs
+https://www.youtube.com/watch?v=NI34uF7VVP8
+https://www.youtube.com/watch?v=86Ys0LnMSnY -->
 <!-- file:///C:/Users/titan/Documents/Javier128/Modulos/DAW/DAW_2/AWS/UT/UT6/Tema%204/Tema%204.%20Peer%20connection%20y%20transit%20gw.pdf -->
 
 <!-- https://www.youtube.com/watch?v=qMppxz4Ou0A -->
@@ -188,7 +247,8 @@ https://www.youtube.com/watch?v=CGmTvukObOw -->
 
 
 ## **Enlaces de interés**
-Documentación de [AWS](https://docs.aws.amazon.com)
+Documentación de [AWS](https://docs.aws.amazon.com)  
 [Elastic Load Balancing](https://docs.aws.amazon.com/es_es/elasticloadbalancing/latest/userguide/what-is-load-balancing.html)
-https://docs.aws.amazon.com/es_es/vpc/latest/peering/what-is-vpc-peering.html
+[VPC peering](https://docs.aws.amazon.com/es_es/vpc/latest/peering/what-is-vpc-peering.html)  
+[Transit Gateway](https://aws.amazon.com/es/transit-gateway/)  
 <!-- https://aws.amazon.com/es/products/storage/ -->
