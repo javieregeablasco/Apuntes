@@ -29,11 +29,6 @@ schedule: 96h - 3h/w
 |RA4. Desarrolla programas organizados en clases analizando y aplicando los principios de la programación orientada a objetos.|
 |-|
 |**a)** Se ha reconocido la sintaxis, estructura y componentes típicos de una clase.|
-|**b)** Se han definido clases.|
-|**c)** Se han definido propiedades y métodos.|
-|**d)** Se han creado constructores.|
-|**e)** Se han desarrollado programas que instancien y utilicen objetos de las clases creadas anteriormente.|
- 
 <br>
 
 ## **1 - Introducción a la programación orientada a objetos** 
@@ -916,8 +911,6 @@ print(nuevo_empleado.mostrar())
     Vehículo: Ford Focus | Puertas: 3
     ```
 
-
-
 !!! exercice "Ejercicio 2"
     **Herencia multiple**. En este ejercicio se creará una **clase Persona**, otra **Estudiante** y una **clase hija Becado** que herede de ambas.  
     
@@ -943,54 +936,145 @@ print(nuevo_empleado.mostrar())
     Nombre: Marta | Edad: 21 | Carrera: Ingeniería Informática | Beca: 1200 €
     ```
 
-<!--
-poner __str__()
- https://hektorprofe.github.io/python/herencia-en-la-poo/ejercicios/ -->
-    
+## **5 - Polimorfismo en python**
+A diferencia de la herencia, que establece una relación jerárquica entre clases, el polimorfismo se refiere a la capacidad de distintos objetos de responder al mismo método de manera diferente según su clase.
+En Python, el polimorfismo se facilita gracias al tipado dinámico y al duck typing, lo que significa que lo importante no es el tipo concreto del objeto, sino que implemente los métodos necesarios para el comportamiento esperado.
 
-
-<!-- polimorfismo
-https://programacionpython.ecyt.unsam.edu.ar/material/09_Clases_y_Objetos/03_Herencia/
-https://lathack.com/roadmap/nivel-basico/herencia-y-polimorfismo-en-python/#herencia-multiple -->
-<!-- https://dat-science.com/clases-y-objetos-en-python/#Metodos_especiales
-https://ellibrodepython.com/herencia-en-python -->
-<!-- https://www.luisllamas.es/herencia-en-python/ -->
-<!-- https://python.sdv.u-paris.fr/24_avoir_plus_la_classe_avec_les_objets/#243-heritage 
--->
-
-
-
-<!-- para ejercicios
-https://pythones.net/variables-de-clases-estaticas-instancia-python-oop/ 
-https://www.ionos.es/digitalguide/paginas-web/desarrollo-web/python-static-method/-->
-
-
-<!-- Cómo usar los objetos
- https://www.luisllamas.es/que-es-un-objeto-en-programacion/ -->
-<!-- https://gitlab.com/josedom24/curso_programacion_python3/-/tree/master/curso/u39?ref_type=heads -->
-<!-- https://ellibrodepython.com/programacion-orientada-a-objetos-python -->
-
-<!-- 
-
+**Ejemplo básico**
 ```py
-# definimos una variable de tipo lista
-datos = []
-# Usamos un iterador para llenar la lista
-for i in range(5):
-  dato = input("Introducir cualquier cosa: ")
-  datos.append(dato)
-# Usamos otro iterador para leer la lista y sacamos el tipo de variable que contiene
-for i in range(5):
- # print(f"Posición {i}, valor {datos[i]}, tipo {type(datos[i])}") 
-  print(f"Posición {i}, valor {datos[i]}, tipo: {'string' if isinstance(datos[i],str) else ''}")
-```
+class Coche():
+    cantidad_ruedas = 4
+   
+    def __init__(self, marca, modelo):
+        self.marca = marca
+        self.modelo = modelo
+
+    def descripcion(self):
+        return f"Coche: {self.marca} {self.modelo}"
+    
+    def ruedas(self):
+        return f"El coche tiene {self.cantidad_ruedas} ruedas."
+
+
+class Moto():
+    cantidad_ruedas = 2
+   
+    def __init__(self, marca, modelo):
+        self.marca = marca
+        self.modelo = modelo
+
+    def descripcion(self):
+        return f"Moto: {self.marca} {self.modelo}"
+    
+    def ruedas(self):
+        return f"La moto tiene {self.cantidad_ruedas} ruedas."
+
+class Camion():
+    cantidad_ruedas = 6
+
+    def __init__(self, marca, modelo):
+        self.marca = marca
+        self.modelo = modelo
+
+    def descripcion(self):
+        return f"Camión: {self.marca} {self.modelo}"
+    
+    def ruedas(self):
+        return f"El camión tiene {self.cantidad_ruedas} ruedas."        
+    
+def cantidad_ruedas(vehiculo):
+    return vehiculo.ruedas()     
+    
+# Crear objeto
+mi_vehiculo = Moto("Honda", "CBR600")
+ruedas = cantidad_ruedas(mi_vehiculo)
+print(f"La cantidad de ruedas de mi vehiculo es de: {ruedas} ruedas")
+``` 
+**Comentarios del programa:**  
+
+- Las clases Coche, Moto y Camion no tienen ninguna relación entre ellas, pero definen los mismos métodos: descripcion() y ruedas(). 
+- Gracias a ello, distintos objetos pueden responder al mismo mensaje (la llamada a un método) de forma diferente según su clase: **Polimorfismo**.
+- La función cantidad_ruedas(vehiculo) muestra el uso de duck typing. Python no necesita que vehiculo sea de un tipo concreto ni que herede de una clase base común, **lo único que importa es que el objeto recibido tenga el método ruedas()**. Es decir, si un objeto se comporta como un vehículo (tiene el método ruedas()), entonces puede ser usado sin importar su clase real. Por eso la función puede trabajar indistintamente con un objeto Coche, Moto o Camion.
+
+### **Tarea RA4-CEa**
+!!! exercise "Polimorfismo con animales"
+
+    Tenemos el siguiente programa:
+    ```py
+    from abc import ABC, abstractmethod
+
+    class Animales(ABC):
+        def __init__(self, raza, familia, carnivoro, herbivoro, patas):
+            self.raza = raza
+            self.familia = familia
+            self.carnivoro = carnivoro
+            self.herbivoro = herbivoro
+            self.patas = patas
+
+        def se_alimenta(self):
+            match(self.carnivoro, self.herbivoro):
+                case (True, False):
+                    return f"El {self.raza} es un animal carnívoro."
+                case (False, True):
+                    return f"El {self.raza} es un animal herbívoro."
+                case (True, True):
+                    return f"El {self.raza} es un animal omnívoro."
+                case _:
+                    return f"El {self.raza} no tiene un tipo de alimentación definido." 
+      
+        def se_desplaza(self):
+            if self.patas == 2: 
+                return f"El animal {self.raza} de la familia {self.familia} es un bípedo."
+            elif self.patas == 4:
+                return f"El animal {self.raza} de la familia {self.familia} es un cuadrúpedo."
+            else:
+                return f"El animal {self.raza} de la familia {self.familia} tiene una forma de desplazamiento especial."
+    
+        def vocalizacion(self, sonido):
+            return f"El {self.raza} emite el sonido: {sonido}"  
   
-<!-- https://jsp.shiksha/index.php/portfolio/bacse101-problem-solving-using-python/introduction-python -->
- 
-<!-- https://www.luisllamas.es/que-es-un-objeto-en-programacion/ -->
-<!-- https://gitlab.com/josedom24/curso_programacion_python3/-/tree/master/curso/u39?ref_type=heads -->
+        @abstractmethod
+        def comunicarse(self):
+            """Método abstracto que obliga a las clases hijas a implementar su propia vocalización."""
+            pass
+    ```
 
+    Como podemos ver, implementa una clase que no hemos visto hasta ahora: una **clase abstracta**.  
+    Para ello, se utiliza el módulo `abc` (Abstract Base Classes), que permite definir clases que **no pueden ser instanciadas directamente** y que **contienen métodos abstractos que deben ser implementados por las clases derivadas**.  
 
+    ➤ **Tarea:**  
+    Crea 3 clases derivadas (heredan de `Animales`): `Perro`, `Gato` y `Pajaro`.  
+    Cada una debe implementar el método abstracto `comunicarse()` para devolver el sonido característico del animal:  
+    - Perro → "¡Guau guau!"  
+    - Gato → "¡Miau!"  
+    - Pájaro → "¡Pío pío!"
+
+    Finalmente, crea instancias de cada clase y muestra por pantalla la raza, familia, tipo de alimentación, forma de desplazamiento y sonido característico de cada animal.
+
+    **Ejemplo de instancias**
+    ```py
+    perro = Perro("Pastor Alemán", "Caninos", True, False, 4)
+    gato = Gato("Siames", "Felinos", True, False, 4)
+    pajaro = Pajaro("Canario", "Aves", False, True, 2)
+    ```
+
+    **Ejemplo de salida**
+    ```bash
+    El Pastor Alemán es un animal carnívoro.
+    El animal Pastor Alemán de la familia Caninos es un cuadrúpedo.
+    El Pastor Alemán ladra: ¡Guau guau!
+    ----
+    El Siames es un animal carnívoro.
+    El animal Siames de la familia Felinos es un cuadrúpedo.
+    El Siames maúlla: ¡Miau!
+    ----
+    El Canario es un animal herbívoro.
+    El animal Canario de la familia Aves es un bípedo.
+    El Canario canta: ¡Pío pío!
+    ----
+    ```
+
+  
  <!-- === "RA 1"
     |RA1. Reconoce la estructura de un programa informático, identificando y relacionando los elementos propios del lenguaje de programación utilizado.|Peso|
     |-|-|
@@ -1012,7 +1096,7 @@ for i in range(5):
     *|**c)** Se han instanciado objetos a partir de clases predefinidas.|11%|
     *|**d)** Se han utilizado métodos y propiedades de los objetos.|11%|
     *|**e)** Se han escrito llamadas a métodos estáticos.|11%|
-    |**f)** Se han utilizado parámetros en la llamada a métodos.|11%|
+    *|**f)** Se han utilizado parámetros en la llamada a métodos.|11%|
 
 === "RA 3"
     |RA3. Escribe y depura código, analizando y utilizando las estructuras de control del lenguaje.|Peso|
@@ -1028,7 +1112,7 @@ for i in range(5):
 === "RA 4"
     |RA4. Desarrolla programas organizados en clases analizando y aplicando los principios de la programación orientada a objetos.|Peso|
     |-|-|
-    |**a)** Se ha reconocido la sintaxis, estructura y componentes típicos de una clase.|12%|
+    *|**a)** Se ha reconocido la sintaxis, estructura y componentes típicos de una clase.|12%|
     |**b)** Se han definido clases.|11%|
     |**c)** Se han definido propiedades y métodos.|11%|
     |**d)** Se han creado constructores.|11%|
