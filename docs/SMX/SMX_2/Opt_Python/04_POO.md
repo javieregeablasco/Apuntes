@@ -29,6 +29,7 @@ schedule: 96h - 3h/w
 |RA4. Desarrolla programas organizados en clases analizando y aplicando los principios de la programación orientada a objetos.|
 |-|
 |**a)** Se ha reconocido la sintaxis, estructura y componentes típicos de una clase.|
+
 <br>
 
 ## **1 - Introducción a la programación orientada a objetos** 
@@ -1043,13 +1044,15 @@ print(f"La cantidad de ruedas de mi vehiculo es de: {ruedas} ruedas")
     Para ello, se utiliza el módulo `abc` (Abstract Base Classes), que permite definir clases que **no pueden ser instanciadas directamente** y que **contienen métodos abstractos que deben ser implementados por las clases derivadas**.  
 
     ➤ **Tarea:**  
-    Crea 3 clases derivadas (heredan de `Animales`): `Perro`, `Gato` y `Pajaro`.  
-    Cada una debe implementar el método abstracto `comunicarse()` para devolver el sonido característico del animal:  
-    - Perro → "¡Guau guau!"  
-    - Gato → "¡Miau!"  
-    - Pájaro → "¡Pío pío!"
+    
+    1. Crea 3 clases derivadas (heredan de `Animales`): `Perro`, `Gato` y `Pajaro`.  
+    1. Cada una debe implementar el método abstracto `comunicarse()` para devolver el sonido característico del animal:  
 
-    Finalmente, crea instancias de cada clase y muestra por pantalla la raza, familia, tipo de alimentación, forma de desplazamiento y sonido característico de cada animal.
+        - Perro → "¡Guau guau!"  
+        - Gato → "¡Miau!"  
+        - Pájaro → "¡Pío pío!"
+
+    1. Finalmente, crea instancias de cada clase y muestra por pantalla la raza, familia, tipo de alimentación, forma de desplazamiento y sonido característico de cada animal.
 
     **Ejemplo de instancias**
     ```py

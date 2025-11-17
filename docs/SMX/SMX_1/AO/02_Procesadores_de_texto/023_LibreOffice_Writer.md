@@ -673,9 +673,9 @@ La grabación de macro viene **deshabilitado por defecto** en LibreOffice. Para 
     **Grabar una macro que inserte automáticamente un encabezado con el siguiente texto:**  
     **1.** Documento escrito por el alumno: Insertar campo → Autor → Nombre completo. (Arial, 16, negrita, gris, centrado).  
     **2.** Fecha de redacción: Insertar campo → Fecha fija (Arial, 12, cursiva, centrado, formato de fecha ISO: AAAA-MM-DD).  
-    **3.** Hora de redacción: Insertar campo → Hora fija (Arial, 12, cursiva, centrado, formato de hora: hh-mm-ss).
-    **4.** Guardar la macro dentro del documento para que **al exportar el archivo la macro acompañe al documento**.
-    **5.** Crear un atajo de teclado que permita ejecutar la macro con (p.e.) **ctrl q**.
+    **3.** Hora de redacción: Insertar campo → Hora fija (Arial, 12, cursiva, centrado, formato de hora: hh-mm-ss).  
+    **4.** Guardar la macro dentro del documento para que **al exportar el archivo la macro acompañe al documento**.  
+    **5.** Crear un atajo de teclado que permita ejecutar la macro con (p.e.) **ctrl q**.  
 
     **Resultado esperado:**
     ![](./img_ut2/RA2-CEf/img1.png){.sietecinco}
