@@ -172,6 +172,8 @@ De esta forma el programador puede controlar el comportamiento del acceso al arc
             - Para cualquier otra excepción, se mostrará el mensaje: "Error inesperado al abrir el archivo."
         - Si el archivo se abre correctamente, leer y mostrar las 10 primeras líneas del archivo.
 
+<br>
+
 ### **1.2 - Escritura de un archivo**
 
 - **Ejemplo de escritura en un archivo usando with:**
@@ -184,6 +186,7 @@ with open(ruta + archivo, "w", encoding="utf-8") as fichero:
 ```
 
     **Explicación del código**:  
+    
     - Se abre el archivo en modo escritura ('w'). Si el archivo ya existe, se sobrescribe.  
     - Se escribe una línea de texto en el archivo utilizando el método write().
     
@@ -282,16 +285,7 @@ with open(destino, 'r', encoding='utf-8') as archivo:
 https://aprendeconalf.es/docencia/python/ejercicios/ficheros/ -->
 <!-- https://python.sdv.u-paris.fr/07_fichiers/ -->
 
-<!--
-7. File Handling
 
-File handling allows you to read from and write to files. Python provides built-in functions for file handling.
-
-    Opening Files: Use the open() function to open a file.
-    Reading Files: Use methods like read(), readline(), readlines() to read file contents.
-    Writing to Files: Use methods like write(), writelines() to write to a file.
-    Closing Files: Always close the file after performing file operations using the close() method.
- -->
  
   
 <!--
@@ -369,8 +363,8 @@ for i in range(5):
     *|**a)** Se ha utilizado la consola para realizar operaciones de entrada y salida de información.|16%|
     *|**b)** Se han aplicado formatos en la visualización de la información.|12%|
     *|**c)** Se han reconocido las posibilidades de entrada / salida del lenguaje y las librerías asociadas.|12%|
-    |**d)** Se han utilizado ficheros para almacenar y recuperar información.|12%|
-    |**e)** Se han creado programas que utilicen diversos métodos de acceso al contenido de los ficheros.|12%|
+    *|**d)** Se han utilizado ficheros para almacenar y recuperar información.|12%|
+    *|**e)** Se han creado programas que utilicen diversos métodos de acceso al contenido de los ficheros.|12%|
     |**f)** Se han utilizado las herramientas del entorno de desarrollo para crear interfaces gráficos de usuario simples.|12%|
     |**g)** Se han programado controladores de eventos.|12%|
     |**h)** Se han escrito programas que utilicen interfaces gráficos para la entrada y salida de información.|12%|
