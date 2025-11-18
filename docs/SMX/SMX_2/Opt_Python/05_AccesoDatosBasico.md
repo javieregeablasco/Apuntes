@@ -243,7 +243,7 @@ print("Archivo renombrado o movido correctamente.")
 ### **1.4 - Leer un fichero de internet**
 Python también permite leer archivos directamente desde internet utilizando módulos como `requests` o `urllib`. 
 
-- **Ejemplo con urllib:**
+**Ejemplo con urllib:**
 ```py
 from urllib import request
 from urllib.parse import urljoin

@@ -993,41 +993,7 @@ sudo firewall-cmd --permanent --add-rich-rule='rule family="ipv4" source address
 sudo firewall-cmd --permanent --add-rich-rule='rule family="ipv4" source address="172.18.2.193" reject' && sudo firewall-cmd --reload -->
 
 
-<!-- https://docs.aws.amazon.com/es_es/vpc/latest/userguide/nacl-examples.html -->
 
-<!-- https://www.youtube.com/watch?v=JhC5XJ3b9t0 -->
-
-<!-- https://www.youtube.com/watch?v=ZRwsQNMlM2g -->
- 
-<!-- https://www.raulprietofernandez.net/blog/packet-tracer/configuracion-de-acls-con-packet-tracer -->
- 
-
-<!-- grupos de seguridad
-🖥️ Instancia EC2 en la subred pública (Servidor Web)
-
-Esta será la máquina accesible desde Internet.
-
-Reglas de entrada (Inbound)
-
-HTTP (80/TCP) → Origen: 0.0.0.0/0 → Acceso web desde cualquier sitio.
-
-HTTPS (443/TCP) → Origen: 0.0.0.0/0 → Acceso seguro desde cualquier sitio.
-
-SSH (22/TCP) → Origen: X.X.X.X/32 (IP pública del profesor/centro) → Administración segura solo desde la IP autorizada.
-
-(No hace falta configurar salida, porque SG permite todo el tráfico saliente por defecto.)
-
-🖥️ Instancia EC2 en la subred privada (Base de Datos)
-
-Esta máquina solo debe ser accesible por el servidor web.
-
-Reglas de entrada (Inbound)
-
-MySQL (3306/TCP) → Origen: SG del servidor web → Solo el servidor web puede conectarse a la BD.
-
-PostgreSQL (5432/TCP) (si se usa) → Origen: SG del servidor web → Acceso restringido desde la app web.
-
-SSH (22/TCP) → Origen: SG del servidor web (o bastion host si lo usas) → Acceso indirecto desde la red pública vía salto. -->
 
 
 ## **Enlaces de interés**
