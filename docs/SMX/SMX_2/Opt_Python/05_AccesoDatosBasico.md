@@ -10,7 +10,7 @@ keywords: SMX, Python
 schedule: 96h - 3h/w
 ---
 
-# **UT 5 - Acceso a ficheros**
+# **UT 5 - Manejo de ficheros**
 
 ![Descripción de la imagen](../Opt_Python/img/UT5/dataaaccess.webp){ .cincozero }
 
@@ -36,12 +36,248 @@ schedule: 96h - 3h/w
 <br>
 
 ## **1 - Manejo de ficheros en Python**
-El manejo de archivos permite leer y escribir en archivos. Para ello, Python proporciona una serie de funciones que veremos a continuación.
-### **1.1 - Abrir un archivo**
-Para abrir un archivo se puede usar la función open() pasando por argumento la ruta y el nombre del archivo al cual queremos acceder.
+El manejo de archivos permite leer y escribir información en ficheros almacenados en el sistema. Python proporciona funciones que facilitan este proceso, y a continuación veremos cómo acceder a un archivo y leer su contenido.
+
+### **1.1 - Apertura y lectura de un fichero**
+
+#### **1.1.1 - Abrir un archivo con open()**
+Para acceder a un archivo, en primer lugar debemos abrirlo indicando **la ruta y el nombre del fichero** al que queremos acceder. Además, debemos especificar **el modo de apertura** (p.e., lectura `r` o escritura `w`).
+
+```py
+ruta= "docs/SMX/SMX_2/Opt_Python/code/UT5/"
+archivo = "fichero.txt"
+fichero = open(ruta + archivo, 'r', encoding='utf-8')
+```
+**Nota:** La ruta puede ser absoluta o relativa. En este caso es relativa a la carpeta desde la que se ejecuta el entorno de Python, lo que a veces puede resultar poco práctico si cambiamos de ubicación el proyecto.
+
+#### **1.1.2 - Leer un archivo**
+Una vez abierto el archivo, podemos leer su contenido utilizando métodos como **read()**, **readline()** o **readlines()**.
+
+- **Ejemplo con read():**
+```py
+# Leer todo el contenido del archivo
+contenido = fichero.read()
+print(contenido)
+```
+    Si el archivo es muy grande, es recomendable leerlo línea por línea para evitar cargar todo el contenido en memoria de una sola vez.  
+    <br>
+
+- **Ejemplo con readline():**  
+readline() lee una línea del archivo cada vez que se llama. 
+```py
+fichero.seek(0) # Asegurarse de estar al inicio del archivo
+
+# Leer línea a línea usando readline()
+linea = fichero.readline()
+
+# Recuperar la cantidad de líneas del objeto fichero
+cantidad_lineas = len(fichero.readline())
+print("Número de líneas en el archivo:", cantidad_lista_lineas)
+
+# Leer todas las líneas del objeto fichero
+while linea != "":      # readline() devuelve "" cuando llega al final del archivo
+    print(linea.strip()) # strip() elimina espacios en blanco y saltos de línea
+    input("Pulsa Enter para leer la siguiente línea")
+    linea = fichero.readline()
+```
+<br>
+
+- **Ejemplo con readlines():**  
+readlines() lee todas las líneas del archivo de una vez y devuelve **una lista**, donde cada elemento es una línea del fichero.
+```py
+fichero.seek(0)  # Asegurarse de estar al inicio del archivo
+
+# Obtener todas las líneas como una lista
+lista_lineas = fichero.readlines()
 
 
-<!-- https://ellibrodepython.com/ficheros-python -->
+# Recorrer la lista para trabajar con cada línea
+for linea in lista_lineas:
+    print("-"*45)
+    print("| Contenido con strip | Contenido sin strip |")
+    print(f"|{linea.strip():<21}|{linea:<21}",end='')
+    print("\r-"+"-"*44)
+    input("Pulsa Enter para leer la siguiente línea")
+```     
+
+#### **1.1.2 - Cerrar un archivo con close()**
+El método close() cierra el fichero referenciado por el objeto creado con open().  
+Es importante cerrar el archivo después de terminar las operaciones para liberar recursos del sistema. Si no se cierra explícitamente un fichero, Python intentará cerrarlo cuando estime que ya no se va a usar más.
+
+```py  
+fichero.close()
+```
+
+#### **1.1.3 - Abrir un archivo con with**
+Una forma más segura y conveniente de manejar archivos en Python es utilizando la declaración **with**. Esta estructura garantiza que el archivo se cierre automáticamente al finalizar el bloque de código, **incluso si ocurre una excepción**.
+
+- **Ejemplo con read():**  
+```py
+ruta= "docs/SMX/SMX_2/Opt_Python/code/UT5/"
+archivo = "fichero.txt"
+
+with open(ruta+archivo, 'r', encoding='utf-8') as fichero:
+    contenido = fichero.read()
+    print(contenido)
+```
+<br>
+
+- **Ejemplo con readline():**
+```py
+with open(ruta + archivo, 'r') as fichero:
+    linea = fichero.readline()
+    while linea != "":       # mientras no esté vacía
+        print(linea, end="") # evita doble salto de línea
+        linea = fichero.readline()
+```
+<br>    
+
+- **Ejemplo con readlines():**
+```py
+with open(ruta + archivo, 'r') as fichero:
+    lista_lineas = fichero.readlines()
+    for linea in lista_lineas:
+        print(linea, end="") # evita doble salto de línea
+``` 
+
+#### **1.1.4 - Argumentos de open()**
+Cuando se trabaja con archivos es importante especificar **el modo de apertura**. Ese modo indica cómo se abrirá el archivo (solo lectura, escritura, añadir, etc.).  
+De esta forma el programador puede controlar el comportamiento del acceso al archivo y **la gestión de posibles excepciones**.
+
+| Modo   | Significado         | Permite leer | Permite escribir | Crea archivo si no existe | Sobrescribe archivo | Posición inicial |
+| ------ | ------------------- | ------------ | ---------------- | ------------------------- | ------------------- | ---------------- |
+| `'r'`  | Lectura             | ✔            | ❌                | ❌                         | ❌                   | Inicio           |
+| `'w'`  | Escritura           | ❌            | ✔                | ✔                         | ✔                   | Inicio           |
+| `'a'`  | Añadir (append)     | ❌            | ✔                | ✔                         | ❌                   | Final            |
+| `'r+'` | Lectura y escritura | ✔            | ✔                | ❌                         | ❌                   | Inicio           |
+| `'w+'` | Lectura y escritura | ✔            | ✔                | ✔                         | ✔                   | Inicio           |
+| `'a+'` | Lectura y escritura | ✔            | ✔                | ✔                         | ❌                   | Final            |
+| `'x'`  | Creación exclusiva  | ❌            | ✔                | ✔ (solo si no existe)     | ❌                   | Inicio           |
+
+!!! warning "Notas importantes"
+    - Si el archivo no existe, 'r' produce error, mientras que 'w', 'a', 'w+', 'a+', y 'x' lo crean.
+    - El modo 'x' sirve para crear archivos nuevos evitando sobrescrituras: si el archivo ya existe → lanza error.
+    - Cuando el archivo se abre en modo añadir ('a' o 'a+'), la escritura siempre se realiza al final del archivo.
+
+#### **1.1.5 - Tarea RA5-CEd** 
+!!! excercise "Manejo de excepciones al abrir un archivo" 
+    
+    1. Crear un archivo de texto con 20 líneas de texto. 
+    1. Escribir un programa en Python que haga lo siguiente:    
+        - Solicite al usuario que ingrese el nombre del archivo a abrir.
+        - Intente abrir el archivo en modo lectura 'r' usando **un bloque try**.
+        - Si ocurre una excepción, cse capturará y manejará con los siguientes casos específicos:
+            - Si ocurre un FileNotFoundError, se mostrará el mensaje: "Error de acceso: El archivo no existe."
+            - Si ocurre un UnicodeDecodeError, se mostrará el mensaje: "Error al leer el archivo: Posible codificación incorrecta."
+            - Para cualquier otra excepción, se mostrará el mensaje: "Error inesperado al abrir el archivo."
+        - Si el archivo se abre correctamente, leer y mostrar las 10 primeras líneas del archivo.
+
+### **1.2 - Escritura de un archivo**
+
+- **Ejemplo de escritura en un archivo usando with:**
+```py
+ruta = "docs/SMX/SMX_2/Opt_Python/code/UT5/"
+archivo = "fichero2.txt"
+
+with open(ruta + archivo, "w", encoding="utf-8") as fichero:
+    fichero.write("Esta es una línea escrita en el archivo.\n")
+```
+
+    **Explicación del código**:  
+    - Se abre el archivo en modo escritura ('w'). Si el archivo ya existe, se sobrescribe.  
+    - Se escribe una línea de texto en el archivo utilizando el método write().
+    
+    <br>
+
+
+- **Otro ejemplo:**
+```py
+ruta = "docs/SMX/SMX_2/Opt_Python/code/UT5/"
+archivo = "fichero2.txt" 
+with open(ruta + archivo, "a", encoding="utf-8") as fichero:
+    for i in range(5):
+        fichero.write(f"Línea añadida número {i+1}\n")
+```
+    **Explicación del código**:  
+    - Se abre el archivo en modo añadir ('a'). Si el archivo no existe, se crea.  
+    - Se añaden cinco líneas al final del archivo utilizando un bucle for y el método write().  
+
+### **1.3 - Renombrado y ruta a un archivo**
+Para renombrar un archivo o moverlo a otra ubicación, podemos utilizar el módulo `os` de Python, que proporciona funciones para interactuar con el sistema operativo.  
+
+- `os.rename(origen, destino)` : Renombra un archivo o lo mueve si el destino incluye una ruta diferente.
+- `os.replace(origen, destino)` : Similar a `rename`, pero reemplaza el archivo destino si ya existe.
+- `os.listdir(ruta)` : Devuelve una lista con los ficheros y directorios contenidos en la ruta.
+- `os.getcwd()` : Devuelve la ruta completa del directorio actual.
+- `os.chdir(ruta)` : Cambia el directorio de trabajo actual.
+- `os.mkdir(ruta)` : Crea un nuevo directorio en la ruta indicada.
+- `os.makedirs(ruta)` : Crea directorios recursivamente, creando todos los directorios intermedios necesarios.
+- `os.rmdir(ruta)` : Borra el directorio indicado, siempre que esté vacío.
+- `os.path.exists(ruta)` : Devuelve True si la ruta existe, False en caso contrario.
+
+<br>
+
+**Ejemplo:**
+```py
+import os
+
+# Definicion de las rutas y el archivo
+ruta_origen = "docs/SMX/SMX_2/Opt_Python/code/UT5/"
+ruta_destino = "docs/SMX/SMX_2/Opt_Python/code/UT5/copias/"
+archivo = "fichero.txt"
+archivo_nuevo = "fichero_nuevo.txt"
+
+# Construccion de las rutas completas
+origen = os.path.join(ruta_origen, archivo)
+destino = os.path.join(ruta_destino, archivo_nuevo)
+
+# Asegurarse de que la carpeta de destino existe
+if not os.path.exists(ruta_destino):
+    os.makedirs(ruta_destino)
+
+# Renombrar o mover el archivo
+os.rename(ruta_origen + archivo, ruta_destino + archivo_nuevo)
+print("Archivo renombrado o movido correctamente.")   
+```
+   
+### **1.4 - Leer un fichero de internet**
+Python también permite leer archivos directamente desde internet utilizando módulos como `requests` o `urllib`. 
+
+- **Ejemplo con urllib:**
+```py
+from urllib import request
+from urllib.parse import urljoin
+import os
+
+# Definicion de las rutas y nombres de archivos
+ruta_origen = "https://www.gutenberg.org/cache/epub/51804/"
+ruta_destino = "docs/SMX/SMX_2/Opt_Python/code/UT5/"
+archivo_origen = "pg51804.txt"
+archivo_nuevo = "Plaga de pitones.txt"
+
+# Construccion de las rutas completas
+origen = urljoin(ruta_origen, archivo_origen)
+destino = os.path.join(ruta_destino, archivo_nuevo)
+
+# Descargar el archivo desde Gutenberg
+fichero = request.urlopen(origen)
+contenido_libro = fichero.read()
+
+# Guardar el contenido en el archivo local
+with open(destino, 'wb') as archivo:  # 'wb' porque es bytes
+    archivo.write(contenido_libro)
+
+# Leer el archivo 
+with open(destino, 'r', encoding='utf-8') as archivo:
+    for lineas in range(0,25):
+        print(archivo.readline().strip()) 
+```
+
+
+
+
+
+<!-- https://aprendeconalf.es/docencia/python/ejercicios/ficheros/-->
 <!-- Ejercios de ficheros
 https://aprendeconalf.es/docencia/python/ejercicios/ficheros/ -->
 <!-- https://python.sdv.u-paris.fr/07_fichiers/ -->
