@@ -268,63 +268,19 @@ importlib.reload(calculadora) # Forzar recarga del módulo (práctica poco recom
 Existen varios módulos para crear interfaces gráficas en Python (Tkinter, WxPython, PyQT, PyGTK). El más utilizado y que viene incluido en la librería estándar es **tkinter**.
 
 ### **2.1 - Estructura de ventana con Tkinter**
+![](../Opt_Python/img/UT6/tk1.png){.cincozero}
+
 Para crear una ventana básica con Tkinter, debemos seguir los siguientes pasos:
+
 1. Importar el módulo tkinter
 1. Crear la ventana principal
 1. Añadir widgets (botones, etiquetas, cuadros de texto, etc)
 1. Iniciar el bucle principal de eventos
 
 
-```mermaid
-flowchart TB 
-  A["Reconoce la estructura de un programa informático, identificando y relacionando los elementos propios del lenguaje de programación utilizado."]
-  C["Escribe y depura código, analizando y utilizando las estructuras de control del lenguaje."]
-  E["Realiza operaciones de entrada y salida de información, utilizando procedimientos específicos del lenguaje y librerías de clases."]
-  F["Escribe programas que manipulen información, seleccionando y utilizando tipos avanzados de datos."]
-  B["Escribe y prueba programas sencillos, reconociendo y aplicando los fundamentos de la programación orientada a objetos."]
-  D["Desarrolla programas organizados en clases analizando y aplicando los principios de la programación orientada a objetos."]
-  AA["6h"]
-  BB["18h"]
-  CC["18h"]
-  DD["18h"]
-  EE["18h"]
-  FF["18h"]
-  
-  subgraph **Orden y duración de las UT**
-
-    subgraph **UT6**  
-      direction LR
-      F --> FF
-    end
-    
-    subgraph **UT5** 
-      direction LR
-      B --> BB
-    end
-
-    subgraph **UT4**  
-      direction LR
-      E --> EE
-    end
-    
-    subgraph **UT3**  
-      direction LR
-      D --> DD
-    end
-    
-    subgraph **UT2**  
-      direction LR
-      C --> CC
-    end
 
 
-    subgraph **UT1** 
-      direction LR
-      A --> AA
-    end
 
-  end
-```
 
 
 <!-- https://www.youtube.com/watch?v=hTUJC8HsC2I&list=PLU8oAlHdN5BlvPxziopYZRd55pdqFwkeS&index=46 -->
