@@ -266,22 +266,66 @@ importlib.reload(calculadora) # Forzar recarga del módulo (práctica poco recom
 
 ## **2 - Interfaces gráficas en Python**
 Existen varios módulos para crear interfaces gráficas en Python (Tkinter, WxPython, PyQT, PyGTK). El más utilizado y que viene incluido en la librería estándar es **tkinter**.
+**Tkinter** no es un **motor gráfico**: actúa como capa de enlace (wrapper) y permite a los programas en Python utilizar **la biblioteca gráfica Tcl/Tk**.
 
 ### **2.1 - Estructura de ventana con Tkinter**
 ![](../Opt_Python/img/UT6/tk1.png){.cincozero}
 
-Para crear una ventana básica con Tkinter, debemos seguir los siguientes pasos:
+Para crear una ventana básica con Tkinter, deberemos seguir los siguientes pasos:
 
 1. Importar el módulo tkinter
-1. Crear la ventana principal
-1. Añadir widgets (botones, etiquetas, cuadros de texto, etc)
-1. Iniciar el bucle principal de eventos
+1. Crear la ventana principal (root).
+1. Dentro de la ventana crearemos marcos (frames) para organizar los elementos.
+1. Dentro de esos marcos iremos añadiendo los widgets (botones, etiquetas, cuadros de texto, etc).
+1. Iniciar el bucle principal de eventos.
+
+!!! tip "Qué es un frame?"
+    Un frame es un contenedor (también llamado widget frame) que nos permite agrupar y organizar otros widgets dentro de la ventana principal.  
+    Podemos pensar en un frame como una "sub-ventana" dentro de la ventana principal, que puede tener su propio tamaño, color de fondo y otros atributos.
+
+!!! tip "¿Qué es un widget?"
+    Un widget es un elemento de la interfaz gráfica con el que el usuario puede interactuar.  
+    Algunos ejemplos comunes de widgets son: botones, etiquetas, cuadros de texto, menús desplegables, casillas de verificación, etc.
+
+!!! tip "¿Qué es un evento?"
+    Un evento es una acción o suceso que ocurre en la interfaz gráfica y que puede ser detectado y manejado por el programa.  
+    Algunos ejemplos de eventos son: hacer clic en un botón, mover el ratón, escribir en un cuadro de texto, cerrar la ventana, etc.         
+
+
+**Ejemplo de ventana básica con un frame:**
+
+```py
+import tkinter as tk
+from tkinter import Tk
+
+# Crear la ventana principal
+ventana = Tk()
+ventana.title("Ejemplo de Frame")
+
+# Crear un frame dentro de la ventana principal
+frame = tk.Frame(ventana, width=300, height=200, bg="lightblue")
+frame.pack()
+
+# Iniciar el bucle principal de Tkinter
+ventana.mainloop()
+```
+
+!!! tip "Comentarios del programa"
+    1. ventana = Tk() crea una instancia de la ventana raíz (o principal) de la aplicación.
+    1. ventana.title("Ejemplo de Frame") asigna un título visible en la barra superior de la ventana.
+    1. tk.Frame(...) crea un frame (contenedor) dentro de la ventana principal con un tamaño y color de fondo especificados.
+    1. frame.pack() coloca el frame dentro de la ventana principal y lo hace visible.
+    1. ventana.mainloop() inicia el bucle de eventos de la aplicación, permitiendo que la ventana permanezca abierta y responda a las interacciones del usuario.
+    
 
 
 
 
+<!-- 
+https://keepcoding.io/blog/creando-una-aplicacion-grafica-en-python/
 
-
+https://adictosaltrabajo.com/2020/06/30/interfaces-graficas-en-python-con-tkinter/
+https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/grid.html -->
 
 <!-- https://www.youtube.com/watch?v=hTUJC8HsC2I&list=PLU8oAlHdN5BlvPxziopYZRd55pdqFwkeS&index=46 -->
 <!-- https://www.youtube.com/watch?v=t93x-vnFvP4&list=PLU8oAlHdN5BlvPxziopYZRd55pdqFwkeS&index=37 -->
