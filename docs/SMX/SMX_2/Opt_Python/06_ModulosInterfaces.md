@@ -316,10 +316,10 @@ ventana.mainloop()
     1. tk.Frame(...) crea un frame (contenedor) dentro de la ventana principal con un tamaño y color de fondo especificados.
     1. frame.pack() coloca el frame dentro de la ventana principal y lo hace visible.
     1. ventana.mainloop() inicia el bucle de eventos de la aplicación, permitiendo que la ventana permanezca abierta y responda a las interacciones del usuario.
-    
 
 
 
+<!-- https://sendfox.com/lp/m2k2vd -->
 
 <!-- 
 https://keepcoding.io/blog/creando-una-aplicacion-grafica-en-python/
