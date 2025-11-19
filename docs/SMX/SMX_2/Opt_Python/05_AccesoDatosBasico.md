@@ -18,20 +18,10 @@ schedule: 96h - 3h/w
 
 **Resultados de aprendizaje y criterios de evaluacion que se evaluarán en esta unidad.**  
 
-|RA4. Desarrolla programas organizados en clases analizando y aplicando los principios de la programación orientada a objetos.|
-|-|
-|**b)** Se han definido clases.|
-|**c)** Se han definido propiedades y métodos.|
-|**d)** Se han creado constructores.|
-|**e)** Se han desarrollado programas que instancien y utilicen objetos de las clases creadas anteriormente.|
-    
 |RA5. Realiza operaciones de entrada y salida de información, utilizando procedimientos específicos del lenguaje y librerías de clases.|
 |-|
 |**d)** Se han utilizado ficheros para almacenar y recuperar información.|
 |**e)** Se han creado programas que utilicen diversos métodos de acceso al contenido de los ficheros.|
-|**f)** Se han utilizado las herramientas del entorno de desarrollo para crear interfaces gráficos de usuario simples.|
-|**g)** Se han programado controladores de eventos.|
-|**h)** Se han escrito programas que utilicen interfaces gráficos para la entrada y salida de información.|
 
 <br>
 
@@ -276,7 +266,8 @@ with open(destino, 'r', encoding='utf-8') as archivo:
         print(archivo.readline().strip()) 
 ```
 
-
+### **1.5 - POO y manejo de ficheros**
+<!-- metodos de cadenas -->
 
 
 
