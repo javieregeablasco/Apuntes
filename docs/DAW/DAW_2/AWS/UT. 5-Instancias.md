@@ -898,7 +898,6 @@ ssh ec2-user@direccion-ip-privada
 ### **4.3.4 - Condiciones de entrega de la tarea RA2-CEd**
 !!! task "Tarea RA2-CEd: Pruebas de ping"
     **Comprobar:**  
-    Instalar el software necesario para que las instancias privadas no se puedan ver mutuamente pero sí, para el resto de conexiones, poder operar normalmente.
     Realizar una prueba de ping de las 2 instancias hacia internet (p.e google.es).  
     Realizar capturas (3 capturas en total).
 
