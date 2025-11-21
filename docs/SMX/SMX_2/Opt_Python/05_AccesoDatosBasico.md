@@ -18,6 +18,12 @@ schedule: 96h - 3h/w
 
 **Resultados de aprendizaje y criterios de evaluacion que se evaluarán en esta unidad.**  
 
+|RA4. Desarrolla programas organizados en clases analizando y aplicando los principios de la programación orientada a objetos.|
+|-|
+|**e)** Se han desarrollado programas que instancien y utilicen objetos de las clases creadas anteriormente.|
+
+
+
 |RA5. Realiza operaciones de entrada y salida de información, utilizando procedimientos específicos del lenguaje y librerías de clases.|
 |-|
 |**d)** Se han utilizado ficheros para almacenar y recuperar información.|
@@ -194,6 +200,35 @@ with open(ruta + archivo, "a", encoding="utf-8") as fichero:
     **Explicación del código**:  
     - Se abre el archivo en modo añadir ('a'). Si el archivo no existe, se crea.  
     - Se añaden cinco líneas al final del archivo utilizando un bucle for y el método write().  
+<br>
+
+- **Mismo ejemplo que el anterior pero con el método .writelines():**
+```py
+ruta = "docs/SMX/SMX_2/Opt_Python/code/UT5/"
+archivo = "fichero2.txt"
+
+# Generar todas las líneas primero en una lista (cada una incluye \n)
+lineas = []
+for i in range(5):
+    lineas.append(f"Línea añadida número {i+1}\n")
+# otra manera de hacerlo:
+# lineas = [f"Línea añadida número {i+1}\n" for i in range(5)]
+
+with open(ruta + archivo, "a", encoding="utf-8") as fichero:
+    fichero.writelines(lineas)
+
+```
+    **Explicación del código**:  
+    - Se abre el archivo en modo añadir ('a'). Si el archivo no existe, se crea.  
+    - Se generan cinco líneas mediante un bucle for y se guardan en una lista.  
+    - Se añaden todas las líneas al final del archivo utilizando el método writelines(), que escribe una lista de cadenas en el archivo.
+<br>
+    !!! tip "Diferencia entre write() y writelines()"
+        - El método write() escribe una sola cadena en el archivo. Si se desea escribir múltiples líneas, se debe llamar a write() varias veces o utilizar un bucle.
+        - El método writelines() escribe una lista de cadenas en el archivo de una sola vez. Cada cadena en la lista se escribe tal cual, por lo que es **necesario incluir manualmente los saltos de línea (`\n`)** si se desea que cada cadena aparezca en una línea separada.  
+        **Ejemplo:** nuevas_lineas.append(str(numero) + "\n").
+
+<br>
 
 ### **1.3 - Renombrado y ruta a un archivo**
 Para renombrar un archivo o moverlo a otra ubicación, podemos utilizar el módulo `os` de Python, que proporciona funciones para interactuar con el sistema operativo.  
@@ -266,15 +301,128 @@ with open(destino, 'r', encoding='utf-8') as archivo:
         print(archivo.readline().strip()) 
 ```
 
-### **1.1.5 - Tarea RA5-CEe**
+### **Tarea RA5-CEe**
 !!! excercise "Descargar y modificar un archivo.txt desde internet" 
     1. Escribir un programa en Python que haga lo siguiente:    
         - Descargar un archivo de texto desde una URL proporcionada: url= 
-        - Guardar el archivo descargado en una ubicación local con un nombre específico.
-        - Leer y mostrar las primeras 20 líneas del archivo guardado en la consola.
+        - Guardar el archivo en una ubicación local con un nombre específico (p.e. vuestro nombre).
+        - Abrir el archivo y multiplicar el valor numérico que aparece en cada línea por 2.
+        - Guardar los resultados en un nuevo archivo de texto llamado "resultados.txt".
+        Podéis usar cualquiera de los métodos write o writelines para guardar los resultados.
 <br >
 
 ### **1.5 - POO y manejo de ficheros**
+**Ejemplo de una clase que maneja ficheros:**
+
+??? note "Clase LeerArchivo"
+    ```py
+    class LeerArchivo:
+    def __init__(self, ruta, nombre):
+        self.ruta = ruta
+        self.nombre = nombre        
+        self.lista_lineas = []
+        self.plano_lineas = ""
+        self.cantidad = 0
+        self.lectura_exitosa = False
+    
+        try:
+            with open(self.ruta+self.nombre, 'r', encoding='utf-8') as file:
+                self.lista_lineas = file.readlines()
+                file.seek(0)
+                self.plano_lineas = file.read()
+                self.cantidad = len(self.lista_lineas)
+                self.lectura_exitosa = True
+        except FileNotFoundError:
+            print(f"Error: El archivo '{self.nombre}' no se encontró en la ruta '{self.ruta}'.")
+        except IOError:
+            print(f"Error: No se pudo abrir el archivo '{self.nombre}'.")
+        
+
+    def leer_lineas(self):
+        while True:
+          indice_linea = input(f"Introduce el número de línea a leer entre (1 y {self.cantidad})/"
+          "o 'salir' para terminar: ")
+
+          if indice_linea.lower() == 'salir':
+            print("Saliendo de la lectura de líneas...")
+            break
+
+          if not indice_linea.isdigit():
+            print("Error: Debes introducir un número")
+            continue
+          
+          indice_linea = int(indice_linea)
+          
+          if not(1 <= indice_linea <= self.cantidad): 
+            print("Error: Debes introducir un número entre 1 y", self.cantidad + 1)
+            continue
+                     
+          print(f"La linea {indice_linea} tiene el siguiente contenido:")
+          print(self.lista_lineas[indice_linea - 1].strip())
+        
+    def leer_linea_a_linea(self):
+        for linea in self.lista_lineas:
+            print(linea.strip())
+            input("Pulsa Enter para continuar...")
+
+    def leer_todo(self):
+        return self.plano_lineas
+            
+    # Programa principal
+    ruta_defecto = "docs/SMX/SMX_2/Opt_Python/code/UT5/"
+    archivo_defecto = "archivo.txt"
+
+    print("|------------------------------------------------------------|")
+    print("| Bienvenido a mi programa de apertura y lectura de archivos |")
+    print("|------------------------------------------------------------|")
+    input("(Pulsa Enter para continuar)\n")
+
+    nombre_archivo = input("Introduce el nombre del archivo a abrir: ")
+    ruta_archivo = input("Introduce la ruta del archivo a abrir: ")
+    input("(Pulsa Enter para continuar)\n")
+
+    if ruta_archivo == "":
+        ruta = ruta_defecto
+    if nombre_archivo == "":
+        nombre = archivo_defecto
+
+    archivo = LeerArchivo(ruta, nombre)
+
+
+    print("|----------------------------------------|")
+    print("| (1) Para leer la totalidad del archivo |")
+    print("| (2) Para leer el archivo linea a linea |")
+    print("| (3) Para leer una linea del archivo    |")
+    print("| (0) Para salir del programa            |")
+    print("|----------------------------------------|")
+    eleccion  = input("Elegir la opción (0 o Enter para salir): ")
+
+    match eleccion:
+        case "0":
+            print("Saliendo del programa...")
+            exit()
+        case "1":
+            print( "Contenido completo del archivo:")
+            print(archivo.leer_todo())
+        case "2":
+            archivo.leer_linea_a_linea()
+        case "3":
+            archivo.leer_lineas()
+        case "_":
+            print("Opción no válida. Por favor, elige una opción del 0 al 4.")
+    
+#### Tarea RA4-CEe
+!!! excercise "Método escribir en un archivo"
+    1. Revisar el programa anterior para entender su lógica y realizar lo siguiente.
+        - Ampliar la clase **LeerArchivo** añadiendo un método que permitirá añadir una linea al archivo abierto. 
+    2. El nuevo método debe llamarse **escribir_linea(self, ...)** y debe hacer lo siguiente:
+        - Pedir por consola al usuario la información a añadir (una línea de texto)
+        - Escribir esa línea nueva **al final del archivo**.
+        - Guardar y cerrar el archivo.
+
+       
+
+
 <!-- metodos de cadenas -->
 
 

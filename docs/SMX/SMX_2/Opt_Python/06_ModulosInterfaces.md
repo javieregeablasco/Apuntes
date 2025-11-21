@@ -266,10 +266,13 @@ importlib.reload(calculadora) # Forzar recarga del módulo (práctica poco recom
 
 ## **2 - Interfaces gráficas en Python**
 Existen varios módulos para crear interfaces gráficas en Python (Tkinter, WxPython, PyQT, PyGTK). El más utilizado y que viene incluido en la librería estándar es **tkinter**.
-**Tkinter** no es un **motor gráfico**: actúa como capa de enlace (wrapper) y permite a los programas en Python utilizar **la biblioteca gráfica Tcl/Tk**.
+**Tkinter** no es un **motor gráfico**: actúa como capa de enlace (wrapper) y permite a los programas en Python utilizar **la biblioteca gráfica Tcl/Tk**.  
+
+Toda la información sobre Tkinter está disponible en la documentación oficial:  
+Documentación oficial de [**Tkinter**](https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/index.html)
 
 ### **2.1 - Estructura de ventana con Tkinter**
-![](../Opt_Python/img/UT6/tk1.png){.cincozero}
+![](../Opt_Python/img/UT6/tk1.png){.trescinco}
 
 Para crear una ventana básica con Tkinter, deberemos seguir los siguientes pasos:
 
@@ -278,6 +281,11 @@ Para crear una ventana básica con Tkinter, deberemos seguir los siguientes paso
 1. Dentro de la ventana crearemos marcos (frames) para organizar los elementos.
 1. Dentro de esos marcos iremos añadiendo los widgets (botones, etiquetas, cuadros de texto, etc).
 1. Iniciar el bucle principal de eventos.
+
+!!! tip "Qué es la ventana raíz?"
+    La ventana raíz (o ventana principal) es la ventana principal de la aplicación gráfica.  
+    Es el contenedor principal donde se alojan todos los demás elementos de la interfaz gráfica, como botones, etiquetas
+    cuadros de texto, menús, etc.
 
 !!! tip "Qué es un frame?"
     Un frame es un contenedor (también llamado widget frame) que nos permite agrupar y organizar otros widgets dentro de la ventana principal.  
@@ -313,12 +321,13 @@ ventana.mainloop()
 !!! tip "Comentarios del programa"
     1. ventana = Tk() crea una instancia de la ventana raíz (o principal) de la aplicación.
     1. ventana.title("Ejemplo de Frame") asigna un título visible en la barra superior de la ventana.
-    1. tk.Frame(...) crea un frame (contenedor) dentro de la ventana principal con un tamaño y color de fondo especificados.
+    1. tk.Frame(...) crea un frame (contenedor) **dentro de la ventana principal** con un tamaño y color de fondo especificados.
     1. frame.pack() coloca el frame dentro de la ventana principal y lo hace visible.
     1. ventana.mainloop() inicia el bucle de eventos de la aplicación, permitiendo que la ventana permanezca abierta y responda a las interacciones del usuario.
 
 ### **2.2 - Atributos de la ventana principal**
 Algunos de los atributos más comunes que podemos configurar en la ventana principal son:
+
 | Atributo               | Descripción                                      | Ejemplo                          |
 |-----------------------|--------------------------------------------------|----------------------------------| 
 | title                 | Establece el título de la ventana                | ventana.title("Mi Ventana")      | 
@@ -335,18 +344,43 @@ from tkinter import Tk
 # Crear la ventana principal
 ventana = Tk() 
 ventana.title("Mi primera ventana")
-ventana.geometry("400x300+100+100")
+ventana.geometry("400x300+100+100") # tamaño ventana y posición
 ventana.resizable(True, False)
 ventana.configure(bg="red")
 ventana.iconbitmap("icono.ico")
 # Iniciar el bucle principal de Tkinter
 ventana.mainloop()
 ```       
+ 
+### **2.3 - Frames en Tkinter**
+Un frame es un contenedor que nos permite agrupar y organizar otros widgets (un framwe también en un widget) dentro de la ventana principal.  
 
-### **2.3 - Widgets comunes en Tkinter**
+**Ejemplo de creación de un frame:**
+
+```py
+import tkinter as tk
+from tkinter import Tk
+# Crear la ventana principal
+ventana = Tk()
+ventana.title("Ejemplo de Frame")
+# Crear un frame dentro de la ventana principal
+frame = tk.Frame(ventana, width=300, height=200, bg="lightblue")
+frame.pack() # integrar el frame en la ventana
+# Iniciar el bucle principal de Tkinter
+ventana.mainloop()
+```
+
+!!! tip "Comentarios del programa"
+    1. tk.Frame(...) crea un frame (contenedor) dentro de la ventana principal con un tamaño y color de fondo especificados.
+    1. frame.pack() coloca el frame dentro de la ventana principal y lo hace visible.
+
+
+
+### **2.4 - Widgets comunes en Tkinter**
 Algunos de los widgets más comunes que podemos utilizar en Tkinter son:
+
 | Widget        | Descripción                                      | Ejemplo                          |
-|---------------|--------------------------------------------------|----------------------------------|
+|-|-|-|
 | Button        | Crea un botón interactivo                        | tk.Button(frame, text="Clic aquí") |
 | Label         | Muestra texto o imágenes                         | tk.Label(frame, text="Hola Mundo") |
 | Entry         | Permite la entrada de texto                      | tk.Entry(frame)                  |
@@ -357,29 +391,54 @@ Algunos de los widgets más comunes que podemos utilizar en Tkinter son:
 | Frame         | Crea un contenedor para otros widgets            | tk.Frame(ventana)                |
 | Canvas        | Permite dibujar gráficos y formas                | tk.Canvas(frame, width=200, height=100) |
 
-### **2.4 - Gestión de eventos en Tkinter**
+### **2.5 - Gestión de eventos en Tkinter**
 En Tkinter, los eventos son acciones que ocurren en la interfaz gráfica y que pueden ser
 detectados y manejados por el programa. Algunos ejemplos de eventos son: hacer clic en un botón, mover el ratón, escribir en un cuadro de texto, cerrar la ventana, etc.
-Para manejar eventos en Tkinter, se utilizan **controladores de eventos** (event handlers), que son funciones que se ejecutan cuando ocurre un evento específico.
+Para manejar eventos en Tkinter, se utilizan **controladores de eventos** (event handlers), que son funciones que se ejecutan cuando ocurre un evento específico.  
+
 **Ejemplo de manejo de eventos con un botón:**
 
 ```py
 import tkinter as tk
-from tkinter import Tk
+
 # Función que se ejecuta al hacer clic en el botón
 def boton_clic():
     print("¡Botón clickeado!")
+
 # Crear la ventana principal
-ventana = Tk()
+ventana = tk.Tk()
 ventana.title("Manejo de Eventos")
+ventana.geometry("300x200+500+500")
+ventana.configure(bg="blue")
+ventana.resizable(True, True)
+
+# Crear un frame dentro de la ventana principal
+frame = tk.Frame(ventana, width=200, height=150, bg="lightblue")
+frame.pack()
+frame.pack_propagate(False)
+
 # Crear un botón y asignar el controlador de eventos
-boton = tk.Button(ventana, text="Clic aquí", command=boton_clic)
-boton.pack()
+boton = tk.Button(frame, text="Clic aquí", command=boton_clic)
+boton.pack(expand=True)
+
 # Iniciar el bucle principal de Tkinter
 ventana.mainloop()
 ```
 
+!!! tip "Comentarios del programa"
+    1. La función `boton_clic()` es el controlador de eventos que se ejecuta cuando se hace clic en el botón.
+    1. El botón se crea con `tk.Button(...)`, y el parámetro `command=boton_clic` asigna la función `boton_clic` como el controlador de eventos para el evento de clic.
+    1. Cuando el usuario hace clic en el botón, se imprime el mensaje "¡Botón clickeado!" en la consola.    
 
+### **2.6 - Atributos del método .config() de la clase Tk**
+
+<!-- 
+### **2.7 - Atributos del método .pack() de la clase Frame.** -->
+<!-- https://adictosaltrabajo.com/2020/06/30/interfaces-graficas-en-python-con-tkinter/#1 -->
+<!-- ### **2.8 - Atributos del método .pack() de la clase Frame.** -->
+
+
+<!-- https://adictosaltrabajo.com/2020/06/30/interfaces-graficas-en-python-con-tkinter/ -->
 <!-- https://tkdocs.com/shipman/ -->
 
 <!-- https://sendfox.com/lp/m2k2vd -->
@@ -437,7 +496,7 @@ https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/grid.html -->
     |**b)** Se han definido clases.|11%|
     |**c)** Se han definido propiedades y métodos.|11%|
     |**d)** Se han creado constructores.|11%|
-    |**e)** Se han desarrollado programas que instancien y utilicen objetos de las clases creadas anteriormente.|11%|
+    *|**e)** Se han desarrollado programas que instancien y utilicen objetos de las clases creadas anteriormente.|11%|
     
 === "RA 5"
     |RA5. Realiza operaciones de entrada y salida de información, utilizando procedimientos específicos del lenguaje y librerías de clases.|Peso|
