@@ -368,48 +368,48 @@ with open(destino, 'r', encoding='utf-8') as archivo:
         def leer_todo(self):
             return self.plano_lineas
             
-# Programa principal
-ruta_defecto = "docs/SMX/SMX_2/Opt_Python/code/UT5/"
-archivo_defecto = "archivo.txt"
+    # Programa principal
+    ruta_defecto = "docs/SMX/SMX_2/Opt_Python/code/UT5/"
+    archivo_defecto = "archivo.txt"
 
-print("|------------------------------------------------------------|")
-print("| Bienvenido a mi programa de apertura y lectura de archivos |")
-print("|------------------------------------------------------------|")
-input("(Pulsa Enter para continuar)\n")
+    print("|------------------------------------------------------------|")
+    print("| Bienvenido a mi programa de apertura y lectura de archivos |")
+    print("|------------------------------------------------------------|")
+    input("(Pulsa Enter para continuar)\n")
 
-nombre_archivo = input("Introduce el nombre del archivo a abrir: ")
-ruta_archivo = input("Introduce la ruta del archivo a abrir: ")
-input("(Pulsa Enter para continuar)\n")
+    nombre_archivo = input("Introduce el nombre del archivo a abrir: ")
+    ruta_archivo = input("Introduce la ruta del archivo a abrir: ")
+    input("(Pulsa Enter para continuar)\n")
 
-if ruta_archivo == "":
-    ruta = ruta_defecto
-if nombre_archivo == "":
-    nombre = archivo_defecto
+    if ruta_archivo == "":
+        ruta = ruta_defecto
+    if nombre_archivo == "":
+        nombre = archivo_defecto
 
-archivo = LeerArchivo(ruta, nombre)
+    archivo = LeerArchivo(ruta, nombre)
 
 
-print("|----------------------------------------|")
-print("| (1) Para leer la totalidad del archivo |")
-print("| (2) Para leer el archivo linea a linea |")
-print("| (3) Para leer una linea del archivo    |")
-print("| (0) Para salir del programa            |")
-print("|----------------------------------------|")
-eleccion  = input("Elegir la opción (0, para salir): ")
+    print("|----------------------------------------|")
+    print("| (1) Para leer la totalidad del archivo |")
+    print("| (2) Para leer el archivo linea a linea |")
+    print("| (3) Para leer una linea del archivo    |")
+    print("| (0) Para salir del programa            |")
+    print("|----------------------------------------|")
+    eleccion  = input("Elegir la opción (0, para salir): ")
 
-match eleccion:
-    case "0":
-        print("Saliendo del programa...")
-        exit()
-    case "1":
-        print( "Contenido completo del archivo:")
-        print(archivo.leer_todo())
-    case "2":
-        archivo.leer_linea_a_linea()
-    case "3":
-        archivo.leer_lineas()
-    case "_":
-        print("Opción no válida. Por favor, elige una opción del 0 al 4.")
+    match eleccion:
+        case "0":
+            print("Saliendo del programa...")
+            exit()
+        case "1":
+            print( "Contenido completo del archivo:")
+            print(archivo.leer_todo())
+        case "2":
+            archivo.leer_linea_a_linea()
+        case "3":
+            archivo.leer_lineas()
+        case "_":
+            print("Opción no válida. Por favor, elige una opción del 0 al 4.")
 
     ```
     
