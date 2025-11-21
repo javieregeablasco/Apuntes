@@ -52,7 +52,7 @@ plugins:
   - search
   - tags
   - blog
-  - mermaid2
+   
 
 markdown_extensions:
   - pymdownx.highlight:
