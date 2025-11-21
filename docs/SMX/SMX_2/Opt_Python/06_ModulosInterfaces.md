@@ -317,7 +317,70 @@ ventana.mainloop()
     1. frame.pack() coloca el frame dentro de la ventana principal y lo hace visible.
     1. ventana.mainloop() inicia el bucle de eventos de la aplicación, permitiendo que la ventana permanezca abierta y responda a las interacciones del usuario.
 
+### **2.2 - Atributos de la ventana principal**
+Algunos de los atributos más comunes que podemos configurar en la ventana principal son:
+| Atributo               | Descripción                                      | Ejemplo                          |
+|-----------------------|--------------------------------------------------|----------------------------------| 
+| title                 | Establece el título de la ventana                | ventana.title("Mi Ventana")      | 
+| geometry              | Define el tamaño y la posición de la ventana     | ventana.geometry("400x300+100+100") |
+| resizable             | Permite o no redimensionar la ventana            | ventana.resizable(False, False)  |
+| configure(bg=color)   | Cambia el color de fondo de la ventana           | ventana.configure(bg="lightgray")|
+| iconbitmap            | Cambia el icono de la ventana                     | ventana.iconbitmap("icono.ico")  |
+| mainloop()            | Inicia el bucle principal de eventos             | ventana.mainloop()                |
 
+**Ejemplo de configuración de la ventana principal:**
+```py
+import tkinter as tk
+from tkinter import Tk
+# Crear la ventana principal
+ventana = Tk() 
+ventana.title("Mi primera ventana")
+ventana.geometry("400x300+100+100")
+ventana.resizable(True, False)
+ventana.configure(bg="red")
+ventana.iconbitmap("icono.ico")
+# Iniciar el bucle principal de Tkinter
+ventana.mainloop()
+```       
+
+### **2.3 - Widgets comunes en Tkinter**
+Algunos de los widgets más comunes que podemos utilizar en Tkinter son:
+| Widget        | Descripción                                      | Ejemplo                          |
+|---------------|--------------------------------------------------|----------------------------------|
+| Button        | Crea un botón interactivo                        | tk.Button(frame, text="Clic aquí") |
+| Label         | Muestra texto o imágenes                         | tk.Label(frame, text="Hola Mundo") |
+| Entry         | Permite la entrada de texto                      | tk.Entry(frame)                  |
+| Text          | Permite la entrada de texto multilínea          | tk.Text(frame)                   |
+| Checkbutton   | Crea una casilla de verificación                 | tk.Checkbutton(frame, text="Opción") |
+| Radiobutton   | Crea un botón de opción                          | tk.Radiobutton(frame, text="Opción 1") |
+| Listbox       | Muestra una lista de opciones                    | tk.Listbox(frame)                |
+| Frame         | Crea un contenedor para otros widgets            | tk.Frame(ventana)                |
+| Canvas        | Permite dibujar gráficos y formas                | tk.Canvas(frame, width=200, height=100) |
+
+### **2.4 - Gestión de eventos en Tkinter**
+En Tkinter, los eventos son acciones que ocurren en la interfaz gráfica y que pueden ser
+detectados y manejados por el programa. Algunos ejemplos de eventos son: hacer clic en un botón, mover el ratón, escribir en un cuadro de texto, cerrar la ventana, etc.
+Para manejar eventos en Tkinter, se utilizan **controladores de eventos** (event handlers), que son funciones que se ejecutan cuando ocurre un evento específico.
+**Ejemplo de manejo de eventos con un botón:**
+
+```py
+import tkinter as tk
+from tkinter import Tk
+# Función que se ejecuta al hacer clic en el botón
+def boton_clic():
+    print("¡Botón clickeado!")
+# Crear la ventana principal
+ventana = Tk()
+ventana.title("Manejo de Eventos")
+# Crear un botón y asignar el controlador de eventos
+boton = tk.Button(ventana, text="Clic aquí", command=boton_clic)
+boton.pack()
+# Iniciar el bucle principal de Tkinter
+ventana.mainloop()
+```
+
+
+<!-- https://tkdocs.com/shipman/ -->
 
 <!-- https://sendfox.com/lp/m2k2vd -->
 

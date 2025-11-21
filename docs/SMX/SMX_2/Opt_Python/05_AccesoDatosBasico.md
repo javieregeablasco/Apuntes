@@ -156,7 +156,7 @@ De esta forma el programador puede controlar el comportamiento del acceso al arc
     1. Escribir un programa en Python que haga lo siguiente:    
         - Solicite al usuario que ingrese el nombre del archivo a abrir.
         - Intente abrir el archivo en modo lectura 'r' usando **un bloque try**.
-        - Si ocurre una excepción, cse capturará y manejará con los siguientes casos específicos:
+        - Si ocurre una excepción, se capturará y manejará con los siguientes casos específicos:
             - Si ocurre un FileNotFoundError, se mostrará el mensaje: "Error de acceso: El archivo no existe."
             - Si ocurre un UnicodeDecodeError, se mostrará el mensaje: "Error al leer el archivo: Posible codificación incorrecta."
             - Para cualquier otra excepción, se mostrará el mensaje: "Error inesperado al abrir el archivo."
@@ -265,6 +265,14 @@ with open(destino, 'r', encoding='utf-8') as archivo:
     for lineas in range(0,25):
         print(archivo.readline().strip()) 
 ```
+
+### **1.1.5 - Tarea RA5-CEe**
+!!! excercise "Descargar y modificar un archivo.txt desde internet" 
+    1. Escribir un programa en Python que haga lo siguiente:    
+        - Descargar un archivo de texto desde una URL proporcionada: url= 
+        - Guardar el archivo descargado en una ubicación local con un nombre específico.
+        - Leer y mostrar las primeras 20 líneas del archivo guardado en la consola.
+<br >
 
 ### **1.5 - POO y manejo de ficheros**
 <!-- metodos de cadenas -->
