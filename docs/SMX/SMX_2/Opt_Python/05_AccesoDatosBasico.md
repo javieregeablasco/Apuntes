@@ -418,7 +418,7 @@ with open(destino, 'r', encoding='utf-8') as archivo:
     2. El nuevo método debe llamarse **escribir_linea(self, ...)** y debe hacer lo siguiente:
         - Pedir por consola al usuario la información a añadir (una línea de texto)
         - Escribir esa línea nueva **al final del archivo**.
-        - Guardar y cerrar el archivo.
+        - Guardar y cerrar el archivo. 
 
        
 
