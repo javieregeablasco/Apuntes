@@ -432,7 +432,7 @@ ventana.mainloop()
 
 ### **2.6 - Atributos del método .config()**
 
-
+j
 <!-- 
 ### **2.7 - Atributos del método .pack() de la clase Frame.** -->
 <!-- https://adictosaltrabajo.com/2020/06/30/interfaces-graficas-en-python-con-tkinter/#1 -->
