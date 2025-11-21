@@ -411,7 +411,7 @@ with open(destino, 'r', encoding='utf-8') as archivo:
         case "_":
             print("Opción no válida. Por favor, elige una opción del 0 al 4.")
     
-#### Tarea RA4-CEe
+### **Tarea RA4-CEe**
 !!! excercise "Método escribir en un archivo"
     1. Revisar el programa anterior para entender su lógica y realizar lo siguiente.
         - Ampliar la clase **LeerArchivo** añadiendo un método que permitirá añadir una linea al archivo abierto. 
