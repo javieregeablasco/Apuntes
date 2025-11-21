@@ -430,7 +430,8 @@ ventana.mainloop()
     1. El botón se crea con `tk.Button(...)`, y el parámetro `command=boton_clic` asigna la función `boton_clic` como el controlador de eventos para el evento de clic.
     1. Cuando el usuario hace clic en el botón, se imprime el mensaje "¡Botón clickeado!" en la consola.    
 
-### **2.6 - Atributos del método .config() de la clase Tk**
+### **2.6 - Atributos del método .config()**
+
 
 <!-- 
 ### **2.7 - Atributos del método .pack() de la clase Frame.** -->
