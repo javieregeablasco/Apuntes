@@ -304,7 +304,7 @@ with open(destino, 'r', encoding='utf-8') as archivo:
 ### **Tarea RA5-CEe**
 !!! excercise "Descargar y modificar un archivo.txt desde internet" 
     1. Escribir un programa en Python que haga lo siguiente:    
-        - Descargar un archivo de texto desde una URL proporcionada: [descargar archivo](./code/UT5/archivo.txt)
+        - Descargar un archivo de texto desde la URL proporcionada: [descargar archivo](./code/UT5/fichero.txt)
         - Guardar el archivo en una ubicación local con un nombre específico (p.e. vuestro nombre).
         - Abrir el archivo y multiplicar el valor numérico que aparece en cada línea por 2.
         - Guardar los resultados en un nuevo archivo de texto llamado "resultados.txt".
