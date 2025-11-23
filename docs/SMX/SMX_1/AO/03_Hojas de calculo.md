@@ -683,7 +683,7 @@ Permiten identificar patrones, tendencias y relaciones entre diferentes conjunto
 !!! exercice "Tarea RA3-CEd-1 - Trabajando con gráficos"
     !!! exercise "Tarea parte 1. Descargar el archivo"  
     Descargar y abrir el archivo 'RA3-CEd-1' pinchando en el enlace siguiente: [Descargar archivo](./03_hojas_de_calculo/tareas/RA3-CEd-1%20nombreapellidos.ods).  
-    La hoja de cálculo se compone de XX hojas.
+    La hoja de cálculo se compone de **6 hojas**.
 
     - En cada hoja encontraréis unas tablas con datos de los cuales deberéis realizar una representación gráfica.
 
@@ -802,29 +802,22 @@ Permiten identificar patrones, tendencias y relaciones entre diferentes conjunto
         Subir la tarea a AULES en el apartado correspondiente.  
         El archivo a subir deberá ser de tipo **.ods** (formato nativo de LibreOffice Calc).  
         **No se aceptará ningún otro formato de archivo**.  
-<!-- 
-file:///C:/Users/titan/Documents/Javier128/Modulos/SMX/SMX_1/AO/materiales/RA3/PracticaNOTES-Func-SI_Curs_2022.pdf
-file:///C:/Users/titan/Downloads/mat%20excel/Taller_REFERENCIAS_Excel_9no.pdf
 
-https://www.youtube.com/watch?v=UFob_EWdWLA&list=PLU8oAlHdN5BkCs-P-AnQhxsSyxSxv9jfI&index=11file:///C:/Users/titan/Documents/Javier128/Modulos/SMX/SMX_1/AO/materiales/RA3/M2P11-FormatoCondicional-Voluntaria.pdf 
-file:///C:/Users/titan/Documents/Javier128/Modulos/SMX/SMX_1/AO/materiales/RA3/M2P9-CuentaBancaria.pdf
+### **Tarea RA3-CEd-2 - Gráficos**
+!!! exercice "Tarea RA3-CEd-1 - Trabajando con gráficos"
+    !!! exercise "Tarea parte 1. Descargar el archivo" 
+        Descargar y abrir el archivo 'RA3-CEd-2' pinchando en el enlace siguiente: [Descargar archivo](./03_hojas_de_calculo/tareas/RA3-CEd-2%20nombreapellidos.ods).  
+        
+    !!! exercise "Tarea parte 1 - Diagrama de Gantt"
+    Un diagrama de Gantt es una herramienta gráfica utilizada para planificar, programar y controlar proyectos. Es muy común en gestión de proyectos, ingeniería, desarrollo de software, educación y cualquier ámbito donde sea necesario organizar actividades en el tiempo.
+   <!-- file:///C:/Users/titan/Documents/Javier128/Modulos/SMX/SMX_1/AO/materiales/RA3/Diagrama_Gantt_2.pdf -->
 
-https://www.youtube.com/watch?v=keahyLxtOfQ&t=37s
-file:///C:/Users/titan/Documents/Javier128/Modulos/SMX/SMX_1/AO/materiales/RA3/M1P8-RefenrenciasCeldas.pdf
-file:///C:/Users/titan/Documents/Javier128/Modulos/SMX/SMX_1/AO/materiales/RA3/Actividad_referencias.pdf
-<!-- https://www.youtube.com/watch?v=QnIJmDmk0YA -->
-<!-- https://www.youtube.com/watch?v=rK2gM-n0oaM&list=PLU8oAlHdN5BkCs-P-AnQhxsSyxSxv9jfI&index=20 -->
-<!--
-exam
-### **Tarea RA3-CEd-1 - **
-### **Tarea RA3-CEd-2 - **
+
 ### **Tarea RA3-CEe-1 - **
 ### **Tarea RA3-CEg-1 - **
 ### **Tarea RA3-CEg-2 - **
 ### **Tarea RA3-CEh ** -->
 
-<!-- ### **Tarea RA3-CEc-3 - ** usar para otra cosa -->
-<!-- ### **Tarea RA3-CEd-3 - usar para otra cosa** -->
 
 <!-- 
   |RA3. Elabora documentos y plantillas de cálculo, describiendo y aplicando opciones avanzadas de hojas de cálculo.||
