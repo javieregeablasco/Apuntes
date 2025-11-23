@@ -796,7 +796,7 @@ Permiten identificar patrones, tendencias y relaciones entre diferentes conjunto
 
     
     - **Aspecto final (sin aplicar estilos):**  
-    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3ced1-5.png){ .left .margintopbottom10}<br>
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3ced1-6.png){ .left .margintopbottom10}<br>
     
     !!! warning "Entrega de la tarea"
         Subir la tarea a AULES en el apartado correspondiente.  
