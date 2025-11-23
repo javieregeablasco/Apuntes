@@ -344,18 +344,18 @@ with open(destino, 'r', encoding='utf-8') as archivo:
               "o 'salir' para terminar: ")
     
               if indice_linea.lower() == 'salir':
-                print("Saliendo de la lectura de líneas...")
-                break
+                  print("Saliendo de la lectura de líneas...")
+                  break
     
               if not indice_linea.isdigit():
-                print("Error: Debes introducir un número")
-                continue
+                  print("Error: Debes introducir un número")
+                  continue
               
               indice_linea = int(indice_linea)
               
               if not(1 <= indice_linea <= self.cantidad): 
-                print("Error: Debes introducir un número entre 1 y", self.cantidad + 1)
-                continue
+                  print("Error: Debes introducir un número entre 1 y", self.cantidad + 1)
+                  continue
                          
               print(f"La linea {indice_linea} tiene el siguiente contenido:")
               print(self.lista_lineas[indice_linea - 1].strip())

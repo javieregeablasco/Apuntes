@@ -186,17 +186,92 @@ Monta el siguiente escenario:
 
 ![](../AWS/ut6/RA3-CEd.png){ .sietecinco }<br>
 
-<!-- ## **2 - Equilibrado y escalado de infraestructuras**
+## **2 - Equilibrado y escalado de infraestructuras**
 ### **2.1 - Introducción**
-En entornos de computación en la nube, el equilibrio de carga y el escalado automático son dos componentes esenciales para garantizar la disponibilidad, el rendimiento y la eficiencia de las aplicaciones y servicios. AWS ofrece herramientas robustas para implementar estas funcionalidades, permitiendo a las organizaciones adaptarse dinámicamente a las demandas cambiantes del tráfico y optimizar el uso de recursos.
+En entornos de computación en la nube, el equilibrio de carga y el escalado automático son dos componentes esenciales para garantizar la disponibilidad, el rendimiento y la eficiencia de las aplicaciones y servicios. .
+
 - **Elastic Load Balancing (ELB)**: Distribuye automáticamente el tráfico entrante entre múltiples instancias de Amazon EC2, contenedores y direcciones IP en una o más zonas de disponibilidad. Esto asegura que ninguna instancia se sobrecargue y que las aplicaciones permanezcan disponibles incluso si una o más instancias fallan.
+
 - **Auto Scaling**: Permite ajustar automáticamente la capacidad de las instancias EC2 en función de las condiciones definidas por el usuario. Esto significa que se pueden añadir o eliminar instancias según la demanda del tráfico, lo que ayuda a mantener el rendimiento óptimo y a controlar los costos operativos.
 
+La combinación de ambos permite crear arquitecturas altamente disponibles, resilientes, rentables y tolerantes a fallos, asegurando que la infraestructura responda adecuadamente a fluctuaciones del tráfico sin intervención manual.
+
 ### **2.2 - Elastic Load Balancing (ELB)**
-Elastic Load Balancing (ELB) es un servicio de AWS que distribuye automáticamente el tráfico entrante entre múltiples instancias de Amazon EC2, contenedores y direcciones IP en una o más zonas de disponibilidad. ELB ayuda a mejorar la disponibilidad y la tolerancia a fallos de las aplicaciones al garantizar que el tráfico se dirija solo a las instancias saludables. ELB ofrece varios tipos de balanceadores de carga, incluyendo Application Load Balancer (ALB), Network Load Balancer (NLB) y Classic Load Balancer (CLB), cada uno diseñado para diferentes casos de uso y requisitos de rendimiento.
+Elastic Load Balancing (ELB) es un servicio de AWS que distribuye automáticamente el tráfico entrante entre múltiples instancias de Amazon EC2, contenedores y direcciones IP en una o más zonas de disponibilidad. ELB ayuda a mejorar la disponibilidad y la tolerancia a fallos de las aplicaciones al garantizar que el tráfico se dirija solo a las instancias saludables. 
+
+Dentro de ELB existen cuatro tipos de balanceadores, cada uno orientado a distintos casos de uso:
+
+| Tipo de balanceador                 | Capa OSI | Casos de uso principales                                                               |
+| - | - | - |
+| **Application Load Balancer (ALB)** | Capa 7   | Aplicaciones web HTTP/HTTPS, microservicios, routing basado en URLs o cabeceras        |
+| **Network Load Balancer (NLB)**     | Capa 4   | Tráfico TCP/UDP de alto rendimiento, baja latencia, millones de conexiones por segundo |
+| **Gateway Load Balancer (GWLB)**    | Capa 3   | Integración con firewalls, IDS/IPS y appliances de red                                 |
+| **Classic Load Balancer (CLB)**     | Capa 4/7 | Versión heredada; solo recomendado para aplicaciones antiguas                          |
+
+
+´´´bash
+#!/bin/bash
+yum update -y
+yum install httpd -y
+systemctl enable --now httpd
+
+sudo tee /var/www/html/index.html > /dev/null <<EOF
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Instancia 1</title>
+<style>
+body {
+    font-family: Arial;
+    background: #283048;
+    background: linear-gradient(135deg,#283048,#859398);
+    color: white;
+    text-align: center;
+    padding-top: 80px;
+}
+.card {
+    background: rgba(255,255,255,0.12);
+    border-radius: 16px;
+    padding: 30px;
+    display: inline-block;
+}
+</style>
+</head>
+<body>
+<div class="card">
+    <h1>¡Hola mundo!</h1>
+    <p>Instancia 1</p>
+    <p>Hora: <b id="hora"></b></p>
+</div>
+
+<script>
+const ahora = new Date();
+const hora = String(ahora.getHours()).padStart(2,'0') + ':' +
+             String(ahora.getMinutes()).padStart(2,'0') + ':' +
+             String(ahora.getSeconds()).padStart(2,'0');
+
+document.getElementById("hora").innerHTML = "<b>" + hora + "</b>";
+</script>
+
+</body>
+</html>
+EOF
+```
+
+
+<!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/Docker/CEFIRE/UD3/UD%2003.01%20-%20Principales%20acciones%20con%20Docker.pdf -->
+<!-- https://docs.aws.amazon.com/hands-on/latest/deploy-docker-containers/deploy-docker-containers.html -->
+<!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/Docker/CEFIRE/UD1/UD%2001.01%20-%20Introducci%C3%B3n%20a%20los%20contenedores%20y%20a%20Docker.pdf -->
+
 ### **2.3 - Auto Scaling** -->
+Auto Scaling permite adaptar la capacidad de cómputo de la infraestructura a la demanda real del sistema.  
+AWS ofrece dos enfoques principales:
 
-
+| Tipo                 |Descripción  |
+| - | - |
+| **EC2 Auto Scaling** | Escalado automático exclusivo de instancias EC2 mediante Auto Scaling Groups (ASG)        |
+| **AWS Auto Scaling** | Escalado automático de múltiples recursos además de EC2, como DynamoDB, Aurora, ECS, etc. |
 
 
 <!-- https://docs.aws.amazon.com/es_es/autoscaling/ec2/userguide/tutorial-ec2-auto-scaling-load-balancer.html -->

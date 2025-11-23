@@ -639,7 +639,9 @@ En este ejercicio desarrollaremos un calificador de notas aplicado a la nueva le
     ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3cec4-10.png){ .left .margintopbottom10}<br>   
 
     !!! exercise "Tarea parte 5"
-    **Hoja: Módulo**.
+    **Hoja: Módulo**.  
+
+    Podéis descargar la hoja de cálculo con las hojas RA1, RA2 y RA3 ya completadas desde el siguiente enlace: [Descargar archivo con RA's completados](./03_hojas_de_calculo/tareas/RA3-CEc-4%20nombreapellidos%20con%20RA%20completos.ods)
 
     **Columnas RA1, RA2 y RA3**.  
     
@@ -648,7 +650,8 @@ En este ejercicio desarrollaremos un calificador de notas aplicado a la nueva le
 
     **Columna Nota final módulo**  
 
-    - Aplicar la fórmula: SI(ESNUMERICO(suma ponderada de RA1, RA2 y RA3); (suma ponderada de RA1, RA2 y RA3); "Ordinaria")
+    - Aplicar la fórmula: SI(ESNUMERICO(suma ponderada de RA1, RA2 y RA3); (suma ponderada de RA1, RA2 y RA3); "Ordinaria") (no hacer, la fórmula ya está puesta).  
+    - Aplicar un formato condicional **Malo** si el valor de la celda contiene "Ordinaria" y **Bueno** si no lo contiene.
      
     **Celda aprobados**  
 
@@ -673,6 +676,132 @@ En este ejercicio desarrollaremos un calificador de notas aplicado a la nueva le
         El archivo a subir deberá ser de tipo **.ods** (formato nativo de LibreOffice Calc).  
         **No se aceptará ningún otro formato de archivo**.  
 
+### **Tarea RA3-CEd-1 - Gráficos**
+Los gráficos son representaciones visuales de datos que facilitan la comprensión y el análisis de la información.  
+Permiten identificar patrones, tendencias y relaciones entre diferentes conjuntos de datos de manera más intuitiva que con tablas de datos.  
+
+!!! exercice "Tarea RA3-CEd-1 - Trabajando con gráficos"
+    !!! exercise "Tarea parte 1. Descargar el archivo"  
+    Descargar y abrir el archivo 'RA3-CEd-1' pinchando en el enlace siguiente: [Descargar archivo](./03_hojas_de_calculo/tareas/RA3-CEd-1%20nombreapellidos.ods).  
+    La hoja de cálculo se compone de XX hojas.
+
+    - En cada hoja encontraréis unas tablas con datos de los cuales deberéis realizar una representación gráfica.
+
+    !!! exercise "Tarea parte 2"
+    **Hoja 1: Instituto nacional de estadística - Gráficos de columnas**
+
+    - Conjunto de la hoja de cálculo: Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. **Tenéis libertad total en este apartado**.
+    - Rellenar las celdas vacías de la tabla (Total, Media, Mínimo, Máximo) con la fórmula correspondiente.
+    - Crea un gráfico de columna (tipo Normal, vista 3D).
+        - Selecciona el rango de celdas A2:C14.
+        - Ir a **Insertar** → **Gráfico** → Seleccionar **Columna**.
+        - Pulsar **Siguiente** y comprobar que el **intervalo de datos es correcto**, así como el resto de opciones.
+        - Pulsar **Siguiente** y comprobar que la **serie de datos es correcta**, así como el resto de opciones.
+        - Pulsar **Siguiente** y poner los títulos:
+            - Título: Población de España (2010-2022)
+            - Eje X: Meses
+            - Eje Y: Años  
+    - **Aspecto final sin aplicar estilos:**
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3ced1-1.png){ .left .margintopbottom10}<br>   
+
+    !!! exercise "Tarea parte 3"
+    **Hoja 2: Instituto nacional de estadística parte 2 - Mejorando la representación de los gráficos de columnas, parte 1**  
+    Repetir los pasos de la hoja 1 pero mejorando la representación del gráfico con los siguientes elementos:  
+
+    - En series de datos → Hombre → Color de relleno → Seleccionar el intervalo de datos de la hoja 3.
+    - En series de datos → Mujer → Color de relleno → Seleccionar el intervalo de datos de la hoja 3.
+    - **Aspecto final sin aplicar estilos:**  
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3ced1-2.png){ .left .margintopbottom10}<br>
+
+
+    !!! exercise "Tarea parte 4"
+    **Hoja 4: Instituto nacional de estadística parte 3 - Mejorando la representación de los gráficos de columnas, parte 2**
+
+    Repetir los pasos de la hoja 2 pero esta vez seleccionar una reprensentación 3D. Además deberéis personalizar los colores y los efectos del gráfico.
+
+    - Estirar el gráfico para ampliar el efecto 3D. 
+    - Personalizar la leyenda del gráfico: Tipo color y tamaño de letra, tipo y color de fondo, ancho color de los bordes...   
+    - Personalizar las leyendas de los ejes X, Y: Tipo color y tamaño de letra, tipo y color de fondo, ancho color de los bordes...   
+    - Personalizar los índices de los ejes X, Y: Tipo color y tamaño de letra, tipo y color de fondo, ancho color de los bordes...
+    - Personalizar el título del gráfico: Tipo color y tamaño de letra, tipo y color de fondo, ancho color de los bordes...   
+    - Personalizar la base del gráfico: Tipo y color...
+    - Personalizar las cuadrículas del gráfico: Tipo y color...
+    - Personalizar el gráfico: Tipo y color...
+    - Personalizar la área del gráfico: Tipo y color...
+    - **Aspecto final:**  
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3ced1-3.png){ .left .margintopbottom10}<br>
+
+    !!! exercise "Tarea parte 5"
+    **Hoja 5: Instituto nacional de estadística parte 4 - Estilo de líneas.**
+    Realizar **un gráfico de líneas** con los datos proporcionados en la hoja 5, pero esta vez en líneas suavizadas.
+
+    - Modificar los intervalos del eje Y para que vayan desde 0 hasta 100 (pista → Escala Eje Y).
+    - Cambiar la posición de la leyenda del eje Y a **Fin** (pista → Posición Eje Y).
+    - Cambiar la posición de la leyenda del eje Y a **Fin** (pista → Posición Eje Y).   
+    - Aplicar unos estilos al resto de elementos del gráfico (título, leyenda, ejes, fondo, gráfico...) similares a los del punto anterior.
+
+    - **Aspecto final (sin aplicar estilos):**  
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3ced1-4.png){ .left .margintopbottom10}<br>
+
+    !!! exercise "Tarea parte 6"    
+    **Hoja 6: Representación de funciones y ajuste de ejes.**  
+    A diferencia de las representaciones anteriores, la representación de funciones matemáticas no se basa en datos tabulados para el eje X, sino en datos contínuos.  
+    Por ese motivo deberemos usar el tipo XY (dispersión) para representar funciones matemáticas.
+
+    - **Aspecto antes de seguir con la personalización del gráfico.**  
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3ced1-5.png){ .left .margintopbottom10}<br>
+    
+    - **EJE Y**  
+        **Escala**
+        - Cambiar el mínimo y máximo del eje Y para que vaya desde -1.1 hasta 1.1 y el intervalo principal sea de 0.1.
+        - Cambiar el intervalo principal del eje Y a 0.1.  
+
+        **Posición**  
+
+        - Cambiar la posición del eje Y para que cruce el eje X en el valor 180 (pista → Posición Eje Y).  
+        - Colocar las etiquetas en **Cerca de eje (el otro lado)**.
+        - Poner las marcas de intervalo del eje Y a **exterior e interior** para las principales y secundarias.  
+
+        **Línea**  
+
+        - Color verde.  
+        
+        **Etiqueta**
+        
+        - Girada 40 grados.  
+
+        **Tipo de letra**
+
+        - Arial, tamaño 8.  
+
+        **Efectos tipográficos**
+
+        - Color de letra azul.  
+
+    
+    - **EJE X**
+        
+        - Cambiar la escala del eje X para que vaya desde 0 hasta 360, con un intervalo principal de 30 y un secundario de 10.
+        - Cambiar la posición del eje X para que cruce el eje Y en el valor -1.1.
+        - Cambiar las marcas de intervalo del eje X a **exterior e interior** para las principales y **interior** para las secundarias.
+        - Línea de eje de color naranja.
+        - Tipo de letra, arial, 8, azul.  
+        - Aplicar una cuadricula vertical al gráfico (pista → Cuadrícula Eje X).
+    
+    - **Gráficos**
+        - Cambiar el color de la línea de la función Seno a rojo y el grosor a 0.02 puntos.
+        - Cambiar el color de la línea de la función Coseno a azul y el grosor a 0.02 puntos.
+        
+    - Aplicar unos estilos al resto de elementos del gráfico (título, leyenda, ejes, fondo, gráfico...) similares a los del punto anterior. 
+
+    
+    - **Aspecto final (sin aplicar estilos):**  
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3ced1-5.png){ .left .margintopbottom10}<br>
+    
+    !!! warning "Entrega de la tarea"
+        Subir la tarea a AULES en el apartado correspondiente.  
+        El archivo a subir deberá ser de tipo **.ods** (formato nativo de LibreOffice Calc).  
+        **No se aceptará ningún otro formato de archivo**.  
 <!-- 
 file:///C:/Users/titan/Documents/Javier128/Modulos/SMX/SMX_1/AO/materiales/RA3/PracticaNOTES-Func-SI_Curs_2022.pdf
 file:///C:/Users/titan/Downloads/mat%20excel/Taller_REFERENCIAS_Excel_9no.pdf

@@ -992,9 +992,6 @@ sudo firewall-cmd --permanent --add-rich-rule='rule family="ipv4" source address
 sudo firewall-cmd --permanent --add-rich-rule='rule family="ipv4" source address="172.18.2.193" reject' && sudo firewall-cmd --reload -->
 
 
-
-
-
 ## **Enlaces de interés**
 Documentación de [AWS](https://docs.aws.amazon.com)  
 Instancias [EC2](https://docs.aws.amazon.com/es_es/ec2/?icmpid=docs_homepage_featuredsvcs)  
