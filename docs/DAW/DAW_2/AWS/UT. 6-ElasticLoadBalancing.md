@@ -209,7 +209,7 @@ Dentro de ELB existen cuatro tipos de balanceadores, cada uno orientado a distin
 | **Classic Load Balancer (CLB)**     | Capa 4/7 | Versión heredada; solo recomendado para aplicaciones antiguas                          |
 
 
-´´´bash
+<!-- ´´´bash
 #!/bin/bash
 yum update -y
 yum install httpd -y
@@ -257,21 +257,21 @@ document.getElementById("hora").innerHTML = "<b>" + hora + "</b>";
 </body>
 </html>
 EOF
-```
+``` -->
 
 
 <!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/Docker/CEFIRE/UD3/UD%2003.01%20-%20Principales%20acciones%20con%20Docker.pdf -->
 <!-- https://docs.aws.amazon.com/hands-on/latest/deploy-docker-containers/deploy-docker-containers.html -->
 <!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/Docker/CEFIRE/UD1/UD%2001.01%20-%20Introducci%C3%B3n%20a%20los%20contenedores%20y%20a%20Docker.pdf -->
 
-### **2.3 - Auto Scaling** -->
-Auto Scaling permite adaptar la capacidad de cómputo de la infraestructura a la demanda real del sistema.  
+<!-- ### **2.3 - Auto Scaling** -->
+<!-- Auto Scaling permite adaptar la capacidad de cómputo de la infraestructura a la demanda real del sistema.  
 AWS ofrece dos enfoques principales:
 
 | Tipo                 |Descripción  |
 | - | - |
 | **EC2 Auto Scaling** | Escalado automático exclusivo de instancias EC2 mediante Auto Scaling Groups (ASG)        |
-| **AWS Auto Scaling** | Escalado automático de múltiples recursos además de EC2, como DynamoDB, Aurora, ECS, etc. |
+| **AWS Auto Scaling** | Escalado automático de múltiples recursos además de EC2, como DynamoDB, Aurora, ECS, etc. | -->
 
 
 <!-- https://docs.aws.amazon.com/es_es/autoscaling/ec2/userguide/tutorial-ec2-auto-scaling-load-balancer.html -->
@@ -347,10 +347,10 @@ https://www.youtube.com/watch?v=iAYYssYrGms
 
 https://www.youtube.com/watch?v=CGmTvukObOw -->
 
-
+<!-- 
 ## **Enlaces de interés**
 Documentación de [AWS](https://docs.aws.amazon.com)  
 [Elastic Load Balancing](https://docs.aws.amazon.com/es_es/elasticloadbalancing/latest/userguide/what-is-load-balancing.html)
 [VPC peering](https://docs.aws.amazon.com/es_es/vpc/latest/peering/what-is-vpc-peering.html)  
 [Transit Gateway](https://aws.amazon.com/es/transit-gateway/)  
-<!-- https://aws.amazon.com/es/products/storage/ -->
+https://aws.amazon.com/es/products/storage/ -->
