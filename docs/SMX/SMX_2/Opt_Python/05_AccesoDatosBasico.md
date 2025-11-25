@@ -425,45 +425,13 @@ with open(destino, 'r', encoding='utf-8') as archivo:
        
 
 
-<!-- metodos de cadenas -->
 
+<!-- poner __str__()
+ https://hektorprofe.github.io/python/herencia-en-la-poo/ejercicios/  -->
 
-
-<!-- https://aprendeconalf.es/docencia/python/ejercicios/ficheros/-->
-<!-- Ejercios de ficheros
-https://aprendeconalf.es/docencia/python/ejercicios/ficheros/ -->
-<!-- https://python.sdv.u-paris.fr/07_fichiers/ -->
-
-
- 
-  
-<!--
-poner __str__()
- https://hektorprofe.github.io/python/herencia-en-la-poo/ejercicios/ -->
     
 
-
-<!-- https://dat-science.com/clases-y-objetos-en-python/#Metodos_especiales -->
- 
- 
- 
-<!-- 
-
-```py
-# definimos una variable de tipo lista
-datos = []
-# Usamos un iterador para llenar la lista
-for i in range(5):
-  dato = input("Introducir cualquier cosa: ")
-  datos.append(dato)
-# Usamos otro iterador para leer la lista y sacamos el tipo de variable que contiene
-for i in range(5):
- # print(f"Posición {i}, valor {datos[i]}, tipo {type(datos[i])}") 
-  print(f"Posición {i}, valor {datos[i]}, tipo: {'string' if isinstance(datos[i],str) else ''}")
-```
-
-
- <!-- === "RA 1"
+<!-- === "RA 1"
     |RA1. Reconoce la estructura de un programa informático, identificando y relacionando los elementos propios del lenguaje de programación utilizado.|Peso|
     |-|-|
     *|**a)** Se han identificado los bloques que componen la estructura de un programa informático. |12%|
@@ -526,4 +494,5 @@ for i in range(5):
     |**f)** Se han creado clases y métodos genéricos.|10%|
     |**g)** Se han utilizado expresiones regulares en la búsqueda de patrones en cadenas de texto.|10%|
     |**i)** Se han realizado programas que realicen manipulaciones sobre documentos escritos en diferentes lenguajes de intercambio de datos.|10%|
-    |**j)** Se han utilizado operaciones agregadas para el manejo de información almacenada en colecciones.|10%| -->
+    |**j)** Se han utilizado operaciones agregadas para el manejo de información almacenada en colecciones.|10%| 
+-->

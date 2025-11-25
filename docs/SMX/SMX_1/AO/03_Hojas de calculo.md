@@ -806,17 +806,17 @@ Permiten identificar patrones, tendencias y relaciones entre diferentes conjunto
 ### **Tarea RA3-CEd-2 - Gráficos**
 !!! exercice "Tarea RA3-CEd-1 - Trabajando con gráficos"
     !!! exercise "Tarea parte 1. Descargar el archivo" 
-        Descargar y abrir el archivo 'RA3-CEd-2' pinchando en el enlace siguiente: [Descargar archivo](./03_hojas_de_calculo/tareas/RA3-CEd-2%20nombreapellidos.ods).  
+    Descargar y abrir el archivo 'RA3-CEd-2' pinchando en el enlace siguiente: [Descargar archivo](./03_hojas_de_calculo/tareas/RA3-CEd-2%20nombreapellidos.ods).  
         
     !!! exercise "Tarea parte 1 - Diagrama de Gantt"
     Un diagrama de Gantt es una herramienta gráfica utilizada para planificar, programar y controlar proyectos. Es muy común en gestión de proyectos, ingeniería, desarrollo de software, educación y cualquier ámbito donde sea necesario organizar actividades en el tiempo.
    <!-- file:///C:/Users/titan/Documents/Javier128/Modulos/SMX/SMX_1/AO/materiales/RA3/Diagrama_Gantt_2.pdf -->
 
 
-### **Tarea RA3-CEe-1 - **
-### **Tarea RA3-CEg-1 - **
-### **Tarea RA3-CEg-2 - **
-### **Tarea RA3-CEh ** -->
+### **Tarea RA3-CEe-1 -**
+### **Tarea RA3-CEg-1 -**
+### **Tarea RA3-CEg-2 -**
+### **Tarea RA3-CEh -**
 
 
 <!-- 

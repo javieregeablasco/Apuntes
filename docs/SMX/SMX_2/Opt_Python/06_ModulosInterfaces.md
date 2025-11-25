@@ -29,7 +29,7 @@ schedule: 96h - 3h/w
 ## **1 - Módulos en Python**
 Un módulo es un archivo que contiene código (funciones, clases, variables e incluso programas completos) y que puede ser **importado** desde otros archivos.
 
-**Ejemplo**
+**Ejemplo**  
 Podemos definir un módulo **calculadora.py** con cuatros funciones de cálculo básicas.
 
 ```py 
@@ -69,7 +69,7 @@ print(calculadora.suma(4, 3))
 print(calculadora.resta(10, 9)) 
 ```
 
-**Importación parcial**
+**Importación parcial**  
 En este caso solo importaremos las funciones que necesitaremos dentro de nuestro programa.
 
 ```py
@@ -79,8 +79,8 @@ print(suma(4, 3))
 print(resta(10, 9)) 
 ```
 
-### **1.2 - Uso de * e alias para el uso de módulos**
-También podemos importar el contenido del módulo con `*`. Esto nos permitirá usar los elementos de calculadora.py sin necesidad de escribir el nombre del módulo (calculadora)delante. 
+### **1.2 - Uso de * y de un alias para el uso de módulos**
+También podemos importar el contenido del módulo con `*`. Esto nos permitirá usar los elementos de calculadora.py sin necesidad de escribir el nombre del módulo (calculadora) delante. 
 
 ```py
 from calculadora import *
@@ -89,7 +89,7 @@ print(divide(4, 3))
 print(multiplica(10, 9)) 
 ```
 
-Sin embargo, si importamos varios módulos, puede resultar peligroso utilizar *, ya que pueden existir elementos con **el mismo nombre** en módulos diferentes. Para evitar conflictos, es mejor usar alias para el módulo.
+Sin embargo, si importamos varios módulos, puede resultar peligroso utilizar `*`, ya que pueden existir elementos con **el mismo nombre** en módulos diferentes. Para evitar conflictos, es mejor usar un alias para el módulo.
 
 ```py
 import calculadora as calc
@@ -116,14 +116,16 @@ Python tiene 3 grandes tipos de módulos:
 | **Módulos propios**     | Los crea el programador      | Archivo `.py` en el proyecto      |
 
 ### **1.4 - Ubicación de los módulos**
+
 Cuando importamos un módulo con **import**, Python busca módulos en este orden:
+
 1. El directorio desde el cual se ejecuta el programa
 1. Las rutas dentro de la variable de entorno PYTHONPATH (si existe)
 1. Rutas estándar de la instalación de Python (incluye la librería estándar)
-1. Rutas de site-packages (donde pip instala los módulos)
+1. Rutas de site-packages (donde pip instala los módulos)  
 
 
-- Caso de importacion desde una carpeta del directorio del programa principal**
+>**Caso de importacion desde una carpeta del directorio del programa principal**
   ```bash
   # Proyecto
 
@@ -133,14 +135,13 @@ Cuando importamos un módulo con **import**, Python busca módulos en este orden
   │   ├── calculadora.py
   │   └── interfaces.py
 
+  ```  
+  ```py 
+  # Programa.py
+  from modulos.calculadora import divide as div
+  ...
   ```
 
-    ```py 
-    # Programa.py
-    from modulos.calculadora import divide as div
-    ...
-    ```
-<br>
 
 - Para el resto de casos, es necesario configurar las variables de entorno del sistema operativo (cosa que hicimos al instalar python), o usar sys.path en el programa.  
   ```py
@@ -151,7 +152,7 @@ Cuando importamos un módulo con **import**, Python busca módulos en este orden
   ```
   <br>
 
-- **Nota:**
+- **Nota:**  
 A fin de depurar problemas con la importación de módulos, se recomienda añadir las rutas a los módulos propios al principio del programa, antes de cualquier importación.
 ```py
 import sys
@@ -227,7 +228,7 @@ Cuando ejecutamos un módulo directamente, Python asigna el valor `"__main__"` a
 Si el módulo es importado desde otro módulo, `__name__` toma el valor del nombre del módulo.
 Esto nos permite saber si un módulo está siendo ejecutado directamente o importado desde otro módulo.
 
-Por ese motivo es muy común ver en los módulos la siguiente estructura:
+Por ese motivo, es muy común ver en los módulos la siguiente estructura:
 
 ```py
 def funcion_principal():
@@ -269,7 +270,8 @@ Existen varios módulos para crear interfaces gráficas en Python (Tkinter, WxPy
 **Tkinter** no es un **motor gráfico**: actúa como capa de enlace (wrapper) y permite a los programas en Python utilizar **la biblioteca gráfica Tcl/Tk**.  
 
 Toda la información sobre Tkinter está disponible en la documentación oficial:  
-Documentación oficial de [**Tkinter**](https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/index.html)
+Documentación oficial de [**Tkinter**](https://docs.python.org/es/3/library/tk.html)
+Github de [**Tedboy**](https://tedboy.github.io/python_stdlib/generated/generated/Tkinter.Wm.html)
 
 ### **2.1 - Estructura de ventana con Tkinter**
 ![](../Opt_Python/img/UT6/tk1.png){.trescinco}
@@ -299,6 +301,9 @@ Para crear una ventana básica con Tkinter, deberemos seguir los siguientes paso
     Un evento es una acción o suceso que ocurre en la interfaz gráfica y que puede ser detectado y manejado por el programa.  
     Algunos ejemplos de eventos son: hacer clic en un botón, mover el ratón, escribir en un cuadro de texto, cerrar la ventana, etc.         
 
+<br>
+#### **2.1.1 - Ventana raíz**
+La ventana root es la ventana principal de la aplicación gráfica. Es el primer elemento que se crea al iniciar una interfaz y actúa como contenedor base para todos los demás componentes (widgets) de la interfaz. Solo debe existir **una única ventana root por aplicación**, y permanece activa hasta que el usuario la cierre o se finalice la ejecución del programa.
 
 **Ejemplo de ventana básica con un frame:**
 
@@ -325,17 +330,6 @@ ventana.mainloop()
     1. frame.pack() coloca el frame dentro de la ventana principal y lo hace visible.
     1. ventana.mainloop() inicia el bucle de eventos de la aplicación, permitiendo que la ventana permanezca abierta y responda a las interacciones del usuario.
 
-### **2.2 - Atributos de la ventana principal**
-Algunos de los atributos más comunes que podemos configurar en la ventana principal son:
-
-| Atributo               | Descripción                                      | Ejemplo                          |
-|-----------------------|--------------------------------------------------|----------------------------------| 
-| title                 | Establece el título de la ventana                | ventana.title("Mi Ventana")      | 
-| geometry              | Define el tamaño y la posición de la ventana     | ventana.geometry("400x300+100+100") |
-| resizable             | Permite o no redimensionar la ventana            | ventana.resizable(False, False)  |
-| configure(bg=color)   | Cambia el color de fondo de la ventana           | ventana.configure(bg="lightgray")|
-| iconbitmap            | Cambia el icono de la ventana                     | ventana.iconbitmap("icono.ico")  |
-| mainloop()            | Inicia el bucle principal de eventos             | ventana.mainloop()                |
 
 **Ejemplo de configuración de la ventana principal:**
 ```py
@@ -351,8 +345,9 @@ ventana.iconbitmap("icono.ico")
 # Iniciar el bucle principal de Tkinter
 ventana.mainloop()
 ```       
- 
-### **2.3 - Frames en Tkinter**
+<br> 
+
+#### **2.1.2 - Frames en Tkinter**
 Un frame es un contenedor que nos permite agrupar y organizar otros widgets (un framwe también en un widget) dentro de la ventana principal.  
 
 **Ejemplo de creación de un frame:**
@@ -374,9 +369,9 @@ ventana.mainloop()
     1. tk.Frame(...) crea un frame (contenedor) dentro de la ventana principal con un tamaño y color de fondo especificados.
     1. frame.pack() coloca el frame dentro de la ventana principal y lo hace visible.
 
+<br>
 
-
-### **2.4 - Widgets comunes en Tkinter**
+#### **2.1.3 - Widgets comunes en Tkinter**
 Algunos de los widgets más comunes que podemos utilizar en Tkinter son:
 
 | Widget        | Descripción                                      | Ejemplo                          |
@@ -391,7 +386,9 @@ Algunos de los widgets más comunes que podemos utilizar en Tkinter son:
 | Frame         | Crea un contenedor para otros widgets            | tk.Frame(ventana)                |
 | Canvas        | Permite dibujar gráficos y formas                | tk.Canvas(frame, width=200, height=100) |
 
-### **2.5 - Gestión de eventos en Tkinter**
+<br>
+
+#### **2.1.4 - Gestión de eventos en Tkinter**
 En Tkinter, los eventos son acciones que ocurren en la interfaz gráfica y que pueden ser
 detectados y manejados por el programa. Algunos ejemplos de eventos son: hacer clic en un botón, mover el ratón, escribir en un cuadro de texto, cerrar la ventana, etc.
 Para manejar eventos en Tkinter, se utilizan **controladores de eventos** (event handlers), que son funciones que se ejecutan cuando ocurre un evento específico.  
@@ -430,9 +427,141 @@ ventana.mainloop()
     1. El botón se crea con `tk.Button(...)`, y el parámetro `command=boton_clic` asigna la función `boton_clic` como el controlador de eventos para el evento de clic.
     1. Cuando el usuario hace clic en el botón, se imprime el mensaje "¡Botón clickeado!" en la consola.    
 
-### **2.6 - Atributos del método .config()**
+<br>
 
-j
+### **2.2 - Métodos y atributos de la ventana principal**
+La ventana principal creada mediante Tk() actúa como el contenedor raíz de toda la aplicación.  
+A través de sus métodos y atributos es posible controlar su apariencia, su comportamiento y la interacción con el usuario. Estos permiten configurar aspectos como el tamaño inicial de la ventana, su título, su icono, su posición en pantalla o si puede ser redimensionada, entre otros parámetros habituales en las interfaces gráficas.
+
+| Método / Propiedad                        | Función principal                                | Ejemplo de uso                             |
+| ----------------------------------------- | ------------------------------------------------ | ------------------------------------------ |
+| `ventana.title("texto")`                     | Establece el título de la ventana                | `ventana.title("Mi aplicación")`              |
+| `ventana.geometry("800x600")`                | Define tamaño inicial de la ventana              | `ventana.geometry("800x600")`                 |
+| `ventana.geometry("800x600+200+100")`        | Define tamaño y posición en pantalla             | `ventana.geometry("800x600+200+100")`         |
+| `ventana.minsize(ancho, alto)`               | Fija tamaño mínimo permitido                     | `ventana.minsize(400, 300)`                   |
+| `ventana.maxsize(ancho, alto)`               | Fija tamaño máximo permitido                     | `ventana.maxsize(1024, 768)`                  |
+| `ventana.resizable(ancho_bool, alto_bool)`   | Permite o no redimensionar en cada eje           | `ventana.resizable(False, True)`              |
+| `ventana.iconbitmap("archivo.ico")`          | Cambia el icono de la ventana                    | `ventana.iconbitmap("logo.ico")`              |
+| `ventana.configure(bg="color")`              | Cambia el color de fondo                         | `ventana.configure(bg="#e0e0e0")`             |
+| `ventana.attributes("-topmost", True)`       | Mantiene la ventana siempre encima               | `ventana.attributes("-topmost", True)`        |
+| `ventana.attributes("-alpha", valor)`        | Ajusta la transparencia (0.0–1.0)                | `ventana.attributes("-alpha", 0.8)`           |
+| `ventana.state("zoomed")`                    | Abre la ventana maximizada                       | `ventana.state("zoomed")`                     |
+| `ventana.overrideredirect(True)`             | Elimina barra de título y bordes del sistema     | `ventana.overrideredirect(True)`              |
+| `ventana.withdraw()`                         | Oculta la ventana temporalmente                  | `ventana.withdraw()`                          |
+| `ventana.deiconify()`                        | Muestra la ventana oculta con `withdraw()`       | `ventana.deiconify()`                         |
+| `ventana.protocol("WM_DELETE_WINDOW", func)` | Controla la acción al intentar cerrar la ventana | `ventana.protocol("WM_DELETE_WINDOW", salir)` |
+
+<br>
+
+#### **2.2.1 - Método, ventana.atributes()**
+El método ventana.attributes() permite consultar y modificar ciertos atributos especiales de la ventana principal relacionados con su apariencia y su comportamiento.
+Si hacemos un print(ventana.attributes()) veremos algo similar a lo siguiente:
+```py
+print(ventana.attributes())
+# ('-alpha', 1.0, '-transparentcolor', '', '-disabled', 0, '-fullscreen', 0, '-toolwindow', 0, '-topmost', 0)
+```
+
+Cada par de valores representa un atributo junto con su estado actual.  
+
+| Atributo            | Función                                                                      |
+| ------------------- | ---------------------------------------------------------------------------- |
+| `-alpha`            | Nivel de opacidad de la ventana (1.0 = opaca, 0.0 = totalmente transparente) |
+| `-transparentcolor` | Color que se vuelve transparente en la ventana                               |
+| `-disabled`         | Desactiva la interacción del usuario con la ventana                          |
+| `-fullscreen`       | Habilita o deshabilita el modo de pantalla completa                          |
+| `-toolwindow`       | Muestra la ventana como una ventana de herramienta (solo en Windows)         |
+| `-topmost`          | Mantiene la ventana siempre por encima del resto                             |
+
+Para modificar esos atributos deberemos seguir la siguiente sintaxis:
+```py
+ventana.attributes(opción, valor)
+```
+
+**Ejemplos**
+```py
+ventana.attributes("-alpha", 0.8)         # Ventana semitransparente
+ventana.attributes("-fullscreen", True)   # Modo pantalla completa
+ventana.attributes("-transparentcolor", "blue")   # Si el bg de la venta es azul, pasará a transparente
+```
+<br>
+
+#### **2.2.2 - Método, ventana.config()**
+El método ventana.config() (ventana.configure()) permite modificar los parámetros generales de la ventana principal, principalmente los relacionados con su apariencia visual y su comportamiento básico. Este método se utiliza para ajustar propiedades como el color de fondo, tamaño de fuente por defecto, bordes y otros atributos habituales de los widgets en tkinter.
+
+La sintaxis general es:
+```py
+ventana.config(opción = valor)
+# ventana.configure(opción = valor)
+```
+
+De manera similar a `attributes()` si no pasamos ningún atributo `config()`, nos devolverá un diccionario con los valores actuales. 
+
+**Atributos más habituales**
+
+| Parámetro común      | Función                                                       |
+| -------------------- | ------------------------------------------------------------- |
+| `bg` o `background`  | Establece el color de fondo de la ventana                     |
+| `cursor`             | Cambia el tipo de cursor cuando pasa sobre la ventana         |
+| `relief`             | Tipo de borde decorativo (flat, sunken, raised, ridge, solid) |
+| `bd` o `borderwidth` | Grosor del borde en píxeles                                   |
+| `highlightcolor`     | Color del borde de resaltado                                  |
+| `highlightthickness` | Grosor del marco de resaltado alrededor de la ventana         |
+| `takefocus`          | Indica si la ventana puede recibir el foco inicial            |
+
+**Ejemplo**
+```py
+ventana.config(bg="lightgray")        # Cambia el color de fondo de la ventana
+ventana.config(cursor="hand2")        # Cambia el cursor al estilo de "mano"
+ventana.configure(relief="ridge", bd=5)  # Aplica un borde en relieve
+```
+
+<br>
+
+#### **2.2.3 - Ejercicios**
+!!! exercise "Ejercicio 1 - Ajustes de ventana"
+    Crear una ventana con los siguientes requisitos:
+
+    | Propiedad        | Valor                               |
+    | ---------------- | ----------------------------------- |
+    | Título           | `"Mi primera ventana"`              |
+    | Tamaño           | `800x500` píxeles                   |
+    | Posición inicial | `x = 200`, `y = 100`                |
+    | Color de fondo   | Azul                                |
+    | Cursor           | `heart`                             |
+    | Redimensionable  | Solo en horizontal |
+
+!!! exercise "Ejercicio 2 - Atributos especiales"
+    Crear una ventana con los siguientes requisitos:
+
+    | Propiedad                                     | Valor                                               |
+    | --------------------------------------------- | --------------------------------------------------- |
+    | Opacidad (`-alpha`)                           | 0.85                                                |
+    | Ventana siempre encima (`-topmost`)           | Activado                                            |
+    | Transparencia por color (`-transparentcolor`) | Amarillo                                            |
+    | Icono                                         | Uno personalizado (archivo `.ico`)                  |
+    | Tamaño                                        | `600x400` (posicionada en el centro de la pantalla) |
+
+    **Pista:** Para recuperar el ancho y alto de la pantalla usar: **pantalla_ancho = ventana.winfo_screenwidth()**...
+
+
+!!! exercise "Ejercicio 3"
+    Crear una ventana con los siguientes requisitos:
+
+    | Propiedad                             | Valor                                       |
+    | ------------------------------------- | ------------------------------------------- |
+    | Título                                | `"Modo presentación"`                       |
+    | Modo de ventana                       | Pantalla completa (`-fullscreen = True`)    |
+    | Fondo                                 | Negro                                       |
+    | Cursor                                | `pirate`                                    |
+    | Redimensionable                       | No se debe poder redimensionar              |
+    | Interacción del usuario (`-disabled`) | Activada (no permite clics ni manipulación) |
+
+
+
+### **2.3 - Métodos y atributos de los frames**
+
+
+<!-- packer options -->
 <!-- 
 ### **2.7 - Atributos del método .pack() de la clase Frame.** -->
 <!-- https://adictosaltrabajo.com/2020/06/30/interfaces-graficas-en-python-con-tkinter/#1 -->
@@ -451,10 +580,9 @@ https://adictosaltrabajo.com/2020/06/30/interfaces-graficas-en-python-con-tkinte
 https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/grid.html -->
 
 <!-- https://www.youtube.com/watch?v=hTUJC8HsC2I&list=PLU8oAlHdN5BlvPxziopYZRd55pdqFwkeS&index=46 -->
-<!-- https://www.youtube.com/watch?v=t93x-vnFvP4&list=PLU8oAlHdN5BlvPxziopYZRd55pdqFwkeS&index=37 -->
-<!-- https://www.youtube.com/watch?v=nRieWujis4s&list=PLU8oAlHdN5BlvPxziopYZRd55pdqFwkeS&index=38 -->
 
 
+<!-- https://www.pythonguis.com/tutorials/create-gui-tkinter/ -->
 
  <!-- === "RA 1"
     |RA1. Reconoce la estructura de un programa informático, identificando y relacionando los elementos propios del lenguaje de programación utilizado.|Peso|
