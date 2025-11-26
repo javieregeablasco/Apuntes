@@ -10,7 +10,7 @@ layout: default
 schedule: 96h - 3h/s 
 ---
 
-# **UT. 6 - Interconexión, balanceo y escalado de infraestructuras**
+# **UT. 6 - Interconexión y balanceo de infraestructuras**
 ![Descripción de la imagen](../AWS/ut6/elb.png){ .trescinco }
 <br>
 
@@ -259,6 +259,9 @@ document.getElementById("hora").innerHTML = "<b>" + hora + "</b>";
 EOF
 ``` -->
 
+<!--
+autoscaling
+https://www.youtube.com/watch?v=0mwgbiJae5Q -->
 
 <!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/Docker/CEFIRE/UD3/UD%2003.01%20-%20Principales%20acciones%20con%20Docker.pdf -->
 <!-- https://docs.aws.amazon.com/hands-on/latest/deploy-docker-containers/deploy-docker-containers.html -->

@@ -804,16 +804,107 @@ Permiten identificar patrones, tendencias y relaciones entre diferentes conjunto
         **No se aceptará ningún otro formato de archivo**.  
 
 ### **Tarea RA3-CEd-2 - Gráficos**
-!!! exercice "Tarea RA3-CEd-1 - Trabajando con gráficos"
-    !!! exercise "Tarea parte 1. Descargar el archivo" 
+!!! exercice "Tarea RA3-CEd-2 - Gráficos avanzados"
+    !!! exercise "Descargar el archivo" 
     Descargar y abrir el archivo 'RA3-CEd-2' pinchando en el enlace siguiente: [Descargar archivo](./03_hojas_de_calculo/tareas/RA3-CEd-2%20nombreapellidos.ods).  
         
-    !!! exercise "Tarea parte 1 - Diagrama de Gantt"
+    !!! exercise "Hoja 1 - Diagrama de Gantt 1/9"
     Un diagrama de Gantt es una herramienta gráfica utilizada para planificar, programar y controlar proyectos. Es muy común en gestión de proyectos, ingeniería, desarrollo de software, educación y cualquier ámbito donde sea necesario organizar actividades en el tiempo.
-   <!-- file:///C:/Users/titan/Documents/Javier128/Modulos/SMX/SMX_1/AO/materiales/RA3/Diagrama_Gantt_2.pdf -->
+    
+    - Partimos de la tabla de la hoja 1.
+    - El proyecto consta de 4 fases, y cada una de ellas consta de 4 procesos que deben realizarse con una Fecha de inicio y durante un número de días determinado. **La Fecha de finalización prevista deberá ser calculada**: Es el resultado de sumar a la fecha de inicio con los días de duración del proceso.
+    - La columna **Completado** permite controlar qué parte del trabajo ya está realizado y qué parte queda pendiente.
+    - Las  columnas  **Pendiente**  y  **Realizado se  calcularán**  en  función  de  la  Duración  y  el  porcentaje  de Completado.
+    - Aspecto final de la hoja de cálculo.
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3ced-2-4.png){ .left .margintopbottom10}<br>
+
+    !!! exercise "Hoja 1 - Diagrama de Gantt 2/9"
+    **Gráfico**  
+
+    - Seleccionamos cualquier celda de la tabla y creamos un gráfico de barras **en pilas**.
+    - En **rango de datos** no tocamos nada.
+    - En **serie de datos** solo dejamos **Fecha inicio**, **Realizado** y **Pendiente**. 
+    - En **elementos del gráfico** dejamos todos los campos en blanco.
+    - Aspecto de la gráfica.
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3ced-2-1.png){ .left .margintopbottom10}<br>
+
+    !!! exercise "Hoja 1 - Diagrama de Gantt 3/9"
+    **Personalización gráfico**  
+    Para poder acceder a los menús del gráfico, haremos doble click sobre el gráfico hasta que aparezcan cuadrados rellenos como delimitadores de la gráfica. Entonces nos aparecerá una barra de herramientas para seleccionar las partes del gráfico a personalizar.  
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3ced-2-2.png){ .leftsietecinco .margintopbottom10}<br>
+    
+    !!! exercise "Hoja 1 - Diagrama de Gantt 4/9"
+    **Eje X** 
+
+    - Pestaña escala → Cambiar el orden en que se presentan los elementos del eje X (marcar Dirección inversa). 
+    
+    !!! exercise "Hoja 1 - Diagrama de Gantt 5/9"
+    **Eje Y**  
+
+    - Pestaña números → Desmarcar **Formato de origen**, en **Categoria** seleccionar **Fecha** y en **Formato**, **01/12/99**.
+    - Pestaña escala, ponemos **Mínimo** a 15/01/2025, **Máximo** a 24/04/2025 e **Intervalo principal** a 10.  
+
+    !!! exercise "Hoja 1 - Diagrama de Gantt 6/9"
+    **Serie de datos Fecha inicio**
+
+    - Haremos invisible esta serie seleccionando **Ninguno** en la pestaña **Area**.   
+    - En la pestaña **Opciones** dejamos el espaciado en 50% (permite ajustar la altura de las barras).   
+
+    !!! exercise "Hoja 1 - Diagrama de Gantt 7/9"
+    Serie de datos **Pendiente** y **Realizado**
+    
+    - Cambiar los colores de las series al gusto de cada uno.
+
+    !!! exercise "Hoja 1 - Diagrama de Gantt 8/9"
+    Para evitar que se vea en la leyenda la serie **Fecha de inicio** heremos:
+
+    - Ocultar **la entrada de leyenda** para la serie **Fecha de inicio** (pista → opciones).  
+
+    !!! exercise "Hoja 1 - Diagrama de Gantt 9/9"
+
+    - Personalizar todos los elementos del gráfico al gusto de cada uno.
+    
+    **Ejemplo de gráfico de Gantt después de configurar estilos**
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3ced-2-3.png){ .leftsietecinco .margintopbottom10}<br>
+
+    !!! exercise "Hoja 2 - Pruebas de acceso a la universidad 1/3"
+    En la hoja 2 encontrareís una tabla con los resultados de las pruebas de acceso a la universidad de una serie de alumnos.  
+    **Trabajos previos a realizar**
+
+    - Calcular la media de la parte 1 de las pruebas.
+    - Calcular la media de la parte 2 de las pruebas.
+    - Calcular la nota PAU que será la media de las partes 1 y 2.
+    - El cáculo de la nota final se hará de la siguiente manera: SI (Y(Media PAU > 3; Expediente > 3); Entonces, Media PAU * 0.4 + Expediente * 0.6; de lo contrario, "-")
+    - Las fórmulas para las celdas de las columnas **Nota final** y **Calificación** ya están puestas pero debereís poner **un formato condicional** que marque en **rojo** las celdas con **Insufiente** y **No apto**.
+
+    **Resultado final hoja de notas**
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3ced-2-5.png){ .leftsietecinco .margintopbottom10}<br>
+
+    ---
+
+    !!! exercise "Hoja 2 - Pruebas de acceso a la universidad 2/3"
+    **Trabajos a realizar**
+
+    - Calcular la media de las notas de la columna (formula → PROMEDIO())
+    - Calcular la cantidad de alumnos que han sacado una nota inferior o igual a 3 (formula → CONTAR.SI(Intervalo(); condición)).
+    - Calcular la cantidad de alumnos que han sacado la calificación de **NO APTO**. (fórmula → CONTAR.SI(Intervalo(); condición)).
+    - Calcular la cantidad de alumnos que han sacado la calificación de "Insuficiente", "Sobresaliente", "Notable", "Bien", "Suficiente" e, "Insuficiente". (fórmula → CONTAR.SI(Intervalo(); condición)).
+
+    **Resultado final**
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3ced-2-6.png){ .leftsietecinco .margintopbottom10}<br>
+    
+    !!! exercise "Hoja 2 - Pruebas de acceso a la universidad 3/3"
+    **Trabajos a realizar**  
+    Insertar una gráfica con un resultado similar al de la siguiente imagen.    
+    Sois libres de personalizar la imagen añadiendo, titulo, color de fondo, color de líneas, etc...
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3ced-2-7.png){ .leftsietecinco .margintopbottom10}<br>
 
 
-### **Tarea RA3-CEe-1 -**
+
+    <!-- file:///C:/Users/titan/Documents/Javier128/Modulos/SMX/SMX_1/AO/materiales/RA3/M4P4-HojaPAU.pdf -->
+   
+
+### **Tarea RA3-CEe -**
 ### **Tarea RA3-CEg-1 -**
 ### **Tarea RA3-CEg-2 -**
 ### **Tarea RA3-CEh -**
