@@ -899,12 +899,72 @@ Permiten identificar patrones, tendencias y relaciones entre diferentes conjunto
     Sois libres de personalizar la imagen añadiendo, titulo, color de fondo, color de líneas, etc...
     ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3ced-2-7.png){ .leftsietecinco .margintopbottom10}<br>
 
+    !!! warning "Entrega de la tarea"
+        Subir la tarea a AULES en el apartado correspondiente.  
+        El archivo a subir deberá ser de tipo **.ods** (formato nativo de LibreOffice Calc).  
+        **No se aceptará ningún otro formato de archivo**.  
+
+### **Tarea RA3-CEe - Introducción a las macros**
+Commo ya hemos visto en el tema sobre libreOffice writer, una macro es una secuencia de instrucciones que permite automatizar tareas repetitivas dentro de LibreOffice.
+
+**¿Para qué sirven?**
+
+- Rellenar o modificar datos automáticamente.
+- Hacer cálculos complejos sin usar fórmulas en la hoja.
+- Importar información de otros archivos o de internet.
+- Crear informes o exportar datos.
+- Controlar formularios y botones interactivos.
+- Ejecutar una acción cada vez que se abra el archivo.
+
+!!! tip "Para habilitar la grabación de macros en LibreOffice Calc, consultar el tema sobre procesadores de textos."
+
+!!! exercise "Tarea RA3-CEe"
+    !!! exercise "Parte 1 - Grabación de una macro"
+        - Ir a **Herramientas** → **Macros** → **Grabar macros**    
+        - Grabar una macro que crea una tabla con unos valores y aplique unos cuantos estilos. **Es importante de primero, definir los datos, luego la altura y anchura, luego los colores. De lo contrario es probable que algunos procesos se pierdan durante la grabación**.
+        **Ejemplo de tabla:**
+        ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3cee-1.png){ .leftdoscinco .margintopbottom10}<br>
+        - Guardar la macro **dentro del documento**, no dentro de LibreOffice ya que de hacerlo así no viajará con el documento. <br>
+        ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3cee-2.png){ .lefttrescinco .margintopbottom10}<br>
+
+    !!! exercise "Parte 2 - Creación de un botón para ejecutar la macro"
+        A diferencia del **writer** donde el uso de una macro suele resultar puntual, en calc su uso puede llegar a ser **intensivo**. Del mismo modo, es bastante habitual necesitar varias macros disponibles en un mismo documento lo que hace, que usar atajos de teclado para llamarlas suele resultar en errores de ejecución.  
+        Por todos esos motivos es recomendable usar controles por botones. 
+
+        1. Hacer visibles los controles de formulario.
+        ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3cee-3.png){ .leftdoscinco .margintopbottom10}<br>
+        1. Seleccionar un botón y colocarlo sobre la hoja de cálculo. Ajutar al gusto el tamaño.  
+        ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3cee-4.png){ .leftdoscinco .margintopbottom10}<br>
+        1. Hacer **click derecho** sobre el botón y seleccionar **Propiedades del control**.
+        1. Dentro de la pestaña **General**, ir al campo **Etiqueta** y cambiar el nombre del botón a **Crear tabla**.
+        1. Dentro de la pestaña **Eventos**, buscar el campo **Botón del ratón pulsado** y pinchar en el botón de la derecha. 
+        1. Una vez abierta la ventana **Asignar acción**, pulsar el botón **Macro**. 
+        1. Una vez abierta la ventana **Selector de macros**, seleccionar la macro a asignar al botón. 
+        ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3cee-5.png){ .leftoriginal .margintopbottom10}<br>
+        1. Aceptar y cerrar la ventana de **Propiedades: Botón**.
+        1. para poder empezar a usar el botón **deseleccionar el modo de diseño** del menú **Controles de formulario**. 
+        ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3cee-6.png){ .leftcuatrocinco .margintopbottom10}<br>
+        
+    !!! exercise "Parte 3 - Automatizar la importación de datos externos"
+        En este ejercicio automatizaremos la recuperación de la temperatura de la localidad de Catadau desde una página web.  
+        Enlace de la página web: https://www.tiempoyradar.es/tiempo/catadau/2025569  
+
+        1. Añadir una hoja a vuestro documento. 
+        1. En esa hoja nueva, iniciar la grabación de una macro.
+        1. Ir a **Hoja** → **Enlaces externos**
+        1. Dentro de la ventana **Datos externos** pegar la url de la página web y **pulsar intro**.
+        1. Dentro de opciones de importación pulsar **Aceptar**.  
+        ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3cee-7.png){ .leftcincocero .margintopbottom10}<br>
+        1. Dentro de **Tablas e intervalos disponibles** seleccionar **HTML_all**.  
+        ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3cee-8.png){ .lefttrescero .margintopbottom10}<br>
+        1. De todos los campos que aparecerán, solo dejar **Tiempo Catadau y el valor de la temperatura actual** y aplicar estilos al gusto.
+        ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3cee-9.png){ .leftcincocero .margintopbottom10}<br>
+        1. Parar la grabación y guardar la macro **dentro del documento**.
+        1. **Resultado final**.
+        ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3cee-10.png){ .lefttrescero .margintopbottom10}<br>
 
 
-    <!-- file:///C:/Users/titan/Documents/Javier128/Modulos/SMX/SMX_1/AO/materiales/RA3/M4P4-HojaPAU.pdf -->
-   
 
-### **Tarea RA3-CEe -**
 ### **Tarea RA3-CEg-1 -**
 ### **Tarea RA3-CEg-2 -**
 ### **Tarea RA3-CEh -**
@@ -913,11 +973,11 @@ Permiten identificar patrones, tendencias y relaciones entre diferentes conjunto
 <!-- 
   |RA3. Elabora documentos y plantillas de cálculo, describiendo y aplicando opciones avanzadas de hojas de cálculo.||
     |-|-|
-    |**a)** Se ha personalizado las opciones de software y barra de herramientas. |10%|
-    |**b)** Se han utilizado los diversos tipos de datos y referencia para celdas, rangos, hojas y libros. |    10%|
-    |**c)** Se han aplicado fórmulas y funciones. |15%|
-    |**d)** Se han generado y modificado gráficos de diferentes tipos. |10%|
-    |**e)** Se han empleado macros para la realización de documentos y plantillas.|10%|
+    *|**a)** Se ha personalizado las opciones de software y barra de herramientas. |10%|
+    *|**b)** Se han utilizado los diversos tipos de datos y referencia para celdas, rangos, hojas y libros. |    10%|
+    *|**c)** Se han aplicado fórmulas y funciones. |15%|
+    *|**d)** Se han generado y modificado gráficos de diferentes tipos. |10%|
+    *|**e)** Se han empleado macros para la realización de documentos y plantillas.|10%|
     |**f)** `Se han importado y exportado hojas de cálculo creadas con otras aplicaciones y en otros formatos.`|10%|
     |**g)** Se ha utilizado la hoja de cálculo como base de datos: formularios, creación de listas, filtrado, protección y ordenación de datos. |10%|
     |**h)** Se han utilizado aplicaciones y periféricos para introducir textos, números, códigos e imágenes.|    10%|
