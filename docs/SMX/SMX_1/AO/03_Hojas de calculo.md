@@ -921,15 +921,16 @@ Commo ya hemos visto en el tema sobre libreOffice writer, una macro es una secue
 !!! exercise "Tarea RA3-CEe"
     !!! exercise "Parte 1 - Grabación de una macro"
         - Ir a **Herramientas** → **Macros** → **Grabar macros**    
-        - Grabar una macro que crea una tabla con unos valores y aplique unos cuantos estilos. **Es importante de primero, definir los datos, luego la altura y anchura, luego los colores. De lo contrario es probable que algunos procesos se pierdan durante la grabación**.
+        - Grabar una macro que crea una tabla con unos valores y aplique unos cuantos estilos. 
+        - **Nota importante**. Con la versión actual de LibreOffice (25.8.1.1), la grabación de macro sigue siendo experimental. Por ese motivo es importante secuenciar las opraciones durante la grabación. Por ejemplo, primero, definir los datos, luego, la altura y anchura, luego, los colores. De lo contrario es probable que algunos procesos no se ejecuten durante la ejecución posterior de la macro.  
         **Ejemplo de tabla:**
         ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3cee-1.png){ .leftdoscinco .margintopbottom10}<br>
         - Guardar la macro **dentro del documento**, no dentro de LibreOffice ya que de hacerlo así no viajará con el documento. <br>
         ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3cee-2.png){ .lefttrescinco .margintopbottom10}<br>
 
     !!! exercise "Parte 2 - Creación de un botón para ejecutar la macro"
-        A diferencia del **writer** donde el uso de una macro suele resultar puntual, en calc su uso puede llegar a ser **intensivo**. Del mismo modo, es bastante habitual necesitar varias macros disponibles en un mismo documento lo que hace, que usar atajos de teclado para llamarlas suele resultar en errores de ejecución.  
-        Por todos esos motivos es recomendable usar controles por botones. 
+        A diferencia del **writer** donde el uso de una macro suele resultar puntual, en calc su uso puede llegar a ser **intensivo**. Del mismo modo, es bastante habitual necesitar varias macros en un mismo documento lo que hace que usar atajos de teclado para llamarlas pueda resultar en errores de ejecución.  
+        Por esos motivos es recomendable usar controles por botones. 
 
         1. Hacer visibles los controles de formulario.
         ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3cee-3.png){ .leftdoscinco .margintopbottom10}<br>
@@ -945,7 +946,18 @@ Commo ya hemos visto en el tema sobre libreOffice writer, una macro es una secue
         1. para poder empezar a usar el botón **deseleccionar el modo de diseño** del menú **Controles de formulario**. 
         ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3cee-6.png){ .leftcuatrocinco .margintopbottom10}<br>
         
-    !!! exercise "Parte 3 - Automatizar la importación de datos externos"
+    !!! exercise "Parte 3 - Primeros pasos en la edición de macros"
+        Disponemos de una macro pero, puede que no se adecúe a nuestras necesidades. La primera opción sería grabar una nueva macro pero puede resultar más simple modificar nuestra macro.
+
+        1. Para editar una macro ir a **Herramientas** → **Macro** → **Editar macro**.
+        Aparecerá una ventana similar a la siguiente imagen y seleccionamos la macro a editar.
+        ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3cee-11.png){ .leftsietecinco .margintopbottom10}<br>
+        1. Buscamos las líneas de código dónde se escribe el texto y lo modificamos segun nuestras necesidades.  
+        ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3cee-12.png){ .leftseiscinco .margintopbottom10}<br>
+        1. Guardamos las modificaciones y ejecutamos la macro de nuevo para ver los resultados.  
+        ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3cee-13.png){ .leftdoscinco .margintopbottom10}<br>
+
+    !!! exercise "Parte 4 - Automatizar la importación de datos externos"
         En este ejercicio automatizaremos la recuperación de la temperatura de la localidad de Catadau desde una página web.  
         Enlace de la página web: https://www.tiempoyradar.es/tiempo/catadau/2025569  
 
@@ -957,17 +969,20 @@ Commo ya hemos visto en el tema sobre libreOffice writer, una macro es una secue
         ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3cee-7.png){ .leftcincocero .margintopbottom10}<br>
         1. Dentro de **Tablas e intervalos disponibles** seleccionar **HTML_all**.  
         ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3cee-8.png){ .lefttrescero .margintopbottom10}<br>
-        1. De todos los campos que aparecerán, solo dejar **Tiempo Catadau y el valor de la temperatura actual** y aplicar estilos al gusto.
+        1. Resultado de la importación.
         ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3cee-9.png){ .leftcincocero .margintopbottom10}<br>
-        1. Parar la grabación y guardar la macro **dentro del documento**.
+        1. Crear un botón y asignarle la macro que acabais de crear.
         1. **Resultado final**.
-        ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3cee-10.png){ .lefttrescero .margintopbottom10}<br>
+        ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3cee-14.png){ .leftsietecinco .margintopbottom10}<br>
 
+    !!! warning "Entrega de la tarea"
+        Subir la tarea a AULES en el apartado correspondiente.  
+        El archivo a subir deberá ser de tipo **.ods** (formato nativo de LibreOffice Calc).  
+        **No se aceptará ningún otro formato de archivo**.
 
-
-### **Tarea RA3-CEg-1 -**
-### **Tarea RA3-CEg-2 -**
-### **Tarea RA3-CEh -**
+### **Tarea RA3-CEg-1 - Hoja de cálculo como base de datos 1**
+### **Tarea RA3-CEg-2 - Hoja de cálculo como base de datos 2**
+### **Tarea RA3-CEh - Automatización de la introducción de datos**
 
 
 <!-- 
@@ -978,7 +993,7 @@ Commo ya hemos visto en el tema sobre libreOffice writer, una macro es una secue
     *|**c)** Se han aplicado fórmulas y funciones. |15%|
     *|**d)** Se han generado y modificado gráficos de diferentes tipos. |10%|
     *|**e)** Se han empleado macros para la realización de documentos y plantillas.|10%|
-    |**f)** `Se han importado y exportado hojas de cálculo creadas con otras aplicaciones y en otros formatos.`|10%|
+    *|**f)** `Se han importado y exportado hojas de cálculo creadas con otras aplicaciones y en otros formatos.`|10%|
     |**g)** Se ha utilizado la hoja de cálculo como base de datos: formularios, creación de listas, filtrado, protección y ordenación de datos. |10%|
     |**h)** Se han utilizado aplicaciones y periféricos para introducir textos, números, códigos e imágenes.|    10%|
  -->

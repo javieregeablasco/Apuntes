@@ -181,7 +181,7 @@ Monta el siguiente escenario:
 - Se trabajará en 2 regiones distintas (us-east-1 / N-Virginia y us-west-2 / Oregón). 
 - En cada región estarán ubicadas dos VPCs con sus correspondientes subredes interconectadas por un Transit Gateway. 
 - Para interconectar las regiones colocaremos un peer connection. 
-- Conectarse a la instnacia 1 y realizar capturas de pings al resto de instancias (1 captura). 
+- Conectarse a la instancia 1 y realizar capturas de pings al resto de instancias (1 captura). 
 - Realizar capturas de la propagación y pings con éxito a todas las instancias del escenario (3 capturas).
 
 ![](../AWS/ut6/RA3-CEd.png){ .sietecinco }<br>
