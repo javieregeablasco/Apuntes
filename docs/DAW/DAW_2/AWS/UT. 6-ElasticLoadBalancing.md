@@ -215,8 +215,43 @@ Dentro de ELB existen cuatro tipos de balanceadores, cada uno orientado a distin
 | **Gateway Load Balancer (GWLB)**    | Capa 3   | Integración con firewalls, IDS/IPS y appliances de red                                 |
 | **Classic Load Balancer (CLB)**     | Capa 4/7 | Versión heredada; solo recomendado para aplicaciones antiguas                          |
 
+#### **2.2.1 - Escenario propuesto**
+![](../AWS/ut6/elb0.png){ .cincozero }<br>
 
-<!-- ´´´bash
+Antes de implementar el balanceador de carga, implementaremos la infraestructura base. Para ello contamos con los siguientes elementos:
+
+1. VPC denominada VPC-ELB
+    - Rango de direcciones (CIDR): 172.31.0.0/16
+
+1. Subred pública en la zona de disponibilidad “a”
+    - Nombre: SubRed-ELB-AZ-a
+    - Rango de direcciones (CIDR): 172.31.1.0/24
+1. Subred pública en la zona de disponibilidad “c”
+    - Nombre: SubRed-ELB-AZ-c
+    - Rango de direcciones (CIDR): 172.31.2.0/24
+1. Instancias EC2 disponibles para el balanceo
+    - HelloWorld
+    - HelloParadise
+    - Ambas instancias:
+        - Se encuentran en zonas de disponibilidad distintas (una en a y otra en c)
+        - Disponen de IP pública para permitir el acceso externo 
+
+#### **2.2.2 - Instancias EC2**
+A diferencia de las otras prácticas donde solo lanzabamos las instancias sin hacer nada con ellas, en esta instalaremos un servidor web y un archivo indiex.html para comprobar el correcto funcionamiento del equilibrador de carga.
+
+!!! tip "Paso 1 - Detalles avanzados" 
+Durante el lanzado de la instancia EC2 buscar el apartado **Detalles avanzados**.
+
+![](../AWS/ut6/elb1.png){ .ochocinco .marco }<br>
+
+!!! tip "Paso 2 - Datos de usuario"
+
+![](../AWS/ut6/elb2.png){ .ochocinco .marco }<br>
+
+Dentro del campo **Datos de usuario** pondremos un script que se ejecutará al lanzar la instancia.
+
+Adaptar el script para cada instancia, cambiando **Instancia 1** por **Instancia 2** y **Hola mundo** por **Hola paraíso**. 
+```bash
 #!/bin/bash
 yum update -y
 yum install httpd -y
@@ -264,8 +299,51 @@ document.getElementById("hora").innerHTML = "<b>" + hora + "</b>";
 </body>
 </html>
 EOF
-``` -->
+```
 
+#### **2.2.3 - Creación del balanceador de carga**
+
+1. Desde EC2 accedemos a **Balanceadores de carga**.
+![](../AWS/ut6/elb3.png){ .ochocinco .marco .margintop20 }<br>
+1. Configuramos los parámetros principales:
+    - Nombre LB-Instancias
+    - Expuesto a internet
+    - IP tipo: IPv4
+
+    ![](../AWS/ut6/elb4.png){ .ochocinco .marco .margintop20 }<br>
+
+1. Mapeo de red.
+    - VPC: VPC-ELB
+    - Seleccionamos SubRed-ELB-AZ-a y SubRed-ELB-AZ-c
+
+    ![](../AWS/ut6/elb5.png){ .ochocinco .marco }<br>
+
+1. Grupos de seguridad
+
+    - Creamos un grupo de seguridad para el balanceador de carga , asociamos un SG que permita HTTP (80) desde cualquier origen.
+  ![](../AWS/ut6/elb6.png){ .ochocinco .marco .margintop20 }<br>
+  ![](../AWS/ut6/elb7.png){ .ochocinco .marco  }<br>
+  ![](../AWS/ut6/elb8.png){ .ochocinco .marco  }<br>
+
+1. Agentes de escucha y direccionamiento  
+En este apartado configuraremos los puertos sobre los cuales el equilibrador de carga aceptará las conexiones entrantes y determinará a qué instancias se redirigirán.
+
+    - Protocolo: HTTP / 80
+    - Acción predeterminada: Reenviar el tráfico al grupo de destino (conjunto de instancias que recibirán las peticiones).  
+    Si todavía no disponemos de ningún grupo de destino creado, seleccionamos la opción “Agregar grupo de destino” y luego **Cree un grupo de destino** y lo configuramos antes de continuar.
+    ![](../AWS/ut6/elb9.png){ .cien .marco .margintop20 }<br>
+    ![](../AWS/ut6/elb10.png){ .cien .marco }<br>
+
+    - Crear grupo de destino
+    ![](../AWS/ut6/elb11.png){ .cien .marco .margintop20 }<br>
+    ![](../AWS/ut6/elb12.png){ .cien .marco }<br>
+
+    - Revisamos los datos y creamos el grupo de destino
+    ![](../AWS/ut6/elb13.png){ .cien .marco .margintop20 }<br>
+
+    - Finalizamos la creación del equilibrador de carga
+    ![](../AWS/ut6/elb14.png){ .cien .marco .margintop20 }<br>
+    ![](../AWS/ut6/elb15.png){ .cien .marco  }<br>
 <!--
 autoscaling
 https://www.youtube.com/watch?v=0mwgbiJae5Q -->

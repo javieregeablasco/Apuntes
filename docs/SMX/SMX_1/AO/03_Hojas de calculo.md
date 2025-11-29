@@ -980,8 +980,45 @@ Commo ya hemos visto en el tema sobre libreOffice writer, una macro es una secue
         El archivo a subir deberá ser de tipo **.ods** (formato nativo de LibreOffice Calc).  
         **No se aceptará ningún otro formato de archivo**.
 
-### **Tarea RA3-CEg-1 - Hoja de cálculo como base de datos 1**
-### **Tarea RA3-CEg-2 - Hoja de cálculo como base de datos 2**
+### **Tarea RA3-CEg-1 - Consultas, filtros y consolidación de datos**
+
+<!-- https://www.youtube.com/watch?v=KH42t9oNvII -->
+<!--    ancho optimo
+    filtro automático
+        min 8:53 aplicar filtros 
+
+    filtro estándar
+        min 12:11
+        13:30 COPIiar datos a otra hoja.
+
+    filtro avanzado
+        min 16:45
+
+    datos ordenados
+        min 23:06
+
+    validar 
+        min 24:50
+        min 28:00 intervalo de celdas o lista
+    
+    proteccion de datos
+        min 29:00    30:30
+
+-->
+
+<!-- cuadro dialogos
+
+
+
+-->
+
+<!-- https://www.youtube.com/watch?v=ijj5z8UJKNo -->
+<!-- https://www.youtube.com/watch?v=P_HvrSM1NJE -->
+<!-- https://documentation.libreoffice.org/assets/Uploads/Documentation/es/CG62/PDF/CG6213-CalcComoBaseDeDatosSimple.pdf -->
+
+### **Tarea RA3-CEg-2 - Creación de un cuadro de diálogo**
+
+
 ### **Tarea RA3-CEh - Automatización de la introducción de datos**
 
 
