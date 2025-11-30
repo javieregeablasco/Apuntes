@@ -980,12 +980,190 @@ Commo ya hemos visto en el tema sobre libreOffice writer, una macro es una secue
         El archivo a subir deberá ser de tipo **.ods** (formato nativo de LibreOffice Calc).  
         **No se aceptará ningún otro formato de archivo**.
 
-### **Tarea RA3-CEg-1 - Filtros, consultas y consolidación de datos**
+### **Tarea RA3-CEg-1 - Filtros, agrupación, validación, protección de datos y plantillas de documentos**
 !!! exercise "Descargar el archivo" 
     Descargar y abrir el archivo 'RA3-CEg-1' pinchando en el enlace siguiente: [Descargar archivo](./03_hojas_de_calculo/tareas/RA3-CEg-1%20nombreapellidos.ods).  
         
-!!! exercise "Hoja 1 - Filtros"
-     
+!!! exercise "Hoja 1 - Estilos / Formatos"
+    Como se puede ver la hoja de cálculo contiene unos supuestos datos personales de un gran número de personas.  
+    También podemos ver que algunos datos están **justificados a la izquierda** y otros **a la derecha**.    
+    Por convención, en la mayoria de las hojas de cálculo, el justificado de los datos sigue la siguiente regla: 
+
+    - **Texto**: Los campos que contienen texto (o una mezcla de texto y números) se justifican por defecto a la izquierda.  
+    - **Números**: Los campos que contienen valores numéricos puros (incluyendo fechas y horas, que son manejados internamente como números) se justifican por defecto a la derecha. 
+
+
+    :one: Encontrar los datos aparentemente numéricos que han sido tratados como texto ¿Cómo se distinguen?  
+    :two: Para poder ver **todo el contenido** de las celdas usaremos la opción **anchura óptima** que pondrá el ancho de la columna **al ancho de su contenido + un márgen** que podremos ajustar.      
+    :three: Aplicar estilos a los títulos de las columnas para que se distingan de su contenido.  
+    :four: Aplicar estilos para facilitar la lectura de los contenidos.  
+
+!!! exercise "Filtro automático"
+    **Filtro automático 1/2**
+
+    1. Copiar y pegar (o duplicar hoja) los datos de la hoja 1 en la hoja 2. 
+    1. Para activar el filtro automático haremos un clic **en cualquier celda con contenido**, y seleccionaremos en **Datos** → **Filtro automático**.  
+    **Calc** reconocerá de forma inmediata todas las celdas contiguas a la seleccionada, y considerará que la primera celda de cada columna del rango considerado es la etiqueta o encabezado de columna.  
+    Presentará en todas las etiquetas de columna un botón desplegable que nos permitirá elaborar filtros seleccionando o no algunos valores.  
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3-ceg-1-1.png){ .leftcuatrocinco .margintopbottom10}<br>
+    1. Elaborar un filtro que extraiga los datos de personas con las siguientes características:  
+    **Sexo → Mujer  
+    Población → Barcelona  
+    Nivel académico → EGB**  
+    **Solución**   
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3-ceg-1-2.png){ .leftcincocinco .margintopbottom10}<br>
+
+    **Filtro automático 2/2**
+
+    1. Copiar y pegar (o duplicar hoja) los datos de la hoja 1 en la hoja 3.
+    1. Elaborar un filtro que extraiga los datos de personas con las siguientes características:  
+    Altura → Entre 1.55 y 1.59 **O** entre 1.68 y 1.72 **O** entre 1.77 y 1.81 **O** entre 1.86 y 1.9  
+    Salud → Buena O excelente  
+    Característica 2 → Alegría O Inteligencia O Sencillez o Sinceridad  
+
+!!! exercise "Filtro estándar"
+    1. Como hemos visto en **el ejercicio 2** de filtro automático, algunas consultas pueden resultar tiedosas. Para ese tipo de consultas es recomendable usar filtros estándar.      
+    1. Para activar la opción de filtro estándar, seleccionar una celda con contenido y luego ir a **Datos** → **Más filtros** → **Filtro estándar**.  
+    Se mostrará el siguiente diálogo, desde el cual, podremos establecer para cada columna una o más condiciones asociadas a un valor. 
+    1. Además, también podremos:
+        - Establecer condiciones Y entre los campos; se deben cumplir todas las condiciones.  
+        - Establecer condiciones O entre los campos; se debe cumplir al menos una de las condiciones.  
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3-ceg-1-3.png){ .leftcincocinco .margintopbottom10}<br>
+
+
+    **Filtro estándar 1/3**  
+
+    1. Copiar y pegar (o duplicar hoja) los datos de la hoja 1 en la hoja 4.
+    1. Elaborar un filtro que extraiga los datos de personas con las siguientes características:  
+    Población → Barcelona 
+    Y 
+    Sexo → Hombre
+    Y
+    Móvil → Vacío  
+    **Solución**   
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3-ceg-1-4.png){ .leftcincocinco .margintopbottom10}<br>
+
+    **Filtro estándar 2/3** 
+
+    1. Copiar y pegar (o duplicar hoja) los datos de la hoja 1 en la hoja 5.
+    1. Elaborar un filtro que extraiga los datos de personas con las siguientes características:  
+    Población → Valencia  
+    Y  
+    Fecha de nacimiento → <= 1960  
+    O  
+    Hijos → >=3
+    
+    **Filtro estándar 3/3**  
+
+    1. Copiar y pegar (o duplicar hoja) los datos de la hoja 1 en la hoja 6 y **crear una hoja 7 vacia**.
+    1. Elaborar un filtro que extraiga los datos de personas con las siguientes características:    
+    Población → Girona  
+    Y  
+    Sexo → Hombre  
+    O  
+    Población → Valencia  
+    Y  
+    Ahorros → >= 60000
+    Y que además guarde el resultado de la consulta en la hoja 7 
+
+!!! exercise "Filtro avanzado"
+    A diferencia de los filtros automático y estándar, el filtro avanzado requiere realizar **algunas adaptaciones a la hoja de cálculo**.
+
+    **Filtro avanzado 1/2** 
+
+    1. Copiar y pegar (o duplicar hoja) los datos de la hoja 1 en la hoja 8.
+    1. Insertar algunas filas encima de los datos.
+    1. En la parte libre encima de los datos **definiremos las condiciones del filtro avanzado**.
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3-ceg-1-5.png){ .leftcincocinco .margintopbottom10}<br>
+    1. Vamos a **Filtro avanzado** y en la nueva ventana pinchamos en el botón que nos permitirá seleccionar la tabla de condiciones.
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3-ceg-1-6.png){ .leftcincocinco .margintopbottom10}<br>
+    1. **Resultado**  
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3-ceg-1-7.png){ .leftcincocinco .margintopbottom10}<br>
+
+    **Filtro avanzado 2/2**
+
+    1. Copiar y pegar (o duplicar hoja) los datos de la hoja 1 en la hoja 9.
+    1. Elaborar un filtro que extraiga los datos de personas con las siguientes características:
+    Población → Zaragoza  
+    Sexo → Hombre  
+    Ingresos mensuales → > 1500     
+    O  
+    Sexo → Mujer  
+    Ingresos mensuales → **Entre 400 y 1000**  
+    Nivel académico → Elementales   
+    **Resultado**   
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3-ceg-1-8.png){ .leftcincocinco .margintopbottom10}<br>
+
+!!! exercise "Ordenación rápida de datos"
+    
+    1. Copiar y pegar (o duplicar hoja) los datos de la hoja 1 en la hoja 10.
+    1. **Resultado**   
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3-ceg-1-9.png){ .leftcincocinco .margintopbottom10}<br>
+
+!!! exercise "Ordenación de datos por criterios (agrupación)"
+
+    1. Copiar y pegar (o duplicar hoja) los datos de la hoja 1 en la hoja 11.  
+    1. Posicionarse en la zona de datos y seleccionar **Ordenar**  
+    1. Realizar una agrupación con las condiciones siguientes:  
+    Clave de ordenacion 1 → Población  
+    Clave de ordenacion 2 → Hijos  
+    Clave de ordenacion 3 → Sexo  
+
+!!! exercise "Validación de datos"
+    La validación de datos permite definir las reglas sobre qué tipo de información o valores se pueden introducir en una o más celdas.  
+    Su principal objetivo es mantener la coherencia y exactitud de los datos en la hoja de cálculo, **evitando errores de entrada**.
+
+    **Validación de datos 1/2**  
+
+    1. Copiar y pegar (o duplicar hoja) los datos de la hoja 1 en la hoja 12.
+    1. Seleccionar la columna con los datos de **Sexo**
+    1. Ir a **Validez** y rellenar los campos.
+        - Permitir → Lista
+        - Mostrar lista de selección 
+
+    **Validación de datos 2/2**  
+
+    1. Copiar y pegar (o duplicar hoja) los datos de la hoja 1 en la hoja 13.
+    1. Seleccionar la columna con los datos de **Sexo**
+    1. Configurar el validador con las siguientes condiciones:  
+    Entero, no permitir celdas vacías, mayor que o igual a 0, mínimo 0. 
+    Ayuda de entrada, mostrar ayuda de entrada, título "Ayuda de entrada", Texto de la ayuda de entrada "Introducir un valor entero superior o igual a 0.".      
+    Aviso de error, título "Error de entrada", Texto del mensaje de error "Debe introducir un valor entero superior o  igual a 0.".      
+
+!!! exercise "Protección de datos"
+    La protección de datos permite restringir y controlar quién puede ver o modificar el contenido, el formato o la estructura de una hoja de cálculo, evitando así cambios accidentales o no autorizados.
+    
+    **Protección de datos 1/2**  
+
+    1. Copiar y pegar (o duplicar hoja) los datos de la hoja 1 en la hoja 14.
+    1. Ir a **Herramientas** → **Proteger hoja**.
+    1. En la ventana poner como contraseña 1234.  
+
+    **Protección de datos 2/2**  
+
+    1. Crear una hoja nueva y llamarla hoja 15.
+    1. Implementar un calculador básico como el del siguiente ejemplo:  
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3-ceg-1-10.png){ .leftcincocinco .margintopbottom10}<br>
+    1. En este caso solo dejaremos desprotegidas algunas celdas:
+        - Seleccionar la celda **B1** es decir la celda que contiene en el ejemplo el valor 5.
+        - Ir a **Formato de celdas** y en la pestaña **Protección de celdas** no marcar la opción **Protegida**.  
+        - Proteger la hoja (con o sin contraseña) y comprobar que la única celda que se puede modificar es la celda **B2**.
+
+!!! exercise "Plantillas"
+    Las plantillas son archivos modelo que sirven como patrón de inicio para crear nuevos documentos de hoja de cálculo.   
+    El objetivo principal es ahorrar tiempo, estandarizar el diseño, asegurar la coherencia y evitar que se sobrescriba el documento original.
+    Una de las características de las plantillas es que al abrirlas, generan un documento nuevo que deberá ser guardado con un nombre nuevo.
+
+    1. Guardar el documento como plantilla es decir con extensión .ots (t= template) y no .ods (d= data) . 
+
+!!! warning "Entrega de la tarea"
+    Subir la tarea a AULES en el apartado correspondiente.  
+    El archivo a subir deberá ser de tipo **.ots** (plantilla de LibreOffice Calc).  
+    **No se aceptará ningún otro formato de archivo**.  
+    
+
+
+
 <!-- https://www.youtube.com/watch?v=P_HvrSM1NJE -->
 <!--    ancho optimo
     filtro automático
