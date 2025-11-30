@@ -980,9 +980,13 @@ Commo ya hemos visto en el tema sobre libreOffice writer, una macro es una secue
         El archivo a subir deberá ser de tipo **.ods** (formato nativo de LibreOffice Calc).  
         **No se aceptará ningún otro formato de archivo**.
 
-### **Tarea RA3-CEg-1 - Consultas, filtros y consolidación de datos**
-
-<!-- https://www.youtube.com/watch?v=KH42t9oNvII -->
+### **Tarea RA3-CEg-1 - Filtros, consultas y consolidación de datos**
+!!! exercise "Descargar el archivo" 
+    Descargar y abrir el archivo 'RA3-CEg-1' pinchando en el enlace siguiente: [Descargar archivo](./03_hojas_de_calculo/tareas/RA3-CEg-1%20nombreapellidos.ods).  
+        
+!!! exercise "Hoja 1 - Filtros"
+     
+<!-- https://www.youtube.com/watch?v=P_HvrSM1NJE -->
 <!--    ancho optimo
     filtro automático
         min 8:53 aplicar filtros 
@@ -1013,7 +1017,7 @@ Commo ya hemos visto en el tema sobre libreOffice writer, una macro es una secue
 -->
 
 <!-- https://www.youtube.com/watch?v=ijj5z8UJKNo -->
-<!-- https://www.youtube.com/watch?v=P_HvrSM1NJE -->
+<!-- https://www.youtube.com/watch?v=KH42t9oNvII -->
 <!-- https://documentation.libreoffice.org/assets/Uploads/Documentation/es/CG62/PDF/CG6213-CalcComoBaseDeDatosSimple.pdf -->
 
 ### **Tarea RA3-CEg-2 - Creación de un cuadro de diálogo**

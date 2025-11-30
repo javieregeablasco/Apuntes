@@ -300,50 +300,91 @@ document.getElementById("hora").innerHTML = "<b>" + hora + "</b>";
 </html>
 EOF
 ```
+<br>
 
 #### **2.2.3 - Creación del balanceador de carga**
 
-1. Desde EC2 accedemos a **Balanceadores de carga**.
+!!! tip "1. Desde EC2 accedemos a **Balanceadores de carga**"
 ![](../AWS/ut6/elb3.png){ .ochocinco .marco .margintop20 }<br>
-1. Configuramos los parámetros principales:
-    - Nombre LB-Instancias
-    - Expuesto a internet
-    - IP tipo: IPv4
+**Configuramos los parámetros principales:**
+
+- Nombre LB-Instancias
+- Expuesto a internet
+- IP tipo: IPv4
 
     ![](../AWS/ut6/elb4.png){ .ochocinco .marco .margintop20 }<br>
 
-1. Mapeo de red.
-    - VPC: VPC-ELB
-    - Seleccionamos SubRed-ELB-AZ-a y SubRed-ELB-AZ-c
+**Mapeo de red.**
+
+- VPC: VPC-ELB
+- Seleccionamos SubRed-ELB-AZ-a y SubRed-ELB-AZ-c
 
     ![](../AWS/ut6/elb5.png){ .ochocinco .marco }<br>
 
-1. Grupos de seguridad
-
-    - Creamos un grupo de seguridad para el balanceador de carga , asociamos un SG que permita HTTP (80) desde cualquier origen.
+!!! tip "2. Grupos de seguridad"
+Creamos un grupo de seguridad para el balanceador de carga , asociamos un SG que permita HTTP (80) desde cualquier origen.
   ![](../AWS/ut6/elb6.png){ .ochocinco .marco .margintop20 }<br>
   ![](../AWS/ut6/elb7.png){ .ochocinco .marco  }<br>
   ![](../AWS/ut6/elb8.png){ .ochocinco .marco  }<br>
 
-1. Agentes de escucha y direccionamiento  
+!!! tip "3. Agentes de escucha y direccionamiento"
 En este apartado configuraremos los puertos sobre los cuales el equilibrador de carga aceptará las conexiones entrantes y determinará a qué instancias se redirigirán.
 
-    - Protocolo: HTTP / 80
-    - Acción predeterminada: Reenviar el tráfico al grupo de destino (conjunto de instancias que recibirán las peticiones).  
-    Si todavía no disponemos de ningún grupo de destino creado, seleccionamos la opción “Agregar grupo de destino” y luego **Cree un grupo de destino** y lo configuramos antes de continuar.
+- Protocolo: HTTP / 80
+- Acción predeterminada: Reenviar el tráfico al grupo de destino (conjunto de instancias que recibirán las peticiones).  
+Si todavía no disponemos de ningún grupo de destino creado, seleccionamos la opción “Agregar grupo de destino” y luego **Cree un grupo de destino** y lo configuramos antes de continuar.
     ![](../AWS/ut6/elb9.png){ .cien .marco .margintop20 }<br>
     ![](../AWS/ut6/elb10.png){ .cien .marco }<br>
 
-    - Crear grupo de destino
+- Crear grupo de destino
     ![](../AWS/ut6/elb11.png){ .cien .marco .margintop20 }<br>
     ![](../AWS/ut6/elb12.png){ .cien .marco }<br>
 
-    - Revisamos los datos y creamos el grupo de destino
+- Revisamos los datos y creamos el grupo de destino
     ![](../AWS/ut6/elb13.png){ .cien .marco .margintop20 }<br>
 
-    - Finalizamos la creación del equilibrador de carga
-    ![](../AWS/ut6/elb14.png){ .cien .marco .margintop20 }<br>
+- Finalizamos la creación del equilibrador de carga
+![](../AWS/ut6/elb14.png){ .cien .marco .margintop20 }<br>
     ![](../AWS/ut6/elb15.png){ .cien .marco  }<br>
+
+#### **2.2.4 - Editar los atributos del equilibrador de carga**
+Una vez creado el equilibrador de carga, revisaremos y ajustaremos sus atributos para optimizar su funcionamiento. Estos atributos determinan el comportamiento del equilibrador de carga y la forma en que gestiona las peticiones de los usuarios.
+
+![](../AWS/ut6/elb16.png){ .cien .marco  }<br>
+
+Dentro de este apartado se pueden ajustar, entre otros, los siguientes parámetros:
+
+- **Tiempo de inactividad de conexión**  
+El tiempo de espera de la conexión inactiva es el período de tiempo que una conexión de cliente o de destino existente puede permanecer inactiva, sin que se envíen ni reciban datos, antes de que el equilibrador de carga cierre la conexión.
+
+- **Duración del valor keepalive del cliente HTTP**  
+La duración del valor keepalive del cliente HTTP es el tiempo máximo durante el que un Equilibrador de carga de aplicación mantiene una conexión HTTP persistente con un cliente. Una vez transcurrido el tiempo del valor keepalive del cliente HTTP configurado, el Equilibrador de carga de aplicación acepta una solicitud más y, a continuación, devuelve una respuesta que cierra la conexión sin problemas.
+
+- **Protección contra eliminación**  
+Para evitar que el equilibrador de carga se elimine por error, puede habilitar la protección contra eliminación. De forma predeterminada, la protección contra eliminación del equilibrador de carga está deshabilitada.
+
+- **Modo de mitigación de desincronización**  
+El modo de mitigación de desincronización protege a la aplicación de problemas causados por desincronización HTTP. El equilibrador de carga clasifica cada solicitud en función de su nivel de amenaza, permite solicitudes seguras y, además, mitiga el riesgo según lo especificado en el modo de mitigación que determine.
+
+- **Conservación del encabezado del host**  
+Cuando habilita el atributo Conservar encabezado de host, el Equilibrador de carga de aplicación conserva el encabezado Host de la solicitud HTTP y la envía a los destinos sin ninguna modificación. Si el Equilibrador de carga de aplicación recibe varios encabezados Host, los conserva todos. Las reglas de oyente se aplican solo al primer encabezado Host recibido.
+
+#### **2.2.5 - Comprobación del funcionamiento del equilibrador de carga**
+!!! tip "Acceso al equilibrador de carga"
+A diferencia de las instancias, el acceso al equilibrador de carga solo se puede realizar a través de su DNS.  
+**Nota:**  
+Aunque las instancias tienen IP pública, también es posible acceder a ellas tanto por IP como por DNS, pero este acceso se realiza directamente a la instancia, no a través del balanceador.
+
+![](../AWS/ut6/elb17.png){ .cien .marco  }<br>
+
+Si actualizamos repetidamente el navegador para acceder al recurso, observaremos que, en función del balanceo y de la latencia, la respuesta irá alternando entre una instancia y la otra. 
+
+![](../AWS/ut6/elb18.png){ .cincozero }<br>
+![](../AWS/ut6/elb19.png){ .cincozero }<br>
+
+
+
+
 <!--
 autoscaling
 https://www.youtube.com/watch?v=0mwgbiJae5Q -->
@@ -352,16 +393,21 @@ https://www.youtube.com/watch?v=0mwgbiJae5Q -->
 <!-- https://docs.aws.amazon.com/hands-on/latest/deploy-docker-containers/deploy-docker-containers.html -->
 <!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/Docker/CEFIRE/UD1/UD%2001.01%20-%20Introducci%C3%B3n%20a%20los%20contenedores%20y%20a%20Docker.pdf -->
 
-<!-- ### **2.3 - Auto Scaling** -->
-<!-- Auto Scaling permite adaptar la capacidad de cómputo de la infraestructura a la demanda real del sistema.  
+### **2.3 - Auto Scaling** 
+Auto Scaling permite adaptar la capacidad de cómputo de la infraestructura a la demanda real del sistema.  
 AWS ofrece dos enfoques principales:
 
 | Tipo                 |Descripción  |
 | - | - |
 | **EC2 Auto Scaling** | Escalado automático exclusivo de instancias EC2 mediante Auto Scaling Groups (ASG)        |
-| **AWS Auto Scaling** | Escalado automático de múltiples recursos además de EC2, como DynamoDB, Aurora, ECS, etc. | -->
+| **AWS Auto Scaling** | Escalado automático de múltiples recursos además de EC2, como DynamoDB, Aurora, ECS, etc. | 
 
+**Recursos no disponibles con LabRole.**
 
+### **2.4 - Contenedores, Elastic Container Service (ECS) en AWS** 
+<!-- https://www.youtube.com/watch?v=86Ys0LnMSnY -->
+
+### **2.5 - ECS + ELB en AWS** 
 <!-- https://docs.aws.amazon.com/es_es/autoscaling/ec2/userguide/tutorial-ec2-auto-scaling-load-balancer.html -->
 
 <!-- bbdd
@@ -427,6 +473,7 @@ https://www.youtube.com/watch?v=TRLK6ZNpjB8
 
 https://www.youtube.com/watch?v=DSkO0ZJ8PxA
 
+https://aws.amazon.com/es/products/storage/ 
 
 
 https://www.youtube.com/watch?v=lTUUJBa1dp4&list=PLDbrnXa6SAzV0J3Un9jRnbbFpuQH-_y-C&index=11
@@ -435,10 +482,10 @@ https://www.youtube.com/watch?v=iAYYssYrGms
 
 https://www.youtube.com/watch?v=CGmTvukObOw -->
 
-<!-- 
+ 
 ## **Enlaces de interés**
 Documentación de [AWS](https://docs.aws.amazon.com)  
-[Elastic Load Balancing](https://docs.aws.amazon.com/es_es/elasticloadbalancing/latest/userguide/what-is-load-balancing.html)
+[Elastic Load Balancing](https://docs.aws.amazon.com/es_es/elasticloadbalancing/latest/userguide/what-is-load-balancing.html)  
+[Atributos del Elastic Load Balancing](https://docs.aws.amazon.com/es_es/elasticloadbalancing/latest/application/edit-load-balancer-attributes.html)  
 [VPC peering](https://docs.aws.amazon.com/es_es/vpc/latest/peering/what-is-vpc-peering.html)  
 [Transit Gateway](https://aws.amazon.com/es/transit-gateway/)  
-https://aws.amazon.com/es/products/storage/ -->
