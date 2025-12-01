@@ -1063,7 +1063,7 @@ Commo ya hemos visto en el tema sobre libreOffice writer, una macro es una secue
     O  
     Población → Valencia  
     Y  
-    Ahorros → >= 60000
+    Ahorros → >= 60000  
     Y que además guarde el resultado de la consulta en la hoja 7 
 
 !!! exercise "Filtro avanzado"
