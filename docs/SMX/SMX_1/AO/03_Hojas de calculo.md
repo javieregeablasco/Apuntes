@@ -1083,7 +1083,7 @@ Commo ya hemos visto en el tema sobre libreOffice writer, una macro es una secue
     **Filtro avanzado 2/2**
 
     1. Copiar y pegar (o duplicar hoja) los datos de la hoja 1 en la hoja 9.
-    1. Elaborar un filtro que extraiga los datos de personas con las siguientes características:
+    1. Elaborar un filtro que extraiga los datos de personas con las siguientes características:  
     Población → Zaragoza  
     Sexo → Hombre  
     Ingresos mensuales → > 1500     
