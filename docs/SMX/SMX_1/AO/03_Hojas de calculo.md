@@ -1035,11 +1035,11 @@ Commo ya hemos visto en el tema sobre libreOffice writer, una macro es una secue
 
     1. Copiar y pegar (o duplicar hoja) los datos de la hoja 1 en la hoja 4.
     1. Elaborar un filtro que extraiga los datos de personas con las siguientes características:  
-    Población → Barcelona 
-    Y 
-    Sexo → Hombre
-    Y
-    Móvil → Vacío  
+    Población → Barcelona   
+    Y  
+    Sexo → Hombre  
+    Y  
+    Móvil → Vacío    
     **Solución**   
     ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3-ceg-1-4.png){ .leftcincocinco .margintopbottom10}<br>
 

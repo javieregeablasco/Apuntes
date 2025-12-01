@@ -630,6 +630,7 @@ Tkinter dispone de tres gestores de geometría: **pack()**, **grid()** y **place
 | `place()` | Coloca los widgets en una posición exacta mediante coordenadas x/y.                       | Interfaces con diseño absoluto (menos habitual).        |
 
 #### **2.3.2.1 – Método pack**
+<!-- https://guia-tkinter.readthedocs.io/es/develop/chapters/6-widgets/6.1-Intro.html#botones-button -->
 
 
 <!-- 
