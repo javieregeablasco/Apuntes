@@ -558,15 +558,87 @@ ventana.configure(relief="ridge", bd=5)  # Aplica un borde en relieve
 
 
 
-### **2.3 - Métodos y atributos de los frames**
+### **2.3 - Métodos y atributos de Frame**
+Los Frame son widgets contenedores usados para organizar y agrupar otros widgets dentro de una ventana o de otro frame.  
+Se crean mediante el constructor: Frame(master, **options).  
+Los options permiten configuraciones como color, tamaño, bordes, etc.  
+La colocación del Frame dentro del elemento contenedor se realiza usando uno de los gestores de geometría de Tkinter: pack(), grid() o place(), que determinan su posición y su tamaño dentro del widget padre (por ejemplo, la ventana raíz).  
+
+**Ejemplo básico**  
+```py
+from tkinter import *
+
+# Crear la ventana principal
+ventana = Tk()
+ventana.title("Ejemplo de Frame")
+
+# Crear un frame dentro de la ventana principal
+frame = Frame(ventana)
+frame.config(width=480, height=320, bg="lightblue")
+frame.pack()
+
+# Iniciar el bucle principal de Tkinter
+ventana.mainloop()
+```
+<br>
+
+#### **2.3.1 - Atributos de Frame**
+Los Frame comparten con root (Tk) el método .config(), que permite definir los atributos del widget, como el color, tamaño, borde y otras opciones visuales.
+
+**Nota:**  
+La posición del frame dentro del widget contenedor no se establece con .config(), sino mediante un gestor de geometría (pack(), grid() o place()).  
+
+**Ejemplo básico**
+```py
+from tkinter import *
+# Crear la ventana principal
+ventana = Tk()
+ventana.title("Ejemplo de Frame")
+
+# Configurar la ventana principal
+ventana.geometry("400x300+500+500")
+ventana.config(bg="blue")          # color de fondo, background
+ventana.config(cursor="pirate")    # tipo de cursor (arrow defecto)
+ventana.config(relief="sunken")    # relieve del root 
+ventana.config(bd=25)              # tamaño del borde en píxeles
+
+# Crear un frame dentro de la ventana principal
+frame = Frame(ventana)
+
+# Configurar el frame
+frame.config(width=400, height=300)
+frame.config(cursor="")         # Tipo de cursor
+frame.config(relief="sunken")   # relieve del frame hundido
+frame.config(bd=25)             # tamaño del borde en píxeles
+
+# Empaquetar el frame dentro de ventana
+frame.pack()
+
+# Iniciar el bucle principal de Tkinter
+ventana.mainloop()
+```
+<br>
+
+#### **2.3.2 – Métodos de gestión geométrica de los Frame**
+Los Frame, al igual que cualquier widget, no se posicionan por sí mismos, sino que deben colocarse dentro de su contenedor mediante un gestor de geometría.
+Tkinter dispone de tres gestores de geometría: **pack()**, **grid()** y **place()**. Solo se debe utilizarse uno de ellos por cada contenedor (no se pueden combinar).
+
+| Gestor    | Características                                                                           | Cuándo usarlo                                           |
+| --------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------- |
+| `pack()`  | Coloca los widgets en bloques, uno después del otro (arriba, abajo, izquierda o derecha). | Interfaces sencillas y disposición vertical/horizontal. |
+| `grid()`  | Organiza los widgets en una tabla de filas y columnas.                                    | Formularios o interfaces alineadas.                     |
+| `place()` | Coloca los widgets en una posición exacta mediante coordenadas x/y.                       | Interfaces con diseño absoluto (menos habitual).        |
+
+#### **2.3.2.1 – Método pack**
 
 
-<!-- packer options -->
 <!-- 
-### **2.7 - Atributos del método .pack() de la clase Frame.** -->
+### **2.7 - Atributos del método .pack() de la clase Frame.** 
+
+https://recursospython.com/guias-y-manuales/posicionar-elementos-en-tkinter/-->
 <!-- https://adictosaltrabajo.com/2020/06/30/interfaces-graficas-en-python-con-tkinter/#1 -->
 <!-- ### **2.8 - Atributos del método .pack() de la clase Frame.** -->
-
+<!-- https://hektorprofe.github.io/python/interfaces-graficas-con-tkinter/widget-frame-marco/ -->
 
 <!-- https://adictosaltrabajo.com/2020/06/30/interfaces-graficas-en-python-con-tkinter/ -->
 <!-- https://tkdocs.com/shipman/ -->
