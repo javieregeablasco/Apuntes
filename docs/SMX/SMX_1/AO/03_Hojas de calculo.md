@@ -1126,7 +1126,7 @@ Commo ya hemos visto en el tema sobre libreOffice writer, una macro es una secue
     1. Copiar y pegar (o duplicar hoja) los datos de la hoja 1 en la hoja 13.
     1. Seleccionar la columna con los datos de **Hijos**
     1. Configurar el validador con las siguientes condiciones:  
-    Entero, no permitir celdas vacías, mayor que o igual a 0, mínimo 0. 
+    Entero, no permitir celdas vacías, mayor que o igual a 0, mínimo 0.  
     Ayuda de entrada, mostrar ayuda de entrada, título "Ayuda de entrada", Texto de la ayuda de entrada "Introducir un valor entero superior o igual a 0.".      
     Aviso de error, título "Error de entrada", Texto del mensaje de error "Debe introducir un valor entero superior o  igual a 0.".      
 
