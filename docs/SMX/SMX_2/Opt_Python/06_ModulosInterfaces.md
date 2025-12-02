@@ -661,6 +661,7 @@ Tkinter dispone de tres gestores de geometría: **pack()**, **grid()** y **place
 | `place()` | Coloca los widgets en una posición exacta mediante coordenadas x/y.                       | Interfaces con diseño absoluto (menos habitual).        |
 
 <br>
+
 #### **2.3.2.1 – Método pack**
 El gestor de geometría `pack()` organiza los marcos (y los widgets) de una manera simple y rápida.
 
@@ -679,6 +680,7 @@ El gestor de geometría `pack()` organiza los marcos (y los widgets) de una mane
 | `in_`     | Indica un contenedor alternativo donde empacar el widget    | Referencia a otro contenedor (por ejemplo `frame2`)   |
 
 <br>
+
 #### **2.3.2.2 – Ejemplos**
 
 **Ejemplo 1:**  
@@ -747,6 +749,41 @@ root.mainloop()
 <br>
 
 #### **2.3.2.3 – Ejercicios**
+
+!!! exercise "Ejercicio 1"
+    Crear una ventana y 3 frames con los siguientes requisitos:
+
+    | Propiedad                             | Valor                                       |
+    | ------------------------------------- | ------------------------------------------- |
+    | Título                                | `Ejercicio 1`                       |
+    | Frame 1                       | bg= rojo    |
+    | Frame 2                       | bg= verde    |
+    | Frame 3                       | bg= azul    |
+    | Colocación de los frames                                 | Uno encima del otro                  |
+    | Medidas ventana y frames                      | Libre elección                            |
+   
+!!! exercise "Ejercicio 2"
+    Crear una ventana y 3 frames con los siguientes requisitos:
+
+     | Propiedad                             | Valor                                       |
+    | ------------------------------------- | ------------------------------------------- |
+    | Título                                | `Ejercicio 2`                       |
+    | Frame 1                       | bg= amarillo    |
+    | Frame 2                       | bg= naranja    |
+    | Frame 3                       | bg= violeta    |
+    | Colocación de los frames                                 | Uno al lado del otro  |
+    | Medidas ventana y frames                      | Libre elección                            |
+
+
+!!! exercise "Ejercicio 3"
+    Crear una ventana y 3 frames con los siguientes requisitos:
+
+     | Propiedad                             | Valor                                       |
+    | ------------------------------------- | ------------------------------------------- |
+    | Título                                | `Ejercicio 3`                       |
+    | 1 frame superior y otro inferior      | bg= amarillo / naranja               |
+    | Dentro del frame inferior posicionar 2 frames, uno al lado del otro    | bg= verde / rojo         |
+    | Añadir márgenes a los frames interiores. |         |
 
 <br>
 
