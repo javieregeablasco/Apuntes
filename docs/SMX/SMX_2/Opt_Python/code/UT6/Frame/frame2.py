@@ -15,9 +15,12 @@ frame = Frame(ventana)
 
 # Configurar el frame
 frame.config(width=400, height=300)
-frame.config(cursor="")         # Tipo de cursor
+frame.config(cursor="mouse")         # Tipo de cursor
 frame.config(relief="sunken")   # relieve del frame hundido
 frame.config(bd=25)             # tamaño del borde en píxeles
+# frame.config(highlightthickness=5)
+# frame.config(highlightbackground="red")
+# frame.config(highlightcolor="green")
 
 # Empaquetar el frame dentro de ventana
 frame.pack()

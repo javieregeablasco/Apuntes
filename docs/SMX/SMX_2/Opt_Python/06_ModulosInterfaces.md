@@ -263,17 +263,22 @@ import calculadora
 ... # Código
 importlib.reload(calculadora) # Forzar recarga del módulo (práctica poco recomendable)
 ```
-<br>
 
+---
 ## **2 - Interfaces gráficas en Python**
-Existen varios módulos para crear interfaces gráficas en Python (Tkinter, WxPython, PyQT, PyGTK). El más utilizado y que viene incluido en la librería estándar es **tkinter**.
+Existen varios módulos para crear interfaces gráficas en Python (Tkinter, WxPython, PyQT, PyGTK). El más utilizado y que viene incluido en la librería estándar es **tkinter**.  
 **Tkinter** no es un **motor gráfico**: actúa como capa de enlace (wrapper) y permite a los programas en Python utilizar **la biblioteca gráfica Tcl/Tk**.  
 
-Toda la información sobre Tkinter está disponible en la documentación oficial:  
-Documentación oficial de [**Tkinter**](https://docs.python.org/es/3/library/tk.html)
-Github de [**Tedboy**](https://tedboy.github.io/python_stdlib/generated/generated/Tkinter.Wm.html)
+<u>Toda la información sobre Tkinter está disponible en la documentación oficial:</u>  
+
+- Documentación oficial de [**Tkinter**](https://docs.python.org/es/3.14/library/tkinter.html#module-tkinter)  
+- Documentación obsoleta de [**Tkinter**](https://docs.python.org/es/3.6/library/tk.html)  
+- Github de [**Tedboy**](https://tedboy.github.io/python_stdlib/generated/generated/Tkinter.Wm.html)  
+- Guía de referencia de [**shipman**](https://tkdocs.com/shipman/)  
 
 ### **2.1 - Estructura de ventana con Tkinter**
+La estructura de una interfaz en Tkinter parte de la ventana raíz (Root), que actúa como contenedor principal. Dentro de ella pueden añadirse marcos (Frames) para organizar la distribución visual y, sobre ellos, se colocan los widgets que proporcionan la interactividad con el usuario.
+
 ![](../Opt_Python/img/UT6/tk1.png){.trescinco}
 
 Para crear una ventana básica con Tkinter, deberemos seguir los siguientes pasos:
@@ -453,7 +458,7 @@ A través de sus métodos y atributos es posible controlar su apariencia, su com
 
 <br>
 
-#### **2.2.1 - Método, ventana.atributes()**
+#### **2.2.1 - Método atributes()**
 El método ventana.attributes() permite consultar y modificar ciertos atributos especiales de la ventana principal relacionados con su apariencia y su comportamiento.
 Si hacemos un print(ventana.attributes()) veremos algo similar a lo siguiente:
 ```py
@@ -462,6 +467,8 @@ print(ventana.attributes())
 ```
 
 Cada par de valores representa un atributo junto con su estado actual.  
+
+**Atributos**
 
 | Atributo            | Función                                                                      |
 | ------------------- | ---------------------------------------------------------------------------- |
@@ -485,7 +492,7 @@ ventana.attributes("-transparentcolor", "blue")   # Si el bg de la venta es azul
 ```
 <br>
 
-#### **2.2.2 - Método, ventana.config()**
+#### **2.2.2 - Método config()**
 El método ventana.config() (ventana.configure()) permite modificar los parámetros generales de la ventana principal, principalmente los relacionados con su apariencia visual y su comportamiento básico. Este método se utiliza para ajustar propiedades como el color de fondo, tamaño de fuente por defecto, bordes y otros atributos habituales de los widgets en tkinter.
 
 La sintaxis general es:
@@ -559,10 +566,11 @@ ventana.configure(relief="ridge", bd=5)  # Aplica un borde en relieve
 
 
 ### **2.3 - Métodos y atributos de Frame**
-Los Frame son widgets contenedores usados para organizar y agrupar otros widgets dentro de una ventana o de otro frame.  
-Se crean mediante el constructor: Frame(master, **options).  
-Los options permiten configuraciones como color, tamaño, bordes, etc.  
-La colocación del Frame dentro del elemento contenedor se realiza usando uno de los gestores de geometría de Tkinter: pack(), grid() o place(), que determinan su posición y su tamaño dentro del widget padre (por ejemplo, la ventana raíz).  
+
+- Los Frame son widgets contenedores usados para organizar y agrupar otros widgets dentro de una ventana o de otro frame.  
+- Se crean mediante el constructor: Frame(master, **options).  
+- Las optiones permiten definir configuraciones como color, tamaño, bordes, etc.  
+- La colocación del Frame dentro del elemento contenedor se realiza usando uno de los gestores de geometría de Tkinter: pack(), grid() o place(), que determinan su posición y su tamaño dentro del widget padre (por ejemplo, la ventana raíz).  
 
 **Ejemplo básico**  
 ```py
@@ -587,6 +595,29 @@ Los Frame comparten con root (Tk) el método .config(), que permite definir los 
 
 **Nota:**  
 La posición del frame dentro del widget contenedor no se establece con .config(), sino mediante un gestor de geometría (pack(), grid() o place()).  
+
+**Atributos más habituales**
+
+| Atributo              | Descripción                                   | Tipo / Valores / Ejemplo                                        |
+| --------------------- | --------------------------------------------- | ------------------------------------------------------ |
+| `master`              | El widget padre donde se colocará el frame.          | frame = tk.Frame(ventana). Puede ser la ventana principal (`ventana`) o incluso otro `Frame`. |
+| `bg` / `background`   | Establece el color de fondo del frame.        | Nombre de color o código hexadecimal (`lightblue` / `#1E90FF`)   |
+| `bd` / `borderwidth`  | Ancho del borde del frame                     | Entero (px), por defecto es 0 (no tiene borde).        |
+| `relief`              | Estilo del borde                              | `flat` (predeterminado), `raised`, `sunken`, `groove`, `ridge`, `solid` |
+| `width`               | Anchura del frame                             | Entero (px)                                            |
+| `height`              | Altura del frame                              | Entero (px)                                            |
+| `cursor`              | Tipo de cursor cuando pasa el ratón           | `"arrow"`, `"hand2"`, `"cross"`, `"pirate"`, `"no"`, etc.     |
+| `highlightbackground` | Color del borde cuando no tiene foco          | Color                                                  |
+| `highlightcolor`      | Color del borde cuando tiene foco             | Color                                                  |
+| `highlightthickness`  | Grosor del borde de foco                      | Entero (px)                                            |
+| `padx`                | Relleno extra horizontal dentro del frame     | Entero (px)                                            |
+| `pady`                | Relleno extra vertical dentro del frame       | Entero (px)                                            |
+| `takefocus`           | Permite recibir foco con Tab                  | `True`, `False`                                        |
+| `class_`              | Nombre de clase de ventana para temas/estilos | Cadena                                                 |
+| `colormap`            | Mapa de color para manejo de paleta           | `None` (normalmente no se usa)                         |
+
+
+
 
 **Ejemplo básico**
 ```py
@@ -629,31 +660,186 @@ Tkinter dispone de tres gestores de geometría: **pack()**, **grid()** y **place
 | `grid()`  | Organiza los widgets en una tabla de filas y columnas.                                    | Formularios o interfaces alineadas.                     |
 | `place()` | Coloca los widgets en una posición exacta mediante coordenadas x/y.                       | Interfaces con diseño absoluto (menos habitual).        |
 
+<br>
 #### **2.3.2.1 – Método pack**
+El gestor de geometría `pack()` organiza los marcos (y los widgets) de una manera simple y rápida.
+
+| Atributo | Función | Valores permitidos |
+| --------- | --------| ------------------ |
+| `side`    | Indica en qué lado del contenedor se colocará el widget | `"top"` (por defecto), `"bottom"`, `"left"`, `"right"` |
+| `fill`    | Indica si el widget debe expandirse para ocupar más espacio     | `"none"` (por defecto), `"x"`, `"y"`, `"both"` |
+| `expand`  | Permite que el widget ocupe espacio adicional dentro del contenedor cuando este se expande | `True` / `False`    |
+| `anchor`  | Alinea el widget dentro del espacio asignado   | `"n"`, `"s"`, `"e"`, `"w"`, `"ne"`, `"nw"`, `"se"`, `"sw"`, `"center"` |
+| `padx`    | Relleno (margen) horizontal externo alrededor del widget       | Entero o tupla `(izq, der)`   |
+| `pady`    | Relleno (margen) vertical externo alrededor del widget         | Entero o tupla `(arriba, abajo)`  |
+| `ipadx`   | Relleno interno horizontal (espacio dentro del widget)      | Entero    |
+| `ipady`   | Relleno interno vertical (espacio dentro del widget)        | Entero   |
+| `before`  | Coloca el widget antes de otro widget ya empaquetado     | Referencia a otro widget       |
+| `after`   | Coloca el widget después de otro widget ya empaquetado      | Referencia a otro          |
+| `in_`     | Indica un contenedor alternativo donde empacar el widget    | Referencia a otro contenedor (por ejemplo `frame2`)   |
+
+<br>
+#### **2.3.2.2 – Ejemplos**
+
+**Ejemplo 1:**  
+El programa crea 2 marcos. El marco_1 utilizará todo el espacio disponible en x mientras que el marco_2 lo hará en el sentido vertical. 
+```py 
+from tkinter import *
+
+root = Tk()
+root.title("Ejemplo 1")
+root.geometry("300x200+500+400")
+
+marco_1 = Frame(root, bg="blue", width=300, height=100)
+marco_1.pack(fill="x")
+
+marco_2 = Frame(root, bg="gray", height=100, width=100)
+marco_2.pack(expand=True, fill="y", anchor=CENTER)
+
+root.mainloop()
+```
+
+**Ejemplo 2:**  
+El programa crea 3 marcos de 130x200 píxeles, colocados pegados a la izquierda. Con `expand=True` y `fill="both"` ocuparán todo el espacio disponible del contenedor, ajustándose al redimensionar la ventana.   
+```py
+from tkinter import *
+
+root = Tk()
+root.title("Ejemplo 2")
+
+marco1 = Frame(root, bg="red", width=130, height=200)
+marco1.pack(side="left", expand=True, fill="both", padx=5, pady=5)
+marco2 = Frame(root, bg="green", width=130, height=200)
+marco2.pack(side="left", expand=True, fill="both", padx=5, pady=5)
+marco3 = Frame(root, bg="blue", width=130, height=200)
+marco3.pack(side="left", expand=True, fill="both", padx=5, pady=5)
+
+root.mainloop()
+```
+
+**Ejemplo 3:**  
+El programa crea 4 marcos. Cada marco seguirá una orientación una orientación diferente dentro de su espacio disponible.   
+
+```py
+from tkinter import *
+root = Tk()
+root.title("Ejemplo 3")
+root.geometry("400x400+500+200")
+
+# Frame NW 
+marco_4 = Frame(root, bg="yellow", width=400, height=100)
+marco_4.pack(anchor=NW)
+
+# Frame SE
+marco_1 = Frame(root, bg="red", width=400, height=100)
+marco_1.pack(anchor=SE, expand=True)
+
+# Frame SW
+marco_2 = Frame(root, bg="blue", width=400, height=100)
+marco_2.pack(anchor=SW, expand=True)
+
+# Frame SE
+marco_3 = Frame(root, bg="green", width=400, height=100)
+marco_3.pack(anchor=SE, expand=True)
+
+root.mainloop()
+```
+<br>
+
+#### **2.3.2.3 – Ejercicios**
+
+<br>
+
+#### **2.3.2.4 – Método grid**
+Mientras que **pack()** organiza los widgets en bloques (arriba, abajo, izquierda o derecha), lo que puede dificultar la previsión de su posición exacta, **el gestor de geometría grid()** permite ubicarlos en filas y columnas, lo que resulta mucho más intuitivo para diseñar la interfaz gráfica.
+
+![Descripción de la imagen](../Opt_Python/img/UT6/grid-layout-tkinter.png){ .cincozero }
+
+| Atributo        | Función                               |
+| ---------------- | ------------------------------------- |
+| `row`, `column`   | Fila y columna donde se ubica el widget  |
+| `columnspan`, `rowspan` | Especifica cuantas columnas y varias filas ocupa el widget |
+| `padx`, `pady`   | Espacio (en píxeles) exterior (margin / margen)             |
+| `ipadx`, `ipady` | Espacio (en píxeles) interior (padding / relleno del widget) |
+| `sticky`         | Alineación dentro de la celda (`S`, `N`, `E`, `W`, `NW`, `NE`, `SW` y `SE`) |
+
+**Nota:**  
+
+- Si no se define `sticky`, el comportamiento por defecto del widget será centrarse dentro de la celda. 
+- Si pasamos `WENS` a `sticky`, el widget ocupará toda la celda. 
+
+**Ejemplo:**
+```py
+from tkinter import *
+root = Tk()
+root.title("Ejemplo de grid")
+root.geometry("600x400+500+200")
+
+ventana1 = Frame(root, bg="yellow", height=200, width=300)
+ventana1.grid(row=0, column=0, columnspan=3, sticky=NSEW)
+
+ventana2 = Frame(root, bg="red", height=200, width=200)
+ventana2.grid(row=0, column=3, columnspan=2, sticky=NSEW)
+
+ventana3 = Frame(root, bg="blue", height=200, width=600)
+ventana3.grid(row=1, column=0, columnspan=6, sticky=NSEW)
+
+root.mainloop()
+```
+
+<br>
+#### **2.3.2.5 – Método place**
+
+- El gestor de geometría **place()** permite tener un control absoluto sobre la disposición de los widgets. Con place(), se puede especificar el tamaño del widget, así como las coordenadas (x, y) para organizarlo dentro de la ventana principal.  
+- **place()** es particularmente útil para organizar botones u otros widgets en una ventana de diálogo sencilla.
+
+| Atributo     | Tipo            | Función / Descripción                                                                                | Ejemplo                                                                              |
+| ------------ | --------------- | ---------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| `x`          | int             | Posición horizontal en píxeles desde la esquina izquierda del contenedor                             | `place(x=50)`                                                                        |
+| `y`          | int             | Posición vertical en píxeles desde la esquina superior del contenedor                                | `place(y=100)`                                                                       |
+| `width`      | int             | Ancho fijo del widget en píxeles                                                                     | `place(width=200)`                                                                   |
+| `height`     | int             | Alto fijo del widget en píxeles                                                                      | `place(height=150)`                                                                  |
+| `relx`       | float (0.0-1.0) | Posición horizontal relativa al ancho del contenedor                                                 | `place(relx=0.5)` → 50% desde la izquierda                                           |
+| `rely`       | float (0.0-1.0) | Posición vertical relativa al alto del contenedor                                                    | `place(rely=0.25)` → 25% desde arriba                                                |
+| `relwidth`   | float (0.0-1.0) | Ancho relativo al ancho del contenedor                                                               | `place(relwidth=0.5)` → 50% del ancho                                                |
+| `relheight`  | float (0.0-1.0) | Alto relativo al alto del contenedor                                                                 | `place(relheight=0.3)` → 30% del alto                                                |
+| `anchor`     | str             | Punto de referencia del widget para ubicarlo (`n`, `s`, `e`, `w`, `center`, combinaciones como `ne`) | `place(relx=0.5, rely=0.5, anchor="center")` coloca el centro del widget en el medio |
+| `bordermode` | str             | Define si `x`/`y` se calculan desde el borde interno (`INSIDE`) o externo (`OUTSIDE`) del contenedor | `place(bordermode=OUTSIDE)`                                                          |
+
+**Ejemplo**
+
+```py
+from tkinter import *
+root = Tk()
+root.title("Ejemplo con place")
+root.geometry("600x400+500+200")
+
+ventana1 = Frame(root, bg="yellow")
+ventana1.place(relx=0, rely=0, relwidth=0.5, relheight=0.5)
+
+ventana2 = Frame(root, bg="red")
+ventana2.place(relx=0.5, rely=0, relwidth=0.5, relheight=0.5)
+
+ventana3 = Frame(root, bg="blue")
+ventana3.place(relx=0, rely=0.5, relwidth=1, relheight=0.5)
+
+root.mainloop()
+```
+
+<br>
+
+#### **2.3.2.6 – Ejercicios**
+
+### **2.4 - Widgets**
+<!-- https://www.pythonguis.com/tutorials/tkinter-radiobutton-and-checkbutton/ -->
+
 <!-- https://guia-tkinter.readthedocs.io/es/develop/chapters/6-widgets/6.1-Intro.html#botones-button -->
 
+<!-- https://www.youtube.com/watch?v=nZF9SwhmPRo&list=PLU8oAlHdN5BlvPxziopYZRd55pdqFwkeS&index=50 -->
 
-<!-- 
-### **2.7 - Atributos del método .pack() de la clase Frame.** 
-
-https://recursospython.com/guias-y-manuales/posicionar-elementos-en-tkinter/-->
-<!-- https://adictosaltrabajo.com/2020/06/30/interfaces-graficas-en-python-con-tkinter/#1 -->
-<!-- ### **2.8 - Atributos del método .pack() de la clase Frame.** -->
+<!-- https://recursospython.com/guias-y-manuales/posicionar-elementos-en-tkinter/-->
+ 
 <!-- https://hektorprofe.github.io/python/interfaces-graficas-con-tkinter/widget-frame-marco/ -->
-
-<!-- https://adictosaltrabajo.com/2020/06/30/interfaces-graficas-en-python-con-tkinter/ -->
-<!-- https://tkdocs.com/shipman/ -->
-
-<!-- https://sendfox.com/lp/m2k2vd -->
-
-<!-- 
-https://keepcoding.io/blog/creando-una-aplicacion-grafica-en-python/
-
-https://adictosaltrabajo.com/2020/06/30/interfaces-graficas-en-python-con-tkinter/
-https://anzeljg.github.io/rin2/book2/2405/docs/tkinter/grid.html -->
-
-<!-- https://www.youtube.com/watch?v=hTUJC8HsC2I&list=PLU8oAlHdN5BlvPxziopYZRd55pdqFwkeS&index=46 -->
-
 
 <!-- https://www.pythonguis.com/tutorials/create-gui-tkinter/ -->
 

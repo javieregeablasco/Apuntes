@@ -1,6 +1,8 @@
 # ejercicio 1 
 
 # import tkinter as tk
+from tkinter import *
+ventana=Tk()
 
 # ventana = tk.Tk()
 # ventana.title("Práctica 1")
@@ -10,6 +12,24 @@
 # ventana.attributes("-alpha", 0.9)
 
 # ventana.mainloop()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # ejercicio 2
 # import tkinter as tk
