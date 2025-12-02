@@ -178,6 +178,8 @@ No conectamos a la instancia 1 (por consola o por SSH) y vemos al hacer ping, qu
 ### **1.4 - Tarea RA3-CEd**
 Monta el siguiente escenario:
 
+![](../AWS/ut6/RA3-CEd.png){ .sietecinco }<br>
+
 - Se trabajará en 2 regiones distintas (us-east-1 / N-Virginia y us-west-2 / Oregón). 
 - En cada región estarán ubicadas dos VPCs con sus correspondientes subredes interconectadas por un Transit Gateway. 
 - Para interconectar las regiones usaremos un peer connection pero no desde **Interconexiones** sino desde **Conexiones de gateway de tránsito**. 
@@ -191,7 +193,6 @@ Monta el siguiente escenario:
 - Conectarse a la instancia 1 y realizar capturas de pings al resto de instancias (1 captura + 3 pings). 
 - Realizar capturas de la propagación y pings con éxito a todas las instancias del escenario (3 capturas de 3 pings cada una).
 
-![](../AWS/ut6/RA3-CEd.png){ .sietecinco }<br>
 
 ## **2 - Equilibrado y escalado de infraestructuras**
 ### **2.1 - Introducción**
