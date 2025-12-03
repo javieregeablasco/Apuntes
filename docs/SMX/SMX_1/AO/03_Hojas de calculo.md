@@ -1163,47 +1163,173 @@ Commo ya hemos visto en el tema sobre libreOffice writer, una macro es una secue
     
 
 
-
-<!-- https://www.youtube.com/watch?v=P_HvrSM1NJE -->
-<!--    ancho optimo
-    filtro automático
-        min 8:53 aplicar filtros 
-
-    filtro estándar
-        min 12:11
-        13:30 COPIiar datos a otra hoja.
-
-    filtro avanzado
-        min 16:45
-
-    datos ordenados
-        min 23:06
-
-    validar 
-        min 24:50
-        min 28:00 intervalo de celdas o lista
-    
-    proteccion de datos
-        min 29:00    30:30
-
--->
-
-<!-- cuadro dialogos
-
-
-
--->
-
-<!-- https://www.youtube.com/watch?v=ijj5z8UJKNo -->
-<!-- https://www.youtube.com/watch?v=KH42t9oNvII -->
-<!-- https://documentation.libreoffice.org/assets/Uploads/Documentation/es/CG62/PDF/CG6213-CalcComoBaseDeDatosSimple.pdf -->
-
 ### **Tarea RA3-CEg-2 - Creación de un cuadro de diálogo**
+En esta tarea, haremos un cuadro de dialogo (parecido al de la siguiente imagen), que nos permitirá mediante una macro, introducir datos en una tabla.
+
+![Descripción de la imagen](./03_hojas_de_calculo/img/ra3-ceg-2-0.png){ .treszero }
+<br>
+
+!!! task "Macro"
+    1. Abrir el cuadro de diálogo y pulsar sobre el icono de la derecha para copiar el contenido de la macro.  
+    ??? info "Macro: InsertarDatosDesdeDialogo"
+        ```basic
+        REM  *****  BASIC  *****
+        Sub InsertarDatosDesdeDialogo
+            Dim oDialog As Object
+            Dim oCampo1 As Object, oCampo2 As Object, oCampo3 As Object
+            Dim valor1 As String, valor2 As String, valor3 As String
+            Dim oDoc As Object, oHoja As Object
+            Dim filaLibre As Long
+            Dim cursor As Object
+
+            ' Cargar el cuadro de dialogo
+            oDialog = CreateUnoDialog(ThisComponent.DialogLibraries.Standard.Dialogos)
+
+            ' Cargar controles 
+            oCampo1 = oDialog.getControl("Texto1")
+            oCampo2 = oDialog.getControl("Texto2")
+            oCampo3 = oDialog.getControl("Texto3")
+
+            ' Mostrar el diálogo y procesar si se pulsa Aceptar (Execute = 1)
+            If oDialog.Execute() = 1 Then
+                ' poner valores introducidos en variablas
+                valor1 = oCampo1.Text
+                valor2 = oCampo2.Text
+                valor3 = oCampo3.Text
+
+        		' Cargamos el documento
+        		oDoc = ThisComponent
+
+                ' Vamos a la hoja 2
+                oHoja = oDoc.Sheets.getByName("Hoja2")
+
+                ' Buscar primera fila vacía (si la hoja está vacía, EndDown se queda en A1, por eso +0/1)
+        		cursor = oHoja.createCursorByRange(oHoja.getCellRangeByName("A1"))
+        		cursor.gotoEndOfUsedArea(True)
+
+        		if cursor.RangeAddress.EndRow = 0 AND oHoja.getCellByPosition(0,0).String = "" Then
+            		filaLibre = 0   ' La hoja está completamente vacía
+        		Else
+            		filaLibre = cursor.RangeAddress.EndRow + 1
+        		End If
+
+        		'Escribir valores
+                oHoja.getCellByPosition(0, filaLibre).String = valor1
+                oHoja.getCellByPosition(1, filaLibre).String = valor2
+                oHoja.getCellByPosition(2, filaLibre).String = valor3
+            End If
+
+            Exit Sub
+
+        End Sub
+        ```
+
+    1. Ir a **Macros** → **Editar macros**.  
+    Una vez abierta la ventana ir a **Mis macros y diálogos** → **Standard** → **macro**.  
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3-ceg-2-1.png){ .leftsietecero .margintopbottom10}<br>
+
+    1. Una vez la ruta seleccionada, **pegar la macro en el campo de la derecha**. Si todo ha ido bien, veréis que la macro "InsertarDatosDesdeDialogo" ya está disponible para su uso.   
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3-ceg-2-2.png){ .leftsietecero .margintopbottom10}<br>
+    **Nota:** Como se puede ver la macro se ha guardado en los directorios de **LibreOffice**, no de vuestro documento.
+
+    1. Guardamos cerramos la ventana y volvemos al documento que tenemos abierto.
+
+!!! task "Creación del Cuadro de diálogo 1/2"
+    1. Asegurarse de tener 2 hojas creadas (Hoja1 y Hoja2) en eñ documento que tenéis abierto.
+    1. Ir a **Macros** → **organizar diálogos...** 
+    1. **Seleccionar vuestro documento**, pulsar **Nuevo...** y poner como nombre **Dialogos**.
+    1. Si todo ha ido bien os deberá aparecer de la siguiente manera.  
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3-ceg-2-3.png){ .leftcuatrocero .margintopbottom10}<br>
+
+!!! task "Creación del Cuadro de diálogo 2/2"
+    1. Vamos a **Macros** → **organizar diálogos...** seleccionamos nuestro cuadro de diálogo y esta vez pulsamos **Editar**.
+    1. Nos aparecerá una ventana similar a la siguiente.
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3-ceg-2-4.png){ .leftsietecero .margintopbottom10}<br>
+    1. En la parte de la derecha tenemos nuestro cuadro de diálogo, dentro del cual iremos poniendo los elementos necesarios a la práctica.
+
+!!! task "Poner las etiquetas"
+    1. Lo primero que haremos es poner las etiquetas que guiaran al usuario sobre los datos que debe introducir.
+    1. En la parte de abajo de la pantalla. Seleccionamos **Etiqueta**. Posicionamos la etiqueta dentro de nuestro cuadro de diálogo, definimos aproximadamente el tamaño y posición.
+    1. Una vez creada la etiqueta, vamos al cuadro **General** de la izquierda y aplicamos estilos y afinamos la posición y el tamaño de la etiqueta modificando los valores de los campos correspondientes.
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3-ceg-2-5.png){ .leftsietecero .margintopbottom10}<br>
+    1. Al final deberemos tener un resultado similar al siguiente.  
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3-ceg-2-6.png){ .leftsietecero .margintopbottom10}<br>
+
+!!! task "Poner los cuadros de texto"
+    1. Ahora  pondremos los  cuadros de texto donde, el usuario irá introduciendo los datos. 
+    1. Esta vez seleccionamos **Cuadro de texto**. Posicionamos la etiqueta dentro de nuestro cuadro de diálogo, definimos aproximadamente el tamaño y posición.
+    1. Prestaremos especial atención a que **Texto1** esté al lado de **Nombre** y así, sucesivamente. 
+    1. Ajustamos tamaños y posición y nos aseguramos que la opción **Solo lectura** esté en **No**.
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3-ceg-2-7.png){ .leftsietecero .margintopbottom10}<br>
+    1. Al final deberemos tener un resultado similar al siguiente.  
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3-ceg-2-8.png){ .leftsietecero .margintopbottom10}<br>
+
+!!! task "Poner los botones"
+    1. Para finalizar el cuadro de diálogo, pondremos los botones de **Introducir** y **Aceptar**.
+    1. **Boton introducir:** Seleccionamos **Botón**, lo posicionamos en el cuadro y nos aseguramos de tener la opción **Tipo de botón** en **Aceptar**.
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3-ceg-2-9.png){ .leftsietecero .margintopbottom10}<br>
+    1. **Boton Cancelar:** Repetimos los pasos anteiores pero esta vez pasamos la opción **Tipo de botón** a **Cancelar**.
+
+!!! task "Botón para llamar al cuadro de diálogo"
+    1. Está vez, en lugar de asignar la macro a un botón de **control de formulario**, la asignaremos a **una forma** (también lo podemos hacer con una imagen, etc...). 
+    1. Vamos a **Insertar** → **Forma básica** y seleccionamos una forma al gusto.
+    1. Le aplicamos estilos para obtener un resultado similar al siguiente.     
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3-ceg-2-10.png){ .leftcuatrocero .margintopbottom10}<br>
+    1. Para finalizar seleccionamos la imagen, hacemos **clic derecho**, seleccionamos **Asignar macro...** y le asignamos la macro **InsertarDatosDesdeDialogo**.     
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3-ceg-2-11.png){ .leftseiscero .margintopbottom10}<br>
+
+!!! task "Comprobación del funcionamiento"
+    1. La primera vez que pulsaremos el botón de introducir datos la macro **se colgará** al no encontrar el cuadro de diálogo.
+    1. Cerramos la ventana emergente y seleccionamos la ubicación donde se encuentra nuestro cuadro de diálogo y simplemente pinchamos encima. 
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3-ceg-2-12.png){ .leftsietecero .margintopbottom10}<br>
+    1. Cerramos la ventana de macro y esta vez al pinchar el botón, sí que nos aparecerá el cuadro de diálogo.
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3-ceg-2-14.png){ .leftcincocero .margintopbottom10}<br>
+    1. Introducimos datos, pulsamos **Introducir** y comprobamos si los datos se han guardado en la **Hoja2**
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3-ceg-2-13.png){ .leftcincocero .margintopbottom10}<br>
+
+
+!!! warning "Entrega de la tarea"
+    Subir la tarea a AULES en el apartado correspondiente.  
+    El archivo a subir deberá ser de tipo **.ods** (formato predeterminado de LibreOffice Calc).  
+    **No se aceptará ningún otro formato de archivo**.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ### **Tarea RA3-CEh - Automatización de la introducción de datos**
 
 
+<!-- https://www.youtube.com/watch?v=KH42t9oNvII -->
 <!-- 
   |RA3. Elabora documentos y plantillas de cálculo, describiendo y aplicando opciones avanzadas de hojas de cálculo.||
     |-|-|

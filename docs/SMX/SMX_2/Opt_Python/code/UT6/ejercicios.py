@@ -41,14 +41,14 @@
 # ventana.mainloop()
 
 # ejercicio 3
-# from tkinter import *
+from tkinter import *
 
-# ventana = Tk()
-# ventana.title("Ejercicio 3")
-# ventana.attributes("-fullscreen", True)
-# ventana.attributes("-toolwindow", False)
-# ventana.configure(bg="blue")                
-# ventana.resizable(False,False)
-# ventana.configure(cursor="hand2") 
+ventana = Tk()
+ventana.title("Ejercicio 3")
+ventana.attributes("-fullscreen", True)
+ventana.attributes("-toolwindow", False)
+ventana.configure(bg="blue")                
+ventana.resizable(False,False)
+ventana.configure(cursor="hand2") 
 
-# ventana.mainloop()
+ventana.mainloop()

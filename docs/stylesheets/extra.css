@@ -45,11 +45,25 @@
   width: 25%;
 }
 
+.treszero {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+}
+
 .trescinco {
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 35%;
+}
+
+.cuatrozero {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
 }
 
 .cincozero {
@@ -125,13 +139,20 @@
 .leftseiscero {
   justify-content: left;
   display: block;
-  width: 50%;
+  width: 60%;
 }
 
 .leftcincocero {
   justify-content: left;
   display: block;
   width: 50%;
+}
+
+
+.leftcuatrocinco {
+  justify-content: left;
+  display: block;
+  width: 45%;
 }
 
 .leftcuatrocero {

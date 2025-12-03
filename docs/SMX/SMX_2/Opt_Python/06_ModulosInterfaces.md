@@ -868,6 +868,9 @@ root.mainloop()
 #### **2.3.2.6 – Ejercicios**
 
 ### **2.4 - Widgets**
+### **2.4. - Variables de control**
+<!-- variables de control 
+https://python-para-impacientes.blogspot.com/2016/02/variables-de-control-en-tkinter.html -->
 <!-- https://www.pythonguis.com/tutorials/tkinter-radiobutton-and-checkbutton/ -->
 
 <!-- https://guia-tkinter.readthedocs.io/es/develop/chapters/6-widgets/6.1-Intro.html#botones-button -->
