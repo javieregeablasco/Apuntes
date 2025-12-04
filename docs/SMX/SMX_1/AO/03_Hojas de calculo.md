@@ -1293,43 +1293,28 @@ En esta tarea, haremos un cuadro de dialogo (parecido al de la siguiente imagen)
     El archivo a subir deberá ser de tipo **.ods** (formato predeterminado de LibreOffice Calc).  
     **No se aceptará ningún otro formato de archivo**.
 
+### **Tarea RA3-CEh - Navegación y controles de formulario**
+!!! exercise "Descargar el archivo" 
+    Descargar y abrir el archivo 'RA3-CEh' pinchando en el enlace siguiente: [Descargar archivo](./03_hojas_de_calculo/tareas/RA3-CEh%20nombreapellidos.ods).  
+        
+!!! exercise "Hoja 1 - Estilos / Formatos"
+    Como se puede ver la hoja de cálculo contiene unos supuestos datos personales de un gran número de personas.  
+    También podemos ver que algunos datos están **justificados a la izquierda** y otros **a la derecha**.    
+    Por convención, en la mayoria de las hojas de cálculo, el justificado de los datos sigue la siguiente regla: 
+
+    - **Texto**: Los campos que contienen texto (o una mezcla de texto y números) se justifican por defecto a la izquierda.  
+    - **Números**: Los campos que contienen valores numéricos puros (incluyendo fechas y horas, que son manejados internamente como números) se justifican por defecto a la derecha. 
 
 
+<!-- https://mahara.unizar.es/view/view.php?id=44463
 
+https://youtu.be/hOCiLSn47IM
+https://youtu.be/KwX4JhAxcPM
+https://youtu.be/An5bUypl3tI
+https://youtu.be/m6BzGZzubA4
 
+ -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### **Tarea RA3-CEh - Automatización de la introducción de datos**
-
-
-<!-- https://www.youtube.com/watch?v=KH42t9oNvII -->
 <!-- 
   |RA3. Elabora documentos y plantillas de cálculo, describiendo y aplicando opciones avanzadas de hojas de cálculo.||
     |-|-|

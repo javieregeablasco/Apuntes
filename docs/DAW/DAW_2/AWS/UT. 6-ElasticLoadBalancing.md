@@ -406,7 +406,12 @@ AWS ofrece dos enfoques principales:
 **Recursos no disponibles con LabRole.**
 
 ### **2.4 - Contenedores, Elastic Container Service (ECS) en AWS** 
+
+<!-- https://www.youtube.com/watch?v=TRLK6ZNpjB8&list=PLGANiJnCt6o0CFEBUNBEDW-jvDJ2Ri38f 
+https://youtu.be/TRLK6ZNpjB8?si=0KdAkFXZ_qHU3ol2&t=631-->
+
 <!-- https://www.youtube.com/watch?v=86Ys0LnMSnY -->
+<!-- https://www.youtube.com/watch?v=qNIniDftAcU -->
 
 ### **2.5 - ECS + ELB en AWS** 
 <!-- https://docs.aws.amazon.com/es_es/autoscaling/ec2/userguide/tutorial-ec2-auto-scaling-load-balancer.html -->
