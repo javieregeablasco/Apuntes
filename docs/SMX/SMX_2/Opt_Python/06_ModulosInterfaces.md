@@ -803,7 +803,7 @@ Mientras que **pack()** organiza los widgets en bloques (arriba, abajo, izquierd
 **Nota:**  
 
 - Si no se define `sticky`, el comportamiento por defecto del widget será centrarse dentro de la celda. 
-- Si pasamos `WENS` a `sticky`, el widget ocupará toda la celda. 
+- Si pasamos `NSEW` a `sticky`, el widget ocupará toda la celda. 
 
 **Ejemplo:**
 ```py
@@ -825,7 +825,97 @@ root.mainloop()
 ```
 
 <br>
-#### **2.3.2.5 – Método place**
+
+#### **2.3.2.5 - Métodos grid_columnconfigure() y grid_rowconfigure()**
+
+!!! tip "grid_columnconfigure()"
+
+El método **grid_columnconfigure()** permite ajustar el comportamiento de las columnas en un widget que utiliza **el gestor de geometría grid()**. Este método define como una columna debe expandirse, contraerse y alinearse **dentro del widget**.
+
+**Sintaxis:**
+```py
+widget.grid_columnconfigure(index, weight=1, minsize=None, pad=None)
+```
+
+**Donde**
+
+- **index:** El índice (número) de la columna a configurar (empieza en 0).
+- **weight:** Representa cómo la columna debe distribuir el espacio sobrante. Cuanto mayor sea el weight, más espacio recibirá esa columna cuando se redimensione el widget. El valor predeterminado es 0, lo que significa que la columna no cambiará de tamaño.
+- **minsize:** Establece el tamaño mínimo de la columna en píxeles.
+- **pad:** Añade un relleno adicional a la columna (en píxeles).  
+<br>
+
+!!! tip "grid_rowconfigure()"
+El método **grid_rowconfigure()** es similar a grid_columnconfigure(), pero permite configurar el comportamiento de las filas en lugar de las columnas.
+
+**Sintaxis:**
+```py 
+widget.grid_rowconfigure(index, weight=1, minsize=None, pad=None)
+```
+
+**Ejemplo:** 
+```py
+# Definir ventana root que usa grid() para distribuir sus widgets
+...
+
+# Configurar las filas y columnas para que crezcan proporcionalmente 
+# columnas
+ventana.grid_columnconfigure(0, weight=1) 
+ventana.grid_columnconfigure(1, weight=1)
+
+# filas
+ventana.grid_rowconfigure(0, weight=1) 
+ventana.grid_rowconfigure(1, weight=1)
+```
+<br>
+
+#### **2.3.2.6 – Ejercicios**
+
+!!! exercise "Ejercicio 1"
+    Crear una ventana y colocar frames usando el método grid().
+
+    | Propiedad                             | Valor                                       |
+    | ------------------------------------- | ------------------------------------------- |
+    | Título                                | `Ejercicio 1`                       |
+    | Frame 1                       | bg= rojo    |
+    | Frame 2                       | bg= verde    |
+    | Frame 3                       | bg= azul    |
+    | Colocación de los frames                                 | frame1 en col 0, frame2 en col 1 y frame3 en col3            |
+    | Medidas ventana y frames                      | Libre elección                            |
+
+!!! exercise "Ejercicio 2"
+    Crear una ventana y colocar frames usando el método grid().
+
+    | Propiedad                             | Valor                                       |
+    | ------------------------------------- | ------------------------------------------- |
+    | Título                                | `Ejercicio 2`                       |
+    | Frame 1                       | bg= rojo    |
+    | Frame 2                       | bg= verde    |
+    | Frame 3                       | bg= azul    |
+    | Frame 4                       | bg= violeta    |  
+    | Colocación de los frames                                 | frame1: R0C0, frame2: R0C1, frame3: R1C0, frame2: R1C1   |
+    | Medidas ventana y frames                      | Libre elección                            |
+
+!!! exercise "Ejercicio 3"
+    Ampliar el ejercico 2 para que el frame 3 sea mas grande 4.  
+    Usar sticky en el frame 4 y visualizar los resultados.
+
+!!! exercise "Ejercicio 4"
+    Crea una interfaz con la siguiente estructura:  
+    Pista: Usar colspan.
+    ```bash
+    +---------------------------+
+    |       HEADER (frame1)     |
+    +-------------+-------------+
+    | SIDEBAR     |   CONTENT   |
+    | (frame2)    |   (frame3)  |
+    +-------------+-------------+
+    ```
+
+!!! exercise "Ejercicio 5"
+    Ampliar el ejercicio 4 para que los frames se adapten a las dimensiones de la ventana al redimensionarla.
+
+#### **2.3.2.7 – Método place**
 
 - El gestor de geometría **place()** permite tener un control absoluto sobre la disposición de los widgets. Con place(), se puede especificar el tamaño del widget, así como las coordenadas (x, y) para organizarlo dentro de la ventana principal.  
 - **place()** es particularmente útil para organizar botones u otros widgets en una ventana de diálogo sencilla.
@@ -865,7 +955,7 @@ root.mainloop()
 
 <br>
 
-#### **2.3.2.6 – Ejercicios**
+#### **2.3.2.8 – Ejercicios**
 
 ### **2.4 - Widgets**
 ### **2.4. - Variables de control**
