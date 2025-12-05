@@ -1294,24 +1294,45 @@ En esta tarea, haremos un cuadro de dialogo (parecido al de la siguiente imagen)
     **No se aceptará ningún otro formato de archivo**.
 
 ### **Tarea RA3-CEh - Navegación y controles de formulario**
-!!! exercise "Descargar el archivo" 
-    Descargar y abrir el archivo 'RA3-CEh' pinchando en el enlace siguiente: [Descargar archivo](./03_hojas_de_calculo/tareas/RA3-CEh%20nombreapellidos.ods).  
-        
-!!! exercise "Hoja 1 - Estilos / Formatos"
-    Como se puede ver la hoja de cálculo contiene unos supuestos datos personales de un gran número de personas.  
-    También podemos ver que algunos datos están **justificados a la izquierda** y otros **a la derecha**.    
-    Por convención, en la mayoria de las hojas de cálculo, el justificado de los datos sigue la siguiente regla: 
-
-    - **Texto**: Los campos que contienen texto (o una mezcla de texto y números) se justifican por defecto a la izquierda.  
-    - **Números**: Los campos que contienen valores numéricos puros (incluyendo fechas y horas, que son manejados internamente como números) se justifican por defecto a la derecha. 
 
 
-<!-- https://mahara.unizar.es/view/view.php?id=44463
+!!! exercise "Hoja1, hoja2 y hoja3 - Navegación entre hojas 1, 2 y 3"
+    Realizar un diseño similar al del ejemplo y configurar los botones para que enlazen con las hojas 1, 2 y 3.
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3-ceh-2.png){ .leftcincocero .margintopbottom10}<br>
+    
+    **Nota:** 
+    - Para que el menú de botones queda fijo dentro de la hoja elegir la opción anclar a la hoja. 
+    - La navegación al pulsar los botones se hará asignando un hiperenlace a los botones.
+    
+!!! exercise "Hoja 1 - Casilla de 'tic' y formatos condicionales"
+    1. Realizar un diseño similar al del ejemplo.
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3-ceh-1.png){ .leftcincocero .margintopbottom10}<br>
 
-https://youtu.be/hOCiLSn47IM
-https://youtu.be/KwX4JhAxcPM
-https://youtu.be/An5bUypl3tI
-https://youtu.be/m6BzGZzubA4
+    - Insertar las casillas de tic y enlazar los datos (estado ticado o no ticado) a la columna I
+    - Poner un formato condicional a los nombres y apellidos para que apliquen el estilo **Error** si la casilla está ticada.
+    - Ocultar la columna donde se han puesto los valores de las casillas de ticar.
+
+!!! exercise "Hoja 2 - Campo combinado"
+    1. Realizar un diseño similar al del ejemplo.
+    1. Hacer un copiar pegar de la tabla de la primera hoja. De esa manera los estilos condicionales de las celdas se mantendrán enlazados con la elección de los tics de las casillas de la primera hoja. 
+    1. Insertar un cuadro combinado que permitirá seleccionar un día de la semana.
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3-ceh-3.png){ .leftsietecinco .margintopbottom10}<br>
+    - Ocultar la columna donde se han puesto los valores del cuador combinado.
+
+!!! exercise "Hoja 3 - Control de número y barra de desplazamiento"
+    1. Realizar un diseño similar al del ejemplo.
+    1. Hacer un copiar pegar de la tabla de la primera hoja. De esa manera los estilos condicionales de las celdas se mantendrán enlazados con la elección de los tics de las casillas de la primera hoja. 
+    1. Eliminar las columnas sobrantes y poner en su lugar la columna **Nota** y los campos de control de número y las barras de desplazamiento.
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3-ceh-4.png){ .leftsietecinco .margintopbottom10}<br>
+
+!!! warning "Entrega de la tarea"
+    Subir la tarea a AULES en el apartado correspondiente.  
+    El archivo a subir deberá ser de tipo **.ods** (formato predeterminado de LibreOffice Calc).  
+    **No se aceptará ningún otro formato de archivo**.
+<!-- 
+falta boton de opcion
+falta ocultar
+falta ocultar
 
  -->
 
