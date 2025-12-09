@@ -211,10 +211,12 @@ AWS App Runner es un servicio de alto nivel para desplegar aplicaciones web y AP
 Es ideal para desarrolladores que quieren centrarse en el código y dejar toda la infraestructura a AWS.
 
 # **3 - ECR**
-
 <!-- https://medium.com/@pankajaswal888/how-to-set-up-and-use-aws-elastic-container-registry-ecr-4add47a93063 -->
 <!-- https://dondeaprendoaws.com/blog/como-desplegar-contenedores-en-aws/ -->
 <!-- https://dev.to/chinmay13/how-to-push-docker-image-to-public-and-private-aws-ecr-repository-56k5 -->
+<!-- https://circleci.com/blog/automatically-deploy-private-docker-images-to-aws-ecr/ -->
+
+
 
 <!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/Docker/CEFIRE/UD6/UD%2006.01%20-%20Docker%20Compose.pdf -->
 <!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/Docker/CEFIRE/UD5/UD%2005.01%20-%20Redes%20y%20vol%C3%BAmenes%20en%20Docker.pdf -->
@@ -222,15 +224,6 @@ Es ideal para desarrolladores que quieren centrarse en el código y dejar toda l
 <!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/Docker/CEFIRE/UD3/UD%2003.02%20-%20Docker%20CheatSheet%20-%20Version%20UD03.pdf -->
 <!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/Docker/CEFIRE/UD3/UD%2003.01%20-%20Principales%20acciones%20con%20Docker.pdf -->
 
-<!-- https://kinsta.com/es/blog/que-es-docker/ -->
-
-#### **1.2.3 - Configuración de la interconexión**
- 
-#### **1.2.4 - Configuración de la tablas de enrutamiento**
-
-#### **1.2.5 - Configuración de los grupos de seguridad de las instancias**
-
-#### **1.2.6 - Pruebas de conexión**
 
 ### **1.3 - Transit Gateway**  
 
