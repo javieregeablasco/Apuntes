@@ -1310,6 +1310,7 @@ En esta tarea, haremos un cuadro de dialogo (parecido al de la siguiente imagen)
 
     - Insertar las casillas de tic y enlazar los datos (estado ticado o no ticado) a la columna I
     - Poner un formato condicional a los nombres y apellidos para que apliquen el estilo **Error** si la casilla está ticada.
+    - Insertar las casillas de tic y enlazar los datos (estado mañana o tarde) a la columna I
     - Ocultar la columna donde se han puesto los valores de las casillas de ticar.
 
 !!! exercise "Hoja 2 - Campo combinado"

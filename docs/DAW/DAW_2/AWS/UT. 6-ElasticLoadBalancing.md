@@ -22,21 +22,8 @@ schedule: 96h - 3h/s
 
 |**Criterios de evaluación de la unidad didáctica:**|
 |-|
-|**d)** Se ha realizado la selección de servicios de computación adecuados según casos de uso.|
 |**e)** Se ha llevado a cabo la configuración y gestión de balanceo de carga y escalado automático.|
-    
 
-| **Resultados de aprendizaje de la unidad didáctica:** |
-|-|
-| **RA. 4:** Gestiona servicios de almacenamiento y bases de datos en la nube, seleccionando tecnologías adecuadas para casos específicos, y diseña arquitecturas escalables y resilientes utilizando herramientas de monitoreo y optimización para mejorar el rendimiento.|
-
-|**Criterios de evaluación de la unidad didáctica:**|
-|-|
-|**a)** Se ha realizado la diferenciación entre tecnologías de almacenamiento en la nube.|
-|**b)** Se ha llevado a cabo la configuración y gestión de bases de datos en un entorno de nube.|
-|**c)** Se ha trabajado en la resolución de problemas prácticos sobre almacenamiento y bases de datos.|
-|**d)** Se ha diseñado arquitecturas escalables y resilientes basadas en las mejores prácticas.|
-|**e)** Se ha hecho uso de herramientas de monitoreo y recomendaciones de optimización.|
 
 ## **1 - Interconexiones de redes, peer connection (peering) y transit gateway**
 ### **1.1 - Introducción**
@@ -384,16 +371,6 @@ Si actualizamos repetidamente el navegador para acceder al recurso, observaremos
 ![](../AWS/ut6/elb19.png){ .cincozero }<br>
 
 
-
-
-<!--
-autoscaling
-https://www.youtube.com/watch?v=0mwgbiJae5Q -->
-
-<!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/Docker/CEFIRE/UD3/UD%2003.01%20-%20Principales%20acciones%20con%20Docker.pdf -->
-<!-- https://docs.aws.amazon.com/hands-on/latest/deploy-docker-containers/deploy-docker-containers.html -->
-<!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/Docker/CEFIRE/UD1/UD%2001.01%20-%20Introducci%C3%B3n%20a%20los%20contenedores%20y%20a%20Docker.pdf -->
-
 ### **2.3 - Auto Scaling** 
 Auto Scaling permite adaptar la capacidad de cómputo de la infraestructura a la demanda real del sistema.  
 AWS ofrece dos enfoques principales:
@@ -405,90 +382,6 @@ AWS ofrece dos enfoques principales:
 
 **Recursos no disponibles con LabRole.**
 
-### **2.4 - Contenedores, Elastic Container Service (ECS) en AWS** 
-
-<!-- https://www.youtube.com/watch?v=TRLK6ZNpjB8&list=PLGANiJnCt6o0CFEBUNBEDW-jvDJ2Ri38f 
-https://youtu.be/TRLK6ZNpjB8?si=0KdAkFXZ_qHU3ol2&t=631-->
-
-<!-- https://www.youtube.com/watch?v=86Ys0LnMSnY -->
-<!-- https://www.youtube.com/watch?v=qNIniDftAcU -->
-
-### **2.5 - ECS + ELB en AWS** 
-<!-- https://docs.aws.amazon.com/es_es/autoscaling/ec2/userguide/tutorial-ec2-auto-scaling-load-balancer.html -->
-
-<!-- bbdd
-https://www.youtube.com/watch?v=vp_uulb5phM
-https://www.youtube.com/watch?v=eK_umMYxZfM
-https://www.youtube.com/watch?v=6E30Yr2UATw
-  https://www.youtube.com/watch?v=kNm0z_hRJlw
-  https://www.youtube.com/watch?v=wLTFaDebTBY
-  https://www.youtube.com/watch?v=BTg1JbmE3x4
-  https://www.youtube.com/watch?v=tykcCf-Zz1M -->
-
-
-<!-- ecs
-https://prezi.com/p/5jffku-0bqyl/amazon-elastic-container-service-overview/
-https://www.youtube.com/watch?v=TRLK6ZNpjB8
-https://www.youtube.com/watch?v=qbEPae8YNbs
-https://www.youtube.com/watch?v=NI34uF7VVP8
-https://www.youtube.com/watch?v=86Ys0LnMSnY -->
-<!-- file:///C:/Users/titan/Documents/Javier128/Modulos/DAW/DAW_2/AWS/UT/UT6/Tema%204/Tema%204.%20Peer%20connection%20y%20transit%20gw.pdf -->
-
-<!-- https://www.youtube.com/watch?v=qMppxz4Ou0A -->
-<!-- route 53... 
-cloud formation... 
-elastic load balancing
-Amazon Simple Storage Service (S3) 
-Amazon Elastic File System (EFS)
-Amazon Elastic Block Store (EBS) -->
-<!-- https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudformation-stack.html 
-Building Highly Available Web Application 
-https://skillbuilder.aws/learn/2WBTDQFGSV/building-highly-available-web-application/2RW7UC62ZE
-recursos de BBDD y buckets:
-
-https://awsacademy.instructure.com/courses/64697/modules#module_773291
-https://awsacademy.instructure.com/courses/64697/modules/items/5723370
-https://aws.amazon.com/es/products/storage/
--->
-
-
-    
-
-
-<!-- <br>
-
-## **Introducción**
-peer connection
-transit gateway
-escalado automatico
-elastic load balancing  -->
-<!-- https://www.youtube.com/watch?v=89N3u6W01IQ -->
-<!-- https://www.grycap.upv.es/cursocloudaws/contenido.php 
-https://luisdieguez.com/tutorial-ansible-desde-0-herramienta-de-gestion-de-servidores/
-https://ualmtorres.github.io/SeminarioDockerPresentacion/
-https://www.youtube.com/watch?v=qNIniDftAcU
-https://www.youtube.com/watch?v=TRLK6ZNpjB8
-
--->
-
-<!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/AWS/Arqui%20y%20despliegues%20en%20AWS/Tema%203/Tema%203.%20NAT%20Gateway,%20reglas%20encadenadas%20y%20subredes%20privadas.pdf -->
-
- <!-- file:///C:/Users/titan/Documents/Javier128/Modulos/DAW/DAW_2/AWS/UT/UT5/Tema%204/Tema%204.%20Peer%20connection%20y%20transit%20gw.pdf -->
-
-<!-- 
-
-https://www.youtube.com/watch?v=DSkO0ZJ8PxA
-
-https://aws.amazon.com/es/products/storage/ 
-
-
-https://www.youtube.com/watch?v=lTUUJBa1dp4&list=PLDbrnXa6SAzV0J3Un9jRnbbFpuQH-_y-C&index=11
-
-https://www.youtube.com/watch?v=iAYYssYrGms
-
-https://www.youtube.com/watch?v=CGmTvukObOw -->
-
- 
 ## **Enlaces de interés**
 Documentación de [AWS](https://docs.aws.amazon.com)  
 [Elastic Load Balancing](https://docs.aws.amazon.com/es_es/elasticloadbalancing/latest/userguide/what-is-load-balancing.html)  
