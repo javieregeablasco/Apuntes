@@ -10,7 +10,7 @@ layout: default
 schedule: 96h - 3h/s 
 ---
 
-# **UT. 6 - Dockers y Cloud Formation**
+# **UT. 7 - Dockers y Cloud Formation**
 ![Descripción de la imagen](../AWS/ut7/doc-1.webp){ .trescinco }
 <br>
 
@@ -151,14 +151,12 @@ Sirve para organizar recursos dentro del cluster (útil en empresas con varios e
 
 6. **Volúmenes (Volumes)**
 Permiten persistir datos incluso cuando los Pods mueren y se recrean.
-
-
-
+---
 
 ## **2 - ¿Cómo desplegar contenedores en AWS?**
 AWS ofrece múltiples herramientas para facilitar el trabajo con contenedores. Estas herramientas permiten **almacenar imágenes**, **orquestar contenedores**, **escalar aplicaciones**, y **ejecutarlas sin necesidad de administrar servidores**.
 
-## **2.1 - Amazon ECR (Elastic Container Registry)**
+### **2.1 - Amazon ECR (Elastic Container Registry)**
 Amazon ECR es un registro de contenedores donde almacenar las imágenes Docker.
 
 **Funciones principales:**
@@ -170,21 +168,21 @@ Amazon ECR es un registro de contenedores donde almacenar las imágenes Docker.
 
 ECR es el punto de partida para desplegar contenedores en AWS, ya que las imágenes deben estar accesibles desde los servicios que las ejecutan.
 
-## **2.2 - Amazon ECS (Elastic Container Service)**
+### **2.2 - Amazon ECS (Elastic Container Service)**
 Amazon ECS es la plataforma de orquestación de contenedores de AWS. Permite ejecutar contenedores Docker en dos modos: **EC2** y **Fargate**.
 
-### **2.2.1 - ECS sobre EC2**
+#### **2.2.1 - ECS sobre EC2**
 - Los contenedores se ejecutan en instancias EC2 administradas (parcial o totalmente) por el usuario.
 - El usuario decide el tamaño, tipo y cantidad de máquinas.
 - Dependiendo de la opción elegida, puede requerir aplicar parches, gestionar capacidad y asegurar servidores.
 
-### **2.2.2 - ECS con Fargate**
+#### **2.2.2 - ECS con Fargate**
 - Es un servicio **serverless**: no requiere gestionar máquinas.
 - Ejecuta contenedores sin preocuparte por **servidores ni escalado**.
 - Pago por uso de cada contenedor.
 - Ideal para aplicaciones basadas en microservicios o arquitecturas distribuidas.
 
-## **2.3 - Amazon EKS (Elastic Kubernetes Service)**
+### **2.3 - Amazon EKS (Elastic Kubernetes Service)**
 Amazon EKS permite desplegar contenedores utilizando Kubernetes, el estándar de orquestación más extendido.
 
 - AWS gestiona el control plane.
@@ -192,7 +190,7 @@ Amazon EKS permite desplegar contenedores utilizando Kubernetes, el estándar de
 - Total compatibilidad con imágenes Docker o de cualquier estándar OCI.
 - Es ideal si se necesita mantener compatibilidad con Kubernetes o en un entorno multi-cloud.
 
-## **2.4 - AWS Lambda**
+### **2.4 - AWS Lambda**
 AWS Lambda permite empaquetar funciones en imágenes Docker de hasta 10 GB.
 
 Esto ofrece ventajas como:
@@ -202,7 +200,7 @@ Esto ofrece ventajas como:
 - Unificar pipelines de CI/CD basados en Docker.
 - Lambda ejecuta el contenedor como una función serverless, sin servidores.
 
-## **2.5 - AWS App Runner**
+### **2.5 - AWS App Runner**
 AWS App Runner es un servicio de alto nivel para desplegar aplicaciones web y APIs directamente desde:  
 
 - Un repositorio de código
@@ -210,71 +208,113 @@ AWS App Runner es un servicio de alto nivel para desplegar aplicaciones web y AP
 
 Es ideal para desarrolladores que quieren centrarse en el código y dejar toda la infraestructura a AWS.
 
-# **3 - ECR**
-<!-- https://medium.com/@pankajaswal888/how-to-set-up-and-use-aws-elastic-container-registry-ecr-4add47a93063 -->
+---
+
+## **3 - ECR**
+Cuando se desarrollan aplicaciones con Docker, resulta imprescindible disponer de un repositorio adecuado para almacenar las imágenes generadas.  **Docker Hub** resulta ser una opción idónea para la distribución de **imágenes públicas** pero, el **código propietario** requiere un entorno privado, seguro y con alta disponibilidad. Para este último caso, AWS propone **Amazon Elastic Container Registry (ECR)**.  
+
+ECR es el servicio de registro de contenedores Docker totalmente gestionado por AWS, diseñado para integrarse con otros servicios, como ECS, EKS y Fargate. Este servicio asume la gestión de funciones esenciales, entre ellas el análisis de vulnerabilidades, el control de acceso, el cifrado y la aplicación de políticas de ciclo de vida, todo ello accesible a través de una API.
+
+### **3.1 - Creación de un repositorio privado ECR**
+#### **3.1.1 - Acceder a ECR** 
+Primero accederemos al servicio tecleando ECR en la barra de búsqueda.
+
+![Descripción de la imagen](../AWS/ut7/ECR-1.png){ .sietecinco .marco }  
+
+<br>
+
+#### **3.1.2 - Crear repositorio** 
+Creamos nuestro repositorio privado. Indicamos la ruta y en configuración de las etiquetas de imagen seleccionamos immutable.   
+
+![Descripción de la imagen](../AWS/ut7/ECR-2.png){ .sietecinco .marco }
+
+Motivos por los cuales se recomienda seleccionar immutable:
+
+- Evita sobrescrituras accidentales o malintencionadas:  
+Una vez publicada una imagen con una etiqueta (v1.0.0, latest...), ya no puede ser reemplazada por otra imagen posterior.
+
+- Garantiza la trazabilidad de versiones  
+La inmutabilidad asegura que cada etiqueta corresponde siempre a la misma imagen.
+
+- Mejora la seguridad y aporta estabilidad a los despliegues
+Si las etiquetas cambian su contenido, se pueden generar despliegues impredecibles. La inmutabilidad contribuye a que cada despliegue sea reproducible y consistente.
+
+#### **3.1.3 - Descargar una imagen** 
+Para el caso, descargaremos **el servidor web nginx**.
+
+Desde la CLI de AWS hacemosun pull sobre la imagen de nginx:
+
+![Descripción de la imagen](../AWS/ut7/ECR-3.png){ .cincozero }
+
+**Nota:**  
+Si no especificamos ninguna etiqueta, Docker asume automáticamente **latest**. Cualquier versión distinta debe indicarse de forma explícita con el formato **imagen:tag**.  
+Por ejemplo, si queremos descargar una imagen especifica de `nginx`, simplemente especificaremos la versión o su nombre.
+```bash
+docker pull nginx:1.25.3
+```
+
+```bash
+docker pull nginx:alpine
+```
+
+#### **3.1.4 - Subir la imagen al repositorio** 
+Para ello deberemos consultar los comandos de envío en nuestro repositorio → imágenes → ver comandos de envío.  
+
+![Descripción de la imagen](../AWS/ut7/ECR-4.png){ .nuevezero .marco }
+
+![Descripción de la imagen](../AWS/ut7/ECR-5.png){ .seiszero .marco }
+
+<br>
+Copiamos la primera línea de comando. Al ejecutar el comando desde la CLI de la interfaz de AWS, no debemos modificar nada.  
+Tampoco es necesario ejecutar el segundo comando al ya disponer de la imagen. 
+
+![Descripción de la imagen](../AWS/ut7/ECR-6.png){ .ochocinco }
+
+<br>
+Ejecutamos el comando 3 con el que etiquetaremos la imagen que subiremos al repositorio.  
+Cambiaremos el nombre de la imagen así como la versión para poder modificarla.  
+
+![Descripción de la imagen](../AWS/ut7/ECR-7.png){ .ochocinco }
+
+![Descripción de la imagen](../AWS/ut7/ECR-8.png){ .ochocinco }
+
+<br>
+Finalmente, subimos la imagen.   
+
+![Descripción de la imagen](../AWS/ut7/ECR-9.png){ .ochocinco }
+
+<br>
+Si todo ha ido bien, ya aparecerá como disponible en nuestro repositorio.
+
+![Descripción de la imagen](../AWS/ut7/ECR-10.png){ .cien .marco }
+
+## **4 - ECS**
+<!-- https://youtu.be/TRLK6ZNpjB8?si=_V0CfbF58LbhwxHU&t=338 -->
+
+
 <!-- https://dondeaprendoaws.com/blog/como-desplegar-contenedores-en-aws/ -->
-<!-- https://dev.to/chinmay13/how-to-push-docker-image-to-public-and-private-aws-ecr-repository-56k5 -->
-<!-- https://circleci.com/blog/automatically-deploy-private-docker-images-to-aws-ecr/ -->
-
-
 
 <!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/Docker/CEFIRE/UD6/UD%2006.01%20-%20Docker%20Compose.pdf -->
 <!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/Docker/CEFIRE/UD5/UD%2005.01%20-%20Redes%20y%20vol%C3%BAmenes%20en%20Docker.pdf -->
 <!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/Docker/CEFIRE/UD4/UD%2004.01%20-%20Gesti%C3%B3n%20de%20imagenes%20en%20Docker.pdf -->
 <!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/Docker/CEFIRE/UD3/UD%2003.02%20-%20Docker%20CheatSheet%20-%20Version%20UD03.pdf -->
 <!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/Docker/CEFIRE/UD3/UD%2003.01%20-%20Principales%20acciones%20con%20Docker.pdf -->
-
-
-### **1.3 - Transit Gateway**  
-
-#### **1.3.1 - Escenario**
-
-#### **1.3.2 - Creación del transit gateway**
-
-
-#### **1.3.3 - Conexiones del transit gateway**
-
-#### **1.3.4 - Modificar las tablas de enrutamiento de las VPC's**
-
-
-#### **1.3.5 - Pruebas de conexión**
-
-#### **1.3.6 - Pruebas adicionales**
- 
-### **1.4 - Tarea RA3-CEd**
-## **2 - Equilibrado y escalado de infraestructuras**
-### **2.1 - Introducción**
-
-### **2.2 - Elastic Load Balancing (ELB)**
-
-#### **2.2.1 - Escenario propuesto**
-
-#### **2.2.2 - Instancias EC2**
-
-#### **2.2.3 - Creación del balanceador de carga**
-
-#### **2.2.4 - Editar los atributos del equilibrador de carga**
-
-#### **2.2.5 - Comprobación del funcionamiento del equilibrador de carga**
-
-
-
-<!--
-
-<!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/Docker/CEFIRE/UD3/UD%2003.01%20-%20Principales%20acciones%20con%20Docker.pdf -->
-<!-- https://docs.aws.amazon.com/hands-on/latest/deploy-docker-containers/deploy-docker-containers.html -->
 <!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/Docker/CEFIRE/UD1/UD%2001.01%20-%20Introducci%C3%B3n%20a%20los%20contenedores%20y%20a%20Docker.pdf -->
 
-### **2.3 - Auto Scaling** 
-
-### **2.4 - Contenedores, Elastic Container Service (ECS) en AWS** 
-
+ 
+ 
 <!-- https://www.youtube.com/watch?v=TRLK6ZNpjB8&list=PLGANiJnCt6o0CFEBUNBEDW-jvDJ2Ri38f 
-https://youtu.be/TRLK6ZNpjB8?si=0KdAkFXZ_qHU3ol2&t=631 -->
+ 
+
+
+
+<!-- https://docs.aws.amazon.com/hands-on/latest/deploy-docker-containers/deploy-docker-containers.html -->
+
+ 
+
 
 <!-- texto 
 https://dev.to/gbenga700/deploying-a-dockerized-web-application-with-aws-ecs-and-fargate-29bb
-https://dondeaprendoaws.com/blog/como-desplegar-contenedores-en-aws/
 https://medium.com/containers-on-aws/how-i-do-local-docker-development-for-my-aws-fargate-application-8957e3fdb50 -->
 
 <!-- https://www.youtube.com/watch?v=aLJHB2CuqBU -->
@@ -285,7 +325,7 @@ https://medium.com/containers-on-aws/how-i-do-local-docker-development-for-my-aw
 <!-- https://www.youtube.com/watch?v=86Ys0LnMSnY -->
 <!-- https://www.youtube.com/watch?v=qNIniDftAcU -->
 
-### **2.5 - ECS + ELB en AWS** 
+ 
 <!-- https://docs.aws.amazon.com/es_es/autoscaling/ec2/userguide/tutorial-ec2-auto-scaling-load-balancer.html -->
 
 <!-- bbdd

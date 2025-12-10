@@ -880,7 +880,7 @@ ventana.grid_rowconfigure(1, weight=1)
     | Frame 1                       | bg= rojo    |
     | Frame 2                       | bg= verde    |
     | Frame 3                       | bg= azul    |
-    | Colocación de los frames                                 | frame1 en col 0, frame2 en col 1 y frame3 en col3            |
+    | Colocación de los frames                                 | frame1 en col 0, frame2 en col 1 y frame3 en col2            |
     | Medidas ventana y frames                      | Libre elección                            |
 
 !!! exercise "Ejercicio 2"

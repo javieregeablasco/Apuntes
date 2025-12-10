@@ -99,6 +99,13 @@
   width: 85%;
 }
 
+.nuevezero {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
+
 .cien {
   display: block;
   margin-left: auto;
