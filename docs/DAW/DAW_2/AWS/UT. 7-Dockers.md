@@ -284,7 +284,7 @@ Finalmente, subimos la imagen.
 ![Descripción de la imagen](../AWS/ut7/ECR-9.png){ .ochocinco }
 
 <br>
-Si todo ha ido bien, ya aparecerá como disponible en nuestro repositorio.
+Si todo ha ido bien, la imagen aparecerá disponible en nuestro repositorio.
 
 ![Descripción de la imagen](../AWS/ut7/ECR-10.png){ .cien .marco }
 
