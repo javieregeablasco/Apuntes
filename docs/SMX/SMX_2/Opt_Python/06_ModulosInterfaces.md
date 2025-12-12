@@ -976,10 +976,11 @@ Son los componentes visuales que permiten **construir una GUI**: botones, cuadro
 Los widgets tradicionales, directamente accesibles después de importar tkinter son:
 
 - Label: Etiqueta de texto (o imagen).
+- Entry: Campo de texto de una sola línea.
+- Text: Área de texto multilínea.
 - Button: Botón estándar.
 - Canvas: Área para gráficos, líneas, figuras, imágenes.
 - Checkbutton: Casilla de verificación.
-- Entry: Campo de texto de una sola línea.
 - LabelFrame: Marco con título (contenedor).
 - Listbox: Lista de elementos seleccionables.
 - Menu: Menú genérico.
@@ -989,7 +990,6 @@ Los widgets tradicionales, directamente accesibles después de importar tkinter 
 - Scale: Selector deslizante numérico.  
 - Scrollbar: Barra de desplazamiento.
 - Spinbox: Control numérico con flechas.
-- Text: Área de texto multilínea.
 - Toplevel: Ventana secundaria.
 - Frame: Contenedor básico para agrupar y organizar otros widgets.
 - OptionMenu: Menú desplegable simplificado asociado a una variable de control.
@@ -1070,9 +1070,73 @@ Label(root, image=imagen, bd=0).pack()
 ```py
 label.config(fg="blue")
 ```
-- El tamaño del Label se ajusta automáticamente al contenido salvo que se definan width y height.
+- El tamaño del Label se ajusta automáticamente al contenido salvo que se definan el width y el height.
 
 #### **2.4.2 - Entry**
+Entry es un widget de tipo campo de texto que permite al usuario introducir o editar una cadena de caracteres.
+
+**Ejemplo básico**  
+```py
+from tkinter import *
+root = Tk()
+
+entry = Entry(root, width=30, show="*", justify="center")
+entry.pack()
+
+root.mainloop()
+```  
+<br>
+**Propiedades de entry()**  
+
+| Parámetro      | Descripción                                                           |
+| -------------- | --------------------------------------------------------------------- |
+| `width`        | Ancho del campo en caracteres.                                        |
+| `font`         | Fuente y tamaño del texto.                                            |
+| `show`         | Sustituye los caracteres por otro (por ejemplo `*` para contraseñas). |
+| `textvariable` | Variable asociada (`StringVar`) para gestionar datos dinámicamente.   |
+| `justify`      | Alineación del texto (`left`, `center`, `right`).                     |
+| `state`        | Estado: `normal`, `disabled`, `readonly`.                             |
+| `bg` / `fg`    | Colores de fondo y texto.                                             |
+
+
+#### **2.4.3 - Button**
+Button es probablemente el widget más utilizado en el diseño de interfaces gráficas.  
+A diferencia de los widgets vistos hasta ahora se caracteriza por desencadenar una función (command) al pulsarlo. 
+
+**Ejemplo básico**
+```py
+def saludar():
+    print("Hola desde el botón")
+
+boton = tk.Button(root, text="Aceptar", bg="lightblue", fg="black", font=("Arial", 12), command=saludar)
+```
+
+**Propiedades de button()**
+
+| Parámetro         | Descripción                                                               |
+| ----------------- | ------------------------------------------------------------------------- |
+| `text`            | Texto mostrado en el botón.                                               |
+| `command`         | Función llamada al pulsar el botón.                                       |
+| `image`           | Imagen mostrada en vez del texto (o junto a él).                          |
+| `compound`        | Cómo combinar texto e imagen: `left`, `right`, `top`, `bottom`.           |
+| `state`           | Estado: `normal`, `disabled`, `active`.                                   |
+| `width`, `height` | Tamaño del botón.                                                         |
+| `bg`, `fg`        | Colores de fondo y texto.                                                 |
+| `font`            | Fuente del texto.                                                         |
+| `padx`, `pady`    | Relleno interno.                                                          |
+| `relief`          | Estilo del borde: `raised`, `sunken`, `flat`, `ridge`, `solid`, `groove`. |
+| `cursor`          | Cursor al pasar por encima.                                               |
+
+!!! warning "Parametro command()"
+    No se debe poner paréntesis a la función, si no se le pasa ningún argumento.  
+    **Correcto:** command= saludar  
+    **incorrecto** command= saludar()  
+
+    Si la función necesita argumentos, se debe utilizar una función lambda. 
+    ```py 
+    boton = tk.Button(root, text="Enviar", command=lambda: enviar("Hola"))
+    ``` 
+
 
 <!-- variables de control 
 https://python-para-impacientes.blogspot.com/2016/02/variables-de-control-en-tkinter.html -->
