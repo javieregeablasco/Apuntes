@@ -10,7 +10,7 @@ layout: default
 schedule: 224h - 7h/w
 ---
 
-# **UD. 3 - Presentaciones con LibreOffice Impress**
+# **UD. 4 - Presentaciones con LibreOffice Impress**
 
 ![Descripción de la imagen](./07_Presentaciones/img/imp-1.png){ .doscinco }
 <br>
@@ -143,6 +143,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
 <!-- https://www.youtube.com/watch?v=vZTPOsVzGWs -->
 <!-- https://espaciotecnologico.co/plantillas-de-diapositivas-para-libreoffice-impress/ -->
 <!-- https://www.youtube.com/watch?v=mHMaYtxmKaA -->
+<!-- https://superalumnos.net/files/ejercicios_powerpoint.pdf -->
 
 
 
