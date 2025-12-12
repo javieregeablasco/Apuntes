@@ -90,7 +90,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
 ### **Tarea RA7-CEa - Manejo básico de Impress**
 
 !!! exercise "Tarea RA3-CEa"
-    !!! Exrecise "PARTE 1"
+    !!! Exercise "PARTE 1"
         1. A través de una presentación con diapositivas se desea exponer las principales características de Impress.
         1. Abrir una nueva presentación en blanco, y desde la **barra lateral**, elegir un patrón para elaborar las siguientes diapositivas.  
         1. También podeís hacer uso de la función **disposición de diapositiva** para que el asistente proponga varias disposiciones posibles.
