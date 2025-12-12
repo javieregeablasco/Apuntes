@@ -382,6 +382,12 @@ AWS ofrece dos enfoques principales:
 
 **Recursos no disponibles con LabRole.**
 
+### **2.4 - Tarea RA3-CEe**
+!!! exercise "Tarea RA3-CEe"
+    Realizar capturas de cada instancia entrando por el ELB.
+    Adjuntar las capturas a un documento, comentando cada captura.
+    Subir el documento a AULES en la tarea correspondiente. 
+
 ## **Enlaces de interés**
 Documentación de [AWS](https://docs.aws.amazon.com)  
 [Elastic Load Balancing](https://docs.aws.amazon.com/es_es/elasticloadbalancing/latest/userguide/what-is-load-balancing.html)  

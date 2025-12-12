@@ -957,14 +957,14 @@ root.mainloop()
 
 ##### **2.3.2.8 – Ejercicios**
 !!! exercise "Ejercicio 1"
-    Crear una ventana root de 400x300
-    Dentro de esa ventana posicionar un frame de 50x50 a X= 140 ,Y=20  
+    Crear una ventana root de 400x300.  
+    Dentro de esa ventana posicionar un frame de 50x50 a X= 140 ,Y=20    
 
 !!! exercise "Ejercicio 2"
-    Crear una ventana root de 400x300
-    Dentro de esa ventana posicionar 7 widgets de tipo Frame.
-    Los seis primeros frames deben disponerse en 2 filas y 2 columnas.
-    El séptimo frame debe situarse centrado horizontalmente en la fila 3 y ocupar todo el espacio.    
+    Crear una ventana root de 400x300  
+    Dentro de esa ventana posicionar 7 widgets de tipo Frame.  
+    Los seis primeros frames deben disponerse en 2 filas y 2 columnas.  
+    El séptimo frame debe situarse centrado horizontalmente en la fila 3 y ocupar todo el espacio.      
 
 ### **2.4 - Widgets y variables de control**
 
@@ -979,7 +979,6 @@ Los widgets tradicionales, directamente accesibles después de importar tkinter 
 - Entry: Campo de texto de una sola línea.
 - Text: Área de texto multilínea.
 - Button: Botón estándar.
-- Canvas: Área para gráficos, líneas, figuras, imágenes.
 - Checkbutton: Casilla de verificación.
 - LabelFrame: Marco con título (contenedor).
 - Listbox: Lista de elementos seleccionables.
@@ -994,6 +993,7 @@ Los widgets tradicionales, directamente accesibles después de importar tkinter 
 - Frame: Contenedor básico para agrupar y organizar otros widgets.
 - OptionMenu: Menú desplegable simplificado asociado a una variable de control.
 - PanedWindow: Contenedor dividido en paneles ajustables mediante una barra separadora.
+- Canvas: Área para gráficos, líneas, figuras, imágenes.
 
 !!! tip "variables de control"
 Las variables de control son objetos especiales que **se asocian a los widgets** para **almacenar sus valores** y facilitar **su disponibilidad en otras partes del programa**. Pueden ser de tipo numérico, de cadena y booleano. 
@@ -1072,7 +1072,7 @@ label.config(fg="blue")
 ```
 - El tamaño del Label se ajusta automáticamente al contenido salvo que se definan el width y el height.
 
-#### **2.4.2 - Entry**
+#### **2.4.2 - Entry(texto corto)**
 Entry es un widget de tipo campo de texto que permite al usuario introducir o editar una cadena de caracteres.
 
 **Ejemplo básico**  
@@ -1099,7 +1099,42 @@ root.mainloop()
 | `bg` / `fg`    | Colores de fondo y texto.                                             |
 
 
-#### **2.4.3 - Button**
+#### **2.4.3 - Text(texto corto)**
+Text permite mostrar, introducir y editar texto de **varias líneas**. A diferencia de Entry, que se limita a una línea, Text ofrece herramientas avanzadas para trabajar con párrafos, aplicar formatos, gestionar posiciones mediante índices y manipular contenido con mayor flexibilidad.
+
+**Ejemplo básico:**
+```py
+from tkinter import *
+
+root = Tk()
+
+text = Text(root, width=40, height=10, font=("Arial", 12))
+text.pack()
+
+text.insert("1.0", "Escribe aquí tu texto...")
+
+root.mainloop()
+```
+
+**Principales características del widget Text:**
+
+**El widget Text permite:**
+
+- Gestionar texto multilínea con saltos automáticos o manuales.
+
+Insertar y eliminar contenido usando índices del estilo "fila.columna".
+
+Aplicar etiquetas (tags) para formatear partes concretas del texto.
+
+Asociar scrollbars para manejar contenido largo.
+
+Controlar el estado del widget (editable o de solo lectura).
+
+Insertar otros widgets como imágenes o botones embebidos.
+
+
+
+#### **2.4.4 - Button**
 Button es probablemente el widget más utilizado en el diseño de interfaces gráficas.  
 A diferencia de los widgets vistos hasta ahora se caracteriza por desencadenar una función (command) al pulsarlo. 
 
@@ -1127,12 +1162,12 @@ boton = tk.Button(root, text="Aceptar", bg="lightblue", fg="black", font=("Arial
 | `relief`          | Estilo del borde: `raised`, `sunken`, `flat`, `ridge`, `solid`, `groove`. |
 | `cursor`          | Cursor al pasar por encima.                                               |
 
-!!! warning "Parametro command()"
+!!! warning "Parametro command"
     No se debe poner paréntesis a la función, si no se le pasa ningún argumento.  
     **Correcto:** command= saludar  
     **incorrecto** command= saludar()  
 
-    Si la función necesita argumentos, se debe utilizar una función lambda. 
+    Si la función necesita argumentos, se debe utilizar **una función lambda**. 
     ```py 
     boton = tk.Button(root, text="Enviar", command=lambda: enviar("Hola"))
     ``` 
@@ -1152,7 +1187,6 @@ https://python-para-impacientes.blogspot.com/2016/02/variables-de-control-en-tki
  <!-- https://imaster.academy/contenidos-tematicos/talentotech/TalentoTech/M3unidades/Programacion/Programacion/Integrador/Unidad12/assets/files/Leccin-2InterfacesconTkinter.pdf -->
 
 <!-- https://victomanolo.wordpress.com/ejercicios-con-gui-tkinter/ -->
-<!-- https://recursospython.com/guias-y-manuales/posicionar-elementos-en-tkinter/ -->
 <!-- https://hektorprofe.github.io/python/interfaces-graficas-con-tkinter/widget-entry-texto-corto/ -->
  <!-- === "RA 1"
     |RA1. Reconoce la estructura de un programa informático, identificando y relacionando los elementos propios del lenguaje de programación utilizado.|Peso|
