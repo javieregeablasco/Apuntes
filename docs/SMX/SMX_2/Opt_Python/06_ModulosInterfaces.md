@@ -1085,8 +1085,11 @@ https://python-para-impacientes.blogspot.com/2016/02/variables-de-control-en-tki
  
 <!-- https://hektorprofe.github.io/python/interfaces-graficas-con-tkinter/widget-frame-marco/ -->
 
- 
+ <!-- https://imaster.academy/contenidos-tematicos/talentotech/TalentoTech/M3unidades/Programacion/Programacion/Integrador/Unidad12/assets/files/Leccin-2InterfacesconTkinter.pdf -->
 
+<!-- https://victomanolo.wordpress.com/ejercicios-con-gui-tkinter/ -->
+<!-- https://recursospython.com/guias-y-manuales/posicionar-elementos-en-tkinter/ -->
+<!-- https://hektorprofe.github.io/python/interfaces-graficas-con-tkinter/widget-entry-texto-corto/ -->
  <!-- === "RA 1"
     |RA1. Reconoce la estructura de un programa informático, identificando y relacionando los elementos propios del lenguaje de programación utilizado.|Peso|
     |-|-|

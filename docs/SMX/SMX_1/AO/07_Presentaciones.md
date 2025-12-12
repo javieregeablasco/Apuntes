@@ -95,14 +95,53 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
 ### **Tarea RA7-CEa - Manejo básico de Impress**
 
 !!! exercise "Tarea RA3-CEa"
+    !!! Exrecise "PARTE 1"
+        1. A través de una presentación con diapositivas se desea exponer las principales características de Impress.
+        1. Abrir una nueva presentación en blanco, y desde la **barra lateral**, elegir un patrón para elaborar las siguientes diapositivas.  
+        1. También podeís hacer uso de la función **disposición de diapositiva** para que el asistente proponga varias disposiciones posibles.
+
+        !!! tip "Contenidos diapositiva 1"
+        1 - Presentaciones en LibreOffice Impress  
+
+        - Introducción  
+        - Características generales de la aplicación.
+        !!! tip "Contenidos diapositiva 2"
+        2 - Instalación de la Aplicación  
+
+        - Requerimientos
+        - Componentes
+
+        !!! tip "Contenidos diapositiva 3"
+        3 - Diseño de Presentaciones Electrónicas
+
+        - Diapositivas animadas.
+        - Presentaciones interactivas.
+        - Intervalos y transiciones.
+
+        !!! tip "Contenidos diapositiva 4"
+        4 - Ejecución de una presentación electrónica
+
+        - Formas de ejecutar una presentación con diapositivas.  
+        - Realizada por un orador (pantalla completa).
+        - Examinada de forma individual (ventana).
+        - Examinada en exposición (pantalla completa).
+
+        !!! tip "Contenidos diapositiva 5"
+        5 - Presentaciones automáticas
+
+        - Intervalos automáticos o manuales.
+        - Hipervínculos.
+
+   
+
+
     
 
-### **Tarea RA7-CEb - *** **
-### **Tarea RA7-CEc - *** **
-### **Tarea RA7-CEd-1 - *** **
-### **Tarea RA7-CEe-1 - *** **
-### **Tarea RA7-CEe-2 - *** **
-### **Tarea RA7-CEe-3 - *** **
+### **Tarea RA7-CEb -**
+### **Tarea RA7-CEc -**
+### **Tarea RA7-CEd-1 -**
+### **Tarea RA7-CEe-1 -**
+### **Tarea RA7-CEe-2 -**
 
 
 
