@@ -86,11 +86,6 @@ No afecta al contenido del documento, sino a cómo se interactúa con varios doc
 Reúne todas las opciones para obtener asistencia, acceder a la documentación oficial y consultar información sobre la instalación de LibreOffice.
 
 
-<!-- https://www.youtube.com/@ricardolozano/search?query=impress -->
-<!-- https://www.formadoresit.online/cursos/ofimatica/libre-office/curso-libreoffice-impress-online/#toggle-id-11-closed -->
-<!-- https://www.youtube.com/watch?v=vZTPOsVzGWs -->
-<!-- https://espaciotecnologico.co/plantillas-de-diapositivas-para-libreoffice-impress/ -->
-<!-- https://www.youtube.com/watch?v=mHMaYtxmKaA -->
 
 ### **Tarea RA7-CEa - Manejo básico de Impress**
 
@@ -143,17 +138,18 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
 ### **Tarea RA7-CEe-1 -**
 ### **Tarea RA7-CEe-2 -**
 
+<!-- https://www.youtube.com/@ricardolozano/search?query=impress -->
+<!-- https://www.formadoresit.online/cursos/ofimatica/libre-office/curso-libreoffice-impress-online/#toggle-id-11-closed -->
+<!-- https://www.youtube.com/watch?v=vZTPOsVzGWs -->
+<!-- https://espaciotecnologico.co/plantillas-de-diapositivas-para-libreoffice-impress/ -->
+<!-- https://www.youtube.com/watch?v=mHMaYtxmKaA -->
 
 
 
-UD1
-    Principios fundamentales de una presentación
     
-UD2
-    Iniciar una presentación
-    Añadir una nueva diapositiva
-    Desplazarse entre las diferentes diapositivas
-    Vista de Presentación
+    
+<!-- 
+Vista de Presentación 
 UD3
     Tipos de Archivos
     Compatibilidad con otras aplicaciones
@@ -209,7 +205,7 @@ UD8
     Establecer efectos de animación para los objetos
     Presentaciones interactivas
     Exportar una presentación en formato pdf
-    Crear un vídeo a partir de una presentación de LibreOffice Impress
+    Crear un vídeo a partir de una presentación de LibreOffice Impress -->
 
 
 
