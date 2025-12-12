@@ -662,7 +662,7 @@ Tkinter dispone de tres gestores de geometría: **pack()**, **grid()** y **place
 
 <br>
 
-#### **2.3.2.1 – Método pack**
+##### **2.3.2.1 – Método pack**
 El gestor de geometría `pack()` organiza los marcos (y los widgets) de una manera simple y rápida.
 
 | Atributo | Función | Valores permitidos |
@@ -681,7 +681,7 @@ El gestor de geometría `pack()` organiza los marcos (y los widgets) de una mane
 
 <br>
 
-#### **2.3.2.2 – Ejemplos**
+##### **2.3.2.2 – Ejemplos**
 
 **Ejemplo 1:**  
 El programa crea 2 marcos. El marco_1 utilizará todo el espacio disponible en x mientras que el marco_2 lo hará en el sentido vertical. 
@@ -748,7 +748,7 @@ root.mainloop()
 ```
 <br>
 
-#### **2.3.2.3 – Ejercicios**
+##### **2.3.2.3 – Ejercicios**
 
 !!! exercise "Ejercicio 1"
     Crear una ventana y 3 frames con los siguientes requisitos:
@@ -787,7 +787,7 @@ root.mainloop()
 
 <br>
 
-#### **2.3.2.4 – Método grid**
+##### **2.3.2.4 – Método grid**
 Mientras que **pack()** organiza los widgets en bloques (arriba, abajo, izquierda o derecha), lo que puede dificultar la previsión de su posición exacta, **el gestor de geometría grid()** permite ubicarlos en filas y columnas, lo que resulta mucho más intuitivo para diseñar la interfaz gráfica.
 
 ![Descripción de la imagen](../Opt_Python/img/UT6/grid-layout-tkinter.png){ .cincozero }
@@ -826,7 +826,7 @@ root.mainloop()
 
 <br>
 
-#### **2.3.2.5 - Métodos grid_columnconfigure() y grid_rowconfigure()**
+##### **2.3.2.5 - Métodos grid_columnconfigure() y grid_rowconfigure()**
 
 !!! tip "grid_columnconfigure()"
 
@@ -869,7 +869,7 @@ ventana.grid_rowconfigure(1, weight=1)
 ```
 <br>
 
-#### **2.3.2.6 – Ejercicios**
+##### **2.3.2.6 – Ejercicios**
 
 !!! exercise "Ejercicio 1"
     Crear una ventana y colocar frames usando el método grid().
@@ -915,7 +915,7 @@ ventana.grid_rowconfigure(1, weight=1)
 !!! exercise "Ejercicio 5"
     Ampliar el ejercicio 4 para que los frames se adapten a las dimensiones de la ventana al redimensionarla.
 
-#### **2.3.2.7 – Método place**
+##### **2.3.2.7 – Método place**
 
 - El gestor de geometría **place()** permite tener un control absoluto sobre la disposición de los widgets. Con place(), se puede especificar el tamaño del widget, así como las coordenadas (x, y) para organizarlo dentro de la ventana principal.  
 - **place()** es particularmente útil para organizar botones u otros widgets en una ventana de diálogo sencilla.
@@ -955,10 +955,125 @@ root.mainloop()
 
 <br>
 
-#### **2.3.2.8 – Ejercicios**
+##### **2.3.2.8 – Ejercicios**
+!!! exercise "Ejercicio 1"
+    Crear una ventana root de 400x300
+    Dentro de esa ventana posicionar un frame de 50x50 a X= 140 ,Y=20  
 
-### **2.4 - Widgets**
-### **2.4. - Variables de control**
+!!! exercise "Ejercicio 2"
+    Crear una ventana root de 400x300
+    Dentro de esa ventana posicionar 7 widgets de tipo Frame.
+    Los seis primeros frames deben disponerse en 2 filas y 2 columnas.
+    El séptimo frame debe situarse centrado horizontalmente en la fila 3 y ocupar todo el espacio.    
+
+### **2.4 - Widgets y variables de control**
+
+!!! tip "widgets"
+un widget es un elemento de interfaz gráfica que el usuario puede **ver**, **manipular** o **utilizar** dentro de una ventana.  
+Son los componentes visuales que permiten **construir una GUI**: botones, cuadros de texto, menús, etiquetas, etc.
+
+**Widgets clásicos de tkinter:**
+Los widgets tradicionales, directamente accesibles después de importar tkinter son:
+
+- Label: Etiqueta de texto (o imagen).
+- Button: Botón estándar.
+- Canvas: Área para gráficos, líneas, figuras, imágenes.
+- Checkbutton: Casilla de verificación.
+- Entry: Campo de texto de una sola línea.
+- LabelFrame: Marco con título (contenedor).
+- Listbox: Lista de elementos seleccionables.
+- Menu: Menú genérico.
+- Menubutton: Botón que despliega un menú.
+- Message: Texto multilínea autoajustable.
+- Radiobutton: Botón de opción.
+- Scale: Selector deslizante numérico.  
+- Scrollbar: Barra de desplazamiento.
+- Spinbox: Control numérico con flechas.
+- Text: Área de texto multilínea.
+- Toplevel: Ventana secundaria.
+- Frame: Contenedor básico para agrupar y organizar otros widgets.
+- OptionMenu: Menú desplegable simplificado asociado a una variable de control.
+- PanedWindow: Contenedor dividido en paneles ajustables mediante una barra separadora.
+
+!!! tip "variables de control"
+Las variables de control son objetos especiales que **se asocian a los widgets** para **almacenar sus valores** y facilitar **su disponibilidad en otras partes del programa**. Pueden ser de tipo numérico, de cadena y booleano. 
+
+Son esenciales cuando se necesita **leer o actualizar el contenido de un widget** sin manipular directamente su texto o estado.
+
+#### **2.4.1 - Label**
+Label es utilizado para mostrar texto (estático).
+
+**Ejemplo básico**
+```py
+from tkinter import *
+root = Tk()
+ 
+label = Label(root,text="¡Hola Mundo!")
+label.pack()
+
+root.mainloop() 
+```
+
+**Propiedades de Label()**
+
+| Propiedad  | Descripción                                                | Ejemplo                      |
+| ---------- | ---------------------------------------------------------- | ---------------------------- |
+| `text`     | Texto a pintar.                                            | `text="Hola"`                |
+| `font`     | Tipo de letra, tamaño y estilo.                            | `font=("Arial", 16, "bold")` |
+| `fg`       | Color del texto.                                           | `fg="red"`                   |
+| `bg`       | Color de fondo.                                            | `bg="yellow"`                |
+| `width`    | Anchura del widget (en caracteres).                        | `width=20`                   |
+| `height`   | Altura del widget (en líneas).                             | `height=2`                   |
+| `padx`     | Espacio horizontal interno.                                | `padx=10`                    |
+| `pady`     | Espacio vertical interno.                                  | `pady=10`                    |
+| `bd`       | Grosor del borde.                                          | `bd=3`                       |
+| `relief`   | Estilo del borde (flat, raised, sunken, groove, ridge).    | `relief="sunken"`            |
+| `anchor`   | Posición del texto dentro del Label.                       | `anchor="w"`                 |
+| `justify`  | Justificación del texto (multilínea).                      | `justify="center"`           |
+| `image`    | Imagen a mostrar en lugar de texto.                        | `image=photo`                |
+| `bitmap`   | Imagen en blanco y negro.                                  | `bitmap="warning"`           |
+| `compound` | Combina texto e imagen (left, right, top, bottom, center). | `compound="left"`            |
+| `cursor`   | Cursor del ratón cuando pasa por encima.                   | `cursor="hand2"`             |
+| `state`    | Estado del widget (normal o disabled).                     | `state="disabled"`           |
+
+**Ejemplo con varias propiedades**
+```py
+import tkinter as tk
+
+root = tk.Tk()
+
+label = tk.Label(
+    root,
+    text="Texto de ejemplo",
+    font=("Helvetica", 24, "bold italic"),
+    fg="white",
+    bg="#333333",
+    padx=20,
+    pady=10
+)
+
+label.pack()
+
+root.mainloop()
+```
+
+**Ejemplo con image.**
+```py
+...
+imagen = PhotoImage(file="imagen.gif")
+Label(root, image=imagen, bd=0).pack()
+```
+
+**Notas importantes**  
+
+- Casi todas las propiedades pueden modificarse tras la creación del objeto Label usando .config():
+```py
+label.config(fg="blue")
+```
+- El tamaño del Label se ajusta automáticamente al contenido salvo que se definan width y height.
+
+#### **2.4.2 - Entry**
+
 <!-- variables de control 
 https://python-para-impacientes.blogspot.com/2016/02/variables-de-control-en-tkinter.html -->
 <!-- https://www.pythonguis.com/tutorials/tkinter-radiobutton-and-checkbutton/ -->
@@ -967,11 +1082,10 @@ https://python-para-impacientes.blogspot.com/2016/02/variables-de-control-en-tki
 
 <!-- https://www.youtube.com/watch?v=nZF9SwhmPRo&list=PLU8oAlHdN5BlvPxziopYZRd55pdqFwkeS&index=50 -->
 
-<!-- https://recursospython.com/guias-y-manuales/posicionar-elementos-en-tkinter/-->
  
 <!-- https://hektorprofe.github.io/python/interfaces-graficas-con-tkinter/widget-frame-marco/ -->
 
-<!-- https://www.pythonguis.com/tutorials/create-gui-tkinter/ -->
+ 
 
  <!-- === "RA 1"
     |RA1. Reconoce la estructura de un programa informático, identificando y relacionando los elementos propios del lenguaje de programación utilizado.|Peso|
