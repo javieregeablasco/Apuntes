@@ -203,14 +203,23 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
         ![](./07_Presentaciones/img/RA7-CEa-6.png){.sietecinco}<br>  
         
         1. **Animar los elementos** de la diapositiva para obtener un resultado similar al siguiente ejemplo.   
-        
-        <video class="sietecinco" controls>
+        [Visualizar ejemplo.](./07_Presentaciones/img/RA7-CEa-5.mp4)  
+        <!-- <video class="sietecinco" controls>
             <source src="./07_Presentaciones/img/RA7-CEa-5.mp4" type="video/mp4">
             Tu navegador no soporta la reproducción de vídeo.
-        </video>
+        </video> -->
        
-    !!! Exercise "PARTE 11 - Navegación y enlaces"
+    !!! Exercise "PARTE 11 - Navegación, enlaces, cabeceras y pie de página"
+        1. Añadir en todas las hojas 2 campos donde aparecerá vuestro nombre, la diapositiva actual y el recuento de diapositivas.  
+        1. Añadir un botón que permitirá volver al inicio de la presentación.
 
+        ![](./07_Presentaciones/img/RA7-CEa-7.png){.sietecinco}<br>  
+
+
+    !!! warning "Entrega de la tarea"
+        Subir la tarea a AULES en el apartado correspondiente.  
+        El archivo a subir deberá ser de tipo **.odp** (formato predeterminado de LibreOffice Impress).  
+        **No se aceptará ningún otro formato de archivo**.
 
 
 <!-- https://iesandresbojollo.es/tiyc/impress/10-Impress_Transiciones_y_Animaciones.html
@@ -227,6 +236,7 @@ https://www.picuino.com/es/informatica-tutoimpress.html?highlight=impress -->
 ### **Tarea RA7-CEc -**
 <!-- file:///C:/Users/titan/Documents/Javier128/Modulos/SMX/SMX_1/AO/materiales/RA7/PresentacionesAtractivas.pdf -->
 ### **Tarea RA7-CEd-1 -**
+<!-- https://iesandresbojollo.es/tiyc/impress/14-Impress-Presentacion-Concesionario.html -->
 ### **Tarea RA7-CEe-1 -**
 ### **Tarea RA7-CEe-2 -**
 
