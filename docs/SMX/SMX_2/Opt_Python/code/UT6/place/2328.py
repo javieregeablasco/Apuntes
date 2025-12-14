@@ -54,3 +54,4 @@ frame_6.place(relx=ancho_columna, rely=2 * altura_fila, relwidth=ancho_columna, 
 frame_7.place(relx=0,             rely=3 * altura_fila, relwidth=1,            relheight=altura_fila)
 
 root.mainloop()
+

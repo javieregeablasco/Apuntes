@@ -90,7 +90,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
 ### **Tarea RA7-CEa - Manejo básico de Impress**
 
 !!! exercise "Tarea RA3-CEa"
-    !!! Exercise "PARTE 1"
+    !!! Exercise "PARTE 1 - Creación de diapositivas"
         1. A través de una presentación con diapositivas se desea exponer las principales características de Impress.
         1. Abrir una nueva presentación en blanco, y desde la **barra lateral**, elegir un patrón para elaborar las siguientes diapositivas.  
         1. También podeís hacer uso de la función **disposición de diapositiva** para que el asistente proponga varias disposiciones posibles.
@@ -127,13 +127,105 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
         - Intervalos automáticos o manuales.
         - Hipervínculos.
 
-   
+    !!! Exercise "PARTE 2 - Fondos y fuentes"
+        1. Consejo → Mostrar reglas.
+        1. Consejo → Mostrar retículas.
+        1. Consejo → Propiedades → Formato diapositiva.
+        1. Consejo → Propiedades → Disposiciones.
+        1. **Tarea** → Patrones de diapositivas → **Elegir un patrón para diapositivas 1, 2 y 3**.
+        1. **Tarea** → Patrones de diapositivas → **Elegir un fondo (color, degradado...) para diapositiva 4**.
+        1. **Tarea** → Patrones de diapositivas → **Elegir una imagen (www.pixabay.com , ...) para el fondo de la diapositiva 5**.
+        1. **Tarea** → **Ajustar posición, tamaños, colores de fuentes para cada diapositiva**.
+          
+    !!! Exercise "PARTE 3 - Insertar y retocar imágenes"
+        1. Descargar la siguiente imagen: [Descargar archivo](./07_Presentaciones/img/imatges/ErasmusPlus.png)  
+        1. Descargar la siguiente imagen: [Descargar archivo](./07_Presentaciones/img/imatges/LogoInstitut.png)  
+        1. **Tarea** → **Insertar imagenes en todas las diapositivas**. Ajustar tamaño, rotación, modo de color, brillo, contraste y transparencia al gusto.
+        1. **Tarea** → **Insertar imagenes en todas las diapositivas**. Ubicarlas de tal manera que no haya sensación de movimiento al pasar las diapositivas.
+        1. Descargar la siguiente imagen: [Descargar archivo](./07_Presentaciones/img/imatges/institut.jpg)  
+        1. **Tarea** → **Duplicar la diapositiva 2 y dejarla en la posición 3**. Insertar la imagen descargada, **aplicarle un borde y recortarla al gusto**.
+
+    !!! Exercise "PARTE 4 - Insertar tabla"
+        1. **Tarea** → **Añadir una diapositiva a la presentación**. Poner un fondo, título con los datos que se dan a continuación.  
+        1. **Tarea** → **Insertar una tabla con los siguientes datos:**
+
+            Consumo eléctrico anual (GWh) por sector y fuente de energía.  
+
+            |   | Electricidad | Gas natural | Renovables |
+            | ------------- | ------------ | ----------- | ---------- |
+            | Residencial   | 120          | 95          | 60         |
+            | Industrial    | 210          | 180         | 90         |
+            | Servicios     | 160          | 110         | 75         |
+            | Transporte    | 90           | 140         | 45         |  
 
 
+    !!! Exercise "PARTE 5 - Insertar tablas"
+        1. **Tarea** → **Añadir una diapositiva a la presentación**. Poner un fondo, título con los datos que se dan a continuación.  
+        1. **Tarea** → Insertar un gráfico → Columna en pilas, 3D, realista, forma: cilindro.
+        1. **Tarea** → **Modificar la gráfica utilizando los datos de la tabla anterior**.  
+        1. **Ejemplo de resultado:**  
+
+        ![](./07_Presentaciones/img/RA7-CEa-1.png){.original}
+
+    !!! Exercise "PARTE 6 - Insertar formas"
+        1. **Tarea** → **Añadir una diapositiva a la presentación**. Poner un fondo y un título.  
+        1. **Tarea** → **Insertar formas para obtener un resultado similar al de la imagen**.  
+
+        ![](./07_Presentaciones/img/RA7-CEa-2.png){.sietecinco}
+
+    !!! Exercise "PARTE 7 - Fontwork"
+        1. **Tarea** → **Añadir una diapositiva a la presentación**. Poner un fondo y un título.  
+        1. **Tarea** → **Insertar texto usando fontwork**. 
+        1. **Ejemplo de resultado:** 
+
+        ![](./07_Presentaciones/img/RA7-CEa-3.png){.sietecinco}
+
+    !!! Exercise "PARTE 8 - Alinear objetos"
+        1. **Tarea** → **Añadir una diapositiva a la presentación**. Poner un fondo y un título.  
+        1. **Replicar la imagen de aquí abajo**. No se trata de calcar el ejemplo sino de prestar atención a **la alineación y la separación entre objetos**.  
+
+        ![](./07_Presentaciones/img/RA7-CEa-4.png){.sietecinco}
     
+    !!! Exercise "PARTE 9 - Transiciones entre diapositivas"
+        1. Las transiciones son los efectos visuales que se aplican al pasar de una diapositiva a otra durante una presentación. Sirven para hacer que el cambio sea más atractivo y dinámico.
+        1. **Tarea:** Ir a **Diapositiva** → **Transición entre diapositivas** y aplicar un efecto durante la transición a **todas las diapositivas del documento** (observar como también se pueden personalizar esos efectos). 
+
+    !!! Exercise "PARTE 10 - Animaciones"
+        Los efectos de animación pueden clasificarse en 4 categorias:
+
+        - **Entrada:** cuando el elemento aparece por pantalla. Agrega un efecto que introduce el texto o el objeto en la presentación con diapositivas.
+        - **Salida:** cuando el elemento desaparece de la pantalla. Agrega un efecto que saca el texto o el objeto de la diapositiva en algún momento.
+        - **Énfasis:** cambio de un elemento para resaltarlo. Agrega un efecto al texto o al objeto para lograr que resalte mucho más.
+        - **Rutas de movimiento:** cambio de posición de un elemento para resaltarlo. Agregar un efecto que mueve un objeto en la trama especificada.
+        !!! task "Tarea"
+        1. **Añadir una diapositiva a la presentación**.   
+        1. Realizar un diseño **similar** al de la imagen.<br>  
+        ![](./07_Presentaciones/img/RA7-CEa-6.png){.sietecinco}<br>  
+        
+        1. **Animar los elementos** de la diapositiva para obtener un resultado similar al siguiente ejemplo.   
+        
+        <video class="sietecinco" controls>
+            <source src="./07_Presentaciones/img/RA7-CEa-5.mp4" type="video/mp4">
+            Tu navegador no soporta la reproducción de vídeo.
+        </video>
+       
+    !!! Exercise "PARTE 11 - Navegación y enlaces"
+
+
+
+<!-- https://iesandresbojollo.es/tiyc/impress/10-Impress_Transiciones_y_Animaciones.html
+https://iesandresbojollo.es/tiyc/impress/11-Impress-Gimnasio.html
+https://iesandresbojollo.es/tiyc/impress/12-Impress-Insercion_de_objetos_multimedia.html
+https://iesandresbojollo.es/tiyc/impress/13-Impress-Interactividad.html
+https://iesandresbojollo.es/tiyc/impress/14-Impress-Presentacion-Concesionario.html
+https://iesandresbojollo.es/tiyc/impress/15-Impress-Musica_de_fondo.html
+https://www.picuino.com/es/informatica-tutoimpress.html?highlight=impress -->
+
 
 ### **Tarea RA7-CEb -**
+<!-- https://iesandresbojollo.es/tiyc/impress/9-Impress-Vistas_y_Presentacion.html -->
 ### **Tarea RA7-CEc -**
+<!-- file:///C:/Users/titan/Documents/Javier128/Modulos/SMX/SMX_1/AO/materiales/RA7/PresentacionesAtractivas.pdf -->
 ### **Tarea RA7-CEd-1 -**
 ### **Tarea RA7-CEe-1 -**
 ### **Tarea RA7-CEe-2 -**
@@ -144,8 +236,8 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
 <!-- https://espaciotecnologico.co/plantillas-de-diapositivas-para-libreoffice-impress/ -->
 <!-- https://www.youtube.com/watch?v=mHMaYtxmKaA -->
 <!-- https://superalumnos.net/files/ejercicios_powerpoint.pdf -->
-
-
+<!-- https://www.picuino.com/es/informatica-tutoimpress.html?highlight=impress -->
+<!-- https://iesandresbojollo.es/tiyc/impress/index.html -->
 
     
     
