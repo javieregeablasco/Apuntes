@@ -1070,7 +1070,7 @@ Label(root, image=imagen, bd=0).pack()
 ```py
 label.config(fg="blue")
 ```
-- El tamaño del Label se ajusta automáticamente al contenido salvo que se definan el width y el height.
+- El tamaño del Label se ajusta automáticamente al contenedor salvo que se definan el width y el height.
 
 #### **2.4.2 - Entry(texto corto)**
 Entry es un widget de tipo campo de texto que permite al usuario introducir o editar una cadena de caracteres.

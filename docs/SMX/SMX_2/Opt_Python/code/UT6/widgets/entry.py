@@ -8,3 +8,5 @@ entry = Entry(root, bg="yellow", width=30, show="*", justify="center")
 entry.pack()
 
 root.mainloop()
+
+# print("El resultado es", entry.get())
