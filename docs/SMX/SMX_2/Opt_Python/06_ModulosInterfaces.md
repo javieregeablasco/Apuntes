@@ -1272,7 +1272,23 @@ root.mainloop()
 | `cursor`          | Cursor al pasar por encima.                                     |
 | `indicatoron`     | Muestra u oculta el indicador de la casilla (`True` / `False`). |
 
-#### **2.4.7 - Variables de control**
+#### **2.4.7 - Ejercicios**
+!!! exercise "Ejercicio 1"
+    Realizar un programa que devuelva el siguiente resultado:  
+
+    ![](./img/UT6/247-1.png)
+
+!!! exercise "Ejercicio 2"
+    Ampliar el programa anterior para obtener el siguiente resultado: 
+
+    ![](./img/UT6/247-2.png)
+
+!!! exercise "Ejercicio 3"
+    Realizar un programa que devuelva el siguiente resultado:  
+
+    ![](./img/UT6/247-3.png)
+
+#### **2.4.8 - Variables de control**
 **Las variables de control** son objetos especiales que se asocian a los widgets para almacenar sus valores y utilizarlos en otras partes del programa.   
 
 Pueden ser de tipo **numérico**, de **cadena de caracteres** y **booleano**.
