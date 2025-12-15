@@ -222,6 +222,30 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
         **No se aceptará ningún otro formato de archivo**.
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- https://iesandresbojollo.es/tiyc/impress/10-Impress_Transiciones_y_Animaciones.html
 https://iesandresbojollo.es/tiyc/impress/11-Impress-Gimnasio.html
 https://iesandresbojollo.es/tiyc/impress/12-Impress-Insercion_de_objetos_multimedia.html
