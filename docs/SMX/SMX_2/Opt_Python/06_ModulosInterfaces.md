@@ -969,7 +969,7 @@ root.mainloop()
 ### **2.4 - Widgets y variables de control**
 
 !!! tip "widgets"
-un widget es un elemento de interfaz gráfica que el usuario puede **ver**, **manipular** o **utilizar** dentro de una ventana.  
+Un widget es un elemento de interfaz gráfica que el usuario puede **ver**, **manipular** o **utilizar** dentro de una ventana.  
 Son los componentes visuales que permiten **construir una GUI**: botones, cuadros de texto, menús, etiquetas, etc.
 
 **Widgets clásicos de tkinter:**
@@ -999,6 +999,8 @@ Los widgets tradicionales, directamente accesibles después de importar tkinter 
 Las variables de control son objetos especiales que **se asocian a los widgets** para **almacenar sus valores** y facilitar **su disponibilidad en otras partes del programa**. Pueden ser de tipo numérico, de cadena y booleano. 
 
 Son esenciales cuando se necesita **leer o actualizar el contenido de un widget** sin manipular directamente su texto o estado.
+
+---
 
 #### **2.4.1 - Label**
 Label es utilizado para mostrar texto (estático).
@@ -1098,9 +1100,10 @@ root.mainloop()
 | `state`        | Estado: `normal`, `disabled`, `readonly`.                             |
 | `bg` / `fg`    | Colores de fondo y texto.                                             |
 
+---
 
 #### **2.4.3 - Text(texto corto)**
-Text permite mostrar, introducir y editar texto de **varias líneas**. A diferencia de Entry, que se limita a una línea, Text ofrece herramientas avanzadas para trabajar con párrafos, aplicar formatos, gestionar posiciones mediante índices y manipular contenido con mayor flexibilidad.
+**Text** permite mostrar, introducir y editar texto de **varias líneas**. A diferencia de Entry, que se limita a una línea, Text ofrece herramientas avanzadas para trabajar con párrafos, aplicar formatos, gestionar posiciones mediante índices y manipular contenido con mayor flexibilidad.
 
 **Ejemplo básico:**
 ```py
@@ -1132,10 +1135,10 @@ Controlar el estado del widget (editable o de solo lectura).
 
 Insertar otros widgets como imágenes o botones embebidos.
 
-
+---
 
 #### **2.4.4 - Button**
-Button es probablemente el widget más utilizado en el diseño de interfaces gráficas.  
+**Button** es probablemente el widget más utilizado en el diseño de interfaces gráficas.  
 A diferencia de los widgets vistos hasta ahora se caracteriza por desencadenar una función (command) al pulsarlo. 
 
 **Ejemplo básico**
@@ -1172,23 +1175,173 @@ boton = tk.Button(root, text="Aceptar", bg="lightblue", fg="black", font=("Arial
     boton = tk.Button(root, text="Enviar", command=lambda: enviar("Hola"))
     ``` 
 
+---
+
+#### **2.4.5 - Boton de opción [Radiobutton]**
+**Radiobutton** permite al usuario seleccionar una única opción dentro de un conjunto de alternativas **mutuamente excluyentes**.
+A diferencia de otros widgets de selección, los radiobuttons trabajan siempre asociados a **una variable de control compartida**, lo que garantiza que solo una opción pueda estar activa al mismo tiempo.
+
+**Ejemplo básico**
+```py
+from tkinter import *
+
+def mostrar_opcion():
+    print("Opción seleccionada:", opcion.get())
+
+
+root = Tk()
+root.config(bg="black")
+root.config(width=400, height=100)
+root.geometry("400x100+400+400")
+
+opcion = StringVar(value="1")
+
+rb1 = Radiobutton(root, text="Opción 1", variable=opcion, value="1", command=mostrar_opcion)
+rb2 = Radiobutton(root, text="Opción 2", variable=opcion, value="2", command=mostrar_opcion)
+
+rb1.pack(side="top")
+rb2.pack(side="top")
+
+root.mainloop()
+```
+
+**Propiedades de Radiobutton()**
+
+| Parámetro         | Descripción                                                           |
+| ----------------- | --------------------------------------------------------------------- |
+| `text`            | Texto mostrado junto al botón de opción.                              |
+| `variable`        | Variable de control compartida (`StringVar`, `IntVar`, etc.).         |
+| `value`           | Valor asignado a la variable cuando el radiobutton está seleccionado. |
+| `command`         | Función llamada al cambiar la selección.                              |
+| `state`           | Estado: `normal`, `disabled`, `active`.                               |
+| `width`, `height` | Tamaño del widget.                                                    |
+| `bg`, `fg`        | Colores de fondo y texto.                                             |
+| `font`            | Fuente del texto.                                                     |
+| `padx`, `pady`    | Relleno interno.                                                      |
+| `relief`          | Estilo del borde del contenedor.                                      |
+| `cursor`          | Cursor al pasar por encima.                                           |
+| `indicatoron`     | Muestra u oculta el indicador circular (`True` / `False`).            |
+
+!!! warning "Uso de la variable de control"
+Todos los radiobuttons de un mismo grupo deben compartir la misma variable y tener valores distintos.
+La función asociada a `command` **no debe llevar paréntesis** si no recibe argumentos. Si es necesario pasar argumentos, se debe usar **una función lambda**.
+
+---
+
+#### **2.4.6 - Casillas de verificacion [Checkbutton]**
+**Checkbutton** permite al usuario activar o desactivar una opción. A diferencia de Radiobutton, los checkbuttons no son excluyentes entre sí, lo que permite seleccionar múltiples opciones simultáneamente.
+
+**Ejemplo básico**
+```py
+from tkinter import *
+
+def mostrar_estado():
+    print("Estado del checkbutton:", activar.get())
+
+root = Tk()
+root.config(bg="black")
+root.config(width=400, height=100)
+root.geometry("400x100+400+400")
+
+activar = BooleanVar(value=False)
+
+chk = Checkbutton(root, text="Activar opción",
+                     variable=activar,
+                     command=mostrar_estado)
+
+chk.pack(side="top", pady=20)
+
+root.mainloop()
+```
+
+**Propiedades de Checkbutton()**
+
+| Parámetro         | Descripción                                                     |
+| ----------------- | --------------------------------------------------------------- |
+| `text`            | Texto mostrado junto a la casilla.                              |
+| `variable`        | Variable de control asociada (`BooleanVar`, `IntVar`, etc.).    |
+| `onvalue`         | Valor asignado a la variable cuando está activado.              |
+| `offvalue`        | Valor asignado a la variable cuando está desactivado.           |
+| `command`         | Función llamada al cambiar el estado.                           |
+| `state`           | Estado: `normal`, `disabled`, `active`.                         |
+| `width`, `height` | Tamaño del widget.                                              |
+| `bg`, `fg`        | Colores de fondo y texto.                                       |
+| `font`            | Fuente del texto.                                               |
+| `padx`, `pady`    | Relleno interno.                                                |
+| `relief`          | Estilo del borde del contenedor.                                |
+| `cursor`          | Cursor al pasar por encima.                                     |
+| `indicatoron`     | Muestra u oculta el indicador de la casilla (`True` / `False`). |
+
+#### **2.4.7 - Variables de control**
+**Las variables de control** son objetos especiales que se asocian a los widgets para almacenar sus valores y utilizarlos en otras partes del programa.   
+
+Pueden ser de tipo **numérico**, de **cadena de caracteres** y **booleano**.
+
+- StringVar: Para texto (cadenas de caracteres).
+- IntVar: Para números enteros.
+- DoubleVar: Para números decimales (flotantes).
+- BooleanVar: Para valores booleanos (True/False)
+
+!!! tip "Como funcionan"  
+
+- **Creación:** Se instancian **fuera del widget**, por ejemplo: mi_texto = tk.StringVar().
+- **Asociación:** Se vinculan al widget usando opciones como textvariable (para Label, Entry) o variable (para Radiobutton, Checkbutton).
+- **Intercambio de datos:**
+    - variable.set(valor): Asigna un valor a la variable (y actualiza el widget).
+    - variable.get(): Recupera el valor actual de la variable (y del widget).
+- **Actualización automática:** Al cambiar el valor en el widget, la variable se actualiza; al cambiar la variable con set(), el widget se actualiza. 
+
+!!! tip "Declarar variables de control"
+Las variables de control se declaran de forma diferente en función al tipo de dato que almacenan: 
+```py
+entero = IntVar()  # Declara variable de tipo entera
+flotante = DoubleVar()  # Declara variable de tipo flotante
+cadena = StringVar(value="apellido 1")  # Declara variable de tipo cadena y se le asigna un valor inicial
+booleano = BooleanVar()  # Declara variable de tipo booleana 
+```
+
+!!! tip "Método set()"
+El método set() asigna un valor a una variable de control. Se utiliza para modificar el valor o estado de un widget: 
+
+```py
+from tkinter import *
+
+ventana = Tk()
+ventana.title("Ejemplo de variables")
+ventana.geometry("300x150+250+300")
+
+nombre = StringVar(ventana)
+mostrar = IntVar(ventana)
+
+nombre.set("Mi primera variable")
+mostrar.set(1234)
+
+introducir_texto = Entry(ventana, textvariable=nombre, width=25)
+etiqueta = Label(ventana, textvariable=mostrar)
+
+introducir_texto.pack(padx=20, pady=20)
+etiqueta.pack(padx=10, pady=5)
+
+ventana.mainloop()
+```
+
 
 <!-- variables de control 
 https://python-para-impacientes.blogspot.com/2016/02/variables-de-control-en-tkinter.html -->
+
 <!-- https://www.pythonguis.com/tutorials/tkinter-radiobutton-and-checkbutton/ -->
 
 <!-- https://guia-tkinter.readthedocs.io/es/develop/chapters/6-widgets/6.1-Intro.html#botones-button -->
 
 <!-- https://www.youtube.com/watch?v=nZF9SwhmPRo&list=PLU8oAlHdN5BlvPxziopYZRd55pdqFwkeS&index=50 -->
 
- 
-<!-- https://hektorprofe.github.io/python/interfaces-graficas-con-tkinter/widget-frame-marco/ -->
-
- <!-- https://imaster.academy/contenidos-tematicos/talentotech/TalentoTech/M3unidades/Programacion/Programacion/Integrador/Unidad12/assets/files/Leccin-2InterfacesconTkinter.pdf -->
+<!-- https://imaster.academy/contenidos-tematicos/talentotech/TalentoTech/M3unidades/Programacion/Programacion/Integrador/Unidad12/assets/files/Leccin-2InterfacesconTkinter.pdf -->
 
 <!-- https://victomanolo.wordpress.com/ejercicios-con-gui-tkinter/ -->
+
 <!-- https://hektorprofe.github.io/python/interfaces-graficas-con-tkinter/widget-entry-texto-corto/ -->
- <!-- === "RA 1"
+
+<!-- === "RA 1"
     |RA1. Reconoce la estructura de un programa informático, identificando y relacionando los elementos propios del lenguaje de programación utilizado.|Peso|
     |-|-|
     *|**a)** Se han identificado los bloques que componen la estructura de un programa informático. |12%|
