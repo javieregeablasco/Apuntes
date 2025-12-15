@@ -289,6 +289,63 @@ Si todo ha ido bien, la imagen aparecerá disponible en nuestro repositorio.
 ![Descripción de la imagen](../AWS/ut7/ECR-10.png){ .cien .marco }
 
 ## **4 - ECS**
+### **4.1 - Introducción**
+Amazon ECS (Elastic Container Service) es el servicio de AWS para ejecutar y orquestar contenedores Docker de forma gestionada.
+
+ECS permite desplegar aplicaciones en contenedores sin necesidad de administrar directamente servidores, encargándose de tareas como el arranque, supervisión, escalado y recuperación de los contenedores.
+
+Las aplicaciones se ejecutan dentro de **clusters**, utilizando **infraestructura EC2** (con mayor control) o **Fargate (modelo serverless)**. 
+
+### **4.2 - Acceder a ECS**
+Nos dirigimos a **ECS** pero primero deberemos crear **un clúster**.  
+En Amazon ECS (Elastic Container Service), **un cluster** es el **contenedor lógico** donde AWS agrupa y gestiona **los recursos de cómputo** que van a ejecutar contenedores Docker.
+
+![Descripción de la imagen](../AWS/ut7/ECS-1.png){ .nuevezero .marco }
+
+### **4.3 - Crear un clúster**
+Creamos nuestro clúster usando la opción **Solo Fargate**, que suele ser la más flexible para la mayoría de los servicios.
+
+![Descripción de la imagen](../AWS/ut7/ECS-2.png){ .nuevezero .marco }
+
+A los pocos instantes tendremos nuestro cluster disponible.
+
+![Descripción de la imagen](../AWS/ut7/ECS-3.png){ .nuevezero .marco }
+
+### **4.4 - Crear una tarea**
+Una tarea es la instancia de una definición de tarea (una plantilla de un contenedor/microservicio) y se ejecuta en un clúster permitiendo desplegar microservicios, web apps, etc.
+
+!!! tip "Crear una nueva definición de tarea"
+![Descripción de la imagen](../AWS/ut7/ECS-4.png){ .nuevezero .marco }
+
+Bajamos:
+
+![Descripción de la imagen](../AWS/ut7/ECS-5.png){ .nuevezero .marco }
+
+Bajamos: Tendremos que buscar la imagen que hemos subido a nuestro repositorio.
+
+![Descripción de la imagen](../AWS/ut7/ECS-6.png){ .nuevezero .marco }
+
+### **4.5 - Desplegar un servicio nuevo**
+Para ello creamos un servicio nuevo.
+Vamos a Clústeres → Servicios → Crear  
+
+![Descripción de la imagen](../AWS/ut7/ECS-7.png){ .nuevezero .marco }
+
+Seleccionamos la VPC sobre la cual se desplegará el servicio.
+
+![Descripción de la imagen](../AWS/ut7/ECS-8.png){ .nuevezero .marco }
+
+Al cabo de varios minutos ya tendremos nuestro servicio desplegado.
+
+![Descripción de la imagen](../AWS/ut7/ECS-9.png){ .nuevezero .marco }
+
+### **4.6 - Comprobación del servicio**
+Si vamos a Clústeres → Tareas → Nuestra tarea → Redes podremos acceder al servicio por la IP pública.   
+
+![Descripción de la imagen](../AWS/ut7/ECS-10.png){ .nuevezero .marco }
+
+![Descripción de la imagen](../AWS/ut7/ECS-11.png){ .nuevezero   }
+
 <!-- https://youtu.be/TRLK6ZNpjB8?si=_V0CfbF58LbhwxHU&t=338 -->
 
 

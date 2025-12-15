@@ -1538,14 +1538,14 @@ ventana.mainloop()
     menu_editar = Menu(barra_menu, tearoff=0)
     barra_menu.add_cascade(label="Editar", menu=menu_editar)
     
-    # Submenú dentro de Editar
+    # Submenú Portapapeles dentro de Editar
     menu_portapapeles = Menu(menu_editar, tearoff=0)
     menu_editar.add_cascade(label="Portapapeles", menu=menu_portapapeles)
     
     menu_portapapeles.add_command(label="Copiar", command=copiar)
     menu_portapapeles.add_command(label="Pegar", command=pegar)
     
-    # Otro submenú
+    # Submenú Formato dentro de Editar
     menu_formato = Menu(menu_editar, tearoff=0)
     menu_editar.add_cascade(label="Formato", menu=menu_formato)
     
