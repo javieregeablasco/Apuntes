@@ -1102,7 +1102,7 @@ root.mainloop()
 
 ---
 
-#### **2.4.3 - Text(texto corto)**
+#### **2.4.3 - Text(texto largo)**
 **Text** permite mostrar, introducir y editar texto de **varias líneas**. A diferencia de Entry, que se limita a una línea, Text ofrece herramientas avanzadas para trabajar con párrafos, aplicar formatos, gestionar posiciones mediante índices y manipular contenido con mayor flexibilidad.
 
 **Ejemplo básico:**
@@ -1291,7 +1291,7 @@ root.mainloop()
 #### **2.4.8 - Variables de control**
 **Las variables de control** son objetos especiales que se asocian a los widgets para almacenar sus valores y utilizarlos en otras partes del programa.   
 
-Pueden ser de tipo **numérico**, de **cadena de caracteres** y **booleano**.
+Pueden ser de tipo **numérico**, de **cadena de caracteres** o **booleano**.
 
 - StringVar: Para texto (cadenas de caracteres).
 - IntVar: Para números enteros.
@@ -1300,7 +1300,7 @@ Pueden ser de tipo **numérico**, de **cadena de caracteres** y **booleano**.
 
 !!! tip "Como funcionan"  
 
-- **Creación:** Se instancian **fuera del widget**, por ejemplo: mi_texto = tk.StringVar().
+- **Creación:** Se instancian **fuera del widget** (mi_texto = StringVar()).
 - **Asociación:** Se vinculan al widget usando opciones como textvariable (para Label, Entry) o variable (para Radiobutton, Checkbutton).
 - **Intercambio de datos:**
     - variable.set(valor): Asigna un valor a la variable (y actualiza el widget).
@@ -1317,7 +1317,7 @@ booleano = BooleanVar()  # Declara variable de tipo booleana
 ```
 
 !!! tip "Método set()"
-El método set() asigna un valor a una variable de control. Se utiliza para modificar el valor o estado de un widget: 
+**El método set()** asigna un valor a **una variable de control**. Se utiliza para modificar el valor o estado de un widget: 
 
 ```py
 from tkinter import *
@@ -1341,11 +1341,226 @@ etiqueta.pack(padx=10, pady=5)
 ventana.mainloop()
 ```
 
+!!! tip "Método get()"
+**El método get()** obtiene el valor el valor de **una variable de control**.
+
+```py
+from tkinter import *
+
+ventana = Tk()
+ventana.title("get y set")
+ventana.geometry("300x150+250+300")
+
+nombre = StringVar(ventana)
+mostrar = StringVar(ventana)
+
+def escribir():
+  mostrar.set(nombre.get())
+  
+introducir_texto = Entry(ventana, textvariable=nombre, width=25)
+etiqueta = Label(ventana, textvariable=mostrar)
+boton = Button(ventana, text="Aceptar", command=escribir)
+
+introducir_texto.pack(pady=20)
+etiqueta.pack(pady=5)
+boton.pack(pady=10)
+
+ventana.mainloop()
+```
+
+!!! tip "Método trace()"
+**El método get()** se emplea para detectar cuando una variable es leída, cambia de valor o es borrada: 
+
+**Sintaxis**
+```py
+widget.trace(tipo, función)
+```
+
+- El primer argumento establece el tipo de suceso a comprobar: 'r' lectura de variable, 'w' escritura de variable y 'u' borrado de variable.  
+- El segundo argumento indica la función que será llamada cuando se produzca el suceso.
+
+**Ejemplo**
+```py
+from tkinter import *
+
+ventana = Tk()
+ventana.title("Método trace")
+ventana.geometry("300x100+400+300")
+
+texto = StringVar()
+mostrar = StringVar()
+
+def cambio(*args):
+    mostrar.set(texto.get())
+
+texto.trace("w", cambio)
+
+entrada = Entry(ventana, textvariable=texto)
+etiqueta = Label(ventana, textvariable=mostrar)
+
+entrada.pack(pady=20)
+etiqueta.pack(pady=10)
+
+ventana.mainloop()
+```
+---
+
+#### **2.4.9 - Menu**
+**El widget Menu** permite crear barras de menú y menús desplegables:
+
+- Menú principal (barra)
+- Submenús (Archivo, Editar, Ayuda, etc.)
+- Opciones con comandos, separadores, checks y radios
+
+!!! tip "Código mínimo para mostrar una barra de menú"
+```py
+from tkinter import *
+
+ventana = Tk()
+
+barra_menu = Menu(ventana)
+ventana.config(menu=barra_menu)
+
+ventana.mainloop()
+```
+
+!!! tip "Añadir un menú desplegable (add_cascade)"
+```py
+menu_archivo = Menu(barra_menu, barra_menu, tearoff=0)
+barra_menu.add_cascade(label="Archivo", menu=menu_archivo)
+```
+
+- `label`: texto visible
+- `menu`: menú asociado
+- `tearoff=0`: sirve para evitar de despegar el menú en una ventana flotante.  
+
+!!! tip "Añadir opciones al menú (add_command)"
+```py
+def salir():
+    ventana.destroy()
+
+menu_archivo.add_command(label="Salir", command=salir)
+```
+!!! tip "Ejemplo completo"
+```py
+from tkinter import *
+
+ventana = Tk()
+ventana.title("Barra de menús")
+ventana.geometry("300x100+300+400")
+
+def salir():
+    ventana.destroy()
+
+barra_menu = Menu(ventana)
+ventana.config(menu=barra_menu)
+
+menu_archivo = Menu(barra_menu)
+barra_menu.add_cascade(label="Archivo", menu=menu_archivo)
+
+menu_archivo.add_command(label="Salir", command=salir)
+
+ventana.mainloop()
+```
+
+!!! tip "Opciones de menú"
+    !!! tip "add_command"
+        ```py
+        menu.add_command(label="Guardar", command=guardar)
+        ```
+    !!! tip "add_separator"
+        ```PY
+        menu.add_separator()
+        ```
+    !!! tip "add_checkbutton"
+        ```py
+        ver_barra = BooleanVar()
+
+        menu.add_checkbutton(
+            label="Mostrar barra",
+            variable=ver_barra
+        )
+        ```
+    !!! tip "add_radiobutton"
+        ```py
+        tema = StringVar(value="claro")
+
+        menu.add_radiobutton(label="Claro", variable=tema, value="claro")
+        menu.add_radiobutton(label="Oscuro", variable=tema, value="oscuro")
+        ```
+
+    !!! tip "Submenús"
+        ```py
+        menu_exportar = Menu(menu_archivo, tearoff=0)
+
+        menu_exportar.add_command(label="PDF")
+        menu_exportar.add_command(label="HTML")
+
+        menu_archivo.add_cascade(label="Exportar", menu=menu_exportar)
+        ```
+??? tip "Ejemplo"
+    ```py
+    from tkinter import *
+    
+    def nuevo():
+        print("Nuevo archivo")
+    
+    def abrir():
+        print("Abrir archivo")
+    
+    def salir():
+        ventana.destroy()
+    
+    def copiar():
+        print("Copiar")
+    
+    def pegar():
+        print("Pegar")
+    
+    ventana = Tk()
+    ventana.title("Ejemplo de barra de menús")
+    ventana.geometry("400x200")
+    
+    # Barra de menú principal
+    barra_menu = Menu(ventana)
+    ventana.config(menu=barra_menu)
+    
+    # ===== MENÚ ARCHIVO =====
+    menu_archivo = Menu(barra_menu, tearoff=0)
+    barra_menu.add_cascade(label="Archivo", menu=menu_archivo)
+    
+    menu_archivo.add_command(label="Nuevo", command=nuevo)
+    menu_archivo.add_command(label="Abrir", command=abrir)
+    menu_archivo.add_separator()
+    menu_archivo.add_command(label="Salir", command=salir)
+    
+    # ===== MENÚ EDITAR =====
+    menu_editar = Menu(barra_menu, tearoff=0)
+    barra_menu.add_cascade(label="Editar", menu=menu_editar)
+    
+    # Submenú dentro de Editar
+    menu_portapapeles = Menu(menu_editar, tearoff=0)
+    menu_editar.add_cascade(label="Portapapeles", menu=menu_portapapeles)
+    
+    menu_portapapeles.add_command(label="Copiar", command=copiar)
+    menu_portapapeles.add_command(label="Pegar", command=pegar)
+    
+    # Otro submenú
+    menu_formato = Menu(menu_editar, tearoff=0)
+    menu_editar.add_cascade(label="Formato", menu=menu_formato)
+    
+    menu_formato.add_command(label="Mayúsculas")
+    menu_formato.add_command(label="Minúsculas")
+    
+    ventana.mainloop()
+    ```
+
+
+
+
 
 <!-- variables de control 
 https://python-para-impacientes.blogspot.com/2016/02/variables-de-control-en-tkinter.html -->
-
-<!-- https://www.pythonguis.com/tutorials/tkinter-radiobutton-and-checkbutton/ -->
 
 <!-- https://guia-tkinter.readthedocs.io/es/develop/chapters/6-widgets/6.1-Intro.html#botones-button -->
 

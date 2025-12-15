@@ -23,8 +23,8 @@ schedule: 224h - 7h/w
 
 |**Criterios de evaluación de la unidad didáctica:**||
     |-|-|
-    |**a)** Se han identificado las opciones básicas de las aplicaciones de presentaciones.|15%|
-    |**b)** Se han reconocido los distintos tipos de vista asociados a una presentación. |10%|
+    |**a)** Se han identificado las opciones básicas de las aplicaciones de presentaciones.|20%|
+    |**b)** Se han reconocido los distintos tipos de vista asociados a una presentación. |5%|
     |**c)** Se han aplicado y reconocido las distintas tipografías y normas básicas de composición, diseño y utilización del color. |20%|
     |**d)** Se han diseñado plantillas de presentaciones. |20%|
     |**e)** Se han creado presentaciones. |30%|
