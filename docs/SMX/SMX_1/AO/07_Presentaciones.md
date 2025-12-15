@@ -159,7 +159,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
             | Transporte    | 90           | 140         | 45         |  
 
 
-    !!! Exercise "PARTE 5 - Insertar tablas"
+    !!! Exercise "PARTE 5 - Insertar gráfico"
         1. **Tarea** → **Añadir una diapositiva a la presentación**. Poner un fondo, título con los datos que se dan a continuación.  
         1. **Tarea** → Insertar un gráfico → Columna en pilas, 3D, realista, forma: cilindro.
         1. **Tarea** → **Modificar la gráfica utilizando los datos de la tabla anterior**.  
