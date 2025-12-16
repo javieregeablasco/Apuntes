@@ -392,6 +392,11 @@ Si vamos a Clústeres → Tareas → Nuestra tarea → Redes podremos acceder al
 ### **4.8 - Creación de una nueva tarea**
 Para el ejemplo  
 
+
+
+### **4.9 - AWS CloudFormation**
+
+
 <!-- https://youtu.be/TRLK6ZNpjB8?si=DDqQO-J1DdXoiS2m&t=815 -->
 
 <!-- https://youtu.be/TRLK6ZNpjB8?si=_V0CfbF58LbhwxHU&t=338 -->
