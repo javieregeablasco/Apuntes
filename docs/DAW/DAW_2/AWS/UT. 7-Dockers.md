@@ -378,7 +378,7 @@ Si vamos a Clústeres → Tareas → Nuestra tarea → Redes podremos acceder al
 
 ![Descripción de la imagen](../AWS/ut7/ECS-11.png){ .nuevezero   }
 
-### **4.7 - Tarea RA4-CEd
+### **4.7 - Tarea RA4-CEd**
 !!! warning "Tarea"
     Montar el ejemplo anterior.
     Realizar capturas de la imagen subida al repositorio.
