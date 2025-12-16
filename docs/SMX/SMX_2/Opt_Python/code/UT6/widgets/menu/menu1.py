@@ -13,9 +13,9 @@
 # menu_archivo = Menu(barra_menu, tearoff=0)
 # barra_menu.add_cascade(label="Archivo", menu=menu_archivo)
 
-# menu_archivo.add_command(label="Nuevo")
-# menu_archivo.add_command(label="Abrir")
-# menu_archivo.add_separator()
+# # menu_archivo.add_command(label="Nuevo")
+# # menu_archivo.add_command(label="Abrir")
+# # menu_archivo.add_separator()
 # menu_archivo.add_command(label="Salir", command=salir)
 
 # ventana.mainloop()
@@ -37,6 +37,12 @@ def copiar():
 
 def pegar():
     print("Pegar")
+
+def mayusculas():
+    print("Mayúsculas")
+
+def minusculas():
+    print("Minúsculas")
 
 ventana = Tk()
 ventana.title("Ejemplo de barra de menús")
@@ -70,7 +76,7 @@ menu_portapapeles.add_command(label="Pegar", command=pegar)
 menu_formato = Menu(menu_editar, tearoff=0)
 menu_editar.add_cascade(label="Formato", menu=menu_formato)
 
-menu_formato.add_command(label="Mayúsculas")
-menu_formato.add_command(label="Minúsculas")
+menu_formato.add_command(label="Mayúsculas", command=mayusculas)
+menu_formato.add_command(label="Minúsculas", command=minusculas)
 
 ventana.mainloop()

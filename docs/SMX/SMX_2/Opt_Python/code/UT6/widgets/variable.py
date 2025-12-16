@@ -1,3 +1,4 @@
+'''SET'''
 # from tkinter import *
 
 # ventana = Tk()
@@ -18,6 +19,7 @@
 
 # ventana.mainloop()
 
+'''GET'''
 # from tkinter import *
 
 # ventana = Tk()
@@ -40,7 +42,7 @@
 
 # ventana.mainloop()
 
-
+'''TRACE'''
 from tkinter import *
 
 ventana = Tk()

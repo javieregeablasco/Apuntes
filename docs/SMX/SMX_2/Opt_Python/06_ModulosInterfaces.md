@@ -1002,8 +1002,8 @@ Son esenciales cuando se necesita **leer o actualizar el contenido de un widget*
 
 ---
 
-#### **2.4.1 - Label**
-Label es utilizado para mostrar texto (estático).
+#### **2.4.1 - Label (etiqueta)**
+Label es utilizado para mostrar texto.
 
 **Ejemplo básico**
 ```py
@@ -1020,7 +1020,8 @@ root.mainloop()
 
 | Propiedad  | Descripción                                                | Ejemplo                      |
 | ---------- | ---------------------------------------------------------- | ---------------------------- |
-| `text`     | Texto a pintar.                                            | `text="Hola"`                |
+| `text`     | Texto estático.                                            | `text="Hola"`                |
+| `textvariable`     | Vincula Label a una variable de control.    | Ver 2.4.8 - Variables de control                |
 | `font`     | Tipo de letra, tamaño y estilo.                            | `font=("Arial", 16, "bold")` |
 | `fg`       | Color del texto.                                           | `fg="red"`                   |
 | `bg`       | Color de fondo.                                            | `bg="yellow"`                |
@@ -1074,6 +1075,8 @@ label.config(fg="blue")
 ```
 - El tamaño del Label se ajusta automáticamente al contenedor salvo que se definan el width y el height.
 
+---
+
 #### **2.4.2 - Entry(texto corto)**
 Entry es un widget de tipo campo de texto que permite al usuario introducir o editar una cadena de caracteres.
 
@@ -1124,22 +1127,17 @@ root.mainloop()
 **El widget Text permite:**
 
 - Gestionar texto multilínea con saltos automáticos o manuales.
-
-Insertar y eliminar contenido usando índices del estilo "fila.columna".
-
-Aplicar etiquetas (tags) para formatear partes concretas del texto.
-
-Asociar scrollbars para manejar contenido largo.
-
-Controlar el estado del widget (editable o de solo lectura).
-
-Insertar otros widgets como imágenes o botones embebidos.
+- Insertar y eliminar contenido usando índices del estilo "fila.columna".
+- Aplicar etiquetas (tags) para formatear partes concretas del texto.
+- Asociar scrollbars para manejar contenido largo.
+- Controlar el estado del widget (editable o de solo lectura).
+- Insertar otros widgets como imágenes o botones embebidos.
 
 ---
 
-#### **2.4.4 - Button**
+#### **2.4.4 - Button (botón)**
 **Button** es probablemente el widget más utilizado en el diseño de interfaces gráficas.  
-A diferencia de los widgets vistos hasta ahora se caracteriza por desencadenar una función (command) al pulsarlo. 
+A diferencia de los widgets vistos hasta ahora, se caracteriza por desencadenar la función asociada al argumento `command` al ser pulsado. 
 
 **Ejemplo básico**
 ```py
@@ -1177,7 +1175,7 @@ boton = tk.Button(root, text="Aceptar", bg="lightblue", fg="black", font=("Arial
 
 ---
 
-#### **2.4.5 - Boton de opción [Radiobutton]**
+#### **2.4.5 - Radiobutton (botón de opción)**
 **Radiobutton** permite al usuario seleccionar una única opción dentro de un conjunto de alternativas **mutuamente excluyentes**.
 A diferencia de otros widgets de selección, los radiobuttons trabajan siempre asociados a **una variable de control compartida**, lo que garantiza que solo una opción pueda estar activa al mismo tiempo.
 
@@ -1228,7 +1226,7 @@ La función asociada a `command` **no debe llevar paréntesis** si no recibe arg
 
 ---
 
-#### **2.4.6 - Casillas de verificacion [Checkbutton]**
+#### **2.4.6 - Checkbutton (casillas de verificacion)**
 **Checkbutton** permite al usuario activar o desactivar una opción. A diferencia de Radiobutton, los checkbuttons no son excluyentes entre sí, lo que permite seleccionar múltiples opciones simultáneamente.
 
 **Ejemplo básico**
@@ -1317,7 +1315,7 @@ booleano = BooleanVar()  # Declara variable de tipo booleana
 ```
 
 !!! tip "Método set()"
-**El método set()** asigna un valor a **una variable de control**. Se utiliza para modificar el valor o estado de un widget: 
+**El método set()** asigna un valor a **una variable de control**. Se utiliza para modificar el valor o estado de un widget, modificando el valor del atributo `textvariable`. 
 
 ```py
 from tkinter import *
@@ -1342,7 +1340,7 @@ ventana.mainloop()
 ```
 
 !!! tip "Método get()"
-**El método get()** obtiene el valor el valor de **una variable de control**.
+**El método get()** obtiene el valor de **una variable de control**.
 
 ```py
 from tkinter import *
@@ -1376,7 +1374,7 @@ ventana.mainloop()
 widget.trace(tipo, función)
 ```
 
-- El primer argumento establece el tipo de suceso a comprobar: 'r' lectura de variable, 'w' escritura de variable y 'u' borrado de variable.  
+- El primer argumento establece **el tipo de suceso a comprobar**: `r` lectura de variable, `w` escritura de variable y `u` borrado de variable.  
 - El segundo argumento indica la función que será llamada cuando se produzca el suceso.
 
 **Ejemplo**
@@ -1405,7 +1403,25 @@ ventana.mainloop()
 ```
 ---
 
-#### **2.4.9 - Menu**
+#### **2.4.9 - Ejercicios**
+!!! task "Ejercicio 1"
+
+- Crea cuatro Radiobutton con el texto que quieras en cada uno de ellos.  
+- Colócalos en grid() de 2x2.
+- Crea la lógica que imprima en la terminal la opción seleccionada.
+<br>  
+**Posible solución**  
+![](./img/UT6/2328-1.png)
+
+!!! task "Ejercicio 2"
+- Amplia el programa anterior para que la ventana muestre la opción seleccionada.
+<br>  
+**Posible solución**  
+![](./img/UT6/2328-2.png)
+
+---
+
+#### **2.4.10 - Menu**
 **El widget Menu** permite crear barras de menú y menús desplegables:
 
 - Menú principal (barra)
@@ -1418,7 +1434,10 @@ from tkinter import *
 
 ventana = Tk()
 
+# Crear barra de menus
 barra_menu = Menu(ventana)
+
+# Mostrar barra de menus
 ventana.config(menu=barra_menu)
 
 ventana.mainloop()
@@ -1426,7 +1445,12 @@ ventana.mainloop()
 
 !!! tip "Añadir un menú desplegable (add_cascade)"
 ```py
-menu_archivo = Menu(barra_menu, barra_menu, tearoff=0)
+# Crear el menú desplegable que colgará de la barra principal (barra_menu).
+# tearoff=0 evita que el menú se pueda desprender en una ventana flotante (comportamiento antiguo).
+menu_archivo = Menu(barra_menu, tearoff=0)
+
+# add_cascade crea el botón de texto en la barra superior.
+# 'label' es lo que el usuario ve y 'menu' indica qué desplegable se abre al hacer clic.
 barra_menu.add_cascade(label="Archivo", menu=menu_archivo)
 ```
 
@@ -1434,13 +1458,15 @@ barra_menu.add_cascade(label="Archivo", menu=menu_archivo)
 - `menu`: menú asociado
 - `tearoff=0`: sirve para evitar de despegar el menú en una ventana flotante.  
 
-!!! tip "Añadir opciones al menú (add_command)"
+!!! tip "Añadir opciones al menú desplegable (add_command)"
 ```py
 def salir():
     ventana.destroy()
 
+# Agregar opciones (comandos) al menú (desplegable).
 menu_archivo.add_command(label="Salir", command=salir)
 ```
+
 !!! tip "Ejemplo completo"
 ```py
 from tkinter import *
@@ -1464,10 +1490,6 @@ ventana.mainloop()
 ```
 
 !!! tip "Opciones de menú"
-    !!! tip "add_command"
-        ```py
-        menu.add_command(label="Guardar", command=guardar)
-        ```
     !!! tip "add_separator"
         ```PY
         menu.add_separator()
@@ -1501,57 +1523,63 @@ ventana.mainloop()
 ??? tip "Ejemplo"
     ```py
     from tkinter import *
-    
+
     def nuevo():
-        print("Nuevo archivo")
-    
+      print("Nuevo archivo")
+
     def abrir():
-        print("Abrir archivo")
-    
+       print("Abrir archivo")
+
     def salir():
-        ventana.destroy()
-    
+      ventana.destroy()
+
     def copiar():
-        print("Copiar")
-    
+      print("Copiar")
+
     def pegar():
-        print("Pegar")
-    
+      print("Pegar")
+
+    def mayusculas():
+      print("Mayúsculas")
+
+    def minusculas():
+      print("Minúsculas")
+
     ventana = Tk()
     ventana.title("Ejemplo de barra de menús")
     ventana.geometry("400x200")
-    
+
     # Barra de menú principal
     barra_menu = Menu(ventana)
     ventana.config(menu=barra_menu)
-    
+
     # ===== MENÚ ARCHIVO =====
     menu_archivo = Menu(barra_menu, tearoff=0)
     barra_menu.add_cascade(label="Archivo", menu=menu_archivo)
-    
+
     menu_archivo.add_command(label="Nuevo", command=nuevo)
     menu_archivo.add_command(label="Abrir", command=abrir)
     menu_archivo.add_separator()
     menu_archivo.add_command(label="Salir", command=salir)
-    
+
     # ===== MENÚ EDITAR =====
     menu_editar = Menu(barra_menu, tearoff=0)
     barra_menu.add_cascade(label="Editar", menu=menu_editar)
-    
+
     # Submenú Portapapeles dentro de Editar
     menu_portapapeles = Menu(menu_editar, tearoff=0)
     menu_editar.add_cascade(label="Portapapeles", menu=menu_portapapeles)
-    
+
     menu_portapapeles.add_command(label="Copiar", command=copiar)
     menu_portapapeles.add_command(label="Pegar", command=pegar)
-    
+
     # Submenú Formato dentro de Editar
     menu_formato = Menu(menu_editar, tearoff=0)
     menu_editar.add_cascade(label="Formato", menu=menu_formato)
-    
-    menu_formato.add_command(label="Mayúsculas")
-    menu_formato.add_command(label="Minúsculas")
-    
+
+    menu_formato.add_command(label="Mayúsculas", command=mayusculas)
+    menu_formato.add_command(label="Minúsculas", command=minusculas)
+
     ventana.mainloop()
     ```
 
