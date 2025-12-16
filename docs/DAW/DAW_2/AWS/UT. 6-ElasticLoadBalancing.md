@@ -22,6 +22,7 @@ schedule: 96h - 3h/s
 
 |**Criterios de evaluación de la unidad didáctica:**|
 |-|
+|**d)** Se ha realizado la selección de servicios de computación adecuados según casos de uso.|
 |**e)** Se ha llevado a cabo la configuración y gestión de balanceo de carga y escalado automático.|
 
 

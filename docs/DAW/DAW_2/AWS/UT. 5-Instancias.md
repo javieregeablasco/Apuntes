@@ -32,7 +32,9 @@ schedule: 96h - 3h/s
 | **Resultados de aprendizaje de la unidad didáctica:** |
 |-|
 |**RA. 3:** Diseña y configura redes virtuales y servicios de cómputo en la nube, aplicando buenas prácticas de seguridad, estrategias de balanceo de carga, escalado automático y aprovechando tecnologías serverless, contenedores y máquinas virtuales según casos de uso específicos.|
-|-|
+
+|**Criterios de evaluación de la unidad didáctica:**|
+||
 |**a)** Se ha realizado el diseño y configuración de redes virtuales privadas.|20%|
 |**b)** Se ha aplicado buenas prácticas de seguridad en redes y arquitecturas.|20%|
 |**c)** Se ha participado activamente en la creación y configuración de una red funcional.|15%|

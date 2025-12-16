@@ -18,14 +18,6 @@ schedule: 96h - 3h/s
 
 | **Resultados de aprendizaje de la unidad didáctica:** |
 |-|
-| **RA. 3:** Diseña y configura redes virtuales y servicios de cómputo en la nube, aplicando buenas prácticas de seguridad, estrategias de balanceo de carga, escalado automático y aprovechando tecnologías serverless, contenedores y máquinas virtuales según casos de uso específicos.|
-
-|**Criterios de evaluación de la unidad didáctica:**|
-|-|
-|**d)** Se ha realizado la selección de servicios de computación adecuados según casos de uso.|
-
-| **Resultados de aprendizaje de la unidad didáctica:** |
-|-|
 | **RA. 4:** Gestiona servicios de almacenamiento y bases de datos en la nube, seleccionando tecnologías adecuadas para casos específicos, y diseña arquitecturas escalables y resilientes utilizando herramientas de monitoreo y optimización para mejorar el rendimiento.|
 
 |**Criterios de evaluación de la unidad didáctica:**|
@@ -154,7 +146,22 @@ Permiten persistir datos incluso cuando los Pods mueren y se recrean.
 ---
 
 ## **2 - ¿Cómo desplegar contenedores en AWS?**
-AWS ofrece múltiples herramientas para facilitar el trabajo con contenedores. Estas herramientas permiten **almacenar imágenes**, **orquestar contenedores**, **escalar aplicaciones**, y **ejecutarlas sin necesidad de administrar servidores**.
+
+AWS proporciona varias herramientas para trabajar con contenedores que permiten:
+- Almacenar imágenes de contenedores.
+- Orquestar y escalar aplicaciones.
+- Ejecutar contenedores con o sin gestión directa de servidores, según el servicio utilizado.
+
+En el caso de **Amazon ECS (Elastic Container Service)**, el proceso general de despliegue es el siguiente:
+
+!!! warning "Pasos generales para desplegar un contenedor en AWS (ECS)"
+    - Crear la imagen del contenedor (Dockerfile y build de la imagen).
+    - Subir la imagen a un repositorio de AWS (Amazon ECR).
+    - Definir la **Task Definition**, donde se especifica cómo debe ejecutarse el contenedor (imagen, CPU, memoria, puertos, variables de entorno, etc.).
+    - Preparar la infraestructura de red (VPC, subredes y grupos de seguridad), si no se utiliza la VPC por defecto.
+    - Crear un **clúster ECS**, que actúa como contenedor lógico de los recursos de ejecución.
+    - Crear un **servicio ECS**, encargado de lanzar y mantener las tareas en ejecución, así como de su escalado y disponibilidad.
+
 
 ### **2.1 - Amazon ECR (Elastic Container Registry)**
 Amazon ECR es un registro de contenedores donde almacenar las imágenes Docker.
@@ -239,10 +246,12 @@ La inmutabilidad asegura que cada etiqueta corresponde siempre a la misma imagen
 - Mejora la seguridad y aporta estabilidad a los despliegues
 Si las etiquetas cambian su contenido, se pueden generar despliegues impredecibles. La inmutabilidad contribuye a que cada despliegue sea reproducible y consistente.
 
+<br>
+
 #### **3.1.3 - Descargar una imagen** 
 Para el caso, descargaremos **el servidor web nginx**.
 
-Desde la CLI de AWS hacemosun pull sobre la imagen de nginx:
+Desde la CLI de AWS hacemos pull sobre la imagen de nginx:
 
 ![Descripción de la imagen](../AWS/ut7/ECR-3.png){ .cincozero }
 
@@ -257,6 +266,8 @@ docker pull nginx:1.25.3
 docker pull nginx:alpine
 ```
 
+<br>
+
 #### **3.1.4 - Subir la imagen al repositorio** 
 Para ello deberemos consultar los comandos de envío en nuestro repositorio → imágenes → ver comandos de envío.  
 
@@ -266,7 +277,7 @@ Para ello deberemos consultar los comandos de envío en nuestro repositorio → 
 
 <br>
 Copiamos la primera línea de comando. Al ejecutar el comando desde la CLI de la interfaz de AWS, no debemos modificar nada.  
-Tampoco es necesario ejecutar el segundo comando al ya disponer de la imagen. 
+Al ya disponer de la imagen, tampoco es necesario ejecutar el segundo comando. 
 
 ![Descripción de la imagen](../AWS/ut7/ECR-6.png){ .ochocinco }
 
@@ -286,7 +297,9 @@ Finalmente, subimos la imagen.
 <br>
 Si todo ha ido bien, la imagen aparecerá disponible en nuestro repositorio.
 
-![Descripción de la imagen](../AWS/ut7/ECR-10.png){ .cien .marco }
+![Descripción de la imagen](../AWS/ut7/ECR-10.png){ .cien .marco }  
+
+<br>
 
 ## **4 - ECS**
 ### **4.1 - Introducción**
@@ -312,7 +325,26 @@ A los pocos instantes tendremos nuestro cluster disponible.
 ![Descripción de la imagen](../AWS/ut7/ECS-3.png){ .nuevezero .marco }
 
 ### **4.4 - Crear una tarea**
-Una tarea es la instancia de una definición de tarea (una plantilla de un contenedor/microservicio) y se ejecuta en un clúster permitiendo desplegar microservicios, web apps, etc.
+
+Una **tarea (Task)** es la **ejecución en tiempo real** de una **definición de tarea (Task Definition)**, que actúa como plantilla.
+
+La definición de tarea especifica:
+
+- La imagen del contenedor a ejecutar.
+- Los recursos asignados (CPU y memoria).
+- Los puertos, variables de entorno y otros parámetros.
+
+Cuando una tarea se lanza:
+
+- Se ejecuta en un **clúster ECS**.
+- Pone en funcionamiento **uno o varios contenedores** según lo definido.
+- Permite ejecutar aplicaciones como **microservicios**, **aplicaciones web** o procesos puntuales.
+
+Una tarea puede ejecutarse:
+
+- De forma **puntual** (por ejemplo, una tarea batch).
+- O ser gestionada por un **servicio ECS**, que se encarga de mantenerla activa y escalada.
+
 
 !!! tip "Crear una nueva definición de tarea"
 ![Descripción de la imagen](../AWS/ut7/ECS-4.png){ .nuevezero .marco }
@@ -345,6 +377,22 @@ Si vamos a Clústeres → Tareas → Nuestra tarea → Redes podremos acceder al
 ![Descripción de la imagen](../AWS/ut7/ECS-10.png){ .nuevezero .marco }
 
 ![Descripción de la imagen](../AWS/ut7/ECS-11.png){ .nuevezero   }
+
+### **4.7 - Tarea RA4-CEd
+!!! warning "Tarea"
+    Montar el ejemplo anterior.
+    Realizar capturas de la imagen subida al repositorio.
+    Realizar capturas del cluster y del servicio.
+    Realizar capturas del cluster y de la tarea.
+    Realizar capturas de los detalles de la tarea.
+    Realizar capturas del servicio levantado.
+    Adjuntar las capturas a un documento, y comentar brevemente cada captura.
+    Subir el documento a AULES en la tarea correspondiente. 
+
+### **4.8 - Creación de una nueva tarea**
+Para el ejemplo  
+
+<!-- https://youtu.be/TRLK6ZNpjB8?si=DDqQO-J1DdXoiS2m&t=815 -->
 
 <!-- https://youtu.be/TRLK6ZNpjB8?si=_V0CfbF58LbhwxHU&t=338 -->
 
@@ -459,3 +507,45 @@ Documentación de [AWS](https://docs.aws.amazon.com)
 Amazon [Elastic Container Registry](https://docs.aws.amazon.com/es_es/elasticloadbalancing/latest/userguide/what-is-load-balancing.html) Documentation    
 [Repositorio privado](https://docs.aws.amazon.com/es_es/AmazonECR/latest/userguide/repository-create.html) de Amazon 
 ECR    
+
+
+
+<!-- === "RA 1"
+    |RA1. Comprende los fundamentos de la computación en la nube, sus ventajas frente a sistemas tradicionales, el marco de adopción, los principios de migración y los aspectos clave de facturación, como estimación y optimización de costos.||
+    |-|-|
+    *|**a)** Se ha comprendido los conceptos fundamentales de la computación en la nube.|20%|  
+    *|**b)** Se ha demostrado la capacidad para explicar las ventajas de la nube frente a sistemas tradicionales.|20%|  
+    *|**c)** Se ha participado en actividades relacionadas con el ecosistema de servicios en la nube.|15%|
+    *|**d)** Se han identificado los principios básicos de la facturación y costos en la nube.|15%|
+    *|**e)** Se ha hecho uso correcto de herramientas para estimar y gestionar presupuestos.|15%|
+    *|**f)** Se ha participado en actividades prácticas sobre gestión de costos.|15%|
+      
+=== "RA 2"
+    |RA2. Identifica los componentes clave de la infraestructura global de la nube, diferenciando servicios principales, regiones, zonas de disponibilidad y aplicando medidas básicas de seguridad como el modelo de responsabilidad compartida, gestión de accesos y protección de datos.||
+    |-|-|
+    *|**a)** Se ha adquirido conocimiento de los componentes de una infraestructura global en la nube. |20%|
+    *|**b)** Se ha demostrado la capacidad para explorar y describir las principales categorías de servicios disponibles.|20%|
+    *|**c)** Se ha realizado una evaluación del uso adecuado de servicios básicos en ejercicios prácticos.|15%|
+    *|**d)** Se ha comprendido el modelo de responsabilidad compartida en la nube.|15%|
+    *|**e)** Se ha aplicado medidas de seguridad básicas mediante herramientas de gestión de acceso.|15%|
+    *|**f)** Se han realizado ejercicios sobre gestión de usuarios y políticas de seguridad.|15%|
+
+=== "RA 3"
+    |RA3. Diseña y configura redes virtuales y servicios de cómputo en la nube, aplicando buenas prácticas de seguridad, estrategias de balanceo de carga, escalado automático y aprovechando tecnologías serverless, contenedores y máquinas virtuales según casos de uso específicos.||
+    |-|-|
+    *|**a)** Se ha realizado el diseño y configuración de redes virtuales privadas.|20%|
+    *|**b)** Se ha aplicado buenas prácticas de seguridad en redes y arquitecturas.|20%|
+    *|**c)** Se ha participado activamente en la creación y configuración de una red funcional.|15%|
+    *|**d)** Se ha realizado la selección de servicios de computación adecuados según casos de uso.|15%|
+    *|**e)** Se ha llevado a cabo la configuración y gestión de balanceo de carga y escalado automático.|15%|
+    *|**f)** Se han desarrollado prácticas relacionadas con la optimización de recursos computacionales.|15%|
+
+=== "RA 4"
+    |RA4. Gestiona servicios de almacenamiento y bases de datos en la nube, seleccionando tecnologías adecuadas para casos específicos, y diseña arquitecturas escalables y resilientes utilizando herramientas de monitoreo y optimización para mejorar el rendimiento.||
+    |-|-|
+    |**a)** Se ha realizado la diferenciación entre tecnologías de almacenamiento en la nube.|20%|
+    |**b)** Se ha llevado a cabo la configuración y gestión de bases de datos en un entorno de nube.|20%|
+    |**c)** Se ha trabajado en la resolución de problemas prácticos sobre almacenamiento y bases de datos.|20%|
+    |**d)** Se ha diseñado arquitecturas escalables y resilientes basadas en las mejores prácticas.|20%|
+    |**e)** Se ha hecho uso de herramientas de monitoreo y recomendaciones de optimización.|10%|
+    *|**f)** Se ha participado en actividades que simulen el análisis y mejora de arquitecturas existentes.|10%| -->
