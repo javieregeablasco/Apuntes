@@ -222,21 +222,93 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
         **No se aceptará ningún otro formato de archivo**.
 
 
+## **2 - Vistas de una presentación**
+Saber manejar los distintos tipos de vista de una presentación es importante, ya que permiten obtener tanto una visión detallada de una diapositiva como una visión global del conjunto.
+LibreOffice impress ofrece 7 tipos de vistas diferentes:
+
+- **Vista normal**
+- **Vista esquema**
+- **Vista notas**
+- **Vista clasificador de diapositivas**
+- **Vista patrón de diapositivas** 
+- **Vista patrón de notas**
+- **Vista patrón de folleto**
+
+Se puede acceder a esas vistas desde el menú **ver**.
+
+![](./07_Presentaciones/img/RA7-CEb-1.png){.cuatrocinco}<br>  
 
 
 
+### **2.1 - Vista normal**
+La **vista normal** es la que se utiliza habitualmente. En ella se diseña y modifica la diapositiva sobre la que se está trabajando. 
+
+---
+
+### **2.2 - Vista esquema**
+La **vista esquema** se centra en los contenidos de la diapositiva, sin tener en cuenta los aspectos visuales. Muestra un listado de las diapositivas con el esquema de sus textos.
+Desde esta vista se obtiene una visión rápida de los contenidos de toda la presentación, lo que permite revisarlos y actualizarlos si resulta necesario.
+
+---
+
+### **2.3 - Vista notas**
+En la **vista notas**, la pantalla se divide en dos partes: la parte superior, donde se visualiza la diapositiva, y la parte inferior, que contiene un cuadro de texto para añadir notas y comentarios asociados a dicha diapositiva.
+
+---
+
+### **2.4 - Vista clasificador de diapositivas**
+La vista **clasificador de diapositivas** permite visualizar rápidamente el conjunto de todas las diapositivas y comprobar la coherencia entre ellas. Además, permite cambiar el orden de la presentación arrastrando las diapositivas con el ratón.
+
+---
+
+### **2.5 - Vista patrón de diapositivas**
+La vista **patrón de diapositivas** permite definir el diseño general que se aplicará a todas las diapositivas de la presentación. Desde esta vista se pueden modificar elementos comunes como el fondo, las fuentes, los colores, los logotipos o la posición de los distintos objetos, asegurando así una apariencia uniforme en toda la presentación.
+
+### **2.6 - Vista patrón de notas**
+La vista **patrón de notas** permite personalizar el formato de las páginas de notas que acompañan a las diapositivas. En esta vista se pueden ajustar elementos como encabezados, pies de página, fuentes y disposición de los contenidos, de forma que las notas impresas o visualizadas mantengan un diseño coherente.
+
+### **2.7 - Vista patrón de diapositivas**
+La vista **patrón de folleto** se utiliza para configurar el diseño de los folletos que se generan al imprimir la presentación. Desde esta vista se puede establecer la distribución de las diapositivas en cada página, así como definir elementos comunes como encabezados, pies de página, numeración o textos adicionales, facilitando la creación de material impreso para los asistentes.
 
 
+### **2.8 - Tarea RA7-CEb**
+Creación de patrones de diapositivas.
+!!! exercise "Parte 1"
+    Crear una presentación en blanco y guardarla con el formato: tarea RA7-CEb nombre apellidos. 
+    Descargar el archivo de imágenes pinchando en este [enlace](./07_Presentaciones/img/RA7-CEb/RA7-CEb.rar) 
 
+!!! exercise "Parte 2"
+    Ir a → **patrón de dispositivas** y crear 4 patrones de diapositivas.  
+    Cambiar el nombre de los patrones a **Portada, Castellón, Valencia y Alicante**.
 
+!!! exercise "Parte 3 - Patrón Portada"
+    Editar el patrón para dejarlo como en la siguiente imagen.  
+    **Trabajos a realizar:**  
 
+    1. Insertar imagen de fondo, poner a escala de la diapositiva, pasar a escala de grises, aplicar una transparencia (para no afectar a la legibilidad del texto) y enviar al fondo.
+    1. Redistribuir los esquemas de texto (no se pueden suprimir).  
 
+    ![](./07_Presentaciones/img/RA7-CEb-2.png){.cuatrocinco}<br>  
 
+!!! exercise "Parte 4 - Patrón Valencia"
+    Editar el patrón para dejarlo como en la siguiente imagen.
+    **Trabajos a realizar:**
 
+    1. Poner un rectángulo en la parte superior con el color típico de la provincia.
+    1. Editar el esquema de numeración para sustituir el simbolo del bolo por la bandera de la provincia.  
 
+    ![](./07_Presentaciones/img/RA7-CEb-3.png){.cuatrocinco}<br>  
+     
+!!! exercise "Parte 5 - Patrón Castellón"
+    Repetir los pasos de la parte 4 cambiando la imagen de fondo, la bandera de la provincia etc.
 
+!!! exercise "Parte 6 - Patrón Alicante"
+    Repetir los pasos de la parte 4 cambiando la imagen de fondo, la bandera de la provincia etc.
 
-
+!!! warning "Entrega de la tarea"
+    Subir la tarea a AULES en el apartado correspondiente.  
+    El archivo a subir deberá ser de tipo **.odp** (formato predeterminado de LibreOffice Impress).  
+    **No se aceptará ningún otro formato de archivo**.
 
 
 

@@ -396,44 +396,14 @@ Para el ejemplo
 
 ### **4.9 - AWS CloudFormation**
 
+ 
+
 
 <!-- https://youtu.be/TRLK6ZNpjB8?si=DDqQO-J1DdXoiS2m&t=815 -->
 
 <!-- https://youtu.be/TRLK6ZNpjB8?si=_V0CfbF58LbhwxHU&t=338 -->
 
-
-<!-- https://dondeaprendoaws.com/blog/como-desplegar-contenedores-en-aws/ -->
-
-<!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/Docker/CEFIRE/UD6/UD%2006.01%20-%20Docker%20Compose.pdf -->
-<!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/Docker/CEFIRE/UD5/UD%2005.01%20-%20Redes%20y%20vol%C3%BAmenes%20en%20Docker.pdf -->
-<!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/Docker/CEFIRE/UD4/UD%2004.01%20-%20Gesti%C3%B3n%20de%20imagenes%20en%20Docker.pdf -->
-<!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/Docker/CEFIRE/UD3/UD%2003.02%20-%20Docker%20CheatSheet%20-%20Version%20UD03.pdf -->
-<!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/Docker/CEFIRE/UD3/UD%2003.01%20-%20Principales%20acciones%20con%20Docker.pdf -->
-<!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/Docker/CEFIRE/UD1/UD%2001.01%20-%20Introducci%C3%B3n%20a%20los%20contenedores%20y%20a%20Docker.pdf -->
-
- 
- 
-<!-- https://www.youtube.com/watch?v=TRLK6ZNpjB8&list=PLGANiJnCt6o0CFEBUNBEDW-jvDJ2Ri38f 
- 
-
-
-
-<!-- https://docs.aws.amazon.com/hands-on/latest/deploy-docker-containers/deploy-docker-containers.html -->
-
- 
-
-
-<!-- texto 
-https://dev.to/gbenga700/deploying-a-dockerized-web-application-with-aws-ecs-and-fargate-29bb
-https://medium.com/containers-on-aws/how-i-do-local-docker-development-for-my-aws-fargate-application-8957e3fdb50 -->
-
-<!-- https://www.youtube.com/watch?v=aLJHB2CuqBU -->
-<!-- cluster == compute power -->
-
-<!-- https://www.youtube.com/watch?v=DSf7NWCtolw -->
-
-<!-- https://www.youtube.com/watch?v=86Ys0LnMSnY -->
-<!-- https://www.youtube.com/watch?v=qNIniDftAcU -->
+  
 
  
 <!-- https://docs.aws.amazon.com/es_es/autoscaling/ec2/userguide/tutorial-ec2-auto-scaling-load-balancer.html -->
@@ -456,29 +426,20 @@ https://www.youtube.com/watch?v=NI34uF7VVP8
 https://www.youtube.com/watch?v=86Ys0LnMSnY -->
 <!-- file:///C:/Users/titan/Documents/Javier128/Modulos/DAW/DAW_2/AWS/UT/UT6/Tema%204/Tema%204.%20Peer%20connection%20y%20transit%20gw.pdf -->
 
-<!-- https://www.youtube.com/watch?v=qMppxz4Ou0A -->
+ 
 <!-- route 53... 
 cloud formation... 
 elastic load balancing
 Amazon Simple Storage Service (S3) 
 Amazon Elastic File System (EFS)
 Amazon Elastic Block Store (EBS) -->
-<!-- https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudformation-stack.html 
-Building Highly Available Web Application 
+<!--  Building Highly Available Web Application 
 https://skillbuilder.aws/learn/2WBTDQFGSV/building-highly-available-web-application/2RW7UC62ZE
 recursos de BBDD y buckets:
 
-https://awsacademy.instructure.com/courses/64697/modules#module_773291
-https://awsacademy.instructure.com/courses/64697/modules/items/5723370
 https://aws.amazon.com/es/products/storage/
 -->
 
-
-    
-
-
-<!-- <br>
- 
 <!-- https://www.youtube.com/watch?v=89N3u6W01IQ -->
 <!-- https://www.grycap.upv.es/cursocloudaws/contenido.php 
 https://luisdieguez.com/tutorial-ansible-desde-0-herramienta-de-gestion-de-servidores/
@@ -488,22 +449,7 @@ https://www.youtube.com/watch?v=TRLK6ZNpjB8
 
 -->
 
-<!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/AWS/Arqui%20y%20despliegues%20en%20AWS/Tema%203/Tema%203.%20NAT%20Gateway,%20reglas%20encadenadas%20y%20subredes%20privadas.pdf -->
-
- <!-- file:///C:/Users/titan/Documents/Javier128/Modulos/DAW/DAW_2/AWS/UT/UT5/Tema%204/Tema%204.%20Peer%20connection%20y%20transit%20gw.pdf -->
-
-<!-- 
-
-https://www.youtube.com/watch?v=DSkO0ZJ8PxA
-
-https://aws.amazon.com/es/products/storage/ 
-
-
-https://www.youtube.com/watch?v=lTUUJBa1dp4&list=PLDbrnXa6SAzV0J3Un9jRnbbFpuQH-_y-C&index=11
-
-https://www.youtube.com/watch?v=iAYYssYrGms
-
-https://www.youtube.com/watch?v=CGmTvukObOw -->
+  
 
  
 ## **Enlaces de interés**
@@ -511,7 +457,7 @@ Documentación de [AWS](https://docs.aws.amazon.com)
 [Docker](https://www.oracle.com/cloud/cloud-native/container-registry/what-is-docker/#docker-explained) explained    
 Amazon [Elastic Container Registry](https://docs.aws.amazon.com/es_es/elasticloadbalancing/latest/userguide/what-is-load-balancing.html) Documentation    
 [Repositorio privado](https://docs.aws.amazon.com/es_es/AmazonECR/latest/userguide/repository-create.html) de Amazon 
-ECR    
+Documentacion de [CloudFormation](https://docs.aws.amazon.com/es_es/cloudformation/)
 
 
 

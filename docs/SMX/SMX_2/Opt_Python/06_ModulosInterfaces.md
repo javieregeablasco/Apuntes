@@ -1521,14 +1521,14 @@ ventana.mainloop()
         menu_archivo.add_cascade(label="Exportar", menu=menu_exportar)
         ```
 ??? tip "Ejemplo"
-    ```py
+    ```py   
     from tkinter import *
 
     def nuevo():
       print("Nuevo archivo")
 
     def abrir():
-       print("Abrir archivo")
+      print("Abrir archivo")
 
     def salir():
       ventana.destroy()

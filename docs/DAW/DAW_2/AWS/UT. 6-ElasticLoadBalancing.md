@@ -380,8 +380,12 @@ AWS ofrece dos enfoques principales:
 | - | - |
 | **EC2 Auto Scaling** | Escalado automático exclusivo de instancias EC2 mediante Auto Scaling Groups (ASG)        |
 | **AWS Auto Scaling** | Escalado automático de múltiples recursos además de EC2, como DynamoDB, Aurora, ECS, etc. | 
-
 **Recursos no disponibles con LabRole.**
+
+
+<!-- https://docs.aws.amazon.com/es_es/autoscaling/ec2/userguide/auto-scaling-groups.html
+https://www.youtube.com/watch?v=UgnKx1kEYPk&t=1417s -->
+
 
 ### **2.4 - Tarea RA3-CEe**
 !!! exercise "Tarea RA3-CEe"
@@ -395,3 +399,6 @@ Documentación de [AWS](https://docs.aws.amazon.com)
 [Atributos del Elastic Load Balancing](https://docs.aws.amazon.com/es_es/elasticloadbalancing/latest/application/edit-load-balancer-attributes.html)  
 [VPC peering](https://docs.aws.amazon.com/es_es/vpc/latest/peering/what-is-vpc-peering.html)  
 [Transit Gateway](https://aws.amazon.com/es/transit-gateway/)  
+Grupos de [EC2 autoescalado](https://docs.aws.amazon.com/es_es/autoscaling/ec2/userguide/auto-scaling-groups.html)
+Tutorial de [ASG+ELB](https://docs.aws.amazon.com/es_es/autoscaling/ec2/userguide/tutorial-ec2-auto-scaling-load-balancer.html)
+Documentacion de [AWS autoscaling](https://docs.aws.amazon.com/es_es/autoscaling/)
