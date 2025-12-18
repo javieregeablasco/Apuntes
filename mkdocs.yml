@@ -76,9 +76,7 @@ markdown_extensions:
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
   - tables   
-  - pymdownx.highlight
-  - pymdownx.tabbed
-
+  
 
 nav: 
   - Aplicaciones Ofimáticas: 

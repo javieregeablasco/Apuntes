@@ -264,12 +264,17 @@ La vista **clasificador de diapositivas** permite visualizar rápidamente el con
 ### **2.5 - Vista patrón de diapositivas**
 La vista **patrón de diapositivas** permite definir el diseño general que se aplicará a todas las diapositivas de la presentación. Desde esta vista se pueden modificar elementos comunes como el fondo, las fuentes, los colores, los logotipos o la posición de los distintos objetos, asegurando así una apariencia uniforme en toda la presentación.
 
+---
+
 ### **2.6 - Vista patrón de notas**
 La vista **patrón de notas** permite personalizar el formato de las páginas de notas que acompañan a las diapositivas. En esta vista se pueden ajustar elementos como encabezados, pies de página, fuentes y disposición de los contenidos, de forma que las notas impresas o visualizadas mantengan un diseño coherente.
+
+---
 
 ### **2.7 - Vista patrón de diapositivas**
 La vista **patrón de folleto** se utiliza para configurar el diseño de los folletos que se generan al imprimir la presentación. Desde esta vista se puede establecer la distribución de las diapositivas en cada página, así como definir elementos comunes como encabezados, pies de página, numeración o textos adicionales, facilitando la creación de material impreso para los asistentes.
 
+---
 
 ### **2.8 - Tarea RA7-CEb**
 Creación de patrones de diapositivas.
@@ -300,37 +305,24 @@ Creación de patrones de diapositivas.
     ![](./07_Presentaciones/img/RA7-CEb-3.png){.cuatrocinco}<br>  
      
 !!! exercise "Parte 5 - Patrón Castellón"
-    Repetir los pasos de la parte 4 cambiando la imagen de fondo, la bandera de la provincia etc.
+    Repetir los pasos de la parte 4 cambiando la imagen de fondo, la bandera de la provincia, etc.
 
 !!! exercise "Parte 6 - Patrón Alicante"
-    Repetir los pasos de la parte 4 cambiando la imagen de fondo, la bandera de la provincia etc.
+    Repetir los pasos de la parte 4 cambiando la imagen de fondo, la bandera de la provincia, etc.
 
 !!! warning "Entrega de la tarea"
     Subir la tarea a AULES en el apartado correspondiente.  
     El archivo a subir deberá ser de tipo **.odp** (formato predeterminado de LibreOffice Impress).  
     **No se aceptará ningún otro formato de archivo**.
 
+### **2.9 - Tarea RA7-CEc**
+<!-- file:///C:/Users/titan/Documents/Javier128/Modulos/SMX/SMX_1/AO/materiales/RA7/PresentacionesAtractivas.pdf -->
 
 
-
-
-
-
-
-
-<!-- https://iesandresbojollo.es/tiyc/impress/10-Impress_Transiciones_y_Animaciones.html
-https://iesandresbojollo.es/tiyc/impress/11-Impress-Gimnasio.html
-https://iesandresbojollo.es/tiyc/impress/12-Impress-Insercion_de_objetos_multimedia.html
-https://iesandresbojollo.es/tiyc/impress/13-Impress-Interactividad.html
-https://iesandresbojollo.es/tiyc/impress/14-Impress-Presentacion-Concesionario.html
-https://iesandresbojollo.es/tiyc/impress/15-Impress-Musica_de_fondo.html
+<!--
+https://www.shutterstock.com/es/blog/teoria-color-guia-completa-disenadores
 https://www.picuino.com/es/informatica-tutoimpress.html?highlight=impress -->
 
-
-### **Tarea RA7-CEb -**
-<!-- https://iesandresbojollo.es/tiyc/impress/9-Impress-Vistas_y_Presentacion.html -->
-### **Tarea RA7-CEc -**
-<!-- file:///C:/Users/titan/Documents/Javier128/Modulos/SMX/SMX_1/AO/materiales/RA7/PresentacionesAtractivas.pdf -->
 ### **Tarea RA7-CEd-1 -**
 <!-- https://iesandresbojollo.es/tiyc/impress/14-Impress-Presentacion-Concesionario.html -->
 ### **Tarea RA7-CEe-1 -**
@@ -341,74 +333,10 @@ https://www.picuino.com/es/informatica-tutoimpress.html?highlight=impress -->
 <!-- https://www.youtube.com/watch?v=vZTPOsVzGWs -->
 <!-- https://espaciotecnologico.co/plantillas-de-diapositivas-para-libreoffice-impress/ -->
 <!-- https://www.youtube.com/watch?v=mHMaYtxmKaA -->
-<!-- https://superalumnos.net/files/ejercicios_powerpoint.pdf -->
 <!-- https://www.picuino.com/es/informatica-tutoimpress.html?highlight=impress -->
 <!-- https://iesandresbojollo.es/tiyc/impress/index.html -->
 
     
-    
-<!-- 
-Vista de Presentación 
-UD3
-    Tipos de Archivos
-    Compatibilidad con otras aplicaciones
-    Crear una nueva presentación
-    Copias de seguridad
-    Recuperación de documentos
-    Establecer contraseña de protección
-    Trabajar con varias presentaciones
-    Ejercicios
-UD4
-    Insertar textos
-    Símbolos y caracteres especiales
-    Formato del texto
-    Listas numeradas y con viñetas
-    Trabajar con imágenes
-    Color, contraste y brillo
-    Color transparente
-    La Barra de Herramientas Zoom
-UD5
-    Insertar una hoja de cálculo en una diapositiva
-    Edición del contenido de la hoja de cálculo
-    Formato de Celdas de la hoja de cálculo
-    La Hoja de Cálculo como Objeto en la Diapositiva
-    Insertar Tablas en Impress
-    Trabajar con gráficos en una diapositiva
-    Aplicación de los diferentes tipos de gráficos en LibreOffice Impress
-    Tipos de objetos de dibujo (autoformas)
-    Herramienta Fontwork
-    Configuración de efectos 3D
-    Ordenación y agrupación de objetos
-    Ejercicios
-UD6
-    Insertar nueva diapositiva
-    La Vista Clasificador de Diapositivas
-    Aplicar estilos y formatos a las diapositivas
-    Administrador de Extensiones de LibreOffice
-    Sección Páginas Maestras
-    Patrones de diapositivas
-    Diseño de fondo
-UD7
-    Opciones de impresión de presentaciones
-    Modificar y añadir textos
-    Dividir el texto de una diapositiva en dos
-    Añadir anotaciones a una diapositiva
-    Configurar una diapositiva
-    Imprimir documentos en Impress
-UD8
-    Visualizar una presentación
-    Uso del puntero durante la presentación
-    Realizar marcas sobre la diapositiva
-    Configuración de transición entre diapositivas
-    Insertar sonidos
-    Establecer efectos de animación para los objetos
-    Presentaciones interactivas
-    Exportar una presentación en formato pdf
-    Crear un vídeo a partir de una presentación de LibreOffice Impress -->
-
-
-
-
 
 | **Licencia Creative Commons:** | |
 | - | - |

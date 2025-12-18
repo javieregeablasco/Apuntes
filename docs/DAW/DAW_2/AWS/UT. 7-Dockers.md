@@ -371,37 +371,353 @@ Al cabo de varios minutos ya tendremos nuestro servicio desplegado.
 
 ![Descripción de la imagen](../AWS/ut7/ECS-9.png){ .nuevezero .marco }
 
-### **4.6 - Comprobación del servicio**
+
+### **4.6 - Comprobación del grupo de seguridad**
+Si el servicio se ha levantado correctamente **pero** no es posible acceder a él, posiblemente hay **un problema de configuración del grupo de seguridad de la tarea**.
+
+!!! tip "Acceder al grupo de la seguridad de la tarea"
+
+![Descripción de la imagen](../AWS/ut7/docker/dock-23.png){ .original .marco  }
+
+!!! tip "Comprobar que los puertos necesarios al servicio están abiertos"
+
+![Descripción de la imagen](../AWS/ut7/docker/dock-24.png){ .original .marco   }
+
+### **4.7 - Comprobación del servicio**
 Si vamos a Clústeres → Tareas → Nuestra tarea → Redes podremos acceder al servicio por la IP pública.   
 
 ![Descripción de la imagen](../AWS/ut7/ECS-10.png){ .nuevezero .marco }
 
 ![Descripción de la imagen](../AWS/ut7/ECS-11.png){ .nuevezero   }
 
-### **4.7 - Tarea RA4-CEd**
+### **4.8 - Tarea RA4-CEd**
 !!! warning "Tarea"
-    Montar el ejemplo anterior.
-    Realizar capturas de la imagen subida al repositorio.
-    Realizar capturas del cluster y del servicio.
-    Realizar capturas del cluster y de la tarea.
-    Realizar capturas de los detalles de la tarea.
-    Realizar capturas del servicio levantado.
-    Adjuntar las capturas a un documento, y comentar brevemente cada captura.
-    Subir el documento a AULES en la tarea correspondiente. 
+    1. Montar el ejemplo anterior.
+    1. Realizar capturas de la imagen subida al repositorio.
+    1. Realizar capturas del cluster y del servicio.
+    1. Realizar capturas del cluster y de la tarea.
+    1. Realizar capturas de los detalles de la tarea.
+    1. Realizar capturas del servicio levantado.
+    1. Adjuntar las capturas a un documento, y comentar brevemente cada captura.
+    1. Subir el documento a AULES en la tarea correspondiente. 
 
-### **4.8 - Creación de una nueva tarea**
-Para el ejemplo  
+### **4.9 – Creación de una nueva revisión de la definición de tarea**
+En este apartado se creará una **nueva revisión de la definición de tarea**, utilizando una versión modificada del contenedor **nginx** empleado anteriormente.
+
+Para ello, se partirá de un **Dockerfile actualizado**, se generará una nueva imagen del contenedor y se publicará en el repositorio correspondiente. A continuación, se registrará una nueva revisión de la Task Definition que referencie dicha imagen, la cual podrá utilizarse para lanzar una nueva tarea o actualizar un servicio existente.
+
+#### **4.9.1 - Crear y subir el Dockerfile**
+Para crear el Dockerfile usaremos un archivo index.html específico y subiremos los archivos a la consola de AWS.  
+
+**Ejemplo de Dockerfile**
+```bash
+FROM nginx:latest
+
+COPY index.html /usr/share/nginx/html
+```
+
+**Resultado después de subir el Dockerfile y el index.html a AWS**
+
+![Descripción de la imagen](../AWS/ut7/docker/dock-1.png){ .original   }
+
+#### **4.9.2 - Subir la imagen a ECR**
+
+!!! tip "Obtener un token de autenticación"
+    Para ello vamos **ECR → Registro privado → Repositorios → Imágenes → Ver comandos de envío** y ejecutamos la primera linea de comando.
+
+!!! tip "Crear la imagen"
+    Ejecutamos la segunda línea de comando.  
+
+    ![Descripción de la imagen](../AWS/ut7/docker/dock-2-1.png){ .original   }
+
+!!! tip "Etiquetar la imagen y subir la imagen al ECR"
+    Cambiamos la etiqueta de la imagen que hemos creado.
+
+    ![Descripción de la imagen](../AWS/ut7/docker/dock-3.png){ .original   }
+    
+    Subimos la imagen a nuestro repositorio. 
+
+    ![Descripción de la imagen](../AWS/ut7/docker/dock-4.png){ .original   }
+
+**Nota IMPORTANTE**  
+Es posible que no sea posible subir más de una imagen al repositorio por limitaciones del **labrole**.  
+Para seguir con la práctica, **borrar la imagen anterior**.
+
+ECR con la nueva imagen subida.  
+
+![Descripción de la imagen](../AWS/ut7/docker/dock-4-1.png){ .nuevezero .marco   }
+
+---
+
+#### **4.9.2 - Crear una revisión de nuestra tarea**
+
+Accedemos a ECS → Definiciones de tareas y creamos una nueva revisión de nuestra definición de tarea.
+
+En ECS, cualquier modificación de una definición genera automáticamente una nueva revisión. 
+El servicio no se ve afectado hasta que se actualiza para utilizar dicha revisión.
+
+Una vez actualizamos el servicio, ECS reemplaza progresivamente las tareas que usan la revisión anterior por las nuevas, según la estrategia de despliegue configurada.
+
+![Descripción de la imagen](../AWS/ut7/docker/dock-5.png){ .nuevezero .marco   }
+
+<br>
+
+Una vez hemos pinchado en el enlace, revisamos que las opciones son las correctas:  
+
+- Tipo de infraestructura (Fargate)
+
+![Descripción de la imagen](../AWS/ut7/docker/dock-6.png){ .nuevezero .marco   }
+
+- Imagen utilizada para la revisión  
+
+![Descripción de la imagen](../AWS/ut7/docker/dock-7.png){ .seiscinco .marco   }
+
+- Revisión creada
+
+![Descripción de la imagen](../AWS/ut7/docker/dock-8.png){ .nuevezero .marco   }
+
+---
+
+#### **4.9.3 - Actualizar el servicio**
+
+- Actualizaremos el servicio para que use la nueva revisión de nuestra tarea.
+
+![Descripción de la imagen](../AWS/ut7/docker/dock-9.png){ .nuevezero .marco   }
+
+- Seleccionamos la nueva definición de tarea.
+
+![Descripción de la imagen](../AWS/ut7/docker/dock-10.png){ .nuevezero .marco   }
+
+---
+
+#### **4.9.4 - Comprobar el estado de las tareas**
+Si vamos a **cluster → Tareas** veremos como la nueva tarea se va creando y una vez levantada, la anterior tarea se detiene. 
+
+![Descripción de la imagen](../AWS/ut7/docker/dock-11.png){ .nuevezero .marco   }
+
+![Descripción de la imagen](../AWS/ut7/docker/dock-12.png){ .nuevezero .marco   }
+
+![Descripción de la imagen](../AWS/ut7/docker/dock-13.png){ .nuevezero .marco   }  
+
+---
+
+#### **4.9.5 - Estado del servicio**
+Una vez que el servicion está levantado, vamos **Redes**, recuperamos la IP del contenedor y comprobamos el resultado.  
+
+![Descripción de la imagen](../AWS/ut7/docker/dock-14.png){ .nuevezero .marco   }
+
+![Descripción de la imagen](../AWS/ut7/docker/dock-15.png){ .nuevezero   }
+
+---
+
+#### **4.9.6 - Registros del contenedor**
+En la pestaña **Registros** podremos supervisar todo el tráfico de red desde y hacia nuestro contenedor. 
+
+![Descripción de la imagen](../AWS/ut7/docker/dock-16.png){ .original   }
+
+---
+
+#### **4.9.7 - Pilas**
+Como podemos ver el despliegue del servicio ha generado una **pila (stack)** que veremos en el siguiente capítulo.
+
+Una pila de **CloudFormation** es una unidad lógica de despliegue que agrupa un conjunto de recursos de AWS (EC2, VPC, subredes, IAM, RDS, etc.) que se crean, actualizan y eliminan conjuntamente a partir de **una plantilla (template)** de CloudFormation.
+
+Dicho de otra manera: una pila es **la instanciación de una plantilla de CloudFormation**.
+
+![Descripción de la imagen](../AWS/ut7/docker/dock-17.png){ .original .marco   }<br>
+
+- Si eliminamos la pila, **eliminaremos el servicio**.
+
+![Descripción de la imagen](../AWS/ut7/docker/dock-18.png){ .original .marco  }<br>
+
+- El archivo de la plantilla con la que se ha creado la pila, puede cargarse y descargarse y tiene 2 formatos: **YAML o JSON** 
+
+![Descripción de la imagen](../AWS/ut7/docker/dock-19.png){ .original .marco  }<br>
+
+- JSON
+
+![Descripción de la imagen](../AWS/ut7/docker/dock-20.png){ .original .marco  }<br>  
+
+- YAML
+
+![Descripción de la imagen](../AWS/ut7/docker/dock-21.png){ .original .marco  }<br>  
+
+- También se puede crear una plantilla nueva o modificar una existente con **Infraestructure Composer**
+
+![Descripción de la imagen](../AWS/ut7/docker/dock-21-1.png){ .original .marco  }<br>
+
+---
+
+## **5 - AWS CloudFormation**
+
+<!--  
+3. ¿Qué tipo de recursos puede contener una pila?
+
+Una pila puede incluir prácticamente cualquier recurso de AWS, entre otros:
+
+Infraestructura de red:
+
+VPC
+
+Subnets
+
+Internet Gateway
+
+NAT Gateway
+
+Route Tables
+
+Computación:
+
+EC2
+
+Auto Scaling Groups
+
+Launch Templates
+
+Servicios gestionados:
+
+RDS
+
+Load Balancers
+
+ElastiCache
+
+Seguridad:
+
+Security Groups
+
+Roles y políticas IAM
+
+Otros:
+
+S3
+
+CloudWatch
+
+SNS
+
+Todo queda versionado y controlado como código.
+
+4. Ciclo de vida de una pila
+
+Una pila tiene un ciclo de vida bien definido:
+
+CREATE
+
+AWS crea los recursos en el orden correcto según las dependencias.
+
+UPDATE
+
+Se modifica la pila cambiando la plantilla o los parámetros.
+
+DELETE
+
+Se eliminan todos los recursos asociados a la pila.
+
+ROLLBACK
+
+Si ocurre un error, CloudFormation revierte automáticamente los cambios.
+
+Este comportamiento es clave para entornos de prácticas y docencia, ya que evita infraestructuras inconsistentes.
+
+5. Dependencias y orden de creación
+
+CloudFormation gestiona automáticamente las dependencias entre recursos:
+
+Implícitas (por referencias Ref o GetAtt)
+
+Explícitas mediante DependsOn
+
+Esto garantiza que, por ejemplo:
+
+una subred no se cree antes que la VPC,
+
+un EC2 no se cree antes que su Security Group.
+
+6. Parámetros, salidas y reutilización
+
+Las pilas permiten:
+
+Parameters
+Personalizar valores como:
+
+CIDR de red
+
+tipo de instancia
+
+nombre del entorno
+
+Outputs
+Exportar valores (ID de VPC, IP pública, ARN…) para:
+
+reutilizarlos en otras pilas
+
+crear stacks encadenadas
+
+Esto es fundamental para arquitecturas modulares.
+
+7. Pilas anidadas (Nested Stacks)
+
+Una pila puede incluir otras pilas mediante el recurso:
+
+AWS::CloudFormation::Stack
+
+
+Ventajas:
+
+Modularidad
+
+Reutilización
+
+Mantenimiento más sencillo
+
+Ejemplo típico:
+
+Pila principal
+
+pila de red
+
+pila de seguridad
+
+pila de cómputo
+
+8. Ventajas clave de usar pilas
+
+Infraestructura como código (IaC)
+
+Despliegues repetibles y auditables
+
+Eliminación limpia de recursos
+
+Reducción de errores manuales
+
+Ideal para entornos educativos, pruebas y producción
+
+9. Relación con otras herramientas
+
+En AWS conviven varias soluciones similares:
+
+CloudFormation (stacks)
+Nativa de AWS, declarativa.
+
+Terraform
+Multicloud, estado externo.
+
+AWS CDK
+Define pilas usando lenguajes como TypeScript o Python, que se traducen a CloudFormation.
+
+Dado tu trabajo reciente con CloudFormation y Terraform, el concepto de pila es especialmente relevante como base común.
+ -->
 
 
 
-### **4.9 - AWS CloudFormation**
+
+
+
+<!-- https://youtu.be/TRLK6ZNpjB8?si=SQ5gCu6KFLiFdez9&t=886 -->
 
  
-
-
-<!-- https://youtu.be/TRLK6ZNpjB8?si=DDqQO-J1DdXoiS2m&t=815 -->
-
-<!-- https://youtu.be/TRLK6ZNpjB8?si=_V0CfbF58LbhwxHU&t=338 -->
 
   
 
