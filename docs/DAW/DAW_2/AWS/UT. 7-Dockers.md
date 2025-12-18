@@ -546,10 +546,12 @@ Dicho de otra manera: una pila es **la instanciación de una plantilla de CloudF
 
 ![Descripción de la imagen](../AWS/ut7/docker/dock-21-1.png){ .original .marco  }<br>
 
+
 ---
 
 ## **5 - AWS CloudFormation**
 
+<!-- https://www.youtube.com/watch?v=fNmiLu40d4w -->
 <!--  
 3. ¿Qué tipo de recursos puede contener una pila?
 
