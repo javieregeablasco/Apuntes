@@ -1640,6 +1640,7 @@ from tkinter import messagebox as MessageBox
 alerta = MessageBox.showwarning(title="Alerta", message="Operación no autorizada")
 ```
 
+---
 
 #### **2.5.3 - showerror**
 
@@ -1801,6 +1802,8 @@ from tkinter import filedialog as FileDialog
 fichero = FileDialog.askopenfilename(title="Abrir fichero")
 print("La ruta del fichero es:", fichero)    
 ```
+
+---
 
 #### **2.5.11 - asksaveasfile**
 **asksaveasname()** pregunta donde guardar un fichero y devuelve el nombre y la ruta de un fichero.
