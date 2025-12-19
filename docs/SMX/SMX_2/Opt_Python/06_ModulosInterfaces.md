@@ -1583,7 +1583,232 @@ ventana.mainloop()
     ventana.mainloop() # 
     ```
 
+---
 
+### **2.5 - Cuadros  de diálogo (ventanas emergentes)**
+Los cuadros de diálogo, también llamados ventanas emergentes o pop-ups, se utilizan para mostrar información puntual o solicitar una respuesta rápida al usuario. Reciben este nombre porque no forman parte de la ventana principal de la aplicación, sino que aparecen superpuestas a ella.
+
+Tkinter proporciona **el módulo messagebox**, que incluye cuadros de diálogo estándar ya implementados.  
+Para poder utilizarlo, deberemos **importarlo explícitamente**:  
+```py
+from tkinter import messagebox as MessageBox
+```
+
+---
+
+#### **2.5.1 - showinfo**
+
+**showinfo()** se utiliza para mostrar información general al usuario.
+
+**Ejemplo básico:**
+```py
+from tkinter import messagebox as MessageBox
+
+mensage = MessageBox.showinfo(title="Show info", message="Mi primera ventana de información", icon="info")
+```
+
+**Parámetros de showinfo:**  
+
+| Parámetro | Tipo     | Obligatorio | Descripción                                                                                          |
+| --------- | -------- | ----------- | ---------------------------------------------------------------------------------------------------- |
+| `title`   | `str`    | Sí          | Título que se muestra en la barra superior de la ventana de diálogo.                                 |
+| `message` | `str`    | Sí          | Texto informativo que se muestra en el cuerpo del cuadro de diálogo.                                 |
+| `parent`  | `Widget` | No          | Ventana padre sobre la que se muestra el diálogo. Si no se indica, se asocia a la ventana principal. |
+| `icon`    | `str`    | No          | Icono a mostrar. En `showinfo()` siempre es informativo, por lo que normalmente no se especifica.    |
+| `type`    | `str`    | No          | Tipo de botones. En `showinfo()` es fijo (Aceptar), por lo que no suele utilizarse.                  |
+
+---
+
+#### **2.5.2 - showwarning**
+
+**showwarning()** muestra un mensaje de alerta al usuario.
+
+**Ejemplo básico:**
+```py
+from tkinter import messagebox as MessageBox
+
+alerta = MessageBox.showwarning(title="Alerta", message="Operación no autorizada")
+```
+
+
+#### **2.5.3 - showerror**
+
+**showwerror()** muestra un mensaje de error al usuario.
+
+**Ejemplo básico:**
+```py
+from tkinter import messagebox as MessageBox
+
+error = MessageBox.showerror(title="Alerta", message="Ha ocurrido un error")
+```
+
+---
+
+#### **2.5.4 - askquestion**
+
+**askquestion()** muestra una pregunta de tipo Sí/No. En este caso, deberemos tratar la respuesta del usuario. 
+
+**Ejemplo básico:**
+```py
+from tkinter import *
+from tkinter import messagebox as MessageBox
+
+ventana =Tk()
+ventana.title("AskQuestion")
+ventana.geometry("200x150+400+300")
+
+def cerrar():
+    resultado = MessageBox.askquestion("Salir", 
+    "¿Está seguro que desea salir sin guardar?")
+    
+    if resultado == "yes":
+      ventana.destroy()  
+
+boton = Button(ventana, text="Salir", command=cerrar)   
+boton.pack(anchor="center",pady=60) 
+
+ventana.mainloop()
+```
+
+---
+
+#### **2.5.5 - askyesno**
+
+**askyesno()** muestra una pregunta de tipo Sí/No. En este caso, deberemos tratar la respuesta del usuario.  
+A diferencia de **askquestion()** el tipo devuelto por la ventana es de tipo **booleano** por lo que se recomienda su usa sobre askquestion. 
+
+**Ejemplo básico:**
+```py
+from tkinter import *
+from tkinter import messagebox as MessageBox
+
+ventana =Tk()
+ventana.title("AskYesNo")
+ventana.geometry("300x150+400+300")
+
+def cerrar():
+    resultado = MessageBox.askyesno("Salir", 
+    "¿Está seguro que desea salir sin guardar?")
+    
+    if resultado == True:
+      ventana.destroy()  
+
+boton = Button(ventana, text="Salir", command=cerrar)   
+boton.pack(anchor="center",pady=60) 
+
+ventana.mainloop()
+```
+
+---
+
+#### **2.5.6 - askokcancel**
+
+**askokcancel()** muestra un mensaje de tipo Ok/Cancelar al usuario.
+
+**Ejemplo básico:**
+```py
+...
+resultado = MessageBox.askokcancel("Pregunta", 
+    "¿Sobreescribir fichero actual?")
+
+if resultado == True:
+    # Hacer algo
+    pass
+...
+```
+
+---
+
+#### **2.5.7 - askyesnocancel**
+
+**askyesnocancel()** muestra un mensaje de tipo Sí/No/Cancelar al usuario.
+
+Los valores devueltos por la ventana son **True**, **False** y **None**. 
+
+**Ejemplo básico:**
+```py
+resultado = MessageBox.askyesnocancel("Pregunta", 
+    "¿Sobreescribir fichero actual?")
+```
+
+---
+
+#### **2.5.8 - askretrycancel**
+
+**askretrycancel()** muestra un mensaje de tipo Reintenar/Cancelar al usuario.
+
+Los valores devueltos por la ventana son **True** o **False**. 
+
+**Ejemplo básico:**
+```py
+resultado = MessageBox.askretrycancel("Ha ocurrido un error", 
+    "¿Reintentar?")
+```
+
+---
+
+#### **2.5.9 - askcolor**
+
+**askcolor()** permite al usuario seleccionar un color.
+
+**Ejemplo:**
+```py
+from tkinter import *
+from tkinter import colorchooser as ColorChooser
+
+def seleccionar():
+    color = ColorChooser.askcolor(title="Elige un color")
+    print("El color seleccionado es:", color) 
+    if color is not None:
+      marco.config(bg=color[1])
+
+ventana = Tk()
+ventana.title("Color chooser")
+ventana.geometry("300x200+400+300")
+
+color_inicial = "#3498DB"
+
+marco = Frame(ventana, bg=color_inicial, width=150, height=150)
+marco.pack(pady=20)
+marco.pack_propagate(False)  # Evita que el frame cambie de tamaño
+
+boton = Button(marco, text="Elegir color", command=seleccionar)
+boton.pack(expand=True) # Centrar el boton
+
+ventana.mainloop()
+```
+
+---
+
+#### **2.5.10 - askopenfilename**
+     
+**askopenfilename()** pregunta seleccionar el fichero a abrir y devuelve el nombre y la ruta de un fichero.
+
+**Ejemplo:**     
+```py
+from tkinter import filedialog as FileDialog
+
+fichero = FileDialog.askopenfilename(title="Abrir fichero")
+print("La ruta del fichero es:", fichero)    
+```
+
+#### **2.5.11 - asksaveasfile**
+**asksaveasname()** pregunta donde guardar un fichero y devuelve el nombre y la ruta de un fichero.
+
+**Ejemplo:**     
+```py
+from tkinter import filedialog as FileDialog
+
+ruta = FileDialog.asksaveasfile(title="Guardar fichero")
+print("La ruta del fichero es:", fichero)
+```
+
+---
+
+### **2.6 - Expresiones regulares (validación de datos)**
+
+
+<!-- https://hektorprofe.github.io/python/interfaces-graficas-con-tkinter/editor-de-texto/ -->
 
 
 <!-- variables de control 
@@ -1592,10 +1817,6 @@ https://python-para-impacientes.blogspot.com/2016/02/variables-de-control-en-tki
 <!-- https://guia-tkinter.readthedocs.io/es/develop/chapters/6-widgets/6.1-Intro.html#botones-button -->
 
 <!-- https://www.youtube.com/watch?v=nZF9SwhmPRo&list=PLU8oAlHdN5BlvPxziopYZRd55pdqFwkeS&index=50 -->
-
-<!-- https://imaster.academy/contenidos-tematicos/talentotech/TalentoTech/M3unidades/Programacion/Programacion/Integrador/Unidad12/assets/files/Leccin-2InterfacesconTkinter.pdf -->
-
-<!-- https://victomanolo.wordpress.com/ejercicios-con-gui-tkinter/ -->
 
 <!-- https://hektorprofe.github.io/python/interfaces-graficas-con-tkinter/widget-entry-texto-corto/ -->
 

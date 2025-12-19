@@ -1,4 +1,4 @@
-import calculadora, sys, importlib
+import docs.SMX.SMX_2.Opt_Python.code.UT6.programas.calculadora as calculadora, sys, importlib
 
 # print(calculadora.__name__)
 print(sys.path)
