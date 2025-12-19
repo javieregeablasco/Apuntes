@@ -18,11 +18,21 @@ schedule: 96h - 3h/w
 
 **Resultados de aprendizaje y criterios de evaluacion que se evaluarán en esta unidad.**  
 
+|RA4. Desarrolla programas organizados en clases analizando y aplicando los principios de la programación orientada a objetos.|
+|-|
+|**b)** Se han definido clases.|
+|**c)** Se han definido propiedades y métodos.|
+|**d)** Se han creado constructores.|
+
 |RA5. Realiza operaciones de entrada y salida de información, utilizando procedimientos específicos del lenguaje y librerías de clases.|
 |-|
 |**f)** Se han utilizado las herramientas del entorno de desarrollo para crear interfaces gráficos de usuario simples.|
 |**g)** Se han programado controladores de eventos.|
 |**h)** Se han escrito programas que utilicen interfaces gráficos para la entrada y salida de información.|
+
+|RA6. Escribe programas que manipulen información, seleccionando y utilizando tipos avanzados de datos.|
+|-|
+|**g)** Se han utilizado expresiones regulares en la búsqueda de patrones en cadenas de texto.|
 
 <br>
 
@@ -1806,19 +1816,28 @@ print("La ruta del fichero es:", fichero)
 ---
 
 ### **2.6 - Expresiones regulares (validación de datos)**
+<!-- https://hektorprofe.github.io/python/funcionalidades-avanzadas/expresiones-regulares/ -->
 
 
-<!-- https://hektorprofe.github.io/python/interfaces-graficas-con-tkinter/editor-de-texto/ -->
 
 
-<!-- variables de control 
-https://python-para-impacientes.blogspot.com/2016/02/variables-de-control-en-tkinter.html -->
 
-<!-- https://guia-tkinter.readthedocs.io/es/develop/chapters/6-widgets/6.1-Intro.html#botones-button -->
 
-<!-- https://www.youtube.com/watch?v=nZF9SwhmPRo&list=PLU8oAlHdN5BlvPxziopYZRd55pdqFwkeS&index=50 -->
 
-<!-- https://hektorprofe.github.io/python/interfaces-graficas-con-tkinter/widget-entry-texto-corto/ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!-- === "RA 1"
     |RA1. Reconoce la estructura de un programa informático, identificando y relacionando los elementos propios del lenguaje de programación utilizado.|Peso|
