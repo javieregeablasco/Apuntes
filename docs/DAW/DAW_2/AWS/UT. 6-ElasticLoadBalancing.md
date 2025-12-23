@@ -10,7 +10,7 @@ layout: default
 schedule: 96h - 3h/s 
 ---
 
-# **UT. 6 - Interconexión y balanceo de infraestructuras**
+# **UT. 6 - Interconexión, balanceo y escalado de infraestructuras**
 ![Descripción de la imagen](../AWS/ut6/elb.png){ .trescinco }
 <br>
 
@@ -372,26 +372,147 @@ Si actualizamos repetidamente el navegador para acceder al recurso, observaremos
 ![](../AWS/ut6/elb19.png){ .cincozero }<br>
 
 
-### **2.3 - Auto Scaling** 
+### **2.3 - Tarea RA3-CEe**
+!!! exercise "Tarea RA3-CEe"
+    Realizar capturas de cada instancia entrando por el ELB.  
+    Adjuntar las capturas a un documento, comentando cada captura.  
+    Subir el documento a AULES en la tarea correspondiente.  
+
+### **2.4 - Auto Scaling** 
 Auto Scaling permite adaptar la capacidad de cómputo de la infraestructura a la demanda real del sistema.  
 AWS ofrece dos enfoques principales:
 
 | Tipo                 |Descripción  |
 | - | - |
 | **EC2 Auto Scaling** | Escalado automático exclusivo de instancias EC2 mediante Auto Scaling Groups (ASG)        |
-| **AWS Auto Scaling** | Escalado automático de múltiples recursos además de EC2, como DynamoDB, Aurora, ECS, etc. | 
-**Recursos no disponibles con LabRole.**
+| **AWS Auto Scaling** | Escalado automático de múltiples recursos además de EC2, como DynamoDB, Aurora, ECS, etc. (Recursos no disponibles con LabRole).**|
+
+#### **2.4.1 - Escalado automático de instancias (EC2 ASG) EC2**
+
+- El escalado automático de instancias EC2 se gestiona a través de los **Auto Scaling Groups (ASG)**, que permiten definir políticas para añadir o eliminar instancias en función de métricas como la utilización de CPU, el tráfico de red o cualquier otra métrica personalizada.  
+- El escalado automático no es exclusivo de las instancias EC2. También se puede aplicar a otros servicios como ECS (Elastic Container Services) y EKS (Elastic Kubernete Service).
+- ASG integra diversos servicios como CloudWatch (servivio de monitorización) y también el ELB (Elastic Load Balancing) que acabamos de ver. CloudWatch monitoriza las métricas y, cuando se cumplen las condiciones definidas en las políticas de escalado, ASG ajusta automáticamente el número de instancias EC2 en el grupo. En el caso de que el ASG esté asociado a un ELB, las nuevas instancias se registran automáticamente en el balanceador de carga, asegurando que el tráfico se distribuya adecuadamente entre todas las instancias disponibles.
+- En el caso de que una instancia EC2 falle o se vuelva inactiva, ASG puede detectar este estado a través de las comprobaciones de estado (status checks) y reemplazar automáticamente la instancia defectuosa, manteniendo así la capacidad y disponibilidad del grupo según lo definido en la configuración del ASG. 
+
+#### **2.4.2 - Estrategias de auto escalado**
+Las estrategias de auto escalado permiten ajustar automáticamente la cantidad de instancias para mantener la disponibilidad y gestionar la demanda de manera eficiente. El escalado siempre será **horizontal**, lo que significa que el ASG **añade o elimina instancias** en lugar de cambiar el **tamaño de una sola**.
+
+Dentro del tipo de estrategias encontramos:
+
+1. **Escalado Dinámico (Dynamic Scaling):**  
+Es la estrategia más común y se basa en la respuesta automática a la demanda real mediante métricas de CloudWatch.  
+
+2. **Escalado Programado (Scheduled Scaling):**  
+Esta estrategia permite aumentar o disminuir la capacidad basándose en horarios específicos.  
+
+3. **Escalado Predictivo (Predictive Scaling):**  
+Utiliza modelos de **Machine Learning** para analizar datos históricos y predecir cuándo ocurrirán cambios futuros en la demanda.  
+
+4. **Escalado Manual:**  
+Consiste en ajustar manualmente el tamaño deseado del grupo de Auto Scaling. 
+
+Para que estas estrategias funcionen, Auto Scaling utiliza los siguientes elementos:
+
+- Launch Template (Plantilla de Lanzamiento): Es el "plano" que define cómo debe ser cada nueva instancia (AMI, tipo de instancia, volúmenes EBS, roles de IAM y scripts de User Data).
+- Capacidad Mínima, Máxima y Deseada: Se definen límites para asegurar que siempre haya un número base de servidores funcionando (mínimo) y que el sistema no exceda un presupuesto determinado (máximo).
+- Elasticidad: Es la capacidad no solo de escalar hacia afuera (scaling out) para añadir recursos, sino también de escalar hacia adentro (scaling in) para eliminar instancias cuando ya no son necesarias y así optimizar costos.
+- Health Checks: Auto Scaling monitorea constantemente el estado de las instancias a través de verificaciones de EC2 (health checks) o del equilibrador de carga (ELB.)
 
 
-<!-- https://docs.aws.amazon.com/es_es/autoscaling/ec2/userguide/auto-scaling-groups.html
-https://www.youtube.com/watch?v=UgnKx1kEYPk&t=1417s -->
+#### **2.4.3 - Escenario propuesto**
+En este caso solo deberemos definir la VPC, las zonas de disponibilidad y el grupo de seguridad de las EC2. El lanzamiento de las instancias se hará con una plantilla que cargaremos en el ASG. 
+
+![](./ut6/ASG/ASG-1.png){ .cuatrozero }<br>
+
+#### **2.4.4 - Creación de la plantilla de lanzamiento**
+Vamos a EC2 → Plantillas de lanzamiento → Crear plantilla de lanzamiento.
+
+![](./ut6/ASG/ASG-3.png){ .sietecinco .marco }<br>
+
+Definimos el nombre y la descripción de la plantilla de lanzamiento.   
+
+![](./ut6/ASG/ASG-4.png){ .sietecinco .marco }<br>
+
+Seleccionamos la AMI que usaremos.   
+
+![](./ut6/ASG/ASG-5.png){ .sietecinco .marco }<br>
+
+Seleccionamos el tipo de instancia y el par de claves.
+
+![](./ut6/ASG/ASG-6.png){ .sietecinco .marco }<br>
+
+Seleccionamos el grupo de seguridad de las instancias que se crearán con el ASG.
+
+![](./ut6/ASG/ASG-7.png){ .sietecinco .marco }<br>
+![](./ut6/ASG/ASG-8.png){ .sietecinco .marco }<br>
+
+En detalles avanzados ponemos un script que instalará un servidor web (similar al utilizado en el ELB).
+
+![](./ut6/ASG/ASG-9.png){ .sietecinco .marco }<br>
+
+Si todo ha ido bien, tendremos creada nuestra plantilla de lanzamiento.
+
+![](./ut6/ASG/ASG-10.png){ .sietecinco .marco }<br>
 
 
-### **2.4 - Tarea RA3-CEe**
-!!! exercise "Tarea RA3-CEe"
-    Realizar capturas de cada instancia entrando por el ELB.  
-    Adjuntar las capturas a un documento, comentando cada captura.  
-    Subir el documento a AULES en la tarea correspondiente.   
+#### **2.4.5 - Creación del grupo de escalado automático**
+Vamos a grupos de auto scaling.
+
+![](./ut6/ASG/ASG-11.png){ .sietecinco .marco }<br>
+
+Damos un nombre a nuestro ASG y seleccionamos la plantilla de lanzamiento.
+
+![](./ut6/ASG/ASG-12.png){ .sietecinco .marco }<br>
+
+Elegimos las opciones de lanzamiento.
+
+![](./ut6/ASG/ASG-13.png){ .sietecinco .marco }<br>
+
+Integrar en otros servicios: Dejamos todas las opciones por defecto.
+
+![](./ut6/ASG/ASG-14.png){ .sietecinco .marco }<br>
+
+Configurar escalamiento y tamaño de grupo:  
+Elegimos una capacidad deseada, mínima y máxima de 2, **sin escalamiento automático**. En un caso real, será conveniente definir la política de escalamiento. 
+
+![](./ut6/ASG/ASG-15.png){ .sietecinco .marco }<br>
+
+Añadir notificación: Dejamos en blanco.
+
+![](./ut6/ASG/ASG-16.png){ .sietecinco .marco }<br>
+
+Añadir etiquetas: Dejamos en blanco.
+
+![](./ut6/ASG/ASG-17.png){ .sietecinco .marco }<br>
+
+Revisar: Revisamos y creamos el grupo de autoescalado.  
+Si todo ha ido bien, tendremos nuestro primer grupo de autoescalado creado.
+
+![](./ut6/ASG/ASG-18.png){ .sietecinco .marco }<br>
+
+
+#### **2.4.6 - Explorando el grupo de escalado automático**
+Si vamos a ASG → Administración de instancias veremos que el ASG ha creado 2 instancias. Una en cada zona de disponibilidad.
+
+![](./ut6/ASG/ASG-19.png){ .sietecinco .marco }<br>
+
+En EC2, veremos las 2 instancias creadas por el ASG.
+
+![](./ut6/ASG/ASG-20.png){ .sietecinco .marco }<br>
+
+También podemos acceder a ellas.
+
+![](./ut6/ASG/ASG-21.png){ .sietecinco .marco }<br>
+
+Si eliminamos una instancia:
+
+![](./ut6/ASG/ASG-22.png){ .sietecinco .marco }<br>
+
+Pasado el periodo de carencia, el ASG lanzará un nueva instancia.
+
+![](./ut6/ASG/ASG-23.png){ .sietecinco .marco }<br>
+![](./ut6/ASG/ASG-25.png){ .sietecinco .marco }<br>
+![](./ut6/ASG/ASG-24.png){ .sietecinco .marco }<br>
 
 ## **Enlaces de interés**
 Documentación de [AWS](https://docs.aws.amazon.com)  
@@ -399,6 +520,6 @@ Documentación de [AWS](https://docs.aws.amazon.com)
 [Atributos del Elastic Load Balancing](https://docs.aws.amazon.com/es_es/elasticloadbalancing/latest/application/edit-load-balancer-attributes.html)  
 [VPC peering](https://docs.aws.amazon.com/es_es/vpc/latest/peering/what-is-vpc-peering.html)  
 [Transit Gateway](https://aws.amazon.com/es/transit-gateway/)  
-Grupos de [EC2 autoescalado](https://docs.aws.amazon.com/es_es/autoscaling/ec2/userguide/auto-scaling-groups.html)
-Tutorial de [ASG+ELB](https://docs.aws.amazon.com/es_es/autoscaling/ec2/userguide/tutorial-ec2-auto-scaling-load-balancer.html)
-Documentacion de [AWS autoscaling](https://docs.aws.amazon.com/es_es/autoscaling/)
+Grupos de [EC2 autoescalado](https://docs.aws.amazon.com/es_es/autoscaling/ec2/userguide/auto-scaling-groups.html)  
+Tutorial de [ASG+ELB](https://docs.aws.amazon.com/es_es/autoscaling/ec2/userguide/tutorial-ec2-auto-scaling-load-balancer.html)  
+Documentacion de [AWS autoscaling](https://docs.aws.amazon.com/es_es/autoscaling/)  
