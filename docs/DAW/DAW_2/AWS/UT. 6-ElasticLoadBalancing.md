@@ -514,6 +514,27 @@ Pasado el periodo de carencia, el ASG lanzará un nueva instancia.
 ![](./ut6/ASG/ASG-25.png){ .sietecinco .marco }<br>
 ![](./ut6/ASG/ASG-24.png){ .sietecinco .marco }<br>
 
+#### **2.4.7 - Creación de una AMI a partir de una instancia existente**
+Este apartado no tiene que ver directamente con el ASG pero es importante saber cómo crear una **AMI personalizada** a partir de una instancia **EC2 existente**, ya que en muchos casos necesitaremos lanzar instancias con configuraciones específicas.
+
+- Seleccionamos la instancia EC2 que queremos convertir en AMI.
+
+![](./ut6/ASG/ASG-26.png){ .sietecinco .marco }<br>
+
+- Rellenamos los campos necesarios para la creación de la AMI.
+
+![](./ut6/ASG/ASG-27.png){ .sietecinco .marco }<br>
+
+- Una vez creada la AMI, podemos verla en el apartado **Imágenes** → **AMIs**.
+
+![](./ut6/ASG/ASG-28.png){ .sietecinco .marco }<br>
+
+- Si decidimos lanzar una nueva instancia podremos seleccionar la AMI que acabamos de crear. 
+
+![](./ut6/ASG/ASG-29.png){ .sietecinco .marco }<br>
+
+
+
 ## **Enlaces de interés**
 Documentación de [AWS](https://docs.aws.amazon.com)  
 [Elastic Load Balancing](https://docs.aws.amazon.com/es_es/elasticloadbalancing/latest/userguide/what-is-load-balancing.html)  
