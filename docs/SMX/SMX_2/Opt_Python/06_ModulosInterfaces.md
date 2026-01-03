@@ -1821,13 +1821,17 @@ print("La ruta del fichero es:", fichero)
 ### **2.6 - Expresiones regulares (validación de datos)**
 <!-- https://hektorprofe.github.io/python/funcionalidades-avanzadas/expresiones-regulares/ -->
 
+<!-- === "RA 6"
+    |RA6. Escribe programas que manipulen información, seleccionando y utilizando tipos avanzados de datos.|Peso| -->
+<!-- https://tutorial.recursospython.com/colecciones/ -->
 
+<!-- |**c)** Se han utilizado listas para almacenar y procesar información.|10%| -->
+<!-- PROGRAMACION GENERICA + GENERADORES -->
 
-
-
-
-
-
+<!-- GENERICOS -->
+<!-- https://chatgpt.com/c/69458417-050c-832e-9a1b-82f159d1ca90 -->
+  <!-- |**f)** Se han creado clases y métodos genéricos.|10%| -->
+<!-- https://ellibrodepython.com/abstract-base-class -->
 
 
 
@@ -1843,39 +1847,7 @@ print("La ruta del fichero es:", fichero)
 
 
 <!-- === "RA 1"
-    |RA1. Reconoce la estructura de un programa informático, identificando y relacionando los elementos propios del lenguaje de programación utilizado.|Peso|
-    |-|-|
-    *|**a)** Se han identificado los bloques que componen la estructura de un programa informático. |12%|
-    *|**b)** Se han respetado las especificaciones técnicas del proceso de instalación. |11%|
-    *|**c)** Se han utilizado entornos integrados de desarrollo. |11%|
-    *|**d)** Se han identificado los distintos tipos de variables y la utilidad específica de cada uno. |11%|
-    *|**e)** Se ha modificado el código de un programa para crear y utilizar variables. |11%|
-    *|**f)** Se han creado y utilizado constantes y literales. |11%|
-    *|**g)** Se han clasificado, reconocido y utilizado en expresiones los operadores del lenguaje. |11%|
-    *|**h)** Se ha comprobado el funcionamiento de las conversiones de tipo explícitas e implícitas. |11%|
-    *|**i)** Se han introducido comentarios en el código. |11%|
-
-
-=== "RA 2"
-    |RA2. Escribe y prueba programas sencillos, reconociendo y aplicando los fundamentos de la programación orientada a objetos.|Peso|
-    |-|-|
-    *|**a)** Se han identificado los fundamentos de la programación orientada a objetos. |12%|    
-    *|**c)** Se han instanciado objetos a partir de clases predefinidas.|11%|
-    *|**d)** Se han utilizado métodos y propiedades de los objetos.|11%|
-    *|**e)** Se han escrito llamadas a métodos estáticos.|11%|
-    *|**f)** Se han utilizado parámetros en la llamada a métodos.|11%|
-
-=== "RA 3"
-    |RA3. Escribe y depura código, analizando y utilizando las estructuras de control del lenguaje.|Peso|
-    |-|-|
-    *|**a)** Se ha escrito y probado código que haga uso de estructuras de selección.|12%|
-    *|**b)** Se han utilizado estructuras de repetición.|11%|
-    *|**c)** Se han reconocido las posibilidades de las sentencias de salto.|11%|
-    *|**d)** Se ha escrito código utilizando control de excepciones.|11%|
-    *|**e)** Se han creado programas ejecutables utilizando diferentes estructuras de control.|11%|
-    *|**h)** Se han creado excepciones.|11%|
-    *|**i)** Se han utilizado aserciones para la detección y corrección de errores durante la fase de desarrollo.|11%|
-
+   
 === "RA 4"
     |RA4. Desarrolla programas organizados en clases analizando y aplicando los principios de la programación orientada a objetos.|Peso|
     |-|-|

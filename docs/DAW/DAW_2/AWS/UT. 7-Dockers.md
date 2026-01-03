@@ -550,139 +550,395 @@ Dicho de otra manera: una pila es **la instanciación de una plantilla de CloudF
 ---
 
 ## **5 - AWS CloudFormation**
+**CloudFormation** es un servicio de AWS que permite definir, desplegar y administrar infraestructuras en la nube mediante el enfoque de **Infraestructura como Código (IaC)**. A través de este servicio es posible automatizar la creación y gestión de recursos de AWS utilizando **plantillas**.
 
-<!-- https://www.youtube.com/watch?v=fNmiLu40d4w -->
+### **5.1 - Como usar CloudFormation**
+Para trabajar con CloudFormation es necesario comprender tres conceptos clave:
+
+- **Plantilla (Template):**  
+Es un archivo en formato **JSON** o **YAML** en el que se describen los recursos de AWS que se desean crear, así como sus propiedades, configuraciones y relaciones. 
+
+- **Stack (Pila):**  
+Es la unidad básica de gestión en CloudFormation. A partir de la plantilla, el servicio crea un Stack que agrupa todos los recursos definidos en ella. Al eliminar un Stack, CloudFormation elimina automáticamente todos los recursos asociados, salvo que se haya indicado explícitamente una política de retención.
+
+
+- **Servicio CloudFormation:**  
+Es el encargado de interpretar la plantilla, analizar las dependencias entre los distintos recursos y realizar las llamadas necesarias a las APIs de AWS para crear, actualizar o eliminar la infraestructura de forma ordenada y controlada.
+
+### **5.2 - Secciones de una plantilla**
+Una plantilla de CloudFormation está compuesta por secciones bien diferenciadas. Cada una de ellas cumple una función específica dentro del proceso de definición y despliegue de la infraestructura como código (IaC). 
+
+- **Resources**  
+**Es la sección obligatoria de la plantilla**.
+En ella se definen todos los recursos de AWS que se van a crear, modificar o eliminar durante el despliegue del stack.
+Cada recurso se identifica mediante un nombre lógico y especifica su tipo (Type) y sus propiedades (Properties).
+
+- **Parameters**  
+Permite definir valores de entrada que el usuario puede proporcionar en el momento de **crear o actualizar el stack**.
+Los parámetros facilitan la reutilización y flexibilidad de la plantilla, ya que permiten personalizar aspectos como tipos de instancia, rangos de direcciones IP, nombres de recursos o claves SSH sin modificar **el código de la plantilla**.
+
+- **Outputs**  
+Se utiliza para declarar valores de salida que CloudFormation muestra una vez finalizado el despliegue.
+Estos valores pueden ser, por ejemplo, la dirección IP pública de una instancia o el ID de una VPC.
+
+- **Mappings**  
+Contiene tablas de correspondencia estáticas que permiten asociar valores según determinadas claves, como regiones, entornos o tipos de instancia. 
+
+- **Metadata**  
+Proporciona información adicional sobre la plantilla.
+
+- **Rules**  
+Permite definir **reglas de validación** sobre los parámetros introducidos por el usuario.
+Estas reglas se evalúan antes de crear o actualizar el stack y permiten asegurar que los valores proporcionados cumplen determinadas condiciones lógicas, evitando errores de configuración.
+
+- **Conditions**  
+Se utiliza para definir condiciones lógicas que determinan si ciertos recursos o propiedades deben crearse o aplicarse.
+Gracias a esta sección, una misma plantilla puede adaptarse a distintos escenarios, como entornos de desarrollo y producción, sin duplicar código.
+
+- **Transform**  
+Permite declarar macros o transformaciones que CloudFormation debe aplicar antes de procesar la plantilla.
+
+- **Versión del formato**  
+Indica la versión del formato de la plantilla, normalmente mediante la clave AWSTemplateFormatVersion.
+Aunque actualmente existe **una única versión válida**, su inclusión es recomendable por motivos de compatibilidad y claridad.
+
+- **Description**  
+Es un campo textual opcional. Es muy recomendable, ya que facilita la comprensión, el mantenimiento y la reutilización de la plantilla por otros usuarios o equipos de trabajo.
+
+**Ejemplo de plantilla**  
+=== "YAML"
+    ```yaml
+    AWSTemplateFormatVersion: "2010-09-09"
+    Description: >
+        Plantilla de ejemplo que despliega una instancia EC2 básica
+        y muestra su IP pública como salida.
+
+    Parameters:
+        InstanceType:
+            Type: String
+            Default: t2.micro
+            Description: Tipo de instancia EC2
+            AllowedValues:
+              - t2.micro
+              - t2.small
+
+    Mappings:
+      RegionMap:
+        eu-west-1:
+          AMI: ami-0a8e758f5e873d1c1
+        us-east-1:
+          AMI: ami-0c02fb55956c7d316
+
+    Resources:
+      WebServer:
+        Type: AWS::EC2::Instance
+        Properties:
+          InstanceType: !Ref InstanceType
+          ImageId: !FindInMap
+            - RegionMap
+            - !Ref "AWS::Region"
+            - AMI
+          Tags:
+            - Key: Name
+              Value: ServidorWebEjemplo
+
+    Outputs:
+      InstanceId:
+        Description: ID de la instancia EC2
+        Value: !Ref WebServer
+
+      PublicIP:
+        Description: Dirección IP pública de la instancia
+        Value: !GetAtt WebServer.PublicIp
+    ```
+
+=== "JSON"  
+    ```json
+    {
+      "AWSTemplateFormatVersion": "2010-09-09",
+      "Description": "Plantilla de ejemplo que despliega una instancia EC2 básica y muestra su IP pública como salida.",
+
+      "Parameters": {
+        "InstanceType": {
+          "Type": "String",
+          "Default": "t2.micro",
+          "Description": "Tipo de instancia EC2",
+          "AllowedValues": [
+            "t2.micro",
+            "t2.small"
+          ]
+        }
+      },
+      
+      "Mappings": {
+        "RegionMap": {
+          "eu-west-1": {
+            "AMI": "ami-0a8e758f5e873d1c1"
+          },
+          "us-east-1": {
+            "AMI": "ami-0c02fb55956c7d316"
+          }
+        }
+      },
+      
+      "Resources": {
+        "WebServer": {
+          "Type": "AWS::EC2::Instance",
+          "Properties": {
+            "InstanceType": {
+              "Ref": "InstanceType"
+            },
+            "ImageId": {
+              "Fn::FindInMap": [
+                "RegionMap",
+                {
+                  "Ref": "AWS::Region"
+                },
+                "AMI"
+              ]
+            },
+            "Tags": [
+              {
+                "Key": "Name",
+                "Value": "ServidorWebEjemplo"
+              }
+            ]
+          }
+        }
+      },
+      
+      "Outputs": {
+        "InstanceId": {
+          "Description": "ID de la instancia EC2",
+          "Value": {
+            "Ref": "WebServer"
+          }
+        },
+        "PublicIP": {
+          "Description": "Dirección IP pública de la instancia",
+          "Value": {
+            "Fn::GetAtt": [
+              "WebServer",
+              "PublicIp"
+            ]
+          }
+        }
+      }
+    }  
+    ```
+
+### **5.3 - Ciclo de vida de una pila**
+Una pila (stack) es un conjunto de recursos que se crean, actualizan y eliminan de forma conjunta a partir de una plantilla. A lo largo de su existencia, una pila pasa por distintas fases:
+
+- **Creación (CREATE)**
+Creación de los recursos **definidos en la plantilla**, en el orden correcto según las dependencias.
+
+- **Actualización (UPDATE)**
+Permite modificar una pila existente cambiando la plantilla o los parámetros, sin necesidad de recrear todos los recursos desde cero.
+
+- **Eliminación (DELETE)**
+Eliminación de la pila y de todos los **recursos creados con ella**.
+
+- **Reversión (ROLLBACK)**
+Si ocurre un error durante la creación o actualización, CloudFormation deshace los cambios realizados para evitar configuraciones inconsistentes.
+
+
+### **5.4 - Lanzar una pila (stack)**  
+El proceso básico para desplegar una infraestructura con CloudFormation es el siguiente:  
+
+1. **Acceder a la consola de AWS CloudFormation:**
+![Descripción de la imagen](../AWS/ut7/cloudformation/cf-2.png){ .sietecinco .marco .margintop20  }<br>  
+
+1. **Subir la plantilla:**  
+La plantilla puede **cargarse directamente** desde la consola de CloudFormation o almacenarse previamente en un bucket de Amazon S3.  
+![Descripción de la imagen](../AWS/ut7/cloudformation/cf-3.png){ .sietecinco .marco .margintop20 }<br>  
+
+1. **Crear la pila stack:**  
+Se asigna un nombre a la pila y se introducen los parámetros necesarios definidos en la plantilla.  
+![Descripción de la imagen](../AWS/ut7/cloudformation/cf-4.png){ .sietecinco .marco .margintop20  }<br>
+
+1. **Configurar opciones de pila:**  
+En esta etapa se definen opciones de control, seguridad y supervisión de la pila.  
+![Descripción de la imagen](../AWS/ut7/cloudformation/cf-5.png){ .sietecinco .marco .margintop20  }<br>
+
+1. **Revisar y crear:**  
+Revisamos y, si todo está correcto, creamos la pila.  
+![Descripción de la imagen](../AWS/ut7/cloudformation/cf-6.png){ .sietecinco .marco .margintop20  }<br>
+
+1. **Supervisar el despliegue:**  
+Desde la consola se puede seguir el progreso de la creación y ver el estado de cada recurso.  
+![Descripción de la imagen](../AWS/ut7/cloudformation/cf-7.png){ .sietecinco .marco .margintop20  }<br>
+![Descripción de la imagen](../AWS/ut7/cloudformation/cf-8.png){ .sietecinco .marco   }<br>
+
+1. **Verificar la creación:**  
+Una vez completado el proceso, se revisan los recursos creados y las salidas (Outputs) de la pila.
+![Descripción de la imagen](../AWS/ut7/cloudformation/cf-9.png){ .sietecinco .marco .margintop20  }<br>
+![Descripción de la imagen](../AWS/ut7/cloudformation/cf-10.png){ .sietecinco .marco }<br>
+![Descripción de la imagen](../AWS/ut7/cloudformation/cf-11.png){ .sietecinco .marco   }<br>
+
+
+### **5.5 - Tarea RA4-CEe: Actualizar una pila**  
+En esta tarea actualizaremos la plantilla anterior con **Infraestructure Composer** añadiremos:
+
+1. Creación de una VPC + Subred Pública + IGW
+1. Configuración del grupo de seguridad de la EC2.
+1. Añadir el par de claves de nuestra cuenta a la EC2.
+1. Instalación de Nginx en la EC2.
+1. Configuración de los outputs para visualizar: IP's pública, VPC CIDR...
+
+<br>
+
+#### **5.5.1 - Añadir la VPC**
+!!! warning "Importante"
+    Para editar la plantilla, principalmente, tendremos que **ampliar** los apartados **recursos** y **los parametros** de la misma.  
+    La documentación referente a lo que debemos hacer se encuentra [aquí](https://docs.aws.amazon.com/es_es/AWSCloudFormation/latest/TemplateReference/aws-template-resource-type-ref.html)
+
+!!! tip "Edición de los parámetros"
+
+- Accedemos a **Infraestructure Composer**  
+
+![Descripción de la imagen](../AWS/ut7/cloudformation/cf-ra4cee-1.png){ .sietecinco .marco   }<br>
+
+- Añadimos la VPC al lienzo:
+
+![Descripción de la imagen](../AWS/ut7/cloudformation/cf-ra4cee-2.png){ .cincozero .marco   }<br>
+
+- Editamos y cambiamos la configuración de las propiedades del recurso:  
+Esta operación se puede hacer entrando por `detalles` o por `plantilla`.  
+<br>
+**Detalles:**
+![Descripción de la imagen](../AWS/ut7/cloudformation/cf-ra4cee-3.png){ .sietecinco .marco   }<br>
+<br>
+**Plantilla:**
+![Descripción de la imagen](../AWS/ut7/cloudformation/cf-ra4cee-4.png){ .treszero .marco   }<br>
+<br>
+**Nota:**
+    - La Función intrínseca **!Ref:** conecta el valor que escribió el usuario con la propiedad del recurso.  
+    - Deberemos configurar los valores por defecto dentro del apartado **parametros** de la plantilla. 
+
+<br>
+
+#### **5.5.2 - Añadir y configurar el IGW**
+
+- Añadimos el IGW al lienzo:  
+![Descripción de la imagen](../AWS/ut7/cloudformation/cf-ra4cee-5.png){ .cincozero .marco   }<br>
+
+- Configuración del IGW:  
+![Descripción de la imagen](../AWS/ut7/cloudformation/cf-ra4cee-6.png){ .treszero .marco   }<br>
+
+<br>
+
+#### **5.5.3 - Añadir y configurar el IGW**
+
+- Conectar el IGW a nuestra VPC  
+![Descripción de la imagen](../AWS/ut7/cloudformation/cf-ra4cee-7.png){ .cuatrozero .marco   }<br>
+
+- Configuración:   
+![Descripción de la imagen](../AWS/ut7/cloudformation/cf-ra4cee-8.png){ .treszero .marco   }<br>
+
+#### **5.5.4 - Añadir subredes públicas y privadas**
+
+- Crear la subredes públicas y privadas  
+![Descripción de la imagen](../AWS/ut7/cloudformation/cf-ra4cee-9.png){ .cincozero .marco   }<br>
+
+- Configuración de las subredes  
+![Descripción de la imagen](../AWS/ut7/cloudformation/cf-ra4cee-10.png){ .doscinco .marco   }<br>
+
+#### **5.5.4 - Añadir la tabla de enrutamiento de la subred pública**
+
+- Crear el recurso 
+![Descripción de la imagen](../AWS/ut7/cloudformation/cf-ra4cee-11.png){ .cincozero .marco   }<br>
+
+- Asociar el recurso a la VPC  
+![Descripción de la imagen](../AWS/ut7/cloudformation/cf-ra4cee-12.png){ .doscinco .marco   }<br>
+
+- Crear las asociaciones a la subred pública  
+![Descripción de la imagen](../AWS/ut7/cloudformation/cf-ra4cee-13.png){ .trescinco .marco   }<br>
+
+- Asociar el IGW a la subred pública.  
+![Descripción de la imagen](../AWS/ut7/cloudformation/cf-ra4cee-14.png){ .trescinco .marco   }<br>
+
+- Repetiremos lo mismo con la subred privada a diferencia de que no haremos la declaración **AWS::EC2::Route** al no poder hacer declaración vacías (sin valores).
+
+![Descripción de la imagen](../AWS/ut7/cloudformation/cf-ra4cee-14-1.png){ .trescinco .marco   }<br>
+
+
+
+#### **5.5.5 - Añadir Un grupo de seguridad para la instancia EC2**
+ 
+- Crear el recurso 
+![Descripción de la imagen](../AWS/ut7/cloudformation/cf-ra4cee-15.png){ .sietecinco .marco   }<br>
+
+- Configurar el recurso  
+![Descripción de la imagen](../AWS/ut7/cloudformation/cf-ra4cee-16.png){ .cuatrocinco .marco   }<br>
+ 
+!!! tip "Nota"
+    Tenemos creado el SG pero la asociación con la EC2 se hará desde la misma EC2.
+
+#### **5.5.6 - Instancia EC2**
+
+- Asociar la instancia EC2 a la subred pública y asociarle el grupo de seguridad anterior.  
+
+![Descripción de la imagen](../AWS/ut7/cloudformation/cf-ra4cee-17.png){ .trescinco .marco   }<br>
+
+#### **5.5.7 - Lienzo final**
+
+- Si todo ha ido bien, este debería ser el aspecto final del lienzo de la plantilla.  
+![Descripción de la imagen](../AWS/ut7/cloudformation/cf-ra4cee-18.png){ .cien .marco .margintop20   }<br>
+
+
+#### **5.5.8 - Modificar los parámetros**
+!!! tip "Edición de los parametros"
+
+*************************
+**************************  
+**************************  
+****************************
+
+#### **5.5.9 - Validar la plantilla**
+
+- Si todo ha ido bien, solamente nos saldrá un aviso relacionado con las limitaciones de roles de los usuarios voclabs.    
+![Descripción de la imagen](../AWS/ut7/cloudformation/cf-ra4cee-19.png){ .cien .marco .margintop20   }<br>
+
+- Como no podemos continuar. Copiaremos la plantilla y repetiremos el proceso de modificar la pila pero esta vez subiremos la plantilla editada.  
+
+
+
+
+#### **5.5.3 - Instalar Nginx**
+
+- Editamos la configuración:
+
+![Descripción de la imagen](../AWS/ut7/cloudformation/cf-ra4cee-6.png){ .cincozero .marco   }<br>
+
+<!-- https://www.youtube.com/watch?v=W4F9vYdPfoI&list=PL_1omhUxPW6OjNxiq5lZreUFZI9vFW0y8&index=3 -->
+
+### **5.6 - Eliminar una pila**  
+
+
+
+
+
+
+
+
+
+<!-- https://www.youtube.com/watch?v=tAlIe8qQjqI -->
+<!-- https://www.youtube.com/watch?v=yXa-cG79jkw -->
+<!-- https://www.youtube.com/watch?v=Y_O5EQVQoao -->
+
+
+<!-- https://www.youtube.com/watch?v=fc6tfw2tcGE&list=PL5KTLzN85O4LNGYy-dm1wJ-sKE5l4b5P5 -->
+<!-- https://www.youtube.com/watch?v=YXVCdGyHDSk -->
+
+IaC +CDK
+
+
 <!--  
-3. ¿Qué tipo de recursos puede contener una pila?
 
-Una pila puede incluir prácticamente cualquier recurso de AWS, entre otros:
 
-Infraestructura de red:
 
-VPC
 
-Subnets
-
-Internet Gateway
-
-NAT Gateway
-
-Route Tables
-
-Computación:
-
-EC2
-
-Auto Scaling Groups
-
-Launch Templates
-
-Servicios gestionados:
-
-RDS
-
-Load Balancers
-
-ElastiCache
-
-Seguridad:
-
-Security Groups
-
-Roles y políticas IAM
-
-Otros:
-
-S3
-
-CloudWatch
-
-SNS
-
-Todo queda versionado y controlado como código.
-
-4. Ciclo de vida de una pila
-
-Una pila tiene un ciclo de vida bien definido:
-
-CREATE
-
-AWS crea los recursos en el orden correcto según las dependencias.
-
-UPDATE
-
-Se modifica la pila cambiando la plantilla o los parámetros.
-
-DELETE
-
-Se eliminan todos los recursos asociados a la pila.
-
-ROLLBACK
-
-Si ocurre un error, CloudFormation revierte automáticamente los cambios.
-
-Este comportamiento es clave para entornos de prácticas y docencia, ya que evita infraestructuras inconsistentes.
-
-5. Dependencias y orden de creación
-
-CloudFormation gestiona automáticamente las dependencias entre recursos:
-
-Implícitas (por referencias Ref o GetAtt)
-
-Explícitas mediante DependsOn
-
-Esto garantiza que, por ejemplo:
-
-una subred no se cree antes que la VPC,
-
-un EC2 no se cree antes que su Security Group.
-
-6. Parámetros, salidas y reutilización
-
-Las pilas permiten:
-
-Parameters
-Personalizar valores como:
-
-CIDR de red
-
-tipo de instancia
-
-nombre del entorno
-
-Outputs
-Exportar valores (ID de VPC, IP pública, ARN…) para:
-
-reutilizarlos en otras pilas
-
-crear stacks encadenadas
-
-Esto es fundamental para arquitecturas modulares.
-
-7. Pilas anidadas (Nested Stacks)
-
-Una pila puede incluir otras pilas mediante el recurso:
-
-AWS::CloudFormation::Stack
-
-
-Ventajas:
-
-Modularidad
-
-Reutilización
-
-Mantenimiento más sencillo
-
-Ejemplo típico:
-
-Pila principal
-
-pila de red
-
-pila de seguridad
-
-pila de cómputo
 
 8. Ventajas clave de usar pilas
 
@@ -772,10 +1028,12 @@ https://www.youtube.com/watch?v=TRLK6ZNpjB8
  
 ## **Enlaces de interés**
 Documentación de [AWS](https://docs.aws.amazon.com)  
-[Docker](https://www.oracle.com/cloud/cloud-native/container-registry/what-is-docker/#docker-explained) explained    
+[Repositorio privado](https://docs.aws.amazon.com/es_es/AmazonECR/latest/userguide/repository-create.html) de Amazon  
 Amazon [Elastic Container Registry](https://docs.aws.amazon.com/es_es/elasticloadbalancing/latest/userguide/what-is-load-balancing.html) Documentation    
-[Repositorio privado](https://docs.aws.amazon.com/es_es/AmazonECR/latest/userguide/repository-create.html) de Amazon 
-Documentacion de [CloudFormation](https://docs.aws.amazon.com/es_es/cloudformation/)
+Documentacion de [CloudFormation](https://docs.aws.amazon.com/es_es/cloudformation/)  
+¿Qué es [AWS CDK](https://docs.aws.amazon.com/es_es/cdk/v2/guide/home.html)?  
+Fragmentos de [plantillas de CloudFormation](https://docs.aws.amazon.com/es_es/AWSCloudFormation/latest/UserGuide/template-snippets.html)  
+Tipos de [recursos y propiedades](https://docs.aws.amazon.com/es_es/AWSCloudFormation/latest/TemplateReference/aws-template-resource-type-ref.html) de CloudFormation
 
 
 
