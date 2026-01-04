@@ -778,7 +778,7 @@ Una vez completado el proceso, se revisan los recursos creados y las salidas (Ou
 
 
 ### **5.5 - Tarea RA4-CEe: Actualizar una pila**  
-En esta tarea actualizaremos la plantilla anterior con **Infraestructure Composer** añadiremos:
+En esta tarea actualizaremos la plantilla anterior con **Infraestructure Composer** y añadiremos:
 
 1. Creación de una VPC + Subred Pública + IGW
 1. Configuración del grupo de seguridad de la EC2.
@@ -786,14 +786,26 @@ En esta tarea actualizaremos la plantilla anterior con **Infraestructure Compose
 1. Instalación de Nginx en la EC2.
 1. Configuración de los outputs para visualizar: IP's pública, VPC CIDR...
 
+
+!!! warning "Importante"
+    1. Para editar la plantilla, principalmente, tendremos que **ampliar** los apartados **recursos** y **parámetros** de la misma.  
+    1. La documentación referente a lo que debemos hacer se encuentra [aquí](https://docs.aws.amazon.com/es_es/AWSCloudFormation/latest/TemplateReference/aws-template-resource-type-ref.html).
+
+---
+
+
+#### **5.5.1 - Edición de la sección 'Recursos/Resources'**
+
+!!! tip "Edición de los recursos"
+    La sección **Resources** contiene el código para la declaración de todos los recursos que formarán parte del stack.  
+    
+    Cada recurso representa un servicio concreto: EC2, VPC, subredes, grupos de seguridad, RDS, IAM, etc.  
+
+    Es la única sección obligatoria de una plantilla de CloudFormation.
 <br>
 
-#### **5.5.1 - Añadir la VPC**
-!!! warning "Importante"
-    Para editar la plantilla, principalmente, tendremos que **ampliar** los apartados **recursos** y **los parametros** de la misma.  
-    La documentación referente a lo que debemos hacer se encuentra [aquí](https://docs.aws.amazon.com/es_es/AWSCloudFormation/latest/TemplateReference/aws-template-resource-type-ref.html)
+##### **5.5.1.1 - Añadir la VPC**
 
-!!! tip "Edición de los parámetros"
 
 - Accedemos a **Infraestructure Composer**  
 
@@ -818,7 +830,7 @@ Esta operación se puede hacer entrando por `detalles` o por `plantilla`.
 
 <br>
 
-#### **5.5.2 - Añadir y configurar el IGW**
+##### **5.5.1.2 - Añadir y configurar el IGW**
 
 - Añadimos el IGW al lienzo:  
 ![Descripción de la imagen](../AWS/ut7/cloudformation/cf-ra4cee-5.png){ .cincozero .marco   }<br>
@@ -828,7 +840,7 @@ Esta operación se puede hacer entrando por `detalles` o por `plantilla`.
 
 <br>
 
-#### **5.5.3 - Añadir y configurar el IGW**
+##### **5.5.1.3 - Añadir y configurar el IGW**
 
 - Conectar el IGW a nuestra VPC  
 ![Descripción de la imagen](../AWS/ut7/cloudformation/cf-ra4cee-7.png){ .cuatrozero .marco   }<br>
@@ -836,7 +848,7 @@ Esta operación se puede hacer entrando por `detalles` o por `plantilla`.
 - Configuración:   
 ![Descripción de la imagen](../AWS/ut7/cloudformation/cf-ra4cee-8.png){ .treszero .marco   }<br>
 
-#### **5.5.4 - Añadir subredes públicas y privadas**
+##### **5.5.1.4 - Añadir subredes públicas y privadas**
 
 - Crear la subredes públicas y privadas  
 ![Descripción de la imagen](../AWS/ut7/cloudformation/cf-ra4cee-9.png){ .cincozero .marco   }<br>
@@ -844,7 +856,8 @@ Esta operación se puede hacer entrando por `detalles` o por `plantilla`.
 - Configuración de las subredes  
 ![Descripción de la imagen](../AWS/ut7/cloudformation/cf-ra4cee-10.png){ .doscinco .marco   }<br>
 
-#### **5.5.4 - Añadir la tabla de enrutamiento de la subred pública**
+
+##### **5.5.1.5 - Añadir la tabla de enrutamiento de la subred pública**
 
 - Crear el recurso 
 ![Descripción de la imagen](../AWS/ut7/cloudformation/cf-ra4cee-11.png){ .cincozero .marco   }<br>
@@ -864,7 +877,7 @@ Esta operación se puede hacer entrando por `detalles` o por `plantilla`.
 
 
 
-#### **5.5.5 - Añadir Un grupo de seguridad para la instancia EC2**
+##### **5.5.1.6 - Añadir Un grupo de seguridad para la instancia EC2**
  
 - Crear el recurso 
 ![Descripción de la imagen](../AWS/ut7/cloudformation/cf-ra4cee-15.png){ .sietecinco .marco   }<br>
@@ -875,58 +888,96 @@ Esta operación se puede hacer entrando por `detalles` o por `plantilla`.
 !!! tip "Nota"
     Tenemos creado el SG pero la asociación con la EC2 se hará desde la misma EC2.
 
-#### **5.5.6 - Instancia EC2**
+<br>
+
+##### **5.5.1.7 - Instancia EC2**
 
 - Asociar la instancia EC2 a la subred pública y asociarle el grupo de seguridad anterior.  
 
 ![Descripción de la imagen](../AWS/ut7/cloudformation/cf-ra4cee-17.png){ .trescinco .marco   }<br>
 
-#### **5.5.7 - Lienzo final**
+##### **5.5.1.8 - Lienzo final**
 
 - Si todo ha ido bien, este debería ser el aspecto final del lienzo de la plantilla.  
-![Descripción de la imagen](../AWS/ut7/cloudformation/cf-ra4cee-18.png){ .cien .marco .margintop20   }<br>
+![Descripción de la imagen](../AWS/ut7/cloudformation/cf-ra4cee-18.png){ .cien .marco .margintop20   }<br>  
 
 
-#### **5.5.8 - Modificar los parámetros**
-!!! tip "Edición de los parametros"
+#### **5.5.2 - Edición de la sección 'Parámetros/Parameters'**
+!!! tip "Parámetros de una plantilla"
+    1. Los parámetros son **variables de entrada** definidas en la plantilla que permiten personalizar el despliegue sin modificar el código de la plantilla.
+    1. Permite introducir valores dinámicos en el momento de crear o actualizar una pila (stack), evitando que la plantilla quede **acoplada a valores fijos**.
 
-*************************
-**************************  
-**************************  
-****************************
+Para esta primera modificación, parametrizaremos los rangos CIDR de la VPC así de las subredes asociadas.  
 
-#### **5.5.9 - Validar la plantilla**
-
-- Si todo ha ido bien, solamente nos saldrá un aviso relacionado con las limitaciones de roles de los usuarios voclabs.    
-![Descripción de la imagen](../AWS/ut7/cloudformation/cf-ra4cee-19.png){ .cien .marco .margintop20   }<br>
-
-- Como no podemos continuar. Copiaremos la plantilla y repetiremos el proceso de modificar la pila pero esta vez subiremos la plantilla editada.  
+![Descripción de la imagen](../AWS/ut7/cloudformation/cf-ra4cee-19.png){ .treszero .marco .margintop20   }<br>  
 
 
+#### **5.5.3 - Validar la plantilla**
+
+- Antes de poder seguir deberemos validar la plantilla para asegurarnos de que es coherente.
+![Descripción de la imagen](../AWS/ut7/cloudformation/cf-ra4cee-19-1.png){ .cien .marco .margintop20   }<br>
+
+- Si la plantilla es válida nos aparecerá lo siguiente:
+![Descripción de la imagen](../AWS/ut7/cloudformation/cf-ra4cee-19-2.png){ .cien .marco .margintop20   }<br>
+
+- Si hay errores, nos aparecerán en la parte de abajo de la interfaz.
+![Descripción de la imagen](../AWS/ut7/cloudformation/cf-ra4cee-19-3.png){ .cien .marco .margintop20   }<br>
+
+- Una vez que la plantilla ha sido validada pulsamos **actualizar plantilla**. En la siguiente pantalla, confirmamos los cambios.    
+![Descripción de la imagen](../AWS/ut7/cloudformation/cf-ra4cee-19-4.png){ .cien .marco .margintop20   }<br>
+![Descripción de la imagen](../AWS/ut7/cloudformation/cf-ra4cee-20.png){ .cincozero .marco   }<br>
+
+- Si todo ha ido bien volveremos al paso 1 y le daremos a siguiente.
+![Descripción de la imagen](../AWS/ut7/cloudformation/cf-ra4cee-21.png){ .cien .marco .margintop20   }<br>
+
+- En el paso 2, especificamos los cambios que queremos realizar a nuestro despliegue.
+![Descripción de la imagen](../AWS/ut7/cloudformation/cf-ra4cee-22.png){ .cien .marco .margintop20   }<br>
+
+- En el paso 3, podemos modificar los permisos (opcional).
+![Descripción de la imagen](../AWS/ut7/cloudformation/cf-ra4cee-23.png){ .cien .marco .margintop20   }<br>
+
+- En el paso 4, revisamos los cambios
+![Descripción de la imagen](../AWS/ut7/cloudformation/cf-ra4cee-24.png){ .cien .marco .margintop20   }<br>
+
+- Al final tendremos los cambios subidos al bucket listos para ser ejecutados.
+![Descripción de la imagen](../AWS/ut7/cloudformation/cf-ra4cee-26.png){ .cien .marco .margintop20   }<br>
+
+#### **5.5.4 - Ejecutar el conjunto de cambios e iniciar el despliegue**
+
+- Ejecutamos el conjunto de cambios para aplicar las modificaciones definidas en la plantilla sobre la pila existente.
+![Descripción de la imagen](../AWS/ut7/cloudformation/cf-ra4cee-28.png){ .cien .marco .margintop20   }<br>
+![Descripción de la imagen](../AWS/ut7/cloudformation/cf-ra4cee-29.png){ .cincozero .marco     }<br>
+
+- Desde la interfaz disponemos de diferentes vistas que permiten supervisar el estado del despliegue.
+![Descripción de la imagen](../AWS/ut7/cloudformation/cf-ra4cee-27.png){ .cien .marco .margintop20   }
+![Descripción de la imagen](../AWS/ut7/cloudformation/cf-ra4cee-30.png){ .cien .marco .margintop20   }
+![Descripción de la imagen](../AWS/ut7/cloudformation/cf-ra4cee-31.png){ .cien .marco .margintop20   }<br>
+
+!!! warning "Errores durante el despliegue"
+    1. Que la plantilla sea válida no significa necesariamente que el despliegue se realice correctamente.
+    1. En caso de producirse errores durante el despliegue, CloudFormation realizará automáticamente un rollback, eliminando los recursos creados y devolviendo la infraestructura a su estado anterior.
+    1. Los errores aparecerán en las distintas vistas de supervisión del despliegue y deberán ser analizados y corregidos para completar correctamente el proceso.  
+
+#### **5.5.5 - Definir un rol de IAM para la instancia EC2**
 
 
-#### **5.5.3 - Instalar Nginx**
+#### **5.5.6 - Instalar Nginx sobre la instancia EC2**
 
-- Editamos la configuración:
+#### **5.5.7 - Condiciones de entrega de la tarea RA4-CEe**
+!!! warning "Condiciones de la entrega"
+    1. Adjuntar a la tarea la plantilla final (tarea guiada + rol IAM + Instalación automática de Nginx).
+    1. Realizar capturas de pantalla del mapa de recursos de la VPC desplegada.
+    1. Realizar capturas de pantalla del servidor Nginx desplegado.
+    1. Comentar brevemente cada captura para entender a qué corresponde y subir el documento a la tarea correspondiente de AULES.
 
-![Descripción de la imagen](../AWS/ut7/cloudformation/cf-ra4cee-6.png){ .cincozero .marco   }<br>
+
+
 
 <!-- https://www.youtube.com/watch?v=W4F9vYdPfoI&list=PL_1omhUxPW6OjNxiq5lZreUFZI9vFW0y8&index=3 -->
-
-### **5.6 - Eliminar una pila**  
-
-
-
-
-
-
-
-
 
 <!-- https://www.youtube.com/watch?v=tAlIe8qQjqI -->
 <!-- https://www.youtube.com/watch?v=yXa-cG79jkw -->
 <!-- https://www.youtube.com/watch?v=Y_O5EQVQoao -->
-
 
 <!-- https://www.youtube.com/watch?v=fc6tfw2tcGE&list=PL5KTLzN85O4LNGYy-dm1wJ-sKE5l4b5P5 -->
 <!-- https://www.youtube.com/watch?v=YXVCdGyHDSk -->
@@ -934,73 +985,22 @@ Esta operación se puede hacer entrando por `detalles` o por `plantilla`.
 IaC +CDK
 
 
-<!--  
-
-
-
-
-
-8. Ventajas clave de usar pilas
-
-Infraestructura como código (IaC)
-
-Despliegues repetibles y auditables
-
-Eliminación limpia de recursos
-
-Reducción de errores manuales
-
-Ideal para entornos educativos, pruebas y producción
-
-9. Relación con otras herramientas
-
-En AWS conviven varias soluciones similares:
-
-CloudFormation (stacks)
-Nativa de AWS, declarativa.
-
-Terraform
-Multicloud, estado externo.
-
+<!-- 
 AWS CDK
 Define pilas usando lenguajes como TypeScript o Python, que se traducen a CloudFormation.
-
-Dado tu trabajo reciente con CloudFormation y Terraform, el concepto de pila es especialmente relevante como base común.
- -->
-
-
-
-
-
+-->
 
 <!-- https://youtu.be/TRLK6ZNpjB8?si=SQ5gCu6KFLiFdez9&t=886 -->
-
- 
-
-  
-
- 
-<!-- https://docs.aws.amazon.com/es_es/autoscaling/ec2/userguide/tutorial-ec2-auto-scaling-load-balancer.html -->
 
 <!-- bbdd
 https://www.youtube.com/watch?v=vp_uulb5phM
 https://www.youtube.com/watch?v=eK_umMYxZfM
 https://www.youtube.com/watch?v=6E30Yr2UATw
-  https://www.youtube.com/watch?v=kNm0z_hRJlw
-  https://www.youtube.com/watch?v=wLTFaDebTBY
-  https://www.youtube.com/watch?v=BTg1JbmE3x4
-  https://www.youtube.com/watch?v=tykcCf-Zz1M -->
+https://www.youtube.com/watch?v=kNm0z_hRJlw
+https://www.youtube.com/watch?v=wLTFaDebTBY
+https://www.youtube.com/watch?v=BTg1JbmE3x4
+https://www.youtube.com/watch?v=tykcCf-Zz1M -->
 
-
-<!-- ecs
-https://prezi.com/p/5jffku-0bqyl/amazon-elastic-container-service-overview/
-https://www.youtube.com/watch?v=TRLK6ZNpjB8
-https://www.youtube.com/watch?v=qbEPae8YNbs
-https://www.youtube.com/watch?v=NI34uF7VVP8
-https://www.youtube.com/watch?v=86Ys0LnMSnY -->
-<!-- file:///C:/Users/titan/Documents/Javier128/Modulos/DAW/DAW_2/AWS/UT/UT6/Tema%204/Tema%204.%20Peer%20connection%20y%20transit%20gw.pdf -->
-
- 
 <!-- route 53... 
 cloud formation... 
 elastic load balancing
@@ -1015,13 +1015,7 @@ https://aws.amazon.com/es/products/storage/
 -->
 
 <!-- https://www.youtube.com/watch?v=89N3u6W01IQ -->
-<!-- https://www.grycap.upv.es/cursocloudaws/contenido.php 
-https://luisdieguez.com/tutorial-ansible-desde-0-herramienta-de-gestion-de-servidores/
-https://ualmtorres.github.io/SeminarioDockerPresentacion/
-https://www.youtube.com/watch?v=qNIniDftAcU
-https://www.youtube.com/watch?v=TRLK6ZNpjB8
-
--->
+<!-- https://www.grycap.upv.es/cursocloudaws/contenido.php -->
 
   
 
@@ -1074,5 +1068,5 @@ Tipos de [recursos y propiedades](https://docs.aws.amazon.com/es_es/AWSCloudForm
     |**b)** Se ha llevado a cabo la configuración y gestión de bases de datos en un entorno de nube.|20%|
     |**c)** Se ha trabajado en la resolución de problemas prácticos sobre almacenamiento y bases de datos.|20%|
     |**d)** Se ha diseñado arquitecturas escalables y resilientes basadas en las mejores prácticas.|20%|
-    |**e)** Se ha hecho uso de herramientas de monitoreo y recomendaciones de optimización.|10%|
+    *|**e)** Se ha hecho uso de herramientas de monitoreo y recomendaciones de optimización.|10%|
     *|**f)** Se ha participado en actividades que simulen el análisis y mejora de arquitecturas existentes.|10%| -->

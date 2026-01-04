@@ -1,6 +1,6 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Description: |
-  Plantilla de ejemplo que despliega una instancia EC2 basica y muestra su IP publica como salida.
+  Modificacion 1 plantilla original. Se anyade VPC, subredes y SG
 
 Parameters:
   InstanceType:
@@ -47,13 +47,14 @@ Resources:
         - RegionMap
         - !Ref AWS::Region
         - AMI
-      SubnetId:
-        - !Ref SubnetPublic
+      SubnetId: !Ref SubnetPublic
       SecurityGroupIds:
         - !Ref SecurityGroup
       Tags:
         - Key: Name
           Value: ServidorWebEjemplo
+
+
   VPC:
     Type: AWS::EC2::VPC
     Properties:
@@ -137,18 +138,10 @@ Resources:
       SubnetId: !Ref SubnetPrivate
       RouteTableId: !Ref PrivateRouteTable
 
-  PrivateRoute:
-    Type: AWS::EC2::Route
-    Properties:
-      RouteTableId: !Ref PrivateRouteTable
-
-
-
-
-
-
-
-
+  # PrivateRoute:
+  #   Type: AWS::EC2::Route
+  #   Properties:
+  #     RouteTableId: !Ref PrivateRouteTable
 
 
   SecurityGroup:
