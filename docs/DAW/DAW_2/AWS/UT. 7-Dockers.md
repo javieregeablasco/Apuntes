@@ -997,7 +997,9 @@ En esta actividad se definirá y asociará el par de claves a la instancia EC2:
 - Documentación a consultar para asociar ese recurso a una instancia: [AWS::EC2::Instance](https://docs.aws.amazon.com/es_es/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-instance.html#cfn-ec2-instance-keyname). 
 
 <br>
+
 <!-- Definir el recurso
+
 Parameters:
   KeyPairName:
     Type: AWS::EC2::KeyPair::KeyName
@@ -1012,8 +1014,7 @@ WebServer:
     ...
     KeyName: !Ref KeyPairName
     ...
--->    
-
+-->
 
 
 #### **5.5.7 - Instalar Nginx sobre la instancia EC2**
@@ -1044,6 +1045,8 @@ WebServer:
     ...
 -->
 
+<br>
+
 #### **5.5.7 - Condiciones de entrega de la tarea RA4-CEe**
 !!! warning "Condiciones de la entrega"
     1. Adjuntar a la tarea la plantilla final (tarea guiada + rol IAM + Instalación automática de Nginx).
@@ -1052,6 +1055,8 @@ WebServer:
     1. Comentar brevemente cada captura para entender a qué corresponde y subir el documento a la tarea correspondiente de AULES.
 
 
+### **5.6 - CloudFormation + IaC + CDK**
+![Descripción de la imagen](../AWS/ut7/cloudformation/WIP.avif){ .doscinco }<br>
 
 
 <!-- https://www.youtube.com/watch?v=W4F9vYdPfoI&list=PL_1omhUxPW6OjNxiq5lZreUFZI9vFW0y8&index=3 -->
@@ -1063,7 +1068,6 @@ WebServer:
 <!-- https://www.youtube.com/watch?v=fc6tfw2tcGE&list=PL5KTLzN85O4LNGYy-dm1wJ-sKE5l4b5P5 -->
 <!-- https://www.youtube.com/watch?v=YXVCdGyHDSk -->
 
-IaC +CDK
 
 
 <!-- 
