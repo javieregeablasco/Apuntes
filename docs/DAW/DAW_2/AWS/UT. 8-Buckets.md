@@ -1,346 +1,139 @@
-<!-- https://www.youtube.com/watch?v=9jOdbA1yk4U -->
+---
+cicle: CFGS - Desarrollo de aplicaciones web
+title: "Introducción a la nube pública"
+module number: 
+lesson: UD. 8 - Sistemas de almacenamiento y bases de datos en AWS
+author: Javier Egea Blasco  
+year: 25-26  
+keywords: DAW, Optativa, AWS
+layout: default  
+schedule: 96h - 3h/s 
+---
+
+# **UT. 8 - Sistemas de almacenamiento y bases de datos en AWS**
+![Descripción de la imagen](../AWS/ut8/ut8-1.png){ .trescinco }
+<br>
+
+**Resultados de aprendizaje y criterios de evaluacion que se evaluarán en esta unidad.**  
+
+| **Resultados de aprendizaje de la unidad didáctica:** |
+|-|
+| **RA. 4:** Gestiona servicios de almacenamiento y bases de datos en la nube, seleccionando tecnologías adecuadas para casos específicos, y diseña arquitecturas escalables y resilientes utilizando herramientas de monitoreo y optimización para mejorar el rendimiento.|
+
+|**Criterios de evaluación de la unidad didáctica:**|
+|-|
+|**a)** Se ha realizado la diferenciación entre tecnologías de almacenamiento en la nube.|
+|**b)** Se ha llevado a cabo la configuración y gestión de bases de datos en un entorno de nube.|
+|**c)** Se ha trabajado en la resolución de problemas prácticos sobre almacenamiento y bases de datos.|
+|**d)** Se ha diseñado arquitecturas escalables y resilientes basadas en las mejores prácticas.|
+
+
+## **1 - Sistemas de almacenamiento en AWS**
+### **1.1 - Introducción**
+
+Los sistemas de almacenamiento en AWS se dividen principalmente en cuatro grandes categorías, en función de cómo se accede a los datos y del tipo de uso al que están orientados:
+
+- **Almacenamiento de objetos**: Amazon S3 (buckets S3), orientado a datos altamente escalables como imágenes, vídeos o copias de seguridad.
+- **Almacenamiento en bloques**: Amazon EBS (ya visto en una unidad anterior), utilizado como discos persistentes que se adjuntan a instancias EC2.
+- **Almacenamiento de archivos**: Amazon EFS, que proporciona sistemas de archivos compartidos accesibles desde múltiples instancias.
+- **Soluciones híbridas**: AWS Storage Gateway, que permite integrar infraestructura local con servicios de almacenamiento en la nube de AWS.
+
+<!-- https://openwebinars.net/blog/almacenamiento-en-aws/ -->
 <!-- https://apuntes.de/aws-certificacion-csaa/buckets/#gsc.tab=0 -->
+<!-- https://aitor-medrano.github.io/iabd2223/cloud/03s3.html -->
 
-https://aws.amazon.com/es/products/storage/
+https://apuntes.de/aws-certificacion-csaa/buckets/#gsc.tab=0
 
+### **1.2 - ¿Cómo Funciona Docker?**
+
+<br>
+
+#### **5.5.7 - Condiciones de entrega de la tarea RA4-CEe**
+!!! warning "Condiciones de la entrega"
+    1. Adjuntar a la tarea la plantilla final (tarea guiada + rol IAM + Instalación automática de Nginx).
+    1. Realizar capturas de pantalla del mapa de recursos de la VPC desplegada.
+    1. Realizar capturas de pantalla del servidor Nginx desplegado.
+    1. Comentar brevemente cada captura para entender a qué corresponde y subir el documento a la tarea correspondiente de AULES.
+
+
+### **5.6 - CloudFormation + IaC + CDK**
+![Descripción de la imagen](../AWS/ut7/cloudformation/WIP.avif){ .doscinco }<br>
+
+<!-- apuntes de s3 -->
+<!-- https://www.youtube.com/watch?v=9jOdbA1yk4U -->
 <!-- https://www.youtube.com/watch?v=mDRoyPFJvlU -->
 <!-- https://www.youtube.com/watch?v=C4calFCtlHg -->
 
-
-Comparativa docente de los sistemas de almacenamiento en AWS
-1. Clasificación didáctica básica (punto de partida)
-
-Desde un enfoque pedagógico, es fundamental partir de una clasificación clara, equivalente a la que el alumnado ya conoce en entornos locales:
-
-Tipo	Concepto conocido	Servicios AWS
-Bloque	Disco duro / SSD	EBS, Instance Store
-Archivos	Carpeta compartida / NAS	EFS, FSx
-Objetos	Almacenamiento web	S3, Glacier
-
-Este esquema facilita la transferencia de conocimiento desde sistemas tradicionales a la nube.
-
-2. Almacenamiento en bloques (EBS vs Instance Store)
-Característica	EBS	Instance Store
-Persistencia	Sí	No
-Asociado a EC2	Sí	Sí
-Rendimiento	Alto	Muy alto
-Snapshots	Sí	No
-Uso docente típico	SO, BBDD	Caché
-Enfoque didáctico
-
-EBS se explica como el disco duro de una máquina virtual.
-
-Instance Store sirve para introducir el concepto de almacenamiento efímero.
-
-Práctica recomendada
-
-Lanzar una EC2 con EBS y comprobar persistencia tras reinicio.
-
-Comparar con Instance Store y analizar pérdida de datos.
-
-3. Almacenamiento en archivos (EFS y FSx)
-Amazon EFS (Linux)
-Característica	EFS
-Protocolo	NFS
-Acceso concurrente	Sí
-Escalado	Automático
-Casos docentes	Web compartida, home users
-
-Analogía docente: un servidor NAS en red local.
-
-Amazon FSx (especialización)
-Variante	Entorno	Caso docente
-FSx Windows	Windows	Active Directory
-FSx Lustre	HPC	Big Data
-FSx NetApp	Enterprise	Replicación
-FSx OpenZFS	Unix	Baja latencia
-
-Claves didácticas:
-
-No profundizar en todas las variantes.
-
-Presentarlo como “EFS avanzado según necesidades”.
-
-4. Almacenamiento de objetos (S3 y Glacier)
-Característica	S3	Glacier
-Tipo	Objetos	Archivado
-Acceso	Inmediato	Lento
-Coste	Medio	Muy bajo
-Uso docente	Backups, web	Copias históricas
-Concepto clave
-
-No hay carpetas reales, solo objetos y metadatos.
-
-Ideal para introducir arquitecturas desacopladas.
-
-Práctica típica
-
-Subir ficheros a un bucket.
-
-Activar versionado.
-
-Asociar políticas de ciclo de vida a Glacier.
-
-5. Almacenamiento híbrido y migración
-AWS Storage Gateway
-Tipo	Analogía docente
-File Gateway	NAS híbrido
-Volume Gateway	SAN híbrida
-Tape Gateway	Librería de cintas
-
-Permite trabajar:
-
-Migración progresiva
-
-Integración on-prem ↔ cloud
-
-Snow Family y DataSync
-Servicio	Enfoque docente
-DataSync	Transferencia automatizada
-Snowball	Migración física
-
-Ideal para explicar limitaciones del ancho de banda.
-
-6. Relación con arquitecturas habituales (muy útil en clase)
-Arquitectura	Almacenamiento
-LAMP básica	EBS + S3
-Web escalable	EFS + S3
-2 capas	EBS (web + BBDD)
-3 capas	EFS (web) + EBS (BBDD)
-Backup	S3 + Glacier
-7. Resumen pedagógico final
-Pregunta docente	Servicio
-¿Disco de una VM?	EBS
-¿Carpeta compartida?	EFS
-¿Datos web / backups?	S3
-¿Archivado barato?	Glacier
-¿Datos temporales?	Instance Store
-¿Migración on-prem?	Storage Gateway
-8. Propuesta de evaluación
-
-Test conceptual: tipo de almacenamiento adecuado.
-
-Práctica guiada: montar EC2 + EBS + S3.
-
-Caso práctico: elegir almacenamiento para una empresa.
-
-
-
-Unidad didáctica: Sistemas de almacenamiento en AWS
-1. Identificación de la unidad
-
-Ciclo formativo: CFGS Desarrollo de Aplicaciones Web (DAW) / Administración de Sistemas Informáticos en Red (ASIR)
-
-Módulo profesional:
-
-DAW: Despliegue de Aplicaciones Web / Diseño de Interfaces Web (contexto cloud)
-
-ASIR: Implantación de Sistemas Operativos / Servicios en Red
-
-Duración estimada: 6–8 horas
-
-Unidad: Infraestructura cloud – Almacenamiento
-
-2. Resultados de Aprendizaje (RA)
-
-RA1. Analiza los distintos sistemas de almacenamiento en la nube ofrecidos por AWS, relacionándolos con soluciones de almacenamiento tradicionales.
-
-RA2. Selecciona el sistema de almacenamiento más adecuado en función del tipo de aplicación, arquitectura y requisitos de persistencia, rendimiento y coste.
-
-RA3. Implementa soluciones básicas de almacenamiento en AWS utilizando servicios dentro del Free Tier.
-
-3. Criterios de Evaluación (CE)
-Asociados al RA1
-
-CE1.1 Identifica los tipos de almacenamiento en AWS (bloque, archivos y objetos).
-
-CE1.2 Describe las características principales de EBS, EFS, S3 y Glacier.
-
-CE1.3 Compara los sistemas de almacenamiento cloud con soluciones locales (disco, NAS, copias de seguridad).
-
-Asociados al RA2
-
-CE2.1 Justifica la elección de un sistema de almacenamiento según un caso práctico.
-
-CE2.2 Relaciona arquitecturas web habituales con los servicios de almacenamiento adecuados.
-
-CE2.3 Evalúa ventajas e inconvenientes de cada servicio en términos de coste, disponibilidad y rendimiento.
-
-Asociados al RA3
-
-CE3.1 Configura un volumen EBS asociado a una instancia EC2.
-
-CE3.2 Crea y gestiona un bucket S3 con políticas básicas.
-
-CE3.3 Verifica la persistencia y accesibilidad de los datos almacenados.
-
-4. Contenidos
-4.1 Conceptos previos
-
-Almacenamiento local y en red
-
-Persistencia de datos
-
-Arquitecturas cliente-servidor
-
-4.2 Almacenamiento en la nube
-
-Introducción al almacenamiento cloud
-
-Ventajas frente a infraestructuras on‑premise
-
-4.3 Sistemas de almacenamiento en AWS
-a) Almacenamiento en bloques
-
-Amazon EBS
-
-Instance Store
-
-Casos de uso y limitaciones
-
-b) Almacenamiento en archivos
-
-Amazon EFS
-
-Amazon FSx (visión general)
-
-Comparación con NAS
-
-c) Almacenamiento de objetos
-
-Amazon S3
-
-Concepto de objeto y bucket
-
-Versionado y clases de almacenamiento
-
-S3 Glacier (archivado)
-
-4.4 Almacenamiento y arquitecturas web
-
-Arquitectura LAMP en AWS
-
-Arquitecturas de 2 y 3 capas
-
-Separación de datos y aplicación
-
-4.5 Buenas prácticas
-
-Elección del almacenamiento adecuado
-
-Control de costes
-
-Seguridad básica (permisos y acceso)
-
-5. Metodología
-
-Explicación guiada con esquemas
-
-Comparación con entornos locales conocidos por el alumnado
-
-Prácticas paso a paso en AWS Free Tier
-
-Resolución de casos prácticos
-
-6. Actividades prácticas (AWS Free Tier)
-Práctica 1. Uso de almacenamiento en bloques (EBS)
-
-Objetivo: Comprender la persistencia de datos.
-
-Crear una instancia EC2 (t2.micro)
-
-Asociar un volumen EBS
-
-Crear un archivo de prueba
-
-Reiniciar la instancia y comprobar persistencia
-
-Práctica 2. Almacenamiento de objetos con S3
-
-Objetivo: Gestionar almacenamiento desacoplado.
-
-Crear un bucket S3
-
-Subir archivos
-
-Activar versionado
-
-Descargar versiones anteriores
-
-Práctica 3. Comparativa EBS vs S3
-
-Objetivo: Diferenciar tipos de almacenamiento.
-
-Guardar datos en EBS y en S3
-
-Analizar acceso, uso y persistencia
-
-Documentar conclusiones
-
-Práctica 4. Caso práctico guiado
-
-Escenario: Empresa con una web corporativa y copias de seguridad.
-
-Elegir almacenamiento para:
-
-Aplicación web
-
-Base de datos
-
-Backups
-
-Justificar la elección
-
-7. Instrumentos de evaluación
-
-Cuestionario teórico
-
-Entrega de prácticas documentadas
-
-Resolución de caso práctico
-
-Rúbrica basada en RA y CE
-
-8. Recursos
-
-Cuenta AWS Free Tier
-
-Consola de AWS
-
-Guías paso a paso del profesor
-
-Diagramas de arquitectura
-
-9. Observaciones didácticas
-
-Priorizar comprensión conceptual frente a complejidad técnica.
-
-Evitar servicios fuera del Free Tier.
-
-Relacionar siempre con situaciones reales y profesionales.
-
-Ya tienes la unidad didáctica formalizada en el canvas, con RA, CE, contenidos, metodología y actividades, lista para integrar en una programación oficial o en el proyecto curricular (muy alineada con el enfoque que ya trabajas en otras unidades de cloud y AWS).
-
-Siguiente paso propuesto (recomendado)
-
-Puedo continuar de dos formas, ambas habituales en contexto docente:
-
-Desarrollar los ejercicios prácticos paso a paso, con:
-
-Capturas conceptuales (qué botón pulsar, qué opción elegir)
-
-Advertencias de coste (Free Tier)
-
-Resultados esperados
-
-Preguntas de reflexión para el alumnado
-
-Crear rúbricas de evaluación específicas para:
-
-Prácticas técnicas
-
-Caso práctico final
-
-Evaluación competencial (RA ↔ CE)
-
-Indícame cómo quieres continuar y, si lo deseas, el ciclo exacto (DAW o ASIR) para afinar aún más el enfoque técnico.
+    k -->
+
+ 
+ 
+<!-- bbdd
+https://www.youtube.com/watch?v=vp_uulb5phM
+https://www.youtube.com/watch?v=eK_umMYxZfM
+https://www.youtube.com/watch?v=6E30Yr2UATw
+https://www.youtube.com/watch?v=kNm0z_hRJlw
+https://www.youtube.com/watch?v=wLTFaDebTBY
+https://www.youtube.com/watch?v=BTg1JbmE3x4
+https://www.youtube.com/watch?v=tykcCf-Zz1M -->
+
+<!-- route 53... 
+cloud formation... 
+elastic load balancing
+Amazon Simple Storage Service (S3) 
+Amazon Elastic File System (EFS)
+Amazon Elastic Block Store (EBS) -->
+<!--  Building Highly Available Web Application 
+https://skillbuilder.aws/learn/2WBTDQFGSV/building-highly-available-web-application/2RW7UC62ZE
+recursos de BBDD y buckets:
+
+https://aws.amazon.com/es/products/storage/
+-->
+  
+  
+
+ 
+## **Enlaces de interés**
+Documentación de [AWS](https://docs.aws.amazon.com)  
+Sistemas de almacenamiento en [AWS](https://aws.amazon.com/es/products/storage/)
+
+
+<!-- === "RA 1"
+    |RA1. Comprende los fundamentos de la computación en la nube, sus ventajas frente a sistemas tradicionales, el marco de adopción, los principios de migración y los aspectos clave de facturación, como estimación y optimización de costos.||
+    |-|-|
+    *|**a)** Se ha comprendido los conceptos fundamentales de la computación en la nube.|20%|  
+    *|**b)** Se ha demostrado la capacidad para explicar las ventajas de la nube frente a sistemas tradicionales.|20%|  
+    *|**c)** Se ha participado en actividades relacionadas con el ecosistema de servicios en la nube.|15%|
+    *|**d)** Se han identificado los principios básicos de la facturación y costos en la nube.|15%|
+    *|**e)** Se ha hecho uso correcto de herramientas para estimar y gestionar presupuestos.|15%|
+    *|**f)** Se ha participado en actividades prácticas sobre gestión de costos.|15%|
+      
+=== "RA 2"
+    |RA2. Identifica los componentes clave de la infraestructura global de la nube, diferenciando servicios principales, regiones, zonas de disponibilidad y aplicando medidas básicas de seguridad como el modelo de responsabilidad compartida, gestión de accesos y protección de datos.||
+    |-|-|
+    *|**a)** Se ha adquirido conocimiento de los componentes de una infraestructura global en la nube. |20%|
+    *|**b)** Se ha demostrado la capacidad para explorar y describir las principales categorías de servicios disponibles.|20%|
+    *|**c)** Se ha realizado una evaluación del uso adecuado de servicios básicos en ejercicios prácticos.|15%|
+    *|**d)** Se ha comprendido el modelo de responsabilidad compartida en la nube.|15%|
+    *|**e)** Se ha aplicado medidas de seguridad básicas mediante herramientas de gestión de acceso.|15%|
+    *|**f)** Se han realizado ejercicios sobre gestión de usuarios y políticas de seguridad.|15%|
+
+=== "RA 3"
+    |RA3. Diseña y configura redes virtuales y servicios de cómputo en la nube, aplicando buenas prácticas de seguridad, estrategias de balanceo de carga, escalado automático y aprovechando tecnologías serverless, contenedores y máquinas virtuales según casos de uso específicos.||
+    |-|-|
+    *|**a)** Se ha realizado el diseño y configuración de redes virtuales privadas.|20%|
+    *|**b)** Se ha aplicado buenas prácticas de seguridad en redes y arquitecturas.|20%|
+    *|**c)** Se ha participado activamente en la creación y configuración de una red funcional.|15%|
+    *|**d)** Se ha realizado la selección de servicios de computación adecuados según casos de uso.|15%|
+    *|**e)** Se ha llevado a cabo la configuración y gestión de balanceo de carga y escalado automático.|15%|
+    *|**f)** Se han desarrollado prácticas relacionadas con la optimización de recursos computacionales.|15%|
+
+=== "RA 4"
+    |RA4. Gestiona servicios de almacenamiento y bases de datos en la nube, seleccionando tecnologías adecuadas para casos específicos, y diseña arquitecturas escalables y resilientes utilizando herramientas de monitoreo y optimización para mejorar el rendimiento.||
+    |-|-|
+    |**a)** Se ha realizado la diferenciación entre tecnologías de almacenamiento en la nube.|20%|
+    |**b)** Se ha llevado a cabo la configuración y gestión de bases de datos en un entorno de nube.|20%|
+    |**c)** Se ha trabajado en la resolución de problemas prácticos sobre almacenamiento y bases de datos.|20%|
+    |**d)** Se ha diseñado arquitecturas escalables y resilientes basadas en las mejores prácticas.|20%|
+    *|**e)** Se ha hecho uso de herramientas de monitoreo y recomendaciones de optimización.|10%|
+    *|**f)** Se ha participado en actividades que simulen el análisis y mejora de arquitecturas existentes.|10%| -->
