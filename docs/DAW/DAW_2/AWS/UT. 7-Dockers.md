@@ -959,9 +959,90 @@ Para esta primera modificación, parametrizaremos los rangos CIDR de la VPC así
     1. Los errores aparecerán en las distintas vistas de supervisión del despliegue y deberán ser analizados y corregidos para completar correctamente el proceso.  
 
 #### **5.5.5 - Definir un rol de IAM para la instancia EC2**
+Actualmente, la EC2 que hemos creado no tiene ningún perfil IAM definido.  
+Esto implica que las aplicaciones que se ejecuten sobre la instancia no podrán acceder a otros servicios de AWS de forma segura, viéndose obligadas a integrar claves de acceso, lo cual no es una buena práctica.
+
+En esta actividad se definirá y asociará un rol de IAM a la instancia EC2 mediante un **Instance Profile**:   
+
+- Documentación a consultar para crear el recurso de perfil de instancia : [AWS::IAM::InstanceProfile](https://docs.aws.amazon.com/es_es/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-instanceprofile.html). 
+- Documentación a consultar para asociar ese recurso a una instancia: [AWS::EC2::Instance](https://docs.aws.amazon.com/es_es/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-instance.html#cfn-ec2-instance-iaminstanceprofile). 
+
+<br>
+
+<!-- Crear el Instance Profile
+
+LabInstanceProfile:
+  Type: AWS::IAM::InstanceProfile
+  Properties:
+    Roles:
+      - LabRole 
+-->
+
+<!-- Asociar a la instancia
+WebServer:
+  ...
+  Properties:
+    ...
+    IamInstanceProfile: !Ref LabInstanceProfile
+    ...
+
+-->
+
+#### **5.5.6 - Definir la clave con la que se podrá acceder a la instancia EC2**
+Del mismo modo que en el punto anterior, actualmente no existe ningún par de claves definido para poder acceder a la instancia mediante SSH.
+
+En esta actividad se definirá y asociará el par de claves a la instancia EC2:   
+
+- Documentación a consultar para crear el recurso de par de claves : [AWS::EC2::KeyPair](https://docs.aws.amazon.com/es_es/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-keypair.html). 
+- Documentación a consultar para asociar ese recurso a una instancia: [AWS::EC2::Instance](https://docs.aws.amazon.com/es_es/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-instance.html#cfn-ec2-instance-keyname). 
+
+<br>
+<!-- Definir el recurso
+Parameters:
+  KeyPairName:
+    Type: AWS::EC2::KeyPair::KeyName
+    Description: Nombre del par de claves SSH
+    Default: vockey
+-->
+
+<!-- Propiedad de la instancia
+WebServer:
+  ...
+  Properties:
+    ...
+    KeyName: !Ref KeyPairName
+    ...
+-->    
 
 
-#### **5.5.6 - Instalar Nginx sobre la instancia EC2**
+
+#### **5.5.7 - Instalar Nginx sobre la instancia EC2**
+Para terminar, durante el despliegue de la instancia, también instalaremos el servidor web Nginx.  
+
+- Documentación a consultar para añadir esa propiedad a la instancia: [AWS::EC2::Instance](https://docs.aws.amazon.com/es_es/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-instance.html#cfn-ec2-instance-userdata). 
+
+Script a añadir:
+```bash
+#!/bin/bash
+yum update -y
+yum install -y nginx
+systemctl enable nginx
+systemctl start nginx
+```
+
+<!-- Propiedad de la instancia
+WebServer:
+  ...
+  Properties:
+    ...
+    UserData: !Base64 |
+      #!/bin/bash
+      yum update -y
+      yum install -y nginx
+      systemctl enable nginx
+      systemctl start nginx
+    ...
+-->
 
 #### **5.5.7 - Condiciones de entrega de la tarea RA4-CEe**
 !!! warning "Condiciones de la entrega"
