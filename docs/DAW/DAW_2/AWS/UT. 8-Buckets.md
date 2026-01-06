@@ -11,7 +11,10 @@ schedule: 96h - 3h/s
 ---
 
 # **UT. 8 - Sistemas de almacenamiento y bases de datos en AWS**
-![Descripción de la imagen](../AWS/ut8/ut8-1.png){ .trescinco }
+
+![Descripción de la imagen](./ut8/ut8-1.png){.sietecinco}    
+   
+ 
 <br>
 
 **Resultados de aprendizaje y criterios de evaluacion que se evaluarán en esta unidad.**  
@@ -31,21 +34,177 @@ schedule: 96h - 3h/s
 ## **1 - Sistemas de almacenamiento en AWS**
 ### **1.1 - Introducción**
 
-Los sistemas de almacenamiento en AWS se dividen principalmente en cuatro grandes categorías, en función de cómo se accede a los datos y del tipo de uso al que están orientados:
+![Descripción de la imagen](./ut8/ut8-2.png){.trescinco}    
 
-- **Almacenamiento de objetos**: Amazon S3 (buckets S3), orientado a datos altamente escalables como imágenes, vídeos o copias de seguridad.
-- **Almacenamiento en bloques**: Amazon EBS (ya visto en una unidad anterior), utilizado como discos persistentes que se adjuntan a instancias EC2.
-- **Almacenamiento de archivos**: Amazon EFS, que proporciona sistemas de archivos compartidos accesibles desde múltiples instancias.
-- **Soluciones híbridas**: AWS Storage Gateway, que permite integrar infraestructura local con servicios de almacenamiento en la nube de AWS.
+Existen multitud de sistemas de almacenamiento en AWS pero, podemos dividirlos en tres grandes categorías, principalmente en función de cómo se accede a los datos y del tipo de uso al que están orientados:
 
-<!-- https://openwebinars.net/blog/almacenamiento-en-aws/ -->
+- **Almacenamiento de objetos**:  
+Amazon S3 (buckets S3), orientado a datos altamente escalables como imágenes, vídeos o copias de seguridad.
+- **Almacenamiento en bloques**:  
+Amazon EBS (ya visto en una unidad anterior), utilizado como discos persistentes que se adjuntan a instancias EC2.
+- **Almacenamiento de archivos**:  
+Amazon EFS, que proporciona sistemas de archivos compartidos, accesibles desde múltiples instancias.
+
+ 
+ 
+
+### **1.2 - Diferencias en almacenamiento por objetos, bloques y archivos**
+Las diferencias fundamentales entre el almacenamiento por bloques, archivos y objetos se centran en la forma en que se estructuran, acceden y modifican los datos, así como en su rendimiento y escalabilidad.
+
+---
+
+#### **1.2.1 - Almacenamiento por Bloques (Amazon EBS)**
+
+![Descripción de la imagen](./ut8/ut8-3.png){.unocinco}    
+
+En el almacenamiento por bloques, los datos se dividen en bloques independientes que funcionan de forma similar a un disco duro tradicional.
+
+
+- **Modificación de datos:**   
+Si se cambia una parte de la información, solo se debe modificar el bloque específico que la contiene, lo que permite baja latencia y alto rendimiento.  
+Esto lo hace especialmente adecuado para aplicaciones con operaciones de lectura y escritura frecuentes.
+
+- **Conectividad:**  
+Los volúmenes Amazon EBS se adjuntan a instancias EC2 y actúan como **discos persistentes**.  
+Normalmente, un volumen EBS solo puede estar conectado a una única instancia EC2, excepto en configuraciones específicas como EBS Multi-Attach.
+
+- **Persistencia:**  
+Los datos no se pierden al detener una instancia EC2, ya que el volumen EBS es independiente de la vida de la instancia.  
+
+- **Casos de uso:**  
+Bases de datos relacionales.  
+Sistemas operativos de EC2.  
+Aplicaciones que requieren baja latencia y alto IOPS.
+
+---
+
+#### **1.2.2 - Almacenamiento de Archivos (Amazon EFS)**
+
+![Descripción de la imagen](./ut8/ut8-4.png){.unocinco}    
+
+Este sistema ofrece **un almacenamiento compartido** al que pueden acceder simultáneamente múltiples instancias.
+
+- **Protocolo y estructura:**  
+Utiliza el protocolo de sistemas de archivos de red (NFS) y se comporta de manera similar a un NAS (Network Area Storage).  
+
+- **Escalabilidad y disponibilidad:**  
+Es elástico y escala de forma automática a medida que se agregan o eliminan archivos, llegando a niveles de petabytes sin interrumpir las aplicaciones ni necesitar intervención humana.  
+Además, es un servicio altamente disponible, diseñado para operar en múltiples zonas de disponibilidad.  
+
+- **Casos de uso:**  
+Big Data y entornos de análisis.  
+Sistemas de archivos compartidos.  
+CMS como WordPress.  
+Contenedores y microservicios con almacenamiento compartido.
+
+---
+
+#### **1.2.3 - Almacenamiento de Objetos (Amazon S3)**
+
+![Descripción de la imagen](./ut8/ut8-5.png){.unocinco} 
+
+En el almacenamiento por objetos, los datos se almacenan como objetos dentro de contenedores llamados buckets.
+
+Cada objeto incluye el **archivo en sí**, un **identificador único (key)** y **metadatos** que ayudan a catalogarlo.  
+
+- **Modificación de datos:**  
+A diferencia del almacenamiento por bloques, una modificación en un objeto requiere volver a cargar el archivo entero.  
+
+- **Acceso y escalabilidad:**   
+Los objetos son accesibles desde cualquier lugar mediante una URL (sujeto a políticas de seguridad).  
+Es una solución extremadamente escalable y, aunque es más lenta en escritura que EBS, es más sencilla y barata.
+Es un servicio altamente duradero (99,999999999%) y prácticamente ilimitado en capacidad.  
+
+- **Estructura lógica:**   
+Aunque la consola permita navegar mediante "carpetas", en realidad no existen los directorios como tal, el sistema utiliza las keys (nombres de archivo que incluyen prefijos) para simular una jerarquía.  
+
+- **Casos de uso:**  
+Copias de seguridad y archivado  
+Alojamiento de sitios web estáticos  
+Aplicaciones móviles  
+Data Lakes y análisis de datos  
+
+<br>
+
+#### **1.2.4 - Resumen**
+| Característica | Amazon EBS            | Amazon EFS           | Amazon S3             |
+| -------------- | --------------------- | -------------------- | --------------------- |
+| Tipo           | Bloques               | Archivos             | Objetos               |
+| Acceso         | Una EC2 (normalmente) | Varias EC2           | HTTP/HTTPS            |
+| Modificación   | A nivel de bloque     | A nivel de archivo   | Objeto completo       |
+| Latencia       | Muy baja              | Baja                 | Mayor                 |
+| Escalabilidad  | Limitada por volumen  | Automática           | Ilimitada             |
+| Persistencia   | Independiente de EC2  | Independiente de EC2 | Total                 |
+| Casos típicos  | BBDD, SO              | CMS, compartido      | Backups, web estática |
+
+
+
+### **1.3 - Tarea RA4-CEa-1 - Creación de un Amazon EFS**
+#### **1.3.1 - Escenario propuesto**
+![Descripción de la imagen](./ut8/EFS/efs-1.png){.cincozero} 
+
+El escenario básico consistirá en 2 instancias y una puerta de enlace a internet para poder conectarnos a ellas.
+
+- Una EC2 estará en la zona de disponibilidad a.
+- La otra EC2 estará en otra zona de disponibilidad (p.e. b).
+
+Por otra parte crearemos un EFS y su grupo de seguridad. Para mayor seguridad del EFS, el grupo de seguridad solo aceptará conexiones entrantes desde los grupos de seguridad de las instancias EC2. 
+
+Para terminar, instalaremos un cliente NFS en las instancias EC2 para poder comunicarse con el EFS. Además añadiremos una directiva que forzará el encriptado de los datos durante las transferencias entre instancias EC2 y NFS. 
+
+---
+
+#### **1.3.2 - Creación de la infraestructura básica**
+Creamos la VPC, las subredes, el IGW y configuramos la tabla de enrutamiento.
+
+![Descripción de la imagen](./ut8/EFS/efs-2.png){.cien .marco} 
+
+---
+
+#### **1.3.3 - Lanzamiento de las EC2**
+Primero crearemos el mismo grupo de seguridad para las 2 instancias y luego lanzaremos las instancias. Cada una en una subred distinta.
+
+![Descripción de la imagen](./ut8/EFS/efs-3.png){.cien .marco} 
+
+---
+
+#### **1.3.4 - Lanzamiento del EFS**
+
+- Accedemos a EFS y creamos nuestro EFS.
+
+![Descripción de la imagen](./ut8/EFS/efs-4.png){.cincozero .marco} 
+
+
+<!-- ## Mount using the NFS Client (perform steps on both instances)
+1. Create an EFS mount point
+mkdir ~/efs-mount-point
+2. Install NFS client
+sudo yum -y install nfs-utils
+3. Mount using the EFS client
+sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport <EFS-DNS-NAME>:/ ~/efs-mount-point
+4. Create a file on the file system
+5. Add a file system policy to enforce encryption in-transit
+6. Unmount (make sure to change directory out of efs-mount-point first)
+sudo umount ~/efs-mount-point
+4. Mount again using the EFS client (what happens?)
+
+## Mount using the EFS utils (perform steps on both instances)
+1. Install EFS utils
+sudo yum install -y amazon-efs-utils
+2. Mount using the EFS mount helper
+sudo mount -t efs -o tls <EFS-DNS-NAME>:/ ~/efs-mount-point --> 
+
+<!-- trabajar sobre esta:
+
+https://www.youtube.com/watch?v=ExM6gaE0708 -->
+
+
+
+<!-- https://apuntes.de/aws/elastic-file-storage-system/#gsc.tab=0 -->
+<!-- https://www.youtube.com/watch?v=GG8PAAOUGBg -->
 <!-- https://apuntes.de/aws-certificacion-csaa/buckets/#gsc.tab=0 -->
 <!-- https://aitor-medrano.github.io/iabd2223/cloud/03s3.html -->
-
-https://apuntes.de/aws-certificacion-csaa/buckets/#gsc.tab=0
-
-### **1.2 - ¿Cómo Funciona Docker?**
-
+<!-- https://www.youtube.com/watch?v=aAOC6oS445s -->
 <br>
 
 #### **5.5.7 - Condiciones de entrega de la tarea RA4-CEe**
@@ -64,7 +223,7 @@ https://apuntes.de/aws-certificacion-csaa/buckets/#gsc.tab=0
 <!-- https://www.youtube.com/watch?v=mDRoyPFJvlU -->
 <!-- https://www.youtube.com/watch?v=C4calFCtlHg -->
 
-    k -->
+    
 
  
  
@@ -96,6 +255,7 @@ https://aws.amazon.com/es/products/storage/
 ## **Enlaces de interés**
 Documentación de [AWS](https://docs.aws.amazon.com)  
 Sistemas de almacenamiento en [AWS](https://aws.amazon.com/es/products/storage/)
+Sistemas de almacenamiento [EFS](https://aws.amazon.com/es/efs/) en AWS.
 
 
 <!-- === "RA 1"
