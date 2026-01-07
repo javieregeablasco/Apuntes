@@ -169,42 +169,83 @@ Primero crearemos el mismo grupo de seguridad para las 2 instancias y luego lanz
 ---
 
 #### **1.3.4 - Lanzamiento del EFS**
+- Antes de nada crearemos un grupo de seguridad para el EFS y lo configuraremos para que solo acepte conexiones NFS desde las instancias que hemos creado.  
+![Descripción de la imagen](./ut8/EFS/efs-3.png){.cien .marco .margintopbottom20} 
+ 
 
-- Accedemos a EFS y creamos nuestro EFS.
+- Accedemos a los recursos de AWS EFS y creamos nuestro primer EFS.
+![Descripción de la imagen](./ut8/EFS/efs-4.png){.cincozero .marco .margintopbottom20} 
 
-![Descripción de la imagen](./ut8/EFS/efs-4.png){.cincozero .marco} 
+- Pulsamos personalizar para ver las diferentes configuraciones disponibles.
+    - Paso 1
+![Descripción de la imagen](./ut8/EFS/efs-5.png){.sietecinco .marco .margintopbottom20}  
+    - Paso 2  
+    Elegimos los grupos de seguridad de los puntos de montaje para que el NFS solo acepte conexiones desde las instancias EC2 que hemos creado anteriormente.
+![Descripción de la imagen](./ut8/EFS/efs-6.png){.sietecinco .marco .margintopbottom20}  
+    - Paso 3  
+    Seleccionamos las políticas de acceso que impiden el acceso a la raíz de NFS así como el cifrado en tránsito.
+![Descripción de la imagen](./ut8/EFS/efs-7.png){.sietecinco .marco}  
+    - Paso 4  
+    Revisamos y creamos el NFS.
+![Descripción de la imagen](./ut8/EFS/efs-8.png){.sietecinco .marco}  
 
+#### **1.3.5 - Cliente NFS sobre instancias EC2**
+!!! warning "Repetiremos los pasos siguientes en cada instancia EC2"
 
-<!-- ## Mount using the NFS Client (perform steps on both instances)
-1. Create an EFS mount point
-mkdir ~/efs-mount-point
-2. Install NFS client
+!!! tip "Crear el punto de montaje"
+Accedemos a las intancias EC2 y creamos el punto de montaje 
+```bash
+mkdir ~/efs-punto-montaje
+```
+![Descripción de la imagen](./ut8/EFS/efs-9.png){.cincozero }  
+
+<br>
+
+!!! tip "Instalar el cliente NFS"
+Normalmente el cliente NFS ya debería estar instalado. 
+```bash
 sudo yum -y install nfs-utils
-3. Mount using the EFS client
-sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport <EFS-DNS-NAME>:/ ~/efs-mount-point
-4. Create a file on the file system
+```
+![Descripción de la imagen](./ut8/EFS/efs-10.png){.cincozero }  
+
+También instalaremos el cliente de Amazon EFS **para instancias de Amazon linux**.  
+```bash
+sudo yum install -y amazon-efs-utils
+```
+![Descripción de la imagen](./ut8/EFS/efs-11.png){.cincozero }  
+
+<br>
+
+!!! tip "Montar el EFS con el helper de helper de AWS EFS"
+Realizaremos el montaje utilizando **el nombre de DNS** del sistema de archivos.
+
+![Descripción de la imagen](./ut8/EFS/efs-12.png){.cien .marco }  
+```bash
+sudo mount -t efs -o tls fs-0e32c02f9eb3ebd7e.efs.us-east-1.amazonaws.com efs-punto-montaje/ 
+```
+![Descripción de la imagen](./ut8/EFS/efs-13.png){.cien }  
+
+
+
+<!-- 4. Create a file on the file system
 5. Add a file system policy to enforce encryption in-transit
 6. Unmount (make sure to change directory out of efs-mount-point first)
 sudo umount ~/efs-mount-point
-4. Mount again using the EFS client (what happens?)
+4. Mount again using the EFS client (what happens?) -->
 
-## Mount using the EFS utils (perform steps on both instances)
-1. Install EFS utils
-sudo yum install -y amazon-efs-utils
-2. Mount using the EFS mount helper
-sudo mount -t efs -o tls <EFS-DNS-NAME>:/ ~/efs-mount-point --> 
+ 
 
 <!-- trabajar sobre esta:
 
-https://www.youtube.com/watch?v=ExM6gaE0708 -->
+https://youtu.be/ExM6gaE0708?si=n5OU7lA5IPfRkquU&t=470 -->
 
-
+<!-- https://youtu.be/aAOC6oS445s?si=C2y71T_qttZtbaK7&t=1061 -->
 
 <!-- https://apuntes.de/aws/elastic-file-storage-system/#gsc.tab=0 -->
 <!-- https://www.youtube.com/watch?v=GG8PAAOUGBg -->
 <!-- https://apuntes.de/aws-certificacion-csaa/buckets/#gsc.tab=0 -->
 <!-- https://aitor-medrano.github.io/iabd2223/cloud/03s3.html -->
-<!-- https://www.youtube.com/watch?v=aAOC6oS445s -->
+ 
 <br>
 
 #### **5.5.7 - Condiciones de entrega de la tarea RA4-CEe**
@@ -253,9 +294,10 @@ https://aws.amazon.com/es/products/storage/
 
  
 ## **Enlaces de interés**
-Documentación de [AWS](https://docs.aws.amazon.com)  
-Sistemas de almacenamiento en [AWS](https://aws.amazon.com/es/products/storage/)
-Sistemas de almacenamiento [EFS](https://aws.amazon.com/es/efs/) en AWS.
+Documentación de [AWS](https://docs.aws.amazon.com)   
+Sistemas de almacenamiento en [AWS](https://aws.amazon.com/es/products/storage/)  
+Sistemas de almacenamiento [EFS](https://aws.amazon.com/es/efs/) en AWS.  
+Guía del usuario [EFS](https://docs.aws.amazon.com/es_es/efs/latest/ug/mounting-fs.html).  
 
 
 <!-- === "RA 1"
