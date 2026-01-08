@@ -169,8 +169,8 @@ Primero crearemos el mismo grupo de seguridad para las 2 instancias y luego lanz
 ---
 
 #### **1.3.4 - Lanzamiento del EFS**
-- Antes de nada crearemos un grupo de seguridad para el EFS y lo configuraremos para que solo acepte conexiones NFS desde las instancias que hemos creado.  
-![Descripción de la imagen](./ut8/EFS/efs-3.png){.cien .marco .margintopbottom20} 
+- Antes de nada, crearemos un grupo de seguridad para el EFS y lo configuraremos para que solo acepte conexiones NFS desde los grupos de seguridad de las instancias que hemos creado.  
+![Descripción de la imagen](./ut8/EFS/efs-3-1.png){.cien .marco .margintopbottom20} 
  
 
 - Accedemos a los recursos de AWS EFS y creamos nuestro primer EFS.
@@ -183,11 +183,11 @@ Primero crearemos el mismo grupo de seguridad para las 2 instancias y luego lanz
     Elegimos los grupos de seguridad de los puntos de montaje para que el NFS solo acepte conexiones desde las instancias EC2 que hemos creado anteriormente.
 ![Descripción de la imagen](./ut8/EFS/efs-6.png){.sietecinco .marco .margintopbottom20}  
     - Paso 3  
-    Seleccionamos las políticas de acceso que impiden el acceso a la raíz de NFS así como el cifrado en tránsito.
-![Descripción de la imagen](./ut8/EFS/efs-7.png){.sietecinco .marco}  
+    Seleccionamos la política para el cifrado en tránsito.
+![Descripción de la imagen](./ut8/EFS/efs-7.png){.sietecinco .marco .margintopbottom20}  
     - Paso 4  
     Revisamos y creamos el NFS.
-![Descripción de la imagen](./ut8/EFS/efs-8.png){.sietecinco .marco}  
+![Descripción de la imagen](./ut8/EFS/efs-8.png){.sietecinco .marco .margintopbottom20}  
 
 #### **1.3.5 - Cliente NFS sobre instancias EC2**
 !!! warning "Repetiremos los pasos siguientes en cada instancia EC2"
@@ -195,9 +195,9 @@ Primero crearemos el mismo grupo de seguridad para las 2 instancias y luego lanz
 !!! tip "Crear el punto de montaje"
 Accedemos a las intancias EC2 y creamos el punto de montaje 
 ```bash
-mkdir ~/efs-punto-montaje
+mkdir ~/efs
 ```
-![Descripción de la imagen](./ut8/EFS/efs-9.png){.cincozero }  
+![Descripción de la imagen](./ut8/EFS/efs-9.png){.trescinco }  
 
 <br>
 
@@ -216,32 +216,35 @@ sudo yum install -y amazon-efs-utils
 
 <br>
 
-!!! tip "Montar el EFS con el helper de helper de AWS EFS"
-Realizaremos el montaje utilizando **el nombre de DNS** del sistema de archivos.
+!!! tip "Montar el EFS con el helper de AWS EFS"
+Realizaremos el montaje utilizando **el nombre de DNS** del sistema de archivos (podeís ver el comando completo pulsando **Asociar**).
 
 ![Descripción de la imagen](./ut8/EFS/efs-12.png){.cien .marco }  
+![Descripción de la imagen](./ut8/EFS/efs-12-1.png){.cien .marco }  
 ```bash
-sudo mount -t efs -o tls fs-0e32c02f9eb3ebd7e.efs.us-east-1.amazonaws.com efs-punto-montaje/ 
+sudo mount -t efs -o tls fs-003ab364472cbdb19:/ efs
 ```
-![Descripción de la imagen](./ut8/EFS/efs-13.png){.cien }  
+![Descripción de la imagen](./ut8/EFS/efs-13.png){.sietecinco }  
+
+<br>
+
+!!! tip "Primera prueba del EFS"
+Nos cambiamos al directorio donde hemos montado el EFS y hacemos una prueba de escritura.
+![Descripción de la imagen](./ut8/EFS/efs-14.png){.cincozero }  
+
+Si ahora, desde la otra instancia añadimos contenido al archivo de texto y lo leemos de nuevo, podremos ver la modificaciones aportadas.
+![Descripción de la imagen](./ut8/EFS/efs-15.png){.cuatrozero }  
 
 
 
-<!-- 4. Create a file on the file system
-5. Add a file system policy to enforce encryption in-transit
-6. Unmount (make sure to change directory out of efs-mount-point first)
-sudo umount ~/efs-mount-point
-4. Mount again using the EFS client (what happens?) -->
 
- 
+<!-- https://www.youtube.com/watch?v=BILHiDG72CA -->
 
 <!-- trabajar sobre esta:
 
-https://youtu.be/ExM6gaE0708?si=n5OU7lA5IPfRkquU&t=470 -->
+https://youtu.be/ExM6gaE0708?si=n5OU7lA5IPfRkquU&t=470 
+https://youtu.be/aAOC6oS445s?si=C2y71T_qttZtbaK7&t=1061 -->
 
-<!-- https://youtu.be/aAOC6oS445s?si=C2y71T_qttZtbaK7&t=1061 -->
-
-<!-- https://apuntes.de/aws/elastic-file-storage-system/#gsc.tab=0 -->
 <!-- https://www.youtube.com/watch?v=GG8PAAOUGBg -->
 <!-- https://apuntes.de/aws-certificacion-csaa/buckets/#gsc.tab=0 -->
 <!-- https://aitor-medrano.github.io/iabd2223/cloud/03s3.html -->
@@ -339,3 +342,7 @@ Guía del usuario [EFS](https://docs.aws.amazon.com/es_es/efs/latest/ug/mounting
     |**d)** Se ha diseñado arquitecturas escalables y resilientes basadas en las mejores prácticas.|20%|
     *|**e)** Se ha hecho uso de herramientas de monitoreo y recomendaciones de optimización.|10%|
     *|**f)** Se ha participado en actividades que simulen el análisis y mejora de arquitecturas existentes.|10%| -->
+
+
+
+

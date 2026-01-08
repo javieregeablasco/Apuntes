@@ -315,13 +315,41 @@ Creación de patrones de diapositivas.
     El archivo a subir deberá ser de tipo **.odp** (formato predeterminado de LibreOffice Impress).  
     **No se aceptará ningún otro formato de archivo**.
 
+## **3 - Diseño amigable de una presentación**
+El diseño amigable de una presentación es aquel que se enfoca en la experiencia de la audiencia, priorizando la claridad, la legibilidad y la facilidad de comprensión. 
+
+![](./07_Presentaciones/img/contenidos/impress-1.png){.cuatrocinco}<br>  
+
+1. Unidad: Elementos relacionados que crean un todo armonioso.
+
+1. Equilibrio: Distribución visual para dar estabilidad.
+
+1. Contraste: Diferencias visuales (color, letra) para resaltar elementos.
+
+1. Jerarquía: Organización para guiar la mirada según la importancia.
+
+1. Proporción: Relación adecuada entre los tamaños de cada parte.
+
+1. Simetría: Equilibrio mediante formas y líneas simétricas.
+
+1. Movimiento: Sensación de dirección y flujo visual.
+
+
+
+
 ### **2.9 - Tarea RA7-CEc**
+
+
 <!-- file:///C:/Users/titan/Documents/Javier128/Modulos/SMX/SMX_1/AO/materiales/RA7/PresentacionesAtractivas.pdf -->
 
-
+<!-- https://mosaic.uoc.edu/ac/le/es/m2/ud5/index.html#considertypography -->
 <!--
 https://www.shutterstock.com/es/blog/teoria-color-guia-completa-disenadores
 https://www.picuino.com/es/informatica-tutoimpress.html?highlight=impress -->
+<!-- https://personal.us.es/juanj/powerp/5.3.principios_basicos.htm -->
+<!-- https://www.canva.com/es_mx/aprende/10-reglas-de-oro-para-combinar-fuentes-tips-disenador/ -->
+<!-- https://es.linkedin.com/advice/3/how-do-you-use-color-font-layout-enhance-your-presentation?lang=es&lang=es -->
+<!-- https://www.educa.jcyl.es/educacyl/cm/gallery/CCD/Area_2/A2.2_Presentaciones_e_infografias/1_principios_bsicos_compositivos.html -->
 
 ### **Tarea RA7-CEd-1 -**
 <!-- https://iesandresbojollo.es/tiyc/impress/14-Impress-Presentacion-Concesionario.html -->
