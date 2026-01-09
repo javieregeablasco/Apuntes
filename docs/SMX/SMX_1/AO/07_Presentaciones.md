@@ -334,11 +334,159 @@ El diseño amigable de una presentación es aquel que se enfoca en la experienci
 
 1. Movimiento: Sensación de dirección y flujo visual.
 
+### **3.1 - Esquema de color**
+#### **3.1.1 - Rueda cromática** 
+Para realizar una presentación amigable, deberemos definir un esquema de color coherente con el tema y la audiencia usando **la rueda cromática** de Johann Wolfgang.  
+
+![](./07_Presentaciones/img/contenidos/impress-2.jpeg){.cuatrocinco}<br>  
+
+Esa rueda, los colores tienen tres niveles de parentesco:
+
+1. **Colores primarios:**   
+Son los colores puros, no se pueden crear mezclando otros. 
+    
+    - En la teoría clásica: Rojo, Amarillo y Azul.
+    - En el mundo real (imprentas y pintura): Cian, Magenta y Amarillo.
+
+1. **Colores secundarios:**    
+Nacen cuando se mezclan dos primarios en partes iguales.
+
+    - Naranja: Amarillo + Rojo.
+    - Verde: Azul + Amarillo.
+    - Violeta: Azul + Rojo.
+
+3. **Colores terciarios:**    
+Son los colores más detallados. Aparecen cuando se mezclan un primario con su vecino secundario.
+
+    - Ejemplo: Amarillo (primario) con verde (secundario) = Amarillo-Verdoso.
+
+#### **3.1.2 - Paleta de colores** 
+<!-- Para elegir una paleta de colores adecuada, podemos basarnos en diferentes esquemas de color que nos ayudarán a crear combinaciones armoniosas y visualmente atractivas:
+1. **Colores complementarios:**    
+Son colores opuestos en la rueda cromática. Al usarlos juntos, crean un contraste fuerte que puede ser muy llamativo.  
+    - Ejemplo: Azul y Naranja.
+2. **Colores análogos:**
+    Son colores que están uno al lado del otro en la rueda cromática. Al usarlos juntos, crean una sensación de armonía y cohesión.  
+    - Ejemplo: Azul, Azul-Verde y Verde.
+3. **Colores triádicos:**
+    Son tres colores equidistantes en la rueda cromática. Al usarlos juntos, crean un equilibrio vibrante y dinámico.  
+    - Ejemplo: Rojo, Azul y Amarillo.
+4. **Colores monocromáticos:**    
+Se basan en diferentes tonos, sombras y matices de un solo color. Al usarlos juntos, crean una apariencia cohesiva y elegante.  
+    - Ejemplo: Diferentes tonos de Azul.    
+#### **3.1.3 - Aplicación práctica** 
+Para aplicar estos conceptos en nuestras presentaciones, seguiremos estos pasos:
+1. **Seleccionar un color principal:**    
+Elegiremos un color que represente el tema o la identidad de la presentación. Este color será el más utilizado en los elementos clave, como títulos y gráficos.
+2. **Elegir colores secundarios:**      
+Seleccionaremos uno o dos colores secundarios que complementen el color principal. Estos colores se usarán para resaltar información importante y crear contraste.
+3. **Incorporar colores neutros:**
+    Añadiremos colores neutros (blancos, grises o negros) para equilibrar la paleta y proporcionar un fondo limpio que facilite la legibilidad del texto. -->
+
+
+<!-- 1. ¿Qué es una paleta de colores?
+
+Una paleta de colores es el conjunto específico de colores que eliges para un proyecto (como tu presentación en Impress). No es el universo entero de colores, sino una selección limitada (generalmente de 3 a 5 tonos) que trabajarán juntos para crear una identidad visual.
+
+Shutterstock
+2. La relación: ¿Cómo se usa la rueda para crear la paleta?
+
+La rueda cromática es el mapa donde viven todos los colores. Para que tu paleta no sea un caos, usas la rueda para elegir colores que tengan una "relación lógica".
+
+Estas son las tres formas más comunes de relacionarlas:
+
+    Relación Monocromática (Elegancia): Eliges un solo color de la rueda y usas diferentes tonos o claridades de ese mismo color. Es la opción más segura y profesional.
+
+Relación Análoga (Armonía): Eliges colores que están uno al lado del otro en la rueda (por ejemplo: azul, azul-verdoso y verde). Transmiten calma y fluidez.
+
+Relación Complementaria (Impacto): Eliges colores que están justo enfrente en la rueda (por ejemplo: naranja y azul). Se usa para resaltar elementos importantes porque generan el máximo contraste. -->
 
 
 
-### **2.9 - Tarea RA7-CEc**
 
+<!-- https://coolors.co/?home -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### **3.2 - Tipografía y legibilidad**
+También eligiremos fuentes simples y profesionales, manteniendo la consistencia en todas las diapositivas. 
+
+Para lograrlo, debemos seguir tres reglas fundamentales:
+
+1. **Estilo:**   
+Debe ser simple y profesional. Existen muchas fuentes, pero lo ideal es usar familias "Sans Serif" (sin remates o "patitas"). Son más limpias y descansadas para la vista en pantallas.
+    - Recomendadas: Arial, Helvetica, Calibri o Roboto.
+    - A evitar: Fuentes muy decorativas o informales (como Comic Sans o cursivas extremas).
+ 
+2. **Tamaño:**    
+El texto debe ser legible incluso para quien esté en la última fila. 
+    - Títulos: Entre 36 y 44 puntos.
+    - Cuerpo de texto: Mínimo 24 puntos.
+    - Consejo: Si no cabe el texto, es señal de que hay demasiada información en la diapositiva.
+
+3. **Consistencia Visual:**    
+Para una buena aceptación de una presetnación, hay que limitar el uso de fuentes.
+    - Máximo 2 tipos de letra diferentes (una para títulos y otra para contenido).
+    - Mantener los mismos tamaños y colores en todas las diapositivas.
+    - Usar la jerarquía tipográfica. Se puede usar negritas para resaltar palabras clave, pero hay que evitar escribir párrafos enteros en mayúsculas.
+ 
+
+
+### **3.3 - Organización de los contenidos**
+Organizaremos los contenidos de forma equilibrada y alineada, evitando el desorden o el exceso de elementos. Por ejemplo, usaremos un espaciado consistente que dé aire a la diapositiva, asegurando que no se vea saturada ni demasiado vacía.
+
+<!-- 3.3 - Organización y Espaciado
+
+El tercer paso consiste en ordenar los elementos para que la audiencia no se sienta abrumada. Un diseño amigable es un diseño "aireado".
+
+Para organizar tus diapositivas, enfócate en estos tres conceptos:
+
+1. El Poder del Espacio en Blanco El espacio vacío no es "espacio desperdiciado"; es lo que permite que el ojo descanse y se enfoque en lo importante.
+
+    Evita la saturación: Si una diapositiva está llena de texto e imágenes de borde a borde, la audiencia dejará de prestar atención.
+
+    Respira: Deja márgenes amplios alrededor de los textos y fotos.
+
+2. Alineación y Equilibrio Los elementos no deben flotar al azar. Un diseño ordenado transmite profesionalismo.
+
+    Alineación: Asegúrate de que los textos y gráficos estén alineados entre sí (usa las guías de PowerPoint o Impress).
+
+    Equilibrio: Distribuye el peso visual. Si pones una imagen grande a la izquierda, equilibra con texto a la derecha.
+
+3. La Regla de "Una Idea por Diapositiva" Es el pilar de la organización amigable.
+
+    No intentes explicar tres temas distintos en una sola pantalla.
+
+    Si tienes mucha información, es mejor usar tres diapositivas simples que una sola compleja. Esto ayuda a que el espectador siga tu ritmo sin perderse. -->
+
+
+<!-- ### **3.4 - Contraste y jerarquía de los contenidos**
+Por último, aplicaremos contraste y jerarquía para organizar la información y resaltar lo importante. Utilizaremos variaciones de color y tamaños para crear puntos focales que guíen la mirada del espectador y enfaticen la información de forma clara y estructurada. -->
+
+### **3.XX - Tarea RA7-CEc**
+["#d9ed92","#b5e48c","#99d98c","#76c893","#52b69a","#34a0a4","#168aad","#1a759f","#1e6091","#184e77"]
 
 <!-- file:///C:/Users/titan/Documents/Javier128/Modulos/SMX/SMX_1/AO/materiales/RA7/PresentacionesAtractivas.pdf -->
 
@@ -351,10 +499,10 @@ https://www.picuino.com/es/informatica-tutoimpress.html?highlight=impress -->
 <!-- https://es.linkedin.com/advice/3/how-do-you-use-color-font-layout-enhance-your-presentation?lang=es&lang=es -->
 <!-- https://www.educa.jcyl.es/educacyl/cm/gallery/CCD/Area_2/A2.2_Presentaciones_e_infografias/1_principios_bsicos_compositivos.html -->
 
-### **Tarea RA7-CEd-1 -**
+<!-- ### **Tarea RA7-CEd-1 -** -->
 <!-- https://iesandresbojollo.es/tiyc/impress/14-Impress-Presentacion-Concesionario.html -->
-### **Tarea RA7-CEe-1 -**
-### **Tarea RA7-CEe-2 -**
+<!-- ### **Tarea RA7-CEe-1 -** -->
+<!-- ### **Tarea RA7-CEe-2 -** -->
 
 <!-- https://www.youtube.com/@ricardolozano/search?query=impress -->
 <!-- https://www.formadoresit.online/cursos/ofimatica/libre-office/curso-libreoffice-impress-online/#toggle-id-11-closed -->

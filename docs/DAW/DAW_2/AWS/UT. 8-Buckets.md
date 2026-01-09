@@ -270,7 +270,7 @@ https://youtu.be/aAOC6oS445s?si=C2y71T_qttZtbaK7&t=1061 -->
     
 
  
- 
+ https://www.youtube.com/watch?v=snjExTzpYxE
 <!-- bbdd
 https://www.youtube.com/watch?v=vp_uulb5phM
 https://www.youtube.com/watch?v=eK_umMYxZfM
@@ -278,7 +278,14 @@ https://www.youtube.com/watch?v=6E30Yr2UATw
 https://www.youtube.com/watch?v=kNm0z_hRJlw
 https://www.youtube.com/watch?v=wLTFaDebTBY
 https://www.youtube.com/watch?v=BTg1JbmE3x4
-https://www.youtube.com/watch?v=tykcCf-Zz1M -->
+https://www.youtube.com/watch?v=tykcCf-Zz1M
+https://www.youtube.com/watch?v=rM_c7K0-tC0
+https://www.youtube.com/watch?v=ylmwaDUMV9c
+https://www.youtube.com/watch?v=ciRbXZqBl7M&list=PL9nWRykSBSFithc_PvHAR1MDIFodb2lHd
+https://www.youtube.com/watch?v=snjExTzpYxE
+https://www.youtube.com/watch?v=yVVBpCddG40
+
+ -->
 
 <!-- route 53... 
 cloud formation... 

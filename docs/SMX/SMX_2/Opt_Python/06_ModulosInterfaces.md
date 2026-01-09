@@ -1818,20 +1818,35 @@ print("La ruta del fichero es:", fichero)
 
 ---
 
-### **2.6 - Expresiones regulares (validación de datos)**
-<!-- https://hektorprofe.github.io/python/funcionalidades-avanzadas/expresiones-regulares/ -->
+### **2.6 - Práctica - RA4-CE(b,c,d) - RA5-CE(f,g,h)**
+En esta práctica se desarrollará una calculadora gráfica con las funciones básicas.  
+La práctica se hará por fases y cada fase será evaluada de acuerdo con los criterios de evaluación indicados.
 
-<!-- === "RA 6"
-    |RA6. Escribe programas que manipulen información, seleccionando y utilizando tipos avanzados de datos.|Peso| -->
-<!-- https://tutorial.recursospython.com/colecciones/ -->
+---
 
-<!-- |**c)** Se han utilizado listas para almacenar y procesar información.|10%| -->
-<!-- PROGRAMACION GENERICA + GENERADORES -->
+#### **2.6.1 – Fase 1 – Creación de la ventana de la calculadora y encapsulación en una clase**
 
-<!-- GENERICOS -->
-<!-- https://chatgpt.com/c/69458417-050c-832e-9a1b-82f159d1ca90 -->
-  <!-- |**f)** Se han creado clases y métodos genéricos.|10%| -->
-<!-- https://ellibrodepython.com/abstract-base-class -->
+!!! warning "RA4-CEb"
+    **Etapa 1:** Escribir un programa que genere una ventana gráfica básica.  
+    **Etapa 2:** Con el objetivo de reutilizar y organizar el código, crear la clase **Calculadora**, que será la encargada de definir y encapsular todos los atributos de la interfaz gráfica de la calculadora.
+    Etapa 3: Un vez definido el método constructor, dar un nombre a la ventana principal (p.e. Calculadora)
+
+---
+
+#### **2.6.2 – Fase 2 – Creación de la interfaz gráfica de la calculadora**
+
+!!! warning "RA5-CEf"
+    En esta fase elaboraremos la interfaz gráfica de la calculadora que tendrá un aspecto similar al de la imagen.
+
+    ![](./img/UT6/practica/practica-1.png){ .cuatrozero }
+
+    **Etapa 1:** **Dentro del método constructor**, crear los botones usando el método de clase **crear_boton()**.  
+    Al método crear de clase **crear_boton** se le pasará el valor de la tecla (es decir 0,1,...,9) o el símbolo de la operación (+,-,÷,*,=).  
+
+
+ 
+    **Etapa 2:**
+
 
 
 
@@ -1852,7 +1867,7 @@ print("La ruta del fichero es:", fichero)
     |RA4. Desarrolla programas organizados en clases analizando y aplicando los principios de la programación orientada a objetos.|Peso|
     |-|-|
     *|**a)** Se ha reconocido la sintaxis, estructura y componentes típicos de una clase.|12%|
-    |**b)** Se han definido clases.|11%|
+   *|**b)** Se han definido clases.|11%|
     |**c)** Se han definido propiedades y métodos.|11%|
     |**d)** Se han creado constructores.|11%|
     *|**e)** Se han desarrollado programas que instancien y utilicen objetos de las clases creadas anteriormente.|11%|
@@ -1865,7 +1880,7 @@ print("La ruta del fichero es:", fichero)
     *|**c)** Se han reconocido las posibilidades de entrada / salida del lenguaje y las librerías asociadas.|12%|
     *|**d)** Se han utilizado ficheros para almacenar y recuperar información.|12%|
     *|**e)** Se han creado programas que utilicen diversos métodos de acceso al contenido de los ficheros.|12%|
-    |**f)** Se han utilizado las herramientas del entorno de desarrollo para crear interfaces gráficos de usuario simples.|12%|
+    *|**f)** Se han utilizado las herramientas del entorno de desarrollo para crear interfaces gráficos de usuario simples.|12%|
     |**g)** Se han programado controladores de eventos.|12%|
     |**h)** Se han escrito programas que utilicen interfaces gráficos para la entrada y salida de información.|12%|
 
