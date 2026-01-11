@@ -5,7 +5,7 @@ root.config(bg="black")
 # root.geometry("400x100+400+400")
 
 entry = Entry(root, bg="yellow", width=30, show="*", justify="center")
-entry..pack()
+entry.pack()
 
 root.mainloop()
 

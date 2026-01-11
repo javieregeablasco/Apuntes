@@ -66,24 +66,24 @@
 # ventana.mainloop()
 
 
-from tkinter import *
+# from tkinter import *
 
-ventana = Tk()
-ventana.title("Método trace")
-ventana.geometry("300x100+400+300")
+# ventana = Tk()
+# ventana.title("Método trace")
+# ventana.geometry("300x100+400+300")
 
-texto = StringVar()
-mostrar = StringVar()
+# texto = StringVar()
+# mostrar = StringVar()
 
-def cambio(*args):
-    mostrar.set(texto.get())
+# def cambio(*args):
+#     mostrar.set(texto.get())
 
-texto.trace("w", cambio)
+# texto.trace("w", cambio)
 
-entrada = Entry(ventana, textvariable=texto)
-etiqueta = Label(ventana, textvariable=mostrar)
+# entrada = Entry(ventana, textvariable=texto)
+# etiqueta = Label(ventana, textvariable=mostrar)
 
-entrada.pack(pady=20)
-etiqueta.pack(pady=10)
+# entrada.pack(pady=20)
+# etiqueta.pack(pady=10)
 
-ventana.mainloop()
+# ventana.mainloop()
