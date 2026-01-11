@@ -1879,10 +1879,14 @@ La práctica se hará por fases y cada fase será evaluada de acuerdo con los cr
 #### **2.6.1 – Fase 1 – Creación de la ventana de la calculadora y encapsulación en una clase**
 
 !!! warning "RA4-CEb"
-    **Etapa 1:** Escribir un programa que genere una ventana gráfica básica.  
-    **Etapa 2:** Con el objetivo de reutilizar y organizar el código, crear la clase **Calculadora**, que será la encargada de definir y encapsular todos los atributos de la interfaz gráfica de la calculadora.
-    Etapa 3: Un vez definido el método constructor, dar un nombre a la ventana principal (p.e. Calculadora)
-
+    **Etapa 1:**  
+    - Escribir un programa que genere una ventana gráfica básica.  
+    **Etapa 2:**  
+    - Con el objetivo de reutilizar y organizar el código, crear la clase **Calculadora**, que será la encargada de definir y encapsular todos los atributos de la interfaz gráfica de la calculadora.  
+    **Etapa 3:**  
+    - Un vez definido el método constructor, dar un nombre a la ventana principal (p.e. Calculadora).  
+    **Resultado final:**
+    ![](./img/UT6/practica/practica-0.png){.treszero}
 ---
 
 #### **2.6.2 – Fase 2 – Creación de la interfaz gráfica de la calculadora**
@@ -1892,13 +1896,27 @@ La práctica se hará por fases y cada fase será evaluada de acuerdo con los cr
 
     ![](./img/UT6/practica/practica-1.png){ .cuatrozero }
 
-    **Etapa 1:** **Dentro del método constructor**, crear los botones usando el método de clase **crear_boton()**.  
-    Al método crear de clase **crear_boton** se le pasará el valor de la tecla (es decir 0,1,...,9) o el símbolo de la operación (+,-,÷,*,=).  
-
-
- 
-    **Etapa 2:**
-
+    **Etapa 4: Creación del campo númerico**   
+    - **Dentro del método constructor**, **declarar** el widget **pantalla** que mostrará los valores introducidos así como el resultado de la operación.  
+    
+    **Etapa 5: Creación del método de clase crear_boton()**   
+    - Crear el método de clase **crear_boton()**.  
+    - crear_button() se encargará de **devolver** el widget Button()  
+    - Ese método de clase recibirá (aparte de self) el símbolo del botón (valor) y lo asignará al parámetro **text**. 
+      
+    **Etapa 6: Creación de los botones**   
+    - **Dentro del método constructor**, **declarar** los widgets **1,2,3,4,5,6,7,8,9,/,*,-,+,=**.  
+    - **Nota 1** para el simbolo **igual** no podemos usar **=** directamente. Deberemos utilizar el símbolo unicode **\u002A**.  
+    - **Nota 2** para el simbolo **dividir** no podemos usar **/** directamente. Deberemos utilizar el símbolo unicode **\u00F7**.
+    
+    **Etapa 7: Posicionamiento de la pantalla**   
+    - Posicionar el widget ventana dentro de un grid de 4x5 (ocupará toda la primera fila).     
+    
+    **Etapa 8: Posicionamiento de los botones**   
+    
+    
+     
+    
 
 
 
