@@ -45,6 +45,13 @@
   width: 15%;
 }
 
+.doszero {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+}
+
 .doscinco {
   display: block;
   margin-left: auto;
