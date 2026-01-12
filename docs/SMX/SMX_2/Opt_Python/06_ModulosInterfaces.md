@@ -1905,16 +1905,21 @@ La práctica se hará por fases y cada fase será evaluada de acuerdo con los cr
     - Ese método de clase recibirá (aparte de self) el símbolo del botón (valor) y lo asignará al parámetro **text**. 
       
     **Etapa 6: Creación de los botones**   
-    - **Dentro del método constructor**, **declarar** los widgets **1,2,3,4,5,6,7,8,9,/,*,-,+,=**.  
-    - **Nota 1** para el simbolo **igual** no podemos usar **=** directamente. Deberemos utilizar el símbolo unicode **\u002A**.  
-    - **Nota 2** para el simbolo **dividir** no podemos usar **/** directamente. Deberemos utilizar el símbolo unicode **\u00F7**.
+    - **Dentro del método constructor**, **declarar** los widgets **1,2,3,4,5,6,7,8,9,/,*,-,+,=**. Dar como nombre a los widgets, boton1, boton2, ..., boton15, boton16  
+    - **Nota 1:** Para el simbolo **igual** no podemos usar **=** directamente. Deberemos utilizar el símbolo unicode **\u002A**.  
+    - **Nota 2:** Para el simbolo **dividir** no podemos usar **/** directamente. Deberemos utilizar el símbolo unicode **\u00F7**.
     
     **Etapa 7: Posicionamiento de la pantalla**   
     - Posicionar el widget ventana dentro de un grid de 4x5 (ocupará toda la primera fila).     
     
     **Etapa 8: Posicionamiento de los botones**   
+    - Posicionar los widgets boton1, boton2, ..., boton15, boton16 dentro de un grid de 4x5 (ocupará todo el grid empezando por la segunda fila).     
+    - **Nota 1:** Para evitar de reescribir 16 veces el mismo código pensar en realizar un bucle.
+    - **Nota 2:** Para crear un bucle primero crear **una variable de tipo lista** que contendrá los widgets. Por ejemplo: lista = [boton1, boton2, ..., boton15, boton16]. 
     
-    
+#### **2.6.2 – Fase 3 – Creación de los eventos**
+!!! warning "RA5-CEg"
+    En esta fase elaboraremos los eventos desencadenados después de hacer click en los botones.   
      
     
 
