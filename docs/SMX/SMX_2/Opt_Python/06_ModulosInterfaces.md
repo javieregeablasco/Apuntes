@@ -1883,6 +1883,7 @@ La práctica se hará por fases y cada fase será evaluada de acuerdo con los cr
     - Escribir un programa que genere una ventana gráfica básica.  
     **Etapa 2:**  
     - Con el objetivo de reutilizar y organizar el código, crear la clase **Calculadora**, que será la encargada de definir y encapsular todos los atributos de la interfaz gráfica de la calculadora.  
+!!! warning "RA4-CEd"
     **Etapa 3:**  
     - Un vez definido el método constructor, dar un nombre a la ventana principal (p.e. Calculadora).  
     **Resultado final:**
@@ -1956,7 +1957,7 @@ La práctica se hará por fases y cada fase será evaluada de acuerdo con los cr
     *|**d)** Se han utilizado ficheros para almacenar y recuperar información.|12%|
     *|**e)** Se han creado programas que utilicen diversos métodos de acceso al contenido de los ficheros.|12%|
     *|**f)** Se han utilizado las herramientas del entorno de desarrollo para crear interfaces gráficos de usuario simples.|12%|
-    |**g)** Se han programado controladores de eventos.|12%|
+    *|**g)** Se han programado controladores de eventos.|12%|
     |**h)** Se han escrito programas que utilicen interfaces gráficos para la entrada y salida de información.|12%|
 
 === "RA 6"

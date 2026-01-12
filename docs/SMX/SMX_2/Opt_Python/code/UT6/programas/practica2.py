@@ -21,7 +21,7 @@ class Interfaz:
         boton1 = self.crearBoton(7)
         boton2 = self.crearBoton(8)
         boton3 = self.crearBoton(9)
-        boton4 = self.crearBoton(u"\u232B", escribir=False)
+        #boton4 = self.crearBoton(u"\u232B", escribir=False)
         boton5 = self.crearBoton(4)
         boton6 = self.crearBoton(5)
         boton7 = self.crearBoton(6)
