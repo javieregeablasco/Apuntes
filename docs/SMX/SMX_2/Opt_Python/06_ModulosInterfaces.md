@@ -1915,8 +1915,8 @@ La práctica se hará por fases y cada fase será evaluada de acuerdo con los cr
     
     **Etapa 8: Posicionamiento de los botones**   
     - Posicionar los widgets boton1, boton2, ..., boton15, boton16 dentro de un grid de 4x5 (ocupará todo el grid empezando por la segunda fila).     
-    - **Nota 1:** Para evitar de reescribir 16 veces el mismo código pensar en realizar un bucle.
-    - **Nota 2:** Para crear un bucle primero crear **una variable de tipo lista** que contendrá los widgets. Por ejemplo: lista = [boton1, boton2, ..., boton15, boton16]. 
+    - **Nota 1:** Para evitar de reescribir 16 veces el mismo código pensar en realizar un bucle.  
+    - **Nota 2:** Para crear un bucle primero crear **una variable de tipo lista** que contendrá los widgets. Por ejemplo: lista = [boton1, boton2, ..., boton15, boton16].   
     
 #### **2.6.2 – Fase 3 – Creación de los eventos**
 !!! warning "RA5-CEg"
@@ -1943,9 +1943,9 @@ La práctica se hará por fases y cada fase será evaluada de acuerdo con los cr
     |RA4. Desarrolla programas organizados en clases analizando y aplicando los principios de la programación orientada a objetos.|Peso|
     |-|-|
     *|**a)** Se ha reconocido la sintaxis, estructura y componentes típicos de una clase.|12%|
-   *|**b)** Se han definido clases.|11%|
+    *|**b)** Se han definido clases.|11%|
     |**c)** Se han definido propiedades y métodos.|11%|
-    |**d)** Se han creado constructores.|11%|
+    *|**d)** Se han creado constructores.|11%|
     *|**e)** Se han desarrollado programas que instancien y utilicen objetos de las clases creadas anteriormente.|11%|
     
 === "RA 5"
