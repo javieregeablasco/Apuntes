@@ -21,15 +21,24 @@ from tkinter import *
 ###############
 #etapa 3
 ###############
-class Calculadora:
-  def __init__(self, ventana):
-    self.ventana=ventana
-    self.ventana.title("Calculadora")
+# class Calculadora:
+#   def __init__(self, ventana):
+#     self.ventana=ventana
+#     self.ventana.title("Calculadora")
 
 
-ventana=Tk()
-calculadora=Calculadora(ventana)
-ventana.mainloop()  
+# ventana=Tk()
+# calculadora=Calculadora(ventana)
+# ventana.mainloop()  
+
+#### version 2 ####
+# class Calculadora:
+#   def __init__(self):
+#     self.ventana=Tk()
+#     self.ventana.title("Calculadora")
+#     self.ventana.mainloop()
+
+# Calculadora()
 
 ###############
 #etapa 4

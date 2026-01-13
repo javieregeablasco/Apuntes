@@ -352,11 +352,66 @@ Con el versionado de objetos, podemos crear versiones de un mismo objeto.
     1. Adjuntar las capturas a un documento, y comentar brevemente cada captura.
     1. Subir el documento a AULES en la tarea correspondiente. 
 
-## **2 - Bases de datos en AWS**
-<!-- https://aitor-medrano.github.io/iabd2223/cloud/03s3.html -->
-### **2.1 - Bases de datos relaciones
+## **2 - Servicios de bases de datos en la nube (AWS)**
+Los servicios de bases de datos en la nube permiten alojar el servidor de base de datos en la infraestructura de un proveedor de servicios en Internet. Este tipo de servicio se conoce como DBaaS (Database as a Service).
+
+Estos servicios ofrecen muchas de las funcionalidades de un sistema gestor de bases de datos tradicional y, además, incluyen numerosas tareas que normalmente realiza un administrador de bases de datos (DBA), como el aprovisionamiento, las copias de seguridad, la alta disponibilidad, el parcheo o la monitorización.
+
+De esta manera, se reduce el tiempo que un DBA dedica a tareas puramente administrativas, permitiéndole centrarse en actividades de mayor valor añadido, como el diseño de la arquitectura, la optimización del rendimiento o la seguridad de los datos.
+
+Dependiendo del tipo de datos a almacenar, AWS ofrece distintos sabores de DBaaS:
+
+- **Amazon RDS** (Relational Database Service): Para bases de datos relacionales tradicionales (SQL). Soporta motores como MySQL, PostgreSQL, SQL Server y Oracle.
+
+- **Amazon Aurora**: Una base de datos diseñada por AWS que es compatible con MySQL y PostgreSQL pero optimizada para ser mucho más rápida y resiliente en la nube.
+
+- **Amazon DynamoDB**: Un servicio NoSQL (llave-valor) para aplicaciones que necesitan una latencia de milisegundos a cualquier escala (muy usado en aplicaciones móviles y juegos).
+
+### **2.1 - Bases de datos relacionales**
+!!! tip "Amazon RDS"
+- Amazon RDS es un servicio administrado que permite ejecutar bases de datos relacionales en la nube.  
+Al tratarse de un servicio gestionado, RDS se encarga de tareas como la instalación, el mantenimiento y las copias de seguridad, permitiendo que los usuarios se centren en los datos y en el desarrollo de las aplicaciones.
+
+- Una instancia de base de datos es un entorno aislado que puede contener **una o varias bases de datos**, dependiendo del motor seleccionado. Se accede a ella utilizando las mismas herramientas y aplicaciones que en una base de datos tradicional.
+
+- Al crear una instancia en Amazon RDS, es necesario elegir el motor de base de datos. Los motores relacionales soportados por RDS son:
+    - MariaDB
+    - **MySQL**
+    - PostgreSQL
+    - **Amazon Aurora** (compatible con MySQL y PostgreSQL)
+    - Microsoft SQL Server
+    - Oracle
+
+![Descripción de la imagen](./ut8/RDS/rds-1.png){.nuevezero .marco .margintop10 .marginbottom40 }  
+
+- Los recursos de la instancia se definen mediante la clase de instancia y el tipo de almacenamiento, lo que permite ajustar el rendimiento y el coste según las necesidades.
+
+!!! tip "Alta disponibilidad"
+Una de las características más importantes de Amazon RDS es la posibilidad de configurar alta disponibilidad mediante una implementación Multi-AZ. En este modo, RDS crea automáticamente una instancia en espera en otra zona de disponibilidad dentro de la misma región y replica los datos de forma síncrona.
+
+Si la instancia principal falla, RDS realiza un failover automático, promoviendo la instancia en espera como nueva instancia principal, lo que reduce el tiempo de inactividad.
+
+![Descripción de la imagen](./ut8/RDS/rds-3.png){.cincozero .marco .margintop10 .marginbottom40 }  
+
+!!! tip "Replicas de lectura"
+Amazon RDS permite crear réplicas de lectura para los motores MySQL, MariaDB, PostgreSQL y Amazon Aurora. En este caso, los cambios realizados en la instancia principal se replican de forma asíncrona en la réplica.
+
+Las réplicas de lectura permiten descargar las consultas de lectura de la instancia principal y mejorar el rendimiento. Estas réplicas pueden promocionarse manualmente a instancia principal y también pueden crearse en otra región, lo que resulta útil para mejorar la latencia de lectura o como apoyo en escenarios de recuperación ante desastres.
+
+![Descripción de la imagen](./ut8/RDS/rds-2.png){.cincozero .marco .margintop10 .marginbottom40 }  
+
+!!! tip "Supervisión"
+Para monitorizar el rendimiento y el estado de una instancia de base de datos en Amazon RDS se utiliza el servicio **Amazon CloudWatch**. Las métricas y gráficos de rendimiento pueden visualizarse directamente desde la consola de Amazon RDS.
+
+Además, es posible suscribirse a los eventos de Amazon RDS para recibir notificaciones sobre cambios relevantes en una instancia de base de datos, como tareas de mantenimiento o incidencias.
+
 #### **2.1.1 - Amazon RDS con MySQL**
 <!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/AWS/Base%20Dades/Tema%201/tema1_RDS_MySQL.pdf -->
+
+
+
+
+
 #### **2.1.2 - Amazon RDS con Aurora**
 <!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/AWS/Base%20Dades/Tema%202/tema2_RDS_Aurora.pdf -->
 ### **2.2 - Bases de datos NoSQL: Amazon DynamoDB**
@@ -410,6 +465,9 @@ Sistemas de almacenamiento en [AWS](https://aws.amazon.com/es/products/storage/)
 Sistemas de almacenamiento [EFS](https://aws.amazon.com/es/efs/) en AWS.  
 Guía del usuario [EFS](https://docs.aws.amazon.com/es_es/efs/latest/ug/mounting-fs.html).  
 Control de acceso a [buckets S3](https://docs.aws.amazon.com/es_es/AmazonS3/latest/userguide/about-object-ownership.html?icmpid=docs_amazons3_console)  
+Base de datos relacionales [AWS RDS](https://aws.amazon.com/es/rds/)  
+Guía del usuario del [AWS RDS](https://docs.aws.amazon.com/es_es/AmazonRDS/latest/UserGuide/Welcome.html)  
+
 
 <!-- === "RA 1"
     |RA1. Comprende los fundamentos de la computación en la nube, sus ventajas frente a sistemas tradicionales, el marco de adopción, los principios de migración y los aspectos clave de facturación, como estimación y optimización de costos.||
