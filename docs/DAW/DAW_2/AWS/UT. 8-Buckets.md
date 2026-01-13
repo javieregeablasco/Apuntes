@@ -28,7 +28,7 @@ schedule: 96h - 3h/s
 |**a)** Se ha realizado la diferenciación entre tecnologías de almacenamiento en la nube.|
 |**b)** Se ha llevado a cabo la configuración y gestión de bases de datos en un entorno de nube.|
 |**c)** Se ha trabajado en la resolución de problemas prácticos sobre almacenamiento y bases de datos.|
-|**d)** Se ha diseñado arquitecturas escalables y resilientes basadas en las mejores prácticas.|
+ 
 
 
 ## **1 - Sistemas de almacenamiento en AWS**
@@ -347,25 +347,33 @@ Con el versionado de objetos, podemos crear versiones de un mismo objeto.
 #### **1.4.8 - Condiciones de la entrega de la tarea RA4-CEa-2**
 !!! warning "Condiciones de entrega"
     1. Montar el ejemplo anterior.
-    1. Editar las ACL de la versión 2 del objeto que subireis a vuestro bucket S3. 
-    1. Realizar capturas que muestran el acceso mediante URL a las 2 versiones.    
+    1. Editar las ACL de la versión 2 del objeto que subireis a vuestro bucket S3.
+    1. **Realizar capturas que muestran el acceso mediante URL a las 2 versiones**. 
     1. Adjuntar las capturas a un documento, y comentar brevemente cada captura.
     1. Subir el documento a AULES en la tarea correspondiente. 
 
 ## **2 - Bases de datos en AWS**
-  
 <!-- https://aitor-medrano.github.io/iabd2223/cloud/03s3.html -->
+### **2.1 - Bases de datos relaciones
+#### **2.1.1 - Amazon RDS con MySQL**
+<!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/AWS/Base%20Dades/Tema%201/tema1_RDS_MySQL.pdf -->
+#### **2.1.2 - Amazon RDS con Aurora**
+<!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/AWS/Base%20Dades/Tema%202/tema2_RDS_Aurora.pdf -->
+### **2.2 - Bases de datos NoSQL: Amazon DynamoDB**
+<!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/AWS/Base%20Dades/Tema%203/tema3_DynamoDB.pdf -->
+### **2.3 - ElastiCache**
+<!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/AWS/Base%20Dades/Tema%204/tema4_ElastiCache.pdf -->
+ 
+
+
  
 <br>
-
-
-
-### **xxx**
 ![Descripción de la imagen](../AWS/ut7/cloudformation/WIP.avif){ .doscinco }<br>
    
  
 <!-- bbdd
 https://www.youtube.com/watch?v=07mAdMTwRHs
+https://www.youtube.com/watch?v=by0EJ4qL8ek
 
 https://www.youtube.com/watch?v=vp_uulb5phM
 https://www.youtube.com/watch?v=eK_umMYxZfM
@@ -439,7 +447,7 @@ Control de acceso a [buckets S3](https://docs.aws.amazon.com/es_es/AmazonS3/late
     *|**a)** Se ha realizado la diferenciación entre tecnologías de almacenamiento en la nube.|20%|
     |**b)** Se ha llevado a cabo la configuración y gestión de bases de datos en un entorno de nube.|20%|
     |**c)** Se ha trabajado en la resolución de problemas prácticos sobre almacenamiento y bases de datos.|20%|
-    |**d)** Se ha diseñado arquitecturas escalables y resilientes basadas en las mejores prácticas.|20%|
+    *|**d)** Se ha diseñado arquitecturas escalables y resilientes basadas en las mejores prácticas.|20%|
     *|**e)** Se ha hecho uso de herramientas de monitoreo y recomendaciones de optimización.|10%|
     *|**f)** Se ha participado en actividades que simulen el análisis y mejora de arquitecturas existentes.|10%| -->
 

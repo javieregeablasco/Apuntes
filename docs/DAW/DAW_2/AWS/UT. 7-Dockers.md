@@ -1059,52 +1059,7 @@ WebServer:
 ![Descripción de la imagen](../AWS/ut7/cloudformation/WIP.avif){ .doscinco }<br>
 
 
-<!-- https://www.youtube.com/watch?v=W4F9vYdPfoI&list=PL_1omhUxPW6OjNxiq5lZreUFZI9vFW0y8&index=3 -->
 
-<!-- https://www.youtube.com/watch?v=tAlIe8qQjqI -->
-<!-- https://www.youtube.com/watch?v=yXa-cG79jkw -->
-<!-- https://www.youtube.com/watch?v=Y_O5EQVQoao -->
-
-<!-- https://www.youtube.com/watch?v=fc6tfw2tcGE&list=PL5KTLzN85O4LNGYy-dm1wJ-sKE5l4b5P5 -->
-<!-- https://www.youtube.com/watch?v=YXVCdGyHDSk -->
-
-
-
-<!-- 
-AWS CDK
-Define pilas usando lenguajes como TypeScript o Python, que se traducen a CloudFormation.
--->
-
-<!-- https://youtu.be/TRLK6ZNpjB8?si=SQ5gCu6KFLiFdez9&t=886 -->
-
-<!-- bbdd
-https://www.youtube.com/watch?v=vp_uulb5phM
-https://www.youtube.com/watch?v=eK_umMYxZfM
-https://www.youtube.com/watch?v=6E30Yr2UATw
-https://www.youtube.com/watch?v=kNm0z_hRJlw
-https://www.youtube.com/watch?v=wLTFaDebTBY
-https://www.youtube.com/watch?v=BTg1JbmE3x4
-https://www.youtube.com/watch?v=tykcCf-Zz1M -->
-
-<!-- route 53... 
-cloud formation... 
-elastic load balancing
-Amazon Simple Storage Service (S3) 
-Amazon Elastic File System (EFS)
-Amazon Elastic Block Store (EBS) -->
-<!--  Building Highly Available Web Application 
-https://skillbuilder.aws/learn/2WBTDQFGSV/building-highly-available-web-application/2RW7UC62ZE
-recursos de BBDD y buckets:
-
-https://aws.amazon.com/es/products/storage/
--->
-
-<!-- https://www.youtube.com/watch?v=89N3u6W01IQ -->
-<!-- https://www.grycap.upv.es/cursocloudaws/contenido.php -->
-
-  
-
- 
 ## **Enlaces de interés**
 Documentación de [AWS](https://docs.aws.amazon.com)  
 [Repositorio privado](https://docs.aws.amazon.com/es_es/AmazonECR/latest/userguide/repository-create.html) de Amazon  
