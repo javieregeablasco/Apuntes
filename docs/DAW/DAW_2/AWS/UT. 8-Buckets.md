@@ -235,43 +235,138 @@ Nos cambiamos al directorio donde hemos montado el EFS y hacemos una prueba de e
 Si ahora, desde la otra instancia añadimos contenido al archivo de texto y lo leemos de nuevo, podremos ver la modificaciones aportadas.
 ![Descripción de la imagen](./ut8/EFS/efs-15.png){.cuatrozero }  
 
+#### **1.3.6 - Condiciones de la entrega de la tarea RA4-CEa-1**
+!!! warning "Condiciones de entrega"
+    1. Montar el ejemplo anterior.
+    1. Realizar capturas de pantalla del mapa de recursos de la VPC desplegada.
+    1. Realizar capturas de pantalla de las 2 instanciasaccediendo al NFS.    
+    1. Adjuntar las capturas a un documento, y comentar brevemente cada captura.
+    1. Subir el documento a AULES en la tarea correspondiente. 
+
+### **1.4 - Tarea RA4-CEa-2 - Creación de un bucket S3**
+#### **1.4.1 - Creación del bucket S3**
+Accedemos al servicio S3 para crear el bucket. Es importante recordar que el espacio de **nombres (namespace) de S3 es global**, por lo que el nombre debe ser **único en todo el mundo**. Sin embargo, **S3 es un servicio regional**, por lo que deberemos seleccionar la región más cercana a nuestras instancias para minimizar la latencia.
+
+- Creación del bucket S3.
+![Descripción de la imagen](./ut8/S3/s3-1.png){.nuevezero .marco .margintop10 .marginbottom40 }  
+
+- Le damos un nombre único. Si hay errores de sintaxis o el nombre ya está asignado, aparecerá un error. 
+![Descripción de la imagen](./ut8/S3/s3-2.png){.nuevezero .marco .margintop10 }  
+![Descripción de la imagen](./ut8/S3/s3-9.png){.nuevezero .marco   }  
+![Descripción de la imagen](./ut8/S3/s3-10.png){.nuevezero .marco  .marginbottom40 }  
 
 
+- En **propiedad de objetos** dejamos la opción por defecto.
+![Descripción de la imagen](./ut8/S3/s3-3.png){.nuevezero .marco .margintop10 .marginbottom40 }  
 
-<!-- https://www.youtube.com/watch?v=BILHiDG72CA -->
+- En **configuración de bloqueo de acceso público** dejamos la opción por defecto.
+![Descripción de la imagen](./ut8/S3/s3-4.png){.nuevezero .marco .margintop10 .marginbottom40 }  
 
-<!-- trabajar sobre esta:
+- En **control de versiones de buckets** habilitamos el servicio (veremos el porqué más adelante). 
+![Descripción de la imagen](./ut8/S3/s3-5.png){.nuevezero .marco .margintop10 .marginbottom40 }  
 
-https://youtu.be/ExM6gaE0708?si=n5OU7lA5IPfRkquU&t=470 
-https://youtu.be/aAOC6oS445s?si=C2y71T_qttZtbaK7&t=1061 -->
+- Si queremos, podemos agregar una etiqueta.  
+![Descripción de la imagen](./ut8/S3/s3-6.png){.nuevezero .marco .margintop10 .marginbottom40 }  
 
-<!-- https://www.youtube.com/watch?v=GG8PAAOUGBg -->
-<!-- https://apuntes.de/aws-certificacion-csaa/buckets/#gsc.tab=0 -->
+- Cifrado predeterminado: Dejamos las opciones por defecto.   
+![Descripción de la imagen](./ut8/S3/s3-7.png){.nuevezero .marco .margintop10 .marginbottom40 }  
+
+- Configuración avanzada. Dejamos el bloqueo de objeto desactivado.
+![Descripción de la imagen](./ut8/S3/s3-8.png){.nuevezero .marco .margintop10  }
+- !!! warning "Bloqueo de objetos"  
+      - El S3 Object Lock (Bloqueo de Objetos) es una funcionalidad diseñada para evitar que los objetos **sean eliminados o sobrescritos**. 
+      - Permite implementar modelos de almacenamiento WORM (Write Once, Read Many), lo cual es vital para **el cumplimiento normativo y la protección contra ataques de ransomware**.   
+
+- Si todo ha ido bien tendremos nuestro bucket S3 creado.
+![Descripción de la imagen](./ut8/S3/s3-11.png){.nuevezero .marco .margintop10 .marginbottom40 }  
+
+#### **1.4.2 - Subir objetos al bucket S3**
+- Arrastramos el objeto a subir y pulsamos cargar. 
+![Descripción de la imagen](./ut8/S3/s3-12.png){.nuevezero .marco .margintop10   }  
+![Descripción de la imagen](./ut8/S3/s3-15.png){.nuevezero .marco   .marginbottom40 }  
+
+- Una vez subido el archivo podremos acceder a sus propiedades, permisos y versiones (si hemos habilitado el versionado de objetos en el bucket S3).
+![Descripción de la imagen](./ut8/S3/s3-16.png){.nuevezero .marco .margintop10  .marginbottom40 }
+- En **Propiedades** → **Clase de almacenamiento** podemos ver (y configurar) el tipo de almacenamiento (se aplican tarifas especificas a cada clase de almacenamiento).   
+![Descripción de la imagen](./ut8/S3/s3-14.png){.nuevezero .marco .marginbottom40 .margintop20}  
+
+- En **Permisos**, podemos ver las listas de control de acceso actuales del objeto.   
+![Descripción de la imagen](./ut8/S3/s3-17.png){.nuevezero .marco .margintop10 .marginbottom40 }  
+
+#### **1.4.3 - Acceder a los objetos de un bucket S3**
+- Si intentamos acceder al objeto veremos que no es posible. Eso se debe a los permisos (lista de control de acceso (ACL)) del propio bucket.  
+![Descripción de la imagen](./ut8/S3/s3-17-1.png){.nuevezero .marco .margintop10   }  
+![Descripción de la imagen](./ut8/S3/s3-18.png){.sietezero    }  
+![Descripción de la imagen](./ut8/S3/s3-13.png){.nuevezero .marco .marginbottom40 }  
+
+#### **1.4.4 - Permitir acceso a los objetos de un bucket S3**
+- Para permitir el acceso a los objetos volvemos al bucket S3 y editamos las reglas de bloque del acceso público.  
+![Descripción de la imagen](./ut8/S3/s3-24.png){.nuevezero .marco .margintop10  }  
+![Descripción de la imagen](./ut8/S3/s3-19.png){.nuevezero .marco  }  
+![Descripción de la imagen](./ut8/S3/s3-20.png){.nuevezero .marco .marginbottom40}  
+
+- Luego ya podremos editar las propiedades de los objetos de nuestro bucket S3.
+![Descripción de la imagen](./ut8/S3/s3-21.png){.nuevezero .marco  .margintop10 }  
+![Descripción de la imagen](./ut8/S3/s3-22.png){.nuevezero .marco   .marginbottom40 }  
+
+- A partir de entonces **cualquier persona con el enlace** podrá acceder al objeto. 
+![Descripción de la imagen](./ut8/S3/s3-23.png){.nuevezero .marco .margintop10 .marginbottom40 }  
+
+#### **1.4.5 - Versionado de un objeto**
+Como ya hemos comentado anteriormente, si no tenemos habilitado el versionado de objeto, volver a subir un archivo modificado de un mismo objeto implica **sobreescribir totalmente** el objeto anterior.  
+
+Con el versionado de objetos, podemos crear versiones de un mismo objeto.
+
+- Después de subir un objeto versionado, podremos ver las diferentes versiones existentes en el bucket S3.
+![Descripción de la imagen](./ut8/S3/s3-25.png){.nuevezero .marco .margintop10 .marginbottom40 }  
+
+- **Tarea: Trabajo a realizar.** Como en el caso anterior deberemos habilitar las ACL para poder acceder al archivo. De lo contrario obtendremos un mensaje de error. 
+![Descripción de la imagen](./ut8/S3/s3-26.png){.sietezero .margintop10 }  
+
+#### **1.4.6 - Eliminación de un objeto versionado**
+- Si eliminamos el objeto, **en teoría**, debería dejar de esatar disponible.  
+![Descripción de la imagen](./ut8/S3/s3-27.png){.nuevezero .marco .margintop10 .marginbottom40 }  
+
+- Vista después de la eliminación de objetos.
+![Descripción de la imagen](./ut8/S3/s3-27-1.png){.nuevezero .marco .margintop10 .marginbottom40 }  
+
+- Si habilitamos, **Mostrar versiones**, veremos que, aunque hayamos elminado el objeto, sus versiones siguen disponibles. Este proceder tiene la ventaja de poder recuperar objetos borrados por error, pero también tiene el inconveniente de cargos adicionales por parte de AWS.      
+![Descripción de la imagen](./ut8/S3/s3-28-1.png){.nuevezero .marco .margintop10 .marginbottom40 }  
+
+
+#### **1.4.7 - Eliminación de un bucket S3**
+- Para eliminar un bucket S3, primero deberemos **vaciarlo**.
+![Descripción de la imagen](./ut8/S3/s3-31.png){.nuevezero .marco .margintop10 .marginbottom40 }  
+
+- Vaciamos el bucket S3.
+![Descripción de la imagen](./ut8/S3/s3-32.png){.nuevezero .marco .margintop10 .marginbottom40 }  
+
+- Una vez vaciado el bucket S3, podremos **eliminarlo definitivamente**.
+![Descripción de la imagen](./ut8/S3/s3-33.png){.nuevezero .marco .margintop10 .marginbottom40 }  
+
+#### **1.4.8 - Condiciones de la entrega de la tarea RA4-CEa-2**
+!!! warning "Condiciones de entrega"
+    1. Montar el ejemplo anterior.
+    1. Editar las ACL de la versión 2 del objeto que subireis a vuestro bucket S3. 
+    1. Realizar capturas que muestran el acceso mediante URL a las 2 versiones.    
+    1. Adjuntar las capturas a un documento, y comentar brevemente cada captura.
+    1. Subir el documento a AULES en la tarea correspondiente. 
+
+## **2 - Bases de datos en AWS**
+  
 <!-- https://aitor-medrano.github.io/iabd2223/cloud/03s3.html -->
  
 <br>
 
-#### **5.5.7 - Condiciones de entrega de la tarea RA4-CEe**
-!!! warning "Condiciones de la entrega"
-    1. Adjuntar a la tarea la plantilla final (tarea guiada + rol IAM + Instalación automática de Nginx).
-    1. Realizar capturas de pantalla del mapa de recursos de la VPC desplegada.
-    1. Realizar capturas de pantalla del servidor Nginx desplegado.
-    1. Comentar brevemente cada captura para entender a qué corresponde y subir el documento a la tarea correspondiente de AULES.
 
 
-### **5.6 - CloudFormation + IaC + CDK**
+### **xxx**
 ![Descripción de la imagen](../AWS/ut7/cloudformation/WIP.avif){ .doscinco }<br>
-
-<!-- apuntes de s3 -->
-<!-- https://www.youtube.com/watch?v=9jOdbA1yk4U -->
-<!-- https://www.youtube.com/watch?v=mDRoyPFJvlU -->
-<!-- https://www.youtube.com/watch?v=C4calFCtlHg -->
-
-    
-
+   
  
- https://www.youtube.com/watch?v=snjExTzpYxE
 <!-- bbdd
+https://www.youtube.com/watch?v=07mAdMTwRHs
+
 https://www.youtube.com/watch?v=vp_uulb5phM
 https://www.youtube.com/watch?v=eK_umMYxZfM
 https://www.youtube.com/watch?v=6E30Yr2UATw
@@ -295,9 +390,7 @@ Amazon Elastic File System (EFS)
 Amazon Elastic Block Store (EBS) -->
 <!--  Building Highly Available Web Application 
 https://skillbuilder.aws/learn/2WBTDQFGSV/building-highly-available-web-application/2RW7UC62ZE
-recursos de BBDD y buckets:
-
-https://aws.amazon.com/es/products/storage/
+recursos de BBDD y buckets: 
 -->
   
   
@@ -308,7 +401,7 @@ Documentación de [AWS](https://docs.aws.amazon.com)
 Sistemas de almacenamiento en [AWS](https://aws.amazon.com/es/products/storage/)  
 Sistemas de almacenamiento [EFS](https://aws.amazon.com/es/efs/) en AWS.  
 Guía del usuario [EFS](https://docs.aws.amazon.com/es_es/efs/latest/ug/mounting-fs.html).  
-
+Control de acceso a [buckets S3](https://docs.aws.amazon.com/es_es/AmazonS3/latest/userguide/about-object-ownership.html?icmpid=docs_amazons3_console)  
 
 <!-- === "RA 1"
     |RA1. Comprende los fundamentos de la computación en la nube, sus ventajas frente a sistemas tradicionales, el marco de adopción, los principios de migración y los aspectos clave de facturación, como estimación y optimización de costos.||
@@ -343,7 +436,7 @@ Guía del usuario [EFS](https://docs.aws.amazon.com/es_es/efs/latest/ug/mounting
 === "RA 4"
     |RA4. Gestiona servicios de almacenamiento y bases de datos en la nube, seleccionando tecnologías adecuadas para casos específicos, y diseña arquitecturas escalables y resilientes utilizando herramientas de monitoreo y optimización para mejorar el rendimiento.||
     |-|-|
-    |**a)** Se ha realizado la diferenciación entre tecnologías de almacenamiento en la nube.|20%|
+    *|**a)** Se ha realizado la diferenciación entre tecnologías de almacenamiento en la nube.|20%|
     |**b)** Se ha llevado a cabo la configuración y gestión de bases de datos en un entorno de nube.|20%|
     |**c)** Se ha trabajado en la resolución de problemas prácticos sobre almacenamiento y bases de datos.|20%|
     |**d)** Se ha diseñado arquitecturas escalables y resilientes basadas en las mejores prácticas.|20%|
