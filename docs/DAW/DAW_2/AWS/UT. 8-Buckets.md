@@ -406,6 +406,8 @@ Para monitorizar el rendimiento y el estado de una instancia de base de datos en
 Además, es posible suscribirse a los eventos de Amazon RDS para recibir notificaciones sobre cambios relevantes en una instancia de base de datos, como tareas de mantenimiento o incidencias.
 
 #### **2.1.1 - Amazon RDS con MySQL**
+
+<!-- plantilla pagina 10 -->
 <!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/AWS/Base%20Dades/Tema%201/tema1_RDS_MySQL.pdf -->
 
 

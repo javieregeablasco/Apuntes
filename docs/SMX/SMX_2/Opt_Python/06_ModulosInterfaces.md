@@ -1919,7 +1919,8 @@ La práctica se hará por fases y cada fase será evaluada de acuerdo con los cr
 
     - **Dentro del método constructor**, **declarar** los widgets **1,2,3,4,5,6,7,8,9,/,*,-,+,=**. Dar como nombre a los widgets, boton1, boton2, ..., boton15, boton16  
     - **Nota 1:** Para el simbolo **igual** no podemos usar **=** directamente. Deberemos utilizar el símbolo unicode **\u002A**.  
-    - **Nota 2:** Para el simbolo **dividir** no podemos usar **/** directamente. Deberemos utilizar el símbolo unicode **\u00F7**.
+    
+    <!-- - **Nota 2:** Para el simbolo **dividir** no podemos usar **/** directamente. Deberemos utilizar el símbolo unicode **\u00F7**. -->
     
     <br>
     **Etapa 7: Posicionamiento de la pantalla**   
@@ -1935,16 +1936,17 @@ La práctica se hará por fases y cada fase será evaluada de acuerdo con los cr
     
 #### **2.6.2 – Fase 3 – Creación de los eventos**
 !!! warning "RA5-CEg"
-    En esta fase elaboraremos los eventos desencadenados después de hacer click en los botones.   
+    En esta fase elaboraremos los eventos desencadenados después de pulsar los botones. Dicho de otra manera, daremos la funcionalidad a la calculadora.   
     **Etapa 9: xxx **   
      
-    
+    primero definiremos una variable de control **valor_pantalla** como stringVar()
 
 
+<!-- https://www.youtube.com/watch?v=oIzt6ESA7nU&list=PLU8oAlHdN5BlvPxziopYZRd55pdqFwkeS&index=52 -->
+<!-- https://www.youtube.com/watch?v=oIzt6ESA7nU&list=PLU8oAlHdN5BlvPxziopYZRd55pdqFwkeS&index=53 -->
 
-
-
-
+<!-- https://github.com/AutodidactaMx/Code-General-Python/blob/main/GUI%20Calculadora/formulario/form_calculadora.py -->
+<!-- https://www.youtube.com/watch?v=rXQFrTtHL9w -->
 
 
 
