@@ -544,18 +544,67 @@ Para lograrlo, debemos seguir tres reglas fundamentales:
     El archivo a subir deberá ser de tipo **.odp** (formato predeterminado de LibreOffice Impress).  
     **No se aceptará ningún otro formato de archivo**.
 
-
-<!-- https://mosaic.uoc.edu/ac/le/es/m2/ud5/index.html#considertypography -->
-
-<!-- https://iesandresbojollo.es/tiyc/impress/14-Impress-Presentacion-Concesionario.html -->
-
 ## **4 - Creación de una presentación - Tarea RA7-CEe**
 
+!!! exercise "Explicación de la tarea"
+- Sois los encargados de presentar las nuevas pantallas Newline ELARA Pro rescientemente estrenadas en los centros de la Comunidad Valenciana. 
+- Teneís a vuestra disposición toda la información técnica y comercial necesaria para elaborar una presentación atractiva y profesional que destaque las características y beneficios de estas pantallas interactivas. Podeís descargar los archivos necesarios desde este [enlace](./07_Presentaciones/img/RA7-CEe/2025%20GUIA%20RÁPIDA%20ADI%20VAL.pdf).
+- Disponeís de total libertad para crear una presentación atractiva y profesional que destaque las características y beneficios de estas pantallas interactivas.
 
-<!-- https://www.youtube.com/@ricardolozano/search?query=impress -->
+!!! exercise "contenidos mínimos"
+!!! warning "Instrucciones"  
+    - La presentación deberá constar de un mínimo de 8 diapositivas.
+    - Se deberá utilizar una plantilla o **patrón de diapositivas** adecuado para el tema.
+    - Se deberán incluir imágenes relevantes y de alta calidad relacionadas con las pantallas Newline ELARA Pro.
+    - Se deberá aplicar un esquema de colores coherente y profesional.
+    - Se deberá utilizar una tipografía legible y profesional.
+    - Se deberán incluir transiciones suaves entre diapositivas.
+
+
+!!! tip "Diapositiva 1 - Portada"  
+    - Título: "Newline ELARA Pro".
+    - Subtítulo: "Presentación de pantallas interactivas".
+    - Insertar **una imagen** representativa de las pantallas Newline ELARA Pro.
+    - Poner vuestro nombre en la parte inferior de la diapositiva.
+!!! tip "Diapositiva 2 - Introducción"
+    - Título: "Guía rápida".
+    - Contenidos: 
+        - Gestió del panell
+        - Pissarra
+        - Aplicacions Android
+        - Font externa
+!!! tip "Diapositiva 3 - Gestió del panell"        
+    - Título: "Gestió del panell".
+    - Contenidos:
+        - Connexions i ports
+!!! tip "Diapositiva 4 - Pissarra"        
+    - Título: "Pissarra".
+    - Contenidos:
+        - Barra d'eines
+!!! tip "Diapositiva 5 - Pissarra"        
+    - Título: "Pissarra".
+    - Contenidos:
+        - Ús habitual de la pissarra
+!!! tip "Diapositiva 6 - Aplicacions Android"
+    - Título: "Aplicacions Android".
+    - Contenidos:
+        - Aplicacions instalades
+!!! tip "Diapositiva 7 - Aplicacions Android"
+    - Título: "Aplicacions Android".
+    - Contenidos:
+        - Afegir/eliminar aplicacions
+!!! tip "Diapositiva 8 - Despedida"
+    - Título: "Gràcies per la vostra atenció".
+    - Contenidos:
+        - Espai per a preguntes i respostes.            
+
+!!! warning "Entrega de la tarea"
+    Subir la tarea a AULES en el apartado correspondiente.  
+    El archivo a subir deberá ser de tipo **.odp** (formato predeterminado de LibreOffice Impress).  
+    **No se aceptará ningún otro formato de archivo**.
+
  
-<!-- https://www.youtube.com/watch?v=mHMaYtxmKaA -->
-
+  
 
     
 

@@ -1937,7 +1937,7 @@ La práctica se hará por fases y cada fase será evaluada de acuerdo con los cr
 #### **2.6.2 – Fase 3 – Creación de los eventos**
 !!! warning "RA5-CEg"
     En esta fase elaboraremos los eventos desencadenados después de pulsar los botones. Dicho de otra manera, daremos la funcionalidad a la calculadora.   
-    **Etapa 9: xxx **   
+    **Etapa 9: Introducir número y mostralo por pantalla**   
      
     primero definiremos una variable de control **valor_pantalla** como stringVar()
 

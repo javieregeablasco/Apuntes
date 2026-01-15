@@ -310,64 +310,35 @@ class Calculadora:
         self.texto_pantalla.set("")        
 
       else: # pulsado '='
-        segundo_numero = float(valor_actual)
+        self.segundo_numero = float(valor_actual)
      
         if self.operacion_a_realizar == "+":
-          resultado = self.primer_numero + segundo_numero
+          resultado = self.primer_numero + self.segundo_numero
         elif self.operacion_a_realizar == "-":
-          resultado = self.primer_numero - segundo_numero
+          resultado = self.primer_numero - self.segundo_numero
         elif self.operacion_a_realizar == "*":
-          resultado = self.primer_numero * segundo_numero
+          resultado = self.primer_numero * self.segundo_numero
         elif self.operacion_a_realizar == "/":
           if self.segundo_numero != 0:
-            resultado = self.primer_numero / segundo_numero
+            resultado = self.primer_numero / self.segundo_numero
           else:
             resultado = "Error: Division/0"
+        self.texto_pantalla.set(resultado) #comentar esta línea
             # self.pantalla.configure(foreground="red", background="yellow")
-
-        self.texto_pantalla.set(resultado)    
-
-         
-
-    
-   
+        # try: 
+        #   if resultado.is_integer():
+        #     self.texto_pantalla.set(int(resultado)) 
+        #     print(resultado)               
+        #   else:
+        #     self.texto_pantalla.set(resultado)          
+        #   print("estoy en el try")
+        # except:
+        #   print("estoy en el except")
+        #   self.texto_pantalla.set(resultado)
+        
 Calculadora()
 
-    #     else:
-    #         # Si es un operador (+, -, *, /)
-    #         if valor in ["+", "-", "*", "/"]:
-    #             try:
-    #                 self.primer_numero = float(valor_actual)
-    #                 self.operacion_pendiente = valor
-    #                 self.texto_pantalla.set("") # Limpiamos para el segundo número
-    #             except ValueError:
-    #                 self.texto_pantalla.set("Error")
-
-    #         # Si es el botón "="
-    #         elif valor == "=":
-    #             try:
-    #                 segundo_numero = float(valor_actual)
-    #                 resultado = 0
-
-    #                 if self.operacion_pendiente == "+":
-    #                     resultado = self.primer_numero + segundo_numero
-    #                 elif self.operacion_pendiente == "-":
-    #                     resultado = self.primer_numero - segundo_numero
-    #                 elif self.operacion_pendiente == "*":
-    #                     resultado = self.primer_numero * segundo_numero
-    #                 elif self.operacion_pendiente == "/":
-    #                     if segundo_numero != 0:
-    #                         resultado = self.primer_numero / segundo_numero
-    #                     else:
-    #                         resultado = "Error: Div/0"
-
-    #                 # Mostramos el resultado y reseteamos la operación
-    #                 self.texto_pantalla.set(resultado)
-    #                 self.operacion_pendiente = "" 
-    #             except:
-    #                 self.texto_pantalla.set("Error")
-
- 
+  
 
 
 # from tkinter import *
