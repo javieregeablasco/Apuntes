@@ -1907,7 +1907,8 @@ La práctica se hará por fases y cada fase será evaluada de acuerdo con los cr
 
     - **Dentro del método constructor**, **declarar** el widget **pantalla** que mostrará los valores introducidos así como el resultado de la operación.  
 
-    <br>
+    
+!!! warning "RA4-CEc"
     **Etapa 5: Creación del método de clase crear_boton()**  
 
     - Crear el método de clase **crear_boton()**.  
@@ -1918,7 +1919,7 @@ La práctica se hará por fases y cada fase será evaluada de acuerdo con los cr
     **Etapa 6: Creación de los botones**  
 
     - **Dentro del método constructor**, **declarar** los widgets **1,2,3,4,5,6,7,8,9,/,*,-,+,=**. Dar como nombre a los widgets, boton1, boton2, ..., boton15, boton16  
-    - **Nota 1:** Para el simbolo **igual** no podemos usar **=** directamente. Deberemos utilizar el símbolo unicode **\u002A**.  
+    <!-- - **Nota 1:** Para el simbolo **igual** no podemos usar **=** directamente. Deberemos utilizar el símbolo unicode **\u002A**.   -->
     
     <!-- - **Nota 2:** Para el simbolo **dividir** no podemos usar **/** directamente. Deberemos utilizar el símbolo unicode **\u00F7**. -->
     
@@ -1939,8 +1940,11 @@ La práctica se hará por fases y cada fase será evaluada de acuerdo con los cr
     En esta fase elaboraremos los eventos desencadenados después de pulsar los botones. Dicho de otra manera, daremos la funcionalidad a la calculadora.   
     **Etapa 9: Introducir número y mostralo por pantalla**   
      
-    primero definiremos una variable de control **valor_pantalla** como stringVar()
-
+#### **2.6.3 – Fase 4 – Programa completo**
+!!! warning "RA5-CEh"
+    <!-- primero definiremos una variable de control **valor_pantalla** como stringVar() -->
+    <!-- El problema de tu implementación actual es conceptual: -->
+    <!-- la calculadora solo guarda un operador y dos operandos (primer_numero y segundo_numero). -->
 
 <!-- https://www.youtube.com/watch?v=oIzt6ESA7nU&list=PLU8oAlHdN5BlvPxziopYZRd55pdqFwkeS&index=52 -->
 <!-- https://www.youtube.com/watch?v=oIzt6ESA7nU&list=PLU8oAlHdN5BlvPxziopYZRd55pdqFwkeS&index=53 -->
