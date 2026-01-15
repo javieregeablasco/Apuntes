@@ -1938,7 +1938,16 @@ La práctica se hará por fases y cada fase será evaluada de acuerdo con los cr
 #### **2.6.2 – Fase 3 – Creación de los eventos**
 !!! warning "RA5-CEg"
     En esta fase elaboraremos los eventos desencadenados después de pulsar los botones. Dicho de otra manera, daremos la funcionalidad a la calculadora.   
-    **Etapa 9: Introducir número y mostralo por pantalla**   
+
+    **Etapa 9: Introducir número y mostralo por pantalla**
+    En esta etapa nos limitaremos a:
+        - Al hacer click, **recuperamos** el valor que tenemos en ese momento en pantalla.
+        - A ese valor, el añadimos (concatenamos) el valor del botón que hemos pulsado.  
+    Para ello crearemos el método de clase **escribir** que recibirá por parámetro el **valor del botón pulsado**.
+
+    **Etapa 10: Introducir número y mostralo por pantalla**
+    En esta etapa, mejoraremos las líneas de código de de la etapa 9 para que, además del valor del botón que hemos pulsado, sepamos si el botón es de tipo númerico (0,1,2, ...,9) o de operando (+,-,/,*,=). 
+
      
 #### **2.6.3 – Fase 4 – Programa completo**
 !!! warning "RA5-CEh"
