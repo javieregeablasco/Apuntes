@@ -1906,16 +1906,20 @@ La práctica se hará por fases y cada fase será evaluada de acuerdo con los cr
     **Etapa 4: Creación del campo númerico**   
 
     - **Dentro del método constructor**, **declarar** el widget **pantalla** que mostrará los valores introducidos así como el resultado de la operación.  
+    - Posicionar el widget ventana dentro de un grid de 4x5 (ocupará toda la primera fila).     
+    - **Nota:** Para el ejemplo, se ha usado el parametro **text** para ver como queda visualmente el **widget pantalla**. Para el uso normal de este widget, deberemos usar **textvariable**. 
+
+    ![](./img/UT6/practica/practica-2.png){ .cuatrozero }
 
     
 !!! warning "RA4-CEc"
     **Etapa 5: Creación del método de clase crear_boton()**  
 
     - Crear el método de clase **crear_boton()**.  
-    - crear_button() se encargará de **devolver** el widget Button()  
-    - Ese método de clase recibirá (aparte de self) el símbolo del botón (valor) y lo asignará al parámetro **text**. 
-    
-    <br>  
+    - **crear_button()** se encargará de **devolver** el widget Button()  
+    - Ese método de clase recibirá (aparte de self) el símbolo del botón (valor) y lo asignará al parámetro **text**.   
+    <br>
+
     **Etapa 6: Creación de los botones**  
 
     - **Dentro del método constructor**, **declarar** los widgets **1,2,3,4,5,6,7,8,9,/,*,-,+,=**. Dar como nombre a los widgets, boton1, boton2, ..., boton15, boton16  
@@ -1925,15 +1929,15 @@ La práctica se hará por fases y cada fase será evaluada de acuerdo con los cr
     
     <br>
     **Etapa 7: Posicionamiento de la pantalla**   
-
-    - Posicionar el widget ventana dentro de un grid de 4x5 (ocupará toda la primera fila).     
+    
+    - Hecho en atapa 4. 
     
     <br>
     **Etapa 8: Posicionamiento de los botones**   
 
     - Posicionar los widgets boton1, boton2, ..., boton15, boton16 dentro de un grid de 4x5 (ocupará todo el grid empezando por la segunda fila).     
-    - **Nota 1:** Para evitar de reescribir 16 veces el mismo código pensar en realizar un bucle.  
-    - **Nota 2:** Para crear el bucle, primero crear **una variable de tipo lista** que contendrá los widgets. Por ejemplo: lista = [boton1, boton2, ..., boton15, boton16].   
+    - **Nota 1:** Para evitar de reescribir 16 veces el mismo código pensar en realizar un(os) bucle(s).  
+    - **Nota 2:** Si decidís, crear un(os) bucle(s), primero crear **una variable de tipo lista** que contendrá los widgets. Por ejemplo: lista = [boton1, boton2, ..., boton15, boton16].   
     
 #### **2.6.2 – Fase 3 – Creación de los eventos**
 !!! warning "RA5-CEg"
@@ -1941,30 +1945,33 @@ La práctica se hará por fases y cada fase será evaluada de acuerdo con los cr
 
     **Etapa 9: Introducir número y mostralo por pantalla**
     En esta etapa nos limitaremos a:
-        - Al hacer click, **recuperamos** el valor que tenemos en ese momento en pantalla.
-        - A ese valor, el añadimos (concatenamos) el valor del botón que hemos pulsado.  
+
+    - Al hacer click, **recuperamos** el valor que tenemos en ese momento en pantalla.
+    - A ese valor, el añadimos (concatenamos) el valor del botón que hemos pulsado.  
     Para ello crearemos el método de clase **escribir** que recibirá por parámetro el **valor del botón pulsado**.
 
-    **Etapa 10: Introducir número y mostralo por pantalla**
-    En esta etapa, mejoraremos las líneas de código de de la etapa 9 para que, además del valor del botón que hemos pulsado, sepamos si el botón es de tipo númerico (0,1,2, ...,9) o de operando (+,-,/,*,=). 
+    **Etapa 10: Distinguir qué tecla se ha pulsado**
+
+    - En esta etapa, mejoraremos las líneas de código de la etapa 9 para que, además del valor del botón que hemos pulsado, sepamos si el botón es de tipo númerico (0,1,2, ...,9) o de operando (+,-,/,*,=). 
 
      
 #### **2.6.3 – Fase 4 – Programa completo**
 !!! warning "RA5-CEh"
-    <!-- primero definiremos una variable de control **valor_pantalla** como stringVar() -->
-    <!-- El problema de tu implementación actual es conceptual: -->
-    <!-- la calculadora solo guarda un operador y dos operandos (primer_numero y segundo_numero). -->
+    **Etapa 11:**
 
-<!-- https://www.youtube.com/watch?v=oIzt6ESA7nU&list=PLU8oAlHdN5BlvPxziopYZRd55pdqFwkeS&index=52 -->
-<!-- https://www.youtube.com/watch?v=oIzt6ESA7nU&list=PLU8oAlHdN5BlvPxziopYZRd55pdqFwkeS&index=53 -->
+    - Crear la lógica que permita devolver el resultado de la operación. 
+    - Tener en cuenta el diseño conceptual de esta práctica:
+        1. Introducimos un valor.
+        1. Introducimos un operando (+,-,/,*), guardamos el valor introducido y **borramos pantalla**.
+        1. Introducimos el operando `=`, recuperamos el valor introducido y el operando introducido anteriormente, realizamos la operación y mostramos el resultado por pantalla. 
 
-<!-- https://github.com/AutodidactaMx/Code-General-Python/blob/main/GUI%20Calculadora/formulario/form_calculadora.py -->
-<!-- https://www.youtube.com/watch?v=rXQFrTtHL9w -->
+#### **2.6.4 – Entrega del programa completo**
 
+!!! warning "Entrega de la tarea"
+    Subir la tarea a AULES en **tarea RA5-CEh**.  
+    
 
-
-
-
+    
 
 
 

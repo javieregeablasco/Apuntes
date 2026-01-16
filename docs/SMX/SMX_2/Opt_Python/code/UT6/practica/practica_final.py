@@ -62,6 +62,7 @@ from tkinter import *
 #     # etapa 4
 #     self.pantalla = Label(self.ventana, text='0', width=26, height=2, background="black", 
 #                           foreground="white", font=("Helvetica", 20), anchor="e", padx=10)
+#     self.pantalla.grid(row=0, columnspan=4, padx=5, pady=5)
 
 #     self.ventana.mainloop()
 
@@ -104,11 +105,11 @@ from tkinter import *
 #     boton1=self.crear_boton(7)
 #     boton2=self.crear_boton(8)
 #     boton3=self.crear_boton(9)
-#     boton4=self.crear_boton("\u00F7")
+#     boton4=self.crear_boton("/")
 #     boton5=self.crear_boton(4)
 #     boton6=self.crear_boton(5)
 #     boton7=self.crear_boton(6)
-#     boton8=self.crear_boton("\u002A")
+#     boton8=self.crear_boton("*")
 #     boton9=self.crear_boton(1)
 #     boton10=self.crear_boton(2)
 #     boton11=self.crear_boton(3)
@@ -253,72 +254,72 @@ from tkinter import *
 # ###############
 # #etapa 10
 # ###############
-class Calculadora:
-  def __init__(self):
-    self.ventana=Tk()
-    self.ventana.title("Calculadora")
+# class Calculadora:
+#   def __init__(self):
+#     self.ventana=Tk()
+#     self.ventana.title("Calculadora")
     
-    ########### 
-    ########### 
-    # etapa 9 #
-    self.texto_pantalla = StringVar(value="")    
-    ########### 
-    ########### 
+#     ########### 
+#     ########### 
+#     # etapa 9 #
+#     self.texto_pantalla = StringVar(value="")    
+#     ########### 
+#     ########### 
 
-    ########### 
-    # etapa 9 #
-    self.pantalla = Label(self.ventana, textvariable=self.texto_pantalla, width=26, height=2, background="black", 
-                          foreground="white", font=("Helvetica", 20), anchor="e", padx=10)
-    ########### 
+#     ########### 
+#     # etapa 9 #
+#     self.pantalla = Label(self.ventana, textvariable=self.texto_pantalla, width=26, height=2, background="black", 
+#                           foreground="white", font=("Helvetica", 20), anchor="e", padx=10)
+#     ########### 
     
-    ########### 
-    # etapa 9 #
-    boton1=self.crear_boton("7")
-    boton2=self.crear_boton("8")
-    boton3=self.crear_boton("9")
-    boton4=self.crear_boton("/")
-    boton5=self.crear_boton("4")
-    boton6=self.crear_boton("5")
-    boton7=self.crear_boton("6")
-    boton8=self.crear_boton("*")
-    boton9=self.crear_boton("1")
-    boton10=self.crear_boton("2")
-    boton11=self.crear_boton("3")
-    boton12=self.crear_boton("-")
-    boton13=self.crear_boton("0")
-    boton14=self.crear_boton(".")
-    boton15=self.crear_boton("=")
-    boton16=self.crear_boton("+")
-    ########### 
+#     ########### 
+#     # etapa 9 #
+#     boton1=self.crear_boton("7")
+#     boton2=self.crear_boton("8")
+#     boton3=self.crear_boton("9")
+#     boton4=self.crear_boton("/")
+#     boton5=self.crear_boton("4")
+#     boton6=self.crear_boton("5")
+#     boton7=self.crear_boton("6")
+#     boton8=self.crear_boton("*")
+#     boton9=self.crear_boton("1")
+#     boton10=self.crear_boton("2")
+#     boton11=self.crear_boton("3")
+#     boton12=self.crear_boton("-")
+#     boton13=self.crear_boton("0")
+#     boton14=self.crear_boton(".")
+#     boton15=self.crear_boton("=")
+#     boton16=self.crear_boton("+")
+#     ########### 
 
   
-    botones=[boton1, boton2, boton3, boton4, boton5, boton6, boton7, boton8, boton9, boton10, boton11, boton12, boton13, boton14, boton15, boton16]
-    contador=0
-    for fila in range(1,5):
-      for columna in range(4):
-        botones[contador].grid(row=fila,column=columna, padx=2, pady=2 )
-        contador+=1
+#     botones=[boton1, boton2, boton3, boton4, boton5, boton6, boton7, boton8, boton9, boton10, boton11, boton12, boton13, boton14, boton15, boton16]
+#     contador=0
+#     for fila in range(1,5):
+#       for columna in range(4):
+#         botones[contador].grid(row=fila,column=columna, padx=2, pady=2 )
+#         contador+=1
   
   
-    self.pantalla.grid(row=0, column=0, columnspan=4, padx=5, pady=5, sticky="we")
+#     self.pantalla.grid(row=0, column=0, columnspan=4, padx=5, pady=5, sticky="we")
 
-    self.ventana.mainloop()
+#     self.ventana.mainloop()
   
-  def crear_boton(self, valor):
-    print(f"Boton {valor}, creado")
-    ########### 
-    # etapa 9 #
-    return Button(self.ventana, text=valor, width=9, height=1, font=("Helvetica",15), command=lambda:self.escribir(valor) )
-    ###########
+#   def crear_boton(self, valor):
+#     print(f"Boton {valor}, creado")
+#     ########### 
+#     # etapa 9 #
+#     return Button(self.ventana, text=valor, width=9, height=1, font=("Helvetica",15), command=lambda:self.escribir(valor) )
+#     ###########
   
-  ########### 
-  # Etapa 9
-  def escribir(self,valor):
-    self.texto_pantalla.set(self.texto_pantalla.get()+valor)
-  ########### 
+#   ########### 
+#   # Etapa 9
+#   def escribir(self,valor):
+#     self.texto_pantalla.set(self.texto_pantalla.get()+valor)
+#   ########### 
    
 
-Calculadora()
+# Calculadora()
 
 ###############
 #etapa 11
