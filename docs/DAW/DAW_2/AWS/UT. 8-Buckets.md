@@ -407,7 +407,53 @@ Además, es posible suscribirse a los eventos de Amazon RDS para recibir notific
 
 #### **2.1.1 - Amazon RDS con MySQL**
 
-<!-- plantilla pagina 10 -->
+- **Preparación del entorno**.
+Para la infraestructura de red necesitaremos un mínimo de:
+    - Una VPC.
+    - Al menos dos subredes en zonas de disponibilidad distintas (preferiblemente privadas).
+    - Un grupo de seguridad para la base de datos.  
+
+- **Lanzar una instancia de Amazon RDS con MySQL**.  
+Una vez creada la infraestructura, vamos a Aurora and RDS y pulsamos **crear una base de datos**.
+![Descripción de la imagen](./ut8/RDS/rds-4.png){.cien .marco .margintop10 .marginbottom40 }  
+
+- Seleccionamos **Configuración completa** y **MySQL**.  
+![Descripción de la imagen](./ut8/RDS/rds-5.png){.cien .marco .margintop10 .marginbottom40 }  
+
+- Seleccionamos **la versión del motor** que nos propone por defecto y **entorno de pruebas**.   
+![Descripción de la imagen](./ut8/RDS/rds-6.png){.cien .marco .margintop10 .marginbottom40 }  
+
+- **Disponibilidad y durabilidad**. Al seleccionar **entorno de pruebas**, **Amazon RDS** solo desplegará **una sola instancia (Single-AZ)**, **sin configuración de alta disponibilidad (Multi-AZ)**.   
+![Descripción de la imagen](./ut8/RDS/rds-7.png){.cien .marco .margintop10 .marginbottom40 }  
+
+- **Configuración:** Damos un identificador a nuestra instancia y introducimos una contraseña. 
+![Descripción de la imagen](./ut8/RDS/rds-8.png){.cien .marco .margintop10 .marginbottom40 }  
+
+- **Configuración de la instancia**. Dejamos los opciones por defecto.
+![Descripción de la imagen](./ut8/RDS/rds-9.png){.cien .marco .margintop10 .marginbottom40 }  
+
+- **Almacenamiento**. Dejamos las opciones por defecto. 
+![Descripción de la imagen](./ut8/RDS/rds-10.png){.cien .marco .margintop10 .marginbottom40 }  
+
+- **Conectividad 1/2**. Elegimos la VPC donde se desplegará la instancia de RDS y para poder acceder a ella, le daremos un IP pública. 
+![Descripción de la imagen](./ut8/RDS/rds-11.png){.cien .marco .margintop10 .marginbottom40 }  
+
+- **Conectividad 2/2**. Elegimos el grupo de seguridad que hemos creado con la plantilla y dejamos el resto de opciones con los valores por defecto.  
+**Nota importante:** Exponer una instancia de bases de datos a internet **no se puede considerar una buena práctica del punto de vista de la seguridad informática**. 
+![Descripción de la imagen](./ut8/RDS/rds-12.png){.cien .marco .margintop10 .marginbottom40 }  
+
+- **Creación de la base de datos**. Empezará después de pulsar **crear base de datos**. 
+![Descripción de la imagen](./ut8/RDS/rds-13.png){.cien .marco .margintop10 .marginbottom40 }  
+
+- **Punto de enlace**. Una vez creada la base de datos, podremos acceder a ella a través de su punto de enlace.
+![Descripción de la imagen](./ut8/RDS/rds-14.png){.cien .marco .margintop10 .marginbottom40 }  
+
+
+#### **2.1.2 - Tarea RA4-CEb-1**
+**Escenario propuesto**
+En este caso, realizaremos un escenario más realista donde la base de datos estará en una red privada y solo se podrá tener accesa a ella desde el grupo de seguridad de una instancia en la subred pública.
+
+
 <!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/AWS/Base%20Dades/Tema%201/tema1_RDS_MySQL.pdf -->
 
 
