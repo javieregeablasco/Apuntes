@@ -405,6 +405,8 @@ Para monitorizar el rendimiento y el estado de una instancia de base de datos en
 
 Además, es posible suscribirse a los eventos de Amazon RDS para recibir notificaciones sobre cambios relevantes en una instancia de base de datos, como tareas de mantenimiento o incidencias.
 
+
+
 #### **2.1.1 - Amazon RDS con MySQL**
 
 - **Preparación del entorno**.
@@ -412,6 +414,7 @@ Para la infraestructura de red necesitaremos un mínimo de:
     - Una VPC.
     - Al menos dos subredes en zonas de disponibilidad distintas (preferiblemente privadas).
     - Un grupo de seguridad para la base de datos.  
+    - La plantilla para lanzar esta infraestrucutura se puede descargar [aquí](./ut8/RDS/plantilla.yaml) 
 
 - **Lanzar una instancia de Amazon RDS con MySQL**.  
 Una vez creada la infraestructura, vamos a Aurora and RDS y pulsamos **crear una base de datos**.
@@ -448,16 +451,18 @@ Una vez creada la infraestructura, vamos a Aurora and RDS y pulsamos **crear una
 - **Punto de enlace**. Una vez creada la base de datos, podremos acceder a ella a través de su punto de enlace.
 ![Descripción de la imagen](./ut8/RDS/rds-14.png){.cien .marco .margintop10 .marginbottom40 }  
 
+- **Conexión desde MySQL Workbench:** Introducimos el punto de enlace, el usuario y la contraseña y probamos la conexión.
+![Descripción de la imagen](./ut8/RDS/rds-15.png){.cincozero .marco .margintop10  .marginbottom40} 
+Vemos que la conexión se ha realizado correctamente... 
+![Descripción de la imagen](./ut8/RDS/rds-16.png){.treszero .marco  .marginbottom40 .margintop10 }  
+... y ya podemos trabajar con la base de datos.
+![Descripción de la imagen](./ut8/RDS/rds-17.png){.cincozero .marco .margintop10 .marginbottom40 }  
 
 #### **2.1.2 - Tarea RA4-CEb-1**
+En esta tarea, realizaremos un escenario más realista donde la base de datos estará en una red privada y solo se podrá tener acceso a ella desde el grupo de seguridad de una instancia de la subred pública.  
+
 **Escenario propuesto**
-En este caso, realizaremos un escenario más realista donde la base de datos estará en una red privada y solo se podrá tener accesa a ella desde el grupo de seguridad de una instancia en la subred pública.
-
-
-<!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/AWS/Base%20Dades/Tema%201/tema1_RDS_MySQL.pdf -->
-
-
-
+![Descripción de la imagen](../AWS/ut7/cloudformation/WIP.avif){ .doscinco }<br>
 
 
 #### **2.1.2 - Amazon RDS con Aurora**
@@ -471,27 +476,12 @@ En este caso, realizaremos un escenario más realista donde la base de datos est
 
  
 <br>
-![Descripción de la imagen](../AWS/ut7/cloudformation/WIP.avif){ .doscinco }<br>
    
  
-<!-- bbdd
-https://www.youtube.com/watch?v=07mAdMTwRHs
-https://www.youtube.com/watch?v=by0EJ4qL8ek
-
-https://www.youtube.com/watch?v=vp_uulb5phM
-https://www.youtube.com/watch?v=eK_umMYxZfM
-https://www.youtube.com/watch?v=6E30Yr2UATw
-https://www.youtube.com/watch?v=kNm0z_hRJlw
-https://www.youtube.com/watch?v=wLTFaDebTBY
-https://www.youtube.com/watch?v=BTg1JbmE3x4
-https://www.youtube.com/watch?v=tykcCf-Zz1M
-https://www.youtube.com/watch?v=rM_c7K0-tC0
-https://www.youtube.com/watch?v=ylmwaDUMV9c
+<!-- bbdd         
 https://www.youtube.com/watch?v=ciRbXZqBl7M&list=PL9nWRykSBSFithc_PvHAR1MDIFodb2lHd
-https://www.youtube.com/watch?v=snjExTzpYxE
-https://www.youtube.com/watch?v=yVVBpCddG40
 
- -->
+-->
 
 <!-- route 53... 
 cloud formation... 
@@ -501,7 +491,7 @@ Amazon Elastic File System (EFS)
 Amazon Elastic Block Store (EBS) -->
 <!--  Building Highly Available Web Application 
 https://skillbuilder.aws/learn/2WBTDQFGSV/building-highly-available-web-application/2RW7UC62ZE
-recursos de BBDD y buckets: 
+ 
 -->
   
   
@@ -515,47 +505,12 @@ Guía del usuario [EFS](https://docs.aws.amazon.com/es_es/efs/latest/ug/mounting
 Control de acceso a [buckets S3](https://docs.aws.amazon.com/es_es/AmazonS3/latest/userguide/about-object-ownership.html?icmpid=docs_amazons3_console)  
 Base de datos relacionales [AWS RDS](https://aws.amazon.com/es/rds/)  
 Guía del usuario del [AWS RDS](https://docs.aws.amazon.com/es_es/AmazonRDS/latest/UserGuide/Welcome.html)  
+Guía del usuario de [Amazon Aurora](https://docs.aws.amazon.com/es_es/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)  
 
-
-<!-- === "RA 1"
-    |RA1. Comprende los fundamentos de la computación en la nube, sus ventajas frente a sistemas tradicionales, el marco de adopción, los principios de migración y los aspectos clave de facturación, como estimación y optimización de costos.||
-    |-|-|
-    *|**a)** Se ha comprendido los conceptos fundamentales de la computación en la nube.|20%|  
-    *|**b)** Se ha demostrado la capacidad para explicar las ventajas de la nube frente a sistemas tradicionales.|20%|  
-    *|**c)** Se ha participado en actividades relacionadas con el ecosistema de servicios en la nube.|15%|
-    *|**d)** Se han identificado los principios básicos de la facturación y costos en la nube.|15%|
-    *|**e)** Se ha hecho uso correcto de herramientas para estimar y gestionar presupuestos.|15%|
-    *|**f)** Se ha participado en actividades prácticas sobre gestión de costos.|15%|
-      
-=== "RA 2"
-    |RA2. Identifica los componentes clave de la infraestructura global de la nube, diferenciando servicios principales, regiones, zonas de disponibilidad y aplicando medidas básicas de seguridad como el modelo de responsabilidad compartida, gestión de accesos y protección de datos.||
-    |-|-|
-    *|**a)** Se ha adquirido conocimiento de los componentes de una infraestructura global en la nube. |20%|
-    *|**b)** Se ha demostrado la capacidad para explorar y describir las principales categorías de servicios disponibles.|20%|
-    *|**c)** Se ha realizado una evaluación del uso adecuado de servicios básicos en ejercicios prácticos.|15%|
-    *|**d)** Se ha comprendido el modelo de responsabilidad compartida en la nube.|15%|
-    *|**e)** Se ha aplicado medidas de seguridad básicas mediante herramientas de gestión de acceso.|15%|
-    *|**f)** Se han realizado ejercicios sobre gestión de usuarios y políticas de seguridad.|15%|
-
-=== "RA 3"
-    |RA3. Diseña y configura redes virtuales y servicios de cómputo en la nube, aplicando buenas prácticas de seguridad, estrategias de balanceo de carga, escalado automático y aprovechando tecnologías serverless, contenedores y máquinas virtuales según casos de uso específicos.||
-    |-|-|
-    *|**a)** Se ha realizado el diseño y configuración de redes virtuales privadas.|20%|
-    *|**b)** Se ha aplicado buenas prácticas de seguridad en redes y arquitecturas.|20%|
-    *|**c)** Se ha participado activamente en la creación y configuración de una red funcional.|15%|
-    *|**d)** Se ha realizado la selección de servicios de computación adecuados según casos de uso.|15%|
-    *|**e)** Se ha llevado a cabo la configuración y gestión de balanceo de carga y escalado automático.|15%|
-    *|**f)** Se han desarrollado prácticas relacionadas con la optimización de recursos computacionales.|15%|
-
-=== "RA 4"
-    |RA4. Gestiona servicios de almacenamiento y bases de datos en la nube, seleccionando tecnologías adecuadas para casos específicos, y diseña arquitecturas escalables y resilientes utilizando herramientas de monitoreo y optimización para mejorar el rendimiento.||
-    |-|-|
-    *|**a)** Se ha realizado la diferenciación entre tecnologías de almacenamiento en la nube.|20%|
+ 
     |**b)** Se ha llevado a cabo la configuración y gestión de bases de datos en un entorno de nube.|20%|
     |**c)** Se ha trabajado en la resolución de problemas prácticos sobre almacenamiento y bases de datos.|20%|
-    *|**d)** Se ha diseñado arquitecturas escalables y resilientes basadas en las mejores prácticas.|20%|
-    *|**e)** Se ha hecho uso de herramientas de monitoreo y recomendaciones de optimización.|10%|
-    *|**f)** Se ha participado en actividades que simulen el análisis y mejora de arquitecturas existentes.|10%| -->
+ 
 
 
 
