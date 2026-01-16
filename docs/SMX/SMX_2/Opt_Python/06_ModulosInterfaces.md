@@ -1962,7 +1962,7 @@ La práctica se hará por fases y cada fase será evaluada de acuerdo con los cr
     - Crear la lógica que permita devolver el resultado de la operación. 
     - Tener en cuenta el diseño conceptual de esta práctica:
         1. Introducimos un valor.
-        1. Introducimos un operando (+,-,/,*), guardamos el valor introducido y **borramos pantalla**.
+        1. Introducimos un operando (+,-,/,*), guardamos el valor introducido y <strong>borramos pantalla</strong>.
         1. Introducimos el operando `=`, recuperamos el valor introducido y el operando introducido anteriormente, realizamos la operación y mostramos el resultado por pantalla. 
 
 #### **2.6.4 – Entrega del programa completo**
