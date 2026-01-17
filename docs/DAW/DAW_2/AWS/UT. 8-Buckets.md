@@ -300,7 +300,7 @@ Accedemos al servicio S3 para crear el bucket. Es importante recordar que el esp
 ![Descripción de la imagen](./ut8/S3/s3-13.png){.nuevezero .marco .marginbottom40 }  
 
 #### **1.4.4 - Permitir acceso a los objetos de un bucket S3**
-- Para permitir el acceso a los objetos volvemos al bucket S3 y editamos las reglas de bloque del acceso público.  
+- Para permitir el acceso a los objetos volvemos al bucket S3 y editamos las reglas de bloqueo del acceso público.  
 ![Descripción de la imagen](./ut8/S3/s3-24.png){.nuevezero .marco .margintop10  }  
 ![Descripción de la imagen](./ut8/S3/s3-19.png){.nuevezero .marco  }  
 ![Descripción de la imagen](./ut8/S3/s3-20.png){.nuevezero .marco .marginbottom40}  
@@ -409,15 +409,18 @@ Además, es posible suscribirse a los eventos de Amazon RDS para recibir notific
 
 #### **2.1.1 - Amazon RDS con MySQL**
 
-- **Preparación del entorno**.
+!!! tip "Preparación del entorno"
 Para la infraestructura de red necesitaremos un mínimo de:
-    - Una VPC.
-    - Al menos dos subredes en zonas de disponibilidad distintas (preferiblemente privadas).
-    - Un grupo de seguridad para la base de datos.  
-    - La plantilla para lanzar esta infraestrucutura se puede descargar [aquí](./ut8/RDS/plantilla.yaml) 
 
-- **Lanzar una instancia de Amazon RDS con MySQL**.  
-Una vez creada la infraestructura, vamos a Aurora and RDS y pulsamos **crear una base de datos**.
+- Una VPC.
+- Al menos dos subredes en zonas de disponibilidad distintas (preferiblemente privadas).
+- Un grupo de seguridad para la base de datos.  
+- La plantilla para lanzar esta infraestrucutura se puede descargar [aquí](./ut8/RDS/plantilla.yaml) 
+
+---
+
+!!! tip "Lanzar una instancia de Amazon RDS con MySQL"  
+- Una vez creada la infraestructura, vamos a Aurora and RDS y pulsamos **crear una base de datos**.
 ![Descripción de la imagen](./ut8/RDS/rds-4.png){.cien .marco .margintop10 .marginbottom40 }  
 
 - Seleccionamos **Configuración completa** y **MySQL**.  
@@ -445,27 +448,134 @@ Una vez creada la infraestructura, vamos a Aurora and RDS y pulsamos **crear una
 **Nota importante:** Exponer una instancia de bases de datos a internet **no se puede considerar una buena práctica del punto de vista de la seguridad informática**. 
 ![Descripción de la imagen](./ut8/RDS/rds-12.png){.cien .marco .margintop10 .marginbottom40 }  
 
-- **Creación de la base de datos**. Empezará después de pulsar **crear base de datos**. 
+---
+!!! tip "Creación de la base de datos"
+
+- Empezará después de pulsar **crear base de datos**. 
 ![Descripción de la imagen](./ut8/RDS/rds-13.png){.cien .marco .margintop10 .marginbottom40 }  
 
 - **Punto de enlace**. Una vez creada la base de datos, podremos acceder a ella a través de su punto de enlace.
 ![Descripción de la imagen](./ut8/RDS/rds-14.png){.cien .marco .margintop10 .marginbottom40 }  
 
-- **Conexión desde MySQL Workbench:** Introducimos el punto de enlace, el usuario y la contraseña y probamos la conexión.
+---
+!!! tip "Conexión desde MySQL Workbench"
+- Introducimos el punto de enlace, el usuario y la contraseña y probamos la conexión.
 ![Descripción de la imagen](./ut8/RDS/rds-15.png){.cincozero .marco .margintop10  .marginbottom40} 
-Vemos que la conexión se ha realizado correctamente... 
+- Vemos que la conexión se ha realizado correctamente... 
 ![Descripción de la imagen](./ut8/RDS/rds-16.png){.treszero .marco  .marginbottom40 .margintop10 }  
-... y ya podemos trabajar con la base de datos.
+- ... y ya podemos trabajar con la base de datos.
 ![Descripción de la imagen](./ut8/RDS/rds-17.png){.cincozero .marco .margintop10 .marginbottom40 }  
 
 #### **2.1.2 - Tarea RA4-CEb-1**
 En esta tarea, realizaremos un escenario más realista donde la base de datos estará en una red privada y solo se podrá tener acceso a ella desde el grupo de seguridad de una instancia de la subred pública.  
+Además usaremos las características de redundancia y disponibilidad (2 réplicas de lectura y despliegue multi-AZ) para mejorar la calidad del servicio.
 
-**Escenario propuesto**
+- **Modificar la VPC**. En este caso RDS requiere de 3 subredes en 3 zonas de disponibilidad distintas, así pues, añadiremos 2 subredes (una pública y otra privada) a nuestra VPC.
+![Descripción de la imagen](./ut8/RDS/ra4ceb-4.png){.cien .marco .margintop10 .marginbottom40 }  
+
+- **Crear el servicio RDS com MySQL:** Esta vez elegimos **desarrollo y prueba** e implementación de clúster multi-AZ.
+![Descripción de la imagen](./ut8/RDS/ra4ceb-1.png){ .marco .margintop10 .marginbottom40 }  
+
+- En **configuración** elegimos **autoadministrado**.
+![Descripción de la imagen](./ut8/RDS/ra4ceb-2.png){.cien .marco .margintop10 .marginbottom40 }  
+
+- En **conectividad**, si hemos creado una instancia EC2 (para este case una máquina Ubuntu), elegimos **conectarse a un recurso de EC2**.
+**Nota:** Por algún motivo desconocido AWS no reconoce automáticamente las nuevas subredes. Tendremos que añadirlas manualmente.
+![Descripción de la imagen](./ut8/RDS/ra4ceb-3.png){.cien .marco .margintop10 .marginbottom40 }
+Primero las seleccionamos.  
+![Descripción de la imagen](./ut8/RDS/ra4ceb-5.png){.cien .marco .margintop10 .marginbottom40 }  
+Le damos a refrescar y luego podremos continuar con la configuración de nuestro cluster RDS.  
+![Descripción de la imagen](./ut8/RDS/ra4ceb-6.png){.cien .marco .margintop10 .marginbottom40 }  
+
+- En **grupo de seguridad**, podemos elegir el que hemos creado en la práctica anterior.
+![Descripción de la imagen](./ut8/RDS/ra4ceb-7.png){.cien .marco .margintop10 .marginbottom40 }  
+
+- **Implementación del cluster RDS.** Después de crear la base de datos veremos el progreso de su despliegue.
+![Descripción de la imagen](./ut8/RDS/ra4ceb-8.png){.cien .marco .margintop10 .marginbottom40 }  
+
+- Con el despliegue finalizado, podremos ver los puntos de conexión (lectura/escritura y solo lectura).
+![Descripción de la imagen](./ut8/RDS/ra4ceb-11.png){.cien .marco .margintop10 .marginbottom40 }  
+
+- Modificamos el grupo de seguridad del cluster para que solo acepte conexiones desde el grupo de seguridad de la instancia EC2.  
+<mark>Realizar captura de pantalla</mark> 
+![Descripción de la imagen](./ut8/RDS/ra4ceb-10.png){.cien .marco .margintop10 .marginbottom40 }  
+
+- También podemos ver como ha quedado la configuración del grupo de seguridad de la instancia EC2.  
+**Nota:** En la imagen podemos ver el nuevo grupo de seguridad y también el de la práctica anterior. 
+![Descripción de la imagen](./ut8/RDS/ra4ceb-9.png){.cien .marco .margintop10 .marginbottom40 }  
+
+- Accedemos a la instancia y nos conectamos a la base de datos desde **el punto de acceso escritor**.  
+<mark>Realizar captura de pantalla</mark> 
+![Descripción de la imagen](./ut8/RDS/ra4ceb-12.png){.sietecinco .margintop10 .marginbottom40 }  
+Creamos una base de datos.  
+<mark>Realizar captura de pantalla</mark> 
+![Descripción de la imagen](./ut8/RDS/ra4ceb-13.png){.treszero .margintop10 }  
+![Descripción de la imagen](./ut8/RDS/ra4ceb-13-1.png){.doszero .marginbottom40 }  
+
+- Si ahora accedemos desde **el punto de acceso lector** veremos que no podemos crear nada.  
+<mark>Realizar captura de pantalla</mark> 
+![Descripción de la imagen](./ut8/RDS/ra4ceb-14.png){.sietecinco .margintop10 .marginbottom40 }  
+
+- Si provocamos **un fallo del cluster RDS** veremos como AWS se encarga de cambiar la instancia escritora a otra instancia del cluster **sin modificar los puntos de conexión**. 
+![Descripción de la imagen](./ut8/RDS/ra4ceb-15.png){.cien .marco .margintop10 }  
+![Descripción de la imagen](./ut8/RDS/ra4ceb-16.png){.cincozero .marco .marginbottom40 }
+<mark>Realizar captura de pantalla</mark> 
+![Descripción de la imagen](./ut8/RDS/ra4ceb-17.png){.cincozero .marco .margintop10 .marginbottom40 }  
+
+!!! tip "¿Qué situaciones activan una conmutación por error?"
+    El **failover** no solo ocurre cuando algo "explota". Se activa automáticamente ante:
+    
+    - Pérdida de disponibilidad en la zona de disponibilidad primaria.
+    - Pérdida de conectividad de red con la instancia principal.
+    - Fallo en el hardware de la unidad física.
+    - Mantenimiento del sistema: Como cambios en el tipo de instancia o parches del sistema operativo (AWS realiza el failover para que el tiempo de inactividad sea mínimo).
+
+    Cuando ocurre una conmutación por error, Amazon RDS cambia automáticamente la base de datos principal (primaria) a una instancia de respaldo (standby) ubicada en otra zona de disponibilidad. Esto sucede de forma transparente, minimizando el tiempo de inactividad. Durante este proceso, el tráfico de la base de datos se redirige a la nueva instancia primaria sin intervención del usuario. Después de la conmutación, la base de datos en la zona original se vuelve una instancia de respaldo y permanece en espera de posibles fallos futuros. Este enfoque asegura **alta disponibilidad y recuperación ante desastres** en entornos de producción.
+
+
+!!! warning "Condiciones de entrega de la tarea RA4-CEb-1"
+    1. Realizar capturas de pantalla de los puntos señalados.
+    1. Comentar brevemente cada captura para entender a qué corresponde y subir el documento a la tarea correspondiente de AULES.
+    1. Después de completar la tarea, **eliminar el cluster o restablecer inmediatamente el laboratorio**, al ser los costes del cluster **muy elevados**. 
+
+---
+
+#### **2.1.3 - Amazon RDS con Aurora**
+!!! tip "Introducción:"  
+**Amazon Aurora** es un motor de base de datos relacional compatible con **MySQL** y **PostgreSQL** diseñado específicamente para la nube. Se integra dentro del servicio gestionado **Amazon RDS**, facilitando la administración, el escalado y la seguridad de las bases de datos.
+<br>
+
+!!! tip "Ventajas Principales:"  
+
+Al ser un motor nativo de AWS, Aurora ofrece beneficios superiores a las implementaciones tradicionales:
+
+1. **Rendimiento:** Hasta 5 veces más rápido que MySQL estándar y 3 veces más que PostgreSQL.
+1. **Coste-Efectividad:** Optimiza el uso de recursos mediante la separación de cómputo y almacenamiento.
+1. **Alta Disponibilidad:**
+    * Replica **6 copias de los datos** en 3 Zonas de Disponibilidad (AZ).
+    * Soporta la pérdida de hasta 2 copias sin afectar la escritura.
+1. **Backups Continuos:** Realiza copias de seguridad automáticas y constantes en **Amazon S3**, permitiendo la recuperación en cualquier punto del tiempo (PITR).
+
+!!! tip "¿Por qué elegir Aurora sobre RDS MySQL estándar?"
+
+1. **Almacenamiento Auto-escalable:** No es necesario pre-aprovisionar espacio; el almacenamiento crece automáticamente hasta 128 TiB (según la demanda).  
+1. **Failover Veloz:** La conmutación por error (Failover) se completa generalmente en menos de 30 segundos, mejorando la continuidad del negocio.
+1. **Arquitectura de Lectura:** Permite hasta 15 réplicas con una latencia de replicación de milisegundos, ya que todas las instancias comparten el mismo volumen de almacenamiento virtual.
+![Descripción de la imagen](./ut8/EURORA/EUR-1.png){.cien .marco .margintop10 .marginbottom40 }  
+
+!!! tip "Aurora serverless"
+Amazon Aurora Serverless es una variante de Aurora que funciona bajo demanda, es decir, sin que tengas que gestionar instancias fijas de base de datos.
+
+**Características principales:**
+
+- **Escalado automático:** Ajusta de forma automática la capacidad de cómputo, escalando hacia arriba si hay picos de tráfico y hacia abajo, llegando a “pausarse” si hay pocas consultas.
+- **Pago por uso:** Solo se paga por la capacidad de cómputo que realmente se usa. Esta capacidad se mide en ACUs (Aurora Capacity Units).
+- **Gestión simplificada:** No es necesario calcular el tamaño ni el número de instancias.
+
+!!! tip "Lanzar un clúster de Amazon RDS con Aurora" 
+8/14
 ![Descripción de la imagen](../AWS/ut7/cloudformation/WIP.avif){ .doscinco }<br>
 
-
-#### **2.1.2 - Amazon RDS con Aurora**
 <!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/AWS/Base%20Dades/Tema%202/tema2_RDS_Aurora.pdf -->
 ### **2.2 - Bases de datos NoSQL: Amazon DynamoDB**
 <!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/AWS/Base%20Dades/Tema%203/tema3_DynamoDB.pdf -->
