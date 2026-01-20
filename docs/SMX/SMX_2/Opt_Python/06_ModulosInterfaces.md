@@ -1959,7 +1959,7 @@ La práctica se hará por fases y cada fase será evaluada de acuerdo con los cr
 #### **2.6.4 – Fase 4 – Programa completo**
 !!! warning "RA5-CEh"
     **Etapa 11: Realizar las operaciones**
-    !!! danger "No usar eval() para la redacción del código"
+    !!! danger "No usar la función incorporada **eval()** para la redacción del código"
         ¡¡¡¡No se permite el uso de la función eval() para la redacción del código!!!!
     - Crear la lógica que permita guardar el valor introducido en pantalla y el operando pulsado (+,-,/,*).
     - Crear la lógica que permita devolver el resultado de la operación. 

@@ -459,14 +459,14 @@ Para la infraestructura de red necesitaremos un mínimo de:
 
 ---
 !!! tip "Conexión desde MySQL Workbench"
-- Introducimos el punto de enlace, el usuario y la contraseña y probamos la conexión.
-<mark>Realizar captura de pantalla</mark> 
+- Introducimos el punto de enlace, el usuario y la contraseña y probamos la conexión.  
+ 
 ![Descripción de la imagen](./ut8/RDS/rds-15.png){.cincozero .marco .margintop10  .marginbottom40} 
-- Vemos que la conexión se ha realizado correctamente... 
-<mark>Realizar captura de pantalla</mark> 
+- Vemos que la conexión se ha realizado correctamente...   
+ 
 ![Descripción de la imagen](./ut8/RDS/rds-16.png){.treszero .marco  .marginbottom40 .margintop10 }  
-- ... y ya podemos trabajar con la base de datos.
-<mark>Realizar captura de pantalla</mark> 
+- ... y ya podemos trabajar con la base de datos.  
+ 
 ![Descripción de la imagen](./ut8/RDS/rds-17.png){.cincozero .marco .margintop10 .marginbottom40 }  
 
 #### **2.1.2 - Tarea RA4-CEb-1**
