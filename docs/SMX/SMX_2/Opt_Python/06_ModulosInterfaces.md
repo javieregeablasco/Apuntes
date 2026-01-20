@@ -1939,7 +1939,8 @@ La práctica se hará por fases y cada fase será evaluada de acuerdo con los cr
     - **Nota 1:** Para evitar de reescribir 16 veces el mismo código pensar en realizar un(os) bucle(s).  
     - **Nota 2:** Si decidís, crear un(os) bucle(s), primero crear **una variable de tipo lista** que contendrá los widgets. Por ejemplo: lista = [boton1, boton2, ..., boton15, boton16].   
     
-#### **2.6.2 – Fase 3 – Creación de los eventos**
+#### **2.6.3 – Fase 3 – Creación de los eventos**
+
 !!! warning "RA5-CEg"
     En esta fase elaboraremos los eventos desencadenados después de pulsar los botones. Dicho de otra manera, daremos la funcionalidad a la calculadora.   
 
@@ -1955,17 +1956,19 @@ La práctica se hará por fases y cada fase será evaluada de acuerdo con los cr
     - En esta etapa, mejoraremos las líneas de código de la etapa 9 para que, además del valor del botón que hemos pulsado, sepamos si el botón es de tipo númerico (0,1,2, ...,9) o de operando (+,-,/,*,=). 
 
      
-#### **2.6.3 – Fase 4 – Programa completo**
+#### **2.6.4 – Fase 4 – Programa completo**
 !!! warning "RA5-CEh"
     **Etapa 11: Realizar las operaciones**
-
+    !!! danger "No usar eval() para la redacción del código"
+        ¡¡¡¡No se permite el uso de la función eval() para la redacción del código!!!!
+    - Crear la lógica que permita guardar el valor introducido en pantalla y el operando pulsado (+,-,/,*).
     - Crear la lógica que permita devolver el resultado de la operación. 
     - Tener en cuenta el diseño conceptual de esta práctica:
         1. Introducimos un valor.
         1. Introducimos un operando (+,-,/,*), guardamos el valor introducido y <strong>borramos pantalla</strong>.
         1. Introducimos el operando **=**, recuperamos el valor introducido y el operando introducido anteriormente, realizamos la operación y mostramos el resultado por pantalla. 
 
-#### **2.6.4 – Entrega del programa completo**
+#### **2.6.5 – Entrega del programa completo**
 
 !!! warning "Entrega de la tarea"
     Subir la tarea a AULES en **tarea RA5-CEh**.  

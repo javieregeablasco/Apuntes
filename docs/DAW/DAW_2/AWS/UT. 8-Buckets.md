@@ -564,7 +564,7 @@ Al ser un motor nativo de AWS, Aurora ofrece beneficios superiores a las impleme
 ![Descripción de la imagen](./ut8/EURORA/EUR-1.png){.cien .marco .margintop10 .marginbottom40 }  
 
 !!! tip "Aurora serverless"
-Amazon Aurora Serverless es una variante de Aurora que funciona bajo demanda, es decir, sin que tengas que gestionar instancias fijas de base de datos.
+Amazon Aurora Serverless es una variante de Aurora que funciona bajo demanda, es decir, sin necesidad de gestionar instancias fijas de base de datos.
 
 **Características principales:**
 

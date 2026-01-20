@@ -97,6 +97,7 @@ nav:
     - UT 4 Programación orientada a objetos: SMX/SMX_2/Opt_Python/04_POO.md
     - UT 5 Manejo de ficheros: SMX/SMX_2/Opt_Python/05_AccesoDatosBasico.md
     - UT 6 Interfaces gráficas: SMX/SMX_2/Opt_Python/06_ModulosInterfaces.md
+    - UT 7 Manipulación de datos: SMX/SMX_2/Opt_Python/07_BBDD.md
 
   - Cloud Computing:
     - Presentación módulo: DAW/DAW_2/AWS/UT. 0-Temario.md
