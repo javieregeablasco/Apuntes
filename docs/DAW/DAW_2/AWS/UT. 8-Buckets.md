@@ -577,7 +577,132 @@ Amazon Aurora Serverless es una variante de Aurora que funciona bajo demanda, es
 ![Descripción de la imagen](../AWS/ut7/cloudformation/WIP.avif){ .doscinco }<br>
 
 <!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/AWS/Base%20Dades/Tema%202/tema2_RDS_Aurora.pdf -->
+
 ### **2.2 - Bases de datos NoSQL: Amazon DynamoDB**
+
+Amazon DynamoDB es una base de datos NoSQL (Not only SQL) totalmente gestionada por AWS, orientada a modelos clave-valor y documental. Está diseñada para ofrecer latencias de milisegundos de un solo dígito, independientemente del tamaño de los datos o del volumen de tráfico.
+
+DynamoDB es un **servicio serverless**, por lo que el usuario no gestiona servidores, clústeres ni nodos. La escalabilidad, la replicación y la alta disponibilidad son gestionadas automáticamente por AWS.
+
+Entre sus principales características se encuentran:
+
+- Es una base de datos NoSQL (Not Only SQL) de tipo clave-valor y documentos.
+- Ofrece escalabilidad horizontal automática, ajustando la capacidad según la carga de trabajo sin intervención del usuario.
+- Proporciona alta disponibilidad y durabilidad, replicando los datos automáticamente en múltiples zonas de disponibilidad (AZ) dentro de una región.
+- Tiene un SLA del 99.99% para tablas regionales, que puede alcanzar el 99.999% cuando se utilizan Global Tables.
+- Utiliza un modelo de pago por uso, basado principalmente en:
+    - Capacidad de lectura y escritura (modo bajo demanda u aprovisionado).
+    - Almacenamiento de datos.
+    - Transferencia de datos y características adicionales (streams, backups, etc.).
+
+En DynamoDB, los datos se organizan de la siguiente forma:
+- Una tabla es una colección de elementos (items).
+- Un item es una colección de atributos.
+- Un atributo es un par clave-valor.
+
+Cada tabla debe definir una clave primaria, que puede ser:
+
+- Clave simple: formada únicamente por una clave de partición.
+- Clave compuesta: formada por una clave de partición y una clave de clasificación (sort key).
+
+DynamoDB permite crear índices secundarios globales (GSI), que habilitan consultas eficientes utilizando atributos distintos de la clave primaria. Estos índices tienen su propia clave de partición y, opcionalmente, clave de clasificación.
+
+
+
+---
+
+#### **2.2.1 - Tipos de datos en DynamoDB**
+DynamoDB soporta distintos tipos de datos. Todos los atributos deben declararse de forma explícita indicando su tipo.
+
+!!! tip "Tipos escalares"
+Representan un único valor y pueden ser de los siguientes tipos:
+
+- **Number (N):** Valores numéricos, enteros o decimales (se almacenan como texto).
+```json
+"Edad": { "N": "38" }
+```
+- **String (S):** cadenas de texto Unicode.
+```json
+"Nombre": { "S": "Carla" }
+```
+- **Binary (B):** Datos binarios codificados en Base64.
+```json   
+"Imagen": { "B": "bXkgc3VwZXIgc64jcmV0IHRlehrsh" }
+```
+- **Boolean (BOOL):** valores booleanos.
+```json
+"Beca": { "BOOL": false }
+```
+
+- **Null (NULL):** Valor nulo.
+```json
+"Direccion": { "NULL": true }
+```
+
+!!! tip "Tipos compuestos"
+Representan colecciones de valores y pueden ser de los siguientes tipos:
+
+- **List (L):** Lista ordenada de valores, que pueden ser de distintos tipos.
+```json                     
+"Prestados": {
+  "L": [
+    { "S": "Libro" },
+    { "N": "23" }
+  ]
+}
+```
+
+- **Map (M):** Conjunto de pares clave-valor que permite estructuras anidadas.
+```json
+"Hijos": {
+  "M": {
+    "Marc": {
+      "M": {
+        "Relacion": { "S": "Hijo" },
+        "Edad": { "N": "12" }
+      }
+    },
+    "Ana": {
+      "M": {
+        "Relacion": { "S": "Hija" },
+        "Edad": { "N": "7" },
+        "ColorPelo": { "S": "Rubio" }
+      }
+    }
+  }
+}
+
+```
+
+
+!!! tip "Tipos de conjuntos (Sets)"
+Representan colecciones no ordenadas de **valores únicos** (no permiten duplicados) del mismo tipo. Pueden ser de los siguientes tipos:
+
+- **String set (SS):** Lista de strings.
+```json
+"Hijos": { "SS": ["Marc", "Ana"] }
+```
+
+- **Number set (NS):** Lista de números.
+```json
+"Numeros": { "NS": [ "2256", "4545" ] }
+```
+
+- **Binary set (BS):** Lista de valores binarios.
+```pynamodb
+"Imagenes": {
+  "BS": [
+    "aGVsbG93b3JsZA==",
+    "c2VjcmV0cw=="
+  ]
+}
+```
+
+
+
+
+
+
 <!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/AWS/Base%20Dades/Tema%203/tema3_DynamoDB.pdf -->
 ### **2.3 - ElastiCache**
 <!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/AWS/Base%20Dades/Tema%204/tema4_ElastiCache.pdf -->
