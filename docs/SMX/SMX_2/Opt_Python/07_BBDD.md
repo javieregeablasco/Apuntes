@@ -626,7 +626,7 @@ Otros ejemplos:
     ```py
     r'\b[A-Z]+\b'
     ```
-    ¿Coincide con "HELLO", "HelLO", "WORLD" o "world"? 
+    ¿Coincide con "HELLO", "Hello", "WORLD", "HELLOWORD"? 
 
 !!! exercise "Ejercicio 2"
     ¿A qué corresponde el regex?
@@ -638,25 +638,21 @@ Otros ejemplos:
 !!! exercise "Ejercicio 3"
     ¿A qué corresponde el regex?
     ```py
-    r'\b(0[1-9]|[12][0-9]|3[01])[-\/](0[1-9]|1[0-2])[-\/](\d{4})\b'
+    r'(0[1-9]|[12][0-9]|3[01])[-\/](0[1-9]|1[0-2])[-\/](\d{4})'
     ```
     
 !!! exercise "Ejercicio 4"
     ¿A qué corresponde el regex?
     ```py
-    r'https?://(www\.)?[a-zA-Z0-9.-]+\.[a-z]{2,3}(/[a-zA-Z0-9._%+-\?]*)*'
-    ```
-    
-<!-- ################
-revisar
-################ -->
+    r'https?://(www\.)?[a-zA-Z0-9.-]+\.[a-z]{2,3}(/[a-zA-Z0-9._%+-?]*)*'
+   ```
 
 !!! exercise "Ejercicio 5"
     ¿A qué corresponde el regex?
     ```py
-    r'\b((25[0-5]|2[0-4][0-9]|1[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\b'
+    r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}'
     ```
-    Coincide con 3.14", "-100", "+0.5", "abc" o "12."? 
+    
     
 #### **1.9.5 - Módulo re**
 El módulo `re` proporciona varias funciones para trabajar con expresiones regulares, como `match()`, `search()`, `findall()`, `sub()`, entre otras.
