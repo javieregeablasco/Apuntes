@@ -2,7 +2,7 @@
 ciclo: CFGM - Técnico en Sistemas Microinformáticos y Redes
 title: Introducción a la programación en Python
 modulo number: 
-lesson: UD. 6 - Modulos e interfaces gráficas  
+lesson: UD. 7 - Manipulación y validación de datos  
 author: Javier Egea Blasco  
 layout: default  
 year: 25-26  
@@ -12,7 +12,7 @@ schedule: 96h - 3h/w
 
 # **UT 7 - Manipulación y validación de datos**
 
-![Descripción de la imagen](../Opt_Python/img/UT6/tk.jpg){ .cincozero }
+![Descripción de la imagen](../Opt_Python/img/UT7/md-1.png){ .sietecinco}
 
 <br>
 
@@ -507,6 +507,270 @@ for letras in range(20):
   print(next(ciudades_generadas), end="_")
 ```
 
+### **1.9 - Funciones avanzadas para el tratamiento de datos**
+#### **1.9.1 - Función map()**
+La función `map()` aplica una función específica a cada elemento de un iterable (como una lista o una tupla) y devuelve un iterador con los resultados.
+
+```py
+# Ejemplo de uso de map()
+def cuadrado(x):
+    return x ** 2
+numeros = [1, 2, 3, 4, 5]
+resultados = map(cuadrado, numeros)  # Aplica la función cuadrado a cada elemento de la lista numeros
+print(list(resultados))  # Salida: [1, 4, 9, 16, 25]
+```
+#### **1.9.2 - Función filter()**
+La función `filter()` filtra los elementos de un iterable basándose en una función que devuelve un valor booleano (True o False). Devuelve un iterador con los elementos que cumplen la condición.
+
+```py
+# Ejemplo de uso de filter()
+def es_par(x):
+    return x % 2 == 0
+numeros = [1, 2, 3, 4, 5, 6]
+resultados = filter(es_par, numeros)  # Filtra los números pares de la lista
+print(list(resultados))  # Salida: [2, 4, 6]
+```
+
+#### **1.9.3 - Expresiones regulares**
+Las expresiones regulares (regular expressions / regex / parsing) permiten buscar o manipular cadenas de texto basándose en **patrones específicos**. En Python, el módulo `re` proporciona funciones para trabajar con expresiones regulares que resulta muy útil para validar formatos de datos, como correos electrónicos, números de teléfono, códigos postales, etc.
+
+**Ejemplo:**  
+```py
+import re
+# Ejemplo de uso de expresiones regulares
+patron = r'\b\d{3}-\d{2}-\d{4}\b'  # Patrón para un número de seguro social (SSN)
+texto = "Mi número de seguro social es 123-45-6789."
+coincidencias = re.findall(patron, texto)  # Busca todas las coincidencias del patrón en el texto
+print(coincidencias)  # Salida: ['123-45-6789']
+```
+
+!!! tip "Sintaxis básica de expresiones regulares"
+Una expresión regular es una secuencia de caracteres diseñada para describir un fragmento de texto. Esta secuencia de caracteres también se denomina **patrón** y consta de dos tipos de caracteres:
+
+- **Caracteres normales:** Son aquellos que se representan a sí mismos en el patrón. Por ejemplo, la letra "a" en una expresión regular coincide con la letra "a" en el texto.
+- **Metacaracteres:** Son caracteres especiales que tienen un significado particular en las expresiones regulares. Por ejemplo, el carácter `^` indica el comienzo de una nueva línea o de una cadena de caracteres.
+
+!!! tip "Tabla de metacaracteres y significado"
+
+| Símbolo | Nombre / Uso principal              | Significado |
+|--------|-------------------------------------|-------------|
+| `^`    | Ancla de inicio                     | Indica el **inicio de la cadena** |
+| `$`    | Ancla de fin                        | Indica el **final de la cadena** |
+| `.`    | Punto                               | Coincide con **cualquier carácter**, excepto salto de línea (`\n`) |
+| `[]`   | Clase de caracteres                 | Coincide con **uno de los caracteres** definidos dentro del [] |
+| `\`    | Escape                              | Escapa un metacarácter o introduce una **secuencia especial** |
+| `*`    | Cero o más                          | Coincide con **cero o más repeticiones** del elemento anterior o expresión entre paréntesis |
+| `+`    | Uno o más                           | Coincide con **una o más repeticiones** del elemento anterior o expresión entre paréntesis |
+| `?`    | Opcional / cuantificador no codicioso | Coincide con **cero o una repetición** del elemento anterior o expresión entre paréntesis |
+| `{}`   | Cuantificador explícito             | Define un **número exacto o rango** de repeticiones (`{n}`, `{n,m}`) del elemento anterior o expresión entre paréntesis |
+| `()`   | Grupo                               | **Agrupa expresiones** y permite capturas |
+| `|`    | Alternancia                         | Actúa como un **OR lógico** |
+
+
+!!! tip "Secuencias especiales"
+
+El módulo `re` de Python también proporciona **secuencias especiales** que facilitan la coincidencia de **ciertos tipos de caracteres**:
+
+| Secuencia | Significado                          | Equivalente al metacarácter | 
+|-|-|-|
+| `\b`      | Coincide con un límite de palabra (inicio o fin de una palabra) | N/A |
+| `\B`      | Coincide con una posición que no es un límite de palabra | N/A | 
+| `\d`      | Coincide con cualquier dígito (0-9) | `\[0-9]` |
+| `\D`      | Coincide con cualquier carácter que no sea un dígito | `\[^0-9]` |
+| `\w`      | Coincide con cualquier carácter alfanumérico (letras, dígitos y guion bajo) | `[a-zA-Z0-9_]` |
+| `\W`      | Coincide con cualquier carácter que no sea alfanumérico | `[^a-zA-Z0-9_]` |
+| `\s`      | Coincide con cualquier carácter de espacio en blanco (espacios, tabulaciones, saltos de línea) |   `[ \t\n\r\f\v]` |
+| `\S`      | Coincide con cualquier carácter que no sea un espacio en blanco | `[^ \t\n\r\f\v]` |
+
+!!! example "Metacarácter `^`" 
+- La *regex* **^ATG** se encuentra en la cadena `ATGCGT` pero no en `CCATGTT`.
+
+!!! example "Metacarácter `$`" 
+- La *regex* **$ATG** se encuentra en la cadena `TGCATG` pero no en `CCATGTT`.
+
+!!! example "Metacarácter `.`" 
+- La *regex* **$A.G** se encuentra en la cadena `ATG` y también en `AtG`, `AtG``A5G``A*G``A&G``A G`.
+
+!!! example "Metacarácter `[]`" 
+- La *regex* **T[ABC]G** se encuentra en la cadena `TAG`, `TBG` o `TCG` pero no en `TG`, `TaG`, `T5G`, ...  
+**Otros ejemplos:** 
+- *regex* **T[A-Z]G**: cualquier letra en mayúsculas, se encuentra en la cadena `TAG`, `TBG` o `TZG` pero no en `TaG`, `T4G`, `TzG`, ...  
+- *regex* **[a-z]**: cualquier letra en minúsculas.  
+- *regex* **[0-9]**: cualquier número del 0 al 9.   
+- *regex* **[A-Za-z0-9]**: cualquier carácter alfanumérico.  
+- *regex* **^[AC]**: cualquier expresión o cadena cuyo primer carácter empiece con A o C.  
+
+!!! example "Metacarácter `\`" 
+- La *regex* **\+** designa el carácter `+` (o cualquier otro carácter especial). La  *regex* `A\.G` se encuentra en `A.G` pero no en `AG`, `A4G`, `ABG`, ...
+
+!!! example "Metacarácter `*`" 
+- La *regex* `A(CG)*T` se encuentra en `AT`, `ACGT`, `ACGCGT`, ...
+
+!!! example "Metacarácter `+`" 
+- La *regex* `A(CG)+T` se encuentra en `ACGT`, `ACGCGT`, ... pero no en `AT`. 
+
+!!! example "Metacarácter `?`" 
+- La *regex* `A(CG)?T` se encuentra en `AT`, `ACGT`, pero no en `ACGCGT`. 
+
+!!! example "Metacarácter `{}`" 
+- La *regex* `A(CG){2}T` se encuentra en `ACGCGT`, pero no en `ACGT`, `ACGCGCGT` o `ACGCG`.
+Otros ejemplos:
+- La *regex* `A(CG){2,4}T` (rango) se encuentra en `ACGCGT`, `ACGCGCGT`, `ACGCGCGCGT` pero no en `ACGT`, `ACGCGCGCGCGT` o `ACGCG`.
+- La *regex* `A(CG){2,}T` (al menos) se encuentra en `ACGCGT`, `ACGCGCGT`, `ACGCGCGCGT`, ... pero no en `ACGT`, o `ACGCG`.
+- La *regex* `A(CG){,2}T` (como mucho) se encuentra en `AT`, `ACGT`, `ACGCGT`, ... pero no en `ACGCGCGT`, o `ACG`.
+- La *regex* `A(CG|TT)C` (O lógico) se encuentra en `ACGC`, `ATTC` pero no en `ACGTTC`.
+
+#### **1.9.4 - Ejercicios de regex**
+!!! exercise "Ejercicio 1"
+    ¿A qué corresponde el regex?
+    ```py
+    r'\b[A-Z]+\b'
+    ```
+    ¿Coincide con "HELLO", "HelLO", "WORLD" o "world"? 
+
+!!! exercise "Ejercicio 2"
+    ¿A qué corresponde el regex?
+    ```py
+    r'[+-]?\d+(\.\d+)?'
+    ```
+    ¿Coincide con "3.14", "-100", "+0.5", "abc" o "12."? 
+
+!!! exercise "Ejercicio 3"
+    ¿A qué corresponde el regex?
+    ```py
+    r'\b(0[1-9]|[12][0-9]|3[01])[-\/](0[1-9]|1[0-2])[-\/](\d{4})\b'
+    ```
+    
+!!! exercise "Ejercicio 4"
+    ¿A qué corresponde el regex?
+    ```py
+    r'https?://(www\.)?[a-zA-Z0-9.-]+\.[a-z]{2,3}(/[a-zA-Z0-9._%+-\?]*)*'
+    ```
+    
+<!-- ################
+revisar
+################ -->
+
+!!! exercise "Ejercicio 5"
+    ¿A qué corresponde el regex?
+    ```py
+    r'\b((25[0-5]|2[0-4][0-9]|1[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\b'
+    ```
+    Coincide con 3.14", "-100", "+0.5", "abc" o "12."? 
+    
+#### **1.9.5 - Módulo re**
+El módulo `re` proporciona varias funciones para trabajar con expresiones regulares, como `match()`, `search()`, `findall()`, `sub()`, entre otras.
+
+#### **1.9.5.1 - Función search()**
+La función `search()` busca una coincidencia del patrón en cualquier parte de la cadena.
+
+```py
+import re
+# Ejemplo de uso de search()
+patron = r'[0-9]{3}-[0-9]{2}-[0-9]{4}'  # Patrón
+# patron = r'\d{3}-\d{2}-\d{4}'  # Mismo patrón con secuencias especiales
+texto = "Mi número de seguro social es 123-45-6789."
+coincidencia = re.search(patron, texto)  # Busca la primera coincidencia
+if coincidencia:
+    print("Coincidencia encontrada:", coincidencia.group())  # group() recupera el texto que ha coincidido
+else:
+    print("No se encontró ninguna coincidencia.")
+```
+
+#### **1.9.5.2 - Funciones match() y fullmatch()**
+La función `match()` busca una coincidencia del patrón al **comienzo** de la cadena, mientras que `fullmatch()` busca una coincidencia **total** que abarque **toda** la cadena.
+
+```py
+import re
+# Ejemplo de uso de match() y fullmatch()
+patron = r'\d{3}-\d{2}-\d{4}'  # Patrón
+texto1 = "123-45-6789 es mi número de seguro social."
+texto2 = "Mi número de seguro social es 123-45-6789."
+coincidencia_match = re.match(patron, texto1)  # Busca coincidencia al comienzo
+coincidencia_fullmatch = re.fullmatch(patron, texto2)  # Busca coincidencia en toda la cadena
+if coincidencia_match:
+    print("Coincidencia match encontrada:", coincidencia_match.group())
+else:
+    print("No se encontró ninguna coincidencia con match.")
+if coincidencia_fullmatch:
+    print("Coincidencia fullmatch encontrada:", coincidencia_fullmatch.group())
+else:
+    print("No se encontró ninguna coincidencia con fullmatch.")  
+```
+
+#### **1.9.5.3 - Funciones findall() y finditer()**
+La función `findall()` devuelve una lista de todas las coincidencias del patrón en la cadena, mientras que `finditer()` devuelve un iterador que produce objetos de coincidencia para cada coincidencia encontrada.
+
+```py
+import re
+# Ejemplo de uso de findall() y finditer()
+patron = r'\d{3}-\d{2}-\d{4}'  # Patrón
+texto = "Mis números de seguro social son 123-45-6789 y 987-65-4321."
+coincidencias_findall = re.findall(patron, texto)  # Devuelve una lista de todas las coincidencias
+coincidencias_finditer = re.finditer(patron, texto)  # Devuelve un iterador de objetos de coincidencia
+print("Coincidencias con findall:", coincidencias_findall)
+print(coincidencias_finditer)
+
+iteraciones =["Primera iteración: ","Segunda iteración: "]
+iterador=0
+
+for coincidencia in coincidencias_finditer:
+    print(iteraciones[iterador], coincidencia.group())
+    iterador += 1
+```
+
+#### **1.9.5.4 - Función compile()**
+La función `compile()` compila un patrón de expresión regular en un objeto de expresión regular, que se puede reutilizar para realizar múltiples búsquedas.
+
+```py
+import re
+# Ejemplo de uso de compile()
+patron = r'\d{3}-\d{2}-\d{4}'  # Patrón
+regex = re.compile(patron)  # Compila el patrón en un objeto regex  
+texto = "Mis números de seguro social son 123-45-6789 y 987-65-4321."
+coincidencias = regex.findall(texto)  # Usa el objeto regex para buscar coincidencias
+print("Coincidencias encontradas:", coincidencias)  # Salida: ['123-45-6789', '987-65-4321']
+```
+
+#### **1.9.5.5 - Función group()**
+La función `group()` se utiliza para recuperar el texto que ha coincidido con el patrón en una búsqueda.
+
+```py
+import re
+# Ejemplo de uso de group()
+patron = r'(\d{3})-(\d{2})-(\d{4})'  # Patrón con grupos
+texto = "Mi número de seguro social es 123-45-6789."
+coincidencia = re.search(patron, texto)  # Busca la primera coincidencia
+if coincidencia:
+    print("Número completo:", coincidencia.group(0))  # Grupo 0 es el texto completo que coincide
+    # print("Número completo:", coincidencia.group())  # 0 es el valor por defecto de group()
+    print("Parte 1 (AAA):", coincidencia.group(1))    # Primer grupo
+    print("Parte 2 (BB):", coincidencia.group(2))     # Segundo grupo
+    print("Parte 3 (CCCC):", coincidencia.group(3))   # Tercer grupo
+else:
+    print("No se encontró ninguna coincidencia.")
+```     
+
+#### **1.9.5.6 - Función sub()**
+La función `sub()` se utiliza para reemplazar las coincidencias del patrón en una cadena con un texto especificado.
+
+```py
+import re
+# Ejemplo de uso de sub()
+patron = r'\d{3}-\d{2}-\d{4}'  # Patrón
+texto = "Mi número de seguro social es 123-45-6789."
+texto_modificado = re.sub(patron, "ABC-DE-FGHI", texto)  # Reemplaza las coincidencias con "ABC-DE-FGHI"
+print("Texto modificado:", texto_modificado) 
+```
+
+
+<!-- https://python.sdv.u-paris.fr/17_expressions_regulieres/
+https://www.luisllamas.es/regex-ejemplos-practicos/ -->
+
+
+
+<!-- https://gitlab.com/josedom24/curso_programacion_python3/-/tree/master/curso/u36 -->
+
 
 
 
@@ -519,19 +783,14 @@ for letras in range(20):
 <!-- https://gemini.google.com/u/1/app/f1540b3c3cf5ad43?hl=es-ES -->
 
 
-
-###################################
-# hablar de los generadores en otro apartado ####
-# hablar de los accesos a los elementos de las colecciones ####
-mirar apuntes de iabd
-################################################## -->
-
+ 
   
 
 
 
 
 ### https://docs.python.org/es/3/tutorial/datastructures.html
+https://docs.python.org/es/3/library/re.html#re-syntax
 
 
 

@@ -1,0 +1,64 @@
+# import re
+# # Ejemplo de uso de search()
+# patron = r'[0-9]{3}-[0-9]{2}-[0-9]{4}'  # Patrón para un número de seguro social
+# # patron = r'\d{3}-\d{2}-\d{4}'  # Mismo patrón con secuencias especiales
+# texto = "Mi número de seguro social es 123-45-6789."
+# coincidencia = re.search(patron, texto)  # Busca la primera coincidencia
+# if coincidencia:
+#     print("Coincidencia encontrada:", coincidencia.group())  # group() recupera el texto que ha coincidido
+# else:
+#     print("No se encontró ninguna coincidencia.")
+
+
+# import re
+# # Ejemplo de uso de match() y fullmatch()
+# patron = r'\d{3}-\d{2}-\d{4}'  # Patrón
+# texto1 = "123-45-6789 es mi número de seguro social."
+# texto2 = "Mi número de seguro social es 123-45-6789."
+# coincidencia_match = re.match(patron, texto1)  # Busca coincidencia al comienzo
+# coincidencia_fullmatch = re.fullmatch(patron, texto2)  # Busca coincidencia en toda la cadena
+# if coincidencia_match:
+#     print("Coincidencia match encontrada:", coincidencia_match.group())
+# else:
+#     print("No se encontró ninguna coincidencia con match.")
+# if coincidencia_fullmatch:
+#     print("Coincidencia fullmatch encontrada:", coincidencia_fullmatch.group())
+# else:
+#     print("No se encontró ninguna coincidencia con fullmatch.")  
+
+# import re
+# # Ejemplo de uso de findall() y finditer()
+# patron = r'\d{3}-\d{2}-\d{4}'  # Patrón
+# texto = "Mis números de seguro social son 123-45-6789 y 987-65-4321."
+# coincidencias_findall = re.findall(patron, texto)  # Devuelve una lista de todas las coincidencias
+# coincidencias_finditer = re.finditer(patron, texto)  # Devuelve un iterador de objetos de coincidencia
+# print("Coincidencias con findall:", coincidencias_findall)
+# print(coincidencias_finditer)
+
+# iteraciones =["Primera iteración: ","Segunda iteración: "]
+# iterador=0
+
+# for coincidencia in coincidencias_finditer:
+#     print(iteraciones[iterador], coincidencia.group())
+#     iterador += 1
+
+
+# import re
+# # Ejemplo de uso de group()
+# patron = r'(\d{3})-(\d{2})-(\d{4})'  # Patrón con grupos
+# texto = "Mi número de seguro social es 123-45-6789."
+# coincidencia = re.search(patron, texto)  # Busca la primera coincidencia
+# if coincidencia:
+#     print("Número completo:", coincidencia.group(0))  # Grupo 0 es el texto completo que coincide
+#     # print("Número completo:", coincidencia.group())  # 0 es el valor por defecto de group()
+#     print("Parte 1 (AAA):", coincidencia.group(1))    # Primer grupo
+#     print("Parte 2 (BB):", coincidencia.group(2))     # Segundo grupo
+#     print("Parte 3 (CCCC):", coincidencia.group(3))   # Tercer grupo
+# else:
+#     print("No se encontró ninguna coincidencia.")
+
+import re
+patron = r'\d{3}-\d{2}-\d{4}'  # Patrón
+texto = "Mi número de seguro social es 123-45-6789."
+texto_modificado = re.sub(patron, "ABC-DE-FGHI", texto)  # Reemplaza las coincidencias con "ABC-DE-FGHI"
+print("Texto modificado:", texto_modificado)   
