@@ -626,7 +626,7 @@ Otros ejemplos:
     ```py
     r'\b[A-Z]+\b'
     ```
-    ¿Coincide con "HELLO", "Hello", "WORLD", "HELLOWORD"? 
+    ¿Coincide con "HELLO", "Hello", "WORLD", "HELLOWORD" o "helloWORD" ? 
 
 !!! exercise "Ejercicio 2"
     ¿A qué corresponde el regex?

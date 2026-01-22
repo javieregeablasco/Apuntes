@@ -1054,8 +1054,67 @@ WebServer:
     1. Realizar capturas de pantalla del servidor Nginx desplegado.
     1. Comentar brevemente cada captura para entender a qué corresponde y subir el documento a la tarea correspondiente de AULES.
 
+### **5.6 - IaC generator**
+El IaC Generator en AWS es una funcionalidad de AWS CloudFormation diseñada para generar **código de Infraestructura (IaC)** a partir de recursos ya existentes.  
+Su objetivo principal es facilitar la transición desde infraestructuras creadas manualmente hacia un enfoque declarativo y versionable.
 
-### **5.6 - CloudFormation + IaC + CDK**
+!!! warning "Principales limitaciones de IaC generator"
+    - No genera plantillas “perfectas” ni optimizadas
+    - Puede requerir refactorización manual
+    - No cubre todos los servicios
+    - No sustituye el diseño IaC desde cero
+     
+#### **5.6.1 - Acceder al servicio IaC generator**
+Vamos al servicio de **CloudFormation**, seleccionamos **Generador de IaC** e iniciamos un análisis de lo recursos de nuestra cuenta. 
+![Descripción de la imagen](../AWS/ut7/IACgen/IAC-1.png){ .cien .marco .margintop20   }<br>
+![Descripción de la imagen](../AWS/ut7/IACgen/IAC-2.png){ .cien .marco }<br>
+Una vez que el análisis haya terminado veremos una página similar a la siguiente.  
+
+![Descripción de la imagen](../AWS/ut7/IACgen/IAC-3.png){ .cien .marco }<br>
+
+Podremos ver un resumen de los servicios escaneados.  
+
+![Descripción de la imagen](../AWS/ut7/IACgen/IAC-4.png){ .cien .marco    }<br>
+
+Así como el detalle de los servicios.  
+
+![Descripción de la imagen](../AWS/ut7/IACgen/IAC-5.png){ .cuatrozero .marco     }<br>
+
+
+#### **5.6.2 - Crear una plantilla con IaC generator**
+Seleccionamos **Crear plantilla** y completamos los pasos previos a la creación de la plantilla.
+![Descripción de la imagen](../AWS/ut7/IACgen/IAC-6.png){ .cien .marco .margintop20   }<br>
+Como podemos ver, hay infinidad de recursos. Tendremos que seleccionarlos uno a uno.    
+
+![Descripción de la imagen](../AWS/ut7/IACgen/IAC-7.png){ .cien .marco }<br>
+![Descripción de la imagen](../AWS/ut7/IACgen/IAC-8.png){ .cien .marco }<br>
+Una vez seleccionados los recursos, nos apareceran los recursos relacionados. Tendremos que seleccionarlos... 
+
+![Descripción de la imagen](../AWS/ut7/IACgen/IAC-9.png){ .cien .marco   }<br>
+![Descripción de la imagen](../AWS/ut7/IACgen/IAC-10.png){ .cien .marco    }<br>
+
+Revisamos y creamos la plantilla.  
+
+![Descripción de la imagen](../AWS/ut7/IACgen/IAC-11.png){ .cien .marco }<br>
+
+Si salen errores es probable que hayamos seleccionado recursos huérfanos y decir recursos que por si solos no pueden crearse.
+
+![Descripción de la imagen](../AWS/ut7/IACgen/IAC-12.png){ .cien .marco    }<br>
+![Descripción de la imagen](../AWS/ut7/IACgen/IAC-13.png){ .cien .marco    }<br>
+Podemos eliminarlos o ampliar los recursos para la creación de la plantilla.  
+
+![Descripción de la imagen](../AWS/ut7/IACgen/IAC-14.png){ .cien .marco   }<br>
+
+#### **5.6.3 - Explorar la plantilla creada**
+Una vez creada la plantilla podremos explorarla, modificarla y por supuesto, guardarla.   
+
+![Descripción de la imagen](../AWS/ut7/IACgen/IAC-15.png){ .cien .marco     }<br>
+![Descripción de la imagen](../AWS/ut7/IACgen/IAC-16.png){ .cien .marco     }<br>
+
+!!! warning "Nota importante"
+    IaC generator no guarda el contenido de las instancias EC2. Para ello tendremos que crear **una AMI a partir de una instancia existente** como hemos visto en la UT6.  
+
+### **5.7 - CloudFormation + IaC + CDK**
 ![Descripción de la imagen](../AWS/ut7/cloudformation/WIP.avif){ .doscinco }<br>
 
 
