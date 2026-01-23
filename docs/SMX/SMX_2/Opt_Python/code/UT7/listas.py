@@ -1,3 +1,11 @@
+# mi_conjunto = {1, 2, 3}
+# mi_conjunto.add(3)  # Agrega el elemento 4 al conjunto  
+# print(mi_conjunto)  # Salida: {1, 2, 3, 4}
+
+mi_lista = [10, 20, 30, 40, 50]
+sublista = mi_lista[2:4]  # Obtiene los elementos desde el índice 1 hasta el 3 (4 no incluido)
+print(sublista)  # Salida: [20, 30, 40]
+
 # frutas = {"Naranja": 20, "Fresa": 30, "Limon":40, "Sandia":50 }
 
 # # for claves, valores in zip(frutas.keys(), frutas.values()):
@@ -5,9 +13,30 @@
 #   print(claves)
 #   print(valores)
 
-diccionario = {'nombre': 'Juan', 'edad': 31, 'ciudad': 'Catadau'}
-diccionario("nom")
+# lista_1 = [1,2,3,4]
+# lista_2 = ["a","b","c","d"]
+# lista_suma = lista_1+lista_2
+# lista_suma.insert(3, "nueva insercion")
+# lista_suma.remove("nueva insercion")
+# lista_1.reverse()
+# print(lista_1)
 
+# mi_diccionario = {"nombre": "Juan", "edad": 30, "ciudad": "Catadau"}
+# pares = mi_diccionario.items()  
+# print(pares)
+
+# mi_diccionario = {"nombre": "Juan", "edad": 30, "ciudad": "Catadau"}
+# valor_edad = mi_diccionario.pop("edad")  # Elimina el par clave-valor con clave "edad"
+# mi_diccionario["años"] = valor_edad  # Añade un nuevo par clave-valor con la nueva clave "años"
+# print(mi_diccionario) 
+
+# mi_diccionario = {"nombre": "Juan", "edad": 30, "ciudad": "Catadau"}
+# valor = mi_diccionario.get("edad")  # Obtiene el valor asociado a la clave "edad"
+# print(f"El valor asociado a edad es: {valor}")  # Salida: 30
+# valor_no_existente = mi_diccionario.get("pais", "No encontrado")  # Devuelve un valor predeterminado si la clave no existe
+# print(valor_no_existente)  # Salida: No especificado
+
+ 
 # Declarar el generador
 # def generador_numeros_pares(num):
 #     for i in range(num):

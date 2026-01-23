@@ -32,7 +32,7 @@ schedule: 96h - 3h/w
 ## 1 - Estructuras de datos en Python
 
 ### 1.1 - Tipos de colecciones de datos
-En unidades anteriores hemos ido utilizando estructuras de datos (listas, diccionarios, tuplas, etc.) para almacenar y manipular datos en nuestros programas. En esta sección repasaremos las diferentes estructuras de datos (o colecciones) disponibles en Python y veremos cómo utilizarlas de manera efectiva.
+En unidades anteriores hemos ido utilizando estructuras de datos (listas, diccionarios, tuplas, etc.) para almacenar y manipular datos en nuestros programas. En esta sección repasaremos las diferentes estructuras de datos ( también llamadas colecciones) disponibles en Python y veremos cómo utilizarlas de manera efectiva.
 
 - **Listas**: Son colecciones ordenadas y mutables que pueden contener elementos de diferentes tipos. Se definen utilizando corchetes `[]`. Las listas permiten agregar, eliminar y modificar elementos fácilmente.
 ```py
@@ -43,7 +43,7 @@ mi_lista = [1, 2, 3, "cuatro", 5.0]
 - **Tuplas**: Son colecciones ordenadas e inmutables que también pueden contener elementos de diferentes tipos. Se definen utilizando paréntesis `()`. Una vez creada una tupla, no se pueden modificar sus elementos.
 ```py
 # Ejemplo de tupla
-mi_tupla = (1, 2, 3, "cuatro", 5.0)
+mi_tupla = (1, 3, 2, "cuatro", 5.0)
 ```
 - **Conjuntos**: Son colecciones no ordenadas y mutables que **no permiten elementos duplicados**. Se definen utilizando llaves `{}` o la función `set()`.
 ```py
@@ -155,7 +155,7 @@ print(mi_lista)  # Salida: [1, 2, 3, 4]
 **Nota 1:** También se puede ordenar en orden descendente utilizando el argumento `reverse=True` o usando el método **.reverse()**. 
 
 ```py
-mi_lista = [4, 2, 1, 3] 
+mi_lista = [1, 2, 3, 4] 
 mi_lista.sort(reverse=True)  # Ordena la lista en orden descendente
 print(mi_lista)  # Salida: [4, 3, 2, 1]
 
@@ -211,8 +211,8 @@ El método `get()` se utiliza para obtener el valor asociado a una clave especí
 mi_diccionario = {"nombre": "Juan", "edad": 30, "ciudad": "Catadau"}
 valor = mi_diccionario.get("edad")  # Obtiene el valor asociado a la clave "edad"
 print(valor)  # Salida: 30
-valor_no_existente = mi_diccionario.get("pais", "No especificado")  # Devuelve un valor predeterminado si la clave no existe
-print(valor_no_existente)  # Salida: No especificado
+valor_no_existente = mi_diccionario.get("pais", "No encontrado")  # Devuelve un valor predeterminado si la clave no existe
+print(valor_no_existente)  # Salida: No encontrado
 ```
 
 #### **1.3.5 - Añadir, modificar elementos**
@@ -234,6 +234,15 @@ mi_diccionario = {"nombre": "Juan", "edad": 30}
 mi_diccionario.update({"ciudad": "Catadau", "edad": 31})  # Añadir/modificar múltiples pares clave-valor
 print(mi_diccionario)  # Salida: {'nombre': 'Juan', 'edad': 31, 'ciudad': 'Catadau'}
 ```
+
+!!! tip "No se puede cambiar una clave existente, pero se puede eliminar el par clave-valor y añadir uno nuevo con la clave deseada. El método `pop()` resulta particularmente útil para este propósito" 
+```py
+# Ejemplo de cambio de clave en diccionarios
+mi_diccionario = {"nombre": "Juan", "edad": 30, "ciudad": "Catadau"}
+valor_edad = mi_diccionario.pop("edad")  # Elimina el par clave-valor con clave "edad"
+mi_diccionario["años"] = valor_edad  # Añade un nuevo par clave-valor con la nueva clave "años"
+print(mi_diccionario)  # Salida: {'nombre': 'Juan', 'ciudad': 'Catadau', 'años': 30}
+```
 ### **1.4 - Métodos asociados a las tuplas**
 Las tuplas son inmutables, por lo que no tienen métodos para modificar su contenido. Sin embargo, tienen algunos métodos útiles:
 #### **1.4.1 - Método .count()**
@@ -244,6 +253,9 @@ mi_tupla = (1, 2, 3, 2, 4, 2)
 veces = mi_tupla.count(2)  # Cuenta cuántas veces aparece el número 2
 print(veces)  # Salida: 3
 ```
+
+!!! question "¿Disponen las listas del método count()?"  
+
 #### **1.4.2 - Método .index()**
 El método `index()` devuelve el índice de la primera aparición de un elemento en la tupla.
 ```py   
@@ -263,6 +275,8 @@ mi_conjunto = {1, 2, 3}
 mi_conjunto.add(4)  # Agrega el elemento 4 al conjunto  
 print(mi_conjunto)  # Salida: {1, 2, 3, 4}
 ```
+
+!!! question "¿Qué ocurrirá si hago un .add(3) sobre el ejemplo anteior?"  
 
 #### **1.5.2 - Método .remove()**
 El método `remove()` se utiliza para eliminar un elemento específico de un conjunto. Si el elemento no existe, se genera un error.
@@ -332,24 +346,6 @@ nombre = mi_diccionario["nombre"]  # Accede al valor asociado a la clave "nombre
 print(nombre)  # Salida: Juan
 ```
 
-!!! tip "De una manera similar a las listas, también se puede modificar o añadir nuevos pares clave-valor en un diccionario utilizando las claves." 
-```py
-# Ejemplo de modificación y adición de elementos en diccionarios
-mi_diccionario = {"nombre": "Juan", "edad": 30}
-mi_diccionario["edad"] = 31  # Modifica el valor asociado a la clave "edad"
-mi_diccionario["ciudad"] = "Catadau"  # Añade un nuevo par clave-valor
-print(mi_diccionario)  # Salida: {'nombre': 'Juan', 'edad': 31, 'ciudad': 'Catadau'}
-```
-
-!!! tip "No se puede cambiar una clave existente, pero se puede eliminar el par clave-valor y añadir uno nuevo con la clave deseada. El método `pop()` resulta particularmente útil para este propósito" 
-```py
-# Ejemplo de cambio de clave en diccionarios
-mi_diccionario = {"nombre": "Juan", "edad": 30, "ciudad": "Catadau"}
-valor_edad = mi_diccionario.pop("edad")  # Elimina el par clave-valor con clave "edad"
-mi_diccionario["años"] = valor_edad  # Añade un nuevo par clave-valor con la nueva clave "años"
-print(mi_diccionario)  # Salida: {'nombre': 'Juan', 'años': 30}
-```
-
 #### **1.6.3 - Acceso a elementos en conjuntos**
 Los conjuntos no permiten acceso a elementos individuales mediante índices, ya que son colecciones no ordenadas. Sin embargo, se puede verificar la existencia de un elemento en un conjunto utilizando el operador `in`.
 
@@ -360,7 +356,7 @@ existe = 3 in mi_conjunto  # Verifica si el elemento 3 está en el conjunto
 print(existe)  # Salida: True
 ```
 
-#### **1.6.4 - Slicing (rebanado)**
+#### **1.6.4 - Slicing**
 El slicing permite obtener una sublista o subtupla de una lista o tupla original, especificando un rango de índices.
 
 ```py
@@ -369,6 +365,8 @@ mi_lista = [10, 20, 30, 40, 50]
 sublista = mi_lista[1:4]  # Obtiene los elementos desde el índice 1 hasta el 3 (4 no incluido)
 print(sublista)  # Salida: [20, 30, 40]
 ```
+
+!!! question "¿Qué ocurrirá si hago un slicing de tipo mi_lista[2:] o mi_lista[:3]?"  
 
 #### **1.6.5 - Iteración sobre colecciones**
 Se puede iterar sobre los elementos de cualquier colección utilizando un bucle `for`.
@@ -406,7 +404,35 @@ print(minimo)    # Salida: 10
 print(maximo)    # Salida: 50
 ```
 
-### **1.7 - Colecciones genéricas**
+### **1.7 - Tarea RA6-CEce**
+!!! exercise "Ejercicio 1"
+    La secuencia de Fibonacci está definida por:  
+    x<sub>0</sub> = 0, x<sub>1</sub> = 1, x<sub>n+1</sub> = x<sub>n</sub> + x<sub>n-1</sub>
+
+    Escribir un programa que haga lo siguiente:  
+
+    1. Llenar una lista con 16 elementos.
+    1. Devolver la suma de los 16 elementos. 
+
+    Ejemplo de secuencia de Fibonacci: [0,1,1,2,3,5,...]
+
+!!! exercise "Ejercicio 2"
+    Realizar un programa que inicialice una lista con 10 valores aleatorios (del 1 al 10) y posteriormente haga lo siguiente:
+    
+    1. Mostrar en pantalla cada elemento de la lista junto con su cuadrado y su cubo.
+    1. Mostrar en pantalla el valor máximo de la lista.
+    1. Mostrar en pantalla el valor mínimo de la lista.
+    1. Mostrar en pantalla el valor medio de los valores con índice 3 a 7 de la lista.
+
+    **Nota:** Para generar los números aleatorios utilizar **el módulo Random**.  
+
+!!! exercise "Ejercicio 3"
+    Realizar un programa que haga lo siguiente:
+
+    1. Crear una tabla (lista con dos dimensiones) de 5x5 enteros aleatorios comprendidos entre 0 y 9.
+    1. Suma todos los elementos de cada fila y todos los elementos de cada columna visualizando los resultados en pantalla.
+    
+### **1.8 - Colecciones genéricas**
 Python permite crear clases y métodos genéricos utilizando el módulo `typing`, que proporciona herramientas para definir tipos genéricos.
 
 ```py
@@ -432,7 +458,7 @@ caja_de_cadenas.agregar("Mundo")
 print(caja_de_cadenas.obtener_elementos())  # Salida: ['Hola', 'Mundo']
 ```
 
-### **1.8 - Generadores**
+### **1.9 - Generadores**
 
 - Los generadores son una forma especial de iteradores que extraen los valores de **uno en uno** lugar de almacenar todos los valores en memoria.  
 - Hasta que no se solucite otro valor, el generador se mantiene pausado. Esta característica se conoce como **suspensión de estado**. 
@@ -507,8 +533,8 @@ for letras in range(20):
   print(next(ciudades_generadas), end="_")
 ```
 
-### **1.9 - Funciones avanzadas para el tratamiento de datos**
-#### **1.9.1 - Función map()**
+### **1.10 - Funciones avanzadas para el tratamiento de datos**
+#### **1.10.1 - Función map()**
 La función `map()` aplica una función específica a cada elemento de un iterable (como una lista o una tupla) y devuelve un iterador con los resultados.
 
 ```py
@@ -519,7 +545,7 @@ numeros = [1, 2, 3, 4, 5]
 resultados = map(cuadrado, numeros)  # Aplica la función cuadrado a cada elemento de la lista numeros
 print(list(resultados))  # Salida: [1, 4, 9, 16, 25]
 ```
-#### **1.9.2 - Función filter()**
+#### **1.10.2 - Función filter()**
 La función `filter()` filtra los elementos de un iterable basándose en una función que devuelve un valor booleano (True o False). Devuelve un iterador con los elementos que cumplen la condición.
 
 ```py
@@ -531,7 +557,10 @@ resultados = filter(es_par, numeros)  # Filtra los números pares de la lista
 print(list(resultados))  # Salida: [2, 4, 6]
 ```
 
-#### **1.9.3 - Expresiones regulares**
+#### **1.10.3 - Tarea RA6-CEj**
+
+
+#### **1.10.4 - Expresiones regulares**
 Las expresiones regulares (regular expressions / regex / parsing) permiten buscar o manipular cadenas de texto basándose en **patrones específicos**. En Python, el módulo `re` proporciona funciones para trabajar con expresiones regulares que resulta muy útil para validar formatos de datos, como correos electrónicos, números de teléfono, códigos postales, etc.
 
 **Ejemplo:**  
@@ -620,7 +649,7 @@ Otros ejemplos:
 - La *regex* `A(CG){,2}T` (como mucho) se encuentra en `AT`, `ACGT`, `ACGCGT`, ... pero no en `ACGCGCGT`, o `ACG`.
 - La *regex* `A(CG|TT)C` (O lógico) se encuentra en `ACGC`, `ATTC` pero no en `ACGTTC`.
 
-#### **1.9.4 - Ejercicios de regex**
+#### **1.10.5 - Ejercicios de regex**
 !!! exercise "Ejercicio 1"
     ¿A qué corresponde el regex?
     ```py
@@ -642,10 +671,10 @@ Otros ejemplos:
     ```
     
 !!! exercise "Ejercicio 4"
-    ¿A qué corresponde el regex?
+    ¿A qué corresponde el regex?  
     ```py
     r'https?://(www\.)?[a-zA-Z0-9.-]+\.[a-z]{2,3}(/[a-zA-Z0-9._%+-?]*)*'
-   ```
+    ```
 
 !!! exercise "Ejercicio 5"
     ¿A qué corresponde el regex?
@@ -654,10 +683,10 @@ Otros ejemplos:
     ```
     
     
-#### **1.9.5 - Módulo re**
+#### **1.10.6 - Módulo re**
 El módulo `re` proporciona varias funciones para trabajar con expresiones regulares, como `match()`, `search()`, `findall()`, `sub()`, entre otras.
 
-#### **1.9.5.1 - Función search()**
+##### **1.10.6.1 - Función search()**
 La función `search()` busca una coincidencia del patrón en cualquier parte de la cadena.
 
 ```py
@@ -673,7 +702,7 @@ else:
     print("No se encontró ninguna coincidencia.")
 ```
 
-#### **1.9.5.2 - Funciones match() y fullmatch()**
+##### **1.10.6.2 - Funciones match() y fullmatch()**
 La función `match()` busca una coincidencia del patrón al **comienzo** de la cadena, mientras que `fullmatch()` busca una coincidencia **total** que abarque **toda** la cadena.
 
 ```py
@@ -694,7 +723,7 @@ else:
     print("No se encontró ninguna coincidencia con fullmatch.")  
 ```
 
-#### **1.9.5.3 - Funciones findall() y finditer()**
+##### **1.10.6.3 - Funciones findall() y finditer()**
 La función `findall()` devuelve una lista de todas las coincidencias del patrón en la cadena, mientras que `finditer()` devuelve un iterador que produce objetos de coincidencia para cada coincidencia encontrada.
 
 ```py
@@ -715,7 +744,7 @@ for coincidencia in coincidencias_finditer:
     iterador += 1
 ```
 
-#### **1.9.5.4 - Función compile()**
+##### **1.10.6.4 - Función compile()**
 La función `compile()` compila un patrón de expresión regular en un objeto de expresión regular, que se puede reutilizar para realizar múltiples búsquedas.
 
 ```py
@@ -728,7 +757,7 @@ coincidencias = regex.findall(texto)  # Usa el objeto regex para buscar coincide
 print("Coincidencias encontradas:", coincidencias)  # Salida: ['123-45-6789', '987-65-4321']
 ```
 
-#### **1.9.5.5 - Función group()**
+##### **1.10.6.5 - Función group()**
 La función `group()` se utiliza para recuperar el texto que ha coincidido con el patrón en una búsqueda.
 
 ```py
@@ -747,7 +776,7 @@ else:
     print("No se encontró ninguna coincidencia.")
 ```     
 
-#### **1.9.5.6 - Función sub()**
+##### **1.10.6.6 - Función sub()**
 La función `sub()` se utiliza para reemplazar las coincidencias del patrón en una cadena con un texto especificado.
 
 ```py
@@ -785,8 +814,8 @@ https://www.luisllamas.es/regex-ejemplos-practicos/ -->
 
 
 
-### https://docs.python.org/es/3/tutorial/datastructures.html
-https://docs.python.org/es/3/library/re.html#re-syntax
+<!-- ### https://docs.python.org/es/3/tutorial/datastructures.html
+https://docs.python.org/es/3/library/re.html#re-syntax -->
 
 
 
