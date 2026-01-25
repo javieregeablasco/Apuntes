@@ -415,7 +415,7 @@ Para la infraestructura de red necesitaremos un mínimo de:
 - Una VPC.
 - Al menos dos subredes en zonas de disponibilidad distintas (preferiblemente privadas).
 - Un grupo de seguridad para la base de datos.  
-- La plantilla para lanzar esta infraestrucutura se puede descargar [aquí](./ut8/RDS/plantilla.yaml) 
+- La plantilla para lanzar esta infraestrucutura se puede descargar [aquí](./ut8/RDS/plantilla.yaml). 
 
 ---
 
@@ -445,7 +445,7 @@ Para la infraestructura de red necesitaremos un mínimo de:
 ![Descripción de la imagen](./ut8/RDS/rds-11.png){.cien .marco .margintop10 .marginbottom40 }  
 
 - **Conectividad 2/2**. Elegimos el grupo de seguridad que hemos creado con la plantilla y dejamos el resto de opciones con los valores por defecto.  
-**Nota importante:** Exponer una instancia de bases de datos a internet **no se puede considerar una buena práctica del punto de vista de la seguridad informática**. 
+**Nota importante:** Exponer una instancia de bases de datos a internet **no se puede considerar una buena práctica desde el punto de vista de la seguridad informática**. 
 ![Descripción de la imagen](./ut8/RDS/rds-12.png){.cien .marco .margintop10 .marginbottom40 }  
 
 ---
@@ -486,7 +486,7 @@ Además usaremos las características de redundancia y disponibilidad (2 réplic
 **Nota:** Por algún motivo desconocido AWS no reconoce automáticamente las nuevas subredes. Tendremos que añadirlas manualmente.
 ![Descripción de la imagen](./ut8/RDS/ra4ceb-3.png){.cien .marco .margintop10 .marginbottom40 }
 Primero las seleccionamos.  
-![Descripción de la imagen](./ut8/RDS/ra4ceb-5.png){.cien .marco .margintop10 .marginbottom40 }  
+![Descripción de la imagen](./ut8/RDS/ra4ceb-5.png){.cien .marco .margintop10   }  
 Le damos a refrescar y luego podremos continuar con la configuración de nuestro cluster RDS.  
 ![Descripción de la imagen](./ut8/RDS/ra4ceb-6.png){.cien .marco .margintop10 .marginbottom40 }  
 
@@ -562,10 +562,20 @@ Al ser un motor nativo de AWS, Aurora ofrece beneficios superiores a las impleme
 !!! tip "¿Por qué elegir Aurora sobre RDS MySQL estándar?"
 
 1. **Almacenamiento Auto-escalable:** No es necesario pre-aprovisionar espacio; el almacenamiento crece automáticamente hasta 128 TiB (según la demanda).  
-1. **Failover Veloz:** La conmutación por error (Failover) se completa generalmente en menos de 30 segundos, mejorando la continuidad del negocio.
+1. **Conmutación por failover rápida:** La conmutación por error se completa generalmente en menos de 30 segundos, mejorando la continuidad del negocio.
 1. **Arquitectura de Lectura:** Permite hasta 15 réplicas con una latencia de replicación de milisegundos, ya que todas las instancias comparten el mismo volumen de almacenamiento virtual.
 ![Descripción de la imagen](./ut8/EURORA/EUR-1.png){.cien .marco .margintop10 .marginbottom40 }  
 
+!!! tip "Aurora aprovisionado"
+En el modo aprovisionado, el usuario define el número y tipo de instancias que formarán el clúster de Aurora. Este modo es adecuado para cargas de trabajo predecibles y estables.  
+
+**Características principales:**
+
+- **Control total:** El usuario tiene control total sobre el número y tipo de instancias.
+- **Escalado manual:** El usuario debe ajustar manualmente la capacidad según las necesidades.
+- **Coste fijo:** Se paga por las instancias aprovisionadas, independientemente de su uso.
+
+<br>
 !!! tip "Aurora serverless"
 Amazon Aurora Serverless es una variante de Aurora que funciona bajo demanda, es decir, sin necesidad de gestionar instancias fijas de base de datos.
 
@@ -575,11 +585,219 @@ Amazon Aurora Serverless es una variante de Aurora que funciona bajo demanda, es
 - **Pago por uso:** Solo se paga por la capacidad de cómputo que realmente se usa. Esta capacidad se mide en ACUs (Aurora Capacity Units).
 - **Gestión simplificada:** No es necesario calcular el tamaño ni el número de instancias.
 
-!!! tip "Lanzar un clúster de Amazon RDS con Aurora" 
-8/14
-![Descripción de la imagen](../AWS/ut7/cloudformation/WIP.avif){ .doscinco }<br>
+##### **2.1.3.1 - Despliegue de un clúster aprovisionado de Amazon RDS con Aurora** 
+- **Selección del motor de la base de datos**.  
+Seleccionamos **configuración completa**, **Aurora MySQL compatible**, dejamos la versión del motor por defecto y finalmente, elegimos la plantilla de **desarrollo y pruebas**.
+![Descripción de la imagen](./ut8/EURORA/EUR-2.png){.cien .marco .margintop10 .marginbottom40 }  
 
-<!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/AWS/Base%20Dades/Tema%202/tema2_RDS_Aurora.pdf -->
+- **Selección del motor de la base de datos** 
+Identificamos nuestro cluster, seleccionamos **autoadministrado** e introducimos **una contraseña**.
+![Descripción de la imagen](./ut8/EURORA/EUR-3.png){.cien .marco .margintop10 .marginbottom40 }  
+
+- **Configuración del almacenamiento en clúster**.  
+Dejamos la opción por defecto.
+![Descripción de la imagen](./ut8/EURORA/EUR-4.png){.cien .marco .margintop10 .marginbottom40 }  
+
+- **Configuración de la instancia**  
+Seleccionamos **clases ampliables** al ser instancias de rendimiento intermitente ideales para desarrollo, pruebas o cargas de trabajo con picos de tráfico ocasionales. Además, es posible aumentar la potencia de cálculo según sea necesario.
+![Descripción de la imagen](./ut8/EURORA/EUR-5.png){.cien .marco .margintop10 .marginbottom40 }  
+
+- **Disponibilidad y durabilidad**  
+Seleccionamos **creación de un nodo de lectura ...**. De esta manera, haremos un despliegue **MultiAZ**. Tendremos una instancia de lectura en otra zona de disponibilidad, lo cual nos permite tener alta disponibilidad y conmutación por error.
+![Descripción de la imagen](./ut8/EURORA/EUR-6.png){.cien .marco .margintop10 .marginbottom40 }  
+
+- **Conectividad**  
+Aprovechamos los recursos creados anteriormente...
+![Descripción de la imagen](./ut8/EURORA/EUR-7.png){.cien .marco .margintop10 }  
+Igualemente, reutilizamos el grupo de seguridad de la tarea anterior.  
+![Descripción de la imagen](./ut8/EURORA/EUR-8.png){.cien .marco .margintop10 .marginbottom40 }  
+
+- **Supervisión**  
+No seleccionamos la **monitorización mejorada** (limitaciones del laboratory). 
+![Descripción de la imagen](./ut8/EURORA/EUR-9.png){.cien .marco .margintop10 .marginbottom40 }  
+
+- **Lanzamos la creación de nuestro cluster Aurora**
+![Descripción de la imagen](./ut8/EURORA/EUR-10.png){.cien .marco .margintop10 .marginbottom40 }  
+
+##### **2.1.3.2 - Conexión a la base de datos** 
+El clúster está formado por dos instancias (lector y escritor), tal y como lo hemos definido en las opciones de creación del clúster de Aurora.
+Disponemos de 3 métodos para conectarnos al cluster:
+
+- Fragmentos de código: Proporciona ejemplos de código en varios lenguajes de programación para conectarse a la base de datos.
+- Cliente de línea de comandos (cloudshell): Instrucciones para conectarse utilizando herramientas como MySQL CLI.
+- Puntos de conexión: Proporciona los endpoints para conectarse a las instancias de lectura y escritura.
+
+En este caso, usaremos el tercer método (EC2 + Ubuntu).
+![Descripción de la imagen](./ut8/EURORA/EUR-11.png){.cien .marco .margintop10 .marginbottom40 }  
+
+Si nos intentamos conectar tendremos **un access denied**. Eso se debe a que no tenemos el SG del cluster Aurora configurado para aceptar conexiones entrantes.  
+![Descripción de la imagen](./ut8/EURORA/EUR-13.png){.sietecinco .margintop10   .marginbottom40 }  
+Añadimos un regla para que solo acepte conexiones desde el grupo de seguridad de nuestra instancia EC2.
+![Descripción de la imagen](./ut8/EURORA/EUR-12.png){.cien .marco .margintop10 .marginbottom40 }  
+
+Entonces, ya podremos conectarnos sin problemas.
+![Descripción de la imagen](./ut8/EURORA/EUR-14.png){.sietecinco  .margintop10 .marginbottom40 }  
+
+
+##### **2.1.3.3 – Escalado con Amazon Aurora**
+
+Los clústeres de Amazon Aurora permiten escalar **el almacenamiento y la capacidad de cómputo de forma independiente**, lo que proporciona una gran flexibilidad y eficiencia operativa.
+
+- **Escalado del almacenamiento (escalado horizontal)**  
+El almacenamiento en Amazon Aurora es **autoescalable** y crece automáticamente en función de las necesidades de la base de datos, sin intervención del usuario, hasta un máximo de **100 TB**.  
+No es necesario aprovisionar el almacenamiento por adelantado, y este es **compartido por todas las instancias del clúster** (instancia escritora y réplicas).
+![Descripción de la imagen](./ut8/EURORA/EUR-15.png){.sietecinco .marco .margintop10 .marginbottom40 }
+
+- **Escalado de la capacidad de cómputo**
+
+  - **Escalado vertical**  
+    La capacidad de cómputo se puede aumentar o reducir modificando la **clase de instancia** de las instancias del clúster (por ejemplo, pasar de una instancia más pequeña a una más potente).  
+    Esta operación puede realizarse, entre otros métodos, desde la consola de administración de AWS.
+    ![Descripción de la imagen](./ut8/EURORA/EUR-16.png){.cien .marco .margintop10  }
+
+    ![Descripción de la imagen](./ut8/EURORA/EUR-17.png){.cien .marco .marginbottom40 }
+
+  - **Escalado horizontal de lectura**  
+    Amazon Aurora permite añadir **réplicas de lectura** para distribuir la carga de consultas de lectura. Estas réplicas utilizan el mismo volumen de almacenamiento que la instancia principal y pueden escalar automáticamente según la demanda.
+    ![Descripción de la imagen](./ut8/EURORA/EUR-18.png){.cien .marco .marginbottom40 .margintop10 }
+    Nombramos la nueva instancia de lectura.  
+    ![Descripción de la imagen](./ut8/EURORA/EUR-19.png){.cien .marco .marginbottom40 .margintop10 }
+    Ajustamos su potencia de cómputo.   
+    ![Descripción de la imagen](./ut8/EURORA/EUR-20.png){.cien .marco .marginbottom40 .margintop10 }
+    Conectividad y zona (AZ) de despliegue.    
+    ![Descripción de la imagen](./ut8/EURORA/EUR-21.png){.cien .marco .marginbottom40 .margintop10}
+    Por limitacion de ROL no seleccionamos **monitorización mejorada**.    
+    ![Descripción de la imagen](./ut8/EURORA/EUR-22.png){.cien .marco .marginbottom40 .margintop10 }
+    Esperamos a que se despliegue la nueva instancia.
+    ![Descripción de la imagen](./ut8/EURORA/EUR-23.png){.cien .marco .marginbottom40 .margintop10}
+    Aunque el clúster disponga de **dos instancias de lectura** y otra de **lectura / escritura**, Amazon Aurora proporciona únicamente **dos endpoints principales**:
+      - Un **endpoint del clúster (writer endpoint)**, que apunta siempre a la instancia escritora.
+      - Un **reader endpoint**, que distribuye automáticamente las conexiones de lectura **entre todas las réplicas disponibles**.
+      De este modo, las aplicaciones no necesitan conocer ni gestionar las instancias de lectura de forma individual, ya que el balanceo se realiza de manera transparente por Aurora.
+    ![Descripción de la imagen](./ut8/EURORA/EUR-24.png){.cien .marco .marginbottom40 .margintop10}
+    
+  - **Aurora Serverless (opcional)**  
+    En Aurora Serverless, la capacidad de cómputo escala automáticamente en función de la carga de trabajo, sin necesidad de gestionar instancias, utilizando unidades de capacidad de Aurora (ACU).
+
+
+#### **2.1.4 - Tarea RA4-CEb-2**
+En esta tarea, desplegaremos la instancia de Aurora RDS anterior y además haremos pruebas de estrés y analizaremos su comportamiento con **cloudWatch**.
+
+#### **2.1.4.1 - Crear un panel de supervisión**
+- Accedemos a la pestaña de supervisión.
+![Descripción de la imagen](./ut8/EURORA/EUR-25.png){.cien .marco .marginbottom40 .margintop10}
+- Pinchamos los **3 puntos verticales** y luego **añadir al panel**.
+![Descripción de la imagen](./ut8/EURORA/EUR-26.png){.cien .marco .marginbottom40 .margintop10}
+- Como no tenemos ningún panel, creamos uno. 
+![Descripción de la imagen](./ut8/EURORA/EUR-27.png){.cincozero .marginbottom40 .margintop10}
+- Nos acordaremos de guardarlo una vez configurado. 
+![Descripción de la imagen](./ut8/EURORA/EUR-28.png){.cien .marginbottom40 .margintop10}
+- Pulsamos en `+` y configuramos el widget. 
+![Descripción de la imagen](./ut8/EURORA/EUR-29.png){.cincozero .marginbottom40 .margintop10 .marco}
+- Buscamos el **DatabaseConnections**.
+![Descripción de la imagen](./ut8/EURORA/EUR-32.png){.cien .marginbottom40 .margintop10 .marco}
+- Seleccionamos las instancias a supervisar y nos acordaremos de guardar el panel. 
+![Descripción de la imagen](./ut8/EURORA/EUR-31.png){.cien .marginbottom40 .margintop10 .marco}
+- Repetimos los pasos anteriores con **Queries**, **CPUUtilization**, **ReadIOPS** y **WriteIOPS**, quedando el panel de la siguiente manera.
+<mark>Realizar captura de pantalla</mark>
+![Descripción de la imagen](./ut8/EURORA/EUR-33.png){.cien .marginbottom40 .margintop10 .marco}
+
+
+#### **2.1.4.2 - Estresando la base de datos**
+- **mysqlslap**. Es una herramienta incluida en MySQL y es relativamente sencilla de utilizar.
+    - :one: Nos conectamos a nuestra instancia y, caso de ubuntu, instalamos el CLI de AWS. 
+    ![Descripción de la imagen](./ut8/EURORA/EUR-34.png){.sietecinco .marginbottom40 .margintop10}
+    - :two: Subimos la base de datos [instituto.sql](./ut8/EURORA/instituto.sql) a **un bucket S3**. 
+    - :three: Importamos el bucket a nuestra instancia EC2.  
+    ![Descripción de la imagen](./ut8/EURORA/EUR-35.png){.sietecinco .marginbottom40 .margintop10}
+    - :four: Accedemos a la base de datos.   
+    ![Descripción de la imagen](./ut8/EURORA/EUR-36.png){.sietecinco .marginbottom40 .margintop10}
+    - :five: Creamos la base de datos mysqlslap.
+    ![Descripción de la imagen](./ut8/EURORA/EUR-37.png){.trescinco .marginbottom40 .margintop10}
+    - :six: Creamos la tabla **alumnos**.
+    ![Descripción de la imagen](./ut8/EURORA/EUR-38.png){.trescinco .marginbottom40 .margintop10}
+    - :seven: Llenamos la tabla **alumnos**.
+    ![Descripción de la imagen](./ut8/EURORA/EUR-39.png){.sietecinco .marginbottom40 .margintop10}
+    - :eight: Estresamos la base de datos (1/2).  
+    Para ello usaremos el comando:
+    ```bash
+    mysqlslap -h <endpoint> -u admin -p \
+    --concurrency=50 --iterations=200 --number-of-queries=1000 \
+    --create-schema=msqlslap --query="SELECT * FROM alumnos;"
+    ```
+    Ejemplo de resultado.  
+    <mark>Realizar captura de pantalla</mark>
+    ![Descripción de la imagen](./ut8/EURORA/EUR-40.png){.cien .marginbottom40 .margintop10}
+    - :nine: Estresamos la base de datos (2/2).  
+    Ejemplo de resultado con:  
+    ```bash
+    mysqlslap -h <endpoint> -u admin -p \
+    --concurrency=50 --iterations=200 --number-of-queries=2000 \ 
+    --auto-generate-sql --auto-generate-sql-add-autoincrement \
+    --auto-generate-sql-load-type=mixed --engine=innodb
+    ```  
+    ![Descripción de la imagen](./ut8/EURORA/EUR-41.png){.cien .marginbottom40 .margintop10}
+     
+ 
+<!-- 
+```sql    
+INSERT INTO alumnos (nombre, apellido)
+VALUES
+('Carla','Pérez'), ('Luis','Gracia'), ('Ana','Roig'), ('María','Cabrera'), ('Carmen','López'),
+('Pedro','Jiménez'), ('Clarisa','Vázquez'), ('Carlos','Carolo'), ('Francisco','Gómez'), ('Luisa','López'),
+('Carlota','Pérez'), ('Antonio','García'), ('M. José','Ruiz'), ('Mónica','Díaz'), ('Jose Luis','García'),
+('Iker','Lafuente'), ('Javier','Lafuente'), ('Ana','Ruiz'), ('Carlos','López'), ('M. Luisa','Giner'),
+('Perico','Gordo'), ('Lola','Monte'), ('Jorge','Ibáñez'), ('Luisito','Cabrera'), ('Lola','Flores'),
+('Loreto','Ribo'), ('Lara','Craft'), ('Nino','Bravo'), ('Julia','Iglesias'), ('Pepito','Catedrales'),
+('Carla','Pérez'), ('Luis','Gracia'), ('Ana','Roig'), ('María','Cabrera'), ('Carmen','López'),
+('Carlota','Pérez'), ('Antonio','García'), ('M. José','Ruiz'), ('Mónica','Díaz'), ('Jose Luis','García'),
+('Iker','Lafuente'), ('Javier','Lafuente'), ('Ana','Ruiz'), ('Carlos','López'), ('M. Luisa','Giner'),
+('Carlota','Pérez'), ('Antonio','García'), ('M. José','Ruiz'), ('Mónica','Díaz'), ('Jose Luis','García'),
+('Iker','Lafuente'), ('Javier','Lafuente'), ('Ana','Ruiz'), ('Carlos','López'), ('M. Luisa','Giner'),
+('Carla','Pérez'), ('Luis','Gracia'), ('Ana','Roig'), ('María','Cabrera'), ('Carmen','López'),
+('Pedro','Jiménez'), ('Clarisa','Vázquez'), ('Carlos','Carolo'), ('Francisco','Gómez'), ('Luisa','López'),
+('Carlota','Pérez'), ('Antonio','García'), ('M. José','Ruiz'), ('Mónica','Díaz'), ('Jose Luis','García'),
+('Iker','Lafuente'), ('Javier','Lafuente'), ('Ana','Ruiz'), ('Carlos','López'), ('M. Luisa','Giner'),
+('Perico','Gordo'), ('Lola','Monte'), ('Jorge','Ibáñez'), ('Luisito','Cabrera'), ('Lola','Flores'),
+('Loreto','Ribo'), ('Lara','Craft'), ('Nino','Bravo'), ('Julia','Iglesias'), ('Pepito','Catedrales'),
+('Carla','Pérez'), ('Luis','Gracia'), ('Ana','Roig'), ('María','Cabrera'), ('Carmen','López'),
+('Carlota','Pérez'), ('Antonio','García'), ('M. José','Ruiz'), ('Mónica','Díaz'), ('Jose Luis','García'),
+('Iker','Lafuente'), ('Javier','Lafuente'), ('Ana','Ruiz'), ('Carlos','López'), ('M. Luisa','Giner');
+```
+ -->
+
+- **Sysbench**. Es una herramienta más completa que mysqlslap que permite también generar carga de lectura y escritura sobre una base de datos.
+    - :one: Instalación. En distribuciones como **Ubuntu** ya viene integrada. Nos aseguraremos de ternerla instalada con:
+    ```bash
+    sysbench --version  
+    ```
+    Si no está instalada, lo haremos con:
+    ```bash
+    sudo apt install -y sysbench  
+    ```
+
+    - :two: Estresar la base de datos.  
+    **Nota**: **Sysbench** no puede sobreescribir datos ya existentes así que, primero, eliminaremos la base de datos con **drop** y luego la crearemos de nuevo con **create**.
+    ![Descripción de la imagen](./ut8/EURORA/EUR-43.png){.trescinco .marginbottom40 .margintop10}
+    Para las pruebas de estrés usaremos el siguiente script:
+    ```bash
+    sysbench /usr/share/sysbench/oltp_read_write.lua \
+      --mysql-host=<endpoint> \
+      --mysql-user=admin \
+      --mysql-password=<password> \
+      --mysql-db=mysqlslap \
+      --tables=100 \
+      --table-size=100000 \
+      prepare
+    ```
+     
+    <mark>Realizar captura de pantalla</mark>
+    ![Descripción de la imagen](./ut8/EURORA/EUR-42.png){.cien .marginbottom40 .margintop10}
+
+!!! warning "Condiciones de entrega de la tarea RA4-CEb-1"
+    1. Realizar capturas de pantalla de los puntos señalados.
+    1. Comentar brevemente cada captura para entender a qué corresponde y subir el documento a la tarea correspondiente de AULES.
+    1. Después de completar la tarea, **eliminar el cluster o restablecer inmediatamente el laboratorio**, al ser los costes del cluster **muy elevados**. 
 
 ### **2.2 - Bases de datos NoSQL: Amazon DynamoDB**
 
@@ -702,10 +920,11 @@ Representan colecciones no ordenadas de **valores únicos** (no permiten duplica
 ```
 
 ---
-
-
-
+![Descripción de la imagen](../AWS/ut7/cloudformation/WIP.avif){ .doscinco }<br>
 <!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/AWS/Base%20Dades/Tema%203/tema3_DynamoDB.pdf -->
+
+
+
 ### **2.3 - ElastiCache**
 <!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/AWS/Base%20Dades/Tema%204/tema4_ElastiCache.pdf -->
  
@@ -715,24 +934,7 @@ Representan colecciones no ordenadas de **valores únicos** (no permiten duplica
 <br>
    
  
-<!-- bbdd         
-https://www.youtube.com/watch?v=ciRbXZqBl7M&list=PL9nWRykSBSFithc_PvHAR1MDIFodb2lHd
-
--->
-
-<!-- route 53... 
-cloud formation... 
-elastic load balancing
-Amazon Simple Storage Service (S3) 
-Amazon Elastic File System (EFS)
-Amazon Elastic Block Store (EBS) -->
-<!--  Building Highly Available Web Application 
-https://skillbuilder.aws/learn/2WBTDQFGSV/building-highly-available-web-application/2RW7UC62ZE
- 
--->
-  
-  
-
+<!-- route 53... -->
  
 ## **Enlaces de interés**
 Documentación de [AWS](https://docs.aws.amazon.com)   
@@ -743,10 +945,9 @@ Control de acceso a [buckets S3](https://docs.aws.amazon.com/es_es/AmazonS3/late
 Base de datos relacionales [AWS RDS](https://aws.amazon.com/es/rds/)  
 Guía del usuario del [AWS RDS](https://docs.aws.amazon.com/es_es/AmazonRDS/latest/UserGuide/Welcome.html)  
 Guía del usuario de [Amazon Aurora](https://docs.aws.amazon.com/es_es/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)  
-
- 
-    |**b)** Se ha llevado a cabo la configuración y gestión de bases de datos en un entorno de nube.|20%|
-    |**c)** Se ha trabajado en la resolución de problemas prácticos sobre almacenamiento y bases de datos.|20%|
+Widgets de [Amazon CloudWatch](https://docs.aws.amazon.com/es_es/AmazonCloudWatch/latest/monitoring/create-and-work-with-widgets.html)  
+  
+<!-- |**c)** Se ha trabajado en la resolución de problemas prácticos sobre almacenamiento y bases de datos.|20%| -->
  
 
 

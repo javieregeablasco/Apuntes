@@ -32,7 +32,7 @@ schedule: 96h - 3h/w
 ## 1 - Estructuras de datos en Python
 
 ### 1.1 - Tipos de colecciones de datos
-En unidades anteriores hemos ido utilizando estructuras de datos (listas, diccionarios, tuplas, etc.) para almacenar y manipular datos en nuestros programas. En esta sección repasaremos las diferentes estructuras de datos ( también llamadas colecciones) disponibles en Python y veremos cómo utilizarlas de manera efectiva.
+En unidades anteriores hemos ido utilizando estructuras de datos (listas, diccionarios, tuplas, etc.) para almacenar y manipular datos en nuestros programas. En esta sección repasaremos las diferentes estructuras de datos (también llamadas colecciones) disponibles en Python y veremos cómo utilizarlas de manera efectiva.
 
 - **Listas**: Son colecciones ordenadas y mutables que pueden contener elementos de diferentes tipos. Se definen utilizando corchetes `[]`. Las listas permiten agregar, eliminar y modificar elementos fácilmente.
 ```py

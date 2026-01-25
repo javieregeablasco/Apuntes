@@ -2,9 +2,14 @@
 # mi_conjunto.add(3)  # Agrega el elemento 4 al conjunto  
 # print(mi_conjunto)  # Salida: {1, 2, 3, 4}
 
+import random
+
+print("aleatorioo" , random.random())
+
 mi_lista = [10, 20, 30, 40, 50]
-sublista = mi_lista[2:4]  # Obtiene los elementos desde el índice 1 hasta el 3 (4 no incluido)
-print(sublista)  # Salida: [20, 30, 40]
+# print(max(mi_lista))
+# sublista = mi_lista[2:4]  # Obtiene los elementos desde el índice 1 hasta el 3 (4 no incluido)
+# print(sublista)  # Salida: [20, 30, 40]
 
 # frutas = {"Naranja": 20, "Fresa": 30, "Limon":40, "Sandia":50 }
 
