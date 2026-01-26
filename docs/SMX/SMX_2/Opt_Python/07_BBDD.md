@@ -475,14 +475,14 @@ def generador_numeros_pares(num):
 numeros_pares = generador_numeros_pares(5)
 
 # Usar del generador
+print("Aquí hay código")
 ## Llamada 1
-print("Aquí hay código")
 print(f"Llamada 1 al generador que extrae el valor: {next(numeros_pares)}")
+print("Aquí hay código")
 ## Llamada 2
-print("Aquí hay código")
 print(f"Llamada 2 al generador que extrae el valor: {next(numeros_pares)}")
-## Llamada 3
 print("Aquí hay código")
+## Llamada 3
 print(f"Llamada 3 al generador que extrae el valor: {next(numeros_pares)}")
 ...
 ```
@@ -557,10 +557,53 @@ resultados = filter(es_par, numeros)  # Filtra los números pares de la lista
 print(list(resultados))  # Salida: [2, 4, 6]
 ```
 
-#### **1.10.3 - Tarea RA6-CEj**
+#### **1.10.3 - Función list()**
+La funcion `list()` convierte cualquier objeto iterable en **una lista**. Es útil para convertir los resultados de funciones como `map()` y `filter()` en listas.
+
+```py
+# list sobre un tupla
+numeros = (1, 2, 3, 4, 5)  # Tupla
+lista_numeros = list(numeros)  # Convierte la tupla en una lista
+print(lista_numeros)  # Salida: [1, 2, 3, 4, 5]
+
+# list sobre un string
+list("hola")
+# ['h', 'o', 'l', 'a']
+
+# list sobre un rango
+list(range(5))
+# [0, 1, 2, 3, 4]
+```
+
+#### **1.10.4 - Tarea RA6-CEj**
+!!! exercise "Ejercicio 1"
+    Realizar un programa que haga lo siguiente:
+
+    1. Crear una lista con los números del 1 al 20.
+    1. Utilizando la función `map()`, crear una nueva lista con los cuadrados de los números de la lista original.
+    1. Utilizando la función `filter()`, crear una nueva lista que contenga solo los números pares de la lista original.
+    1. Mostrar en pantalla las tres listas generadas.  
+
+!!! exercise "Ejercicio 2"
+    Realizar un programa que haga lo siguiente:
+
+    1. Crea un conjunto llamado usuarios con los usuarios Marta, David, Elvira, Juan y Marcos
+    1. Crea un conjunto llamado administradores con los administradores Juan y Marta.
+    1. Borra al administrador Juan del conjunto de administradores.
+    1. Añade a Marcos como un nuevo administrador, pero no lo borres del conjunto de usuarios.
+    1. Muestra todos los usuarios por pantalla de forma dinámica, además debes indicar cada usuario es administrador o no.
+     
+!!! exercise "Ejercicio 3"
+    Realizar un programa que haga lo siguiente:
+    
+    1. Crea una lista contenga 5 números aleatorios (de cualquier tipo).
+    1. Defina una función generadora que reciba la lista anterior como parámetro.
+    1. La función generadora devolverá, uno a uno, el cuadrado de cada número de la lista utilizando la instrucción yield.
+    1. Crear una variable que almacene el generador devuelto por la función.
+    1. Recorrer el generador utilizando un bucle for y muestre por pantalla el cuadrado de cada número.
 
 
-#### **1.10.4 - Expresiones regulares**
+#### **1.10.5 - Expresiones regulares**
 Las expresiones regulares (regular expressions / regex / parsing) permiten buscar o manipular cadenas de texto basándose en **patrones específicos**. En Python, el módulo `re` proporciona funciones para trabajar con expresiones regulares que resulta muy útil para validar formatos de datos, como correos electrónicos, números de teléfono, códigos postales, etc.
 
 **Ejemplo:**  
@@ -649,7 +692,7 @@ Otros ejemplos:
 - La *regex* `A(CG){,2}T` (como mucho) se encuentra en `AT`, `ACGT`, `ACGCGT`, ... pero no en `ACGCGCGT`, o `ACG`.
 - La *regex* `A(CG|TT)C` (O lógico) se encuentra en `ACGC`, `ATTC` pero no en `ACGTTC`.
 
-#### **1.10.5 - Ejercicios de regex**
+#### **1.10.6 - Ejercicios de regex**
 !!! exercise "Ejercicio 1"
     ¿A qué corresponde el regex?
     ```py
@@ -683,10 +726,10 @@ Otros ejemplos:
     ```
     
     
-#### **1.10.6 - Módulo re**
+#### **1.10.7 - Módulo re**
 El módulo `re` proporciona varias funciones para trabajar con expresiones regulares, como `match()`, `search()`, `findall()`, `sub()`, entre otras.
 
-##### **1.10.6.1 - Función search()**
+##### **1.10.7.1 - Función search()**
 La función `search()` busca una coincidencia del patrón en cualquier parte de la cadena.
 
 ```py
@@ -702,7 +745,7 @@ else:
     print("No se encontró ninguna coincidencia.")
 ```
 
-##### **1.10.6.2 - Funciones match() y fullmatch()**
+##### **1.10.7.2 - Funciones match() y fullmatch()**
 La función `match()` busca una coincidencia del patrón al **comienzo** de la cadena, mientras que `fullmatch()` busca una coincidencia **total** que abarque **toda** la cadena.
 
 ```py
@@ -723,7 +766,7 @@ else:
     print("No se encontró ninguna coincidencia con fullmatch.")  
 ```
 
-##### **1.10.6.3 - Funciones findall() y finditer()**
+##### **1.10.7.3 - Funciones findall() y finditer()**
 La función `findall()` devuelve una lista de todas las coincidencias del patrón en la cadena, mientras que `finditer()` devuelve un iterador que produce objetos de coincidencia para cada coincidencia encontrada.
 
 ```py
@@ -744,7 +787,7 @@ for coincidencia in coincidencias_finditer:
     iterador += 1
 ```
 
-##### **1.10.6.4 - Función compile()**
+##### **1.10.7.4 - Función compile()**
 La función `compile()` compila un patrón de expresión regular en un objeto de expresión regular, que se puede reutilizar para realizar múltiples búsquedas.
 
 ```py
@@ -757,7 +800,7 @@ coincidencias = regex.findall(texto)  # Usa el objeto regex para buscar coincide
 print("Coincidencias encontradas:", coincidencias)  # Salida: ['123-45-6789', '987-65-4321']
 ```
 
-##### **1.10.6.5 - Función group()**
+##### **1.10.7.5 - Función group()**
 La función `group()` se utiliza para recuperar el texto que ha coincidido con el patrón en una búsqueda.
 
 ```py
@@ -776,7 +819,7 @@ else:
     print("No se encontró ninguna coincidencia.")
 ```     
 
-##### **1.10.6.6 - Función sub()**
+##### **1.10.7.6 - Función sub()**
 La función `sub()` se utiliza para reemplazar las coincidencias del patrón en una cadena con un texto especificado.
 
 ```py
@@ -788,6 +831,17 @@ texto_modificado = re.sub(patron, "ABC-DE-FGHI", texto)  # Reemplaza las coincid
 print("Texto modificado:", texto_modificado) 
 ```
 
+#### **1.10.8 - Tarea RA6-CEg**
+!!! exercise "Ejercicio"
+    Realizar un programa que haga lo siguiente:
+
+    1. Definir una expresión regular para validar direcciones de correo electrónico.
+    1. Solicitar al usuario que ingrese una dirección de correo electrónico **mediante interfaz gráfica**.
+    1. Utilizar una expresión regular para verificar si la dirección es válida o no.
+    1. Antes de almacenar la dirección dentro de una lista, comprobar si ya existe en la lista una dirección identica.
+    1. Mostrar un mensaje indicando si la dirección es válida o inválida.
+    1. Mostrar un mensaje indicando si la dirección es duplicado o no.
+    1. En caso de fallo volver a pedir introducir la dirección electrónica.
 
 <!-- https://python.sdv.u-paris.fr/17_expressions_regulieres/
 https://www.luisllamas.es/regex-ejemplos-practicos/ -->
