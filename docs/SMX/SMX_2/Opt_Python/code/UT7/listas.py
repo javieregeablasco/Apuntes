@@ -43,24 +43,24 @@ mi_lista = [10, 20, 30, 40, 50]
 
  
 # Declarar el generador
-# def generador_numeros_pares(num):
-#     for i in range(num):
-#         yield i*2
+def generador_numeros_pares(num):
+    for i in range(num):
+        yield i*2
 
-# # Instanciar el generador
-# numeros_pares = generador_numeros_pares(5)
+# Instanciar el generador
+numeros_pares = generador_numeros_pares(5)
 
-# # Usar del generador
-# ## Llamada 1
-# print("Aquí hay código")
-# print(f"Llamada 1 al generador que extrae el valor: {next(numeros_pares)}")
-# ## Llamada 2
-# print("Aquí hay código")
-# print(f"Llamada 2 al generador que extrae el valor: {next(numeros_pares)}")
-# ## Llamada 3
-# print("Aquí hay código")
-# print(f"Llamada 3 al generador que extrae el valor: {next(numeros_pares)}")
-# ...
+# Usar del generador
+## Llamada 1
+print("Aquí hay código")
+print(f"Llamada 1 al generador que extrae el valor: {next(numeros_pares)}")
+## Llamada 2
+print("Aquí hay código")
+print(f"Llamada 2 al generador que extrae el valor: {next(numeros_pares)}")
+## Llamada 3
+print("Aquí hay código")
+print(f"Llamada 3 al generador que extrae el valor: {next(numeros_pares)}")
+...
 
 # def generador_numeros_pares(num):
 #     for i in range(num):

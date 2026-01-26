@@ -919,11 +919,86 @@ Representan colecciones no ordenadas de **valores únicos** (no permiten duplica
 }
 ```
 
+#### **2.2.2 - Tablas en DynamoDB**
+DynamoB almacena la información en tablas. Esas tablas están formadas por ítems (filas) y atributos (columnas), pero no tiene un esquema rígido como una base de datos relacional.
+
+![Descripción de la imagen](./ut8/dynamoDB/DYN-1.png){.sietecinco .marginbottom40 .margintop10}
+
+En DynamoDB, una tabla es la unidad principal de almacenamiento de datos, algo parecido a una tabla en una base de datos relacional, pero con diferencias importantes:
+
+- Los ítems tienen sus propios atributos: No es necesario que todos los ítems tengan los mismos atributos.
+
+#### **2.2.3 - Claves principales en DynamoDB**
+**DynamoDB soporta 2 tipos de claves principales**: 
+
+- Clave de partición (partition key) de **un único atributo** que determina dónde se almacena el ítem. Todos los datos con la misma clave de partición se almacenan juntos, lo que hace que la recuperación de una sola partición sea extremadamente rápida.
+- Clave de partición y de ordenamiento (**partition key + sort key**), también conocida como clave principal compuesta. La clave de ordenación se utiliza para ordenar los datos dentro de la partición. Se puede utilizar para almacenar los datos en el orden en que es probable que se recuperen.
+![Descripción de la imagen](./ut8/dynamoDB/DYN-2.gif){.cincozero .marginbottom40 .margintop10}
+
+#### **2.2.4 - Índices secundarios**
+Una tabla de DynamoDB puede contener dos tipos de índices secundarios (GSI y LSI) que permiten hacer consultas alternativas a la clave primaria.  
+Cada tabla de DynamoDB admite hasta 20 GSIs y 5 LSIs por defecto.
+
+- **Índice secundario global (GSI)**:  
+Un GSI es un índice con una clave de partición y una clave de ordenación que pueden diferir de las claves de la tabla base. Puede crearse durante la creación de la tabla o posteriormente. En modo de capacidad aprovisionada, el GSI tiene su propia capacidad de lectura y escritura, lo que permite aislar costes y patrones de acceso.
+
+- **Índice secundario local (LSI):**  
+Un LSI comparte la misma clave de partición que la tabla base, pero define una clave de ordenación diferente. **Debe crearse en el momento de la creación de la tabla** y utiliza la capacidad de la tabla base.
+
+![Descripción de la imagen](./ut8/dynamoDB/DYN-3.webp){.sietezero .marginbottom40 }
+
+!!! tip "Ejemplo práctico"
+Disponemos de una tabla sobre la que vamos a realizar una consulta de todas las puntuaciones para el product:id = 99999
+![Descripción de la imagen](./ut8/dynamoDB/DYN-4.png){.sietezero .marginbottom40 .margintop10}
+
+Si queremos afinar más la consulta, filtraremos también por la clave de ordenación **user**.
+![Descripción de la imagen](./ut8/dynamoDB/DYN-5.png){.sietezero .marginbottom40 .margintop10}
+
+Si ahora deseamos recuperar todas las puntuaciones de **un usuario especifico (sam@gmail.com)**, tendremos que **escanear toda la tabla** y **filtrar** por sam@gmail.com, lo que resulta poco eficiente, sobre todo si la tabla tiene un tamaño considerable.  
+**Índice secundario local (LSI)**, permite usar otra clave de ordenación, lo que proporciona una manera eficiente de realizar la consulta.
+![Descripción de la imagen](./ut8/dynamoDB/DYN-6.png){.sietezero .marginbottom40 .margintop10}
+
+Si ahora deseamos realizar una consulta sobre un atributo que no está incluido en la clave primaria utilizaremos un **índice secundario global (GSI)**. El GSI nos permite crear una configuración de clave primaria totalmente nueva y poder realizar las consultas de manera eficiente.   
+![Descripción de la imagen](./ut8/dynamoDB/DYN-7.png){.cien .marginbottom40 .margintop10}
+
+#### **2.2.5 - Operaciones de lectura y escritura en DynamoDB**
+
+!!! tip "Operaciones de lectura"
+En DynamoDB disponemos de las siguientes operaciones de lectura:
+
+- **GetItem** → Obtiene un único ítem a partir de su clave primaria (partition key y sort key, si existe).
+- **BatchGetItem** → Obtiene varios ítems de una o más tablas en una sola llamada (hasta 100 ítems por lote).
+- **Query** → Recupera ítems que comparten el mismo valor de la partition key y permite aplicar condiciones sobre la sort key. Es una operación altamente eficiente y escalable cuando el modelo de datos está correctamente diseñado.
+- **Scan** → Recorre toda la tabla o un índice y devuelve todos los ítems. Aunque admite filtros, estos se aplican después de la lectura, por lo que la operación consume capacidad de lectura por todos los ítems leídos, incluso los que no cumplen el filtro. Por este motivo, su uso está desaconsejado en entornos de producción.
+
+!!! tip "Operaciones de escritura"
+DynamoDB ofrece las siguientes operaciones de escritura:
+
+- **PutItem** → Inserta un nuevo ítem o reemplaza completamente uno existente con la misma clave primaria.
+- **UpdateItem** → Actualiza atributos de un ítem existente sin necesidad de sobrescribirlo por completo (permite incrementar valores, añadir o eliminar atributos).
+- **DeleteItem** → Elimina un ítem a partir de su clave primaria.
+- **BatchWriteItem** → Inserta o elimina múltiples ítems en una sola llamada (hasta 25 operaciones por lote). Esta operación solo admite PutItem y DeleteItem, no actualizaciones parciales.
+
+#### **2.2.6 - Creación de una tabla DynamoDB en AWS.
+16/24
+
+
+
+
+
+
+
+
+
+
+
+
+
 ---
 ![Descripción de la imagen](../AWS/ut7/cloudformation/WIP.avif){ .doscinco }<br>
 <!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/AWS/Base%20Dades/Tema%203/tema3_DynamoDB.pdf -->
-
-
+<!-- https://aitor-medrano.github.io/iabd/cloud/dynamodb.html -->
+<!-- https://cristofer.io/2020-07-03-dynamodb/ -->
 
 ### **2.3 - ElastiCache**
 <!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/AWS/Base%20Dades/Tema%204/tema4_ElastiCache.pdf -->
@@ -946,7 +1021,9 @@ Base de datos relacionales [AWS RDS](https://aws.amazon.com/es/rds/)
 Guía del usuario del [AWS RDS](https://docs.aws.amazon.com/es_es/AmazonRDS/latest/UserGuide/Welcome.html)  
 Guía del usuario de [Amazon Aurora](https://docs.aws.amazon.com/es_es/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)  
 Widgets de [Amazon CloudWatch](https://docs.aws.amazon.com/es_es/AmazonCloudWatch/latest/monitoring/create-and-work-with-widgets.html)  
-  
+<!-- https://docs.aws.amazon.com/es_es/amazondynamodb/latest/developerguide/DynamoDBMapper.DataTypes.html -->
+Documentación de Amazon [DynamoDB](https://docs.aws.amazon.com/es_es/dynamodb/)
+
 <!-- |**c)** Se ha trabajado en la resolución de problemas prácticos sobre almacenamiento y bases de datos.|20%| -->
  
 

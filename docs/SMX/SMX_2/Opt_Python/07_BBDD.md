@@ -602,6 +602,7 @@ list(range(5))
     1. Crear una variable que almacene el generador devuelto por la función.
     1. Recorrer el generador utilizando un bucle for y muestre por pantalla el cuadrado de cada número.
 
+---
 
 #### **1.10.5 - Expresiones regulares**
 Las expresiones regulares (regular expressions / regex / parsing) permiten buscar o manipular cadenas de texto basándose en **patrones específicos**. En Python, el módulo `re` proporciona funciones para trabajar con expresiones regulares que resulta muy útil para validar formatos de datos, como correos electrónicos, números de teléfono, códigos postales, etc.
