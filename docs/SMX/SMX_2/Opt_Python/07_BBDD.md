@@ -591,13 +591,13 @@ list(range(5))
     1. Crea un conjunto llamado administradores con los administradores Juan y Marta.
     1. Borra al administrador Juan del conjunto de administradores.
     1. Añade a Marcos como un nuevo administrador, pero no lo borres del conjunto de usuarios.
-    1. Muestra todos los usuarios por pantalla de forma dinámica, además debes indicar cada usuario es administrador o no.
+    1. Muestra todos los usuarios por pantalla de forma dinámica, además debes indicar si cada usuario es administrador o no.
      
 !!! exercise "Ejercicio 3"
     Realizar un programa que haga lo siguiente:
     
     1. Crea una lista contenga 5 números aleatorios (de cualquier tipo).
-    1. Defina una función generadora que reciba la lista anterior como parámetro.
+    1. Define una función generadora que reciba la lista anterior como parámetro.
     1. La función generadora devolverá, uno a uno, el cuadrado de cada número de la lista utilizando la instrucción yield.
     1. Crear una variable que almacene el generador devuelto por la función.
     1. Recorrer el generador utilizando un bucle for y muestre por pantalla el cuadrado de cada número.
@@ -843,58 +843,14 @@ print("Texto modificado:", texto_modificado)
     1. Mostrar un mensaje indicando si la dirección es duplicado o no.
     1. En caso de fallo volver a pedir introducir la dirección electrónica.
 
-<!-- https://python.sdv.u-paris.fr/17_expressions_regulieres/
-https://www.luisllamas.es/regex-ejemplos-practicos/ -->
-
-
+<!-- 
+|**f)** Se han creado clases y métodos genéricos.|
+|**i)** Se han realizado programas que realicen manipulaciones sobre documentos escritos en diferentes lenguajes de intercambio de datos.| -->
 
 <!-- https://gitlab.com/josedom24/curso_programacion_python3/-/tree/master/curso/u36 -->
-
-
-
-
-<!-- https://docs.python.org/es/3/tutorial/datastructures.html#dictionaries -->
-
-<!-- https://tutorial.recursospython.com/colecciones/#diccionarios -->
-
-
 <!-- https://www.pmareke.com/posts/generics/ -->
 <!-- https://gemini.google.com/u/1/app/f1540b3c3cf5ad43?hl=es-ES -->
-
-
- 
-  
-
-
-
-
-<!-- ### https://docs.python.org/es/3/tutorial/datastructures.html
-https://docs.python.org/es/3/library/re.html#re-syntax -->
-
-
-
-
-
-
-
-
-<!-- ### **2.6 - Expresiones regulares (validación de datos)** -->
-<!-- https://hektorprofe.github.io/python/funcionalidades-avanzadas/expresiones-regulares/ -->
-
-<!-- === "RA 6"
-    |RA6. Escribe programas que manipulen información, seleccionando y utilizando tipos avanzados de datos.|Peso| -->
-<!-- https://tutorial.recursospython.com/colecciones/ -->
-
-<!-- |**c)** Se han utilizado listas para almacenar y procesar información.|10%| -->
-<!-- PROGRAMACION GENERICA + GENERADORES -->
-
-    <!-- |**g)** Se han utilizado expresiones regulares en la búsqueda de patrones en cadenas de texto.|10%| -->
-<!-- https://python.sdv.u-paris.fr/17_expressions_regulieres/ -->
-    
 <!-- GENERICOS -->
 <!-- https://chatgpt.com/c/69458417-050c-832e-9a1b-82f159d1ca90 -->
-  <!-- |**f)** Se han creado clases y métodos genéricos.|10%| -->
 <!-- https://ellibrodepython.com/abstract-base-class -->
-
-
 <!-- https://python-para-impacientes.blogspot.com/ -->
