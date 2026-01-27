@@ -117,7 +117,7 @@ mi_lista.remove(3)  # Elimina el primer elemento con valor 3
 print(mi_lista)  # Salida: [1, 2, 4, 8, 9, 3, 4, 5]
 ```
 
-#### **1.2.4 - Método .clear()**
+#### **1.2.5 - Método .clear()**
 El método `clear()` elimina todos los elementos de una lista, dejándola vacía.
 
 ```py
@@ -127,7 +127,7 @@ mi_lista.clear()  # Elimina todos los elementos de la lista
 print(mi_lista)  # Salida: []
 ```
 
-#### **1.2.5 - Método .pop()**
+#### **1.2.6 - Método .pop()**
 El método `pop()` elimina y devuelve un elemento de la lista en una posición específica. Si no se especifica una posición, elimina y devuelve el último elemento de la lista. 
 
 ```py
@@ -142,7 +142,7 @@ elemento_eliminado = mi_lista.pop()  # Elimina y devuelve el último elemento
 print(elemento_eliminado)  # Salida: 4
 ```
 
-#### **1.2.6 - Método .sort()**
+#### **1.2.7 - Método .sort()**
 El método `sort()` ordena los elementos de una lista **modificando la lista original**. Por defecto, ordena los elementos en orden ascendente.
 
 ```py
