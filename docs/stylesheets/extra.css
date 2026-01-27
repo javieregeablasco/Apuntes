@@ -299,3 +299,37 @@
   text-decoration: underline;
 }
 /*tabla built-in apuntes de python*/
+
+/* hacer más grande los titulos con h1 2 3 4 5*/
+.md-typeset h1 {
+  font-size: 2em;
+  font-weight: bold;
+  color:brown;
+}
+.md-typeset h2 {
+  /* border-bottom: 2px solid #4da3ff; */
+  border: 2px solid #4da3ff;
+  padding: 0.2em;    
+  font-weight: bold;
+  font-size: 1.8em;
+  color:#4da3ff;
+}
+.md-typeset h3 {
+  /* text-decoration: underline; */
+  border-bottom: 2px solid cadetblue;
+  padding-bottom: 0.1em;     
+  font-weight: bold;
+  font-size: 1.6em;
+  color:cadetblue;
+}
+.md-typeset h4 {
+  font-weight: bold;
+  font-size: 1.4em;
+  text-decoration: underline;
+  color:chocolate;
+}
+.md-typeset h5 {
+  font-weight: bold;
+  font-size: 1.2em;
+  color:cornflowerblue;
+}

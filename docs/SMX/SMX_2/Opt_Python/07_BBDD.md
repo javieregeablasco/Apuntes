@@ -10,7 +10,7 @@ keywords: SMX, Python
 schedule: 96h - 3h/w
 ---
 
-# **UT 7 - Manipulación y validación de datos**
+# UT 7 - Manipulación y validación de datos
 
 ![Descripción de la imagen](../Opt_Python/img/UT7/md-1.png){ .sietecinco}
 
@@ -60,7 +60,7 @@ mi_diccionario = {"nombre": "Juan", "edad": 30, "ciudad": "Catadau"}
 Cada una de estas estructuras de datos tiene sus propias características y ventajas, y la elección de cuál utilizar depende del tipo de datos que se estén manejando y de las operaciones que se necesiten realizar sobre ellos.
 
 ### **1.2 - Métodos asociados a las listas**
-#### **1.2.1 - Método .append()**
+#### 1.2.1 - Método .append()
 El método `append()` se utiliza para agregar un elemento **al final de una lista**.
 
 ```py
@@ -78,7 +78,7 @@ mi_lista = [1, 2, 3]
 mi_lista += [4] 
 ```     
 
-#### **1.2.3 - Método .insert()**
+#### **1.2.2 - Método .insert()**
 El método `insert()` permite insertar un elemento en una posición específica de la lista.
 
 ```py
@@ -89,7 +89,7 @@ mi_lista.insert(1, 10)
 print(mi_lista)  # Salida: [1, 10, 2, 3]
 ```
 
-#### **1.2.4 - Método .del()**
+#### **1.2.3 - Método .del()**
 El método `del` permite eliminar un elemento de una lista en una posición específica.
 
 ```py    
@@ -99,7 +99,7 @@ del mi_lista[2]  # Elimina el elemento en la posición 2
 print(mi_lista)  # Salida: [1, 2, 4]
 ```
 
-#### **1.2.5 - Método .remove()**
+#### **1.2.4 - Método .remove()**
 Realiza la misma funcion que el métod `del()` pero, esta vez, en vez de eliminar un elemento en base a su índice, lo hace por su valor.
 
 ```py
@@ -117,7 +117,7 @@ mi_lista.remove(3)  # Elimina el primer elemento con valor 3
 print(mi_lista)  # Salida: [1, 2, 4, 8, 9, 3, 4, 5]
 ```
 
-#### **1.2.5 - Método .clear()**
+#### **1.2.4 - Método .clear()**
 El método `clear()` elimina todos los elementos de una lista, dejándola vacía.
 
 ```py
@@ -127,7 +127,7 @@ mi_lista.clear()  # Elimina todos los elementos de la lista
 print(mi_lista)  # Salida: []
 ```
 
-#### **1.2.6 - Método .pop()**
+#### **1.2.5 - Método .pop()**
 El método `pop()` elimina y devuelve un elemento de la lista en una posición específica. Si no se especifica una posición, elimina y devuelve el último elemento de la lista. 
 
 ```py
@@ -142,7 +142,7 @@ elemento_eliminado = mi_lista.pop()  # Elimina y devuelve el último elemento
 print(elemento_eliminado)  # Salida: 4
 ```
 
-#### **1.2.7 - Método .sort()**
+#### **1.2.6 - Método .sort()**
 El método `sort()` ordena los elementos de una lista **modificando la lista original**. Por defecto, ordena los elementos en orden ascendente.
 
 ```py
@@ -276,7 +276,7 @@ mi_conjunto.add(4)  # Agrega el elemento 4 al conjunto
 print(mi_conjunto)  # Salida: {1, 2, 3, 4}
 ```
 
-!!! question "¿Qué ocurrirá si hago un .add(3) sobre el ejemplo anteior?"  
+!!! question "¿Qué ocurrirá si hago un .add(3) sobre el ejemplo anterior?"  
 
 #### **1.5.2 - Método .remove()**
 El método `remove()` se utiliza para eliminar un elemento específico de un conjunto. Si el elemento no existe, se genera un error.
@@ -460,8 +460,8 @@ print(caja_de_cadenas.obtener_elementos())  # Salida: ['Hola', 'Mundo']
 
 ### **1.9 - Generadores**
 
-- Los generadores son una forma especial de iteradores que extraen los valores de **uno en uno** lugar de almacenar todos los valores en memoria.  
-- Hasta que no se solucite otro valor, el generador se mantiene pausado. Esta característica se conoce como **suspensión de estado**. 
+- Los generadores son una forma especial de iteradores que extraen los valores de **uno en uno** en lugar de almacenar todos los valores en memoria.  
+- Hasta que no se solicite otro valor, el generador se mantiene pausado. Esta característica se conoce como **suspensión de estado**. 
 - El generador se define utilizando la palabra clave `yield` en lugar de `return` dentro de una función. Cada vez que se llama al generador, este produce el siguiente valor en la secuencia y mantiene su estado para la próxima llamada.
 - Para realizar la iteración sobre un generador, se puede utilizar un bucle `for` o la función `next()`.
 
@@ -474,21 +474,20 @@ def generador_numeros_pares(num):
 # Instanciar el generador
 numeros_pares = generador_numeros_pares(5)
 
-# Usar del generador
-print("Aquí hay código")
-## Llamada 1
+...
+## Llamada 1 al generador
 print(f"Llamada 1 al generador que extrae el valor: {next(numeros_pares)}")
-print("Aquí hay código")
-## Llamada 2
+...
+## Llamada 2 al generador
 print(f"Llamada 2 al generador que extrae el valor: {next(numeros_pares)}")
-print("Aquí hay código")
-## Llamada 3
+...
+## Llamada 3 al generador
 print(f"Llamada 3 al generador que extrae el valor: {next(numeros_pares)}")
 ...
 ```
 
-!!! tip "Uso de yield from"
-    También se puede utilizar `yield from` para delegar parte de la generación a otro generador o iterable. Este es particularmente útil para combinar múltiples generadores. 
+!!! tip "yield from"
+También se puede utilizar `yield from` para delegar parte de la generación a otro generador o iterable. Este es particularmente útil para combinar múltiples generadores. 
 
 ```py
 def generador_numeros_pares(num):
@@ -511,7 +510,7 @@ for valor in generador:
     print(valor)
 ```
 
-También tendremos que tener en cuenta que `yield from` se comporta como un bucle `for` que itera sobre el iterable proporcionado, extrayendo cada valor y cediéndolo al llamador del generador principal.
+Tendremos que tener en cuenta que `yield from` se comporta como un bucle `for` que itera sobre el iterable proporcionado, **extrayendo cada valor** y cediéndolo al llamador del generador principal.
 ```py
 # código sin yield from
 def devuelve_ciudades(*ciudades):
@@ -522,6 +521,8 @@ def devuelve_ciudades(*ciudades):
 ciudades_generadas = devuelve_ciudades("Llombay", "Catadau", "Alfarp")
 for letras in range(20):
   print(next(ciudades_generadas), end="_")
+
+#########################################
 
 # código CON yield from
 def devuelve_ciudades(*ciudades):
@@ -541,8 +542,11 @@ La función `map()` aplica una función específica a cada elemento de un iterab
 # Ejemplo de uso de map()
 def cuadrado(x):
     return x ** 2
+
 numeros = [1, 2, 3, 4, 5]
+
 resultados = map(cuadrado, numeros)  # Aplica la función cuadrado a cada elemento de la lista numeros
+
 print(list(resultados))  # Salida: [1, 4, 9, 16, 25]
 ```
 #### **1.10.2 - Función filter()**
@@ -552,8 +556,11 @@ La función `filter()` filtra los elementos de un iterable basándose en una fun
 # Ejemplo de uso de filter()
 def es_par(x):
     return x % 2 == 0
+
 numeros = [1, 2, 3, 4, 5, 6]
+
 resultados = filter(es_par, numeros)  # Filtra los números pares de la lista
+
 print(list(resultados))  # Salida: [2, 4, 6]
 ```
 
@@ -563,7 +570,9 @@ La funcion `list()` convierte cualquier objeto iterable en **una lista**. Es út
 ```py
 # list sobre un tupla
 numeros = (1, 2, 3, 4, 5)  # Tupla
+
 lista_numeros = list(numeros)  # Convierte la tupla en una lista
+
 print(lista_numeros)  # Salida: [1, 2, 3, 4, 5]
 
 # list sobre un string
@@ -605,7 +614,8 @@ list(range(5))
 ---
 
 #### **1.10.5 - Expresiones regulares**
-Las expresiones regulares (regular expressions / regex / parsing) permiten buscar o manipular cadenas de texto basándose en **patrones específicos**. En Python, el módulo `re` proporciona funciones para trabajar con expresiones regulares que resulta muy útil para validar formatos de datos, como correos electrónicos, números de teléfono, códigos postales, etc.
+Las expresiones regulares (regular expressions / regex / parsing) permiten buscar o manipular cadenas de texto basándose en **patrones específicos**.  
+En Python, el módulo `re` proporciona funciones para trabajar con expresiones regulares. Resulta muy útil para validar formatos de datos, como correos electrónicos, números de teléfono, códigos postales, etc.
 
 **Ejemplo:**  
 ```py
@@ -630,7 +640,7 @@ Una expresión regular es una secuencia de caracteres diseñada para describir u
 | `^`    | Ancla de inicio                     | Indica el **inicio de la cadena** |
 | `$`    | Ancla de fin                        | Indica el **final de la cadena** |
 | `.`    | Punto                               | Coincide con **cualquier carácter**, excepto salto de línea (`\n`) |
-| `[]`   | Clase de caracteres                 | Coincide con **uno de los caracteres** definidos dentro del [] |
+| `[]`   | Clase de caracteres                 | Coincide con **uno de los caracteres** definidos dentro del [&nbsp;&nbsp;] |
 | `\`    | Escape                              | Escapa un metacarácter o introduce una **secuencia especial** |
 | `*`    | Cero o más                          | Coincide con **cero o más repeticiones** del elemento anterior o expresión entre paréntesis |
 | `+`    | Uno o más                           | Coincide con **una o más repeticiones** del elemento anterior o expresión entre paréntesis |
@@ -652,8 +662,8 @@ El módulo `re` de Python también proporciona **secuencias especiales** que fac
 | `\D`      | Coincide con cualquier carácter que no sea un dígito | `\[^0-9]` |
 | `\w`      | Coincide con cualquier carácter alfanumérico (letras, dígitos y guion bajo) | `[a-zA-Z0-9_]` |
 | `\W`      | Coincide con cualquier carácter que no sea alfanumérico | `[^a-zA-Z0-9_]` |
-| `\s`      | Coincide con cualquier carácter de espacio en blanco (espacios, tabulaciones, saltos de línea) |   `[ \t\n\r\f\v]` |
-| `\S`      | Coincide con cualquier carácter que no sea un espacio en blanco | `[^ \t\n\r\f\v]` |
+| `\s`      | Coincide con cualquier carácter de espacio en blanco **excepto un espacio en blanco '_'** (tabulador, salto de línea, retorno de carro, salto de página y tabulador vertical) |   `[\t\n\r\f\v]` |
+| `\S`      | Coincide con cualquier carácter que no sea un espacio en blanco | `[^\t\n\r\f\v]` |
 
 !!! example "Metacarácter `^`" 
 - La *regex* **^ATG** se encuentra en la cadena `ATGCGT` pero no en `CCATGTT`.
@@ -662,7 +672,7 @@ El módulo `re` de Python también proporciona **secuencias especiales** que fac
 - La *regex* **$ATG** se encuentra en la cadena `TGCATG` pero no en `CCATGTT`.
 
 !!! example "Metacarácter `.`" 
-- La *regex* **$A.G** se encuentra en la cadena `ATG` y también en `AtG`, `AtG``A5G``A*G``A&G``A G`.
+- La *regex* **$A.G** se encuentra en la cadena `ATG` y también en `AtG`, `AtG`, `A5G`, `A*G`, `A&G` y `A G`.
 
 !!! example "Metacarácter `[]`" 
 - La *regex* **T[ABC]G** se encuentra en la cadena `TAG`, `TBG` o `TCG` pero no en `TG`, `TaG`, `T5G`, ...  
@@ -674,7 +684,11 @@ El módulo `re` de Python también proporciona **secuencias especiales** que fac
 - *regex* **^[AC]**: cualquier expresión o cadena cuyo primer carácter empiece con A o C.  
 
 !!! example "Metacarácter `\`" 
-- La *regex* **\+** designa el carácter `+` (o cualquier otro carácter especial). La  *regex* `A\.G` se encuentra en `A.G` pero no en `AG`, `A4G`, `ABG`, ...
+El metacarácter de escape `\` se utiliza para indicar que el siguiente carácter debe interpretarse literalmente o para introducir secuencias especiales.
+
+- La *regex* **\d{3}** se encuentra en `123`, `456`, `789` pero no en `12A`, `AB3`, ...
+- La *regex* **\+** designa el carácter `+` (o cualquier otro carácter especial). Se encuentra en `A+B`, `C+D` pero no en `AB`, `A4B`, ...
+- La  *regex* `A\.G` se encuentra en `A.G` pero no en `AG`, `A4G`, `ABG`, ...
 
 !!! example "Metacarácter `*`" 
 - La *regex* `A(CG)*T` se encuentra en `AT`, `ACGT`, `ACGCGT`, ...
@@ -693,7 +707,7 @@ Otros ejemplos:
 - La *regex* `A(CG){,2}T` (como mucho) se encuentra en `AT`, `ACGT`, `ACGCGT`, ... pero no en `ACGCGCGT`, o `ACG`.
 - La *regex* `A(CG|TT)C` (O lógico) se encuentra en `ACGC`, `ATTC` pero no en `ACGTTC`.
 
-#### **1.10.6 - Ejercicios de regex**
+#### 1.10.6 - Ejercicios de regex
 !!! exercise "Ejercicio 1"
     ¿A qué corresponde el regex?
     ```py
@@ -727,10 +741,12 @@ Otros ejemplos:
     ```
     
     
-#### **1.10.7 - Módulo re**
+#### 1.10.7 - Módulo re
 El módulo `re` proporciona varias funciones para trabajar con expresiones regulares, como `match()`, `search()`, `findall()`, `sub()`, entre otras.
 
-##### **1.10.7.1 - Función search()**
+---
+
+##### 1.10.7.1 - Función search()
 La función `search()` busca una coincidencia del patrón en cualquier parte de la cadena.
 
 ```py
@@ -738,8 +754,11 @@ import re
 # Ejemplo de uso de search()
 patron = r'[0-9]{3}-[0-9]{2}-[0-9]{4}'  # Patrón
 # patron = r'\d{3}-\d{2}-\d{4}'  # Mismo patrón con secuencias especiales
+
 texto = "Mi número de seguro social es 123-45-6789."
+
 coincidencia = re.search(patron, texto)  # Busca la primera coincidencia
+
 if coincidencia:
     print("Coincidencia encontrada:", coincidencia.group())  # group() recupera el texto que ha coincidido
 else:
@@ -753,10 +772,13 @@ La función `match()` busca una coincidencia del patrón al **comienzo** de la c
 import re
 # Ejemplo de uso de match() y fullmatch()
 patron = r'\d{3}-\d{2}-\d{4}'  # Patrón
+
 texto1 = "123-45-6789 es mi número de seguro social."
 texto2 = "Mi número de seguro social es 123-45-6789."
+
 coincidencia_match = re.match(patron, texto1)  # Busca coincidencia al comienzo
 coincidencia_fullmatch = re.fullmatch(patron, texto2)  # Busca coincidencia en toda la cadena
+
 if coincidencia_match:
     print("Coincidencia match encontrada:", coincidencia_match.group())
 else:
@@ -774,9 +796,12 @@ La función `findall()` devuelve una lista de todas las coincidencias del patró
 import re
 # Ejemplo de uso de findall() y finditer()
 patron = r'\d{3}-\d{2}-\d{4}'  # Patrón
+
 texto = "Mis números de seguro social son 123-45-6789 y 987-65-4321."
+
 coincidencias_findall = re.findall(patron, texto)  # Devuelve una lista de todas las coincidencias
 coincidencias_finditer = re.finditer(patron, texto)  # Devuelve un iterador de objetos de coincidencia
+
 print("Coincidencias con findall:", coincidencias_findall)
 print(coincidencias_finditer)
 
@@ -795,8 +820,11 @@ La función `compile()` compila un patrón de expresión regular en un objeto de
 import re
 # Ejemplo de uso de compile()
 patron = r'\d{3}-\d{2}-\d{4}'  # Patrón
-regex = re.compile(patron)  # Compila el patrón en un objeto regex  
+
+regex = re.compile(patron)  # Compila el patrón en un objeto regex 
+
 texto = "Mis números de seguro social son 123-45-6789 y 987-65-4321."
+
 coincidencias = regex.findall(texto)  # Usa el objeto regex para buscar coincidencias
 print("Coincidencias encontradas:", coincidencias)  # Salida: ['123-45-6789', '987-65-4321']
 ```
@@ -810,12 +838,15 @@ import re
 patron = r'(\d{3})-(\d{2})-(\d{4})'  # Patrón con grupos
 texto = "Mi número de seguro social es 123-45-6789."
 coincidencia = re.search(patron, texto)  # Busca la primera coincidencia
+
+print(f"cantidad de coincidencias encontradas: {coincidencia.re.groups}")
+
 if coincidencia:
     print("Número completo:", coincidencia.group(0))  # Grupo 0 es el texto completo que coincide
     # print("Número completo:", coincidencia.group())  # 0 es el valor por defecto de group()
-    print("Parte 1 (AAA):", coincidencia.group(1))    # Primer grupo
-    print("Parte 2 (BB):", coincidencia.group(2))     # Segundo grupo
-    print("Parte 3 (CCCC):", coincidencia.group(3))   # Tercer grupo
+    print("Coincidencia 1 (111):", coincidencia.group(1))    # Primer grupo
+    print("Coincidencia 2 (11):", coincidencia.group(2))     # Segundo grupo
+    print("Coincidencia 2 (1111):", coincidencia.group(3))   # Tercer grupo
 else:
     print("No se encontró ninguna coincidencia.")
 ```     
@@ -833,7 +864,7 @@ print("Texto modificado:", texto_modificado)
 ```
 
 #### **1.10.8 - Tarea RA6-CEg**
-!!! exercise "Ejercicio"
+!!! exercise "Tarea RA6-CEg"
     Realizar un programa que haga lo siguiente:
 
     1. Definir una expresión regular para validar direcciones de correo electrónico.
