@@ -886,3 +886,9 @@ print("Texto modificado:", texto_modificado)
 <!-- https://chatgpt.com/c/69458417-050c-832e-9a1b-82f159d1ca90 -->
 <!-- https://ellibrodepython.com/abstract-base-class -->
 <!-- https://python-para-impacientes.blogspot.com/ -->
+
+
+
+
+<!-- https://anaconda.org/main -->
+<!-- https://www.youtube.com/watch?v=ljFwYKL6-1U&t=13s -->

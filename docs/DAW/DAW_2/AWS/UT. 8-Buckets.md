@@ -979,13 +979,140 @@ DynamoDB ofrece las siguientes operaciones de escritura:
 - **DeleteItem** → Elimina un ítem a partir de su clave primaria.
 - **BatchWriteItem** → Inserta o elimina múltiples ítems en una sola llamada (hasta 25 operaciones por lote). Esta operación solo admite PutItem y DeleteItem, no actualizaciones parciales.
 
-#### **2.2.6 - Creación de una tabla DynamoDB en AWS.
-16/24
+#### 2.2.6 - Creación de una tabla DynamoDB en AWS.
+- Vamos a la consola de administración de AWS, seleccionamos **DynamoDB** y pinchamos en **Crear tabla**.
+![Descripción de la imagen](./ut8/dynamoDB/DYN-8.png){.cien .marginbottom40 .margintop10 .marco}
+- Definimos el nombre de la tabla y la clave primaria. En este caso, usaremos una clave compuesta formada por **idAlumno** (partition key) y **asignatura** (sort key).
+![Descripción de la imagen](./ut8/dynamoDB/DYN-9.png){.cien .marginbottom40 .margintop10 .marco}
+- Dejamos el resto de opciones con los valores por defecto y creamos la tabla.
+![Descripción de la imagen](./ut8/dynamoDB/DYN-10.png){.cien .marginbottom40 .margintop10 .marco}
+- Después de unos segundos, la tabla estará creada y lista para usarse.
+![Descripción de la imagen](./ut8/dynamoDB/DYN-11.png){.cien .marginbottom40 .margintop10 .marco}
+- Una vez creada la tabla, meteremos algunos datos. Seleccionamos nuestra tabla y pulsamos **Explorar los elementos de la tabla**. 
+![Descripción de la imagen](./ut8/dynamoDB/DYN-12.png){.cien .marginbottom40 .margintop10 .marco}
+- Pulsamos en **Crear elemento**.
+![Descripción de la imagen](./ut8/dynamoDB/DYN-13.png){.cien .marginbottom40 .margintop10 .marco}
+- En el editor JSON, pegamos los siguientes datos de ejemplo y pulsamos en **Guardar** (**cuidado con el formato de datos**).
+![Descripción de la imagen](./ut8/dynamoDB/DYN-26.png){.cien .marginbottom40 .margintop10 .marco}
+```json
+{"idAlumno": "A001", "asignatura": "Historia", "nota": 9.0, "profesor": "Miguel"}
+{"idAlumno": "A001", "asignatura": "Inglés", "nota": 8.5, "profesor": "Ruth"}
+{"idAlumno": "A001", "asignatura": "Lengua", "nota": 9.5, "profesor": "Andrés"}
+{"idAlumno": "A001", "asignatura": "Matemáticas", "nota": 10, "profesor": "Sara"}
+{"idAlumno": "A002", "asignatura": "Historia", "nota": 6.7, "profesor": "Miguel"}
+{"idAlumno": "A002", "asignatura": "Lengua", "nota": 6.2, "profesor": "Andrés"}
+{"idAlumno": "A002", "asignatura": "Matemáticas", "nota": 7.5, "profesor": "Sara"}
+{"idAlumno": "A003", "asignatura": "Historia", "nota": 6.3, "profesor": "Miguel"}
+{"idAlumno": "A003", "asignatura": "Inglés", "nota": 8.5, "profesor": "Ruth"}
+{"idAlumno": "A003", "asignatura": "Lengua", "nota": 7.5, "profesor": "Carla"}
+```
+- Una vez insertados los datos, podremos verlos en la tabla.
+![Descripción de la imagen](./ut8/dynamoDB/DYN-14.png){.cien .marginbottom40 .margintop10 .marco}
+- Como podemos ver, crear a mano una tabla en DynamoDB solo es factible para tablas pequeñas. Para tablas más grandes, usaremos scripts o aplicaciones que interactúen con la API de DynamoDB.  
+Si deseamos importar una tabla podemos usar la opción de **importación desde S3**.
+![Descripción de la imagen](./ut8/dynamoDB/DYN-15.png){.cien .marginbottom40 .margintop10 .marco}
+
+#### 2.2.7 - Primeras consultas en la base de datos
+- Si vamos a **explore los elementos de la tabla** veremos que hay dos operaciones que podemos realizar para consultar **Examen
+(Scan)** y **Consulta (Query)**, que son las típicas que se pueden realizar sobre una tabla no relacional.
+![Descripción de la imagen](./ut8/dynamoDB/DYN-27.png){.cien .marginbottom40 .margintop10 .marco}
+- Podemos probar las opciones de Examinar (scan), que nos devolverá todos los registros de la tabla y de Consultar (query), que nos permite recuperar algunos registros aplicando ciertas restricciones.  
+Recordemos que la operación scan está desaconsejada porque se realiza el envío de los datos de toda la tabla, aunque apliquemos algún filtro.
+- Para hacer una consulta (query) podemos aplicar algunas restricciones sobre la clave de partición (si tiene algún valor en concreto) y sobre la clave de ordenación.
+- En esta tabla solo hemos creado un índice, la clave primaria, formada por la clave de partición (idAlumno) y la clave de ordenación (asignatura). Podríamos crear un GSI (Global Secondary Index) para poder hacer búsquedas por profesor, o crear un GSI para hacer búsquedas por asignatura, todo depende de los casos de uso que tenga para esta tabla. 
+- En la siguiente captura se indican los pasos para crear el **GSI de la asignatura**. En la pestaña **índices** de la tabla, hacemos clic en **crear índice**.  
+![Descripción de la imagen](./ut8/dynamoDB/DYN-16.png){.cien .marginbottom40 .margintop10 .marco}
+- Definimos el nombre del índice e introducimos la clave primaria del índice y la clave de ordenación. 
+![Descripción de la imagen](./ut8/dynamoDB/DYN-17.png){.cien .marginbottom40 .margintop10 .marco}
+-  En Proyecciones de atributos elegimos All pero, hay que tener cuidado con esto. **Elegir ALL** en la proyección de atributos de un índice secundario copia todos los atributos de la tabla al índice, lo que puede generar una gran duplicación de datos, aumentar costes de almacenamiento y consumo de capacidad, especialmente en tablas grandes con muchos atributos. Por ello debe usarse con cuidado. 
+![Descripción de la imagen](./ut8/dynamoDB/DYN-18.png){.cien .marginbottom40 .margintop10 .marco}
+- Después de unos segundos, el índice estará creado y listo para usarse.
+![Descripción de la imagen](./ut8/dynamoDB/DYN-19.png){.cien .marginbottom40 .margintop10 .marco}
+- Si ahora vamos a **explorar los elementos de la tabla** y creamos una consulta, vemos que la podemos hacerla sobre la tabla original o sobre el GSI que acabamos de crear. Esto nos va a permitir hacer consultas sobre la partición **idAlumno** y **filtros sobre la asignatura** (Clave Primaria) **o sobre la partición asignatura**, aplicando filtros sobre **idAlumno**, gracias al GSI nuevo.
+![Descripción de la imagen](./ut8/dynamoDB/DYN-20.png){.cien .marginbottom40 .margintop10 .marco}
+- Ejecutamos una consulta.  
+![Descripción de la imagen](./ut8/dynamoDB/DYN-21.png){.cien .marginbottom40 .margintop10 .marco}
+- Obtendremos el siguiente resultado.  
+![Descripción de la imagen](./ut8/dynamoDB/DYN-22.png){.cien .marginbottom40 .margintop10 .marco}
+
+#### 2.2.8 - NoSQL Worbench
+NoSQL Workbench es una aplicación gráfica para diseñar, modelar y consultar bases de datos DynamoDB. Proporciona una interfaz visual para crear tablas, definir esquemas y realizar consultas sin necesidad de escribir código.
+
+- Descargamos la aplicación desde [aquí](https://docs.aws.amazon.com/es_es/amazondynamodb/latest/developerguide/workbench.settingup.html) e instalamos.
+- Abrimos la aplicación y creamos una nueva conexión a DynamoDB.
+![Descripción de la imagen](./ut8/dynamoDB/DYN-23.png){.cincozero .marginbottom40 .margintop10 }
+- Introducimos las credenciales de AWS disponibles en el laboratory (no es necesario poner el ROL IAM) y pinchamos en **Connect**
+![Descripción de la imagen](./ut8/dynamoDB/DYN-28.png){.cincozero .marginbottom40 .margintop10 }
+- Si todo ha ido bien, no aparecerá la conexión...
+![Descripción de la imagen](./ut8/dynamoDB/DYN-24.png){.trescinco .marginbottom40 .margintop10 }
+- ... y podremos acceder a la tabla desde la aplicación local, sin necesidad de estar conectados a AWS.
+![Descripción de la imagen](./ut8/dynamoDB/DYN-25.png){.sietecinco .marginbottom40 .margintop10 }
 
 
 
+<!-- {
+  "idAlumno": {"S": "A001"},
+  "asignatura": {"S": "Historia"},
+  "nota": {"N": "9.0"},
+  "profesor": {"S": "Miguel"}
+},
+{
+  "idAlumno": {"S": "A001"},
+  "asignatura": {"S": "Inglés"},
+  "nota": {"N": "8.5"},
+  "profesor": {"S": "Ruth"}
+},
+{
+  "idAlumno": {"S": "A001"},
+  "asignatura": {"S": "Lengua"},
+  "nota": {"N": "9.5"},
+  "profesor": {"S": "Andrés"}
+},
+{
+  "idAlumno": {"S": "A001"},
+  "asignatura": {"S": "Matemáticas"},
+  "nota": {"N": "10"},
+  "profesor": {"S": "Sara"}
+},
+{
+  "idAlumno": {"S": "A002"},
+  "asignatura": {"S": "Historia"},
+  "nota": {"N": "6.7"},
+  "profesor": {"S": "Miguel"}
+},
+{
+  "idAlumno": {"S": "A002"},
+  "asignatura": {"S": "Lengua"},
+  "nota": {"N": "6.2"},
+  "profesor": {"S": "Andrés"}
+},
+{
+  "idAlumno": {"S": "A002"},
+  "asignatura": {"S": "Matemáticas"},
+  "nota": {"N": "7.5"},
+  "profesor": {"S": "Sara"}
+},
+{
+  "idAlumno": {"S": "A003"},
+  "asignatura": {"S": "Historia"},
+  "nota": {"N": "6.3"},
+  "profesor": {"S": "Miguel"}
+},
+{
+  "idAlumno": {"S": "A003"},
+  "asignatura": {"S": "Inglés"},
+  "nota": {"N": "8.5"},
+  "profesor": {"S": "Ruth"}
+},
+{
+  "idAlumno": {"S": "A003"},
+  "asignatura": {"S": "Lengua"},
+  "nota": {"N": "7.5"},
+  "profesor": {"S": "Carla"}
+} -->
 
-
+#### 2.2.9 - Tarea RA4-CEc
+ 
 
 
 
@@ -1021,8 +1148,10 @@ Base de datos relacionales [AWS RDS](https://aws.amazon.com/es/rds/)
 Guía del usuario del [AWS RDS](https://docs.aws.amazon.com/es_es/AmazonRDS/latest/UserGuide/Welcome.html)  
 Guía del usuario de [Amazon Aurora](https://docs.aws.amazon.com/es_es/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)  
 Widgets de [Amazon CloudWatch](https://docs.aws.amazon.com/es_es/AmazonCloudWatch/latest/monitoring/create-and-work-with-widgets.html)  
+Documentación de Amazon [DynamoDB](https://docs.aws.amazon.com/es_es/dynamodb/)  
+GUI de [NoSQL Workbench](https://docs.aws.amazon.com/es_es/amazondynamodb/latest/developerguide/workbench.html)
+Enlace de [descarga](https://docs.aws.amazon.com/es_es/amazondynamodb/latest/developerguide/workbench.settingup.html) de NoSQL Workbench
 <!-- https://docs.aws.amazon.com/es_es/amazondynamodb/latest/developerguide/DynamoDBMapper.DataTypes.html -->
-Documentación de Amazon [DynamoDB](https://docs.aws.amazon.com/es_es/dynamodb/)
 
 <!-- |**c)** Se ha trabajado en la resolución de problemas prácticos sobre almacenamiento y bases de datos.|20%| -->
  
