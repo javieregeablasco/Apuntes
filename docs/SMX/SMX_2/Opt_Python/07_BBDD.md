@@ -900,7 +900,10 @@ En este capítulo haremos una breve presentación de herramientas para el análi
     - En VSC se puede instalar la extensión "Jupyter" para trabajar con notebooks directamente en el editor.
     - Crear un nuevo archivo con extensión **.ipynb** no **.py** para comenzar a trabajar con notebooks.  
 
-**Ejemplo de uso de un notebook Jupyter en VSC:**
+**Apariencia de un notebook Jupyter en VSC:**
+![notebook_jupyter_vsc](./img/UT7/anaconda/ana-5.png){.cincozero .margintop10 }
+
+**Código del notebook:**
 ```py
 # Ejemplo de uso de un notebook Jupyter en VSC
 import numpy as np
@@ -919,10 +922,75 @@ plt.ylabel('Valor')
 plt.show()
 ```
 
-**Apariencia de un notebook Jupyter en VSC:**
-![notebook_jupyter_vsc](./img/UT7/anaconda/ana-5.png){.cincozero .margintop10 }
+### 2.2 - Librería NumPy
+![notebook_jupyter_vsc](./img/UT7/anaconda/ana-2.png){.cuatrozero .margintop10 }
+
+#### 2.2.1 - ¿Qué es NumPy?
+Numpy es una librería de procesamiento de **arrays**. Contiene una gran colección de funciones que permiten realizar cálculos matemáticos complejos sobre arrays multidimensionales.
+
+#### 2.2.2 - ¿Qué es un array?
+Un array es una estructura de datos que almacena una colección de elementos del mismo tipo en una secuencia contigua de memoria. A diferencia de las **listas** (de Python), los arrays de NumPy son más eficientes en términos de rendimiento y uso de memoria, especialmente cuando se trata de grandes conjuntos de datos numéricos.
+
+#### 2.2.3 - Creación de arrays en NumPy
+Para crear un array en utilizareos la función `np.array()`.
+
+```py
+import numpy as np
+# Crear un array de NumPy
+array = np.array([1, 2, 3, 4, 5])
+print(array)  # Salida: [1 2 3 4 5]
+```
+
+A diferencia de las listas que permiten almacenar elementos de diferentes tipos, los arrays de NumPy están diseñados para solo almacenar elementos del mismo tipo. Esto permite optimizar el rendimiento y la eficiencia en el manejo de datos numéricos.
+
+**Ejemplo:**
+```py
+import numpy as np
+
+array = np.array(["hola",1,25, 1e10])
+array
+
+# array(['hola', '1', '25', '10000000000.0'], dtype='<U32')
+```
+En este ejemplo, vemos que NumPy convierte todos los elementos al mismo tipo, en este caso a cadenas de texto (Unicode) de longitud fija de hasta 32 caracteres.
+
+**Otro ejemplo:**
+```py
+import numpy as np
+
+array = np.array([1,25, 1e10])
+print(array)
+array.dtype
+# Salida: [1.e+00 2.5e+01 1.e+10]
+# dtype('float64')
+```
+En este caso, NumPy convierte todos los elementos al tipo `float64` para mantener la coherencia en el tipo de datos del array.
+
+#### 2.2.3 - Operacines básicas para la creación de arrays
+NumPy proporciona varias funciones para crear arrays de diferentes maneras:
+
+- **Arrays de ceros**
+```py
+import numpy as np
+# Crear un array de ceros
+array_ceros = np.zeros((3, 4))  # Array de 3 filas y 4 columnas lleno de ceros
+print("Array de ceros:\n", array_ceros)
+# Crear un array de unos
+array_unos = np.ones((2, 5))  # Array de 2 filas y 5 columnas lleno de unos
+print("Array de unos:\n", array_unos)
+# Crear un array con valores aleatorios
+array_aleatorio = np.random.rand(3, 3)  # Array de 3x3 con valores aleatorios entre 0 y 1
+print("Array aleatorio:\n", array_aleatorio)
+# Crear un array con valores secuenciales
+array_secuencial = np.arange(0, 10, 2)  # Array con valores del 0 al 10 con paso 2
+print("Array secuencial:\n", array_secuencial)
+```
 
 
+
+
+
+<!-- https://python-para-impacientes.blogspot.com/p/numpy.html -->
 
 
 
@@ -940,8 +1008,7 @@ plt.show()
 
 
 
-
-<!-- https://anaconda.org/main -->
+ 
 <!-- https://www.youtube.com/watch?v=ljFwYKL6-1U&t=13s -->
 
 <!-- numpy pandas -->
