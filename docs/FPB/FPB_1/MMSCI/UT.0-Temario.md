@@ -134,7 +134,7 @@ orígenes de información; procedimientos de implantación de imágenes y répli
     |**c)** Se han utilizado las guías técnicas detalladas para sustituir elementos consumibles.|10%|
     |**d)** Se han descrito las características de los componentes, de los soportes y de los periféricos para conocer los aspectos que afecten a su mantenimiento.|15%|
     |**e)** Se han utilizado las guías de los fabricantes para identificar los procedimientos de limpieza de componentes, soportes y periféricos.|15%|
-    |**f)** Se ha realizado la limpieza de componentes, soportes y periféricos respetando las disposiciones técnicas establecidas por el fabricante manteniendo su funcionalidad..|15%|
+    |**f)** Se ha realizado la limpieza de componentes, soportes y periféricos respetando las disposiciones técnicas establecidas por el fabricante manteniendo su funcionalidad.|15%|
     |**g)** Se han recogido los residuos y elementos desechables de manera adecuada para su eliminación o reciclaje.|15%|
 
 === "RA 6"

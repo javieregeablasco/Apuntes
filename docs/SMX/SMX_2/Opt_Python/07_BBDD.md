@@ -872,8 +872,59 @@ print("Texto modificado:", texto_modificado)
     1. Utilizar una expresión regular para verificar si la dirección es válida o no.
     1. Antes de almacenar la dirección dentro de una lista, comprobar si ya existe en la lista una dirección identica.
     1. Mostrar un mensaje indicando si la dirección es válida o inválida.
-    1. Mostrar un mensaje indicando si la dirección es duplicado o no.
+    1. Mostrar un mensaje indicando si la dirección es duplicada o no.
     1. En caso de fallo volver a pedir introducir la dirección electrónica.
+
+## 2 - Introducción al análisis de datos
+En el capítulo anterior, aprendimos los fundamentos para mover y transformar datos utilizando las estructuras nativas de Python. Sin embargo, cuando nos enfrentamos a volúmenes masivos de información o necesitamos realizar cálculos complejos de forma eficiente, las herramientas estándar pueden quedarse cortas en velocidad y comodidad.
+
+En este capítulo haremos una breve presentación de herramientas para el análisis de datos: 
+
+- **NumPy (El Motor)**: Es la biblioteca que permite realizar operaciones matemáticas de alto rendimiento. Su especialidad son los arrays multidimensionales, permitiéndonos realizar cálculos sobre millones de datos casi instantáneamente.
+- **Pandas (La Estructura)**: Introduce el concepto de DataFrame (muy similar a una tabla de Excel), permitiéndonos limpiar, filtrar y agrupar datos de manera intuitiva y potente.
+- **Matplotlib (La Visión)**: Los datos no sirven de nada si no podemos comunicar lo que dicen. Esta librería es el estándar para crear visualizaciones estáticas, animadas e interactivas que transforman números en conocimiento visual.
+
+### 2.1 - Anaconda
+**Anaconda** es una distribución de **Python y R** diseñada para la ciencia de datos y el aprendizaje automático. Proporciona una plataforma fácil de usar que incluye una gran cantidad de paquetes y herramientas útiles para el análisis de datos, la visualización y el desarrollo de modelos de machine learning.
+
+- Instalación de Anaconda:  
+  - Descargar el instalador desde la página oficial: https://www.anaconda.com/products/distribution
+  - Seguir las instrucciones de instalación para tu sistema operativo (Windows, macOS, Linux).
+  
+- Uso de Anaconda en VSC:
+    - Abrir Visual Studio Code.
+    - Instalar la extensión de Python si no está instalada.
+    - Abrir la paleta de comandos (Ctrl + Shift + P) y seleccionar "Python: Select Interpreter".
+    - Elegir el intérprete de Anaconda que se instaló previamente.
+- Notebook Jupyter:
+    - En VSC se puede instalar la extensión "Jupyter" para trabajar con notebooks directamente en el editor.
+    - Crear un nuevo archivo con extensión **.ipynb** no **.py** para comenzar a trabajar con notebooks.  
+
+**Ejemplo de uso de un notebook Jupyter en VSC:**
+```py
+# Ejemplo de uso de un notebook Jupyter en VSC
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+# Crear un array de NumPy
+array = np.array([1, 2, 3, 4, 5])
+# Crear un DataFrame de Pandas
+data = {'Columna1': [1, 2, 3], 'Columna2': [4, 5, 6]}
+df = pd.DataFrame(data)
+# Crear una gráfica simple con Matplotlib
+plt.plot(array)
+plt.title('Ejemplo de Gráfica')
+plt.xlabel('Índice')
+plt.ylabel('Valor')
+plt.show()
+```
+
+**Apariencia de un notebook Jupyter en VSC:**
+![notebook_jupyter_vsc](./img/UT7/anaconda/ana-5.png){.cincozero .margintop10 }
+
+
+
+
 
 <!-- 
 |**f)** Se han creado clases y métodos genéricos.|
@@ -892,3 +943,6 @@ print("Texto modificado:", texto_modificado)
 
 <!-- https://anaconda.org/main -->
 <!-- https://www.youtube.com/watch?v=ljFwYKL6-1U&t=13s -->
+
+<!-- numpy pandas -->
+<!-- https://dspace.ceu.es/server/api/core/bitstreams/c8ac32c7-4967-4e69-a780-392ee3829b87/content -->
