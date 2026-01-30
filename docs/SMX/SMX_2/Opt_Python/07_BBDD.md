@@ -1181,4 +1181,4 @@ Como acabamos de ver acceder a los elementos de un array multidimensional se hac
 
 <!-- numpy pandas -->
 <!-- https://dspace.ceu.es/server/api/core/bitstreams/c8ac32c7-4967-4e69-a780-392ee3829b87/content -->
-<!-- https://geekytheory.com/pylab-parte-2-datos-basicos-numpy/ -->
+ 

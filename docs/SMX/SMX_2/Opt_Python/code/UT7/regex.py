@@ -33,12 +33,16 @@
 # import re
 # # Ejemplo de uso de findall() y finditer()
 # patron = r'\d{3}-\d{2}-\d{4}'  # Patrón
+
 # texto = "Mis números de seguro social son 123-45-6789 y 987-65-4321."
+
 # coincidencias_findall = re.findall(patron, texto)  # Devuelve una lista de todas las coincidencias
 # coincidencias_finditer = re.finditer(patron, texto)  # Devuelve un iterador de objetos de coincidencia
-# print("Coincidencias con findall:", coincidencias_findall)
-# print(coincidencias_finditer)
 
+# # Visualizar la lista de coincidencias
+# print("Coincidencias con findall:", coincidencias_findall)
+
+# # Iterar sobre el iterable obtenido con finditer()
 # iteraciones =["Primera iteración: ","Segunda iteración: "]
 # iterador=0
 
@@ -47,22 +51,23 @@
 #     iterador += 1
 
 
-import re
-# Ejemplo de uso de group()
-patron = r'(\d{3})-(\d{2})-(\d{4})'  # Patrón con grupos
-texto = "Mi número de seguro social es 123-45-6789."
-coincidencia = re.search(patron, texto)  # Busca la primera coincidencia
 
-print(f"cantidad de coincidencias encontradas: {coincidencia.re.groups}")
+# import re
+# # Ejemplo de uso de group()
+# patron = r'(\d{3})-(\d{2})-(\d{4})'  # Patrón con grupos
+# texto = "Mi número de seguro social es 123-45-6789."
+# coincidencia = re.search(patron, texto)  # Busca la primera coincidencia
 
-if coincidencia:
-    print("Número completo:", coincidencia.group(0))  # Grupo 0 es el texto completo que coincide
-    # print("Número completo:", coincidencia.group())  # 0 es el valor por defecto de group()
-    print("Coincidencia 1 (111):", coincidencia.group(1))    # Primer grupo
-    print("Coincidencia 2 (11):", coincidencia.group(2))     # Segundo grupo
-    print("Coincidencia 2 (1111):", coincidencia.group(3))   # Tercer grupo
-else:
-    print("No se encontró ninguna coincidencia.")
+# print(f"cantidad de coincidencias encontradas: {coincidencia.re.groups}")
+
+# if coincidencia:
+#     print("Número completo:", coincidencia.group(0))  # Grupo 0 es el texto completo que coincide
+#     # print("Número completo:", coincidencia.group())  # 0 es el valor por defecto de group()
+#     print("Coincidencia 1 (111):", coincidencia.group(1))    # Primer grupo
+#     print("Coincidencia 2 (11):", coincidencia.group(2))     # Segundo grupo
+#     print("Coincidencia 2 (1111):", coincidencia.group(3))   # Tercer grupo
+# else:
+#     print("No se encontró ninguna coincidencia.")
 
 # import re
 # patron = r'\d{3}-\d{2}-\d{4}'  # Patrón
