@@ -952,7 +952,7 @@ array
 
 # array(['hola', '1', '25', '10000000000.0'], dtype='<U32')
 ```
-En este ejemplo, vemos que NumPy convierte todos los elementos al mismo tipo, en este caso a cadenas de texto (Unicode) de longitud fija de hasta 32 caracteres.
+En este ejemplo, vemos que NumPy convierte todos los elementos al mismo tipo, en este caso a cadenas de texto Unicode de hasta 32 caracteres.
 
 **Otro ejemplo:**
 ```py
@@ -966,25 +966,193 @@ array.dtype
 ```
 En este caso, NumPy convierte todos los elementos al tipo `float64` para mantener la coherencia en el tipo de datos del array.
 
-#### 2.2.3 - Operacines básicas para la creación de arrays
-NumPy proporciona varias funciones para crear arrays de diferentes maneras:
+#### 2.2.4 - Operaciones básicas de creación de arrays
+NumPy proporciona varias funciones para crear arrays. A continuación, se muestran algunas de las más comunes:
 
-- **Arrays de ceros**
+- **Arrays de ceros (0)**
 ```py
-import numpy as np
-# Crear un array de ceros
-array_ceros = np.zeros((3, 4))  # Array de 3 filas y 4 columnas lleno de ceros
-print("Array de ceros:\n", array_ceros)
-# Crear un array de unos
-array_unos = np.ones((2, 5))  # Array de 2 filas y 5 columnas lleno de unos
-print("Array de unos:\n", array_unos)
-# Crear un array con valores aleatorios
-array_aleatorio = np.random.rand(3, 3)  # Array de 3x3 con valores aleatorios entre 0 y 1
-print("Array aleatorio:\n", array_aleatorio)
-# Crear un array con valores secuenciales
-array_secuencial = np.arange(0, 10, 2)  # Array con valores del 0 al 10 con paso 2
-print("Array secuencial:\n", array_secuencial)
+array_ceros = np.zeros(3)  # Array con 3 elementos
 ```
+
+- **Arrays de unos (1)**
+```py
+array_unos = np.ones(4)  # Array con 43 elementos
+```
+
+- **Auto llenar un array con arange() (1/2)**
+```py
+array_secuencial = np.arange(10)  
+# [0,1,2,3,4,5,6,7,8,9]
+```
+
+- **Auto llenar un array con arange() (2/2)**
+```py
+array_secuencial = np.arange(5, 15, 2)
+# [5,7,9,11,13]
+```
+
+- **Constantes de NumPy**
+```py
+constantes = np.array([np.pi, np.e, np.inf, np.nan])
+[3.141592653589793, 2.718281828459045, inf, nan]
+```
+   
+#### 2.2.5 - Dimensiones de los arrays
+Los arrays en NumPy pueden tener múltiples dimensiones.
+
+**Array unidimensional (1D)**
+```py
+array_1d = np.array([1, 2, 3, 4, 5])
+# array([1, 2, 3, 4, 5])
+```
+ 
+ **Array bidimensional (2D)**
+```py
+array_2d = np.array([[1, 2], [3, 4]])
+# array([[1, 2],
+#        [3, 4]])
+```
+
+**Array tridimensional (3D)**
+```py
+array_3d = array_3d = np.array([[[1, 2, 3], [4, 5, 6], [7, 8, 9]],[[1, 2, 3], [4, 5, 6], [7, 8, 9]],[[1, 2, 3], [4, 5, 6], [7, 8, 9]]])
+# array([[[1, 2, 3],
+#         [4, 5, 6],
+#         [7, 8, 9]],
+# 
+#        [[1, 2, 3],
+#         [4, 5, 6],
+#         [7, 8, 9]],
+# 
+#        [[1, 2, 3],
+#         [4, 5, 6],
+#         [7, 8, 9]]])
+```
+
+#### 2.2.6 - Redimensionar arrays
+Los arrays en NumPy se pueden redimensionar fácilmente utilizando el método `reshape()`. 
+
+```py
+array = np.arange(20)
+array.reshape(5,4)
+
+# array([[ 0,  1,  2,  3],
+#        [ 4,  5,  6,  7],
+#        [ 8,  9, 10, 11],
+#        [12, 13, 14, 15],
+#        [16, 17, 18, 19]])
+```
+
+**Otro ejemplo:**
+```py
+array = np.arange(27)
+array.reshape(3,3,3)
+
+# array([[[ 0,  1,  2],
+#         [ 3,  4,  5],
+#         [ 6,  7,  8]],
+#
+#        [[ 9, 10, 11],     
+#         [12, 13, 14],
+#         [15, 16, 17]],
+#
+#        [[18, 19, 20],
+#         [21, 22, 23],
+#         [24, 25, 26]]])
+```
+
+**ndim, shape y size**
+- `ndim`: Devuelve el número de dimensiones del array.
+- `shape`: Devuelve una tupla que indica el tamaño de cada dimensión del array.
+- `size`: Devuelve el número total de elementos en el array.
+
+```py
+array = np.arange(12).reshape(3,4)
+print(array.ndim)   # Salida: 2 (bidimensional)
+print(array.shape)  # Salida: (3, 4) (3 filas y 4 columnas)
+print(array.size)   # Salida: 12 (total de elementos)
+```
+
+#### 2.2.7 - Tipos de datos de un array
+Como ya hemos dicho, los arrays de NumPy están diseñados para almacenar elementos del mismo tipo. NumPy proporciona una variedad de tipos de datos que se pueden utilizar al crear un array.   
+Algunos de los tipos de datos más comunes son:
+
+<!-- | Tipo de dato | Descripción                          | Ejemplo de uso          |
+|--------------|--------------------------------------|-------------------------|   
+| `int8`       | Entero de 8 bits                     | `np.array([1, 2, 3], dtype=np.int8)`   |
+| `int16`      | Entero de 16 bits                    | `np.array([1, 2, 3], dtype=np.int16)`  |
+| `int32`      | Entero de 32 bits                    | `np.array([1, 2, 3], dtype=np.int32)`  |
+| `int64`      | Entero de 64 bits                    | `np.array([1, 2, 3], dtype=np.int64)`  |
+| `float16`    | Número de punto flotante de 16 bits  | `np.array([1.0, 2.0, 3.0], dtype=np.float16)` |
+| `float32`    | Número de punto flotante de 32 bits  | `np.array([1.0, 2.0, 3.0], dtype=np.float32)` |
+| `float64`    | Número de punto flotante de 64 bits  | `np.array([1.0, 2.0, 3.0], dtype=np.float64)` |  -->
+
+![Descripción de la imagen](./img/UT7/anaconda/ana-6.png){.seiscinco .marginbottom40 .margintop10 }
+
+Rangos de los diferentes tipos de datos se puesde consultar en la siguiente tabla:
+![Descripción de la imagen](./img/UT7/anaconda/ana-7.png){.seiscinco .marginbottom40 .margintop10 }  
+
+#### 2.2.8 - Acceso a los valores de un array (indexado)
+
+- **Acceso a elementos individuales en array (1D).**
+```py
+array = np.array([10, 20, 30, 40, 50])
+print(array[2])  
+# 30
+print(array[[2,4]])  
+# [30 50]
+```
+
+- **Acceso a elementos individuales en array (2D).**
+```py
+array = np.array([[10, 20, 30], [40, 50, 60], [70, 80, 90]])
+print(array[1, 2]) 
+# 60
+```
+
+- **Acceso a elementos individuales en array (3D).**
+```py
+array = np.array([[[10, 20], [30, 40]], [[50, 60], [70, 80]]])
+print(array[1, 0, 1])
+# 60
+```
+
+Como acabamos de ver acceder a los elementos de un array multidimensional se hace especificando los índices de cada dimensión y siguiendo la regla **array[i,j,k]** donde **i** representa la 3ª dimensión del array, **j y k** las 2 primeras. 
+![Descripción de la imagen](./img/UT7/anaconda/ana-8.png){.cuatrocinco .marginbottom40 .margintop10 }  
+
+!!! exercise "¿Si miramos la figura anterior, qué valor tiene array[1,1,2]?"
+
+
+- **Slicing / acceso a un grupo de calores**
+    - **Acceso a un rango de elementos en array (1D).**
+    ```py
+    array = np.array([10, 20, 30, 40, 50])
+    print([1:4]) 
+    # [20 30 40]
+    ```
+    
+    - **Acceso a filas completas (2D)**
+    ```py
+    array = np.arange(10, 260, 10).reshape(5,5)
+    print(array[0, :]) 
+    # [10 20 30 40 50]
+    ```
+
+    - **Acceso a columnas completas (2D)**
+    ```py 
+    print(array[:, 1])  
+    # [10 60 110 160 210]
+    ```
+    !!! exercise "Ejercicio"
+        - Tenemos el siguiente array:  
+        ![Descripción de la imagen](./img/UT7/anaconda/ana-9.png){.leftdoscero   }  
+        - ¿Qué valores devolverá array[1:,2:4]?"
+        - ¿Qué valores devolverá array[:2,2:4]?"
+
+#### 2.2.9 - Operaciones matemáticas sobre un array
+
+
+ <!-- Tipos de datos de un array con NumPy -->
 
 
 
@@ -1013,3 +1181,4 @@ print("Array secuencial:\n", array_secuencial)
 
 <!-- numpy pandas -->
 <!-- https://dspace.ceu.es/server/api/core/bitstreams/c8ac32c7-4967-4e69-a780-392ee3829b87/content -->
+<!-- https://geekytheory.com/pylab-parte-2-datos-basicos-numpy/ -->
