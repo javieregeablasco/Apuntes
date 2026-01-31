@@ -1286,36 +1286,38 @@ aws dynamodb query \
 PostedBy-Index
 ![Descripción de la imagen](./ut8/dynamoDB/DYN-42.png){.sietecinco .marginbottom40 .margintop10 }
 
+#### 2.2.9.3 - Consultas
 !!! task "Trabajos a realizar"
-    Ejercicios a resolver mediante comandos. Incluye el comando y una captura donde se vea su ejecución. 
+    Realizar las operaciones siguiente mediante comandos AWS. 
+    **Incluir el comando y una captura donde se vea su ejecución**. 
     Si es un comando cuya comprobación requiere otra acción desde la consola de aws o de otro comando, quedaría bien añadirlo.
     
-    1. Inserta tres productos inventándote los datos.
-    2. Selecciona uno de esos productos a través de su CP.
-    3. Cambia uno de los datos de uno de esos productos.
-    4. Elimina uno de los productos.
+    1. Insertar tres productos inventándote los datos.
+    2. Seleccionar uno de esos productos a través de su CP.
+    3. Cambiar uno de los datos de uno de esos productos.
+    4. Eliminar uno de los productos.
     5. Realizar una query sobre cualquier tabla. Recuerda que una query siempre ha de filtrar sobre la CP de una tabla o sobre otro índice (LSI o GSI).
-    6. Haz un scan sobre una tabla y aplícale un filtro. Recuerda que este caso es más ineficiente puesto que se recuperan todos los datos de la tabla y luego se aplica el filtro 
+    6. Realizar un scan sobre una tabla y aplícarle un filtro. Recordar que este caso es más ineficiente puesto que se recuperan todos los datos de la tabla y luego se aplica el filtro. 
 
 Ejemplos de capturas:
 
 1. Insertar items.
-<mark>Realizar captura de pantalla</mark> 
+<mark>Ejemplo de captura de pantalla</mark> 
 ![Descripción de la imagen](./ut8/dynamoDB/DYN-47.png){.trescinco .marginbottom40 .margintop10 }
 1. Recuperar item por su CP.
-<mark>Realizar captura de pantalla</mark> 
+<mark>Ejemplo de captura de pantalla</mark> 
 ![Descripción de la imagen](./ut8/dynamoDB/DYN-48.png){.trescinco .marginbottom40 .margintop10 }
 1. Actualizar item.
-<mark>Realizar captura de pantalla</mark> 
+<mark>Ejemplo de captura de pantalla</mark> 
 ![Descripción de la imagen](./ut8/dynamoDB/DYN-49.png){.trescinco .marginbottom40 .margintop10 }
 1. Eliminar item.
-<mark>Realizar captura de pantalla</mark> 
+<mark>Ejemplo de captura de pantalla</mark> 
 ![Descripción de la imagen](./ut8/dynamoDB/DYN-50.png){.trescinco .marginbottom40 .margintop10 }
 1. Query.
-<mark>Realizar captura de pantalla</mark> 
+<mark>Ejemplo de captura de pantalla</mark> 
 ![Descripción de la imagen](./ut8/dynamoDB/DYN-51.png){.trescinco .marginbottom40 .margintop10 }
 1. Scan.
-<mark>Realizar captura de pantalla</mark> 
+<mark>Ejemplo de captura de pantalla</mark> 
 ![Descripción de la imagen](./ut8/dynamoDB/DYN-46.png){.trescinco .marginbottom40 .margintop10 }
 
 
