@@ -1113,27 +1113,221 @@ NoSQL Workbench es una aplicación gráfica para diseñar, modelar y consultar b
 
 #### 2.2.9 - Tarea RA4-CEc
  
+#### 2.2.9.1 - Creación de las tablas
+Disponemos de al menos 3 maneras de crear tablas en DynamoDB:
+- Usando la consola de administración de AWS.
+- Usando la CLI de AWS.
+- Usando SDKs de AWS (por ejemplo, boto3 para Python).
+
+En este caso crearemos un conjunto de tablas consumiendo un programa en Python que usará el SDK boto3 para interactuar con DynamoDB. Para ejecutar el programa usaremos una instancia de Cloud9.
+
+- Creamos el entorno de desarrollo Cloud9.
+![Descripción de la imagen](./ut8/dynamoDB/DYN-30.png){.sietecinco .marginbottom40 .margintop10 }
+- Por limitaciones de usuario, elegimos la opción Secure Shell.
+![Descripción de la imagen](./ut8/dynamoDB/DYN-31.png){.sietecinco .marginbottom40 .margintop10 }
+- Una vez creado el entorno lo abrimos (tarda unos instantes). 
+![Descripción de la imagen](./ut8/dynamoDB/DYN-32.png){.sietecinco .marginbottom40 .margintop10 }
+- Dentro de Cloud9 creamos un **nombre_de_archivo.py** y pegamos el siguiente código.
+
+```py
+import boto3
+from datetime import datetime, timedelta
+
+# Configuración del cliente
+dynamodb = boto3.resource('dynamodb', region_name='us-east-1')
+client = boto3.client('dynamodb', region_name='us-east-1')
+
+reply_table_name = "Reply"
+
+def delete_table(table_name):
+    try:
+        table = dynamodb.Table(table_name)
+        print(f"Eliminando tabla {table_name}...")
+        table.delete()
+        table.wait_until_not_exists()
+    except client.exceptions.ResourceNotFoundException:
+        pass
+
+def create_reply_table():
+    print(f"Creando tabla {reply_table_name}...")
+    try:
+        table = dynamodb.create_table(
+            TableName=reply_table_name,
+            KeySchema=[
+                {'AttributeName': 'Id', 'KeyType': 'HASH'},          # Partition Key
+                {'AttributeName': 'ReplyDateTime', 'KeyType': 'RANGE'} # Sort Key
+            ],
+            AttributeDefinitions=[
+                {'AttributeName': 'Id', 'AttributeType': 'S'},
+                {'AttributeName': 'ReplyDateTime', 'AttributeType': 'S'},
+                {'AttributeName': 'PostedBy', 'AttributeType': 'S'}
+            ],
+            LocalSecondaryIndexes=[
+                {
+                    'IndexName': 'PostedBy-Index',
+                    'KeySchema': [
+                        {'AttributeName': 'Id', 'KeyType': 'HASH'},
+                        {'AttributeName': 'PostedBy', 'KeyType': 'RANGE'}
+                    ],
+                    'Projection': {'ProjectionType': 'KEYS_ONLY'}
+                }
+            ],
+            ProvisionedThroughput={'ReadCapacityUnits': 10, 'WriteCapacityUnits': 5}
+        )
+        table.wait_until_exists()
+        print("Tabla Reply creada.")
+    except Exception as e:
+        print(f"Error al crear tabla: {e}")
+
+def load_sample_replies():
+    table = dynamodb.Table(reply_table_name)
+    print(f"Cargando datos en {reply_table_name}...")
+    
+    # Generar una fecha similar a la de tu ejemplo
+    fecha_ejemplo = "2025-09-19T16:30:00.214Z"
+    
+    # Este es el ítem exacto que tu consulta busca
+    item = {
+        'Id': 'Amazon DynamoDB#DynamoDB Thread 1',
+        'ReplyDateTime': fecha_ejemplo,
+        'Message': 'DynamoDB Thread 1 Reply 1 text',
+        'PostedBy': 'User A'
+    }
+    
+    try:
+        table.put_item(Item=item)
+        print(f"Item insertado: {item['Id']}")
+    except Exception as e:
+        print(f"Error al insertar item: {e}")
+
+def main():
+    # 1. Limpieza
+    delete_table(reply_table_name)
+    
+    # 2. Creación
+    create_reply_table()
+    
+    # 3. Carga de datos (Esto es lo que faltaba)
+    load_sample_replies()
+    
+    print("Proceso finalizado.")
+
+if __name__ == "__main__":
+    main()
+```
+
+- Para poder ejecutar el script, instalamos boto3 (SDK oficial de Amazon Web Services (AWS) para Python) con:
+```bash
+pip install boto3
+```
+![Descripción de la imagen](./ut8/dynamoDB/DYN-33.png){.doscinco .marginbottom40 .margintop10 }
+
+- Ejecutamos el script:
+![Descripción de la imagen](./ut8/dynamoDB/DYN-34.png){.doscinco .marginbottom40 .margintop10 }
+
+- Si todo ha ido bien, tendremos nuestras tablas creadas y algunos items introducidos. 
+![Descripción de la imagen](./ut8/dynamoDB/DYN-35.png){.cien .marginbottom40 .margintop10 .marco }
+
+#### 2.2.9.2 - Primeras consultas sobre las tablas
+Podemos hacer consultas sobre las tablas usando la consola de administración de AWS o la CLI de AWS. En este caso usaremos la CLI.
+Ya hemos visto en otras unidades que los comandos de la CLI de AWS tienen la siguiente estructura:
+```bash
+aws <servicio> <operación> [--parámetros] [--opciones]
+```
+![Descripción de la imagen](./ut8/dynamoDB/DYN-43.png){.sietezero .marginbottom40 .margintop10 }
+
+- Listar tablas:
+```bash
+aws dynamodb list-tables
+```
+![Descripción de la imagen](./ut8/dynamoDB/DYN-36.png){.doszero .marginbottom40 .margintop10 }
+
+- Estructura de la tabla ProductCatalog 
+```bash
+aws dynamodb describe-table --table-name ProductCatalog
+```
+![Descripción de la imagen](./ut8/dynamoDB/DYN-37.png){.seiszero .marginbottom40 .margintop10 }
+
+- Recuperar un item de la tabla ProductCatalog por su clave primaria:
+```bash 
+aws dynamodb get-item --table-name ProductCatalog --key '{"Id": {"N": "101"}}'
+```
+![Descripción de la imagen](./ut8/dynamoDB/DYN-38.png){.treszero .marginbottom40 .margintop10 }
+
+- Añadir un item en ProductCatalog:
+```bash
+aws dynamodb put-item \
+  --table-name ProductCatalog \
+  --item '{
+    "Id": {"N": "301"}, 
+    "Title": {"S": "Libro de AWSCLI"}, 
+    "Authors": {"SS": ["AdminUser"]}, 
+    "Price": {"N": "29.99"}, 
+    "ProductCategory": {"S": "Book"}, 
+    "InPublication": {"BOOL": true}
+  }'
+```
+![Descripción de la imagen](./ut8/dynamoDB/DYN-39.png){.treszero .marginbottom40 .margintop10 }
+En la consola de administración de AWS podemos ver el nuevo item insertado.
+![Descripción de la imagen](./ut8/dynamoDB/DYN-45.png){.cien .marginbottom40 .margintop10 }
+También podremos hacerlo desde la CLI de AWS.
+![Descripción de la imagen](./ut8/dynamoDB/DYN-44.png){.treszero .marginbottom40 .margintop10 }
+
+- Recuperar todos los hilos de la tabla threads del foro llamado “Amazon DynamoDB”:
+```bash
+aws dynamodb query \
+--table-name Thread \
+--key-condition-expression "ForumName = :forum" \
+--expression-attribute-values '{":forum":{"S":"Amazon DynamoDB"}}'
+```
+![Descripción de la imagen](./ut8/dynamoDB/DYN-41.png){.cincozero .marginbottom40 .margintop10 }
+
+- Buscar todas las respuestas publicadas por **User A** en el hilo “Amazon DynamoDB#DynamoDB Thread 1”, utilizando **el índice secundario**
+PostedBy-Index
+![Descripción de la imagen](./ut8/dynamoDB/DYN-42.png){.sietecinco .marginbottom40 .margintop10 }
+
+!!! task "Trabajos a realizar"
+    Ejercicios a resolver mediante comandos. Incluye el comando y una captura donde se vea su ejecución. 
+    Si es un comando cuya comprobación requiere otra acción desde la consola de aws o de otro comando, quedaría bien añadirlo.
+    
+    1. Inserta tres productos inventándote los datos.
+    2. Selecciona uno de esos productos a través de su CP.
+    3. Cambia uno de los datos de uno de esos productos.
+    4. Elimina uno de los productos.
+    5. Realizar una query sobre cualquier tabla. Recuerda que una query siempre ha de filtrar sobre la CP de una tabla o sobre otro índice (LSI o GSI).
+    6. Haz un scan sobre una tabla y aplícale un filtro. Recuerda que este caso es más ineficiente puesto que se recuperan todos los datos de la tabla y luego se aplica el filtro 
+
+Ejemplos de capturas:
+
+1. Insertar items.
+<mark>Realizar captura de pantalla</mark> 
+![Descripción de la imagen](./ut8/dynamoDB/DYN-47.png){.trescinco .marginbottom40 .margintop10 }
+1. Recuperar item por su CP.
+<mark>Realizar captura de pantalla</mark> 
+![Descripción de la imagen](./ut8/dynamoDB/DYN-48.png){.trescinco .marginbottom40 .margintop10 }
+1. Actualizar item.
+<mark>Realizar captura de pantalla</mark> 
+![Descripción de la imagen](./ut8/dynamoDB/DYN-49.png){.trescinco .marginbottom40 .margintop10 }
+1. Eliminar item.
+<mark>Realizar captura de pantalla</mark> 
+![Descripción de la imagen](./ut8/dynamoDB/DYN-50.png){.trescinco .marginbottom40 .margintop10 }
+1. Query.
+<mark>Realizar captura de pantalla</mark> 
+![Descripción de la imagen](./ut8/dynamoDB/DYN-51.png){.trescinco .marginbottom40 .margintop10 }
+1. Scan.
+<mark>Realizar captura de pantalla</mark> 
+![Descripción de la imagen](./ut8/dynamoDB/DYN-46.png){.trescinco .marginbottom40 .margintop10 }
 
 
-
-
-
-
-
-
----
-![Descripción de la imagen](../AWS/ut7/cloudformation/WIP.avif){ .doscinco }<br>
-<!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/AWS/Base%20Dades/Tema%203/tema3_DynamoDB.pdf -->
-<!-- https://aitor-medrano.github.io/iabd/cloud/dynamodb.html -->
-<!-- https://cristofer.io/2020-07-03-dynamodb/ -->
+!!! warning "Condiciones de entrega de la tarea RA4-CEa-2"
+    1. Realizar capturas de pantalla de los puntos señalados.
+    1. Comentar brevemente cada captura para entender a qué corresponde y subir el documento a la tarea correspondiente de AULES.
 
 ### **2.3 - ElastiCache**
+![Descripción de la imagen](../AWS/ut7/cloudformation/WIP.avif){ .doscinco }<br>
 <!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/AWS/Base%20Dades/Tema%204/tema4_ElastiCache.pdf -->
  
 
-
- 
-<br>
    
  
 <!-- route 53... -->
@@ -1151,11 +1345,3 @@ Widgets de [Amazon CloudWatch](https://docs.aws.amazon.com/es_es/AmazonCloudWatc
 Documentación de Amazon [DynamoDB](https://docs.aws.amazon.com/es_es/dynamodb/)  
 GUI de [NoSQL Workbench](https://docs.aws.amazon.com/es_es/amazondynamodb/latest/developerguide/workbench.html)
 Enlace de [descarga](https://docs.aws.amazon.com/es_es/amazondynamodb/latest/developerguide/workbench.settingup.html) de NoSQL Workbench
-<!-- https://docs.aws.amazon.com/es_es/amazondynamodb/latest/developerguide/DynamoDBMapper.DataTypes.html -->
-
-<!-- |**c)** Se ha trabajado en la resolución de problemas prácticos sobre almacenamiento y bases de datos.|20%| -->
- 
-
-
-
-

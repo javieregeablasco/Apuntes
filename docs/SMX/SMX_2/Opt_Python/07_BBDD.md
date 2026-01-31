@@ -1150,10 +1150,13 @@ Como acabamos de ver acceder a los elementos de un array multidimensional se hac
         - ¿Qué valores devolverá array[:2,2:4]?"
 
 #### 2.2.9 - Operaciones matemáticas sobre un array
+<!-- https://nachoiborraies.github.io/data-science/02b.html#21-creacion-de-arrays -->
 
 
  <!-- Tipos de datos de un array con NumPy -->
-
+<!-- numpy pandas -->
+<!-- https://python-para-impacientes.blogspot.com/p/numpy.html -->
+<!-- https://dspace.ceu.es/server/api/core/bitstreams/c8ac32c7-4967-4e69-a780-392ee3829b87/content -->
 
 
 
@@ -1172,13 +1175,11 @@ Como acabamos de ver acceder a los elementos de un array multidimensional se hac
 <!-- GENERICOS -->
 <!-- https://chatgpt.com/c/69458417-050c-832e-9a1b-82f159d1ca90 -->
 <!-- https://ellibrodepython.com/abstract-base-class -->
-<!-- https://python-para-impacientes.blogspot.com/ -->
+ 
 
 
 
  
 <!-- https://www.youtube.com/watch?v=ljFwYKL6-1U&t=13s -->
 
-<!-- numpy pandas -->
-<!-- https://dspace.ceu.es/server/api/core/bitstreams/c8ac32c7-4967-4e69-a780-392ee3829b87/content -->
  
