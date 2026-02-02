@@ -897,7 +897,7 @@ En este capítulo haremos una breve presentación de herramientas para el análi
     - Abrir la paleta de comandos (Ctrl + Shift + P) y seleccionar "Python: Select Interpreter".
     - Elegir el intérprete de Anaconda que se instaló previamente.
 - Notebook Jupyter:
-    - En VSC se puede instalar la extensión "Jupyter" para trabajar con notebooks directamente en el editor.
+    - En VSC se puede instalar la extensión "Jupyter" para trabajar con notebooks, directamente en el editor.
     - Crear un nuevo archivo con extensión **.ipynb** no **.py** para comenzar a trabajar con notebooks.  
 
 **Apariencia de un notebook Jupyter en VSC:**
