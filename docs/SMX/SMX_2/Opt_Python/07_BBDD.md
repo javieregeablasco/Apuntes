@@ -966,7 +966,7 @@ array.dtype
 ```
 En este caso, NumPy convierte todos los elementos al tipo `float64` para mantener la coherencia en el tipo de datos del array.
 
-#### 2.2.4 - Operaciones básicas de creación de arrays
+#### 2.2.4 - Creación de arrays básicos
 NumPy proporciona varias funciones para crear arrays. A continuación, se muestran algunas de las más comunes:
 
 - **Arrays de ceros (0)**
@@ -1149,7 +1149,294 @@ Como acabamos de ver acceder a los elementos de un array multidimensional se hac
         - ¿Qué valores devolverá array[1:,2:4]?"
         - ¿Qué valores devolverá array[:2,2:4]?"
 
-#### 2.2.9 - Operaciones matemáticas sobre un array
+#### 2.2.9 - Recorido de un array
+Para recorrer un array en NumPy, podemos utilizar bucles `for` anidados para iterar sobre cada dimensión del array.
+
+```py
+# Recorrido unidimensional
+for numero in vector:
+    print(numero)
+
+# Recorrido bidimensional
+for fila in tabla:
+    for dato in fila:
+        print(dato) 
+
+# Recorrido tridimensional
+for matriz in cubo:
+    for fila in matriz:
+        for dato in fila:
+            print(dato)
+```
+
+#### 2.2.10 - Atributos de un array
+Algunos de los atributos más comunes de los arrays en NumPy son:
+
+- **dtype**: Devuelve el tipo de datos de los elementos del array.
+- **ndim**: Devuelve el número de dimensiones del array.
+- **shape**: Devuelve una tupla que indica el tamaño de cada dimensión del array.
+- **size**: Devuelve el número total de elementos en el array.
+- **itemsize**: Devuelve el tamaño en bytes de cada elemento del array.
+- **T**: Devuelve la transpuesta del array (intercambia filas y columnas en arrays 2D).
+- **isinstance()**: Permite comprobar si un objeto es una instancia de un tipo específico (por ejemplo, si es un array de NumPy).
+
+```py
+import numpy as np
+array = np.array([[1, 2, 3], [4, 5, 6]])
+print("Tipo de datos:", array.dtype)        # Salida: int64 (o int32 dependiendo del sistema)
+print("Número de dimensiones:", array.ndim) # Salida: 2
+print("Forma del array:", array.shape)      # Salida: (2, 3)
+print("Tamaño total:", array.size)          # Salida: 6
+print("Tamaño de cada elemento (bytes):", array.itemsize) # Salida: 8 (o 4 dependiendo del sistema)
+print("Transpuesta del array:\n", array.T) # Salida: [[1 4]
+                                            #          [2 5]
+                                            #          [3 6]]   
+```
+
+### 2.3 - Operaciones sobre array(s) de NumPy
+#### 2.3.1 - Añadir, insertar y suprimir elementos
+- **np.append()**
+Permite añadir elementos al final de un array.
+```py
+# Añadir 2 elementos al final de un array:
+
+a = np.array([1, 2, 3, 4, 5])
+a = np.append(a, [6, 7])
+print(a)
+
+# [1 2 3 4 5 6 7]
+```
+
+- **np.insert()**
+Devuelve **un nuevo array** con uno o más valores insertados en las posiciones indicadas **sin modificar** el array original.  
+Permite insertar elementos tanto en arrays unidimensionales como multidimensionales, indicando opcionalmente el eje (axis).
+<br>  
+**Insertar un valor en una posición concreta (array 1D)**
+```py
+a = np.array([1, 2, 3, 4, 5, 6, 7])
+b = np.insert(a, 3, 0)
+print(b)
+
+# [1 2 3 0 4 5 6 7]
+```
+**Insertar varios valores en una misma posición**
+```py
+# Insertar en la posición 1 los valores -1 y -2:
+a = np.insert(a, 1, [-1, -2])
+print(a)
+
+# [ 1 -1 -2  2  3  0  4  5  6  7]
+```
+**Insertar una columna en un array 2D (axis=1)**
+```py
+# Insertar una columna con valor 0 en la columna de índice 2:
+b = np.array([[1, 2, 3], [4, 5, 6]])
+b = np.insert(b, 2, 0, axis=1)
+print(b)
+
+# [[1 2 0 3]
+#  [4 5 0 6]]
+```
+**Insertar varias columnas usando un array columna**
+```py
+# Insertar dos columnas al comienzo del array:
+b = np.insert(b, 0, [[-1], [-2]], axis=1)
+print(b)
+
+# [[-1 -2  1  2  0  3]
+#  [-1 -2  4  5  0  6]]
+```
+**Diferencia entre índice escalar y lista de índices**
+```py
+# Insertar una columna al comienzo del array:
+b = np.insert(b, [0], [[-4], [-5]], axis=1)
+print(b)
+
+# [[-4 -1 -2  1  2  0  3]
+#  [-5 -1 -2  4  5  0  6]]
+```
+**Insertar dos filas de ceros en las posiciones 0 y 2**
+```py
+b = np.insert(b, [0, 2], 0, axis=0)
+print(b)
+
+# [[ 0  0  0  0  0  0  0]
+#  [-4 -1 -2  1  2  0  3]
+#  [-5 -1 -2  4  5  0  6]
+#  [ 0  0  0  0  0  0  0]]
+
+```
+
+#### 2.3.2 - Convertir, copiar, ordenar, unir y dividir arrays
+
+- **Convertir a array con asarray(), np.array()**  
+Podemos convertir listas o tuplas en arrays de NumPy utilizando la función `np.asarray()` pero, también podemos hacerlo con `np.array()`.  
+<br>
+**Con asarray():**
+```py
+lista1 = [1, 2, 3, 4, 5]
+lista2 = [[1, 2, 3], [4, 5, 6]]
+a = np.asarray(lista1)
+b = np.asarray(lista2)
+print(a)
+
+# [1 2 3 4 5]
+
+print(b)
+
+# [[1 2 3]
+#  [4 5 6]]
+```
+<br>
+**Con np.array():**
+```py
+lista = [[0,1,2,3,4],[5,6,7,8,9]]
+array =np.array(lista)
+
+# shape
+print("Dimensiones del array", array.shape)
+print("Numero de filas:", array.shape[0])
+print("Numero de columnas:", array.shape[1])
+
+# isinstance
+print("¿Es array un objeto de NumPy?: ", isinstance(array, np.ndarray))
+
+# Dimensiones del array (2, 5)
+# Numero de filas: 2
+# Numero de columnas: 5
+# ¿Es array un objeto de NumPy?:  True
+``` 
+<br>
+- **Convertir a lista con tolist()**  
+Al igual que podemos convertir listas a array también podemos convertir arrays a listas.
+```py
+lista = [[0,1,2],[4,5,6],[7,8,9]]
+array = np.array(lista)
+print("Dimensiones del array:", array.shape)
+print(array)
+print(array.tolist())
+```
+<br>
+- **Copiar arrays**  
+**copy()** permite una copia del array por valor es decir, crea un nuevo array totalmente independiente del primero.
+```py
+array = np.array([1, 2, 3, 4])
+copia_de_array = array.copy()
+print(copia_de_array)
+
+# [1 2 3 4 5]
+```
+**array_2 = array_1** en contra, copia por referencia es decir, ocupan el mismo espacio de memoria y, modificar los valores de uno de los arrays aplica los cambios en el otro.
+```py
+array_1 = np.array([[1, 2, 3], [4, 5, 6]])
+array_2 = array_1
+print("Array_1\n", array_1)
+print("Array_2\n", array_2,"\n")
+
+array_2[0, 1] = -1
+
+print("Valor actualizado en array_1:",array_1[0, 1])
+print("Valor actualizado en array_2:",array_1[0, 1])
+print("¿Son los 2 valores identicos?", array_1[0, 1] == array_2[0, 1])
+
+# Array_1
+#  [[1 2 3]
+#  [4 5 6]]
+# Array_2
+#  [[1 2 3]
+#  [4 5 6]] 
+# 
+# Valor actualizado en array_1: -1
+# Valor actualizado en array_2: -1
+# ¿Son los 2 valores identicos? True
+```
+<br>
+- **Unir arrays con concatenate()**  
+Con concatenate() podemos unir dos o más arrays a lo largo de **un eje especificado**.
+```py
+array_1 = np.zeros((2, 4))
+array_2 = np.ones((2, 4))
+
+# Concatenar por columnas
+array_3 = np.concatenate((array_1, array_2), axis=1)
+print("array_1:\n", array_1)
+print("array_2:\n", array_2)
+print("array_3:\n", array_3)
+
+# Array_1:
+# [[0. 0. 0. 0.]
+# [0. 0. 0. 0.]]
+# rray_2:
+# [[1. 1. 1. 1.]
+# [1. 1. 1. 1.]]
+# rray_3:
+# [[0. 0. 0. 0. 1. 1. 1. 1.]
+# [0. 0. 0. 0. 1. 1. 1. 1.]]
+```
+<br>
+- **Dividir arrays con split()**  
+Con split() podemos dividir un array en múltiples sub-arrays a lo largo de **un eje especificado**.
+```py
+array = np.arange(10)
+sub_arrays = np.split(array, 2)  # Dividir en 2 sub-arrays
+print("Array original:", array)
+print("Sub-arrays:", sub_arrays)
+# Array original: [0 1 2 3 4 5 6 7 8 9]
+# Sub-arrays: [array([0, 1, 2, 3, 4]), array([5, 6, 7, 8, 9])]
+```
+<br>
+- **División vertical y horizontal**  
+Con `vsplit()` y `hsplit()` podemos dividir arrays multidimensionales vertical u horizontalmente respectivamente.
+```py
+array_2d = np.arange(16).reshape(4, 4)
+
+# División vertical
+sub_arrays_v = np.vsplit(array_2d, 2)  
+# División horizontal
+sub_arrays_h = np.hsplit(array_2d, 2) 
+
+print("Array original:\n", array_2d,"\n")
+print("Sub-arrays vertical 1:\n", sub_arrays_v[0], "\n")
+print("Sub-arrays vertical 2:\n", sub_arrays_v[1], "\n")
+print("Sub-arrays horizontal 1:\n", sub_arrays_h[0])
+print("Sub-arrays horizontal 2:\n", sub_arrays_h[1])
+
+# Array original:
+#  [[ 0  1  2  3]
+#   [ 4  5  6  7]
+#   [ 8  9 10 11]
+#   [12 13 14 15]] 
+# 
+# Sub-arrays vertical 1:
+#  [[0 1 2 3]
+#   [4 5 6 7]] 
+# 
+# Sub-arrays vertical 2:
+#  [[ 8  9 10 11]
+#   [12 13 14 15]] 
+# 
+# Sub-arrays horizontal 1:
+#  [[ 0  1]
+#   [ 4  5]
+#   [ 8  9]
+#   [12 13]]
+# Sub-arrays horizontal 2:
+#  [[ 2  3]
+#   [ 6  7]
+#   [10 11]
+#   [14 15]]
+```
+**Nota:** `vsplit()` y `hsplit()` son equivalentes a usar split() con axis=0 y axis=1 respectivamente.
+
+
+#### 2.3.3 - Cálculo con arrays
+<!-- https://python-para-impacientes.blogspot.com/2019/12/calculo-con-arrays-numpy.html -->
+
+#### 2.3.4 - Comparar arrays
+<!-- https://python-para-impacientes.blogspot.com/2019/12/comparar-arrays-en-numpy.html -->
+#### 2.3.5 - Leer y escribir arrays Numpy en archivos
+<!-- https://python-para-impacientes.blogspot.com/2020/01/leer-y-escribir-arrays-numpy-en-archivos.html -->
+
 <!-- https://nachoiborraies.github.io/data-science/02b.html#21-creacion-de-arrays -->
 
 

@@ -50,7 +50,19 @@
 #     print(iteraciones[iterador], coincidencia.group())
 #     iterador += 1
 
+import re
+# Ejemplo de uso de compile()
+patron = r'\d{3}-\d{2}-\d{4}'  # Patrón
 
+regex = re.compile(patron)  # Compila el patrón en un objeto regex 
+
+texto = "Mis números de seguro social son 123-45-6789 y 987-65-4321."
+
+coincidencias = regex.findall(texto)  # Usa el objeto regex para buscar coincidencias
+# print(isinstance(coincidencias, list))
+print("Coincidencias encontradas:", coincidencias)  # Salida: ['123-45-6789', '987-65-4321']
+
+print("Cantidad de elementos encontrados en la lista:", coincidencias.__len__())
 
 # import re
 # # Ejemplo de uso de group()
