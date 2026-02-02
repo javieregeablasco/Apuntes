@@ -368,8 +368,8 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
 
         ![Descripción de la imagen](./03_hojas_de_calculo/img/calc34.png){ .leftdoscinco }<br>   
 
-    !!! exercice "Tarea parte 3. Aplicar una fórmula usando referencias relativas."
-        Ir a la hoja 2 del documento RA3-CEc-2 
+    !!! exercice "Tarea parte 3. Aplicar una fórmula usando referencias relativas."  
+        Ir a la hoja 2 del documento RA3-CEc-2   
 
         1. Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. **Tenéis libertad total en este apartado**.   
         1. Completar la tabla de multiplicar por 5.
