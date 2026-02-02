@@ -1286,7 +1286,7 @@ aws dynamodb query \
 PostedBy-Index
 ![Descripción de la imagen](./ut8/dynamoDB/DYN-42.png){.sietecinco .marginbottom40 .margintop10 }
 
-#### 2.2.9.3 - Consultas
+#### 2.2.9.3 - Consultas a realizar
 !!! task "Trabajos a realizar"
     Realizar las operaciones siguiente mediante comandos AWS. 
     **Incluir el comando y una captura donde se vea su ejecución**. 

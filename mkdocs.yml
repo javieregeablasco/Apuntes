@@ -5,6 +5,7 @@ site_url: https://javieregeablasco.github.io/Apuntes
 theme:
   language: es
   name: material
+  
   features:
     - navigation.instant
     - navigation.instant.progress

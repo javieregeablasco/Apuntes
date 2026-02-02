@@ -303,7 +303,7 @@
 /* hacer más grande los titulos con h1 2 3 4 5*/
 .md-typeset h1 {
   text-align: center;
-  font-size: 2em;
+  font-size: 3.5em;
   font-weight: bold;
   color:brown;
   background-color: #4da3ff18;

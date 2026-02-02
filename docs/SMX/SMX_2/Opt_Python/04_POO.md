@@ -251,7 +251,7 @@ print(mi_coche.ruedas)    # Muestra el número de ruedas
     print("Color coche repintado", mi_coche.color)
     ```
 
-### **3.4 - Tarea RA4-CEac**
+### **3.4 - Tarea RA2-CEac**
 !!! exercise "Ejercicio 1"  
     Realizar un programa que conste de lo siguiente:  
 
@@ -456,7 +456,7 @@ coche_3 = Coche.crear_coche_predeterminado()
 print(f"Coche 3 (predeterminado): {coche_3.marca}, {coche_3.modelo}, {coche_3.color}, {coche_3.kilometros} km")
 ```
 
-### **3.6 - Tarea RA4-CEd**
+### **3.6 - Tarea RA2-CEd**
 !!! exercise "Conversor que permita convertir valores de tiempo"
     Crea una clase llamada Conversor que permita convertir valores de tiempo entre:
     

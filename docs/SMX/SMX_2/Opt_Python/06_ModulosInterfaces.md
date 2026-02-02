@@ -30,10 +30,6 @@ schedule: 96h - 3h/w
 |**g)** Se han programado controladores de eventos.|
 |**h)** Se han escrito programas que utilicen interfaces gráficos para la entrada y salida de información.|
 
-|RA6. Escribe programas que manipulen información, seleccionando y utilizando tipos avanzados de datos.|
-|-|
-|**g)** Se han utilizado expresiones regulares en la búsqueda de patrones en cadenas de texto.|
-
 <br>
 
 ## **1 - Módulos en Python**
