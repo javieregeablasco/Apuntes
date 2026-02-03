@@ -535,6 +535,11 @@ Este apartado no tiene que ver directamente con el ASG pero es importante saber 
 
 
 ## 3 - Route 53
+<!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/AWS/Arqui%20y%20despliegues%20en%20AWS/Tema%205/Tema%205.%20Route%2053%20Zona%20privada.pdf -->
+<!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/AWS/Arqui%20y%20despliegues%20en%20AWS/Tema%205/route53.pdf -->
+<!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/AWS/Arqui%20y%20despliegues%20en%20AWS/Tema%205/Tema%205.%20Weighted.pdf -->
+<!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/AWS/Arqui%20y%20despliegues%20en%20AWS/Tema%205/Tema%205.%20Policy%20Weight.pdf -->
+
 
 ## **Enlaces de interés**
 Documentación de [AWS](https://docs.aws.amazon.com)  
