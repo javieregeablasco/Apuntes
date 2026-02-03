@@ -889,7 +889,7 @@ En este capítulo haremos una breve presentación de herramientas para el análi
 **Anaconda** es una distribución de **Python y R** diseñada para la ciencia de datos y el aprendizaje automático. Proporciona una plataforma fácil de usar que incluye una gran cantidad de paquetes y herramientas útiles para el análisis de datos, la visualización y el desarrollo de modelos de machine learning.
 
 - Instalación de Anaconda:  
-  - Descargar el instalador desde la página oficial: https://www.anaconda.com/products/distribution
+  - Descargar el [instalador](https://www.anaconda.com/products/distribution) desde la página oficial.
   - Seguir las instrucciones de instalación para tu sistema operativo (Windows, macOS, Linux).
   
 - Uso de Anaconda en VSC:
@@ -1653,7 +1653,7 @@ array([[ 1.,  1.,  1.,  1.,  1.,  1.,  1.,  1.,  1.,  1.],
        [ 1.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  1.],
        [ 1.,  1.,  1.,  1.,  1.,  1.,  1.,  1.,  1.,  1.]])
 ```
-1. Declarar una matriz con el siguiente resultado (podéis sumar matrices de diferentes dimensiones).
+1. Declarar una matriz con el siguiente resultado (podéis sumar matrices de diferentes dimensiones o usar una función de NumPy).
 ```py
 # Resultado esperado
 array([[0, 1, 2, 3, 4],
