@@ -368,6 +368,7 @@ print(sublista)  # Salida: [20, 30, 40]
 
 !!! question "¿Qué ocurrirá si hago un slicing de tipo mi_lista[2:] o mi_lista[:3]?"  
 
+
 #### **1.6.5 - Iteración sobre colecciones**
 Se puede iterar sobre los elementos de cualquier colección utilizando un bucle `for`.
 
@@ -1169,6 +1170,30 @@ for matriz in cubo:
             print(dato)
 ```
 
+Se recomienda utilizar la función `np.nditer()` para recorrer arrays multidimensionales de manera más eficiente.
+
+```py
+array = np.array([[[1,2],[3,4]],[[5,6],[7,8]]])
+print(array,"\n")
+for valor in np.nditer(array):
+  print(valor)
+
+# [[[1 2]
+#   [3 4]]
+# 
+#  [[5 6]
+#   [7 8]]]
+#
+# 1
+# 2
+# 3
+# 4
+# 5
+# 6
+# 7
+# 8
+```
+
 #### 2.2.10 - Atributos de un array
 Algunos de los atributos más comunes de los arrays en NumPy son:
 
@@ -1206,7 +1231,7 @@ print(a)
 
 # [1 2 3 4 5 6 7]
 ```
-
+<br>
 - **np.insert()**
 Devuelve **un nuevo array** con uno o más valores insertados en las posiciones indicadas **sin modificar** el array original.  
 Permite insertar elementos tanto en arrays unidimensionales como multidimensionales, indicando opcionalmente el eje (axis).
@@ -1266,8 +1291,45 @@ print(b)
 #  [ 0  0  0  0  0  0  0]]
 
 ```
+<br>
+- **np.delete()**
+Devuelve **un nuevo array** con uno o más valores eliminados en las posiciones indicadas **sin modificar** el array original.  
+Permite eliminar elementos tanto en arrays unidimensionales como multidimensionales, indicando opcionalmente el eje (axis).
+<br>
+**Eliminar un valor en una posición concreta (array 1D)**
+```py
+a = np.array([1, 2, 3, 4, 5, 6, 7])
+b = np.delete(a, 3) # Elimina el valor en la posición 3
+print(b)
+# [1 2 3 5 6 7]
+```
+**Eliminar varios valores en posiciones concretas**
+```py   
+# Eliminar los valores en las posiciones 1, 3 y 5:
+a = np.delete(a, [1, 3, 5])
+print(a)    
+# [1 3 5 7]
+```
+**Eliminar una fila en un array 2D (axis=0)**
+```py
+# Eliminar la fila de índice 1:
+b = np.array([[1, 2, 3], [4, 5, 6]])
+b = np.delete(b, 1, axis=0)
+print(b)
+# [[1 2 3]]
+```
+**Eliminar una columna en un array 2D (axis=1)**
+```py
+# Eliminar la columna de índice 2:
+b = np.array([[1, 2, 3], [4, 5, 6]])
+b = np.delete(b, 2, axis=1)
+print(b)
+# [[1 2]
+#  [4 5]]
+```
 
-#### 2.3.2 - Convertir, copiar, ordenar, unir y dividir arrays
+
+#### 2.3.2 - Convertir, copiar, unir y dividir arrays
 
 - **Convertir a array con asarray(), np.array()**  
 Podemos convertir listas o tuplas en arrays de NumPy utilizando la función `np.asarray()` pero, también podemos hacerlo con `np.array()`.  
@@ -1318,7 +1380,7 @@ print(array.tolist())
 ```
 <br>
 - **Copiar arrays**  
-**copy()** permite una copia del array por valor es decir, crea un nuevo array totalmente independiente del primero.
+**copy()** permite una copia del array por valor, es decir, crea un nuevo array totalmente independiente del primero.
 ```py
 array = np.array([1, 2, 3, 4])
 copia_de_array = array.copy()
@@ -1326,7 +1388,7 @@ print(copia_de_array)
 
 # [1 2 3 4 5]
 ```
-**array_2 = array_1** en contra, copia por referencia es decir, ocupan el mismo espacio de memoria y, modificar los valores de uno de los arrays aplica los cambios en el otro.
+**array_2 = array_1** en contra, copia por referencia, es decir, ocupan el mismo espacio de memoria y, modificar los valores de uno de los arrays aplicará los cambios en el otro.
 ```py
 array_1 = np.array([[1, 2, 3], [4, 5, 6]])
 array_2 = array_1
@@ -1352,30 +1414,41 @@ print("¿Son los 2 valores identicos?", array_1[0, 1] == array_2[0, 1])
 ```
 <br>
 - **Unir arrays con concatenate()**  
-Con concatenate() podemos unir dos o más arrays a lo largo de **un eje especificado**.
+Con concatenate() podemos unir dos o más arrays a lo largo del **eje que especificamos**.
 ```py
 array_1 = np.zeros((2, 4))
 array_2 = np.ones((2, 4))
 
 # Concatenar por columnas
 array_3 = np.concatenate((array_1, array_2), axis=1)
-print("array_1:\n", array_1)
-print("array_2:\n", array_2)
-print("array_3:\n", array_3)
+# Concatenar por filas
+array_4 = np.concatenate((array_1, array_2), axis=0)
+print("array_1:\n", array_1,"\n")
+print("array_2:\n", array_2,"\n")
+print("array_3:\n", array_3,"\n")
+print("array_4:\n", array_4)
 
 # Array_1:
 # [[0. 0. 0. 0.]
-# [0. 0. 0. 0.]]
-# rray_2:
+#  [0. 0. 0. 0.]]
+#
+# Array_2:
 # [[1. 1. 1. 1.]
-# [1. 1. 1. 1.]]
-# rray_3:
+#  [1. 1. 1. 1.]]
+#
+# Array_3:
 # [[0. 0. 0. 0. 1. 1. 1. 1.]
-# [0. 0. 0. 0. 1. 1. 1. 1.]]
+#  [0. 0. 0. 0. 1. 1. 1. 1.]]
+#
+# Array_4:
+# [[0. 0. 0. 0.]
+#  [0. 0. 0. 0.]
+#  [1. 1. 1. 1.]
+#  [1. 1. 1. 1.]]
 ```
 <br>
 - **Dividir arrays con split()**  
-Con split() podemos dividir un array en múltiples sub-arrays a lo largo de **un eje especificado**.
+Con split() podemos dividir un array en múltiples sub-arrays a lo largo del **eje que especificamos**.
 ```py
 array = np.arange(10)
 sub_arrays = np.split(array, 2)  # Dividir en 2 sub-arrays
@@ -1396,9 +1469,9 @@ sub_arrays_v = np.vsplit(array_2d, 2)
 sub_arrays_h = np.hsplit(array_2d, 2) 
 
 print("Array original:\n", array_2d,"\n")
-print("Sub-arrays vertical 1:\n", sub_arrays_v[0], "\n")
-print("Sub-arrays vertical 2:\n", sub_arrays_v[1], "\n")
-print("Sub-arrays horizontal 1:\n", sub_arrays_h[0])
+print("Sub-arrays vertical 1:\n", sub_arrays_v[0],"\n")
+print("Sub-arrays vertical 2:\n", sub_arrays_v[1],"\n")
+print("Sub-arrays horizontal 1:\n", sub_arrays_h[0],"\n")
 print("Sub-arrays horizontal 2:\n", sub_arrays_h[1])
 
 # Array original:
@@ -1420,6 +1493,7 @@ print("Sub-arrays horizontal 2:\n", sub_arrays_h[1])
 #   [ 4  5]
 #   [ 8  9]
 #   [12 13]]
+#
 # Sub-arrays horizontal 2:
 #  [[ 2  3]
 #   [ 6  7]
@@ -1429,8 +1503,167 @@ print("Sub-arrays horizontal 2:\n", sub_arrays_h[1])
 **Nota:** `vsplit()` y `hsplit()` son equivalentes a usar split() con axis=0 y axis=1 respectivamente.
 
 
-#### 2.3.3 - Cálculo con arrays
-<!-- https://python-para-impacientes.blogspot.com/2019/12/calculo-con-arrays-numpy.html -->
+#### 2.3.3 - Operaciones matemáticas con arrays
+NumPy permite realizar operaciones matemáticas de manera eficiente sobre arrays.  
+
+- **Sumar, restar, multiplicar y dividir por un único valor**.
+```py
+np.random.seed(23) # permite hacer que random siempre devuelva los mismos valores.
+array = np.random.randint(0,99,27)
+array_3D = array.reshape(3,3,3)
+print("Array original\n",array_3D,"\n")
+print("Sumar 1 a todos los elementos del array original\n",array_3D + 1)
+
+# Array original
+#  [[[83 40 73]
+#    [54 31 76]
+#    [91 39 90]]
+# 
+#   [[25 51  6]
+#    [45 12 49]
+#    [66 75 85]]
+# 
+#   [[69 64 12]
+#    [21 48 41]
+#    [79 90 62]]] 
+# 
+# Sumar 1 a todos los elementos del array original
+#  [[[84 41 74]
+#    [55 32 77]
+#    [92 40 91]]
+# 
+#   [[26 52  7]
+#    [46 13 50]
+#    [67 76 86]]
+# 
+#   [[70 65 13]
+#    [22 49 42]
+#    [80 91 63]]]
+```
+<br>
+Si realizamos una división NumPy reajustará el tipo de los valores.
+```py
+np.random.seed(23) # permite hacer que random siempre devuelva los mismos valores.
+array = np.random.randint(0,99,5)
+array_division=array/3
+print("Array inicial\n Tipo del array antes de la división:", array.dtype,"\n",array )
+print("Array final\n Tipo array despues de la division:", array_division.dtype,"\n", array_division)
+
+# Array inicial
+#  Tipo del array antes de la división: int32 
+#  [83 40 73 54 31]
+# Array final
+#  Tipo array despues de la division: float64 
+#  [27.66666667 13.33333333 24.33333333 18.         10.33333333]
+```
+<br>
+- **Sumar, restar, multiplicar y dividir arrays de diferentes dimensiones**.  
+Para que dos arrays puedan operarse entre sí, **sus dimensiones deben ser compatibles**. Esto ocurre si, empezando desde la última dimensión, **los tamaños de los ejes son iguales, o, uno de ellos es 1**.  
+Si no se cumple ninguna de estas condiciones en cada dimensión, NumPy lanzará un error. 
+```py
+a = np.ones((3, 3))
+b = np.array([1, 2, 3])
+c = a + b
+print("Array de 2 dimensiones\n", a,"\n\nArray de una sola dimensión\n", \
+      b, "\n\nSuma resultante","\n",c)
+
+# Array de 2 dimensiones
+#  [[1. 1. 1.]
+#  [1. 1. 1.]
+#  [1. 1. 1.]] 
+# 
+# Array de una sola dimensión
+#  [1 2 3] 
+# 
+# Suma resultante 
+#  [[2. 3. 4.]
+#  [2. 3. 4.]
+#  [2. 3. 4.]]
+```
+<br>
+**Nota:**  
+Podemos usar los operadores aritméticos estándar (+, -, `*`, /, `**`, //, %), porque NumPy los tiene **sobrecargados**. Realmente, cuando usamos los operadores aritméticos, NumPy llama a las funciones add(), substract(), ...  
+  
+    |Operación	|Operador Estándar	|Función de NumPy|
+    |-|-|-|
+    |Suma|	a + b	|np.add(a, b)|
+    |Resta|	a - b	|np.subtract(a, b)|
+    |Multiplicación|	a * b|	np.multiply(a, b)|
+    |División|	a / b	|np.divide(a, b)|
+    |Potencia|	a ** b|	np.power(a, b)|
+
+#### 2.3.3.2 - Funciones matemáticas avanzadas
+NumPy ofrece una amplia gama de funciones matemáticas avanzadas que se pueden aplicar a los arrays. Algunas de las funciones más comunes son:
+
+- **Función raíz cuadrada**: `np.sqrt()`
+- **Función exponencial**: `np.exp()`
+- **Función logarítmica**: `np.log()`
+- **Funciones trigonométricas**: `np.sin()`, `np.cos()`, `np.tan()`
+- **Funciones estadísticas**: `np.mean()`, `np.median()`, `np.std()`, `np.var()`, `np.min()`, `np.max()`
+
+```py
+np.random.seed(23)  
+array = np.random.randint(0,9,9)
+array.resize(3,3) # aplicar un reshape de forma permanente.
+
+print("Array original\n", array)
+print("Mediana de todos los valores: "," "*9, np.mean(array))
+print("Mediana de los valores por columnas:   ", np.mean(array, axis=0))
+print("Mediana de todos los valores por filas:\n", np.mean(array, axis=1).reshape(3,1))
+#
+# Array original
+#  [[3 6 8]
+#  [6 8 7]
+#  [3 6 1]]
+# Mediana de todos los valores:            5.333333333333333
+# Mediana de los valores por columnas:    [4.         6.66666667 5.33333333]
+# Mediana de todos los valores por filas:
+#  [[5.66666667]
+#  [7.        ]
+#  [3.33333333]]
+```
+
+
+
+#### 2.3.3.3 - Tarea RA6-CEj 
+Realizar un notebook con los siguiente requisitos:
+
+- Realizar la tarea de un notebook de Jupyter.
+- Cada pregunta deberá ir dentro de una celda de markdown.
+- El código deberá ir en una celda de código.  
+
+Preguntas:
+
+1. Importar la librería NumPy 
+1. Declarar un array con valores 10,11,12,...47,48,49. 
+1. Invertir el array, es decir, si el array original es [10,11,12,...,49]. El array resultante deberá ser [49,48,47,...,10]. Para ello podéis hacer slicing o usar una función de NumPy.  
+1. Crear una matriz de 3x3 con valores aleatorios enteros entre 0 y 9. 
+1. Encontrar los valores min y max de cada fila y de cada columna.  
+1. Declarar una matriz de 10x10 con 1 en los bordes y 0 en el interior. Para ello podeís hacer slicing y asignar `zero` a los valores seleccionados o, recorrer la matriz e ir discriminando por indices de celdas (más largo).  
+```py
+# Resultado esperado
+array([[ 1.,  1.,  1.,  1.,  1.,  1.,  1.,  1.,  1.,  1.],
+       [ 1.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  1.],
+       [ 1.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  1.],
+       [ 1.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  1.],
+       [ 1.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  1.],
+       [ 1.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  1.],
+       [ 1.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  1.],
+       [ 1.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  1.],
+       [ 1.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  1.],
+       [ 1.,  1.,  1.,  1.,  1.,  1.,  1.,  1.,  1.,  1.]])
+```
+1. Declarar una matriz con el siguiente resultado (podéis sumar matrices de diferentes dimensiones).
+```py
+# Resultado esperado
+array([[0, 1, 2, 3, 4],
+       [0, 1, 2, 3, 4],
+       [0, 1, 2, 3, 4],
+       [0, 1, 2, 3, 4],
+       [0, 1, 2, 3, 4]])
+```
+1. Sobre la matriz anterior, calcular la media de todos los valores.
+
 
 #### 2.3.4 - Comparar arrays
 <!-- https://python-para-impacientes.blogspot.com/2019/12/comparar-arrays-en-numpy.html -->
