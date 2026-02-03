@@ -1114,7 +1114,8 @@ NoSQL Workbench es una aplicación gráfica para diseñar, modelar y consultar b
 #### 2.2.9 - Tarea RA4-CEc
  
 #### 2.2.9.1 - Creación de las tablas
-Disponemos de al menos 3 maneras de crear tablas en DynamoDB:
+Disponemos de al menos 3 maneras de crear tablas en DynamoDB:  
+
 - Usando la consola de administración de AWS.
 - Usando la CLI de AWS.
 - Usando SDKs de AWS (por ejemplo, boto3 para Python).
@@ -1122,11 +1123,11 @@ Disponemos de al menos 3 maneras de crear tablas en DynamoDB:
 En este caso crearemos un conjunto de tablas consumiendo un programa en Python que usará el SDK boto3 para interactuar con DynamoDB. Para ejecutar el programa usaremos una instancia de Cloud9.
 
 - Creamos el entorno de desarrollo Cloud9.
-![Descripción de la imagen](./ut8/dynamoDB/DYN-30.png){.sietecinco .marginbottom40 .margintop10 }
+![Descripción de la imagen](./ut8/dynamoDB/DYN-30.png){.cien .marginbottom40 .margintop10 .marco }
 - Por limitaciones de usuario, elegimos la opción Secure Shell.
-![Descripción de la imagen](./ut8/dynamoDB/DYN-31.png){.sietecinco .marginbottom40 .margintop10 }
+![Descripción de la imagen](./ut8/dynamoDB/DYN-31.png){.cien .marginbottom40 .margintop10 .marco }
 - Una vez creado el entorno lo abrimos (tarda unos instantes). 
-![Descripción de la imagen](./ut8/dynamoDB/DYN-32.png){.sietecinco .marginbottom40 .margintop10 }
+![Descripción de la imagen](./ut8/dynamoDB/DYN-32.png){.cien .marginbottom40 .margintop10 .marco}
 - Dentro de Cloud9 creamos un **nombre_de_archivo.py** y pegamos el siguiente código.
 
 ```py
@@ -1216,14 +1217,14 @@ if __name__ == "__main__":
     main()
 ```
 
-- Para poder ejecutar el script, instalamos boto3 (SDK oficial de Amazon Web Services (AWS) para Python) con:
+- Para poder ejecutar el script, instalaremos boto3 (SDK oficial de Amazon Web Services (AWS) para Python) con:
 ```bash
 pip install boto3
 ```
-![Descripción de la imagen](./ut8/dynamoDB/DYN-33.png){.doscinco .marginbottom40 .margintop10 }
+![Descripción de la imagen](./ut8/dynamoDB/DYN-33.png){.trescinco .marginbottom40 .margintop10 }
 
 - Ejecutamos el script:
-![Descripción de la imagen](./ut8/dynamoDB/DYN-34.png){.doscinco .marginbottom40 .margintop10 }
+![Descripción de la imagen](./ut8/dynamoDB/DYN-34.png){.trescinco .marginbottom40 .margintop10 }
 
 - Si todo ha ido bien, tendremos nuestras tablas creadas y algunos items introducidos. 
 ![Descripción de la imagen](./ut8/dynamoDB/DYN-35.png){.cien .marginbottom40 .margintop10 .marco }
