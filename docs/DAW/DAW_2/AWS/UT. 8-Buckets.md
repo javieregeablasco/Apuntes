@@ -1333,7 +1333,7 @@ Ejemplos de capturas:
 
    
  
-<!-- route 53... -->
+
  
 ## **Enlaces de interés**
 Documentación de [AWS](https://docs.aws.amazon.com)   
