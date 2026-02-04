@@ -1665,7 +1665,70 @@ array([[0, 1, 2, 3, 4],
 1. Sobre la matriz anterior, calcular la media de todos los valores.
 
 
-#### 2.3.4 - Comparar arrays
+#### 2.3.4 - Funciones universales de comparación 
+Veamos algunas de las funciones universales de comparación disponibles:
+
+- **Mayor, mayor o igual, inferior, inferior o igual**  
+Devuelve el valor verdadero de la comparación x1 > x2, comparando elemento a elemento.
+
+```py
+array_1 = np.random.randint(0,9,5)
+array_2 = np.random.randint(0,9,5)
+
+print("array_1\n",array_1,"\nArray_2\n", array_2)
+print("Resultado de la comparacion\n",array_1 > array_2)
+
+# array_1
+#  [1 5 3 3 0] 
+# Array_2
+#  [6 7 8 0 2]
+# Resultado de la comparacion
+#  [False False False  True False]
+```
+
+También se puede realizar una comparación entre array y un valor.
+
+```py
+array_1 = np.random.randint(0,9,5)
+
+print("Resultado de la comparacion\n",array_1 <= 5)
+
+# array_1: [3 4 2 6 5]
+# Resultado de la comparacion
+# [ True  True  True False  True]
+```
+
+- **Operaciones lógicas sobre arrays** Para realizar operaciones lógicas sobre arrays, podemos utilizar las funciones `np.logical_and()`, `np.logical_or()` y `np.logical_not()`.
+
+```py
+# Crear un array de forma (5, 5) con valores True/False aleatorios
+array_bool_1 = np.random.randint(0, 2, 5).astype(bool)
+array_bool_2 = np.random.randint(0, 2, 5).astype(bool)
+
+print("Array_1 ",array_bool_1,"\nArray_2 ",array_bool_2)
+print("-"*40)
+print("Y lógico", np.logical_and(array_bool_1, array_bool_2))
+
+# Array_1  [False False False False False] 
+# Array_2  [ True  True  True  True False]
+# ----------------------------------------
+# Y lógico [False False False False False]
+```
+<br>
+También podemos usar las funciones maximun() y minimum() para extraer posición a posición el máximo o mínimo de cada posición. 
+```py
+array_1 = np.random.randint(0,9,5)
+array_2 = np.random.randint(0,9,5)
+print("Array_1 ",array_1,"\nArray_2 ",array_2)
+print("-"*20)
+print("max:    ",np.maximum(array_1, array_2))
+
+# Array_1  [5 5 0 4 3] 
+# Array_2  [0 8 5 6 1]
+# --------------------
+# max:     [5 8 5 6 3]
+```
+
 <!-- https://python-para-impacientes.blogspot.com/2019/12/comparar-arrays-en-numpy.html -->
 #### 2.3.5 - Leer y escribir arrays Numpy en archivos
 <!-- https://python-para-impacientes.blogspot.com/2020/01/leer-y-escribir-arrays-numpy-en-archivos.html -->

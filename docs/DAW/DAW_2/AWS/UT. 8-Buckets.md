@@ -801,7 +801,8 @@ VALUES
 
 ### **2.2 - Bases de datos NoSQL: Amazon DynamoDB**
 
-Amazon DynamoDB es una base de datos NoSQL (Not only SQL) totalmente gestionada por AWS, orientada a modelos clave-valor y documental. Está diseñada para ofrecer latencias de milisegundos de un solo dígito, independientemente del tamaño de los datos o del volumen de tráfico.
+Amazon DynamoDB es una base de datos NoSQL (Not only SQL) totalmente gestionada por AWS, orientada a modelos clave-valor y documental.  
+Está diseñada para ofrecer latencias de milisegundos de un solo dígito, independientemente del tamaño de los datos o del volumen de tráfico.
 
 DynamoDB es un **servicio serverless**, por lo que el usuario no gestiona servidores, clústeres ni nodos. La escalabilidad, la replicación y la alta disponibilidad son gestionadas automáticamente por AWS.
 
@@ -817,6 +818,7 @@ Entre sus principales características se encuentran:
     - Transferencia de datos y características adicionales (streams, backups, etc.).
 
 En DynamoDB, los datos se organizan de la siguiente forma:
+
 - Una tabla es una colección de elementos (items).
 - Un item es una colección de atributos.
 - Un atributo es un par clave-valor.
