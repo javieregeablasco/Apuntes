@@ -1592,7 +1592,7 @@ Podemos usar los operadores aritméticos estándar (+, -, `*`, /, `**`, //, %), 
     |División|	a / b	|np.divide(a, b)|
     |Potencia|	a ** b|	np.power(a, b)|
 
-#### 2.3.3.2 - Funciones matemáticas avanzadas
+#### 2.3.4 - Funciones matemáticas avanzadas
 NumPy ofrece una amplia gama de funciones matemáticas avanzadas que se pueden aplicar a los arrays. Algunas de las funciones más comunes son:
 
 - **Función raíz cuadrada**: `np.sqrt()`
@@ -1625,7 +1625,7 @@ print("Mediana de todos los valores por filas:\n", np.mean(array, axis=1).reshap
 
 
 
-#### 2.3.3.3 - Tarea RA6-CEj 
+#### 2.3.5 - Tarea RA6-CEj 
 Realizar un notebook con los siguiente requisitos:
 
 - Realizar la tarea de un notebook de Jupyter.
@@ -1665,12 +1665,12 @@ array([[0, 1, 2, 3, 4],
 1. Sobre la matriz anterior, calcular la media de todos los valores.
 
 
-#### 2.3.4 - Funciones universales de comparación 
+#### 2.3.6 - Funciones universales de comparación 
 Veamos algunas de las funciones universales de comparación disponibles:
 
 - **Mayor, mayor o igual, inferior, inferior o igual**  
-Devuelve el valor verdadero de la comparación x1 > x2, comparando elemento a elemento.
-
+Devuelve el valor verdadero de la comparación array_1 > array_2, comparando elemento a elemento.
+<br>
 ```py
 array_1 = np.random.randint(0,9,5)
 array_2 = np.random.randint(0,9,5)
@@ -1685,9 +1685,9 @@ print("Resultado de la comparacion\n",array_1 > array_2)
 # Resultado de la comparacion
 #  [False False False  True False]
 ```
-
-También se puede realizar una comparación entre array y un valor.
-
+<br>
+- También se puede realizar una comparación entre array y un valor.
+<br>
 ```py
 array_1 = np.random.randint(0,9,5)
 
@@ -1697,9 +1697,10 @@ print("Resultado de la comparacion\n",array_1 <= 5)
 # Resultado de la comparacion
 # [ True  True  True False  True]
 ```
-
-- **Operaciones lógicas sobre arrays** Para realizar operaciones lógicas sobre arrays, podemos utilizar las funciones `np.logical_and()`, `np.logical_or()` y `np.logical_not()`.
-
+<br>
+- **Operaciones lógicas sobre arrays**  
+Para realizar operaciones lógicas sobre arrays, podemos utilizar las funciones `np.logical_and()`, `np.logical_or()` y `np.logical_not()`.
+<br>
 ```py
 # Crear un array de forma (5, 5) con valores True/False aleatorios
 array_bool_1 = np.random.randint(0, 2, 5).astype(bool)
@@ -1715,7 +1716,7 @@ print("Y lógico", np.logical_and(array_bool_1, array_bool_2))
 # Y lógico [False False False False False]
 ```
 <br>
-También podemos usar las funciones maximun() y minimum() para extraer posición a posición el máximo o mínimo de cada posición. 
+También podemos usar las funciones **maximun()** y **minimum()** para extraer posición a posición el máximo o mínimo de cada array. 
 ```py
 array_1 = np.random.randint(0,9,5)
 array_2 = np.random.randint(0,9,5)
@@ -1729,22 +1730,108 @@ print("max:    ",np.maximum(array_1, array_2))
 # max:     [5 8 5 6 3]
 ```
 
-<!-- https://python-para-impacientes.blogspot.com/2019/12/comparar-arrays-en-numpy.html -->
-#### 2.3.5 - Leer y escribir arrays Numpy en archivos
-<!-- https://python-para-impacientes.blogspot.com/2020/01/leer-y-escribir-arrays-numpy-en-archivos.html -->
+#### 2.3.7 - Lectura y escritura de arrays
+La librería NumPy proporciona funciones para leer y escribir arrays en archivos. Algunas de las funciones más comunes son:
 
-<!-- https://nachoiborraies.github.io/data-science/02b.html#21-creacion-de-arrays -->
+- **np.savetxt()**: Guarda un array en un archivo de texto.
+- **np.loadtxt()**: Carga un array desde un archivo de texto.
+- **np.save()**: Guarda un array en un archivo con formato `.npy`.
+- **np.load()**: Carga un array desde un archivo con formato `.npy`. 
 
+##### 2.3.7.1 - loadtxt() y savetxt() con archivos de texto 
+Permiten leer y escribir los datos de arrays en archivos de texto.  
+```py
+import numpy as np
+# array2D con números aleatorios del 1 al 4:
+# NOTA savetxt no funciona con matrices
 
- <!-- Tipos de datos de un array con NumPy -->
-<!-- numpy pandas -->
-<!-- https://python-para-impacientes.blogspot.com/p/numpy.html -->
+array_1 = np.random.randint(1,5,(3,3), dtype='int8')
+print(array_1,"\n",array_1.dtype)
+
+np.savetxt('datos.txt', array_1)
+
+# Leer los datos de un archivo de texto y declarar un array:
+array_2 = np.loadtxt('datos.txt')
+print(array_2,"\n",array_1.dtype)
+
+# [[2 2 2]
+#  [3 2 3]
+#  [2 2 4]] 
+#  int8
+# [[2. 2. 2.]
+#  [3. 2. 3.]
+#  [2. 2. 4.]] 
+#  float64
+```
+<br>
+En el ejemplo anterior, el archivo **datos.txt** se creará (y se sobrescribirá, si ya existe) en el directorio de trabajo actual desde el que se ejecuta el código.  
+
+Si deseamos mayor flexibilidad al especificar la ruta del archivo de destino, podemos utilizar **la clase Path del módulo pathlib**, que permite construir y gestionar rutas de archivos de forma portable, independientemente del sistema operativo.
+
+```py
+import numpy as np
+from pathlib import Path
+import os
+
+# array2D con números aleatorios del 1 al 4
+array_1 = np.random.randint(1, 5, (3, 3), dtype='int8')
+print(array_1, "\n", array_1.dtype)
+
+# Determinar la carpeta Descargas / Downloads según el SO
+try:
+    if os.name == "nt":  # Windows
+        ruta_descargas = Path.home() / "Downloads"
+    else:  # Linux
+        ruta_descargas = Path.home() / "Descargas"
+
+    ruta_archivo = ruta_descargas / "datos.txt"
+
+    np.savetxt(ruta_archivo, array_1)
+    print(f"Archivo guardado en: {ruta_archivo}")
+
+except:
+    print("Ha ocurrido un error.")
+
+# [[2 3 1]
+# [1 1 1]
+# [4 4 1]] 
+# int8
+# Archivo guardado en: C:\Users\titan\Downloads\datos.txt
+```
+
+##### 2.3.7.2 - loadtxt() y savetxt() con archivos CSV
+CSV (comma-separated values) es un formato de archivo ampliamente utilizado en el análisis y procesamiento de datos, en el que los valores se almacenan en texto plano y se separan habitualmente por comas.  
+Para poder guardar nuestros array en ese formato solo deberemos pasar el parámetro (o argumento) **delimiter** a loadtxt() y savetxt()
+```py
+array_1 = np.random.randint(1,5,(3,3), dtype='int8')
+
+np.savetxt('datos.scv', array_1, delimiter=',')
+
+# Leer los datos de un archivo de texto y declarar un array:
+array_2 = np.loadtxt('datos.scv', delimiter=',')
+print(array_2,"\n",array_2.dtype)
+
+# [[4. 1. 4.]
+#  [3. 4. 4.]
+#  [3. 4. 1.]] 
+#  float64
+```
+
+### 2.4 - Librería Pandas
+![notebook_jupyter_vsc](./img/UT7/anaconda/ana-10.png){.cincozero .margintop10 }
+
+<!-- https://nachoiborraies.github.io/data-science/02c.html -->
 <!-- https://dspace.ceu.es/server/api/core/bitstreams/c8ac32c7-4967-4e69-a780-392ee3829b87/content -->
 
 
+![Descripción de la imagen](../../../DAW/DAW_2/AWS/ut7/cloudformation/WIP.avif){ .doscinco }
 
 
-<!-- https://python-para-impacientes.blogspot.com/p/numpy.html -->
+  
+
+
+
+ 
 
 
 
