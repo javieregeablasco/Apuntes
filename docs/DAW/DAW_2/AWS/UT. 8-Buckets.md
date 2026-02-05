@@ -1131,7 +1131,7 @@ En este caso crearemos un conjunto de tablas consumiendo un programa en Python q
 - Una vez creado el entorno lo abrimos (tarda unos instantes). 
 ![Descripción de la imagen](./ut8/dynamoDB/DYN-32.png){.cien .marginbottom40 .margintop10 .marco}
 - Dentro de Cloud9 creamos un **nombre_de_archivo.py** y pegamos el siguiente código.
-
+<br>
 ```py
 import boto3
 from datetime import datetime, timedelta
@@ -1144,20 +1144,21 @@ reply_table_name = "Reply"
 
 def delete_table(table_name):
     try:
+        # Si existen eliminar tablas
         table = dynamodb.Table(table_name)
-        print(f"Eliminando tabla {table_name}...")
+        print(f"Eliminando tabla {table_name}")
         table.delete()
         table.wait_until_not_exists()
     except client.exceptions.ResourceNotFoundException:
         pass
 
 def create_reply_table():
-    print(f"Creando tabla {reply_table_name}...")
+    print(f"Creando tabla {reply_table_name}")
     try:
         table = dynamodb.create_table(
             TableName=reply_table_name,
             KeySchema=[
-                {'AttributeName': 'Id', 'KeyType': 'HASH'},          # Partition Key
+                {'AttributeName': 'Id', 'KeyType': 'HASH'},            # Partition Key
                 {'AttributeName': 'ReplyDateTime', 'KeyType': 'RANGE'} # Sort Key
             ],
             AttributeDefinitions=[
@@ -1184,12 +1185,12 @@ def create_reply_table():
 
 def load_sample_replies():
     table = dynamodb.Table(reply_table_name)
-    print(f"Cargando datos en {reply_table_name}...")
+    print(f"Cargando datos en {reply_table_name}")
     
-    # Generar una fecha similar a la de tu ejemplo
+    # Generar una fecha
     fecha_ejemplo = "2025-09-19T16:30:00.214Z"
     
-    # Este es el ítem exacto que tu consulta busca
+    # Creacíon ítem
     item = {
         'Id': 'Amazon DynamoDB#DynamoDB Thread 1',
         'ReplyDateTime': fecha_ejemplo,
@@ -1210,7 +1211,7 @@ def main():
     # 2. Creación
     create_reply_table()
     
-    # 3. Carga de datos (Esto es lo que faltaba)
+    # 3. Carga de datos 
     load_sample_replies()
     
     print("Proceso finalizado.")
@@ -1218,7 +1219,7 @@ def main():
 if __name__ == "__main__":
     main()
 ```
-
+<br>
 - Para poder ejecutar el script, instalaremos boto3 (SDK oficial de Amazon Web Services (AWS) para Python) con:
 ```bash
 pip install boto3
@@ -1228,11 +1229,13 @@ pip install boto3
 - Ejecutamos el script:
 ![Descripción de la imagen](./ut8/dynamoDB/DYN-34.png){.trescinco .marginbottom40 .margintop10 }
 
-- Si todo ha ido bien, tendremos nuestras tablas creadas y algunos items introducidos. 
-![Descripción de la imagen](./ut8/dynamoDB/DYN-35.png){.cien .marginbottom40 .margintop10 .marco }
+- Si todo ha ido bien, tendremos nuestras tablas creadas y algunos items introducidos.  
+![Descripción de la imagen](./ut8/dynamoDB/DYN-35.png){.cien  .margintop10 .marco }
+<br>
+**Nota:** Si revisamos el script de python, veremos que solo tenemos lógica para crear la tabla **Thread**. No obstante, también se han creado las tablas **Forum**, **ProductCatalog** y **Reply** (anteriormente creamos la tabla **AlumnosNotas**). No se trata de un error sino de un **funcionamiento estándar del Laboratory de AWS**. En una cuenta de 'pago' esas tablas no se habrían creado.  
 
 #### 2.2.9.2 - Primeras consultas sobre las tablas
-Podemos hacer consultas sobre las tablas usando la consola de administración de AWS o la CLI de AWS. En este caso usaremos la CLI.
+Podemos hacer consultas sobre las tablas usando la consola de administración de AWS o la CLI de AWS. En este caso usaremos la CLI.  
 Ya hemos visto en otras unidades que los comandos de la CLI de AWS tienen la siguiente estructura:
 ```bash
 aws <servicio> <operación> [--parámetros] [--opciones]
