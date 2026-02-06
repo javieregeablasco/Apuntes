@@ -930,7 +930,8 @@ plt.show()
 Numpy es una librería de procesamiento de **arrays**. Contiene una gran colección de funciones que permiten realizar cálculos matemáticos complejos sobre arrays multidimensionales.
 
 #### 2.2.2 - ¿Qué es un array?
-Un array es una estructura de datos que almacena una colección de elementos del mismo tipo en una secuencia contigua de memoria. A diferencia de las **listas** (de Python), los arrays de NumPy son más eficientes en términos de rendimiento y uso de memoria, especialmente cuando se trata de grandes conjuntos de datos numéricos.
+Un array es una estructura de datos que almacena una colección de elementos del mismo tipo en una secuencia contigua de memoria.  
+A diferencia de las **listas** (de Python), los arrays de NumPy son más eficientes en términos de rendimiento y uso de memoria, especialmente cuando se trata de grandes conjuntos de datos numéricos.
 
 #### 2.2.3 - Creación de arrays en NumPy
 Para crear un array en utilizareos la función `np.array()`.
@@ -942,7 +943,7 @@ array = np.array([1, 2, 3, 4, 5])
 print(array)  # Salida: [1 2 3 4 5]
 ```
 
-A diferencia de las listas que permiten almacenar elementos de diferentes tipos, los arrays de NumPy están diseñados para solo almacenar elementos del mismo tipo. Esto permite optimizar el rendimiento y la eficiencia en el manejo de datos numéricos.
+A diferencia de las listas que permiten almacenar elementos de diferentes tipos, los arrays de NumPy están diseñados para solo **almacenar elementos del mismo tipo**. Esto permite optimizar el rendimiento y la eficiencia en el manejo de datos numéricos.
 
 **Ejemplo:**
 ```py
@@ -972,12 +973,17 @@ NumPy proporciona varias funciones para crear arrays. A continuación, se muestr
 
 - **Arrays de ceros (0)**
 ```py
-array_ceros = np.zeros(3)  # Array con 3 elementos
+array_ceros = np.zeros(3)  # Array con 3 elementos (0)
 ```
 
 - **Arrays de unos (1)**
 ```py
-array_unos = np.ones(4)  # Array con 43 elementos
+array_unos = np.ones(4)  # Array con 4 elementos (1)
+```
+
+- **Arrays con un valor dado**
+```py
+array_full = np.full(3,5) # Array con 3 elementos (5)
 ```
 
 - **Auto llenar un array con arange() (1/2)**
@@ -1062,7 +1068,8 @@ array.reshape(3,3,3)
 #         [24, 25, 26]]])
 ```
 
-**ndim, shape y size**
+**ndim, shape y size**  
+
 - `ndim`: Devuelve el número de dimensiones del array.
 - `shape`: Devuelve una tupla que indica el tamaño de cada dimensión del array.
 - `size`: Devuelve el número total de elementos en el array.
@@ -1128,7 +1135,7 @@ Como acabamos de ver acceder a los elementos de un array multidimensional se hac
     - **Acceso a un rango de elementos en array (1D).**
     ```py
     array = np.array([10, 20, 30, 40, 50])
-    print([1:4]) 
+    print(array[1:4]) 
     # [20 30 40]
     ```
     
@@ -1217,9 +1224,28 @@ print("Transpuesta del array:\n", array.T) # Salida: [[1 4]
                                             #          [2 5]
                                             #          [3 6]]   
 ```
+#### 2.2.11 - Ejercicios
+
+!!! exercise "Ejercicio 1"
+    Declarar un array unidimensional de 10 ceros. 
+
+!!! exercise "Ejercicio 2"
+    Declarar un array bidimensional de 3 filas y 4 columnas con el valor 1.
+
+!!! exercise "Ejercicio 3"
+    Declarar un array tridimensional de 3 matrices, 3 filas y 4 columnas con el valor 5.
+
+!!! exercise "Ejercicio 4"
+    Declarar un array unidimensional con los números del 10 al 50 (inclusive) y paso 5. Imprimir el resultado final.
+
+!!! exercise "Ejercicio 5"
+    Declarar un array unidimensional y luego aplicar un un `reshape` o un `resize` para dejarlo en 3 matrices de 5 filas y 4 columnas.
+      
 
 ### 2.3 - Operaciones sobre array(s) de NumPy
 #### 2.3.1 - Añadir, insertar y suprimir elementos
+No es posible modificar un array de NumPy añadiendo o eliminando elementos, pero sí es posible crear un nuevo array con los elementos añadidos o eliminados utilizando las funciones `np.append()`, `np.insert()` y `np.delete()`.
+
 - **np.append()**
 Permite añadir elementos al final de un array.
 ```py
@@ -1233,7 +1259,7 @@ print(a)
 ```
 <br>
 - **np.insert()**
-Devuelve **un nuevo array** con uno o más valores insertados en las posiciones indicadas **sin modificar** el array original.  
+PErmite insertar uno o más valores en las posiciones indicadas del array original.  
 Permite insertar elementos tanto en arrays unidimensionales como multidimensionales, indicando opcionalmente el eje (axis).
 <br>  
 **Insertar un valor en una posición concreta (array 1D)**
@@ -1251,7 +1277,15 @@ a = np.insert(a, 1, [-1, -2])
 print(a)
 
 # [ 1 -1 -2  2  3  0  4  5  6  7]
-```
+```  
+ 
+    !!! exercise "Evaluar el array resultante de la siguiente expresión."
+    ```py
+    # Insertar en la posición 1 y  los valores -1 y -2:
+    a = np.array([1, 2, 3, 4, 5, 7, 8])
+    a = np.insert(a, [2,5], [-1, -2])
+    print(a)
+    ```
 **Insertar una columna en un array 2D (axis=1)**
 ```py
 # Insertar una columna con valor 0 en la columna de índice 2:
@@ -1292,6 +1326,7 @@ print(b)
 
 ```
 <br>
+
 - **np.delete()**
 Devuelve **un nuevo array** con uno o más valores eliminados en las posiciones indicadas **sin modificar** el array original.  
 Permite eliminar elementos tanto en arrays unidimensionales como multidimensionales, indicando opcionalmente el eje (axis).
@@ -1331,7 +1366,7 @@ print(b)
 
 #### 2.3.2 - Convertir, copiar, unir y dividir arrays
 
-- **Convertir a array con asarray(), np.array()**  
+- **Convertir a array con asarray() y np.array()**  
 Podemos convertir listas o tuplas en arrays de NumPy utilizando la función `np.asarray()` pero, también podemos hacerlo con `np.array()`.  
 <br>
 **Con asarray():**
@@ -1384,9 +1419,13 @@ print(array.tolist())
 ```py
 array = np.array([1, 2, 3, 4])
 copia_de_array = array.copy()
-print(copia_de_array)
-
-# [1 2 3 4 5]
+print(f"Id de array original: {id(array)}")
+print(f"Id de array copiado:  {id(copia_de_array)}")
+print(f"¿Son los 2 arrays identicos?: {id(array) == id(copia_de_array)}")
+#
+# Id de array original: 2716729698672
+# Id de array copiado:  2716713031056
+# ¿Son los 2 arrays identicos?: False
 ```
 **array_2 = array_1** en contra, copia por referencia, es decir, ocupan el mismo espacio de memoria y, modificar los valores de uno de los arrays aplicará los cambios en el otro.
 ```py
@@ -1399,8 +1438,8 @@ array_2[0, 1] = -1
 
 print("Valor actualizado en array_1:",array_1[0, 1])
 print("Valor actualizado en array_2:",array_1[0, 1])
-print("¿Son los 2 valores identicos?", array_1[0, 1] == array_2[0, 1])
-
+print("¿Son los 2 arrays identicos?", id(array_1) == id(array_2))
+#
 # Array_1
 #  [[1 2 3]
 #  [4 5 6]]
@@ -1410,7 +1449,8 @@ print("¿Son los 2 valores identicos?", array_1[0, 1] == array_2[0, 1])
 # 
 # Valor actualizado en array_1: -1
 # Valor actualizado en array_2: -1
-# ¿Son los 2 valores identicos? True
+# ¿Son los 2 arrays identicos? True
+
 ```
 <br>
 - **Unir arrays con concatenate()**  
@@ -1653,7 +1693,7 @@ array([[ 1.,  1.,  1.,  1.,  1.,  1.,  1.,  1.,  1.,  1.],
        [ 1.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  1.],
        [ 1.,  1.,  1.,  1.,  1.,  1.,  1.,  1.,  1.,  1.]])
 ```
-1. Declarar una matriz con el siguiente resultado (podéis sumar matrices de diferentes dimensiones o usar una función de NumPy).
+1. Declarar una matriz con el siguiente resultado. Podéis sumar matrices de diferentes dimensiones o usar una función de NumPy (tile), lo que no podeís hacer es declararla explícitamente.
 ```py
 # Resultado esperado
 array([[0, 1, 2, 3, 4],
@@ -1662,7 +1702,7 @@ array([[0, 1, 2, 3, 4],
        [0, 1, 2, 3, 4],
        [0, 1, 2, 3, 4]])
 ```
-1. Sobre la matriz anterior, calcular la media de todos los valores.
+1. Sobre la matriz anterior, calcular la media de los valores del array.
 
 
 #### 2.3.6 - Funciones universales de comparación 
