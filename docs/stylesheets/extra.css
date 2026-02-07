@@ -344,3 +344,8 @@
   font-size: 1.2em;
   color:cornflowerblue;
 }
+
+/* Añade margen extra después de cualquier bloque de código */
+.highlight {
+    margin-bottom: 2rem !important;
+}

@@ -612,7 +612,7 @@ list(range(5))
     1. Crear una variable que almacene el generador devuelto por la función.
     1. Recorrer el generador utilizando un bucle for y muestre por pantalla el cuadrado de cada número.
 
----
+
 
 #### **1.10.5 - Expresiones regulares**
 Las expresiones regulares (regular expressions / regex / parsing) permiten buscar o manipular cadenas de texto basándose en **patrones específicos**.  
@@ -745,7 +745,7 @@ Otros ejemplos:
 #### 1.10.7 - Módulo re
 El módulo `re` proporciona varias funciones para trabajar con expresiones regulares, como `match()`, `search()`, `findall()`, `sub()`, entre otras.
 
----
+
 
 ##### 1.10.7.1 - Función search()
 La función `search()` busca una coincidencia del patrón en cualquier parte de la cadena.
@@ -1257,12 +1257,11 @@ print(a)
 
 # [1 2 3 4 5 6 7]
 ```
-<br>
 - **np.insert()**
-PErmite insertar uno o más valores en las posiciones indicadas del array original.  
-Permite insertar elementos tanto en arrays unidimensionales como multidimensionales, indicando opcionalmente el eje (axis).
-<br>  
-**Insertar un valor en una posición concreta (array 1D)**
+Permite insertar uno o más valores en las posiciones indicadas del array original.  
+Permite insertar elementos tanto en arrays unidimensionales como multidimensionales, indicando opcionalmente el eje (axis).  
+<br>
+**Insertar un valor en una posición concreta (array 1D)**  
 ```py
 a = np.array([1, 2, 3, 4, 5, 6, 7])
 b = np.insert(a, 3, 0)
@@ -1325,7 +1324,6 @@ print(b)
 #  [ 0  0  0  0  0  0  0]]
 
 ```
-<br>
 
 - **np.delete()**
 Devuelve **un nuevo array** con uno o más valores eliminados en las posiciones indicadas **sin modificar** el array original.  
@@ -1369,7 +1367,7 @@ print(b)
 - **Convertir a array con asarray() y np.array()**  
 Podemos convertir listas o tuplas en arrays de NumPy utilizando la función `np.asarray()` pero, también podemos hacerlo con `np.array()`.  
 <br>
-**Con asarray():**
+**Con asarray():**  
 ```py
 lista1 = [1, 2, 3, 4, 5]
 lista2 = [[1, 2, 3], [4, 5, 6]]
@@ -1383,9 +1381,8 @@ print(b)
 
 # [[1 2 3]
 #  [4 5 6]]
-```
-<br>
-**Con np.array():**
+```  
+**Con np.array():**  
 ```py
 lista = [[0,1,2,3,4],[5,6,7,8,9]]
 array =np.array(lista)
@@ -1403,7 +1400,6 @@ print("¿Es array un objeto de NumPy?: ", isinstance(array, np.ndarray))
 # Numero de columnas: 5
 # ¿Es array un objeto de NumPy?:  True
 ``` 
-<br>
 - **Convertir a lista con tolist()**  
 Al igual que podemos convertir listas a array también podemos convertir arrays a listas.
 ```py
@@ -1413,7 +1409,7 @@ print("Dimensiones del array:", array.shape)
 print(array)
 print(array.tolist())
 ```
-<br>
+
 - **Copiar arrays**  
 **copy()** permite una copia del array por valor, es decir, crea un nuevo array totalmente independiente del primero.
 ```py
@@ -1452,7 +1448,6 @@ print("¿Son los 2 arrays identicos?", id(array_1) == id(array_2))
 # ¿Son los 2 arrays identicos? True
 
 ```
-<br>
 - **Unir arrays con concatenate()**  
 Con concatenate() podemos unir dos o más arrays a lo largo del **eje que especificamos**.
 ```py
@@ -1486,7 +1481,7 @@ print("array_4:\n", array_4)
 #  [1. 1. 1. 1.]
 #  [1. 1. 1. 1.]]
 ```
-<br>
+
 - **Dividir arrays con split()**  
 Con split() podemos dividir un array en múltiples sub-arrays a lo largo del **eje que especificamos**.
 ```py
@@ -1497,7 +1492,7 @@ print("Sub-arrays:", sub_arrays)
 # Array original: [0 1 2 3 4 5 6 7 8 9]
 # Sub-arrays: [array([0, 1, 2, 3, 4]), array([5, 6, 7, 8, 9])]
 ```
-<br>
+
 - **División vertical y horizontal**  
 Con `vsplit()` y `hsplit()` podemos dividir arrays multidimensionales vertical u horizontalmente respectivamente.
 ```py
@@ -1580,8 +1575,7 @@ print("Sumar 1 a todos los elementos del array original\n",array_3D + 1)
 #    [22 49 42]
 #    [80 91 63]]]
 ```
-<br>
-Si realizamos una división NumPy reajustará el tipo de los valores.
+Si realizamos una división, NumPy reajustará automáticamente el tipo de los valores.
 ```py
 np.random.seed(23) # permite hacer que random siempre devuelva los mismos valores.
 array = np.random.randint(0,99,5)
@@ -1596,7 +1590,7 @@ print("Array final\n Tipo array despues de la division:", array_division.dtype,"
 #  Tipo array despues de la division: float64 
 #  [27.66666667 13.33333333 24.33333333 18.         10.33333333]
 ```
-<br>
+
 - **Sumar, restar, multiplicar y dividir arrays de diferentes dimensiones**.  
 Para que dos arrays puedan operarse entre sí, **sus dimensiones deben ser compatibles**. Esto ocurre si, empezando desde la última dimensión, **los tamaños de los ejes son iguales, o, uno de ellos es 1**.  
 Si no se cumple ninguna de estas condiciones en cada dimensión, NumPy lanzará un error. 
@@ -1620,17 +1614,17 @@ print("Array de 2 dimensiones\n", a,"\n\nArray de una sola dimensión\n", \
 #  [2. 3. 4.]
 #  [2. 3. 4.]]
 ```
-<br>
+
 **Nota:**  
 Podemos usar los operadores aritméticos estándar (+, -, `*`, /, `**`, //, %), porque NumPy los tiene **sobrecargados**. Realmente, cuando usamos los operadores aritméticos, NumPy llama a las funciones add(), substract(), ...  
-  
-    |Operación	|Operador Estándar	|Función de NumPy|
-    |-|-|-|
-    |Suma|	a + b	|np.add(a, b)|
-    |Resta|	a - b	|np.subtract(a, b)|
-    |Multiplicación|	a * b|	np.multiply(a, b)|
-    |División|	a / b	|np.divide(a, b)|
-    |Potencia|	a ** b|	np.power(a, b)|
+
+|Operación	|Operador Estándar	|Función de NumPy|
+|-|-|-|
+|Suma|	a + b	|np.add(a, b)|
+|Resta|	a - b	|np.subtract(a, b)|
+|Multiplicación|	a * b|	np.multiply(a, b)|
+|División|	a / b	|np.divide(a, b)|
+|Potencia|	a ** b|	np.power(a, b)|
 
 #### 2.3.4 - Funciones matemáticas avanzadas
 NumPy ofrece una amplia gama de funciones matemáticas avanzadas que se pueden aplicar a los arrays. Algunas de las funciones más comunes son:
@@ -1666,13 +1660,13 @@ print("Mediana de todos los valores por filas:\n", np.mean(array, axis=1).reshap
 
 
 #### 2.3.5 - Tarea RA6-CEj 
-Realizar un notebook con los siguiente requisitos:
+**Realizar un notebook con los siguiente requisitos:**
 
-- Realizar la tarea de un notebook de Jupyter.
+- Realizar la tarea en un notebook de Jupyter.
 - Cada pregunta deberá ir dentro de una celda de markdown.
 - El código deberá ir en una celda de código.  
 
-Preguntas:
+**Enunciado. Cada posición ira en una celda.**
 
 1. Importar la librería NumPy 
 1. Declarar un array con valores 10,11,12,...47,48,49. 
@@ -1710,7 +1704,6 @@ Veamos algunas de las funciones universales de comparación disponibles:
 
 - **Mayor, mayor o igual, inferior, inferior o igual**  
 Devuelve el valor verdadero de la comparación array_1 > array_2, comparando elemento a elemento.
-<br>
 ```py
 array_1 = np.random.randint(0,9,5)
 array_2 = np.random.randint(0,9,5)
@@ -1725,9 +1718,7 @@ print("Resultado de la comparacion\n",array_1 > array_2)
 # Resultado de la comparacion
 #  [False False False  True False]
 ```
-<br>
 - También se puede realizar una comparación entre array y un valor.
-<br>
 ```py
 array_1 = np.random.randint(0,9,5)
 
@@ -1737,10 +1728,8 @@ print("Resultado de la comparacion\n",array_1 <= 5)
 # Resultado de la comparacion
 # [ True  True  True False  True]
 ```
-<br>
 - **Operaciones lógicas sobre arrays**  
 Para realizar operaciones lógicas sobre arrays, podemos utilizar las funciones `np.logical_and()`, `np.logical_or()` y `np.logical_not()`.
-<br>
 ```py
 # Crear un array de forma (5, 5) con valores True/False aleatorios
 array_bool_1 = np.random.randint(0, 2, 5).astype(bool)
@@ -1755,7 +1744,6 @@ print("Y lógico", np.logical_and(array_bool_1, array_bool_2))
 # ----------------------------------------
 # Y lógico [False False False False False]
 ```
-<br>
 También podemos usar las funciones **maximun()** y **minimum()** para extraer posición a posición el máximo o mínimo de cada array. 
 ```py
 array_1 = np.random.randint(0,9,5)
@@ -1803,7 +1791,6 @@ print(array_2,"\n",array_1.dtype)
 #  [2. 2. 4.]] 
 #  float64
 ```
-<br>
 En el ejemplo anterior, el archivo **datos.txt** se creará (y se sobrescribirá, si ya existe) en el directorio de trabajo actual desde el que se ejecuta el código.  
 
 Si deseamos mayor flexibilidad al especificar la ruta del archivo de destino, podemos utilizar **la clase Path del módulo pathlib**, que permite construir y gestionar rutas de archivos de forma portable, independientemente del sistema operativo.
@@ -1875,19 +1862,22 @@ Pandas está construido directamente sobre NumPy, funcionando como una capa supe
 - El manejo sencillo de datos faltantes o nulos.
 
 
----
+
 ### 2.4.1 - Series
 
-Las series son estructuras **unidimensionales** conteniendo **un array de datos** (de cualquier tipo soportado por NumPy) y **un array de etiquetas** que van asociadas a los datos, llamado índice (index en la literatura en inglés).
+Las series son estructuras **unidimensionales** conteniendo **un array de datos** (de cualquier tipo soportado por NumPy) y **un array de etiquetas** que van asociadas a los datos, llamado índice (index).
 
 #### 2.4.1.1 - Declaración de una serie
-Para crear series en Pandas usaremos el método **Series** al que pasaremos el vector de datos y opcionalmente una lista de índices.
+Para crear series en Pandas usaremos el método **Series** al que pasaremos el vector de datos y opcionalmente un index.
 
 ```py
 import numpy as np
 import pandas as pd
 
-serie = pd.Series([1,2,3,4], index=["Enero", "Febrero","Marzo","Abril"])
+datos = [1,2,3,4]
+indice = ["Enero", "Febrero","Marzo","Abril"]
+
+serie = pd.Series(datos, index=indice)
 serie
 
 # Enero      1
@@ -1899,7 +1889,9 @@ serie
 
 Otra manera de crear una serie de pandas, es pasarle un diccionario en vez de 2 listas. 
 ```py
-serie = pd.Series({"Enero":11, "Febrero":22,"Marzo":33,"Abril":44})
+diccionario = {"Enero":11, "Febrero":22,"Marzo":33,"Abril":44}
+
+serie = pd.Series(diccionario)
 serie
 
 # Enero      11
@@ -1916,21 +1908,25 @@ serie
 serie = pd.Series([1,2,3,4], index=["a","b","c","d"])
 print("Indice de la serie", serie.index)
 print("Valor asociado al indice 'c':",serie["c"])
-#
+
 # Indice de la serie Index(['a', 'b', 'c', 'd'], dtype='object')
 # Valor asociado al indice 'c': 3
-```
-
-**Nota:** No se ha mencionado pero el índice no tiene porqué ser único, es decir puede admitir valores duplicados. En ese caso, los valores devueltos serán los asociados a esos índices.
-
+```  
+**Nota:** El índice no tiene porqué ser único, es decir, puede admitir valores duplicados. En ese caso, los valores devueltos para ese índice serán los asociados a esos índices.
 ```py
 serie = pd.Series([1,2,3,4,5,6,7,8,9], index=["a","b","c","d","c","e","f","g","c"])
-print("Valores asociados al indice 'c':", serie.index)
-#
-# Valores asociados al indice 'c': Index(['a', 'b', 'c', 'd', 'c', 'e', 'f', 'g', 'c'], dtype='object')
-```
+print("Indice de la serie", serie.index)
+print("Valores asociados al indice 'c':")
+print(serie["c"])
 
-- Acceso por la posición de su índice con el método **iloc[]**.
+# Indice de la serie Index(['a', 'b', 'c', 'd', 'c', 'e', 'f', 'g', 'c'], dtype='object')
+# Valores asociados al indice 'c':
+# c    3
+# c    5
+# c    9
+# dtype: int64
+```
+- Acceso por la posición de su índice con el método **iloc[...]**.
 ```py
 serie = pd.Series([1,2,3,4,5,6,7,8,9], index=["a","b","c","d","e","f","g","h","i"])
 print("Valor item de la posicion 5:", serie.iloc[4])
@@ -1947,10 +1943,11 @@ serie.iloc[3:6]
 # f    6
 #dtype: int64
 ```
-
-Otro ejemplo con slicing sobre los valores devueltos.
+Otro ejemplo de slicing sobre los valores devueltos por iloc.
 ```py
+serie = pd.Series([1,2,3,4,5,6,7,8,9], index=["a","b","c","d","e","f","g","h","i"])
 print(serie.iloc[2:8])
+serie.iloc[2:8][1:3]
 #
 # c    3
 # d    4
@@ -1959,7 +1956,9 @@ print(serie.iloc[2:8])
 # g    7
 # h    8
 # dtype: int64
-#
+# d    4
+# e    5
+# dtype: int64
 ```
 
 #### 2.4.1.3 - Series temporales
@@ -1972,7 +1971,6 @@ Pandas permite generar rangos de fechas de manera sencilla mediante la función 
 - **periods**: El número de pasos (si solo se conoce la cantidad de datos necesarios).
 
 - **freq**: La frecuencia del intervalo (por defecto 'D' para días, pero admite 'M' para meses, 'H' para horas, 'B' para días hábiles, etc.).
-
 ```py
 # Crear un rango de 10 semanas a partir de una fecha
 fechas = pd.date_range(start='2024-01-01', periods=10, freq='W')
@@ -1995,25 +1993,23 @@ Pandas ofrece una amplia gama de funciones de agregación y resumen que se puede
 - **median()**: Mediana de los valores de la serie.
  
 También existen funciones más orientadas al pretratamiento y visualización de los datos como:
-- describe()**: Proporciona un resumen estadístico de la serie, incluyendo conteo, media, desviación estándar, valores mínimos y máximos, y percentiles.
-- head()**: Devuelve las primeras n filas de la serie (por defecto n=5).
-- tail()**: Devuelve las últimas n filas de la serie (por defecto n=5).
-- sort_values()**: Ordena los valores de la serie.
-- reset_index()**: Restablece el índice de la serie, convirtiendo el índice actual en una columna y creando un nuevo índice numérico.
 
+- **describe()**: Proporciona un resumen estadístico de la serie, incluyendo conteo, media, desviación estándar, valores mínimos y máximos, y percentiles.
+- **head()**: Devuelve las primeras n filas de la serie (por defecto n=5).
+- **tail()**: Devuelve las últimas n filas de la serie (por defecto n=5).
+- **sort_values()**: Ordena los valores de la serie.
+- **reset_index()**: Restablece el índice de la serie, convirtiendo el índice actual en una columna y creando un nuevo índice numérico.
 
+### 2.4.2 - Dataframes
+Los dataframes son las estructuras más habituales en Pandas. Son estructuras de datos bidimensionales, donde tanto **las filas como las columnas se identifican con índices (label)**.  
+Esto permite que un data frame pueda representar cualquier tipo de información bidimensional en forma de tabla y, podamos acceder al valor de cualquier celda en base a sus claves **fila - columna**. 
 
-
-
-
-
-
+### 2.4.2.1 - Declaración de un dataframe
+- 
+<!-- 
 https://interactivechaos.com/es/manual/tutorial-de-pandas/introduccion-las-series
 
-Comenzaremos analizando los data frames, que son las estructuras más habituales en Pandas. Como hemos comentado, son estructuras de datos bidimensionales, donde cada fila se identifica con un índice o etiqueta (label) que puede ser numérico o alfanumérico, y cada columna con otro índice o label que también puede ser numérico o alfanumérico. Esto permite que un data frame pueda representar cualquier tipo de información bidimensional en forma de tabla, y que podamos acceder a cada casilla en base a sus claves fila - columna. De hecho, podemos concebir un data frame como un conjunto de series agrupadas.
-2.1. Creación de data frames¶
 
-Veremos que existen distintas formas de crear un data frame, dependiendo de cómo conseguimos los datos.
 2.1.1. Creación básica con datos directos¶
 
 Para crear un data frame con Pandas, usamos su método DataFrame. Podemos pasarle como parámetro una lista o tabla bidimensional:
@@ -2462,7 +2458,7 @@ localidades = df['localidad'].unique()
 media1 = df['edad'].mean()              # Un valor
 media2 = df[['edad', 'peso']].mean()    # Serie con 2 valores
 
-
+ -->
 
 
 
