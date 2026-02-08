@@ -2005,139 +2005,127 @@ Los dataframes son las estructuras más habituales en Pandas. Son estructuras de
 Esto permite que un data frame pueda representar cualquier tipo de información bidimensional en forma de tabla y, podamos acceder al valor de cualquier celda en base a sus claves **fila - columna**. 
 
 ### 2.4.2.1 - Declaración de un dataframe
-- 
-<!-- 
-https://interactivechaos.com/es/manual/tutorial-de-pandas/introduccion-las-series
-
-
-2.1.1. Creación básica con datos directos¶
-
-Para crear un data frame con Pandas, usamos su método DataFrame. Podemos pasarle como parámetro una lista o tabla bidimensional:
-
-datos = [['Nacho', 44],['Juan', 70],['Ana', 40]]
-dataFrame = pd.DataFrame(datos)
-
-Automáticamente, Pandas asigna índices numéricos a las filas y las columnas. Si queremos especificar otras etiquetas alfanuméricas como columnas, podemos hacerlo usando un parámetro adicional llamado columns. Por ejemplo:
-
-datosPersonas = pd.DataFrame(datos, columns=['Nombre', 'Edad'])
-
-El resultado tras estas líneas de código será el siguiente data frame, que podemos imprimir por pantalla:
-
-  Nombre  Edad
-0  Nacho    44
-1   Juan    70
-2    Ana    40
-
-También podemos crear data frames a partir de arrays de NumPy:
-
+- Declaración de un dataframe a partir de **un diccionario**.  
+Para declarar un dataframe podemos pasarle al pd.DataFrame un diccionario con **cualquier tipo de dato**.
+```py
 import numpy as np
 import pandas as pd
 
-datos = np.array([[1, 2], [3, 4], [5, 6]])
-dataFrame = pd.DataFrame(datos)
+datos = {"Entradas": [41,32,56,18], 
+         "Salidas": [17,54,6,78],
+         "Valoracion": ["No","Si","No","No"],
+         "Limite": [1.45,1.16,-0.67,0.77],
+         "Cambio": [66,54,49,66]
+        }
 
-2.1.2. Crear data frames a partir de diccionarios¶
+ventas = pd.DataFrame(datos)
+ventas
+```
+Como podemos ver, cada columna puede contener un tipo de datos diferente de las demás pero, cada columna del dataframe debe contener **el mismo tipo de datos**.  
+En este ejemplo no se le ha pasado al contructor ningún índice por lo que Pandas lo ha creado automáticamente. Si deseamos usar un índice usaremos el parámetro **index**.
+```py
+...
+indice = ["Ene","Feb","Mar","Abr"]
 
-Dado que un diccionario es una colección de datos que asocia una clave (típicamente alfanumérica) a un valor, podemos valernos de ellos para definir, a través de las claves, las etiquetas de un data frame. Los valores asociados a cada clave serán los valores de cada columna. En este caso, se supone que cada clave tiene asociada una secuencia de valores.
+ventas = pd.DataFrame(datos, index=indice) 
+ventas
+```
+- Argumentos de un dataframe.  
+Una vez creado el dataframe, podremos acceder a los argumentos del objeto creado usando sus métodos, dentro de los cuales, encontramos:  
+```py 
+print("Tipo de los datos:")
+print(ventas.dtypes)
+print("\nIndice del dataframe:", ventas.index)
+print("\nNombre de las columnas")
+print(ventas.columns)
+print("\nEjes del dataframe:", "\nEje X →", ventas.axes[0], "\nEje Y →", ventas.axes[1])
+print("\nContenido del dataframe:")
+print(ventas.values)
+print("\nForma del dataframe:")
+print(ventas.shape)
+#
+# Tipo de los datos:
+# Entradas        int64
+# Salidas         int64
+# Valoracion     object
+# Limite        float64
+# Cambio          int64
+# dtype: object
+# 
+# Indice del dataframe: Index(['Ene', 'Feb', 'Mar', 'Abr'], dtype='object')
+# 
+# Nombre de las columnas
+# Index(['Entradas', 'Salidas', 'Valoracion', 'Limite', 'Cambio'], dtype='object')
+# 
+# Ejes del dataframe: 
+# Eje X → Index(['Ene', 'Feb', 'Mar', 'Abr'], dtype='object') 
+# Eje Y → Index(['Entradas', 'Salidas', 'Valoracion', 'Limite', 'Cambio'], dtype='object')
+# 
+# Contenido del dataframe:
+# [[41 17 'No' 1.45 66]
+#  [32 54 'Si' 1.16 54]
+#  [56 6 'No' -0.67 49]
+#  [18 78 'No' 0.77 66]]
+# 
+# Forma del dataframe:
+# (4, 5)
+```
+- Declaración de un dataframe a partir de **un objeto de NumPy**.  
+Como es evidente, podremos usar todas las herramientas de NumPy para crear dataframes.
+```py
+dataframe = pd.DataFrame(np.arange(40).reshape(10,4), columns=list('abcd'), index=list('ABCDEFGHIJ'))
+dataframe
+```
+### 2.4.2.2 - Importación de datos en Pandas
+Los DataFrames de Pandas disponen de varias herramientas para importar datos desde otros formatos, lo que los convierte en el núcleo de casi cualquier flujo de trabajo de ciencia de datos.  
+Pandas puede transformar estructuras de datos crudas y diversas en tablas organizadas y listas para el análisis en cuestión de segundos.
 
-Veamos un ejemplo:
+**Herramientas de importación más comunes:**
 
-numeros = {}
-numeros['pares'] = [2, 4, 6, 8]
-numeros['impares'] = [1, 3, 5, 7]
-# Alternativamente: 
-# numeros = { 'pares': [2, 4, 6, 8], 'impares': [1, 3, 5, 7]}
-dataFrame = pd.DataFrame(numeros)
+- pd.read_csv(): La herramienta más utilizada. Ideal para archivos de texto plano separados por comas, puntos y coma o tabulaciones.
+- pd.read_excel(): Permite extraer datos de hojas de cálculo, especificando incluso qué pestaña importar.
+- pd.read_sql(): Conecta directamente con bases de datos relacionales para ejecutar consultas.
+- pd.read_json(): Diseñado para estructuras de datos web y APIs que utilizan el formato JSON.
+- pd.read_html(): Función que rastrea una página web y extrae automáticamente todas las tablas que encuentre en el código HTML.
+- pd.read_parquet(): Permite acceder a archivos masivos de alto rendimiento con almacenamiento columnar.
 
-El resultado será el siguiente data frame:
+!!! tip "pd.read_csv()"
+    
+    - Si el archivo está [disponible localmente](./code/UT7/pandas/petrol_consumption.csv).
+    ```py {.highlight-sin-margin-bottom}
+    dataframe = pd.read_csv("petrol_consumption.csv", sep=',')
+    ``` 
+    - !!! warning "¿Son correctos los valores de la columna Population_Driver_license(%)"
+    - También podremos descargar un archivo desde internet.
+    ```py {.highlight-sin-margin-bottom}
+    dataframe = pd.read_csv("https://datahub.io/core/covid-19/_r/-/data/countries-aggregated.csv", sep=',')
+    ```
 
-   pares  impares
-0      2        1
-1      4        3
-2      6        5
-3      8        7
+!!! tip "pd.read_excel()"
+    - Link al archivo: [descargar](./code/UT7/pandas/canarias.xlsx)
+    ```py {.highlight-sin-margin-bottom}
+    dataframe = pd.read_excel("canarias.xlsx")
+    ```
 
-2.1.3. Crear data frames a partir de archivos CSV¶
+!!! tip "pd.read_parquet()"
+    - Link al archivo: [descargar](./code/UT7/pandas/yellow_tripdata.parquet)
+    ```py {.highlight-sin-margin-bottom}
+    dataframe = pd.read_parquet("yellow_tripdata.parquet")
+    ```
+    - !!! warning "¿Cuál ha sido la cantidad media de propina (tip) dejada por los usuarios?"
 
-Los archivos CSV son un medio bastante habitual de almacenar información textual, mediante datos separados por comas u otros separadores (punto y coma, etc). Por ejemplo:
+**Fuente de los archivos:**  
+[NYC taxi and limousine commission](https://www.nyc.gov/site/tlc/index.page)  
+[datos.gob.es](https://datos.gob.es)  
+[datahub.io](datahub.io)
 
-nombre,edad,email,telefono
-Nacho Iborra,44,nachoiborra@iessanvicente.com,611223344
-Juan Pérez,70,juanp@gmail.com,699887766
-May Calle,43, maycalle@iessanvicente.com,612345678
-Mario,9,mario@hotmail.com,655443322
+### 2.4.2.3 - Exportar datos desde Pandas
 
-Podemos emplear la función read_csv de Pandas para cargar automáticamente la información de un archivo CSV en un data frame. El archivo puede ser tanto local como estar disponible en una URL remota:
 
-df = pd.read_csv('archivo.csv')
-df2 = pd.read_csv('http://...../archivo.csv')
+<!-- 
+https://interactivechaos.com/es/manual/tutorial-de-pandas/introduccion-las-series
+https://nachoiborraies.github.io/data-science/02c.html#212-crear-data-frames-a-partir-de-diccionarios
 
-En el caso de que el archivo CSV utilice un separador diferente a la coma, podemos especificarlo con el parámetro sep. Por ejemplo:
-
-df = pd.read_csv('archivo.csv', sep=';')
-
-Existen otras formas de usar este método, que se pueden consultar en la documentación oficial. Por ejemplo, en el caso de que la primera fila del CSV no contenga los nombres de las columnas podemos indicar un parámetro header=None para que se cuente esa primera fila como datos directamente:
-
-df = pd.read_csv('archivo.csv', header=None)
-
-Nota
-
-Si ejecutamos esta función desde un entorno en la nube como Google Colab, la ruta hacia el fichero dependerá de la ubicación de nuestro fichero de Google Colab. Si lo subimos a la misma carpeta donde se esté ejecutando remotamente nuestro proyecto, nos podría servir una instrucción como la anterior.
-
-Podemos también exportar un data frame a formato CSV con la función to_csv. Normalmente conviene especificar un parámetro index=False si no queremos guardar los índices de fila (si son los numéricos predefinidos, no es necesario)
-
-df.to_csv('otro_archivo.csv', index=False)
-
-2.2. Algunas operaciones básicas¶
-
-Veamos a continuación algunas funciones básicas de uso con data frames. Muchas de ellas vienen incorporadas a través de NumPy, ya que internamente los datos del data frame se almacenan como una tabla NumPy.
-
-    Las funciones head y tail nos obtienen por defecto las primeras/últimas 5 filas del data frame. En caso de querer otra cantidad, debemos pasarla como parámetro:
-
-primeros5 = df.head()
-ultimos3 = df.tail(3)
-
-    La función describe (sin parámetros) obtiene estadísticas de cada columna del data frame (valor máximo, mínimo, media...)
-    La función info (sin parámetros) obtiene información sobre el tipo de dato de cada columna, y conteo de valores no nulos
-
-print(df.describe())
-df.info()
-
-    La propiedad shape nos indica la forma del data frame. Esto es una tupla con el número de filas y de columnas
-
-dimensiones = df.shape
-filas = dimensiones[0]
-columnas = dimensiones[1]
-
-    La propiedad size nos dice el número de elementos almacenados en el data frame (número de casillas totales).
-    La propiedad dtypes nos indica de qué tipo es cada columna del data frame
-    La operación rename permite cambiar el nombre de las columnas que nos interesen. Podemos facilitar un mapa/diccionario con los nombres viejos y el nuevo nombre que queremos darle.
-
-# Traducimos columnas al castellano
-columnas = { 'year': 'año',
-    'month': 'mes'
-}
-# Parámetro inplace=True para modificar el propio data frame
-df.rename(columns=columnas, inplace=True)
-
-2.2.1. Visualización de data frames¶
-
-Si usamos la instrucción print para mostrar un data frame por la pantalla (o para mostrar sus primeras o últimas N filas), es posible que la información aparezca cortada, o no correctamente tabulada. Por ejemplo, si el data frame tiene muchas columnas, sólo veremos las primeras y las últimas, con puntos suspensivos en medio.
-
-Si queremos ver más cómodamente la información del data frame podemos acudir a alguna librería auxiliar, como por ejemplo tabulate, que muestra los datos de una tabla (ya sea un data frame, un array bidimensional de NumPy o una lista de listas de Python) de forma tabulada.
-
-Para usarla simplemente debemos instalarla con el correspondiente comando (recuerda ejecutarlo en el entorno virtual que utilices para estas cosas):
-
-pip install tabulate
-
-A la hora de usarla para mostrar la tabla, el código es tan sencillo como éste:
-
-from tabulate import tabulate
-
-datos = pd.DataFrame(...)
-print(tabulate(datos, headers="keys", tablefmt="pretty"))
-
-El parámetro headers indica qué se usará como encabezado de columnas (las claves del data frame) y el parámetro tablefmt sirve para especificar el formato de salida de tabla. En este caso, pretty rodea la tabla con un marco. Podéis consultar más opciones sobre la librería en su web oficial
 
 Ejercicio 1
 

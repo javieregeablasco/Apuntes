@@ -349,3 +349,6 @@
 .highlight {
     margin-bottom: 2rem !important;
 }
+.highlight-sin-margin-bottom {
+    margin-bottom: 0rem !important;
+}
