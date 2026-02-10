@@ -2173,10 +2173,91 @@ dataframe.iloc[[0,3],[1,3]]
 ```
 
 ### 2.4.2.4 - Insertar, borrar y modificar datos de un dataframe
-!!! warning "Añadir o quitar filas"
-- **Quitar filas con drop**
+!!! warning "Quitar filas o columnas con drop"
+Es posible quitar filas o columnas de un dataset (pero no los 2 a la vez) con **drop** especificando la fila o la columna a eliminar.  
+Con el parametro **inplace** haremos que el cambio se haga sobre el dataset original o sobre un dataset al que asignaremos los nuevos valores después de la eliminación. 
+```py
+dataframe = pd.DataFrame(np.random.randint(5, size=(8,8)),
+                           index=["L1","L2","L3","L4","L5","L6","L7","L8"],
+                           columns=["C1","C2","C3","C4","C5","C6","C7","C8"]
+                           )
+ 
+dataframe.drop("L4") # eliminar la fila con indice L4
+dataframe.drop(columns=["C2","C6"]) # eliminar las columnas C2 y C6
+dataframe # sin inplace = True el dataset se mantiene íntegro.
+dataframe.drop("L4", inplace=True)
+dataframe.drop(columns=["C2","C6"], inplace=True)
+dataframe # con inplace = True el dataset original ha sido alterado.
+#
+#     C1  C3  C4  C5  C7  C8
+# L1   4   2   4   3   1   3
+# L2   0   2   2   2   0   3
+# L3   4   1   4   0   3   0
+# L5   3   3   0   4   4   0
+# L6   0   1   3   0   0   4
+# L7   3   2   2   4   0   1
+# L8   0   3   0   1   2   2
+```
 
+**Nota:**  
+También se pueden eliminar columnas usando **axis** en vez de **columns**.
+```py
+dataframe = pd.DataFrame(np.random.randint(5, size=(8,8)),
+                           index=["L1","L2","L3","L4","L5","L6","L7","L8"],
+                           columns=["C1","C2","C3","C4","C5","C6","C7","C8"]
+                           )
+dataframe.drop("C5",axis=1) 
+#
+#     C1  C2  C3  C4  C6  C7  C8
+# L1   0   0   2   3   0   2   2
+# L2   4   0   3   1   4   4   3
+# L3   3   2   0   1   0   3   2
+# L4   4   4   2   3   0   3   1
+# L5   1   2   0   4   1   0   4
+# L6   1   2   0   0   0   0   4
+# L7   3   1   3   4   2   1   1
+# L8   3   1   0   0   4   2   3
+```
 
+!!! warning "Añadir columnas"
+
+- Al final del dataframe por declaración directa.
+```py
+dataframe = pd.DataFrame(np.random.randint(5, size=(8,8)),
+                           index=["L1","L2","L3","L4","L5","L6","L7","L8"],
+                           columns=["C1","C2","C3","C4","C5","C6","C7","C8"]
+                           )
+dataframe["C9"]=["A","B","C","D","E","F","G","H"]
+dataframe
+#     C1  C2  C3  C4  C5  C6  C7  C8 C9
+# L1   1   1   1   4   2   3   4   4  A
+# L2   2   4   0   0   3   0   3   3  B
+# L3   0   2   1   1   2   2   0   0  C
+# L4   2   0   0   3   1   3   3   0  D
+# L5   4   0   1   0   1   0   2   4  E
+# L6   1   1   4   4   3   4   2   3  F
+# L7   4   2   2   0   2   2   4   4  G
+# L8   3   0   0   1   1   1   3   3  H
+```
+
+- En cualquier posición con insert(). En este caso, pasaremos a insert() la posición, el nombre de la columna y los valores.
+```py
+dataframe.insert(2, "C-XX", np.nan)
+dataframe
+#
+#     C1  C2  C-XX  C3  C4  C5  C6  C7  C8
+# L1   4   3   NaN   3   0   3   2   2   2
+# L2   0   1   NaN   0   1   4   2   3   1
+# L3   2   2   NaN   2   3   3   0   2   2
+# L4   1   0   NaN   1   2   0   4   0   4
+# L5   2   4   NaN   2   4   1   3   0   2
+# L6   0   4   NaN   3   0   2   2   4   2
+# L7   3   1   NaN   4   3   1   3   2   1
+# L8   3   4   NaN   1   1   3   0   3   0
+```
+
+### 2.4.2.5 - Operaciones aritméticas i lógicas sobre un DataFrame.
+![Descripción de la imagen](../../../DAW/DAW_2/AWS/ut7/cloudformation/WIP.avif){ .doscinco }
 ### 2.4.2.5 - Concatenar dataframes
 Podemos concatenar dataframes vertical u horizontalmente con la función **concat** e indicando la dirección de concatenación con el parámetro **axis**.
 ```py
