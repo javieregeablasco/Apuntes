@@ -1304,7 +1304,8 @@ print(b)
 # [[-1 -2  1  2  0  3]
 #  [-1 -2  4  5  0  6]]
 ```
-**Diferencia entre índice escalar y lista de índices**
+**Diferencia entre índice escalar y lista de índices**  
+En este ejemplo no pasamos un índice escalar (0) sino una lista [0] de un único valor. El resultado es la inserción en cada posición de los arrays del valor correspondiente pasado.
 ```py
 # Insertar una columna al comienzo del array:
 b = np.insert(b, [0], [[-4], [-5]], axis=1)
@@ -1903,7 +1904,7 @@ serie
 
 #### 2.4.1.2 - Acceso a los datos de una serie
 
-- Acceso al valor por el valor de su índice.
+- Acceso al valor por su índice.
 ```py
 serie = pd.Series([1,2,3,4], index=["a","b","c","d"])
 print("Indice de la serie", serie.index)
@@ -2030,8 +2031,20 @@ indice = ["Ene","Feb","Mar","Abr"]
 ventas = pd.DataFrame(datos, index=indice) 
 ventas
 ```
-- Argumentos de un dataframe.  
-Una vez creado el dataframe, podremos acceder a los argumentos del objeto creado usando sus métodos, dentro de los cuales, encontramos:  
+- Declaración de un dataframe a partir de **un objeto de NumPy**.  
+Como es evidente, podremos usar todas las herramientas de NumPy para crear dataframes.
+```py
+dataframe = pd.DataFrame(np.arange(40).reshape(10,4), columns=list('abcd'), index=list('ABCDEFGHIJ'))
+dataframe
+```
+### 2.4.2.2 - Metadatos de un dataframe
+Al igual que para las series de Pandas y Numpy, también podemos acceder a los metadatos de un dataframe con los siguientes métodos:
+
+- **shape**: Devuelve las filas y columnas del dataframe. 
+- **dtypes**: Tipo de valor (por columnas).
+- **index**, **columns**: Devuelve una lista con los valores de los índices/columnas.
+- **describe**: Genera un resumen estadístico de las columnas numéricas. Por defecto, media, desviación estándar, mínimo y máximo, la mediana y los cuartiles (25% y 75%).
+  
 ```py 
 print("Tipo de los datos:")
 print(ventas.dtypes)
@@ -2070,13 +2083,134 @@ print(ventas.shape)
 # Forma del dataframe:
 # (4, 5)
 ```
-- Declaración de un dataframe a partir de **un objeto de NumPy**.  
-Como es evidente, podremos usar todas las herramientas de NumPy para crear dataframes.
-```py
-dataframe = pd.DataFrame(np.arange(40).reshape(10,4), columns=list('abcd'), index=list('ABCDEFGHIJ'))
-dataframe
+### 2.4.2.3 - Acceso a los datos de un dataframe
+!!! tip "loc y iloc"
+**Acceder** a los valores de las filas de un dataframe de Pandas es más versátil que en un array de NumPy, ya que podemos hacerlo tanto por posición con **iloc** como por etiqueta con **loc**.
+
+- **Método .loc (localización por etiqueta)**  
+    - Sintaxis: df.loc[fila_etiqueta, columna_etiqueta]
+    - Slicing: A diferencia del Python estándar, **el rango en .loc es inclusivo** (incluye tanto el inicio como el final).
+    - Uso común: Filtrado por condiciones booleanas (ej. df.loc[df['edad'] > 18]).
+
+- **Método .iloc (localización por índice)**
+    - Sintaxis: df.iloc[fila_posicion, columna_posicion]
+    - Slicing: Sigue la regla estándar de Python: el inicio es inclusivo y el final es exclusivo.
+    
+**Ejemplo**    
+```py {.highlight-sin-margin-bottom}
+datos = {'Nombre': ['Lucia', 'David', 'Maria', 'Isabel'],
+         'Email': ['lucia@gmail.com', 'david@hotmail.com',
+                   'maria@gmail.com', 'isabel@yahoo.es'],
+         'Edad': [44, 70, 40, 25],
+         'Telefono': [611223344, 699887766, 619283746, 636598621]}
+
+dataframe = pd.DataFrame(datos, index=['Prima','Sobrina','Hija','Madre'])
+dataframe.loc[['Sobrina','Hija']]
+dataframe.iloc[1:3] # el mismo resultado pero buscando por posicion numerica
 ```
-### 2.4.2.2 - Importación de datos en Pandas
+**Resultado de la consulta**
+
+|Nombre|	Email|	Edad|	Telefono|
+|-|-|-|-| 
+|Sobrina|	David|	david@hotmail.com|	70|	699887766|
+|Hija|	Maria|	maria@gmail.com|	40|	619283746|
+
+**Mismo ejemplo pero recuperando el valor de una celda**  
+```py
+dataframe.loc['Sobrina', 'Email']
+dataframe.iloc[1, 1]
+
+# 'david@hotmail.com'
+```
+
+!!! tip "Consulta por nombre de columna"
+Para acceder a los valores de una columna lo haremos pasando el nombre de la columna o usando el método.
+```py
+dataframe['Email'] 
+# dataframe.Email # usar el método del objeto dataframe
+# dataframe[['Email','Telefono']] # consulta sobre una lista de columnas 
+#
+# Prima        lucia@gmail.com
+# Sobrina    david@hotmail.com
+# Hija         maria@gmail.com
+# Madre        isabel@yahoo.es
+# Name: Email, dtype: object
+```
+
+!!! tip "slicing sobre dataframes"
+Podemos hacer **slicing por filas** pasando directamente un intervalo al dataframe **sin necesidad de usar loc o iloc**.
+```py
+dataframe[1:4] 
+# dataframe['Sobrina':'Madre'] # lo mismo pero con el valor real del indice 
+```
+
+||Nombre|	Email	|Edad	|Telefono|
+|-|-|-|-|-|
+|Sobrina	|David	|david@hotmail.com	|70	|699887766|
+|Hija|	Maria	|maria@gmail.com	|40	|619283746|
+|Madre|    Isabel|    isabel@yahoo.es|    25|  636598621|
+
+Para refinar aún más las consultas, podremos usar loc y iloc.
+
+- Slicing por filas pasando un intervalo:
+```py
+dataframe.iloc[0:3] 
+```
+
+- Slicing por filas pasando una lista:
+```py
+dataframe.iloc[[0,3]] 
+```
+
+- Slicing por filas y columnas pasando intervalos:
+```py
+dataframe.iloc[0:3,1:3] 
+```
+
+- Slicing por filas y columnas pasando listas:
+```py
+dataframe.iloc[[0,3],[1,3]]
+```
+
+### 2.4.2.4 - Insertar, borrar y modificar datos de un dataframe
+!!! warning "Añadir o quitar filas"
+- **Quitar filas con drop**
+
+
+### 2.4.2.5 - Concatenar dataframes
+Podemos concatenar dataframes vertical u horizontalmente con la función **concat** e indicando la dirección de concatenación con el parámetro **axis**.
+```py
+dataframe_1 = pd.DataFrame(np.random.randint(5, size=(4,4)), index=["L1","L2","L3","L4"],columns=["C1","C2","C3","C4"])
+dataframe_2 = pd.DataFrame(np.random.randint(5, size=(4,4)), index=["L5","L6","L7","L8"],columns=["C1","C2","C3","C4"])
+dataframe_3 =pd.concat([dataframe_1,dataframe_2],axis=0)
+# 
+#     C1  C2  C3  C4
+# L1   3   0   3   3
+# L2   0   4   2   3
+# L3   1   2   3   3
+# L4   4   0   3   1
+# L5   3   0   0   0
+# L6   3   4   0   3
+# L7   3   3   0   1
+# L8   3   4   4   4
+```
+
+Si pasamos un axis que implica alterar los datos, Pandas rellenará los nuevos datos creados con NaN (not a number).
+```py
+dataframe_3 =pd.concat([dataframe_1,dataframe_2],axis=1) 
+#
+#      C1   C2   C3   C4   C1   C2   C3   C4
+# L1  4.0  2.0  3.0  4.0  NaN  NaN  NaN  NaN
+# L2  2.0  3.0  3.0  0.0  NaN  NaN  NaN  NaN
+# L3  1.0  0.0  0.0  2.0  NaN  NaN  NaN  NaN
+# L4  3.0  1.0  3.0  3.0  NaN  NaN  NaN  NaN
+# L5  NaN  NaN  NaN  NaN  1.0  1.0  3.0  0.0
+# L6  NaN  NaN  NaN  NaN  3.0  4.0  0.0  4.0
+# L7  NaN  NaN  NaN  NaN  3.0  4.0  0.0  0.0
+# L8  NaN  NaN  NaN  NaN  1.0  3.0  0.0  1.0
+```
+
+### 2.4.2.6 - Importación de datos en Pandas
 Los DataFrames de Pandas disponen de varias herramientas para importar datos desde otros formatos, lo que los convierte en el núcleo de casi cualquier flujo de trabajo de ciencia de datos.  
 Pandas puede transformar estructuras de datos crudas y diversas en tablas organizadas y listas para el análisis en cuestión de segundos.
 
@@ -2117,10 +2251,15 @@ Pandas puede transformar estructuras de datos crudas y diversas en tablas organi
 **Fuente de los archivos:**  
 [NYC taxi and limousine commission](https://www.nyc.gov/site/tlc/index.page)  
 [datos.gob.es](https://datos.gob.es)  
-[datahub.io](datahub.io)
+[datahub.io](https://datahub.io)
 
-### 2.4.2.3 - Exportar datos desde Pandas
-
+### 2.4.2.7 - Exportar datos desde Pandas
+Al igual que podemos abrir datasets, también podemos guardarlos.
+```py
+serie = pd.DataFrame([1,2,3,4], index=["a","b","c","d"], columns=["Columna"])
+serie.to_excel("dataframe.xlsx",index=True)
+dataframe.to_csv("dataframe.csv",sep="#")
+```
 
 <!-- 
 https://interactivechaos.com/es/manual/tutorial-de-pandas/introduccion-las-series
