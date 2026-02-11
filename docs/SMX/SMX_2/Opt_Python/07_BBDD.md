@@ -2509,7 +2509,7 @@ El flujo habitual para crear un gráfico sencillo es:
 
 1. Definir los datos.
 
-1. Crear el gráfico.
+1. Crear el gráfico (se crearán tantos plt.plot() como gráficos queramos representar).
 
 1. Personalizarlo.
 
@@ -2577,28 +2577,139 @@ plt.plot(
     marker="o",         # Marcador
     markersize=8        # Tamaño del marcador
 )
-
-plt.title("Personalización básica")
 plt.show()
 ```
 ![notebook_jupyter_vsc](./img/UT7/matplotlib/mpl-5.png){.cincozero   }
 
 **Parámetros habituales:**  
 
-- **Estilo de líneas**
+- **Estilos de líneas**
 ![notebook_jupyter_vsc](./img/UT7/matplotlib/mpl-2.png){.trescinco .marginbottom40 .margintop10    }
-- **Estilo de marcadores**
+- **Estilos de marcadores**
 ![notebook_jupyter_vsc](./img/UT7/matplotlib/mpl-3.png){.trescinco .marginbottom40 .margintop10   }
-- **Estilo de colores**
+- **Estilos de colores**
 ![notebook_jupyter_vsc](./img/UT7/matplotlib/mpl-4.png){.cuatrocinco .marginbottom40 .margintop10   }
 
 ##### 2.5.5.2 - Título, leyendas, ejes y tamaño de gráfico
-Para mejorar el aspecto de nuestro gráfico utilizamos la función subplots() de matplotlib.pyplot, que permite crear de forma simultánea:
+
+- **Tamaño del gráfico (figsize)**
+El tamaño se define al momento de crear la figura. Se expresa en pulgadas (ancho, alto).
+```py
+plt.figure(figsize=(10, 6)) # 10 pulgadas de ancho por 6 de alto
+```
+- **Títulos y Etiquetas de Ejes**
+Entre (muchos) otros se puede usar **title**, **xlabel** e **ylabel**. Admiten parámetros como **fontsize**, **fontweight**, **color**, **fontdict** (diccionario con los parámetros anteriores) o **loc** (location, `right`, `left` o `center`).
+
+    - plt.title(): Define el título principal.
+    - plt.xlabel(): Etiqueta el eje horizontal (X).
+    - plt.ylabel(): Etiqueta el eje vertical (Y).
+```py
+# Diccionario con todos los parametros de la fuente a usar
+font = {'family':'serif','color':'blue','size':14}
+# Declaraciones de titulo y ejes. 
+plt.title("Personalización básica", fontdict=font, loc='right')
+plt.xlabel("Valores de X", fontdict=font)
+plt.ylabel("Valores de Y", fontdict=font)
+```
+- **Leyendas**  
+Representar varias series en una misma gráfica suele ser bastante habitual, por lo que será necesario identificarlas con una leyenda. 
+```py
+# Se pasan a legend una lista con todos los nombres
+# de las graficas
+font3 = {'family':'serif','size':8}
+plt.legend(["Esto es una leyenda", "Esto es otra leyenda"], prop = font3, labelcolor='linecolor')
+```
+
+##### 2.5.5.3 - Rejilla y color de fondo
+
+- **Control de rejilla**  
+La función **plt.grid()** permite añadir una cuadrícula al fondo del gráfico. Por defecto aparecerá en un gris suave en ambos ejes.
+```py
+# Configuración de la rejilla
+plt.grid(
+    visible=True,      # Visible     
+    axis='y',          # Solo líneas horizontales por defecto 'both'
+    color='gray',      # Color de la línea
+    linestyle='--',    # Línea discontinua
+    linewidth=0.5,     # Grosor fino
+    alpha=0.7          # Control de transparencia
+)
+```
+
+##### 2.5.5.4 - Valores de los ejes
+Las funciones **xlim** e **ylim** permiten delimitar los valores mínimo y máximo de cada eje (en un gráfico bidimensional).
+```py
+plt.xlim(-1, 10)
+plt.ylim(8, 27)
+```
+
+##### 2.5.5.5 - Ejemplo completo
+```py
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = [1, 2, 3, 4]
+y = [10, 20, 15, 25]
+x1 = [5, 6, 7, 8]
+y1 = y[::-1]
+
+plt.plot(
+    x, y,
+    color="red",        # Color de la línea
+    linestyle="--",     # Estilo de línea
+    linewidth=2,        # Grosor
+    marker="o",         # Marcador
+    markersize=8,       # Tamaño del marcador    
+)
+plt.plot(
+    x1, y1,
+    color="blue",       # Color de la línea
+    linestyle="--",     # Estilo de línea
+    linewidth=2,        # Grosor
+    marker="v",         # Marcador
+    markersize=8,       # Tamaño del marcador    
+)
+
+# Declarar las fuentes que se usaran en el grafico
+font1 = {'family':'serif','color':'blue','size':14}
+font2 = {'family':'serif','color':'darkred','size':11}
+font3 = {'family':'serif','size':8} # para legend
+
+# Titulos, ejes y leyendas.
+plt.title("Personalización básica", fontdict=font1, loc="left")
+plt.xlabel("Valores de X", fontdict=font2)
+plt.ylabel("Valores de Y", fontdict=font2)
+plt.legend(["Esto es una leyenda", "Esto es otra leyenda"], prop = font3, labelcolor='linecolor')
+
+# Rejilla
+plt.grid(
+    visible=True,      # Visible     
+    axis='y',          # Solo líneas horizontales por defecto 'both'
+    color='gray',      # Color de la línea
+    linestyle='--',    # Línea discontinua
+    linewidth=0.5,     # Grosor fino
+    alpha=0.7          # Un poco de transparencia
+)
+
+# Limites de la gráfica
+plt.xlim(-1, 10)
+plt.ylim(8, 27)
+
+# Pintar la gráfica
+plt.show()
+```
+![notebook_jupyter_vsc](./img/UT7/matplotlib/mpl-6.png){.cincozero   }
+
+
+
+
+
+<!-- Para mejorar el aspecto de nuestro gráfico utilizamos la función subplots() de matplotlib.pyplot, que permite crear de forma simultánea:
 
 - Un objeto Figure (fig), que representa el lienzo completo.
 - Uno o varios objetos Axes (ax), que representan las áreas donde se dibujan los gráficos.
 
-La función subplots(nrows, ncols) se usa principalmente para definir cuántos subgráficos (axes) queremos dentro de una misma figura (por defecto 1).
+La función subplots(nrows, ncols) se usa principalmente para definir cuántos subgráficos (axes) queremos dentro de una misma figura (por defecto 1). -->
 
 
 
