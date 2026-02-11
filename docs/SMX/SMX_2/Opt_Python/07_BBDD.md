@@ -2592,6 +2592,14 @@ plt.show()
 - **Estilo de colores**
 ![notebook_jupyter_vsc](./img/UT7/matplotlib/mpl-4.png){.cuatrocinco .marginbottom40 .margintop10   }
 
+##### 2.5.5.2 - Título, leyendas, ejes y tamaño de gráfico
+Para mejorar el aspecto de nuestro gráfico utilizamos la función subplots() de matplotlib.pyplot, que permite crear de forma simultánea:
+
+- Un objeto Figure (fig), que representa el lienzo completo.
+- Uno o varios objetos Axes (ax), que representan las áreas donde se dibujan los gráficos.
+
+La función subplots(nrows, ncols) se usa principalmente para definir cuántos subgráficos (axes) queremos dentro de una misma figura (por defecto 1).
+
 
 
 <!-- https://nachoiborraies.github.io/data-science/02d.html#125-tamano-de-los-graficos-y-multiples-graficos
