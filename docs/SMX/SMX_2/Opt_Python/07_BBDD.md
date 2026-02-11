@@ -1864,11 +1864,11 @@ Pandas está construido directamente sobre NumPy, funcionando como una capa supe
 
 
 
-### 2.4.1 - Series
+#### 2.4.1 - Series
 
 Las series son estructuras **unidimensionales** conteniendo **un array de datos** (de cualquier tipo soportado por NumPy) y **un array de etiquetas** que van asociadas a los datos, llamado índice (index).
 
-#### 2.4.1.1 - Declaración de una serie
+##### 2.4.1.1 - Declaración de una serie
 Para crear series en Pandas usaremos el método **Series** al que pasaremos el vector de datos y opcionalmente un index.
 
 ```py
@@ -1902,7 +1902,7 @@ serie
 # dtype: int64
 ```
 
-#### 2.4.1.2 - Acceso a los datos de una serie
+##### 2.4.1.2 - Acceso a los datos de una serie
 
 - Acceso al valor por su índice.
 ```py
@@ -1962,7 +1962,7 @@ serie.iloc[2:8][1:3]
 # dtype: int64
 ```
 
-#### 2.4.1.3 - Series temporales
+##### 2.4.1.3 - Series temporales
 Pandas permite generar rangos de fechas de manera sencilla mediante la función **pd.date_range()**. Esta herramienta devuelve un objeto **DatetimeIndex**, particularment útil para organizar datos cronológicos.  
 
 **Parámetros clave:**
@@ -1983,7 +1983,7 @@ fechas
 #               dtype='datetime64[ns]', freq='W-SUN')
 ```
 
-#### 2.4.1.3 - Funciones de agregación y resumen
+##### 2.4.1.3 - Funciones de agregación y resumen
 Pandas ofrece una amplia gama de funciones de agregación y resumen que se pueden aplicar a las series para obtener información estadística y descriptiva sobre los datos. Algunas de las funciones más comunes son:
 
 - **count()**: Cuenta el número de elementos no nulos en la serie.
@@ -2001,11 +2001,11 @@ También existen funciones más orientadas al pretratamiento y visualización de
 - **sort_values()**: Ordena los valores de la serie.
 - **reset_index()**: Restablece el índice de la serie, convirtiendo el índice actual en una columna y creando un nuevo índice numérico.
 
-### 2.4.2 - Dataframes
+#### 2.4.2 - Dataframes
 Los dataframes son las estructuras más habituales en Pandas. Son estructuras de datos bidimensionales, donde tanto **las filas como las columnas se identifican con índices (label)**.  
 Esto permite que un data frame pueda representar cualquier tipo de información bidimensional en forma de tabla y, podamos acceder al valor de cualquier celda en base a sus claves **fila - columna**. 
 
-### 2.4.2.1 - Declaración de un dataframe
+##### 2.4.2.1 - Declaración de un dataframe
 - Declaración de un dataframe a partir de **un diccionario**.  
 Para declarar un dataframe podemos pasarle al pd.DataFrame un diccionario con **cualquier tipo de dato**.
 ```py
@@ -2037,7 +2037,7 @@ Como es evidente, podremos usar todas las herramientas de NumPy para crear dataf
 dataframe = pd.DataFrame(np.arange(40).reshape(10,4), columns=list('abcd'), index=list('ABCDEFGHIJ'))
 dataframe
 ```
-### 2.4.2.2 - Metadatos de un dataframe
+##### 2.4.2.2 - Metadatos de un dataframe
 Al igual que para las series de Pandas y Numpy, también podemos acceder a los metadatos de un dataframe con los siguientes métodos:
 
 - **shape**: Devuelve las filas y columnas del dataframe. 
@@ -2083,7 +2083,7 @@ print(ventas.shape)
 # Forma del dataframe:
 # (4, 5)
 ```
-### 2.4.2.3 - Acceso a los datos de un dataframe
+##### 2.4.2.3 - Acceso a los datos de un dataframe
 !!! tip "loc y iloc"
 **Acceder** a los valores de las filas de un dataframe de Pandas es más versátil que en un array de NumPy, ya que podemos hacerlo tanto por posición con **iloc** como por etiqueta con **loc**.
 
@@ -2172,7 +2172,7 @@ dataframe.iloc[0:3,1:3]
 dataframe.iloc[[0,3],[1,3]]
 ```
 
-### 2.4.2.4 - Insertar, borrar y modificar datos de un dataframe
+##### 2.4.2.4 - Insertar, borrar y modificar datos de un dataframe
 !!! warning "Quitar filas o columnas con drop"
 Es posible quitar filas o columnas de un dataset (pero no los 2 a la vez) con **drop** especificando la fila o la columna a eliminar.  
 Con el parametro **inplace** haremos que el cambio se haga sobre el dataset original o sobre un dataset al que asignaremos los nuevos valores después de la eliminación. 
@@ -2206,7 +2206,7 @@ dataframe = pd.DataFrame(np.random.randint(5, size=(8,8)),
                            index=["L1","L2","L3","L4","L5","L6","L7","L8"],
                            columns=["C1","C2","C3","C4","C5","C6","C7","C8"]
                            )
-dataframe.drop("C5",axis=1) 
+dataframe.drop("C5",axis=1) # eliminar C5 segun eje Y 
 #
 #     C1  C2  C3  C4  C6  C7  C8
 # L1   0   0   2   3   0   2   2
@@ -2227,6 +2227,7 @@ dataframe = pd.DataFrame(np.random.randint(5, size=(8,8)),
                            index=["L1","L2","L3","L4","L5","L6","L7","L8"],
                            columns=["C1","C2","C3","C4","C5","C6","C7","C8"]
                            )
+# declarar columna C9 y pasarle datos                            
 dataframe["C9"]=["A","B","C","D","E","F","G","H"]
 dataframe
 #     C1  C2  C3  C4  C5  C6  C7  C8 C9
@@ -2242,6 +2243,7 @@ dataframe
 
 - En cualquier posición con insert(). En este caso, pasaremos a insert() la posición, el nombre de la columna y los valores.
 ```py
+# Insertar C-XX en posicion 2 y llenarla con NaN
 dataframe.insert(2, "C-XX", np.nan)
 dataframe
 #
@@ -2256,9 +2258,7 @@ dataframe
 # L8   3   4   NaN   1   1   3   0   3   0
 ```
 
-### 2.4.2.5 - Operaciones aritméticas i lógicas sobre un DataFrame.
-![Descripción de la imagen](../../../DAW/DAW_2/AWS/ut7/cloudformation/WIP.avif){ .doscinco }
-### 2.4.2.5 - Concatenar dataframes
+##### 2.4.2.5 - Concatenar dataframes
 Podemos concatenar dataframes vertical u horizontalmente con la función **concat** e indicando la dirección de concatenación con el parámetro **axis**.
 ```py
 dataframe_1 = pd.DataFrame(np.random.randint(5, size=(4,4)), index=["L1","L2","L3","L4"],columns=["C1","C2","C3","C4"])
@@ -2291,7 +2291,119 @@ dataframe_3 =pd.concat([dataframe_1,dataframe_2],axis=1)
 # L8  NaN  NaN  NaN  NaN  1.0  3.0  0.0  1.0
 ```
 
-### 2.4.2.6 - Importación de datos en Pandas
+##### 2.4.2.6 - Operaciones aritméticas i lógicas sobre un DataFrame.
+!!! warning "Aritméticas"
+Podemos aplicar todo tipo de operaciones matématicas sobre dataframes de Pandas sin necesidad de recorrerlo. Basta con aplicar la operación sobre las columnas (o todo el dataframe).
+
+- Sobre una columna.
+```py
+dataframe = pd.DataFrame(np.random.randint(-25,25, size=(4,4)), index=["L1","L2","L3","L4"],columns=["C1","C2","C3","C4"])
+print(dataframe)
+dataframe["C4"] += 5 #sumar 5 a todos los valores de la columna C4
+dataframe
+
+# Antes de aplicar la operacion
+#     C1  C2  C3  C4
+# L1   3 -18  -8 -25
+# L2   4   2  18  13
+# L3  -7  20  19  -5
+# L4   2 -14 -22   2
+# 
+# Despues de aplicar la operacion
+#     C1  C2  C3  C4
+# L1   3 -18  -8 -20
+# L2   4   2  18  18
+# L3  -7  20  19   0
+# L4   2 -14 -22   7
+```
+
+- Sobre todo el dataframe.
+```py
+dataframe.abs() # pasar todos los valores a positivo
+#
+# C1  C2  C3  C4
+# L1   3  18   8  20
+# L2   4   2  18  18
+# L3   7  20  19   0
+# L4   2  14  22   7
+```
+Otro ejemplo:
+```py
+dataframe = pd.DataFrame(np.random.randint(-25,25, size=(5,5)),
+                         index=["L1","L2","L3","L4","L5"],
+                         columns=["C1","C2","C3","C4","C5"])
+print(dataframe)
+dataframe.median(axis=1) # extraer mediana segun eje x (axis=0 por defecto)
+#
+#     C1  C2  C3  C4  C5
+# L1  10 -11 -15  -7 -22
+# L2  -9  16  -5   4  24
+# L3   3   8  17 -11   3
+# L4  22  15  15 -22  14
+# L5   4  -1  10  11  24
+#
+# L1   -11.0
+# L2     4.0
+# L3     3.0
+# L4    15.0
+# L5    10.0
+# dtype: float64
+```
+
+
+!!! warning "Lógicas"
+Las operaciones lógicas en Pandas pueden considerarse una forma de indexación booleana, la cual permite filtrar el DataFrame original para obtener un nuevo subconjunto de datos que satisface una o varias condiciones específicas.
+
+```py
+dataframe = pd.DataFrame(np.random.randint(-25,25, size=(5,5)),
+                         index=["L1","L2","L3","L4","L5"],
+                         columns=["C1","C2","C3","C4","C5"])
+print(dataframe)
+print(dataframe > 0) # devuelve un df con true o false si valor > 0
+print(dataframe[dataframe > 0]) # devuelve un df con solo valores > 0 NaN para el resto
+print(dataframe.loc[:,"C1":"C3"]>5) # devuelve un df con solo columnas C1 a C3 y true o false si >5
+
+# aplicar una funcion lambda sobre una columna del dataframe
+funcion_especial = lambda x: x**2 - 5
+print(dataframe.C3.apply(funcion_especial))
+
+#     C1  C2  C3  C4  C5
+# L1 -17   5   1  -5  -1
+# L2  -2  10  -1 -18 -21
+# L3   8 -16  22   5 -10
+# L4  17  -6   8  19   8
+# L5 -23   9  -2 -17  -8
+#
+#        C1     C2     C3     C4     C5
+# L1  False   True   True  False  False
+# L2  False   True  False  False  False
+# L3   True  False   True   True  False
+# L4   True  False   True   True   True
+# L5  False   True  False  False  False
+#
+#       C1    C2    C3    C4   C5
+# L1   NaN   5.0   1.0   NaN  NaN
+# L2   NaN  10.0   NaN   NaN  NaN
+# L3   8.0   NaN  22.0   5.0  NaN
+# L4  17.0   NaN   8.0  19.0  8.0
+# L5   NaN   9.0   NaN   NaN  NaN
+#
+#        C1     C2     C3
+# L1  False  False  False
+# L2  False   True  False
+# L3   True  False   True
+# L4   True  False   True
+# L5  False   True  False
+# 
+# L1    220
+# L2     44
+# L3     -4
+# L4    356
+# L5    191
+# Name: C3, dtype: int64
+```
+
+##### 2.4.2.7 - Importación de datos en Pandas
 Los DataFrames de Pandas disponen de varias herramientas para importar datos desde otros formatos, lo que los convierte en el núcleo de casi cualquier flujo de trabajo de ciencia de datos.  
 Pandas puede transformar estructuras de datos crudas y diversas en tablas organizadas y listas para el análisis en cuestión de segundos.
 
@@ -2334,344 +2446,159 @@ Pandas puede transformar estructuras de datos crudas y diversas en tablas organi
 [datos.gob.es](https://datos.gob.es)  
 [datahub.io](https://datahub.io)
 
-### 2.4.2.7 - Exportar datos desde Pandas
+##### 2.4.2.8 - Exportar datos desde Pandas
 Al igual que podemos abrir datasets, también podemos guardarlos.
 ```py
 serie = pd.DataFrame([1,2,3,4], index=["a","b","c","d"], columns=["Columna"])
 serie.to_excel("dataframe.xlsx",index=True)
 dataframe.to_csv("dataframe.csv",sep="#")
 ```
+### 2.5 - Librería Matplotlib
+![notebook_jupyter_vsc](./img/UT7/anaconda/ana-11.png){.cincozero   }
 
-<!-- 
-https://interactivechaos.com/es/manual/tutorial-de-pandas/introduccion-las-series
-https://nachoiborraies.github.io/data-science/02c.html#212-crear-data-frames-a-partir-de-diccionarios
+Matplotlib es una biblioteca de visualización de datos en Python que permite generar gráficos estáticos, interactivos y animados. Se utiliza para representar conjuntos de datos mediante diferentes tipos de gráficos, facilitando el análisis y la interpretación visual de la información.
 
+Trabaja habitualmente con estructuras de datos como listas, arrays de NumPy y DataFrames de pandas. El módulo más utilizado es `matplotlib.pyplot`, que proporciona una interfaz similar a MATLAB para la creación de gráficos.  
 
-Ejercicio 1
+#### 2.5.1 - Tipos de representaciones gráficas
+Matplotlib permite crear múltiples tipos de representaciones gráficas, entre las que destacan:
 
-Crea un programa llamado VentasEmpresa.py que cree un data frame con los datos de la siguiente tabla, y los muestre por pantalla (puedes emplear tabulate para ello)
-Mes 	Ventas 	Gastos
-Enero 	20600 	17900
-Abril 	22500 	18500
-Julio 	15400 	17600
-Octubre 	21100 	18200
-2.3. Acceso a los datos¶
+- Diagramas de líneas: utilizados para representar la evolución de una variable, especialmente en series temporales.
 
-Existen distintas formas de acceder a los datos de un data frame en Pandas, dependiendo de si queremos acceder a una casilla en concreto u obtener un rango de filas/columnas. Para ilustrar el ejemplo, partiremos de una tabla de datos como esta:
-Nombre 	Email 	Edad 	Telefono
-Nacho 	nacho@gmail.com 	44 	611223344
-Juan 	jperez@hotmail.com 	70 	699887766
-Ana 	anaib@gmail.com 	40 	619283746
+- Diagramas de barras: empleados para comparar cantidades entre distintas categorías.
 
-Traducido a Pandas, quedaría algo así:
+- Histogramas: muestran la distribución de frecuencias de una variable numérica.
 
-import pandas as pd
+- Diagramas de dispersión (scatter plot): permiten analizar la relación entre dos variables cuantitativas.
 
-datos = { 'Nombre': ['Nacho', 'Juan', 'Ana'], 
-    'Email': ['nacho@gmail.com', 'jperez@hotmail.com',
-    'anaib@gmail.com'], 'Edad': [44, 70, 40],
-    'Telefono': ['611223344', '699887766', '619283746']}
-dataFrame = pd.DataFrame(datos)
+- Diagramas de sectores (gráfico circular o pie chart): representan proporciones de un total.
 
-2.3.1. Acceso a casillas concretas¶
+- Diagramas de caja y bigotes (boxplot): resumen la distribución de los datos mediante cuartiles y valores atípicos.
 
-Para acceder a un dato concreto (casilla) de un data frame tenemos varias alternativas. Supongamos que queremos obtener el e-mail de la primera fila.
+- Diagramas de violín: combinan características del histograma y del boxplot para mostrar la densidad de los datos.
 
-    Si utilizamos una nomenclatura similar a la usada en NumPy (dataFrame[0, 1]) o en las listas bidimensionales de Python (dataFrame[0][1]), no nos servirá, obtendremos un Key error porque no es la forma correcta de utilizar los índices en el data frame
-    Disponemos de una propiedad llamada loc que permite indicar el índice de fila y el de columna, separados por comas. El índice de fila debe ser numérico, y el de columna deberá ser alfanumérico si las columnas tienen etiquetas (en otro caso, puede ser numérico).
+- Diagramas de áreas: similares a los gráficos de líneas, pero con el área bajo la curva rellena.
 
-email1 = dataFrame.loc[0, 1]        # Error
-email2 = dataFrame.loc[0, 'Email']  # 'nacho@gmail.com'
+- Diagramas de contorno: representan funciones tridimensionales en dos dimensiones mediante líneas de nivel.
 
-    Alternativamente, tenemos la propiedad iloc, similar a la anterior pero especificando las posiciones numéricas de fila y columna.
+- Mapas de calor (heatmaps): visualizan valores mediante variaciones de color.
 
-email1 = dataFrame.iloc[0, 1]       # 'nacho@gmail.com'
+- Visualización de imágenes: permiten mostrar imágenes almacenadas como matrices de datos.
 
-    Finalmente, podemos emplear las propiedades at e iat, similares a las anteriores, para obtener el mismo resultado (usando índices alfanuméricos o numéricos para las columnas, respectivamente).
+#### 2.5.2 - Estructura básica de un gráfico en Matplotlib
+En Matplotlib, un gráfico se compone principalmente de los siguientes elementos:
 
-email1 = dataFrame.iat[0, 1]       # 'nacho@gmail.com'
-email2 = dataFrame.at[0, 'Email']  # 'nacho@gmail.com'
+- Figura (Figure): es el contenedor principal del gráfico. Puede incluir uno o varios ejes.
 
-2.3.2. Acceso a rangos de casillas¶
+- Ejes (Axes): es el área donde se representan los datos. Cada eje contiene los ejes coordenados (x e y), las etiquetas, el título y la leyenda.
 
-Podemos emplear las propiedades loc e iloc para obtener un rango de celdas, indicando la fila inicial y final, y la columna inicial y final (inclusive en el caso de loc, exclusive en el caso de iloc). También podemos indicar un conjunto separado por comas de filas o columnas que nos interesen.
+- Ejes coordenados (Axis): representan las escalas horizontal (x) y vertical (y).
 
-# Columnas Nombre a Edad de las 4 primeras filas
-celdas = dataFrame.loc[0:3, 'Nombre':'Edad']
-# Columnas Nombre a Edad de las filas 5 y 9
-celdas2 = dataFrame.loc[[5, 9], 'Nombre':'Edad']
-# Columnas Nombre a Email de las filas 5 y 9 (Edad no se incluye)
-celdas2 = dataFrame.iloc[[5, 9], 0:2]
+- Título (title): describe el contenido del gráfico.
 
-Además, podemos seleccionar rangos de filas o columnas con los corchetes:
+- Etiquetas (xlabel, ylabel): indican qué representa cada eje.
 
-    Seleccionar un rango de filas indicando el número de fila inicial (inclusive), dos puntos y el número de fila final (exclusive).
+- Leyenda (legend): identifica las distintas series de datos cuando hay más de una.
 
-# Nos quedamos con las filas 2, 3, 4
-filasSeleccionadas = dataFrame[2:5]
+- Cuadrícula (grid): facilita la lectura de los valores representados.
 
-    También podemos usar este operador de corchetes para quedarnos con un conjunto de columnas que nos interesen. Notar que, si sólo indicamos una columna, lo que obtenemos es una serie, no un data frame:
+#### 2.5.3 - Creación básica de un gráfico con matplotlib.pyplot
+El flujo habitual para crear un gráfico sencillo es:
 
-# Serie
-nombres = dataFrame['Nombre']
-# Data frame
-nombreYEdad = dataFrame[['Nombre', 'Edad']]
+1. Importar la biblioteca.
 
-En todos estos casos obtenemos como resultado un sub-data frame del original (o una serie, si sólo hemos seleccionado una columna)
-2.3.3. Cambiar el índice de las filas¶
+1. Definir los datos.
 
-Hasta ahora las filas de un data frame han sido índices numéricos a partir del 0. Podemos cambiar esto, y hacer que los índices de las filas sean los valores de alguna de las columnas. Por ejemplo, en el caso anterior podríamos hacer que los índices de filas fueran los distintos e-mails de los usuarios. Para ello, usaremos el método set_index del data frame, indicando el nombre de columna que queremos usar para indexar.
+1. Crear el gráfico.
 
-dataFrame = dataFrame.set_index('Email')
+1. Personalizarlo.
 
-Esto hará que las filas ya no se identifiquen como la 0, 1, 2, sino como la fila de nacho@gmail.com, etc. Alternativamente, se puede utilizar esta segunda versión con el parámetro inplace=True, que actualiza los cambios sobre el data frame original, para no tener que reasignarlo, ya que la anterior opción genera una copia del original.
+1. Mostrarlo.
 
-dataFrame.set_index('Email', inplace=True)
+```py
+# Importar la biblioteca
+import matplotlib.pyplot as plt
 
-Esto permitirá que, a través de la instrucción loc vista antes, podamos acceder a los datos de una fila por este nuevo índice. Así obtendríamos, por ejemplo, la edad de nacho@gmail.com:
+# Definir los datos
+x = [1, 2, 3, 4]
+y = [10, 20, 15, 25]
 
-edad = dataFrame.loc['nacho@gmail.com', 'Edad']
+# Crear el gráfico
+plt.plot(x, y)
 
-En el caso de que queramos resetear el índice y volver a la numeración original de filas 0, 1, 2... usamos el método reset_index. Podemos indicar en el parámetro drop=True que queremos borrar el índice previo.
+# Personalización
+plt.title("Ejemplo de gráfico de líneas")
+plt.xlabel("Eje X")
+plt.ylabel("Eje Y")
+plt.grid(True)
 
-dataFrame.reset_index(drop=True, inplace=True)
+# Mostrar el gráfico
+plt.show()
+```
+![notebook_jupyter_vsc](./img/UT7/matplotlib/mpl-1.png){.cincozero   }
 
-Advertencia
+#### 2.5.4 - Modelo orientado a objetos
+Matplotlib también permite trabajar mediante un enfoque orientado a objetos, más flexible y recomendable en aplicaciones más complejas.
 
-El parámetro drop=True lo usaremos SOLO cuando queramos borrar la columna que hacía de índice, ya que de lo contrario perderemos esa información. En el ejemplo anterior, dejaríamos de tener disponible la columna Email, por lo que no es muy habitual hacerlo así.
-2.3.4. Acceso a los nombres de columnas¶
+```py
+import matplotlib.pyplot as plt
 
-En algunas ocasiones nos puede interesar acceder a los nombres de columnas. Por ejemplo, para recorrerlos y mostrar estadísticas o hacer operaciones secuencialmente con cada columna. Para ello accedemos a la propiedad columns del data frame. Si queremos obtenerlo en forma de lista, lo pasamos también por el método tolist:
+fig, ax = plt.subplots()
 
-columnas = dataFrame.columns.tolist()
+ax.plot(x, y)
+ax.set_title("Ejemplo con modelo OO")
+ax.set_xlabel("Eje X")
+ax.set_ylabel("Eje Y")
+ax.grid(True)
 
-2.3.5. Recorrido de data frames¶
-
-A la hora de recorrer un data frame existen distintas alternativas. Por ejemplo, podemos iterar por cada una de las filas y recorrer luego sus columnas:
-
-for index, row in df.iterrows():
-    for columna in df.columns:
-        print(df.loc[index, columna])
-
-Otra forma de recorrerlos puede consistir en ir accediendo a cada casilla numérica. Este doble bucle recorre cada fila y accede, dentro de cada fila, a sus respectivas columnas:
-
-for i in range(len(df)):
-    for j in range(len(df.columns)):
-        print(df.iloc[i, j])
-
-2.4. Tipos de datos en pandas¶
-
-Cuando trabajamos con un data frame cada columna puede ser de un tipo diferente. Pandas asigna automáticamente un tipo por defecto a cada columna, en función de la información que hay almacenada en ella. Podemos ver estos tipos con la propiedad dtypes, de forma similar a NumPy.
-
-# Muestra un listado con los tipos de cada columna
-print(df.dtypes)
-
-Es posible que alguno de los tipos asignados no nos cuadre, y queramos cambiarlo. Por ejemplo, que haya asignado un valor real a datos que queremos que sean enteros. Para ello, debemos seleccionar la columna (o columnas) afectada(s) y aplicarles el cambio de tipo. Existen varias formas de hacerlo, pero podríamos hacerlo así, por ejemplo:
-
-# Hacemos que 'Edad' y 'Peso' sean enteros de 32 bits
-df = df.astype({'Edad': 'int32', 'Peso': 'int32'})
-
-Nota
-
-Es IMPORTANTE tener en cuenta que el cambio en los tipos de datos sólo se mantiene en tiempo de ejecución. Si guardamos los datos de nuevo a fichero y los volvemos a recuperar, se volverán a asignar tipos por defecto que no tienen por qué coincidir con los que hemos establecido en el código. Así, este paso se suele realizar para asegurarnos en la ejecución de que los datos son de un cierto tipo, o para ahorrar memoria (por ejemplo, transformar enteros de 64 bits en enteros de 32 bits).
-
-También podemos utilizar algunas funciones habituales de manipulación de cadenas de texto en las columnas que lo necesiten, a través de la propiedad str de Pandas para esa columna. Por ejemplo, de este modo pasamos a mayúscula las localidades:
-
-datos['Localidad'] = datos['Localidad'].str.upper()
-
-Ejercicio 2
-
-Crea un programa llamado CasasRurales.py que cargue en un data frame los datos de este archivo CSV de casas rurales de la provincia de Castellón. Queremos quedarnos sólo con las 4 primeras columnas (id, localidad, codigo_postal y nombre), transformando el id y el codigo_postal a enteros de 32 bits. Guarda el resultado en un archivo llamado casas_rurales_resumen.csv.
-
-Solución Ejercicio 2
-
-Aquí puedes ver un vídeo con la solución paso a paso del ejercicio.
-2.5. Filtrado¶
-
-En ocasiones nos interesa obtener sólo los elementos o filas de un data frame que cumplan una cierta condición. Esto puede hacerse de varias formas. Por ejemplo, podemos establecer una condición que se aplique sobre una (o varias) columnas del data frame, y luego obtener un data frame alternativo con esa condición (filtrando las filas que la cumplan). El siguiente ejemplo se queda con las personas mayores de edad del data frame de un ejemplo anterior:
-
-condicion = df['Edad'] >= 18
-adultos = df[condicion]
-
-Lo que hace la primera instrucción es crear un array de booleanos, poniendo a False los correspondientes a las filas que no pasan el filtro, y a True las que sí lo hacen. Luego, la segunda instrucción pasa este array de booleanos como parámetro a df, para filtrar los que sean True. Sería algo equivalente a hacer algo así, de forma manual:
-
-adultos = df[[True, True, True, False]]
-
-De forma adicional, podemos usar los operadores & y | para enlazar condiciones simples. Por ejemplo, así obtendríamos las personas entre 30 y 50 años:
-
-condicion = (df['Edad'] >= 30) & (df['Edad'] <= 50)
-rango = df[condicion]
-
-Alternativamente, podemos pasar la condición (o condiciones enlazadas) como dato dentro de los corchetes, en lugar de crear la variable intermedia condicion:
-
-rango = df[(df['Edad'] >= 30) & (df['Edad'] <= 50)]
-
-Podemos emplear la operación isin para filtrar los datos de un data frame que se encuentren en un conjunto o data frame alternativo. Adicionalmente, podemos emplear el símbolo ~ para negar la operación (es decir, quedarnos con los elementos que NO formen parte de otro conjunto).
-
-# Obtenemos los registros cuyo campo 'Edad' se 
-# encuentre en la lista de valores enteros 'edades'
-datos = datos[datos['Edad'].isin(edades)]
-
-# Obtenemos los registros cuya localidad no esté
-# en la lista 'localidades'
-datos = datos[~datos['Localidad'].isin(localidades)]
-
-Ejercicio 3
-
-Crea un programa llamado ParquesEolicosProvincia.py que utilice este archivo CSV sobre parques eólicos de la comunidad de Castilla y León. Nos interesa quedarnos con los parques de la provincia de Zamora que tengan más de 10 aerogeneradores. Muestra el listado resultante
-
-Solución Ejercicio 3
-
-Aquí puedes ver un vídeo con la solución paso a paso del ejercicio.
-2.6. Inserciones y borrados¶
-
-Podemos añadir filas a nuestros data frames usando la instrucción loc vista antes para localizar celdas o rangos de celdas. Si la fila ya existe, se sobreescribe su contenido por el nuevo, y si no existe se crea. Hay que tener en cuenta que el número de datos que pasemos debe ser igual que el número de columnas de nuestro data frame.
-
-# Modificamos el valor de la fila 6
-# Si la fila no existe se crea, sin añadir las filas anteriores que no hubiera
-df.loc[6] = ['Pepe', 65, 'pepe123@gmail.com', '675849302']
-# Añadimos una nueva persona con su nombre, edad, email y teléfono
-df.loc[len(df)] = ['Sergio', 52, 'sergio22@gmail.com', '677889900']
-
-Para añadir columnas en el data frame, ponemos el nuevo nombre de la columna entre corchetes, y le pasamos los valores para esa nueva columna (debe haber tantos valores como filas tenga nuestro data frame):
-
-# Añadimos columna "localidad" al listado de personas
-df['localidad'] = ['Alicante', 'Murcia', 'San Vicente']
-
-A la hora de borrar filas o columnas de un data frame, usamos la instrucción drop, especificando:
-
-    El número o etiqueta de fila / columna que queremos borrar
-    Un parámetro axis que deberemos poner a 0 para indicar que queremos borrar una fila, y a 1 para una columna
-    Un parámetro inplace=True para asegurarnos de alterar el data frame original (de lo contrario quedaría inalterado)
-
-# Borramos fila 2
-df.drop(2, axis=0, inplace=True)
-# Borramos filas 1 y 3
-df.drop([1, 3], axis=0, inplace=True)
-# Borramos filas de menores de edad
-df.drop(df[df['Edad'] < 18].index, axis = 0, inplace=True)
-# Borramos columna 'Localidad'
-df.drop('Localidad', axis=1, inplace=True)
-# Borramos columnas 'Edad' y 'Localidad'
-df.drop(['Edad', 'Localidad'], axis=1, inplace=True)
-
-2.7. Reemplazos¶
-
-La instrucción replace nos puede resultar muy útil para sustituir unos valores por otros en una(s) determinada(s) columna(s). La invocaremos sobre la columna donde queremos hacer el reemplazo y le podemos pasar dos vectores: uno con los valores que queremos reemplazar, y otro con los valores correspondientes del reemplazo.
-
-El siguiente ejemplo actualiza la columna activo de un data frame, y reemplaza todos los valores 0 por "NO" y 1 por "SI":
-
-datos['activo'] = datos['activo'].replace([0, 1], ['NO','SI'])
-
-Alternativamente, en ocasiones nos puede interesar mapear un conjunto de valore viejos para reemplazarlos por unos nuevos. Por ejemplo, este código reemplaza los nombres de los meses en inglés por nombres en castellano:
-
-traducciones = {
-    'January': 'Enero',
-    'February': 'Febrero',
-    ...
-    'December': 'Diciembre'
-}
-
-datos['Mes'] = datos['Mes'].map(traducciones)
-
-Advertencia
-
-Es posible que en versiones recientes de Pandas la instrucción replace quede desaconsejada para convertir datos de un tipo a otro, y en ese caso será recomendable emplear map en su lugar.
-2.8. Ordenaciones¶
-
-Podemos emplear la instrucción sort_values para ordenar los datos de un data frame respecto a una de sus columnas, especificada en el parámetro by. Esta instrucción ordena de forma ascendente por defecto, si queremos un orden descendente debemos especificar un parámetro ascending=False (por defecto es True).
-
-El siguiente ejemplo ordena los datos del data frame anterior por la columna Edad, de mayor a menor:
-
-df = df.sort_values(by='Edad', ascending=False)
-
-Cuando hacemos ordenaciones es posible que nos interese reindexar la colección de datos, ya que los índices numéricos antiguos acompañan a cada fila cuando se reordenan. Dicho de otro modo, si el elemento de la fila 112 del data frame pasa a ser el primero tras la ordenación, deberemos seguir refiriéndonos a él como el elemento 112. Puede que esto no interese, y queramos que ahora ése sea el elemento 0. Entonces tendremos que hacer algo como esto:
-
-df.reset_index(drop=True, inplace=True)
-
-Ejercicio 4
-
-Sobre el mismo archivo anterior de parques eólicos, crea un nuevo programa ParquesEolicosPotencia.py que ordene los parques eólicos de mayor a menor potencia total, y se quede con el nombre, municipio, provincia y potencia de los 10 primeros.
-2.9. Concatenaciones y agrupaciones¶
-
-Podemos concatenar dataframes vertical u horizontalmente con la instrucción concat de Pandas.
-
-# Concatenación vertical de df1 y df2 
-# (unas filas a continuación de otras)
-resultado1 = pd.concat([df1, df2])
-# Concatenación horizontal de df1 y df2
-# (unas columnas a continuación de otras)
-resultado2 = pd.concat([df1, df2], axis=1)
-
-La instrucción groupby permite agrupar filas de un data frame por alguna de sus características (típicamente un valor de una columna), y así poder hacer operaciones específicas con esos grupos. Por ejemplo, esta instrucción calcula la media de edades de las personas agrupadas por su localidad:
-
-datos = [['Alicante', 44],['Murcia', 70],
-         ['Alicante', 40], ['Murcia', 55]]
-df = pd.DataFrame(datos, columns=['localidad', 'edad'])
-print(df.groupby(df['localidad']).mean())
-
-2.9.1. Tablas pivote¶
-
-También podemos crear lo que se llaman tablas pivote (pivot tables) que almacenen la agrupación de datos en torno a un campo determinado, y calculen sobre ello una o varias funciones agregadas (sumas, medias, etc). El siguiente ejemplo agrupa los elementos del data frame en torno a la Localidad y calcula la media de las edades y alturas por localidad:
-
-resumen = df.pivot_table(values=['Edad', 'Altura'], index='Localidad', aggfunc=np.mean)
-
-Ejercicio 5
-
-Sobre el mismo archivo anterior de parques eólicos, crea un programa ParquesEolicosTotalesProvincia.py que cuente cuántos parques eólicos hay en total para cada provincia de Castilla y León.
-2.10. Trabajo con fechas¶
-
-En algunas ocasiones el dataset con el que trabajemos puede contener datos de tipo fecha, que pueden venir en distintos formatos, como dd/mm/yyyy o yyyy-mm-dd. Las fechas pueden ser un índice muy útil en nuestros data frames, ya que podemos buscar o filtrar datos por fecha.
-
-Supongamos que una columna de nuestro dataset tiene fechas en formato dd/mm/yyyy en una columna Fecha, y queremos, una vez cargado el dataset, convertir esa columna a tipo fecha y hacerla índice. El código sería el siguiente:
-
-datos['Fecha'] = pd.to_datetime(datos['Fecha'], format='%d/%m/%Y')
-# Podemos (opcionalmente) ordenar la tabla por ese nuevo índice
-datos = datos.set_index('Fecha').sort_index()
-
-Si quisiéramos, por ejemplo, buscar ahora elementos cuya fecha sea de abril de 2018, podríamos hacer algo así:
-
-abril_2018 = datos.loc['2018-04']
-# También serviría
-abril_2018 = datos.loc['2018-04-01':'2018-04-30']
-
-Nota
-
-Una vez convertida la columna a tipo fecha, Pandas gestiona las fechas en formato yyyy-mm-dd. Por este motivo se utiliza el patrón 2018-04 en el ejemplo anterior para filtrar por año y mes.
-
-Ejercicio 6
-
-Crea un programa llamado CalendarioLiga.py que utilice este dataset sobre la liga de fútbol española en la temporada 2022-23. Se pide que indexes el dataset por la fecha de los partidos (campo Date) y listes los partidos del mes de octubre.
-2.11. Otras operaciones¶
-
-Repasamos aquí brevemente otras operaciones disponibles con los data frames de Pandas:
-
-    La instrucción value_counts permite contar cuántas muestras (filas) hay para cada uno de los valores de una columna categórica (nominal). Devuelve una serie con el conteo por cada valor de la categoría. Por ejemplo, podríamos ver cuántas personas hay de cada localidad:
-
-conteo = df['localidad'].value_counts()
-
-    La instrucción cut corta el dataset en varias secuencias, a partir de un conjunto de marcas (bins) para una columna dada. Por ejemplo, podríamos añadir una columna más al dataset anterior llamada categoria_edad que divida a los individuos según la franja de edad: de 0 a 12 años, de 12 a 18, de 18 a 65 y de más de 65, asignando a cada franja un valor de Niño, Adolescente, Adulto, Anciano:
-
-df['categoria_edad'] = pd.cut(df['edad'],
-    bins = [0, 12, 18, 65, np.inf],
-    labels = ['Niño', 'Adolescente', 'Adulto', 'Anciano'])
-
-    La instrucción unique obtiene un vector con los valores distintos de una determinada columna
-
-# Localidades distintas
-localidades = df['localidad'].unique()
-
-    Podemos utilizar las funciones incorporadas de NumPy para calcular medias, sumas, máximos, mínimos, etc, sobre una o varias columnas de un data frame:
-
-media1 = df['edad'].mean()              # Un valor
-media2 = df[['edad', 'peso']].mean()    # Serie con 2 valores
-
+plt.show()
+```
+En este modelo:
+
+- **fig** representa la figura.
+- **ax** representa el eje donde se dibuja el gráfico.
+- La personalización se realiza mediante métodos del objeto ax.  
+Este enfoque es más fácil de gestionar (escalable) cuando se trabajan **múltiples gráficos** o configuraciones avanzadas.
+
+#### 2.5.5 - Personalización de gráficos en Matplotlib
+##### 2.5.5.1 - Colores, estilos de línea y marcadores
+Se pueden personalizar mediante parámetros en los métodos de representación (plot, scatter, bar, etc.).
+```py
+import matplotlib.pyplot as plt
+
+x = [1, 2, 3, 4]
+y = [10, 20, 15, 25]
+
+plt.plot(
+    x, y,
+    color="red",        # Color de la línea
+    linestyle="--",     # Estilo de línea
+    linewidth=2,        # Grosor
+    marker="o",         # Marcador
+    markersize=8        # Tamaño del marcador
+)
+
+plt.title("Personalización básica")
+plt.show()
+```
+![notebook_jupyter_vsc](./img/UT7/matplotlib/mpl-5.png){.cincozero   }
+
+**Parámetros habituales:**  
+
+- **Estilo de líneas**
+![notebook_jupyter_vsc](./img/UT7/matplotlib/mpl-2.png){.trescinco .marginbottom40 .margintop10    }
+- **Estilo de marcadores**
+![notebook_jupyter_vsc](./img/UT7/matplotlib/mpl-3.png){.trescinco .marginbottom40 .margintop10   }
+- **Estilo de colores**
+![notebook_jupyter_vsc](./img/UT7/matplotlib/mpl-4.png){.cuatrocinco .marginbottom40 .margintop10   }
+
+
+
+<!-- https://nachoiborraies.github.io/data-science/02d.html#125-tamano-de-los-graficos-y-multiples-graficos
  -->
 
 
 
-
-<!-- https://nachoiborraies.github.io/data-science/02c.html -->
 <!-- https://dspace.ceu.es/server/api/core/bitstreams/c8ac32c7-4967-4e69-a780-392ee3829b87/content -->
 
 
