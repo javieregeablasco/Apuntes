@@ -536,6 +536,8 @@ for letras in range(20):
 ```
 
 ### **1.10 - Funciones avanzadas para el tratamiento de datos**
+Las funciones, `map`, `filter` y `list` son funciones de orden superior que permiten aplicar un enfoque funcional al procesamiento de colecciones, especialmente listas.  
+Son herramientas clásicas para transformar y filtrar datos sin necesidad de escribir bucles explícitos, lo que favorece código más declarativo y expresivo.
 #### **1.10.1 - Función map()**
 La función `map()` aplica una función específica a cada elemento de un iterable (como una lista o una tupla) y devuelve un iterador con los resultados.
 
@@ -926,6 +928,12 @@ plt.show()
 ### 2.2 - Librería NumPy
 ![notebook_jupyter_vsc](./img/UT7/anaconda/ana-2.png){.cuatrozero .margintop10 }
 
+
+
+**Enlaces de interés:**  
+[Documentación oficial](https://numpy.org/) de NumPy.
+
+
 #### 2.2.1 - ¿Qué es NumPy?
 Numpy es una librería de procesamiento de **arrays**. Contiene una gran colección de funciones que permiten realizar cálculos matemáticos complejos sobre arrays multidimensionales.
 
@@ -1037,17 +1045,36 @@ array_3d = array_3d = np.array([[[1, 2, 3], [4, 5, 6], [7, 8, 9]],[[1, 2, 3], [4
 ```
 
 #### 2.2.6 - Redimensionar arrays
-Los arrays en NumPy se pueden redimensionar fácilmente utilizando el método `reshape()`. 
+Los arrays en NumPy se pueden redimensionar fácilmente utilizando el método `reshape()`.  
+**Nota:**  
+`reshape()` no afecta al array original. Si deseamos redimensionar definitivamente un array deberemos utilizar `resize()`.  
+
 
 ```py
+import numpy as np
 array = np.arange(20)
-array.reshape(5,4)
+# Reshape sobre el array pero sin reescribrirlo
+print("Visualizar array con reshape()")
+print(array.reshape(5,4))
+# Aqui podremos ver que el array no ha sido alterado.
+print("Visualizar array")
+print(array)
+# Redifinir el array con resize() y visualizarlo.
+print("Visualizar array despues de aplicar resize")
+array.resize(2,10)
+print(array)
 
-# array([[ 0,  1,  2,  3],
-#        [ 4,  5,  6,  7],
-#        [ 8,  9, 10, 11],
-#        [12, 13, 14, 15],
-#        [16, 17, 18, 19]])
+# Visualizar array con reshape()
+# [[ 0  1  2  3]
+#  [ 4  5  6  7]
+#  [ 8  9 10 11]
+#  [12 13 14 15]
+#  [16 17 18 19]]
+# Visualizar array
+# [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19]
+# Visualizar array despues de aplicar resize
+# [[ 0  1  2  3  4  5  6  7  8  9]
+#  [10 11 12 13 14 15 16 17 18 19]]
 ```
 
 **Otro ejemplo:**
@@ -1285,8 +1312,10 @@ print(a)
     a = np.insert(a, [2,5], [-1, -2])
     print(a)
     ```
-**Insertar una columna en un array 2D (axis=1)**
+**Insertar una columna en un array 2D**  
+para poder insertar un elemento dentro de un array 2D deberemos especificar la dirección `axis` de inserción (axis = 0 → filas, axis = 1 → columnas). 
 ```py
+# axis = 1 (columnas)
 # Insertar una columna con valor 0 en la columna de índice 2:
 b = np.array([[1, 2, 3], [4, 5, 6]])
 b = np.insert(b, 2, 0, axis=1)
@@ -1295,7 +1324,19 @@ print(b)
 # [[1 2 0 3]
 #  [4 5 0 6]]
 ```
-**Insertar varias columnas usando un array columna**
+```py
+# axis = 0 (filas)
+# Insertar la lista [10, 11, 12] en la fila 2:
+b = np.array([[1, 2, 3], [4, 5, 6],[7, 8, 9]])
+b = np.insert(b, 2, [10, 11, 12], axis=0)
+print(b)
+#
+# [[ 1  2  3]
+#  [ 4  5  6]
+#  [10 11 12]
+#  [ 7  8  9]]
+```
+**Insertar una lista de valores**
 ```py
 # Insertar dos columnas al comienzo del array:
 b = np.insert(b, 0, [[-1], [-2]], axis=1)
@@ -1308,11 +1349,12 @@ print(b)
 En este ejemplo no pasamos un índice escalar (0) sino una lista [0] de un único valor. El resultado es la inserción en cada posición de los arrays del valor correspondiente pasado.
 ```py
 # Insertar una columna al comienzo del array:
+b = np.array([[1, 2, 3], [4, 5, 6]])
 b = np.insert(b, [0], [[-4], [-5]], axis=1)
 print(b)
 
-# [[-4 -1 -2  1  2  0  3]
-#  [-5 -1 -2  4  5  0  6]]
+# [[-4  1  2  3]
+#  [-5  4  5  6]]
 ```
 **Insertar dos filas de ceros en las posiciones 0 y 2**
 ```py
@@ -1326,7 +1368,7 @@ print(b)
 
 ```
 
-- **np.delete()**
+- **np.delete()**  
 Devuelve **un nuevo array** con uno o más valores eliminados en las posiciones indicadas **sin modificar** el array original.  
 Permite eliminar elementos tanto en arrays unidimensionales como multidimensionales, indicando opcionalmente el eje (axis).
 <br>
@@ -1484,14 +1526,17 @@ print("array_4:\n", array_4)
 ```
 
 - **Dividir arrays con split()**  
-Con split() podemos dividir un array en múltiples sub-arrays a lo largo del **eje que especificamos**.
+Con split() podemos dividir un array en múltiples sub-arrays a lo largo del **eje que especificamos**.  
+Tanto para `split()` como para `vsplit()` y `hsplit()` que veremos a continuación, **los objetos devueltos serán de tipo lista**.
 ```py
 array = np.arange(10)
 sub_arrays = np.split(array, 2)  # Dividir en 2 sub-arrays
 print("Array original:", array)
-print("Sub-arrays:", sub_arrays)
+print("Sub-arrays 1:", sub_arrays[0])
+print("Sub-arrays 2:", sub_arrays[1])
 # Array original: [0 1 2 3 4 5 6 7 8 9]
-# Sub-arrays: [array([0, 1, 2, 3, 4]), array([5, 6, 7, 8, 9])]
+# Sub-arrays 1: [0 1 2 3 4]
+# Sub-arrays 1: [5 6 7 8 9]
 ```
 
 - **División vertical y horizontal**  
@@ -1674,7 +1719,7 @@ print("Mediana de todos los valores por filas:\n", np.mean(array, axis=1).reshap
 1. Invertir el array, es decir, si el array original es [10,11,12,...,49]. El array resultante deberá ser [49,48,47,...,10]. Para ello podéis hacer slicing o usar una función de NumPy.  
 1. Crear una matriz de 3x3 con valores aleatorios enteros entre 0 y 9. 
 1. Encontrar los valores min y max de cada fila y de cada columna.  
-1. Declarar una matriz de 10x10 con 1 en los bordes y 0 en el interior. Para ello podeís hacer slicing y asignar `zero` a los valores seleccionados o, recorrer la matriz e ir discriminando por indices de celdas (más largo).  
+1. Declarar una matriz de 10x10 con 1 en los bordes y 0 en el interior. Para ello podeís hacer slicing y asignar `zero` a los valores seleccionados o, recorrer la matriz e ir discriminando por indices de celdas.  
 ```py
 # Resultado esperado
 array([[ 1.,  1.,  1.,  1.,  1.,  1.,  1.,  1.,  1.,  1.],
@@ -1688,7 +1733,7 @@ array([[ 1.,  1.,  1.,  1.,  1.,  1.,  1.,  1.,  1.,  1.],
        [ 1.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  1.],
        [ 1.,  1.,  1.,  1.,  1.,  1.,  1.,  1.,  1.,  1.]])
 ```
-1. Declarar una matriz con el siguiente resultado. Podéis sumar matrices de diferentes dimensiones o usar una función de NumPy (tile), lo que no podeís hacer es declararla explícitamente.
+1. Declarar una matriz con el siguiente resultado. Podéis concatenar arrays o usar una función de NumPy (tile), lo que no podeís hacer es declararla explícitamente.
 ```py
 # Resultado esperado
 array([[0, 1, 2, 3, 4],
@@ -1862,7 +1907,9 @@ Pandas está construido directamente sobre NumPy, funcionando como una capa supe
 
 - El manejo sencillo de datos faltantes o nulos.
 
+**Enlaces de interés:**
 
+- [Documentación oficial](https://pandas.pydata.org/) de Pandas
 
 #### 2.4.1 - Series
 
@@ -1913,7 +1960,8 @@ print("Valor asociado al indice 'c':",serie["c"])
 # Indice de la serie Index(['a', 'b', 'c', 'd'], dtype='object')
 # Valor asociado al indice 'c': 3
 ```  
-**Nota:** El índice no tiene porqué ser único, es decir, puede admitir valores duplicados. En ese caso, los valores devueltos para ese índice serán los asociados a esos índices.
+**Nota:**  
+El índice no tiene porqué ser único, es decir, puede admitir valores duplicados. En ese caso, los valores devueltos para ese índice serán los asociados a esos índices.
 ```py
 serie = pd.Series([1,2,3,4,5,6,7,8,9], index=["a","b","c","d","c","e","f","g","c"])
 print("Indice de la serie", serie.index)
@@ -1927,7 +1975,16 @@ print(serie["c"])
 # c    9
 # dtype: int64
 ```
-- Acceso por la posición de su índice con el método **iloc[...]**.
+También se puede acceder a un valor usando **loc[...]** y el valor del índice.
+```py
+serie = pd.Series([1,2,3,4,5,6,7,8,9], index=["a","b","c","d","e","f","g","h","i"])
+print("Valor item de la posicion 5:", serie.loc["f"])
+#
+# Valor item de la posicion 5: 6
+```
+
+- Acceso por la posición de su índice con el método **iloc[...]**.  
+En este caso, usaremos **la posición del índice** y no su valor.
 ```py
 serie = pd.Series([1,2,3,4,5,6,7,8,9], index=["a","b","c","d","e","f","g","h","i"])
 print("Valor item de la posicion 5:", serie.iloc[4])
@@ -2184,19 +2241,33 @@ dataframe = pd.DataFrame(np.random.randint(5, size=(8,8)),
  
 dataframe.drop("L4") # eliminar la fila con indice L4
 dataframe.drop(columns=["C2","C6"]) # eliminar las columnas C2 y C6
-dataframe # sin inplace = True el dataset se mantiene íntegro.
+print("Sin inplace = True el dataset se mantiene íntegro")
+print(dataframe) # sin inplace = True el dataset se mantiene íntegro.
 dataframe.drop("L4", inplace=True)
 dataframe.drop(columns=["C2","C6"], inplace=True)
-dataframe # con inplace = True el dataset original ha sido alterado.
+print("\nCon inplace = True el dataset se ha alterado")
+print(dataframe) # con inplace = True el dataset original ha sido alterado.
 #
+# Sin inplace = True el dataset se mantiene íntegro
+#     C1  C2  C3  C4  C5  C6  C7  C8
+# L1   1   4   1   4   4   4   2   1
+# L2   0   1   0   3   3   4   0   4
+# L3   2   0   3   4   1   2   1   1
+# L4   4   0   1   0   4   1   2   4
+# L5   2   1   0   3   1   0   2   0
+# L6   3   1   1   2   3   0   4   1
+# L7   3   4   1   1   1   0   3   1
+# L8   3   4   1   1   1   2   1   1
+# 
+# Con inplace = True el dataset se ha alterado
 #     C1  C3  C4  C5  C7  C8
-# L1   4   2   4   3   1   3
-# L2   0   2   2   2   0   3
-# L3   4   1   4   0   3   0
-# L5   3   3   0   4   4   0
-# L6   0   1   3   0   0   4
-# L7   3   2   2   4   0   1
-# L8   0   3   0   1   2   2
+# L1   1   1   4   4   2   1
+# L2   0   0   3   3   0   4
+# L3   2   3   4   1   1   1
+# L5   2   0   3   1   2   0
+# L6   3   1   2   3   4   1
+# L7   3   1   1   1   3   1
+# L8   3   1   1   1   1   1
 ```
 
 **Nota:**  
@@ -2321,7 +2392,7 @@ dataframe
 ```py
 dataframe.abs() # pasar todos los valores a positivo
 #
-# C1  C2  C3  C4
+#     C1  C2  C3  C4
 # L1   3  18   8  20
 # L2   4   2  18  18
 # L3   7  20  19   0
@@ -2456,9 +2527,15 @@ dataframe.to_csv("dataframe.csv",sep="#")
 ### 2.5 - Librería Matplotlib
 ![notebook_jupyter_vsc](./img/UT7/anaconda/ana-11.png){.cincozero   }
 
+
 Matplotlib es una biblioteca de visualización de datos en Python que permite generar gráficos estáticos, interactivos y animados. Se utiliza para representar conjuntos de datos mediante diferentes tipos de gráficos, facilitando el análisis y la interpretación visual de la información.
 
-Trabaja habitualmente con estructuras de datos como listas, arrays de NumPy y DataFrames de pandas. El módulo más utilizado es `matplotlib.pyplot`, que proporciona una interfaz similar a MATLAB para la creación de gráficos.  
+Matplotlib trabaja habitualmente con estructuras de datos como listas, arrays de NumPy y DataFrames de pandas. El módulo más utilizado es `matplotlib.pyplot`, que proporciona una interfaz similar a `MATLAB` para la creación de gráficos.  
+
+**Enlaces de interés:**   
+
+- [Documentación oficial](https://matplotlib.org/) de Matplotlib
+- [PYTHON CHARTS](https://python-charts.com/es/) proporciona todo tipo de ejemplos de visualización de datos tanto en la biblioteca **Matplotlib** como en otras más potentes como **Seabron** o **Plotly**.  
 
 #### 2.5.1 - Tipos de representaciones gráficas
 Matplotlib permite crear múltiples tipos de representaciones gráficas, entre las que destacan:
@@ -2520,8 +2597,8 @@ El flujo habitual para crear un gráfico sencillo es:
 import matplotlib.pyplot as plt
 
 # Definir los datos
-x = [1, 2, 3, 4]
-y = [10, 20, 15, 25]
+x = np.array([1, 2, 3, 4]) # no es necesario convertir a array. Matplotlib también acepta listas de python.
+y = np.array([10, 20, 15, 25])
 
 # Crear el gráfico
 plt.plot(x, y)
@@ -2566,8 +2643,8 @@ Se pueden personalizar mediante parámetros en los métodos de representación (
 ```py
 import matplotlib.pyplot as plt
 
-x = [1, 2, 3, 4]
-y = [10, 20, 15, 25]
+x = np.array([1, 2, 3, 4])
+y = np.array([10, 20, 15, 25])
 
 plt.plot(
     x, y,
@@ -2620,7 +2697,7 @@ font3 = {'family':'serif','size':8}
 plt.legend(["Esto es una leyenda", "Esto es otra leyenda"], prop = font3, labelcolor='linecolor')
 ```
 
-##### 2.5.5.3 - Rejilla y color de fondo
+##### 2.5.5.3 - Rejilla
 
 - **Control de rejilla**  
 La función **plt.grid()** permite añadir una cuadrícula al fondo del gráfico. Por defecto aparecerá en un gris suave en ambos ejes.
@@ -2648,9 +2725,9 @@ plt.ylim(8, 27)
 import numpy as np
 import matplotlib.pyplot as plt
 
-x = [1, 2, 3, 4]
-y = [10, 20, 15, 25]
-x1 = [5, 6, 7, 8]
+x = np.array([1, 2, 3, 4])
+y = np.array([10, 20, 15, 25])
+x1 = x + 5
 y1 = y[::-1]
 
 plt.plot(
@@ -2700,6 +2777,32 @@ plt.show()
 ```
 ![notebook_jupyter_vsc](./img/UT7/matplotlib/mpl-6.png){.cincozero   }
 
+##### 2.5.5.6 - Estilos predefinidos de Matplotlib
+Podemos dar formato a los gráficos de forma simple usando el paquete de estilos de matplotlib.  
+Para usarlos, utilizaremos `style.use('nombre_del_estilo')` que declararemos **antes** de los objetos de **pyplot**.
+
+```py
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib import style
+
+# Definir los estilos a utilizar
+style.use('grayscale') 
+
+x = np.array([1, 2, 3, 4])
+y = np.array([10, 20, 15, 25])
+x1 = x + 5
+y1 = y[::-1]
+
+...
+```
+![notebook_jupyter_vsc](./img/UT7/matplotlib/mpl-7.png){.cincozero   }
+
+**Nota:**  
+Para obtener el listado de estilos disponibles, usaremos `plt.style.available`. 
+
+#### 2.5.6 - Ejemplos de gráficos
+
 
 
 
@@ -2712,16 +2815,7 @@ plt.show()
 La función subplots(nrows, ncols) se usa principalmente para definir cuántos subgráficos (axes) queremos dentro de una misma figura (por defecto 1). -->
 
 
-
-<!-- https://nachoiborraies.github.io/data-science/02d.html#125-tamano-de-los-graficos-y-multiples-graficos
- -->
-
-
-
-<!-- https://dspace.ceu.es/server/api/core/bitstreams/c8ac32c7-4967-4e69-a780-392ee3829b87/content -->
-
-
-![Descripción de la imagen](../../../DAW/DAW_2/AWS/ut7/cloudformation/WIP.avif){ .doscinco }
+ <!-- ![Descripción de la imagen](../../../DAW/DAW_2/AWS/ut7/cloudformation/WIP.avif){ .doscinco } -->
 
 
   
@@ -2733,20 +2827,9 @@ La función subplots(nrows, ncols) se usa principalmente para definir cuántos s
 
 
 <!-- 
-|**f)** Se han creado clases y métodos genéricos.|
 |**i)** Se han realizado programas que realicen manipulaciones sobre documentos escritos en diferentes lenguajes de intercambio de datos.| -->
-
-<!-- https://gitlab.com/josedom24/curso_programacion_python3/-/tree/master/curso/u36 -->
 <!-- https://www.pmareke.com/posts/generics/ -->
-<!-- https://gemini.google.com/u/1/app/f1540b3c3cf5ad43?hl=es-ES -->
-<!-- GENERICOS -->
-<!-- https://chatgpt.com/c/69458417-050c-832e-9a1b-82f159d1ca90 -->
-<!-- https://ellibrodepython.com/abstract-base-class -->
  
 
-
-
- 
-<!-- https://www.youtube.com/watch?v=ljFwYKL6-1U&t=13s -->
 
  
