@@ -1891,7 +1891,7 @@ print(array_2,"\n",array_2.dtype)
 #  float64
 ```
 
-#### 2.3.8 - Tarea RA6-CEj
+<!-- #### 2.3.8 - Tarea RA6-CEj
 
 **Realizar un notebook con los siguiente requisitos:**
 
@@ -1915,7 +1915,7 @@ print(array_2,"\n",array_2.dtype)
 !!! exercise "Ejercicio 3"
 1. Declarar un array unidimensional de 21 elementos aleatorios.
 1. Calcular la media de los elementos del array.
-1. Calcular la mediana de los elementos del array.
+1. Calcular la mediana de los elementos del array. -->
 
 <!-- https://www.kaggle.com/code/themlphdstudent/learn-numpy-numpy-50-exercises-and-solution -->
 <!-- https://pynative.com/python-numpy-exercise/ -->
