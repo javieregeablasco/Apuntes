@@ -1892,6 +1892,31 @@ print(array_2,"\n",array_2.dtype)
 ```
 
 #### 2.3.8 - Tarea RA6-CEj
+
+**Realizar un notebook con los siguiente requisitos:**
+
+- Realizar la tarea en un notebook de Jupyter.
+- Cada pregunta deberá ir dentro de una celda de markdown.
+- El código deberá ir en una celda de código. Se recomienda usar una celda para parte del ejercicio.  
+
+**Enunciado. Cada posición ira en una celda.**
+!!! exercise "Ejercicio 1"
+1. Declarar una matriz de 3x3 con valores del 0 al 8 
+1. Declarar una matriz de 3x3 con valores del 9 al 17 
+1. Concatenar las 2 matrices **verticalmente**.  
+1. Concatenar las 2 matrices **horizontalmente**.  
+
+!!! exercise "Ejercicio 2"
+1. Declarar dos matrices de 3x3 con valores aleatorios enteros desde -20 a 20. 
+1. Comparar lógicamente las 2 matrices.
+1. Sumar las 2 matrices.
+1. Mostrar la media de los valores de la matriz resultante de la suma. 
+
+!!! exercise "Ejercicio 3"
+1. Declarar un array unidimensional de 21 elementos aleatorios.
+1. Calcular la media de los elementos del array.
+1. Calcular la mediana de los elementos del array.
+
 <!-- https://www.kaggle.com/code/themlphdstudent/learn-numpy-numpy-50-exercises-and-solution -->
 <!-- https://pynative.com/python-numpy-exercise/ -->
 <!-- https://www.geeksforgeeks.org/python/python-numpy-practice-exercises-questions-and-solutions/ -->
