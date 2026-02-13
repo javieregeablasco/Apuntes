@@ -21,7 +21,6 @@ schedule: 96h - 3h/w
 |RA6. Escribe programas que manipulen información, seleccionando y utilizando tipos avanzados de datos.|
 |-|
 |**c)** Se han utilizado listas para almacenar y procesar información.|
-|**e)** Se han reconocido las características y ventajas de cada una de las colecciones de datos disponibles.|
 |**f)** Se han creado clases y métodos genéricos.|
 |**g)** Se han utilizado expresiones regulares en la búsqueda de patrones en cadenas de texto.|
 |**i)** Se han realizado programas que realicen manipulaciones sobre documentos escritos en diferentes lenguajes de intercambio de datos.|
@@ -405,7 +404,7 @@ print(minimo)    # Salida: 10
 print(maximo)    # Salida: 50
 ```
 
-### **1.7 - Tarea RA6-CEce**
+### **1.7 - Tarea RA6-CEc**
 !!! exercise "Ejercicio 1"
     La secuencia de Fibonacci está definida por:  
     x<sub>0</sub> = 0, x<sub>1</sub> = 1, x<sub>n+1</sub> = x<sub>n</sub> + x<sub>n-1</sub>
@@ -1122,6 +1121,8 @@ Algunos de los tipos de datos más comunes son:
 | `float32`    | Número de punto flotante de 32 bits  | `np.array([1.0, 2.0, 3.0], dtype=np.float32)` |
 | `float64`    | Número de punto flotante de 64 bits  | `np.array([1.0, 2.0, 3.0], dtype=np.float64)` |  -->
 
+<!-- https://python-para-impacientes.blogspot.com/2019/10/tipos-de-datos-en-arrays-numpy-dtype.html -->
+
 ![Descripción de la imagen](./img/UT7/anaconda/ana-6.png){.seiscinco .marginbottom40 .margintop10 }
 
 Rangos de los diferentes tipos de datos se puesde consultar en la siguiente tabla:
@@ -1705,7 +1706,7 @@ print("Mediana de todos los valores por filas:\n", np.mean(array, axis=1).reshap
 
 
 
-#### 2.3.5 - Tarea RA6-CEj 
+#### 2.3.5 - Tarea RA6-CEi 
 **Realizar un notebook con los siguiente requisitos:**
 
 - Realizar la tarea en un notebook de Jupyter.
@@ -1890,6 +1891,10 @@ print(array_2,"\n",array_2.dtype)
 #  float64
 ```
 
+#### 2.3.8 - Tarea RA6-CEj
+<!-- https://www.kaggle.com/code/themlphdstudent/learn-numpy-numpy-50-exercises-and-solution -->
+<!-- https://pynative.com/python-numpy-exercise/ -->
+<!-- https://www.geeksforgeeks.org/python/python-numpy-practice-exercises-questions-and-solutions/ -->
 ### 2.4 - Librería Pandas
 ![notebook_jupyter_vsc](./img/UT7/anaconda/ana-10.png){.cincozero .margintop10 }
 

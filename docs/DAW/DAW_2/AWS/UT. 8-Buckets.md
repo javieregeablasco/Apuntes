@@ -1327,6 +1327,7 @@ Ejemplos de capturas:
 ![Descripción de la imagen](./ut8/dynamoDB/DYN-46.png){.trescinco .marginbottom40 .margintop10 }
 
 
+#### 2.2.9.4 - Condiciones de entrega de la tarea RA4-CEa-2
 !!! warning "Condiciones de entrega de la tarea RA4-CEa-2"
     1. Realizar capturas de pantalla de los puntos señalados.
     1. Comentar brevemente cada captura para entender a qué corresponde y subir el documento a la tarea correspondiente de AULES.
