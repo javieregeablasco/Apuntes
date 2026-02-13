@@ -1306,7 +1306,7 @@ En esta tarea, haremos un cuadro de dialogo (parecido al de la siguiente imagen)
     
 !!! exercise "Hoja 1 - Casilla de 'tic' y formatos condicionales"
     1. Realizar un diseño similar al del ejemplo.
-    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3-ceh-1.png){ .leftcincocero .margintopbottom10}<br>
+    ![Descripción de la imagen](./03_hojas_de_calculo/img/ra3-ceh-1.png){ .leftsietecinco .margintopbottom10}<br>
 
     - Insertar las casillas de tic y enlazar los datos (estado ticado o no ticado) a la columna I
     - Poner un formato condicional a los nombres y apellidos para que apliquen el estilo **Error** si la casilla está ticada.
