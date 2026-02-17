@@ -1136,85 +1136,129 @@ En este caso crearemos un conjunto de tablas consumiendo un programa en Python q
 import boto3
 from datetime import datetime, timedelta
 
-# Configuración del cliente
+# Configuración inicial del cliente
+# Nota: Boto3 usa las credenciales configuradas en ~/.aws/credentials o variables de entorno
 dynamodb = boto3.resource('dynamodb', region_name='us-east-1')
 client = boto3.client('dynamodb', region_name='us-east-1')
 
-reply_table_name = "Reply"
+product_catalog_table = "ProductCatalog"
+forum_table = "Forum"
+thread_table = "Thread"
+reply_table = "Reply"
 
 def delete_table(table_name):
     try:
-        # Si existen eliminar tablas
         table = dynamodb.Table(table_name)
-        print(f"Eliminando tabla {table_name}")
+        print(f"Eliminando tabla {table_name}...")
         table.delete()
         table.wait_until_not_exists()
+        print(f"Tabla {table_name} eliminada.")
     except client.exceptions.ResourceNotFoundException:
-        pass
-
-def create_reply_table():
-    print(f"Creando tabla {reply_table_name}")
-    try:
-        table = dynamodb.create_table(
-            TableName=reply_table_name,
-            KeySchema=[
-                {'AttributeName': 'Id', 'KeyType': 'HASH'},            # Partition Key
-                {'AttributeName': 'ReplyDateTime', 'KeyType': 'RANGE'} # Sort Key
-            ],
-            AttributeDefinitions=[
-                {'AttributeName': 'Id', 'AttributeType': 'S'},
-                {'AttributeName': 'ReplyDateTime', 'AttributeType': 'S'},
-                {'AttributeName': 'PostedBy', 'AttributeType': 'S'}
-            ],
-            LocalSecondaryIndexes=[
-                {
-                    'IndexName': 'PostedBy-Index',
-                    'KeySchema': [
-                        {'AttributeName': 'Id', 'KeyType': 'HASH'},
-                        {'AttributeName': 'PostedBy', 'KeyType': 'RANGE'}
-                    ],
-                    'Projection': {'ProjectionType': 'KEYS_ONLY'}
-                }
-            ],
-            ProvisionedThroughput={'ReadCapacityUnits': 10, 'WriteCapacityUnits': 5}
-        )
-        table.wait_until_exists()
-        print("Tabla Reply creada.")
+        print(f"La tabla {table_name} no existe, saltando eliminación.")
     except Exception as e:
-        print(f"Error al crear tabla: {e}")
+        print(f"Error al eliminar {table_name}: {e}")
 
-def load_sample_replies():
-    table = dynamodb.Table(reply_table_name)
-    print(f"Cargando datos en {reply_table_name}")
+def create_table(table_name, read_cap, write_cap, pk_name, pk_type, sk_name=None, sk_type=None):
+    print(f"Creando tabla {table_name}...")
     
-    # Generar una fecha
-    fecha_ejemplo = "2025-09-19T16:30:00.214Z"
+    attribute_definitions = [{'AttributeName': pk_name, 'AttributeType': pk_type}]
+    key_schema = [{'AttributeName': pk_name, 'KeyType': 'HASH'}]
     
-    # Creacíon ítem
-    item = {
-        'Id': 'Amazon DynamoDB#DynamoDB Thread 1',
-        'ReplyDateTime': fecha_ejemplo,
-        'Message': 'DynamoDB Thread 1 Reply 1 text',
-        'PostedBy': 'User A'
+    if sk_name:
+        attribute_definitions.append({'AttributeName': sk_name, 'AttributeType': sk_type})
+        key_schema.append({'AttributeName': sk_name, 'KeyType': 'RANGE'})
+    
+    # Configuración específica para la tabla Reply (Índice Secundario Local)
+    lsi = []
+    if table_name == reply_table:
+        attribute_definitions.append({'AttributeName': 'PostedBy', 'AttributeType': 'S'})
+        lsi.append({
+            'IndexName': 'PostedBy-Index',
+            'KeySchema': [
+                {'AttributeName': pk_name, 'KeyType': 'HASH'},
+                {'AttributeName': 'PostedBy', 'KeyType': 'RANGE'}
+            ],
+            'Projection': {'ProjectionType': 'KEYS_ONLY'}
+        })
+
+    params = {
+        'TableName': table_name,
+        'KeySchema': key_schema,
+        'AttributeDefinitions': attribute_definitions,
+        'ProvisionedThroughput': {
+            'ReadCapacityUnits': read_cap,
+            'WriteCapacityUnits': write_cap
+        }
     }
     
+    if lsi:
+        params['LocalSecondaryIndexes'] = lsi
+
     try:
-        table.put_item(Item=item)
-        print(f"Item insertado: {item['Id']}")
+        table = dynamodb.create_table(**params)
+        table.wait_until_exists()
+        print(f"Tabla {table_name} creada exitosamente.")
     except Exception as e:
-        print(f"Error al insertar item: {e}")
+        print(f"Error al crear tabla {table_name}: {e}")
+
+def load_sample_products():
+    table = dynamodb.Table(product_catalog_table)
+    print(f"Cargando datos en {product_catalog_table}...")
+    
+    items = [
+        {
+            'Id': 101, 'Title': 'Book 101 Title', 'ISBN': '111-1111111111',
+            'Authors': {'Author1'}, 'Price': 2, 'Dimensions': '8.5 x 11.0 x 0.5',
+            'PageCount': 500, 'InPublication': True, 'ProductCategory': 'Book'
+        },
+        {
+            'Id': 102, 'Title': 'Book 102 Title', 'ISBN': '222-2222222222',
+            'Authors': {'Author1', 'Author2'}, 'Price': 20, 'Dimensions': '8.5 x 11.0 x 0.8',
+            'PageCount': 600, 'InPublication': True, 'ProductCategory': 'Book'
+        },
+        {
+            'Id': 201, 'Title': '18-Bike-201', 'Description': '201 Description',
+            'BicycleType': 'Road', 'Brand': 'Mountain A', 'Price': 100,
+            'Color': {'Red', 'Black'}, 'ProductCategory': 'Bicycle'
+        }
+    ]
+    for item in items:
+        table.put_item(Item=item)
+
+def load_sample_threads():
+    table = dynamodb.Table(thread_table)
+    print(f"Cargando datos en {thread_table}...")
+    
+    now = datetime.utcnow()
+    date2 = (now - timedelta(days=14)).isoformat()[:-3] + 'Z'
+    
+    table.put_item(Item={
+        'ForumName': 'Amazon DynamoDB',
+        'Subject': 'DynamoDB Thread 1',
+        'Message': 'DynamoDB thread 1 message',
+        'LastPostedBy': 'User A',
+        'LastPostedDateTime': date2,
+        'Views': 0, 'Replies': 0, 'Answered': 0,
+        'Tags': {'index', 'primarykey', 'table'}
+    })
 
 def main():
-    # 1. Limpieza
-    delete_table(reply_table_name)
+    # 1. Eliminar tablas
+    for t in [product_catalog_table, forum_table, thread_table, reply_table]:
+        delete_table(t)
     
-    # 2. Creación
-    create_reply_table()
+    # 2. Crear tablas
+    create_table(product_catalog_table, 10, 5, "Id", "N")
+    create_table(forum_table, 10, 5, "Name", "S")
+    create_table(thread_table, 10, 5, "ForumName", "S", "Subject", "S")
+    create_table(reply_table, 10, 5, "Id", "S", "ReplyDateTime", "S")
     
-    # 3. Carga de datos 
-    load_sample_replies()
+    # 3. Cargar datos
+    load_sample_products()
+    load_sample_threads()
+    # (Las demás funciones load_sample siguen el mismo patrón de put_item)
     
-    print("Proceso finalizado.")
+    print("Success.")
 
 if __name__ == "__main__":
     main()
