@@ -1276,7 +1276,7 @@ pip install boto3
 - Si todo ha ido bien, tendremos nuestras tablas creadas y algunos items introducidos.  
 ![Descripción de la imagen](./ut8/dynamoDB/DYN-35.png){.cien  .margintop10 .marco }
 <br>
- 
+**Nota:** La tabla `AlumnosNotas` se creó en la práctica anterior. No pertenece a esta tarea.
 
 #### 2.2.9.2 - Primeras consultas sobre las tablas
 Podemos hacer consultas sobre las tablas usando la consola de administración de AWS o la CLI de AWS. En este caso usaremos la CLI.  
