@@ -1276,7 +1276,7 @@ pip install boto3
 - Si todo ha ido bien, tendremos nuestras tablas creadas y algunos items introducidos.  
 ![Descripción de la imagen](./ut8/dynamoDB/DYN-35.png){.cien  .margintop10 .marco }
 <br>
-**Nota:** Si revisamos el script de python, veremos que solo tenemos lógica para crear la tabla **Thread**. No obstante, también se han creado las tablas **Forum**, **ProductCatalog** y **Reply** (anteriormente creamos la tabla **AlumnosNotas**). No se trata de un error sino de un **funcionamiento estándar del Laboratory de AWS**. En una cuenta de 'pago' esas tablas no se habrían creado.  
+ 
 
 #### 2.2.9.2 - Primeras consultas sobre las tablas
 Podemos hacer consultas sobre las tablas usando la consola de administración de AWS o la CLI de AWS. En este caso usaremos la CLI.  
