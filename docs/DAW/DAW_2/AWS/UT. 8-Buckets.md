@@ -1388,13 +1388,13 @@ Ejemplos de capturas:
 ## **Enlaces de interés**
 Documentación de [AWS](https://docs.aws.amazon.com)   
 Sistemas de almacenamiento en [AWS](https://aws.amazon.com/es/products/storage/)  
-Sistemas de almacenamiento [EFS](https://aws.amazon.com/es/efs/) en AWS.  
-Guía del usuario [EFS](https://docs.aws.amazon.com/es_es/efs/latest/ug/mounting-fs.html).  
+Sistemas de almacenamiento [EFS](https://aws.amazon.com/es/efs/) en AWS
+Guía del usuario [EFS](https://docs.aws.amazon.com/es_es/efs/latest/ug/mounting-fs.html)
 Control de acceso a [buckets S3](https://docs.aws.amazon.com/es_es/AmazonS3/latest/userguide/about-object-ownership.html?icmpid=docs_amazons3_console)  
 Base de datos relacionales [AWS RDS](https://aws.amazon.com/es/rds/)  
 Guía del usuario del [AWS RDS](https://docs.aws.amazon.com/es_es/AmazonRDS/latest/UserGuide/Welcome.html)  
 Guía del usuario de [Amazon Aurora](https://docs.aws.amazon.com/es_es/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)  
 Widgets de [Amazon CloudWatch](https://docs.aws.amazon.com/es_es/AmazonCloudWatch/latest/monitoring/create-and-work-with-widgets.html)  
 Documentación de Amazon [DynamoDB](https://docs.aws.amazon.com/es_es/dynamodb/)  
-GUI de [NoSQL Workbench](https://docs.aws.amazon.com/es_es/amazondynamodb/latest/developerguide/workbench.html)
+GUI de [NoSQL Workbench](https://docs.aws.amazon.com/es_es/amazondynamodb/latest/developerguide/workbench.html)  
 Enlace de [descarga](https://docs.aws.amazon.com/es_es/amazondynamodb/latest/developerguide/workbench.settingup.html) de NoSQL Workbench
