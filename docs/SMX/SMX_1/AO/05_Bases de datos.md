@@ -189,13 +189,16 @@ LibreOffice Base puede funcionar de dos maneras:
             En el siguiente ejemplo, vemos como un vendedor con Id única (IdVendedor) de la tabla **Vendedores** puede aparecer en múltiples registros de la tabla **Ventas** (al haber realizado múltiples ventas). 
             ![Descripción de la imagen](./img/UT4/bbdd-13.png){ .leftsietecinco .marco .margintop10 .marginbottom20 }
             
+            - **Muchos a muchos (N:N). Esta clase de relación ocurre cuando una fila de la primera tabla puede estar relacionada con muchas filas de la segunda tabla y una fila de la segunda tabla puede estarlo con muchas filas de la primera.  
+            Un ejemplo de este tipo lo tenemos en la relación entre la tabla Peliculas y la tabla Interpretes porque dada una película en particular esta puede tener muchos intérpretes y viceversa: dado un intérprete, este puede haber intervenido en muchas películas.
+            
+            - **Uno a uno (1 a 1)**. Este tipo de relación aparece con menos frecuencia y sucede cuando una fila de la primera tabla solo puede estar relacionada con una fila de la segunda y una fila de la segunda tabla solo puede estar relacionada con una de la primera.  
+            Un ejemplo de este tipo de relaciones podría ser entre una tabla con países y otra con jefes de gobierno, dado que, normalmente, un país solo tiene un jefe de gobierno y un jefe de gobierno lo es solo de un país.
 
-    Muchos a muchos. Esta clase de relación ocurre cuando una fila de la primera tabla puede estar relacionada con muchas filas de la segunda tabla y una fila de la segunda tabla puede estarlo con muchas filas de la primera. Un ejemplo de este tipo lo tenemos en la relación entre la tabla Peliculas y la tabla Interpretes (ver figura 4.9) porque dada una película en particular esta puede tener muchos intérpretes y viceversa: dado un intérprete, este puede haber intervenido en muchas películas.
 
-    Uno a uno (1 a 1). Este tipo de relación aparece con menos frecuencia y sucede cuando una fila de la primera tabla solo puede estar relacionada con una fila de la segunda y una fila de la segunda tabla solo puede estar relacionada con una de la primera. Un ejemplo de este tipo de relaciones podría ser entre una tabla con países y otra con jefes de gobierno, dado que, normalmente, un país solo tiene un jefe de gobierno y un jefe de gobierno lo es solo de un país.
-
-
-        !!! task "Realizar las Trabajo a realizar"
+            !!! task "Trabajo a realizar"
+                Establacer las relaciones entre las tablas de la base de datos.
+        
 
 
 
