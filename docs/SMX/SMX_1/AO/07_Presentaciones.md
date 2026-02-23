@@ -10,16 +10,13 @@ layout: default
 schedule: 224h - 7h/w
 ---
 
-# **UD. 4 - Presentaciones con LibreOffice Impress**
-
-![Descripción de la imagen](./07_Presentaciones/img/imp-1.png){ .doscinco }
-<br>
+![Descripción de la imagen](./07_Presentaciones/img/imp-1.png){ .doscinco .marginbottom40 }
 
 **Resultados de aprendizaje y criterios de evaluacion que se evaluarán en esta unidad.**  
 
 | **Resultados de aprendizaje de la unidad didáctica:** |
-|-|
-| **RA7. Elabora presentaciones multimedia describiendo y aplicando normas básicas de composición y diseño.**|
+| :--- |
+| **RA7. Elabora presentaciones multimedia describiendo y aplicando normas básicas de composición y diseño.** |
 
 |**Criterios de evaluación de la unidad didáctica:**||
     |-|-|
@@ -30,10 +27,11 @@ schedule: 224h - 7h/w
     |**e)** Se han creado presentaciones. |30%|
     |**f)** Se han utilizado periféricos para ejecutar presentaciones. |5%|
 
-!!! warning "Nota:" 
+!!! warning "Nota:"
     El criterio de evaluación **f) Se han utilizado periféricos para ejecutar presentaciones** será evaluado durante la FCT.
 
-## **Presentación**
+## Presentación
+
 LibreOffice Impress es el componente del paquete ofimático LibreOffice que sirve para crear **presentaciones multimedia**.
 
 Su función principal es ofrecer una herramienta completa para diseñar y organizar información visualmente atractiva, ideal para comunicarla a una audiencia.
