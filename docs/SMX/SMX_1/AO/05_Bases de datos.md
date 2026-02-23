@@ -188,7 +188,7 @@ LibreOffice Base puede funcionar de dos maneras:
             En el siguiente ejemplo, vemos como un vendedor con Id única (IdVendedor) de la tabla **Vendedores** puede aparecer en múltiples registros de la tabla **Ventas** (al haber realizado múltiples ventas). 
             ![Descripción de la imagen](./img/UT4/bbdd-13.png){ .leftsietecinco .marco .margintop10 .marginbottom20 }
             
-            - **Muchos a muchos (N:N). Esta clase de relación ocurre cuando una fila de la primera tabla puede estar relacionada con muchas filas de la segunda tabla y una fila de la segunda tabla puede estarlo con muchas filas de la primera.  
+            - **Muchos a muchos (N:N)**. Esta clase de relación ocurre cuando una fila de la primera tabla puede estar relacionada con muchas filas de la segunda tabla y una fila de la segunda tabla puede estarlo con muchas filas de la primera.  
             Un ejemplo de este tipo lo tenemos en la relación entre la tabla Peliculas y la tabla Interpretes porque dada una película en particular esta puede tener muchos intérpretes y viceversa: dado un intérprete, este puede haber intervenido en muchas películas.
             
             - **Uno a uno (1 a 1)**. Este tipo de relación aparece con menos frecuencia y sucede cuando una fila de la primera tabla solo puede estar relacionada con una fila de la segunda y una fila de la segunda tabla solo puede estar relacionada con una de la primera.  
@@ -201,6 +201,12 @@ LibreOffice Base puede funcionar de dos maneras:
                 |-|-|
                 |||
 
+            ![Descripción de la imagen](./img/UT4/bbdd-15.png){ .leftsietecinco .marco .margintop10 .marginbottom20 }
+            ![Descripción de la imagen](./img/UT4/bbdd-16.png){ .leftsietecinco .marco .margintop10 .marginbottom20 }
+            ![Descripción de la imagen](./img/UT4/bbdd-17.png){ .leftsietecinco .marco .margintop10 .marginbottom20 }
+            ![Descripción de la imagen](./img/UT4/bbdd-18.png){ .leftsietecinco .marco .margintop10 .marginbottom20 }
+            ![Descripción de la imagen](./img/UT4/bbdd-19.png){ .leftsietecinco .marco .margintop10 .marginbottom20 }
+            ![Descripción de la imagen](./img/UT4/bbdd-20.png){ .leftsietecinco .marco .margintop10 .marginbottom20 }
         
 <!-- https://www.youtube.com/results?search_query=libreoffice+base -->
 
