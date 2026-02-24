@@ -238,6 +238,7 @@ LibreOffice Base puede funcionar de dos maneras:
     - Subir la base de datos, a la tarea RA4-CEa de **Aules**.
     - A partir de momento de apertura de la tarea, dispondréis de **14 días** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestros ejercicios.    
 
+## 3 - Tarea RA4-CEce
 
 <!-- https://www.youtube.com/results?search_query=libreoffice+base -->
 
@@ -245,9 +246,9 @@ LibreOffice Base puede funcionar de dos maneras:
 
 <!-- https://www.iesandresbojollo.es/tiyc/base/2-Interfaz_de_usuario.html -->
 
-<!-- Tarea RA4-CEc  
+<!--   
 Tarea RA4-CEd  
-Tarea RA4-CEe  
+  
 Tarea RA4-CEf  
 Tarea RA4-CEg  
 Tarea RA4-CEh   -->
