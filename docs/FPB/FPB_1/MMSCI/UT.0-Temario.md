@@ -10,16 +10,16 @@ layout: default
 schedule: 195h - 6h/s 
 ---
 
-# **Montaje y mantenimiento de sistemas y componentes informáticos**
+Montaje y mantenimiento de sistemas y componentes informáticos
 
 ## **1. - Calendario escolar**
-
 
 ## **2. - Horario de sesiones**
 
 ## **3. - Contenidos del módulo**
 
 ### **3.1. - Selección de componentes y herramientas:**  
+
 - Conceptos de intensidad, diferencia de potencial (tensión), resistencia; Ley de Ohm; corriente continua y alterna; magnitudes eléctricas; aparatos de medidas de magnitudes eléctricas.
 - Elementos básicos: Pilas y baterías, pulsadores, interruptores, fuentes de alimentación, resistencias, condensadores, diodos, transistores, led, entre otros.
 - Herramientas utilizadas en los procedimientos de montaje de componentes y periféricos informáticos.
@@ -36,6 +36,7 @@ schedule: 195h - 6h/s
 - Seguridad eléctrica: medidas de prevención de riesgos eléctricos; daños producidos por descarga eléctrica.
 
 ### **3.2. - Ensamblaje de componentes hardware de un equipo microinformático:**
+
 - Procedimientos de instalación y fijación de componentes microinformático a la carcasa y a la placa base.
 - Periféricos básicos: monitor, teclado, ratón e impresoras.
 - Otros periféricos: altavoces, micrófono, escáner, dispositivos multimedia, entre otros.
@@ -43,6 +44,7 @@ schedule: 195h - 6h/s
 - La Seguridad en las operaciones de montaje, sustitución y conexión de componentes y periféricos microinformáticos.
 
 ### **3.3 - Instalación de sistemas operativos:**
+
 - El software básico de un sistema informático.
 - Funciones del sistema operativo.
 - Utilización del sistema operativo.
@@ -52,6 +54,7 @@ schedule: 195h - 6h/s
 orígenes de información; procedimientos de implantación de imágenes y réplicas de sistemas; procedimientos de verificación de imágenes y réplicas de sistemas.
 
 ### **3.4 - Funcionalidad de los sistemas:**
+
 - Técnicas de verificación y testeo de sistemas microinformáticos.
 - Software de testeo y verificación.
 - Herramientas de verificación y diagnóstico de sistemas microinformáticos.
@@ -59,12 +62,14 @@ orígenes de información; procedimientos de implantación de imágenes y répli
 - Conexión de dispositivos periféricos en el sistema microinformático.
 
 ### **3.5 - Mantenimiento básico del equipo y periféricos:**
+
 - Técnicas auxiliares de mantenimiento de sistemas microinformáticos: El mantenimiento preventivo y periódico.
 - Medidas de conservación y reciclaje de elementos consumibles.
 - Procedimientos de sustitución de elementos consumibles.
 - Seguridad en la manipulación y sustitución de elementos consumibles.
 
 ### **3.6 - Almacenaje de equipos, periféricos y consumibles:**
+
 - Técnicas de etiquetado, embalaje, almacenamiento y traslado de sistemas y componentes informáticos
 - Procedimientos y herramientas de etiquetado.
 - Embalaje de componentes y periféricos de un sistema microinformático.
@@ -73,10 +78,11 @@ orígenes de información; procedimientos de implantación de imágenes y répli
 - Tratamiento, reciclaje y eliminación de residuos informáticos.
 
 ## **4. - Metodología de aprendizaje**
- 
-## **5. - Evaluación** 
+
+## 5. - Evaluación
 
 ### **5.1. - Relación entre Criterios de Evaluación y Resultados de Aprendizaje**
+
 **Los criterios de evaluación** asociados a los **resultados de aprendizaje** son los siguientes:
 
 === "RA 1"
@@ -140,7 +146,7 @@ orígenes de información; procedimientos de implantación de imágenes y répli
 === "RA 6"
     |Almacena equipos, periféricos y consumibles, describiendo las condiciones de conservación y etiquetado.||
     |-|-|
-    |**a)** Se han descrito las condiciones para manipular, transportar y almacenar componentes y periféricos de un sistema microinformático.|20%|        
+    |**a)** Se han descrito las condiciones para manipular, transportar y almacenar componentes y periféricos de un sistema microinformático.|20%|
     |**b)** Se han identificado los tipos de embalaje para el transporte y/o almacenaje de cada dispositivo, periférico y consumible.|20%|        
     |**c)** Se han utilizado las herramientas necesarias para realizar las tareas de etiquetado previas al embalaje y/o almacenamiento de sistemas, periféricos y consumibles.|10%|        
     |**d)** Se han utilizado los medios auxiliares adecuados a los elementos a transportar.|10%|        

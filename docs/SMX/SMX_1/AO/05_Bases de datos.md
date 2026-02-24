@@ -233,12 +233,23 @@ LibreOffice Base puede funcionar de dos maneras:
 !!! warning "Condiciones de entrega de la tarea"
     **Condiciones de entrega**
 
-    - Guardar el documento con RA4-CEa-NombreApellidos en format **xxx.odb**, **formato nativo** de LibreOffice Base.   
+    - Guardar el documento con RA4-CEa-NombreApellidos en format **NombreArchivo.odb**, **formato nativo** de LibreOffice Base.   
     - **No se aceptará ningun formato que no sea odb**.  
     - Subir la base de datos, a la tarea RA4-CEa de **Aules**.
     - A partir de momento de apertura de la tarea, dispondréis de **14 días** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestros ejercicios.    
 
 ## 3 - Tarea RA4-CEce
+
+### 3.1 - Parte 1
+
+!!! warning "1 - Formularios"
+
+Un formulario es un objeto de base de datos que proporciona una interfaz intuitiva para **introducir**, **modificar** y **visualizar los datos** almacenados en las tablas de nuestra base de datos.  
+Los formularios están diseñados para simplificar las consultas **CRUD** (Create, Read, Update, Delete), permitiendo a los usuarios interactuar con la base de datos sin necesidad de trabajar directamente con tablas o consultas SQL.
+
+### 3.2 - Parte 2
+
+!!! warning "2 - Creación de un formulario"
 
 <!-- https://www.youtube.com/results?search_query=libreoffice+base -->
 
@@ -256,11 +267,11 @@ Tarea RA4-CEh   -->
 <!-- https://oficinalibre.net/mod/scorm/view.php?id=130 -->
 
 <!-- 
-4.- Formato, validación y edición de datos.
+
 5.- Ordenación y filtrado de datos.
-6.- Clave primaria.
+
 7.- Edición de tablas.
-8.- Relaciones entre tablas. Integridad referencial.
+
 9.- Consultas.
 10.- Ordenación, selección y operadores en consultas.
 11.- Formularios simples. Diseño de formularios.
