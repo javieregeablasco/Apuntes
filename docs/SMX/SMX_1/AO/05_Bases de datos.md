@@ -207,26 +207,26 @@ LibreOffice Base puede funcionar de dos maneras:
         
         - **Uno a uno (1 a 1)**. Este tipo de relación aparece con menos frecuencia y sucede cuando una fila de la primera tabla  puede estar relacionada con una fila de la segunda y una fila de la segunda tabla solo puede estar relacionada con de la primera.  
         Un ejemplo de este tipo de relaciones podría ser entre una tabla con países y otra con jefes de gobierno, dado que, almente, un país solo tiene un jefe de gobierno y un jefe de gobierno lo es solo de un país.
-        !!! task "Trabajo a realizar"
-            Preparar las relaciones entre las tablas de la base de datos para ello, ir a:
-            
-            - Herramientas → **Relaciones**
-            - Dentro de la ventana de relaciones pinchar en el icono **Añadir tablas**.
-            ![Descripción de la imagen](./img/UT4/bbdd-21.png){ .leftcuatrocero .marco .margintop10 .marginbottom20 }
-            - Añadir todas las tablas disponibles.
-            ![Descripción de la imagen](./img/UT4/bbdd-22.png){ .leftoriginal .marco .margintop10 .marginbottom20 }
+    !!! task "Trabajo a realizar"
+        Preparar las relaciones entre las tablas de la base de datos para ello, ir a:
         
-        !!! task "Trabajo a realizar"
-            
-            - Preparar las relaciones entre las tablas.
-            !!! warning "¿Qué relaciones entre tablas tenemos en nuestra base de datos?"
-            - Para establecer las relaciones pincheremos en el icono **Relación nueva...**. 
-            ![Descripción de la imagen](./img/UT4/bbdd-23.png){ .leftcuatrocero .marco .margintop10 .marginbottom20 }
-            - Rellenaremos los campos para definir la relación entre tablas.
-            ![Descripción de la imagen](./img/UT4/bbdd-24.png){ .leftcuatrocero .marco .margintop10 .marginbottom20 }
-            !!! warning "¿A qué corresponden los campos `Opciones de actualización` y `Opciones de eliminación`?"
-            - Resultado final después de establecer todas las relaciones entre tablas.
-            ![Descripción de la imagen](./img/UT4/bbdd-20.png){ .leftoriginal .marco .margintop10 .marginbottom20 }
+        - Herramientas → **Relaciones**
+        - Dentro de la ventana de relaciones pinchar en el icono **Añadir tablas**.
+        ![Descripción de la imagen](./img/UT4/bbdd-21.png){ .leftcuatrocero .marco .margintop10 .marginbottom20 }
+        - Añadir todas las tablas disponibles.
+        ![Descripción de la imagen](./img/UT4/bbdd-22.png){ .leftoriginal .marco .margintop10 .marginbottom20 }
+    
+    !!! task "Trabajo a realizar"
+        
+        - Preparar las relaciones entre las tablas.
+        !!! warning "¿Qué relaciones entre tablas tenemos en nuestra base de datos?"
+        - Para establecer las relaciones pincheremos en el icono **Relación nueva...**. 
+        ![Descripción de la imagen](./img/UT4/bbdd-23.png){ .leftcuatrocero .marco .margintop10 .marginbottom20 }
+        - Rellenaremos los campos para definir la relación entre tablas.
+        ![Descripción de la imagen](./img/UT4/bbdd-24.png){ .leftcuatrocero .marco .margintop10 .marginbottom20 }
+        !!! warning "¿A qué corresponden los campos `Opciones de actualización` y `Opciones de eliminación`?"
+        - Resultado final después de establecer todas las relaciones entre tablas.
+        ![Descripción de la imagen](./img/UT4/bbdd-20.png){ .leftoriginal .marco .margintop10}
         
 ### 2.3 - Entrega de la tarea
 
@@ -245,12 +245,12 @@ LibreOffice Base puede funcionar de dos maneras:
 
 <!-- https://www.iesandresbojollo.es/tiyc/base/2-Interfaz_de_usuario.html -->
 
-Tarea RA4-CEc  
+<!-- Tarea RA4-CEc  
 Tarea RA4-CEd  
 Tarea RA4-CEe  
 Tarea RA4-CEf  
 Tarea RA4-CEg  
-Tarea RA4-CEh  
+Tarea RA4-CEh   -->
 
 <!-- https://oficinalibre.net/mod/scorm/view.php?id=130 -->
 
