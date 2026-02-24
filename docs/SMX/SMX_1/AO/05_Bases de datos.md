@@ -9,11 +9,9 @@ keywords: SMX, AO
 layout: default  
 schedule: 224h - 7h/w
 ---
+ 
 
-
-UD. 3 - LibreOffice Calc
-
-![Descripción de la imagen](./img/UT4/bbdd-01.png){ .doscinco }
+![Descripción de la imagen](./img/UT4/bbdd-01.png){ .doscinco .marginbottom40 }
 
 | **Resultados de aprendizaje de la unidad didáctica:**                                                                      |
 |----------------------------------------------------------------------------------------------------------------------------|
@@ -94,9 +92,11 @@ LibreOffice Base puede funcionar de dos maneras:
 
 ## 2 - Tarea RA4-CEa
 
+### 2.1 - Parte 1
+
 !!! warning "1 - Creación de una base de datos"
     1. Abrir el asistente de bases de datos de LibreOffice Base y elegir crear una base de datos nueva.
-    1. Después de pulsar siguiente, dejar las opciones por defecto (registrar la BBDD la hace disponible para todas las aplicaciones de LibreOffice). 
+    1. Después de pulsar siguiente, dejar las opciones por defecto (registrar la BBDD la hace disponible para todas las aplicaciones de LibreOffice).
     1. Para finalizar guardar la BBDD con el siguiente nombre: RA4-CEa-NombreApellidos
     1. Una vez abierta la BBDD, nos encontraremos con la siguiente interfaz.  
     ![Descripción de la imagen](./img/UT4/bbdd-03.png){ .ochocinco .marco .margintop10 .marginbottom20 }
@@ -121,6 +121,8 @@ LibreOffice Base puede funcionar de dos maneras:
             ![Descripción de la imagen](./img/UT4/bbdd-06.png){ .leftcincocero .marco .margintop10 .marginbottom20 }
             - Objetos de informes:
             ![Descripción de la imagen](./img/UT4/bbdd-07.png){ .leftcincocero .marco .margintop10   }
+
+### 2.2 - Parte 2
 
 !!! warning "2 - Creación de las tablas en LibreOffice Base"
     Una tabla de una base de datos es un conjunto de datos organizados en filas y columnas.  
@@ -154,8 +156,8 @@ LibreOffice Base puede funcionar de dos maneras:
         ![Descripción de la imagen](./img/UT4/bbdd-09.png){ .lefttrescero .marco .margintop10 .marginbottom20 }
  
     !!! tip "Clave primaria"  
-        La clave primaria es un campo **único** es decir, tiene un valor que no se puede repetir y **que identifica de forma única cada registro** de la tabla.  
-        Es muy aconsejable que la tabla tenga un campo que sirva como **clave primaria** ya que, entre otros:
+        La clave primaria es un campo **único** es decir, tiene un valor que no se puede repetir y **que identifica de forma única a cada registro** de la tabla.  
+        Es muy aconsejable, por no decir obligatorio, que la tabla tenga un campo que sirva como **clave primaria** ya que, entre otros:
 
         - Garantiza la integridad de entidad.
         - Facilita la creación de claves foráneas en otras tablas.
@@ -171,43 +173,72 @@ LibreOffice Base puede funcionar de dos maneras:
 
     !!! task "Trabajo a realizar"
         - Descargar todos los contenidos necesarios a la tarea desde el siguiente [enlace](./04_bases%20de%20datos/Tareas/RA4-CEa/datosBBDD/gimnasio.ods).
-        - Abrir el archivo **gimnasio.ods** y arrastrar las hojas a las tablas de la base de datos que iréis creando. 
+        - Abrir el archivo **gimnasio.ods** y arrastrar las hojas a las tablas de la base de datos que iréis creando.
         !!! warning "Cuidado a la hora de definir el campo de clave primaria"
+        **Resultado esperado después de importar las diferentes hojas de la hoja de cálculo**
+        ![Descripción de la imagen](./img/UT4/bbdd-12.png){ .leftoriginal .marco .margintop10 .marginbottom20 }
+
+        - Campos de la tabla **Actividades**
+        ![Descripción de la imagen](./img/UT4/bbdd-16.png){ .lefttrescinco .marco .margintop10 .marginbottom20 }
+        - Campos de la tabla **Actividades_Socios**  
+        ![Descripción de la imagen](./img/UT4/bbdd-15.png){ .lefttrescinco .marco .margintop10 .marginbottom20 }
+        - Campos de la tabla **Horario_Actividades**
+        ![Descripción de la imagen](./img/UT4/bbdd-17.png){ .lefttrescinco .marco .margintop10 .marginbottom20 }
+        - Campos de la tabla **Socios**
+        ![Descripción de la imagen](./img/UT4/bbdd-18.png){ .lefttrescinco .marco .margintop10 .marginbottom20 }
+        - Campos de la tabla **Tipo_Cuota**
+        ![Descripción de la imagen](./img/UT4/bbdd-19.png){ .lefttrescinco .marco .margintop10 .marginbottom20 }
+
+### 2.3 - Parte 3
+
+!!! warning "3 - Relaciones entre tablas"
+    En una base de datos relacional, una relación es la conexión lógica entre dos tablas mediante un campo común.  
+    Para establecer una relación entre dos tablas, es necesario que ambas tablas tengan un campo con el mismo tipo de datos y que campo se utilice como clave primaria en una tabla y como clave foránea en la otra tabla.  
+    La relación entre las tablas permite realizar consultas que combinan datos de ambas tablas, lo que facilita la obtención de rmación más completa y detallada.
+    !!! tip "Tipos de relaciones entre tablas en una base de datos"
+        Existen tres tipos básicos de relaciones entre tablas:
         
-        **Resultado esperado después de importar las hoja de la hoja de cálculo**
-        ![Descripción de la imagen](./img/UT4/bbdd-12.png){ .leftsietecinco .marco .margintop10 .marginbottom20 }
-
-    !!! warning "3 - Relaciones entre tablas"
-        En una base de datos relacional, una relación es la conexión lógica entre dos tablas mediante un campo común.  
-        Para establecer una relación entre dos tablas, es necesario que ambas tablas tengan un campo con el mismo tipo de datos y que ese campo se utilice como clave primaria en una tabla y como clave foránea en la otra tabla.  
-        La relación entre las tablas permite realizar consultas que combinan datos de ambas tablas, lo que facilita la obtención de información más completa y detallada.
-        !!! tip "Tipos de relaciones entre tablas en una base de datos"
-            Existen tres tipos básicos de relaciones entre tablas:
-            
-            - **Uno a muchos (1:N)**. Este tipo se da cuando una fila de la primera tabla puede estar relacionada con muchas filas de la segunda tabla, pero una fila de la segunda solo está relacionada con una de la primera.  
-            En el siguiente ejemplo, vemos como un vendedor con Id única (IdVendedor) de la tabla **Vendedores** puede aparecer en múltiples registros de la tabla **Ventas** (al haber realizado múltiples ventas). 
-            ![Descripción de la imagen](./img/UT4/bbdd-13.png){ .leftsietecinco .marco .margintop10 .marginbottom20 }
-            
-            - **Muchos a muchos (N:N)**. Esta clase de relación ocurre cuando una fila de la primera tabla puede estar relacionada con muchas filas de la segunda tabla y una fila de la segunda tabla puede estarlo con muchas filas de la primera.  
-            Un ejemplo de este tipo lo tenemos en la relación entre la tabla Peliculas y la tabla Interpretes porque dada una película en particular esta puede tener muchos intérpretes y viceversa: dado un intérprete, este puede haber intervenido en muchas películas.
-            
-            - **Uno a uno (1 a 1)**. Este tipo de relación aparece con menos frecuencia y sucede cuando una fila de la primera tabla solo puede estar relacionada con una fila de la segunda y una fila de la segunda tabla solo puede estar relacionada con una de la primera.  
-            Un ejemplo de este tipo de relaciones podría ser entre una tabla con países y otra con jefes de gobierno, dado que, normalmente, un país solo tiene un jefe de gobierno y un jefe de gobierno lo es solo de un país.
-
-
-            !!! task "Trabajo a realizar"
-                Establecer las relaciones entre las tablas de la base de datos:
-                |Tabla 1|Tabla 2|
-                |-|-|
-                |||
-
-            ![Descripción de la imagen](./img/UT4/bbdd-15.png){ .leftsietecinco .marco .margintop10 .marginbottom20 }
-            ![Descripción de la imagen](./img/UT4/bbdd-16.png){ .leftsietecinco .marco .margintop10 .marginbottom20 }
-            ![Descripción de la imagen](./img/UT4/bbdd-17.png){ .leftsietecinco .marco .margintop10 .marginbottom20 }
-            ![Descripción de la imagen](./img/UT4/bbdd-18.png){ .leftsietecinco .marco .margintop10 .marginbottom20 }
-            ![Descripción de la imagen](./img/UT4/bbdd-19.png){ .leftsietecinco .marco .margintop10 .marginbottom20 }
-            ![Descripción de la imagen](./img/UT4/bbdd-20.png){ .leftsietecinco .marco .margintop10 .marginbottom20 }
+        - **Uno a muchos (1:N)**. Este tipo se da cuando una fila de la primera tabla puede estar relacionada con muchas filas de egunda tabla, pero una fila de la segunda solo está relacionada con una de la primera.  
+        En el siguiente ejemplo, vemos como un vendedor con Id única (IdVendedor) de la tabla **Vendedores** puede aparecer en iples registros de la tabla **Ventas** (al haber realizado múltiples ventas). 
+        ![Descripción de la imagen](./img/UT4/bbdd-13.png){ .leftsietecinco .marco .margintop10 .marginbottom20 }
         
+        - **Muchos a muchos (N:N)**. Esta clase de relación ocurre cuando una fila de la primera tabla puede estar relacionada muchas filas de la segunda tabla y una fila de la segunda tabla puede estarlo con muchas filas de la primera.  
+        Un ejemplo de este tipo lo tenemos en la relación entre la tabla Peliculas y la tabla Interpretes porque dada una cula en particular esta puede tener muchos intérpretes y viceversa: dado un intérprete, este puede haber intervenido uchas películas.
+        
+        - **Uno a uno (1 a 1)**. Este tipo de relación aparece con menos frecuencia y sucede cuando una fila de la primera tabla  puede estar relacionada con una fila de la segunda y una fila de la segunda tabla solo puede estar relacionada con de la primera.  
+        Un ejemplo de este tipo de relaciones podría ser entre una tabla con países y otra con jefes de gobierno, dado que, almente, un país solo tiene un jefe de gobierno y un jefe de gobierno lo es solo de un país.
+        !!! task "Trabajo a realizar"
+            Preparar las relaciones entre las tablas de la base de datos para ello, ir a:
+            
+            - Herramientas → **Relaciones**
+            - Dentro de la ventana de relaciones pinchar en el icono **Añadir tablas**.
+            ![Descripción de la imagen](./img/UT4/bbdd-21.png){ .leftcuatrocero .marco .margintop10 .marginbottom20 }
+            - Añadir todas las tablas disponibles.
+            ![Descripción de la imagen](./img/UT4/bbdd-22.png){ .leftoriginal .marco .margintop10 .marginbottom20 }
+        
+        !!! task "Trabajo a realizar"
+            
+            - Preparar las relaciones entre las tablas.
+            !!! warning "¿Qué relaciones entre tablas tenemos en nuestra base de datos?"
+            - Para establecer las relaciones pincheremos en el icono **Relación nueva...**. 
+            ![Descripción de la imagen](./img/UT4/bbdd-23.png){ .leftcuatrocero .marco .margintop10 .marginbottom20 }
+            - Rellenaremos los campos para definir la relación entre tablas.
+            ![Descripción de la imagen](./img/UT4/bbdd-24.png){ .leftcuatrocero .marco .margintop10 .marginbottom20 }
+            !!! warning "¿A qué corresponden los campos `Opciones de actualización` y `Opciones de eliminación`?"
+            - Resultado final después de establecer todas las relaciones entre tablas.
+            ![Descripción de la imagen](./img/UT4/bbdd-20.png){ .leftoriginal .marco .margintop10 .marginbottom20 }
+        
+### 2.3 - Entrega de la tarea
+
+!!! warning "Condiciones de entrega de la tarea"
+    **Condiciones de entrega**
+
+    - Guardar el documento con RA4-CEa-NombreApellidos en format **xxx.odb**, **formato nativo** de LibreOffice Base.   
+    - **No se aceptará ningun formato que no sea odb**.  
+    - Subir la base de datos, a la tarea RA4-CEa de **Aules**.
+    - A partir de momento de apertura de la tarea, dispondréis de **14 días** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestros ejercicios.    
+
+
 <!-- https://www.youtube.com/results?search_query=libreoffice+base -->
 
 <!-- https://www.tuinstitutoonline.com/cursos/basebasico_v1506/14gimnasio.php -->

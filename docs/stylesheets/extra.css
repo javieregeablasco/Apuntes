@@ -171,6 +171,12 @@
 }
 
 
+.leftochocinco {
+  justify-content: left;
+  display: block;
+  width: 85%;
+}
+
 .leftsietecinco {
   justify-content: left;
   display: block;
@@ -202,6 +208,11 @@
   width: 40%;
 }
 
+.lefttrescinco {
+  justify-content: left;
+  display: block;
+  width: 35%;
+}
 .lefttrescero {
   justify-content: left;
   display: block;
