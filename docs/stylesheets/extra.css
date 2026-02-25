@@ -183,6 +183,12 @@
   width: 75%;
 }
 
+.leftsietecero {
+  justify-content: left;
+  display: block;
+  width: 70%;
+}
+
 .leftseiscero {
   justify-content: left;
   display: block;
@@ -269,6 +275,9 @@
 
 .margintop20 {
   margin-top: 20px;
+}
+.warning-indent {
+  margin-left: 20px;
 }
 
 .marginbottom40 {

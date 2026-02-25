@@ -240,20 +240,124 @@ LibreOffice Base puede funcionar de dos maneras:
 
 ## 3 - Tarea RA4-CEce
 
+!!! warning "Para esta tarea, deberéis recuperar la base de datos creada en la tarea RA4-CEa"
+
 ### 3.1 - Parte 1
 
 !!! warning "1 - Formularios"
 
-Un formulario es un objeto de base de datos que proporciona una interfaz intuitiva para **introducir**, **modificar** y **visualizar los datos** almacenados en las tablas de nuestra base de datos.  
-Los formularios están diseñados para simplificar las consultas **CRUD** (Create, Read, Update, Delete), permitiendo a los usuarios interactuar con la base de datos sin necesidad de trabajar directamente con tablas o consultas SQL.
+    Un formulario es un objeto de base de datos que proporciona una interfaz intuitiva para **introducir**, **modificar** y **visualizar los datos**    almacenados en las tablas de nuestra base de datos.  
+    Los formularios están diseñados para simplificar las consultas **CRUD** (Create, Read, Update, Delete), permitiendo a los usuarios interactuar con la   base de datos sin necesidad de trabajar directamente con tablas o consultas SQL.
+
+    **Ejemplo de interfaz de formulario:**
+    ![Descripción de la imagen](./img/UT4/bbdd-25.png){ .leftsietecinco .margintop10 .marginbottom20 }
 
 ### 3.2 - Parte 2
 
-!!! warning "2 - Creación de un formulario"
+!!! warning "2 - Creación de formularios"
+    !!! tip "Elementos fundamentales de un formulario"
+        Un formulario puede contener diversos elementos que facilitan la interacción con los datos.  
+        Algunos de los elementos más comunes son:
 
+        - **Cuadros de texto**: Permiten ingresar o mostrar datos alfanuméricos.
+        - **Cuadros combinados**: Ofrecen una lista desplegable de opciones para seleccionar un valor específico.
+        - **Botones de opción**: Permiten seleccionar una opción entre varias disponibles.
+        - **Casillas de verificación**: Permiten marcar o desmarcar opciones.
+        - **Botones de comando**: Permiten ejecutar acciones específicas, como guardar un registro, eliminar un registro o navegar entre registros.
+        - ... y muchos más.  
+
+        **Ejemplo de formulario**   
+        ![Descripción de la imagen](./img/UT4/bbdd-26.png){ .leftcincocero .margintop10 .marginbottom20 }
+
+    !!! tip "Elementos gráficos de un formulario"
+        Además de los elementos de control, un formulario también puede incluir elementos gráficos para mejorar su apariencia y usabilidad. Algunos ejemplos de elementos gráficos son:
+        
+        - **Etiquetas**: Se utilizan para identificar los campos del formulario y proporcionar información adicional al usuario.
+        - **Imágenes**: Se pueden incluir imágenes para hacer el formulario más atractivo visualmente o para representar información de manera gráfica.
+        - **Líneas y formas**: Se pueden utilizar para organizar visualmente el formulario y separar secciones o grupos de campos relacionados.
+        - ... y muchos más.  
+
+        **Ejemplo de formulario con elementos gráficos añadidos**   
+        ![Descripción de la imagen](./img/UT4/bbdd-27.png){ .leftcincocero .margintop10 .marginbottom20 }
+
+    !!! tip "Creación de formularios con el asistente de LibreOffice Base"
+        LibreOffice Base ofrece un asistente para la creación de formularios que guía al usuario a través de los pasos necesarios para diseñar un formulario de manera rápida y sencilla.  
+        
+        - Vamos a **Formularios → Crear formulario con asistente...**.
+        ![Descripción de la imagen](./img/UT4/bbdd-28.png){ .leftcincocero .margintop10 .marginbottom20 }
+        - Elegimos la tabla de la base de datos que usaremos así como los campos que queremos pintar en el formulario.
+        ![Descripción de la imagen](./img/UT4/bbdd-29.png){ .leftcincocero .margintop10 .marginbottom20 }
+        - En el siguientre paso, dejamos las opciones por defecto. 
+        - Organizar controles: Elegimos la disposición de controles dentro de la interfaz que más nos guste.  
+        ![Descripción de la imagen](./img/UT4/bbdd-30.png){ .leftoriginal .margintop10 .marginbottom20 }
+        - En **Establecer entrada de datos** marcaremos si los datos se pueden modificar (insertar, modificar o eliminar).
+        ![Descripción de la imagen](./img/UT4/bbdd-31.png){ .leftcincocero .margintop10 .marginbottom20 }
+        - En **Aplicar estilos** elegimos el diseño de los campos y el color de fondo.
+        - Finalemente, damos un nombre al formulario y nos ponemos a trabajar con él para hacerlo plenamente funcional. 
+        ![Descripción de la imagen](./img/UT4/bbdd-32.png){ .leftcincocero .margintop10 .marginbottom20 }
+
+    !!! tip "Modificación del formulario creado con el asistente"
+        Como podemos ver, el formulario creado con el asistente no tiene en cuenta que algunos campos están enlazados con otras tablas, por lo que los muestra como cuadros de texto.  
+        ![Descripción de la imagen](./img/UT4/bbdd-37.png){ .leftsietecero .margintop10 .marginbottom20 }
+        Para que el formulario sea plenamente funcional, es necesario modificarlo para que los campos relacionados con otras tablas se muestren como cuadros combinados.
+
+        - Selecionamos uno de los campos a modificar, hacemos click derecho, seleccionamos **desagrupar** y eliminamos el campo.
+        - En la barra de herramientas de controles, seleccionamos el control **Cuadro combinado** y lo colocamos en el lugar donde estaba el campo eliminado.
+        
+        !!! warning "Muy importante"
+            Cuando seleccionamos el control de cuadro combinado, es necesario que el botón de "**Alternar asistentes de control de formulario**" esté activado. De lo contrario, no aparecerá el asistente para configurar correctamente el cuadro combinado.
+            ![Descripción de la imagen](./img/UT4/bbdd-33.png){ .leftcuatrocero .margintop10  }
+        
+
+        - Una vez abierto el asistente, elegimos la tabla **Socios**.
+        ![Descripción de la imagen](./img/UT4/bbdd-34.png){ .leftcuatrocero .margintop10 .marginbottom20 }
+        - Luego elegimos el campo que queremos visualizar (Cuota).
+        ![Descripción de la imagen](./img/UT4/bbdd-35.png){ .leftcuatrocero .margintop10 .marginbottom20 }
+        - En **campo de base de datos** elegimos la opción **Sí**, al ser un campo que deseamos poder modificar. 
+        ![Descripción de la imagen](./img/UT4/bbdd-36.png){ .leftcuatrocero .margintop10 .marginbottom20 }
+        - Si todo ha ido bien, después de finalizar el cuadro combinado debería mostrar los valores de la tabla enlazada (relacionada) **Tipo_cuota** dentro del formulario. Una vez seleccionada una opción, ese valor se escribirá dentro de la tabla **Socios**. 
+        ![Descripción de la imagen](./img/UT4/bbdd-38.png){ .leftseiscero .margintop10 .marginbottom20 }
+
+
+
+
+    !!! warning "Trabajo a realizar 1/3"
+        - Realizar el formulario explicado más arriba. 
+        - Modificar el campo **Actividad preferida** para que enlace el valor del campo con los valores de la tabla **Actividades**.  
+        
+    !!! warning "Trabajo a realizar 2/3 (opcional)"
+        - Mejorar el aspecto visual del formulario (interfaz).
+    !!! warning "Trabajo a realizar 3/3"
+        El formulario anterior se diseñó para solamente visualizar los datos personales del usuario.
+        
+        - Crear un formulario que llamaréis **Socios_Actividades**.
+        - Ese formulario sirvirá para que cada socio pueda elegir una actividad por día.
+        - **Ejemplo de formulario** (los estilos son opcionales).
+        ![Descripción de la imagen](./img/UT4/bbdd-39.png){ .leftseiscero .margintop10 .marginbottom20 }
+        - Los campos **Actividad lunes, martes..., domingo** deberán reemplazarse por cuadros combinados.
+        - El formulario deberá ser plenamente funcional es decir, la tabla **Socios** deberá actualizarse con los nuevos valores elegidos. 
+
+### 3.3 - Entrega de la tarea
+
+!!! warning "Condiciones de entrega de la tarea"
+    **Condiciones de entrega**
+
+    - Guardar el documento con RA4-CEce-NombreApellidos en format **NombreArchivo.odb**, **formato nativo** de LibreOffice Base.   
+    - **No se aceptará ningun formato que no sea odb**.  
+    - Subir la base de datos, a la tarea RA4-CEce de **Aules**.
+    - A partir de momento de apertura de la tarea, dispondréis de **14 días** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestros ejercicios.    
+        
+         
+        - Guardar los formularios con los siguientes nombres:  
+            - Formulario_Actividades
+            - Formulario_Actividades_Socios
+            - Formulario_Horario_Actividades
+            - Formulario_Socios
+            - Formulario_Tipo_Cuota -->
+<!-- https://www.tuinstitutoonline.com/cursos/bbdd/basebasico1_v19es/08disenyo_formularios.php -->
+<!-- https://mediateca.educa.madrid.org/video/oqw8eufdxr4r67ti -->
 <!-- https://www.youtube.com/results?search_query=libreoffice+base -->
-
-<!-- https://www.tuinstitutoonline.com/cursos/basebasico_v1506/14gimnasio.php -->
+ 
 
 <!-- https://www.iesandresbojollo.es/tiyc/base/2-Interfaz_de_usuario.html -->
 
