@@ -147,21 +147,24 @@ orígenes de información; procedimientos de implantación de imágenes y répli
     |Almacena equipos, periféricos y consumibles, describiendo las condiciones de conservación y etiquetado.||
     |-|-|
     |**a)** Se han descrito las condiciones para manipular, transportar y almacenar componentes y periféricos de un sistema microinformático.|20%|
-    |**b)** Se han identificado los tipos de embalaje para el transporte y/o almacenaje de cada dispositivo, periférico y consumible.|20%|        
-    |**c)** Se han utilizado las herramientas necesarias para realizar las tareas de etiquetado previas al embalaje y/o almacenamiento de sistemas, periféricos y consumibles.|10%|        
-    |**d)** Se han utilizado los medios auxiliares adecuados a los elementos a transportar.|10%|        
-    |**e)** Se han aplicado las normas de seguridad en la manipulación y el transporte de elementos y equipos.|10%|        
-    |**f)** Se ha comprobado que los componentes recepcionados se corresponden con el albarán de entrega y que se encuentran en buen estado. |10%|   
+    |**b)** Se han identificado los tipos de embalaje para el transporte y/o almacenaje de cada dispositivo, periférico y consumible.|20%|
+    |**c)** Se han utilizado las herramientas necesarias para realizar las tareas de etiquetado previas al embalaje y/o almacenamiento de sistemas, periféricos y consumibles.|10%|
+    |**d)** Se han utilizado los medios auxiliares adecuados a los elementos a transportar.|10%|
+    |**e)** Se han aplicado las normas de seguridad en la manipulación y el transporte de elementos y equipos.|10%|
+    |**f)** Se ha comprobado que los componentes recepcionados se corresponden con el albarán de entrega y que se encuentran en buen estado. |10%|
     |**g)** Se han registrado las operaciones realizadas siguiendo los formatos establecidos.|10%|
     |**h)** Se han recogido los elementos desechables para su eliminación o reciclaje.|10%|
-    
+
 ### **5.2. - Metodología de evaluación**
-1. La evaluación será **contínua**.   
+
+1. La evaluación será **contínua**.
 2. Se basará en la comprobación de la superación de los **resultados de aprendizaje RA**.
 3. La evaluación se hará por **RA's** sobre todos los **CE's** del currículo.
 
 ### **5.3. - Instrumentos de evaluación y prueba de trabajo**
+
 **Los instrumentos de evaluación** propuestos en cada unidad de trabajo son los siguientes:
+
 1. Observación directa del alumno/a: motivación, interés, actitudes, comportamiento, asistencia, etc.
 1. Realización de actividades individuales y en grupo.
 1. Elaboración de ejercicios prácticos.

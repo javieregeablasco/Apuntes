@@ -121,6 +121,14 @@ LibreOffice Base puede funcionar de dos maneras:
             ![Descripción de la imagen](./img/UT4/bbdd-06.png){ .leftcincocero .marco .margintop10 .marginbottom20 }
             - Objetos de informes:
             ![Descripción de la imagen](./img/UT4/bbdd-07.png){ .leftcincocero .marco .margintop10   }
+    !!! tip "Tablas"
+        En las tablas se almacena la información estructurada de la base de datos. Cada tabla está compuesta por campos (columnas) y registros (filas). Una base de datos suele contener varias tablas relacionadas entre sí.
+    !!! tip "Formularios"
+        Los formularios permiten introducir, modificar y visualizar datos de las tablas de forma más cómoda y controlada. No almacenan información por sí mismos, sino que actúan como interfaz de acceso a las tablas o consultas.
+    !!! tip "Consultas"
+        Las consultas permiten obtener información específica de una o varias tablas. Se utilizan para filtrar, ordenar o combinar datos mediante criterios determinados.
+    !!! tip "Informes"
+        Los informes permiten presentar los datos de forma organizada y lista para imprimir o exportar. Se basan en la información de tablas o consultas y muestran los datos con un formato definido. Cada vez que se ejecutan, reflejan el estado actual de la base de datos.
 
 ### 2.2 - Parte 2
 
@@ -353,7 +361,7 @@ LibreOffice Base puede funcionar de dos maneras:
 
 ## 6 - Tarea RA4-CEh
 <!-- https://www.tuinstitutoonline.com/cursos/bbdd/basebasico1_v19es/08disenyo_formularios.php -->
-<!-- https://mediateca.educa.madrid.org/video/oqw8eufdxr4r67ti -->
+
 <!-- https://www.youtube.com/results?search_query=libreoffice+base -->
 <!-- https://www.iesandresbojollo.es/tiyc/base/2-Interfaz_de_usuario.html -->
 
