@@ -329,7 +329,7 @@ LibreOffice Base puede funcionar de dos maneras:
         - Mejorar el aspecto visual del formulario (interfaz).
     !!! warning "Trabajo a realizar 3/3"
         El formulario anterior se diseñó para solamente visualizar los datos personales del usuario.
-        
+
         - Crear un formulario que llamaréis **Socios_Actividades**.
         - Ese formulario sirvirá para que cada socio pueda elegir una actividad por día.
         - **Ejemplo de formulario** (los estilos son opcionales).
@@ -347,25 +347,17 @@ LibreOffice Base puede funcionar de dos maneras:
     - Subir la base de datos, a la tarea RA4-CEce de **Aules**.
     - A partir de momento de apertura de la tarea, dispondréis de **14 días** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestros ejercicios.    
         
-         
-        - Guardar los formularios con los siguientes nombres:  
-            - Formulario_Actividades
-            - Formulario_Actividades_Socios
-            - Formulario_Horario_Actividades
-            - Formulario_Socios
-            - Formulario_Tipo_Cuota -->
+## 4 - Tarea RA4-CEdg
 <!-- https://www.tuinstitutoonline.com/cursos/bbdd/basebasico1_v19es/08disenyo_formularios.php -->
 <!-- https://mediateca.educa.madrid.org/video/oqw8eufdxr4r67ti -->
 <!-- https://www.youtube.com/results?search_query=libreoffice+base -->
- 
-
 <!-- https://www.iesandresbojollo.es/tiyc/base/2-Interfaz_de_usuario.html -->
 
 <!--   
-Tarea RA4-CEd  
+  
   
 Tarea RA4-CEf  
-Tarea RA4-CEg  
+  
 Tarea RA4-CEh   -->
 
 <!-- https://oficinalibre.net/mod/scorm/view.php?id=130 -->
