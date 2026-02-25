@@ -348,17 +348,14 @@ LibreOffice Base puede funcionar de dos maneras:
     - A partir de momento de apertura de la tarea, dispondréis de **14 días** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestros ejercicios.    
         
 ## 4 - Tarea RA4-CEdg
+
+## 5 - Tarea RA4-CEf
+
+## 6 - Tarea RA4-CEh
 <!-- https://www.tuinstitutoonline.com/cursos/bbdd/basebasico1_v19es/08disenyo_formularios.php -->
 <!-- https://mediateca.educa.madrid.org/video/oqw8eufdxr4r67ti -->
 <!-- https://www.youtube.com/results?search_query=libreoffice+base -->
 <!-- https://www.iesandresbojollo.es/tiyc/base/2-Interfaz_de_usuario.html -->
-
-<!--   
-  
-  
-Tarea RA4-CEf  
-  
-Tarea RA4-CEh   -->
 
 <!-- https://oficinalibre.net/mod/scorm/view.php?id=130 -->
 
