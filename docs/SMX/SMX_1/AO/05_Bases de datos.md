@@ -70,7 +70,7 @@ Una tabla de una base de datos relacional se caracteriza por:
 - Contener **campos** (columnas) que definen los atributos de los datos.
 - Contener **registros** (filas) que representan las instancias de los datos.
 - Tener una **clave primaria**: Es el campo que identifica de forma única un registro de la tabla (por ejemplo, el id_cliente dentro de la tabla Clientes).
-- Tener una **clave foránea**, que es un campo que se utiliza para establecer una relación con otra tabla (por ejemplo, el id_cliente que se repite entre las tablas Clientes y Pedidos). 
+- Tener una **clave foránea**, que es un campo que se utiliza para establecer una relación con otra tabla (por ejemplo, el id_cliente que se repite entre las tablas Clientes y Pedidos).
 - Permitir la **manipulación de datos** mediante operaciones como inserción, actualización, eliminación y consulta.
 
 **Ejemplo de tablas en una base de datos.**  
@@ -179,23 +179,27 @@ LibreOffice Base puede funcionar de dos maneras:
 
         !!! question "¿Como podemos asegurarnos de que los registros del campo con clave primaria no se puedan repetir?"
 
-    !!! task "Trabajo a realizar"
+    !!! task "Trabajo a realizar 1/3"
         - Descargar todos los contenidos necesarios a la tarea desde el siguiente [enlace](./04_bases%20de%20datos/Tareas/RA4-CEa/datosBBDD/gimnasio.ods).
-        - Abrir el archivo **gimnasio.ods** y arrastrar las hojas a las tablas de la base de datos que iréis creando.
+        - Abrir el archivo **gimnasio.ods** y arrastrar las **7 primeras hojas** de la hoja de cálculo  al campo **Tablas** de la base de datos.
         !!! warning "Cuidado a la hora de definir el campo de clave primaria"
         **Resultado esperado después de importar las diferentes hojas de la hoja de cálculo**
-        ![Descripción de la imagen](./img/UT4/bbdd-12.png){ .leftoriginal .marco .margintop10 .marginbottom20 }
+        ![Descripción de la imagen](./img/UT4/bbdd-12.png){ .leftseiscero .marco .margintop10 .marginbottom20 }
 
         - Campos de la tabla **Actividades**
         ![Descripción de la imagen](./img/UT4/bbdd-16.png){ .lefttrescinco .marco .margintop10 .marginbottom20 }
-        - Campos de la tabla **Actividades_Socios**  
-        ![Descripción de la imagen](./img/UT4/bbdd-15.png){ .lefttrescinco .marco .margintop10 .marginbottom20 }
+        - Campos de la tabla **Dias_Semana**
+        ![Descripción de la imagen](./img/UT4/bbdd-40.png){ .lefttrescinco .marco .margintop10 .marginbottom20 }
         - Campos de la tabla **Horario_Actividades**
         ![Descripción de la imagen](./img/UT4/bbdd-17.png){ .lefttrescinco .marco .margintop10 .marginbottom20 }
+        - Campos de la tabla **Manaña/Tarde**
+        ![Descripción de la imagen](./img/UT4/bbdd-41.png){ .lefttrescinco .marco .margintop10 .marginbottom20 }
+        - Campos de la tabla **Rango_Horas**  
+        ![Descripción de la imagen](./img/UT4/bbdd-42.png){ .leftcuatrocero .marco .margintop10 .marginbottom20 }
         - Campos de la tabla **Socios**
         ![Descripción de la imagen](./img/UT4/bbdd-18.png){ .lefttrescinco .marco .margintop10 .marginbottom20 }
         - Campos de la tabla **Tipo_Cuota**
-        ![Descripción de la imagen](./img/UT4/bbdd-19.png){ .lefttrescinco .marco .margintop10 .marginbottom20 }
+        ![Descripción de la imagen](./img/UT4/bbdd-19.png){ .lefttrescinco .marco .margintop10  }
 
 ### 2.3 - Parte 3
 
@@ -205,17 +209,17 @@ LibreOffice Base puede funcionar de dos maneras:
     La relación entre las tablas permite realizar consultas que combinan datos de ambas tablas, lo que facilita la obtención de rmación más completa y detallada.
     !!! tip "Tipos de relaciones entre tablas en una base de datos"
         Existen tres tipos básicos de relaciones entre tablas:
-        
+
         - **Uno a muchos (1:N)**. Este tipo se da cuando una fila de la primera tabla puede estar relacionada con muchas filas de egunda tabla, pero una fila de la segunda solo está relacionada con una de la primera.  
         En el siguiente ejemplo, vemos como un vendedor con Id única (IdVendedor) de la tabla **Vendedores** puede aparecer en iples registros de la tabla **Ventas** (al haber realizado múltiples ventas). 
         ![Descripción de la imagen](./img/UT4/bbdd-13.png){ .leftsietecinco .marco .margintop10 .marginbottom20 }
         
         - **Muchos a muchos (N:N)**. Esta clase de relación ocurre cuando una fila de la primera tabla puede estar relacionada muchas filas de la segunda tabla y una fila de la segunda tabla puede estarlo con muchas filas de la primera.  
-        Un ejemplo de este tipo lo tenemos en la relación entre la tabla Peliculas y la tabla Interpretes porque dada una cula en particular esta puede tener muchos intérpretes y viceversa: dado un intérprete, este puede haber intervenido uchas películas.
+        Un ejemplo de este tipo lo tenemos en la relación entre la tabla Peliculas y la tabla Interpretes porque dada una película puede tener muchos intérpretes y viceversa: dado un intérprete, este puede haber intervenido en muchas películas.
         
         - **Uno a uno (1 a 1)**. Este tipo de relación aparece con menos frecuencia y sucede cuando una fila de la primera tabla  puede estar relacionada con una fila de la segunda y una fila de la segunda tabla solo puede estar relacionada con de la primera.  
-        Un ejemplo de este tipo de relaciones podría ser entre una tabla con países y otra con jefes de gobierno, dado que, almente, un país solo tiene un jefe de gobierno y un jefe de gobierno lo es solo de un país.
-    !!! task "Trabajo a realizar"
+        Un ejemplo de este tipo de relaciones podría ser entre una tabla con países y otra con jefes de gobierno, dado que, realmente, un país solo tiene un jefe de gobierno y un jefe de gobierno lo es de un solo país.
+    !!! task "Trabajo a realizar 2/3"
         Preparar las relaciones entre las tablas de la base de datos para ello, ir a:
         
         - Herramientas → **Relaciones**
@@ -224,7 +228,7 @@ LibreOffice Base puede funcionar de dos maneras:
         - Añadir todas las tablas disponibles.
         ![Descripción de la imagen](./img/UT4/bbdd-22.png){ .leftoriginal .marco .margintop10 .marginbottom20 }
     
-    !!! task "Trabajo a realizar"
+    !!! task "Trabajo a realizar 3/3"
         
         - Preparar las relaciones entre las tablas.
         !!! warning "¿Qué relaciones entre tablas tenemos en nuestra base de datos?"
@@ -241,7 +245,7 @@ LibreOffice Base puede funcionar de dos maneras:
 !!! warning "Condiciones de entrega de la tarea"
     **Condiciones de entrega**
 
-    - Guardar el documento con RA4-CEa-NombreApellidos en format **NombreArchivo.odb**, **formato nativo** de LibreOffice Base.   
+    - Guardar el documento con RA4-CEa-NombreApellidos en formato **NombreArchivo.odb**, **formato nativo** de LibreOffice Base.   
     - **No se aceptará ningun formato que no sea odb**.  
     - Subir la base de datos, a la tarea RA4-CEa de **Aules**.
     - A partir de momento de apertura de la tarea, dispondréis de **14 días** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestros ejercicios.    
@@ -254,8 +258,8 @@ LibreOffice Base puede funcionar de dos maneras:
 
 !!! warning "1 - Formularios"
 
-    Un formulario es un objeto de base de datos que proporciona una interfaz intuitiva para **introducir**, **modificar** y **visualizar los datos**    almacenados en las tablas de nuestra base de datos.  
-    Los formularios están diseñados para simplificar las consultas **CRUD** (Create, Read, Update, Delete), permitiendo a los usuarios interactuar con la   base de datos sin necesidad de trabajar directamente con tablas o consultas SQL.
+    Un formulario es un objeto de base de datos que proporciona una interfaz intuitiva para **introducir**, **modificar** y **visualizar los datos** almacenados en las tablas de nuestra base de datos.  
+    Los formularios están diseñados para simplificar las consultas **CRUD** (Create, Read, Update, Delete), permitiendo a los usuarios interactuar con la base de datos sin necesidad de trabajar directamente con tablas o consultas SQL.
 
     **Ejemplo de interfaz de formulario:**
     ![Descripción de la imagen](./img/UT4/bbdd-25.png){ .leftsietecinco .margintop10 .marginbottom20 }
@@ -329,13 +333,13 @@ LibreOffice Base puede funcionar de dos maneras:
 
 
 
-    !!! warning "Trabajo a realizar 1/3"
+    !!! task "Trabajo a realizar 1/3"
         - Realizar el formulario explicado más arriba. 
         - Modificar el campo **Actividad preferida** para que enlace el valor del campo con los valores de la tabla **Actividades**.  
         
-    !!! warning "Trabajo a realizar 2/3 (opcional)"
+    !!! task "Trabajo a realizar 2/3 (opcional)"
         - Mejorar el aspecto visual del formulario (interfaz).
-    !!! warning "Trabajo a realizar 3/3"
+    !!! task "Trabajo a realizar 3/3"
         El formulario anterior se diseñó para solamente visualizar los datos personales del usuario.
 
         - Crear un formulario que llamaréis **Socios_Actividades**.
@@ -350,7 +354,7 @@ LibreOffice Base puede funcionar de dos maneras:
 !!! warning "Condiciones de entrega de la tarea"
     **Condiciones de entrega**
 
-    - Guardar el documento con RA4-CEce-NombreApellidos en format **NombreArchivo.odb**, **formato nativo** de LibreOffice Base.   
+    - Guardar el documento con RA4-CEce-NombreApellidos en formato **NombreArchivo.odb**, **formato nativo** de LibreOffice Base.   
     - **No se aceptará ningun formato que no sea odb**.  
     - Subir la base de datos, a la tarea RA4-CEce de **Aules**.
     - A partir de momento de apertura de la tarea, dispondréis de **14 días** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestros ejercicios.    
@@ -368,16 +372,11 @@ LibreOffice Base puede funcionar de dos maneras:
 <!-- https://oficinalibre.net/mod/scorm/view.php?id=130 -->
 
 <!-- 
-
 5.- Ordenación y filtrado de datos.
-
-7.- Edición de tablas.
-
 9.- Consultas.
 10.- Ordenación, selección y operadores en consultas.
-11.- Formularios simples. Diseño de formularios.
-12.- Diseño de formularios.
-13.- Informes. -->
+13.- Informes. 
+-->
 
 | **Licencia Creative Commons:** | |
 | :--- | :--- |
