@@ -174,9 +174,10 @@ orígenes de información; procedimientos de implantación de imágenes y répli
 **Cada prueba y trabajo** se evaluará con una nota de 0 a 10 puntos. Para superar las pruebas o trabajos prácticos se precisará una nota
 superior a 5.
 Las pruebas de trabajo podrán ser de tipo:
+
 1. Pruebas escritas.
-2. Prácticas: Actividades de taller realizadas de forma individual o en grupo del alumnado. 
-3. Observación del trabajo diario del alumno. 
+1. Prácticas: Actividades de taller realizadas de forma individual o en grupo del alumnado. 
+1. Observación del trabajo diario del alumno. 
 <!-- 4. Valoración de la empresa u organismo equiparado.  -->
 
 ### **5.4. - Responsable evaluación de los RA's y/o CE's**

@@ -330,9 +330,6 @@ LibreOffice Base puede funcionar de dos maneras:
         - Si todo ha ido bien, después de finalizar el cuadro combinado debería mostrar los valores de la tabla enlazada (relacionada) **Tipo_cuota** dentro del formulario. Una vez seleccionada una opción, ese valor se escribirá dentro de la tabla **Socios**. 
         ![Descripción de la imagen](./img/UT4/bbdd-38.png){ .leftseiscero .margintop10 .marginbottom20 }
 
-
-
-
     !!! task "Trabajo a realizar 1/3"
         - Realizar el formulario explicado más arriba. 
         - Modificar el campo **Actividad preferida** para que enlace el valor del campo con los valores de la tabla **Actividades**.  
@@ -359,7 +356,72 @@ LibreOffice Base puede funcionar de dos maneras:
     - Subir la base de datos, a la tarea RA4-CEce de **Aules**.
     - A partir de momento de apertura de la tarea, dispondréis de **14 días** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestros ejercicios.    
         
-## 4 - Tarea RA4-CEdg
+## 4 - Tarea RA4-CEdg Consultas a la base de datos
+
+!!! warning "Para esta tarea, deberéis recuperar la base de datos creada en la tarea RA4-CEce"
+
+Las consultas sirven para **recuperar**, **manipular** y **analizar** los datos almacenados en las tablas de una base de datos. En otras palabras, las consultas permiten obtener información específica de una o varias tablas mediante criterios determinados.  
+Las consultas son una herramienta fundamental para trabajar con bases de datos, ya que permiten:
+
+- **Filtrar la información** para recuperar sólo aquellos datos interesantes para cada caso.
+- **Ordenar la información** recuperada utilizando tantos criterios como sean necesarios.
+- **Utilizar varias tablas** para obtener datos combinados de ellas.  
+
+En LibreOffice Base, las consultas se pueden realizar de tres maneras distintas: **Modo Diseño**, **con el asistente** o utilizando **SQL**.
+
+### 4.1 - Parte 1 - Introducción a las consultas SQL
+
+Las consultas SQL (Structured Query Language) son una herramienta fundamental en la gestión de bases de datos relacionales. Utilizan un lenguaje de programación específico para interactuar con la base de datos y realizar diversas operaciones, como recuperar, insertar, actualizar o eliminar datos.
+
+Para realizar consultas SQL iremos a **Consultas** y pulsaremos el enlace de **Crear consulta en modo SQL...**.
+![Descripción de la imagen](./img/UT4/bbdd-43.png){ .leftcuatrocero .margintop10 .marginbottom20 }
+
+!!! tip "Ejemplo de consulta SQL"
+    En este ejemplo, recuperaremos todos los socios que praticarán ciclo indor el lunes.
+
+    ```sql
+    SELECT * FROM Socios WHERE Actividad_Lunes='Ciclo indoor';  
+    ```
+
+    Esta consulta selecciona **todos los campos** de la tabla "Clientes" y devuelve una lista y devuelve los valores que cumplen la condición (filtrado) donde el campo Actividad_Lunes='Ciclo indoor'.
+    ![Descripción de la imagen](./img/UT4/bbdd-44.png){ .leftcuatrocero .margintop10 .marginbottom20 }
+
+!!! task "Trabajo a realizar"  
+    !!! exercise "Ejercicio 1"  
+        Modificar la consulta anterior para que devuelva solamente los nombres y apellidos de los socios que harán body pump el martes.
+
+    !!! exercise "Ejercicio 2"  
+        Modificar la consulta anterior para que devuelva solamente los nombres y apellidos de los socios que harán body pump el martes y tienen una cuota anual.
+
+    Guardar las consultas y llamarlas, **consulta_2** y **consulta_3** siendo la **consulta_1** la que se ha dado en el ejemplo.     
+
+### 4.2 - Consultas en modo diseño
+
+#### 4.2.1 - Consultas sobre una tabla
+
+Esta vez eligiremos la opción **Crear consulta en modo de diseño...** y seleccionamos la tabla sobre la cual queremos trabajar (tabla **Socios**).
+
+!!! tip "Ejemplo de consulta"
+    ![Descripción de la imagen](./img/UT4/bbdd-46.png){ .leftcuatrocero .margintop10 .marginbottom20 }
+    En esta consulta visualizamos los campos **Nombre** y **Apellidos**. Además, ordenaremos los resultados por orden alfabético sobre la columna **Nombre**.
+    Guardar la consulta como consulta_4.
+
+!!! tip "Ejemplo de consulta con un criterio"
+    En esta consulta añadimos un criterio a la consulta anterior para que nos devuelva los valores que cumplan la condición Cuota = Anual.
+    ![Descripción de la imagen](./img/UT4/bbdd-47.png){ .leftcuatrocero .margintop10 .marginbottom20 }
+
+!!! task "Trabajo a realizar"  
+    !!! exercise "Ejercicio 3"  
+        Modificar la consulta anterior para que devuelva los registros que cumplan las condiciones **Cuota = Anual O Cuota = Mensual**.
+        Guardar la consulta como consulta_5.
+
+
+<!-- https://www.iesandresbojollo.es/tiyc/base/2-Interfaz_de_usuario.html -->
+<!-- https://www.tuinstitutoonline.com/aula/course/view.php?id=10 -->
+<!-- https://oficinalibre.net/mod/scorm/player.php -->
+
+### 4.3 - Consultas con el asistente
+
 
 ## 5 - Tarea RA4-CEf
 
