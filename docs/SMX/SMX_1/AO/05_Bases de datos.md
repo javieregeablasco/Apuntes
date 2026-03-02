@@ -96,7 +96,7 @@ LibreOffice Base puede funcionar de dos maneras:
 
 !!! warning "1 - Creación de una base de datos"
     1. Abrir el asistente de bases de datos de LibreOffice Base y elegir crear una base de datos nueva.
-    1. Después de pulsar siguiente, dejar las opciones por defecto (registrar la BBDD la hace disponible para todas las aplicaciones de LibreOffice).
+    1. Después de pulsar siguiente, dejar las opciones por defecto (registrar la BBDD, la hace disponible para todas las aplicaciones de LibreOffice).
     1. Para finalizar guardar la BBDD con el siguiente nombre: RA4-CEa-NombreApellidos
     1. Una vez abierta la BBDD, nos encontraremos con la siguiente interfaz.  
     ![Descripción de la imagen](./img/UT4/bbdd-03.png){ .ochocinco .marco .margintop10 .marginbottom20 }
@@ -180,7 +180,7 @@ LibreOffice Base puede funcionar de dos maneras:
         !!! question "¿Como podemos asegurarnos de que los registros del campo con clave primaria no se puedan repetir?"
 
     !!! task "Trabajo a realizar 1/3"
-        - Descargar todos los contenidos necesarios a la tarea desde el siguiente [enlace](./04_bases%20de%20datos/Tareas/RA4-CEa/datosBBDD/gimnasio.ods).
+        - Descargar todos los contenidos necesarios a la tarea desde el siguiente [enlace](./04_bases%20de%20datos/Tareas/RA4-CEa/datosBBDD/RA4-CEa.zip).
         - Abrir el archivo **gimnasio.ods** y arrastrar las **7 primeras hojas** de la hoja de cálculo  al campo **Tablas** de la base de datos.
         !!! warning "Cuidado a la hora de definir el campo de clave primaria"
         **Resultado esperado después de importar las diferentes hojas de la hoja de cálculo**
@@ -238,7 +238,7 @@ LibreOffice Base puede funcionar de dos maneras:
         ![Descripción de la imagen](./img/UT4/bbdd-24.png){ .leftcuatrocero .marco .margintop10 .marginbottom20 }
         !!! warning "¿A qué corresponden los campos `Opciones de actualización` y `Opciones de eliminación`?"
         - Resultado final después de establecer todas las relaciones entre tablas.
-        ![Descripción de la imagen](./img/UT4/bbdd-20.png){ .leftoriginal .marco .margintop10}
+        ![Descripción de la imagen](./img/UT4/bbdd-48.png){ .leftoriginal .marco .margintop10}
         
 ### 2.3 - Entrega de la tarea
 
@@ -384,7 +384,7 @@ Para realizar consultas SQL iremos a **Consultas** y pulsaremos el enlace de **C
     ```
 
     Esta consulta selecciona **todos los campos** de la tabla "Clientes" y devuelve una lista y devuelve los valores que cumplen la condición (filtrado) donde el campo Actividad_Lunes='Ciclo indoor'.
-    ![Descripción de la imagen](./img/UT4/bbdd-44.png){ .leftcuatrocero .margintop10 .marginbottom20 }
+    ![Descripción de la imagen](./img/UT4/bbdd-44.png){ .leftsietecero .margintop10 .marginbottom20 }
 
 !!! task "Trabajo a realizar"  
     !!! exercise "Ejercicio 1"  
@@ -403,8 +403,8 @@ Esta vez eligiremos la opción **Crear consulta en modo de diseño...** y selecc
 
 !!! tip "Ejemplo de consulta"
     ![Descripción de la imagen](./img/UT4/bbdd-46.png){ .leftcuatrocero .margintop10 .marginbottom20 }
-    En esta consulta visualizamos los campos **Nombre** y **Apellidos**. Además, ordenaremos los resultados por orden alfabético sobre la columna **Nombre**.
-    Guardar la consulta como consulta_4.
+    En esta consulta visualizamos los campos **Nombre** y **Apellidos**. Además, ordenaremos los resultados por orden alfabético sobre la columna **Nombre**.  
+    **Guardar la consulta como consulta_4**.
 
 !!! tip "Ejemplo de consulta con un criterio"
     En esta consulta añadimos un criterio a la consulta anterior para que nos devuelva los valores que cumplan la condición Cuota = Anual.
