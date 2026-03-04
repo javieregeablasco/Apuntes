@@ -402,7 +402,7 @@ Para realizar consultas SQL iremos a **Consultas** y pulsaremos el enlace de **C
 Esta vez eligiremos la opción **Crear consulta en modo de diseño...** y seleccionamos la tabla sobre la cual queremos trabajar (tabla **Socios**).
 
 !!! tip "Ejemplo de consulta"
-    ![Descripción de la imagen](./img/UT4/bbdd-46.png){ .leftcuatrocero .margintop10 .marginbottom20 }
+    ![Descripción de la imagen](./img/UT4/bbdd-46.png){ .lefttrescero .margintop10 .marginbottom20 }
     En esta consulta visualizamos los campos **Nombre** y **Apellidos**. Además, ordenaremos los resultados por orden alfabético sobre la columna **Nombre**.  
     **Guardar la consulta como consulta_4**.
 
@@ -413,7 +413,54 @@ Esta vez eligiremos la opción **Crear consulta en modo de diseño...** y selecc
 !!! task "Trabajo a realizar"  
     !!! exercise "Ejercicio 3"  
         Modificar la consulta anterior para que devuelva los registros que cumplan las condiciones **Cuota = Anual O Cuota = Mensual**.
-        Guardar la consulta como consulta_5.
+        Guardar la consulta como **consulta_5**.
+    !!! exercise "Ejercicio 4"  
+        Crear una consulta que devuelva la cantidad de registros que cumplan la condición **Cuota = Anual**.
+        Guardar la consulta como **consulta_6**.
+    !!! exercise "Ejercicio 5"  
+        Crear una consulta que devuelva la cantidad de registros que cumplan las condiciones **Cuota = Anual O Trimestral O Mensual**.
+        Guardar la consulta como **consulta_7**.
+    !!! exercise "Ejercicio 6"  
+        Crear una consulta que devuelva todos los registros que cumplan las condiciones **Actividad_Lunes no es nulo**.
+        Guardar la consulta como **consulta_8**.
+
+#### 4.2.2 - Consultas sobre varias tablas
+
+Cuando una sola tabla no es suficiente para la consulta a realizar, usaremos consultas relacionales (o Joins).
+
+!!! task "Trabajo realizar"
+    En este ejemplo nos proponemos de recuperar todos los usuarios que harán la actividad **entrenamiento funcional** el **lunes** por la **mañana** y además, saber el **horario** de dicha actividad.
+    !!! exercise "Ejercicio 7"  
+        Para ir entendiendo progresivamente las ventajas (y los peligros) de las consultas relacionales, realizar primero la consulta:
+
+        - Usuarios: **Nombre** y **Apellidos**
+        - Actividad: **entrenamiento funcional**
+        - Día: **lunes**
+        - Franja horaria: **mañana**
+
+        Guardar la consulta como **consulta_9**.
+  
+    !!! exercise "Ejercicio 8"
+        Revisar las tablas y buscar en qué tabla tenemos la información del horario de las actividades.
+
+        - Crear la consulta para recuperar **Nombre**, **Apellidos** de los socios que harán **entrenamiento funcional** el **lunes** por la **mañana**.  
+        **Ejemplo de resultado:**
+        ![Descripción de la imagen](./img/UT4/bbdd-49.png){ .leftcuatrocero .margintop10 .marginbottom20 }
+        
+        Guardar la consulta como **consulta_10**.
+
+
+
+
+
+
+
+
+    En esta consulta queremos recuperar el nombre y apellidos de los socios que harán ciclo indoor el lunes. Para ello, es necesario usar la tabla **Socios** y la tabla **Actividades**.  
+
+
+
+
 
 
 <!-- https://www.iesandresbojollo.es/tiyc/base/2-Interfaz_de_usuario.html -->
