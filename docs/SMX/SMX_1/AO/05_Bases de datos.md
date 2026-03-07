@@ -369,7 +369,7 @@ Las consultas son una herramienta fundamental para trabajar con bases de datos, 
 
 En LibreOffice Base, las consultas se pueden realizar de tres maneras distintas: **Modo Diseño**, **con el asistente** o utilizando **SQL**.
 
-### 4.1 - Parte 1 - Introducción a las consultas SQL
+### 4.1 - Introducción a las consultas SQL
 
 Las consultas SQL (Structured Query Language) son una herramienta fundamental en la gestión de bases de datos relacionales. Utilizan un lenguaje de programación específico para interactuar con la base de datos y realizar diversas operaciones, como recuperar, insertar, actualizar o eliminar datos.
 
@@ -412,16 +412,16 @@ Esta vez eligiremos la opción **Crear consulta en modo de diseño...** y selecc
 
 !!! task "Trabajo a realizar"  
     !!! exercise "Ejercicio 3"  
-        Modificar la consulta anterior para que devuelva los registros que cumplan las condiciones **Cuota = Anual O Cuota = Mensual**.
+        Modificar la consulta anterior para que devuelva los registros que cumplan las condiciones **Cuota = Anual O Cuota = Mensual**.  
         Guardar la consulta como **consulta_5**.
     !!! exercise "Ejercicio 4"  
-        Crear una consulta que devuelva la cantidad de registros que cumplan la condición **Cuota = Anual**.
-        Guardar la consulta como **consulta_6**.
+        Crear una consulta que devuelva la cantidad de registros que cumplan la condición **Cuota = Anual**.  
+        Guardar la consulta como **consulta_6**.  
     !!! exercise "Ejercicio 5"  
-        Crear una consulta que devuelva la cantidad de registros que cumplan las condiciones **Cuota = Anual O Trimestral O Mensual**.
+        Crear una consulta que devuelva la cantidad de registros que cumplan las condiciones **Cuota = Anual O Trimestral O Mensual**.  
         Guardar la consulta como **consulta_7**.
     !!! exercise "Ejercicio 6"  
-        Crear una consulta que devuelva todos los registros que cumplan las condiciones **Actividad_Lunes no es nulo**.
+        Crear una consulta que devuelva todos los registros que cumplan las condiciones **Actividad_Lunes no es nulo**.  
         Guardar la consulta como **consulta_8**.
 
 #### 4.2.2 - Consultas sobre varias tablas
@@ -449,6 +449,7 @@ Cuando una sola tabla no es suficiente para la consulta a realizar, usaremos con
         
         Guardar la consulta como **consulta_10**.
 
+### 4.3 - Informes
 
 
 
