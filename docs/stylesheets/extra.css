@@ -377,3 +377,8 @@
 .highlight-sin-margin-bottom {
     margin-bottom: 0rem !important;
 }
+
+.yellowhighlight {
+  background-color: yellow;
+
+}

@@ -90,7 +90,7 @@ LibreOffice Base puede funcionar de dos maneras:
 
 1. Conexión a un servidor externo como MySQL, PostgreSQL, MariaDB y funcionando **únicamente como interfaz gráfica**, mientras que el SGBD es el servidor externo.
 
-## 2 - Tarea RA4-CEa
+## 2 - Tarea RA4-CEa Tablas y relaciones entre tablas
 
 ### 2.1 - Parte 1
 
@@ -243,14 +243,12 @@ LibreOffice Base puede funcionar de dos maneras:
 ### 2.3 - Entrega de la tarea
 
 !!! warning "Condiciones de entrega de la tarea"
-    **Condiciones de entrega**
-
     - Guardar el documento con RA4-CEa-NombreApellidos en formato **NombreArchivo.odb**, **formato nativo** de LibreOffice Base.   
     - **No se aceptará ningun formato que no sea odb**.  
     - Subir la base de datos, a la tarea RA4-CEa de **Aules**.
     - A partir de momento de apertura de la tarea, dispondréis de **14 días** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestros ejercicios.    
 
-## 3 - Tarea RA4-CEce
+## 3 - Tarea RA4-CEce Formularios
 
 !!! warning "Para esta tarea, deberéis recuperar la base de datos creada en la tarea RA4-CEa"
 
@@ -349,13 +347,11 @@ LibreOffice Base puede funcionar de dos maneras:
 ### 3.3 - Entrega de la tarea
 
 !!! warning "Condiciones de entrega de la tarea"
-    **Condiciones de entrega**
-
     - Guardar el documento con RA4-CEce-NombreApellidos en formato **NombreArchivo.odb**, **formato nativo** de LibreOffice Base.   
     - **No se aceptará ningun formato que no sea odb**.  
     - Subir la base de datos, a la tarea RA4-CEce de **Aules**.
-    - A partir de momento de apertura de la tarea, dispondréis de **14 días** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestros ejercicios.    
-        
+    - A partir de momento de apertura de la tarea, dispondréis de **14 días** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestros ejercicios.
+
 ## 4 - Tarea RA4-CEdg Consultas a la base de datos
 
 !!! warning "Para esta tarea, deberéis recuperar la base de datos creada en la tarea RA4-CEce"
@@ -384,16 +380,17 @@ Para realizar consultas SQL iremos a **Consultas** y pulsaremos el enlace de **C
     ```
 
     Esta consulta selecciona **todos los campos** de la tabla "Clientes" y devuelve una lista y devuelve los valores que cumplen la condición (filtrado) donde el campo Actividad_Lunes='Ciclo indoor'.
-    ![Descripción de la imagen](./img/UT4/bbdd-44.png){ .leftsietecero .margintop10 .marginbottom20 }
+    ![Descripción de la imagen](./img/UT4/bbdd-44.png){ .leftsietecero .margintop10 .marginbottom20 }  
+    **Guardar la consulta como consulta_1**{ .yellowhighlight }.
 
 !!! task "Trabajo a realizar"  
     !!! exercise "Ejercicio 1"  
-        Modificar la consulta anterior para que devuelva solamente los nombres y apellidos de los socios que harán body pump el martes.
-
+        Modificar la consulta anterior para que devuelva solamente los nombres y apellidos de los socios que harán body pump el martes.  
+        **Guardar la consulta como consulta_2**{ .yellowhighlight }.
     !!! exercise "Ejercicio 2"  
-        Modificar la consulta anterior para que devuelva solamente los nombres y apellidos de los socios que harán body pump el martes y tienen una cuota anual.
 
-    Guardar las consultas y llamarlas, **consulta_2** y **consulta_3** siendo la **consulta_1** la que se ha dado en el ejemplo.     
+        Modificar la consulta anterior para que devuelva solamente los nombres y apellidos de los socios que harán body pump el viernes por la tarde y tienen una cuota anual.  
+        **Guardar la consulta como consulta_3**{ .yellowhighlight }.
 
 ### 4.2 - Consultas en modo diseño
 
@@ -404,29 +401,30 @@ Esta vez eligiremos la opción **Crear consulta en modo de diseño...** y selecc
 !!! tip "Ejemplo de consulta"
     ![Descripción de la imagen](./img/UT4/bbdd-46.png){ .lefttrescero .margintop10 .marginbottom20 }
     En esta consulta visualizamos los campos **Nombre** y **Apellidos**. Además, ordenaremos los resultados por orden alfabético sobre la columna **Nombre**.  
-    **Guardar la consulta como consulta_4**.
+    **Guardar la consulta como consulta_4**{ .yellowhighlight }.
 
 !!! tip "Ejemplo de consulta con un criterio"
     En esta consulta añadimos un criterio a la consulta anterior para que nos devuelva los valores que cumplan la condición Cuota = Anual.
-    ![Descripción de la imagen](./img/UT4/bbdd-47.png){ .leftcuatrocero .margintop10 .marginbottom20 }
+    ![Descripción de la imagen](./img/UT4/bbdd-47.png){ .leftcuatrocero .margintop10 .marginbottom20 }  
+    **Guardar la consulta como consulta_5**{ .yellowhighlight }.
 
 !!! task "Trabajo a realizar"  
     !!! exercise "Ejercicio 3"  
         Modificar la consulta anterior para que devuelva los registros que cumplan las condiciones **Cuota = Anual O Cuota = Mensual**.  
-        Guardar la consulta como **consulta_5**.
+        **Guardar la consulta como consulta_6**{ .yellowhighlight }.
     !!! exercise "Ejercicio 4"  
-        Crear una consulta que devuelva la cantidad de registros que cumplan la condición **Cuota = Anual**.  
-        Guardar la consulta como **consulta_6**.  
+        Crear una consulta que devuelva **la cantidad de registros** que cumplan la condición **Cuota = Anual**. Admeás, se le dará un alias al resultado obtenido. Por ejemplo, `Cantidad de socios con cuota anual`.  
+        **Guardar la consulta como consulta_7**{ .yellowhighlight }.  
     !!! exercise "Ejercicio 5"  
         Crear una consulta que devuelva la cantidad de registros que cumplan las condiciones **Cuota = Anual O Trimestral O Mensual**.  
-        Guardar la consulta como **consulta_7**.
+        **Guardar la consulta como consulta_8**{ .yellowhighlight }.
     !!! exercise "Ejercicio 6"  
-        Crear una consulta que devuelva todos los registros que cumplan las condiciones **Actividad_Lunes no es nulo**.  
-        Guardar la consulta como **consulta_8**.
+        Crear una consulta que devuelva todos los registros que cumplan las condiciones **Actividad_Miércoles no es nulo**.  
+        **Guardar la consulta como consulta_9**{ .yellowhighlight }.
 
 #### 4.2.2 - Consultas sobre varias tablas
 
-Cuando una sola tabla no es suficiente para la consulta a realizar, usaremos consultas relacionales (o Joins).
+Cuando una sola tabla no es suficiente para la consulta a realizar, usaremos consultas relacionales (o Joins) sobre **varias tablas**.
 
 !!! task "Trabajo realizar"
     En este ejemplo nos proponemos de recuperar todos los usuarios que harán la actividad **entrenamiento funcional** el **lunes** por la **mañana** y además, saber el **horario** de dicha actividad.
@@ -438,55 +436,113 @@ Cuando una sola tabla no es suficiente para la consulta a realizar, usaremos con
         - Día: **lunes**
         - Franja horaria: **mañana**
 
-        Guardar la consulta como **consulta_9**.
+        **Guardar la consulta como consulta_10**{ .yellowhighlight }.
   
-    !!! exercise "Ejercicio 8"
-        Revisar las tablas y buscar en qué tabla tenemos la información del horario de las actividades.
 
-        - Crear la consulta para recuperar **Nombre**, **Apellidos** de los socios que harán **entrenamiento funcional** el **lunes** por la **mañana**.  
+    !!! exercise "Ejercicio 8"
+        Revisar las tablas y buscar en qué tabla tenemos la información del horario de las actividades.  
+        Añadir esa tabla a la consulta.
+
+        - Crear la consulta para recuperar **Nombre**, **Apellidos** de los socios que harán **entrenamiento funcional** el **lunes** por la **mañana**.
+        - Además la tabla deberá devolver **el horario** de la actividad **entrenamiento funcional**.  
         **Ejemplo de resultado:**
         ![Descripción de la imagen](./img/UT4/bbdd-49.png){ .leftcuatrocero .margintop10 .marginbottom20 }
         
-        Guardar la consulta como **consulta_10**.
+        **Guardar la consulta como consulta_11**{ .yellowhighlight }.
 
-### 4.3 - Informes
+    !!! exercise "Ejercicio 9"
+        - Realizar una consulta que devuelva la cantidad total de dinero obtenida de los socios que tienen **una cuota mensual**.  
+        **Ejemplo de resultado:**
+        ![Descripción de la imagen](./img/UT4/bbdd-50.png){ .lefttrescero .margintop10 .marginbottom20 }       
+        **Guardar la consulta como consulta_12**{ .yellowhighlight }.
+        
+    !!! exercise "Ejercicio 10"
+        - Realizar una consulta que devuelva la cantidad total de dinero obtenida de los socios que tienen **una cuota mensual** y **anual**.  
+        **Ejemplo de resultado:**
+        ![Descripción de la imagen](./img/UT4/bbdd-51.png){ .lefttrescero .margintop10 .marginbottom20 }       
+        **Guardar la consulta como consulta_13**{ .yellowhighlight }.
+   
+    !!! exercise "Ejercicio 11"
+        - Realizar una consulta que devuelva la cantidad total de dinero obtenida de **todos los socios**.  
+        **Guardar la consulta como consulta_14**{ .yellowhighlight }.
+        
+    !!! exercise "Ejercicio 12"    
+        - Realizar una consulta que haga lo siguiente: Devuelver id, nombre y apellidos + activo el lunes + actividad de mañana + horario de la actividad. 
+        **Ejemplo de resultado:**
+        ![Descripción de la imagen](./img/UT4/bbdd-52.png){ .leftcuatrocero .margintop10 .marginbottom20 }       
+        **Guardar la consulta como consulta_15**{ .yellowhighlight }.
 
+### 4.3 - Entrega de la tarea
 
+!!! warning "Condiciones de entrega de la tarea"
+    - Guardar el documento con RA4-CEdg-NombreApellidos en formato **NombreArchivo.odb**, **formato nativo** de LibreOffice Base.   
+    - **No se aceptará ningun formato que no sea odb**.  
+    - Subir la base de datos, a la tarea RA4-CEdg de **Aules**.
+    - A partir de momento de apertura de la tarea, dispondréis de **14 días** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestros ejercicios.
 
+## 5 - Tarea RA4-CEf Informes
 
+!!! warning "Para esta tarea, deberéis recuperar la base de datos creada en la tarea RA4-CEdg"
 
+Los informes son objetos de base de datos que permiten presentar los datos de forma organizada y lista para imprimir o exportar. Se basan en la información de tablas o consultas y muestran los datos con un formato definido. Cada vez que se ejecutan, reflejan el estado actual de la base de datos.
 
+## 5.1 - Creación de una informe con el asistente
 
-    En esta consulta queremos recuperar el nombre y apellidos de los socios que harán ciclo indoor el lunes. Para ello, es necesario usar la tabla **Socios** y la tabla **Actividades**.  
+- Eligimos la opción Crear informe en modo de diseño... y seleccionamos la tabla (o consulta) que usaremos para crear el informe.
+- Elegimos los campos que queremos mostrar en el informe.
+![Descripción de la imagen](./img/UT4/bbdd-53.png){ .leftseiscero .margintop10 .marginbottom20 }
+- Etiquetamos los campos para que el informe sea más legible.
+![Descripción de la imagen](./img/UT4/bbdd-54.png){ .leftseiscero .margintop10 .marginbottom20 }
+- Elegimos el o los campos por los que queremos agrupar la información.
+![Descripción de la imagen](./img/UT4/bbdd-55.png){ .leftseiscero .margintop10 .marginbottom20 }
+- Elegimos los otros campos por los que queremos ordenar la información.
+![Descripción de la imagen](./img/UT4/bbdd-56.png){ .leftseiscero .margintop10 .marginbottom20 }
+- Elegir la disposición de los campos dentro del informe.
+![Descripción de la imagen](./img/UT4/bbdd-57.png){ .leftseiscero .margintop10 .marginbottom20 }
+- Para finalizar damos un nombre al informe y ya podemos trabajar con él para darle el formato que queramos.  
+En este caso, el informe se actualizará cada vez que se ejecute, mostrando el estado actual de la base de datos (informe dinámico).
+![Descripción de la imagen](./img/UT4/bbdd-58.png){ .leftseiscero .margintop10 .marginbottom20 }
+El informe generado es un documento independiente de la base de datos, por lo que se puede modificar su formato sin afectar a la base de datos.
+![Descripción de la imagen](./img/UT4/bbdd-59.png){ .margintop10 .marginbottom20 }
 
+**Guardar el informe con informe_1**{ .yellowhighlight }.
 
+## 5.2 - Trabajo a realizar
 
+El informe que crearemos se propone listar las actividades que realizarán los socios el martes por la tarde.  
+En este caso el no se hará sobre una tabla, sino sobre una consulta. Por lo tanto, antes de crear el informe, es necesario crear la consulta que devuelva los datos necesarios para el informe.
 
+- Crear una consulta que devuelva el **nombre**, **apellidos** y **actividad** de los socios que harán una actividad el **martes** por la **tarde**.
+- **Guardar la consulta como Consulta_informe**{ .yellowhighlight }.  
+- **Ejemplo de resultado de la consulta**
+![Descripción de la imagen](./img/UT4/bbdd-60.png){ .leftcuatrocero .margintop10 .marginbottom20 }
+- Crear un informe que muestre la información de la consulta anterior.
+- **Guardar el informe como Consulta_informe**{ .yellowhighlight }.  
+- **Ejemplo de resultado del informe**
+![Descripción de la imagen](./img/UT4/bbdd-61.png){ .margintop10 .marginbottom20 .marco }
 
+## 5.3 - Entrega de la tarea
 
+!!! warning "Condiciones de entrega de la tarea"
+    - Guardar el documento con RA4-CEf-NombreApellidos en formato **NombreArchivo.odb**, **formato nativo** de LibreOffice Base.   
+    - **No se aceptará ningun formato que no sea odb**.  
+    - Subir la base de datos, a la tarea RA4-CEf de **Aules**.
+    - A partir de momento de apertura de la tarea, dispondréis de **14 días** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestros ejercicios.
+
+## 6 - Tarea RA4-CEh Macros
+
+![Descripción de la imagen](../../../DAW/DAW_2/AWS/ut7/cloudformation/WIP.avif){ .trescinco }
+<!-- https://www.tuinstitutoonline.com/cursos/bbdd/basebasico1_v19es/08disenyo_formularios.php -->
 <!-- https://www.iesandresbojollo.es/tiyc/base/2-Interfaz_de_usuario.html -->
 <!-- https://www.tuinstitutoonline.com/aula/course/view.php?id=10 -->
 <!-- https://oficinalibre.net/mod/scorm/player.php -->
-
-### 4.3 - Consultas con el asistente
-
-
-## 5 - Tarea RA4-CEf
-
-## 6 - Tarea RA4-CEh
-<!-- https://www.tuinstitutoonline.com/cursos/bbdd/basebasico1_v19es/08disenyo_formularios.php -->
 
 <!-- https://www.youtube.com/results?search_query=libreoffice+base -->
 <!-- https://www.iesandresbojollo.es/tiyc/base/2-Interfaz_de_usuario.html -->
 
 <!-- https://oficinalibre.net/mod/scorm/view.php?id=130 -->
 
-<!-- 
-5.- Ordenación y filtrado de datos.
-9.- Consultas.
-10.- Ordenación, selección y operadores en consultas.
-13.- Informes. 
--->
+
 
 | **Licencia Creative Commons:** | |
 | :--- | :--- |
