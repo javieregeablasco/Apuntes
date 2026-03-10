@@ -531,6 +531,201 @@ En este caso el no se hará sobre una tabla, sino sobre una consulta. Por lo tan
 
 ## 6 - Tarea RA4-CEh Macros
 
+Las macros son secuencias de comandos que permiten automatizar tareas repetitivas o complejas dentro de una base de datos. En LibreOffice Base, las macros se pueden crear utilizando el lenguaje de programación **LibreOffice Basic** o utilizando otros lenguajes compatibles como Python o JavaScript. Las macros pueden ser utilizadas para realizar una amplia variedad de tareas, como:
+
+- Automatizar la entrada de datos.
+- Realizar cálculos complejos.
+- Generar informes personalizados.
+- Interactuar con otras aplicaciones de LibreOffice, como Writer o Calc.
+- **Aportar funcionalidades adicionales a los formularios, como mejorar la interacción con los campos...**
+- ... y muchas más.
+
+### 6.1 - Guardar las macros en la base de datos
+
+- Para ello iremos a **Herramientas → Macros → Organizar macros → Basic**.
+- Una vez abierto el cuadro de diálogo vamos a nuestro archivo, seleccionamos **Standard**, pulsamos **Nuevo** y damos **un nombre** al módulo que contendrá nuestras macros.  
+![Descripción de la imagen](./img/UT4/bbdd-75.png){ .margintop10 .marginbottom20   }
+
+- Copiamos el siguiente código en el editor de macros:
+
+```basic
+'******** MACRO ABRIR EL FORMULARIO SOCIOS_ACTIVIDADES AL ABRIRSE LA BBDD *********
+Sub AbrirFormInicio(oEvento As Object)
+    On Error Resume Next
+        Dim Control as Object
+        Control = ThisDatabaseDocument.CurrentController
+        If Not Control.IsConnected Then	Control.Connect
+        ThisDatabaseDocument.FormDocuments.GetByName("Socios_Actividades").Open
+
+End Sub
+
+'******** MACRO PARA ESTABLECER LA VISIBILIDAD DE CAMPOS DE ACTIVIDADES *********
+Sub ControlarVisibilidad(oEvento As Object)
+    Dim oControl As Object
+    Dim oFormulario As Object
+    Dim oLabelModelo As Object
+    Dim oCuadroModelo As Object
+    Dim oLabelControl As Object
+    Dim oCuadroControl As Object
+    Dim nombreCheckbox As String
+    Dim num As String
+
+    ' Control que disparó el evento
+    oControl = oEvento.Source
+    ' Formulario
+    oFormulario = oControl.Model.Parent
+    ' Nombre del checkbox
+    nombreCheckbox = oControl.Model.Name
+    ' Extraer número del checkbox (1,2,3...)
+    num = Right(nombreCheckbox,1)
+    ' Obtener modelos de los controles
+    oLabelModelo = oFormulario.getByName("label" & num)
+    oCuadroModelo = oFormulario.getByName("Cuadro_combinado_" & num)
+    ' Obtener controles visibles
+    oLabelControl = ThisComponent.CurrentController.getControl(oLabelModelo)
+    oCuadroControl = ThisComponent.CurrentController.getControl(oCuadroModelo)
+    ' Mostrar u ocultar
+    oLabelControl.Visible = (oControl.State = 1)
+    oCuadroControl.Visible = (oControl.State = 1)
+End Sub
+
+'******** MACRO PARA ACTUALIZAR LA VISIBILIDAD DE CAMPOS DE ACTIVIDADES DESPUES DE CAMBIOS *********
+Sub ActualizarVisibilidadRegistros(oEvento As Object)
+    Dim oFormulario As Object
+    Dim i As Integer
+    Dim oCheckbox As Object
+    Dim oLabelModelo As Object
+    Dim oCuadroModelo As Object
+    Dim oLabelControl As Object
+    Dim oCuadroControl As Object
+    oFormulario = oEvento.Source
+
+    For i = 1 To 5   
+        oCheckbox = oFormulario.getByName("Casilla_" & i)
+        oLabelModelo = oFormulario.getByName("label" & i)
+        oCuadroModelo = oFormulario.getByName("Cuadro_combinado_" & i)
+        oLabelControl = ThisComponent.CurrentController.getControl(oLabelModelo)
+        oCuadroControl = ThisComponent.CurrentController.getControl(oCuadroModelo)
+        oLabelControl.Visible = (oCheckbox.State = 1)
+        oCuadroControl.Visible = (oCheckbox.State = 1)
+    Next i
+
+End Sub
+
+'******** MACRO PARA CAMBIAR DE REGISTROS DESDE UN BOTON *********
+Sub IrARegistro(oEvent)
+    Dim oForm As Object
+    Dim oBarra As Object
+    Dim posicion As Long
+    Dim i As Long
+    oBarra = oEvent.Source.Model
+    posicion = oBarra.ScrollValue
+    oForm = oEvent.Source.Model.Parent
+    oForm.First
+
+    For i = 1 To posicion
+        oForm.Next
+    Next i
+
+End Sub
+
+'******** MACRO PARA RECALCULAR LA CANTIDAD DE REGISTROS (BOTON) *********
+Sub AjustarBarra(oEvent)
+    Dim oForm As Object
+    Dim oBarra As Object
+    oForm = oEvent.Source
+    oBarra = oForm.getByName("barraRegistros")
+    oBarra.Model.ScrollValueMax = oForm.RowCount - 1
+
+End Sub
+
+'************ MACRO PARA ESTABLECER LA PANTALLA COMPLETA *************
+Sub PantallaCompleta(Evento As Object)'Evento al cargar
+    On Error Resume Next
+    Dim oFrame As Object
+    Dim oDispatchHelper
+    oFrame=Evento.Source.Parent.Parent.CurrentController.Frame
+    oDispatchHelper=CreateUnoService("com.sun.star.frame.DispatchHelper")
+    oDispatchHelper.ExecuteDispatch(oFrame,".uno:FullScreen","",0,Array())
+    Dim Allowed As Variant
+    Dim Layout As Object
+    Dim I As Integer
+    Dim strURL As String
+    If IsMissing(Allowed) Or Not IsArray(Allowed) Then Allowed=Array()
+    BubbleSort(Allowed)'llamada a la funcion BubbleShort
+    oFrame = ThisComponent.CurrentController.Frame
+    Layout=oFrame.LayoutManager 
+    For I=0 To UBound(Layout.Elements)
+        strURL=Layout.Elements(I).ResourceURL
+        If BinSearch(strURL,Allowed)>=0 Then 'llamada a la funcion BinSearch
+            Layout.showElement(strURL)
+        Else
+            Layout.hideElement(strURL)
+        End If
+    Next I
+End Sub
+```
+
+- Una vez guardadas, las macros deberan aparecer de la siguiente manera.
+![Descripción de la imagen](./img/UT4/bbdd-70.png){ .margintop10 .marginbottom20 .marco }
+
+### 6.2 - Asignar eventos al checkbox (casilla) del formulario
+
+- En esta sección, asignaremos el evento **ControlarVisibilidad** a cada una de las casillas del formulario **Socios_Actividades** para que, al marcar o desmarcar cada casilla, se muestre u oculte el cuadro combinado correspondiente a la actividad del día.
+![Descripción de la imagen](./img/UT4/bbdd-64.png){ .margintop10 .marginbottom20  }
+
+- Tendremos que controlar el nombre de cada casilla para que el evento sepa qué cuadro combinado mostrar u ocultar. Por ejemplo, la casilla del lunes tendrá el nombre **Casilla_1**, la del martes **Casilla_2** y así sucesivamente.
+![Descripción de la imagen](./img/UT4/bbdd-65.png){ .margintop10 .marginbottom20  }
+
+- También tendremos que controlar el nombre de los cuadros combinados para que la macro se ejecute correctamente.
+![Descripción de la imagen](./img/UT4/bbdd-66.png){ .margintop10 .marginbottom20  }
+
+- Para finalizar, también revisaremos el nombre de las etiquetas de los cuadros combinados.
+![Descripción de la imagen](./img/UT4/bbdd-77.png){ .margintop10 .marginbottom20  }
+
+
+### 6.3 - Colocar una barra de desplazamiento y asignarle un evento
+
+- Colocamos una barra de desplazamiento con el nombre barraRegistros.  
+![Descripción de la imagen](./img/UT4/bbdd-67.png){ .margintop10 .marginbottom20  }
+
+- Para el evento **botón del ratón soltado**, le asignamos **la macro IrARegistro**
+![Descripción de la imagen](./img/UT4/bbdd-76.png){ .margintop10 .marginbottom20  }
+
+### 6.4 - Colocar un botón Guardar y nuevo Socio
+
+- Colocaremos un botón de guardar y le asignaremos la acción **Guardar registro**.  
+![Descripción de la imagen](./img/UT4/bbdd-68.png){ .margintop10 .marginbottom20 .marco }
+
+- Seguidamente colocaremos el botón de nuevo socio asignándole la acción **Registro nuevo**.
+![Descripción de la imagen](./img/UT4/bbdd-69.png){ .margintop10 .marginbottom20 .marco }
+
+### 6.5 - Asignar eventos al formulario
+
+En este apartado realizaremos 3 acciones.
+
+:one: - Poner el formulario a pantalla completa y sin los menús de LibreOffice Base.  
+:two: - Recalcular la cantidad de registros (cantidad de socios).  
+:three: - Actualizar la visibilidad de los registros.
+
+- Ir a **Formulario** → **Propiedades de formulario**.  
+![Descripción de la imagen](./img/UT4/bbdd-71.png){ .margintop10 .marginbottom20  }
+
+- En eventos asignar las macros a los eventos con se indican en la imagen.
+![Descripción de la imagen](./img/UT4/bbdd-72.png){ .margintop10 .marginbottom20  }
+
+### 6.6 - Lanzar formulario al abrir la base de datos
+
+Lo que haremos aquí es lanzar la macro **AbrirFormInicio** cuando abrimos nuestra base de datos.
+
+- Vamos a **Herramientas** → **Personalizar**.
+![Descripción de la imagen](./img/UT4/bbdd-73.png){ .margintop10 .marginbottom20 .marco }
+- Asignamos la macro **AbrirFormInicio** al evento **Abrir documento**.
+![Descripción de la imagen](./img/UT4/bbdd-74.png){ .margintop10 .marginbottom20 .marco }
+
+
+
+
 ![Descripción de la imagen](../../../DAW/DAW_2/AWS/ut7/cloudformation/WIP.avif){ .trescinco }
 <!-- https://www.tuinstitutoonline.com/cursos/bbdd/basebasico1_v19es/08disenyo_formularios.php -->
 <!-- https://www.iesandresbojollo.es/tiyc/base/2-Interfaz_de_usuario.html -->
