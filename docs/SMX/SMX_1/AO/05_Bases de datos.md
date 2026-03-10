@@ -243,10 +243,10 @@ LibreOffice Base puede funcionar de dos maneras:
 ### 2.3 - Entrega de la tarea
 
 !!! warning "Condiciones de entrega de la tarea"
-    - Guardar el documento con RA4-CEa-NombreApellidos en formato **NombreArchivo.odb**, **formato nativo** de LibreOffice Base.   
+    - Guardar el documento con RA4-CEa-NombreApellidos en formato **odb**, **formato nativo** de LibreOffice Base.
     - **No se aceptará ningun formato que no sea odb**.  
     - Subir la base de datos, a la tarea RA4-CEa de **Aules**.
-    - A partir de momento de apertura de la tarea, dispondréis de **14 días** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestros ejercicios.    
+    - A partir de momento de apertura de la tarea, dispondréis de **14 días** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestros ejercicios.
 
 ## 3 - Tarea RA4-CEce Formularios
 
@@ -347,7 +347,7 @@ LibreOffice Base puede funcionar de dos maneras:
 ### 3.3 - Entrega de la tarea
 
 !!! warning "Condiciones de entrega de la tarea"
-    - Guardar el documento con RA4-CEce-NombreApellidos en formato **NombreArchivo.odb**, **formato nativo** de LibreOffice Base.   
+    - Guardar el documento con RA4-CEce-NombreApellidos en formato **odb**, **formato nativo** de LibreOffice Base.
     - **No se aceptará ningun formato que no sea odb**.  
     - Subir la base de datos, a la tarea RA4-CEce de **Aules**.
     - A partir de momento de apertura de la tarea, dispondréis de **14 días** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestros ejercicios.
@@ -475,7 +475,7 @@ Cuando una sola tabla no es suficiente para la consulta a realizar, usaremos con
 ### 4.3 - Entrega de la tarea
 
 !!! warning "Condiciones de entrega de la tarea"
-    - Guardar el documento con RA4-CEdg-NombreApellidos en formato **NombreArchivo.odb**, **formato nativo** de LibreOffice Base.   
+    - Guardar el documento con RA4-CEdg-NombreApellidos en formato **odb**, **formato nativo** de LibreOffice Base.
     - **No se aceptará ningun formato que no sea odb**.  
     - Subir la base de datos, a la tarea RA4-CEdg de **Aules**.
     - A partir de momento de apertura de la tarea, dispondréis de **14 días** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestros ejercicios.
@@ -524,7 +524,7 @@ En este caso el no se hará sobre una tabla, sino sobre una consulta. Por lo tan
 ## 5.3 - Entrega de la tarea
 
 !!! warning "Condiciones de entrega de la tarea"
-    - Guardar el documento con RA4-CEf-NombreApellidos en formato **NombreArchivo.odb**, **formato nativo** de LibreOffice Base.   
+    - Guardar el documento con RA4-CEf-NombreApellidos en formato **odb**, **formato nativo** de LibreOffice Base.
     - **No se aceptará ningun formato que no sea odb**.  
     - Subir la base de datos, a la tarea RA4-CEf de **Aules**.
     - A partir de momento de apertura de la tarea, dispondréis de **14 días** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestros ejercicios.
@@ -628,16 +628,20 @@ Sub IrARegistro(oEvent)
     For i = 1 To posicion
         oForm.Next
     Next i
-
+    
+    oBarra = oForm.getByName("barraRegistros")
+    oBarra.ScrollValueMax = oForm.RowCount - 1
+    
 End Sub
 
 '******** MACRO PARA RECALCULAR LA CANTIDAD DE REGISTROS (BOTON) *********
-Sub AjustarBarra(oEvent)
-    Dim oForm As Object
-    Dim oBarra As Object
-    oForm = oEvent.Source
-    oBarra = oForm.getByName("barraRegistros")
-    oBarra.Model.ScrollValueMax = oForm.RowCount - 1
+'Sub AjustarBarra(oEvent)
+	'MsgBox "ha funcionado"
+    'Dim oForm As Object
+    'Dim oBarra As Object
+    'oFormulario = oEvento.Source
+    'oBarra = oForm.getByName("barraRegistros")
+    'oBarra.Model.ScrollValueMax = oForm.RowCount - 1
 
 End Sub
 
@@ -803,22 +807,21 @@ End Sub
 - Para finalizar, también revisaremos el nombre de las etiquetas de los cuadros combinados.
 ![Descripción de la imagen](./img/UT4/bbdd-77.png){.leftsietecinco .margintop10 .marginbottom20  }
 
-
 ### 6.3 - Colocar una barra de desplazamiento y asignarle un evento
 
 - Colocamos una barra de desplazamiento con el nombre barraRegistros.  
-![Descripción de la imagen](./img/UT4/bbdd-67.png){ .margintop10 .marginbottom20  }
+![Descripción de la imagen](./img/UT4/bbdd-67.png){ .leftsietecinco .margintop10 .marginbottom20  }
 
-- Asignaremos las macros **IrARegistro**, **ActualizarVisibilidadRegistros** a los eventos como se puede ver en la siguiente imagen.
-![Descripción de la imagen](./img/UT4/bbdd-76-1.png){ .margintop10 .marginbottom20  }
+- Asignaremos las macros **IrARegistro** y **ActualizarVisibilidadRegistros** a los eventos como se puede ver en la siguiente imagen.
+![Descripción de la imagen](./img/UT4/bbdd-76-1.png){ .leftsietecinco .margintop10 .marginbottom20  }
 
 ### 6.4 - Colocar un botón Guardar y nuevo Socio
 
 - Colocaremos un botón de guardar y le asignaremos la acción **Guardar registro**.  
-![Descripción de la imagen](./img/UT4/bbdd-68.png){ .margintop10 .marginbottom20 .marco }
+![Descripción de la imagen](./img/UT4/bbdd-68.png){.leftsietecinco .margintop10 .marginbottom20  }
 
 - Seguidamente colocaremos el botón de nuevo socio asignándole la acción **Registro nuevo**.
-![Descripción de la imagen](./img/UT4/bbdd-69.png){ .margintop10 .marginbottom20 .marco }
+![Descripción de la imagen](./img/UT4/bbdd-69.png){.leftsietecinco .margintop10 .marginbottom20   }
 
 ### 6.5 - Asignar eventos al formulario
 
@@ -844,10 +847,15 @@ Lo que haremos aquí es lanzar la macro **AbrirFormInicio** cuando abrimos nuest
 - Asignamos la macro **AbrirFormInicio** al evento **Abrir documento**.
 ![Descripción de la imagen](./img/UT4/bbdd-74.png){ .margintop10 .marginbottom20 .marco }
 
+## 6.7 - Entrega de la tarea
 
+!!! warning "Condiciones de entrega de la tarea"
+    - Guardar el documento con RA4-CEh-NombreApellidos en formato **odb**, **formato nativo** de LibreOffice Base.
+    - **No se aceptará ningun formato que no sea odb**.  
+    - Subir la base de datos, a la tarea RA4-CEf de **Aules**.
+    - A partir de momento de apertura de la tarea, dispondréis de **14 días** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestros ejercicios.
 
-
-![Descripción de la imagen](../../../DAW/DAW_2/AWS/ut7/cloudformation/WIP.avif){ .trescinco }
+<!-- ![Descripción de la imagen](../../../DAW/DAW_2/AWS/ut7/cloudformation/WIP.avif){ .trescinco } -->
 <!-- https://www.tuinstitutoonline.com/cursos/bbdd/basebasico1_v19es/08disenyo_formularios.php -->
 <!-- https://www.iesandresbojollo.es/tiyc/base/2-Interfaz_de_usuario.html -->
 <!-- https://www.tuinstitutoonline.com/aula/course/view.php?id=10 -->
@@ -857,8 +865,6 @@ Lo que haremos aquí es lanzar la macro **AbrirFormInicio** cuando abrimos nuest
 <!-- https://www.iesandresbojollo.es/tiyc/base/2-Interfaz_de_usuario.html -->
 
 <!-- https://oficinalibre.net/mod/scorm/view.php?id=130 -->
-
-
 
 | **Licencia Creative Commons:** | |
 | :--- | :--- |
