@@ -833,7 +833,7 @@ En este apartado pondremos el formulario a pantalla completa sin ningún tipo de
 ![Descripción de la imagen](./img/UT4/bbdd-71.png){ .margintop10 .marginbottom20  }
 
 - En eventos asignar las macros a los eventos con se indican en la imagen.
-![Descripción de la imagen](./img/UT4/bbdd-72-1.png){ .margintop10 .marginbottom20  }
+![Descripción de la imagen](./img/UT4/bbdd-72-1.png){ .leftsietecinco .margintop10 .marginbottom20  }
 
 ### 6.6 - Lanzar formulario al abrir la base de datos
 
