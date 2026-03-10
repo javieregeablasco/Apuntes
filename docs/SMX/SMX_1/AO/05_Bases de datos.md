@@ -792,16 +792,16 @@ End Sub
 ### 6.2 - Asignar eventos al checkbox (casilla) del formulario
 
 - En esta sección, asignaremos el evento **ControlarVisibilidad** a cada una de las casillas del formulario **Socios_Actividades** para que, al marcar o desmarcar cada casilla, se muestre u oculte el cuadro combinado correspondiente a la actividad del día.
-![Descripción de la imagen](./img/UT4/bbdd-64.png){ .margintop10 .marginbottom20  }
+![Descripción de la imagen](./img/UT4/bbdd-64.png){ .leftsietecinco .margintop10 .marginbottom20  }
 
 - Tendremos que controlar el nombre de cada casilla para que el evento sepa qué cuadro combinado mostrar u ocultar. Por ejemplo, la casilla del lunes tendrá el nombre **Casilla_1**, la del martes **Casilla_2** y así sucesivamente.
-![Descripción de la imagen](./img/UT4/bbdd-65.png){ .margintop10 .marginbottom20  }
+![Descripción de la imagen](./img/UT4/bbdd-65.png){ .leftsietecinco .margintop10 .marginbottom20  }
 
 - También tendremos que controlar el nombre de los cuadros combinados para que la macro se ejecute correctamente.
-![Descripción de la imagen](./img/UT4/bbdd-66.png){ .margintop10 .marginbottom20  }
+![Descripción de la imagen](./img/UT4/bbdd-66.png){ .leftsietecinco .margintop10 .marginbottom20  }
 
 - Para finalizar, también revisaremos el nombre de las etiquetas de los cuadros combinados.
-![Descripción de la imagen](./img/UT4/bbdd-77.png){ .margintop10 .marginbottom20  }
+![Descripción de la imagen](./img/UT4/bbdd-77.png){.leftsietecinco .margintop10 .marginbottom20  }
 
 
 ### 6.3 - Colocar una barra de desplazamiento y asignarle un evento
@@ -830,17 +830,17 @@ En este apartado pondremos el formulario a pantalla completa sin ningún tipo de
 <!-- :three: - Actualizar la visibilidad de los registros. -->
 
 - Ir a **Formulario** → **Propiedades de formulario**.  
-![Descripción de la imagen](./img/UT4/bbdd-71.png){ .margintop10 .marginbottom20  }
+![Descripción de la imagen](./img/UT4/bbdd-71.png){ .leftseiscero .margintop10 .marginbottom20  }
 
 - En eventos asignar las macros a los eventos con se indican en la imagen.
-![Descripción de la imagen](./img/UT4/bbdd-72-1.png){ .leftsietecinco .margintop10 .marginbottom20  }
+![Descripción de la imagen](./img/UT4/bbdd-72-1.png){ .leftcincocero .margintop10 .marginbottom20  }
 
 ### 6.6 - Lanzar formulario al abrir la base de datos
 
 Lo que haremos aquí es lanzar la macro **AbrirFormInicio** cuando abrimos nuestra base de datos.
 
 - Vamos a **Herramientas** → **Personalizar**.
-![Descripción de la imagen](./img/UT4/bbdd-73.png){ .margintop10 .marginbottom20 .marco }
+![Descripción de la imagen](./img/UT4/bbdd-73.png){ .leftseiscero .margintop10 .marginbottom20  }
 - Asignamos la macro **AbrirFormInicio** al evento **Abrir documento**.
 ![Descripción de la imagen](./img/UT4/bbdd-74.png){ .margintop10 .marginbottom20 .marco }
 
