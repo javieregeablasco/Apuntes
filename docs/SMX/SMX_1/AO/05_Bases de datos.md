@@ -634,17 +634,6 @@ Sub IrARegistro(oEvent)
     
 End Sub
 
-'******** MACRO PARA RECALCULAR LA CANTIDAD DE REGISTROS (BOTON) *********
-'Sub AjustarBarra(oEvent)
-	'MsgBox "ha funcionado"
-    'Dim oForm As Object
-    'Dim oBarra As Object
-    'oFormulario = oEvento.Source
-    'oBarra = oForm.getByName("barraRegistros")
-    'oBarra.Model.ScrollValueMax = oForm.RowCount - 1
-
-End Sub
-
 '************ MACRO PARA ESTABLECER LA PANTALLA COMPLETA *************
 Sub PantallaCompleta(Evento As Object)'Evento al cargar
     On Error Resume Next
@@ -671,124 +660,6 @@ Sub PantallaCompleta(Evento As Object)'Evento al cargar
     Next I
 End Sub
 ```
-
-<!-- ```basic
-'******** MACRO ABRIR EL FORMULARIO SOCIOS_ACTIVIDADES AL ABRIRSE LA BBDD *********
-Sub AbrirFormInicio(oEvento As Object)
-    On Error Resume Next
-        Dim Control as Object
-        Control = ThisDatabaseDocument.CurrentController
-        If Not Control.IsConnected Then	Control.Connect
-        ThisDatabaseDocument.FormDocuments.GetByName("Socios_Actividades").Open
-
-End Sub
-
-'******** MACRO PARA ESTABLECER LA VISIBILIDAD DE CAMPOS DE ACTIVIDADES *********
-Sub ControlarVisibilidad(oEvento As Object)
-    Dim oControl As Object
-    Dim oFormulario As Object
-    Dim oLabelModelo As Object
-    Dim oCuadroModelo As Object
-    Dim oLabelControl As Object
-    Dim oCuadroControl As Object
-    Dim nombreCheckbox As String
-    Dim num As String
-
-    ' Control que disparó el evento
-    oControl = oEvento.Source
-    ' Formulario
-    oFormulario = oControl.Model.Parent
-    ' Nombre del checkbox
-    nombreCheckbox = oControl.Model.Name
-    ' Extraer número del checkbox (1,2,3...)
-    num = Right(nombreCheckbox,1)
-    ' Obtener modelos de los controles
-    oLabelModelo = oFormulario.getByName("label" & num)
-    oCuadroModelo = oFormulario.getByName("Cuadro_combinado_" & num)
-    ' Obtener controles visibles
-    oLabelControl = ThisComponent.CurrentController.getControl(oLabelModelo)
-    oCuadroControl = ThisComponent.CurrentController.getControl(oCuadroModelo)
-    ' Mostrar u ocultar
-    oLabelControl.Visible = (oControl.State = 1)
-    oCuadroControl.Visible = (oControl.State = 1)
-End Sub
-
-'******** MACRO PARA ACTUALIZAR LA VISIBILIDAD DE CAMPOS DE ACTIVIDADES DESPUES DE CAMBIOS *********
-Sub ActualizarVisibilidadRegistros(oEvento As Object)
-    Dim oFormulario As Object
-    Dim i As Integer
-    Dim oCheckbox As Object
-    Dim oLabelModelo As Object
-    Dim oCuadroModelo As Object
-    Dim oLabelControl As Object
-    Dim oCuadroControl As Object
-    oFormulario = oEvento.Source
-
-    For i = 1 To 5   
-        oCheckbox = oFormulario.getByName("Casilla_" & i)
-        oLabelModelo = oFormulario.getByName("label" & i)
-        oCuadroModelo = oFormulario.getByName("Cuadro_combinado_" & i)
-        oLabelControl = ThisComponent.CurrentController.getControl(oLabelModelo)
-        oCuadroControl = ThisComponent.CurrentController.getControl(oCuadroModelo)
-        oLabelControl.Visible = (oCheckbox.State = 1)
-        oCuadroControl.Visible = (oCheckbox.State = 1)
-    Next i
-
-End Sub
-
-'******** MACRO PARA CAMBIAR DE REGISTROS DESDE UN BOTON *********
-Sub IrARegistro(oEvent)
-    Dim oForm As Object
-    Dim oBarra As Object
-    Dim posicion As Long
-    Dim i As Long
-    oBarra = oEvent.Source.Model
-    posicion = oBarra.ScrollValue
-    oForm = oEvent.Source.Model.Parent
-    oForm.First
-
-    For i = 1 To posicion
-        oForm.Next
-    Next i
-
-End Sub
-
-'******** MACRO PARA RECALCULAR LA CANTIDAD DE REGISTROS (BOTON) *********
-Sub AjustarBarra(oEvent)
-    Dim oForm As Object
-    Dim oBarra As Object
-    oForm = oEvent.Source
-    oBarra = oForm.getByName("barraRegistros")
-    oBarra.Model.ScrollValueMax = oForm.RowCount - 1
-
-End Sub
-
-'************ MACRO PARA ESTABLECER LA PANTALLA COMPLETA *************
-Sub PantallaCompleta(Evento As Object)'Evento al cargar
-    On Error Resume Next
-    Dim oFrame As Object
-    Dim oDispatchHelper
-    oFrame=Evento.Source.Parent.Parent.CurrentController.Frame
-    oDispatchHelper=CreateUnoService("com.sun.star.frame.DispatchHelper")
-    oDispatchHelper.ExecuteDispatch(oFrame,".uno:FullScreen","",0,Array())
-    Dim Allowed As Variant
-    Dim Layout As Object
-    Dim I As Integer
-    Dim strURL As String
-    If IsMissing(Allowed) Or Not IsArray(Allowed) Then Allowed=Array()
-    BubbleSort(Allowed)'llamada a la funcion BubbleShort
-    oFrame = ThisComponent.CurrentController.Frame
-    Layout=oFrame.LayoutManager 
-    For I=0 To UBound(Layout.Elements)
-        strURL=Layout.Elements(I).ResourceURL
-        If BinSearch(strURL,Allowed)>=0 Then 'llamada a la funcion BinSearch
-            Layout.showElement(strURL)
-        Else
-            Layout.hideElement(strURL)
-        End If
-    Next I
-End Sub
-``` -->
 
 - Una vez guardadas, las macros deberan aparecer de la siguiente manera.
 ![Descripción de la imagen](./img/UT4/bbdd-70.png){ .margintop10 .marginbottom20 .marco }
@@ -825,12 +696,7 @@ End Sub
 
 ### 6.5 - Asignar eventos al formulario
 
-En este apartado pondremos el formulario a pantalla completa sin ningún tipo de menú de LibreOffice Base.  
-<!-- En este apartado realizaremos 3 acciones. -->
-
-<!-- :one: - Poner el formulario a pantalla completa y sin los menús de LibreOffice Base.   -->
-<!-- :two: - Recalcular la cantidad de registros (cantidad de socios).   -->
-<!-- :three: - Actualizar la visibilidad de los registros. -->
+En este apartado visualizaremos el formulario a pantalla completa sin ningún menú de LibreOffice Base.  
 
 - Ir a **Formulario** → **Propiedades de formulario**.  
 ![Descripción de la imagen](./img/UT4/bbdd-71.png){ .leftseiscero .margintop10 .marginbottom20  }
