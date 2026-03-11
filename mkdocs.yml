@@ -8,6 +8,13 @@ theme:
   
   features:
     - navigation.instant
+    - navigation.instant.prefetch
+    
+    
+    
+    - navigation.instant.progress
+      - navigation.expand
+      - navigation.path
     - navigation.instant.progress
     - navigation.instant.preview
     - navigation.tracking
@@ -16,8 +23,8 @@ theme:
     - navigation.sections
     - navigation.expand
     - toc.follow
-#    - navigation.footer #añade flechas de navegacion en el footer
-    - toc.integrate
+    - navigation.footer #añade flechas de navegacion en el footer
+    # - toc.integrate
     - navigation.top
     - search.suggest
     - search.highlight
@@ -68,8 +75,11 @@ markdown_extensions:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.tabbed:
-      alternate_style: true    
+      alternate_style: true 
+  # - codehilite       
   - admonition
+  # - toc:
+      # permalink: false
   - pymdownx.details
   - pymdownx.superfences:
       custom_fences:
@@ -90,6 +100,7 @@ nav:
     - UT 3 - Hojas de cálculo: SMX/SMX_1/AO/03_Hojas de calculo.md
     - UT 4 - Presentaciones: SMX/SMX_1/AO/07_Presentaciones.md
     - UT 5 - Bases de datos: SMX/SMX_1/AO/05_Bases de datos.md
+    - UT 6 - Edición de videos: SMX/SMX_1/AO/06_Captura e edicion de video.md
                                                   
   - Programación en Python: 
     - Presentación módulo: SMX/SMX_2/Opt_Python/00_Temario.md
