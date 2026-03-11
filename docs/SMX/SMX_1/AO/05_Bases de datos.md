@@ -31,9 +31,9 @@ schedule: 224h - 7h/w
 !!! warning "Nota:"
     El criterio de evaluación **b) Se han creado bases de datos ofimáticas**, será evaluado durante la FCT.
 
-## **1 - Introducción**
+## 1 - Introducción
 
-### **1.1 - ¿Qué es una base de datos?**
+### 1.1 - ¿Qué es una base de datos?
 
 Una base de datos es un sistema organizado para **almacenar**, **gestionar** y **consultar** información de forma estructurada.
 
@@ -45,7 +45,7 @@ Normalmente, **las bases de datos se gestionan mediante un Sistema de Gestión d
 - PostgreSQL
 - Oracle Database
 
-### **1.2 - ¿Qué es una base de datos relacional?**
+### 1.2 - ¿Qué es una base de datos relacional?
 
 Para poder almacenar de forma ordenada, toda la información generada por, por ejemplo un negocio, es necesario dividir la base de datos en tablas.  
 Cada tabla albergará una clase de datos (clientes, pedidos, ventas, stock, ...). Como es fácil de intuir, muchos datos de las diferentes tablas tendrán **relación** los unos con los otros **mediante campos comunes**.  

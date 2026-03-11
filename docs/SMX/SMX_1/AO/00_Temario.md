@@ -10,23 +10,19 @@ layout: default
 schedule: 224h - 7h/w
 ---
 
-# **Aplicaciones ofimáticas**
----
 ![Descripción de la imagen](./img/img1.jpg){ .img1 }
 
-<br>
+## 1 - Calendario escolar
 
-## **1 - Calendario escolar**
-![](../AO/img/UT0/CAL_2025-2026.png){.sietecinco}
-<!-- Aclarar horas de practicas
-Aclarar fechas de las practicas -->
+![imagen](../AO/img/UT0/CAL_2025-2026.png){.sietecinco}
 
-## **2 - Horario de sesiones**
-![](../AO/img/UT0/horario.png){.cincozero}
+## 2 - Horario de sesiones
 
+![imagen](../AO/img/UT0/horario.png){.cincozero}
 
-## **3 - Contenidos**
-A continuación, se presentan los contenidos de este módulo tal y como aparecen en <a href=https://dogv.gva.es/datos/2009/09/03/pdf/2009_9808.pdf>**ORDEN de 29 de julio 2009**</a>, de la Conselleria de Educación, por la que se establece para la Comunitat Valenciana el currículo del ciclo formativo de Grado Medio correspondiente al título de **Técnico en Sistemas Microinformáticos y Redes**.
+## 3 - Contenidos
+
+A continuación, se presentan los contenidos de este módulo tal y como aparecen en la [**ORDEN de 29 de julio 2009**](https://dogv.gva.es/datos/2009/09/03/pdf/2009_9808.pdf), de la Conselleria de Educación, por la que se establece para la Comunitat Valenciana el currículo del ciclo formativo de Grado Medio correspondiente al título de **Técnico en Sistemas Microinformáticos y Redes**.
   
 !!! info "Instalación de aplicaciones ofimáticas"
     - Tipos de aplicaciones ofimáticas y aplicaciones corporativas.
@@ -36,7 +32,6 @@ A continuación, se presentan los contenidos de este módulo tal y como aparecen
     - Procedimientos de instalación y configuración.
     - Diagnóstico y resolución de problemas.
 
-<!-- ### Elaboración de documentos y plantillas mediante procesadores de texto -->
 !!! info "Elaboración de documentos y plantillas mediante procesadores de texto"
     – El entorno de trabajo. Personalización.  
     – Formateo de textos. Párrafos. Páginas y Estilos.  
@@ -54,7 +49,6 @@ A continuación, se presentan los contenidos de este módulo tal y como aparecen
     – Utilización de software y hardware para introducir textos e imágenes.  
     – Elaboración de distintos tipos de documentos (manuales, partes de incidencias, entre otros).
 
-<!-- ### Elaboración de documentos y plantillas mediante hojas de cálculo -->
 !!! info "Elaboración de documentos y plantillas mediante hojas de cálculo"
     – Entorno de trabajo. Personalización.  
     – Conceptos básicos: Libro, hoja, celda, rango, etc…  
@@ -71,8 +65,6 @@ A continuación, se presentan los contenidos de este módulo tal y como aparecen
     – Elaboración de distintos tipos de documentos (presupuestos, facturas, inventarios, entre otros).  
     – Diseño y creación de macros.  
 
-
-<!-- ### Utilización de bases de datos ofimáticas -->
 !!! info "Utilización de bases de datos ofimáticas"
     – Elementos de las bases de datos relacionales.  
     – Organización de bases de datos relacionales.  
@@ -82,7 +74,6 @@ A continuación, se presentan los contenidos de este módulo tal y como aparecen
     – Manipulación de datos: Inserción, modificación y borrado.  
     – Consultas, formularios e informes.  
 
-<!-- ### Manipulación de imágenes -->
 !!! info "Manipulación de imágenes"
     – Formatos y resolución de imágenes.  
     – Manipulación de selecciones, máscaras y capas.  
@@ -91,7 +82,6 @@ A continuación, se presentan los contenidos de este módulo tal y como aparecen
     – Importación y exportación de imágenes.  
     – Utilización de dispositivos para obtener imágenes.  
 
-<!-- ### Manipulación de vídeos -->
 !!! info "Manipulación de vídeos"
     – Formatos de vídeo. Codecs.  
     – Manipulación de la línea de tiempo.  
@@ -100,7 +90,6 @@ A continuación, se presentan los contenidos de este módulo tal y como aparecen
     – Creación y grabación de videos.  
     – Importación y exportación de vídeos.  
 
-<!-- ### Elaboración de presentaciones -->
 !!! info "Elaboración de presentaciones"
     – El entorno de trabajo. Personalización.  
     – Impresión de presentaciones.  
@@ -114,7 +103,6 @@ A continuación, se presentan los contenidos de este módulo tal y como aparecen
     – Utilización de plantillas y asistentes. Patrones de diapositivas.  
     – Diseño y creación de macros.  
 
-<!-- ### Gestión de correo y agenda electrónica -->
 !!! info "Gestión de correo y agenda electrónica"
     – Entorno de trabajo: configuración y personalización.  
     – Tipos de cuentas de correo.  
@@ -125,31 +113,29 @@ A continuación, se presentan los contenidos de este módulo tal y como aparecen
     – Gestión de la agenda: citas, calendario, avisos, tareas, entre otros.  
     – Sincronización con dispositivos móviles.  
 
-<!-- ### Aplicación de técnicas de soporte -->
 !!! info "Aplicación de técnicas de soporte"
     – Elaboración de guías y manuales de uso de aplicaciones.  
     – Formación al usuario.  
     – Resolución de incidencias.  
     – Aplicaciones para la gestión y control de incidencias.  
 
-<br>
+## 4 - Metodología de aprendizaje
 
-## **4 - Metodología de aprendizaje**
 1. Exposición de los **aspectos teóricos** para que después **sean aplicados mediante prácticas y ejercicios**.  
 1. La metodología de trabajo será el **Aprendizaje Basado en Problemas (ABP/PBL)**. Se propondrá un problema real y los alumnos tendrán que buscar una solución, justificándola y comprobando que funciona. Además, si procede, incluirán un pequeño estudio de necesidades y costes para valorar su viabilidad.  
-1. Las prácticas podrán ser **individuales o colectivas**. 
+1. Las prácticas podrán ser **individuales o colectivas**.
 1. Realización de **actividades voluntarias** de investigación y ampliación para **profundizar en los conocimientos adquiridos**.  
-1. **Proyección de vídeos**. 
-<br>
+1. **Proyección de vídeos**.
 
-## **5 - Evaluación** 
-1. La evaluación se hará **por resultados de aprendizaje RA**. <a href=https://www.boe.es/boe/dias/2023/07/22/pdfs/BOE-A-2023-16889.pdf>R.D. 659/2023</a>. 
+## 5 - Evaluación
+
+1. La evaluación se hará **por resultados de aprendizaje RA** como indica el [**R.D. 659/2023**](https://www.boe.es/boe/dias/2023/07/22/pdfs/BOE-A-2023-16889.pdf)
 1. Los resultados de aprendizaje y criterios de evaluación asociados al módulo **Aplicaciones Ofimáticas** constituyen los logros que los alumnos/as tienen que alcanzar para **superar el módulo**.
 1. Cada resultado de aprendizaje **RA** se evalúa a través de los criterios de evaluación **CE**. Los **CE** actúan como “desglose” del **RA**, facilitando medir de forma objetiva si el aprendizaje se ha alcanzado.
 
+### 5.1 - Relación entre Criterios de Evaluación y Resultados de Aprendizaje
 
-### **5.1 - Relación entre Criterios de Evaluación y Resultados de Aprendizaje** 
-**Los criterios de evaluación** asociados a los **resultados de aprendizaje** del módulo **Aplicaciones Ofimáticas**, <a href=https://www.boe.es/diario_boe/txt.php?id=BOE-A-2008-819>R.D. 1691/2007</a>, son los siguientes :
+**Los criterios de evaluación** asociados a los **resultados de aprendizaje** del módulo **Aplicaciones Ofimáticas**, [R.D. 1691/2007](https://www.boe.es/diario_boe/txt.php?id=BOE-A-2008-819), son los siguientes :
 
 === "RA 1"
     |RA1. Instala y actualiza aplicaciones ofimáticas, interpretando especificaciones y describiendo los pasos a seguir en el proceso.|Peso|
@@ -163,7 +149,6 @@ A continuación, se presentan los contenidos de este módulo tal y como aparecen
     |**g)** Se han actualizado las aplicaciones. |10%|
     |**h)** Se han respetado las licencias software. |10%|
     |**i)** `Se han propuesto soluciones software para entornos de aplicación.` |5%|
-
 
 === "RA 2"
     |RA2. Elabora documentos y plantillas, describiendo y aplicando las opciones avanzadas de procesadores de textos.|peso|
@@ -250,9 +235,8 @@ A continuación, se presentan los contenidos de este módulo tal y como aparecen
     |**g)** Se han utilizado los recursos disponibles (documentación técnica, ayudas en línea, soporte técnico, entre otros) para solventar incidencias.|20%|
     |**h)** `Se han solventado las incidencias en el tiempo adecuado y con el nivel adecuado.`|10%|
 
+### 5.2 - Resultados de aprendizaje
 
-
-### **5.2 - Resultados de aprendizaje**
 En cada unidad de trabajo (UT) se evaluarán los **criterios de evaluación (CE)** correspondientes al **RA**.  
 En el caso concreto del módulo **Aplicaciones Ofimáticas**, en cada unidad de trabajo (UT), **se evaluará un RA**.  
 
@@ -272,61 +256,61 @@ En el caso concreto del módulo **Aplicaciones Ofimáticas**, en cada unidad de 
     **UT 5** - Elaboración de bases de datos ofimáticas.
 
 !!! info "RA 5 - Manipula imágenes digitales analizando las posibilidades de distintos programas y aplicando técnicas de captura y edición básicas"
-    **UT 6** - Edición digital de imágenes. 
+    **UT 6** - Edición digital de imágenes.
 
 !!! info "RA 6 - Manipula secuencias de vídeo analizando las posibilidades de distintos programas y aplicando técnicas de captura y edicion basicas"
-    **UT 7** - Edición de videos digital. 
+    **UT 7** - Edición de videos digital.
 
 !!! info "RA 8 - Realiza operaciones de gestión del correo y la agenda electrónica, relacionando necesidades de uso con su configuración."
     **UT 8** - Gestión del correo electrónico.  
 
 !!! info "RA 9 - Aplica técnicas de soporte en el uso de aplicaciones, identificando y resolviendo incidencias."
-    **UT 9** - Resolución de incidencias. 
+    **UT 9** - Resolución de incidencias.
 
+### 5.3 - Metodología de evaluación
 
-### **5.3 - Metodología de evaluación**
-- La evaluación será **contínua**.   
+- La evaluación será **contínua**.
 - Se basará en la comprobación de la superación de los **resultados de aprendizaje (RA)**.
 - La evaluación se hará sobre **todos los RA y todos los CE** del currículo.
 
+### 5.4 - Instrumentos de evaluación
 
-### **5.4 - Instrumentos de evaluación**
-- Exámenes.  
-    - Preguntas tipo test.
-    - Examen escrito (ejercicios).          
+- Exámenes (preguntas tipo test o ejercicios).
 - Entrega de tareas.  
 - Exposiciones orales.  
 - **Prácticas en empresa**.
 
-### **5.5. - Responsable evaluación de los RA's y/o CE's**
+### 5.5. - Responsable evaluación de los RA's y/o CE's
+
 1. Evaluación por profesor:  
 **Todos lo que no serán evaluados en empresa**.
-<br><br>
 
-1. Evaluación por tutor empresa (dualización de los RA y CE): 
+1. Evaluación por tutor empresa (dualización de los RA y CE):
 
     === "RA 1"
-        **d)** Se han documentado las incidencias. 
+        **d)** Se han documentado las incidencias.
         **i)** Se han propuesto soluciones software para entornos de aplicación.  
-    
+
     === "RA 2"
-        **g)** Se han elaborado manuales específicos. 
-    
+        **g)** Se han elaborado manuales específicos.
+
     === "RA 3"
         **g)** Se han importado y exportado hojas de cálculo creadas con otras aplicaciones y en otros formatos.
-    
+
     === "RA 8"
         **e)** Se ha operado con la libreta de direcciones.  
         **g)** Se han utilizado opciones de agenda electrónica.
-    
+
     === "RA 9"
         **h)** Se han solventado las incidencias en el tiempo adecuado y con el nivel adecuado.
 
-## **6. - Criterio de superación del módulo**
-### **6.1. - Nota final**
+## 6. - Criterio de superación del módulo
+
+### 6.1. - Nota final
+
 La nota final será la suma ponderada de **los resultados de aprendizaje** obtenidos en cada evaluación.  
 
-La superación del módulo requerirá obtener una media mínima de **5 sobre 10 en cada resultado de aprendizaje**. 
+La superación del módulo requerirá obtener una media mínima de **5 sobre 10 en cada resultado de aprendizaje**.
 
 En caso de no superar el módulo, el alumna/o dispondrá de un proceso de recuperación orientado a reforzar específicamente los resultados de aprendizaje no alcanzados.
 
@@ -342,25 +326,27 @@ En caso de no superar el módulo, el alumna/o dispondrá de un proceso de recupe
 |**RA 8** - Realiza operaciones de gestion del correo y la agenda electronica, relacionando necesidades de uso con su configuración.|10%|
 |**RA 9** - Aplica técnicas de soporte en el uso de aplicaciones, identificando y resolviendo incidencias.|5%|
 
-### **6.2 - Instrumentos de recuperación**
+### 6.2 - Instrumentos de recuperación
+
 - Se propondrá a los alumnos una serie de **recuperaciones** que le permitirán recuperar los **criterios de evaluación** no superados.
 - Si el alumno **no entrega los trabajos obligatorios o presenta tasas de absentismo elevadas**, perderá la evaluación continua y deberá presentarse a la evaluación **ordinaria** y/o **extraordinaria**.
 
-### **6.3. - Calendario de evaluaciones**
-- Evaluación inicial (primer mes).
-- **Una evaluación parcial por cada trimestre**. 
+### 6.3. - Calendario de evaluaciones
+
+1. Evaluación inicial (primer mes).
+1. **Una evaluación parcial por cada trimestre**.
     - Se daran las notas de los **RA** completados y también la nota **parcial** de los **RA** incompletos.
     - Para tener el aprobado será necesario haber alcanzado una puntuación superior o igual a 5 en los **Resultados de Aprendizaje RA** completados.
-- **Evaluación ordinaria** y **extraordinaria**: Permitirán recuperar los **RA no superados**.
+1. **Evaluación ordinaria** y **extraordinaria**: Permitirán recuperar los **RA no superados**.
 
-## **7 - Secuenciación y duración de cada Unidad de Trabajo**
-<div style="text-align:center;">
+## 7 - Secuenciación y duración de cada Unidad de Trabajo
+
 ```mermaid
-flowchart TB 
+flowchart TB
   A["Instalación de aplicaciones ofimáticas."]
   B["Elaboración de documentos de texto."]
-  C["Elaboración de presentaciones."]
-  D["Elaboración de hojas de cálculo."]
+  C["Elaboración de hojas de cálculo."]
+  D["Elaboración de presentaciones."]
   E["Elaboración de bases de datos ofimáticas."]
   F["Edición digital de imágenes."]
   G["Edición de videos digital."]
@@ -368,79 +354,66 @@ flowchart TB
   I["Resolución de incidencias."]
   AA["7h"]
   BB["35h"]
-  CC["21h"]
-  DD["35h"]
+  CC["35h"]
+  DD["21h"]
   EE["38h"]
   FF["21h"]
   GG["21h"]
   HH["7h"]
   II["7h"]
 
+  subgraph Orden y duración de las UT
 
-  subgraph **Orden y duración de las UT**
-
-    subgraph **UT9** 
+    subgraph UT9 
       direction LR
       I --> II
     end
     
-    subgraph **UT8**  
+    subgraph UT8  
       direction LR
       H --> HH
     end
     
-    subgraph **UT7**  
+    subgraph UT7  
       direction LR
       G --> GG
     end
     
-    subgraph **UT6**  
+    subgraph UT6  
       direction LR
       F --> FF
     end
     
-    subgraph **UT5**  
+    subgraph UT5  
       direction LR
       E --> EE
     end
     
-    subgraph **UT4**  
+    subgraph UT4  
       direction LR
       D --> DD
     end
     
-    subgraph **UT3**  
+    subgraph UT3  
       direction LR
       C --> CC
     end
 
-    subgraph **UT2** 
+    subgraph UT2 
       direction LR
       B --> BB
     end  
 
-    subgraph **UT1** 
+    subgraph UT1 
       direction LR
       A --> AA  
     end
 
   end
 ```
-</div>
-   
---- 
+
+---
 
 | **Licencia Creative Commons:** | |
 | - | - |
-| ![alt text](../../../assets/by-nc-nd-eu_.png) { .by-nc-nd-eu_ } | **Reconocimiento-NoComercial-CompartirIgual CC BY-NC-SA:**  No se permite un uso comercial de la obra original ni de las posibles obras derivadas, la distribución de la cuales se debe hace con una licencia igual a la que regula la obra original. | 
-  
-
-
-
-
-    
-
-
-
-
-
+| ![alt text](../../../assets/by-nc-nd-eu_.png) { .by-nc-nd-eu_ } | **Reconocimiento-NoComercial-CompartirIgual CC BY-NC-SA:**  No se permite un uso comercial de la obra original ni de las posibles obras derivadas, la distribución de la cuales se debe hace con una licencia igual a la que regula la obra original. |
