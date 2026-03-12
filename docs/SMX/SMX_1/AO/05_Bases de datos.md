@@ -467,7 +467,7 @@ Cuando una sola tabla no es suficiente para la consulta a realizar, usaremos con
         **Guardar la consulta como consulta_14**{ .yellowhighlight }.
         
     !!! exercise "Ejercicio 12"    
-        - Realizar una consulta que haga lo siguiente: Devuelver id, nombre y apellidos + activo el lunes + actividad de mañana + horario de la actividad. 
+        - Realizar una consulta que haga lo siguiente: Devuelver id, nombre y apellidos + activo el lunes + actividad de mañana + horario de la actividad.  
         **Ejemplo de resultado:**
         ![Descripción de la imagen](./img/UT4/bbdd-52.png){ .leftcuatrocero .margintop10 .marginbottom20 }       
         **Guardar la consulta como consulta_15**{ .yellowhighlight }.
@@ -721,16 +721,59 @@ Lo que haremos aquí es lanzar la macro **AbrirFormInicio** cuando abrimos nuest
     - Subir la base de datos, a la tarea RA4-CEf de **Aules**.
     - A partir de momento de apertura de la tarea, dispondréis de **14 días** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestros ejercicios.
 
+## 7 - Tarea RA4-CEb Base de datos completa
+
+En esta tarea usaremos los conocimientos adquiridos para crear una base de datos desde cero.
+Deberéis importar las tablas, decidir el tipo de datos de los campos de las diversas tablas, crear las relaciones entre tablas así como los formularios y las consultas.
+
+Para el ejemplo, la base de datos recrea una empresa que se dedica a la venta de productos alimentarios.
+La base de datos de la tarea controla los siguientes datos:
+
+1. Datos personales del equipo de vendedores.
+1. Listado de todos los productos a la venta así como el precio por kg.
+1. Grupo o catagoría dentro de la que entran los diferentes productos a la venta.
+1. Ventas por vendedores, día, producto y cantidad de producto vendido.
+
+### 7.1 - Importar las tablas
+
+!!! task "Trabajo a realizar"
+    - Descargar los datos desde el siguiente [enlace](./04_bases%20de%20datos/Tareas/RA4-CEb/tablas_cacl.ods)
+    - En este punto de la tarea, deberéis importar las 4 hojas, decidir el tipo de datos para cada campo, la clave primaria de cada tabla y las relaciones existentes entre tablas.
+
+### 7.2 - Formularios
+
+En este apartado se os pedirá, definir un formulario basado sobre la tabla **Ventas** que permita introducir nuevos registros de las ventas del equipo de comerciales.  
+Como podemos ver en la tabla **Ventas** no tenemos acceso a los valores esplicitos de los **vendedores**, ni de los **productos**, sino que tenemos un **id de vendedor** y un **id de producto**. Por lo tanto, el formulario deberá mostrar cuadros de lista que serán los encargados de mostrar los valores de las tablas relacionadas **Vendedores** y **Productos** para que el usuario pueda elegir el **vendedor** y el **producto vendido**.
+
+!!! task "Trabajo a realizar"
+    - Crear un formulario basado sobre la tabla **Ventas**.
+    - Modificar el formulario para que los campos **id_vendedor** e **id_producto** se muestren como cuadros de lista con los valores de las tablas relacionadas **Vendedores** y **Productos**.
+
+!!! tip "Ejemplo de cuadro de lista para el campo producto"
+    1. Elegimos la tabla **Productos** ya que esa tabla contiene los valores del campo **Producto**.
+    ![Descripción de la imagen](./img/UT4/bbdd-78.png){ .margintop10 .marginbottom20 .leftseiscinco }
+    1. Elegimos el campo de visualización.
+    ![Descripción de la imagen](./img/UT4/bbdd-79.png){ .margintop10 .marginbottom20 .leftseiscinco }
+    1. Elegimos la correspondencia entre el campo de la tabla relacionada y el campo de la tabla sobre la que se basa el formulario.  
+    ![Descripción de la imagen](./img/UT4/bbdd-80.png){ .margintop10 .marginbottom20 .leftseiscinco }
+    1. Si todo ha ido bien, el campo id_producto se mostrará como un cuadro de lista con los valores de la tabla productos.
+    ![Descripción de la imagen](./img/UT4/bbdd-84.png){ .margintop10 .marginbottom20 .leftcincocero }
+
+!!! task "Trabajo a realizar"
+    - Modificar los 2 campos **id_vendedor** e **id_producto** con cuadros de lista para que el usuario pueda elegir el vendedor y el producto por su nombre y no por su identificación
+    - Mejorar el aspecto visual del formulario (interfaz).
+    - Añadir un botón de guardar y nuevo registro.
+
+### 7.3 - Consultas
+
+Realizar las siguientes consultas:
+
 <!-- ![Descripción de la imagen](../../../DAW/DAW_2/AWS/ut7/cloudformation/WIP.avif){ .trescinco } -->
-<!-- https://www.tuinstitutoonline.com/cursos/bbdd/basebasico1_v19es/08disenyo_formularios.php -->
 <!-- https://www.iesandresbojollo.es/tiyc/base/2-Interfaz_de_usuario.html -->
 <!-- https://www.tuinstitutoonline.com/aula/course/view.php?id=10 -->
 <!-- https://oficinalibre.net/mod/scorm/player.php -->
 
-<!-- https://www.youtube.com/results?search_query=libreoffice+base -->
 <!-- https://www.iesandresbojollo.es/tiyc/base/2-Interfaz_de_usuario.html -->
-
-<!-- https://oficinalibre.net/mod/scorm/view.php?id=130 -->
 
 | **Licencia Creative Commons:** | |
 | :--- | :--- |

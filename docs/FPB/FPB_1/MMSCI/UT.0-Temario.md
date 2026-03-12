@@ -176,14 +176,14 @@ superior a 5.
 Las pruebas de trabajo podrán ser de tipo:
 
 1. Pruebas escritas.
-1. Prácticas: Actividades de taller realizadas de forma individual o en grupo del alumnado. 
-1. Observación del trabajo diario del alumno. 
+1. Prácticas: Actividades de taller realizadas de forma individual o en grupo del alumnado.
+1. Observación del trabajo diario del alumno.
 <!-- 4. Valoración de la empresa u organismo equiparado.  -->
 
-### **5.4. - Responsable evaluación de los RA's y/o CE's**
+### 5.4. - Responsable evaluación de los RA's y/o CE's
 
 === "RA 1"
-    Tutor prácticas (Empresa). 
+    Tutor prácticas (Empresa).
 
 === "RA 2"
     Profesor módulo (Instituto).
@@ -194,11 +194,13 @@ Las pruebas de trabajo podrán ser de tipo:
 === "RA 4"
     Profesor módulo (Instituto).
 
-## **6. - Criterio de superación del módulo**
-### **6.1. - Nota final**
+## 6. - Criterio de superación del módulo
+
+### 6.1. - Nota final
+
 La nota final será la suma ponderada de **los resultados de aprendizaje** obtenidos en cada evaluación.  
 
-La superación del módulo requerirá obtener una media mínima de **5 sobre 10 en cada resultado de aprendizaje**. 
+La superación del módulo requerirá obtener una media mínima de **5 sobre 10 en cada resultado de aprendizaje**.
 
 En caso de no superar el módulo, el alumna/o dispondrá de un proceso de recuperación orientado a reforzar específicamente los resultados de aprendizaje no alcanzados.
 
@@ -211,11 +213,12 @@ En caso de no superar el módulo, el alumna/o dispondrá de un proceso de recupe
 |**RA5.** Realiza el mantenimiento básico de sistemas informáticos, soportes y periféricos, relacionando las intervenciones con los resultados que hay que conseguir.|10%|
 |**RA6.** Almacena equipos, periféricos y consumibles, describiendo las condiciones de conservación y etiquetado.|10%|
 
-### **6.2. - Instrumentos de recuperación**
+### 6.2. - Instrumentos de recuperación
 
-### **6.3. - Calendario de evaluaciones**
- 
-## **7. - Secuenciación y duración de cada Unidad de Trabajo**
+### 6.3. - Calendario de evaluaciones
+
+## 7. - Secuenciación y duración de cada Unidad de Trabajo
+
 1     11 1
 1     11 2
 1 2   16 3
@@ -232,8 +235,6 @@ En caso de no superar el módulo, el alumna/o dispondrá de un proceso de recupe
 6     11 14
 5 6   11 15  
 
-
-<div style="text-align:center;">
 ```mermaid
 flowchart TB 
   A["Selecciona los componentes y herramientas para la realización del montaje y mantenimiento de sistemas microinformáticos, describiéndolos y relacionándolos con su función y aplicación en la instalación."]
@@ -287,10 +288,7 @@ flowchart TB
 
   end
 ```
-</div>
-   
- 
 
 | **Licencia Creative Commons:** | |
 | - | - |
-| ![alt text](../../../assets/by-nc-nd-eu_.png) { .by-nc-nd-eu_ } | **Reconocimiento-NoComercial-CompartirIgual CC BY-NC-SA:**  No se permite un uso comercial de la obra original ni de las posibles obras derivadas, la distribución de la cuales se debe hace con una licencia igual a la que regula la obra original. | 
+| ![alt text](../../../assets/by-nc-nd-eu_.png) { .by-nc-nd-eu_ } | **Reconocimiento-NoComercial-CompartirIgual CC BY-NC-SA:**  No se permite un uso comercial de la obra original ni de las posibles obras derivadas, la distribución de la cuales se debe hace con una licencia igual a la que regula la obra original. |
