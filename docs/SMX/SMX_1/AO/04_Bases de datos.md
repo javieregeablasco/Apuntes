@@ -731,42 +731,77 @@ La base de datos de la tarea controla los siguientes datos:
 
 1. Datos personales del equipo de vendedores.
 1. Listado de todos los productos a la venta así como el precio por kg.
-1. Grupo o catagoría dentro de la que entran los diferentes productos a la venta.
-1. Ventas por vendedores, día, producto y cantidad de producto vendido.
+1. Grupo o categoría dentro de la que entran los diferentes productos a la venta.
+1. Ventas desglosadas por vendedores, día, producto y cantidad de producto vendido.
 
 ### 7.1 - Importar las tablas
 
 !!! task "Trabajo a realizar"
-    - Descargar los datos desde el siguiente [enlace](./04_bases%20de%20datos/Tareas/RA4-CEb/tablas_cacl.ods)
-    - En este punto de la tarea, deberéis importar las 4 hojas, decidir el tipo de datos para cada campo, la clave primaria de cada tabla y las relaciones existentes entre tablas.
+    - Descargar los datos desde el siguiente [enlace](./04_bases%20de%20datos/Tareas/RA4-CEb/tablas_calc.ods)
+    - En este punto de la tarea, deberéis importar las 4 hojas, decidir el tipo de datos para cada campo, la clave primaria de cada tabla y las relaciones entre tablas.
 
 ### 7.2 - Formularios
 
 En este apartado se os pedirá, definir un formulario basado sobre la tabla **Ventas** que permita introducir nuevos registros de las ventas del equipo de comerciales.  
-Como podemos ver en la tabla **Ventas** no tenemos acceso a los valores esplicitos de los **vendedores**, ni de los **productos**, sino que tenemos un **id de vendedor** y un **id de producto**. Por lo tanto, el formulario deberá mostrar cuadros de lista que serán los encargados de mostrar los valores de las tablas relacionadas **Vendedores** y **Productos** para que el usuario pueda elegir el **vendedor** y el **producto vendido**.
 
-!!! task "Trabajo a realizar"
-    - Crear un formulario basado sobre la tabla **Ventas**.
-    - Modificar el formulario para que los campos **id_vendedor** e **id_producto** se muestren como cuadros de lista con los valores de las tablas relacionadas **Vendedores** y **Productos**.
+!!! task "Trabajo a realizar, parte 1"
+    - Crear un formulario basado sobre la tabla **Ventas**.  
+    Aspecto del formulario, antes de aplicar estilos y modificar los campos **Producto** y **Vendedor**.  
+    ![Descripción de la imagen](./img/UT4/bbdd-85.png){ .margintop10 .marginbottom20 .leftseiscinco }
+    - Como podemos ver en la tabla **Ventas**, no tenemos acceso a los valores esplicitos de los **vendedores**, ni de los **productos**, sino a los identificadores **id_vendedor** e **id_producto**.  
+    Por lo tanto, el formulario mostrará los valores **id de vendedor** y **id de producto** en vez de los valores esperados.
+    - Para solucionar ese problema usaremos **cuadros de lista** que se encargarán de mostrar los valores de las tablas relacionadas **Vendedores** y **Productos**.
 
 !!! tip "Ejemplo de cuadro de lista para el campo producto"
     1. Elegimos la tabla **Productos** ya que esa tabla contiene los valores del campo **Producto**.
     ![Descripción de la imagen](./img/UT4/bbdd-78.png){ .margintop10 .marginbottom20 .leftseiscinco }
-    1. Elegimos el campo de visualización.
+    1. Elegimos el campo de visualización.  
     ![Descripción de la imagen](./img/UT4/bbdd-79.png){ .margintop10 .marginbottom20 .leftseiscinco }
     1. Elegimos la correspondencia entre el campo de la tabla relacionada y el campo de la tabla sobre la que se basa el formulario.  
     ![Descripción de la imagen](./img/UT4/bbdd-80.png){ .margintop10 .marginbottom20 .leftseiscinco }
     1. Si todo ha ido bien, el campo id_producto se mostrará como un cuadro de lista con los valores de la tabla productos.
     ![Descripción de la imagen](./img/UT4/bbdd-84.png){ .margintop10 .marginbottom20 .leftcincocero }
 
-!!! task "Trabajo a realizar"
+!!! task "Trabajo a realizar, parte 2"
     - Modificar los 2 campos **id_vendedor** e **id_producto** con cuadros de lista para que el usuario pueda elegir el vendedor y el producto por su nombre y no por su identificación
-    - Mejorar el aspecto visual del formulario (interfaz).
-    - Añadir un botón de guardar y nuevo registro.
+    - Mejorar el aspecto visual del formulario (opcional).
+    - Añadir un botón de guardar y otro de crear un registro nuevo.
+    - Aspecto del formulario, después de aplicar estilos, añadir los cuadros de lista para los campos **Producto** y **Vendedor** y añadir los botones.
+    ![Descripción de la imagen](./img/UT4/bbdd-86.png){ .margintop10 .marginbottom20 .leftseiscinco }
 
 ### 7.3 - Consultas
 
 Realizar las siguientes consultas:
+
+!!! exercise "Consulta 1"
+    - Realizar una consulta que devuelva **las ventas de cada vendedor**.  
+    - **Ejemplo de resultado**  
+    ![Descripción de la imagen](./img/UT4/bbdd-87.png){ .margintop10 .marginbottom10  .leftseiscinco }  
+    - **Guardar el informe como Consulta1**{ .yellowhighlight }.
+
+!!! exercise "Consulta 2"
+    - Realizar una consulta que devuelva **las ventas de cada producto desde el 05/3/26**.  
+    - **Ejemplo de resultado**  
+    ![Descripción de la imagen](./img/UT4/bbdd-88.png){ .margintop10 .marginbottom10 .leftseiscinco }
+    - **Guardar el informe como Consulta2**{ .yellowhighlight }.
+
+!!! exercise "Consulta 3"
+    - Realizar una consulta que devuelva **las ventas totales de cada producto**.  
+    - **Ejemplo de resultado**  
+    ![Descripción de la imagen](./img/UT4/bbdd-89.png){ .margintop10 .marginbottom10 .leftseiscinco }
+    - **Guardar el informe como Consulta3**{ .yellowhighlight }.
+
+!!! exercise "Consulta 4"
+    - Realizar una consulta que devuelva **el importe total de las ventas de cada producto**.  
+    - **Ejemplo de resultado**  
+    ![Descripción de la imagen](./img/UT4/bbdd-90.png){ .margintop10 .marginbottom20 .leftseiscinco }
+    - **Guardar el informe como Consulta4**{ .yellowhighlight }.
+
+!!! exercise "Consulta 5"
+    - Realizar una consulta que devuelva el **importe total de las ventas**.  
+    - **Ejemplo de resultado**  
+    ![Descripción de la imagen](./img/UT4/bbdd-91.png){ .margintop10 .marginbottom20 .leftseiscinco }
+    - **Guardar el informe como Consulta5**{ .yellowhighlight }.
 
 <!-- ![Descripción de la imagen](../../../DAW/DAW_2/AWS/ut7/cloudformation/WIP.avif){ .trescinco } -->
 <!-- https://www.iesandresbojollo.es/tiyc/base/2-Interfaz_de_usuario.html -->
@@ -774,6 +809,14 @@ Realizar las siguientes consultas:
 <!-- https://oficinalibre.net/mod/scorm/player.php -->
 
 <!-- https://www.iesandresbojollo.es/tiyc/base/2-Interfaz_de_usuario.html -->
+
+### 7.4 - Entrega de la tarea
+
+!!! warning "Condiciones de entrega de la tarea"
+    - Guardar el documento con RA4-CEb-NombreApellidos en formato **odb**, **formato nativo** de LibreOffice Base.
+    - **No se aceptará ningun formato que no sea odb**.  
+    - Subir la base de datos, a la tarea RA4-CEb de **Aules**.
+    - A partir de momento de apertura de la tarea, dispondréis de **14 días** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestros ejercicios.
 
 | **Licencia Creative Commons:** | |
 | :--- | :--- |

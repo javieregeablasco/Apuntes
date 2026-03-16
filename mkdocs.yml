@@ -99,8 +99,9 @@ nav:
       - UT 23 - LibreOffice Writer: SMX/SMX_1/AO/02_Procesadores_de_texto/023_LibreOffice_Writer.md
     - UT 3 - Hojas de cálculo: SMX/SMX_1/AO/03_Hojas de calculo.md
     - UT 4 - Presentaciones: SMX/SMX_1/AO/07_Presentaciones.md
-    - UT 5 - Bases de datos: SMX/SMX_1/AO/05_Bases de datos.md
-    - UT 6 - Edición de videos: SMX/SMX_1/AO/06_Captura e edicion de video.md
+    - UT 5 - Bases de datos: SMX/SMX_1/AO/04_Bases de datos.md
+    - UT 6 - Imágenes: SMX/SMX_1/AO/05_Imagenes.md
+    - UT 7 - Edición de videos: SMX/SMX_1/AO/06_Captura e edicion de video.md
                                                   
   - Programación en Python: 
     - Presentación módulo: SMX/SMX_2/Opt_Python/00_Temario.md
