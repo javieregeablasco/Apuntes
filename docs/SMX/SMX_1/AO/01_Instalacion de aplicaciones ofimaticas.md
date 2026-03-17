@@ -10,12 +10,10 @@ layout: default
 schedule: 224h - 7h/w
 ---
 
-# **Instalación de aplicaciones ofimáticas.**
----
-
 ![Descripción de la imagen](./img/UT1/Installing%20Software.png){ .img-center width=75% }
 
-## **Objetivos didácticos**
+## Objetivos didácticos
+
 **¿Qué veremos en esta unidad?**  
 
 - Identificar las distintas fases del proceso de instalación.

@@ -168,6 +168,12 @@ GIMP (GNU Image Manipulation Program) es un programa de edición de imágenes di
 
 ### 4.1 - Descarga e instalación de GIMP
 
+- Seguir el siguiente enlace para descargar GIMP: [https://www.gimp.org/downloads/](https://www.gimp.org/downloads/)
+- Seleccionar la versión adecuada para tu sistema operativo (Windows, macOS o Linux).
+- Seguir las instrucciones del asistente de instalación.
+
+### 4.2 - Funciones básicas de GIMP
+
 
 
 
