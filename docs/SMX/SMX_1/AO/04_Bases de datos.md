@@ -713,7 +713,7 @@ Lo que haremos aquí es lanzar la macro **AbrirFormInicio** cuando abrimos nuest
 - Asignamos la macro **AbrirFormInicio** al evento **Abrir documento**.
 ![Descripción de la imagen](./img/UT4/bbdd-74.png){ .margintop10 .marginbottom20 .marco }
 
-## 6.7 - Entrega de la tarea
+### 6.7 - Entrega de la tarea
 
 !!! warning "Condiciones de entrega de la tarea"
     - Guardar el documento con RA4-CEh-NombreApellidos en formato **odb**, **formato nativo** de LibreOffice Base.

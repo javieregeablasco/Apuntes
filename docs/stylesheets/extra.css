@@ -243,16 +243,15 @@
   width: 15%;
 }
 
+.leftunodos {
+  justify-content: left;
+  display: block;
+  width: 12%;
+}
 .leftunocero {
   justify-content: left;
   display: block;
   width: 10%;
-}
-
-.leftunocinco {
-  justify-content: left;
-  display: block;
-  width: 15%;
 }
 
 .marginseiszero {
