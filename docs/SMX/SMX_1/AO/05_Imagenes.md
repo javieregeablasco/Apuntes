@@ -26,13 +26,13 @@ schedule: 224h - 7h/w
 
 ## 1 - Introducción
 
-Disponemos de muchos formatos de imagenes. Algunos se estan popularizando con el auge de las nuevas tecnologías, como el formato EebP, mientras que otros formatos como el GIF o el TIFF se han quedado un poco atrás.  
 Las imágenes digitales son una parte fundamental de la informática y se utilizan en una amplia variedad de aplicaciones, desde la edición de fotografías hasta el diseño gráfico y la creación de contenido multimedia. En esta unidad didáctica, se explorarán los conceptos básicos relacionados con las imágenes digitales, incluyendo los formatos de archivo, la adquisición de imágenes, la resolución y las herramientas de edición.
 
 ## 2 - Tipos de imágenes digitales
 
-Las imágenes digitales se pueden clasificar en dos categorías principales: imágenes **rasterizadas** y imágenes **vectoriales**.  
-Las imágenes rasterizadas están compuestas por **píxeles**, mientras que las imágenes vectoriales están formadas por **código** que define la imagen. Ambos tipos de imágenes tienen sus propias ventajas y desventajas como se muestra en la siguiente tabla:
+- Las imágenes digitales se pueden clasificar en dos categorías principales: imágenes **rasterizadas** y imágenes **vectoriales**.  
+- Las imágenes rasterizadas están compuestas por **píxeles**, mientras que las imágenes vectoriales están formadas por objetos geométricos definidos mediante ecuaciones matemáticas (líneas, curvas, polígonos).
+- Ambos tipos de imágenes tienen sus propias ventajas y desventajas como se muestra en la siguiente tabla:  
 
 | Tipo de imagen | Ventajas | Desventajas |
 | --- | --- | --- |
@@ -43,14 +43,34 @@ Las imágenes rasterizadas están compuestas por **píxeles**, mientras que las 
     - Descargar las imagenes de los siguientes enlaces:  
     [imagen svg](./img/UT5/imagensvg.svg)  
     [imagen raster](./img/UT5/img-2.png)  
-    - Escalar las imágenes.
-    - Evidenciar la perdida de resolución de la imagen rasterizada.
+    - Escalar las imágenes en pantalla (ctrl +/-).
+    - Evidenciar la perdida de resolución de la imagen rasterizada frente a la vectorial.
 
 ## 2 - Formatos de imagen
 
-### 2.1 - Formatos de imagenes rasterizadas (raster)
+### 2.1 - Conceptos básicos de imagenes rasterizadas
+
+Las imágenes rasterizadas (también llamadas bitmap) o mapa de puntos estan compuestas por **píxeles** con unos valores de color propios. El conjunto de esos píxeles componen la imagen total.
+
+- **Píxel**:  
+**a)** Píxel es la abreviatura de **Picture Element** y es la unidad más pequeña que encontraremos en las imágenes bitmap.  
+**b)** Es la unidad mínima en la que se divide una imagen digital y cada uno de ellos tiene un color (diferente).  
+**c)** El color se representa normalmente mediante el modelo RGB (rojo, verde y azul). En algunos casos se añade un canal alfa, que representa la transparencia.
+
+- **Tamaño**:  
+El tamaño de una imagen bitmap es la cantidad de píxeles que tiene. Viene expresado como producto del número de píxeles que tiene a
+lo ancho por la cantidad de píxeles que tiene a lo alto.  
+**Ejemplo**: Imagen de 800x600 = 480000 píxeles.
+
+- **Resolución de la imagen**:  
+**a)** La resolución de una imagen se refiere a la densidad de píxeles, normalmente medida en píxeles por pulgada (ppi). No debe confundirse con el tamaño de la imagen, que es el número total de píxeles (ancho × alto).
+**b)** La resolución es uno de los parámetros fundamentales para definir la calidad de reproducción de una determinada imagen.
+
+### 2.2 - Formatos de imagenes rasterizadas (raster)
 
 También conocidas como Mapas de Bits (bitmap) están compuestas por una cuadrícula de píxeles individuales. Su principal limitación es que pierden calidad al ampliarse, mostrándose borrosas o "pixeladas".  
+
+Algunos formatos como GIF o TIFF siguen utilizándose en contextos específicos, aunque han surgido alternativas más modernas como WebP.
 
 Los formatos más comunes incluyen JPG/JPEG, PNG, GIF, TIFF, WebP y RAW, cada uno con sus propias características y usos específicos.
 
@@ -117,9 +137,26 @@ Archivo de muy alta calidad y sin pérdida, utilizado fundamentalmente en la ind
 
 Contiene los datos "crudos" del sensor de la cámara sin procesar. Ofrece la máxima flexibilidad para la edición profesional, aunque genera archivos muy pesados. No es adecuado para su uso en aplicaciones ofimáticas, aunque es ideal para la edición de imágenes de alta calidad.
 
-### 2.2 - Formatos de imagenes vectoriales
+### 2.2 - Conceptos básicos de imágenes vectoriales
 
-#### 2.2.1 - Formato SVG
+Las imágenes vectoriales están formadas por objetos geométricos definidos mediante ecuaciones matemáticas (líneas, curvas, polígonos, etc.). Estos objetos, combinados entre sí, componen la imagen total.
+
+- **Objeto vectorial**:  
+**a)** Es la unidad básica de una imagen vectorial y está definido mediante expresiones matemáticas.
+**b)** Puede representar elementos como líneas, curvas, formas geométricas o texto.
+**c)** Sus propiedades incluyen atributos como color, grosor de línea, relleno y transparencia.
+
+- **Tamaño**:
+El tamaño de una imagen vectorial no depende de una cantidad fija de píxeles, sino de las dimensiones del área de trabajo donde se representan los objetos.
+Ejemplo: Un mismo gráfico vectorial puede visualizarse correctamente tanto en tamaño pequeño como ampliado sin pérdida de calidad.
+
+- **Resolución de la imagen**:
+**a)** Las imágenes vectoriales son independientes de la resolución, ya que se basan en fórmulas matemáticas y no en píxeles.
+**b)** Esto permite escalarlas a cualquier tamaño sin pérdida de calidad, siendo ideales para logotipos, iconos y gráficos técnicos.
+
+### 2.3 - Formatos de imagenes vectoriales
+
+#### 2.3.1 - Formato SVG
 
 ![imagen](./img/UT5/img-11.webp){ .leftunodos .margintop10 .marginbottom20}
 
@@ -127,7 +164,7 @@ El formato SVG (Scalable Vector Graphics) es un formato de imagen vectorial **ba
 
 Esto permite que las imágenes sean escalables sin perder calidad haciendolas ideales para gráficos e iconos de alta calidad en diferentes tamaños y resoluciones.
 
-#### 2.2.2 - Formato EPS
+#### 2.3.2 - Formato EPS
 
 ![imagen](./img/UT5/img-12.png){ .leftunodos .margintop10 .marginbottom20}
 
@@ -135,7 +172,7 @@ El formato EPS (Encapsulated PostScript) se utiliza para guardar ilustraciones o
 
 Utilizado principalmente en gráficos profesionales es útil para crear imágenes de alta calidad.
 
-#### 2.2.3 - Formato PDF
+#### 2.3.3 - Formato PDF
 
 ![imagen](./img/UT5/img-13.webp){ .leftunodos .margintop10 .marginbottom20}
 
@@ -145,7 +182,7 @@ Un archivo PDF se basa en el mismo lenguaje PostScript que el EPS. Es un vector 
 
 También es posible incluir elementos interactivos en un PDF, por ejemplo, enlaces y botones.
 
-## 3 - Tarea RA4-CEa Formatos de imágenes
+## 3 - Tarea RA4-CEa - Formatos de imágenes
 
 ### 3.1 - Preguntas tipo test
 
@@ -174,7 +211,148 @@ GIMP (GNU Image Manipulation Program) es un programa de edición de imágenes di
 
 ### 4.2 - Funciones básicas de GIMP
 
+<!-- https://youtu.be/ZbLyASD_taU?si=9jZQbDDKcVAGhvnN&t=247 -->
 
+#### 4.2.1 - Primer vistazo al programa
+
+- Abrir GIMP y familiarizarse con la interfaz de usuario.
+![imagen](./img/UT5/img-14.png){ .leftoriginal .margintop10 .marginbottom20}
+
+- Pestañas de Gimp:  
+    1. **Archivo** → Todo lo relacionado con abrir, guardar, exportar y cerrar archivos.
+    1. **Editar** → Todo lo relacionado con las preferencias del programa.
+    1. **Seleccionar** → Todo lo relacionado con las herramientas de selección.
+    1. **Vista** → Todo lo relacionado con la navegación y el zoom.
+    1. **Imagen** → Todo lo relacionado con el tamaño y la resolución de la imagen.
+    1. **Capas** → Todo lo relacionado con las capas.
+    1. **Colores** → Todo lo relacionado con las herramientas de color.
+    1. **Herramientas** → Todo lo relacionado con las herramientas de pintura, selección, transformación, texto, clonado y saneado.
+    1. **Filtros** → Todo lo relacionado con los filtros que se pueden aplicar a la imágenes.
+    1. **Ventanas** → Todo lo relacionado con la organización de las ventanas del programa.
+
+#### 4.2.2 - Configuración básica para trabajar con Gimp
+
+- Para poder visualizar todas las herraminetas de dibujo, ir a **Ventanas** → **Diálogos acoplables** → **Opción de herramienta**.
+- También podéis probar el Modo de ventana única que es el que viene por defecto en la mayoría de los programas de edición de imágenes.
+- Aparte de opciones de herramientas, también es interesante tener a mano otras pestañas siempre abiertas, para poder editar imágenes (por ejemplo, colores, tipografías, pinceles...). También puede resultar util saber redistribuir las pestañas para siempre tener visibles las que más utilicemos.  
+- En **Editar** → **Preferencias** podremos ajustar el programa a nuestras necesidades, por ejemplo, ajustar el color de fondo (claro / gris / oscuro).
+
+#### 4.2.3 - Abrir y guardar archivos
+
+- Para crear un nuevo archivo, ir a **Archivo** → **Nuevo** y seleccionar las dimensiones y la resolución de la imagen que queremos crear (también podemos usar plantillas de formato).
+- Para abrir un archivo, ir a **Archivo** → **Abrir** y seleccionar el archivo que queremos editar. También podemos arrastrar y soltar el archivo directamente en la ventana de GIMP.
+- Aparte de **Guardar** y **Guardar como**, también disponemos de la posibilidad de **Guardar una copia** que guarda el archivo con un nuevo nombre pero sin cambiar el archivo original, y **Exportar como** que nos permite guardar el archivo en un formato diferente al nativo de GIMP (XCF).
+
+#### 4.2.4 - Herramientas  de básicas
+
+- Familiarizarse con las herramientas de **dibujo**, **transformación**, **texto**, **clonado** y **saneado**.
+- Para cada herramienta, es importante conocer sus opciones y cómo utilizarlas de manera efectiva.
+- Familiarizarse con el concepto de **capas**, que permite trabajar con diferentes elementos de la imagen de manera independiente.
+- Familiarizarse con las herramientas de **selección** (formas, ruta, selección difusa), que permiten trabajar o mover solo una zona de la imagen.
+
+#### 4.2.5 - Herramientas  de transformación
+
+- Para transformar una imagen, seleccionar la herramienta de transformación que se desea utilizar (escalado, rotación, sesgado, perspectiva, etc.) y luego hacer clic y arrastrar en la imagen para aplicar la transformación.
+- Para transformar una selección, primero realizar la selección con la herramienta de selección y luego aplicar la transformación a la selección.
+
+<!-- -6b-
+texto
+
+-7b-
+herramientas de color
+pestaña color
+
+-8b-
+clonado y saneado
+
+-9b-
+navegacion
+ver detalles
+
+-10b-
+pestaña imagen → escalar imagen.
+cuidado con mantener proporcion
+
+-11b-
+pixelar una imagen
+→ filtros pixelar → difuminar
+
+-12b-
+quitar fondo → umbral
+→ añadir canal alfa
+imagenes complejas → mascara rapida.
+
+-13b-
+colorear dibujo
+
+-14b-
+capturas sde pantalla
+
+-1i-
+capas
+abrir como capas
+alinea capas no dibujos
+recortar capa al contenido.
+alinear a capa activa
+
+-2i-
+alineacion y distribucion
+
+-3i-
+modos de seleccion
+
+-4i-
+herraineta de rutas
+modo edicion siseño y mover
+luego trazar la ruta
+guardar como rut
+
+-5i-
+DEGRADADOS gradiente
+
+-6i-
+fotomontaje
+difuminar seleccion
+
+-7i-
+cambiar color ojos
+
+-8i-
+blanquear dientes
+modo de capa 
+
+-9i-
+quitar arrugas
+herramineta sanear
+
+-10i-
+quitar textura piedl
+
+-11i-
+enfoque desenfoque
+es la gota si no sale ir a preferencias.
+
+-12i-
+iluminar oscurecer.
+
+-13i-
+seleccion por color
+icono 3 circulos.
+
+-14i-
+filtros básicos
+pestaña filtro
+
+-15i-
+plugin  g-mic
+
+-16i-
+quitar fondo con g-mic
+punto verde se queda. punto rojo se quita.
+
+
+
+https://www.youtube.com/watch?v=FrIY5E-4u6Y -->
 
 
 | **Licencia Creative Commons:** | |
