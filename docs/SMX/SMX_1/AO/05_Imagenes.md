@@ -63,7 +63,7 @@ lo ancho por la cantidad de píxeles que tiene a lo alto.
 **Ejemplo**: Imagen de 800x600 = 480000 píxeles.
 
 - **Resolución de la imagen**:  
-**a)** La resolución de una imagen se refiere a la densidad de píxeles, normalmente medida en píxeles por pulgada (ppi). No debe confundirse con el tamaño de la imagen, que es el número total de píxeles (ancho × alto).
+**a)** La resolución de una imagen se refiere a la densidad de píxeles, normalmente medida en píxeles por pulgada (ppi). No debe confundirse con el tamaño de la imagen, que es el número total de píxeles (ancho × alto).  
 **b)** La resolución es uno de los parámetros fundamentales para definir la calidad de reproducción de una determinada imagen.
 
 ### 2.2 - Formatos de imagenes rasterizadas (raster)
@@ -142,16 +142,16 @@ Contiene los datos "crudos" del sensor de la cámara sin procesar. Ofrece la má
 Las imágenes vectoriales están formadas por objetos geométricos definidos mediante ecuaciones matemáticas (líneas, curvas, polígonos, etc.). Estos objetos, combinados entre sí, componen la imagen total.
 
 - **Objeto vectorial**:  
-**a)** Es la unidad básica de una imagen vectorial y está definido mediante expresiones matemáticas.
-**b)** Puede representar elementos como líneas, curvas, formas geométricas o texto.
-**c)** Sus propiedades incluyen atributos como color, grosor de línea, relleno y transparencia.
+**a)** Es la unidad básica de una imagen vectorial y está definido mediante expresiones matemáticas.  
+**b)** Puede representar elementos como líneas, curvas, formas geométricas o texto.  
+**c)** Sus propiedades incluyen atributos como color, grosor de línea, relleno y transparencia.  
 
 - **Tamaño**:
-El tamaño de una imagen vectorial no depende de una cantidad fija de píxeles, sino de las dimensiones del área de trabajo donde se representan los objetos.
+El tamaño de una imagen vectorial no depende de una cantidad fija de píxeles, sino de las dimensiones del área de trabajo donde se representan los objetos.  
 Ejemplo: Un mismo gráfico vectorial puede visualizarse correctamente tanto en tamaño pequeño como ampliado sin pérdida de calidad.
 
 - **Resolución de la imagen**:
-**a)** Las imágenes vectoriales son independientes de la resolución, ya que se basan en fórmulas matemáticas y no en píxeles.
+**a)** Las imágenes vectoriales son independientes de la resolución, ya que se basan en fórmulas matemáticas y no en píxeles.  
 **b)** Esto permite escalarlas a cualquier tamaño sin pérdida de calidad, siendo ideales para logotipos, iconos y gráficos técnicos.
 
 ### 2.3 - Formatos de imagenes vectoriales
@@ -182,7 +182,7 @@ Un archivo PDF se basa en el mismo lenguaje PostScript que el EPS. Es un vector 
 
 También es posible incluir elementos interactivos en un PDF, por ejemplo, enlaces y botones.
 
-## 3 - Tarea RA4-CEa - Formatos de imágenes
+## 3 - Tarea RA5-CEa - Formatos de imágenes
 
 ### 3.1 - Preguntas tipo test
 
@@ -235,7 +235,7 @@ GIMP (GNU Image Manipulation Program) es un programa de edición de imágenes di
 - Para poder visualizar todas las herraminetas de dibujo, ir a **Ventanas** → **Diálogos acoplables** → **Opción de herramienta**.
 - También podéis probar el Modo de ventana única que es el que viene por defecto en la mayoría de los programas de edición de imágenes.
 - Aparte de opciones de herramientas, también es interesante tener a mano otras pestañas siempre abiertas, para poder editar imágenes (por ejemplo, colores, tipografías, pinceles...). También puede resultar util saber redistribuir las pestañas para siempre tener visibles las que más utilicemos.  
-- En **Editar** → **Preferencias** podremos ajustar el programa a nuestras necesidades, por ejemplo, ajustar el color de fondo (claro / gris / oscuro).
+- En **Editar** → **Preferencias** podremos ajustar el programa a nuestras necesidades, por ejemplo, ajustar el color de la interfaz gráfica (claro / gris / oscuro).
 
 #### 4.2.3 - Abrir y guardar archivos
 
@@ -243,64 +243,67 @@ GIMP (GNU Image Manipulation Program) es un programa de edición de imágenes di
 - Para abrir un archivo, ir a **Archivo** → **Abrir** y seleccionar el archivo que queremos editar. También podemos arrastrar y soltar el archivo directamente en la ventana de GIMP.
 - Aparte de **Guardar** y **Guardar como**, también disponemos de la posibilidad de **Guardar una copia** que guarda el archivo con un nuevo nombre pero sin cambiar el archivo original, y **Exportar como** que nos permite guardar el archivo en un formato diferente al nativo de GIMP (XCF).
 
-#### 4.2.4 - Herramientas  de básicas
+#### 4.2.4 - Herramientas de Gimp
 
 - Familiarizarse con las herramientas de **dibujo**, **transformación**, **texto**, **clonado** y **saneado**.
 - Para cada herramienta, es importante conocer sus opciones y cómo utilizarlas de manera efectiva.
 - Familiarizarse con el concepto de **capas**, que permite trabajar con diferentes elementos de la imagen de manera independiente.
 - Familiarizarse con las herramientas de **selección** (formas, ruta, selección difusa), que permiten trabajar o mover solo una zona de la imagen.
 
-#### 4.2.5 - Herramientas  de transformación
+##### 4.2.4.1 - Herramientas de dibujo
+
+- Pincel: Para dibujar líneas y formas con diferentes tamaños, formas y opacidades.
+- Lápiz: Similar al pincel pero con bordes más definidos.
+- Aerógrafo: Para crear efectos de spray o difuminado.
+
+##### 4.2.4.2 - Herramientas de transformación
 
 - Para transformar una imagen, seleccionar la herramienta de transformación que se desea utilizar (escalado, rotación, sesgado, perspectiva, etc.) y luego hacer clic y arrastrar en la imagen para aplicar la transformación.
 - Para transformar una selección, primero realizar la selección con la herramienta de selección y luego aplicar la transformación a la selección.
 
-<!-- -6b-
-texto
+##### 4.2.4.3 - Herramientas de texto
 
--7b-
-herramientas de color
-pestaña color
+- Para agregar texto a una imagen, seleccionar la herramienta de texto y hacer clic en la imagen para crear un cuadro de texto. Luego, escribir el texto deseado y ajustar las opciones de fuente, tamaño, color y alineación según sea necesario.
 
--8b-
-clonado y saneado
+##### 4.2.4.4 - Herramientas de clonado y saneado
 
--9b-
-navegacion
-ver detalles
+- La herramienta de clonado se utiliza para copiar una parte de la imagen y pegarla en otra área. Para usarla, seleccionar la herramienta de clonado, luego hacer clic en la imagen para seleccionar el área que se desea copiar y arrastrar el cursor a la nueva ubicación donde se desea pegar la copia.
+- La herramienta de saneado se utiliza para eliminar imperfecciones o elementos no deseados de
 
--10b-
-pestaña imagen → escalar imagen.
-cuidado con mantener proporcion
+##### 4.2.4.5 - Capas
 
+- Las capas permiten trabajar con diferentes elementos de la imagen de manera independiente. Para crear una nueva capa, ir a **Capa** → **Nueva capa** y seleccionar las opciones deseadas.
+- Se pueden insertar imagenes como capas en un proyecto de GIMP. Para ello, ir a **Archivo** → **Abrir como capas** y seleccionar el archivo que se desea insertar.
+- Para organizar las capas, se pueden arrastrar y soltar en la ventana de capas, así como cambiar su orden o **visibilidad**.
+- Es posible agrupar capas para mantener el proyecto organizado.
+- Para editar una capa específica, asegurarse de que esté seleccionada en la ventana de capas antes de aplicar cualquier herramienta o efecto.
+- Para recortar una capa al contenido, ir a **Capa** → **Recortar capa al contenido**.
+- Para alinear una capa a la capa activa, ir a **Capa** → **Alinear a capa activa**.
+- Para poder eliminar el fondo de una imagen, es necesario añadir un canal alfa a la capa. Para ello, ir a **Capa** → **Transparencia** → **Añadir canal alfa**.
+
+## 4.3 - Tarea RA5-CEbc - Escalado de imágenes
+
+<!-- descargar imagen
+ponerla al formato realizar encuadre en formato determinado
+definir lienzo → encuadre
+clonar
+tamaño imzgern tamaño lienzo
+capas tipo de fusionado -->
+
+<!-- https://www.tuinstitutoonline.com/aula/course/view.php?id=13 -->
+
+<!--
+ 
 -11b-
 pixelar una imagen
 → filtros pixelar → difuminar
-
--12b-
-quitar fondo → umbral
-→ añadir canal alfa
-imagenes complejas → mascara rapida.
 
 -13b-
 colorear dibujo
 
 -14b-
 capturas sde pantalla
-
--1i-
-capas
-abrir como capas
-alinea capas no dibujos
-recortar capa al contenido.
-alinear a capa activa
-
--2i-
-alineacion y distribucion
-
--3i-
-modos de seleccion
-
+ 
 -4i-
 herraineta de rutas
 modo edicion siseño y mover
@@ -350,10 +353,7 @@ plugin  g-mic
 quitar fondo con g-mic
 punto verde se queda. punto rojo se quita.
 
-
-
 https://www.youtube.com/watch?v=FrIY5E-4u6Y -->
-
 
 | **Licencia Creative Commons:** | |
 | - | - |
