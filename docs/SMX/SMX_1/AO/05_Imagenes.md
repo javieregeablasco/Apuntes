@@ -188,7 +188,7 @@ También es posible incluir elementos interactivos en un PDF, por ejemplo, enlac
 
 !!! warning "Trabajo a realizar"
     - Para esta evaluación, deberéis responder a 20 preguntas tipo test.
-    <!-- - Podéis descargar el archivo de texto desde el siguiente [enlace](./05_imagenes/tareas/RA5%20CEa.odt) -->
+    - Podéis descargar el archivo de texto desde el siguiente [enlace](./05_imagenes/tareas/RA5%20CEa.odt)
     - Subrayar la respuesta que consideráis correcta.
 
 ### 3.2 - Entrega de la tarea
