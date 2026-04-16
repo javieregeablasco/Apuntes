@@ -10,7 +10,7 @@ layout: default
 schedule: 224h - 7h/w
 ---
 
-![Descripción de la imagen](./img/UT5/img-1.png){ .doscinco .marginbottom40 }
+![Descripción de la imagen](./img/UT6/vid-6.JPG){ .cincocero .marginbottom40 }
 
 |**Resultados de aprendizaje de la unidad didáctica:**|
 |:-|
@@ -125,32 +125,31 @@ Su objetivo principal es reducir el tamaño de los archivos manteniendo la mayor
 Los códecs trabajan eliminando información redundante tanto dentro de cada fotograma (compresión espacial) como entre fotogramas consecutivos (compresión temporal). Gracias a esto, permiten manejar vídeos de alta resolución como Full HD, 4K o 8K sin requerir volúmenes de datos excesivos.
 
 !!!tip "Tipos de códecs"
-Los códecs pueden clasificarse en dos grandes grupos:
+    Los códecs pueden clasificarse en dos grandes grupos:
 
-!!!info "Códecs con pérdida (lossy)"
-Eliminan información que se considera poco perceptible para el ojo humano con el objetivo de reducir el tamaño del archivo.
+    !!!info "Códecs con pérdida (lossy)"
+        Eliminan información que se considera poco perceptible para el ojo humano con el objetivo de reducir el tamaño del archivo.
 
-Son los más utilizados en vídeo digital.
+        Son los más utilizados en vídeo digital.
 
-!!!info "Códecs sin pérdida (lossless)"
-Conservan toda la información original del vídeo, sin pérdida de calidad, pero generan archivos mucho más grandes.
+    !!!info "Códecs sin pérdida (lossless)"
+        Conservan toda la información original del vídeo, sin pérdida de calidad, pero generan archivos mucho más grandes.  
+        Se usan principalmente en entornos profesionales de edición.
 
-Se usan principalmente en entornos profesionales de edición.
+!!!tip "Códecs más utilizados actualmente"
 
-!!!info "Códecs más utilizados actualmente"
-
-- **MPEG-4**  
-Códec de vídeo muy popular que ofrece altas tasas de compresión manteniendo una buena calidad de imagen. Se utiliza en diversas aplicaciones, como el streaming de vídeo, las videoconferencias y la edición.
-- **H.264 (AVC)**  
-Es el códec más extendido. Ofrece buen equilibrio entre calidad y tamaño y es compatible con prácticamente todos los dispositivos y plataformas.
-- **H.265 (HEVC)**  
-Evolución del H.264. Permite una compresión más eficiente (aproximadamente la mitad de tamaño para calidad similar), especialmente útil en 4K y 8K.
-- **AV1**  
-Códec moderno, libre de licencias en muchos casos, muy eficiente en streaming. Está siendo adoptado por plataformas como YouTube o Netflix.
-- **VP8/VP9**
-Desarrollado por Google como alternativa a H.264/H.265, muy utilizado en YouTube.
-- **Códecs profesionales (ProRes, DNxHD/HR)**
-Usados en producción y postproducción. Prioriza la calidad frente al tamaño, facilitando la edición.
+    - **MPEG-4**  
+    Códec de vídeo muy popular que ofrece altas tasas de compresión manteniendo una buena calidad de imagen. Se utiliza en diversas aplicaciones, como el streaming de vídeo, las videoconferencias y la edición.
+    - **H.264 (AVC)**  
+    Es el códec más extendido. Ofrece buen equilibrio entre calidad y tamaño y es compatible con prácticamente todos los dispositivos y plataformas.
+    - **H.265 (HEVC)**  
+    Evolución del H.264. Permite una compresión más eficiente (aproximadamente la mitad de tamaño para calidad similar), especialmente útil en 4K y 8K.
+    - **AV1**  
+    Códec moderno, libre de licencias en muchos casos, muy eficiente en streaming. Está siendo adoptado por plataformas como YouTube o Netflix.
+    - **VP8/VP9**  
+    Desarrollado por Google como alternativa a H.264/H.265, muy utilizado en YouTube.
+    - **Códecs profesionales (ProRes, DNxHD/HR)**  
+    Usados en producción y postproducción. Prioriza la calidad frente al tamaño, facilitando la edición.
 
 #### 3.3 - Contenedores de vídeo
 
