@@ -281,75 +281,99 @@ GIMP (GNU Image Manipulation Program) es un programa de edición de imágenes di
 - Para alinear una capa a la capa activa, ir a **Capa** → **Alinear a capa activa**.
 - Para poder eliminar el fondo de una imagen, es necesario añadir un canal alfa a la capa. Para ello, ir a **Capa** → **Transparencia** → **Añadir canal alfa**.
 
-## 4.3 - Tarea RA5-CEbc - Escalado de imágenes
+## 4.3 - Tarea RA5-CEbc
 
-<!-- descargar imagen
-ponerla al formato realizar encuadre en formato determinado
-definir lienzo → encuadre
-clonar
-tamaño imzgern tamaño lienzo
-capas tipo de fusionado -->
+### 4.3.1 - Escalado de imágenes y operaciones básicas
 
-<!-- https://www.tuinstitutoonline.com/aula/course/view.php?id=13 -->
+!!! warning "Trabajo a realizar"
+    - Descargar ![imagen](./05_imagenes/tareas/RA5-CEbc/imagen_1.jpg) y pasarla a blanco y negro.
+    - Escalar imagen a ancho = 2100 píxeles.
+    - Definir un lienzo de 1920x1080 píxeles.
+    - Centrar la imagen.
+    - Aplicar un filtro que más o guste.
+    - Guardar la imagen en formato WebP
 
-<!--
- 
--11b-
-pixelar una imagen
-→ filtros pixelar → difuminar
+### 4.3.2 - Entrega de la tarea
 
--13b-
-colorear dibujo
+!!! warning "Condiciones de entrega de la tarea"
+    - Guardar el documento con RA5-CEbc-NombreApellidos en formato **WebP**.
+    - **No se aceptará ningun formato**.  
+    - Subir el documento a la tarea de **Aules**.
+    - A partir de momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
 
--14b-
-capturas sde pantalla
- 
--4i-
-herraineta de rutas
-modo edicion siseño y mover
-luego trazar la ruta
-guardar como rut
+## 4.4 - Tarea RA5-CEde-1
 
--5i-
-DEGRADADOS gradiente
+### 4.4.1 - Retoque de imágenes
 
--6i-
-fotomontaje
-difuminar seleccion
+!!! warning "Trabajo a realizar"
+    - Descargar ![imagen](./05_imagenes/tareas/RA5-CEde-1/imagen_1.jpegc).
+    - Con las herramientas clonar y sanear, eliminar la palmera de la imagen.
+    - Resultado esperado:
+    ![imagen](./05_imagenes/tareas/RA5-CEde-1/imagen_1.png){.margintop20}
 
--7i-
-cambiar color ojos
+### 4.4.2 - Entrega de la tarea
 
--8i-
-blanquear dientes
-modo de capa 
+!!! warning "Condiciones de entrega de la tarea"
+    - Guardar el documento con RA5-CEde-1-NombreApellidos en formato **png**.
+    - **No se aceptará ningun formato**.  
+    - Subir el documento a la tarea de **Aules**.
+    - A partir de momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
 
--9i-
-quitar arrugas
-herramineta sanear
+## 4.5 - Tarea RA5-CEde-2
 
--10i-
-quitar textura piedl
+### 4.5.1 - Retoque de imágenes
 
--11i-
-enfoque desenfoque
-es la gota si no sale ir a preferencias.
+!!! warning "Trabajo a realizar"
+    - Descargar la siguiente [imagen](./05_imagenes/tareas/RA5-CEde/imagen_2.jpg).
+    - Usando los filtros de mezcla (modo) de capas, cambiar e igualar el color de los ojos del gato.
+    - Resultado esperado:
+    ![imagen](./05_imagenes/tareas/RA5-CEde-2/Tarea%20RA5-CEde-2.png){.margintop20}
 
--12i-
-iluminar oscurecer.
+### 4.5.2 - Entrega de la tarea
 
--13i-
-seleccion por color
-icono 3 circulos.
+!!! warning "Condiciones de entrega de la tarea"
+    - Guardar el documento con RA5-CEde-2-NombreApellidos en formato **jpg**.
+    - **No se aceptará ningun formato**.  
+    - Subir el documento a la tarea de **Aules**.
+    - A partir de momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
 
--14i-
-filtros básicos
-pestaña filtro
+## 4.6 - Tarea RA5-CEde-3
 
--15i-
-plugin  g-mic
+### 4.6.1 - Alineación y distribución de capas
 
--16i-
+!!! warning "Trabajo a realizar"
+    - Descargar [archivo](./05_imagenes/tareas/RA5-CEde-3/pokemon.zip) y extraer las imágenes.
+    - Usando las herramientos de alineación y distribución realizar un diseño similar a la siguiente imagen.
+    ![archivo](./05_imagenes/tareas/RA5-CEde-3/Tarea%20RA5-CEde-3.png){.margintop20}
+
+### 4.6.2 - Entrega de la tarea
+
+!!! warning "Condiciones de entrega de la tarea"
+    - Guardar el documento con RA5-CEde-3-NombreApellidos en formato **jpg**.
+    - **No se aceptará ningun formato**.  
+    - Subir el documento a la tarea de **Aules**.
+    - A partir de momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
+
+## 4.7 - Tarea RA5-CEde-4
+
+### 4.7.1 - Filtros avanzados de Gimp
+
+!!! warning "Trabajo a realizar"
+    - Ir a [gmic](https://gmic.eu/download.html) y descargar el complemento Gmic (cuidado con la version de Gimp y el sistema operativo).
+    - Descargar [imagen](./05_imagenes/tareas/RA5-CEde-4/imagen.jpg).
+    - Elegir el filtro adecuado para eliminar personas y dejar la imagen de la siguiente manera:
+    ![imagen](./05_imagenes/tareas/RA5-CEde-4/imagen.png){.margintop20}
+    - !!! tip "Podéis mejorar el aspecto de la imagen con la herramientas habituales de Gimp"
+
+### 4.7.2 - Entrega de la tarea
+
+!!! warning "Condiciones de entrega de la tarea"
+    - Guardar el documento con RA5-CEde-4-NombreApellidos en formato **png**.
+    - **No se aceptará ningun formato**.  
+    - Subir el documento a la tarea de **Aules**.
+    - A partir de momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
+
+<!-- -16i-
 quitar fondo con g-mic
 punto verde se queda. punto rojo se quita.
 
