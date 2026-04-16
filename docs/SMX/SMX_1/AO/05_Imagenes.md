@@ -286,7 +286,7 @@ GIMP (GNU Image Manipulation Program) es un programa de edición de imágenes di
 ### 4.3.1 - Escalado de imágenes y operaciones básicas
 
 !!! warning "Trabajo a realizar"
-    - Descargar ![imagen](./05_imagenes/tareas/RA5-CEbc/imagen_1.jpg) y pasarla a blanco y negro.
+    - Descargar [imagen](./05_imagenes/tareas/RA5-CEbc/imagen_1.jpg) y pasarla a blanco y negro.
     - Escalar imagen a ancho = 2100 píxeles.
     - Definir un lienzo de 1920x1080 píxeles.
     - Centrar la imagen.
