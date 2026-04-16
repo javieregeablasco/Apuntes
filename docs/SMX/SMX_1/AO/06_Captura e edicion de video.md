@@ -140,7 +140,7 @@ Se usan principalmente en entornos profesionales de edición.
 !!!info "Códecs más utilizados actualmente"
 
 - **MPEG-4**  
-MPEG-4 es un códec de vídeo muy popular que ofrece altas tasas de compresión manteniendo una buena calidad de imagen. Se utiliza en diversas aplicaciones, como el streaming de vídeo, las videoconferencias y la edición.
+Códec de vídeo muy popular que ofrece altas tasas de compresión manteniendo una buena calidad de imagen. Se utiliza en diversas aplicaciones, como el streaming de vídeo, las videoconferencias y la edición.
 - **H.264 (AVC)**  
 Es el códec más extendido. Ofrece buen equilibrio entre calidad y tamaño y es compatible con prácticamente todos los dispositivos y plataformas.
 - **H.265 (HEVC)**  
