@@ -306,7 +306,7 @@ GIMP (GNU Image Manipulation Program) es un programa de edición de imágenes di
 ### 4.4.1 - Retoque de imágenes
 
 !!! warning "Trabajo a realizar"
-    - Descargar [imagen](./05_imagenes/tareas/RA5-CEde-1/imagen_1.jpegc).
+    - Descargar [imagen](./05_imagenes/tareas/RA5-CEde-1/imagen_1.jpeg).
     - Con las herramientas clonar y sanear, eliminar la palmera de la imagen.
     - Resultado esperado:
     ![imagen](./05_imagenes/tareas/RA5-CEde-1/imagen_1.png){.margintop20}
