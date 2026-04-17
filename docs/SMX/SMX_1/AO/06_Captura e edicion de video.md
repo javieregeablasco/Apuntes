@@ -40,13 +40,13 @@ En esta unidad didáctica, se explorarán los conceptos básicos relacionados co
 !!! tip "Ejemplo de diferencias de nitidez entre exploración progresiva y entrelazada (efecto combing)"  
     ![Descripción de la imagen](./img/UT6/vid-2.webp){ .margintopbottom10 }
 
-### 3 - Fomato de video digital
+## 3 - Conceptos básicos de vídeo digital
 
 El formato de vídeo digital define cómo se representa, codifica y almacena un vídeo. Incluye parámetros como resolución, tasa de fotogramas, bitrate, códec y otros aspectos relacionados con la calidad y el tamaño del archivo.
 
-#### 3.1 Resolución y relación de aspecto
+### 3.1 Resolución y relación de aspecto
 
-##### 3.1.1 - Resolución
+#### 3.1.1 - Resolución
 
 La resolución indica el número de píxeles que componen cada fotograma (ancho × alto).
 ![Descripción de la imagen](./img/UT6/vid-3.webp){ .margintopbottom10 }
@@ -66,7 +66,7 @@ La resolución 3840 × 2160 píxeles (UHD) ofrece gran nivel de detalle. Es úti
 !!!tip "Resolución de 8K"
 Con 7680 × 4320 píxeles, es una resolución muy alta poco utilizada en consumo. Se emplea principalmente en producción profesional para efectos visuales y reencuadres sin pérdida de calidad.
 
-##### 3.1.2 - Relación de aspecto
+#### 3.1.2 - Relación de aspecto
 
 La relación de aspecto es la proporción entre el ancho y el alto de una imagen, expresada como dos números (por ejemplo, 16:9 o 4:3).
 
@@ -101,13 +101,23 @@ No indica la calidad, sino la forma del vídeo (horizontal, vertical o cuadrada)
     !!!info "21:9 (Ultrapanorámico)"
         Versión comercial del formato cinematográfico. Usado en monitores y cine.
 
-#### 3.2 - Codificación y descodificación de vídeo digital
+        Un vídeo es, en esencia, una sucesión de imágenes (fotogramas) que, al reproducirse a gran velocidad, crean la ilusión de movimiento.
+
+### 3.2 - Fotogramas por segundo / Framerate
+
+- Es la unidad mínima de una secuencia de vídeo.
+
+- El framerate (FPS) indica cuántas imágenes se muestran por segundo (ej. 24, 30 o 60 fps).
+
+- A mayor tasa de fotogramas, mayor es la fluidez del movimiento percibido.
+
+### 3.3 - Codificación y descodificación de vídeo digital
 
 Para codificar y decodificar la información de vídeo se utilizan los códecs (codificador/descodificador), que son algoritmos encargados de comprimir y descomprimir los datos audiovisuales.
 
 Su función es reducir el tamaño del archivo sin perder una calidad significativa, lo que resulta esencial para el almacenamiento, la edición y la transmisión en streaming.
 
-##### 3.2.1 - Tipos de compresión en vídeo
+#### 3.3.1 - Tipos de compresión en vídeo
 
 La compresión que aplican los códecs modernos se basa principalmente en dos técnicas complementarias:
 
@@ -116,7 +126,7 @@ Reduce la información dentro de un mismo fotograma eliminando redundancias entr
 - **Compresión temporal** (inter-frame):  
 Aprovecha la similitud entre fotogramas consecutivos, almacenando solo los cambios entre ellos en lugar de cada imagen completa.
 
-##### 3.2.2 - Codecs de vídeo
+#### 3.3.2 - Codecs de vídeo
 
 Un códec de vídeo (codificador/descodificador) es un algoritmo encargado de comprimir y descomprimir datos de vídeo digital.
 
@@ -151,104 +161,146 @@ Los códecs trabajan eliminando información redundante tanto dentro de cada fot
     - **Códecs profesionales (ProRes, DNxHD/HR)**  
     Usados en producción y postproducción. Prioriza la calidad frente al tamaño, facilitando la edición.
 
-#### 3.3 - Contenedores de vídeo
+### 3.4 - Tasa de bits / Bitrate
+
+El bitrate o tasa de bits es la cantidad de datos que se codifican o transmiten por segundo en un video, normalmente medida en Mbps (megabits por segundo). Un bitrate más alto suele implicar mayor calidad de imagen y mejor fidelidad de color, pero también genera archivos más grandes.
+
+Es un factor clave en la calidad del video, aunque su impacto depende también del códec y del tipo de compresión utilizados, por lo que no debe considerarse de forma aislada frente a la resolución u otros parámetros.
+
+### 3.5 - Contenedores de vídeo
+
+Los contenedores de vídeo son formatos de archivo que empaquetan y estructuran flujos de datos de vídeo, audio, subtítulos y metadatos en un solo archivo. A diferencia de los códecs, no determinan la compresión, sino cómo se almacena.
+
+Los más comunes incluyen MP4, MOV, MKV, AVI y WebM.
+
+!!! tip "Características de los contenedores de vídeo más utilizados"
+
+    - **MP4 (MPEG-4 Part 14):**  
+    El estándar más extendido. Ofrece excelente compatibilidad con la web, dispositivos móviles y   reproductores multimedia.
+
+    - **MOV (QuickTime File Format):**  
+    Desarrollado por Apple, utilizado comúnmente en edición de vídeo profesional.
+
+    - **MKV (Matroska):**  
+    Contenedor de código abierto muy versátil, capaz de almacenar múltiples pistas de audio, vídeos y   subtítulos en un solo archivo.
+
+    - **AVI (Audio Video Interleave):**  
+    Uno de los formatos más antiguos y compatibles, desarrollado por Microsoft.
+
+    - **WebM:**  
+    Optimizado para la web y HTML5, ofrece alta calidad con buena compresión.
+
+    - **MXF (Material Exchange Format):**  
+    Estándar profesional utilizado en la industria de la televisión y el cine.
+
+Para elegir el mejor, se debe considerar la compatibilidad con el reproductor final y el propósito del vídeo (streaming vs. almacenamiento).
+
+### 3.5 - Audio en un vídeo
+
+El audio complementa la información visual y mejora significativamente la experiencia del espectador. Un vídeo sin audio puede resultar incompleto o difícil de interpretar, especialmente cuando depende de diálogos, narración o efectos sonoros.
+
+En un proyecto audiovisual, el audio puede clasificarse en varias categorías:
+
+#### 3.5.1 - Tipos de audio en un vídeo
+
+- **Voz o diálogo:**  
+Es el elemento principal cuando hay personas hablando (entrevistas, explicaciones, narraciones).
+- **Música:**  
+Se utiliza para generar emociones, marcar ritmo o reforzar el mensaje.
+- **Efectos de sonido (SFX):**  
+Añaden realismo o enfatizan acciones (pasos, puertas, ambiente, etc.).
+- **Sonido ambiente:**  
+Refleja el entorno donde se desarrolla la escena (ruido de ciudad, naturaleza, interiores, etc.).
+
+#### 3.5.2 - Calidad del audio
+
+Un audio de mala calidad puede arruinar incluso un vídeo visualmente atractivo. Es importante considerar:
+
+- **Claridad:**  
+Evitar ruidos, interferencias o distorsión.
+- **Volumen adecuado:**  
+Ni demasiado bajo ni saturado.
+- **Balance:**  
+Ajustar correctamente la relación entre voz, música y efectos.
+- **Sincronización:**  
+El audio debe coincidir perfectamente con la imagen.
+
+#### 3.5.3 - Tratamiento digital del sonido
+
+El sonido se transmite en forma de ondas y los ordenadores trabajan con información digital. Por ese motivo el sonido deberá ser digitalizado antes de poder ser usado en el ordenador.
+
+- **Muestreo (sampling):**  
+El proceso de sampling del sonido consiste en tomar muestras de una señal sonora (muestreo) a intervalos constantes de tiempo (frecuencia de muestreo).
+
+!!! tip "Ejemplo"
+    Una frecuencia de 44.100 Hz (estándar de CD) significa que el ordenador "escucha" y registra el sonido 44.100 veces por segundo.
+
+- **Digitalización (profundidad de bits):**  
+Es la cantidad de bits empleados para guardar el valor de cada punto muestreado: a más bits, mayor calidad.  
+
+!!! tip "Ejemplo"
+    - **16 bits**: Ofrecen 65.536 niveles (calidad de CD).
+    - **24 bits**: Proporcionan una precisión extrema, usada en estudios de grabación profesionales.
+
+- **Importancia del muestro y la digitalización en la calidad del audio**  
+![Descripción de la imagen](./img/UT6/vid-7.png){.marco .ochozero .margintopbottom10 }  
+Una mayor frecuencia de muestreo permite capturar frecuencias más altas del sonido, aunque a partir de ciertos valores (como 44.1 kHz) no siempre supone una mejora perceptible para el oído humano.  
+La profundidad de bits determina el rango dinámico y la precisión de la señal digital. Un mayor número de bits reduce el ruido de cuantificación y permite una reproducción más fiel y detallada del audio.
+
+#### 3.5.4 - Canales de audio
+
+Los canales de audio representan las distintas pistas independientes por las que se distribuye el sonido. El caso más común es el audio mono (un solo canal) y estéreo (dos canales: izquierdo y derecho), que permite una percepción espacial básica.
+
+En sistemas más avanzados, como el audio multicanal (por ejemplo, 5.1 o 7.1), se añaden más canales para mejorar la inmersión y ubicar sonidos en distintas posiciones alrededor del oyente.
+
+En general, cuantos más canales haya, mayor será la capacidad de recrear un entorno sonoro realista, aunque también aumenta la complejidad del sistema y los requisitos de almacenamiento y procesamiento.
+
+#### 3.5.5 - Formatos de audio
+
+Los formatos más comunes en vídeo digital incluyen:
+
+- AAC (Advanced Audio Codec):  
+Muy utilizado por su buena calidad y compresión eficiente.
+- MP3 (MPEG Audio Layer III):  
+Popular, aunque menos eficiente que AAC.
+- WAV:  
+Alta calidad sin compresión, pero ocupa más espacio.
+
+**Nota:**  
+A la hora de elegir un formato u otro, también se deberá tener en cuenta la compatibilidad de los mismos con el software / hardware de reproducción disponible.  
+
+**Tabla resumen de los formatos de audio**  
+
+|Formato de audio|Frecuencia de muestreo|Profundidad de bits|Calidad de audio|Compatibilidad|
+|-|-|-|-|-|
+|MP3|32 kHz, 44,1 kHz, 48 kHz|16 bits|Buena|Amplia|
+|WAV|44,1 kHz, 48 kHz|16 bits, 24 bits|Excelente|Moderada|
+|AAC|8 kHz – 96 kHz|16 bits, 24 bits|Muy buena|Amplia|
+
+#### 3.5.6 - Edición de audio
+
+Durante la postproducción, es habitual trabajar el audio para mejorar el resultado final:
+
+- Eliminación de ruido
+- Ajuste de niveles
+- Ecualización
+- Compresión
+- Inserción de música y efectos
+
+Programas como editores de vídeo o software específico de audio permiten realizar estos ajustes de forma precisa.
+
+### 4 - 
+<!-- ClipChamp -->
+<!-- https://www.youtube.com/watch?v=m9nMhf6AQXw -->
+<!-- openshot -->
+<!-- clipchamp -->
+
 
 <!-- https://www.dacast.com/es/blog-es/que-es-un-codec-de-video/ -->
 <!-- https://www.cloudflare.com/es-es/learning/video/video-encoding-formats/ -->
 <!-- https://www.tuinstitutoonline.com/cursos/openshot_v1506/01video_formatos.php -->
-<!-- Concepto	Ventajas	Desventajas
-Vídeo Comprimido	
-
-- Ideal para streaming y almacenamiento web.
-
-- Compatible con casi todos los dispositivos.
-	
-
-- La calidad puede degradarse si la tasa de bits es muy baja.
-
-- El proceso de codificación requiere potencia de cálculo.
-Vídeo Sin Pérdida (RAW)	
-
-- Máxima calidad para postproducción profesional.
-
-- Permite corrección de color extrema sin artefactos.
-	
-
-- El tamaño del archivo es inmenso (GB por minuto).
-
-- Requiere hardware de almacenamiento muy rápido.
-
-!!! Exercise "Ejercicio"
-- Descargar los vídeos de los siguientes enlaces: -->
-
-<!-- Vídeo HD MP4
-
-Vídeo Baja Res
-
-- Reproducir ambos vídeos a pantalla completa.
-- Evidenciar la aparición de "artefactos" (cuadros) y falta de detalle en el vídeo de baja resolución frente al de alta.
-2 - Formatos de vídeo
-2.1 - Conceptos básicos de vídeo digital
-
-Un vídeo es, en esencia, una sucesión de imágenes (fotogramas) que, al reproducirse a gran velocidad, crean la ilusión de movimiento.
-
-    Fotograma (Frame):
-
-    a) Es la unidad mínima de una secuencia de vídeo.
-
-    b) El Frame Rate (FPS) indica cuántas imágenes se muestran por segundo (ej. 24, 30 o 60 fps).
-
-    c) A mayor tasa de fotogramas, mayor es la fluidez del movimiento percibido.
-
-    Resolución:
-
-    Es la cantidad de píxeles que tiene cada fotograma. Se expresa como el número de píxeles horizontales por verticales.
-
-    Ejemplo: Full HD (1920x1080) = 2.073.600 píxeles por fotograma.
-
-    Tasa de bits (Bitrate):
-
-    a) Se refiere a la cantidad de información procesada por unidad de tiempo (normalmente Mbps).
-
-    b) Un bitrate alto mejora la calidad de la imagen, pero aumenta considerablemente el tamaño del archivo.
-
-2.2 - Formatos y Contenedores de vídeo
-
-Es importante distinguir entre el contenedor (la "caja" que guarda el vídeo y el audio) y el códec (el algoritmo que comprime los datos).
-
-Los formatos más comunes incluyen MP4, MKV, AVI y MOV, cada uno con compatibilidades específicas.
-2.1.1 - Formato MP4 (MPEG-4 Part 14)
-
-Es el estándar de la industria actual. Es muy eficiente y compatible con prácticamente todos los dispositivos, desde móviles hasta televisores inteligentes. Suele utilizar el códec H.264 o H.265.
-2.1.2 - Formato MKV (Matroska)
-
-Es un contenedor de código abierto extremadamente flexible. Destaca por su capacidad para albergar una cantidad ilimitada de pistas de vídeo, audio y subtítulos en un solo archivo, siendo el preferido para cine en alta definición.
-2.1.3 - Formato MOV (QuickTime)
-
-Desarrollado originalmente por Apple. Es un formato de alta calidad muy utilizado en la edición de vídeo profesional. Permite almacenar vídeo con canal alfa (transparencia) si se usa el códec adecuado (como Apple ProRes).
-2.1.4 - Formato AVI (Audio Video Interleave)
-
-Uno de los formatos más antiguos desarrollado por Microsoft. Aunque es muy compatible, no es tan eficiente en compresión como los formatos modernos, lo que genera archivos más grandes para la misma calidad.
-2.1.5 - Formato WebM
-
-Desarrollado por Google para su uso en la web. Utiliza códecs de vídeo como VP8 o VP9 y es una alternativa libre de derechos al MP4, optimizada para la reproducción fluida en navegadores.
-2.2 - Conceptos básicos de Códecs
-
-El códec es el responsable de "comprimir" el vídeo para que no ocupe terabytes de espacio.
-
-    H.264 (AVC): El más popular hoy en día. Equilibra perfectamente calidad y compatibilidad.
-
-    H.265 (HEVC): El sucesor de H.264. Ofrece la misma calidad que su predecesor pero ocupando la mitad del espacio, ideal para vídeo 4K.
-
-    AV1: Un códec moderno y abierto que busca sustituir a los anteriores sin costes de licencia, optimizado para el streaming de nueva generación.
-
-2.3 - Formatos de intercambio y documentos
-2.3.1 - Formato GIF (Animado)
-
-Aunque técnicamente es un formato de imagen, se utiliza como un formato de "vídeo" corto sin sonido. Está limitado a 256 colores y suele generar archivos pesados si la duración es larga.
-2.3.2 - Formato PDF (con vídeo incrustado)
-
-El formato PDF permite la inclusión de archivos de vídeo multimedia que pueden ser reproducidos directamente desde el lector de documentos, facilitando presentaciones interactivas. -->
+<!-- 
+ -->
 
 | **Licencia Creative Commons:** | |
 | - | - |
