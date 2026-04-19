@@ -373,11 +373,72 @@ GIMP (GNU Image Manipulation Program) es un programa de edición de imágenes di
     - Subir el documento a la tarea de **Aules**.
     - A partir de momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
 
+## 4.8 - Tarea RA5-CEde-5
+
+### 4.8.1 - Degradados y sobreados
+
+!!! warning "Trabajo a realizar"
+    - Elegir las herramientas y los efectos adecuados para realizar un diseño similar a la siguiente imagen:
+    ![imagen](./05_imagenes/tareas/RA5-CEde-5/imagen.png){.margintop20}
+
+### 4.8.2 - Entrega de la tarea
+
+!!! warning "Condiciones de entrega de la tarea"
+    - Guardar el documento con RA5-CEde-5-NombreApellidos en formato **png**.
+    - **No se aceptará ningun formato**.  
+    - Subir el documento a la tarea de **Aules**.
+    - A partir de momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
+
+## 4.9 - Tarea RA5-CEde-6
+
+### 4.9.1 - Blanquear dientes
+
+!!! warning "Trabajo a realizar"
+    - Descargar [imagen](./05_imagenes/tareas/RA5-CEde-6/imagen.jpg).
+    - Elegir las herramientas y los efectos adecuados para realizar un diseño similar a la siguiente imagen:
+    ![imagen](./05_imagenes/tareas/RA5-CEde-6/imagen.png){.margintop20}
+
+### 4.9.2 - Entrega de la tarea
+
+!!! warning "Condiciones de entrega de la tarea"
+    - Guardar el documento con RA5-CEde-5-NombreApellidos en formato **png**.
+    - **No se aceptará ningun formato**.  
+    - Subir el documento a la tarea de **Aules**.
+    - A partir de momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
+
+## 4.10 - Tarea RA5-CEde-7
+
+### 4.10.1 - Quitar el fondo de una imagen con gmic
+
+!!! warning "Trabajo a realizar"
+    - Descargar [imagen](./05_imagenes/tareas/RA5-CEde-7/imagen.webp).
+    - Elegir las herramientas y los efectos adecuados para eliminar el fondo de la imagen.
+    ![imagen](./05_imagenes/tareas/RA5-CEde-7/canva1.png){.margintop20 .marco}
+
+### 4.10.2 - Entrega de la tarea
+
+!!! warning "Condiciones de entrega de la tarea"
+    - Guardar el documento con RA5-CEde-5-NombreApellidos en un formato que **admita transparencias**.
+    - **No se aceptará ningun formato**.  
+    - Subir el documento a la tarea de **Aules**.
+    - A partir de momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
+
 <!-- -16i-
 quitar fondo con g-mic
 punto verde se queda. punto rojo se quita.
 
 https://www.youtube.com/watch?v=FrIY5E-4u6Y -->
+
+<!-- https://www.youtube.com/watch?v=7Idtt3DIEko&list=PLG1qdjD__qH5ZghEFsK5gIugvGlNrMF8a -->
+<!-- https://www.youtube.com/watch?v=To3zWPzL_1s&list=PLG1qdjD__qH64tCQ756M--FVvhHyCLUA9&index=25 -->
+<!-- https://www.youtube.com/watch?v=JCir-CexQ94&list=PLG1qdjD__qH64tCQ756M--FVvhHyCLUA9&index=37 -->
+<!-- https://www.youtube.com/watch?v=HoMKnxvye1g&list=PLG1qdjD__qH64tCQ756M--FVvhHyCLUA9&index=39
+<!-- https://www.youtube.com/watch?v=Iwx5Loaa1eY&list=PLG1qdjD__qH64tCQ756M--FVvhHyCLUA9&index=40&t=35s -->
+<!-- https://www.youtube.com/watch?v=yoY3_jaI69k&list=PLG1qdjD__qH64tCQ756M--FVvhHyCLUA9&index=41 -->
+<!-- https://www.youtube.com/watch?v=mMTFJZmKakQ&list=PLG1qdjD__qH64tCQ756M--FVvhHyCLUA9&index=43 
+<!-- https://www.youtube.com/watch?v=3O6RhoG9sTU&list=PLG1qdjD__qH64tCQ756M--FVvhHyCLUA9&index=48-->
+<!-- https://www.youtube.com/watch?v=6cgs6hFUfZM&list=PLG1qdjD__qH64tCQ756M--FVvhHyCLUA9&index=50 -->
+<!-- https://www.youtube.com/watch?v=Sj-JDhBhhKk&list=PLG1qdjD__qH64tCQ756M--FVvhHyCLUA9&index=74 -->
 
 | **Licencia Creative Commons:** | |
 | - | - |
