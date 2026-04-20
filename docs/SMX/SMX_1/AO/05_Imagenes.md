@@ -324,7 +324,7 @@ GIMP (GNU Image Manipulation Program) es un programa de edición de imágenes di
 ### 4.5.1 - Retoque de imágenes
 
 !!! warning "Trabajo a realizar"
-    - Descargar la siguiente [imagen](./05_imagenes/tareas/RA5-CEde/imagen_2.jpg).
+    - Descargar la siguiente [imagen](./05_imagenes/tareas/RA5-CEde-2/imagen_2.jpg).
     - Usando los filtros de mezcla (modo) de capas, cambiar e igualar el color de los ojos del gato.
     - Resultado esperado:
     ![imagen](./05_imagenes/tareas/RA5-CEde-2/Tarea%20RA5-CEde-2.png){.margintop20}
@@ -423,10 +423,7 @@ GIMP (GNU Image Manipulation Program) es un programa de edición de imágenes di
     - Subir el documento a la tarea de **Aules**.
     - A partir de momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
 
-<!-- -16i-
-quitar fondo con g-mic
-punto verde se queda. punto rojo se quita.
-
+<!-- 
 https://www.youtube.com/watch?v=FrIY5E-4u6Y -->
 
 <!-- https://www.youtube.com/watch?v=7Idtt3DIEko&list=PLG1qdjD__qH5ZghEFsK5gIugvGlNrMF8a -->
