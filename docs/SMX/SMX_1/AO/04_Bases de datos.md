@@ -379,7 +379,7 @@ Para realizar consultas SQL iremos a **Consultas** y pulsaremos el enlace de **C
     SELECT * FROM Socios WHERE Actividad_Lunes='Ciclo indoor';  
     ```
 
-    Esta consulta selecciona **todos los campos** de la tabla "Clientes" y devuelve una lista y devuelve los valores que cumplen la condición (filtrado) donde el campo Actividad_Lunes='Ciclo indoor'.
+    Esta consulta selecciona **todos los campos** de la tabla "Socios" y devuelve una lista y devuelve los valores que cumplen la condición (filtrado) donde el campo Actividad_Lunes='Ciclo indoor'.
     ![Descripción de la imagen](./img/UT4/bbdd-44.png){ .leftsietecero .margintop10 .marginbottom20 }  
     **Guardar la consulta como consulta_1**{ .yellowhighlight }.
 

@@ -211,8 +211,6 @@ GIMP (GNU Image Manipulation Program) es un programa de edición de imágenes di
 
 ### 4.2 - Funciones básicas de GIMP
 
-<!-- https://youtu.be/ZbLyASD_taU?si=9jZQbDDKcVAGhvnN&t=247 -->
-
 #### 4.2.1 - Primer vistazo al programa
 
 - Abrir GIMP y familiarizarse con la interfaz de usuario.
@@ -345,6 +343,8 @@ GIMP (GNU Image Manipulation Program) es un programa de edición de imágenes di
     - Descargar [archivo](./05_imagenes/tareas/RA5-CEde-3/pokemon.zip) y extraer las imágenes.
     - Usando las herramientos de alineación y distribución realizar un diseño similar a la siguiente imagen.
     ![archivo](./05_imagenes/tareas/RA5-CEde-3/Tarea%20RA5-CEde-3.png){.margintop20}
+    Alumnos con lluirex:
+    - Descargar [archivo](./05_imagenes/tareas/RA5-CEde-3/tarea.xcf).
 
 ### 4.6.2 - Entrega de la tarea
 
