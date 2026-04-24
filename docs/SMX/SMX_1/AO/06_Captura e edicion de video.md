@@ -294,8 +294,8 @@ Programas como editores de vídeo o software específico de audio permiten reali
 <!-- https://www.youtube.com/watch?v=m9nMhf6AQXw -->
 <!-- openshot -->
  
-Shotcut
-Blender
+<!-- Shotcut
+Blender -->
 <!-- https://www.dacast.com/es/blog-es/que-es-un-codec-de-video/ -->
 <!-- https://www.cloudflare.com/es-es/learning/video/video-encoding-formats/ -->
 <!-- https://www.tuinstitutoonline.com/cursos/openshot_v1506/01video_formatos.php -->

@@ -297,7 +297,7 @@ GIMP (GNU Image Manipulation Program) es un programa de edición de imágenes di
     - Guardar el documento con RA5-CEbc-NombreApellidos en formato **WebP**.
     - **No se aceptará ningun formato**.  
     - Subir el documento a la tarea de **Aules**.
-    - A partir de momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
+    - A partir de la apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
 
 ## 4.4 - Tarea RA5-CEde-1
 
@@ -315,7 +315,7 @@ GIMP (GNU Image Manipulation Program) es un programa de edición de imágenes di
     - Guardar el documento con RA5-CEde-1-NombreApellidos en formato **png**.
     - **No se aceptará ningun formato**.  
     - Subir el documento a la tarea de **Aules**.
-    - A partir de momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
+    - A partir de la apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
 
 ## 4.5 - Tarea RA5-CEde-2
 
@@ -333,7 +333,7 @@ GIMP (GNU Image Manipulation Program) es un programa de edición de imágenes di
     - Guardar el documento con RA5-CEde-2-NombreApellidos en formato **jpg**.
     - **No se aceptará ningun formato**.  
     - Subir el documento a la tarea de **Aules**.
-    - A partir de momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
+    - A partir de la apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
 
 ## 4.6 - Tarea RA5-CEde-3
 
@@ -352,16 +352,16 @@ GIMP (GNU Image Manipulation Program) es un programa de edición de imágenes di
     - Guardar el documento con RA5-CEde-3-NombreApellidos en formato **jpg**.
     - **No se aceptará ningun formato**.  
     - Subir el documento a la tarea de **Aules**.
-    - A partir de momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
+    - A partir de la apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
 
-## 4.7 - Tarea RA5-CEde-4
+<!-- ## 4.7 - Tarea RA5-CEde-4
 
 ### 4.7.1 - Filtros avanzados de Gimp
 
 !!! warning "Trabajo a realizar"
     - Ir a [gmic](https://gmic.eu/download.html) y descargar el complemento Gmic (cuidado con la version de Gimp y el sistema operativo).
     - Descargar [imagen](./05_imagenes/tareas/RA5-CEde-4/imagen.jpg).
-    - Elegir el filtro adecuado para eliminar personas y dejar la imagen de la siguiente manera:
+    - Elegir el filtro adecuado (Repair → Inpaint(Patch-Based)) para eliminar personas y dejar la imagen de la siguiente manera:
     ![imagen](./05_imagenes/tareas/RA5-CEde-4/imagen.png){.margintop20}
     - !!! tip "Podéis mejorar el aspecto de la imagen con la herramientas habituales de Gimp"
 
@@ -371,7 +371,7 @@ GIMP (GNU Image Manipulation Program) es un programa de edición de imágenes di
     - Guardar el documento con RA5-CEde-4-NombreApellidos en formato **png**.
     - **No se aceptará ningun formato**.  
     - Subir el documento a la tarea de **Aules**.
-    - A partir de momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
+    - A partir de la apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas. -->
 
 ## 4.8 - Tarea RA5-CEde-5
 
@@ -387,7 +387,9 @@ GIMP (GNU Image Manipulation Program) es un programa de edición de imágenes di
     - Guardar el documento con RA5-CEde-5-NombreApellidos en formato **png**.
     - **No se aceptará ningun formato**.  
     - Subir el documento a la tarea de **Aules**.
-    - A partir de momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
+    - A partir de la apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
+<!-- capa a contenido
+lfa a seleccion -->
 
 ## 4.9 - Tarea RA5-CEde-6
 
@@ -401,12 +403,12 @@ GIMP (GNU Image Manipulation Program) es un programa de edición de imágenes di
 ### 4.9.2 - Entrega de la tarea
 
 !!! warning "Condiciones de entrega de la tarea"
-    - Guardar el documento con RA5-CEde-5-NombreApellidos en formato **png**.
+    - Guardar el documento con RA5-CEde-6-NombreApellidos en formato **png**.
     - **No se aceptará ningun formato**.  
     - Subir el documento a la tarea de **Aules**.
-    - A partir de momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
+    - A partir de la apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
 
-## 4.10 - Tarea RA5-CEde-7
+<!-- ## 4.10 - Tarea RA5-CEde-7
 
 ### 4.10.1 - Quitar el fondo de una imagen con gmic
 
@@ -414,28 +416,45 @@ GIMP (GNU Image Manipulation Program) es un programa de edición de imágenes di
     - Descargar [imagen](./05_imagenes/tareas/RA5-CEde-7/imagen.webp).
     - Elegir las herramientas y los efectos adecuados para eliminar el fondo de la imagen.
     ![imagen](./05_imagenes/tareas/RA5-CEde-7/canva1.png){.margintop20 .marco}
+    <!-- inpach -->
 
-### 4.10.2 - Entrega de la tarea
+<!-- ### 4.10.2 - Entrega de la tarea
 
 !!! warning "Condiciones de entrega de la tarea"
-    - Guardar el documento con RA5-CEde-5-NombreApellidos en un formato que **admita transparencias**.
+    - Guardar el documento con RA5-CEde-7-NombreApellidos en un formato que **admita transparencias**.
     - **No se aceptará ningun formato**.  
     - Subir el documento a la tarea de **Aules**.
-    - A partir de momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
+    - A partir de la apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas. -->
+
+<!-- ## 4.11 - Tarea RA5-CEde-8
+
+### 4.11.1 - Texto según contorno
+
+!!! warning "Trabajo a realizar"
+    - Descargar [imagen](./05_imagenes/tareas/RA5-CEde-7/imagen.webp).
+    - Elegir las herramientas y los efectos adecuados para eliminar el fondo de la imagen.
+    ![imagen](./05_imagenes/tareas/RA5-CEde-7/canva1.png){.margintop20 .marco}
+
+### 4.11.2 - Entrega de la tarea
+
+!!! warning "Condiciones de entrega de la tarea"
+    - Guardar el documento con RA5-CEde-8-NombreApellidos en formato **jpg**.
+    - **No se aceptará ningun formato**.  
+    - Subir el documento a la tarea de **Aules**.
+    - A partir de la apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas. -->
 
 <!-- 
-https://www.youtube.com/watch?v=FrIY5E-4u6Y -->
+https://www.youtube.com/watch?v=mMTFJZmKakQ&list=PLG1qdjD__qH64tCQ756M--FVvhHyCLUA9&index=44
+RESYNTHESIZER
+https://www.youtube.com/watch?v=6cgs6hFUfZM&list=PLG1qdjD__qH64tCQ756M--FVvhHyCLUA9&index=51
+imagen hecha con texto
+https://www.youtube.com/watch?v=Sj-JDhBhhKk&list=PLG1qdjD__qH64tCQ756M--FVvhHyCLUA9&index=74 
+deformaciones
+https://www.youtube.com/watch?v=HoMKnxvye1g&list=PLG1qdjD__qH64tCQ756M--FVvhHyCLUA9&index=40
+logotipo + texto cuadrado
+https://www.youtube.com/watch?v=mMTFJZmKakQ&list=PLG1qdjD__qH64tCQ756M--FVvhHyCLUA9&index=43 
 
-<!-- https://www.youtube.com/watch?v=7Idtt3DIEko&list=PLG1qdjD__qH5ZghEFsK5gIugvGlNrMF8a -->
-<!-- https://www.youtube.com/watch?v=To3zWPzL_1s&list=PLG1qdjD__qH64tCQ756M--FVvhHyCLUA9&index=25 -->
-<!-- https://www.youtube.com/watch?v=JCir-CexQ94&list=PLG1qdjD__qH64tCQ756M--FVvhHyCLUA9&index=37 -->
-<!-- https://www.youtube.com/watch?v=HoMKnxvye1g&list=PLG1qdjD__qH64tCQ756M--FVvhHyCLUA9&index=39
-<!-- https://www.youtube.com/watch?v=Iwx5Loaa1eY&list=PLG1qdjD__qH64tCQ756M--FVvhHyCLUA9&index=40&t=35s -->
-<!-- https://www.youtube.com/watch?v=yoY3_jaI69k&list=PLG1qdjD__qH64tCQ756M--FVvhHyCLUA9&index=41 -->
-<!-- https://www.youtube.com/watch?v=mMTFJZmKakQ&list=PLG1qdjD__qH64tCQ756M--FVvhHyCLUA9&index=43 
-<!-- https://www.youtube.com/watch?v=3O6RhoG9sTU&list=PLG1qdjD__qH64tCQ756M--FVvhHyCLUA9&index=48-->
-<!-- https://www.youtube.com/watch?v=6cgs6hFUfZM&list=PLG1qdjD__qH64tCQ756M--FVvhHyCLUA9&index=50 -->
-<!-- https://www.youtube.com/watch?v=Sj-JDhBhhKk&list=PLG1qdjD__qH64tCQ756M--FVvhHyCLUA9&index=74 -->
+<!-- https://www.youtube.com/watch?v=FrIY5E-4u6Y -->
 
 | **Licencia Creative Commons:** | |
 | - | - |
