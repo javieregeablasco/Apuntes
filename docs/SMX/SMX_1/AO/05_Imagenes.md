@@ -279,9 +279,9 @@ GIMP (GNU Image Manipulation Program) es un programa de edición de imágenes di
 - Para alinear una capa a la capa activa, ir a **Capa** → **Alinear a capa activa**.
 - Para poder eliminar el fondo de una imagen, es necesario añadir un canal alfa a la capa. Para ello, ir a **Capa** → **Transparencia** → **Añadir canal alfa**.
 
-## 4.3 - Tarea RA5-CEbc
+### 4.3 - Tarea RA5-CEbc
 
-### 4.3.1 - Escalado de imágenes y operaciones básicas
+#### 4.3.1 - Escalado de imágenes y operaciones básicas
 
 !!! warning "Trabajo a realizar"
     - Descargar [imagen](./05_imagenes/tareas/RA5-CEbc/imagen_1.jpg) y pasarla a blanco y negro.
@@ -291,7 +291,7 @@ GIMP (GNU Image Manipulation Program) es un programa de edición de imágenes di
     - Aplicar un filtro que más o guste.
     - Guardar la imagen en formato WebP
 
-### 4.3.2 - Entrega de la tarea
+#### 4.3.2 - Entrega de la tarea
 
 !!! warning "Condiciones de entrega de la tarea"
     - Guardar el documento con RA5-CEbc-NombreApellidos en formato **WebP**.
@@ -299,9 +299,9 @@ GIMP (GNU Image Manipulation Program) es un programa de edición de imágenes di
     - Subir el documento a la tarea de **Aules**.
     - A partir de la apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
 
-## 4.4 - Tarea RA5-CEde-1
+### 4.4 - Tarea RA5-CEde-1
 
-### 4.4.1 - Retoque de imágenes
+#### 4.4.1 - Retoque de imágenes
 
 !!! warning "Trabajo a realizar"
     - Descargar [imagen](./05_imagenes/tareas/RA5-CEde-1/imagen_1.jpeg).
@@ -309,7 +309,7 @@ GIMP (GNU Image Manipulation Program) es un programa de edición de imágenes di
     - Resultado esperado:
     ![imagen](./05_imagenes/tareas/RA5-CEde-1/imagen_1.png){.margintop20}
 
-### 4.4.2 - Entrega de la tarea
+#### 4.4.2 - Entrega de la tarea
 
 !!! warning "Condiciones de entrega de la tarea"
     - Guardar el documento con RA5-CEde-1-NombreApellidos en formato **png**.
@@ -317,9 +317,9 @@ GIMP (GNU Image Manipulation Program) es un programa de edición de imágenes di
     - Subir el documento a la tarea de **Aules**.
     - A partir de la apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
 
-## 4.5 - Tarea RA5-CEde-2
+### 4.5 - Tarea RA5-CEde-2
 
-### 4.5.1 - Retoque de imágenes
+#### 4.5.1 - Retoque de imágenes
 
 !!! warning "Trabajo a realizar"
     - Descargar la siguiente [imagen](./05_imagenes/tareas/RA5-CEde-2/imagen_2.jpg).
@@ -327,7 +327,7 @@ GIMP (GNU Image Manipulation Program) es un programa de edición de imágenes di
     - Resultado esperado:
     ![imagen](./05_imagenes/tareas/RA5-CEde-2/Tarea%20RA5-CEde-2.png){.margintop20}
 
-### 4.5.2 - Entrega de la tarea
+#### 4.5.2 - Entrega de la tarea
 
 !!! warning "Condiciones de entrega de la tarea"
     - Guardar el documento con RA5-CEde-2-NombreApellidos en formato **jpg**.
@@ -335,9 +335,9 @@ GIMP (GNU Image Manipulation Program) es un programa de edición de imágenes di
     - Subir el documento a la tarea de **Aules**.
     - A partir de la apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
 
-## 4.6 - Tarea RA5-CEde-3
+### 4.6 - Tarea RA5-CEde-3
 
-### 4.6.1 - Alineación y distribución de capas
+#### 4.6.1 - Alineación y distribución de capas
 
 !!! warning "Trabajo a realizar"
     - Descargar [archivo](./05_imagenes/tareas/RA5-CEde-3/pokemon.zip) y extraer las imágenes.
@@ -346,7 +346,7 @@ GIMP (GNU Image Manipulation Program) es un programa de edición de imágenes di
     Alumnos con lluirex:
     - Descargar [archivo](./05_imagenes/tareas/RA5-CEde-3/tarea.xcf).
 
-### 4.6.2 - Entrega de la tarea
+#### 4.6.2 - Entrega de la tarea
 
 !!! warning "Condiciones de entrega de la tarea"
     - Guardar el documento con RA5-CEde-3-NombreApellidos en formato **jpg**.
@@ -373,15 +373,15 @@ GIMP (GNU Image Manipulation Program) es un programa de edición de imágenes di
     - Subir el documento a la tarea de **Aules**.
     - A partir de la apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas. -->
 
-## 4.8 - Tarea RA5-CEde-5
+### 4.8 - Tarea RA5-CEde-5
 
-### 4.8.1 - Degradados y sobreados
+#### 4.8.1 - Degradados y sobreados
 
 !!! warning "Trabajo a realizar"
     - Elegir las herramientas y los efectos adecuados para realizar un diseño similar a la siguiente imagen:
     ![imagen](./05_imagenes/tareas/RA5-CEde-5/imagen.png){.margintop20}
 
-### 4.8.2 - Entrega de la tarea
+#### 4.8.2 - Entrega de la tarea
 
 !!! warning "Condiciones de entrega de la tarea"
     - Guardar el documento con RA5-CEde-5-NombreApellidos en formato **png**.
@@ -391,16 +391,16 @@ GIMP (GNU Image Manipulation Program) es un programa de edición de imágenes di
 <!-- capa a contenido
 lfa a seleccion -->
 
-## 4.9 - Tarea RA5-CEde-6
+### 4.9 - Tarea RA5-CEde-6
 
-### 4.9.1 - Blanquear dientes
+#### 4.9.1 - Blanquear dientes
 
 !!! warning "Trabajo a realizar"
     - Descargar [imagen](./05_imagenes/tareas/RA5-CEde-6/imagen.jpg).
     - Elegir las herramientas y los efectos adecuados para realizar un diseño similar a la siguiente imagen:
     ![imagen](./05_imagenes/tareas/RA5-CEde-6/imagen.png){.margintop20}
 
-### 4.9.2 - Entrega de la tarea
+#### 4.9.2 - Entrega de la tarea
 
 !!! warning "Condiciones de entrega de la tarea"
     - Guardar el documento con RA5-CEde-6-NombreApellidos en formato **png**.
@@ -410,7 +410,7 @@ lfa a seleccion -->
 
 <!-- ## 4.10 - Tarea RA5-CEde-7
 
-### 4.10.1 - Quitar el fondo de una imagen con gmic
+#### 4.10.1 - Quitar el fondo de una imagen con gmic
 
 !!! warning "Trabajo a realizar"
     - Descargar [imagen](./05_imagenes/tareas/RA5-CEde-7/imagen.webp).
@@ -418,7 +418,7 @@ lfa a seleccion -->
     ![imagen](./05_imagenes/tareas/RA5-CEde-7/canva1.png){.margintop20 .marco}
     <!-- inpach -->
 
-<!-- ### 4.10.2 - Entrega de la tarea
+<!-- #### 4.10.2 - Entrega de la tarea
 
 !!! warning "Condiciones de entrega de la tarea"
     - Guardar el documento con RA5-CEde-7-NombreApellidos en un formato que **admita transparencias**.
@@ -426,16 +426,16 @@ lfa a seleccion -->
     - Subir el documento a la tarea de **Aules**.
     - A partir de la apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas. -->
 
-<!-- ## 4.11 - Tarea RA5-CEde-8
+<!-- ### 4.11 - Tarea RA5-CEde-8
 
-### 4.11.1 - Texto según contorno
+#### 4.11.1 - Texto según contorno
 
 !!! warning "Trabajo a realizar"
     - Descargar [imagen](./05_imagenes/tareas/RA5-CEde-7/imagen.webp).
     - Elegir las herramientas y los efectos adecuados para eliminar el fondo de la imagen.
     ![imagen](./05_imagenes/tareas/RA5-CEde-7/canva1.png){.margintop20 .marco}
 
-### 4.11.2 - Entrega de la tarea
+#### 4.11.2 - Entrega de la tarea
 
 !!! warning "Condiciones de entrega de la tarea"
     - Guardar el documento con RA5-CEde-8-NombreApellidos en formato **jpg**.
