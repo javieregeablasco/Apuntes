@@ -74,7 +74,7 @@ Algunos formatos como GIF o TIFF siguen utilizándose en contextos específicos,
 
 Los formatos más comunes incluyen JPG/JPEG, PNG, GIF, TIFF, WebP y RAW, cada uno con sus propias características y usos específicos.
 
-#### 2.1.1 - Formato JPG y JPEG
+#### 2.2.1 - Formato JPG y JPEG
 
 ![imagen](./img/UT5/img-3.png){ .leftunocero .margintop10 .marginbottom20}
 
@@ -82,7 +82,7 @@ El formato JPEG (Joint Photographic Experts Group) es un formato de imagen muy c
 
 Utiliza **compresión con pérdida**, al reducir el tamaño del archivo eliminando información de la imagen que el ojo humano no puede percibir fácilmente.
 
-#### 2.1.2 - Formato PNG
+#### 2.2.2 - Formato PNG
 
 ![imagen](./img/UT5/img-4.webp){ .leftunodos .margintop10 .marginbottom20}
 
@@ -91,7 +91,7 @@ El formato PNG (Portable Network Graphics) destaca por la posibilidad de **compr
 El formato PNG soporta tanto la transparencia como la semitransparencia (gracias al canal alfa integrado).  
 A causa del proceso de compresión sin pérdidas, los archivos son relativamente grandes, hecho que deberemos tener en cuenta a la hora de realizar documentos.
 
-#### 2.1.3 - Formato BMP
+#### 2.2.3 - Formato BMP
 
 ![imagen](./img/UT5/img-5.webp){ .leftunodos .margintop10 .marginbottom20}
 
@@ -99,7 +99,7 @@ El formato BMP (Windows bitmap), inicialmente desarrollado para sistemas operati
 
 El formato de imagen sin comprimir asigna a cada píxel un valor cromático, por lo que los archivos suelen ser muy grandes, motivo por el que el formato no es adecuado para su uso en aplicaciones ofimáticas.
 
-#### 2.1.4 - Formato GIF
+#### 2.2.4 - Formato GIF
 
 ![imagen](./img/UT5/img-6.webp){ .leftunodos .margintop10 .marginbottom20}
 
@@ -109,7 +109,7 @@ Aunque esta limitación reduce su capacidad para representar imágenes complejas
 
 Su principal ventaja es que permite animaciones, lo que lo hace popular para contenido visual dinámico.
 
-#### 2.1.5 - Formato HEIF
+#### 2.2.5 - Formato HEIF
 
 ![imagen](./img/UT5/img-7.png){ .leftunodos .margintop10 .marginbottom20}
 
@@ -117,7 +117,7 @@ El formato HEIF (High Efficiency Image Format) no es ampliamente utilizado, aunq
 
 HEIF es más común en dispositivos móviles, especialmente en productos de Apple, donde se usa por defecto para capturar fotos.
 
-#### 2.1.6 - Formato WebP
+#### 2.2.6 - Formato WebP
 
 ![imagen](./img/UT5/img-8.png){ .leftunodos .margintop10 .marginbottom20}
 
@@ -125,19 +125,19 @@ El formato WEBP es una alternativa relativamente nueva y fue desarrollada por Go
 
 El formato WEBP es **compatible con transparencia** y es compatible con imágenes animadas.
 
-#### 2.1.7 - Formato TIFF
+#### 2.2.7 - Formato TIFF
 
 ![imagen](./img/UT5/img-9.webp){ .leftunodos .margintop10 .marginbottom20}
 
 Archivo de muy alta calidad y sin pérdida, utilizado fundamentalmente en la industria de impresión profesional debido a su gran tamaño. No se recomienda su uso en aplicaciones ofimáticas debido a su gran tamaño, aunque es ideal para la edición de imágenes de alta calidad.
 
-#### 2.1.8 - Formato RAW
+#### 2.2.8 - Formato RAW
 
 ![imagen](./img/UT5/img-10.jpg){ .leftunodos .margintop10 .marginbottom20}
 
 Contiene los datos "crudos" del sensor de la cámara sin procesar. Ofrece la máxima flexibilidad para la edición profesional, aunque genera archivos muy pesados. No es adecuado para su uso en aplicaciones ofimáticas, aunque es ideal para la edición de imágenes de alta calidad.
 
-### 2.2 - Conceptos básicos de imágenes vectoriales
+### 2.3 - Conceptos básicos de imágenes vectoriales
 
 Las imágenes vectoriales están formadas por objetos geométricos definidos mediante ecuaciones matemáticas (líneas, curvas, polígonos, etc.). Estos objetos, combinados entre sí, componen la imagen total.
 
@@ -154,9 +154,9 @@ Ejemplo: Un mismo gráfico vectorial puede visualizarse correctamente tanto en t
 **a)** Las imágenes vectoriales son independientes de la resolución, ya que se basan en fórmulas matemáticas y no en píxeles.  
 **b)** Esto permite escalarlas a cualquier tamaño sin pérdida de calidad, siendo ideales para logotipos, iconos y gráficos técnicos.
 
-### 2.3 - Formatos de imagenes vectoriales
+### 2.4 - Formatos de imagenes vectoriales
 
-#### 2.3.1 - Formato SVG
+#### 2.4.1 - Formato SVG
 
 ![imagen](./img/UT5/img-11.webp){ .leftunodos .margintop10 .marginbottom20}
 
@@ -164,7 +164,7 @@ El formato SVG (Scalable Vector Graphics) es un formato de imagen vectorial **ba
 
 Esto permite que las imágenes sean escalables sin perder calidad haciendolas ideales para gráficos e iconos de alta calidad en diferentes tamaños y resoluciones.
 
-#### 2.3.2 - Formato EPS
+#### 2.4.2 - Formato EPS
 
 ![imagen](./img/UT5/img-12.png){ .leftunodos .margintop10 .marginbottom20}
 
@@ -172,7 +172,7 @@ El formato EPS (Encapsulated PostScript) se utiliza para guardar ilustraciones o
 
 Utilizado principalmente en gráficos profesionales es útil para crear imágenes de alta calidad.
 
-#### 2.3.3 - Formato PDF
+#### 2.4.3 - Formato PDF
 
 ![imagen](./img/UT5/img-13.webp){ .leftunodos .margintop10 .marginbottom20}
 
