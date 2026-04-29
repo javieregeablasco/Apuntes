@@ -10,6 +10,9 @@
       } */
   </style>
   <link rel="stylesheet" href="./style.css">
+  <script type="text/Javascript">
+    // alert("Tu nombre es: "+prompt("¿Cual es tu nombre?"));
+  </script>
 </head>
 <body>
    
@@ -26,6 +29,18 @@
     
     
   </div>
+
+  <!-- AXIOS -->
+  <!-- https://youtu.be/xOinGb2MZSk?si=L25GwDTKjc1nBp9f&t=25809 -->
+
+
+  <!-- fetch -->
+  <!-- https://youtu.be/xOinGb2MZSk?si=ZkpUoORLWPHUKntY&t=24791 -->
+
+
+
+  <!-- peticiones http -->
+  <!-- datos estructurados json -->
   <!-- // https://youtu.be/xOinGb2MZSk?si=sMkPUEboEKIZNcYT&t=21877 -->
   
   
@@ -36,14 +51,39 @@
   </form>
   <input type="submit" name="prueba3" id="" form="formulario"> -->
   <script>
+
+// diferencia entre get y post
+// XMLHttpRequest
+
+
+    // json 
+     const objetoJSON = {
+      "variable_1" : "Javier",
+      "variable_2" : "Egea",
+      "variable_3" : "Blasco"
+  
+     };
+
+     const objetoJsonSerializado = 'objetoJSON';
+     const objetoSerializado = JSON.stringify(objetoJSON)
+     const objetoDeSerializado = JSON.parse(objetoSerializado)
+     console.log(objetoJSON);
+     document.open();
+     document.body.innerHTML = `<h1>Objeto JSON</h1> ${typeof objetoJSON}`;
+     document.write(`<h1>Objeto JSON serializado</h1>`, objetoSerializado);
+     document.write(`<h1>Objeto JSON deserializado</h1>`, objetoDeSerializado);
+     document.close();
+
+
   // promesas
   // callback 
   // asinc
   // await
+  
+  
 
   
-    
-    // callback, funcion dentro de otra funcion
+  // callback, funcion dentro de otra funcion
     // function funcion(callback){
     //   callback("Javier")
     // };

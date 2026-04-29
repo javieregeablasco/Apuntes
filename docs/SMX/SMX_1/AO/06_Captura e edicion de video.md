@@ -167,33 +167,6 @@ El bitrate o tasa de bits es la cantidad de datos que se codifican o transmiten 
 
 Es un factor clave en la calidad del video, aunque su impacto depende también del códec y del tipo de compresión utilizados, por lo que no debe considerarse de forma aislada frente a la resolución u otros parámetros.
 
-### 3.5 - Contenedores de vídeo
-
-Los contenedores de vídeo son formatos de archivo que empaquetan y estructuran flujos de datos de vídeo, audio, subtítulos y metadatos en un solo archivo. A diferencia de los códecs, no determinan la compresión, sino cómo se almacena.
-
-Los más comunes incluyen MP4, MOV, MKV, AVI y WebM.
-
-!!! tip "Características de los contenedores de vídeo más utilizados"
-
-    - **MP4 (MPEG-4 Part 14):**  
-    El estándar más extendido. Ofrece excelente compatibilidad con la web, dispositivos móviles y   reproductores multimedia.
-
-    - **MOV (QuickTime File Format):**  
-    Desarrollado por Apple, utilizado comúnmente en edición de vídeo profesional.
-
-    - **MKV (Matroska):**  
-    Contenedor de código abierto muy versátil, capaz de almacenar múltiples pistas de audio, vídeos y   subtítulos en un solo archivo.
-
-    - **AVI (Audio Video Interleave):**  
-    Uno de los formatos más antiguos y compatibles, desarrollado por Microsoft.
-
-    - **WebM:**  
-    Optimizado para la web y HTML5, ofrece alta calidad con buena compresión.
-
-    - **MXF (Material Exchange Format):**  
-    Estándar profesional utilizado en la industria de la televisión y el cine.
-
-Para elegir el mejor, se debe considerar la compatibilidad con el reproductor final y el propósito del vídeo (streaming vs. almacenamiento).
 
 ### 3.5 - Audio en un vídeo
 
@@ -289,18 +262,167 @@ Durante la postproducción, es habitual trabajar el audio para mejorar el result
 
 Programas como editores de vídeo o software específico de audio permiten realizar estos ajustes de forma precisa.
 
-### 4 - 
-<!-- ClipChamp -->
+### 3.6 - Subtitulos de un vídeo
+
+Los subtítulos son textos que se superponen a la imagen de un vídeo para proporcionar información adicional, como diálogos, descripciones o traducciones. Son esenciales para mejorar la accesibilidad y la comprensión del contenido, especialmente para personas con discapacidades auditivas o para audiencias que hablan diferentes idiomas.
+
+#### 3.6.1 - Generar subtítulos
+
+Existen varias formas de generar subtítulos para un vídeo:
+
+- **Manual:**  
+Se pueden crear manualmente utilizando software de edición de vídeo o herramientas específicas de subtitulado, lo que permite un control total sobre el contenido y la sincronización, aunque puede ser laborioso.
+- **Automático:**  
+Algunos programas y plataformas ofrecen generación automática de subtítulos mediante reconocimiento de voz, lo que agiliza el proceso, aunque la precisión puede variar dependiendo de la calidad del audio y el idioma.
+
+#### 3.6.2 - Formatos de archivos de subtítulos
+
+Los formatos de subtítulos más comunes incluyen:
+
+1. **SRT (SubRip Subtitle):**  
+El formato SRT (SubRip) es el estándar más popular y utilizado en el mundo del vídeo debido a su extrema sencillez.
+
+    - **Simplicidad técnica:** Se trata de archivos de texto plano que solo contienen la información esencial: el texto del subtítulo y las marcas de tiempo.
+
+    - **Sin diseño:** A diferencia de otros formatos, el SRT no incluye estilos (como colores o fuentes), lo que lo hace ligero y fácil de editar con herramientas básicas como el Bloc de notas.
+
+    - **Compatibilidad universal:** Es aceptado por prácticamente todas las plataformas relevantes, incluyendo redes sociales (Facebook, YouTube, LinkedIn) y servicios de streaming (Netflix, Amazon).
+
+    - **Edición accesible:** Cualquier creador puede modificar un archivo SRT manualmente o mediante editores de terceros sin necesidad de software complejo.
+
+1. **VTT (WebVTT):**  
+El formato WebVTT (Web Video Text Track) es el estándar moderno para la web, nacido en 2010 como una evolución directa del popular SRT.
+
+    - **Creado por el grupo WHATWG** (originalmente se llamó WebSRT), comparte gran parte de la estructura básica de su antecesor SRT.
+
+    - **Mejoras sobre SRT:** WebVTT permite incluir metadatos, descripciones y detalles sobre la ubicación de los marcos en pantalla.
+
+    - **Identificadores flexibles:** Los identificadores de pista son opcionales, lo que simplifica su creación en ciertos contextos.
+
+    - **Es el estándar de la web:** Al ser la base del HTML5, es el formato predilecto para reproductores web modernos y plataformas como YouTube, Vimeo y Video.js.
+
+1. **DFXP/XML (Distribution Format Exchange Profile):**  
+Formato basado en XML utilizado en entornos profesionales, especialmente para la transmisión y distribución de contenido.
+
+    - **Responde a la necesidad del 54% de los consumidores** que exigen contenidos de video más accesibles y de alta calidad por parte de las marcas.
+
+    - **Compatibilidad Amplia:** Es compatible con grandes plataformas como YouTube, Vimeo y Netflix.
+
+    - **Diferencia con SRT:** El DFXP es mucho más complejo porque incluye instrucciones detalladas sobre el formato y la ubicación exacta de los subtítulos en la pantalla.
+
+    - **Se entrega mediante archivos con extensión .dfxp**, bajo el lenguaje de marcado XML.
+
+1. **SCC (Scenarist Closed Caption):**
+
+    - El formato SCC (Scenarist Closed Caption) es uno de los estándares de subtitulado más antiguos, diseñado originalmente para la televisión analógica y soportes como VHS o DVD.  
+
+    - A pesar de su antigüedad, no ha desaparecido; al contrario, se ha adaptado a la era digital siendo utilizado por plataformas como **iTunes, Amazon y Netflix**, así como en programas de edición de vídeo. Su relevancia actual se debe a su **excelente capacidad para manejar elementos estilísticos** (posicionamiento en pantalla, cursivas y símbolos musicales), lo cual es fundamental para que los creadores cumplan con las normativas legales de accesibilidad (requisitos de la FCC).
+
+1. **iTT (iTunes Timed Text):**  
+Apple mantiene estándares muy estrictos y solo admite tres formatos de subtítulos en su plataforma, destacando principalmente el uso de iTT por encima de otros como SCC o DFXP.
+
+    - **Nativo de Apple:** Es el formato estándar y optimizado para la iTunes Store.
+
+    - **Flexibilidad estética:** Permite personalizar colores, ubicación y formatos de texto.
+
+    - **Soporte Unicode:** Su gran ventaja competitiva es la capacidad de manejar caracteres no romanos (como alfabetos asiáticos), algo que muchos otros formatos no pueden procesar correctamente.
+
+1. **ASS (Advanced SubStation Alpha):**
+Es el favorito de los fans del anime y editores avanzados. Permite un control total sobre el diseño: fuentes personalizadas, colores, posiciones exactas, bordes e incluso efectos de karaoke.
+
+    - **Uso principal:** Fansubbing, ediciones complejas y videos que requieren que el texto no tape elementos importantes de la imagen.
+  
+    - **Ventaja:** Extrema flexibilidad visual.
+
+### 4 - Contenedores de vídeo
+
+Los contenedores de vídeo son formatos de archivo que empaquetan y estructuran flujos de datos de vídeo, audio, subtítulos y metadatos en un solo archivo. A diferencia de los códecs, no determinan la compresión, sino cómo se almacena.
+
+Los más comunes incluyen MP4, MOV, MKV, AVI y WebM.
+
+!!! tip "Características de los contenedores de vídeo más utilizados"
+
+    - **MP4 (MPEG-4 Part 14):**  
+    El estándar más extendido. Ofrece excelente compatibilidad con la web, dispositivos móviles y   reproductores multimedia.
+
+    - **MOV (QuickTime File Format):**  
+    Desarrollado por Apple, utilizado comúnmente en edición de vídeo profesional.
+
+    - **MKV (Matroska):**  
+    Contenedor de código abierto muy versátil, capaz de almacenar múltiples pistas de audio, vídeos y   subtítulos en un solo archivo.
+
+    - **AVI (Audio Video Interleave):**  
+    Uno de los formatos más antiguos y compatibles, desarrollado por Microsoft.
+
+    - **WebM:**  
+    Optimizado para la web y HTML5, ofrece alta calidad con buena compresión.
+
+    - **MXF (Material Exchange Format):**  
+    Estándar profesional utilizado en la industria de la televisión y el cine.
+
+Para elegir el mejor, se debe considerar la compatibilidad con el reproductor final y el propósito del vídeo (streaming vs. almacenamiento).
+
+## 5 - Tarea RA6-CEb - Conceptos básicos sobre videos
+
+### 5.1 - Tarea RA6-CEb
+
+!!! warning "Trabajo a realizar"
+    - Para esta evaluación, deberéis responder a 20 preguntas tipo test.
+    - Podéis descargar el archivo de texto desde el siguiente [enlace](./06-videos/Tarea%20RA6-CEb/RA6%20CEb.odt)
+    - Subrayar la respuesta que consideráis correcta.
+
+### 5.2 - Entrega de la tarea
+
+!!! warning "Condiciones de entrega de la tarea"
+    - Guardar el documento con RA6-CEb-NombreApellidos en formato **odt**, **formato nativo** de LibreOffice writer.
+    - **No se aceptará ningun formato que no sea odb**.  
+    - Subir la base de datos, a la tarea RA6-CEb de **Aules**.
+    - A partir de momento de apertura de la tarea, dispondréis de **20 minutos** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
+
+## 6 - Clipchamp
+
+Clipchamp es una plataforma de edición de vídeo en línea que ofrece una amplia gama de herramientas para crear, editar y compartir vídeos de manera sencilla y accesible.
+Clipchamp es parte del paquete de aplicaciones de Microsoft y se integra con servicios como OneDrive, lo que facilita la gestión de archivos y la colaboración en proyectos de vídeo.
+
+### 6.1 - Requisistos de Clipchamp
+
+Clipchamp es un servicio online que no es compatible con firefox por lo que se deberá usar navegadores como **Microsoft Edge**, **Google Chrome (o Chromium)**.
+
+### 6.2 - Especificaciones técnicas de Clipchamp
+
+Clipchamp ofrece una variedad de funciones para la edición de vídeo, incluyendo:
+
+1. **Edición de Vídeo Básica y Avanzada:** Recortar, dividir, cambiar el tamaño/relación de aspecto, voltear, girar y ajustar la velocidad de los clips en una línea de tiempo intuitiva.
+
+1. **Grabación de Pantalla y Cámara:** Funcionalidad para grabar la pantalla del ordenador, la cámara web, o ambas simultáneamente, **ideal para tutoriales**.
+
+1. **Inteligencia Artificial (IA):** Generación de voz a partir de texto con múltiples idiomas y estilos, y creación automática de vídeos.
+
+1. **Recursos Multimedia y Efectos:** Acceso a una biblioteca con música, vídeos y imágenes de archivo sin derechos de autor, además de filtros, transiciones y efectos visuales.
+
+1. **Personalización de Texto:** Adición de títulos y textos animados con fuentes, colores y estilos personalizables.
+
+1. **Kit de Marca (Premium):** Gestión de logotipos, fuentes y paletas de colores personalizados para mantener la coherencia visual en todos los vídeos.
+
+1. **Exportación y Compartición:** Exportación de vídeos en diversas resoluciones (hasta 4K) y formato directo para plataformas como YouTube, TikTok o LinkedIn.
+
+### 6.3 - Tarea RA6-CEac
+
+#### 6.3.1 - Edición de un video con Clipchamp
+
+!!! warning "Trabajo a realizar"
+    - Para esta evaluación, deberéis crear un vídeo de entre 1 y 2 minutos de duración utilizando Clipchamp.
+    - El vídeo deberá incluir al menos:
+        - Un clip grabado con la cámara web o la pantalla del ordenador.
+        - Música de fondo (puede ser de la biblioteca de Clipchamp).
+        - Títulos o textos animados.
+        - Al menos una transición entre clips.
+    - El tema del vídeo es libre, pero se recomienda que sea algo relacionado con el ámbito educativo o tecnológico.
+<!-- https://www.youtube.com/playlist?list=PLsn5l7yNsIbXzSQ60McxKpwjjHo2BAW5_ -->
+<!-- https://www.youtube.com/watch?v=wIHCEU6CRrQ -->
+
+<!-- https://www.freepik.es/plantillas-videos#from_element=video-subhome -->
 <!-- https://www.youtube.com/watch?v=m9nMhf6AQXw -->
-<!-- openshot -->
- 
-<!-- Shotcut
-Blender -->
-<!-- https://www.dacast.com/es/blog-es/que-es-un-codec-de-video/ -->
-<!-- https://www.cloudflare.com/es-es/learning/video/video-encoding-formats/ -->
-<!-- https://www.tuinstitutoonline.com/cursos/openshot_v1506/01video_formatos.php -->
-<!-- 
- -->
 
 | **Licencia Creative Commons:** | |
 | - | - |
