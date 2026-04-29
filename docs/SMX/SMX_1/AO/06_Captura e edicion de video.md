@@ -411,13 +411,39 @@ Clipchamp ofrece una variedad de funciones para la edición de vídeo, incluyend
 #### 6.3.1 - Edición de un video con Clipchamp
 
 !!! warning "Trabajo a realizar"
-    - Para esta evaluación, deberéis crear un vídeo de entre 1 y 2 minutos de duración utilizando Clipchamp.
+    - En esta tarea crearemos un vídeo para familiarizarnos con Clipchamp.
     - El vídeo deberá incluir al menos:
-        - Un clip grabado con la cámara web o la pantalla del ordenador.
+        - Uno o varios secuencias de vídeos. Los vídeos así como las imágenes y más elementos, se podrán descargar desde el propio Clipchamp o desde portales como [pixabay](https://pixabay.com/), [pexels](https://pexels.com), etc.
         - Música de fondo (puede ser de la biblioteca de Clipchamp).
         - Títulos o textos animados.
         - Al menos una transición entre clips.
-    - El tema del vídeo es libre, pero se recomienda que sea algo relacionado con el ámbito educativo o tecnológico.
+
+#### 6.3.2 - Funcionalidades de Clipchamp
+
+![imagen](./img/UT6/vid-8.png){ .cincocero .marginbottom40 }
+
+Ir familiarizándose con las distintas funcionalidades de Clipchamp, como:
+
+- Carpeta de recursos multimedia (My media).
+- Record & create (grabar pantalla, cámara o ambas).
+- Text (añadir títulos y textos animados).
+- Music (agregar música de fondo).
+- Stock video (acceso a vídeos de archivo sin derechos de autor).
+- Stock images (acceso a imágenes de archivo sin derechos de autor).
+- Templates (plantillas de vídeo predefinidas para diferentes formatos y plataformas).
+- Graphics (filtros, transiciones y efectos visuales).
+- Transitions (variedad de transiciones para suavizar el cambio entre clips).
+- Kit de marca (gestión de logotipos, fuentes y paletas de colores personalizados para mantener la coherencia visual en todos los vídeos).
+
+#### 6.3.3 - Creación de un proyecto multimedia
+
+- Crear un proyecto, darle un nombre y seleccionar la relación de aspecto adecuada para el formato del vídeo que se desea crear (por ejemplo, 16:9 para YouTube, 9:16 para TikTok, etc.).
+- Importar los recursos multimedia (vídeos, imágenes, música) que se van a utilizar en el proyecto.
+- Editar el vídeo utilizando las herramientas de recorte, división, ajuste de velocidad, etc
+- Añadir títulos y textos animados para mejorar la presentación del vídeo.
+- Aplicar transiciones entre clips para mejorar la fluidez del vídeo.
+
+<!-- https://www.youtube.com/watch?v=gjX_OTDta8Y&list=PLsn5l7yNsIbXzSQ60McxKpwjjHo2BAW5_&index=1 -->
 <!-- https://www.youtube.com/playlist?list=PLsn5l7yNsIbXzSQ60McxKpwjjHo2BAW5_ -->
 <!-- https://www.youtube.com/watch?v=wIHCEU6CRrQ -->
 
