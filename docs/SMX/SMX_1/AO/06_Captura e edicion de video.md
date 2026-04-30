@@ -435,6 +435,18 @@ Ir familiarizándose con las distintas funcionalidades de Clipchamp, como:
 - Transitions (variedad de transiciones para suavizar el cambio entre clips).
 - Kit de marca (gestión de logotipos, fuentes y paletas de colores personalizados para mantener la coherencia visual en todos los vídeos).
 
+#### 6.3.3 - Funcionalidades secundarias de los elementos de un proyecto de Clipchamp
+
+Una vez añadidos los elementos al proyecto, se pueden explorar las funcionalidades secundarias de cada uno de ellos, como:
+
+![imagen](./img/UT6/vid-9.png){ .cincocero .marginbottom40 }
+
+- Ajustar la duración de un clip.
+- Cambiar la posición de un clip en la línea de tiempo.
+- Ajustar el volumen de una pista de audio.
+- Aplicar efectos visuales a un clip.
+- etc
+
 #### 6.3.3 - Creación de un proyecto multimedia
 
 !!! tip "Parte 1 - Creación de un proyecto multimedia"
@@ -444,8 +456,9 @@ Ir familiarizándose con las distintas funcionalidades de Clipchamp, como:
 1. Guardar el proyecto.
 1. Importar los recursos multimedia (vídeos, imágenes, música, audio, subtítulos...) que se van a utilizar en el proyecto.
 1. Arrastrar un video a la línea de tiempo.
-1. Usar la herramienta de tijeras para dividir el clip en dos.
-1. Seleccionar la parte no deseada y eliminarla.
+1. Comprobar si el vídeo se reproduce correctamente y si tiene pista de audio. Contemplar la posibilidad de silenciar el audio del vídeo si no es necesario o de exportarlo para usarlo como pista de audio independiente.
+1. Comprobar la posibilidad de acelerar o ralentizar el vídeo.
+1. Usar la herramienta de tijeras para dividir el clip en dos o más partes para eliminar las partes no deseadas.
 
 !!! tip "Parte 2 - Transiciones y fundidos"
 
@@ -458,21 +471,35 @@ Ir familiarizándose con las distintas funcionalidades de Clipchamp, como:
 
 !!! tip "Parte 3 - Añadir una pista de audio"
 
-       
-    Uso de Texto y Títulos:
-        Selecciona "Texto" en el menú, arrastra un título a la línea de tiempo sobre tu video.
-        Personaliza la fuente, color y tamaño en el panel derecho.
-    Efectos de Audio y Video:
-        Ajusta el volumen o añade fundidos de audio seleccionando el clip y usando la pestaña "Audio".
-        Aplica filtros o ajustes de color en la pestaña "Filtros".
-    Recorte Automático con IA:
-        Usa la herramienta de eliminación de silencios (IA) para detectar automáticamente pausas largas en grabaciones de voz.
-    Uso de Pantalla Verde (Chroma Key):
-        Coloca un video con fondo verde sobre otro video en la línea de tiempo.
-        Aplica el efecto "Clave de croma" para eliminar el fondo verde. 
+1. Añadir una pista de audio a la barra de tiempo.
+1. Ajustar el volumen del audio teniendo en cuenta si se trata de una música de fondo o de contenido necesario para la comprensión del vídeo.
+1. Comprobar la posibilidad de acelerar o ralentizar el audio.
+1. Establecer fundidos al inicio y al final del audio para que no se corten de forma abrupta al finalizarse el vídeo.
 
-Este video muestra cómo realizar un fundido de entrada y salida en tus videos:
-Miniatura de vídeo relacionado
+!!! tip "Parte 4 - Subtítulos"
+
+1. Descargar un audio de voz. Por ejemplo desde [aquí](https://www.bbc.co.uk/programmes/p02pc9tn/episodes/downloads).
+1. Agregarla al proyecto.
+1. Ajustar el volúmen de las pistas para que el audio de sonido ambiental no dificulte la compresión de la pista de voz.
+1. Comprobar sí la generación de subtítulos automáticos se realiza correctamente.
+1. Comprobar la posibilidad de ocultar los subtítulos.
+1. Comprobar la posibilidad de modificar el contenido de los subtítulos.  
+
+!!! tip "Parte 5 - Textos"
+
+1. Añadir texto al proyecto.
+1. Situarlo antes de las pistas de vídeo (o solaparlo ligeramente).
+1. Personalizar el texto (fuente, tamaño, color, animación...).
+1. Comprobar la posibilidad de establecer una duración para el texto.
+1. Repartir la misma operación pero esta vez al final del vídeo para añadir un texto de despedida con vuestro nombre.
+
+!!! tip "Parte 6 - Pantalla verde (Chroma Key)"
+
+1. Añadir un vídeo con fondo verde a la línea de tiempo.
+1. Añadir otro vídeo debajo del vídeo con fondo verde.
+1. Aplicar el efecto "Clave de croma" para eliminar el fondo verde y mostrar el vídeo de abajo.
+1. Ajustar el efecto para eliminar cualquier resto de verde que pueda quedar.
+1. Comprobar la posibilidad de usar un fondo difuminado para evitar que el vídeo de abajo se vea demasiado nítido en comparación con el vídeo de arriba.
 
 !!! warning "Clipchamp no guarda automáticamente los proyectos"
     - Es importante guardar el proyecto de forma manual para evitar perder los avances realizados. Para ello, se deberá hacer clic en el botón "Save" o "Guardar" ubicado en la parte superior de la interfaz de Clipchamp.
