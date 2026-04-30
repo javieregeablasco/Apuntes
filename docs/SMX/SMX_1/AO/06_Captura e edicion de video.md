@@ -437,12 +437,50 @@ Ir familiarizándose con las distintas funcionalidades de Clipchamp, como:
 
 #### 6.3.3 - Creación de un proyecto multimedia
 
-- Crear un proyecto, darle un nombre y seleccionar la relación de aspecto adecuada para el formato del vídeo que se desea crear (por ejemplo, 16:9 para YouTube, 9:16 para TikTok, etc.).
-- Importar los recursos multimedia (vídeos, imágenes, música) que se van a utilizar en el proyecto.
-- Editar el vídeo utilizando las herramientas de recorte, división, ajuste de velocidad, etc
-- Añadir títulos y textos animados para mejorar la presentación del vídeo.
-- Aplicar transiciones entre clips para mejorar la fluidez del vídeo.
+!!! tip "Parte 1 - Creación de un proyecto multimedia"
 
+1. Crear un proyecto.
+1. Darle un nombre y seleccionar la relación de aspecto adecuada para el formato del vídeo que se desea crear.
+1. Guardar el proyecto.
+1. Importar los recursos multimedia (vídeos, imágenes, música, audio, subtítulos...) que se van a utilizar en el proyecto.
+1. Arrastrar un video a la línea de tiempo.
+1. Usar la herramienta de tijeras para dividir el clip en dos.
+1. Seleccionar la parte no deseada y eliminarla.
+
+!!! tip "Parte 2 - Transiciones y fundidos"
+
+1. Añadir otro vídeo a la misma barra de tiempo que el video anterior.
+1. Añadir una transición entre los 2 videos.
+1. Añadir otro vídeo a la barra de tiempo, pero esta vez debajo de los otros dos.
+1. Ajustar la posición del vídeo para que haya una solapa entre el vídeo de abajo y el de arriba.
+1. Aplicar un fundido de entrada al vídeo de abajo para que se vea el vídeo de abajo a medida que el vídeo de arriba se va atenuando.
+1. Aplicar un fundido de salida en negro para finalizar el vídeo.
+
+!!! tip "Parte 3 - Añadir una pista de audio"
+
+       
+    Uso de Texto y Títulos:
+        Selecciona "Texto" en el menú, arrastra un título a la línea de tiempo sobre tu video.
+        Personaliza la fuente, color y tamaño en el panel derecho.
+    Efectos de Audio y Video:
+        Ajusta el volumen o añade fundidos de audio seleccionando el clip y usando la pestaña "Audio".
+        Aplica filtros o ajustes de color en la pestaña "Filtros".
+    Recorte Automático con IA:
+        Usa la herramienta de eliminación de silencios (IA) para detectar automáticamente pausas largas en grabaciones de voz.
+    Uso de Pantalla Verde (Chroma Key):
+        Coloca un video con fondo verde sobre otro video en la línea de tiempo.
+        Aplica el efecto "Clave de croma" para eliminar el fondo verde. 
+
+Este video muestra cómo realizar un fundido de entrada y salida en tus videos:
+Miniatura de vídeo relacionado
+
+!!! warning "Clipchamp no guarda automáticamente los proyectos"
+    - Es importante guardar el proyecto de forma manual para evitar perder los avances realizados. Para ello, se deberá hacer clic en el botón "Save" o "Guardar" ubicado en la parte superior de la interfaz de Clipchamp.
+
+
+suscripcion
+pantalla verde
+poner fondo difuminado en pantallas verticales.
 <!-- https://www.youtube.com/watch?v=gjX_OTDta8Y&list=PLsn5l7yNsIbXzSQ60McxKpwjjHo2BAW5_&index=1 -->
 <!-- https://www.youtube.com/playlist?list=PLsn5l7yNsIbXzSQ60McxKpwjjHo2BAW5_ -->
 <!-- https://www.youtube.com/watch?v=wIHCEU6CRrQ -->
