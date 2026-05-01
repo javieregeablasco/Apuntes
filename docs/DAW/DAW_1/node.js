@@ -26,5 +26,4 @@ let simbol = Symbol("simbol")
 let enteroGrande = BigInt(222222222222222222222222222222222222222222222222);
 enteroGrande = 3222222222222222222222222222222222222222222222222n;
 
-
-https://youtu.be/1glVfFxj8a4?si=x68EJqBim_OnAWPc&t=4738
+// https://youtu.be/1glVfFxj8a4?si=x68EJqBim_OnAWPc&t=4738
