@@ -410,6 +410,8 @@ Clipchamp ofrece una variedad de funciones para la edición de vídeo, incluyend
 
 #### 6.3.1 - Edición de un video con Clipchamp
 
+!!! warning "Clipchamp guarda automáticamente los proyectos en la nube, pero es importante guardar el proyecto de forma manual para evitar perder los avances realizados."
+
 !!! warning "Trabajo a realizar"
     - En esta tarea crearemos un vídeo para familiarizarnos con Clipchamp.
     - El vídeo deberá incluir al menos:
@@ -501,13 +503,44 @@ Una vez añadidos los elementos al proyecto, se pueden explorar las funcionalida
 1. Ajustar el efecto para eliminar cualquier resto de verde que pueda quedar.
 1. Comprobar la posibilidad de usar un fondo difuminado para evitar que el vídeo de abajo se vea demasiado nítido en comparación con el vídeo de arriba.
 
-!!! warning "Clipchamp no guarda automáticamente los proyectos"
-    - Es importante guardar el proyecto de forma manual para evitar perder los avances realizados. Para ello, se deberá hacer clic en el botón "Save" o "Guardar" ubicado en la parte superior de la interfaz de Clipchamp.
+!!! tip "Parte 7 - Exportar el proyecto y entrega de la tarea"
 
+1. Exportar el proyecto en formato MP4 con resolución 1080p.
+1. Guardar el proyecto como RA6-CEac-NombreApellidos.
+1. Subir el proyecto a la tarea de **Aules**.
+1. A partir de la apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
 
-suscripcion
-pantalla verde
-poner fondo difuminado en pantallas verticales.
+### 6.4 - Tarea RA6-CEde
+
+#### 6.4.1 - Realización de un vídeo tutorial
+
+warning "Trabajo a realizar"
+    - Para esta tarea se deberá realizar un vídeo tutorial sobre el uso de una aplicación ofimática.
+    - El vídeo deberá incluir al menos:
+        - Una introducción al tema que se va a tratar.
+        - Una explicación paso a paso de cómo realizar una tarea concreta con la aplicación ofimática elegida.
+        - Un resumen final con las conclusiones más importantes.
+
+Posibles temas para el vídeo tutorial:
+
+- Cómo crear una tabla en Microsoft Excel.
+- Cómo crear una presentación en Microsoft PowerPoint.
+- Cómo crear un documento con Microsoft Word.
+- Cómo crear un formulario con Microsoft Forms.
+- Cómo crear un calendario con Microsoft Outlook.
+- Cómo crear un diagrama de flujo con Microsoft Visio.
+- Cómo crear un proyecto con Microsoft Project.
+- Cómo crear un vídeo con Clipchamp.
+
+#### 6.4.2 - Entrega de la tarea
+
+!!! warning "Condiciones de entrega de la tarea"
+    1. Exportar el proyecto en formato MP4 con resolución 1080p.
+    1. Guardar el proyecto como RA6-CEde-NombreApellidos.
+    1. Subir el proyecto a la tarea de **Aules**.
+    1. A partir de la apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
+    
+
 <!-- https://www.youtube.com/watch?v=gjX_OTDta8Y&list=PLsn5l7yNsIbXzSQ60McxKpwjjHo2BAW5_&index=1 -->
 <!-- https://www.youtube.com/playlist?list=PLsn5l7yNsIbXzSQ60McxKpwjjHo2BAW5_ -->
 <!-- https://www.youtube.com/watch?v=wIHCEU6CRrQ -->
