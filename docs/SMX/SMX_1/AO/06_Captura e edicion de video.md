@@ -523,14 +523,18 @@ warning "Trabajo a realizar"
 
 Posibles temas para el vídeo tutorial:
 
-- Cómo crear una tabla en Microsoft Excel.
-- Cómo crear una presentación en Microsoft PowerPoint.
-- Cómo crear un documento con Microsoft Word.
-- Cómo crear un formulario con Microsoft Forms.
-- Cómo crear un calendario con Microsoft Outlook.
-- Cómo crear un diagrama de flujo con Microsoft Visio.
-- Cómo crear un proyecto con Microsoft Project.
+- Cómo crear un documento con LibreOffice Writer.
+- Cómo crear una hoja de cálculo con LibreOffice Calc.
+- Cómo crear una base de datos en LibreOffice Base.
+- Cómo crear una presentación en LibreOffice Impress.
+- Cómo crear una imagen con GIMP.
 - Cómo crear un vídeo con Clipchamp.
+- Cómo cambiar el tamaño y la fuente de un texto en LibreOffice Writer.
+- Cómo insertar una tabla en LibreOffice Writer.
+- Cómo crear una fórmula en LibreOffice Calc.
+- Cómo crear un gráfico en LibreOffice Calc.
+- Cómo crear una consulta en LibreOffice Base.
+- etc.
 
 #### 6.4.2 - Entrega de la tarea
 
