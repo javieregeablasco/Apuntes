@@ -514,7 +514,7 @@ Una vez añadidos los elementos al proyecto, se pueden explorar las funcionalida
 
 #### 6.4.1 - Realización de un vídeo tutorial
 
-warning "Trabajo a realizar"
+!!! warning "Trabajo a realizar"
     - Para esta tarea se deberá realizar un vídeo tutorial sobre el uso de una aplicación ofimática.
     - El vídeo deberá incluir al menos:
         - Una introducción al tema que se va a tratar.
