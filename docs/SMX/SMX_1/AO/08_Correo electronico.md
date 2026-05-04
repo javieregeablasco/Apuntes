@@ -1,426 +1,74 @@
 ---
-title: CFGM - Técnico en Sistemas Microinformáticos y Redes
-lesson: UD. 0.0 - Métodos de evaluación  
-subtitle: "Módulo: 0223 - Aplicaciones ofimáticas"
+ciclo: CFGM - Técnico en Sistemas Microinformáticos y Redes
+title: Aplicaciones ofimáticas
+module number: 0223
+lesson: UD. 8 - Agenda electrónica y comunicación  
 author: Javier Egea Blasco  
-year: Año 25-26  
+year: 25-26  
 keywords: SMX, AO
 layout: default  
+schedule: 224h - 7h/w
 ---
 
-![Descripción de la imagen](./img/img1.jpg){ .img-center width=75% }
+![Descripción de la imagen](./08-correo/img/correo-1.png){ .sietecinco .marginbottom40 }
 
-<!-- <div style="text-align: center">
-  <img alt="alt text" src="./img/img1.jpg" width="75%">
-</div>   -->
+**Resultados de aprendizaje y criterios de evaluacion que se evaluarán en esta unidad.**  
 
-<br>
+| **Resultados de aprendizaje de la unidad didáctica:** |
+| :--- |
+| **RA8. Realiza operaciones de gestión del correo y la agenda electrónica, relacionando necesidades de uso con su configuración.** |
 
-**Resultados de aprendizaje y criterios de evaluación del módulo:**  
-<table>
-  <tr>
-    <td style="white-space: nowrap;">RA. 1:</td>
-    <td>
-      Instala y actualiza aplicaciones ofimáticas, interpretando especificaciones y describiendo los pasos a seguir en el proceso. 
-      <details>
-        <summary>Ver los criterios de evaluación</summary>
-        <table>
-          <tr>
-            <td>a)</td>
-            <td>Se han identificado y establecido las fases del proceso de instalación.</td>
-          </tr>
-          <tr>
-            <td>b)</td>
-            <td>Se han respetado las especificaciones técnicas del proceso de instalación.</td>
-          </tr>
-          <tr>
-            <td>c)</td>
-            <td>Se han configurado las aplicaciones según los criterios establecidos.</td>
-          </tr>
-          <tr>
-            <td>d)</td>
-            <td>Se han documentado las incidencias.</td>
-          </tr>
-          <tr>
-            <td>e)</td>
-            <td>Se han solucionado problemas en la instalación o integración con el sistema informático.</td>
-          </tr>
-          <tr>
-            <td>f)</td>
-            <td>Se han eliminado y/o añadido componentes de la instalación en el equipo.</td>
-          </tr>
-          <tr>
-            <td>g)</td>
-            <td>Se han actualizado las aplicaciones.</td>
-          </tr>
-          <tr>
-            <td>h)</td>
-            <td>Se han respetado las licencias software.</td>
-          </tr>
-          <tr>
-            <td>i)</td>
-            <td>Se han propuesto soluciones software para entornos de aplicación.</td>
-          </tr>
-        </table>
-      </details>
-    </td> 
-  </tr>  
-  <tr>
-    <td>RA. 2:</td>
-    <td>
-      Elabora documentos y plantillas, describiendo y aplicando las opciones avanzadas de procesadores de textos.  
-      <details>
-        <summary>Ver los criterios de evaluación</summary>
-        <table>
-          <tr>
-            <td>a)</td>
-            <td>Se ha personalizado las opciones de software y barra de herramientas.</td>
-          </tr>
-          <tr>
-            <td>b)</td>
-            <td>Se han diseñado plantillas.</td>
-          </tr>
-          <tr>
-            <td>c)</td>
-            <td>Se han utilizado aplicaciones y periféricos para introducir textos e imágenes.</td>
-          </tr>
-          <tr>
-            <td>d)</td>
-            <td>Se han importado y exportado documentos creados con otras aplicaciones y en otros formatos.</td>
-          </tr>
-          <tr>
-            <td>e)</td>
-            <td>Se han creado y utilizado macros en la realización de documentos.</td>
-          </tr>
-          <tr>
-            <td>f)</td>
-            <td>Se han elaborado manuales específicos.</td>
-          </tr>
-        </table>
-      </details>
-    </td>
-  </tr> 
-  <tr> 
-    <td>RA. 3:</td>
-    <td>
-      Elabora documentos y plantillas de cálculo, describiendo y aplicando opciones avanzadas de hojas de  cálculo.
-      <details>
-        <summary>Ver los criterios de evaluación</summary>
-        <table>
-          <tr>
-            <td>a)</td>
-            <td>Se ha personalizado las opciones de software y barra de herramientas.</td>
-          </tr>
-          <tr>
-            <td>b)</td>
-            <td>Se han utilizado los diversos tipos de datos y referencia para celdas, rangos, hojas y libros.  </td>
-          </tr>
-          <tr>
-            <td>c)</td>
-            <td>Se han aplicado fórmulas y funciones.</td>
-          </tr>
-          <tr>
-            <td>d)</td>
-            <td>Se han generado y modificado gráficos de diferentes tipos.</td>
-          </tr>
-          <tr>
-            <td>e)</td>
-            <td>Se han empleado macros para la realización de documentos y plantillas.</td>
-          </tr>
-          <tr>
-            <td>f)</td>
-            <td>Se han importado y exportado hojas de cálculo creadas con otras aplicaciones y en otros  formatos.</td>
-          </tr>
-          <tr>
-            <td>g)</td>
-            <td>Se ha utilizado la hoja de cálculo como base de datos: formularios, creación delistas,       filtrado,   protección y ordenación de datos.</td>
-          </tr>
-          <tr>
-            <td>h)</td>
-            <td>Se han utilizado aplicaciones y periféricos para introducir textos, números, códigos e  imágenes.</td>
-          </tr>
-        </table>
-      </details>
-    </td>
-  </tr>
-  <tr>  
-    <td>RA. 4:</td>
-    <td>
-      Elabora documentos con bases de datos ofimáticas describiendo y aplicando operaciones de manipulación de datos. 
-      <details>
-        <summary>Ver los criterios de evaluación</summary>
-        <table>
-          <tr>
-            <td>a)</td>
-            <td>Se han identificado los elementos de las bases de datos relacionales.</td>
-          </tr>
-          <tr>
-            <td>b)</td>
-            <td>Se han creado bases de datos ofimáticas.</td>
-          </tr>
-          <tr>
-            <td>c)</td>
-            <td>Se han utilizado las tablas de la base de datos (insertar, modificar y eliminar registros).</td>
-          </tr>
-          <tr>
-            <td>d)</td>
-            <td>Se han utilizado asistentes en la creación de consultas.</td>
-          </tr>
-          <tr>
-            <td>e)</td>
-            <td>Se han utilizado asistentes en la creación de formularios.</td>
-          </tr>
-          <tr>
-            <td>f)</td>
-            <td>Se han utilizado asistentes en la creación de informes.</td>
-          </tr>
-          <tr>
-            <td>g)</td>
-            <td>Se ha realizado búsqueda y filtrado sobre la información almacenada.</td>
-          </tr>
-          <tr>
-            <td>h)</td>
-            <td>Se han creado y utilizado macros.</td>
-          </tr>
-        </table>
-      </details>
-    </td>
-  </tr>  
-  <tr>
-    <td>RA. 5:</td>
-    <td>
-      Manipula imágenes digitales analizando las posibilidades de distintos programas y aplicando técnicas de captura y edición básicas.
-      <details>
-        <summary>Ver los criterios de evaluación</summary>
-        <table>
-          <tr>
-            <td>a)</td>
-            <td>Se han analizado los distintos formatos de imágenes.</td>
-          </tr>
-          <tr>
-            <td>b)</td>
-            <td>Se ha realizado la adquisición de imágenes con periféricos.</td>
-          </tr>
-          <tr>
-            <td>c)</td>
-            <td>Se ha trabajado con imágenes a diferentes resoluciones, según su finalidad.</td>
-          </tr>
-          <tr>
-            <td>d)</td>
-            <td>Se han empleado herramientas para la edición de imagen digital.</td>
-          </tr>
-          <tr>
-            <td>e)</td>
-            <td>Se han importado y exportado imágenes en diversos formatos.</td>
-          </tr>
-        </table>
-      </details>
-    </td>
-  </tr>    
-  <tr>
-    <td>RA. 6:</td>
-    <td>
-      Manipula secuencias de vídeo analizando las posibilidades de distintos programas y aplicando técnicas de captura y edición básicas.
-      <details>
-        <summary>Ver los criterios de evaluación</summary>
-        <table>
-          <tr>
-            <td>a)</td>
-            <td>Se han reconocido los elementos que componen una secuencia de vídeo.</td>
-          </tr>
-          <tr>
-            <td>b)</td>
-            <td>Se han estudiado los tipos de formatos y codecs más empleados.</td>
-          </tr>
-          <tr>
-            <td>c)</td>
-            <td>Se han importado y exportado secuencias de vídeo.</td>
-          </tr>
-          <tr>
-            <td>d)</td>
-            <td>Se han capturado secuencias de vídeo con recursos adecuados.</td>
-          </tr>
-          <tr>
-            <td>e)</td>
-            <td>Se han elaborado vídeo tutoriales.</td>
-          </tr>
-        </table>
-      </details>
-    </td>
-  </tr>    
-  <tr>
-    <td>RA. 7:</td>
-    <td>
-      Elabora presentaciones multimedia describiendo y aplicando normas básicas de composición y diseño.
-      <details>
-        <summary>Ver los criterios de evaluación</summary>
-        <table>
-          <tr>
-            <td>a)</td>
-            <td>Se han identificado las opciones básicas de las aplicaciones de presentaciones.</td>
-          </tr>
-          <tr>
-            <td>b)</td>
-            <td>Se han reconocido los distintos tipos de vista asociados a una presentación.</td>
-          </tr>
-          <tr>
-            <td>c)</td>
-            <td>Se han aplicado y reconocido las distintas tipografías y normas básicas de composición, diseño y       utilización del color.</td>
-          </tr>
-          <tr>
-            <td>d)</td>
-            <td>Se han diseñado plantillas de presentaciones.</td>
-          </tr>
-          <tr>
-            <td>e)</td>
-            <td>Se han creado presentaciones.</td>
-          </tr>
-          <tr>
-            <td>f)</td>
-            <td>Se han utilizado periféricos para ejecutar presentaciones.</td>
-          </tr>
-        </table>
-      </details>
-    </td>
-  </tr>
-  <tr>
-    <td>RA. 8:</td>
-    <td>
-      Realiza operaciones de gestión del correo y la agenda electrónica, relacionando necesidades de uso con su configuración.
-      <details>
-        <summary>Ver los criterios de evaluación</summary>
-        <table>
-          <tr>
-            <td>a)</td>
-            <td>Se han descrito los elementos que componen un correo electrónico.</td>
-          </tr>
-          <tr>
-            <td>b)</td>
-            <td>Se han analizado las necesidades básicas de gestión de correo y agenda electrónica.</td>
-          </tr>
-          <tr>
-            <td>c)</td>
-            <td>Se han configurado distintos tipos de cuentas de correo electrónico.</td>
-          </tr>
-          <tr>
-            <td>d)</td>
-            <td>Se han conectado y sincronizado agendas del equipo informático con dispositivos móviles.</td>
-          </tr>
-          <tr>
-            <td>e)</td>
-            <td>Se ha operado con la libreta de direcciones.</td>
-          </tr>
-          <tr>
-            <td>f)</td>
-            <td>Se ha trabajado con todas las opciones de gestión de correo electrónico (etiquetas, filtros,   carpetas, entre otros).</td>
-          </tr>
-          <tr>
-            <td>g)</td>
-            <td>Se han utilizado opciones de agenda electrónica.</td>
-          </tr>
-        </table>
-      </details>
-    </td>
-  </tr>    
-  <tr>
-    <td>RA. 9:</td>
-    <td>
-      Aplica técnicas de soporte en el uso de aplicaciones, identificando y resolviendo incidencias. 
-      <details>
-        <summary>Ver los criterios de evaluación</summary>
-        <table>
-          <tr>
-            <td>a)</td>
-            <td>Se han elaborado guías visuales con los conceptos básicos de uso de una aplicación.</td>
-          </tr>
-          <tr>
-            <td>b)</td>
-            <td>Se han identificado problemas relacionados con el uso de aplicaciones ofimáticas.</td>
-          </tr>
-          <tr>
-            <td>c)</td>
-            <td>Se han utilizado manuales de usuario para instruir en el uso de aplicaciones.</td>
-          </tr>
-          <tr>
-            <td>d)</td>
-            <td>Se han aplicado técnicas de asesoramiento en el uso de aplicaciones.</td>
-          </tr>
-          <tr>
-            <td>e)</td>
-            <td>Se han realizado informes de incidencias.</td>
-          </tr>
-          <tr>
-            <td>f)</td>
-            <td>Se han aplicado los procedimientos necesarios para salvaguardar la información y su recuperación.</td>
-          </tr>
-          <tr>
-            <td>g)</td>
-            <td>Se han utilizado los recursos disponibles (documentación técnica, ayudas en línea, soporte     técnico, entre otros) para solventar incidencias.</td>
-          </tr>
-          <tr>
-            <td>h)</td>
-            <td>Se han solventando las incidencias en el tiempo adecuado y con el nivel de calidad esperado.</td>
-          </tr>
-        </table>
-      </details>
-    </td>
-  </tr>    
-</table>
+|**Criterios de evaluación de la unidad didáctica:**||
+|-|-|
+|**a)** Se han descrito los elementos que componen un correo electrónico.|5%|
+|**b)** Se han analizado las necesidades básicas de gestión de correo y agenda electrónica.|20%|
+|**c)** Se han configurado distintos tipos de cuentas de correo electrónico.|20%|
+|**d)** Se han conectado y sincronizado agendas del equipo informático con dispositivos móviles.|15%|
+|**e)** `Se ha operado con la libreta de direcciones.`|5%|
+|**f)** Se ha trabajado con todas las opciones de gestión de correo electrónico (etiquetas, filtros, carpetas, entre otros).|30%|
+|**g)** `Se han utilizado opciones de agenda electrónica.`|5%|
 
-# Content tabs.
+!!! warning "Nota:"
+    El criterio de evaluación **e)** `Se ha operado con la libreta de direcciones.` y **g)** `Se han utilizado opciones de agenda electrónica.` serán evaluados durante la FCT.
 
-=== "Tabla 1"
-    Este es su contendi
+## 1 - Introducción
 
-=== "Tabla 2"
-    Otra contenido
+En esta unidad didáctica se van a tratar los aspectos relacionados con la gestión del correo electrónico y la agenda electrónica. Se analizarán las necesidades básicas de gestión de correo y agenda electrónica, se configurarán distintos tipos de cuentas de correo electrónico, se conectarán y sincronizarán agendas del equipo informático con dispositivos móviles, se operará con la libreta de direcciones, se trabajará con todas las opciones de gestión de correo electrónico (etiquetas, filtros, carpetas, entre otros) y se utilizarán opciones de agenda electrónica.
 
-=== "Tabla 3"
-    Contenido final 
+<!-- https://fricardoac.wordpress.com/wp-content/uploads/2015/02/aplicaciones-ofimaticas-2013-grado-medio-mcgraw-hill.pdf -->
+<!-- https://www.youtube.com/playlist?list=PLsn5l7yNsIbUUJTfswpCdcIMYHGbEhG13 -->
 
-# Admonition tabs
+## 2 - El correo electrónico
 
-!!! note "Title of the callout"
-    Aquí va el texto, no se si se puede cambiar el icono
+El correo electrónico es uno de los sistemas de comunicación más utilizado en el ámbito profesional y personal. Permite enviar y recibir mensajes de texto, archivos adjuntos, imágenes, entre otros. Para utilizar el correo electrónico es necesario configurar una cuenta de correo electrónico en un cliente de correo electrónico o en un servicio de correo electrónico en línea.
 
-??? info "Title of the content"
-    Aquí va el texto, no se si se puede cambiar el icono    
+Existen otros sistemas de comunicación instantánea como el chat, las videollamadas, entre otros, pero el correo electrónico sigue siendo una herramienta fundamental para la comunicación en el ámbito profesional y personal.
 
-Tipos (iconos disponibles).  
-- abstract  
-- info  
-- tip  
-- success  
-- octicons  
-- question  
-- warning  
-- failure  
-- danger  
-- bug  
-- example  
-- quote     
+### 2.1 - Funcionamiento del correo electrónico
 
-# Enlace a documentacion sobre mkdocs
-<a href=https://squidfunk.github.io/mkdocs-material>Clic aqui</a>
+El correo electrónico funciona a través de un sistema de servidores de correo electrónico que se encargan de enviar y recibir los mensajes de correo electrónico. Cuando un usuario envía un mensaje de correo electrónico, el mensaje se envía al servidor de correo electrónico del remitente, que luego lo envía al servidor de correo electrónico del destinatario. El servidor de correo electrónico del destinatario recibe el mensaje y lo almacena en la bandeja de entrada del destinatario, donde el destinatario puede acceder a él.
 
-# Diagramas (superfences)
-<div style="text-align:center;">
-```mermaid
-flowchart TD
-  A(["Start"])
-  A --> B{"Decision"}
-  B --> C["Option A"]
-  B --> D["Option B"]
-```
-</div>
+### 2.2 - Sistemas involucrados en el correo electrónico
 
-<a href=https://mermaid.js.org>Editor de diagramas</a>
+El correo electrónico involucra varios sistemas, entre ellos:
 
+**Fase de envío:**
 
+- **Mail User Agent (MUA):** Es el sistema que permite a los usuarios enviar y recibir mensajes de correo electrónico. Es el cliente de correo electrónico que se utiliza para acceder al correo electrónico, como Microsoft Outlook, Google Gmail, entre otros.
+- **Protocolos de correo electrónico:** Son los protocolos que se utilizan para enviar y recibir mensajes de correo electrónico. Los protocolos más comunes son **SMTP (Simple Mail Transfer Protocol), POP3 (Post Office Protocol version 3) e IMAP (Internet Message Access Protocol)**.
+
+**Fase de recepción:**
+
+- **Mail Transfer Agent (MTA):** Es el sistema encargado de enviar y recibir los mensajes de correo electrónico entre los servidores de correo electrónico. Es el sistema que se encarga de enrutar los mensajes de correo electrónico desde el servidor de correo electrónico del remitente hasta el servidor de correo electrónico del destinatario.
+- **Seguridad y filtrado:** Es el sistema encargado de proteger el correo electrónico de posibles amenazas, como el spam, los virus, entre otros.
+- **Mail Delivery Agent (MDA):** Es el sistema encargado de entregar los mensajes de correo electrónico a la bandeja de entrada del destinatario. 
+- **Acceso al correo electrónico (IMAP/POP3):** Es el sistema que permite a los usuarios acceder a su correo electrónico a través de un cliente de correo electrónico o un servicio de correo electrónico en línea.
+
+<!-- https://especialistashosting.com/blog/2016/12/como-funciona-el-correo-electronico/ -->
+<!-- https://mailtrap.io/es/blog/smtp-relay/ -->
+<!-- https://thecustomizewindows.com/2024/01/basics-of-mail-server-and-mail-transfer-agent-mta/ -->
+<!-- https://www.google.com/search?client=firefox-b-d&hs=jHpp&sca_esv=3952bdc93efbafc6&sxsrf=ANbL-n4HybHTh7zLbfmHuZ1DmlntfPij5w:1777877403730&udm=2&fbs=ADc_l-bpk8W4E-qsVlOvbGJcDwpn60DczFdcvPnuv8WQohHLTaMb_WtLz8zQ41bNqiqMK_1FsVyo-5Z6JkhWuoPGkuRh7kwNpMSz91P5qhCEeQU0Q3JTMFazRYDiEAFxt0cgIaVJpgiwnJb72GZ6k_50xgNLITeRl5dfn7ULiOKPl8BmjMvqRdEVWIO1ZEwcVx284lL0cwJP8hwioVBEzBNX1w4wyvGgFA&q=mda+mua+servidor&sa=X&ved=2ahUKEwj75Om4hZ-UAxVnVqQEHXCqL9AQtKgLegQIFhAB&biw=1920&bih=904&dpr=1#sv=CAMSVhoyKhBlLWRabVN4VW1BT2VpV05NMg5kWm1TeFVtQU9laVdOTToOWkZhM0lFbEo4VzVxVU0gBCocCgZtb3NhaWMSEGUtZFptU3hVbUFPZWlXTk0YADABGAcg_Z3CowdKCBABGAEgASgB -->
 
 | **Licencia Creative Commons:** | |
 | - | - |
-| ![alt text](../../../assets/by-nc-nd-eu_.png) | **Reconocimiento-NoComercial-CompartirIgual CC BY-NC-SA:**  No se permite un uso comercial de la obra original ni de las posibles obras derivadas, la distribución de la cuales se debe hace con una licencia igual a la que regula la obra original. | 
-  
- 
-
+| ![alt text](../../../assets/by-nc-nd-eu_.png) | **Reconocimiento-NoComercial-CompartirIgual CC BY-NC-SA:**  No se permite un uso comercial de la obra original ni de las posibles obras derivadas, la distribución de la cuales se debe hace con una licencia igual a la que regula la obra original. |

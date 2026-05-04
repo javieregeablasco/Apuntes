@@ -1,3 +1,7 @@
+// https://youtu.be/1glVfFxj8a4?si=Yox3no-eU15Y0buq&t=11930
+
+
+
 // console.log("hello world");
 // console.log('hello world');
 // console.log(`hello world`);
@@ -26,7 +30,6 @@ let simbol = Symbol("simbol")
 let enteroGrande = BigInt(222222222222222222222222222222222222222222222222);
 enteroGrande = 3222222222222222222222222222222222222222222222222n;
 
-// https://youtu.be/1glVfFxj8a4?si=x68EJqBim_OnAWPc&t=4738
 let variable_1 = 4;
 let variable_2 = "4";
  
@@ -46,3 +49,5 @@ miArray2[0]= "palabras333";
 console.log(miArray2);
 miArray2.push("otra palabra");
 console.log(miArray2);
+// pop ultimo y devuvle.
+// shift agrega al principio.
