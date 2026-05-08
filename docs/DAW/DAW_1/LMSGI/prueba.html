@@ -10,9 +10,6 @@
       } */
   </style>
   <link rel="stylesheet" href="./style.css">
-  <script type="text/Javascript">
-    // alert("Tu nombre es: "+prompt("¿Cual es tu nombre?"));
-  </script>
 </head>
 <body>
    
@@ -29,6 +26,13 @@
     
     
   </div>
+  <script type="text/Javascript">
+    // alert("Tu nombre es: "+prompt("¿Cual es tu nombre?"));
+    for (let i = 0; i<10; i++) {
+  console.log(`Resultado: ${i}`)
+  document.write(`<h5>Resultado: ${i}` )
+}
+  </script>
 
   <!-- AXIOS -->
   <!-- https://youtu.be/xOinGb2MZSk?si=L25GwDTKjc1nBp9f&t=25809 -->
@@ -64,15 +68,15 @@
   
      };
 
-     const objetoJsonSerializado = 'objetoJSON';
-     const objetoSerializado = JSON.stringify(objetoJSON)
-     const objetoDeSerializado = JSON.parse(objetoSerializado)
-     console.log(objetoJSON);
-     document.open();
-     document.body.innerHTML = `<h1>Objeto JSON</h1> ${typeof objetoJSON}`;
-     document.write(`<h1>Objeto JSON serializado</h1>`, objetoSerializado);
-     document.write(`<h1>Objeto JSON deserializado</h1>`, objetoDeSerializado);
-     document.close();
+    //  const objetoJsonSerializado = 'objetoJSON';
+    //  const objetoSerializado = JSON.stringify(objetoJSON)
+    //  const objetoDeSerializado = JSON.parse(objetoSerializado)
+    //  console.log(objetoJSON);
+    //  document.open();
+    //  document.body.innerHTML = `<h1>Objeto JSON</h1> ${typeof objetoJSON}`;
+    //  document.write(`<h1>Objeto JSON serializado</h1>`, objetoSerializado);
+    //  document.write(`<h1>Objeto JSON deserializado</h1>`, objetoDeSerializado);
+    //  document.close();
 
 
   // promesas

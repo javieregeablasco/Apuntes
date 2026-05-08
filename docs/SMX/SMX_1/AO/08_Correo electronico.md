@@ -35,9 +35,6 @@ schedule: 224h - 7h/w
 
 En esta unidad didáctica se van a tratar los aspectos relacionados con la gestión del correo electrónico y la agenda electrónica. Se analizarán las necesidades básicas de gestión de correo y agenda electrónica, se configurarán distintos tipos de cuentas de correo electrónico, se conectarán y sincronizarán agendas del equipo informático con dispositivos móviles, se operará con la libreta de direcciones, se trabajará con todas las opciones de gestión de correo electrónico (etiquetas, filtros, carpetas, entre otros) y se utilizarán opciones de agenda electrónica.
 
-<!-- https://fricardoac.wordpress.com/wp-content/uploads/2015/02/aplicaciones-ofimaticas-2013-grado-medio-mcgraw-hill.pdf -->
-<!-- https://www.youtube.com/playlist?list=PLsn5l7yNsIbUUJTfswpCdcIMYHGbEhG13 -->
-
 ## 2 - El correo electrónico
 
 El correo electrónico es uno de los sistemas de comunicación más utilizado en el ámbito profesional y personal. Permite enviar y recibir mensajes de texto, archivos adjuntos, imágenes, entre otros. Para utilizar el correo electrónico es necesario configurar una cuenta de correo electrónico en un cliente de correo electrónico o en un servicio de correo electrónico en línea.
@@ -48,26 +45,213 @@ Existen otros sistemas de comunicación instantánea como el chat, las videollam
 
 El correo electrónico funciona a través de un sistema de servidores de correo electrónico que se encargan de enviar y recibir los mensajes de correo electrónico. Cuando un usuario envía un mensaje de correo electrónico, el mensaje se envía al servidor de correo electrónico del remitente, que luego lo envía al servidor de correo electrónico del destinatario. El servidor de correo electrónico del destinatario recibe el mensaje y lo almacena en la bandeja de entrada del destinatario, donde el destinatario puede acceder a él.
 
-### 2.2 - Sistemas involucrados en el correo electrónico
+## 2.2 - Sistemas involucrados en el correo electrónico
 
-El correo electrónico involucra varios sistemas, entre ellos:
+El funcionamiento del correo electrónico involucra varios sistemas y protocolos que intervienen en las fases de envío y recepción de mensajes.
 
-**Fase de envío:**
+![Descripción de la imagen](./08-correo/img/correo-4.png){ .marginbottom40 }
+**Fase de envío:**  
 
-- **Mail User Agent (MUA):** Es el sistema que permite a los usuarios enviar y recibir mensajes de correo electrónico. Es el cliente de correo electrónico que se utiliza para acceder al correo electrónico, como Microsoft Outlook, Google Gmail, entre otros.
-- **Protocolos de correo electrónico:** Son los protocolos que se utilizan para enviar y recibir mensajes de correo electrónico. Los protocolos más comunes son **SMTP (Simple Mail Transfer Protocol), POP3 (Post Office Protocol version 3) e IMAP (Internet Message Access Protocol)**.
+- **Mail User Agent (MUA):**  
+Es la aplicación utilizada por el usuario para redactar, enviar y recibir correos electrónicos. Ejemplos de MUA son Microsoft Outlook, Mozilla Thunderbird o Gmail.
+- **SMTP (Simple Mail Transfer Protocol):**  
+Es el protocolo utilizado para enviar mensajes de correo electrónico desde el cliente de correo al servidor de correo y entre servidores de correo.
+- **Mail Transfer Agent (MTA):**
+Es el sistema encargado de transferir los correos electrónicos entre servidores hasta llegar al servidor del destinatario. Se ocupa del enrutamiento y retransmisión del mensaje.
 
 **Fase de recepción:**
 
-- **Mail Transfer Agent (MTA):** Es el sistema encargado de enviar y recibir los mensajes de correo electrónico entre los servidores de correo electrónico. Es el sistema que se encarga de enrutar los mensajes de correo electrónico desde el servidor de correo electrónico del remitente hasta el servidor de correo electrónico del destinatario.
-- **Seguridad y filtrado:** Es el sistema encargado de proteger el correo electrónico de posibles amenazas, como el spam, los virus, entre otros.
-- **Mail Delivery Agent (MDA):** Es el sistema encargado de entregar los mensajes de correo electrónico a la bandeja de entrada del destinatario. 
-- **Acceso al correo electrónico (IMAP/POP3):** Es el sistema que permite a los usuarios acceder a su correo electrónico a través de un cliente de correo electrónico o un servicio de correo electrónico en línea.
+- **Mail Delivery Agent (MDA):**
+Es el sistema encargado de depositar el mensaje recibido en el buzón o bandeja de entrada del destinatario.
+- **POP3 (Post Office Protocol v3) e IMAP (Internet Message Access Protocol):**  
+Son protocolos utilizados por los clientes de correo para acceder a los mensajes almacenados en el servidor.
+    - **POP3** descarga normalmente los mensajes al dispositivo del usuario.
+    - **IMAP** permite gestionar los mensajes directamente en el servidor, manteniendo la sincronización entre dispositivos.
+- **Sistemas de seguridad y filtrado:**
+Son mecanismos encargados de proteger el correo electrónico frente a amenazas como spam, phishing, malware o virus.
+- **Mail User Agent (MUA):**  
+Una vez recibido, el receptor podrá abrir, responder y gestionar ese correo electrónico.
 
-<!-- https://especialistashosting.com/blog/2016/12/como-funciona-el-correo-electronico/ -->
-<!-- https://mailtrap.io/es/blog/smtp-relay/ -->
-<!-- https://thecustomizewindows.com/2024/01/basics-of-mail-server-and-mail-transfer-agent-mta/ -->
-<!-- https://www.google.com/search?client=firefox-b-d&hs=jHpp&sca_esv=3952bdc93efbafc6&sxsrf=ANbL-n4HybHTh7zLbfmHuZ1DmlntfPij5w:1777877403730&udm=2&fbs=ADc_l-bpk8W4E-qsVlOvbGJcDwpn60DczFdcvPnuv8WQohHLTaMb_WtLz8zQ41bNqiqMK_1FsVyo-5Z6JkhWuoPGkuRh7kwNpMSz91P5qhCEeQU0Q3JTMFazRYDiEAFxt0cgIaVJpgiwnJb72GZ6k_50xgNLITeRl5dfn7ULiOKPl8BmjMvqRdEVWIO1ZEwcVx284lL0cwJP8hwioVBEzBNX1w4wyvGgFA&q=mda+mua+servidor&sa=X&ved=2ahUKEwj75Om4hZ-UAxVnVqQEHXCqL9AQtKgLegQIFhAB&biw=1920&bih=904&dpr=1#sv=CAMSVhoyKhBlLWRabVN4VW1BT2VpV05NMg5kWm1TeFVtQU9laVdOTToOWkZhM0lFbEo4VzVxVU0gBCocCgZtb3NhaWMSEGUtZFptU3hVbUFPZWlXTk0YADABGAcg_Z3CowdKCBABGAEgASgB -->
+## 3 - Microsoft Outlook
+
+Microsoft Outlook es un cliente de correo electrónico desarrollado por Microsoft que forma parte del paquete de aplicaciones de Microsoft Office.
+Permite gestionar el correo electrónico, la agenda, los contactos y las tareas de manera eficiente.
+
+### 3.1 - Configuración de una cuenta de correo electrónico en Microsoft Outlook
+
+Para configurar una cuenta de correo electrónico en Microsoft Outlook, se deben seguir los siguientes pasos:
+
+1. Abrir Microsoft Outlook.
+2. Hacer clic en "Archivo" y luego en "Agregar cuenta".
+3. Ingresar la dirección de correo electrónico y hacer clic en "Conectar".
+4. Ingresar la contraseña de la cuenta de correo electrónico y hacer clic en "Conectar".
+5. Microsoft Outlook intentará configurar automáticamente la cuenta de correo electrónico. Si no lo logra, se pueden ingresar manualmente los parámetros del servidor de correo electrónico (SMTP, IMAP o POP3) proporcionados por el proveedor de correo electrónico.
+
+### 3.2 - Primer contacto con Microsoft Outlook
+
+![Descripción de la imagen](./08-correo/img/correo-5.png){ .marginbottom40 }
+
+En la parte de la izquierda se encuentra el panel de navegación, donde se pueden acceder a las diferentes secciones de Microsoft Outlook, como el correo electrónico, la agenda, los contactos y las tareas. En la parte central se encuentra la bandeja de entrada, donde se muestran los correos electrónicos recibidos. En la parte derecha se encuentra el panel de lectura, donde se puede leer el contenido del correo electrónico seleccionado.
+
+Como la mayoría de aplicaciones, Outlook también se puede personalizar para adaptarse a las necesidades del usuario, como cambiar el diseño, configurar notificaciones, entre otros.
+El menú de personalización se encuentra clicando en los 3 puntos y buscando la opción personalizar, donde se pueden configurar diferentes aspectos de la aplicación.
+
+### 3.3 - Tarea - RA8-CEac - Gestión del correo electrónico
+
+!!! task "Configurar una firma profesional"
+    - Configurar una firma profesional que se añadirá automáticamente a cualquier correo que redactéis.
+    !!! tip "Ejemplo de autofirma"
+
+        Avís Legal / Aviso Legal:  
+
+        Aquesta comunicació i el seu contingut, incloses les dades personals, són confidencials, i per a ús exclusiu del/s destinatari/s al/s que es dirigeix. Si el receptor no és el destinatari legítim, l’informem que està totalment prohibida per llei, qualsevol utilització, divulgació, distribució i/o reproducció d’aquesta comunicació sense autorització expressa de l’emissor, qualsevol que fora la seua finalitat. Si ha rebut aquest missatge per error, li preguem que ens ho notifique immediatament per aquesta mateixa via i procedisca a la seua eliminació.  
+
+        En interés del compliment del Reglament (UE) 2016/679 del Parlament Europeu i del Consell, de 27 d’abril de 2016 relatiu a la protecció de les persones físiques pel que fa al tractament de dades personals i a la lliure circulació d’aquestes dades i de la Llei orgànica 3/2018, de 5 de desembre, de Protecció de Dades Personals i garantia dels drets digitals (LOPD-GDD), pot exercir els drets d’accés, rectificació, cancel·lació, limitació, oposició i portabilitat mitjançant correu electrònic dirigit a: correu@edu.gva.es.  
+
+        Esta comunicación y su contenido, incluidos los datos personales, son confidenciales, y para uso exclusivo del/de los destinatario/s al/a los que se dirige. Si el receptor no es el destinatario legítimo, le informamos que está totalmente prohibida por ley, cualquier utilización, divulgación, distribución y/o reproducción de esta comunicación sin autorización expresa del emisor, cualquiera que fuera su finalidad. Si ha recibido este mensaje por error, le rogamos que nos lo notifique inmediatamente por esta misma vía y proceda a su eliminación.  
+        
+        En interés del cumplimiento del Reglamento (UE) 2016/679 del Parlamento Europeo y del Consejo, de 27 de abril de 2016 relativo a la protección de las personas físicas en cuanto al tratamiento de datos personales y a la libre circulación de estos datos y de la Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos Personales y garantía de los derechos digitales (LOPD-GDD), puede ejercer los derechos de acceso, rectificación, cancelación, limitación, oposición y portabilidad mediante correo electrónico dirigido a: correu@edu.gva.es.
+
+
+!!! task "Creación de grupos de distribución"
+    - Crear un grupo con el resto de alumnos de la clase **INCLUYENDO** el professor.
+
+!!! task "Creación de grupos (lista de contactos)"
+    - Activar el reenvío automático de correo a otra dirección.
+    - Activar respuestas automáticas.
+
+!!! task "Enviar un correo al grupo"
+    - El correo deberá llevar la etiqueta de importante.
+    - El correo deberá enviarse a una hora fija.
+    - El correo deberá incorporar la confirmación de lectura.
+
+### 3.4 - Tarea - RA8-CEbf - Gestión de correos y agenda electrónica
+
+!!! task "Crear carpetas"
+    - Crea al menos 3 carpetas para organizar los mensajes (por ejemplo, equipo 1, 2 y 3).
+    - Crea y aplica filtros o reglas para que los correos se clasifiquen automáticamente.
+
+2. Gestión de contactos
+ Crea al menos 5 entradas en la libreta de direcciones.
+ Añade etiquetas o categorías a los contactos.
+ Incluye nombre, empresa, correo y teléfono.
+3. Uso de agenda electrónica
+ Crea al menos 2 eventos en la agenda:
+o Una reunión con otro contacto.
+o Un recordatorio de envío de informe.
+ Activa una notificación automática.
+
+priridades
+confirmacion de acpetacion de convocatoria
+
+reglas → crear capeta → crear regla → seleccionar condición → seleccionar acción → seleccionar excepciones → asignar nombre a la regla → finalizar
+... 3 puntos administrar reglas → nueva regla → seleccionar plantilla → seleccionar condición → seleccionar acción → seleccionar excepciones → asignar nombre a la regla → finalizar
+firma en correo electronico → opciones → correo → firmas → nueva firma → asignar nombre a la firma → redactar firma → guardar
+
+etiquetas → clic derecho en el correo electrónico → etiquetar → seleccionar etiqueta o crear nueva etiqueta
+
+repetir lo mismo pero esta vez con gmail.
+
+importar google calendar a outlook
+
+respuestas automaticas en Outlook → opciones → correo → respuestas automáticas → activar respuestas automáticas → redactar mensaje de respuesta automática → guardar
+
+tareas:
+**b)** Se han analizado las necesidades básicas de gestión de correo y agenda electrónica.
+**f)** Se ha trabajado con todas las opciones de gestión de correo electrónico (etiquetas, filtros, carpetas, entre otros).
+
+tareas:
+**d)** Se han conectado y sincronizado agendas del equipo informático con dispositivos móviles. -->
+
+
+<!-- https://www.youtube.com/watch?v=dzoho5B31fg -->
+
+
+<!-- Práctica: Gestión avanzada del correo, agenda y
+libreta de direcciones en Outlook
+Escenario de trabajo:
+“Trabajas como asistente del Departamento de Informática de un instituto. Tu
+tarea es organizar tu correo y calendario de forma eficiente para gestionar
+comunicaciones internas y externas con profesores, dirección, alumnos, familias
+y proveedores.”
+Actividades:1️
+. Gestión de la libreta de direcciones (criterio e, 5%)
+Actividad A:
+1. Crea 2 contactos nuevos con los siguientes datos (deben ser
+compañeros de clase):
+o Nombre
+o Correo electrónico
+o Teléfono
+o Nota adicional (departamento o rol)
+Actividad B:
+3. Crea un grupo de contactos llamado “Equipo Departamento Informática”
+e incluye los contactos creados.
+4. Envía un correo al grupo de contactos con el asunto: “Primera reunión
+del curso”.
+Evidencias a entregar:
+ Captura de la libreta de direcciones con los contactos creados.
+ Captura del grupo de contactos creado.
+ Captura del correo enviado al grupo.
+2️. Gestión avanzada del correo (criterio f, 30%)
+Actividad C: Organización de la bandeja de entrada
+1. Crea las siguientes carpetas dentro de la bandeja de entrada:
+o Dirección
+o Profesorado
+o Familias
+o Proveedores
+2. Mueve al menos 1 correo a cada carpeta. Si no tenemos ningún correo
+relacionados con la carpeta se envía uno a nosotros mismos y se guarda
+en la carpeta.
+Actividad D: Categorías y reglas
+3. Crea 3 categorías personalizadas:
+o Urgente (rojo)
+o Pendiente (amarillo)
+o Revisado (verde)
+4. Asigna una categoría a al menos 2 correos.
+5. Crea 2 reglas automáticas:
+o Que mueva automáticamente todos los correos que lleguen de
+“direccion@...” a la carpeta “Dirección” (debe ser el correo que
+llegue de nuestro compañero).
+o Que marque como importante todo correo cuyo asunto contenga la
+palabra “urgente”.
+o Debéis probar que funcionan las reglas.
+Actividad E: Filtros y búsqueda avanzada
+6. Filtra tu bandeja de entrada para ver solo:
+o Correos no leídos
+o Correos con archivos adjuntos
+7. Realiza una búsqueda avanzada:
+o Correos recibidos en la última semana.
+o Correos de un remitente específico.
+o Correos con una palabra clave en el asunto.
+Actividad F: Archivado y limpieza
+8. Utiliza la opción Archivar para mover manualmente 2 correos a la carpeta
+de archivo.
+9. Utiliza la opción Limpiar conversación en un hilo de correos.
+Evidencias a entregar:
+ Capturas de las carpetas creadas y correos organizados.
+ Capturas de las categorías aplicadas.
+ Captura de las reglas configuradas y su funcionamiento.
+ Captura de los filtros aplicados y búsqueda avanzada y su
+funcionamiento.
+ Capturas de correos archivados y limpieza realizada.3️
+. Gestión de la agenda electrónica (criterio g, 5%)
+Actividad G: Crear eventos y reuniones
+1. Crea una reunión con asistentes:
+o Título: “Reunión Departamento”
+o Asistentes: incluye a los contactos del grupo “Equipo
+Departamento Informática”
+o Fecha: dentro de 3 días
+o Recordatorio: 1 hora antes
+o Hora: 12:00 – 13:00
+o Activa la opción de Reunión de Teams (añade videollamada)
+Evidencias a entregar:
+ Captura de la reunión enviada (con asistentes y enlace de Teams) y su
+configuración.
+Entrega:
+Los alumnos entregarán un documento PDF o Word con todas las capturas
+solicitadas y una breve reflexión escrita. Además, deben responder:
+ ¿Qué opción (libreta, correo, agenda) consideras más útil en tu trabajo
+diario? ¿Por qué? -->
 
 | **Licencia Creative Commons:** | |
 | - | - |

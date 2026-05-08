@@ -10,10 +10,6 @@ layout: default
 
 ![Descripción de la imagen](./img/img1.jpg){ .img-center width=75% }
 
-<!-- <div style="text-align: center">
-  <img alt="alt text" src="./img/img1.jpg" width="75%">
-</div>   -->
-
 <br>
 
 **Resultados de aprendizaje y criterios de evaluación del módulo:**  

@@ -505,7 +505,7 @@ Una vez añadidos los elementos al proyecto, se pueden explorar las funcionalida
 
 !!! tip "Parte 7 - Exportar el proyecto y entrega de la tarea"
 
-1. Exportar el proyecto en formato MP4 con resolución 1080p.
+1. Exportar el proyecto en formato MP4 con resolución 720p.
 1. Guardar el proyecto como RA6-CEac-NombreApellidos.
 1. Subir el proyecto a la tarea de **Aules**.
 1. A partir de la apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
@@ -536,6 +536,20 @@ Posibles temas para el vídeo tutorial:
 - Cómo crear una consulta en LibreOffice Base.
 - etc.
 
+!!! tip "Pasos para crear un vídeo tutorial"
+    - **¿Qué es un video tutorial?**  
+    Un vídeo tutorial es un recurso audiovisual diseñado para enseñar cómo realizar una tarea específica o comprender un concepto determinado.
+    - **Cómo hacer un video tutorial paso a paso.**  
+    Paso 1. Análizar el aprendizaje a realizar en el vídeo tutorial  
+    Paso 2. Crear un esquema del contenido del vídeo tutorial (guión)  
+    Paso 3. Grabar las diferentes partes del vídeo tutorial  
+    Paso 4. Editar el video tutorial (recortar, añadir transiciones, efectos, música de fondo, textos, créditos de introducción y final, etc.)  
+
+!!! tip "Ejemplos de video tutoriales"
+    - [Ejemplo 1: LibreOffice Writer](https://www.youtube.com/watch?v=9FvDdXNe2fI&list=PLLLaU95AMQPqAgeXCjQgXawAPABR19U2k&index=15)
+    - [Ejemplo 2: LibreOffice Calc](https://www.youtube.com/watch?v=8MI61KWEYH4&list=PLLLaU95AMQPrMifyMRgiwhqKA64g7Kiea&index=17)
+    - [Ejemplo 3: Gimp](https://www.youtube.com/watch?v=ryW0pROGXQY&list=PLG1qdjD__qH64tCQ756M--FVvhHyCLUA9&index=18)
+
 #### 6.4.2 - Entrega de la tarea
 
 !!! warning "Condiciones de entrega de la tarea"
@@ -544,13 +558,7 @@ Posibles temas para el vídeo tutorial:
     1. Subir el proyecto a la tarea de **Aules**.
     1. A partir de la apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
     
-
-<!-- https://www.youtube.com/watch?v=gjX_OTDta8Y&list=PLsn5l7yNsIbXzSQ60McxKpwjjHo2BAW5_&index=1 -->
-<!-- https://www.youtube.com/playlist?list=PLsn5l7yNsIbXzSQ60McxKpwjjHo2BAW5_ -->
-<!-- https://www.youtube.com/watch?v=wIHCEU6CRrQ -->
-
-<!-- https://www.freepik.es/plantillas-videos#from_element=video-subhome -->
-<!-- https://www.youtube.com/watch?v=m9nMhf6AQXw -->
+<!-- https://victorialloret.com/hacer-video-tutorial-grabando-pantalla/ -->
 
 | **Licencia Creative Commons:** | |
 | - | - |
