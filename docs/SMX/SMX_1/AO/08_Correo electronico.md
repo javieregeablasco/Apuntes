@@ -112,7 +112,6 @@ El menú de personalización se encuentra clicando en los 3 puntos y buscando la
         
         En interés del cumplimiento del Reglamento (UE) 2016/679 del Parlamento Europeo y del Consejo, de 27 de abril de 2016 relativo a la protección de las personas físicas en cuanto al tratamiento de datos personales y a la libre circulación de estos datos y de la Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos Personales y garantía de los derechos digitales (LOPD-GDD), puede ejercer los derechos de acceso, rectificación, cancelación, limitación, oposición y portabilidad mediante correo electrónico dirigido a: correu@edu.gva.es.
 
-
 !!! task "Creación de grupos de distribución"
     - Crear un grupo con el resto de alumnos de la clase **INCLUYENDO** el professor.
 
@@ -128,130 +127,35 @@ El menú de personalización se encuentra clicando en los 3 puntos y buscando la
 ### 3.4 - Tarea - RA8-CEbf - Gestión de correos y agenda electrónica
 
 !!! task "Crear carpetas"
-    - Crea al menos 3 carpetas para organizar los mensajes (por ejemplo, equipo 1, 2 y 3).
-    - Crea y aplica filtros o reglas para que los correos se clasifiquen automáticamente.
+    - Crear al menos 3 carpetas para organizar los mensajes (por ejemplo, equipo 1, 2 y 3).
+    - Crear y aplica filtros o reglas de entrada para que los correos se clasifiquen automáticamente.
+    - Crear un evento en la agenda de outlook. Invitar a ese evento el resto de alumnos. El evento será una reunión de Teams.
 
-2. Gestión de contactos
- Crea al menos 5 entradas en la libreta de direcciones.
- Añade etiquetas o categorías a los contactos.
- Incluye nombre, empresa, correo y teléfono.
-3. Uso de agenda electrónica
- Crea al menos 2 eventos en la agenda:
+<!--  Crea al menos 2 eventos en la agenda:
 o Una reunión con otro contacto.
 o Un recordatorio de envío de informe.
  Activa una notificación automática.
-
-priridades
-confirmacion de acpetacion de convocatoria
-
-reglas → crear capeta → crear regla → seleccionar condición → seleccionar acción → seleccionar excepciones → asignar nombre a la regla → finalizar
-... 3 puntos administrar reglas → nueva regla → seleccionar plantilla → seleccionar condición → seleccionar acción → seleccionar excepciones → asignar nombre a la regla → finalizar
-firma en correo electronico → opciones → correo → firmas → nueva firma → asignar nombre a la firma → redactar firma → guardar
 
 etiquetas → clic derecho en el correo electrónico → etiquetar → seleccionar etiqueta o crear nueva etiqueta
 
 repetir lo mismo pero esta vez con gmail.
 
-importar google calendar a outlook
-
-respuestas automaticas en Outlook → opciones → correo → respuestas automáticas → activar respuestas automáticas → redactar mensaje de respuesta automática → guardar
-
-tareas:
-**b)** Se han analizado las necesidades básicas de gestión de correo y agenda electrónica.
-**f)** Se ha trabajado con todas las opciones de gestión de correo electrónico (etiquetas, filtros, carpetas, entre otros).
-
-tareas:
-**d)** Se han conectado y sincronizado agendas del equipo informático con dispositivos móviles. -->
-
+importar google calendar a outlook -->
 
 <!-- https://www.youtube.com/watch?v=dzoho5B31fg -->
 
-
-<!-- Práctica: Gestión avanzada del correo, agenda y
-libreta de direcciones en Outlook
-Escenario de trabajo:
-“Trabajas como asistente del Departamento de Informática de un instituto. Tu
-tarea es organizar tu correo y calendario de forma eficiente para gestionar
-comunicaciones internas y externas con profesores, dirección, alumnos, familias
-y proveedores.”
-Actividades:1️
-. Gestión de la libreta de direcciones (criterio e, 5%)
-Actividad A:
-1. Crea 2 contactos nuevos con los siguientes datos (deben ser
-compañeros de clase):
-o Nombre
-o Correo electrónico
-o Teléfono
-o Nota adicional (departamento o rol)
-Actividad B:
-3. Crea un grupo de contactos llamado “Equipo Departamento Informática”
-e incluye los contactos creados.
-4. Envía un correo al grupo de contactos con el asunto: “Primera reunión
-del curso”.
-Evidencias a entregar:
- Captura de la libreta de direcciones con los contactos creados.
- Captura del grupo de contactos creado.
- Captura del correo enviado al grupo.
-2️. Gestión avanzada del correo (criterio f, 30%)
-Actividad C: Organización de la bandeja de entrada
-1. Crea las siguientes carpetas dentro de la bandeja de entrada:
-o Dirección
-o Profesorado
-o Familias
-o Proveedores
-2. Mueve al menos 1 correo a cada carpeta. Si no tenemos ningún correo
-relacionados con la carpeta se envía uno a nosotros mismos y se guarda
-en la carpeta.
-Actividad D: Categorías y reglas
+<!--
 3. Crea 3 categorías personalizadas:
 o Urgente (rojo)
 o Pendiente (amarillo)
 o Revisado (verde)
-4. Asigna una categoría a al menos 2 correos.
-5. Crea 2 reglas automáticas:
-o Que mueva automáticamente todos los correos que lleguen de
-“direccion@...” a la carpeta “Dirección” (debe ser el correo que
-llegue de nuestro compañero).
-o Que marque como importante todo correo cuyo asunto contenga la
-palabra “urgente”.
-o Debéis probar que funcionan las reglas.
-Actividad E: Filtros y búsqueda avanzada
-6. Filtra tu bandeja de entrada para ver solo:
-o Correos no leídos
-o Correos con archivos adjuntos
-7. Realiza una búsqueda avanzada:
-o Correos recibidos en la última semana.
-o Correos de un remitente específico.
-o Correos con una palabra clave en el asunto.
-Actividad F: Archivado y limpieza
-8. Utiliza la opción Archivar para mover manualmente 2 correos a la carpeta
-de archivo.
-9. Utiliza la opción Limpiar conversación en un hilo de correos.
-Evidencias a entregar:
- Capturas de las carpetas creadas y correos organizados.
- Capturas de las categorías aplicadas.
- Captura de las reglas configuradas y su funcionamiento.
- Captura de los filtros aplicados y búsqueda avanzada y su
-funcionamiento.
- Capturas de correos archivados y limpieza realizada.3️
-. Gestión de la agenda electrónica (criterio g, 5%)
-Actividad G: Crear eventos y reuniones
-1. Crea una reunión con asistentes:
-o Título: “Reunión Departamento”
-o Asistentes: incluye a los contactos del grupo “Equipo
+
 Departamento Informática”
 o Fecha: dentro de 3 días
 o Recordatorio: 1 hora antes
 o Hora: 12:00 – 13:00
 o Activa la opción de Reunión de Teams (añade videollamada)
 Evidencias a entregar:
- Captura de la reunión enviada (con asistentes y enlace de Teams) y su
-configuración.
-Entrega:
-Los alumnos entregarán un documento PDF o Word con todas las capturas
-solicitadas y una breve reflexión escrita. Además, deben responder:
- ¿Qué opción (libreta, correo, agenda) consideras más útil en tu trabajo
-diario? ¿Por qué? -->
 
 | **Licencia Creative Commons:** | |
 | - | - |

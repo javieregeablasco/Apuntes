@@ -167,7 +167,6 @@ El bitrate o tasa de bits es la cantidad de datos que se codifican o transmiten 
 
 Es un factor clave en la calidad del video, aunque su impacto depende también del códec y del tipo de compresión utilizados, por lo que no debe considerarse de forma aislada frente a la resolución u otros parámetros.
 
-
 ### 3.5 - Audio en un vídeo
 
 El audio complementa la información visual y mejora significativamente la experiencia del espectador. Un vídeo sin audio puede resultar incompleto o difícil de interpretar, especialmente cuando depende de diálogos, narración o efectos sonoros.
@@ -557,7 +556,6 @@ Posibles temas para el vídeo tutorial:
     1. Guardar el proyecto como RA6-CEde-NombreApellidos.
     1. Subir el proyecto a la tarea de **Aules**.
     1. A partir de la apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
-    
 <!-- https://victorialloret.com/hacer-video-tutorial-grabando-pantalla/ -->
 
 | **Licencia Creative Commons:** | |
