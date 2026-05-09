@@ -118,6 +118,7 @@ El menú de personalización se encuentra clicando en los 3 puntos y buscando la
 !!! task "Creación de grupos (lista de contactos)"
     - Activar el reenvío automático de correo a otra dirección.
     - Activar respuestas automáticas.
+    - Enviar el correo a j.egeablasco@edu.gva.es
 
 !!! task "Enviar un correo al grupo"
     - El correo deberá llevar la etiqueta de importante.
@@ -130,32 +131,12 @@ El menú de personalización se encuentra clicando en los 3 puntos y buscando la
     - Crear al menos 3 carpetas para organizar los mensajes (por ejemplo, equipo 1, 2 y 3).
     - Crear y aplica filtros o reglas de entrada para que los correos se clasifiquen automáticamente.
     - Crear un evento en la agenda de outlook. Invitar a ese evento el resto de alumnos. El evento será una reunión de Teams.
+    - Crear un recordatorio en outlook.
 
-<!--  Crea al menos 2 eventos en la agenda:
-o Una reunión con otro contacto.
-o Un recordatorio de envío de informe.
- Activa una notificación automática.
+### 3.5 - Tarea - RA8-CEd - Sincronización de la agenda con dispositivos móviles
 
-etiquetas → clic derecho en el correo electrónico → etiquetar → seleccionar etiqueta o crear nueva etiqueta
-
-repetir lo mismo pero esta vez con gmail.
-
-importar google calendar a outlook -->
-
-<!-- https://www.youtube.com/watch?v=dzoho5B31fg -->
-
-<!--
-3. Crea 3 categorías personalizadas:
-o Urgente (rojo)
-o Pendiente (amarillo)
-o Revisado (verde)
-
-Departamento Informática”
-o Fecha: dentro de 3 días
-o Recordatorio: 1 hora antes
-o Hora: 12:00 – 13:00
-o Activa la opción de Reunión de Teams (añade videollamada)
-Evidencias a entregar:
+    - Buscar información sobre como sincronizar la agenda de Outlook con la agenda de vuestro dispositivo móvil.
+    - Una vez hecha la sincronización, mostrar el resultado al profesor.
 
 | **Licencia Creative Commons:** | |
 | - | - |

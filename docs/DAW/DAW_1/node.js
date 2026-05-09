@@ -1,4 +1,80 @@
-https://youtu.be/iJvLAZ8MJ2E?si=ARWqWgxqe4dNmSSZ&t=6292
+https://youtu.be/iJvLAZ8MJ2E?si=-Gb7VdqpgmsUh_Rz&t=11893
+
+// proxy
+
+
+// class coche {
+
+// };
+// carro = new coche();
+// console.log("¿Es carro una instancia de la clase coche?", (carro instanceof coche) ? "Verdadero":"falso")
+// ------------------------ SYMBOL REVISAR
+// ------------------------ mixins REVISAR
+
+
+// clase abstracta. no se puede instanciar directamente.
+
+// class Animal {
+
+//   constructor(nombre){
+//     this.nombre=nombre
+//   }
+//   sonido(){
+//     console.log("El animal eminte sonido")
+
+
+//   }
+// }
+
+// class Persona {
+//   constructor(nombre,edad){
+//     this.nombre=nombre
+//     this.edad=edad
+
+//   }
+//   saludos(){
+//     console.log(`Hola mundo, soy ${this.nombre}`)
+//   }
+// }
+
+// person1 = new Persona("Javier",34);
+// person1.saludos();
+
+// person1.sayAge = function(){
+//   console.log(`Tengo ${this.edad} años`)
+// }
+// person1.sayAge()
+// function funcion(param_1,param_2){
+
+//   console.log("Hola mundo")
+// }
+
+// const funcion_1=(param_1,param_2)=>{
+//   console.log("Hola mundo_1")
+
+// } 
+
+// funcion();
+// funcion_1();
+// iterar sets
+
+
+// sets avanzados
+// colecciones de valores unicos, no indexados, iterables y dinamicos.
+
+// array_1 = [0,1,2,3,6,4,6]
+// set_1 = new Set(array_1)
+// // console.log([...set_1])
+
+// // union
+// set_2 = new Set([0,2,6,9,7,3])
+// set_3 = new Set([...set_1,...set_2])
+// // console.log([...set_3])
+
+// array_4 = [2,2,...array_1,4,6]
+// console.log(array_4)
+
+//https://youtu.be/iJvLAZ8MJ2E?si=ARWqWgxqe4dNmSSZ&t=6292
 
 // buscar elementos de un array.
 // let desordenado = [0,10,5,9,3,6];
