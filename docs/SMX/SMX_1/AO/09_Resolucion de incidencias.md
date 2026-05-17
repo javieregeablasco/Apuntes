@@ -129,8 +129,8 @@ Estos procedimientos pueden incluir:
 
 !!! task "Aplicación de procedimientos para salvaguardar la información y su recuperación"
     - Sois el responsable de hacer aplicar los procedimientos necesarios para salvaguardar la información y garantizar su recuperación en caso de pérdida.
-    - Crear una carpeta en vuestro OneDrive y compartirla con el profesor
-    En esa carpeta deberéis subir una infografía que describa los procedimientos aplicados para salvaguardar la información y garantizar su recuperación en caso de pérdida.
+    - Crear una carpeta en vuestro OneDrive y compartirla con el profesor.
+    - En esa carpeta deberéis subir una infografía que describa los procedimientos aplicados para salvaguardar la información y garantizar su recuperación en caso de pérdida.
     - La infografía debe ser clara, concisa y fácil de entender, y debe incluir imágenes o diagramas que ayuden a ilustrar los procedimientos aplicados.
     - Para la infografía, podreís utilizar las instrucciones proporcionadas en el siguiente enlace: [Instrucciones para automatizar las copias de seguridad en la nube](https://www.incibe.es/ciudadania/tematicas/copias-seguridad/nube)
 

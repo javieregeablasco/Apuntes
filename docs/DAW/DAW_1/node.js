@@ -1,4 +1,135 @@
-https://youtu.be/iJvLAZ8MJ2E?si=-Gb7VdqpgmsUh_Rz&t=11893
+// https://www.youtube.com/watch?v=N8Xt5rP_DUo&t=6s
+
+
+
+
+
+// https://youtu.be/koiPxFFiqJ4?si=aTadPy_vgfLo1JKR&t=11492
+
+// query selector → permite buscar elemento cpn varias clases.
+// const elemento = document.querySelector(".classe_1.classe_2")
+
+// https://youtu.be/koiPxFFiqJ4?si=O7yMYK0DK_bdTNZT&t=5065
+
+// testing
+// pruebas end to end E2E.
+
+// JEST
+// jest https://youtu.be/iJvLAZ8MJ2E?si=cd2Pj4KoHnAxT6VB&t=26419
+// jestjs.io
+
+
+// expresiones regulares.
+// regex101.com
+
+// ejemplo de depuracion
+// function sumar(a,b){
+//   console.log("a:",a);
+//   console.log("tipo del valor a:",typeof(a));
+//   console.log("b:",b);
+//   console.log("tipo del valor b:",typeof(b));
+//   return a+b
+
+// }
+
+// console.log(sumar(3,"5"))
+
+// depuracion https://youtu.be/iJvLAZ8MJ2E?si=fGNuhjCJA8aZB6g1&t=23149
+
+// // evento del dom
+// function mostrarMensaje() {
+//   alert("¡Clic!")
+// } 
+
+// const sendButton = document.querySelector("button");
+// // sendButton.addEventListener("click", mostrarMensaje);
+// sendButton.addEventListener("click", () => {alert("Clic con arrow function")});
+
+
+// seleccion de elementos.
+//
+//metodos basicos (selector HTML)
+// document.getElementById
+// document.getElementsByClassName
+// document.getElementsByTagName
+
+// metodos avanzados (selector CSS)
+// document.querySelector
+// document.querySelectorAll
+
+//manipulacion de elementos.
+
+// const titulo = document.getElementById("titulo");
+// titulo.textContent = "Hola mundo";
+
+// const parrafo = document.querySelector(".container");
+// parrafo.innerHTML = "<p>Este es un nuevo parrafo</p>";
+
+// // obtener atributos
+// const link = document.querySelector("a")
+// const href = link.getAttribute("href");
+// //
+// // modificar atributos
+// link.setAttribute(("href", "https://example.es"))
+// //
+// // comprobar atributos
+// const target = link.hasAttribute("target")
+// link.removeAttribute("target");
+
+// // interaccion con clases CSS
+// const box = document.querySelector(".box");
+// box.classList.add("selected");
+// box.classList.remove("selected");
+// box.classList.toggle("selected");
+
+// const boton = document.querySelector("button");
+// boton.style.backgroundColor = "blue";
+// boton.style.padding = "20em";
+
+// // creacion 
+// const nuevoParrafo = document.createElement("p");
+// nuevoParrafo.textContent = "Nuevo texto";
+// nuevoParrafo.style.padding = "5px";
+
+
+
+
+
+
+
+
+
+// DOM https://youtu.be/iJvLAZ8MJ2E?si=d9AzZn50jI2Mzxzx&t=18838
+
+// api key
+
+
+// api rest
+
+// thunder client para VSC ES DE PAGO es una mmmm...
+
+
+// async await
+
+// para declarar una function asincrona, poner async delante
+
+// promesas
+
+// se lanza un proceso sin saber si se vaa completar
+
+// asincronia
+
+// funcion qe permite simular asincroniA:
+// - setTimeout
+// const timer = 2000; //ms
+// console.log("Tarea 1");
+// setTimeout(()=>console.log("Tarea 2"),timer);
+
+// console.log("Tarea 3");
+
+
+
+//https://youtu.be/iJvLAZ8MJ2E?si=-Gb7VdqpgmsUh_Rz&t=11893
 
 // proxy
 
