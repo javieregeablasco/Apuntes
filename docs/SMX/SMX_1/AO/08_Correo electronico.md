@@ -135,6 +135,7 @@ El menú de personalización se encuentra clicando en los 3 puntos y buscando la
 
 ### 3.5 - Tarea - RA8-CEd - Sincronización de la agenda con dispositivos móviles
 
+!!! task "Sincronizar agenda"
     - Buscar información sobre como sincronizar la agenda de Outlook con la agenda de vuestro dispositivo móvil.
     - Una vez hecha la sincronización, mostrar el resultado al profesor.
 
