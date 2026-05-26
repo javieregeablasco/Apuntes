@@ -1,3 +1,23 @@
+const promesa = new Promise((resolve, reject) => {
+  let respuesta = {
+    response: 200,
+    descripcion: "Todo va bien"
+  }
+  resolve(respuesta)
+  reject("Todo va mal")
+})
+
+promesa.then(resolve =>{
+  console.log(typeof(resolve))
+}).catch(errores =>{
+  console.log(error)
+})
+
+// const x = () => x = 5+3
+
+// console.log(x)
+
+
 // https://www.youtube.com/watch?v=N8Xt5rP_DUo&t=6s
 
 

@@ -9,89 +9,99 @@ keywords: CFGS, Optativa, AWS
 schedule: 96h - 3h/s 
 ---
 
-# **Introducción a la nube pública**
-![Descripción de la imagen](./img/publiccloud.webp){.cincozero}
- 
-## **1. - Calendario escolar**
-![](./img/CAL_2025-2026.png){.sietecinco}
+![Descripción de la imagen](./img/publiccloud.webp){.nuevezero}
 
+## 1. - Calendario escolar
 
-## **2. - Horario de sesiones**
-![](./img/opt.png){.cincozero}
+![imagen](./img/CAL_2025-2026.png){.sietecinco}
 
+## 2. - Horario de sesiones
 
-## **3. - Contenidos del módulo**
-A continuación, se presentan los contenidos de este módulo tal y como aparecen en el <a href=https://ceice.gva.es/documents/388109149/391641510/ANEXOS_Optativas_Propuesta_Decreto_Curris_LFP_GMGS.pdf>**Anexo X: Módulos optativos**</a>, seguiendo las <a href=https://ceice.gva.es/documents/388109149/392955746/Instrucciones_optativas_FP_definitivas_firmado_.pdf>**Instrucciones de la dirección de formación profesional**</a> sobre la oferta de módulos optativos para el curso 2025-2026.
+![imagen](./img/opt.png){.cincozero}
 
-### **3.1. - Introducción a la Nube:**  
-- ¿Qué es la computación en la nube? 
+## 3. - Contenidos del módulo
+
+A continuación, se presentan los contenidos de este módulo tal y como aparecen en el [**Anexo X: Módulos optativos**](href=https://ceice.gva.es/documents/388109149/391641510/ANEXOS_Optativas_Propuesta_Decreto_Curris_LFP_GMGS.pdf), seguiendo las [**Instrucciones de la dirección de formación profesional**](href=https://ceice.gva.es/documents/388109149/392955746/Instrucciones_optativas_FP_definitivas_firmado_.pdf) sobre la oferta de módulos optativos para el curso 2025-2026.
+
+### 3.1. - Introducción a la Nube
+
+- ¿Qué es la computación en la nube?
 - Ventajas de la nube frente a sistemas tradicionales.
-- Introducción al ecosistema de la nube. 
+- Introducción al ecosistema de la nube.
 - Principios de migración a la nube.
 
-### **3.2. - Facturación y Economía de la Nube:**
-- Aspectos fundamentales de los precios. 
+### 3.2. - Facturación y Economía de la Nube
+
+- Aspectos fundamentales de los precios.
 - Uso de herramientas como la calculadora de costos.
-- Modelos de soporte técnico. 
+- Modelos de soporte técnico.
 - Gestión de costos y herramientas para calcular costos.
 
-### **3.3 - Infraestructura Global y Servicios Principales:**
-- Infraestructura global. 
-- Categorías de servicios. 
+### 3.3 - Infraestructura Global y Servicios Principales
+
+- Infraestructura global.
+- Categorías de servicios.
 - Exploración de la consola de administración.
 - Navegación por la infraestructura global y servicios principales.
 
-### **3.4 - Seguridad en la Nube:**
-- Modelo de responsabilidad compartida. 
-- Identidad y gestión de acceso. 
-- Protección de cuentas y datos. 
-- Conformidad y mejores prácticas de seguridad. 
+### 3.4 - Seguridad en la Nube
+
+- Modelo de responsabilidad compartida.
+- Identidad y gestión de acceso.
+- Protección de cuentas y datos.
+- Conformidad y mejores prácticas de seguridad.
 - Introducción a la gestión de accesos.
 
-### **3.5 - Redes y Entrega de Contenido:**
-- Conceptos básicos de redes. 
-- Configuración de Red Virtual. 
-- Seguridad en redes y diseño de arquitecturas. 
-- Servicios de enrutamiento y distribución de contenido. 
+### 3.5 - Redes y Entrega de Contenido
+
+- Conceptos básicos de redes.
+- Configuración de Red Virtual.
+- Seguridad en redes y diseño de arquitecturas.
+- Servicios de enrutamiento y distribución de contenido.
 - Crear una Red Virtual y lanzar un servidor web.
 
-### **3.6 - Informática y Escalado Automático:**
-- Introducción a los servicios de cómputo. 
+### 3.6 - Informática y Escalado Automático
+
+- Introducción a los servicios de cómputo.
 - Uso de máquinas virtuales y Lambda.
-- Balanceo de carga y escalado automático. 
+- Balanceo de carga y escalado automático.
 - Escalado y balanceo de la carga de una arquitectura.
 
-### **3.7 - Almacenamiento y Bases de Datos:**
-- Servicios de almacenamiento: disco duro en nube, almacenamiento, EFS. 
-- Introducción a bases de datos: Relacionales, No SQL y otros servicios. 
+### 3.7 - Almacenamiento y Bases de Datos
+
+- Servicios de almacenamiento: disco duro en nube, almacenamiento, EFS.
+- Introducción a bases de datos: Relacionales, No SQL y otros servicios.
 - Creación y gestión de una base de datos.
 - Selección de tecnologías de almacenamiento.
 
-### **3.8 - Arquitectura y Monitoreo:**
+### 3.8 - Arquitectura y Monitoreo
+
 - Principios del marco de trabajo: Well-Architected.
-- Uso de herramientas como Monitorización y asistentes de infraestructura. 
+- Uso de herramientas como Monitorización y asistentes de infraestructura.
 - Diseño de arquitecturas resilientes y escalables.
 - Interpretación de recomendaciones de optimización.
 
+## 4. - Metodología de aprendizaje
 
-## **4. - Metodología de aprendizaje**
 1. Exposición de los **aspectos teóricos** para que después **sean aplicados mediante prácticas y ejercicios**.  
 
-1. Prácticas **individuales y/o colectivas**. 
+1. Prácticas **individuales y/o colectivas**.
 
 1. **Actividades voluntarias** de investigación y ampliación para **profundizar en los conocimientos adquiridos**.  
 
-1. **PBL (Problem Based Learning)**. Se planteará un problema real, y los alumnos elaborarán una solución. 
+1. **PBL (Problem Based Learning)**. Se planteará un problema real, y los alumnos elaborarán una solución.
 
-1. Proyección de vídeos. 
+1. Proyección de vídeos.
 
+## 5. - Evaluación
 
-## **5. - Evaluación** 
-1. Las evaluaciones serán **por resultados de aprendizaje RA**. <a href=https://www.boe.es/boe/dias/2023/07/22/pdfs/BOE-A-2023-16889.pdf>R.D. 659/2023</a>. 
+1. Las evaluaciones serán **por resultados de aprendizaje RA**. [R.D. 659/2023](href=https://www.boe.es/boe/dias/2023/07/22/pdfs/BOE-A-2023-16889.pdf).
+
 1. Los resultados de aprendizaje y criterios de evaluación asociados al módulo **Introducción a la nube pública** constituyen los logros que los alumnos/as tienen que alcanzar para **superar el módulo**.
 1. Cada resultado de aprendizaje **RA** se evalúa a través de los criterios de evaluación **CE**. Los **CE** actúan como “desglose” del **RA**, facilitando medir de forma objetiva si el aprendizaje se ha alcanzado.
 
-### **5.1. - Relación entre Criterios de Evaluación y Resultados de Aprendizaje**
+### 5.1. - Relación entre Criterios de Evaluación y Resultados de Aprendizaje
+
 **Los criterios de evaluación** asociados a los **resultados de aprendizaje** son los siguientes:
 
 === "RA 1"
@@ -103,7 +113,7 @@ A continuación, se presentan los contenidos de este módulo tal y como aparecen
     |**d)** Se han identificado los principios básicos de la facturación y costos en la nube.|15%|
     |**e)** Se ha hecho uso correcto de herramientas para estimar y gestionar presupuestos.|15%|
     |**f)** Se ha participado en actividades prácticas sobre gestión de costos.|15%|
-      
+
 === "RA 2"
     |RA2. Identifica los componentes clave de la infraestructura global de la nube, diferenciando servicios principales, regiones, zonas de disponibilidad y aplicando medidas básicas de seguridad como el modelo de responsabilidad compartida, gestión de accesos y protección de datos.||
     |-|-|
@@ -134,27 +144,29 @@ A continuación, se presentan los contenidos de este módulo tal y como aparecen
     |**e)** Se ha hecho uso de herramientas de monitoreo y recomendaciones de optimización.|10%|
     |**f)** Se ha participado en actividades que simulen el análisis y mejora de arquitecturas existentes.|10%|
 
-    
-### **5.2. - Metodología de evaluación**
-1. La evaluación será **contínua**.   
+### 5.2. - Metodología de evaluación
+
+1. La evaluación será **contínua**.
 2. Se basará en la comprobación de la superación de los **resultados de aprendizaje RA**.
 3. La evaluación se hará por **RA's** sobre todos los **CE's** del currículo.
 
-### **5.3. - Instrumentos de evaluación**
+### 5.3. - Instrumentos de evaluación
+
 1. Exámenes.  
     - Preguntas tipo test.
-    - Examen escrito (ejercicios).          
+    - Examen escrito (ejercicios).
 1. Tareas entregables.  
 1. Exposiciones orales.  
 1. Prácticas en empresa.
 
-### **5.4. - Responsable evaluación de los RA's y/o CE's**
+### 5.4. - Responsable evaluación de los RA's y/o CE's
+
 1. Evaluación por profesor:
 **Todos lo que no se evaluarán en empresa**.
 
-1. Evaluación por tutor empresa: 
+1. Evaluación por tutor empresa:
 === "RA 1"
-    f) Se ha participado en actividades prácticas sobre gestión de costos. 
+    f) Se ha participado en actividades prácticas sobre gestión de costos.
 
 === "RA 2"
     f) Se han realizado ejercicios sobre gestión de usuarios y políticas de seguridad.
@@ -165,11 +177,13 @@ A continuación, se presentan los contenidos de este módulo tal y como aparecen
 === "RA 4"
     f) Se ha participado en actividades que simulen el análisis y mejora de arquitecturas existentes.
 
-## **6. - Criterio de superación del módulo**
-### **6.1. - Nota final**
+## 6. - Criterio de superación del módulo
+
+### 6.1. - Nota final
+
 La nota final será la suma ponderada de **los resultados de aprendizaje** obtenidos en cada evaluación.  
 
-La superación del módulo requerirá obtener una media mínima de **5 sobre 10 en cada resultado de aprendizaje**. 
+La superación del módulo requerirá obtener una media mínima de **5 sobre 10 en cada resultado de aprendizaje**.
 
 En caso de no superar el módulo, el alumna/o dispondrá de un proceso de recuperación orientado a reforzar específicamente los resultados de aprendizaje no alcanzados.
 
@@ -180,23 +194,28 @@ En caso de no superar el módulo, el alumna/o dispondrá de un proceso de recupe
 |**RA3.** Diseña y configura redes virtuales y servicios de cómputo en la nube, aplicando buenas prácticas de seguridad, estrategias de balanceo de carga, escalado automático y aprovechando tecnologías serverless, contenedores y máquinas virtuales según casos de uso específicos.|25%|
 |**RA4.** Gestiona servicios de almacenamiento y bases de datos en la nube, seleccionando tecnologías adecuadas para casos específicos, y diseña arquitecturas escalables y resilientes utilizando herramientas de monitoreo y optimización para mejorar el rendimiento.|25%|
 
-### **6.2. - Instrumentos de recuperación**
+### 6.2. - Instrumentos de recuperación
+
 - Se propondrá a los alumnos una serie de **recuperaciones** que le permitirán recuperar los **criterios de evaluación** no superados.
 - Si el alumno **no entrega los trabajos obligatorios o presenta tasas de absentismo elevadas**, perderá la evaluación continua y deberá presentarse a la evaluación **ordinaria** y/o **extraordinaria**.  
+- En la **evaluación ordinaria y extraordinaria** se podrán recuperar los **RA no superados** a través de exámenes escritos, tareas entregables, exposiciones orales o prácticas en empresa.
+- Para las evaluaciones ordinaria y extraordinaria, el alumno deberá obtener una media mínima de **5 sobre 10 en cada resultado de aprendizaje** para superar el módulo.
+- Para las evaluaciones ordinaria y extraordinaria, el alumno deberá presentar todas las tareas no realizadas quedando a criterio del profesor realizar pruebas adicionales para demostrar el logro de los **RA no superados**.
 
-### **6.3. - Calendario de evaluaciones**
+### 6.3. - Calendario de evaluaciones
+
 - Evaluación inicial (primer mes).
-- **Una evaluación parcial por cada trimestre**. 
+- **Una evaluación parcial por cada trimestre**.
+
     - Se daran las notas de los **RA** completados y también la nota **parcial** de los **RA** incompletos.
     - Para tener el aprobado será necesario haber alcanzado una puntuación superior o igual a 5 en los **Resultados de Aprendizaje RA** completados.
 
 - **Evaluación ordinaria** y **extraordinaria**: Permitiran recuperar los **RA no superados**.
- 
- 
-## **7. - Secuenciación y duración de cada Unidad de Trabajo**
-Por motivos de simplicidad **se asocia un RA a cada tema. Los temas se dibidirán en varias Unidad de Trabajo (UT)**.  
 
-<div style="text-align:center;">
+## 7. - Secuenciación y duración de cada Unidad de Trabajo
+
+Por motivos de simplicidad **se asocia un RA a cada tema. Los temas se dividirán en varias Unidad de Trabajo (UT)**.  
+
 ```mermaid
 flowchart TB 
   A["Comprende los fundamentos de la computación en la nube, sus ventajas frente a sistemas tradicionales, el marco de adopción, los principios de migración y los aspectos clave de facturación, como estimación y optimización de costos."]
@@ -208,34 +227,31 @@ flowchart TB
   CC["xx"]
   DD["xx"]
     
-  subgraph **Orden y duración de las UT**
+  subgraph Orden y duración de las UT
 
-    subgraph **UT4**  
+    subgraph UT4  
       direction LR
       D --> DD
     end
     
-    subgraph **UT3**  
+    subgraph UT3  
       direction LR
       C --> CC
     end
 
-    subgraph **UT2** 
+    subgraph UT2 
       direction LR
       B --> BB
     end  
 
-    subgraph **UT1** 
+    subgraph UT1 
       direction LR
       A --> AA
     end
 
   end
 ```
-</div>
-   
- 
 
-| **Licencia Creative Commons:** | |
-| - | - |
-| ![alt text](../../../assets/by-nc-nd-eu_.png) { .by-nc-nd-eu_ } | **Reconocimiento-NoComercial-CompartirIgual CC BY-NC-SA:**  No se permite un uso comercial de la obra original ni de las posibles obras derivadas, la distribución de la cuales se debe hace con una licencia igual a la que regula la obra original. | 
+|**Licencia Creative Commons:**||
+|-|-|
+|![alt text](../../../assets/by-nc-nd-eu_.png) { .by-nc-nd-eu_ }|**Reconocimiento-NoComercial-CompartirIgual CC BY-NC-SA:**  No se permite un uso comercial de la obra original ni de las posibles obras derivadas, la distribución de la cuales se debe hace con una licencia igual a la que regula la obra original.|
