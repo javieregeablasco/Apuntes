@@ -164,3 +164,85 @@ ALTER TABLE course DROP COLUMN mandatory;
 
 -- Eliminar un registro de una tabla
 DELETE FROM course WHERE teacher_id= 1;
+ALTER table course ADD mandatory BOOL;
+select * from course;
+UPDATE course SET mandatory = TRUE; 
+UPDATE course SET mandatory = FALSE WHERE name = 'Physics';
+
+-- vistas
+
+CREATE VIEW course_class_hours AS
+SELECT name,classroom,hours FROM course;
+
+SELECT * from course_class_hours;
+
+-- drop VIEW course_class_hours;
+
+CREATE VIEW teach_course AS
+SELECT c.name AS course_name, c.hours, c.classroom, t.name AS Teacher_name, t.surname AS Teacher_surname
+FROM course c
+JOIN teacher t ON c.teacher_id = t.id;
+
+SELECT * FROM teach_course;
+
+-- indices
+-- visualmente no cambia nada. Solo optimiza las consultas.
+CREATE INDEX idx_classroom ON course(classroom);
+
+SELECT * FROM course WHERE classroom='B1';
+
+-- procedimientos almacenados
+
+DELIMITER $$
+CREATE PROCEDURE show_long_courses()
+	BEGIN
+		SELECT name, hours FROM course WHERE hours >=150;
+	END $$
+DELIMITER ;
+
+CALL show_long_courses();
+
+DELIMITER $$
+	CREATE PROCEDURE insert_new_teacher(IN nombre VARCHAR(255), apellido VARCHAR(255))
+	
+    BEGIN
+		INSERT INTO teacher (name, surname) VALUES (nombre, apellido);
+	END $$    
+DELIMITER ;
+
+call insert_new_teacher('Pedro','Ramirez');
+select * FROM teacher;
+
+-- triggers
+CREATE TABLE log_hiring(
+	id INT AUTO_INCREMENT PRIMARY KEY,
+    message VARCHAR(255),
+    hiring_date DATETIME DEFAULT CURRENT_TIMESTAMP
+    );
+
+DELIMITER $$
+	CREATE TRIGGER log_new_teacher AFTER INSERT ON teacher FOR EACH ROW
+	
+    BEGIN
+		INSERT INTO log_hiring (message) VALUES (concat('Nuevo profesor: ', NEW.name,' ', NEW.surname));
+    END $$
+    
+DELIMITER ;
+
+SET SQL_SAFE_UPDATES = 0;
+-- UPDATE course SET teacher_id = NULL; -- no funciona por foreign key
+ALTER TABLE course DROP COLUMN teacher_id; -- no funciona por foreign key 
+SET SQL_SAFE_UPDATES = 1;
+
+SET FOREIGN_KEY_CHECKS = 0;
+TRUNCATE TABLE teacher;
+SET FOREIGN_KEY_CHECKS = 1;
+
+select * from teacher;
+
+INSERT INTO teacher (name, surname) VALUES
+('Alberto', 'Garcia'),
+('Beatriz', 'Lopez'),
+('Carmen', 'Martin'),
+('Daniel','Hernandez'),
+('Pedro','Galvez');
