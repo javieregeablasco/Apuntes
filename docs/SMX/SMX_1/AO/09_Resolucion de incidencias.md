@@ -10,7 +10,7 @@ layout: default
 schedule: 224h - 7h/w
 ---
 
-![Descripción de la imagen](./08-correo/img/correo-1.png){ .sietecinco .marginbottom40 }
+![Descripción de la imagen](./img/UT9/inci-01.png){ .sietecinco .marginbottom40 }
 
 **Resultados de aprendizaje y criterios de evaluacion que se evaluarán en esta unidad.**  
 
