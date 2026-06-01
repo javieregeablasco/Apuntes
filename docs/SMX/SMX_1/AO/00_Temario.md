@@ -304,7 +304,7 @@ En el caso concreto del módulo **Aplicaciones Ofimáticas**, en cada unidad de 
     === "RA 9"
         **h)** Se han solventado las incidencias en el tiempo adecuado y con el nivel adecuado.
 
-## 6. - Criterio de superación del módulo
+## 6. - Criterios de superación del módulo
 
 ### 6.1. - Nota final
 
@@ -331,13 +331,22 @@ En caso de no superar el módulo, el alumna/o dispondrá de un proceso de recupe
 - Se propondrá a los alumnos una serie de **recuperaciones** que le permitirán recuperar los **criterios de evaluación** no superados.
 - Si el alumno **no entrega los trabajos obligatorios o presenta tasas de absentismo elevadas**, perderá la evaluación continua y deberá presentarse a la evaluación **ordinaria** y/o **extraordinaria**.
 
-### 6.3. - Calendario de evaluaciones
+### 6.3 - Calendario de evaluaciones
 
 1. Evaluación inicial (primer mes).
 1. **Una evaluación parcial por cada trimestre**.
     - Se daran las notas de los **RA** completados y también la nota **parcial** de los **RA** incompletos.
     - Para tener el aprobado será necesario haber alcanzado una puntuación superior o igual a 5 en los **Resultados de Aprendizaje RA** completados.
 1. **Evaluación ordinaria** y **extraordinaria**: Permitirán recuperar los **RA no superados**.
+
+### 6.4 - Condiciones para poder presentarse a las evaluaciones ordinarias y extraordinarias
+
+Para poder presentarse a las convocatorias ordinaria y extraordinaria, el alumnado deberá cumplir con los siguientes requisitos en los RA suspensos:
+
+- Haber presentado **al menos una tarea** por cada criterio de evaluación.
+- Haber obtenido **una puntuación mínima de 3/10 en el 60% de las tareas**.
+
+En caso de suspender el módulo en la convocatoria ordinaria, se dispondrá de una convocatoria extraordinaria que consistirá en una prueba sobre los RA no superados.
 
 ## 7 - Secuenciación y duración de cada Unidad de Trabajo
 
