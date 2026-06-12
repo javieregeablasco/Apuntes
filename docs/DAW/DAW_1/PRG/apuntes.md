@@ -1,9 +1,37 @@
-https://www.youtube.com/watch?v=Q_2j8aYnmYk&list=PLG1qdjD__qH6ULjW5iN8E45m5nkaCNbUu&index=19
+https://www.youtube.com/watch?v=9P8M1V0XnVo&list=PLG1qdjD__qH6ULjW5iN8E45m5nkaCNbUu&index=23
 
-https://www.youtube.com/watch?v=NFDjCN4r_68&list=PLG1qdjD__qH6ULjW5iN8E45m5nkaCNbUu&index=1
+# 
 
-# variables
+# palabras reservadas de java
 
+palabras que no se pueden usar para definir variables.
+
+# declarar variables
+
+uso de guion bajo para mejorar legibilidad
+int mil = 1_000;
+int millon = 1_000_0000;
+float millon_2 = 1_00_00_00.0_0_5f;
+
+
+La declaracion de las variables no puede empezar con un numero.
+debe seguir el camelcase
+
+variavles de tipo float
+float f1 = 1f;
+float f2 = 5.4f;
+float f3 = 0.55e-2f;
+float f3 = -5.44e-2f;
+
+declarar una lista de variables
+int a =5, b=7;
+short c=-1, d,e,e=4;
+
+declarar una a una las variables
+int num; #sin asignar valor
+int numeor = 22; #asignar valor
+
+# tipos de variables
 
 # syso
 
