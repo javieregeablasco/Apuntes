@@ -1,5 +1,5 @@
 → revisar el codigo
-https://youtu.be/OuJerKzV5T0?si=mGWkaJWW3fZCnfdr&t=12787
+ 
 
 
 
@@ -13,27 +13,32 @@ instalar xamp para servidor BBDD
 
 crear bbdd
 
+# youtubers
 
-ESTAMOS AQUI ↓
-moure dev
-https://www.youtube.com/watch?v=OuJerKzV5T0
+-- pendientes --
 
-boluda
-https://www.youtube.com/watch?v=8N4M994IDt8&list=PLQxX2eiEaqbx5EoP7GDA8sMBMV84hRcLM
 
-soy dalto
-https://www.youtube.com/watch?v=DFg1V-rO6Pg
 
 
 pildoras
 https://www.youtube.com/watch?v=yZk9NdxFUrk&list=PLU8oAlHdN5Bmx-LChV4K3MbHrpZKefNwn&index=4
 
--- completados -- 
-AMazaing Code
+-- completados --
+
+soy dalto
+https://www.youtube.com/watch?v=DFg1V-rO6Pg
+
+boluda
+https://www.youtube.com/watch?v=8N4M994IDt8&list=PLQxX2eiEaqbx5EoP7GDA8sMBMV84hRcLM
+
+AMazaing Code → muy bueno
 https://youtu.be/Fk45d7J0p6o?
 
 sergi code:
 https://www.youtube.com/watch?v=Fca_kWJJXvo
+
+moure dev
+https://www.youtube.com/watch?v=OuJerKzV5T0
 
 # documentos de referencia
 
