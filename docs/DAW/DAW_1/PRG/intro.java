@@ -1,9 +1,17 @@
-// https://www.youtube.com/watch?v=Q_2j8aYnmYk&list=PLG1qdjD__qH6ULjW5iN8E45m5nkaCNbUu&index=19
-
-// https://www.youtube.com/watch?v=NFDjCN4r_68&list=PLG1qdjD__qH6ULjW5iN8E45m5nkaCNbUu&index=1
-
-// public class intro {
-//     public static void main(String[] args) {
-//         System.out.println("Hello x");
-//     }
-// }
+public class intro {
+    public static void main(String[] args) {
+      byte binario = 0110;
+      var resultado = 22;
+      // int resultado = 22;
+      // final int resultado = 22;
+      int resultado_2 = 33;
+      // System.out.println("Hello x con salto de linea");
+      // System.out.print("Hello x sin salto de linea "+"Este contenido esta concatenado");
+      // System.err.println();
+      // System.out.println("Hello x sin salto de linea "+resultado+resultado_2);
+      // System.out.println("Hello x sin salto de linea "+"(Este contenido esta sumado)");
+      // System.out.println("Hello x sin salto de linea "+(resultado+resultado_2));
+      // System.out.println(resultado);      
+      System.out.println("resultado binario es "+ resultado);
+    }
+}

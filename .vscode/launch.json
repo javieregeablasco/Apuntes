@@ -6,6 +6,20 @@
   "configurations": [
     {
       "type": "java",
+      "name": "progreso/intro",
+      "request": "launch",
+      "mainClass": "com.aula.progreso/intro",
+      "projectName": "Apuntes_cb1857b9"
+    },
+    {
+      "type": "java",
+      "name": "saludo2/intro",
+      "request": "launch",
+      "mainClass": "com.aula.saludo2/intro",
+      "projectName": "Apuntes_cb1857b9"
+    },
+    {
+      "type": "java",
       "name": "intro",
       "request": "launch",
       "mainClass": "intro",
