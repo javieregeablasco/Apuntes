@@ -121,8 +121,8 @@ orígenes de información; procedimientos de implantación de imágenes y répli
     |**h)** Se han utilizado herramientas software para la instalación de imágenes de discos o particiones señalando las restricciones de aplicación de las mismas.|10%|
     |**i)** Se ha verificado la funcionalidad de la imagen instalada, teniendo en cuenta el tipo de «clonación» realizada.|10%|
 
-=== "RA 4 -> Flexibilización"
-    |Comprueba la funcionalidad de los sistemas, soportes y periféricos instalados relacionando las intervenciones con los resultados a conseguir.||
+  === "RA 4 -> Flexibilización"
+      |Comprueba la funcionalidad de los sistemas, soportes y periféricos instalados relacionando las intervenciones con los resultados a conseguir.||
     |-|-|
     |**a)** Se ha aplicado a cada componente hardware y periférico el procedimiento de testeo adecuado.|10%|
     |**b)** Se ha verificado que el equipo microinformático realiza el procedimiento de encendido y de POST (Power On Self Test), identificando el origen de los problemas, en su caso.|15%|

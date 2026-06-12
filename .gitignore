@@ -2,4 +2,6 @@ venv
 site
 .env
 docs/DAW/DAW_1/BBDD/repositorios/
-admin
+docs/DAW/DAW_2/AWS/admin
+docs/SMX/SMX_1/AO/admin
+docs/SMX/SMX_2/Opt_Python/admin
