@@ -8,6 +8,13 @@
       "type": "java",
       "name": "intro",
       "request": "launch",
+      "mainClass": "com.aula.estilos/introduccion.intro",
+      "projectName": "Apuntes_cb1857b9"
+    },
+    {
+      "type": "java",
+      "name": "intro",
+      "request": "launch",
       "mainClass": "introduccion.intro",
       "projectName": "Apuntes_cb1857b9"
     },

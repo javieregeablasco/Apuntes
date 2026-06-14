@@ -1,6 +1,18 @@
-https://www.youtube.com/watch?v=9P8M1V0XnVo&list=PLG1qdjD__qH6ULjW5iN8E45m5nkaCNbUu&index=23
+https://www.youtube.com/watch?v=lqUz-UQMuiI&list=PLG1qdjD__qH6ULjW5iN8E45m5nkaCNbUu&index=40
 
-# 
+# estructuras de control
+
+operador ternario.
+variable = condicion ? resultado_si_cierto : resultado_si_falso
+
+# estructuras de control
+
+condicionales
+switch
+
+alt + shft + f → pone el codigo en linea
+
+# caracteres especiales
 
 # palabras reservadas de java
 

@@ -6,8 +6,8 @@ from mistralai.client import Mistral
 load_dotenv() 
 
 # Configuración del cliente de Mistral
-api_key = os.getenv("MISTRAL_API_KEY", "eNlexCR0Hwvd2yPERjzHBV4EEJYrOKzV")
-if api_key == "eNlexCR0Hwvd2yPERjzHBV4EEJYrOKzV":
+api_key = os.getenv("MISTRAL_API_KEY", "xxx")
+if api_key == "xxx":
     print("ADVERTENCIA: Usando API key por defecto. Define MISTRAL_API_KEY en el entorno.")
 model = "mistral-large-latest"
 client = Mistral(api_key=api_key)
