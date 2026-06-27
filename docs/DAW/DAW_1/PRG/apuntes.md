@@ -1,6 +1,12 @@
 https://www.youtube.com/watch?v=BugfoJ-ZM6U&list=PLG1qdjD__qH6ULjW5iN8E45m5nkaCNbUu&index=108
 
-# clase inmutables
+# arrays de objetos
+
+```java
+Punto[] puntos = new Punto[10]; // se crea un array de 10 elementos de tipo Punto
+puntos[0] = new Punto(1, 2); // se crea un objeto de tipo Punto y se asigna al primer elemento del array
+
+# clase inmutables (revisar)
 
 una clase inmutable es aquella que no permite modificar sus atributos una vez que se ha creado el objeto. Para crear una clase inmutable, se deben seguir las siguientes reglas: 
 
