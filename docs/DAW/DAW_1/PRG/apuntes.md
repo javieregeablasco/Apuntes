@@ -1,5 +1,17 @@
 https://www.youtube.com/watch?v=BugfoJ-ZM6U&list=PLG1qdjD__qH6ULjW5iN8E45m5nkaCNbUu&index=108
 
+# arraylist
+
+el arraylist es una clase que implementa la interfaz list y permite almacenar elementos de manera dinamica. A diferencia de los arrays, los arraylist no tienen un tamaño fijo y pueden crecer o decrecer segun sea necesario.
+
+```java
+import java.util.ArrayList;
+
+ArrayList<String> lista = new ArrayList<String>(); // se crea un arraylist de tipo String
+
+...
+```  
+
 # arrays de objetos
 
 ```java
