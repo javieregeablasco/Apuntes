@@ -50,6 +50,14 @@ modificar un elemento de la lista en una posicion especifica:
 lista.set(0, "elemento 4"); // se modifica el elemento en la posicion 0, cambiando su valor a "elemento 4"
 ```
 
+el metodo indexOf() permite obtener la posicion de un elemento en la lista.
+
+```java
+lista.indexOf("elemento 2"); // devuelve 1
+```
+
+si el elemento no se encuentra en la lista, devuelve -1.
+
 # arrays de objetos
 
 ```java
