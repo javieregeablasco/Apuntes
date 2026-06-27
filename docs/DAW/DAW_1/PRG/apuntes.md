@@ -6,6 +6,7 @@ una clase inmutable es aquella que no permite modificar sus atributos una vez qu
 
 1. Declarar la clase como final, para que no pueda ser heredada.
 2. Declarar todos los atributos como privados y finales, para que no puedan ser modificados.
+3. No declarar metodos set, para que no se puedan modificar los atributos.
 
 ```java
 String s = "Hola";
