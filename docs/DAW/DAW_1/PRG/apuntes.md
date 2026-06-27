@@ -44,6 +44,12 @@ por valor:
 lista.remove("elemento 1"); // se elimina el elemento "elemento 1" de la lista
 ```
 
+modificar un elemento de la lista en una posicion especifica:
+
+```java
+lista.set(0, "elemento 4"); // se modifica el elemento en la posicion 0, cambiando su valor a "elemento 4"
+```
+
 # arrays de objetos
 
 ```java
