@@ -12,6 +12,12 @@ ArrayList<String> lista = new ArrayList<String>(); // se crea un arraylist de ti
 ...
 ```  
 
+el metodo add() permite agregar elementos al final de la lista.
+```java
+lista.add("elemento 1");
+lista.add("elemento 2");
+```
+
 # arrays de objetos
 
 ```java
