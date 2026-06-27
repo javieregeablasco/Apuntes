@@ -25,6 +25,24 @@ añadir un elemento en una posicion especifica:
 lista.add(1, "elemento 3"); // se agrega el elemento 3 en la posicion 1, desplazando el elemento 2 a la posicion 2
 ```
 
+el metodo get() permite obtener un elemento de la lista en una posicion especifica.
+
+```java
+lista.get(0); // devuelve "elemento 1"
+```
+
+eliminar un elemento de la lista en una posicion especifica:
+por posicion:
+
+```java
+lista.remove(1); // se elimina el elemento en la posicion 1, desplazando el elemento 2 a la posicion 1
+```
+
+por valor:
+
+```java
+lista.remove("elemento 1"); // se elimina el elemento "elemento 1" de la lista
+```
 
 # arrays de objetos
 
