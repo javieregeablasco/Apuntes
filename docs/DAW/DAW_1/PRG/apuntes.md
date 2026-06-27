@@ -1,5 +1,47 @@
 https://www.youtube.com/watch?v=BugfoJ-ZM6U&list=PLG1qdjD__qH6ULjW5iN8E45m5nkaCNbUu&index=108
 
+# clase inmutables
+
+una clase inmutable es aquella que no permite modificar sus atributos una vez que se ha creado el objeto. Para crear una clase inmutable, se deben seguir las siguientes reglas: 
+
+1. Declarar la clase como final, para que no pueda ser heredada.
+2. Declarar todos los atributos como privados y finales, para que no puedan ser modificados.
+
+```java
+String s = "Hola";
+S = s + " mundo!"; // se crea un nuevo objeto de tipo String con el valor "Hola mundo!" y se asigna a la variable s. El objeto original "Hola" no se modifica.
+```
+
+```java
+String nombre;
+public final class Persona {
+  
+    private final String nombre;
+    private final int edad;
+
+    public Persona(String nombre, int edad) {
+        this.nombre = nombre;
+        this.edad = edad;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+}
+```
+
+# paso por valor o por referencia en la POO
+
+El paso de parametros en la POO es por valor, pero si el parametro es un objeto, se pasa la referencia del objeto.
+En java los tipos primitivos se pasan por valor y los objetos se pasan por referencia.
+Los tipos primitivos son: byte, short, int, long, float, double, char y boolean.
+Las strings son objetos inmutables, por lo que se pasan por referencia, pero no se pueden modificar.
+
+
 # metodo constructor
 
 - Metodo especial que se ejecuta al crear un objeto de la clase.
