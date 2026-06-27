@@ -1,30 +1,226 @@
 package introduccion;
 
+import java.util.Random;
 import java.util.Scanner;
+import java.math.*;
+import java.util.random;
 
-public class intro {
+public class Intro {
+
+  static void saludar(String nombre){
+    System.out.println("Te saluda: "+nombre);
+  }
+  static String saludar(String nombre, String appelidos){
+    return nombre+appelidos;
+  }
+  static void saludar(String nombre,Boolean casado){
+    System.out.println("Es "+ nombre + casado);
+  }
+
+  // static void metodoLogico (int a, int b){
+  //   System.out.println("resultado de a +b"+ (a+b));
+    
+  // }
+
+  //  static int sumar(int a, int b, boolean operando){
+
+  //   if (operando){
+  //     return a+b;
+  //   } else {
+  //     return a-b;
+  //   }
+  //  }
+  // static int metodoLogico (Boolean a, Boolean b){
+  //   boolean resultado = a && b;
+  //   int valor_1 = 42;
+  //   int valor_2 = 24;
+  //   if (resultado){
+  //     return 42;
+  //   } else {
+  //     return 24;
+  //   }
+  //  }
+
   public static void main(String[] args) {
-    int a = 22;
-    int b = 3;
-    int i = 5;
+    int[][] arrayDesigual = new int[4][0];
+    System.out.println(arrayDesigual[0].length);
+    
+    
+    arrayDesigual[0] = new int[10];
+    arrayDesigual[1] = new int[8];
+    arrayDesigual[3] = new int[6];
+    System.out.println(arrayDesigual[0].length);
+    System.out.println(arrayDesigual.length);
 
-    switch (a) {
-      case 10:
-        System.out.println("el valor es: 10");
-        break;
+    // int[] arrayEnteros = new int[10];
+    // int[] otroArrayEnteros ={0,1,2,3,4,5};
+    // int anotherArray[]=new int[10];
+    // // int multiDimensionArray[][]=new int[10][8];
 
-      case 20:
-        System.out.println("el valor es: 20");
-        break;
+    // // multiDimensionArray[1][5]=52;
+    // int[][] multiDimensionArray = {
+    //   {1,0,2,5,12,1},
+    //   {1,2,3,6,5,8},
+    //   {9,8,5,3,5,2}
+    // };
 
-      case 30:
-        System.out.println("el valor es: 30");
-        break;
+    // System.out.println(multiDimensionArray.length);
 
-      default:
-        System.out.println("ningun valor encontrado");
+    // anotherArray[5]=25;
+    // Random aleatorio = new Random();
 
-    }
+    // for (int i=0; i<arrayEnteros.length; i++){
+    //   arrayEnteros[i]=aleatorio.nextInt(99);
+    // }
+    
+    // System.out.println(otroArrayEnteros[3]);
+    // System.out.println("valor del array en pos 0 es: "+arrayEnteros[8]);
+
+    // for (int i=0; i<=arrayEnteros.length-1;i++){
+    //   System.out.println("indice: " + i + " " + arrayEnteros[i]);
+
+    // };
+
+    // String resultado = saludar("Carlos", "domingo");
+    // System.out.println(saludar("Carlos", "domingo"));
+    // System.out.println(resultado);
+
+    // System.out.println("Resultado de a sumar: "+sumar(32, 44, false));
+    // saludar("Pedro");
+    // boolean b = true;
+    // boolean a = false;
+    
+    // metodoLogico(24, 48);
+
+    // System.out.println("Resultado de la operacion logica: " + resultado);
+    // int a=2, b=3;
+    // int c = (int)Math.pow(a, b);
+    // System.out.println("Resultado de "+a+"potencia "+b+" = "+ c);
+
+    // String cadena = "1234";
+    // System.out.println("Suma de string +1: "+((Integer.parseInt(cadena))+1)); 
+
+    // int variable = Integer.parseInt(cadena);
+    // System.out.println("auto suma: " + (variable+1));
+    // {
+    //   int i = 0, j = 0;
+    //   for (; i <= 10; i++) {
+    //     for (; j <= 5; j++) {
+    //       System.out.println("valor de i: " + i + " valor de j: " + j);
+    //     }
+    //   }
+    //   ;
+    //   System.out.println(i + " " + j);
+    // }
+    // {
+    //   int i = 5, j = 4;
+    //   System.out.println(i + " " + j);
+    // }
+    // System.out.println("Resultado final" + i + j);
+
+    // for (int i=0; i<=10; i++){
+    // for (int j=0; j<=5; j++){
+    // System.out.println("valor de i: "+i+" valor de j: "+j);
+    // }
+    // }
+
+    // for (int i=0; i<=10; i++){
+    // if (i==8){
+    // continue;
+    // }
+    // System.out.println("valor de i: "+i);
+    // }
+    // for (int i=0; i<=10; i++){
+    // if (i !=8){
+    // System.out.println("valor de i: "+i);
+    // } else if (i==8){
+    // System.out.println("i es igual a 8");
+    // }
+    // }
+
+    // for (int i = 20; i==0; i-=3){
+
+    // int valorIntroducido;
+    // Scanner tecladoScanner = new Scanner(System.in);
+
+    // do {
+    // System.out.println(("introducir valor entero, 0 para salir"));
+    // valorIntroducido = tecladoScanner.nextInt();
+    // if (valorIntroducido !=0){
+    // for (int i =valorIntroducido; i>=0; i-=3){
+    // System.out.println("valor introducido: "+i);
+    // }
+    // } else {
+    // System.out.println("Has introducido el valor 0 el programa finalizará...");
+    // tecladoScanner.nextLine();
+    // }
+
+    // } while (valorIntroducido !=0);
+    // System.out.println("Programa finalizado");
+    // tecladoScanner.close();
+
+    // for (int i = 0; i<=10; i+=2){
+    // System.out.println("valor de i: "+i);
+
+    // }
+
+    // int numeroIntroducido=1;
+    // Scanner introducirValor = new Scanner(System.in);
+
+    // while (numeroIntroducido !=0){
+    // System.out.println(("introducir valor numerico, 0 para salir del
+    // programa."));
+    // numeroIntroducido = introducirValor.nextInt();
+    // };
+    // System.out.println("Programa finalizado");
+    // introducirValor.close();
+    // while (a<=10){
+
+    // a++;
+    // System.out.println("valor de a: "+a);
+
+    // }
+
+    // do {
+    // System.out.println("valor: "+ a);
+    // a++;
+
+    // } while(a<=10);
+
+    // int ternario = 110;
+    // int x;
+
+    // x = ternario == 111 ? ternario*2: ternario+10;
+
+    // equivale a
+    // if (ternario == 111) {
+    // x= ternario*2;
+    // } else {
+    // ternario += 10;
+    // }
+    // System.out.println(x);
+
+    // int a = 22;
+    // int b = 3;
+    // int i = 5;
+
+    // switch (a) {
+    // case 10:
+    // System.out.println("el valor es: 10");
+    // break;
+
+    // case 20:
+    // System.out.println("el valor es: 20");
+    // break;
+
+    // case 30:
+    // System.out.println("el valor es: 30");
+    // break;
+
+    // default:
+    // System.out.println("ningun valor encontrado");
+
+    // }
     // if (i == 2){
     // System.out.println(("i es igual a: "+ a));
     // } else if (i == 3) {

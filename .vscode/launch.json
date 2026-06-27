@@ -6,6 +6,20 @@
   "configurations": [
     {
       "type": "java",
+      "name": "saludo2/App",
+      "request": "launch",
+      "mainClass": "com.aula.saludo2/App",
+      "projectName": "Apuntes_cb1857b9"
+    },
+    {
+      "type": "java",
+      "name": "Intro",
+      "request": "launch",
+      "mainClass": "com.aula.saludo2/introduccion.Intro",
+      "projectName": "Apuntes_cb1857b9"
+    },
+    {
+      "type": "java",
       "name": "intro",
       "request": "launch",
       "mainClass": "com.aula.estilos/introduccion.intro",

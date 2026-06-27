@@ -1,6 +1,106 @@
-https://www.youtube.com/watch?v=lqUz-UQMuiI&list=PLG1qdjD__qH6ULjW5iN8E45m5nkaCNbUu&index=40
+https://www.youtube.com/watch?v=BugfoJ-ZM6U&list=PLG1qdjD__qH6ULjW5iN8E45m5nkaCNbUu&index=108
 
-# estructuras de control
+# metodo constructor
+
+- Metodo especial que se ejecuta al crear un objeto de la clase.
+- caracteristicas:
+  - mismo nombre que la clase
+  - no tiene tipo de retorno
+  - puede tener argumentos
+  - puede estar sobrecargado
+  - puede ser publico, privado o protegido.
+  - puede inicializar los atributos de la clase con valores por defecto o con valores pasados como argumentos.
+
+# metodos de clase
+
+- acceso: public: accesible desde cualquier clase
+- acceso: private: accesible solo desde la clase donde se define.
+- acceso: protected: accesible desde la clase donde se define y desde las clases que heredan de ella.
+acceso: default: accesible desde la clase donde se define y desde las clases del mismo paquete.
+
+- static: el metodo pertenece a la clase y no a los objetos de la clase.
+
+- final: el metodo no puede ser sobrescrito por las clases que heredan de la clase donde se define.
+
+- tipo de retorno: el tipo de dato que devuelve el metodo. Si no devuelve nada, se usa void.
+
+- nombre del metodo: el nombre del metodo debe ser un identificador valido.
+
+- args: los argumentos que recibe el metodo. Pueden ser de cualquier tipo de dato.
+
+# poo programacion
+
+clases: tipo de datos: definen el conjunto de atributos y de posibles valores.
+
+clase programa: Es la que contiene el main.
+
+[ambito] class NombreDeLaClase {
+  // Definicion de atributos
+  [ambito] tipo nombreDeVariable_1;
+  [ambito] tipo nombreDeVariable_2;
+
+  // Defincion de metodos
+  // Contructores
+  ...
+  // Otros métodos
+}
+
+
+# sobrecarga de cosntructores en POO
+
+# POO
+
+clase: empieza con un mayuscula
+metodo: comineza con una aminuscula
+variable: empieza minuscula.
+
+metodo de clase: static
+metodo de objeto (instancia / constructor): public
+
+# ordenar arrays
+
+# clonar y copiar arrays
+
+# var args
+
+parametro de longitud variable.
+
+# for each
+
+# arrays
+
+# sobrecarga de metodos
+
+# metodos (funciones)
+
+# casting y parse
+
+conversiones de tipos (siempre que sea posible)
+
+# identado automatico
+
+para establecer el indentado usar en VSCV alt + shift + f
+kernighan y ritchie (el más usado)
+
+allman
+
+# ambito de las variables
+
+tambien conicido como scope.
+
+# bucles anidados
+
+# finalizacion condicional de bucles
+
+break
+continue
+
+# bucles
+
+while
+for
+
+# operador ternario
 
 operador ternario.
 variable = condicion ? resultado_si_cierto : resultado_si_falso
