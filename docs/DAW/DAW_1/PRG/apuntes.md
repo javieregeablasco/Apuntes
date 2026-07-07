@@ -1,10 +1,23 @@
 https://www.youtube.com/watch?v=4Wqiackpdgk&list=PLG1qdjD__qH6ULjW5iN8E45m5nkaCNbUu&index=142
 
+# Iterables e iteradores en Java
 
+# Estructuras de datos en Java
 
-# tipos excepciones
+- Pilas
+- Colas
+- Listas
+- Arboles
+- Grafos
+- Tablas hash
 
+# excepciones no controladas
 
+Las excepciones no controladas son aquellas que el compilador no obliga a manejar, es decir, no es necesario capturarlas ni declararlas en la firma del método. Estas excepciones suelen ser errores que ocurren en tiempo de ejecución y que no se espera que el programador maneje, como por ejemplo, un error de división por cero o un acceso a un índice fuera de los límites de un array.
+
+# excepciones controladas
+
+Las excepciones controladas son aquellas que el compilador obliga a manejar, ya sea mediante un bloque try-catch o declarando la excepción en la firma del método con la palabra clave throws. Estas excepciones suelen ser errores que pueden ocurrir durante la ejecución del programa y que se espera que el programador maneje adecuadamente.
 
 # tipos enumerados
 
