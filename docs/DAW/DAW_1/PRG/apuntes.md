@@ -1,4 +1,48 @@
-https://www.youtube.com/watch?v=BugfoJ-ZM6U&list=PLG1qdjD__qH6ULjW5iN8E45m5nkaCNbUu&index=108
+https://www.youtube.com/watch?v=4Wqiackpdgk&list=PLG1qdjD__qH6ULjW5iN8E45m5nkaCNbUu&index=142
+
+
+
+# tipos excepciones
+
+
+
+# tipos enumerados
+
+Las clases enumeradas (enum) son un tipo especial de clase que representa un conjunto de constantes. Se utilizan para definir un conjunto de valores posibles para una variable. Cada constante en una clase enumerada es un objeto de la clase enumerada.
+
+# intefaces
+
+Java no permite la herencia multiple de clases, pero si permite la implementacion multiple de interfaces.
+
+Las interfaces son un tipo de clase abstracta que solo puede contener métodos abstractos y constantes. Se utilizan para definir un contrato que las clases que implementan la interfaz deben cumplir. Una clase puede implementar múltiples interfaces.
+
+Las interfaces tienen las siguientes características:
+
+- Todos los métodos son abstractos y públicos por defecto.
+- Todas las variables son constantes (final) y públicas por defecto.
+- Todas las variables son estáticas (static) por defecto.
+- Una clase puede implementar múltiples interfaces.
+- Todos los métodos de una interfaz deben ser implementados (reescritos) por la clase que la implementa, a menos que la clase sea abstracta.
+
+# clases abstractas
+
+Las clases abstractas son aquellas que no pueden ser instanciadas, es decir, no se pueden crear objetos de ellas. Se utilizan como base para otras clases que heredan de ellas. Una clase abstracta puede contener métodos abstractos (sin implementación) y métodos concretos (con implementación).
+
+# polimorfismo
+
+El polimorfismo es un concepto de la programación orientada a objetos que permite que un objeto pueda tomar muchas formas. En Java, el polimorfismo se logra mediante la herencia, la sobreescritura o la sobrecarga de métodos.
+
+# sobreescritura de metodos
+
+# herencia
+
+estructura de  clases en java
+sobrrescritura de metodos
+polimorfismo
+interfaces
+clases abstractas
+
+```java
 
 # arraylist
 
