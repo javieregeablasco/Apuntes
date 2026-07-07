@@ -11,9 +11,10 @@ public class iterador {
 
     for (int i=0; i<ciudades.size();i++){
       Iterator<String> ciudad = ciudades.iterator(); 
-      System.out.println(ciudad.next());
+      System.out.println(ciudades.get(i));
     }
 
+    System.out.println("Uso de size(): " + ciudades.size());
 
 
   }
