@@ -15,12 +15,10 @@ public class iterador {
     }
 
     while (ciudad.hasNext()) {
-      System.out.println("Siguiente iterable: " + ciudad.next());
-      
+      System.out.println("Siguiente iterable: " + ciudad.next());      
     }
 
-    System.out.println("Uso de size(): " + ciudades.size());
-
-
+    // System.out.println("Uso de size(): " + ciudades.size());
+    
   }
 }
