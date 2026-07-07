@@ -8,10 +8,15 @@ public class iterador {
     ciudades.add("Madrid");
     ciudades.add("Valencia");
     ciudades.add("Barcelona");
-
+    
+    Iterator<String> ciudad = ciudades.iterator(); 
     for (int i=0; i<ciudades.size();i++){
-      Iterator<String> ciudad = ciudades.iterator(); 
       System.out.println(ciudades.get(i));
+    }
+
+    while (ciudad.hasNext()) {
+      System.out.println("Siguiente iterable: " + ciudad.next());
+      
     }
 
     System.out.println("Uso de size(): " + ciudades.size());
