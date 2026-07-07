@@ -6,6 +6,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "App",
+      "request": "launch",
+      "mainClass": "App",
+      "projectName": "Apuntes_cb1857b9"
+    },
+    {
+      "type": "java",
       "name": "saludo2/App",
       "request": "launch",
       "mainClass": "com.aula.saludo2/App",
