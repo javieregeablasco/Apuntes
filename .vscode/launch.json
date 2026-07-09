@@ -6,6 +6,20 @@
   "configurations": [
     {
       "type": "java",
+      "name": "InvocarPaquete",
+      "request": "launch",
+      "mainClass": "InvocarPaquete",
+      "projectName": "Apuntes_cb1857b9"
+    },
+    {
+      "type": "java",
+      "name": "Paquete1",
+      "request": "launch",
+      "mainClass": "Paquete_1.Paquete1",
+      "projectName": "Apuntes_cb1857b9"
+    },
+    {
+      "type": "java",
       "name": "App",
       "request": "launch",
       "mainClass": "App",
