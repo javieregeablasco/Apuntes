@@ -339,12 +339,13 @@
   padding-right: 1.05rem;
 }
 .md-typeset h2 {
-  /* border-bottom: 2px solid #4da3ff; */
-  /* border: 2px solid #4da3ff; */
+  border-bottom: 2px solid #4da3ff;
+  border: 2px solid #4da3ff;
   padding: 0.2em;    
   padding-left: 0.5em;
   font-weight: bold;
-  font-size: 1.8em;
+  /* font-size: 1.8em; */
+  font-size: 2.2em;
   color:#4da3ff;
   background-color: #c7c1c12c;
   border-radius: 0.2em;  
@@ -354,8 +355,13 @@
 }
 .md-typeset h3 {
   /* text-decoration: underline; */
-  border-bottom: 2px solid cadetblue;
+  background-color: #c7c1c12c;
+  border-radius: 0.2em;  
+  border: 2px solid cadetblue;
+  /* border-bottom: 2px solid cadetblue; */
   padding-bottom: 0.1em;     
+  padding-left: 0.5em;     
+  padding-right: 0.5em;     
   font-weight: bold;
   font-size: 1.6em;
   color:cadetblue;
@@ -385,4 +391,31 @@
 .yellowhighlight {
   background-color: yellow;
 
+}
+
+
+.tabbed-set {
+  font-weight: bold;
+  border: 0.5px solid #b6b6bb;
+}
+
+.tabbed-header {
+  border: 0.5px solid #b6b6bb;
+  font-weight: bold;
+  padding: 0.2em;    
+  padding-left: 0.5em;
+} 
+  
+.tabbed-content {
+  /* border: 0.5px solid #b6b6bb; */
+  padding: 8px 16px 0 16px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.mermaid {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 100%;
+  overflow-x: auto;
 }

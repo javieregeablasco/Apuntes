@@ -106,15 +106,15 @@ nav:
     - UT 8 - Agenda electrónica y comunicación: SMX/SMX_1/AO/08_Correo electronico.md
     - UT 9 - Gestión de incidencias: SMX/SMX_1/AO/09_Resolucion de incidencias.md
                                                   
-  - Programación en Python: 
-    - Presentación módulo: SMX/SMX_2/Opt_Python/00_Temario.md
-    - UT 1 Introducción a la programación : SMX/SMX_2/Opt_Python/01_Introduccion_a_la_programacion.md
-    - UT 2 Python, instalación y IDE: SMX/SMX_2/Opt_Python/02_Python_Presentacion.md
-    - UT 3 Elementos básicos de Python: SMX/SMX_2/Opt_Python/03_Python_Basico.md
-    - UT 4 Programación orientada a objetos: SMX/SMX_2/Opt_Python/04_POO.md
-    - UT 5 Manejo de ficheros: SMX/SMX_2/Opt_Python/05_AccesoDatosBasico.md
-    - UT 6 Interfaces gráficas: SMX/SMX_2/Opt_Python/06_ModulosInterfaces.md
-    - UT 7 Manipulación de datos: SMX/SMX_2/Opt_Python/07_BBDD.md
+  # - Programación en Python: 
+  #   - Presentación módulo: SMX/SMX_2/Opt_Python/00_Temario.md
+  #   - UT 1 Introducción a la programación : SMX/SMX_2/Opt_Python/01_Introduccion_a_la_programacion.md
+  #   - UT 2 Python, instalación y IDE: SMX/SMX_2/Opt_Python/02_Python_Presentacion.md
+  #   - UT 3 Elementos básicos de Python: SMX/SMX_2/Opt_Python/03_Python_Basico.md
+  #   - UT 4 Programación orientada a objetos: SMX/SMX_2/Opt_Python/04_POO.md
+  #   - UT 5 Manejo de ficheros: SMX/SMX_2/Opt_Python/05_AccesoDatosBasico.md
+  #   - UT 6 Interfaces gráficas: SMX/SMX_2/Opt_Python/06_ModulosInterfaces.md
+  #   - UT 7 Manipulación de datos: SMX/SMX_2/Opt_Python/07_BBDD.md
 
   - Cloud Computing:
     - Presentación módulo: DAW/DAW_2/AWS/UT. 0-Temario.md
@@ -126,6 +126,9 @@ nav:
     - UT 6 Interconexión y balanceo de infraestruturas: DAW/DAW_2/AWS/UT. 6-ElasticLoadBalancing.md
     - UT 7 Dockers y Cloud Formation: DAW/DAW_2/AWS/UT. 7-Dockers.md
     - UT 8 Sistemas de almacenamiento y BBDD: DAW/DAW_2/AWS/UT. 8-Buckets.md
+
+  - Servicios en redes:
+    - Presentación módulo: SMX/SMX_2/SX/apuntes/00_Temario.md
 
   - Under development:
     - Presentación módulo: DAW/DAW_2/PWES/UT. 0-Temario.md
