@@ -5,6 +5,13 @@
   width: 75%;
 }
 
+.img2 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+}
+
 .by-nc-nd-eu_ {
   width:10rem
 }
@@ -414,8 +421,32 @@
 }
 
 .mermaid {
-  text-align: center;
   margin: 0 auto;
   max-width: 100%;
   overflow-x: auto;
+  
+  padding: 8px;
+} 
+ 
+
+/* Estilo general de tablas */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1em 0;
+}
+
+th, td {
+    border: 1px solid #8a878371;
+    padding: 8px 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #dbc4c4b0;
+    font-weight: 600;
+}
+
+td {
+    background-color: #c0baba57;
 }

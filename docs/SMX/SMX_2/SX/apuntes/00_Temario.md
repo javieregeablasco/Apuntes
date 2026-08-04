@@ -14,7 +14,7 @@ schedule: 233h - 7h/w
 
 ## 1 - Calendario escolar
 
-![insertar imagen](../Opt_Python/img/UT0/CAL_2025-2026.png){.sietecinco}
+![insertar imagen](./img_1/apunt_2.jpg){.marco}
 
 ## 2 - Horario de sesiones
 
@@ -278,54 +278,141 @@ En caso de no superar el módulo, el alumna/o dispondrá de un proceso de recupe
 
 ```mermaid
 flowchart TB 
-  A["RA1. Instala servicios de configuración dinámica, describiendo sus características y aplicaciones."]
-  C["RA2. Instala servicios de resolución de nombres, describiendo sus características y aplicaciones."]
-  E["RA3. Instala servicios de transferencia de ficheros, describiendo sus características y aplicaciones."]
-  F["RA4. Gestiona servidores de correo electrónico identificando requerimientos de utilización y aplicando criterios de configuración."]
-  B["RA5. Gestiona servidores web identificando requerimientos de utilización y aplicando criterios de configuración."]
-  D["RA6. Gestiona métodos de acceso remoto describiendo sus características e instalando los servicios correspondientes."]
-  D["RA7. Despliega redes inalámbricas seguras justificando la configuración elegida y describiendo los procedimientos de implantación."]
-  D["RA7. Establece el acceso desde redes locales a redes públicas identificando posibles escenarios y aplicando software específico."]
-  AA["6h"]
-  BB["18h"]
-  CC["18h"]
-  DD["18h"]
-  EE["18h"]
-  FF["18h"]
+  A["`**RA1**
+  Instala servicios de configuración dinámica, describiendo sus características y aplicaciones.`"]
+  B["`**RA1**
+  Instala servicios de configuración dinámica, describiendo sus características y aplicaciones.`"]
+  C["`**RA2**
+  Instala servicios de resolución de nombres, describiendo sus características y aplicaciones.`"]
+  D["`**RA6**
+  Gestiona métodos de acceso remoto describiendo sus características e instalando los servicios correspondientes.`"]
+  E["`**RA5**
+  Gestiona servidores web identificando requerimientos de utilización y aplicando criterios de configuración.`"]
+  F["`**RA8**
+  Establece el acceso desde redes locales a redes públicas identificando posibles escenarios y aplicando software específico.`"]
+  G["`**RA3**
+  Instala servicios de transferencia de ficheros, describiendo sus características y aplicaciones.`"]
+  H["`**RA4**
+  Gestiona servidores de correo electrónico identificando requerimientos de utilización y aplicando criterios de configuración.`"]
+  I["`**RA8**
+  Establece el acceso desde redes locales a redes públicas identificando posibles escenarios y aplicando software específico.`"]
+  J["`**RA7**
+  Despliega redes inalámbricas seguras justificando la configuración elegida y describiendo los procedimientos de implantación.`"]
+  K["`**RA6**
+  Gestiona métodos de acceso remoto describiendo sus características e instalando los servicios correspondientes.`"]
+
+  classDef texto font-size:1.1em;
+  classDef principal font-size:1.4em;
+
+  class A,B,C,D,E,F,G,H,I,J,K texto;
+
+  subgraph "`**Orden y duración de las UT**`"
+    AA["`**Horas**
+    14h`"]
+    BB["`**Horas**
+    20h`"]
+    CC["`**Horas**
+    25h`"]
+    DD["`**Horas**
+    20h`"]
+    EE["`**Horas**
+    22h`"]
+    FF["`**Horas**
+    10h`"]
+    GG["`**Horas**
+    20h`"]
+    HH["`**Horas**
+    18h`"]
+    II["`**Horas**
+    14h`"]
+    JJ["`**Horas**
+    14h`"]
+    KK["`**Horas**
+    14h`"]
+
+    AAA["`**CE**
+    a,b,c`"]
+    BBB["`**CE:**
+    d,e,f,g,h`"]
+    CCC["`**CE:**
+    a,b,c,d,e,f,g,h`"]
+    DDD["`**CE:**
+    a,b,d,e`"]
+    EEE["`**CE:**
+    a,b,c,d,e,f,g,h`"]
+    FFF["`**CE:**
+    a,b,c`"]
+    GGG["`**CE:**
+    a,b,c,d,e,f,g`"]
+    HHH["`**CE:**
+    a,b,c,d,e,f,g`"]
+    III["`**CE:**
+    d,e,f`"]
+    JJJ["`**CE:**
+    a,b,c,d,e,f,g`"]
+    KKK["`**CE:**
+    f,g`"]
+
+    subgraph "`**UT11**`"
+      direction LR
+      K --> KKK --> KK
+    end
+    
+    subgraph "`**UT10**`"   
+      direction LR
+      J --> JJJ --> JJ
+    end
+
+    subgraph "`**UT9**`"
+      direction LR
+      I --> III --> II
+    end
+
+    subgraph "`**UT8**`"
+      direction LR
+      H --> HHH --> HH
+    end
+
+    subgraph "`**UT7**`"  
+      direction LR
+      G --> GGG --> GG
+    end
+
+    subgraph "`**UT6**`" 
+      direction LR
+      F --> FFF --> FF
+    end
+
+    subgraph "`**UT5**`" 
+      direction LR
+      E --> EEE --> EE
+    end
+
+    subgraph "`**UT4**`" 
+      direction LR
+      D --> DDD --> DD
+    end
   
-  subgraph Orden y duración de las UT
-
-    subgraph UT6  
+    subgraph "`**UT3**`" 
       direction LR
-      F --> FF
+      C --> CCC --> CC
     end
     
-    subgraph UT5 
+    subgraph "`**UT2**`" 
       direction LR
-      B --> BB
+      B --> BBB --> BB
     end
 
-    subgraph UT4  
+    subgraph "`**UT1**`"
       direction LR
-      E --> EE
+      A --> AAA --> AA
     end
+  
+
+    class AA,BB,CC,DD,EE,FF,GG,HH,II,JJ,KK texto;
+    class AAA,BBB,CCC,DDD,EEE,FFF,GGG,HHH,III,JJJ,KKK texto;
     
-    subgraph UT3  
-      direction LR
-      D --> DD
-    end
-    
-    subgraph UT2  
-      direction LR
-      C --> CC
-    end
-
-
-    subgraph UT1 
-      direction LR
-      A --> AA
-    end
-
+  
   end
 ```
 

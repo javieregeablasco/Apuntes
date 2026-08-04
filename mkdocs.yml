@@ -129,6 +129,8 @@ nav:
 
   - Servicios en redes:
     - Presentación módulo: SMX/SMX_2/SX/apuntes/00_Temario.md
+    - Redes: SMX/SMX_2/SX/apuntes/01_Redes.md
+    - Protocolo TCP/IP: SMX/SMX_2/SX/apuntes/02_TCP-IP.md
 
   - Under development:
     - Presentación módulo: DAW/DAW_2/PWES/UT. 0-Temario.md
