@@ -45,16 +45,20 @@ theme:
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default 
+      # scheme: youtube 
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
-
+      # primary: indigo          # Color principal (barra superior)   
+      # accent: indigo           # Color de acentos y enlaces
     # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       toggle:
         icon: material/brightness-4
         name: Switch to system preference   
+
+    # - primary: custom
 
 plugins:
   - search
@@ -131,6 +135,9 @@ nav:
     - Presentación módulo: SMX/SMX_2/SX/apuntes/00_Temario.md
     - Redes: SMX/SMX_2/SX/apuntes/01_Redes.md
     - Protocolo TCP/IP: SMX/SMX_2/SX/apuntes/02_TCP-IP.md
+    # - Protocolo DHCP: SMX/SMX_2/SX/apuntes/03_DHCP.md
+    - Acceso y control remoto: SMX/SMX_2/SX/apuntes/03_Conexiones-remotas.md
+    - Protocolo DNS/IP: SMX/SMX_2/SX/apuntes/04_DNS.md
 
   - Under development:
     - Presentación módulo: DAW/DAW_2/PWES/UT. 0-Temario.md

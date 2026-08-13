@@ -137,6 +137,17 @@ El funcionamiento de una red informática se basa en un proceso ordenado de tran
 
 Todo este flujo se completa en fracciones de segundo gracias a la velocidad de la infraestructura actual y la eficiencia de los protocolos de red. La calidad final de la transmisión dependerá de factores como el ancho de banda, la estabilidad del medio y la correcta configuración de los equipos.
 
+<!-- subnetting ampliado -->
+<!-- https://www.redeszone.net/tutoriales/redes-cable/calcular-subnetting-ip-red-mascara-subred-ipv4/#449694-que-es-el-subnetting-tipos-y-clases-de-direcciones -->
+<!-- https://itadmins.es/networking-ii-dispositivos-de-red-y-tipos-de-trafico/ -->
+<!-- https://openwebinars.net/blog/nat-que-es-y-para-que-sirve/ -->
+<!-- https://www.tutorialesprogramacionya.com/protocolosredes/conceptoredes/ -->
+<!-- falta nat -->
+
+<!-- ejercicios -->
+<!-- https://acastan.gitbook.io/servicios -->
+
+<!-- poner esto en siguiente apartado -->
 ### 2.6 Modelos de comunicación
 
 - Un protocolo de comunicación es un conjunto de reglas que define cómo deben intercambiar información dos o más dispositivos de una red. Utilizando una analogía, un protocolo es para una red lo que un idioma es para las personas: si ambos interlocutores utilizan el mismo idioma, pueden entenderse y comunicarse.
@@ -361,3 +372,6 @@ En el siguiente ejemplo mostraremos **una solicitud HTTP** entre cliente y servi
 <!-- 
 muy bien escrito revisar para ver si el texto sigue la misma esstructura.
 https://itadmins.es/networking-i-el-modelo-osi/ -->
+
+<!-- 
+falta poner imagen de hardware de red + serviciois en red para introducir el modulo -->

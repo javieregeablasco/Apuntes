@@ -387,6 +387,7 @@
    
 }
 
+
 /* Añade margen extra después de cualquier bloque de código */
 .highlight {
     margin-bottom: 2rem !important;
@@ -450,3 +451,16 @@ th {
 td {
     background-color: #c0baba57;
 }
+
+
+/* [data-md-color-scheme="youtube"] {
+  --md-primary-fg-color:        #EE0F0F;
+  --md-primary-fg-color--light: #ECB7B7;
+  --md-primary-fg-color--dark:  #90030C;
+}
+
+:root  > * {
+  --md-primary-fg-color:        #EE0F0F;
+  --md-primary-fg-color--light: #ECB7B7;
+  --md-primary-fg-color--dark:  #90030C;
+} */

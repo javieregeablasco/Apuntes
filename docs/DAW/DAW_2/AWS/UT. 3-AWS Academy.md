@@ -11,33 +11,30 @@ schedule: 96h - 3h/s
 ---
 
 
-# **UT. 3 - AWS Academy y control de costos**
+<!-- # UT. 3 - AWS Academy y control de costos -->
 
-![Descripción de la imagen](../AWS/ut3/awsdemy.png){ .sietecinco }
-
-<br>
+![Descripción de la imagen](../AWS/ut3/awsdemy.png){ .sietecinco .marginbottom40 }
 
 **Resultados de aprendizaje y criterios de evaluacion que se evaluarán en esta unidad.**  
 
 | **Resultados de aprendizaje de la unidad didáctica:** |
-|-|
+||
 | **RA. 1:** Comprende los fundamentos de la computación en la nube, sus ventajas frente a sistemas tradicionales, el marco de adopción, los principios de migración y los aspectos clave de facturación, como estimación y optimización de costos.|  
 
-
 |**Criterios de evaluación de la unidad didáctica:**|
-|-|
+||
 |**d)** Se han identificado los principios básicos de la facturación y costos en la nube.|
 |**e)** Se ha hecho uso correcto de herramientas para estimar y gestionar presupuestos.| 
 |**f)** Se ha participado en actividades prácticas sobre gestión de costos.|
 
-<br>
+## 1 - Preliminares
 
-
-## **1 - Preliminares**
 Descargar una distribución de **Linux ligera** (Lubuntu, Mint) e instalarla sobre una máquina virtual.
 
-## **2 - Learner Lab**
-### **2.1 - Invitación a Learner Lab** 
+## 2 - Learner Lab
+
+### 2.1 - Invitación a Learner Lab
+
 En vuestros **correos corporativos** habréis recibido un mensaje de **AWS Academy**.
 
 ![alt text](../AWS/ut3/invi.png)
@@ -46,66 +43,52 @@ Si habéis recibido ese correo, significa que se os ha dado de alta en un labora
 Este laboratorio cuenta con un presupuesto de 50$. Como lo veremos a lo largo del curso, convendrá **administrarlo correctamente**.  
 Si se excede el límite de 50$, el acceso quedará bloqueado y no será posible recuperar los trabajos realizados en él.
 
-### **2.2 - Registro en AWS Academy**
+### 2.2 - Registro en AWS Academy
+
 1. Hacer click en **Comenzar** y registraros en el servicio que se indica.
 1. Luego os saldrá una ventana que os pedirá de acceder a vuestra cuenta de **Canvas**.  
 Si no tenéis cuenta de Canvas, pinchar en **Create my account**.  
-<br>
-![Descripción de la imagen](../AWS/ut3/canvas.png){ .cincozero }
-<br>
+![Descripción de la imagen](../AWS/ut3/canvas.png){ .sietecinco .margintop20 .marco .marginbottom20}
+1. Un vez registrados, podréis acceder a vuestra cuenta de AWS Academy.
+![Descripción de la imagen](../AWS/ut3/panel.png){ .cien .margintop20 .marco}
 
-1. Un vez registrados, podréis acceder a vuestra cuenta de AWS Academy.  
-<br>
-![Descripción de la imagen](../AWS/ut3/panel.png){ .cincozero }
+### 2.3 - Acceso al curso
 
-### **2.3 - Acceso al curso**
-Pinchar en el curso. Si es la primera vez que usáis el **Learner Lab** sólo os aparecerá un curso.   
-<br>
-![Descripción de la imagen](../AWS/ut3/login.png){ .cincozero }
-<br>
+Pinchar en el curso. Si es la primera vez que usáis el **Learner Lab** sólo os aparecerá un curso.
 
-### **2.4 - Acceder al laboratorio**
+![Descripción de la imagen](../AWS/ut3/login.png){ .cien .marco }
+
+### 2.4 - Acceder al laboratorio
+
 1. Seguir el enlace **Launch AWS Acedemy Leaner Lab**.  
-<br>
-![Descripción de la imagen](../AWS/ut3/course.png){ .cien }
-<br>  
-
+![Descripción de la imagen](../AWS/ut3/course.png){ .cien .marco .margintop20 }
 1. El siguiente paso será lanzar el laboratorio de AWS.  
 Previamente tendremos que conceder permisos y decir que nos hemos leído los términos
 de uso.  
-<br>
-![Descripción de la imagen](../AWS/ut3/terms.png){ .cincozero }
-<br>
-
+![Descripción de la imagen](../AWS/ut3/terms.png){ .cien .marco .margintop20 .marginbottom20 }
 1. Una vez aceptados los términos y condiciones, esperar a que aparezca el spinner de **vocareum**  
-<br>
-![Descripción de la imagen](../AWS/ut3/voca.png){ .cincozero }
-<br>  
-
+![Descripción de la imagen](../AWS/ut3/voca.png){ .cien .marco .margintop20 .marginbottom20 }
 1. Si todo ha ido bien, accederemos al **Learner Lab**.  
-<br>
-![Descripción de la imagen](../AWS/ut3/learnerlab.png){ .cien }
-<br>  
+![Descripción de la imagen](../AWS/ut3/learnerlab.png){ .cien .marco .margintop20 }
+  
+### 2.5 - Lanzar el laboratorio
 
-### **2.5 - Lanzar el laboratorio**
 Para poder acceder a la consola de AWS y poder empezar a usar sus servicios pulsaremos **Start Lab**.  
 Una vez iniciado, dispondremos de una sesión de 4 horas de duración para hacer las prácticas. Si vemos que nos vamos a quedar cortos de tiempo, siempre podremos pulsar de nuevo **Start Lab** antes de que finalicen las 4 horas.  
 
-<br>
 ![Descripción de la imagen](../AWS/ut3/llon.png)
-<br> 
 
 **Consecuencias de apurar el tiempo del learner lab:**  
-1. Se cierra la sesión al llegar al tiempo máximo autorizado.  
-2. Todas los servicios se paran, es decir, **dejamos de pagar por utilizarlos**.   
-3. **Seguimos pagando por tener creados esos servicios**. Por lo cual, durante las prácticas, **siempre** se deberá eliminar los **servicios** que ya no utilizaremos. 
 
-### **2.6 - Panel de AWS**
+1. Se cierra la sesión al llegar al tiempo máximo autorizado.  
+1. Todas los servicios se paran, es decir, **dejamos de pagar por utilizarlos**.   
+1. **Seguimos pagando por tener creados esos servicios**. Por lo cual, durante las prácticas, **siempre** se deberá eliminar los **servicios** que ya no utilizaremos.
+
+### 2.6 - Panel de AWS
+
 Una vez que el enlace de AWS haya pasado a **color verde**, hacemos clic en él y accederemos al panel de control de AWS.
 
-
 ![Descripción de la imagen](../AWS/ut3/AWSCLI/awspanel.png)
-<br>  
 
 !!! Exercice "Ejercicio 1"  
     Localizar vuestras credenciales de usuario.
@@ -115,17 +98,18 @@ Una vez que el enlace de AWS haya pasado a **color verde**, hacemos clic en él 
     ¿Podemos acceder a otras regiones como, por ejemplo, España (Madrid)?
     ¿Podemos ver las zonas de disponibilidad dentro de la región que tenemos asignada?
 
+### 2.7 - Instalar el cliente de AWS CLI
 
-
-### **2.7 - Instalar el cliente de AWS CLI**
 AWS CLI es el cliente de AWS mediante el cual podremos utilizar la terminal para poder
-trabajar con nuestro entorno. 
-En el siguiente [enlace](https://docs.aws.amazon.com/es_es/cli/latest/userguide/getting-started-install.html) encontraréis las instrucciones de instalación del CLI de AWS.    
+trabajar con nuestro entorno.
+En el siguiente [enlace](https://docs.aws.amazon.com/es_es/cli/latest/userguide/getting-started-install.html) encontraréis las instrucciones de instalación del CLI de AWS.
 
 Una vez finalizada la instalación podremos comprobar la versión instalada con el comando:
+
 ```bash
 ~ $ aws --version
 ```
+
 ![Descripción de la imagen](../AWS/ut3/AWSCLI/awsversion.png){ .sietecinco }
 
 ### **2.8 - Introducir las credenciales del laboratorio en el cliente de AWS**
