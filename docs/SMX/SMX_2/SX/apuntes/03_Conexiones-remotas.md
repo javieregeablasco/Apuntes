@@ -230,8 +230,38 @@ Podemos hacerlo de varias formas:
 ![Descripción de la imagen](./img_3/img_3_24.png){ .margintop10 .marginbottom10 }
 ![Descripción de la imagen](./img_3/img_3_25.png){ .margintop10 .marginbottom10 }
 
-## 7 Tarea RA6-CEbcd-2 - Instalación y conexión remota a Ubuntu Server 22.04 en AWS
+### 6.5 Cerrar el laboratorio
 
+Tenemos que cerrar el laboratorio de AWS para liberar los recursos y evitar cargos innecesarios. Para ello, simplemente finalizaremos el laboratorio, pinchando en **End Lab** en la consola del laboratory y esperaremos a que el testigo de AWS pase a **rojo**.
+![Descripción de la imagen](./img_3/img_3_26.png){ .margintop10 .marginbottom10 }
+
+## 7 Tarea RA6-CEbcd-2 - Instalación y conexión remota a Ubuntu Server 24.04 LTS en AWS
+
+### 7.1 Instalación de Ubuntu Server 24.04 LTS en AWS
+
+Repetiremos los pasos anteriores para crear una instancia EC2, pero esta vez seleccionaremos la imagen de Ubuntu Server 24.04 LTS.
+
+- Seleccionamos la imagen de Ubuntu Server 24.04 LTS.
+![Descripción de la imagen](./img_3/img_3_27.png){ .margintop10 .marginbottom10 .marco}
+- Seleccionamos el tipo de instancia y el par de claves.
+![Descripción de la imagen](./img_3/img_3_28.png){ .margintop10 .marginbottom10 .marco}
+- Configuramos la red donde se desplegará la instancia.
+![Descripción de la imagen](./img_3/img_3_29.png){ .margintop10 .marginbottom10 .marco}
+- Configuramos el almacenamiento de la instancia.
+![Descripción de la imagen](./img_3/img_3_30.png){ .margintop10 .marginbottom10 .marco}
+
+### 7.2 Conexión remota CLI a través del panel de control de la instancia
+
+- Al igual que en el caso de Windows Server 2025, seleccionaremos la instancia en la consola de AWS y pulsaremos conectar.
+![Descripción de la imagen](./img_3/img_3_31.png){ .margintop10 .marginbottom10 .marco}
+- AWS facilita la conexión remota a través de SSH de manera fácil e intuitiva.
+![Descripción de la imagen](./img_3/img_3_32.png){ .margintop10 .marginbottom10 .marco}
+- Una vez establecida la conexión, se nos abrirá una ventana de terminal con la conexión SSH a la instancia de Ubuntu Server 24.04 LTS.
+![Descripción de la imagen](./img_3/img_3_33.png){ .margintop10 .marginbottom10 }
+
+### 7.3 Conexión remota GUI desde SO Windows
+
+Rehacer la practica para ver los pasos y los posibles fallos.
 
 
 ### 6.5 Conexión remota a la instancia de Windows Server 2025 desde Linux
@@ -239,3 +269,5 @@ Podemos hacerlo de varias formas:
 <!-- https://marcosruiz.github.io/posts/servicio-ssh/ -->
 <!-- https://docs.google.com/presentation/d/1eJTYUdgqbQTfzIJDM4FhhvqMX3ICfIG85OaFwnReU3A/edit?slide=id.g1142a802_1_0#slide=id.g1142a802_1_0 -->
 <!-- https://acastan.gitbook.io/servicios -->
+<!-- https://www.educatica.es/informatica/sistemas-operativos-en-red/casos-practicos/2408-administracion-remota/administracion-remota/ -->
+<!-- https://raul-profesor.github.io/SXI/section/P3.1/ -->
