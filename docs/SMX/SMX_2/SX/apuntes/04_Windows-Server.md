@@ -37,10 +37,9 @@ schedule: 233h - 7h/w
 
 https://www.youtube.com/watch?v=aTtYuQ3YVOs
 
+
 #### 1.8.1 Actualizar repositorios e instalar interfaz (ej. XFCE) y RDP
 
-sudo apt update && sudo apt upgrade -y
-<!-- sudo apt install xfce4 xfce4-goodies xrdp -y -->
 sudo apt install ubuntu-desktop
 
 #### 1.8.2 verificar si gnome se ha instalado correctamente
@@ -48,12 +47,7 @@ sudo apt install ubuntu-desktop
 gnome-shell --version
 
 
-<!-- sudo apt install --reinstall xrdp -y -->
 
-<!-- #### 1.8.2 Iniciar y habilitar el servicio RDP
-
-sudo systemctl enable xrdp
-sudo systemctl start xrdp -->
 
 3. Verificar los paquetes instalados (Ubuntu / Debian)
 
@@ -71,10 +65,6 @@ sudo reboot now
 #### 1.8.3 Asignar contraseña al usuario
 
 sudo passwd ubuntu
-
-# instalar xRDP 
-sudo apt install xrdp -y
-sudo systemctl enable xrdp
 
 Tip extra si usas RDP: Si instalaste GNOME para usarlo con xRDP, recuerda cambiar el comando de inicio en tu archivo ~/.xsession o /etc/xrdp/startwm.sh para que ejecute gnome-session en lugar de xfce4-session:
 

@@ -24,8 +24,8 @@ schedule: 233h - 7h/w
 |**b)** Se ha instalado un servicio de acceso remoto en línea de comandos.|
 |**c)** Se ha instalado un servicio de acceso remoto en modo gráfico.|
 |**d)** Se ha comprobado el funcionamiento de ambos métodos.|
-|**e)** Se han identificado las principales ventajas y deficiencias de cada uno.|
-|*f) Se han realizado pruebas de acceso remoto entre sistemas de distinta naturaleza.*|
+|*e) Se han identificado las principales ventajas y deficiencias de cada uno.*|
+|**f)** Se han realizado pruebas de acceso remoto entre sistemas de distinta naturaleza.|
 |*g) Se han realizado pruebas de administración remota entre sistemas de distinta naturaleza.*|
 
 ## 1 - Introducción
@@ -250,7 +250,7 @@ Repetiremos los pasos anteriores para crear una instancia EC2, pero esta vez sel
 - Configuramos el almacenamiento de la instancia.
 ![Descripción de la imagen](./img_3/img_3_30.png){ .margintop10 .marginbottom10 .marco}
 
-### 7.2 Conexión remota CLI a través del panel de control de la instancia
+### 7.2 Conexión remota CLI a través del panel de control de AWS
 
 - Al igual que en el caso de Windows Server 2025, seleccionaremos la instancia en la consola de AWS y pulsaremos conectar.
 ![Descripción de la imagen](./img_3/img_3_31.png){ .margintop10 .marginbottom10 .marco}
@@ -259,14 +259,312 @@ Repetiremos los pasos anteriores para crear una instancia EC2, pero esta vez sel
 - Una vez establecida la conexión, se nos abrirá una ventana de terminal con la conexión SSH a la instancia de Ubuntu Server 24.04 LTS.
 ![Descripción de la imagen](./img_3/img_3_33.png){ .margintop10 .marginbottom10 }
 
-### 7.3 Conexión remota GUI desde SO Windows
+### 7.3 Conexión remota desde SO Windows
 
-Rehacer la practica para ver los pasos y los posibles fallos.
+- Para conectarnos a la instancia de Ubuntu Server 24.04 LTS desde un sistema operativo Windows, podemos utilizar la aplicación de conexión a escritorio remoto **MSTSC**.
+- No obstante, tendremos que preparar la instancia para permitir conexiones así como instalar un cliente RDP y un entorno gráfico ligero en la instancia de Ubuntu Server 24.04 LTS.
+
+#### 7.3.1 Apertura de puertos en la instancia
+
+Con abrir los puertos necesarios en el firewall de la instancia de Ubuntu Server 24.04 LTS, podremos permitir conexiones remotas a través de RDP.
+
+Aunque no sea una buena práctica, para fines educativos, no solo abriremos el puerto 3389 para los protocolos **TCP** y **UDP** sino que abriremos todos los puertos.
+
+- Vamos a la consola de AWS y seleccionamos la instancia de Ubuntu Server 24.04 LTS.
+- En la sección de **Seguridad**, seleccionamos el grupo de seguridad asociado a la instancia.
+![Descripción de la imagen](./img_3/img_3_34.png){ .margintop10 .marginbottom10 .marco}
+- Editamos las reglas de entrada.
+![Descripción de la imagen](./img_3/img_3_35.png){ .margintop10 .marginbottom10 .marco}
+Agregamos una regla de entrada para permitir **el tráfico entrante desde internet sobre cualquier puerto**.
+![Descripción de la imagen](./img_3/img_3_36.png){ .margintop10 .marginbottom10 .marco}  
+Al final, obtendremos el siguiente resultado:
+![Descripción de la imagen](./img_3/img_3_37.png){ .margintop10 .marginbottom10 .marco}
+
+#### 7.3.2 Preparación de la instancia de Ubuntu Server 24.04 LTS
+
+En la instancia de Ubuntu Server 24.04 LTS, instalaremos un servidor RDP para permitir conexiones remotas desde sistemas Windows. Para ello, primero nos conectaremos a la instancia a través de SSH y luego instalaremos el servidor RDP.
+
+- Actualizamos los repositorios y actualizamos el sistema operativo.
+
+```bash
+sudo apt update && sudo apt upgrade -y
+```
+
+- De momento no disponemos de interfaz gráfica en la instancia de Ubuntu Server 24.04 LTS, por lo que instalaremos un entorno de escritorio ligero como **XFCE**.
+
+```bash
+sudo apt install xfce4 xfce4-goodies -y
+```
+
+- Instalamos el servidor RDP **XRDP**.
+
+```bash
+sudo apt install xrdp -y
+```
+
+- Habilitamos el servicio xrdp para que se inicie automáticamente al arrancar el sistema.
+
+```bash
+sudo systemctl enable xrdp
+```
+
+- Iniciamos el servicio xrdp.
+
+```bash
+sudo systemctl start xrdp
+```
+
+- Verificamos que el servicio xrdp esté activo y en ejecución.
+
+```bash
+sudo systemctl status xrdp
+```
+
+Obtendremos un resultado similar al siguiente.  
+![Descripción de la imagen](./img_3/img_3_38.png){ .margintop10 .marginbottom10 }
+
+- Cambiamos la contraseña del usuario para que pueda iniciar sesión a través de RDP.
+
+```bash
+sudo passwd <nombre_de_usuario>
+```
+
+![Descripción de la imagen](./img_3/img_3_39.png){  .marginbottom10 }
+
+- Para evitar conflictos con la elección de la interfaz gráfica por parte de XFCE, figuramos el archivo de sesion.
+
+```bash
+echo "startxfce4" > ~/.xsession
+chmod +x ~/.xsession
+```
+
+- Nos aseguramos que la interfaz se aplica globalmente al servicio.
+
+```bash
+sudo sed -i.bak 's/exec \/etc\/X11\/Xsession/exec startxfce4/' /etc/xrdp/startwm.sh
+```
+
+- Reiniciamos el servicio XFCE
+
+```bash
+sudo systemctl restart xrdp
+sudo systemctl status xrdp
+```
+
+#### 7.3.3 Conexión remota desde SO windows
+
+- Lanzamos la aplicación de conexión a escritorio remoto **MSTSC** en nuestro sistema operativo Windows.
+![Descripción de la imagen](./img_3/img_3_40.png){ .margintop10 .marginbottom10 }
+
+- Escribimos la **IP pública** de la instancia a la que no vamos a conectar.
+![Descripción de la imagen](./img_3/img_3_44.png){ .margintop10 .marginbottom10 .marco }
+
+- Obviamos las advertencias de seguridad.
+![Descripción de la imagen](./img_3/img_3_41.png){ .margintop10 .marginbottom10 }
+
+- Una vez conectados introducimos las credenciales.
+![Descripción de la imagen](./img_3/img_3_42.png){ .margintop10 .marginbottom10 }
+
+- Si todo ha ido bien obtendremos una interfaz similar a la siguiente imagen.
+![Descripción de la imagen](./img_3/img_3_43.png){ .margintop10 .marginbottom10 }
+
+## 8 - Tarea RA6-CEf-1 - Conexión remota desde Ubuntu Server 24.04 LTS a SO Windows
+
+Para poder conectarnos desde una distribución de Linux a Windows necesitaremos una aplicación de acceso a escritorio como **Remmina**.
+
+### 8.1 Comprobación e instalación de Remmina
+
+- Remmina no viene instalada en todas las distribuciones de Linux así que comprobaremos si la tenemos instalada.
+
+```bash
+remmina --version
+```
+
+- Si nos devuelve un mensaje de error, instalaremos la aplicación.
+
+```bash
+sudo apt install remmina -y
+```
+
+### 8.2 Conexión a la instancia de Windows Server 2025
+
+- Ejecutamos la aplicación
+
+```bash
+remmina
+```
+
+![Descripción de la imagen](./img_3/img_3_45.png){ .margintop10 .marginbottom10  }
+
+- Introducimos los parámetros de la conexión
+![Descripción de la imagen](./img_3/img_3_46.png){ .margintop10 .marginbottom10 }
+
+- Guardamos los parametros de la conexión y lanzamos la conexión
+![Descripción de la imagen](./img_3/img_3_49.png){ .margintop10 .marginbottom10 }
+
+- Aceptamos el certificado.
+![Descripción de la imagen](./img_3/img_3_47.png){ .margintop10 .marginbottom10  }
+
+- Si todo ha ido bien, estaremos en el escritorio de nuestra máquina Windows Server.
+![Descripción de la imagen](./img_3/img_3_48.png){ .margintop10 .marginbottom10  }
+
+### 8.3 Posibles problemas de conexión a la instancia de Windows Server 2025
+
+Como ya hemos visto ambas máquinas deben estar en condiciones de acceptar conexiones remotas por RDP.
+
+Así pues, verificaremos si Windows Server está configurado para aceptar conexiones remotas.
+
+- Vamos a **Settings**.
+![Descripción de la imagen](./img_3/img_3_50.png){ .margintop10 .marginbottom10  }
+
+- Abajo del todo seleccionamos **About**.
+![Descripción de la imagen](./img_3/img_3_51.png){ .margintop10 .marginbottom10  }
+
+- Buscamos Remote desktop.
+![Descripción de la imagen](./img_3/img_3_52.png){ .margintop10 .marginbottom10  }
+
+- Comprobamos la configuración del **Remote Desktop**
+![Descripción de la imagen](./img_3/img_3_53.png){ .margintop10 .marginbottom10  }
+
+!!! tip "Como podemos ver, Windows Server acepta por defecto las conexiones RDP. De no ser así no podriamos habernos conectado a la instancia en una práctica anterior."
+
+## 9 - Administración remota segura con SSH (Secure Shell)
+
+El protocolo SSH (Secure Shell) es **un protocolo de red** diseñado para acceder, administrar y controlar dispositivos de forma remota a través de una conexión totalmente cifrada. Surgió como un reemplazo seguro para protocolos tradicionales como **Telnet** o **FTP**, que transmitían la información y las contraseñas en texto plano.
+
+### 9.1 Uso básico de SSH
+
+Para conectar dos equipos mediante SSH se utiliza un modelo **cliente-servidor**:
+
+- **Cliente:** La máquina local desde la que nos conectamos (CLI en Linux/macOS o GUI's como PuTTY/OpenSSH en Windows).
+- **Servidor:** Equipo o servidor remoto que escucha peticiones de conexión (normalmente en el puerto TCP 22).
+
+El comando básico en la terminal se compone de:
+
+```bash
+ssh usuario@direccion_ip_o_dominio
+```
+
+- **ssh:** Indica al sistema que inicie una sesión cifrada Secure Shell.
+- **usuario:** Cuenta a la que deseamos acceder (p.e. root).
+- **direccion_ip_o_dominio:** Dirección del servidor al que nos conectamos (p.e. 192.168.1.1 o servidor.com).
+
+### 9.2 Mecanismos de cifrado en SSH
+
+SSH combina **3 métodos criptográficos distintos** para garantizar la privacidad, la autenticación y la integridad de los datos.
+
+```mermaid
+flowchart TB
+    A["<b>Protocolo SSH</b><hr><br/>Puerto 22"] --> C["<b>Cifrado simétrico</b><hr><br/><div style='text-align: left;'>• 1 clave compartida</div><div style='text-align: left;'>• Cifra toda la sesión</div><div style='text-align: left;'>• Algoritmos de cifrado: AES, Blowfish</div>"]
+    A --> D["<b>Cifrado asimétrico</b><hr><br/><div style='text-align: left;'>• Par de claves (pública y privada)</div><div style='text-align: left;'>• Intercambio de clave y autenticación</div><div style='text-align: left;'>• Algoritmos de cifrado: RSA, ECC o Diffie-Hellman</div>"]
+    A --> E["<b>Hashing</b><hr><br/><div style='text-align: left;'>• Función unidireccional</div><div style='text-align: left;'>• Verifica la integridad de los datos</div><div style='text-align: left;'>• Detecta alteraciones</div><div style='text-align: left;'>• Algoritmos de hash: SHA-3, KDF</div>"]
+```
+
+1. **Cifrado simétrico**  
+    - El cifrado simétrico utiliza **una única clave secreta** tanto para **cifrar como para descifrar** la información en ambos lados.  
+    - **Uso en SSH:** Cifra la totalidad del tráfico y los comandos enviados durante la sesión activa.
+    - **Seguridad:** La clave no se transmite por la red. El cliente y el servidor la generan de manera independiente durante el saludo inicial mediante un algoritmo de intercambio de claves.
+
+1. **Cifrado Asimétrico**  
+    - El cifrado asimétrico emplea **un par de claves matemáticamente enlazadas**.
+        - **Una clave pública** que se puede compartir libremente.
+        - **Una clave privada** que debe mantenerse secreta.  
+    - Lo que se cifra con la clave pública solo puede descifrarse con la clave privada correspondiente.  
+    - **Uso en SSH:** No se utiliza para cifrar toda la sesión (por ser computacionalmente más lento), sino para:
+        - **Autenticar** la identidad del cliente y del servidor.
+        - **Negociar** de forma segura la clave simétrica que se usará en la sesión.
+
+1. **Hashing (Verificación de Integridad)**  
+    - El hashing transforma cualquier entrada de datos en un valor único de longitud fija de forma unidireccional. No es posible de revertir es decir, con el hash no es posible obtener la información original.  
+    - **Uso en SSH:** SSH utiliza HMAC (Hash-based Message Authentication Codes) para asegurar que los comandos e información transmitidos no hayan sido interceptados o alterados por terceros en tránsito.
+
+### 9.3 Establecimiento de una conexión SSH
+
+En la siguiente imagen se muestran, de forma simplificada, las principales etapas que intervienen en el establecimiento de una conexión SSH.
+![Descripción de la imagen](./img_3/img_3_54.png){ .margintop10 .marginbottom10  }
+
+**1 - Inicio de la conexión TCP:** El cliente establece una conexión TCP con el servidor, normalmente a través del puerto (de escucha) 22.  
+**2 - Intercambio de versiones:** Cliente y servidor intercambian información sobre las versiones del protocolo SSH que admiten.
+Negociación de algoritmos: Ambas partes acuerdan los algoritmos criptográficos que utilizarán para el intercambio de claves, el cifrado, la integridad (MAC) y, opcionalmente, la compresión de los datos.  
+**3-4-5 - Intercambio de claves y generación del secreto compartido:** Mediante un protocolo de intercambio de claves, como Diffie-Hellman o ECDH, cliente y servidor generan un secreto compartido que permitirá establecer las claves de sesión utilizadas para cifrar la comunicación.  
+**6 - Verificación de la identidad del servidor:** El cliente verifica la identidad del servidor mediante su clave pública, que se compara con una clave previamente conocida o almacenada en el archivo known_hosts.  
+**7-8 - Configuración del cifrado:** Una vez establecido el secreto compartido, se activan los mecanismos de cifrado e integridad para proteger las comunicaciones posteriores.  
+**9 - Autenticación del usuario:** El cliente demuestra su identidad ante el servidor, normalmente mediante contraseña, clave pública/privada SSH u otros mecanismos de autenticación configurados en el servidor.  
+**10 - Establecimiento de la sesión:** Una vez autenticado el usuario, se establece una sesión SSH y el cliente puede solicitar un shell remoto, ejecutar comandos o utilizar otros servicios proporcionados por SSH.  
+
+### 9.4 Tarea RA6-CEf-1 - Conexión SSH desde SO windows con PuTTy  
+
+![Descripción de la imagen](./img_3//img_3_70.png){ .margintop10 .marginbottom10 .trescinco  }
+
+En esta tarea instalaremos PuTTY en nuestra **instancia de Windows Server** y no conectaremos por **SSH** a la instancia de **Unbuntu Server**.
+
+!!! warning "Antes de nada nos conectaremos a nuestra instancia de Windows Server"
+
+Descargamos la aplicación desde [la página oficial](https://www.putty.org/index.html) y la instalaremos **en nuestra instancia de Windows Server**.
+
+![Descripción de la imagen](./img_3/img_3_55.png){ .margintop10 .marginbottom10 .seiscinco }
+
+Una vez instalado **PuTTy** consultaremos [la documentación de AWS](https://docs.aws.amazon.com/es_es/AWSEC2/latest/UserGuide/connect-linux-inst-from-windows.html) y la seguiremos paso a paso.
+
+#### 9.4.1 Convertir la clave privada con PuTTYgen
+
+- Ejecutamos PuTTYgen (instalado al mismo tiempo que PuTTy). En **Type of key to generate**, elegimos RSA. Si la versión de PuTTYGen no incluye esta opción, eligiremos SSH-2 RSA.
+![Descripción de la imagen](./img_3/img_3_59.png){ .margintop10 .marginbottom10  }
+
+- Elegimos Load.  
+De forma predeterminada, PuTTYgen muestra solo archivos con **la extensión .ppk**. Para localizar el archivo .pem, seleccionamos la opción de mostrar todos los tipos de archivo.  
+Seleccionamos **el archivo .pem** para el par de claves que se especificó cuando se lanzó la instancia y, a continuación, eligimos **Open (Abrir)**.
+![Descripción de la imagen](./img_3/img_3_60.png){ .margintop10 .marginbottom10  }
+
+- Si la importación se ha hecho correctamente, no aparecerá un aviso similar a la siguiente imagen.  
+![Descripción de la imagen](./img_3/img_3_61.png){ .margintop10 .marginbottom10  }  
+
+- Luego elegimos **Save private key** para guardar la clave en un formato que PuTTY pueda utilizar. Si no ponemos ninguna contraseña para el archivo de claves, PuTTYgen mostrará una advertencia (eligimos Yes si no queremos poner contraseña).  
+![Descripción de la imagen](./img_3/img_3_62.png){ .margintop10 .marginbottom10  }
+
+- Especificaremos un nombre para el archivo de claves. PuTTY añadirá la extensión de archivo .ppk automáticamente.
+![Descripción de la imagen](./img_3/img_3_63.png){ .margintop10 .marginbottom10 .leftseiscero }
+
+#### 9.4.2 Conexión con la instancia de Linux
+
+- Ejecutamos PuTTY a vamos a **Connection** → **SSH** → **Auth** y en **Private key file** cargamos el archivo de claves que acabamos de crear.
+![Descripción de la imagen](./img_3/img_3_64.png){ .margintop10 .marginbottom10  }
+
+- En la pantalla principal, introducimos la IP de nuestra instancia de **Ubuntu Server** y lanzamos la conexión.  
+![Descripción de la imagen](./img_3/img_3_56.png){ .margintop10 .marginbottom10  }
+
+- Si hemos puesto contraseña a nuestro archivo de claves, lo introducimos.
+![Descripción de la imagen](./img_3/img_3_65.png){ .margintop10 .marginbottom10  }
+
+- Obviamos las advertencias de seguridad.
+![Descripción de la imagen](./img_3/img_3_57.png){ .margintop10 .marginbottom10  }
+
+- Si todo ha ido bien, tendremos acceso a la terminal de nuestra instancia.
+![Descripción de la imagen](./img_3/img_3_66.png){ .margintop10 .marginbottom10  }
+
+!!! warning "Preparación de la siguiente tarea"
+
+Para poder realizar la práctica siguiente, necesitaremos enviar el par de claves de nuestras instancias (LabUser). Ese tipo de proceder no es **una buena práctica, desde el punto de vista de la seguridad informática** pero, lo haremos para facilitar la conexión SSH entre instancias con distribuciones Linux en AWS.
 
 
-### 6.5 Conexión remota a la instancia de Windows Server 2025 desde Linux
-<!-- doc SSH -->
+
+### 9.4 Tarea RA6-CEf-1 - Conexión SSH desde Linux con cliente SSH
+
+```bash
+ssh -V
+```
+
+![Descripción de la imagen](./img_3/img_3_68.png){ .margintop10 .marginbottom10  }
+
+
+
 <!-- https://marcosruiz.github.io/posts/servicio-ssh/ -->
+<!-- https://www.hostinger.com/es/tutoriales/que-es-ssh/ -->
+<!-- https://gatlenculp.medium.com/a-practical-guide-to-ssh-7dece875a41a -->
+
+
+<!-- revisar -->
+
 <!-- https://docs.google.com/presentation/d/1eJTYUdgqbQTfzIJDM4FhhvqMX3ICfIG85OaFwnReU3A/edit?slide=id.g1142a802_1_0#slide=id.g1142a802_1_0 -->
 <!-- https://acastan.gitbook.io/servicios -->
 <!-- https://www.educatica.es/informatica/sistemas-operativos-en-red/casos-practicos/2408-administracion-remota/administracion-remota/ -->
