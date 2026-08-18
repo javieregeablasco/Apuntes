@@ -492,7 +492,7 @@ Negociación de algoritmos: Ambas partes acuerdan los algoritmos criptográficos
 **9 - Autenticación del usuario:** El cliente demuestra su identidad ante el servidor, normalmente mediante contraseña, clave pública/privada SSH u otros mecanismos de autenticación configurados en el servidor.  
 **10 - Establecimiento de la sesión:** Una vez autenticado el usuario, se establece una sesión SSH y el cliente puede solicitar un shell remoto, ejecutar comandos o utilizar otros servicios proporcionados por SSH.  
 
-### 9.4 Tarea RA6-CEf-1 - Conexión SSH desde SO windows con PuTTy  
+### 9.5 Tarea RA6-CEf-1 - Conexión SSH desde SO windows con PuTTy  
 
 ![Descripción de la imagen](./img_3//img_3_70.png){ .margintop10 .marginbottom10 .trescinco  }
 
@@ -506,7 +506,7 @@ Descargamos la aplicación desde [la página oficial](https://www.putty.org/inde
 
 Una vez instalado **PuTTy** consultaremos [la documentación de AWS](https://docs.aws.amazon.com/es_es/AWSEC2/latest/UserGuide/connect-linux-inst-from-windows.html) y la seguiremos paso a paso.
 
-#### 9.4.1 Convertir la clave privada con PuTTYgen
+#### 9.5.1 Convertir la clave privada con PuTTYgen
 
 - Ejecutamos PuTTYgen (instalado al mismo tiempo que PuTTy). En **Type of key to generate**, elegimos RSA. Si la versión de PuTTYGen no incluye esta opción, eligiremos SSH-2 RSA.
 ![Descripción de la imagen](./img_3/img_3_59.png){ .margintop10 .marginbottom10  }
@@ -525,7 +525,7 @@ Seleccionamos **el archivo .pem** para el par de claves que se especificó cuand
 - Especificaremos un nombre para el archivo de claves. PuTTY añadirá la extensión de archivo .ppk automáticamente.
 ![Descripción de la imagen](./img_3/img_3_63.png){ .margintop10 .marginbottom10 .leftseiscero }
 
-#### 9.4.2 Conexión con la instancia de Linux
+#### 9.5.2 Conexión con la instancia de Linux
 
 - Ejecutamos PuTTY a vamos a **Connection** → **SSH** → **Auth** y en **Private key file** cargamos el archivo de claves que acabamos de crear.
 ![Descripción de la imagen](./img_3/img_3_64.png){ .margintop10 .marginbottom10  }
@@ -542,21 +542,101 @@ Seleccionamos **el archivo .pem** para el par de claves que se especificó cuand
 - Si todo ha ido bien, tendremos acceso a la terminal de nuestra instancia.
 ![Descripción de la imagen](./img_3/img_3_66.png){ .margintop10 .marginbottom10  }
 
+#### 9.4.3 Migración del archivo de claves
+
 !!! warning "Preparación de la siguiente tarea"
 
-Para poder realizar la práctica siguiente, necesitaremos enviar el par de claves de nuestras instancias (LabUser). Ese tipo de proceder no es **una buena práctica, desde el punto de vista de la seguridad informática** pero, lo haremos para facilitar la conexión SSH entre instancias con distribuciones Linux en AWS.
+Para poder realizar la siguiente práctica, necesitaremos enviar el archivo con el par de claves de nuestras instancias (LabUser) a la intancia que usaremos de cliente para la conexión SSH.  
 
+Ese tipo de proceder no es **una buena práctica, desde el punto de vista de la seguridad informática** pero, lo haremos para facilitar la conexión SSH entre instancias con distribuciones Linux en AWS.
 
+- Primero recuperaremos la IP pública de la instancia a la que enviaremos el archivo de claves.
+![Descripción de la imagen](./img_3/img_3_71.png){ .margintop10 .marginbottom10  }
 
-### 9.4 Tarea RA6-CEf-1 - Conexión SSH desde Linux con cliente SSH
+- Luego enviaremos el archivo de claves **archivo.pem** a la instancia cliente con la aplicación **pscp** del ecosistema PuTTy.  
+Para ello, usaremos la siguiente sintaxis.  
 
-```bash
-ssh -V
-```
+    ```bash
+    pscp -i archivo.ppk archivo.pem ubuntu@IP-publica directorio
+    ```
 
-![Descripción de la imagen](./img_3/img_3_68.png){ .margintop10 .marginbottom10  }
+    ![Descripción de la imagen](./img_3/img_3_72.png){ .margintop10 .marginbottom10  }
 
+- Si nos conectamos por consola de AWS a la instancia cliente, podremos comprobar que el archivo se ha enviado correctamente.
+![Descripción de la imagen](./img_3/img_3_73.png){ .margintop10 .marginbottom10  }
 
+### 9.4 Tarea RA6-CEf-2 - Conexión SSH desde Linux con cliente SSH
+
+#### 9.4.1 Preparación del entorno
+
+- Antes de nada, crearemos otra instancia de Ubuntu-server, dejando la configuración del tipo de instancia así como de la capacidad de almacenaje con los valores por defecto (t3.micro, 8GB).
+
+- Nos conectamos a la instancia de Ubuntu-Server **dónde hemos enviado el archivo con el par de claves** y comprobaremos que el cliente SSH está instalado.
+
+    ```bash
+    ssh -V
+    ```
+
+    ![Descripción de la imagen](./img_3/img_3_68.png){ .marginbottom10  }
+
+- También haremos lo mismo con el servidor SSH y comprobaremos que está funcionando.
+
+    ```bash
+    sshd -V 2<&1
+    ```
+
+    ![Descripción de la imagen](./img_3/img_3_74.png){  .marginbottom10  }
+
+    ```bash
+    systemctl status ssh
+    ```
+
+    ![Descripción de la imagen](./img_3/img_3_75.png){  .marginbottom10  }
+
+#### 9.4.2 Primera conexión SSH entre máquinas Linux
+
+- Usaremos la sintáxis vista anteriormente pero, le añadiremos el archivo de claves:
+
+    ```bash
+    ssh -i archivo.pem usuario@direccion_ip_o_dominio
+    ```
+
+    Es probable que no salte un error al tener permisos de lectura del archivo demasiado permisivos.
+    ![Descripción de la imagen](./img_3/img_3_76.png){  .marginbottom10  }
+
+- Cambiamos los permisos a solo lectura por el propietario con:
+
+    ```bash
+    chmod 400 labsuser.pem
+    ```
+
+    Dónde:
+
+    ```bash
+         4         0      0
+         │         │      │
+         ▼         ▼      ▼
+    propietario  grupo  otros
+         │         │      │
+         ▼         ▼      ▼
+        leer      nada   nada
+    ```
+
+- Comprobamos los nuevos permisos del archivo de clave.
+
+    ```bash
+    ls -l labsuser.pem
+    ```
+
+    ![Descripción de la imagen](./img_3/img_3_77.png){  .marginbottom10  }
+
+- Nos volvemos a conectar a la máquina Ubuntu-Server servidor y esta vez, accedemos sin problemas.
+
+    ![Descripción de la imagen](./img_3/img_3_78.png){  .marginbottom10  }
+
+## 10 - Administración remota con Remmina
+
+![Descripción de la imagen](./img_3/img_3_79.png){  .marginbottom10 .cincozero }
 
 <!-- https://marcosruiz.github.io/posts/servicio-ssh/ -->
 <!-- https://www.hostinger.com/es/tutoriales/que-es-ssh/ -->

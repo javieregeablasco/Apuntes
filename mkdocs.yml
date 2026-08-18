@@ -137,6 +137,7 @@ nav:
     - Protocolo TCP/IP: SMX/SMX_2/SX/apuntes/02_TCP-IP.md
     # - Protocolo DHCP: SMX/SMX_2/SX/apuntes/03_DHCP.md
     - Acceso y control remoto: SMX/SMX_2/SX/apuntes/03_Conexiones-remotas.md
+    - Protocolo DHCP: SMX/SMX_2/SX/apuntes/04_DHCP.md
     - Protocolo DNS/IP: SMX/SMX_2/SX/apuntes/04_DNS.md
 
   - Under development:
