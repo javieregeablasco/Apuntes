@@ -210,12 +210,12 @@ Una dirección **IP dinámica** es una dirección que se asigna automáticamente
 
 ## 4 - Tarea RA1-def-1 - Instalación y configuración de un DHCP con Windows Server en AWS
 
-## 4.1 Objetivo de la práctica
+### 4.1 Objetivo de la práctica
 
 - Desplegar un servidor DHCP en Windows Server sobre AWS con virtualización anidada.
 - En este primer paso instalaremos y configuraremos el rol **DHCP Server** en Windows Server, y observaremos en tiempo real cómo varios equipos cliente obtienen su configuración IP (DHCPDISCOVER → OFFER → REQUEST → ACK), reservas, exclusiones, ámbitos (scopes), opciones de ámbito (DNS, puerta de enlace, etc.).
 
-## 4.2 Limitaciones de AWS para el despliegue de un servicio DHCP
+### 4.2 Limitaciones de AWS para el despliegue de un servicio DHCP
 
 Dentro de **una VPC** (virtual private cloud) de AWS, **el tráfico broadcast/multicast no se propaga entre instancias**.
 
@@ -230,7 +230,7 @@ Cada tarjeta de red ENI (Elastic Network Interface) recibe su IP exclusivamente 
     - Familias soportadas actualmente: `C8i`, `M8i`, `R8i`, `C8id`, `R8id`, `M8id`, `C8i-flex`, `R8i-flex`, `M8i-flex`, `X8i`, `C7i`, `R7i`, `M7i`, `C7id`, `R7id`, `M7id`, `C7i-flex`, `R7i-flex`, `M7i-flex`, `I7i`. 
     - Solo procesadores Intel (no Graviton). Hipervisores L1 soportados: **Hyper-V** y **KVM**.
 
-## 4.3 Arquitectura del laboratorio
+### 4.3 Arquitectura del laboratorio
 
 !!! important "Diagrama de la infraestructura de red"
     ![Descripción de la imagen](./img_4/img_4_9.png)
@@ -240,9 +240,9 @@ Instancia EC2 (m7i.large, 100GB, Windows Server 2025 Base, Virtualización HVM)
 │
 ├── Hyper-V
 │   │
-│   ├── Windows Server 2025 Base → Rol DHCP Server
-│   │
 │   ├── Switch virtual "Interno" (Internal / Private) sin salida a la VPC
+│   │
+│   ├── Windows Server 2025 Base → Rol DHCP Server
 │   │
 │   ├── VM-1: Alpine Linux (cliente) → IP por DHCP
 │   └── VM-2: Windows 10/11 (cliente) → IP por DHCP
@@ -251,10 +251,9 @@ Instancia EC2 (m7i.large, 100GB, Windows Server 2025 Base, Virtualización HVM)
 
 !!! tip "Con el switch en modo **Interno/Privado** (no "Externo"), el broadcast DHCP se queda encerrado dentro del propio hipervisor Hyper-V."
 
-### 4.3.1 Activar / comprobar el nested virtualization en una instancia YA existente
+#### 4.3.1 Activar / comprobar el nested virtualization en una instancia YA existente
 
 Para ello, nos conectaremos a la instancia de Windows Server creada en prácticas anteriores.
-
 !!! question "Comprobación del Nested Virtualization"
 
     - Abrimos el Windows Powershell y escribimos el siguiente comando
@@ -316,7 +315,7 @@ Para ello, nos conectaremos a la instancia de Windows Server creada en práctica
     - Seleccionamos Local Server → Services → buscamos hyper-V 
     ![Descripción de la imagen](./img_4/img_4_49.png){.margintop10}
 
-### 4.3.2 Crear el switch virtual interno
+#### 4.3.2 Crear el switch virtual interno
 
 - Vamos a **Hyper-V Manager** → **Virtual Switch Manager**:
 ![Descripción de la imagen](./img_4/img_4_50.png){.margintop10 .marginbottom10}
@@ -332,13 +331,126 @@ Después de **ipconfig**
 - Si volvemos a **Hyper-V** → **SERVERS** → Refrescamos el estado del servidor (solo tenemos uno) veremos que tenemos unaIP interna del servidor en nuestra red virtual privada, siendo la otra IP, la IP de la instancia dentro de **la VPC de AWS**.
 ![Descripción de la imagen](./img_4/img_4_52.png){.margintop10 .marginbottom10}
 
-### 4.3.3 Configurar los parametros de red
+#### 4.3.3 Configurar los parámetros de red
 
+- Como podemos ver en las capturas anteriores, el servidor tiene asignada la IP 169.254.200.142.
+- Esto se debe a la falta de un servidor DHCP en la red virtual, lo que provoca la activación automática de una dirección APIPA (Automatic Private IP Addressing).
+- Hasta que no despleguemos el servidor DHCP, la asignación de IPs en la red privada no podrá realizarse de forma automática, por lo que deberemos configurar manualmente la IP del servidor.
+
+- Nos dirigimos a **Local Server** → **Properties** → **vEthernet**
 ![Descripción de la imagen](./img_4/img_4_54.png){.margintop10 .marginbottom10}
-![Descripción de la imagen](./img_4/img_4_55.png){.margintop10 .marginbottom10}
-![Descripción de la imagen](./img_4/img_4_56.png){.margintop10 .marginbottom10}
+
+- Una vez encontrado el adaptador, configuraremos **el protocolo TCP/IPv4**.
+![Descripción de la imagen](./img_4/img_4_55_1.png){.margintop10 .marginbottom10}
+
+- Refrescamos la información y ya tendremos la IP esperada para nuestro servidor.
+![Descripción de la imagen](./img_4/img_4_56_1.png){.margintop10 .marginbottom10}
+
+- Con esto ya tendremos montada la red virtual de Windows Server. El siguiente paso será montar el servicio DHCP sobre el servidor de Windows Server.
+![Descripción de la imagen](./img_4/img_4_57.png){.margintop10 .marginbottom10}
+
+### 4.4 Instalación y configuración del rol DHCP en el host (Windows Server anfitrión)
+
+#### 4.4.1 Instalar el rol DHCP
+
+- Nos dirigimos a la consola de Windows Server y seleccionamos **Add roles and features**.
+![Descripción de la imagen](./img_4/img_4_11.png){ .margintop10 .marginbottom10 }
+- En server roles seleccionamos el servicio que queremos implementar.
+![Descripción de la imagen](./img_4/img_4_12.png){ .margintop10 .marginbottom10 }
+- Confirmamos las caracteristicas necesarias para el servivio DHCP.
+![Descripción de la imagen](./img_4/img_4_13.png){ .margintop10 .marginbottom10 }
+- Recordatorios: De nada sirve lanzar un servicio sin un planteamiento previo.
+![Descripción de la imagen](./img_4/img_4_14.png){ .margintop10 .marginbottom10 }
+- La instalación del servicio DHCP **no requiere reinicio** pero, lo ticamos de todos modos.
+![Descripción de la imagen](./img_4/img_4_15.png){ .margintop10 .marginbottom10}
+- Se inicia la instalación.
+![Descripción de la imagen](./img_4/img_4_16.png){ .margintop10 .marginbottom10}
+- Al final el instalador dirá que el DHCP requiere configuración. Lo haremos en el siguiente paso. De momento cerramos el asistente.
+![Descripción de la imagen](./img_4/img_4_19.png){ .margintop10 .marginbottom10}
+
+#### 4.4.2 Configurar el rol DHCP
+
+- Volvemos al panel de control dónde veremos que tenemos el servicio DHCP disponible.
+![Descripción de la imagen](./img_4/img_4_58.png){ .margintop10 .marginbottom10}
+- Completamos la configuración del DHCP.
+![Descripción de la imagen](./img_4/img_4_17.png){ .margintop10 .marginbottom10}
+- Hacemos un commit.
+![Descripción de la imagen](./img_4/img_4_18.png){ .margintop10 .marginbottom10}
+- Vamos al panel de control del DHCP y comprobamos que el servicio sobre IPv4 y IPv6 está implementado.
+![Descripción de la imagen](./img_4/img_4_20.png){ .margintop10 .marginbottom10}
+![Descripción de la imagen](./img_4/img_4_23.png){ .margintop10 .marginbottom10}
+
+#### 4.4.3 Crear el ámbito (scope)
+
+Una vez instalado el rol de servidor DHCP, el siguiente paso es crear un ámbito (scope), es decir, el rango de direcciones IP que el servidor podrá asignar automáticamente a los equipos de la red. En este apartado configuraremos dicho rango junto con los parámetros básicos necesarios (máscara de subred, puerta de enlace, duración de la concesión, etc.) para que los clientes de la red privada puedan obtener su configuración de red de forma automática.
+
+- Vamos a la consola de configuración de DHCP.
+![Descripción de la imagen](./img_4/img_4_61.png){ .margintop10 .marginbottom10}
+- Seleccionamos **new scope** y damos un nombre al ámbito.
+![Descripción de la imagen](./img_4/img_4_62.png){ .margintop10 .marginbottom10}
+- Estableceremos un rango de direcciones suficiente, siempre en función de nuestras necesidades. También tendremos que tener en cuenta dejar fuera del rango DHCP las direcciones IP reservadas para los sistemas que requieren **IP estática**, como switches, servidores de dominio, servidores DHCP, impresoras o sistemas de almacenamiento en red. Por último, deberemos reservar otro rango de direcciones IP para los dispositivos no anclados a la red, como tabletas, ordenadores portátiles o teléfonos móviles.
+![Descripción de la imagen](./img_4/img_4_60.png){ .margintop10 .marginbottom10}
+- Dejamos en blanco la pantalla de **Add Exclusions and Delay**.
+- Configurar la duración del lease (lease duration) es decir, el tiempo durante el cual un cliente mantendrá asignada una dirección IP antes de tener que renovarla. Este valor debe ajustarse según el tipo de red y de dispositivos que la componen: en redes estables con equipos fijos conviene establecer una duración larga (varios días), mientras que en redes con gran cantidad de dispositivos móviles o temporales resulta más adecuado un lease corto, ya que permite liberar y reutilizar las direcciones IP con mayor frecuencia.
+En nuestro caso, estableceremos una duración de lease de 8 días (valor por defecto).
+- En **Configure DHCP Options** seleccionamos la opción **No** para configurarlo más adelante.
+![Descripción de la imagen](./img_4/img_4_63.png){ .margintop10 .marginbottom10}
+- En post installation no saldrá un aviso de reiniciar el servicio.
+![Descripción de la imagen](./img_4/img_4_21.png){ .margintop10 .marginbottom10}
+- Reiniciamos el servicio.
+![Descripción de la imagen](./img_4/img_4_22.png){ .margintop10 .marginbottom10}
+
+#### 4.4.4 Activar el scope
+
+- Vamos a la consola de DHCo y veremos nuestro scope en rojo (desactivado).
+![Descripción de la imagen](./img_4/img_4_64.png){ .margintop10 .marginbottom10}
+- Haremos clic derecho y lo activaremos.
+![Descripción de la imagen](./img_4/img_4_65.png){ .margintop10 .marginbottom10}
+
+#### 4.4.5 Configurar opciones del ámbito
+
+Las opciones de ámbito son parámetros de configuración adicionales que el servidor DHCP puede asignar a los clientes DHCP por ejemplo el DNS y la puerta de enlace (enrutador).
+
+- Vamos a scope y seleccionamos **Configure Options...**
+![Descripción de la imagen](./img_4/img_4_66.png){ .margintop10 .marginbottom10}
+- Buscamos la opción **003 Enrutador**, que permitirá a las máquinas conectadas a la red virtual acceder a Internet. No configuraremos el DNS, ya que lo veremos en otra unidad, ni definiremos un controlador de dominio, puesto que la implementación de Active Directory se tratará más adelante y queda fuera del alcance de este apartado.
+![Descripción de la imagen](./img_4/img_4_67.png){ .margintop10 .marginbottom10}
+- Comprobamos que la option se ha guardado correctamente.
+![Descripción de la imagen](./img_4/img_4_68.png){ .margintop10 .marginbottom10}
+
+#### 4.4.6 Best Practices analyzer
+
+No es una herramienta especifica del servicio DHCP sino de todo el ecosistema de Windows Server.
+
+- Vamos a BPA → **TASKS** → Start BPA Scan
+![Descripción de la imagen](./img_4/img_4_69.png){ .margintop10 .marginbottom10}
+
+**Nota:**  
+Algunos de los errores o advertencias que aparecen se deben a las limitaciones de nuestra infraestructura. No los tendremos en cuenta. 
+
+## 4.4.7 Comprobar el servicio por CLI
+
+```powershell
+Get-DhcpServerV4Scope
+Get-DhcpServerV4OptionValue -ScopeId 192.168.10.0
+```
+
+![Descripción de la imagen](./img_4/img_4_70.png){ .marginbottom10}
+
+```powershell
+ipconfig
+```
+
+![Descripción de la imagen](./img_4/img_4_71.png){ .marginbottom10}
+
+- Con esto ya tendremos montada la red virtual de Windows Server y el servidor DHCP. El siguiente paso será montar clientes con Alpine Linux y comprobar si las asignaciones de IP y el acceso a internet se hace correctamente.
+![Descripción de la imagen](./img_4/img_4_72.png){ .margintop10 .marginbottom10}
 
 
+
+
+
+<!-- https://www.youtube.com/watch?v=nc-ratzt1MU&t=750s -->
 
 
 
@@ -346,7 +458,6 @@ Después de **ipconfig**
 
 
 
-<!-- https://www.youtube.com/watch?v=l1nmL4JpzV8 -->
 <!-- https://www.youtube.com/watch?v=ItmHj-j5spI -->
 
 ## Paso 5 — Crear las máquinas virtuales cliente
@@ -407,52 +518,6 @@ Repite los pasos 5.1–5.6 con `CLIENTE-2` si quieres un segundo cliente.
 
 **Alternativa Windows:** si prefieres un cliente Windows (más pesado, ~2 GB RAM) en vez de Alpine, usa el mismo procedimiento pero descargando un ISO de Windows Server/10/11 desde el Centro de evaluación de Microsoft.
 
-## Paso 6 — Configurar el rol DHCP en el host (Windows Server anfitrión)
-
-### 6.1 Instalar el rol
-```powershell
-Install-WindowsFeature -Name DHCP -IncludeManagementTools
-```
-No requiere reinicio.
-
-### 6.2 Autorizar el servidor (solo aplica con Active Directory)
-```powershell
-Add-DhcpServerInDC -DnsName $env:COMPUTERNAME
-```
-`$env:COMPUTERNAME` es una variable de entorno que PowerShell resuelve automáticamente al nombre real del servidor — no hay que sustituirla a mano. En un servidor **standalone** (sin dominio, el caso típico de este laboratorio) este comando puede dar error; es esperable, ignóralo y continúa.
-
-### 6.3 Asignar IP fija a la interfaz del switch interno
-Al crear el switch interno, Windows crea automáticamente un adaptador virtual en el host (`vEthernet (LAN-Laboratorio-DHCP)`). Compruébalo:
-```powershell
-Get-NetIPAddress -InterfaceAlias "vEthernet (LAN-Laboratorio-DHCP)" -AddressFamily IPv4
-```
-Si ves una IP tipo `169.254.x.x` (APIPA), es normal — significa que aún no tiene IP fija. Asígnasela (será la puerta de enlace/DNS del ámbito):
-```powershell
-New-NetIPAddress -InterfaceAlias "vEthernet (LAN-Laboratorio-DHCP)" -IPAddress 192.168.10.1 -PrefixLength 24
-```
-
-### 6.4 Crear el ámbito (scope)
-```powershell
-Add-DhcpServerV4Scope -Name "Aula-SMR" `
-  -StartRange 192.168.10.100 `
-  -EndRange 192.168.10.200 `
-  -SubnetMask 255.255.255.0 `
-  -State Active
-```
-
-### 6.5 Configurar opciones del ámbito (DNS, puerta de enlace)
-```powershell
-Set-DhcpServerV4OptionValue -ScopeId 192.168.10.0 `
-  -DnsServer 8.8.8.8 `
-  -Router 192.168.10.1
-```
-
-### 6.6 Comprobar
-```powershell
-Get-DhcpServerV4Scope
-Get-DhcpServerV4OptionValue -ScopeId 192.168.10.0
-```
-También puedes activarlo y revisarlo desde la consola gráfica (**DHCP → clic derecho al ámbito → Activate**) para que los alumnos vean el proceso completo por GUI además de por PowerShell.
 
 ## Paso 7 — Verificar desde los clientes
 
@@ -551,19 +616,6 @@ Opciones, de más simple a más automatizada:
 <!-- https://www.youtube.com/watch?v=ItmHj-j5spI -->
 
 
-![Descripción de la imagen](./img_4/img_4_11.png){ .marco}
-![Descripción de la imagen](./img_4/img_4_12.png){ .marco}
-![Descripción de la imagen](./img_4/img_4_13.png){ .marco}
-![Descripción de la imagen](./img_4/img_4_14.png){ .marco}
-![Descripción de la imagen](./img_4/img_4_15.png){ .marco}
-![Descripción de la imagen](./img_4/img_4_16.png){ .marco}
-![Descripción de la imagen](./img_4/img_4_17.png){ .marco}
-![Descripción de la imagen](./img_4/img_4_18.png){ .marco}
-![Descripción de la imagen](./img_4/img_4_19.png){ .marco}
-![Descripción de la imagen](./img_4/img_4_20.png){ .marco}
-![Descripción de la imagen](./img_4/img_4_21.png){ .marco}
-![Descripción de la imagen](./img_4/img_4_22.png){ .marco}
-![Descripción de la imagen](./img_4/img_4_23.png){ .marco}
 ![Descripción de la imagen](./img_4/img_4_24.png){ .marco}
 ![Descripción de la imagen](./img_4/img_4_25.png){ .marco}
 ![Descripción de la imagen](./img_4/img_4_26.png){ .marco}
