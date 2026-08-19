@@ -2,7 +2,7 @@
 ciclo: CFGM - Técnico en Sistemas Microinformáticos y Redes
 title: Servicios en red
 module number: 0227
-lesson: UD. 3.0 - DHCP
+lesson: UD. 4.0 - DHCP
 author: Javier Egea Blasco  
 layout: default  
 year: 26-27  
@@ -208,9 +208,383 @@ Una dirección **IP dinámica** es una dirección que se asigna automáticamente
     - **Dependencia del servidor DHCP:** Si el servidor falla, los dispositivos pueden no obtener una dirección IP válida.
     - **Menor control sobre la asignación:** Puede ser más difícil rastrear qué dispositivo tiene qué dirección IP en un momento dado.
 
-## 4 - Instalación y configuración de un DHCP con Windows Server en AWS
+## 4 - Tarea RA1-def-1 - Instalación y configuración de un DHCP con Windows Server en AWS
+
+## 4.1 Objetivo de la práctica
+
+- Desplegar un servidor DHCP en Windows Server sobre AWS con virtualización anidada.
+- En este primer paso instalaremos y configuraremos el rol **DHCP Server** en Windows Server, y observaremos en tiempo real cómo varios equipos cliente obtienen su configuración IP (DHCPDISCOVER → OFFER → REQUEST → ACK), reservas, exclusiones, ámbitos (scopes), opciones de ámbito (DNS, puerta de enlace, etc.).
+
+## 4.2 Limitaciones de AWS para el despliegue de un servicio DHCP
+
+Dentro de **una VPC** (virtual private cloud) de AWS, **el tráfico broadcast/multicast no se propaga entre instancias**.
+
+DHCP depende de broadcasts (`255.255.255.255`), así que un cliente en una instancia EC2 **nunca "verá" un DHCPOFFER** de otra instancia EC2 en la misma subred.  
+Cada tarjeta de red ENI (Elastic Network Interface) recibe su IP exclusivamente **del DHCP interno de AWS, que no se puede sustituir**.
+
+**Solución:** Montar toda la práctica **dentro** de una sola instancia EC2, usando un hipervisor anidado (Hyper-V) donde sí existe broadcast real entre las VMs virtuales.
+
+!!! important "Novedad Feb 2026"
+
+    - Desde el **16 de febrero de 2026**, AWS soporta oficialmente virtualización anidada en instancias EC2 **normales** (no metal). ctica. 
+    - Familias soportadas actualmente: `C8i`, `M8i`, `R8i`, `C8id`, `R8id`, `M8id`, `C8i-flex`, `R8i-flex`, `M8i-flex`, `X8i`, `C7i`, `R7i`, `M7i`, `C7id`, `R7id`, `M7id`, `C7i-flex`, `R7i-flex`, `M7i-flex`, `I7i`. 
+    - Solo procesadores Intel (no Graviton). Hipervisores L1 soportados: **Hyper-V** y **KVM**.
+
+## 4.3 Arquitectura del laboratorio
+
+!!! important "Diagrama de la infraestructura de red"
+    ![Descripción de la imagen](./img_4/img_4_9.png)
+
+```bash
+Instancia EC2 (m7i.large, 100GB, Windows Server 2025 Base, Virtualización HVM)
+│
+├── Hyper-V
+│   │
+│   ├── Windows Server 2025 Base → Rol DHCP Server
+│   │
+│   ├── Switch virtual "Interno" (Internal / Private) sin salida a la VPC
+│   │
+│   ├── VM-1: Alpine Linux (cliente) → IP por DHCP
+│   └── VM-2: Windows 10/11 (cliente) → IP por DHCP
+│   
+```
+
+!!! tip "Con el switch en modo **Interno/Privado** (no "Externo"), el broadcast DHCP se queda encerrado dentro del propio hipervisor Hyper-V."
+
+### 4.3.1 Activar / comprobar el nested virtualization en una instancia YA existente
+
+Para ello, nos conectaremos a la instancia de Windows Server creada en prácticas anteriores.
+
+!!! question "Comprobación del Nested Virtualization"
+
+    - Abrimos el Windows Powershell y escribimos el siguiente comando
+    ```powershell
+    Get-WindowsFeature -Name Hyper-V
+    ```
+
+    - Si Obtenemos el siguiente resultado ([ ] vacío + Available) significa que está **disponible por no instalado**.
+    ![Descripción de la imagen](./img_4/img_4_8.png){.margintop10}
+
+!!! success "Activar la virtualización de la CPU por la consola de AWS"
+
+    - Abrimos el powershell de AWS y escribimos los siguientes comandos:  
+    **Nota IMPORTANTE:** Cambiar la id por la **id de vuestra instancia**.
+    ```powershell
+    # 1. Parar la instancia (aunque la acabes de arrancar)
+    aws ec2 stop-instances --instance-ids i-069fe851e6325d765
+
+    # 2. Esperar a que quede realmente parada
+    aws ec2 wait instance-stopped --instance-ids i-069fe851e6325d765
+
+    # 3. Activar nested virtualization con el comando correcto
+    aws ec2 modify-instance-cpu-options \
+      --instance-id i-069fe851e6325d765 \
+      --nested-virtualization enabled
+
+    # 4. Arrancarla de nuevo
+    aws ec2 start-instances --instance-ids i-069fe851e6325d765
+    ```
+
+    - Lanzar el powershell de AWS.
+    ![Descripción de la imagen](./img_4/img_4_48.png){.margintop10}
+    - Comandos en ejecución.  
+    ![Descripción de la imagen](./img_4/img_4_46.png){.margintop10 .leftcien}
+
+!!! Success "Activación del Nested Vitualization"
+
+    - Activaremos la virtualización anidada con el siguiente comando.
+    ```powershell
+    Install-WindowsFeature -Name Hyper-V -IncludeManagementTools -Restart
+    ```
+    ![Descripción de la imagen](./img_4/img_4_47.png){.leftcien}
+    - Como hemos incluido la opción de reinicio del sistema, perderemos la conexión con la instancia...
+    
+!!! question "Comprobación del Nested Virtualization por CLI"
+
+    - Nos conectamos de nuevo a la instancia.
+    Abrimos el Windows Powershell y escribimos el siguiente comando
+    ```powershell
+    Get-WindowsFeature -Name Hyper-V
+    ```
+    - Si nos aparece [X] Hyper-V, significa que el servicio se ha instalado correctamente.
+    ![Descripción de la imagen](./img_4/img_4_45.png){.margintop10}
+
+!!! question "Comprobación del Nested Virtualization en la consola de Windows Server"
+
+    - Abrimos el **Server Manager**.
+    ![Descripción de la imagen](./img_4/img_4_10.png){.margintop10}
+    - Seleccionamos Local Server → Services → buscamos hyper-V 
+    ![Descripción de la imagen](./img_4/img_4_49.png){.margintop10}
+
+### 4.3.2 Crear el switch virtual interno
+
+- Vamos a **Hyper-V Manager** → **Virtual Switch Manager**:
+![Descripción de la imagen](./img_4/img_4_50.png){.margintop10 .marginbottom10}
+
+- Luego seleccionamos → **New virtual network switch**
+![Descripción de la imagen](./img_4/img_4_51.png){.margintop10 .marginbottom10}
+
+- Tipo: **Internal**. Esto asegura que el tráfico DHCP nunca sale hacia la red de AWS ni a otras instancias. También seleccionaremos **Enable virtual LAN id...**. De ese modo el adaptador de red virtual aparecerá con cualquier otro adaptador.
+![Descripción de la imagen](./img_4/img_4_41.png){.margintop10 .marginbottom10}
+Después de **ipconfig**
+![Descripción de la imagen](./img_4/img_4_53.png){.margintop10 .marginbottom10}
+
+- Si volvemos a **Hyper-V** → **SERVERS** → Refrescamos el estado del servidor (solo tenemos uno) veremos que tenemos unaIP interna del servidor en nuestra red virtual privada, siendo la otra IP, la IP de la instancia dentro de **la VPC de AWS**.
+![Descripción de la imagen](./img_4/img_4_52.png){.margintop10 .marginbottom10}
+
+### 4.3.3 Configurar los parametros de red
+
+![Descripción de la imagen](./img_4/img_4_54.png){.margintop10 .marginbottom10}
+![Descripción de la imagen](./img_4/img_4_55.png){.margintop10 .marginbottom10}
+![Descripción de la imagen](./img_4/img_4_56.png){.margintop10 .marginbottom10}
+
+
+
+
+
+<!-- https://claude.ai/chat/c361c6cb-e1f9-429c-b062-5ea3be3912a9 -->
+
+
+
+<!-- https://www.youtube.com/watch?v=l1nmL4JpzV8 -->
+<!-- https://www.youtube.com/watch?v=ItmHj-j5spI -->
+
+## Paso 5 — Crear las máquinas virtuales cliente
+
+Con RAM limitada (p. ej. `m7i.large` con 8 GiB), lo más eficiente es que **el propio host Windows Server actúe como servidor DHCP** (no hace falta una VM `SRV-DHCP` aparte) y usar Hyper-V solo para las VMs cliente. Como cliente, **Alpine Linux** es la opción más ligera (256–512 MB por VM) y perfectamente válida para ver el proceso DHCP completo.
+
+### 5.1 Carpetas de trabajo
+```powershell
+New-Item -Path "C:\ISOs" -ItemType Directory -Force
+New-Item -Path "C:\VMs" -ItemType Directory -Force
+```
+
+### 5.2 Descargar el ISO
+```powershell
+Invoke-WebRequest -Uri "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/x86_64/alpine-standard-3.20.3-x86_64.iso" -OutFile "C:\ISOs\alpine.iso"
+```
+Comprueba que la descarga es correcta (debe rondar 190-250 MB, no unos pocos KB):
+```powershell
+Get-Item "C:\ISOs\alpine.iso" | Select-Object Name, Length
+```
+
+### 5.3 Crear la VM
+```powershell
+New-VM -Name "CLIENTE-1" `
+  -MemoryStartupBytes 512MB `
+  -Generation 2 `
+  -NewVHDPath "C:\VMs\CLIENTE-1.vhdx" `
+  -NewVHDSizeBytes 4GB `
+  -SwitchName "LAN-Laboratorio-DHCP"
+
+Set-VMFirmware -VMName "CLIENTE-1" -EnableSecureBoot Off   # Alpine no está firmado con la clave de MS
+```
+
+### 5.4 Añadir la unidad de DVD y montar el ISO
+> **Importante:** las VMs Generation 2 **no traen unidad de DVD por defecto** (a diferencia de Generation 1). Hay que añadirla explícitamente con `Add-VMDvdDrive`, no basta con `Set-VMDvdDrive` sobre una unidad que no existe (falla en silencio y luego la VM intenta arrancar por red/PXE).
+```powershell
+Add-VMDvdDrive -VMName "CLIENTE-1" -Path "C:\ISOs\alpine.iso"
+Get-VMDvdDrive -VMName "CLIENTE-1"   # debe mostrar el Path del ISO
+```
+
+### 5.5 Forzar el orden de arranque (DVD antes que red)
+```powershell
+Stop-VM -Name "CLIENTE-1" -TurnOff -Force
+Set-VMFirmware -VMName "CLIENTE-1" -FirstBootDevice (Get-VMDvdDrive -VMName "CLIENTE-1")
+Start-VM -Name "CLIENTE-1"
+```
+
+### 5.6 Conectar a la consola de la VM
+Abre **Hyper-V Manager** → doble clic en `CLIENTE-1` (o clic derecho → Connect). Deberías ver arrancar el live system de Alpine. El candado rojo abierto que aparece arriba es solo el indicador de Secure Boot desactivado — no es un error.
+
+En el prompt `localhost login:` entra con:
+```
+root
+```
+(sin contraseña).
+
+Repite los pasos 5.1–5.6 con `CLIENTE-2` si quieres un segundo cliente.
+
+**Alternativa Windows:** si prefieres un cliente Windows (más pesado, ~2 GB RAM) en vez de Alpine, usa el mismo procedimiento pero descargando un ISO de Windows Server/10/11 desde el Centro de evaluación de Microsoft.
+
+## Paso 6 — Configurar el rol DHCP en el host (Windows Server anfitrión)
+
+### 6.1 Instalar el rol
+```powershell
+Install-WindowsFeature -Name DHCP -IncludeManagementTools
+```
+No requiere reinicio.
+
+### 6.2 Autorizar el servidor (solo aplica con Active Directory)
+```powershell
+Add-DhcpServerInDC -DnsName $env:COMPUTERNAME
+```
+`$env:COMPUTERNAME` es una variable de entorno que PowerShell resuelve automáticamente al nombre real del servidor — no hay que sustituirla a mano. En un servidor **standalone** (sin dominio, el caso típico de este laboratorio) este comando puede dar error; es esperable, ignóralo y continúa.
+
+### 6.3 Asignar IP fija a la interfaz del switch interno
+Al crear el switch interno, Windows crea automáticamente un adaptador virtual en el host (`vEthernet (LAN-Laboratorio-DHCP)`). Compruébalo:
+```powershell
+Get-NetIPAddress -InterfaceAlias "vEthernet (LAN-Laboratorio-DHCP)" -AddressFamily IPv4
+```
+Si ves una IP tipo `169.254.x.x` (APIPA), es normal — significa que aún no tiene IP fija. Asígnasela (será la puerta de enlace/DNS del ámbito):
+```powershell
+New-NetIPAddress -InterfaceAlias "vEthernet (LAN-Laboratorio-DHCP)" -IPAddress 192.168.10.1 -PrefixLength 24
+```
+
+### 6.4 Crear el ámbito (scope)
+```powershell
+Add-DhcpServerV4Scope -Name "Aula-SMR" `
+  -StartRange 192.168.10.100 `
+  -EndRange 192.168.10.200 `
+  -SubnetMask 255.255.255.0 `
+  -State Active
+```
+
+### 6.5 Configurar opciones del ámbito (DNS, puerta de enlace)
+```powershell
+Set-DhcpServerV4OptionValue -ScopeId 192.168.10.0 `
+  -DnsServer 8.8.8.8 `
+  -Router 192.168.10.1
+```
+
+### 6.6 Comprobar
+```powershell
+Get-DhcpServerV4Scope
+Get-DhcpServerV4OptionValue -ScopeId 192.168.10.0
+```
+También puedes activarlo y revisarlo desde la consola gráfica (**DHCP → clic derecho al ámbito → Activate**) para que los alumnos vean el proceso completo por GUI además de por PowerShell.
+
+## Paso 7 — Verificar desde los clientes
+
+### En un cliente Alpine
+Dentro de la consola de la VM (root, sin contraseña):
+```sh
+ip link show          # confirma el nombre real de la interfaz (eth0, enp0s3...)
+ip link set eth0 up    # si aparece "state DOWN", súbela manualmente antes de pedir IP
+udhcpc -i eth0
+```
+Si da `network is down`, es que la interfaz está apagada a nivel de enlace — el `ip link set eth0 up` lo soluciona. Si persiste, revisa en el host que el adaptador de la VM está conectado al switch correcto:
+```powershell
+Get-VMNetworkAdapter -VMName "CLIENTE-1" | Select-Object Name, SwitchName, Status
+```
+
+### En un cliente Windows
+```cmd
+ipconfig /release
+ipconfig /renew
+ipconfig /all
+```
+
+En ambos casos, los alumnos deberían ver la IP asignada dentro del rango del ámbito, la puerta de enlace y el DNS entregados por el servidor.
+
+## Paso 8 — Ver el proceso de broadcast y asignación (DORA) en detalle
+
+Esta es la parte más didáctica: ver el intercambio DHCPDISCOVER → DHCPOFFER → DHCPREQUEST → DHCPACK, no solo el resultado final.
+
+### 8.1 Ver los leases concedidos (resultado, no proceso)
+```powershell
+Get-DhcpServerV4Lease -ScopeId 192.168.10.0
+```
+Muestra IP, MAC del cliente, nombre de host y expiración del lease.
+
+### 8.2 Log de auditoría del propio DHCP (sin instalar nada extra)
+Windows Server DHCP registra cada fase del proceso en un log diario:
+```powershell
+Get-Content "C:\Windows\System32\dhcp\DhcpSrvLog-$(Get-Date -Format 'ddd').log" -Tail 30
+```
+Contiene códigos de evento (10 = nuevo lease, 11 = renovación, etc.) con timestamps — buen ejercicio para que el alumnado interprete el log como evidencia textual del DORA.
+
+### 8.3 Captura con tcpdump en el cliente Alpine (ver el DORA en vivo, lado cliente)
+```sh
+apk add tcpdump
+tcpdump -i eth0 -n port 67 or port 68 -v
+```
+Con la captura corriendo, repite `udhcpc -i eth0` en otra sesión (o tras liberar la IP) para ver los 4 paquetes en tiempo real con IPs y puertos 67/68.
+
+### 8.4 Captura con Wireshark en el host (lado servidor, análisis de campos BOOTP/DHCP)
+```powershell
+Invoke-WebRequest -Uri "https://2.na.dl.wireshark.org/win64/Wireshark-latest-x64.exe" -OutFile "C:\Wireshark-installer.exe"
+Start-Process "C:\Wireshark-installer.exe"
+```
+Instala con opciones por defecto (incluye Npcap). Captura en el adaptador **`vEthernet (LAN-Laboratorio-DHCP)`** con el filtro:
+```
+bootp
+```
+Permite inspeccionar campo a campo (Option 53 - Message Type, Option 51 - Lease Time, Client MAC...), justo el nivel de detalle que suele pedirse en el currículo de SMR.
+
+> Si el host no ve tráfico este-oeste de las VMs en Wireshark, activa port mirroring en el adaptador de la VM:
+> ```powershell
+> Set-VMNetworkAdapter -VMName "CLIENTE-1" -PortMirroring Source
+> ```
+
+### 8.5 Ejercicios adicionales con valor curricular
+- **Reservas** por MAC: `Add-DhcpServerV4Reservation`.
+- **Exclusiones** dentro del ámbito: `Add-DhcpServerV4ExclusionRange`.
+- **Liberar y renovar** (contraste DISCOVER completo de 4 paquetes vs. renovación de 2 paquetes): en Alpine, `udhcpc -R` para liberar y volver a pedir.
+- **Agotamiento del ámbito**: crear un ámbito de prueba muy pequeño (p. ej. solo 2-3 IPs) para que los alumnos vean qué ocurre cuando un cliente no puede recibir oferta.
+- **Dos clientes simultáneos**: añadir `CLIENTE-2` y comparar cómo el servidor evita duplicados de IP.
+
+---
+
+## Escalar la práctica a varios alumnos/grupos
+
+Opciones, de más simple a más automatizada:
+
+1. **Una instancia por alumno**, lanzada manualmente siguiendo la guía — válido para grupos pequeños.
+2. **AMI personalizada**: una vez que tengas una instancia con Windows Server + Hyper-V + switch interno + VMs base ya creadas (apagadas), crea una **AMI** a partir de ella. Cada alumno lanza su propia instancia desde esa AMI y ya tiene el entorno listo, solo falta que configuren el DHCP (que es justo la parte que queréis que hagan ellos).
+3. **CloudFormation / Launch Template** para lanzar N instancias idénticas de golpe (una por alumno), reutilizando la AMI del punto 2. Esto os interesa si repetís la práctica cada curso.
+
+¿Quieres que te prepare la plantilla de **CloudFormation** para lanzar automáticamente una instancia por alumno (con nested virtualization activado, AMI personalizada y tags por nombre de alumno), o prefieres primero montar y probar tú una instancia "maestra" de forma manual antes de automatizar?
+
+---
+
+## Notas de coste
+- `m7i.xlarge` en On-Demand: revisa el precio actual en la [calculadora de AWS](https://calculator.aws) para tu región, ya que varía.
+- Recuerda **detener (no solo cerrar RDP)** las instancias fuera del horario de clase — el hipervisor anidado no reduce el coste de la instancia base.
+- Considera usar **Spot Instances** si la práctica no requiere disponibilidad garantizada, para abaratar costes en un aula.
+
+
+
+
+
 
 <!-- https://www.youtube.com/watch?v=ItmHj-j5spI -->
+
+
+![Descripción de la imagen](./img_4/img_4_11.png){ .marco}
+![Descripción de la imagen](./img_4/img_4_12.png){ .marco}
+![Descripción de la imagen](./img_4/img_4_13.png){ .marco}
+![Descripción de la imagen](./img_4/img_4_14.png){ .marco}
+![Descripción de la imagen](./img_4/img_4_15.png){ .marco}
+![Descripción de la imagen](./img_4/img_4_16.png){ .marco}
+![Descripción de la imagen](./img_4/img_4_17.png){ .marco}
+![Descripción de la imagen](./img_4/img_4_18.png){ .marco}
+![Descripción de la imagen](./img_4/img_4_19.png){ .marco}
+![Descripción de la imagen](./img_4/img_4_20.png){ .marco}
+![Descripción de la imagen](./img_4/img_4_21.png){ .marco}
+![Descripción de la imagen](./img_4/img_4_22.png){ .marco}
+![Descripción de la imagen](./img_4/img_4_23.png){ .marco}
+![Descripción de la imagen](./img_4/img_4_24.png){ .marco}
+![Descripción de la imagen](./img_4/img_4_25.png){ .marco}
+![Descripción de la imagen](./img_4/img_4_26.png){ .marco}
+![Descripción de la imagen](./img_4/img_4_27.png){ .marco}
+![Descripción de la imagen](./img_4/img_4_28.png){ .marco}
+![Descripción de la imagen](./img_4/img_4_29.png){ .marco}
+![Descripción de la imagen](./img_4/img_4_30.png){ .marco}
+![Descripción de la imagen](./img_4/img_4_31.png){ .marco}
+![Descripción de la imagen](./img_4/img_4_32.png){ .marco}
+![Descripción de la imagen](./img_4/img_4_33.png){ .marco}
+![Descripción de la imagen](./img_4/img_4_34.png){ .marco}
+![Descripción de la imagen](./img_4/img_4_35.png){ .marco}
+![Descripción de la imagen](./img_4/img_4_36.png){ .marco}
+![Descripción de la imagen](./img_4/img_4_37.png){ .marco}
+![Descripción de la imagen](./img_4/img_4_38.png){ .marco}
+![Descripción de la imagen](./img_4/img_4_39.png){ .marco}
+![Descripción de la imagen](./img_4/img_4_40.png){ .marco}
+![Descripción de la imagen](./img_4/img_4_42.png){ .marco}
+![Descripción de la imagen](./img_4/img_4_43.png){ .marco}
+![Descripción de la imagen](./img_4/img_4_44.png){ .marco}
+
 
 <!-- DHCP -->
 <!-- Follow link (ctrl + click) -->
