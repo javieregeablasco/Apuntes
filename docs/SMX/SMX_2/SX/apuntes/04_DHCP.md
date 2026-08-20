@@ -428,7 +428,7 @@ No es una herramienta especifica del servicio DHCP sino de todo el ecosistema de
 **Nota:**  
 Algunos de los errores o advertencias que aparecen se deben a las limitaciones de nuestra infraestructura. No los tendremos en cuenta. 
 
-## 4.4.7 Comprobar el servicio por CLI
+#### 4.4.7 Comprobar el servicio por CLI
 
 ```powershell
 Get-DhcpServerV4Scope
@@ -446,92 +446,192 @@ ipconfig
 - Con esto ya tendremos montada la red virtual de Windows Server y el servidor DHCP. El siguiente paso será montar clientes con Alpine Linux y comprobar si las asignaciones de IP y el acceso a internet se hace correctamente.
 ![Descripción de la imagen](./img_4/img_4_72.png){ .margintop10 .marginbottom10}
 
+### 4.5 Creación de las máquinas virtuales cliente
+
+- Con RAM limitada (`m7i.large` con 8 GiB), lo más eficiente es que **el propio host Windows Server actúe como servidor DHCP** y usar Hyper-V solo para las VMs cliente.  
+- Como cliente, **Alpine Linux** es la opción más ligera (256–512 MB por VM) y perfectamente válida para ver el proceso DHCP completo.
+
+#### 4.5.1 Creación de las carpetas de trabajo
+
+Crearemos dos carpetas de trabajo: **ISOs** y **VMs**.
+
+- **ISO** contendrá los archivos .iso de los sistemas operativos que descargaremos.
+- **VM** contendrá los discos duros de las máquinas virtuales que lanzaremos.
+
+La creación de las carpetas se puede realizar tanto desde el explorador de archivos como en línea de comandos:
+
+```powershell
+New-Item -Path "C:\ISO" -ItemType Directory -Force
+New-Item -Path "C:\VM" -ItemType Directory -Force
+```
+
+#### 4.5.2 Descargar el ISO
+
+- Como ya hemos comentado, descargaremos [Alpine Linux](https://alpinelinux.org/downloads/) al ser una versión muy ligera de linux.
+- La versión elegida para nuestras prácticas será la versión optimizada para virtualización y arquitectura de 32 bits (Virtual + x86).
+- Al igual que para la creación de las carpetas, la imagen se puede descargar con la ayuda del navegador o por línea de comandos.
+
+```powershell
+Invoke-WebRequest -Uri "https://dl-cdn.alpinelinux.org/alpine/v3.24/releases/x86/alpine-virt-3.24.1-x86.iso" -OutFile "C:\ISO\alpine.iso"
+```
+
+![Descripción de la imagen](./img_4/img_4_73.png){  .marginbottom10 }
+
+- Comprobamos que la descarga es correcta (debe rondar los 45-50 MB):
+
+```powershell
+Get-Item "C:\ISO\alpine.iso" | Select-Object Name, Length
+```
+
+![Descripción de la imagen](./img_4/img_4_74.png){  .marginbottom10 }
+
+### 4.5.3 Crear la VM
+
+!!! tip "Podemos usar el asistente para la creación de la máquina virtual."
+
+    - Para ello iremos a **Hyper-V Manager** → **New** → **Virtual Machine**"
+    ![Descripción de la imagen](./img_4/img_4_75.png){.margintop10  .marginbottom10 }
+    - Damos un nombre a la máquina.
+    ![Descripción de la imagen](./img_4/img_4_76.png){ .margintop10 .marginbottom10 }
+    - Seleccionamos **Generation 1**.
+    ![Descripción de la imagen](./img_4/img_4_77.png){ .margintop10  .marginbottom10 }
+    - Asignamos 512MB de memoria RAM para la máquina.
+    ![Descripción de la imagen](./img_4/img_4_78.png){ .margintop10 .marginbottom10 }
+    - Conectamos la máquina a nuestro switch virtual.
+    ![Descripción de la imagen](./img_4/img_4_79.png){ .margintop10 .marginbottom10 }
+    - Disco duro virtaul. Ubicaremos el disco duro en la carpeta **VM* creada anteriormente.
+    ![Descripción de la imagen](./img_4/img_4_91.png){ .margintop10 .marginbottom10 }
+    - Opciones de instalación del SO. En **Image file** ponemos la ubicación de nuestra imagen.iso.
+    ![Descripción de la imagen](./img_4/img_4_92.png){.margintop10  .marginbottom10 }
+    - Finalizamos la creación de la máquina virtual.
+    ![Descripción de la imagen](./img_4/img_4_93.png){ .margintop10   }
+
+!!! tip "Creación de la máquina virtual por línea de comando."
+
+    - Declarar la máquina    
+
+    ```powershell
+    New-VM -Name "Cliente-1" `
+    -MemoryStartupBytes 512MB `
+    -Generation 1 `
+    -NewVHDPath "C:\VM\Cliente-1.vhdx" `
+    -NewVHDSizeBytes 4GB `
+    -SwitchName "LAN-Práctica-DHCP"
+    ```
+
+    - Declarar la unidad de DVD  y montar el **ISO**.
+    !!! warning "Las VMs Generation 1 traen una unidad de DVD por defecto (a diferencia de Generation 2, donde hay que añadirla explícitamente con Add-VMDvdDrive). Por tanto, basta con usar Set-VMDvdDrive para montar la ISO en la unidad ya existente.
+
+    ```powershell
+    Set-VMDvdDrive -VMName "CLIENTE-1" -Path "C:\ISOs\alpine.iso"
+    Get-VMDvdDrive -VMName "CLIENTE-1"   # debe mostrar el Path del ISO
+    ```
+
+    - definir el orden de arranque (DVD antes que red)
+    
+    ```powershell
+    Stop-VM -Name "Cliente-1" -TurnOff -Force
+    Set-VMFirmware -VMName "Cliente-1" -FirstBootDevice (Get-VMDvdDrive -VMName "Cliente-1")
+    Start-VM -Name "Cliente-1"
+    ```
+
+### 4.5.4 Arrancar la VM
+
+- Arrancamos la máquina virtual desde el **Hyper-V Manager**
+![Descripción de la imagen](./img_4/img_4_94.png){ .margintop10 .marginbottom10 }
+- Esperamos a que se cargue el SO.
+![Descripción de la imagen](./img_4/img_4_42.png){ .margintop10 .marginbottom10 }
+- La contraseña del login es **root**.
+![Descripción de la imagen](./img_4/img_4_95.png){ .margintop10 .marginbottom10 }
+
+### 4.5.4 Verificar la conexión a la red a la asignación de la IP por parte del DHCP
+
+- Dentro de la consola de la VM confirmaremos el nombre real de la interfaz (eth0, enp0s3...):  
+    ```shell
+    ip link show           
+    ```
+
+    ![Descripción de la imagen](./img_4/img_4_96.png)
+
+- Si aparece "state DOWN", levantaremos la interfaz.
+    ```shell
+    ip link set eth0 up    
+    ```  
+
+    ![Descripción de la imagen](./img_4/img_4_97.png){ .margintop10}
+
+- Solicitamos una dirección IP con:
+    ```shell
+    udhcpc -i eth0
+    ```
+
+    ![Descripción de la imagen](./img_4/img_4_98.png)
+
+- Como podemos ver, la solicitud no se realiza. Eso se puede deber a, al menos 2 causas.  
+No hemos asociado el **Switch Virtual** a nuestra **máquina anfitrión**.
+![Descripción de la imagen](./img_4/img_4_99.png){ .margintop10 .marginbottom20}
+Cuando hemos creado el switch virtual hemos autorizado el VLAN ID → Lo deseleccionaremos.
+![Descripción de la imagen](./img_4/img_4_101.png){ .margintop10 .marginbottom10}
+
+- Solicitamos de nuevo una dirección IP:
+    ```shell
+    udhcpc -i eth0
+    ```
+
+    ![Descripción de la imagen](./img_4/img_4_100.png)
+
+### 4.6 Supervisión del proceso de broadcast y asignación (DORA) con Wireshark
+
+- En esta parte supervisaremos la activida de red con **Wireshark** para ver el proceso DORA: DHCPDISCOVER → DHCPOFFER → DHCPREQUEST → DHCPACK.
+- Wireshark es un popular analizador de protocolos de red de código abierto.  
+- Permite capturar y examinar **en tiempo real** el tráfico de datos que pasa por una red de comunicaciones, mostrando los paquetes individuales de información.
+
+### 4.6.1 Descargar e instalar Wireshark
+
+!!! tip "Por línea de comandos"
+    ```powershell
+    Invoke-WebRequest -Uri "https://2.na.dl.wireshark.org/win64/Wireshark-latest-x64.exe" -OutFile "C:\Wireshark-installer.exe"
+    Start-Process "C:\Wireshark-installer.exe"
+    ```
+
+!!! tip "Descargar desde la página oficial"
+    ![Descripción de la imagen](./img_4/img_4_84.png)
+
+### 4.6.2 Primeras capturas con Wireshark
+
+- Una vez en ejecución la aplicación nos mostrará todos los adaptadores de red disponibles.
+![Descripción de la imagen](./img_4/img_4_85.png){ .margintop10 .marginbottom10}
+- Si no se detecta ninguna actividad de red, ponemos forzar tráfico haciendo ping desde la máquina virtual con Alpine Linux a otros dispositvos de la red. De esa manera también nos aseguraremos que todo funciona correctamente.
+![Descripción de la imagen](./img_4/img_4_86.png){ .margintop10 .marginbottom10 }
+
+### 4.6.3 Capturas del DORA entre MV y DHCP
+
+- Wireshark solo captura el tráfico a partir del momento en el cual se está ejecutando. Por ese motivo deberemos forzar el DORA entre MV y DHCP. Para ello forzaremos a la MV a devolver la IP asignada y negociaremos otra.
+- Primero comprobaremos que la MV está conectada a la red. Si no lo está levantaremos el servicio.
+![Descripción de la imagen](./img_4/img_4_87.png){ .margintop10 .marginbottom10}
+- Si la MV estaba conectada, devolveremos la IP asignada.
+![Descripción de la imagen](./img_4/img_4_88.png){ .margintop10 .marginbottom10}
+- Forzamos la negociación de una nueva IP con el servidor DHCP.
+![Descripción de la imagen](./img_4/img_4_89.png){ .margintop10 .marginbottom10}
+- Aplicando filtros o simplemente ordenando los protocolos en orden alfabetico podremos ver las 4 fases del procesa DORA.
+![Descripción de la imagen](./img_4/img_4_90.png){ .margintop10 .marginbottom10}
+
+### 4.6 Creación de otra máquina virtual
+
+Para comprobar que los conocimientos han sido asimilados correctamente. Lanzar otra máquina virtual y comprobar con Wireshark el proceso DORA.
+
+La máquina virtual podrá ser del mismo tipo que la MV anterior o estar montada con un SO de *Windows**.
+
+Si elegís esta última opción podreís descargar un SO de uso limitado desde [el centro de evaluación de Microsoft](https://www.microsoft.com/es-es/evalcenter/).
 
 
+# hasta aqui
 
 
 <!-- https://www.youtube.com/watch?v=nc-ratzt1MU&t=750s -->
-
-
-
 <!-- https://claude.ai/chat/c361c6cb-e1f9-429c-b062-5ea3be3912a9 -->
-
-
-
 <!-- https://www.youtube.com/watch?v=ItmHj-j5spI -->
 
-## Paso 5 — Crear las máquinas virtuales cliente
-
-Con RAM limitada (p. ej. `m7i.large` con 8 GiB), lo más eficiente es que **el propio host Windows Server actúe como servidor DHCP** (no hace falta una VM `SRV-DHCP` aparte) y usar Hyper-V solo para las VMs cliente. Como cliente, **Alpine Linux** es la opción más ligera (256–512 MB por VM) y perfectamente válida para ver el proceso DHCP completo.
-
-### 5.1 Carpetas de trabajo
-```powershell
-New-Item -Path "C:\ISOs" -ItemType Directory -Force
-New-Item -Path "C:\VMs" -ItemType Directory -Force
-```
-
-### 5.2 Descargar el ISO
-```powershell
-Invoke-WebRequest -Uri "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/x86_64/alpine-standard-3.20.3-x86_64.iso" -OutFile "C:\ISOs\alpine.iso"
-```
-Comprueba que la descarga es correcta (debe rondar 190-250 MB, no unos pocos KB):
-```powershell
-Get-Item "C:\ISOs\alpine.iso" | Select-Object Name, Length
-```
-
-### 5.3 Crear la VM
-```powershell
-New-VM -Name "CLIENTE-1" `
-  -MemoryStartupBytes 512MB `
-  -Generation 2 `
-  -NewVHDPath "C:\VMs\CLIENTE-1.vhdx" `
-  -NewVHDSizeBytes 4GB `
-  -SwitchName "LAN-Laboratorio-DHCP"
-
-Set-VMFirmware -VMName "CLIENTE-1" -EnableSecureBoot Off   # Alpine no está firmado con la clave de MS
-```
-
-### 5.4 Añadir la unidad de DVD y montar el ISO
-> **Importante:** las VMs Generation 2 **no traen unidad de DVD por defecto** (a diferencia de Generation 1). Hay que añadirla explícitamente con `Add-VMDvdDrive`, no basta con `Set-VMDvdDrive` sobre una unidad que no existe (falla en silencio y luego la VM intenta arrancar por red/PXE).
-```powershell
-Add-VMDvdDrive -VMName "CLIENTE-1" -Path "C:\ISOs\alpine.iso"
-Get-VMDvdDrive -VMName "CLIENTE-1"   # debe mostrar el Path del ISO
-```
-
-### 5.5 Forzar el orden de arranque (DVD antes que red)
-```powershell
-Stop-VM -Name "CLIENTE-1" -TurnOff -Force
-Set-VMFirmware -VMName "CLIENTE-1" -FirstBootDevice (Get-VMDvdDrive -VMName "CLIENTE-1")
-Start-VM -Name "CLIENTE-1"
-```
-
-### 5.6 Conectar a la consola de la VM
-Abre **Hyper-V Manager** → doble clic en `CLIENTE-1` (o clic derecho → Connect). Deberías ver arrancar el live system de Alpine. El candado rojo abierto que aparece arriba es solo el indicador de Secure Boot desactivado — no es un error.
-
-En el prompt `localhost login:` entra con:
-```
-root
-```
-(sin contraseña).
-
-Repite los pasos 5.1–5.6 con `CLIENTE-2` si quieres un segundo cliente.
-
-**Alternativa Windows:** si prefieres un cliente Windows (más pesado, ~2 GB RAM) en vez de Alpine, usa el mismo procedimiento pero descargando un ISO de Windows Server/10/11 desde el Centro de evaluación de Microsoft.
-
-
-## Paso 7 — Verificar desde los clientes
-
-### En un cliente Alpine
-Dentro de la consola de la VM (root, sin contraseña):
-```sh
-ip link show          # confirma el nombre real de la interfaz (eth0, enp0s3...)
-ip link set eth0 up    # si aparece "state DOWN", súbela manualmente antes de pedir IP
-udhcpc -i eth0
-```
-Si da `network is down`, es que la interfaz está apagada a nivel de enlace — el `ip link set eth0 up` lo soluciona. Si persiste, revisa en el host que el adaptador de la VM está conectado al switch correcto:
-```powershell
-Get-VMNetworkAdapter -VMName "CLIENTE-1" | Select-Object Name, SwitchName, Status
-```
 
 ### En un cliente Windows
 ```cmd
@@ -540,48 +640,6 @@ ipconfig /renew
 ipconfig /all
 ```
 
-En ambos casos, los alumnos deberían ver la IP asignada dentro del rango del ámbito, la puerta de enlace y el DNS entregados por el servidor.
-
-## Paso 8 — Ver el proceso de broadcast y asignación (DORA) en detalle
-
-Esta es la parte más didáctica: ver el intercambio DHCPDISCOVER → DHCPOFFER → DHCPREQUEST → DHCPACK, no solo el resultado final.
-
-### 8.1 Ver los leases concedidos (resultado, no proceso)
-```powershell
-Get-DhcpServerV4Lease -ScopeId 192.168.10.0
-```
-Muestra IP, MAC del cliente, nombre de host y expiración del lease.
-
-### 8.2 Log de auditoría del propio DHCP (sin instalar nada extra)
-Windows Server DHCP registra cada fase del proceso en un log diario:
-```powershell
-Get-Content "C:\Windows\System32\dhcp\DhcpSrvLog-$(Get-Date -Format 'ddd').log" -Tail 30
-```
-Contiene códigos de evento (10 = nuevo lease, 11 = renovación, etc.) con timestamps — buen ejercicio para que el alumnado interprete el log como evidencia textual del DORA.
-
-### 8.3 Captura con tcpdump en el cliente Alpine (ver el DORA en vivo, lado cliente)
-```sh
-apk add tcpdump
-tcpdump -i eth0 -n port 67 or port 68 -v
-```
-Con la captura corriendo, repite `udhcpc -i eth0` en otra sesión (o tras liberar la IP) para ver los 4 paquetes en tiempo real con IPs y puertos 67/68.
-
-### 8.4 Captura con Wireshark en el host (lado servidor, análisis de campos BOOTP/DHCP)
-```powershell
-Invoke-WebRequest -Uri "https://2.na.dl.wireshark.org/win64/Wireshark-latest-x64.exe" -OutFile "C:\Wireshark-installer.exe"
-Start-Process "C:\Wireshark-installer.exe"
-```
-Instala con opciones por defecto (incluye Npcap). Captura en el adaptador **`vEthernet (LAN-Laboratorio-DHCP)`** con el filtro:
-```
-bootp
-```
-Permite inspeccionar campo a campo (Option 53 - Message Type, Option 51 - Lease Time, Client MAC...), justo el nivel de detalle que suele pedirse en el currículo de SMR.
-
-> Si el host no ve tráfico este-oeste de las VMs en Wireshark, activa port mirroring en el adaptador de la VM:
-> ```powershell
-> Set-VMNetworkAdapter -VMName "CLIENTE-1" -PortMirroring Source
-> ```
-
 ### 8.5 Ejercicios adicionales con valor curricular
 - **Reservas** por MAC: `Add-DhcpServerV4Reservation`.
 - **Exclusiones** dentro del ámbito: `Add-DhcpServerV4ExclusionRange`.
@@ -589,96 +647,36 @@ Permite inspeccionar campo a campo (Option 53 - Message Type, Option 51 - Lease 
 - **Agotamiento del ámbito**: crear un ámbito de prueba muy pequeño (p. ej. solo 2-3 IPs) para que los alumnos vean qué ocurre cuando un cliente no puede recibir oferta.
 - **Dos clientes simultáneos**: añadir `CLIENTE-2` y comparar cómo el servidor evita duplicados de IP.
 
----
 
 ## Escalar la práctica a varios alumnos/grupos
 
 Opciones, de más simple a más automatizada:
 
-1. **Una instancia por alumno**, lanzada manualmente siguiendo la guía — válido para grupos pequeños.
 2. **AMI personalizada**: una vez que tengas una instancia con Windows Server + Hyper-V + switch interno + VMs base ya creadas (apagadas), crea una **AMI** a partir de ella. Cada alumno lanza su propia instancia desde esa AMI y ya tiene el entorno listo, solo falta que configuren el DHCP (que es justo la parte que queréis que hagan ellos).
+
 3. **CloudFormation / Launch Template** para lanzar N instancias idénticas de golpe (una por alumno), reutilizando la AMI del punto 2. Esto os interesa si repetís la práctica cada curso.
 
 ¿Quieres que te prepare la plantilla de **CloudFormation** para lanzar automáticamente una instancia por alumno (con nested virtualization activado, AMI personalizada y tags por nombre de alumno), o prefieres primero montar y probar tú una instancia "maestra" de forma manual antes de automatizar?
 
----
-
-## Notas de coste
-- `m7i.xlarge` en On-Demand: revisa el precio actual en la [calculadora de AWS](https://calculator.aws) para tu región, ya que varía.
-- Recuerda **detener (no solo cerrar RDP)** las instancias fuera del horario de clase — el hipervisor anidado no reduce el coste de la instancia base.
-- Considera usar **Spot Instances** si la práctica no requiere disponibilidad garantizada, para abaratar costes en un aula.
-
-
-
-
-
-
 <!-- https://www.youtube.com/watch?v=ItmHj-j5spI -->
-
-
-![Descripción de la imagen](./img_4/img_4_24.png){ .marco}
-![Descripción de la imagen](./img_4/img_4_25.png){ .marco}
-![Descripción de la imagen](./img_4/img_4_26.png){ .marco}
-![Descripción de la imagen](./img_4/img_4_27.png){ .marco}
-![Descripción de la imagen](./img_4/img_4_28.png){ .marco}
-![Descripción de la imagen](./img_4/img_4_29.png){ .marco}
-![Descripción de la imagen](./img_4/img_4_30.png){ .marco}
-![Descripción de la imagen](./img_4/img_4_31.png){ .marco}
-![Descripción de la imagen](./img_4/img_4_32.png){ .marco}
-![Descripción de la imagen](./img_4/img_4_33.png){ .marco}
-![Descripción de la imagen](./img_4/img_4_34.png){ .marco}
-![Descripción de la imagen](./img_4/img_4_35.png){ .marco}
-![Descripción de la imagen](./img_4/img_4_36.png){ .marco}
-![Descripción de la imagen](./img_4/img_4_37.png){ .marco}
-![Descripción de la imagen](./img_4/img_4_38.png){ .marco}
-![Descripción de la imagen](./img_4/img_4_39.png){ .marco}
-![Descripción de la imagen](./img_4/img_4_40.png){ .marco}
-![Descripción de la imagen](./img_4/img_4_42.png){ .marco}
-![Descripción de la imagen](./img_4/img_4_43.png){ .marco}
-![Descripción de la imagen](./img_4/img_4_44.png){ .marco}
-
 
 <!-- DHCP -->
 <!-- Follow link (ctrl + click) -->
-<!-- https://www.akamai.com/es/glossary/what-is-dhcp -->
 <!-- https://learn.microsoft.com/es-es/troubleshoot/windows-server/networking/troubleshoot-dhcp-guidance -->
-<!-- https://www.ibm.com/docs/es/ssw_ibm_i_75/pdf/rzakgpdf.pdf -->
+<!-- para paja -->
 <!-- https://www.juniper.net/documentation/mx/es/software/junos/dhcp/topics/topic-map/dhcp-overview.html -->
-
+<!-- para nat -->
 <!-- https://www.manageengine.com/latam/oputils/direcciones-ip-fundamentos.html -->
+<!-- tipo de elementos de red -->
 <!-- https://itadmins.es/networking-ii-dispositivos-de-red-y-tipos-de-trafico/ -->
 
 <!--
 NAT
 https://www.redeszone.net/tutoriales/redes-cable/calcular-subnetting-ip-red-mascara-subred-ipv4/
-https://itadmins.es/networking-ii-dispositivos-de-red-y-tipos-de-trafico/
 https://www.1nce.com/es-es/recursos/iot-knowledge-base/que-es-el-mecanismo-nat
 https://openwebinars.net/blog/nat-que-es-y-para-que-sirve/
-
 -->
 
 <!-- 
-
-http://www.newdevices.com/tutoriales/ipv4/2.html
-
-https://www.paessler.com/es/it-explained/ip-address
-
-https://usuaris.tinet.cat/fbd/comunicaciones/tcpip/a.htm
-
-https://www.sapalomera.cat/moodlecf/RS/1/course/module10/#10.2.1.3
-
-https://www.sapalomera.cat/moodlecf/RS/1/course/module9/#9.0.1.1
-
-https://www.sapalomera.cat/moodlecf/RS/1/course/module8/#8.1.1.2
-
-https://www.sapalomera.cat/moodlecf/RS/1/course/module8/#8.0.1.1
-
-https://itadmins.es/networking-ii-dispositivos-de-red-y-tipos-de-trafico/
-
-http://127.0.0.1:5500/docs/SMX/SMX_2/SX/sxe/UD01/1_arquitectura_de_xarxa_tcpip.html
-
 https://aules.edu.gva.es/docent/pluginfile.php/5719248/mod_resource/content/1/XL_UT03_Interconnexio%CC%81%20d%E2%80%99equips%20en%20xarxes%20locals%20i%20muntatge%20de%20connectors-IP.pdf
-
-https://www.redeszone.net/tutoriales/internet/protocolos-basicos-redes/#286115-protocolos-basicos-en-redes 
-
 -->
