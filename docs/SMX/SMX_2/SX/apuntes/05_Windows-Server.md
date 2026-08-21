@@ -89,36 +89,7 @@ sudo sed -i.bak '/^[[:space:]]*test -x \/etc\/X11\/Xsession/i xfce4-session' /et
 
 sudo systemctl restart xrdp
 
-## 2 wireshark
 
-wiresahrk
-
-ip addr show eth0
-
-y después detener el cliente DHCP:
-
-killall udhcpc
-
-Eliminar la dirección actual:
-
-ip addr flush dev eth0
-2. Volver a solicitar una IP por DHCP
-
-Ejecuta:
-
-udhcpc -i eth0
-
-Si quieres que se vea claramente todo el proceso DHCP:
-
-udhcpc -i eth0 -f -v
-
-DHCP Discover
-       ↓
-DHCP Offer
-       ↓
-DHCP Request
-       ↓
-DHCP ACK
 
 <!-- https://youtu.be/nc-ratzt1MU?si=yqgXB7f7zQNJvCCc&t=750 -->
 
@@ -164,23 +135,6 @@ lease duration:
 despues de activar el ambito solo se asigna la ip pero no los ambitos.
 
 
-
-
-# Práctica SMR: Servidor DHCP en Ubuntu Server 22.04 sobre AWS (con virtualización anidada)
-
-Versión equivalente a la práctica de Windows Server, pero con **Ubuntu Server 22.04** como anfitrión, **KVM/QEMU + libvirt** como hipervisor anidado (en vez de Hyper-V), e **isc-dhcp-server** como servicio DHCP (en vez del rol DHCP de Windows).
-
-## Objetivo pedagógico
-Que el alumnado instale y configure **isc-dhcp-server** en Ubuntu, y observe el proceso DHCPDISCOVER → OFFER → REQUEST → ACK entre el servidor y varios clientes virtuales, con ámbitos, reservas y exclusiones.
-
-## Por qué sigue haciendo falta virtualización anidada
-El motivo es exactamente el mismo que en la práctica Windows: dentro de una VPC de AWS **el broadcast no se propaga entre instancias EC2**, así que un DHCP en una instancia nunca vería peticiones de otra instancia distinta. La solución sigue siendo montar todo (servidor + clientes) **dentro de una única instancia EC2**, usando un hipervisor anidado con una red aislada donde el broadcast sí circula libremente.
-
-## Novedad de fondo (recordatorio)
-Desde el 16 de febrero de 2026, AWS soporta virtualización anidada en instancias EC2 no-metal (familias `C7i`/`M7i`/`R7i`, `C8i`/`M8i`/`R8i` y variantes). Esto aplica igual con Linux: los hipervisores L1 soportados son **Hyper-V y KVM** — en Ubuntu usaremos KVM.
-
----
-
 ## Arquitectura del laboratorio
 
 ```
@@ -198,32 +152,10 @@ Igual que con el switch "Internal" de Hyper-V, aquí usamos una red libvirt en m
 
 ---
 
-## Paso 1 — Elegir tipo de instancia y región
 
-- Mismas condiciones que en la práctica de Windows: necesitas una familia `7i`/`8i` (`m7i.large` con 8 GiB RAM es suficiente para host + 1-2 clientes Alpine).
-- En cuentas de estudiante, confirma que puedes lanzar esa familia antes de nada; si solo tienes `t2`/`t3` disponibles, esta práctica no es viable en AWS (T3 no expone VT-x al invitado).
 
 ## Paso 2 — Lanzar la instancia con virtualización anidada activada
 
-### Opción A: Consola
-1. EC2 → **Launch instance**.
-2. AMI: **Ubuntu Server 22.04 LTS**.
-3. Tipo de instancia: `m7i.large` (o superior).
-4. **Advanced details** → **Nested virtualization** → **Enable**.
-5. Security Group: permite **SSH (22)** desde la IP del aula/alumno.
-
-### Opción B: AWS CLI
-```bash
-aws ec2 run-instances \
-  --image-id ami-xxxxxxxxxxxxxxxxx \
-  --instance-type m7i.large \
-  --key-name mi-clave \
-  --security-group-ids sg-xxxxxxxx \
-  --subnet-id subnet-xxxxxxxx \
-  --cpu-options NestedVirtualization=enabled \
-  --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=lab-dhcp-ubuntu-alumno1}]' \
-  --region us-west-2
-```
 
 ### Opción C: Activar nested virtualization en una instancia ya existente
 ```bash
@@ -232,15 +164,8 @@ aws ec2 wait instance-stopped --instance-ids i-xxxxxxxxxxxxxxxxx
 aws ec2 modify-instance-cpu-options --instance-id i-xxxxxxxxxxxxxxxxx --nested-virtualization enabled
 aws ec2 start-instances --instance-ids i-xxxxxxxxxxxxxxxxx
 ```
-> Requiere AWS CLI v2 ≥ 2.33.21. Si da "Unknown options", actualiza el CLI.
 
-Verifica:
-```bash
-aws ec2 describe-instances --instance-ids i-xxxxxxxxxxxxxxxxx \
-  --query "Reservations[].Instances[].CpuOptions"
-```
-
-## Paso 3 — Conectarse por SSH e instalar KVM/libvirt
+## Paso 3 — Instalar KVM/libvirt
 
 ```bash
 ssh -i mi-clave.pem ubuntu@<IP-publica-de-la-instancia>
@@ -451,30 +376,3 @@ También puedes instalar `tshark` en el propio host si prefieres inspeccionar si
 sudo apt install -y tshark
 sudo tshark -i virbr-lab -Y bootp
 ```
-
-### 8.5 Ejercicios adicionales con valor curricular
-- **Reservas por MAC** en `dhcpd.conf`:
-```
-host cliente1-fijo {
-  hardware ethernet 52:54:00:xx:xx:xx;
-  fixed-address 192.168.10.50;
-}
-```
-(obtén la MAC con `ip link show eth0` dentro de la VM, o con `virsh domiflist cliente1` desde el host)
-- **Exclusiones**: en isc-dhcp-server se hacen dejando fuera del `range` las IPs que no quieres repartir, o usando `deny` con clases.
-- **Liberar y renovar**: `udhcpc -R` para liberar y forzar un DISCOVER nuevo; comparar con una simple renovación.
-- **Agotamiento del ámbito**: reduce el `range` a 2-3 IPs y lanza 2 clientes a la vez.
-
----
-
-## Escalar la práctica a varios alumnos/grupos
-
-Igual que en la versión Windows:
-1. Una instancia Ubuntu por alumno, siguiendo esta guía manualmente.
-2. Crear una **AMI personalizada** una vez tengas el host con KVM/libvirt, la red `lab-dhcp` y las VMs base ya creadas (apagadas) — cada alumno lanza desde esa AMI y solo le queda configurar `isc-dhcp-server`.
-3. **CloudFormation/Launch Template** para desplegar N instancias de golpe reutilizando esa AMI.
-
----
-
-## Notas de coste
-- Mismas consideraciones que en la práctica Windows: revisa el precio de `m7i.large` en la [calculadora de AWS](https://calculator.aws), detén las instancias fuera de horario de clase, y valora Spot Instances si la disponibilidad garantizada no es crítica.

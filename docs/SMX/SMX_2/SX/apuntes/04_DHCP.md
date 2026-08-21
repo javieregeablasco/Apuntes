@@ -616,7 +616,7 @@ Cuando hemos creado el switch virtual hemos autorizado el VLAN ID → Lo deselec
 - Aplicando filtros o simplemente ordenando los protocolos en orden alfabetico podremos ver las 4 fases del procesa DORA.
 ![Descripción de la imagen](./img_4/img_4_90.png){ .margintop10 .marginbottom10}
 
-### 4.6 Creación de otra máquina virtual
+### 4.7 Creación de otra máquina virtual
 
 Para comprobar que los conocimientos han sido asimilados correctamente. Lanzar otra máquina virtual y comprobar con Wireshark el proceso DORA.
 
@@ -624,9 +624,229 @@ La máquina virtual podrá ser del mismo tipo que la MV anterior o estar montada
 
 Si elegís esta última opción podreís descargar un SO de uso limitado desde [el centro de evaluación de Microsoft](https://www.microsoft.com/es-es/evalcenter/).
 
+!!! tip "Comandos para devolver IP y solicitarla de nuevo"
+    ```cmd
+    ipconfig /release
+    ipconfig /renew
+    ipconfig /all
+    ```
+
+## 5 - Tarea RA1-def-2 - Instalación y configuración de un DHCP con Ubuntu Server en AWS
+
+### 5.1 Objetivo de la práctica
+
+- Desplegar un servidor DHCP en Ubuntu Server 22.04 LTS sobre AWS con virtualización anidada.
+- En este primer paso instalaremos y configuraremos el rol **DHCP Server** en Ubuntu Server, y observaremos en tiempo real cómo varios equipos cliente obtienen su configuración IP (DHCPDISCOVER → OFFER → REQUEST → ACK), reservas, exclusiones, ámbitos (scopes), opciones de ámbito (DNS, puerta de enlace, etc.).
+
+### 5.2 Arquitectura del laboratorio
+
+```powershell
+Instancia EC2 (m7i.large, 100GB, Unbuntu Server 24.04 LTS, Virtualización KVM + QEMU + libvirt)
+        
+              ┌───────────────────────────────┐
+              │         UBUNTU SERVER         │
+              │                               │
+              │      KVM + QEMU + libvirt     │ 
+              │                               │
+              │   ┌───────────────── ─────┐   │
+              │   │       RED DHCP        │   │
+              │   │    192.168.50.0/24    │   │
+              │   │                       │   │
+              │   │   ┌───────────────┐   │   │
+              │   │   │ DHCP SERVER   │   │   │
+              │   │   │ Ubuntu Server │   │   │
+              │   │   │ 192.168.50.10 │   │   │
+              │   │   └───────┬───────┘   │   │
+              │   │           │           │   │
+              │   │      ┌────┴────┐      │   │
+              │   │      │ virtual │      │   │
+              │   │      │ switch  │      │   │
+              │   │      └─┬──┬──┬─┘      │   │
+              │   │        │  │  │        │   │
+              │   │      VM1 VM2 VM3      │   │
+              │   │     DHCP DHCP DHCP    │   │
+              │   │                       │   │
+              │   └───────────────────────┘   │
+              └───────────────────────────────┘
+
+```
+
+<!-- 
+       ┌────────────────────┐
+       │                    │
+       │        KVM         │
+       │         +          │
+       │        QEMU        │
+       │         +          │
+       │      libvirt       │
+       │                    │
+       │   ┌───────────┐    │
+       │   │ Ubuntu VM │    │
+       │   │ DHCP      │    │
+       │   └─────┬─────┘    │
+       │         │          │
+       │    red virtual     │
+       │         │          │
+       │   ┌─────┴──────┐   │
+       │   │ Cliente VM │   │
+       │   └────────────┘   │
+       │                    │
+       └────────────────────┘   
+-->
+**Dónde:**
+
+- **KVM + QEMU + libvirt** es la pila de virtualización nativa de Linux y está pensada para virtualización de servidores. 
+    - **KVM** → proporciona la virtualización mediante el kernel.
+    - **QEMU** → ejecuta/emula el hardware de las máquinas virtuales.
+    - **libvirt** → capa de administración de KVM/QEMU.
+- **virt-manager** → interfaz gráfica para administrar libvirt.
+
+- Equivalencia con Windows Server
+
+| Windows Server                    | Ubuntu Server                            |
+| --------------------------------- | ---------------------------------------- |
+| **Hyper-V**                       | **KVM + QEMU**                           |
+| Hyper-V Manager                   | **virt-manager**                         |
+| PowerShell / herramientas Hyper-V | **virsh / virt-install**                 |
+| Virtual Switch                    | **Redes virtuales de libvirt / bridges** |
+| VM                                | VM KVM/QEMU                              |
+| VHDX                              | qcow2 / raw                              |
+| Hyper-V NAT / switches            | NAT / bridge de libvirt                  |
+
+### 5.3 Instalación de GNOME en Ubuntu Server 22.04
+
+- Para facilitar algunas etapas de la configuración de esta práctica, instalaremos la interfaz gráfica **GNOME** sobre la instancia de Ubuntu Server que hemos creado anteriormente.
+- Instalar un escritorio gráfico no se suele recomendar en entornos de producción, por rendimiento y seguridad pero, dentro de un contexto de prácticas, puede estar plenamente justificado.
+- GNOME propone un escrotorio completo o mínimo, siendo el completo el que instalaremos.
+
+!!! tip "Instalación de GNOME"
+
+    - Nos conectamos a nuestra instancia desde la consola de AWS.
+    - Instalamos las actualizaciones disponibles en los repositorios.
+    ```bash
+    sudo apt update && sudo apt upgrade -y
+    ```
+    - Instalamos **tasksel** que nos permitirá instalar todo el entorno de escritorio en un solo paso.
+    ```bash
+    sudo apt install tasksel -y
+    ```
+    - Finalmente instalaremos GNOME
+    ```bash
+    sudo apt install ubuntu-desktop -y
+    ```
+
+### 5.4 Primera conexión por escritorio gráfico a Ubuntu Server
+
+- Lanzamos desde Windows la aplicación de conexión a escritorio remoto e introducimos la contraseña de nuestra máquina.  
+![Descripción de la imagen](./img_4/img_4_110.png){ .margintop10 .marginbottom10}
+- Para la práctica no tendremos en cuenta la advertencias de seguridad.
+- Introducimos nuestras credenciales en la pasarela (servidor Xrdp).
+![Descripción de la imagen](./img_4/img_4_111.png){ .margintop10 .marginbottom10}
+- Si la sesión de ubuntu se ha cerrado, introducimos de nuevo las credenciales.
+![Descripción de la imagen](./img_4/img_4_112.png){ .margintop10 .marginbottom10}
+- Si todo ha ido bien, estaremos en el escritorio gráfico típico de Ubuntu Desktop.
+![Descripción de la imagen](./img_4/img_4_113.png){ .margintop10 .marginbottom10}
+
+### 5.5 Activar la virtualización de la CPU por la consola de AWS
+
+!!! success "Activar la virtualización de la CPU por la consola de AWS"
+
+    - Abrimos el powershell de AWS y escribimos los siguientes comandos:  
+    **Nota IMPORTANTE:** Cambiar la id por la **id de vuestra instancia**.
+    ```bash
+    # 1. Parar la instancia (aunque la acabes de arrancar)
+    aws ec2 stop-instances --instance-ids i-069fe851e6325d765
+
+    # 2. Esperar a que quede realmente parada
+    aws ec2 wait instance-stopped --instance-ids i-069fe851e6325d765
+
+    # 3. Activar nested virtualization con el comando correcto
+    aws ec2 modify-instance-cpu-options \
+      --instance-id i-069fe851e6325d765 \
+      --nested-virtualization enabled
+
+    # 4. Arrancarla de nuevo
+    aws ec2 start-instances --instance-ids i-069fe851e6325d765
+    ```
+
+!!! tip "Comprobar la virtualización de la instancia"
+
+    - Desde la consola de AWS ejecutamos el comando
+    ```bash
+    aws ec2 describe-instances --instance-ids i-069fe851e6325d765 \
+    --query "Reservations[].Instances[].CpuOptions"
+    ```
+    ![Descripción de la imagen](./img_4/img_4_114.png){  .marginbottom10}
+    - También lo podemos comprobar desde la propia instancia con:
+    ```bash
+    egrep -c '(vmx|svm)' /proc/cpuinfo
+    ```
+    Si nos devuelve un valor mayor que 0, significa que la CPU expone las extensiones de virtualización (Intel VT-x/ AMD AMD-V).  
+    ![Descripción de la imagen](./img_4/img_4_115.png){ .margintop10 .marginbottom10}
+    - Otra manera sería usando la aplicación **cpu-checker**
+    ```bash
+    sudo apt update
+    sudo apt install -y cpu-checker
+    sudo kvm-ok
+    ```
+    ![Descripción de la imagen](./img_4/img_4_116.png){ .marginbottom10}
+
+### 5.6 Instalación de KVM y herramientas relacionadas
+
+```bash
+sudo apt install -y qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virtinst virt-manager
+```
+
+- **qemu-kvm** → el hipervisor en sí.
+- **libvirt-daemon-system / libvirt-clients** → capa de gestión (permite usar virsh, virt-install, etc.).
+- **bridge-utils** → para redes puente entre las VMs anidadas.
+- **virtinst** → herramientas para crear VMs desde línea de comandos (virt-install).
+- **virt-manager** → interfaz gráfica de gestión (solo si disponemos de entorno gráfico).
+
+### 5.7 Añadir usuarios a los grupos necesarios
+
+Para poder utilizar las opciones de virtualización deberemos añadir nuestro usuario **a los grupos libvirt y kvm**.
+
+```bash
+sudo usermod -aG libvirt $USER
+sudo usermod -aG kvm $USER
+```
+
+!!! warning "Desloggearse para que los cambios surtan efecto"
+
+### 5.8 Comprobar que el servicio libvirt está activo
+
+```bash
+sudo systemctl status libvirtd
+```
+
+![Descripción de la imagen](./img_4/img_4_117.png){ .marginbottom10}
+
+Si, como en el caso de la imagen, nos muestra inactive, los activaremos con:
+
+```bash
+sudo systemctl start libvirtd
+sudo systemctl status libvirtd
+```
+
+![Descripción de la imagen](./img_4/img_4_118.png){ .marginbottom10}
 
 # hasta aqui
 
+<!-- 5. Verificar que /dev/kvm existe y tienes permisos -->
+
+<!-- https://claude.ai/chat/062d0a59-02ce-4044-b774-4249a42049e9 -->
+<!-- https://gemini.google.com/u/1/app/ad715c98d45d977e?hl=es-ES -->
+<!-- https://chatgpt.com/c/6a87ef1d-7130-83ed-8c1c-e4a9da08330f -->
+
+<!-- hhttps://youtu.be/fjCWPm-BDto?si=cKZzFsvAcjfM9Cd7&t=477 -->
+
+
+
+
+
+>
+<!-- https://www.youtube.com/watch?v=Huhou7iCHdc -->
 
 <!-- https://www.youtube.com/watch?v=nc-ratzt1MU&t=750s -->
 <!-- https://claude.ai/chat/c361c6cb-e1f9-429c-b062-5ea3be3912a9 -->
@@ -634,11 +854,6 @@ Si elegís esta última opción podreís descargar un SO de uso limitado desde [
 
 
 ### En un cliente Windows
-```cmd
-ipconfig /release
-ipconfig /renew
-ipconfig /all
-```
 
 ### 8.5 Ejercicios adicionales con valor curricular
 - **Reservas** por MAC: `Add-DhcpServerV4Reservation`.
