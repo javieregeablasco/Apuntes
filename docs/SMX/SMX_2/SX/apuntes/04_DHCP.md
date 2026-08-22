@@ -640,59 +640,70 @@ Si elegís esta última opción podreís descargar un SO de uso limitado desde [
 
 ### 5.2 Arquitectura del laboratorio
 
-```powershell
-Instancia EC2 (m7i.large, 100GB, Unbuntu Server 24.04 LTS, Virtualización KVM + QEMU + libvirt)
-        
-              ┌───────────────────────────────┐
-              │         UBUNTU SERVER         │
-              │                               │
-              │      KVM + QEMU + libvirt     │ 
-              │                               │
-              │   ┌───────────────── ─────┐   │
-              │   │       RED DHCP        │   │
-              │   │    192.168.50.0/24    │   │
-              │   │                       │   │
-              │   │   ┌───────────────┐   │   │
-              │   │   │ DHCP SERVER   │   │   │
-              │   │   │ Ubuntu Server │   │   │
-              │   │   │ 192.168.50.10 │   │   │
-              │   │   └───────┬───────┘   │   │
-              │   │           │           │   │
-              │   │      ┌────┴────┐      │   │
-              │   │      │ virtual │      │   │
-              │   │      │ switch  │      │   │
-              │   │      └─┬──┬──┬─┘      │   │
-              │   │        │  │  │        │   │
-              │   │      VM1 VM2 VM3      │   │
-              │   │     DHCP DHCP DHCP    │   │
-              │   │                       │   │
-              │   └───────────────────────┘   │
-              └───────────────────────────────┘
+- Instancia EC2 (m7i.large, 100GB, Unbuntu Server 24.04 LTS
+- Virtualización KVM + QEMU + libvirt)
 
-```
+![Descripción de la imagen](./img_4/img_4_122.png){  .marginbottom10}
 
-<!-- 
-       ┌────────────────────┐
-       │                    │
-       │        KVM         │
-       │         +          │
-       │        QEMU        │
-       │         +          │
-       │      libvirt       │
-       │                    │
-       │   ┌───────────┐    │
-       │   │ Ubuntu VM │    │
-       │   │ DHCP      │    │
-       │   └─────┬─────┘    │
-       │         │          │
-       │    red virtual     │
-       │         │          │
-       │   ┌─────┴──────┐   │
-       │   │ Cliente VM │   │
-       │   └────────────┘   │
-       │                    │
-       └────────────────────┘   
+<!-- ┌───────────────────────────────┐
+          │         UBUNTU SERVER         │
+          │                               │
+          │      KVM + QEMU + libvirt     │ 
+          │                               │
+          │   ┌───────────────────────┐   │
+          │   │       RED DHCP        │   │
+          │   │    192.168.50.0/24    │   │
+          │   │                       │   │
+          │   │   ┌───────────────┐   │   │
+          │   │   │ DHCP SERVER   │   │   │
+          │   │   │ Ubuntu Server │   │   │
+          │   │   │ 192.168.50.10 │   │   │
+          │   │   └───────┬───────┘   │   │
+          │   │           │           │   │
+          │   │      ┌────┴────┐      │   │
+          │   │      │ virtual │      │   │
+          │   │      │ switch  │      │   │
+          │   │      └─┬──┬──┬─┘      │   │
+          │   │        │  │  │        │   │
+          │   │      VM1 VM2 VM3      │   │
+          │   │     DHCP DHCP DHCP    │   │
+          │   │                       │   │
+          │   └───────────────────────┘   │
+          └───────────────────────────────┘
 -->
+
+<!-- ```mermaid
+flowchart TB
+    subgraph Host["UBUNTU SERVER (KVM + QEMU + libvirt)"]
+        direction TB
+        
+        subgraph Red["RED DHCP (192.168.50.0/24)"]
+            direction TB
+            
+            DHCP["<b>DHCP SERVER</b><br/>Ubuntu Server<br/>192.168.50.10"]
+            Switch["virtual switch"]
+            
+            subgraph VMs["Clientes DHCP"]
+                direction LR
+                VM1["VM1<br/>(DHCP)"]
+                VM2["VM2<br/>(DHCP)"]
+                VM3["VM3<br/>(DHCP)"]
+            end
+            
+            DHCP --- Switch
+            Switch --- VM1
+            Switch --- VM2
+            Switch --- VM3
+        end
+    %% Estilos visuales
+    style Host fill:#f9f9f9,stroke:#333,stroke-width:2px
+    style Red fill:#e1f5fe,stroke:#0288d1,stroke-width:2px
+    style DHCP fill:#fff3e0,stroke:#f57c00,stroke-width:1px
+    style Switch fill:#e8f5e9,stroke:#388e3c,stroke-width:1px
+    style VMs fill:#ffffff,stroke:none
+    end
+``` -->
+
 **Dónde:**
 
 - **KVM + QEMU + libvirt** es la pila de virtualización nativa de Linux y está pensada para virtualización de servidores. 
@@ -701,17 +712,16 @@ Instancia EC2 (m7i.large, 100GB, Unbuntu Server 24.04 LTS, Virtualización KVM +
     - **libvirt** → capa de administración de KVM/QEMU.
 - **virt-manager** → interfaz gráfica para administrar libvirt.
 
-- Equivalencia con Windows Server
-
-| Windows Server                    | Ubuntu Server                            |
-| --------------------------------- | ---------------------------------------- |
-| **Hyper-V**                       | **KVM + QEMU**                           |
-| Hyper-V Manager                   | **virt-manager**                         |
-| PowerShell / herramientas Hyper-V | **virsh / virt-install**                 |
-| Virtual Switch                    | **Redes virtuales de libvirt / bridges** |
-| VM                                | VM KVM/QEMU                              |
-| VHDX                              | qcow2 / raw                              |
-| Hyper-V NAT / switches            | NAT / bridge de libvirt                  |
+!!! tip "Equivalencia con Windows Server"  
+    | Windows Server                    | Ubuntu Server                            |
+    | --------------------------------- | ---------------------------------------- |
+    | **Hyper-V**                       | **KVM + QEMU**                           |
+    | Hyper-V Manager                   | **virt-manager**                         |
+    | PowerShell / herramientas Hyper-V | **virsh / virt-install**                 |
+    | Virtual Switch                    | **Redes virtuales de libvirt / bridges** |
+    | VM                                | VM KVM/QEMU                              |
+    | VHDX                              | qcow2 / raw                              |
+    | Hyper-V NAT / switches            | NAT / bridge de libvirt                  |
 
 ### 5.3 Instalación de GNOME en Ubuntu Server 22.04
 
@@ -730,9 +740,24 @@ Instancia EC2 (m7i.large, 100GB, Unbuntu Server 24.04 LTS, Virtualización KVM +
     ```bash
     sudo apt install tasksel -y
     ```
-    - Finalmente instalaremos GNOME
+    - Instalamos GNOME
     ```bash
     sudo apt install ubuntu-desktop -y
+    ```
+    - Configurar el archivo **.xsession** para el usuario. Aquí nos aseguraremos de que **Xrdp** sepa exactamente qué entorno de escritorio debe lanzar al autenticarse.
+    ```bash
+    echo "gnome-session" > ~/.xsession
+    ```
+
+    - Evitar que GDM3 bloquee el arranque gráfico. En servidores en la nube (AWS/Cloud) sin monitor físico, GDM entra en conflicto con las sesiones remotas de Xrdp. Detendremos el servicio gdm3:
+    ```bash
+    sudo systemctl stop gdm3
+    sudo systemctl disable gdm3
+    ```
+
+    - Reiniciar el servicio de Xrdp. Aplicaremos los cambios y reiniciaremos el demonio de escritorio remoto:
+    ```bash
+    sudo systemctl restart xrdp
     ```
 
 ### 5.4 Primera conexión por escritorio gráfico a Ubuntu Server
@@ -831,62 +856,270 @@ sudo systemctl status libvirtd
 
 ![Descripción de la imagen](./img_4/img_4_118.png){ .marginbottom10}
 
+### 5.9 Verificar que /dev/kvm existe y los permisos de usuario del directorio
+
+```bash
+ls -l /dev/kvm
+```
+![Descripción de la imagen](./img_4/img_4_119.png){ .marginbottom10}
+
+**rw-rw----+** → El propietario **root** y el grupo **kvm** tienen permisos de lectura y escritura (rw-). El símbolo + indica que tiene Listas de Control de Acceso (ACL) adicionales aplicadas.
+
+### 5.10 Listar el hipervisor detectado
+
+```bash
+virsh list --all
+```
+![Descripción de la imagen](./img_4/img_4_120.png){ .marginbottom10}
+
+A esta altura de la práctica, que la lista esté vacía no es motivo de preocupación. Aún no hemos creado ninguna máquina virtual.
+
+De no devolver un error tipo *failed to connect to the hypervisor* confirma que:
+
+- **libvirtd** se está ejecutando correctamente.
+- Nuestro usuario tiene permisos **para comunicarse con el hipervisor**.
+- **KVM/QEMU** están listos para usarse.
+
+!!! tip "Virt-Manager"
+    
+    - Si nos conectamos por escritorio remoto, también podremos ver que el asistente (gráfico) de virtualización (virt-manager) está instalado.
+    ![Descripción de la imagen](./img_4/img_4_121.png){ .margintop10 . marginbottom10}
+    - Escritorio de Virt-Manager
+    ![Descripción de la imagen](./img_4/img_4_123.png){ .margintop10}
+
+### 5.11 Crear la red aislada y el switch virtual sin acceso al exterior
+
+Como el la práctica anterior, crearemos una red privada para evitar ingerencias de AWS a la hora de asignar IPs.
+
+```bash
+cat > ~/Documents/UbunterServerDHCP.xml << 'EOF'
+<network>
+  <name>RedPrivada-DHCP</name>
+  <bridge name='Switch-Virtual' stp='on' delay='0'/>
+</network>
+EOF
+
+sudo virsh net-define ~/Documents/UbunterServerDHCP.xml
+sudo virsh net-start RedPrivada-DHCP
+sudo virsh net-autostart RedPrivada-DHCP
+```
+
+!!! warning "Importante"
+    Al **no** incluir ningún bloque `<forward>` ni `<ip>`, esta red queda en modo *isolated*. Libvirt no le asigna su propio DHCP interno ni la conecta a internet.
+
+- Verificaremos que se ha creado switch virtual correctamente:  
+
+    ```bash
+    ip link show Switch-Virtual
+    virsh net-list --all
+    ```  
+
+    ![Descripción de la imagen](./img_4/img_4_124.png)
+
+### 5.12 Configurar el switch virtual
+
+A diferencia de la práctica de Windows Server aquí sí que podemos / debemos asignar un IP al switch virtual.
+
+```bash
+sudo ip addr add 192.168.50.1/24 dev Switch-Virtual
+sudo ip link set Switch-Virtual up
+```
+
+### 5.13 Configurar la máquina anfitriona como servidor DHCP
+
+- Instalamos el servicio DHCP
+
+    ```bash
+    sudo apt install -y isc-dhcp-server
+    ```
+
+- Definir qué interfaz debe escuchar el servidor DHCP
+Para ello tendremos que editar el archivo `/etc/default/isc-dhcp-server`
+
+    ```bash
+    sudo nano /etc/default/isc-dhcp-server
+    ```
+
+    Bajamos hasta la línea INTERFACESv4="" y ponemos el valor Switch-Virtual
+    ```
+    INTERFACESv4="Switch-Virtual"
+    ```
+    ![Descripción de la imagen](./img_4/img_4_126.png){.marco}
+
+### 5.14 Configurar el ámbito de nuestro servidor DHCP
+
+- Para configurar el ámbito editaremos el archivo `/etc/dhcp/dhcpd.conf`
+
+    ```bash
+    sudo nano /etc/dhcp/dhcpd.conf
+    ```
+
+- Añadiremos al final:
+
+    ```
+    subnet 192.168.50.0 netmask 255.255.255.0 {
+      range 192.168.50.100 192.168.50.200;
+      option routers 192.168.50.1;
+      option domain-name-servers 8.8.8.8;
+      option subnet-mask 255.255.255.0;
+      default-lease-time 600;
+      max-lease-time 7200;
+    }
+    ```
+
+    ![Descripción de la imagen](./img_4/img_4_127.png)
+
+### 5.15 Arrancar el servicio DHCP
+
+```bash
+sudo systemctl restart isc-dhcp-server
+sudo systemctl status isc-dhcp-server
+```
+
+![Descripción de la imagen](./img_4/img_4_127.png)
+
+!!! tip "Si falla al arrancar"
+    
+    - Revisar si `INTERFACESv4` apunta a una interfaz que no existe todavía o el archivo `dhcpd.conf`.
+    - Si hay un error de sintaxis usar:
+        ```bash
+        sudo dhcpd -t -cf /etc/dhcp/dhcpd.conf
+        ```
+
+### 5.16 Descargar la imagen de las máquinas virtuales cliente
+
+Igual que en la práctica de Windows Server, usaremos **Alpine Linux** por su ligereza (256–512 MB por VM).
+
+- Podemos usar el escritorio gráfico para descargar la iso del SO de Alpine Linux pero, lo haremos por línea de comando.
+
+    ```bash
+    mkdir -p ~/Documents/iso ~/Documents/vm
+    wget -O ~/Documents/iso/alpine.iso https://dl-cdn.alpinelinux.org/alpine/v3.24/releases/x86/alpine-virt-3.24.1-x86.iso
+    ls -lh ~/iso/alpine.iso   
+    ```
+
+    ![Descripción de la imagen](./img_4/img_4_125.png)
+
 # hasta aqui
 
-<!-- 5. Verificar que /dev/kvm existe y tienes permisos -->
+### 5.17 Crear la VM con virt-install (consola de texto, sin necesidad de GUI)
+
+```bash
+sudo virt-install \
+  --name cliente1 \
+  --memory 512 \
+  --vcpus 1 \
+  --disk path=/var/lib/libvirt/images/cliente1.qcow2,size=4 \
+  --cdrom ~/isos/alpine.iso \
+  --network network=lab-dhcp \
+  --graphics none \
+  --console pty,target_type=serial \
+  --os-variant alpinelinux3.19
+```
+Esto te conecta automáticamente a la **consola serie** de la VM en la misma terminal SSH — no necesitas RDP ni VNC. Verás arrancar el live system de Alpine ahí mismo.
+
+> Si `--os-variant alpinelinux3.19` da error porque `osinfo-db` no lo reconoce, quítalo o usa `--os-variant generic` — no afecta a la funcionalidad, solo son optimizaciones de la plantilla.
+
+En el prompt `localhost login:` entra con:
+```
+root
+```
+(sin contraseña).
+
+Para salir de la consola serie sin apagar la VM: `Ctrl + ]`.
+
 
 <!-- https://claude.ai/chat/062d0a59-02ce-4044-b774-4249a42049e9 -->
 <!-- https://gemini.google.com/u/1/app/ad715c98d45d977e?hl=es-ES -->
 <!-- https://chatgpt.com/c/6a87ef1d-7130-83ed-8c1c-e4a9da08330f -->
 
-<!-- hhttps://youtu.be/fjCWPm-BDto?si=cKZzFsvAcjfM9Cd7&t=477 -->
+### 5.3 Reconectar a la consola más tarde
+```bash
+virsh console cliente1
+```
 
+### 5.4 Segundo cliente (opcional)
+Repite 5.2 cambiando `--name cliente2` y la ruta del disco.
 
+## Paso 6 — Instalar y configurar isc-dhcp-server en el host
 
+### 6.1 Averiguar la interfaz del host en la red aislada
+Al crear la red `lab-dhcp`, libvirt creó el puente `virbr-lab` en el host — es el equivalente al `vEthernet (LAN-Laboratorio-DHCP)` de Windows:
+```bash
+ip addr show virbr-lab
+```
 
+ 
+## Paso 7 — Verificar desde los clientes
 
->
-<!-- https://www.youtube.com/watch?v=Huhou7iCHdc -->
+En la consola serie de `cliente1` (Alpine):
+```sh
+ip link show                # confirma el nombre de la interfaz (normalmente eth0)
+ip link set eth0 up         # si aparece "state DOWN"
+udhcpc -i eth0
+```
 
-<!-- https://www.youtube.com/watch?v=nc-ratzt1MU&t=750s -->
-<!-- https://claude.ai/chat/c361c6cb-e1f9-429c-b062-5ea3be3912a9 -->
-<!-- https://www.youtube.com/watch?v=ItmHj-j5spI -->
+Deberías ver:
+```
+udhcpc: sending discover
+udhcpc: sending select for 192.168.10.10x
+udhcpc: lease of 192.168.10.10x obtained
+```
 
+## Paso 8 — Ver el proceso de broadcast y asignación (DORA) en detalle
 
-### En un cliente Windows
+### 8.1 Leases concedidos (resultado)
+```bash
+cat /var/lib/dhcp/dhcpd.leases
+```
+
+### 8.2 Log del propio servicio en vivo (equivalente al DhcpSrvLog de Windows)
+```bash
+sudo journalctl -u isc-dhcp-server -f
+```
+Déjalo corriendo en una terminal SSH y repite `udhcpc -i eth0` en la consola de la VM en otra — verás las líneas DHCPDISCOVER/DHCPOFFER/DHCPREQUEST/DHCPACK en tiempo real, con IP y MAC del cliente.
+
+### 8.3 Captura con tcpdump en el cliente (lado cliente)
+```sh
+apk add tcpdump
+tcpdump -i eth0 -n port 67 or port 68 -v
+```
+
+### 8.4 Captura con tcpdump en el host, sobre el puente (lado servidor)
+Como no hay GUI en Ubuntu Server, usamos `tcpdump`/`tshark` y, si se quiere inspección visual campo a campo, se exporta el `.pcap` y se abre con Wireshark en el portátil del alumno:
+```bash
+sudo tcpdump -i virbr-lab -n port 67 or port 68 -w /tmp/dhcp-capture.pcap
+```
+Detén la captura con `Ctrl+C` tras generar tráfico, y descárgala a tu equipo local para abrirla con Wireshark:
+```bash
+scp -i mi-clave.pem ubuntu@<IP-instancia>:/tmp/dhcp-capture.pcap .
+```
+También puedes instalar `tshark` en el propio host si prefieres inspeccionar sin salir de la terminal:
+```bash
+sudo apt install -y tshark
+sudo tshark -i virbr-lab -Y bootp
+```
+
 
 ### 8.5 Ejercicios adicionales con valor curricular
 - **Reservas** por MAC: `Add-DhcpServerV4Reservation`.
 - **Exclusiones** dentro del ámbito: `Add-DhcpServerV4ExclusionRange`.
 - **Liberar y renovar** (contraste DISCOVER completo de 4 paquetes vs. renovación de 2 paquetes): en Alpine, `udhcpc -R` para liberar y volver a pedir.
 - **Agotamiento del ámbito**: crear un ámbito de prueba muy pequeño (p. ej. solo 2-3 IPs) para que los alumnos vean qué ocurre cuando un cliente no puede recibir oferta.
-- **Dos clientes simultáneos**: añadir `CLIENTE-2` y comparar cómo el servidor evita duplicados de IP.
 
 
-## Escalar la práctica a varios alumnos/grupos
-
-Opciones, de más simple a más automatizada:
-
-2. **AMI personalizada**: una vez que tengas una instancia con Windows Server + Hyper-V + switch interno + VMs base ya creadas (apagadas), crea una **AMI** a partir de ella. Cada alumno lanza su propia instancia desde esa AMI y ya tiene el entorno listo, solo falta que configuren el DHCP (que es justo la parte que queréis que hagan ellos).
-
-3. **CloudFormation / Launch Template** para lanzar N instancias idénticas de golpe (una por alumno), reutilizando la AMI del punto 2. Esto os interesa si repetís la práctica cada curso.
-
-¿Quieres que te prepare la plantilla de **CloudFormation** para lanzar automáticamente una instancia por alumno (con nested virtualization activado, AMI personalizada y tags por nombre de alumno), o prefieres primero montar y probar tú una instancia "maestra" de forma manual antes de automatizar?
-
-<!-- https://www.youtube.com/watch?v=ItmHj-j5spI -->
 
 <!-- DHCP -->
 <!-- Follow link (ctrl + click) -->
 <!-- https://learn.microsoft.com/es-es/troubleshoot/windows-server/networking/troubleshoot-dhcp-guidance -->
 <!-- para paja -->
-<!-- https://www.juniper.net/documentation/mx/es/software/junos/dhcp/topics/topic-map/dhcp-overview.html -->
+ 
 <!-- para nat -->
-<!-- https://www.manageengine.com/latam/oputils/direcciones-ip-fundamentos.html -->
 <!-- tipo de elementos de red -->
 <!-- https://itadmins.es/networking-ii-dispositivos-de-red-y-tipos-de-trafico/ -->
 
-<!--
-NAT
+<!-- # NAT -->
+<!-- https://www.manageengine.com/latam/oputils/direcciones-ip-fundamentos.html
 https://www.redeszone.net/tutoriales/redes-cable/calcular-subnetting-ip-red-mascara-subred-ipv4/
 https://www.1nce.com/es-es/recursos/iot-knowledge-base/que-es-el-mecanismo-nat
 https://openwebinars.net/blog/nat-que-es-y-para-que-sirve/
@@ -895,3 +1128,9 @@ https://openwebinars.net/blog/nat-que-es-y-para-que-sirve/
 <!-- 
 https://aules.edu.gva.es/docent/pluginfile.php/5719248/mod_resource/content/1/XL_UT03_Interconnexio%CC%81%20d%E2%80%99equips%20en%20xarxes%20locals%20i%20muntatge%20de%20connectors-IP.pdf
 -->
+
+
+
+<!-- instalar virtualizacion virt-manager https://youtu.be/fjCWPm-BDto?si=cKZzFsvAcjfM9Cd7&t=477 -->
+<!-- windows server instalar dhcp https://www.youtube.com/watch?v=nc-ratzt1MU&t=750s -->
+<!-- windows server instalar dhcp  https://www.youtube.com/watch?v=ItmHj-j5spI -->

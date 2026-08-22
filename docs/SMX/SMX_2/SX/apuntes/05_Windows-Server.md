@@ -31,38 +31,31 @@ schedule: 233h - 7h/w
 
 ## 1 - Introducción
 
+**Para que gnome funcione si se quiere hacer una conexion remota**
 
+Configurar el archivo .xsession de tu usuario
+Asegúrate de que Xrdp sepa exactamente qué entorno de escritorio debe lanzar al autenticarte.
 
-### 1.8 gui ubuntu server
+```bash
+echo "gnome-session" > ~/.xsession
+```
 
-https://www.youtube.com/watch?v=aTtYuQ3YVOs
+Evitar que GDM3 bloquee el arranque gráfico
+En servidores en la nube (AWS/Cloud) sin monitor físico, GDM entra en conflicto con las sesiones remotas de Xrdp. Detén el servicio gdm3:
 
+```bash
+sudo systemctl stop gdm3
+sudo systemctl disable gdm3
+```
 
-#### 1.8.1 Actualizar repositorios e instalar interfaz (ej. XFCE) y RDP
+Reiniciar el servicio de Xrdp
+Aplica los cambios y reinicia el demonio de escritorio remoto:
 
-sudo apt install ubuntu-desktop
+```bash
+sudo systemctl restart xrdp
+```
 
-#### 1.8.2 verificar si gnome se ha instalado correctamente
-
-gnome-shell --version
-
-
-
-
-3. Verificar los paquetes instalados (Ubuntu / Debian)
-
-Si quieres confirmar que el metapaquete del escritorio completo o la sesión están en el sistema:
-Bash
-
-dpkg -l | grep -E "gnome-shell|ubuntu-desktop"
-
-Si ves líneas que empiezan por ii, significa que los paquetes están instalados correctamente (ii = Installed/Ok).
-
-reiniciar 
-sudo reboot now
-    
-
-#### 1.8.3 Asignar contraseña al usuario
+### 1.8.3 Asignar contraseña al usuario
 
 sudo passwd ubuntu
 
@@ -83,13 +76,6 @@ echo "xfce4-session" > ~/.xsession
 #### 1.8.5 Configurar xRDP para que siempre inicie XFCE a nivel global
 
 sudo sed -i.bak '/^[[:space:]]*test -x \/etc\/X11\/Xsession/i xfce4-session' /etc/xrdp/startwm.sh -->
-
-
-#### 1.8.6 Reiniciar el servicio xRDP
-
-sudo systemctl restart xrdp
-
-
 
 <!-- https://youtu.be/nc-ratzt1MU?si=yqgXB7f7zQNJvCCc&t=750 -->
 
@@ -153,54 +139,6 @@ Igual que con el switch "Internal" de Hyper-V, aquí usamos una red libvirt en m
 ---
 
 
-
-## Paso 2 — Lanzar la instancia con virtualización anidada activada
-
-
-### Opción C: Activar nested virtualization en una instancia ya existente
-```bash
-aws ec2 stop-instances --instance-ids i-xxxxxxxxxxxxxxxxx
-aws ec2 wait instance-stopped --instance-ids i-xxxxxxxxxxxxxxxxx
-aws ec2 modify-instance-cpu-options --instance-id i-xxxxxxxxxxxxxxxxx --nested-virtualization enabled
-aws ec2 start-instances --instance-ids i-xxxxxxxxxxxxxxxxx
-```
-
-## Paso 3 — Instalar KVM/libvirt
-
-```bash
-ssh -i mi-clave.pem ubuntu@<IP-publica-de-la-instancia>
-```
-
-Verifica que la CPU expone las extensiones de virtualización (debe devolver un número > 0):
-```bash
-egrep -c '(vmx|svm)' /proc/cpuinfo
-```
-
-Instala el comprobador oficial y confirma que KVM es utilizable:
-```bash
-sudo apt update
-sudo apt install -y cpu-checker
-kvm-ok
-```
-Debería responder:
-```
-INFO: /dev/kvm exists
-KVM acceleration can be used
-```
-Si dice que no puede usarse, revisa el Paso 2 (nested virtualization no quedó activado, o el tipo de instancia no lo soporta).
-
-Instala el stack de virtualización:
-```bash
-sudo apt install -y qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virtinst
-sudo usermod -aG libvirt,kvm $USER
-newgrp libvirt
-```
-
-Comprueba que el servicio está activo:
-```bash
-sudo systemctl status libvirtd
-virsh list --all
-```
 
 ## Paso 4 — Crear la red virtual aislada
 
