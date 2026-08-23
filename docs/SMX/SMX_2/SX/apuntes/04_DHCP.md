@@ -987,6 +987,7 @@ Para ello tendremos que editar el archivo `/etc/default/isc-dhcp-server`
         ```bash
         sudo dhcpd -t -cf /etc/dhcp/dhcpd.conf
         ```
+# revisar graficos
 
 ### 5.16 Descargar la imagen de las máquinas virtuales cliente
 
@@ -1034,10 +1035,10 @@ Igual que en la práctica de Windows Server, usaremos **Alpine Linux** por su li
 
     ```bash
     sudo virsh start Cliente-1
-    virsh console cliente1
+    virsh console Cliente-1
     ```
     
-    **Nota 
+    **Nota:** El comando `sudo virsh start Cliente-1`solo es necesario si la VM está apagada.
 
 # hasta aqui
 
