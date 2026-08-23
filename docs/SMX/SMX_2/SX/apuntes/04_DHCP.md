@@ -997,50 +997,55 @@ Igual que en la práctica de Windows Server, usaremos **Alpine Linux** por su li
     ```bash
     <!-- mkdir -p ~/Documents/iso ~/Documents/vm -->
     sudo mkdir -p /var/lib/libvirt/images
-    wget -O ~/var/lib/libvirt/images/alpine.iso https://dl-cdn.alpinelinux.org/alpine/v3.24/releases/x86/alpine-virt-3.24.1-x86.iso
+    sudo mkdir -p /var/lib/libvirt/vm
+    sudo wget -O /var/lib/libvirt/images/alpine.iso https://dl-cdn.alpinelinux.org/alpine/v3.24/releases/x86/alpine-virt-3.24.1-x86.iso
     ls -lh ~/iso/alpine.iso   
     ```
 
     ![Descripción de la imagen](./img_4/img_4_125.png)
 
-# hasta aqui
+**Nota:** El proceso QEMU que ejecuta la VM se lanza con el usuario libvirt-qemu (por aislamiento/seguridad). Ese usuario no tiene permiso para atravesar el directorio /home/ubuntu. Por ese motivo usaremos el directorio `/var/lib/libvirt/`. 
 
 ### 5.17 Crear la VM con virt-install (consola de texto, sin necesidad de GUI)
 
-```bash
-sudo virt-install \
-  --name Cliente-1 \
-  --memory 256 \
-  --vcpus 1 \
-  --disk path=~/Documents/vm/Cliente-1.qcow2,size=4 \
-  --cdrom ~/Documents/iso/alpine.iso \
-  --network network=RedPrivada-DHCP \
-  --graphics none \
-  --console pty,target_type=serial \
-  --os-variant alpinelinux3.19
-```
+- Para crear nuestra primera VM usaremos el script:
+    ```bash
+    sudo virt-install \
+      --name Cliente-1 \
+      --memory 256 \
+      --vcpus 1 \
+      --disk path=/var/lib/libvirt/vm/Cliente-1.qcow2,size=4 \
+      --cdrom /var/lib/libvirt/images/alpine.iso \
+      --network network=RedPrivada-DHCP \
+      --graphics none \
+      --console pty,target_type=serial \
+      --os-variant alpinelinux3.19
+    ```
 
-Esto te conecta automáticamente a la **consola serie** de la VM en la misma terminal SSH — no necesitas RDP ni VNC. Verás arrancar el live system de Alpine ahí mismo.
+- **La opción** `--console pty,target_type=serial` nos conectará automáticamente a la **consola serie** de la VM en la misma terminal SSH. 
 
-> Si `--os-variant alpinelinux3.19` da error porque `osinfo-db` no lo reconoce, quítalo o usa `--os-variant generic` — no afecta a la funcionalidad, solo son optimizaciones de la plantilla.
+- En el prompt `localhost login:` entraremos como `root` con la contraseña **root**.
 
-En el prompt `localhost login:` entra con:
-```
-root
-```
-(sin contraseña).
+- Para salir de la consola serie sin apagar la VM cerraremos la ventana con la que estamos loggeado.
 
-Para salir de la consola serie sin apagar la VM: `Ctrl + ]`.
+### 5.18 Conectarse por consola serie a la VM
 
+- Para conectarnos de nuevo a la VM y configurar la interfaz de red usaremos:
+
+    ```bash
+    sudo virsh start Cliente-1
+    virsh console cliente1
+    ```
+    
+    **Nota 
+
+# hasta aqui
 
 <!-- https://claude.ai/chat/062d0a59-02ce-4044-b774-4249a42049e9 -->
 <!-- https://gemini.google.com/u/1/app/ad715c98d45d977e?hl=es-ES -->
 <!-- https://chatgpt.com/c/6a87ef1d-7130-83ed-8c1c-e4a9da08330f -->
 
 ### 5.3 Reconectar a la consola más tarde
-```bash
-virsh console cliente1
-```
 
 ### 5.4 Segundo cliente (opcional)
 Repite 5.2 cambiando `--name cliente2` y la ruta del disco.
