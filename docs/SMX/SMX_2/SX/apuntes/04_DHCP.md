@@ -925,9 +925,21 @@ sudo virsh net-autostart RedPrivada-DHCP
     sudo ip link set Switch-Virtual up
     ```
 
-    !!! Warning "En esta condiciones, el switch virtual no es persistente. Eso quiere decir que lo tendremos que iniciar cada vez que retomemos la práctica"
+    !!! Warning "En estas condiciones, el switch virtual no es persistente. Eso quiere decir que lo tendremos que iniciar cada vez que retomemos la práctica"
 
+- Hacer el switch virtual persistente.
 
+    ```bash
+    sudo mkdir -p /etc/libvirt/hooks
+    sudo tee /etc/libvirt/hooks/network > /dev/null << 'EOF'
+    #!/bin/bash
+    if [ "$1" = "RedPrivada-DHCP" ] && [ "$2" = "started" ]; then
+        ip addr add 192.168.100.1/24 dev Switch-Virtual
+    fi
+    EOF
+    sudo chmod +x /etc/libvirt/hooks/network
+    sudo systemctl restart libvirtd
+    ```
 
 ### 5.13 Configurar la máquina anfitriona como servidor DHCP
 
