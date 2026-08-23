@@ -916,6 +916,8 @@ sudo virsh net-autostart RedPrivada-DHCP
 
     ![Descripción de la imagen](./img_4/img_4_124.png)
 
+# comprobar si funciona comandos 5.15
+
 ### 5.12 Configurar el switch virtual
 
 - A diferencia de la práctica de Windows Server aquí sí que podemos / debemos asignar un IP al switch virtual.
@@ -934,7 +936,7 @@ sudo virsh net-autostart RedPrivada-DHCP
     sudo tee /etc/libvirt/hooks/network > /dev/null << 'EOF'
     #!/bin/bash
     if [ "$1" = "RedPrivada-DHCP" ] && [ "$2" = "started" ]; then
-        ip addr add 192.168.100.1/24 dev Switch-Virtual
+        ip addr add 192.168.50.1/24 dev Switch-Virtual
     fi
     EOF
     sudo chmod +x /etc/libvirt/hooks/network
