@@ -925,7 +925,7 @@ sudo virsh net-autostart RedPrivada-DHCP
     sudo ip link set Switch-Virtual up
     ```
 
-    !!! error "En esta condiciones, el switch virtual no es persistente. Eso quiere decir que lo tendremos que iniciar cada vez que retomemos la práctica"
+    !!! Error "En esta condiciones, el switch virtual no es persistente. Eso quiere decir que lo tendremos que iniciar cada vez que retomemos la práctica"
 
 
 
