@@ -971,15 +971,17 @@ Para ello tendremos que editar el archivo `/etc/default/isc-dhcp-server`
 
 ### 5.15 Arrancar el servicio DHCP
 
-```bash
-sudo systemctl restart isc-dhcp-server
-sudo systemctl status isc-dhcp-server
-```
+- Para arrancar el servicio y comprobar que el servicio se ha levantado correctamente usaremos:
 
-![Descripción de la imagen](./img_4/img_4_127.png)
+    ```bash
+    sudo systemctl restart isc-dhcp-server
+    sudo systemctl status isc-dhcp-server
+    ```
 
-!!! tip "Si falla al arrancar"
-    
+    ![Descripción de la imagen](./img_4/img_4_127.png)
+
+!!! warning "Si falla al arrancar"
+
     - Revisar si `INTERFACESv4` apunta a una interfaz que no existe todavía o el archivo `dhcpd.conf`.
     - Si hay un error de sintaxis usar:
         ```bash
@@ -1106,8 +1108,9 @@ sudo tshark -i virbr-lab -Y bootp
 - **Exclusiones** dentro del ámbito: `Add-DhcpServerV4ExclusionRange`.
 - **Liberar y renovar** (contraste DISCOVER completo de 4 paquetes vs. renovación de 2 paquetes): en Alpine, `udhcpc -R` para liberar y volver a pedir.
 - **Agotamiento del ámbito**: crear un ámbito de prueba muy pequeño (p. ej. solo 2-3 IPs) para que los alumnos vean qué ocurre cuando un cliente no puede recibir oferta.
-
-
+<!-- 
+virtual machines on ububtu
+https://www.youtube.com/watch?v=6435eNKpyYw -->
 
 <!-- DHCP -->
 <!-- Follow link (ctrl + click) -->
