@@ -1065,8 +1065,9 @@ Igual que en la práctica de Windows Server, usaremos **Alpine Linux** por su li
 - Solicitaremos un IP al DHCP con:
     ```bash
     udhcpc -i eth0
-    ip link show eth0
     ```
+
+    ![Descripción de la imagen](./img_4/img_4_131.png)
 
 # hasta aqui
 
