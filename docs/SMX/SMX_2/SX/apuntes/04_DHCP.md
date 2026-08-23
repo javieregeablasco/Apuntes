@@ -995,8 +995,9 @@ Igual que en la práctica de Windows Server, usaremos **Alpine Linux** por su li
 - Podemos usar el escritorio gráfico para descargar la iso del SO de Alpine Linux pero, lo haremos por línea de comando.
 
     ```bash
-    mkdir -p ~/Documents/iso ~/Documents/vm
-    wget -O ~/Documents/iso/alpine.iso https://dl-cdn.alpinelinux.org/alpine/v3.24/releases/x86/alpine-virt-3.24.1-x86.iso
+    <!-- mkdir -p ~/Documents/iso ~/Documents/vm -->
+    sudo mkdir -p /var/lib/libvirt/images
+    wget -O ~/var/lib/libvirt/images/alpine.iso https://dl-cdn.alpinelinux.org/alpine/v3.24/releases/x86/alpine-virt-3.24.1-x86.iso
     ls -lh ~/iso/alpine.iso   
     ```
 
@@ -1008,16 +1009,17 @@ Igual que en la práctica de Windows Server, usaremos **Alpine Linux** por su li
 
 ```bash
 sudo virt-install \
-  --name cliente1 \
-  --memory 512 \
+  --name Cliente-1 \
+  --memory 256 \
   --vcpus 1 \
-  --disk path=/var/lib/libvirt/images/cliente1.qcow2,size=4 \
-  --cdrom ~/isos/alpine.iso \
-  --network network=lab-dhcp \
+  --disk path=~/Documents/vm/Cliente-1.qcow2,size=4 \
+  --cdrom ~/Documents/iso/alpine.iso \
+  --network network=RedPrivada-DHCP \
   --graphics none \
   --console pty,target_type=serial \
   --os-variant alpinelinux3.19
 ```
+
 Esto te conecta automáticamente a la **consola serie** de la VM en la misma terminal SSH — no necesitas RDP ni VNC. Verás arrancar el live system de Alpine ahí mismo.
 
 > Si `--os-variant alpinelinux3.19` da error porque `osinfo-db` no lo reconoce, quítalo o usa `--os-variant generic` — no afecta a la funcionalidad, solo son optimizaciones de la plantilla.
