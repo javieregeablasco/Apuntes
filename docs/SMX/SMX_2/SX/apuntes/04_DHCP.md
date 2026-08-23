@@ -881,7 +881,7 @@ De no devolver un error tipo *failed to connect to the hypervisor* confirma que:
 - **KVM/QEMU** están listos para usarse.
 
 !!! tip "Virt-Manager"
-    
+
     - Si nos conectamos por escritorio remoto, también podremos ver que el asistente (gráfico) de virtualización (virt-manager) está instalado.
     ![Descripción de la imagen](./img_4/img_4_121.png){ .margintop10 . marginbottom10}
     - Escritorio de Virt-Manager
@@ -918,12 +918,16 @@ sudo virsh net-autostart RedPrivada-DHCP
 
 ### 5.12 Configurar el switch virtual
 
-A diferencia de la práctica de Windows Server aquí sí que podemos / debemos asignar un IP al switch virtual.
+- A diferencia de la práctica de Windows Server aquí sí que podemos / debemos asignar un IP al switch virtual.
 
-```bash
-sudo ip addr add 192.168.50.1/24 dev Switch-Virtual
-sudo ip link set Switch-Virtual up
-```
+    ```bash
+    sudo ip addr add 192.168.50.1/24 dev Switch-Virtual
+    sudo ip link set Switch-Virtual up
+    ```
+
+    !!! error "En esta condiciones, el switch virtual no es persistente. Eso quiere decir que lo tendremos que iniciar cada vez que retomemos la práctica"
+
+
 
 ### 5.13 Configurar la máquina anfitriona como servidor DHCP
 
@@ -1029,7 +1033,7 @@ Igual que en la práctica de Windows Server, usaremos **Alpine Linux** por su li
 
 - Para salir de la consola serie sin apagar la VM cerraremos la ventana con la que estamos loggeado.
 
-### 5.18 Conectarse por consola serie a la VM
+### 5.18 Conectarse por consola serie a la VM y comprobar la interfaz de red
 
 - Para conectarnos de nuevo a la VM y configurar la interfaz de red usaremos:
 
@@ -1037,8 +1041,32 @@ Igual que en la práctica de Windows Server, usaremos **Alpine Linux** por su li
     sudo virsh start Cliente-1
     virsh console Cliente-1
     ```
-    
+
     **Nota:** El comando `sudo virsh start Cliente-1`solo es necesario si la VM está apagada.
+
+- Comprobaremos el estado de la interfaz con:
+
+    ```bash
+    ip link show
+    ```
+
+    ![Descripción de la imagen](./img_4/img_4_129.png)
+
+- Si tenemos el eth0 en DOWN, lo levantaremos con:
+    ```bash
+    ip link set eth0 up
+    ip link show eth0
+    ```
+
+    ![Descripción de la imagen](./img_4/img_4_130.png)
+
+### 5.19 Solicita la IP por DHCP
+
+- Solicitaremos un IP al DHCP con:
+    ```bash
+    udhcpc -i eth0
+    ip link show eth0
+    ```
 
 # hasta aqui
 
