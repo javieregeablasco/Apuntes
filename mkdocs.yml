@@ -138,7 +138,7 @@ nav:
     # - Protocolo DHCP: SMX/SMX_2/SX/apuntes/03_DHCP.md
     - Acceso y control remoto: SMX/SMX_2/SX/apuntes/03_Conexiones-remotas.md
     - Protocolo DHCP: SMX/SMX_2/SX/apuntes/04_DHCP.md
-    - Protocolo DNS/IP: SMX/SMX_2/SX/apuntes/04_DNS.md
+    - Protocolo DNS: SMX/SMX_2/SX/apuntes/05_DNS.md
 
   - Under development:
     - Presentación módulo: DAW/DAW_2/PWES/UT. 0-Temario.md

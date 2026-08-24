@@ -704,13 +704,13 @@ flowchart TB
     end
 ``` -->
 
-**Dónde:**
+!!! note "Explicación de los elementos de la arquitectura"
 
-- **KVM + QEMU + libvirt** es la pila de virtualización nativa de Linux y está pensada para virtualización de servidores. 
-    - **KVM** → proporciona la virtualización mediante el kernel.
-    - **QEMU** → ejecuta/emula el hardware de las máquinas virtuales.
-    - **libvirt** → capa de administración de KVM/QEMU.
-- **virt-manager** → interfaz gráfica para administrar libvirt.
+    - **KVM + QEMU + libvirt** es la pila de virtualización nativa de Linux y está pensada para virtualización de servidores. 
+        - **KVM** → proporciona la virtualización mediante el kernel.
+        - **QEMU** → ejecuta/emula el hardware de las máquinas virtuales.
+        - **libvirt** → capa de administración de KVM/QEMU.
+    - **virt-manager** → interfaz gráfica para administrar libvirt.
 
 !!! tip "Equivalencia con Windows Server"  
     | Windows Server                    | Ubuntu Server                            |
@@ -764,7 +764,7 @@ flowchart TB
 
 - Lanzamos desde Windows la aplicación de conexión a escritorio remoto e introducimos la contraseña de nuestra máquina.  
 ![Descripción de la imagen](./img_4/img_4_110.png){ .margintop10 .marginbottom10}
-- Para la práctica no tendremos en cuenta la advertencias de seguridad.
+- Para la práctica, no tendremos en cuenta la advertencias de seguridad.
 - Introducimos nuestras credenciales en la pasarela (servidor Xrdp).
 ![Descripción de la imagen](./img_4/img_4_111.png){ .margintop10 .marginbottom10}
 - Si la sesión de ubuntu se ha cerrado, introducimos de nuevo las credenciales.
@@ -776,10 +776,10 @@ flowchart TB
 
 !!! success "Activar la virtualización de la CPU por la consola de AWS"
 
-    - Abrimos el powershell de AWS y escribimos los siguientes comandos:  
-    **Nota IMPORTANTE:** Cambiar la id por la **id de vuestra instancia**.
+    - Abrimos el cloudshell de AWS y escribimos los siguientes comandos:  
+    !!! warning "Cambiar la id por la id de vuestra instancia"
     ```bash
-    # 1. Parar la instancia (aunque la acabes de arrancar)
+    # 1. Parar la instancia. También se puede hacer desde la consola de AWS. 
     aws ec2 stop-instances --instance-ids i-069fe851e6325d765
 
     # 2. Esperar a que quede realmente parada
@@ -818,69 +818,76 @@ flowchart TB
 
 ### 5.6 Instalación de KVM y herramientas relacionadas
 
-```bash
-sudo apt install -y qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virtinst virt-manager
-```
+- Instalaremos KVM y las herraminetas relacionadas con:
 
-- **qemu-kvm** → el hipervisor en sí.
-- **libvirt-daemon-system / libvirt-clients** → capa de gestión (permite usar virsh, virt-install, etc.).
-- **bridge-utils** → para redes puente entre las VMs anidadas.
-- **virtinst** → herramientas para crear VMs desde línea de comandos (virt-install).
-- **virt-manager** → interfaz gráfica de gestión (solo si disponemos de entorno gráfico).
+    ```bash
+    sudo apt install -y qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virtinst virt-manager
+    ```
+
+!!! note "Explicación de las aplicaciones instaladas"
+    - **qemu-kvm** → el hipervisor en sí.
+    - **libvirt-daemon-system / libvirt-clients** → capa de gestión (permite usar virsh, virt-install, etc.).
+    - **bridge-utils** → para redes puente entre las VMs anidadas.
+    - **virtinst** → herramientas para crear VMs desde línea de comandos (virt-install).
+    - **virt-manager** → interfaz gráfica de gestión (solo si disponemos de entorno gráfico).
 
 ### 5.7 Añadir usuarios a los grupos necesarios
 
-Para poder utilizar las opciones de virtualización deberemos añadir nuestro usuario **a los grupos libvirt y kvm**.
-
-```bash
-sudo usermod -aG libvirt $USER
-sudo usermod -aG kvm $USER
-```
+- Para poder utilizar las opciones de virtualización deberemos añadir nuestro usuario **a los grupos libvirt y kvm**.
+    ```bash
+    sudo usermod -aG libvirt $USER
+    sudo usermod -aG kvm $USER
+    ```
 
 !!! warning "Desloggearse para que los cambios surtan efecto"
 
 ### 5.8 Comprobar que el servicio libvirt está activo
 
-```bash
-sudo systemctl status libvirtd
-```
+- Lo comprobaremos con:
+    ```bash
+    sudo systemctl status libvirtd
+    ```
+    ![Descripción de la imagen](./img_4/img_4_117.png){ .marginbottom10}
 
-![Descripción de la imagen](./img_4/img_4_117.png){ .marginbottom10}
+- Si, como en el caso de la imagen, nos muestra inactive, los activaremos con:
 
-Si, como en el caso de la imagen, nos muestra inactive, los activaremos con:
-
-```bash
-sudo systemctl start libvirtd
-sudo systemctl status libvirtd
-```
-
-![Descripción de la imagen](./img_4/img_4_118.png){ .marginbottom10}
+    ```bash
+    sudo systemctl start libvirtd
+    sudo systemctl status libvirtd
+    ```
+    ![Descripción de la imagen](./img_4/img_4_118.png){ .marginbottom10}
 
 ### 5.9 Verificar que /dev/kvm existe y los permisos de usuario del directorio
 
-```bash
-ls -l /dev/kvm
-```
-![Descripción de la imagen](./img_4/img_4_119.png){ .marginbottom10}
+- Lo verificaremos con:
+    ```bash
+    ls -l /dev/kvm
+    ```
+    ![Descripción de la imagen](./img_4/img_4_119.png){ .marginbottom10}
 
-**rw-rw----+** → El propietario **root** y el grupo **kvm** tienen permisos de lectura y escritura (rw-). El símbolo + indica que tiene Listas de Control de Acceso (ACL) adicionales aplicadas.
+!!! note "Nota"
+
+    - **rw-rw----+** → El propietario **root** y el grupo **kvm** tienen permisos de lectura y escritura (rw-). 
+    - El símbolo + indica que tiene Listas de Control de Acceso (ACL) adicionales aplicadas.
 
 ### 5.10 Listar el hipervisor detectado
 
-```bash
-virsh list --all
-```
-![Descripción de la imagen](./img_4/img_4_120.png){ .marginbottom10}
+- Listaremos los servicios de virtualización con:
+    ```bash
+    virsh list --all
+    ```
+    ![Descripción de la imagen](./img_4/img_4_120.png){ .marginbottom10}
 
-A esta altura de la práctica, que la lista esté vacía no es motivo de preocupación. Aún no hemos creado ninguna máquina virtual.
+!!! note "Nota"
+    A esta altura de la práctica, que la lista esté vacía no es motivo de preocupación. Aún no hemos creado ninguna máquina virtual.
 
-De no devolver un error tipo *failed to connect to the hypervisor* confirma que:
+!!! tip "De no devolver un error tipo *failed to connect to the hypervisor* confirma que:"
 
-- **libvirtd** se está ejecutando correctamente.
-- Nuestro usuario tiene permisos **para comunicarse con el hipervisor**.
-- **KVM/QEMU** están listos para usarse.
+    - **libvirtd** se está ejecutando correctamente.
+    - Nuestro usuario tiene permisos **para comunicarse con el hipervisor**.
+    - **KVM/QEMU** están listos para usarse.
 
-!!! tip "Virt-Manager"
+!!! tip "Aplicación Virt-Manager"
 
     - Si nos conectamos por escritorio remoto, también podremos ver que el asistente (gráfico) de virtualización (virt-manager) está instalado.
     ![Descripción de la imagen](./img_4/img_4_121.png){ .margintop10 . marginbottom10}
@@ -889,20 +896,20 @@ De no devolver un error tipo *failed to connect to the hypervisor* confirma que:
 
 ### 5.11 Crear la red aislada y el switch virtual sin acceso al exterior
 
-Como el la práctica anterior, crearemos una red privada para evitar ingerencias de AWS a la hora de asignar IPs.
+- Como el la práctica anterior, crearemos una red privada para evitar ingerencias de AWS a la hora de asignar IPs.
 
-```bash
-cat > ~/Documents/UbunterServerDHCP.xml << 'EOF'
-<network>
-  <name>RedPrivada-DHCP</name>
-  <bridge name='Switch-Virtual' stp='on' delay='0'/>
-</network>
-EOF
+    ```bash
+    cat > ~/Documents/UbunterServerDHCP.xml << 'EOF'
+    <network>
+      <name>RedPrivada-DHCP</name>
+      <bridge name='Switch-Virtual' stp='on' delay='0'/>
+    </network>
+    EOF
 
-sudo virsh net-define ~/Documents/UbunterServerDHCP.xml
-sudo virsh net-start RedPrivada-DHCP
-sudo virsh net-autostart RedPrivada-DHCP
-```
+    sudo virsh net-define ~/Documents/UbunterServerDHCP.xml
+    sudo virsh net-start RedPrivada-DHCP
+    sudo virsh net-autostart RedPrivada-DHCP
+    ```
 
 !!! warning "Importante"
     Al **no** incluir ningún bloque `<forward>` ni `<ip>`, esta red queda en modo *isolated*. Libvirt no le asigna su propio DHCP interno ni la conecta a internet.
@@ -916,8 +923,6 @@ sudo virsh net-autostart RedPrivada-DHCP
 
     ![Descripción de la imagen](./img_4/img_4_124.png)
 
-# comprobar si funciona comandos 5.15
-
 ### 5.12 Configurar el switch virtual
 
 - A diferencia de la práctica de Windows Server aquí sí que podemos / debemos asignar un IP al switch virtual.
@@ -927,21 +932,55 @@ sudo virsh net-autostart RedPrivada-DHCP
     sudo ip link set Switch-Virtual up
     ```
 
-    !!! Warning "En estas condiciones, el switch virtual no es persistente. Eso quiere decir que lo tendremos que iniciar cada vez que retomemos la práctica"
+    !!! warning "En estas condiciones, el switch virtual no es persistente. Eso quiere decir que lo tendremos que iniciar cada vez que retomemos la práctica"
 
-- Hacer el switch virtual persistente.
+- Para evitar de tener que asignar un IP al switch virtual y el posterior reinicio del servicio DHCP podremos intentar lo siguiente:
 
-    ```bash
-    sudo mkdir -p /etc/libvirt/hooks
-    sudo tee /etc/libvirt/hooks/network > /dev/null << 'EOF'
-    #!/bin/bash
-    if [ "$1" = "RedPrivada-DHCP" ] && [ "$2" = "started" ]; then
-        ip addr add 192.168.50.1/24 dev Switch-Virtual
-    fi
-    EOF
-    sudo chmod +x /etc/libvirt/hooks/network
-    sudo systemctl restart libvirtd
-    ```
+    !!! warning "Los pasos a continuación solo se podrán hacer después de haber completado la práctica"
+
+    !!! Success "Hacer el switch virtual persistente con un hook"
+        ```bash
+        sudo mkdir -p /etc/libvirt/hooks
+        sudo tee /etc/libvirt/hooks/network > /dev/null << 'EOF'
+        #!/bin/bash
+        if [ "$1" = "RedPrivada-DHCP" ] && [ "$2" = "started" ]; then
+            ip addr add 192.168.50.1/24 dev Switch-Virtual
+        fi
+        EOF
+        sudo chmod +x /etc/libvirt/hooks/network
+        sudo systemctl restart libvirtd
+        ```
+
+    !!! Success "Iniciar el servicio DHCP solo después de que el virtual switch tenga IP"
+
+        - Abriremos un editor vacío  que creará automáticamente `/etc/systemd/system/isc-dhcp-server.service.d/override.conf`.
+        ```bash
+        sudo systemctl edit isc-dhcp-server
+        ```
+        - Dentro del editor escribiremos: 
+        ```ini
+        [Unit]
+        After=libvirtd.service
+        Requires=libvirtd.service
+ 
+        [Service]
+        ExecStartPre=/bin/bash -c 'for i in $(seq 1 15); do ip addr show Switch-Virtual | grep -q "192.168.50.1" && exit 0; sleep 1;  done; exit 1'
+        ```
+        ![Descripción de la imagen](./img_4/img_4_132.png){.marginbottom10 .margintop10}
+        - Guardar y cierrar. 
+            - `After= + Requires=` → obliga a que isc-dhcp-server arranque después de libvirtd, y no arranque en absoluto si libvirtd  falla.
+            - `ExecStartPre=/bin/bash -c 'for i in $(seq 1 15)` → reintenta cada segundo durante 15 segundos, y solo lanza dhcpd  cuando confirma que la IP ya está cargada.
+        - Recargar systemd. 
+        ```bash
+        sudo systemctl daemon-reload
+        sudo reboot
+        ```
+        - Tras el reinicio, comprobar.
+        ```bash
+        ip addr show Switch-Virtual
+        sudo systemctl status isc-dhcp-server
+        ```
+        ![Descripción de la imagen](./img_4/img_4_133.png)
 
 ### 5.13 Configurar la máquina anfitriona como servidor DHCP
 
@@ -1005,7 +1044,6 @@ Para ello tendremos que editar el archivo `/etc/default/isc-dhcp-server`
         ```bash
         sudo dhcpd -t -cf /etc/dhcp/dhcpd.conf
         ```
-# revisar graficos
 
 ### 5.16 Descargar la imagen de las máquinas virtuales cliente
 
@@ -1023,7 +1061,10 @@ Igual que en la práctica de Windows Server, usaremos **Alpine Linux** por su li
 
     ![Descripción de la imagen](./img_4/img_4_125.png)
 
-**Nota:** El proceso QEMU que ejecuta la VM se lanza con el usuario libvirt-qemu (por aislamiento/seguridad). Ese usuario no tiene permiso para atravesar el directorio /home/ubuntu. Por ese motivo usaremos el directorio `/var/lib/libvirt/`. 
+!!! note "Nota"
+
+    - El proceso QEMU que ejecuta la VM se lanza con el usuario libvirt-qemu (por aislamiento/seguridad). Ese usuario no tiene permiso para atravesar el directorio /home/ubuntu. 
+    - Por ese motivo usaremos el directorio `/var/lib/libvirt/`. 
 
 ### 5.17 Crear la VM con virt-install (consola de texto, sin necesidad de GUI)
 
@@ -1041,11 +1082,10 @@ Igual que en la práctica de Windows Server, usaremos **Alpine Linux** por su li
       --os-variant alpinelinux3.19
     ```
 
-- **La opción** `--console pty,target_type=serial` nos conectará automáticamente a la **consola serie** de la VM en la misma terminal SSH. 
-
-- En el prompt `localhost login:` entraremos como `root` con la contraseña **root**.
-
-- Para salir de la consola serie sin apagar la VM cerraremos la ventana con la que estamos loggeado.
+!!! note "Notas"
+    - **La opción** `--console pty,target_type=serial` nos conectará automáticamente a la **consola serie** de la VM en la misma terminal SSH.
+    - En el prompt `localhost login:` entraremos como `root` con la contraseña **root**.
+    - Para salir de la consola serie sin apagar la VM cerraremos la ventana con la que estamos loggeado.
 
 ### 5.18 Conectarse por consola serie a la VM y comprobar la interfaz de red
 
@@ -1056,7 +1096,8 @@ Igual que en la práctica de Windows Server, usaremos **Alpine Linux** por su li
     virsh console Cliente-1
     ```
 
-    **Nota:** El comando `sudo virsh start Cliente-1`solo es necesario si la VM está apagada.
+    !!! note "Nota"
+        El comando `sudo virsh start Cliente-1`solo es necesario si la VM está apagada.
 
 - Comprobaremos el estado de la interfaz con:
 
@@ -1066,7 +1107,7 @@ Igual que en la práctica de Windows Server, usaremos **Alpine Linux** por su li
 
     ![Descripción de la imagen](./img_4/img_4_129.png)
 
-- Si tenemos el eth0 en DOWN, lo levantaremos con:
+- Si tenemos el `eth0` en DOWN, lo levantaremos con:
     ```bash
     ip link set eth0 up
     ip link show eth0
@@ -1083,82 +1124,76 @@ Igual que en la práctica de Windows Server, usaremos **Alpine Linux** por su li
 
     ![Descripción de la imagen](./img_4/img_4_131.png)
 
-# hasta aqui
+### 5.20 Gestión de las máquinas virtuales por consola
+
+- Para acceder a la ayuda de virsh teclar:
+
+```bash
+virsh
+```
+
+- Comandos más habituales
+
+    | Comando | Qué hace |
+    |||
+    |virsh destroy `<Cliente-1>` | Apagado forzoso e inmediato |
+    |virsh shutdown `<Cliente-1>` | Apagado ordenado (envía señal ACPI, espera a que el SO se apague solo) |
+    |virsh reboot `<Cliente-1>` |Reinicio ordenado (equivalente ACPI) |
+    |virsh undefine `<Cliente-1>` | Elimina la definición de la VM (metadatos) |
+    |virsh undefine `<Cliente-1>` --remove-all-storage| Elimina la definición de la VM y del disco --remove-all-storage|
+    |virsh list --all| Lista todas las máquinas y su estado|
+    |virsh console `<Cliente-1>`| Conexión por consale a la MV|
+
+### 5.21 Segundo cliente
+
+- Repetir los pasos anteriores y crear una segunda VM con nombre `Cliente-2`.
+
+### 5.22 Ver el proceso de broadcast y asignación DORA
+
+En este caso no usaremos wireshark sino el propio log del servicio DHCP.
+
+- Nos conectamos a nuestra instancia anfitrión y lanzamos el log.
+    ```bash
+    sudo journalctl -u isc-dhcp-server -f
+    ```
+
+    **No cerraremos la ventana, lo dejamos corriendo.**
+
+- Abrimos otra conexión con nuestra instancia y la usaremos para conectarnos a nuestra(s) MV.
+    - Levantamos la interfaz de red con:
+    ```bash
+    ip link set eth0 up
+    ```
+
+    - Iniciamos el proceso DORA:
+    ```
+    udhcpc -i eth0
+    ```
+    ![Descripción de la imagen](./img_4/img_4_134.png)
+
+- Volvemos al log dónde podremos ver el DORA.
+![Descripción de la imagen](./img_4/img_4_135.png)
+
+### 5.23 Leases concedidos
+
+- Con el siguiente comando podemos consultar el registro de concesiones (leases) del servidor DHCP, donde se muestra qué dirección IP tiene asignada cada cliente, la duración de la concesión y su fecha de inicio y expiración.
+
+    ```bash
+    cat /var/lib/dhcp/dhcpd.leases
+    ```
+    ![Descripción de la imagen](./img_4/img_4_136.png)
+
 
 <!-- https://claude.ai/chat/062d0a59-02ce-4044-b774-4249a42049e9 -->
 <!-- https://gemini.google.com/u/1/app/ad715c98d45d977e?hl=es-ES -->
 <!-- https://chatgpt.com/c/6a87ef1d-7130-83ed-8c1c-e4a9da08330f -->
 
-### 5.3 Reconectar a la consola más tarde
-
-### 5.4 Segundo cliente (opcional)
-Repite 5.2 cambiando `--name cliente2` y la ruta del disco.
-
-## Paso 6 — Instalar y configurar isc-dhcp-server en el host
-
-### 6.1 Averiguar la interfaz del host en la red aislada
-Al crear la red `lab-dhcp`, libvirt creó el puente `virbr-lab` en el host — es el equivalente al `vEthernet (LAN-Laboratorio-DHCP)` de Windows:
-```bash
-ip addr show virbr-lab
-```
-
- 
-## Paso 7 — Verificar desde los clientes
-
-En la consola serie de `cliente1` (Alpine):
-```sh
-ip link show                # confirma el nombre de la interfaz (normalmente eth0)
-ip link set eth0 up         # si aparece "state DOWN"
-udhcpc -i eth0
-```
-
-Deberías ver:
-```
-udhcpc: sending discover
-udhcpc: sending select for 192.168.10.10x
-udhcpc: lease of 192.168.10.10x obtained
-```
-
-## Paso 8 — Ver el proceso de broadcast y asignación (DORA) en detalle
-
-### 8.1 Leases concedidos (resultado)
-```bash
-cat /var/lib/dhcp/dhcpd.leases
-```
-
-### 8.2 Log del propio servicio en vivo (equivalente al DhcpSrvLog de Windows)
-```bash
-sudo journalctl -u isc-dhcp-server -f
-```
-Déjalo corriendo en una terminal SSH y repite `udhcpc -i eth0` en la consola de la VM en otra — verás las líneas DHCPDISCOVER/DHCPOFFER/DHCPREQUEST/DHCPACK en tiempo real, con IP y MAC del cliente.
-
-### 8.3 Captura con tcpdump en el cliente (lado cliente)
-```sh
-apk add tcpdump
-tcpdump -i eth0 -n port 67 or port 68 -v
-```
-
-### 8.4 Captura con tcpdump en el host, sobre el puente (lado servidor)
-Como no hay GUI en Ubuntu Server, usamos `tcpdump`/`tshark` y, si se quiere inspección visual campo a campo, se exporta el `.pcap` y se abre con Wireshark en el portátil del alumno:
-```bash
-sudo tcpdump -i virbr-lab -n port 67 or port 68 -w /tmp/dhcp-capture.pcap
-```
-Detén la captura con `Ctrl+C` tras generar tráfico, y descárgala a tu equipo local para abrirla con Wireshark:
-```bash
-scp -i mi-clave.pem ubuntu@<IP-instancia>:/tmp/dhcp-capture.pcap .
-```
-También puedes instalar `tshark` en el propio host si prefieres inspeccionar sin salir de la terminal:
-```bash
-sudo apt install -y tshark
-sudo tshark -i virbr-lab -Y bootp
-```
-
-
-### 8.5 Ejercicios adicionales con valor curricular
+# Ejercicios adicionales 
 - **Reservas** por MAC: `Add-DhcpServerV4Reservation`.
 - **Exclusiones** dentro del ámbito: `Add-DhcpServerV4ExclusionRange`.
 - **Liberar y renovar** (contraste DISCOVER completo de 4 paquetes vs. renovación de 2 paquetes): en Alpine, `udhcpc -R` para liberar y volver a pedir.
 - **Agotamiento del ámbito**: crear un ámbito de prueba muy pequeño (p. ej. solo 2-3 IPs) para que los alumnos vean qué ocurre cuando un cliente no puede recibir oferta.
+
 <!-- 
 virtual machines on ububtu
 https://www.youtube.com/watch?v=6435eNKpyYw -->
