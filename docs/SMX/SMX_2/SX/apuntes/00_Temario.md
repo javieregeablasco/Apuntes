@@ -98,7 +98,7 @@ Contenidos disponibles [aquí](href=https://www.boe.es/eli/es/rd/2007/12/14/1691
     |**c)** Se ha descrito la estructura, nomenclatura y funcionalidad de los sistemas de nombres jerárquicos.|11%|
     |**d)** Se ha instalado un servicio jerárquico de resolución de nombres.|11%|
     |**e)** Se ha preparado el servicio para almacenar las respuestas procedentes de servidores de redes públicas y servirlas a los equipos de la red local.|11%|
-    |**f)** Se han añadido registros de nombres correspon dientes a una zona nueva, con opciones relativas a servidores de correo y alias.|11%|
+    |**f)** Se han añadido registros de nombres correspondientes a una zona nueva, con opciones relativas a servidores de correo y alias.|11%|
     |**g)** Se ha trabajado en grupo para realizar transferencias de zona entre dos o más servidores.|11%|
     |**h)** Se ha comprobado el funcionamiento correcto del servidor.|11%|
 

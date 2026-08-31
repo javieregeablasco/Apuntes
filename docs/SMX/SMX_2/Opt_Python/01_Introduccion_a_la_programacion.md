@@ -104,7 +104,7 @@ Como acabamos de ver, un algoritmo no es más que la secuencia de pasos que se d
 
 **Los algoritmos son independientes de los lenguajes de programación y de las computadoras donde se ejecutan**. Un mismo algoritmo puede ser expresado en diferentes lenguajes de programación y podría ser ejecutado en diferentes dispositivos. 
 
-???+ info 
+???+ info
     Piensa en una receta de cocina, ésta puede ser expresada en castellano, inglés o francés, podría ser cocinada en fogón o vitrocerámica, por un cocinero o más, etc. Pero independientemente de todas estas circunstancias, el plato se preparará siguiendo los mismos pasos.
 
 ### **4.1 - Características de los algoritmos**
@@ -172,13 +172,14 @@ Es una de las técnicas de representación de algoritmos más antiguas y más ut
 !!! question "Pregunta"
     ¿Qué hace este algoritmo?
 
-#### **4.2.2 - Pseudocódigo**
+#### 4.2.2 - Pseudocódigo
+
 El pseudocódigo es un lenguaje de descripción de algoritmos muy próximo a la sintaxis de los lenguajes de programación. Nace como medio para representar las estructuras de control de **programación estructurada**.
 
 El pseudocódigo no se puede ejecutar nunca en el ordenador, sino que tiene que traducirse a un lenguaje de programación (codificación). La ventaja del pseudocódigo, frente a los diagramas de flujo, es que se puede modificar más fácilmente si detecta un error en la lógica del algoritmo, y puede ser traducido fácilmente a los lenguajes de programación estructurados.
 
 El Pseudocódigo utiliza palabras reservadas (en sus orígenes se escribían en inglés) para representar las sucesivas acciones. Para mayor legibilidad utiliza la identación `sangría en el margen izquierdo` de sus líneas.
-        
+
 ???+ example "Mostrar dos números ordenados de menor a mayor"
     ```basic linenums="1"
     Inicio

@@ -425,8 +425,8 @@ No es una herramienta especifica del servicio DHCP sino de todo el ecosistema de
 - Vamos a BPA → **TASKS** → Start BPA Scan
 ![Descripción de la imagen](./img_4/img_4_69.png){ .margintop10 .marginbottom10}
 
-**Nota:**  
-Algunos de los errores o advertencias que aparecen se deben a las limitaciones de nuestra infraestructura. No los tendremos en cuenta. 
+!!! note "Nota"  
+    Algunos de los errores o advertencias que aparecen se deben a las limitaciones de nuestra infraestructura. No los tendremos en cuenta.
 
 #### 4.4.7 Comprobar el servicio por CLI
 
@@ -547,7 +547,7 @@ Get-Item "C:\ISO\alpine.iso" | Select-Object Name, Length
 ### 4.5.4 Verificar la conexión a la red a la asignación de la IP por parte del DHCP
 
 - Dentro de la consola de la VM confirmaremos el nombre real de la interfaz (eth0, enp0s3...):  
-    ```shell
+    ``` shell
     ip link show           
     ```
 
@@ -1183,26 +1183,17 @@ En este caso no usaremos wireshark sino el propio log del servicio DHCP.
     ```
     ![Descripción de la imagen](./img_4/img_4_136.png)
 
-
 <!-- https://claude.ai/chat/062d0a59-02ce-4044-b774-4249a42049e9 -->
 <!-- https://gemini.google.com/u/1/app/ad715c98d45d977e?hl=es-ES -->
 <!-- https://chatgpt.com/c/6a87ef1d-7130-83ed-8c1c-e4a9da08330f -->
 
 # Ejercicios adicionales 
+
 - **Reservas** por MAC: `Add-DhcpServerV4Reservation`.
 - **Exclusiones** dentro del ámbito: `Add-DhcpServerV4ExclusionRange`.
 - **Liberar y renovar** (contraste DISCOVER completo de 4 paquetes vs. renovación de 2 paquetes): en Alpine, `udhcpc -R` para liberar y volver a pedir.
 - **Agotamiento del ámbito**: crear un ámbito de prueba muy pequeño (p. ej. solo 2-3 IPs) para que los alumnos vean qué ocurre cuando un cliente no puede recibir oferta.
 
-<!-- 
-virtual machines on ububtu
-https://www.youtube.com/watch?v=6435eNKpyYw -->
-
-<!-- DHCP -->
-<!-- Follow link (ctrl + click) -->
-<!-- https://learn.microsoft.com/es-es/troubleshoot/windows-server/networking/troubleshoot-dhcp-guidance -->
-<!-- para paja -->
- 
 <!-- para nat -->
 <!-- tipo de elementos de red -->
 <!-- https://itadmins.es/networking-ii-dispositivos-de-red-y-tipos-de-trafico/ -->
@@ -1213,13 +1204,3 @@ https://www.redeszone.net/tutoriales/redes-cable/calcular-subnetting-ip-red-masc
 https://www.1nce.com/es-es/recursos/iot-knowledge-base/que-es-el-mecanismo-nat
 https://openwebinars.net/blog/nat-que-es-y-para-que-sirve/
 -->
-
-<!-- 
-https://aules.edu.gva.es/docent/pluginfile.php/5719248/mod_resource/content/1/XL_UT03_Interconnexio%CC%81%20d%E2%80%99equips%20en%20xarxes%20locals%20i%20muntatge%20de%20connectors-IP.pdf
--->
-
-
-
-<!-- instalar virtualizacion virt-manager https://youtu.be/fjCWPm-BDto?si=cKZzFsvAcjfM9Cd7&t=477 -->
-<!-- windows server instalar dhcp https://www.youtube.com/watch?v=nc-ratzt1MU&t=750s -->
-<!-- windows server instalar dhcp  https://www.youtube.com/watch?v=ItmHj-j5spI -->

@@ -10,43 +10,740 @@ keywords: SMX, SMR, SX, SR
 schedule: 233h - 7h/w
 ---
 
-![Descripción de la imagen](./img_4/img_4_4.png){ .img2 .marginbottom40}
+![Descripción de la imagen](./img_5/img_5_1.jpg){ .img2 .marginbottom40}
 
 **Resultados de aprendizaje y criterios de evaluacion que se evaluarán en esta unidad.**  
 
 | **Resultados de aprendizaje de la unidad didáctica:**|
 ||
-| **RA. 1:** Instala servicios de configuración dinámica, describiendo sus características y aplicaciones.|
+| **RA. 2 Instala servicios de resolución de nombres, describiendo sus características y aplicaciones.**|
 
 |**Criterios de evaluación de la unidad didáctica:**|
 ||
-|**a)** Se ha reconocido el funcionamiento de los mecanismos automatizados de configuración de los parámetros de red.|
-|**b)** Se han identificado las ventajas que proporcionan.|
-|**c)** Se han ilustrado los procedimientos y pautas que intervienen en una solicitud de configuración de los parámetros de red.|
-|**d)** Se ha instalado un servicio de configuración dinámica de los parámetros de red.|
-|**e)** Se ha preparado el servicio para asignar la configuración básica a los sistemas de una red local.|
-|**f)** Se han realizado asignaciones dinámicas y estáticas.|
-|**g)** Se han integrado en el servicio opciones adicionales de configuración.|
-|**h)** Se ha verificando la correcta asignación de los parámetros.|
+|**a)** Se han identificado y descrito escenarios en los que surge la necesidad de un servicio de resolución de nombres.|
+|**b)** Se han clasificado los principales mecanismos de resolución de nombres.|
+|**c)** Se ha descrito la estructura, nomenclatura y funcionalidad de los sistemas de nombres jerárquicos.|
+|**d)** Se ha instalado un servicio jerárquico de resolución de nombres.|
+|**e)** Se ha preparado el servicio para almacenar las respuestas procedentes de servidores de redes públicas y servirlas a los equipos de la red local.|
+|**f)** Se han añadido registros de nombres correspondientes a una zona nueva, con opciones relativas a servidores de correo y alias.|
+|**g)** Se ha trabajado en grupo para realizar transferencias de zona entre dos o más servidores.|
+|**h)** Se ha comprobado el funcionamiento correcto del servidor.|
 
 ## 1 - Introducción
 
+!!! question "¿Qué es el DNS?"
+![Descripción de la imagen](./img_5/img_5_3.png)
+
+El **DNS** (*Domain Name System* o **Sistema de Nombres de Dominio**) es un sistema **distribuido y jerárquico** que permite asociar nombres de dominio legibles para las personas, como `www.aules.edu.gva.es`, con **direcciones IP**, como `195.77.20.168`, que los dispositivos utilizan para localizar servicios y comunicarse en una red.
+
+El DNS suele describirse popularmente como la **"guía telefónica de Internet"**. Al igual que la agenda de un teléfono móvil nos evita tener que memorizar los números de teléfono de cada persona, el DNS evita que los usuarios tengan que memorizar direcciones IP para acceder a los diferentes servicios de una red.
+
+Aunque normalmente pensamos en el DNS como un sistema que traduce nombres de dominio en direcciones IP, también permite realizar otro tipo de consultas. Por ejemplo, puede indicar qué servidores se encargan del correo electrónico de un dominio o proporcionar direcciones IPv6.
+
+!!! question "¿Para qué sirve?"
+![Descripción de la imagen](./img_5/img_5_5.png)
+
+La utilidad del sistema DNS es fundamental para el funcionamiento de Internet y de **muchas redes privadas**. Entre sus principales funciones encontramos:
+
+- **Simplifica el acceso a los servicios de red:** permite utilizar nombres fáciles de recordar en lugar de direcciones IP.
+
+- **Aporta flexibilidad:** si un servicio cambia de servidor o de dirección IP, es posible modificar la información DNS manteniendo el mismo nombre de dominio. De esta forma, los usuarios pueden continuar utilizando el mismo nombre para acceder al servicio.
+
+- **Permite localizar servicios de red:** los dispositivos pueden consultar el DNS para obtener información sobre la ubicación de diferentes servicios, como servidores web o servidores de correo electrónico.
+
+- **Facilita la administración de redes:** en las redes locales también es posible utilizar DNS para asociar nombres a equipos y servicios, evitando tener que recordar sus direcciones IP.
+
+- **Interviene en numerosos servicios de Internet**, como:  
+
+    - **Acceder a páginas web**.
+    - **Enviar y recibir correos electrónicos**.
+    - **Utilizar servicios de streaming**.
+    - **Jugar a videojuegos online**.
+    - **Acceder a diferentes servicios y aplicaciones de Internet**.
+
+!!! warning "Resolución de nombre inversa"
+
+    - La resolución de nombre inversa (o *reverse DNS lookup*) es el proceso contrario a la resolución de nombres habitual: en lugar de preguntar "¿qué dirección IP corresponde a este nombre de dominio?", la consulta pregunta "¿qué nombre de dominio corresponde a esta dirección IP?".
+    - Para llevarla a cabo, el DNS utiliza un dominio especial llamado **in-addr.arpa** (para IPv4) o **ip6.arpa** (para IPv6). La dirección IP se transforma e inserta dentro de este dominio en orden inverso a como se escribe normalmente. Por ejemplo, para averiguar el nombre asociado a la IP `192.168.10.20`, el *resolver* consulta el dominio:  
+    ```
+    20.10.168.192.in-addr.arpa
+    ```  
+    El registro que responde a este tipo de consulta se llama **registro PTR** (*pointer record*), y es el encargado de indicar qué nombre de dominio corresponde a esa dirección IP.
+
+    - **Usos habituales de la resolución inversa:**
+        - Verificación de correo electrónico: muchos servidores de correo comprueban que la IP del remitente tenga un PTR válido antes de aceptar el mensaje, como medida contra el *spam*.
+        - Diagnóstico y registro (*logging*): en herramientas como `traceroute`, `ping` o en los logs de un servidor, es más legible ver el nombre de una máquina que su dirección IP.
+    - Auditoría y seguridad: permite identificar qué equipo hay detrás de una IP concreta durante el análisis de tráfico o incidentes.
+    - A diferencia de la resolución directa, la resolución inversa requiere que el administrador de la red configure explícitamente esta zona y sus registros PTR, ya que no se genera de forma automática a partir de los registros A o AAAA.
+
+<!-- > **Importante:** el DNS no es el encargado de conectar un dispositivo a una red Wi-Fi. En una conexión Wi-Fi intervienen tecnologías y protocolos como **IEEE 802.11** y, habitualmente, **DHCP** para obtener la configuración de red. El DNS puede utilizarse posteriormente para resolver los nombres de los servicios a los que queremos acceder. -->
+
+## 2 - Funcionamiento del DNS
+
+El funcionamiento del DNS se basa en un sistema **jerárquico y distribuido** conocido como **resolución de nombres de dominio**. Su función principal es obtener información asociada a un nombre de dominio, como su dirección IP.
+
+Cuando escribimos la dirección web `www.aules.edu.gva.es` en el navegador, el dispositivo necesita obtener la dirección IP asociada a ese nombre antes de poder establecer la comunicación con el servicio.
+
+La resolución de un nombre puede implicar diferentes servidores DNS. De forma simplificada, el proceso es el siguiente:
+
+---
+
+### 2.1 Inicio de la consulta y comprobación de la caché
+
+El dispositivo realiza una consulta a un **servidor DNS recursivo**, también denominado **DNS resolver**. Habitualmente, este servidor es proporcionado por el proveedor de acceso a Internet, aunque también puede pertenecer a una organización, una empresa o ser **configurado manualmente**.
+![Descripción de la imagen](./img_5/img_5_6.png){.marco .margintop10}
+
+Antes de realizar nuevas consultas, pueden comprobarse diferentes **cachés DNS**. Por ejemplo, pueden existir cachés en:
+
+- El navegador.
+- El sistema operativo.
+- El servidor DNS recursivo.
+
+Si alguno de estos componentes dispone de una respuesta válida almacenada en caché, no será necesario repetir todo el proceso de resolución.
+
+La información almacenada en caché tiene un tiempo de validez denominado **TTL (*Time To Live*)**.
+
+---
+
+### 2.2 Consulta al servidor raíz (*Root Server*)
+
+Si el resolver recursivo no dispone de la respuesta en su caché, comienza la búsqueda consultando la jerarquía DNS.
+
+El primer nivel corresponde a los **servidores raíz**.
+![Descripción de la imagen](./img_5/img_5_7.png){.marco .margintop10}
+
+Existen **13 servidores raíz lógicos**, identificados mediante las letras de la **A a la M**. Cada uno de ellos está replicado mediante numerosas instancias distribuidas geográficamente por diferentes lugares del mundo.
+
+Los servidores raíz **no conocen directamente la dirección IP** del dominio que estamos buscando. Su función es indicar qué servidores son responsables del **dominio de nivel superior (TLD)** correspondiente.
+
+Por ejemplo, si estamos buscando:
+
+```text
+www.aules.edu.gva.es
+```
+
+el servidor raíz puede indicar qué servidores se encargan del TLD `.es`.
+
+---
+
+### 2.3 Consulta al servidor de nivel superior (TLD)
+
+El resolver recursivo consulta entonces a un **servidor TLD** (*Top-Level Domain*).
+![Descripción de la imagen](./img_5/img_5_8.png){.marco .margintop10}
+
+Un TLD es la parte final de un nombre de dominio, como:
+
+```text
+.com
+.es
+.org
+.net
+```
+
+El servidor TLD no proporciona necesariamente la dirección IP del equipo que buscamos. Su función es indicar cuáles son los **servidores DNS autoritativos** encargados del dominio correspondiente.
+
+Por ejemplo, los servidores responsables del TLD `.es` pueden indicar qué servidores DNS son autoritativos para:
+
+```text
+aules.edu.gva.es
+```
+
+---
+
+### 2.4 Consulta al servidor de nombres autoritativo
+
+El resolver recursivo consulta finalmente a uno de los **servidores DNS autoritativos** responsables de la zona correspondiente.
+![Descripción de la imagen](./img_5/img_5_9.png){.marco .margintop10}
+
+Un servidor autoritativo dispone de la **información oficial de la zona DNS que administra**. Esta información contiene diferentes registros DNS que permiten conocer los servicios asociados a los nombres del dominio.
+
+Por ejemplo, un registro **A** puede asociar un nombre con una dirección IPv4:
+
+```text
+www.aules.edu.gva.es  →  195.77.20.168
+```
+
+Para IPv6 se utiliza normalmente un registro **AAAA**.
+
+Un dominio puede disponer de **varios servidores autoritativos**, proporcionando redundancia y disponibilidad.
+
+---
+
+### 2.5 Resolución final y almacenamiento en caché
+
+El resolver recursivo recibe la respuesta del servidor autoritativo y se la proporciona al dispositivo que realizó la consulta.
+![Descripción de la imagen](./img_5/img_5_6.png){.marco .margintop10}
+
+El navegador ya puede utilizar la dirección IP obtenida para establecer una conexión con el servicio correspondiente.
+
+Además, el resolver puede almacenar la respuesta en su **caché DNS** durante el tiempo indicado por el **TTL** del registro.
+
+De esta forma, si otro dispositivo realiza posteriormente la misma consulta, el resolver puede responder utilizando la información almacenada en caché sin tener que volver a consultar a los servidores raíz, TLD y autoritativos.
+
+---
+
+### 2.6 Resumen del proceso
+
+De forma simplificada, podemos representar la resolución de un nombre de dominio de la siguiente manera:
+
+<!-- ```text
+              Cliente
+                 │
+                 │ Consulta DNS
+                 ▼
+        ┌─────────────────┐
+        │ DNS recursivo   │
+        │    Resolver     │
+        └────────┬────────┘
+                 │
+                 │ 1. Consulta
+                 ▼
+        ┌─────────────────┐
+        │ Servidor raíz   │
+        └────────┬────────┘
+                 │
+                 │ Indica el TLD
+                 ▼
+        ┌─────────────────┐
+        │ Servidor TLD    │
+        │     (.es)       │
+        └────────┬────────┘
+                 │
+                 │ Indica los servidores
+                 │ autoritativos
+                 ▼
+        ┌─────────────────────┐
+        │ Servidor autoritativo│
+        └──────────┬──────────┘
+                   │
+                   │ Registro A / AAAA
+                   ▼
+              Dirección IP
+                   │
+                   ▼
+              DNS Resolver
+                   │
+                   ▼
+                Cliente
+``` -->
+
+```mermaid
+flowchart TD
+    A[Cliente] -->|1. Consulta DNS| B[DNS recursivo<br/>Resolver]
+    B -->|2-3. Consulta a servidor raíz | C[Servidor raíz]
+    C -->|4-5. Consulta a servidor TLD| D["Servidor TLD<br/>(.es)"]
+    D -->|6-7. Indica los servidores<br/>autoritativos| E[Servidor autoritativo]
+    E -->|Registro A / AAAA| F[Dirección IP]
+    F -->|192.0.2.1| G[DNS Resolver]
+    G -->|8. Entrega de IP a cliente <br/>192.0.2.1| H[Cliente]
+    H -->|192.0.2.1| I["Servidor (web)"]
+```
+
+!!! tip "Resumen de los que hemos visto"
+
+    1. El **cliente no suele consultar directamente a los servidores raíz, TLD y autoritativos**. Normalmente realiza una consulta a un **resolver DNS recursivo**, que se encarga de realizar las consultas necesarias y devolver finalmente la respuesta al cliente.
+    1. Por tanto, debemos distinguir entre:
+
+          | Servidor DNS                 | Función principal                                                 |
+          | ---------------------------- | ----------------------------------------------------------------- |
+          | **DNS recursivo (Resolver)** | Realiza la búsqueda en nombre del cliente y devuelve la respuesta |
+          | **Servidor raíz (Root)**     | Indica qué servidores gestionan el TLD solicitado                 |
+          | **Servidor TLD**             | Indica qué servidores son autoritativos para el dominio           |
+          | **Servidor autoritativo**    | Proporciona la información oficial de la zona DNS                 |
+
+    3. Esta jerarquía permite que el DNS sea un sistema **distribuido, escalable y resistente**, capaz de gestionar una enorme cantidad de  nombres de dominio sin depender de un único servidor central.
+
+---
+
+# revisar
+
+## 3 - Consultas DNS
+
+En una búsqueda de DNS habitual se producen **tres tipos de consultas**.
+
+Al usar una combinación de estas consultas, un proceso optimizado para la resolución de DNS puede conllevar una reducción de la distancia recorrida.  
+En una situación ideal, los datos de registro almacenados en la memoria caché estarán disponibles, lo cual permitirá que un servidor de nombres DNS devuelva una consulta no recursiva.
+
+1. **Consulta recursiva:** en una consulta recursiva, un cliente DNS requiere que un servidor DNS (generalmente un resolver DNS recursivo) responda al cliente con el registro del recurso solicitado o un mensaje de error si el resolver no puede encontrar el registro.
+1. **Consulta iterativa:** en esta situación, el cliente DNS permitirá que un servidor DNS devuelva la mejor respuesta posible. Si el servidor DNS consultado no cuenta con un nombre que corresponda con el de la consulta, devolverá una referencia a un servidor DNS autoritativo para un nivel inferior del espacio de nombres de dominio. El cliente DNS hará a continuación una consulta a la dirección de referencia. Este proceso continúa con servidores DNS adicionales que siguen en la cadena de consulta hasta que se produzca un error o se supere el tiempo de espera.
+1. **Consulta no recursiva:** generalmente se produce cuando un cliente resolver DNS consulta a un servidor DNS por un registro al que tiene acceso porque o bien es autoritativo para el registro o el registro existe dentro de su caché. Generalmente, el servidor DNS almacenará en caché registros DNS para prevenir el consumo de ancho de banda adicional y la carga en los servidores que preceden en la cadena.
+
+# revisar
+
+## 3 - Jerarquía de nombres DNS
+
+El sistema DNS está organizado mediante una **estructura jerárquica**, similar a un árbol invertido. En la parte superior se encuentra la **raíz (`.`)** y, a medida que descendemos por la jerarquía, encontramos los diferentes dominios y subdominios.
+
+Si tenemos el siguiente nombre:
+![Descripción de la imagen](./img_5/img_5_11.png){.margintop10}
+
+<!-- ```text
+www.edu.gva.es
+``` -->
+
+Su estructura jerárquica sería:
+![Descripción de la imagen](./img_5/img_5_12.png){.margintop10}
+
+<!-- ```text
+.
+└── es
+    └── gva
+        └── edu
+            └── www
+``` -->
+
+Cada nivel representa una parte diferente de la jerarquía DNS.
+
+### 3.1 La raíz DNS
+
+En la parte superior de la jerarquía se encuentra la **raíz DNS**, representada mediante un punto:
+
+```text
+.
+```
+
+La raíz es el nivel superior de todo el sistema DNS.
+
+Un nombre de dominio completamente cualificado (*FQDN, Fully Qualified Domain Name*) podría escribirse de la siguiente manera:
+
+![Descripción de la imagen](./img_5/img_5_11.png){.margintop10}
+
+Normalmente este punto final no se escribe cuando utilizamos un nombre de dominio en un navegador pero forma parte de la estructura completa del nombre.
+![Descripción de la imagen](./img_5/img_5_11.jpeg){.margintop10}
+
+---
+
+### 3.2 Dominios de nivel superior (TLD)
+
+Por debajo de la raíz se encuentran los **dominios de nivel superior**, conocidos como **TLD (*Top-Level Domain*)**.
+
+Algunos ejemplos son:
+
+```text
+.com
+.org
+.net
+.es
+.edu
+```
+
+Existen diferentes tipos de TLD. Por ejemplo:
+
+- **gTLD (*generic Top-Level Domain*)**: `.com`, `.org`, `.net`, etc.
+- **ccTLD (*country code Top-Level Domain*)**: `.es`, `.fr`, `.it`, `.de`, etc.
+
+En el caso de:
+
+```text
+www.edu.gva.es
+```
+
+el TLD es:
+
+```text
+.es
+```
+
+---
+
+### 3.3 Dominio
+
+A la izquierda del TLD encontramos otros niveles de la jerarquía.
+
+En el caso de:
+
+```text
+www.edu.gva.es
+```
+
+Un dominio dentro del TLD `.es` sería.
+
+```text
+gva.es
+```
+
+<!-- ![Descripción de la imagen](./img_5/img_5_10.jpeg){.marco .margintop10} -->
+
+<!-- ```text
+www . edu . gva . es
+ │     │     │    │
+ │     │     │    └── TLD
+ │     │     └─────── Dominio
+ │     └───────────── Subdominio
+ └─────────────────── Nombre de host
+``` -->
+
+<!-- Es importante tener en cuenta que los términos **dominio** y **subdominio** dependen del nivel que estemos analizando.
+
+Por ejemplo:
+
+```text
+gva.es
+```
+
+es un dominio dentro de `.es`.
+
+A su vez:
+
+```text
+edu.gva.es
+```
+
+es un subdominio de `gva.es`.
+
+Y:
+
+```text
+www.edu.gva.es
+```
+
+es un nombre situado dentro de `edu.gva.es`. -->
+
+---
+
+### 3.4 Subdominios
+
+Un **subdominio** es un dominio que se encuentra por debajo de otro dominio dentro de la jerarquía DNS.
+
+En el caso de:
+
+```text
+gva.es
+```
+
+podría tener diferentes subdominios:
+
+```text
+edu.gva.es
+san.gva.es
+just.gva.es
+```
+
+Y, a su vez, `edu.gva.es` podría tener otros niveles:
+
+```text
+www.edu.gva.es
+moodle.edu.gva.es
+correo.edu.gva.es
+```
+
+Los subdominios permiten organizar diferentes servicios, departamentos o recursos dentro de una misma estructura de nombres.
+
+---
+
+### 3.5 FQDN
+
+Un **FQDN (*Fully Qualified Domain Name*)**, o **nombre de dominio completamente cualificado**, identifica de forma completa una posición dentro de la jerarquía DNS.
+
+En el caso de tendríamos:
+
+```text
+www.edu.gva.es.
+```
 
 
-<!-- https://claude.ai/chat/062d0a59-02ce-4044-b774-4249a42049e9 -->
-<!-- https://gemini.google.com/u/1/app/ad715c98d45d977e?hl=es-ES -->
-<!-- https://chatgpt.com/c/6a87ef1d-7130-83ed-8c1c-e4a9da08330f -->
+<!-- ```text
+.          → raíz
+es         → TLD
+gva        → dominio
+edu        → subdominio
+www        → nombre situado dentro de edu.gva.es
+``` -->
+
+<!-- El FQDN permite identificar un nombre de manera inequívoca dentro de la jerarquía DNS. -->
+
+!!! tip "Importante"
+    Los nombres DNS se interpretan **de derecha a izquierda**.
+
+### 3.6 Nombre de host
+
+En una red, un **host** es un dispositivo o sistema que puede comunicarse mediante una red.
+
+En DNS, un nombre como `www.edu.gva.es` puede utilizarse para identificar un servicio o un host.
+
+Por ejemplo, podríamos tener:
+
+```text
+www.edu.gva.es
+correo.edu.gva.es
+ftp.edu.gva.es
+```
+
+Cada nombre podría estar asociado mediante DNS a una dirección IP diferente:
+
+```text
+www.edu.gva.es       → 192.168.1.10
+correo.edu.gva.es    → 192.168.1.20
+ftp.edu.gva.es       → 192.168.1.30
+```
+
+!!! arning "Importante"
+    Cada nombre DNS **no representa necesariamente un único equipo físico**.  
+    Un mismo servicio puede estar distribuido entre varios servidores y una misma dirección IP puede utilizarse para diferentes nombres.
+
+---
+
+### 3.7 Zona DNS
+
+Una **zona DNS** es una parte de la jerarquía DNS que está administrada por una organización o servidor DNS determinado.
+
+La zona contiene los **registros DNS** que proporcionan información sobre los nombres y servicios que administra.
+
+Por ejemplo, una organización podría administrar la zona:
+
+```text
+edu.gva.es
+```
+
+y dentro de ella tener:
+
+```text
+www.edu.gva.es
+correo.edu.gva.es
+ftp.edu.gva.es
+```
+
+La zona podría contener registros como:
+
+```text
+www.edu.gva.es      → 192.168.10.10
+correo.edu.gva.es   → 192.168.10.20
+ftp.edu.gva.es      → 192.168.10.30
+```
+
+!!! warning "Dominio y zona no son exactamente lo mismo"
+
+    1. Aunque en muchos ejemplos sencillos un dominio y una zona pueden parecer equivalentes, **dominio y zona son conceptos diferentes**.
+    1. Un dominio representa una parte de la **jerarquía de nombres DNS**, mientras que una zona representa una parte de esa jerarquía que está **administrativamente gestionada mediante servidores DNS autoritativos**.
+    1. Un dominio puede contener diferentes subdominios y estos pueden estar delegados en otras zonas.  
+    En nuestro ejemplo:
+    ```mermaid
+    flowchart TD
+        A[edu.gva.es] --> X((　))
+        X --> B[Zona A]
+        X --> C[Zona B]
+        B --> D[www.edu.gva.es </br>+</br>correo.edu.gva.es]
+        C --> E[ftp.edu.gva.es]
+    style X fill:none,stroke:none
+    ```
+
+<!-- ```text
+                empresa.es
+                    │
+          ┌─────────┴─────────┐
+          │                   │
+      ventas.empresa.es   rrhh.empresa.es
+          │                   │
+       Zona A                Zona B
+``` -->
+
+La organización puede administrar directamente `empresa.es`, mientras que `ventas.empresa.es` y `rrhh.empresa.es` pueden estar delegados en otros servidores DNS.
+
+---
+
+### 3.8 Resumen de la jerarquía DNS
+
+Podemos resumir los diferentes conceptos mediante la siguiente imagen:
+
+![Descripción de la imagen](./img_5/img_5_10.jpeg){.marco .margintop10}
+
+De esta forma, el DNS organiza los nombres mediante una estructura jerárquica en la que cada nivel puede ser administrado de forma independiente.
+
+| Concepto | Significado | Ejemplo |
+||||
+| **Raíz** | Nivel superior de la jerarquía DNS | `.` |
+| **TLD** | Dominio de nivel superior | `.es` |
+| **Dominio** | Nombre registrado dentro de un TLD | `gva.es` |
+| **Subdominio** | Dominio situado dentro de otro dominio | `edu.gva.es` |
+| **FQDN** | Nombre DNS completamente cualificado (incluye el punto raíz final) | `www.edu.gva.es.` |
+| **Host** | Equipo o servicio identificado mediante un nombre | `www.edu.gva.es` |
+| **Zona** | Parte de la jerarquía administrada por unos servidores autoritativos concretos | `edu.gva.es` (zona delegada, con sus propios servidores autoritativos dentro del dominio `gva.es`) |
+
+## 4 - Servidores DNS públicos y privados
+
+No todos los servidores DNS tienen la misma función ni están disponibles para los mismos usuarios. 
+
+Dependiendo de quién pueda utilizarlos y de dónde se encuentren, podemos distinguir entre **servidores DNS públicos** y **servidores DNS privados**.
+
+---
+
+### 4.1 Servidores DNS públicos
+
+Un **servidor DNS público** es un servidor DNS que ofrece su servicio de resolución de nombres a usuarios y dispositivos de Internet de forma pública.
+
+Estos servidores suelen estar gestionados por empresas, organizaciones o proveedores de servicios de Internet y pueden ser utilizados por cualquier usuario que tenga acceso a Internet.
+
+Algunos ejemplos conocidos son:
+
+| Servicio DNS          | Dirección IPv4 |
+| --------------------- | -------------- |
+| **Google Public DNS** | `8.8.8.8`      |
+| **Google Public DNS** | `8.8.4.4`      |
+| **Cloudflare DNS**    | `1.1.1.1`      |
+| **Cloudflare DNS**    | `1.0.0.1`      |
+| **Quad9**             | `9.9.9.9`      |
+
+Por ejemplo, podemos configurar un ordenador para que utilice:
+
+```text
+Servidor DNS preferido: 1.1.1.1
+Servidor DNS alternativo: 1.0.0.1
+```
+
+A partir de ese momento, las consultas DNS realizadas por el dispositivo podrán enviarse a los servidores de Cloudflare.
+
+!!! tip "Importante"
+    - Un servidor DNS público **no significa que sea un servidor raíz ni un servidor autoritativo**.
+    - Por ejemplo, `1.1.1.1` es un **resolver DNS recursivo público**. Recibe consultas de los clientes y, cuando es necesario, realiza las consultas correspondientes a otros servidores DNS de la jerarquía.
+
+---
+
+### 4.2 ¿Por qué utilizar un DNS público?
+
+Existen diferentes motivos para utilizar un servidor DNS público en lugar del servidor DNS proporcionado automáticamente por nuestro proveedor de Internet.
+
+#### 4.2.1 Rendimiento
+
+Algunos proveedores de DNS público disponen de una infraestructura distribuida por diferentes partes del mundo. Esto permite que las consultas puedan ser atendidas desde servidores cercanos al usuario.
+
+El tiempo necesario para obtener una respuesta DNS se denomina habitualmente **latencia DNS**.
+
+Una menor latencia puede hacer que la resolución de nombres sea más rápida.
+
+---
+
+#### 4.2.2 Disponibilidad y redundancia
+
+Los grandes proveedores de DNS público utilizan infraestructuras distribuidas y redundantes.
+
+Si uno de sus servidores o centros de datos deja de funcionar, otros servidores pueden continuar atendiendo las consultas.
+
+Esto proporciona una elevada **disponibilidad** del servicio.
+
+---
+
+#### 4.2.3 Seguridad
+
+Algunos servicios DNS públicos incorporan mecanismos de seguridad adicionales, como el bloqueo de determinados dominios asociados a:
+
+- Malware.
+- Phishing.
+- Botnets.
+- Otros tipos de amenazas.
+
+Por ejemplo, algunos resolvers públicos están diseñados específicamente para proporcionar una capa adicional de protección frente a determinados dominios maliciosos.
+
+!!! warning "DNS y seguridad"
+    - El uso de un DNS público **no garantiza por sí mismo que una conexión sea segura**.
+    - DNS se encarga principalmente de resolver nombres. La seguridad de la comunicación dependerá también de otros mecanismos, como **HTTPS/TLS**, firewalls, sistemas de detección de intrusiones y otros controles de seguridad.
+
+---
+
+### 4.3 - Servidores DNS privados
+
+Un **servidor DNS privado** es un servidor DNS que está destinado a una organización, red o conjunto limitado de usuarios.
+
+A diferencia de un servidor DNS público, no está pensado para que cualquier usuario de Internet pueda realizar consultas libremente.
+
+Los servidores DNS privados son muy habituales en:
+
+- Empresas.
+- Centros educativos.
+- Organismos públicos.
+- Redes domésticas.
+- Centros de datos.
+- Redes virtuales en la nube.
+
+!!! example "Ejemplo de red empresarial"
+    ![Descripción de la imagen](./img_5/img_5_13.png){.marco .margintop10 .marginbottom10}
+    **Dónde:**  
+
+    - `10.0.0.0/24` es la red de la empresa.
+    - `10.0.0.10` es el servidor DNS interno.
+    - `10.0.0.20` es el servidor Web de la empresa.
+    - `10.0.0.101` es un dispositivo conectado a la red (p.e.: impresora) con el nombre DNS **impresora.empresa.local**
+    - `10.0.0.102` otro dispositivo conectado a la red (p.e.: nas) con el nombre DNS **nas.empresa.local** 
+    
+    !!! Warning "Estos nombres pueden (suelen) no existir en el DNS público de Internet"
+
+---
+
+### 4.4 - DNS privado y acceso a Internet
+
+Un servidor DNS privado no tiene por qué limitarse a resolver nombres internos.
+
+También puede actuar como **resolver recursivo** para los dispositivos de la organización.
+
+Si miramos el siguiente esquema veremos que el servidor DNS puede resolver tanto `servidor.empresa.local` utilizando sus **zonas internas** como `www.google.com`, `www.wikipedia.org` y `www.aules.edu.gva.es` realizando consultas recursivas hacia otros servidores DNS.
+
+![Descripción de la imagen](./img_5/img_5_14.png){.marco .margintop10 .marginbottom10}
+
+### 4.5 - Servidor DNS privado en una red local
+
+En una red local, los equipos suelen obtener automáticamente la dirección del servidor DNS mediante el protocolo **DHCP**.
+
+!!! example "Configurción dee red devuelta por el servidor DHCP"
+    ```text
+    Configuración recibida mediante DHCP
+
+    Dirección IP:       192.168.10.101
+    Máscara:            255.255.255.0
+    Puerta de enlace:   192.168.10.1
+    Servidor DNS:       192.168.10.10
+    ```
+
+    **Dónde:**
+
+    - El ordenador cliente recibe la IP `192.168.10.101`.
+    - El ordenador cliente utilizará `192.168.10.10` para realizar consultas DNS.
+    - El ordenador cliente utilizará `192.168.10.1` como puerta de enlace es decir para acceder a internet.
+    - El servidor DNS privado podría resolver tanto nombres internos como nombres de Internet.
+
+!!! example "Ejemplo de consulta DNS interna"
+    ![Descripción de la imagen](./img_5/img_5_15.png){ .margintop10 .marginbottom10}
+
+!!! example "Ejemplo de consulta DNS externa"
+    ![Descripción de la imagen](./img_5/img_5_16.png){ .margintop10 .marginbottom10}
+
+---
+
+### 4.6 - Comparativa DNS público vs. DNS privado
+
+Podemos comparar ambos tipos de servidores:
+
+| Característica           | DNS público                  | DNS privado                          |
+| ------------------------ | ---------------------------- | ------------------------------------ |
+| Acceso                   | Público                      | Restringido                          |
+| Usuarios                 | Cualquier usuario            | Usuarios de una organización o red   |
+| Uso habitual             | Resolver nombres de Internet | Resolver nombres internos y externos |
+| Ejemplo                  | `1.1.1.1`                    | `192.168.10.10`                      |
+| Administración           | Proveedor externo            | Organización                         |
+| Nombres internos         | Normalmente no               | Sí                                   |
+| Uso en empresas          | Posible                      | Muy habitual                         |
+| Accesible desde Internet | Generalmente sí              | Normalmente no                       |
+
+---
 
 
-<!-- 
-virtual machines on ububtu
-https://www.youtube.com/watch?v=6435eNKpyYw -->
 
-<!-- DHCP -->
-<!-- Follow link (ctrl + click) -->
-<!-- https://learn.microsoft.com/es-es/troubleshoot/windows-server/networking/troubleshoot-dhcp-guidance -->
-<!-- para paja -->
- 
+
+# hasta aqui
+
+
+
+<!-- https://notebook.google.com/notebook/3ba0b1e5-23cc-414c-a66b-1591bdf88c4a -->
+
+
+<!-- PAJA -->
+<!-- https://sri.codeandcoke.com/doku.php?id=sri:t2
+https://ioc.xtec.cat/materials/FP/Recursos/fp_smx_m07_/web/fp_smx_m07_htmlindex/WebContent/u1/a2/continguts.html
+https://serviciosgm.readthedocs.io/es/latest/windows/dns/index.html
+http://127.0.0.1:5500/docs/SMX/SMX_2/SX/sxe/UD02/2._Servei_DNS/1_introducci.html
+https://www.youtube.com/watch?v=TwMAS7Iha30
+https://asir.readthedocs.io/es/latest/Tema_3_DNS/Index.html -->
+<!-- file:///C:/Users/titan/Documents/GitHub/githubpages/Apuntes/docs/SMX/SMX_2/SX/admin/recursos/tema3dns.pdf -->
+<!-- https://www.youtube.com/watch?v=EfSbT3gJUFY&t=47s -->
+
 <!-- para nat -->
 <!-- tipo de elementos de red -->
 <!-- https://itadmins.es/networking-ii-dispositivos-de-red-y-tipos-de-trafico/ -->
@@ -58,10 +755,15 @@ https://www.1nce.com/es-es/recursos/iot-knowledge-base/que-es-el-mecanismo-nat
 https://openwebinars.net/blog/nat-que-es-y-para-que-sirve/
 -->
 
-<!-- 
-https://aules.edu.gva.es/docent/pluginfile.php/5719248/mod_resource/content/1/XL_UT03_Interconnexio%CC%81%20d%E2%80%99equips%20en%20xarxes%20locals%20i%20muntatge%20de%20connectors-IP.pdf
--->
+<!-- https://www.webempresa.com/blog/servidor-dns-como-solucionar-problemas-habituales.html -->
+<!-- https://www.dreamhost.com/blog/es/nameservers-vs-dns-guia/ -->
 
-<!-- instalar virtualizacion virt-manager https://youtu.be/fjCWPm-BDto?si=cKZzFsvAcjfM9Cd7&t=477 -->
-<!-- windows server instalar dhcp https://www.youtube.com/watch?v=nc-ratzt1MU&t=750s -->
-<!-- windows server instalar dhcp  https://www.youtube.com/watch?v=ItmHj-j5spI -->
+ busqueda directa
+ busqueda inversa
+
+ zona directa: resuleve dominios a IPs
+ zona inversa: resuleve Ips a dominios
+
+ ping -a 192.168.100.12 (hace ping y devuelve el nombre)
+
+aging y scavenging
