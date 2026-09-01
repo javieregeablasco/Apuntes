@@ -720,12 +720,6 @@ Podemos comparar ambos tipos de servidores:
 
 ---
 
-### 6.3 Servidores DNS envenenados
-
-Uno de los principales problemas del protocolo DNS (como el de todos los primeros protocolos de Internet) es la falta de seguridad. Fue diseñado en una época de "buen rollo" en la que se confiaba en los demás integrantes de la red. Hoy en día esto ya no es muy sensato.
-
-> Imaginad que un atacante consigue el control de un servidor DNS o logra hacer pasar su servidor DNS falso como servidor de un conjunto de usuarios. Cada vez que estos clientes hacen una consulta a Internet, por ejemplo a su banco (escribiendo el nombre de la web), el servidor DNS envenenado proporciona una dirección IP que no es la del banco real, sino la de una web falsa, **con la finalidad de robar las credenciales de acceso u otra información confidencial del usuario**.
-
 ## 6 - Evolución del protocolo DNS y seguridad
 
 El protocolo DNS ha evolucionado para adaptarse a las necesidades cada vez mayores de las redes y, especialmente, para solucionar algunos de sus problemas de seguridad.
@@ -763,7 +757,8 @@ Su principal utilidad es permitir que un dispositivo o servidor cuya dirección 
 
     En determinadas redes, el **servidor DHCP** puede participar en este proceso. Cuando asigna o modifica una dirección IP, puede actualizar también los registros DNS asociados. De esta forma, **DHCP y DNS pueden trabajar conjuntamente** para mantener actualizada la información de nombres y direcciones.
 
-    > **Importante:** DDNS no es un protocolo DNS diferente. Es un mecanismo o servicio que permite realizar **actualizaciones dinámicas de los registros DNS**.
+    !!! warning "Importante:"
+        DDNS no es un protocolo DNS diferente. Es un mecanismo o servicio que permite realizar **actualizaciones dinámicas de los registros DNS**.
 
 ### 6.2 DNSSEC
 
@@ -804,69 +799,65 @@ El funcionamiento tradicional de DNS presenta un problema: un atacante podría i
     !!! note "En resumen"
         DNSSEC proporciona **autenticidad e integridad**, pero no **confidencialidad ni disponibilidad**.
 
-# hasta aqui
-
 ### 6.3 Envenenamiento de la caché DNS
 
 Uno de los principales problemas de seguridad del DNS tradicional es que, si un atacante consigue introducir información DNS falsa en la caché de un servidor DNS, puede conseguir que las consultas de los usuarios sean redirigidas a direcciones IP incorrectas.
 
 Este ataque se conoce como **DNS cache poisoning o envenenamiento de la caché DNS**.
 
-Imaginemos que un usuario quiere acceder a la web de su banco:
+!!! example "Ejemplo"
+    Un usuario quiere acceder a la web de su banco:
 
-```text
-www.banco.com
-```
+    ```text
+    www.banco.com
+    ```
+    Normalmente, el servidor DNS debería proporcionar la dirección IP legítima:
+    ```text
+    www.banco.com → 198.51.100.20
+    ```
+    Sin embargo, si un atacante consigue introducir un registro falso en la caché DNS:
+    ```text
+    www.banco.com → 203.0.113.50
+    ```
 
-Normalmente, el servidor DNS debería proporcionar la dirección IP legítima:
+    Los usuarios que reciban esa respuesta podrían ser enviados a un servidor controlado por el atacante.
 
-```text
-www.banco.com → 198.51.100.20
-```
+    El objetivo podría ser mostrar una página web falsa que imite a la original para intentar obtener **credenciales de acceso, datos personales u otra información confidencial**.
 
-Sin embargo, si un atacante consigue introducir un registro falso en la caché DNS:
+    Este tipo de ataque puede utilizarse, por ejemplo, como parte de una campaña de **phishing**.
 
-```text
-www.banco.com → 203.0.113.50
-```
+    !!! success "Prevención contra el dead cache poisoning" 
+        DNSSEC ayuda a prevenir el problema del ataque por "dead cache poisoning" porque permite al resolver DNS comprobar mediante firmas digitales que los registros DNS recibidos son auténticos y no han sido modificados.
 
-los usuarios que reciban esa respuesta podrían ser enviados a un servidor controlado por el atacante.
-
-El objetivo podría ser mostrar una página web falsa que imite a la original para intentar obtener **credenciales de acceso, datos personales u otra información confidencial**.
-
-Este tipo de ataque puede utilizarse, por ejemplo, como parte de una campaña de **phishing**.
-
-DNSSEC ayuda a prevenir este problema porque permite al resolver DNS comprobar mediante firmas digitales que los registros DNS recibidos son auténticos y no han sido modificados.
-
-> **Importante:** no debemos confundir el **envenenamiento de la caché DNS** con el hecho de que un servidor DNS haya sido comprometido. En el primer caso, el atacante intenta introducir información DNS falsa en la caché de un resolver; en el segundo, el propio servidor DNS puede haber sido tomado bajo control por el atacante.
+    !!! warning "Importante"
+        - No debemos confundir el **envenenamiento de la caché DNS** con el hecho de que un servidor DNS haya sido comprometido. 
+        - En el primer caso, el atacante intenta introducir información DNS falsa en la caché de un resolver; en el segundo, el propio servidor DNS puede haber sido tomado bajo control por el atacante.
 
 ### 6.4 Ataques Man-in-the-Middle
 
 Un ataque **Man-in-the-Middle (MITM)**, o **hombre en el medio**, se produce cuando un atacante consigue situarse entre dos dispositivos que se están comunicando.
 
-Por ejemplo, imaginemos que un usuario cree estar comunicándose directamente con el servidor de su banco:
+!!! example "Ejemplo"
+    Imaginemos que un usuario cree estar comunicándose directamente con el servidor de su banco:
+    ```text
+    Cliente --→ Banco
+    ```
 
-```text
-Cliente ───────────────→ Banco
-```
+    En un ataque MITM, el atacante intenta situarse entre ambos:
+    ```text
+    Cliente --→ Atacante --→ Banco
+    Cliente ←-- Atacante ←-- Banco
+    ```
 
-En un ataque MITM, el atacante intenta situarse entre ambos:
+    El atacante puede recibir el tráfico, analizarlo y, dependiendo de las circunstancias y de las protecciones utilizadas, intentar modificarlo antes de reenviarlo.
 
-```text
-Cliente ───→ Atacante ───→ Banco
-Cliente ←─── Atacante ←─── Banco
-```
+    !!! warning "Importante"
+        - Un ataque MITM no es específico de DNS. **Puede producirse en diferentes tipos de comunicaciones de red**. 
+        - Además, utilizar DNSSEC no sustituye a mecanismos como **HTTPS/TLS**, que son los encargados de proteger la comunicación entre el navegador y el servidor web.
 
-El atacante puede recibir el tráfico, analizarlo y, dependiendo de las circunstancias y de las protecciones utilizadas, intentar modificarlo antes de reenviarlo.
-
-> **Importante:** un ataque MITM no es específico de DNS. Puede producirse en diferentes tipos de comunicaciones de red. Además, utilizar DNSSEC no sustituye a mecanismos como **HTTPS/TLS**, que son los encargados de proteger la comunicación entre el navegador y el servidor web.
-
-
-
-
+# hasta aqui
 
 <!-- https://notebook.google.com/notebook/3ba0b1e5-23cc-414c-a66b-1591bdf88c4a -->
-
 
 <!-- PAJA -->
 <!-- https://sri.codeandcoke.com/doku.php?id=sri:t2
