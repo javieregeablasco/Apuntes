@@ -78,7 +78,18 @@ La utilidad del sistema DNS es fundamental para el funcionamiento de Internet y 
 
 <!-- > **Importante:** el DNS no es el encargado de conectar un dispositivo a una red Wi-Fi. En una conexión Wi-Fi intervienen tecnologías y protocolos como **IEEE 802.11** y, habitualmente, **DHCP** para obtener la configuración de red. El DNS puede utilizarse posteriormente para resolver los nombres de los servicios a los que queremos acceder. -->
 
-## 2 - Funcionamiento del DNS
+## 2 - Consultas al DNS
+
+En una búsqueda de DNS habitual se producen **tres tipos de consultas**.
+
+Al usar una combinación de estas consultas, un proceso optimizado para la resolución de DNS puede conllevar una reducción de la distancia recorrida.  
+En una situación ideal, los datos de registro almacenados en la memoria caché estarán disponibles, lo cual permitirá que un servidor de nombres DNS devuelva una consulta no recursiva.
+
+1. **Consulta recursiva:** en una consulta recursiva, un cliente DNS requiere que un servidor DNS (generalmente un resolver DNS recursivo) responda al cliente con el registro del recurso solicitado o un mensaje de error si el resolver no puede encontrar el registro.
+1. **Consulta iterativa:** en esta situación, el cliente DNS permitirá que un servidor DNS devuelva la mejor respuesta posible. Si el servidor DNS consultado no cuenta con un nombre que corresponda con el de la consulta, devolverá una referencia a un servidor DNS autoritativo para un nivel inferior del espacio de nombres de dominio. El cliente DNS hará a continuación una consulta a la dirección de referencia. Este proceso continúa con servidores DNS adicionales que siguen en la cadena de consulta hasta que se produzca un error o se supere el tiempo de espera.
+1. **Consulta no recursiva:** generalmente se produce cuando un cliente resolver DNS consulta a un servidor DNS por un registro al que tiene acceso porque o bien es autoritativo para el registro o el registro existe dentro de su caché. Generalmente, el servidor DNS almacenará en caché registros DNS para prevenir el consumo de ancho de banda adicional y la carga en los servidores que preceden en la cadena.
+
+## 3 - Funcionamiento del DNS
 
 El funcionamiento del DNS se basa en un sistema **jerárquico y distribuido** conocido como **resolución de nombres de dominio**. Su función principal es obtener información asociada a un nombre de dominio, como su dirección IP.
 
@@ -88,7 +99,7 @@ La resolución de un nombre puede implicar diferentes servidores DNS. De forma s
 
 ---
 
-### 2.1 Inicio de la consulta y comprobación de la caché
+### 3.1 Inicio de la consulta y comprobación de la caché
 
 El dispositivo realiza una consulta a un **servidor DNS recursivo**, también denominado **DNS resolver**. Habitualmente, este servidor es proporcionado por el proveedor de acceso a Internet, aunque también puede pertenecer a una organización, una empresa o ser **configurado manualmente**.
 ![Descripción de la imagen](./img_5/img_5_6.png){.marco .margintop10}
@@ -105,7 +116,7 @@ La información almacenada en caché tiene un tiempo de validez denominado **TTL
 
 ---
 
-### 2.2 Consulta al servidor raíz (*Root Server*)
+### 3.2 Consulta al servidor raíz (*Root Server*)
 
 Si el resolver recursivo no dispone de la respuesta en su caché, comienza la búsqueda consultando la jerarquía DNS.
 
@@ -126,7 +137,7 @@ el servidor raíz puede indicar qué servidores se encargan del TLD `.es`.
 
 ---
 
-### 2.3 Consulta al servidor de nivel superior (TLD)
+### 3.3 Consulta al servidor de nivel superior (TLD)
 
 El resolver recursivo consulta entonces a un **servidor TLD** (*Top-Level Domain*).
 ![Descripción de la imagen](./img_5/img_5_8.png){.marco .margintop10}
@@ -150,7 +161,7 @@ aules.edu.gva.es
 
 ---
 
-### 2.4 Consulta al servidor de nombres autoritativo
+### 3.4 Consulta al servidor de nombres autoritativo
 
 El resolver recursivo consulta finalmente a uno de los **servidores DNS autoritativos** responsables de la zona correspondiente.
 ![Descripción de la imagen](./img_5/img_5_9.png){.marco .margintop10}
@@ -169,7 +180,7 @@ Un dominio puede disponer de **varios servidores autoritativos**, proporcionando
 
 ---
 
-### 2.5 Resolución final y almacenamiento en caché
+### 3.5 Resolución final y almacenamiento en caché
 
 El resolver recursivo recibe la respuesta del servidor autoritativo y se la proporciona al dispositivo que realizó la consulta.
 ![Descripción de la imagen](./img_5/img_5_6.png){.marco .margintop10}
@@ -182,7 +193,7 @@ De esta forma, si otro dispositivo realiza posteriormente la misma consulta, el 
 
 ---
 
-### 2.6 Resumen del proceso
+### 3.6 Resumen del proceso
 
 De forma simplificada, podemos representar la resolución de un nombre de dominio de la siguiente manera:
 
@@ -255,22 +266,7 @@ flowchart TD
 
 ---
 
-# revisar
-
-## 3 - Consultas DNS
-
-En una búsqueda de DNS habitual se producen **tres tipos de consultas**.
-
-Al usar una combinación de estas consultas, un proceso optimizado para la resolución de DNS puede conllevar una reducción de la distancia recorrida.  
-En una situación ideal, los datos de registro almacenados en la memoria caché estarán disponibles, lo cual permitirá que un servidor de nombres DNS devuelva una consulta no recursiva.
-
-1. **Consulta recursiva:** en una consulta recursiva, un cliente DNS requiere que un servidor DNS (generalmente un resolver DNS recursivo) responda al cliente con el registro del recurso solicitado o un mensaje de error si el resolver no puede encontrar el registro.
-1. **Consulta iterativa:** en esta situación, el cliente DNS permitirá que un servidor DNS devuelva la mejor respuesta posible. Si el servidor DNS consultado no cuenta con un nombre que corresponda con el de la consulta, devolverá una referencia a un servidor DNS autoritativo para un nivel inferior del espacio de nombres de dominio. El cliente DNS hará a continuación una consulta a la dirección de referencia. Este proceso continúa con servidores DNS adicionales que siguen en la cadena de consulta hasta que se produzca un error o se supere el tiempo de espera.
-1. **Consulta no recursiva:** generalmente se produce cuando un cliente resolver DNS consulta a un servidor DNS por un registro al que tiene acceso porque o bien es autoritativo para el registro o el registro existe dentro de su caché. Generalmente, el servidor DNS almacenará en caché registros DNS para prevenir el consumo de ancho de banda adicional y la carga en los servidores que preceden en la cadena.
-
-# revisar
-
-## 3 - Jerarquía de nombres DNS
+## 4 - Jerarquía de nombres DNS
 
 El sistema DNS está organizado mediante una **estructura jerárquica**, similar a un árbol invertido. En la parte superior se encuentra la **raíz (`.`)** y, a medida que descendemos por la jerarquía, encontramos los diferentes dominios y subdominios.
 
@@ -294,7 +290,7 @@ Su estructura jerárquica sería:
 
 Cada nivel representa una parte diferente de la jerarquía DNS.
 
-### 3.1 La raíz DNS
+### 4.1 La raíz DNS
 
 En la parte superior de la jerarquía se encuentra la **raíz DNS**, representada mediante un punto:
 
@@ -313,7 +309,7 @@ Normalmente este punto final no se escribe cuando utilizamos un nombre de domini
 
 ---
 
-### 3.2 Dominios de nivel superior (TLD)
+### 4.2 Dominios de nivel superior (TLD)
 
 Por debajo de la raíz se encuentran los **dominios de nivel superior**, conocidos como **TLD (*Top-Level Domain*)**.
 
@@ -346,7 +342,7 @@ el TLD es:
 
 ---
 
-### 3.3 Dominio
+### 4.3 Dominio
 
 A la izquierda del TLD encontramos otros niveles de la jerarquía.
 
@@ -401,7 +397,7 @@ es un nombre situado dentro de `edu.gva.es`. -->
 
 ---
 
-### 3.4 Subdominios
+### 4.4 Subdominios
 
 Un **subdominio** es un dominio que se encuentra por debajo de otro dominio dentro de la jerarquía DNS.
 
@@ -431,7 +427,7 @@ Los subdominios permiten organizar diferentes servicios, departamentos o recurso
 
 ---
 
-### 3.5 FQDN
+### 4.5 FQDN
 
 Un **FQDN (*Fully Qualified Domain Name*)**, o **nombre de dominio completamente cualificado**, identifica de forma completa una posición dentro de la jerarquía DNS.
 
@@ -455,7 +451,7 @@ www        → nombre situado dentro de edu.gva.es
 !!! tip "Importante"
     Los nombres DNS se interpretan **de derecha a izquierda**.
 
-### 3.6 Nombre de host
+### 4.6 Nombre de host
 
 En una red, un **host** es un dispositivo o sistema que puede comunicarse mediante una red.
 
@@ -483,7 +479,7 @@ ftp.edu.gva.es       → 192.168.1.30
 
 ---
 
-### 3.7 Zona DNS
+### 4.7 Zona DNS
 
 Una **zona DNS** es una parte de la jerarquía DNS que está administrada por una organización o servidor DNS determinado.
 
@@ -541,7 +537,7 @@ La organización puede administrar directamente `empresa.es`, mientras que `vent
 
 ---
 
-### 3.8 Resumen de la jerarquía DNS
+### 4.8 Resumen de la jerarquía DNS
 
 Podemos resumir los diferentes conceptos mediante la siguiente imagen:
 
@@ -559,7 +555,7 @@ De esta forma, el DNS organiza los nombres mediante una estructura jerárquica e
 | **Host** | Equipo o servicio identificado mediante un nombre | `www.edu.gva.es` |
 | **Zona** | Parte de la jerarquía administrada por unos servidores autoritativos concretos | `edu.gva.es` (zona delegada, con sus propios servidores autoritativos dentro del dominio `gva.es`) |
 
-## 4 - Servidores DNS públicos y privados
+## 5 - Servidores DNS públicos y privados
 
 No todos los servidores DNS tienen la misma función ni están disponibles para los mismos usuarios. 
 
@@ -567,7 +563,7 @@ Dependiendo de quién pueda utilizarlos y de dónde se encuentren, podemos disti
 
 ---
 
-### 4.1 Servidores DNS públicos
+### 5.1 Servidores DNS públicos
 
 Un **servidor DNS público** es un servidor DNS que ofrece su servicio de resolución de nombres a usuarios y dispositivos de Internet de forma pública.
 
@@ -598,11 +594,11 @@ A partir de ese momento, las consultas DNS realizadas por el dispositivo podrán
 
 ---
 
-### 4.2 ¿Por qué utilizar un DNS público?
+### 5.2 ¿Por qué utilizar un DNS público?
 
 Existen diferentes motivos para utilizar un servidor DNS público en lugar del servidor DNS proporcionado automáticamente por nuestro proveedor de Internet.
 
-#### 4.2.1 Rendimiento
+#### 5.2.1 Rendimiento
 
 Algunos proveedores de DNS público disponen de una infraestructura distribuida por diferentes partes del mundo. Esto permite que las consultas puedan ser atendidas desde servidores cercanos al usuario.
 
@@ -612,7 +608,7 @@ Una menor latencia puede hacer que la resolución de nombres sea más rápida.
 
 ---
 
-#### 4.2.2 Disponibilidad y redundancia
+#### 5.2.2 Disponibilidad y redundancia
 
 Los grandes proveedores de DNS público utilizan infraestructuras distribuidas y redundantes.
 
@@ -622,7 +618,7 @@ Esto proporciona una elevada **disponibilidad** del servicio.
 
 ---
 
-#### 4.2.3 Seguridad
+#### 5.2.3 Seguridad
 
 Algunos servicios DNS públicos incorporan mecanismos de seguridad adicionales, como el bloqueo de determinados dominios asociados a:
 
@@ -639,7 +635,7 @@ Por ejemplo, algunos resolvers públicos están diseñados específicamente para
 
 ---
 
-### 4.3 - Servidores DNS privados
+### 5.3 - Servidores DNS privados
 
 Un **servidor DNS privado** es un servidor DNS que está destinado a una organización, red o conjunto limitado de usuarios.
 
@@ -668,7 +664,7 @@ Los servidores DNS privados son muy habituales en:
 
 ---
 
-### 4.4 - DNS privado y acceso a Internet
+### 5.4 - DNS privado y acceso a Internet
 
 Un servidor DNS privado no tiene por qué limitarse a resolver nombres internos.
 
@@ -678,7 +674,7 @@ Si miramos el siguiente esquema veremos que el servidor DNS puede resolver tanto
 
 ![Descripción de la imagen](./img_5/img_5_14.png){.marco .margintop10 .marginbottom10}
 
-### 4.5 - Servidor DNS privado en una red local
+### 5.5 - Servidor DNS privado en una red local
 
 En una red local, los equipos suelen obtener automáticamente la dirección del servidor DNS mediante el protocolo **DHCP**.
 
@@ -707,7 +703,7 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
 
 ---
 
-### 4.6 - Comparativa DNS público vs. DNS privado
+### 5.6 - Comparativa DNS público vs. DNS privado
 
 Podemos comparar ambos tipos de servidores:
 
@@ -724,10 +720,148 @@ Podemos comparar ambos tipos de servidores:
 
 ---
 
+### 6.3 Servidores DNS envenenados
 
+Uno de los principales problemas del protocolo DNS (como el de todos los primeros protocolos de Internet) es la falta de seguridad. Fue diseñado en una época de "buen rollo" en la que se confiaba en los demás integrantes de la red. Hoy en día esto ya no es muy sensato.
 
+> Imaginad que un atacante consigue el control de un servidor DNS o logra hacer pasar su servidor DNS falso como servidor de un conjunto de usuarios. Cada vez que estos clientes hacen una consulta a Internet, por ejemplo a su banco (escribiendo el nombre de la web), el servidor DNS envenenado proporciona una dirección IP que no es la del banco real, sino la de una web falsa, **con la finalidad de robar las credenciales de acceso u otra información confidencial del usuario**.
+
+## 6 - Evolución del protocolo DNS y seguridad
+
+El protocolo DNS ha evolucionado para adaptarse a las necesidades cada vez mayores de las redes y, especialmente, para solucionar algunos de sus problemas de seguridad.
+
+Dos de las principales tecnologías relacionadas con esta evolución son **DDNS (Dynamic DNS)** y **DNSSEC (DNS Security Extensions)**.
+
+### 6.1 DDNS
+
+**El DDNS (Dynamic DNS o DNS dinámico)** permite actualizar automáticamente los registros de un servidor DNS cuando cambia la dirección IP asociada a un nombre de dominio.
+
+Su principal utilidad es permitir que un dispositivo o servidor cuya dirección IP es **dinámica** pueda seguir siendo accesible mediante un nombre de dominio, aunque su dirección IP cambie.
+
+!!! example "ejemplo"
+    Imaginemos un servidor al que queremos acceder utilizando el nombre:
+
+    ```text
+    servidor.midominio.com
+    ```
+
+    Si el servidor tiene una dirección IP dinámica, esta podría cambiar periódicamente:
+
+    ```text
+    servidor.midominio.com → 80.25.10.100
+    ```
+
+    y posteriormente:
+
+    ```text
+    servidor.midominio.com → 80.25.15.200
+    ```
+
+    El servicio DDNS se encarga de actualizar el registro DNS para que el nombre continúe apuntando a la dirección IP actual.
+
+    Un mecanismo habitual consiste en que un dispositivo o servicio con conocimiento del cambio de IP comunique la nueva dirección al servidor DNS para actualizar el registro correspondiente.
+
+    En determinadas redes, el **servidor DHCP** puede participar en este proceso. Cuando asigna o modifica una dirección IP, puede actualizar también los registros DNS asociados. De esta forma, **DHCP y DNS pueden trabajar conjuntamente** para mantener actualizada la información de nombres y direcciones.
+
+    > **Importante:** DDNS no es un protocolo DNS diferente. Es un mecanismo o servicio que permite realizar **actualizaciones dinámicas de los registros DNS**.
+
+### 6.2 DNSSEC
+
+**DNSSEC (Domain Name System Security Extensions o extensiones de seguridad para el DNS)** es un conjunto de extensiones que permite añadir **autenticidad e integridad** a la información proporcionada por DNS.
+
+El funcionamiento tradicional de DNS presenta un problema: un atacante podría intentar proporcionar al cliente una respuesta DNS falsa. 
+
+!!! example "Ejemplo"
+    Ante una consulta como:
+
+    ```text
+    www.banco.com → ¿cuál es su dirección IP?
+    ```
+
+    un atacante podría intentar conseguir que el cliente recibiera una dirección IP incorrecta:
+
+    ```text
+    www.banco.com → 203.0.113.50
+    ```
+
+    DNSSEC utiliza **firmas digitales** para que el resolver DNS pueda comprobar que los datos recibidos son auténticos y que no han sido modificados.
+
+    Por tanto, DNSSEC permite proteger principalmente:
+
+    - **La autenticidad:** comprobar que los datos DNS proceden de la zona DNS que tiene autoridad sobre ellos.
+    - **La integridad:** comprobar que los datos no han sido modificados durante su transmisión.
+
+    !!! warning "Importante"
+        
+        - DNSSEC **no cifra** las consultas ni las respuestas DNS. Por tanto, no proporciona confidencialidad.
+        - Tampoco garantiza por sí mismo que el usuario esté conectado directamente con su servidor DNS real. Su objetivo es permitir que el resolver pueda **validar criptográficamente la autenticidad de los datos DNS recibidos**.
+
+    !!! warning "Importante"
+        
+        - DNSSEC protege la información DNS, pero **no protege la disponibilidad del servicio**. Por tanto, no evita los ataques de denegación de servicio (DoS o DDoS).  
+        - Además, las respuestas DNSSEC suelen ser de mayor tamaño debido a la información criptográfica que contienen. Esto puede contribuir a que determinadas configuraciones de DNS sean utilizadas en **ataques de amplificación DNS**, aunque DNSSEC no sea la causa de estos ataques.
+
+    !!! note "En resumen"
+        DNSSEC proporciona **autenticidad e integridad**, pero no **confidencialidad ni disponibilidad**.
 
 # hasta aqui
+
+### 6.3 Envenenamiento de la caché DNS
+
+Uno de los principales problemas de seguridad del DNS tradicional es que, si un atacante consigue introducir información DNS falsa en la caché de un servidor DNS, puede conseguir que las consultas de los usuarios sean redirigidas a direcciones IP incorrectas.
+
+Este ataque se conoce como **DNS cache poisoning o envenenamiento de la caché DNS**.
+
+Imaginemos que un usuario quiere acceder a la web de su banco:
+
+```text
+www.banco.com
+```
+
+Normalmente, el servidor DNS debería proporcionar la dirección IP legítima:
+
+```text
+www.banco.com → 198.51.100.20
+```
+
+Sin embargo, si un atacante consigue introducir un registro falso en la caché DNS:
+
+```text
+www.banco.com → 203.0.113.50
+```
+
+los usuarios que reciban esa respuesta podrían ser enviados a un servidor controlado por el atacante.
+
+El objetivo podría ser mostrar una página web falsa que imite a la original para intentar obtener **credenciales de acceso, datos personales u otra información confidencial**.
+
+Este tipo de ataque puede utilizarse, por ejemplo, como parte de una campaña de **phishing**.
+
+DNSSEC ayuda a prevenir este problema porque permite al resolver DNS comprobar mediante firmas digitales que los registros DNS recibidos son auténticos y no han sido modificados.
+
+> **Importante:** no debemos confundir el **envenenamiento de la caché DNS** con el hecho de que un servidor DNS haya sido comprometido. En el primer caso, el atacante intenta introducir información DNS falsa en la caché de un resolver; en el segundo, el propio servidor DNS puede haber sido tomado bajo control por el atacante.
+
+### 6.4 Ataques Man-in-the-Middle
+
+Un ataque **Man-in-the-Middle (MITM)**, o **hombre en el medio**, se produce cuando un atacante consigue situarse entre dos dispositivos que se están comunicando.
+
+Por ejemplo, imaginemos que un usuario cree estar comunicándose directamente con el servidor de su banco:
+
+```text
+Cliente ───────────────→ Banco
+```
+
+En un ataque MITM, el atacante intenta situarse entre ambos:
+
+```text
+Cliente ───→ Atacante ───→ Banco
+Cliente ←─── Atacante ←─── Banco
+```
+
+El atacante puede recibir el tráfico, analizarlo y, dependiendo de las circunstancias y de las protecciones utilizadas, intentar modificarlo antes de reenviarlo.
+
+> **Importante:** un ataque MITM no es específico de DNS. Puede producirse en diferentes tipos de comunicaciones de red. Además, utilizar DNSSEC no sustituye a mecanismos como **HTTPS/TLS**, que son los encargados de proteger la comunicación entre el navegador y el servidor web.
+
+
 
 
 
