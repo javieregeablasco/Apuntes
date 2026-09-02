@@ -61,7 +61,7 @@ La utilidad del sistema DNS es fundamental para el funcionamiento de Internet y 
     - **Jugar a videojuegos online**.
     - **Acceder a diferentes servicios y aplicaciones de Internet**.
 
-!!! warning "Resolución de nombre inversa"
+<!-- !!! warning "Resolución de nombre inversa"
 
     - La resolución de nombre inversa (o *reverse DNS lookup*) es el proceso contrario a la resolución de nombres habitual: en lugar de preguntar "¿qué dirección IP corresponde a este nombre de dominio?", la consulta pregunta "¿qué nombre de dominio corresponde a esta dirección IP?".
     - Para llevarla a cabo, el DNS utiliza un dominio especial llamado **in-addr.arpa** (para IPv4) o **ip6.arpa** (para IPv6). La dirección IP se transforma e inserta dentro de este dominio en orden inverso a como se escribe normalmente.  
@@ -77,7 +77,7 @@ La utilidad del sistema DNS es fundamental para el funcionamiento de Internet y 
         - Diagnóstico y registro (*logging*): en herramientas como `traceroute`, `ping` o en los logs de un servidor, es más legible ver el nombre de una máquina que su dirección IP.
         - Auditoría y seguridad: permite identificar qué equipo hay detrás de una IP concreta durante el análisis de tráfico o incidentes.
     
-        !!! failure "A diferencia de la resolución directa, la resolución inversa requiere que el administrador de la red configure explícitamente esta zona y sus registros PTR, ya que no se genera de forma automática a partir de los registros A o AAAA."
+        !!! failure "A diferencia de la resolución directa, la resolución inversa requiere que el administrador de la red configure explícitamente esta zona y sus registros PTR, ya que no se genera de forma automática a partir de los registros A o AAAA." -->
 
 <!-- > **Importante:** el DNS no es el encargado de conectar un dispositivo a una red Wi-Fi. En una conexión Wi-Fi intervienen tecnologías y protocolos como **IEEE 802.11** y, habitualmente, **DHCP** para obtener la configuración de red. El DNS puede utilizarse posteriormente para resolver los nombres de los servicios a los que queremos acceder. -->
 
@@ -134,7 +134,8 @@ Una **zona DNS** es la porción concreta del espacio de nombres que un servidor 
 
 !!! warning "Zona de búsqueda inversa"
 
-    - Para llevar a cabo la resolución de nombre inversa, el DNS utiliza un dominio especial llamado **in-addr.arpa** (para IPv4) o **ip6.arpa** (para IPv6). La dirección IP se transforma e inserta dentro de este dominio en orden inverso a como se escribe normalmente.  
+    - Para llevar a cabo la resolución de nombre inversa, el DNS utiliza un dominio especial llamado **in-addr.arpa** (para IPv4) o **ip6.arpa** (para IPv6). 
+    - La dirección IP se transforma e inserta dentro de este dominio en orden inverso a como se escribe normalmente.  
 
         !!! example "Ejemplo"
             
@@ -149,7 +150,7 @@ Una **zona DNS** es la porción concreta del espacio de nombres que un servidor 
     
         !!! failure "A diferencia de la resolución directa, la resolución inversa requiere que el administrador de la red configure explícitamente esta zona y sus registros PTR, ya que no se genera de forma automática a partir de los registros A o AAAA."
 
-Un mismo servidor no puede alojar a la vez una zona primaria y una secundaria o *stub* para el mismo nombre de dominio.
+!!! warning "Un mismo servidor no puede alojar a la vez una zona primaria y una secundaria o *stub* para el mismo nombre de dominio"
 
 ### 2.3 Transferencia de zona
 
