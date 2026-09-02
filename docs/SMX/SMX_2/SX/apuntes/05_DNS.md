@@ -43,7 +43,7 @@ schedule: 233h - 7h/w
 !!! question "¿Para qué sirve?"
     ![Descripción de la imagen](./img_5/img_5_5.png){.cincozero}
 
-    La utilidad del sistema DNS es fundamental para el funcionamiento de Internet y de **muchas redes privadas**. Entre sus principales     funciones encontramos:
+    La utilidad del sistema DNS es fundamental para el funcionamiento de Internet y de **muchas redes privadas**. Entre sus principales funciones encontramos:
 
     - **Simplifica el acceso a los servicios de red:** permite utilizar nombres fáciles de recordar en lugar de direcciones IP.
 
@@ -103,7 +103,7 @@ schedule: 233h - 7h/w
 
 - La comunicación DNS es un mecanismo de consulta/respuesta entre el cliente y el servidor. Los datagramas, por tanto, serán de query (consulta) o de answer (respuesta).
 
-- Los apartados que componen un mensaje DNS son:
+- !!! tip "Los apartados que componen un mensaje DNS son:"
 
     - **HEADER**. Cabecera del mensaje que indica si se trata de una consulta o de una respuesta. Contiene el id (identificador) del mensaje, flags y un resumen de qué secciones del mensaje llevan información y cuánta.
     - **QUESTION**. Esta sección contiene la consulta que se ha efectuado, es decir, qué dato se ha pedido al servidor. Puede ser la resolución de un nombre de dominio a una dirección IP, pedir la lista de servidores de impresión, etc.
