@@ -518,7 +518,7 @@ Y, a su vez, `edu.gva.es` podría tener otros niveles:
 
 ```text
 www.edu.gva.es
-moodle.edu.gva.es
+aules.edu.gva.es
 correo.edu.gva.es
 ```
 
