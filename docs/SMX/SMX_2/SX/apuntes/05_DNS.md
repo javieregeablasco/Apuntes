@@ -105,14 +105,14 @@ schedule: 233h - 7h/w
 
 - !!! tip "Los apartados que componen un mensaje DNS son:"
 
-    - **HEADER**. Cabecera del mensaje que indica si se trata de una consulta o de una respuesta. Contiene el id (identificador) del mensaje, flags y un resumen de qué secciones del mensaje llevan información y cuánta.
-    - **QUESTION**. Esta sección contiene la consulta que se ha efectuado, es decir, qué dato se ha pedido al servidor. Puede ser la resolución de un nombre de dominio a una dirección IP, pedir la lista de servidores de impresión, etc.
-    - **ANSWER**. Sección que contiene la respuesta obtenida del servidor. Esta respuesta será autoritativa o no en función de si el servidor que responde es autoritativo para esa zona: cuando la respuesta procede de un servidor caché/resolver (no autoritativo), algunas utilidades de consulta la muestran como non-authoritative answer.
-    - **AUTHORITY**. Esta sección contiene las respuestas que son autoritativas para la consulta efectuada. Evidentemente, puede estar vacía.
-    - **ADDITIONAL**. Contiene información adicional para completar la respuesta. En el ejemplo se observa que completa la resolución de los nombres de máquina que aparecen en la sección ANSWER, indicando su dirección IP correspondiente.
+      - **HEADER**. Cabecera del mensaje que indica si se trata de una consulta o de una respuesta. Contiene el id (identificador) del   mensaje, flags y un resumen de qué secciones del mensaje llevan información y cuánta.
+      - **QUESTION**. Esta sección contiene la consulta que se ha efectuado, es decir, qué dato se ha pedido al servidor. Puede ser la   resolución de un nombre de dominio a una dirección IP, pedir la lista de servidores de impresión, etc.
+      - **ANSWER**. Sección que contiene la respuesta obtenida del servidor. Esta respuesta será autoritativa o no en función de si el   servidor que responde es autoritativo para esa zona: cuando la respuesta procede de un servidor caché/resolver (no autoritativo), algunas utilidades de consulta la muestran como non-authoritative answer.
+      - **AUTHORITY**. Esta sección contiene las respuestas que son autoritativas para la consulta efectuada. Evidentemente, puede estar vacía.
+      - **ADDITIONAL**. Contiene información adicional para completar la respuesta. En el ejemplo se observa que completa la resolución de los nombres de máquina que aparecen en la sección ANSWER, indicando su dirección IP correspondiente.
 
-        !!! example "Ejemplo de comunicación DNS"
-            ![imagen](./img_5/img_5_19.png){.ochocinco}
+!!! example "Ejemplo de comunicación DNS"
+    ![imagen](./img_5/img_5_19.png){.ochocinco}
 
 ## 4 - Servidores DNS
 
