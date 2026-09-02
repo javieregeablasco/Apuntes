@@ -1112,7 +1112,7 @@ Para verificar y solucionar problemas con las zonas DNS, los administradores de 
     dig (Domain Information Groper): Ofrece información mucho más profunda y detallada sobre las consultas DNS, incluyendo los tiempos de respuesta del servidor y la jerarquía de autoridad.
 
 
-# hasta aqui
+<!-- # hasta aqui
 
 https://www.cloudflare.com/es-es/learning/dns/dns-records/
 https://www.ibm.com/es-es/think/topics/dns-records
@@ -1123,7 +1123,7 @@ https://www.webempresa.com/blog/que-es-un-registro-dns-y-que-tipos-hay.html
 https://easydmarc.com/blog/es/8-tipos-comunes-de-registros-dns/
 
 
-# hasta aqui
+# hasta aqui -->
 
 <!-- https://notebook.google.com/notebook/3ba0b1e5-23cc-414c-a66b-1591bdf88c4a -->
 
