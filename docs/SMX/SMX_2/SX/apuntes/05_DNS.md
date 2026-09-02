@@ -41,25 +41,25 @@ schedule: 233h - 7h/w
     - Aunque normalmente pensamos en el DNS como un sistema que traduce nombres de dominio en direcciones IP, también permite realizar otro   tipo de consultas. Por ejemplo, puede indicar qué servidores se encargan del correo electrónico de un dominio o proporcionar  direcciones IPv6.
 
 !!! question "¿Para qué sirve?"
-![Descripción de la imagen](./img_5/img_5_5.png)
+    ![Descripción de la imagen](./img_5/img_5_5.png){.cincozero}
 
-La utilidad del sistema DNS es fundamental para el funcionamiento de Internet y de **muchas redes privadas**. Entre sus principales funciones encontramos:
+    La utilidad del sistema DNS es fundamental para el funcionamiento de Internet y de **muchas redes privadas**. Entre sus principales     funciones encontramos:
 
-- **Simplifica el acceso a los servicios de red:** permite utilizar nombres fáciles de recordar en lugar de direcciones IP.
+    - **Simplifica el acceso a los servicios de red:** permite utilizar nombres fáciles de recordar en lugar de direcciones IP.
 
-- **Aporta flexibilidad:** si un servicio cambia de servidor o de dirección IP, es posible modificar la información DNS manteniendo el mismo nombre de dominio. De esta forma, los usuarios pueden continuar utilizando el mismo nombre para acceder al servicio.
+    - **Aporta flexibilidad:** si un servicio cambia de servidor o de dirección IP, es posible modificar la información DNS manteniendo el  mismo nombre de dominio. De esta forma, los usuarios pueden continuar utilizando el mismo nombre para acceder al servicio.
 
-- **Permite localizar servicios de red:** los dispositivos pueden consultar el DNS para obtener información sobre la ubicación de diferentes servicios, como servidores web o servidores de correo electrónico.
+    - **Permite localizar servicios de red:** los dispositivos pueden consultar el DNS para obtener información sobre la ubicación de   diferentes servicios, como servidores web o servidores de correo electrónico.
 
-- **Facilita la administración de redes:** en las redes locales también es posible utilizar DNS para asociar nombres a equipos y servicios, evitando tener que recordar sus direcciones IP.
+    - **Facilita la administración de redes:** en las redes locales también es posible utilizar DNS para asociar nombres a equipos y    servicios, evitando tener que recordar sus direcciones IP.
 
-- **Interviene en numerosos servicios de Internet**, como:  
+    - **Interviene en numerosos servicios de Internet**, como:  
 
-    - **Acceder a páginas web**.
-    - **Enviar y recibir correos electrónicos**.
-    - **Utilizar servicios de streaming**.
-    - **Jugar a videojuegos online**.
-    - **Acceder a diferentes servicios y aplicaciones de Internet**.
+        - **Acceder a páginas web**.
+        - **Enviar y recibir correos electrónicos**.
+        - **Utilizar servicios de streaming**.
+        - **Jugar a videojuegos online**.
+        - **Acceder a diferentes servicios y aplicaciones de Internet**.
 
 <!-- !!! warning "Resolución de nombre inversa"
 
