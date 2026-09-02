@@ -99,6 +99,10 @@ La utilidad del sistema DNS es fundamental para el funcionamiento de Internet y 
         !!! example "Ejemplo de consulta DNS"
             ![imagen](./img_5/img_5_17.png){.sietecinco}
     
+## 2 - Servidores DNS
+
+
+
 ## 3 - Mecanismos de comunicación DNS
 
 - La comunicación DNS es un mecanismo de consulta/respuesta entre el cliente y el servidor. Los datagramas, por tanto, serán de query (consulta) o de answer (respuesta).
@@ -1041,9 +1045,10 @@ Los registros de puntero, o registros PTR, funcionan en la dirección opuesta a 
 
 Cuando una búsqueda de DNS comienza con una dirección IP, encuentra el nombre de host correspondiente. Estos registros se utilizan para detectar spam comprobando si las direcciones IP y las direcciones de correo electrónico asociadas son utilizadas por servidores de correo electrónico legítimos. El host del servidor debe configurar los registros PTR.
 
+## 10 - Herramientas de Diagnóstico Técnico de Registros DNS
+
 # hasta aqui
 
-5. Herramientas de Diagnóstico Técnico de Registros DNS
 Para verificar y solucionar problemas con las zonas DNS, los administradores de sistemas y profesionales de redes emplean herramientas de terminal populares:
 
     nslookup: Permite consultar de forma rápida la dirección IP asociada a un dominio y ver registros básicos como A, MX o NS.
@@ -1086,12 +1091,1930 @@ https://openwebinars.net/blog/nat-que-es-y-para-que-sirve/
 <!-- https://www.webempresa.com/blog/servidor-dns-como-solucionar-problemas-habituales.html -->
 <!-- https://www.dreamhost.com/blog/es/nameservers-vs-dns-guia/ -->
 
- busqueda directa
- busqueda inversa
+<!-- pracrica DNS -->
+<!-- # Práctica - Instalación y configuración de un servidor DNS con BIND9 en AWS
 
- zona directa: resuleve dominios a IPs
- zona inversa: resuleve Ips a dominios
+## 1 - Objetivos
 
- ping -a 192.168.100.12 (hace ping y devuelve el nombre)
+En esta práctica crearemos una pequeña red dentro de **Amazon Web Services (AWS)** formada por tres instancias EC2.
 
-aging y scavenging
+Una de las instancias actuará como **servidor DNS** utilizando BIND9 y las otras dos actuarán como clientes.
+
+Configuraremos:
+
+* Una VPC propia.
+* Dos subredes.
+* Una puerta de enlace a Internet.
+* Una tabla de enrutamiento.
+* Grupos de seguridad.
+* Tres instancias EC2 con Ubuntu Server.
+* Un servidor DNS BIND9.
+* Una zona DNS directa.
+* Dos zonas DNS inversas.
+* Registros A, CNAME, NS, SOA y PTR.
+* Resolución DNS desde los clientes.
+* Reenvío de consultas DNS hacia Internet.
+
+Al finalizar la práctica tendremos una arquitectura similar a:
+
+```text
+                            INTERNET
+                                │
+                                │
+                      ┌─────────▼─────────┐
+                      │ Internet Gateway │
+                      └─────────┬─────────┘
+                                │
+                    VPC: 10.0.0.0/16
+                                │
+               ┌────────────────┴────────────────┐
+               │                                 │
+     Subred servidores                    Subred clientes
+      10.0.1.0/24                          10.0.2.0/24
+               │                                 │
+       ┌───────▼────────┐             ┌──────────┴──────────┐
+       │   DNS-SERVER   │             │                     │
+       │ Ubuntu Server  │      ┌──────▼──────┐       ┌──────▼──────┐
+       │     BIND9      │      │  CLIENTE-1  │       │  CLIENTE-2  │
+       │   10.0.1.10    │      │ 10.0.2.10   │       │ 10.0.2.20   │
+       └────────────────┘      └─────────────┘       └─────────────┘
+```
+
+Utilizaremos el dominio:
+
+```text
+smr.test
+```
+
+Por tanto:
+
+```text
+dns.smr.test       → 10.0.1.10
+cliente1.smr.test  → 10.0.2.10
+cliente2.smr.test  → 10.0.2.20
+```
+
+!!! note "¿Por qué utilizamos smr.test?"
+
+```
+Para una práctica es preferible utilizar un dominio reservado para pruebas como `.test`.
+
+No utilizaremos `.local`, ya que este sufijo tiene un significado especial relacionado con **mDNS (Multicast DNS)** y puede provocar resultados inesperados en algunos sistemas operativos.
+```
+
+---
+
+# 2 - Creación de la VPC
+
+Accedemos a:
+
+```text
+VPC → Your VPCs → Create VPC
+```
+
+Creamos:
+
+```text
+Name:           VPC-DNS-SMR
+IPv4 CIDR:      10.0.0.0/16
+Tenancy:        Default
+```
+
+Nuestra red completa será:
+
+```text
+10.0.0.0/16
+```
+
+Esto nos proporciona direcciones desde:
+
+```text
+10.0.0.0
+```
+
+hasta:
+
+```text
+10.0.255.255
+```
+
+---
+
+# 3 - Creación de las subredes
+
+Crearemos dos subredes dentro de la VPC.
+
+## 3.1 Subred de servidores
+
+Accedemos a:
+
+```text
+VPC → Subnets → Create subnet
+```
+
+Seleccionamos:
+
+```text
+VPC-DNS-SMR
+```
+
+y configuramos:
+
+```text
+Subnet name:        SUBNET-SERVIDORES
+IPv4 subnet CIDR:   10.0.1.0/24
+```
+
+## 3.2 Subred de clientes
+
+Creamos una segunda subred:
+
+```text
+Subnet name:        SUBNET-CLIENTES
+IPv4 subnet CIDR:   10.0.2.0/24
+```
+
+Nuestra arquitectura queda:
+
+```text
+VPC
+10.0.0.0/16
+
+├── SUBNET-SERVIDORES
+│   10.0.1.0/24
+│
+└── SUBNET-CLIENTES
+    10.0.2.0/24
+```
+
+!!! note "Direcciones reservadas por AWS"
+
+```
+AWS reserva determinadas direcciones dentro de cada subred.
+
+Por esta razón utilizaremos direcciones como `.10` y `.20` para nuestras máquinas.
+```
+
+---
+
+# 4 - Crear un Internet Gateway
+
+Para poder acceder a Internet desde las máquinas necesitaremos una puerta de enlace de Internet.
+
+Accedemos a:
+
+```text
+VPC → Internet Gateways → Create Internet Gateway
+```
+
+Nombre:
+
+```text
+IGW-DNS-SMR
+```
+
+Después seleccionamos:
+
+```text
+Actions → Attach to a VPC
+```
+
+y escogemos:
+
+```text
+VPC-DNS-SMR
+```
+
+---
+
+# 5 - Configuración de la tabla de rutas
+
+Accedemos a:
+
+```text
+VPC → Route Tables
+```
+
+Creamos una tabla:
+
+```text
+Name:       RT-DNS-SMR
+VPC:        VPC-DNS-SMR
+```
+
+Añadimos la siguiente ruta:
+
+```text
+Destination       Target
+────────────────────────────────
+10.0.0.0/16       local
+0.0.0.0/0         IGW-DNS-SMR
+```
+
+Posteriormente asociamos las dos subredes:
+
+```text
+SUBNET-SERVIDORES
+SUBNET-CLIENTES
+```
+
+a esta tabla de rutas.
+
+Las dos serán, por tanto, **subredes públicas**.
+
+---
+
+# 6 - Creación de los grupos de seguridad
+
+Crearemos dos grupos de seguridad.
+
+## 6.1 Grupo de seguridad de los clientes
+
+Creamos:
+
+```text
+Name: SG-CLIENTES
+VPC:  VPC-DNS-SMR
+```
+
+Reglas de entrada:
+
+```text
+Tipo        Puerto      Origen
+────────────────────────────────────────────
+SSH         TCP 22      My IP
+ICMP        ---         10.0.0.0/16
+```
+
+!!! warning "SSH"
+
+````
+Para SSH utilizaremos **My IP** en lugar de abrir el puerto 22 a:
+
+```text
+0.0.0.0/0
+```
+
+De esta forma reducimos la exposición de nuestras instancias a Internet.
+````
+
+Dejaremos permitidas las conexiones salientes.
+
+## 6.2 Grupo de seguridad del servidor DNS
+
+Creamos:
+
+```text
+Name: SG-DNS
+VPC:  VPC-DNS-SMR
+```
+
+Reglas de entrada:
+
+```text
+Tipo          Protocolo     Puerto      Origen
+────────────────────────────────────────────────────
+SSH           TCP           22          My IP
+DNS           UDP           53          SG-CLIENTES
+DNS           TCP           53          SG-CLIENTES
+ICMP          ICMP          ---         10.0.0.0/16
+```
+
+!!! warning "UDP y TCP"
+
+```
+DNS utiliza principalmente **UDP 53**, pero también puede utilizar **TCP 53**.
+
+Por tanto, debemos permitir ambos protocolos.
+```
+
+No es necesario permitir DNS desde:
+
+```text
+0.0.0.0/0
+```
+
+Nuestro servidor DNS será exclusivamente para los equipos de nuestra red privada.
+
+---
+
+# 7 - Creación del servidor DNS
+
+Accedemos a:
+
+```text
+EC2 → Instances → Launch instance
+```
+
+Configuramos:
+
+```text
+Name: DNS-SERVER
+```
+
+Seleccionamos una imagen:
+
+```text
+Ubuntu Server 24.04 LTS
+```
+
+Seleccionamos un tipo de instancia pequeño disponible en AWS Academy, por ejemplo:
+
+```text
+t2.micro
+```
+
+o:
+
+```text
+t3.micro
+```
+
+dependiendo de las opciones disponibles en el laboratorio.
+
+Seleccionamos nuestra clave SSH.
+
+En configuración de red:
+
+```text
+VPC:                VPC-DNS-SMR
+Subnet:             SUBNET-SERVIDORES
+Auto-assign public IP: Enable
+Security Group:     SG-DNS
+```
+
+Configuramos manualmente como dirección IPv4 privada:
+
+```text
+10.0.1.10
+```
+
+!!! warning "Dirección privada"
+
+````
+Es importante que el servidor DNS mantenga siempre la misma dirección IP privada.
+
+Si los clientes tienen configurado:
+
+```text
+DNS = 10.0.1.10
+```
+
+el servicio dejaría de funcionar si cambiara la dirección del servidor.
+````
+
+---
+
+# 8 - Creación de CLIENTE-1
+
+Creamos otra instancia:
+
+```text
+Name: CLIENTE-1
+
+Sistema:
+Ubuntu Server 24.04 LTS
+
+VPC:
+VPC-DNS-SMR
+
+Subnet:
+SUBNET-CLIENTES
+
+Private IPv4:
+10.0.2.10
+
+Public IPv4:
+Enable
+
+Security Group:
+SG-CLIENTES
+```
+
+---
+
+# 9 - Creación de CLIENTE-2
+
+Creamos:
+
+```text
+Name: CLIENTE-2
+
+Sistema:
+Ubuntu Server 24.04 LTS
+
+VPC:
+VPC-DNS-SMR
+
+Subnet:
+SUBNET-CLIENTES
+
+Private IPv4:
+10.0.2.20
+
+Public IPv4:
+Enable
+
+Security Group:
+SG-CLIENTES
+```
+
+Al finalizar tendremos:
+
+| Máquina    | Dirección privada | Función        |
+| ---------- | ----------------: | -------------- |
+| DNS-SERVER |       `10.0.1.10` | Servidor BIND9 |
+| CLIENTE-1  |       `10.0.2.10` | Cliente DNS    |
+| CLIENTE-2  |       `10.0.2.20` | Cliente DNS    |
+
+---
+
+# 10 - Comprobar la conectividad
+
+Nos conectamos mediante SSH a las máquinas.
+
+Desde CLIENTE-1 comprobamos:
+
+```bash
+ping -c 4 10.0.1.10
+```
+
+También:
+
+```bash
+ping -c 4 10.0.2.20
+```
+
+Desde CLIENTE-2:
+
+```bash
+ping -c 4 10.0.1.10
+```
+
+Si funciona, disponemos de comunicación entre las instancias.
+
+!!! question "¿Por qué pueden comunicarse si están en subredes diferentes?"
+
+````
+Las dos subredes pertenecen a:
+
+```text
+10.0.0.0/16
+```
+
+y la tabla de rutas de la VPC dispone automáticamente de una ruta:
+
+```text
+10.0.0.0/16 → local
+```
+
+que permite la comunicación entre las subredes de la VPC, siempre que los grupos de seguridad y ACL lo permitan.
+````
+
+---
+
+# 11 - Instalar BIND9
+
+Nos conectamos a:
+
+```text
+DNS-SERVER
+```
+
+Actualizamos los repositorios:
+
+```bash
+sudo apt update
+```
+
+Instalamos BIND9:
+
+```bash
+sudo apt install bind9 bind9-utils dnsutils -y
+```
+
+Comprobamos el servicio:
+
+```bash
+sudo systemctl status named
+```
+
+Podemos comprobar que escucha en el puerto 53:
+
+```bash
+sudo ss -lntup | grep :53
+```
+
+---
+
+# 12 - Configuración general de BIND9
+
+Editamos:
+
+```bash
+sudo nano /etc/bind/named.conf.options
+```
+
+Configuramos:
+
+```text
+options {
+        directory "/var/cache/bind";
+
+        recursion yes;
+
+        allow-query {
+                localhost;
+                10.0.0.0/16;
+        };
+
+        allow-recursion {
+                localhost;
+                10.0.0.0/16;
+        };
+
+        listen-on {
+                127.0.0.1;
+                10.0.1.10;
+        };
+
+        listen-on-v6 { none; };
+
+        forwarders {
+                10.0.0.2;
+        };
+
+        dnssec-validation auto;
+};
+```
+
+Guardamos el archivo.
+
+!!! info "Forwarders"
+
+````
+Nuestro servidor será autoritativo para:
+
+```text
+smr.test
+```
+
+pero no conoce todos los dominios de Internet.
+
+Cuando un cliente pregunte por:
+
+```text
+www.google.com
+```
+
+BIND9 reenviará la consulta al resolver DNS proporcionado por AWS:
+
+```text
+10.0.0.2
+```
+````
+
+El proceso será:
+
+```text
+CLIENTE-1
+     │
+     │ www.google.com
+     ▼
+DNS-SERVER
+10.0.1.10
+     │
+     │ no pertenece a smr.test
+     ▼
+DNS AWS
+10.0.0.2
+     │
+     ▼
+Internet
+```
+
+---
+
+# 13 - Declarar la zona directa
+
+Editamos:
+
+```bash
+sudo nano /etc/bind/named.conf.local
+```
+
+Añadimos:
+
+```text
+zone "smr.test" {
+        type master;
+        file "/etc/bind/db.smr.test";
+        allow-update { none; };
+};
+```
+
+Ahora debemos crear el archivo de zona.
+
+---
+
+# 14 - Crear la zona directa
+
+Creamos:
+
+```bash
+sudo nano /etc/bind/db.smr.test
+```
+
+Introducimos:
+
+```text
+$TTL 300
+
+@       IN      SOA     dns.smr.test. admin.smr.test. (
+                        2026090201      ; Serial
+                        3600            ; Refresh
+                        600             ; Retry
+                        86400           ; Expire
+                        300             ; Negative Cache TTL
+)
+
+@               IN      NS      dns.smr.test.
+
+dns             IN      A       10.0.1.10
+cliente1        IN      A       10.0.2.10
+cliente2        IN      A       10.0.2.20
+
+www             IN      CNAME   cliente1
+```
+
+Tenemos los siguientes registros:
+
+```text
+dns.smr.test       → 10.0.1.10
+cliente1.smr.test  → 10.0.2.10
+cliente2.smr.test  → 10.0.2.20
+www.smr.test       → cliente1.smr.test
+```
+
+!!! info "El punto final"
+
+````
+En nombres completos (*Fully Qualified Domain Names* o FQDN) veremos frecuentemente:
+
+```text
+dns.smr.test.
+```
+
+El punto final representa la raíz del espacio de nombres DNS.
+````
+
+---
+
+# 15 - Comprobar la zona directa
+
+Antes de reiniciar BIND debemos comprobar la configuración.
+
+Ejecutamos:
+
+```bash
+sudo named-checkconf
+```
+
+Si todo es correcto no aparecerá ningún mensaje.
+
+Comprobamos después la zona:
+
+```bash
+sudo named-checkzone smr.test /etc/bind/db.smr.test
+```
+
+Deberíamos obtener algo similar a:
+
+```text
+zone smr.test/IN: loaded serial 2026090201
+OK
+```
+
+!!! warning "Muy importante"
+
+````
+Siempre que modifiquemos el archivo de zona debemos incrementar el valor:
+
+```text
+Serial
+```
+
+Por ejemplo:
+
+```text
+2026090201
+2026090202
+2026090203
+```
+````
+
+---
+
+# 16 - Reiniciar BIND9
+
+Ejecutamos:
+
+```bash
+sudo systemctl restart named
+```
+
+Comprobamos:
+
+```bash
+sudo systemctl status named
+```
+
+También podemos utilizar:
+
+```bash
+sudo journalctl -u named -n 50 --no-pager
+```
+
+para consultar los últimos mensajes del servicio.
+
+---
+
+# 17 - Probar el servidor DNS localmente
+
+Desde DNS-SERVER ejecutamos:
+
+```bash
+dig @127.0.0.1 cliente1.smr.test
+```
+
+También:
+
+```bash
+dig @10.0.1.10 cliente1.smr.test
+```
+
+Debemos encontrar:
+
+```text
+ANSWER SECTION:
+
+cliente1.smr.test.  300  IN  A  10.0.2.10
+```
+
+Probamos:
+
+```bash
+dig @10.0.1.10 cliente2.smr.test
+```
+
+Resultado:
+
+```text
+cliente2.smr.test.  300  IN  A  10.0.2.20
+```
+
+Probamos el CNAME:
+
+```bash
+dig @10.0.1.10 www.smr.test
+```
+
+También podemos utilizar:
+
+```bash
+nslookup cliente1.smr.test 10.0.1.10
+```
+
+---
+
+# 18 - Comprobar la resolución de Internet
+
+Nuestro servidor DNS también debe ser capaz de resolver nombres externos.
+
+Probamos:
+
+```bash
+dig @10.0.1.10 www.google.com
+```
+
+Si obtenemos una respuesta, significa que:
+
+```text
+BIND9 → 10.0.0.2 → Internet
+```
+
+está funcionando correctamente.
+
+---
+
+# 19 - Configurar la resolución inversa
+
+Hasta ahora podemos hacer:
+
+```text
+cliente1.smr.test → 10.0.2.10
+```
+
+Queremos ahora conseguir también:
+
+```text
+10.0.2.10 → cliente1.smr.test
+```
+
+Para ello utilizaremos registros **PTR**.
+
+Tenemos dos redes:
+
+```text
+10.0.1.0/24
+10.0.2.0/24
+```
+
+Crearemos una zona inversa para cada una.
+
+---
+
+# 20 - Declarar las zonas inversas
+
+Editamos:
+
+```bash
+sudo nano /etc/bind/named.conf.local
+```
+
+El archivo completo quedará:
+
+```text
+zone "smr.test" {
+        type master;
+        file "/etc/bind/db.smr.test";
+        allow-update { none; };
+};
+
+zone "1.0.10.in-addr.arpa" {
+        type master;
+        file "/etc/bind/db.10.0.1";
+        allow-update { none; };
+};
+
+zone "2.0.10.in-addr.arpa" {
+        type master;
+        file "/etc/bind/db.10.0.2";
+        allow-update { none; };
+};
+```
+
+!!! question "¿Por qué 2.0.10?"
+
+````
+Para la red:
+
+```text
+10.0.2.0/24
+```
+
+DNS utiliza el dominio especial:
+
+```text
+in-addr.arpa
+```
+
+y escribe los octetos de la red en orden inverso:
+
+```text
+10.0.2
+    ↓
+2.0.10
+    ↓
+2.0.10.in-addr.arpa
+```
+````
+
+---
+
+# 21 - Zona inversa de 10.0.1.0/24
+
+Creamos:
+
+```bash
+sudo nano /etc/bind/db.10.0.1
+```
+
+Introducimos:
+
+```text
+$TTL 300
+
+@       IN      SOA     dns.smr.test. admin.smr.test. (
+                        2026090201
+                        3600
+                        600
+                        86400
+                        300
+)
+
+@       IN      NS      dns.smr.test.
+
+10      IN      PTR     dns.smr.test.
+```
+
+Esto establece:
+
+```text
+10.0.1.10 → dns.smr.test
+```
+
+---
+
+# 22 - Zona inversa de 10.0.2.0/24
+
+Creamos:
+
+```bash
+sudo nano /etc/bind/db.10.0.2
+```
+
+Introducimos:
+
+```text
+$TTL 300
+
+@       IN      SOA     dns.smr.test. admin.smr.test. (
+                        2026090201
+                        3600
+                        600
+                        86400
+                        300
+)
+
+@       IN      NS      dns.smr.test.
+
+10      IN      PTR     cliente1.smr.test.
+20      IN      PTR     cliente2.smr.test.
+```
+
+Ahora:
+
+```text
+10.0.2.10 → cliente1.smr.test
+10.0.2.20 → cliente2.smr.test
+```
+
+---
+
+# 23 - Comprobar las zonas inversas
+
+Comprobamos:
+
+```bash
+sudo named-checkconf
+```
+
+Después:
+
+```bash
+sudo named-checkzone 1.0.10.in-addr.arpa /etc/bind/db.10.0.1
+```
+
+y:
+
+```bash
+sudo named-checkzone 2.0.10.in-addr.arpa /etc/bind/db.10.0.2
+```
+
+Si todo es correcto aparecerá:
+
+```text
+OK
+```
+
+Reiniciamos:
+
+```bash
+sudo systemctl restart named
+```
+
+---
+
+# 24 - Probar la resolución inversa
+
+Ejecutamos:
+
+```bash
+dig @10.0.1.10 -x 10.0.1.10
+```
+
+Deberíamos obtener:
+
+```text
+10.1.0.10.in-addr.arpa.  IN PTR dns.smr.test.
+```
+
+Probamos CLIENTE-1:
+
+```bash
+dig @10.0.1.10 -x 10.0.2.10
+```
+
+Resultado esperado:
+
+```text
+10.2.0.10.in-addr.arpa.  IN PTR cliente1.smr.test.
+```
+
+Probamos CLIENTE-2:
+
+```bash
+dig @10.0.1.10 -x 10.0.2.20
+```
+
+Resultado:
+
+```text
+20.2.0.10.in-addr.arpa.  IN PTR cliente2.smr.test.
+```
+
+---
+
+# 25 - Configurar los clientes para utilizar nuestro DNS
+
+Hasta este momento hemos realizado consultas indicando explícitamente:
+
+```bash
+dig @10.0.1.10 cliente1.smr.test
+```
+
+Queremos que los clientes utilicen automáticamente:
+
+```text
+10.0.1.10
+```
+
+como su servidor DNS.
+
+En AWS podemos hacerlo mediante un **DHCP Options Set**.
+
+Accedemos a:
+
+```text
+VPC → DHCP option sets → Create DHCP options set
+```
+
+Configuramos:
+
+```text
+Name:
+DHCP-DNS-SMR
+```
+
+Como nombre de dominio:
+
+```text
+smr.test
+```
+
+Como servidor DNS:
+
+```text
+10.0.1.10
+```
+
+!!! warning "Importante"
+
+````
+No debemos escribir aquí:
+
+```text
+AmazonProvidedDNS
+```
+
+junto con nuestro servidor.
+
+Queremos que las máquinas consulten directamente a:
+
+```text
+10.0.1.10
+```
+
+BIND9 será quien reenvíe las consultas externas al resolver de AWS.
+````
+
+---
+
+# 26 - Asociar el DHCP Options Set a la VPC
+
+Accedemos a:
+
+```text
+VPC → Your VPCs
+```
+
+Seleccionamos:
+
+```text
+VPC-DNS-SMR
+```
+
+Después:
+
+```text
+Actions → Edit VPC settings
+```
+
+En:
+
+```text
+DHCP options set
+```
+
+seleccionamos:
+
+```text
+DHCP-DNS-SMR
+```
+
+Guardamos los cambios.
+
+La arquitectura DNS pasa a ser:
+
+```text
+                     VPC
+                 10.0.0.0/16
+                       │
+                DHCP de AWS
+                       │
+        entrega DNS = 10.0.1.10
+                       │
+             ┌─────────┴──────────┐
+             │                    │
+        CLIENTE-1            CLIENTE-2
+        10.0.2.10            10.0.2.20
+             │                    │
+             └─────────┬──────────┘
+                       │
+                       ▼
+                 DNS-SERVER
+                  10.0.1.10
+                       │
+           ┌───────────┴────────────┐
+           │                        │
+       smr.test                otros dominios
+           │                        │
+     responde BIND              forwarder
+                                    │
+                                    ▼
+                               10.0.0.2
+                               DNS de AWS
+```
+
+---
+
+# 27 - Actualizar la configuración de los clientes
+
+Los cambios de las opciones DHCP no tienen por qué aparecer inmediatamente en una instancia que ya está funcionando.
+
+En una práctica podemos reiniciar CLIENTE-1 y CLIENTE-2 para que vuelvan a obtener su configuración de red.
+
+Desde cada cliente:
+
+```bash
+sudo reboot
+```
+
+Después volvemos a conectarnos mediante SSH.
+
+---
+
+# 28 - Comprobar qué DNS utiliza CLIENTE-1
+
+Ejecutamos:
+
+```bash
+resolvectl status
+```
+
+Debemos localizar una información similar a:
+
+```text
+DNS Servers: 10.0.1.10
+DNS Domain: smr.test
+```
+
+También podemos ejecutar:
+
+```bash
+resolvectl dns
+```
+
+Debemos comprobar que aparece:
+
+```text
+10.0.1.10
+```
+
+!!! warning "/etc/resolv.conf"
+
+````
+En Ubuntu moderno no siempre debemos interpretar directamente:
+
+```bash
+cat /etc/resolv.conf
+```
+
+porque Ubuntu utiliza normalmente `systemd-resolved`.
+
+Es posible encontrar:
+
+```text
+nameserver 127.0.0.53
+```
+
+Esto no significa necesariamente que nuestro DNS esté mal configurado.
+
+`127.0.0.53` corresponde al *stub resolver* local de `systemd-resolved`.
+
+Para conocer los servidores DNS reales utilizaremos:
+
+```bash
+resolvectl status
+```
+````
+
+---
+
+# 29 - Realizar consultas sin especificar el servidor DNS
+
+Desde CLIENTE-1:
+
+```bash
+dig cliente2.smr.test
+```
+
+Ya no escribimos:
+
+```text
+@10.0.1.10
+```
+
+El cliente debe utilizar automáticamente nuestro servidor DNS.
+
+También podemos ejecutar:
+
+```bash
+nslookup cliente2.smr.test
+```
+
+Resultado esperado:
+
+```text
+Name:    cliente2.smr.test
+Address: 10.0.2.20
+```
+
+---
+
+# 30 - Probar resolución mediante ping
+
+Desde CLIENTE-1:
+
+```bash
+ping -c 4 cliente2.smr.test
+```
+
+El nombre deberá resolverse como:
+
+```text
+10.0.2.20
+```
+
+Desde CLIENTE-2:
+
+```bash
+ping -c 4 cliente1.smr.test
+```
+
+deberá resolverse como:
+
+```text
+10.0.2.10
+```
+
+!!! question "¿Qué estamos demostrando?"
+
+````
+El comando `ping` no realiza la resolución DNS por sí mismo.
+
+Antes de poder enviar los mensajes ICMP necesita conocer la dirección IP del destino.
+
+Por tanto:
+
+```text
+ping cliente2.smr.test
+         │
+         ▼
+     consulta DNS
+         │
+         ▼
+     10.0.2.20
+         │
+         ▼
+      ICMP Echo
+```
+````
+
+---
+
+# 31 - Probar la resolución inversa desde los clientes
+
+Desde CLIENTE-1:
+
+```bash
+dig -x 10.0.2.20
+```
+
+Resultado esperado:
+
+```text
+cliente2.smr.test.
+```
+
+También:
+
+```bash
+nslookup 10.0.2.20
+```
+
+Deberá devolver:
+
+```text
+cliente2.smr.test
+```
+
+---
+
+# 32 - Comprobar dominios de Internet
+
+Desde CLIENTE-1:
+
+```bash
+dig www.google.com
+```
+
+También:
+
+```bash
+nslookup www.google.com
+```
+
+La comunicación será:
+
+```text
+CLIENTE-1
+10.0.2.10
+     │
+     │ Consulta DNS
+     ▼
+DNS-SERVER
+10.0.1.10
+     │
+     │ Forward
+     ▼
+Amazon DNS
+10.0.0.2
+     │
+     ▼
+Resolución DNS de Internet
+```
+
+Así conseguimos que **todas las consultas DNS de nuestros clientes pasen primero por nuestro servidor BIND9**.
+
+---
+
+# 33 - Observar las consultas DNS
+
+Esta parte es especialmente interesante para comprender el funcionamiento del protocolo.
+
+En DNS-SERVER instalamos `tcpdump`:
+
+```bash
+sudo apt install tcpdump -y
+```
+
+Ejecutamos:
+
+```bash
+sudo tcpdump -i any port 53 -nn
+```
+
+Ahora, desde CLIENTE-1:
+
+```bash
+dig cliente2.smr.test
+```
+
+En DNS-SERVER podremos observar los paquetes DNS.
+
+También podemos realizar:
+
+```bash
+dig www.google.com
+```
+
+En este caso podremos observar:
+
+```text
+CLIENTE-1 → DNS-SERVER
+```
+
+y posteriormente:
+
+```text
+DNS-SERVER → DNS AWS
+```
+
+---
+
+# 34 - Observar únicamente las consultas del CLIENTE-1
+
+En DNS-SERVER:
+
+```bash
+sudo tcpdump -i any host 10.0.2.10 and port 53 -nn
+```
+
+Después, desde CLIENTE-1:
+
+```bash
+dig cliente2.smr.test
+```
+
+---
+
+# 35 - Comprobar la caché DNS
+
+Desde CLIENTE-1 ejecutamos:
+
+```bash
+dig www.google.com
+```
+
+Observamos:
+
+```text
+Query time
+```
+
+en el resultado.
+
+Repetimos:
+
+```bash
+dig www.google.com
+```
+
+La segunda consulta puede resolverse más rápidamente porque BIND9 puede disponer ya de la información en su **caché**.
+
+Podemos visualizar estadísticas básicas de BIND mediante:
+
+```bash
+sudo rndc stats
+```
+
+---
+
+# 36 - Añadir un nuevo registro DNS
+
+Editamos:
+
+```bash
+sudo nano /etc/bind/db.smr.test
+```
+
+Añadimos:
+
+```text
+servidorweb     IN      A       10.0.2.10
+```
+
+Incrementamos también el Serial:
+
+```text
+2026090201
+```
+
+a:
+
+```text
+2026090202
+```
+
+Comprobamos:
+
+```bash
+sudo named-checkzone smr.test /etc/bind/db.smr.test
+```
+
+Si es correcto:
+
+```bash
+sudo systemctl reload named
+```
+
+Desde CLIENTE-2:
+
+```bash
+dig servidorweb.smr.test
+```
+
+Resultado esperado:
+
+```text
+servidorweb.smr.test.  IN  A  10.0.2.10
+```
+
+---
+
+# 37 - Comprobar el TTL
+
+En nuestra zona tenemos:
+
+```text
+$TTL 300
+```
+
+Esto corresponde a:
+
+```text
+300 segundos = 5 minutos
+```
+
+Desde CLIENTE-1:
+
+```bash
+dig cliente2.smr.test
+```
+
+En la sección:
+
+```text
+ANSWER SECTION
+```
+
+podremos observar el TTL.
+
+Por ejemplo:
+
+```text
+cliente2.smr.test.    300    IN    A    10.0.2.20
+```
+
+---
+
+# 38 - Comandos de diagnóstico
+
+Durante la práctica serán especialmente útiles los siguientes comandos.
+
+Comprobar el estado de BIND:
+
+```bash
+sudo systemctl status named
+```
+
+Reiniciar BIND:
+
+```bash
+sudo systemctl restart named
+```
+
+Recargar la configuración:
+
+```bash
+sudo systemctl reload named
+```
+
+Comprobar la sintaxis general:
+
+```bash
+sudo named-checkconf
+```
+
+Comprobar la zona directa:
+
+```bash
+sudo named-checkzone smr.test /etc/bind/db.smr.test
+```
+
+Comprobar la zona inversa:
+
+```bash
+sudo named-checkzone 2.0.10.in-addr.arpa /etc/bind/db.10.0.2
+```
+
+Consultar los logs:
+
+```bash
+sudo journalctl -u named -n 50 --no-pager
+```
+
+Comprobar puertos:
+
+```bash
+sudo ss -lntup | grep :53
+```
+
+Consultar un registro A:
+
+```bash
+dig cliente1.smr.test
+```
+
+Consultar únicamente el resultado:
+
+```bash
+dig +short cliente1.smr.test
+```
+
+Resultado:
+
+```text
+10.0.2.10
+```
+
+Consultar un registro específico:
+
+```bash
+dig A cliente1.smr.test
+```
+
+Consultar el registro NS:
+
+```bash
+dig NS smr.test
+```
+
+Consultar el registro SOA:
+
+```bash
+dig SOA smr.test
+```
+
+Consultar un CNAME:
+
+```bash
+dig CNAME www.smr.test
+```
+
+Realizar resolución inversa:
+
+```bash
+dig -x 10.0.2.10
+```
+
+Utilizar un DNS concreto:
+
+```bash
+dig @10.0.1.10 cliente1.smr.test
+```
+
+Utilizar `nslookup`:
+
+```bash
+nslookup cliente1.smr.test
+```
+
+Comprobar los DNS configurados en Ubuntu:
+
+```bash
+resolvectl status
+```
+
+Capturar tráfico DNS:
+
+```bash
+sudo tcpdump -i any port 53 -nn
+```
+
+---
+
+# 39 - Pruebas finales
+
+Antes de considerar terminada la práctica deben funcionar todas las siguientes pruebas.
+
+Desde CLIENTE-1:
+
+```bash
+dig dns.smr.test
+```
+
+Debe devolver:
+
+```text
+10.0.1.10
+```
+
+Ejecutamos:
+
+```bash
+dig cliente1.smr.test
+```
+
+Debe devolver:
+
+```text
+10.0.2.10
+```
+
+Ejecutamos:
+
+```bash
+dig cliente2.smr.test
+```
+
+Debe devolver:
+
+```text
+10.0.2.20
+```
+
+Ejecutamos:
+
+```bash
+dig www.smr.test
+```
+
+Debe resolver el CNAME.
+
+Ejecutamos:
+
+```bash
+dig -x 10.0.2.10
+```
+
+Debe devolver:
+
+```text
+cliente1.smr.test
+```
+
+Ejecutamos:
+
+```bash
+dig -x 10.0.2.20
+```
+
+Debe devolver:
+
+```text
+cliente2.smr.test
+```
+
+Ejecutamos:
+
+```bash
+dig www.google.com
+```
+
+Debe resolver un dominio de Internet.
+
+Finalmente:
+
+```bash
+ping cliente2.smr.test
+```
+
+debe resolver:
+
+```text
+10.0.2.20
+```
+
+---
+
+# 40 - Funcionamiento final de la arquitectura
+
+Cuando CLIENTE-1 quiere comunicarse con:
+
+```text
+cliente2.smr.test
+```
+
+ocurre:
+
+```text
+CLIENTE-1
+10.0.2.10
+     │
+     │ "¿Cuál es la IP de cliente2.smr.test?"
+     │ UDP/53
+     ▼
+DNS-SERVER
+10.0.1.10
+     │
+     │ consulta su zona
+     │ smr.test
+     ▼
+cliente2.smr.test = 10.0.2.20
+     │
+     ▼
+CLIENTE-1
+     │
+     │ ya conoce la IP
+     ▼
+10.0.2.20
+CLIENTE-2
+```
+
+Sin embargo, si pregunta por:
+
+```text
+www.google.com
+```
+
+BIND no es autoritativo para ese dominio:
+
+```text
+CLIENTE-1
+     │
+     │ www.google.com
+     ▼
+DNS-SERVER
+10.0.1.10
+     │
+     │ forward
+     ▼
+DNS de AWS
+10.0.0.2
+     │
+     ▼
+Internet
+     │
+     ▼
+respuesta
+     │
+     ▼
+DNS-SERVER
+     │
+     ▼
+CLIENTE-1
+```
+
+Por tanto, nuestro servidor BIND9 realiza **dos funciones diferentes**:
+
+1. Es **servidor DNS autoritativo** para:
+
+   ```text
+   smr.test
+   ```
+
+2. Actúa como **servidor DNS recursivo con reenvío** para el resto de dominios.
+
+---
+
+# 41 - Resultado de la práctica
+
+Al finalizar tendremos configurada la siguiente infraestructura:
+
+```text
+VPC 10.0.0.0/16
+│
+├── SUBNET-SERVIDORES 10.0.1.0/24
+│
+│   └── DNS-SERVER
+│       10.0.1.10
+│       │
+│       ├── BIND9
+│       ├── Zona directa: smr.test
+│       ├── Zona inversa: 1.0.10.in-addr.arpa
+│       ├── Zona inversa: 2.0.10.in-addr.arpa
+│       └── Forwarder: 10.0.0.2
+│
+└── SUBNET-CLIENTES 10.0.2.0/24
+    │
+    ├── CLIENTE-1
+    │   10.0.2.10
+    │
+    └── CLIENTE-2
+        10.0.2.20
+
+DNS configurado mediante DHCP:
+10.0.1.10
+```
+
+Los clientes podrán resolver tanto nombres internos:
+
+```text
+dns.smr.test
+cliente1.smr.test
+cliente2.smr.test
+www.smr.test
+```
+
+como nombres de Internet:
+
+```text
+www.google.com
+www.ubuntu.com
+www.wikipedia.org
+```
+
+utilizando siempre nuestro servidor BIND9 como servidor DNS. -->
