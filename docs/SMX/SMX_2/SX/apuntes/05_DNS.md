@@ -99,10 +99,6 @@ La utilidad del sistema DNS es fundamental para el funcionamiento de Internet y 
         !!! example "Ejemplo de consulta DNS"
             ![imagen](./img_5/img_5_17.png){.sietecinco}
     
-## 2 - Servidores DNS
-
-
-
 ## 3 - Mecanismos de comunicación DNS
 
 - La comunicación DNS es un mecanismo de consulta/respuesta entre el cliente y el servidor. Los datagramas, por tanto, serán de query (consulta) o de answer (respuesta).
@@ -117,6 +113,64 @@ La utilidad del sistema DNS es fundamental para el funcionamiento de Internet y 
 
         !!! example "Ejemplo de comunicación DNS"
             ![imagen](./img_5/img_5_19.png){.ochocinco}
+
+## 4 - Servidores DNS
+
+- Un servidor DNS es el elemento de la infraestructura de red que aloja la información de uno o más espacios de nombres de dominio y que responde a las consultas (queries) que le llegan, ya sea resolviéndolas directamente (si tiene autoridad sobre los datos) o remitiendo al cliente hacia otros servidores que sí la tienen.
+- Un mismo servidor puede ser autoritativo para unas zonas y actuar solo como intermediario (resolutor) para otras, y puede alojar simultáneamente varias zonas con roles distintos.
+
+### 4.1 Zonas DNS
+
+Una **zona DNS** es la porción concreta del espacio de nombres que un servidor determinado aloja y sobre la cual puede responder consultas. Por ejemplo, el servidor autoritativo que resuelve `www.edu.gva.es` contiene la zona `gva.es`. La información de una zona (sus registros de recursos) se puede almacenar en un archivo de texto en el propio servidor o en un directorio centralizado (como AD DS en entornos Windows); en este último caso se habla de *zonas integradas*, que permiten que varios servidores compartan y escriban sobre la misma copia de datos.
+
+### 4.2 Tipos de zona
+
+- **Zona primaria.** Es el origen editable de la zona: todas las altas, bajas y modificaciones de registros se hacen aquí. El servidor que la aloja se llama *servidor primario* de esa zona.
+- **Zona secundaria.** Es una copia de solo lectura de una zona primaria, obtenida por red desde otro servidor DNS. No se puede editar directamente ni almacenarse como zona integrada, ya que siempre depende de la fuente primaria.
+- **Zona de rutas internas (*stub*).** Contiene únicamente los registros NS (y sus direcciones) necesarios para identificar qué servidores son autoritativos para una zona concreta, sin el resto de datos. Se usa para mantener actualizada la lista de servidores de una zona delegada y para mejorar la resolución evitando consultas innecesarias a los servidores raíz.
+- **Zona de búsqueda inversa.** Permite la consulta contraria a la habitual: a partir de una dirección IP, obtener el nombre del equipo (en vez de nombre → IP). Se construye bajo el dominio especial `in-addr.arpa`, donde los octetos de la dirección IPv4 se invierten para formar la jerarquía de subdominios.
+- !!! warning "Resolución de nombre inversa"
+
+      - La resolución de nombre inversa (o *reverse DNS lookup*) es el proceso contrario a la resolución de nombres habitual: en lugar de preguntar "¿qué dirección IP corresponde a este nombre de dominio?", la consulta pregunta "¿qué nombre de dominio corresponde a esta dirección IP?".
+      - Para llevarla a cabo, el DNS utiliza un dominio especial llamado **in-addr.arpa** (para IPv4) o **ip6.arpa** (para IPv6). La dirección IP se transforma e inserta dentro de este dominio en orden inverso a como se escribe normalmente.  
+
+        !!! example "Ejemplo"
+            
+            - Para averiguar el nombre asociado a la IP `192.168.10.20`, el *resolver* consulta el dominio:  
+            `20.10.168.192.in-addr.arpa`  
+            - El registro que responde a este tipo de consulta se llama **registro PTR** (*pointer record*), y es el encargado de indicar qué nombre de dominio corresponde a esa dirección IP.  
+    
+    - **Usos habituales de la resolución inversa:**
+        - Verificación de correo electrónico: muchos servidores de correo comprueban que la IP del remitente tenga un PTR válido antes de aceptar el mensaje, como medida contra el *spam*.
+        - Diagnóstico y registro (*logging*): en herramientas como `traceroute`, `ping` o en los logs de un servidor, es más legible ver el nombre de una máquina que su dirección IP.
+        - Auditoría y seguridad: permite identificar qué equipo hay detrás de una IP concreta durante el análisis de tráfico o incidentes.
+    
+        !!! failure "A diferencia de la resolución directa, la resolución inversa requiere que el administrador de la red configure explícitamente esta zona y sus registros PTR, ya que no se genera de forma automática a partir de los registros A o AAAA."
+
+Un mismo servidor no puede alojar a la vez una zona primaria y una secundaria o *stub* para el mismo nombre de dominio.
+
+### 2.3 Transferencia de zona
+
+Se conoce como **transferencia de zona** el proceso de replicar el contenido de una zona desde el servidor que la genera (primario) hacia los servidores que tienen copia de ella (secundarios). Se puede iniciar de dos maneras:
+
+1. Por **notificación**: el servidor primario avisa a los secundarios cuando ha habido un cambio (mecanismo definido en el RFC 1996).
+2. Por **intervalo de refresco**: al arrancar el servicio o al caducar dicho intervalo (por defecto, 15 minutos, definido en el registro SOA de la zona), el servidor secundario consulta al primario para comprobar si hay cambios.
+
+Hay dos tipos de transferencia:
+
+* **AXFR (transferencia completa):** replica todo el archivo de zona.
+* **IXFR (transferencia incremental):** replica solo los registros modificados desde la última sincronización, reduciendo el tráfico de red.
+
+Por motivos de seguridad, es recomendable restringir qué servidores pueden solicitar una transferencia de zona (habitualmente, solo los indicados en los registros NS de la zona), ya que una transferencia abierta a cualquier host expondría toda la estructura de la red interna.
+
+### 2.4 Delegación de zonas
+
+El espacio de nombres se puede dividir en varias zonas para delegar su administración a otros departamentos u organizaciones (por ejemplo, delegar `filial.empresa.com` desde la zona `empresa.com`). Para cada delegación es necesario crear registros NS en la zona padre que apunten a los servidores autoritativos de la nueva subzona, de modo que otros servidores y clientes puedan encontrarlos correctamente.
+
+### 2.5 Control de acceso
+
+El acceso de escritura a una zona y a sus registros se puede restringir mediante listas de control de acceso (ACL), que determinan qué usuarios o grupos pueden crear o modificar registros concretos. Esto permite, por ejemplo, reservar ciertos nombres para que solo determinados usuarios los puedan registrar, protegiendo la zona de modificaciones no autorizadas sin dejar de permitir su uso general.
+
 
 ## 4 - Consultas al DNS
 
