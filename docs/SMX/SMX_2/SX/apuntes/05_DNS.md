@@ -32,13 +32,13 @@ schedule: 233h - 7h/w
 ## 1 - Introducción
 
 !!! question "¿Qué es el DNS?"
-![Descripción de la imagen](./img_5/img_5_3.png)
-
-El **DNS** (*Domain Name System* o **Sistema de Nombres de Dominio**) es un sistema **distribuido y jerárquico** que permite asociar nombres de dominio legibles para las personas, como `www.aules.edu.gva.es`, con **direcciones IP**, como `195.77.20.168`, que los dispositivos utilizan para localizar servicios y comunicarse en una red.
-
-El DNS suele describirse popularmente como la **"guía telefónica de Internet"**. Al igual que la agenda de un teléfono móvil nos evita tener que memorizar los números de teléfono de cada persona, el DNS evita que los usuarios tengan que memorizar direcciones IP para acceder a los diferentes servicios de una red.
-
-Aunque normalmente pensamos en el DNS como un sistema que traduce nombres de dominio en direcciones IP, también permite realizar otro tipo de consultas. Por ejemplo, puede indicar qué servidores se encargan del correo electrónico de un dominio o proporcionar direcciones IPv6.
+    ![Descripción de la imagen](./img_5/img_5_3.png)
+    
+    El **DNS** (*Domain Name System* o **Sistema de Nombres de Dominio**) es un sistema **distribuido y jerárquico** que permite asociar    nombres de dominio legibles para las personas, como `www.aules.edu.gva.es`, con **direcciones IP**, como `195.77.20.168`, que los  dispositivos utilizan para localizar servicios y comunicarse en una red.
+    
+    El DNS suele describirse popularmente como la **"guía telefónica de Internet"**. Al igual que la agenda de un teléfono móvil nos evita  tener que memorizar los números de teléfono de cada persona, el DNS evita que los usuarios tengan que memorizar direcciones IP para  acceder a los diferentes servicios de una red.
+    
+    Aunque normalmente pensamos en el DNS como un sistema que traduce nombres de dominio en direcciones IP, también permite realizar otro   tipo de consultas. Por ejemplo, puede indicar qué servidores se encargan del correo electrónico de un dominio o proporcionar  direcciones IPv6.
 
 !!! question "¿Para qué sirve?"
 ![Descripción de la imagen](./img_5/img_5_5.png)
