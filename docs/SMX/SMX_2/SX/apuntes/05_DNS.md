@@ -101,7 +101,7 @@ schedule: 233h - 7h/w
     
 ## 3 - Mecanismos de comunicación DNS
 
-La comunicación DNS es un mecanismo de consulta/respuesta entre el cliente y el servidor. Los datagramas, por tanto, serán de query (consulta) o de answer (respuesta).
+La comunicación DNS es un mecanismo de consulta/respuesta entre **el cliente y el servidor**. Los datagramas, por tanto, serán de query (consulta) o de answer (respuesta).
 
 !!! tip "Los apartados que componen un mensaje DNS son:"
 
@@ -121,7 +121,8 @@ La comunicación DNS es un mecanismo de consulta/respuesta entre el cliente y el
 
 ### 4.1 Zonas DNS
 
-Una **zona DNS** es la porción concreta del espacio de nombres que un servidor determinado aloja y sobre la cual puede responder consultas. Por ejemplo, el servidor autoritativo que resuelve `www.edu.gva.es` contiene la zona `edu.gva.es`. La información de una zona (sus registros de recursos) se puede almacenar en un archivo de texto en el propio servidor o en un directorio centralizado (como AD DS en entornos Windows); en este último caso se habla de *zonas integradas*, que permiten que varios servidores compartan y escriban sobre la misma copia de datos.
+- Una **zona DNS** es la porción concreta del espacio de nombres que un servidor determinado aloja y sobre la cual puede responder consultas. Por ejemplo, el servidor autoritativo que resuelve `www.edu.gva.es` contiene la zona `edu.gva.es`.
+- La información de una zona (sus registros de recursos) se puede almacenar en un archivo de texto en el propio servidor o en un directorio centralizado (como AD DS en entornos Windows). En este último caso se habla de *zonas integradas*, que permiten que varios servidores compartan y escriban sobre la misma copia de datos.
 
 ### 4.2 Tipos de zona
 
