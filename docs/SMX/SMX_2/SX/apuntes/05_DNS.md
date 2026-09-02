@@ -128,12 +128,13 @@ Una **zona DNS** es la porción concreta del espacio de nombres que un servidor 
 - **Zona primaria.** Es el origen editable de la zona: todas las altas, bajas y modificaciones de registros se hacen aquí. El servidor que la aloja se llama *servidor primario* de esa zona.
 - **Zona secundaria.** Es una copia de solo lectura de una zona primaria, obtenida por red desde otro servidor DNS. No se puede editar directamente ni almacenarse como zona integrada, ya que siempre depende de la fuente primaria.
 - **Zona de rutas internas (*stub*).** Contiene únicamente los registros NS (y sus direcciones) necesarios para identificar qué servidores son autoritativos para una zona concreta, sin el resto de datos. Se usa para mantener actualizada la lista de servidores de una zona delegada y para mejorar la resolución evitando consultas innecesarias a los servidores raíz.
-- **Zona de búsqueda inversa.** Permite la consulta contraria a la habitual: a partir de una dirección IP, obtener el nombre del equipo (en vez de nombre → IP). Se construye bajo el dominio especial `in-addr.arpa`, donde los octetos de la dirección IPv4 se invierten para formar la jerarquía de subdominios.
+- **Zona de búsqueda inversa.** Permite la consulta contraria a la habitual: a partir de una dirección IP, obtener el nombre del equipo (en vez de nombre → IP).
 
-!!! warning "Resolución de nombre inversa"
+<!-- Se construye bajo el dominio especial `in-addr.arpa`, donde los octetos de la dirección IPv4 se invierten para formar la jerarquía de subdominios. -->
 
-    - La resolución de nombre inversa (o *reverse DNS lookup*) es el proceso contrario a la resolución de nombres habitual: en lugar de preguntar "¿qué dirección IP corresponde a este nombre de dominio?", la consulta pregunta "¿qué nombre de dominio corresponde a esta dirección IP?".
-    - Para llevarla a cabo, el DNS utiliza un dominio especial llamado **in-addr.arpa** (para IPv4) o **ip6.arpa** (para IPv6). La dirección IP se transforma e inserta dentro de este dominio en orden inverso a como se escribe normalmente.  
+!!! warning "Zona de búsqueda inversa"
+
+    - Para llevar a cabo la resolución de nombre inversa, el DNS utiliza un dominio especial llamado **in-addr.arpa** (para IPv4) o **ip6.arpa** (para IPv6). La dirección IP se transforma e inserta dentro de este dominio en orden inverso a como se escribe normalmente.  
 
         !!! example "Ejemplo"
             
