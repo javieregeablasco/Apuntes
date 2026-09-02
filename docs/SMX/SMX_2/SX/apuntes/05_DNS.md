@@ -151,7 +151,8 @@ La comunicación DNS es un mecanismo de consulta/respuesta entre **el cliente y 
     
         !!! failure "A diferencia de la resolución directa, la resolución inversa requiere que el administrador de la red configure explícitamente esta zona y sus registros PTR, ya que no se genera de forma automática a partir de los registros A o AAAA."
 
-!!! warning "Un mismo servidor no puede alojar a la vez una zona primaria y una secundaria o *stub* para el mismo nombre de dominio."
+!!! warning "Importante"
+    Un mismo servidor no puede alojar a la vez una zona primaria y una secundaria o *stub* para el mismo nombre de dominio.
 
 ### 4.3 Transferencia de zona
 
