@@ -121,7 +121,7 @@ La utilidad del sistema DNS es fundamental para el funcionamiento de Internet y 
 
 ### 4.1 Zonas DNS
 
-Una **zona DNS** es la porción concreta del espacio de nombres que un servidor determinado aloja y sobre la cual puede responder consultas. Por ejemplo, el servidor autoritativo que resuelve `www.edu.gva.es` contiene la zona `gva.es`. La información de una zona (sus registros de recursos) se puede almacenar en un archivo de texto en el propio servidor o en un directorio centralizado (como AD DS en entornos Windows); en este último caso se habla de *zonas integradas*, que permiten que varios servidores compartan y escriban sobre la misma copia de datos.
+Una **zona DNS** es la porción concreta del espacio de nombres que un servidor determinado aloja y sobre la cual puede responder consultas. Por ejemplo, el servidor autoritativo que resuelve `www.edu.gva.es` contiene la zona `edu.gva.es`. La información de una zona (sus registros de recursos) se puede almacenar en un archivo de texto en el propio servidor o en un directorio centralizado (como AD DS en entornos Windows); en este último caso se habla de *zonas integradas*, que permiten que varios servidores compartan y escriban sobre la misma copia de datos.
 
 ### 4.2 Tipos de zona
 
@@ -150,32 +150,31 @@ Una **zona DNS** es la porción concreta del espacio de nombres que un servidor 
     
         !!! failure "A diferencia de la resolución directa, la resolución inversa requiere que el administrador de la red configure explícitamente esta zona y sus registros PTR, ya que no se genera de forma automática a partir de los registros A o AAAA."
 
-!!! warning "Un mismo servidor no puede alojar a la vez una zona primaria y una secundaria o *stub* para el mismo nombre de dominio"
+!!! warning "Un mismo servidor no puede alojar a la vez una zona primaria y una secundaria o *stub* para el mismo nombre de dominio."
 
-### 2.3 Transferencia de zona
+### 4.3 Transferencia de zona
 
 Se conoce como **transferencia de zona** el proceso de replicar el contenido de una zona desde el servidor que la genera (primario) hacia los servidores que tienen copia de ella (secundarios). Se puede iniciar de dos maneras:
 
 1. Por **notificación**: el servidor primario avisa a los secundarios cuando ha habido un cambio (mecanismo definido en el RFC 1996).
-2. Por **intervalo de refresco**: al arrancar el servicio o al caducar dicho intervalo (por defecto, 15 minutos, definido en el registro SOA de la zona), el servidor secundario consulta al primario para comprobar si hay cambios.
+1. Por **intervalo de refresco**: al arrancar el servicio o al caducar dicho intervalo (por defecto, 15 minutos, definido en el registro SOA de la zona), el servidor secundario consulta al primario para comprobar si hay cambios.
 
 Hay dos tipos de transferencia:
 
-* **AXFR (transferencia completa):** replica todo el archivo de zona.
-* **IXFR (transferencia incremental):** replica solo los registros modificados desde la última sincronización, reduciendo el tráfico de red.
+- **AXFR (transferencia completa):** replica todo el archivo de zona.
+- **IXFR (transferencia incremental):** replica solo los registros modificados desde la última sincronización, reduciendo el tráfico de red.
 
 Por motivos de seguridad, es recomendable restringir qué servidores pueden solicitar una transferencia de zona (habitualmente, solo los indicados en los registros NS de la zona), ya que una transferencia abierta a cualquier host expondría toda la estructura de la red interna.
 
-### 2.4 Delegación de zonas
+### 4.4 Delegación de zonas
 
 El espacio de nombres se puede dividir en varias zonas para delegar su administración a otros departamentos u organizaciones (por ejemplo, delegar `filial.empresa.com` desde la zona `empresa.com`). Para cada delegación es necesario crear registros NS en la zona padre que apunten a los servidores autoritativos de la nueva subzona, de modo que otros servidores y clientes puedan encontrarlos correctamente.
 
-### 2.5 Control de acceso
+### 4.5 Control de acceso
 
 El acceso de escritura a una zona y a sus registros se puede restringir mediante listas de control de acceso (ACL), que determinan qué usuarios o grupos pueden crear o modificar registros concretos. Esto permite, por ejemplo, reservar ciertos nombres para que solo determinados usuarios los puedan registrar, protegiendo la zona de modificaciones no autorizadas sin dejar de permitir su uso general.
 
-
-## 4 - Consultas al DNS
+## 5 - Consultas al DNS
 
 En una búsqueda de DNS habitual se producen **tres tipos de consultas**.
 
@@ -186,7 +185,7 @@ En una situación ideal, los datos de registro almacenados en la memoria caché 
 1. **Consulta iterativa:** en esta situación, el cliente DNS permitirá que un servidor DNS devuelva la mejor respuesta posible. Si el servidor DNS consultado no cuenta con un nombre que corresponda con el de la consulta, devolverá una referencia a un servidor DNS autoritativo para un nivel inferior del espacio de nombres de dominio. El cliente DNS hará a continuación una consulta a la dirección de referencia. Este proceso continúa con servidores DNS adicionales que siguen en la cadena de consulta hasta que se produzca un error o se supere el tiempo de espera.
 1. **Consulta no recursiva:** generalmente se produce cuando un cliente resolver DNS consulta a un servidor DNS por un registro al que tiene acceso porque o bien es autoritativo para el registro o el registro existe dentro de su caché. Generalmente, el servidor DNS almacenará en caché registros DNS para prevenir el consumo de ancho de banda adicional y la carga en los servidores que preceden en la cadena.
 
-## 5 - Funcionamiento del DNS
+## 6 - Funcionamiento del DNS
 
 El funcionamiento del DNS se basa en un sistema **jerárquico y distribuido** conocido como **resolución de nombres de dominio**. Su función principal es obtener información asociada a un nombre de dominio, como su dirección IP.
 
@@ -196,7 +195,7 @@ La resolución de un nombre puede implicar diferentes servidores DNS. De forma s
 
 ---
 
-### 5.1 Inicio de la consulta y comprobación de la caché
+### 6.1 Inicio de la consulta y comprobación de la caché
 
 El dispositivo realiza una consulta a un **servidor DNS recursivo**, también denominado **DNS resolver**. Habitualmente, este servidor es proporcionado por el proveedor de acceso a Internet, aunque también puede pertenecer a una organización, una empresa o ser **configurado manualmente**.
 ![Descripción de la imagen](./img_5/img_5_6.png){.marco .margintop10}
@@ -213,7 +212,7 @@ La información almacenada en caché tiene un tiempo de validez denominado **TTL
 
 ---
 
-### 5.2 Consulta al servidor raíz (*Root Server*)
+### 6.2 Consulta al servidor raíz (*Root Server*)
 
 Si el resolver recursivo no dispone de la respuesta en su caché, comienza la búsqueda consultando la jerarquía DNS.
 
@@ -234,7 +233,7 @@ el servidor raíz puede indicar qué servidores se encargan del TLD `.es`.
 
 ---
 
-### 5.3 Consulta al servidor de nivel superior (TLD)
+### 6.3 Consulta al servidor de nivel superior (TLD)
 
 El resolver recursivo consulta entonces a un **servidor TLD** (*Top-Level Domain*).
 ![Descripción de la imagen](./img_5/img_5_8.png){.marco .margintop10}
@@ -258,7 +257,7 @@ aules.edu.gva.es
 
 ---
 
-### 5.4 Consulta al servidor de nombres autoritativo
+### 6.4 Consulta al servidor de nombres autoritativo
 
 El resolver recursivo consulta finalmente a uno de los **servidores DNS autoritativos** responsables de la zona correspondiente.
 ![Descripción de la imagen](./img_5/img_5_9.png){.marco .margintop10}
@@ -277,7 +276,7 @@ Un dominio puede disponer de **varios servidores autoritativos**, proporcionando
 
 ---
 
-### 5.5 Resolución final y almacenamiento en caché
+### 6.5 Resolución final y almacenamiento en caché
 
 El resolver recursivo recibe la respuesta del servidor autoritativo y se la proporciona al dispositivo que realizó la consulta.
 ![Descripción de la imagen](./img_5/img_5_6.png){.marco .margintop10}
@@ -290,7 +289,7 @@ De esta forma, si otro dispositivo realiza posteriormente la misma consulta, el 
 
 ---
 
-### 5.6 Resumen del proceso
+### 6.6 Resumen del proceso
 
 De forma simplificada, podemos representar la resolución de un nombre de dominio de la siguiente manera:
 
@@ -364,7 +363,7 @@ flowchart TD
 
 ---
 
-## 6 - Jerarquía de nombres DNS
+## 7 - Jerarquía de nombres DNS
 
 El sistema DNS está organizado mediante una **estructura jerárquica**, similar a un árbol invertido. En la parte superior se encuentra la **raíz (`.`)** y, a medida que descendemos por la jerarquía, encontramos los diferentes dominios y subdominios.
 
@@ -388,7 +387,7 @@ Su estructura jerárquica sería:
 
 Cada nivel representa una parte diferente de la jerarquía DNS.
 
-### 6.1 La raíz DNS
+### 7.1 La raíz DNS
 
 En la parte superior de la jerarquía se encuentra la **raíz DNS**, representada mediante un punto:
 
@@ -407,7 +406,7 @@ Normalmente este punto final no se escribe cuando utilizamos un nombre de domini
 
 ---
 
-### 6.2 Dominios de nivel superior (TLD)
+### 7.2 Dominios de nivel superior (TLD)
 
 Por debajo de la raíz se encuentran los **dominios de nivel superior**, conocidos como **TLD (*Top-Level Domain*)**.
 
@@ -440,7 +439,7 @@ el TLD es:
 
 ---
 
-### 6.3 Dominio
+### 7.3 Dominio
 
 A la izquierda del TLD encontramos otros niveles de la jerarquía.
 
@@ -495,7 +494,7 @@ es un nombre situado dentro de `edu.gva.es`. -->
 
 ---
 
-### 6.4 Subdominios
+### 7.4 Subdominios
 
 Un **subdominio** es un dominio que se encuentra por debajo de otro dominio dentro de la jerarquía DNS.
 
@@ -525,7 +524,7 @@ Los subdominios permiten organizar diferentes servicios, departamentos o recurso
 
 ---
 
-### 6.5 FQDN
+### 7.5 FQDN
 
 Un **FQDN (*Fully Qualified Domain Name*)**, o **nombre de dominio completamente cualificado**, identifica de forma completa una posición dentro de la jerarquía DNS.
 
@@ -549,7 +548,7 @@ www        → nombre situado dentro de edu.gva.es
 !!! tip "Importante"
     Los nombres DNS se interpretan **de derecha a izquierda**.
 
-### 6.6 Nombre de host
+### 7.6 Nombre de host
 
 En una red, un **host** es un dispositivo o sistema que puede comunicarse mediante una red.
 
@@ -578,7 +577,7 @@ ftp.edu.gva.es       → 192.168.1.30
 
 ---
 
-### 4.7 Zona DNS
+### 7.7 Zona DNS
 
 Una **zona DNS** es una parte de la jerarquía DNS que está administrada por una organización o servidor DNS determinado.
 
@@ -635,7 +634,7 @@ ftp.edu.gva.es      → 192.168.10.30
 
 ---
 
-### 4.8 Resumen de la jerarquía DNS
+### 7.8 Resumen de la jerarquía DNS
 
 Podemos resumir los diferentes conceptos mediante la siguiente imagen:
 
@@ -653,7 +652,7 @@ De esta forma, el DNS organiza los nombres mediante una estructura jerárquica e
 | **Host** | Equipo o servicio identificado mediante un nombre | `www.edu.gva.es` |
 | **Zona** | Parte de la jerarquía administrada por unos servidores autoritativos concretos | `edu.gva.es` (zona delegada, con sus propios servidores autoritativos dentro del dominio `gva.es`) |
 
-## 7 - Servidores DNS públicos y privados
+## 8 - Servidores DNS públicos y privados
 
 No todos los servidores DNS tienen la misma función ni están disponibles para los mismos usuarios. 
 
@@ -661,7 +660,7 @@ Dependiendo de quién pueda utilizarlos y de dónde se encuentren, podemos disti
 
 ---
 
-### 7.1 Servidores DNS públicos
+### 8.1 Servidores DNS públicos
 
 Un **servidor DNS público** es un servidor DNS que ofrece su servicio de resolución de nombres a usuarios y dispositivos de Internet de forma pública.
 
@@ -692,11 +691,11 @@ A partir de ese momento, las consultas DNS realizadas por el dispositivo podrán
 
 ---
 
-### 7.2 ¿Por qué utilizar un DNS público?
+### 8.2 ¿Por qué utilizar un DNS público?
 
 Existen diferentes motivos para utilizar un servidor DNS público en lugar del servidor DNS proporcionado automáticamente por nuestro proveedor de Internet.
 
-#### 7.2.1 Rendimiento
+#### 8.2.1 Rendimiento
 
 Algunos proveedores de DNS público disponen de una infraestructura distribuida por diferentes partes del mundo. Esto permite que las consultas puedan ser atendidas desde servidores cercanos al usuario.
 
@@ -706,7 +705,7 @@ Una menor latencia puede hacer que la resolución de nombres sea más rápida.
 
 ---
 
-#### 7.2.2 Disponibilidad y redundancia
+#### 8.2.2 Disponibilidad y redundancia
 
 Los grandes proveedores de DNS público utilizan infraestructuras distribuidas y redundantes.
 
@@ -716,7 +715,7 @@ Esto proporciona una elevada **disponibilidad** del servicio.
 
 ---
 
-#### 7.2.3 Seguridad
+#### 8.2.3 Seguridad
 
 Algunos servicios DNS públicos incorporan mecanismos de seguridad adicionales, como el bloqueo de determinados dominios asociados a:
 
@@ -733,7 +732,7 @@ Por ejemplo, algunos resolvers públicos están diseñados específicamente para
 
 ---
 
-### 7.3 Servidores DNS privados
+### 8.3 Servidores DNS privados
 
 Un **servidor DNS privado** es un servidor DNS que está destinado a una organización, red o conjunto limitado de usuarios.
 
@@ -762,7 +761,7 @@ Los servidores DNS privados son muy habituales en:
 
 ---
 
-### 7.4 DNS privado y acceso a Internet
+### 8.4 DNS privado y acceso a Internet
 
 Un servidor DNS privado no tiene por qué limitarse a resolver nombres internos.
 
@@ -772,7 +771,7 @@ Si miramos el siguiente esquema veremos que el servidor DNS puede resolver tanto
 
 ![Descripción de la imagen](./img_5/img_5_14.png){.marco .margintop10 .marginbottom10}
 
-### 7.5 Servidor DNS privado en una red local
+### 8.5 Servidor DNS privado en una red local
 
 En una red local, los equipos suelen obtener automáticamente la dirección del servidor DNS mediante el protocolo **DHCP**.
 
@@ -801,7 +800,7 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
 
 ---
 
-### 7.6 Comparativa DNS público vs. DNS privado
+### 8.6 Comparativa DNS público vs. DNS privado
 
 Podemos comparar ambos tipos de servidores:
 
@@ -818,13 +817,13 @@ Podemos comparar ambos tipos de servidores:
 
 ---
 
-## 8 - Evolución del protocolo DNS y seguridad
+## 9 - Evolución del protocolo DNS y seguridad
 
 El protocolo DNS ha evolucionado para adaptarse a las necesidades cada vez mayores de las redes y, especialmente, para solucionar algunos de sus problemas de seguridad.
 
 Dos de las principales tecnologías relacionadas con esta evolución son **DDNS (Dynamic DNS)** y **DNSSEC (DNS Security Extensions)**.
 
-### 8.1 DDNS
+### 9.1 DDNS
 
 **El DDNS (Dynamic DNS o DNS dinámico)** permite actualizar automáticamente los registros de un servidor DNS cuando cambia la dirección IP asociada a un nombre de dominio.
 
@@ -858,7 +857,7 @@ Su principal utilidad es permitir que un dispositivo o servidor cuya dirección 
     !!! warning "Importante:"
         DDNS no es un protocolo DNS diferente. Es un mecanismo o servicio que permite realizar **actualizaciones dinámicas de los registros DNS**.
 
-### 8.2 DNSSEC
+### 9.2 DNSSEC
 
 **DNSSEC (Domain Name System Security Extensions o extensiones de seguridad para el DNS)** es un conjunto de extensiones que permite añadir **autenticidad e integridad** a la información proporcionada por DNS.
 
@@ -897,7 +896,7 @@ El funcionamiento tradicional de DNS presenta un problema: un atacante podría i
     !!! note "En resumen"
         DNSSEC proporciona **autenticidad e integridad**, pero no **confidencialidad ni disponibilidad**.
 
-### 8.3 Envenenamiento de la caché DNS
+### 9.3 Envenenamiento de la caché DNS
 
 Uno de los principales problemas de seguridad del DNS tradicional es que, si un atacante consigue introducir información DNS falsa en la caché de un servidor DNS, puede conseguir que las consultas de los usuarios sean redirigidas a direcciones IP incorrectas.
 
@@ -931,7 +930,7 @@ Este ataque se conoce como **DNS cache poisoning o envenenamiento de la caché D
         - No debemos confundir el **envenenamiento de la caché DNS** con el hecho de que un servidor DNS haya sido comprometido. 
         - En el primer caso, el atacante intenta introducir información DNS falsa en la caché de un resolver; en el segundo, el propio servidor DNS puede haber sido tomado bajo control por el atacante.
 
-### 8.4 Ataques Man-in-the-Middle
+### 9.4 Ataques Man-in-the-Middle
 
 Un ataque **Man-in-the-Middle (MITM)**, o **hombre en el medio**, se produce cuando un atacante consigue situarse entre dos dispositivos que se están comunicando.
 
@@ -953,9 +952,9 @@ Un ataque **Man-in-the-Middle (MITM)**, o **hombre en el medio**, se produce cua
         - Un ataque MITM no es específico de DNS. **Puede producirse en diferentes tipos de comunicaciones de red**. 
         - Además, utilizar DNSSEC no sustituye a mecanismos como **HTTPS/TLS**, que son los encargados de proteger la comunicación entre el navegador y el servidor web.
 
-## 9 - Registros DNS
+## 10 - Registros DNS
 
-### 9.1 Introducción
+### 10.1 Introducción
 
 - Los **registros DNS** son datos que contienen información sobre los nombres de dominio y los servicios asociados a ellos. 
 
@@ -997,7 +996,7 @@ Un ataque **Man-in-the-Middle (MITM)**, o **hombre en el medio**, se produce cua
     - **Servidores DNS de TLD:** indican cuáles son los servidores autoritativos responsables de un dominio concreto.
     - **Servidores DNS autoritativos:** contienen la información oficial de una zona DNS y proporcionan los registros correspondientes.
 
-### 9.2 TTL (Time To Live)
+### 10.2 TTL (Time To Live)
 
 - Los registros DNS incluyen un valor denominado **TTL (Time To Live)**.
 - El TTL indica **durante cuánto tiempo puede mantenerse un registro DNS en la caché de un servidor DNS recursivo antes de que deba volver a consultarse**.
@@ -1016,9 +1015,9 @@ Un ataque **Man-in-the-Middle (MITM)**, o **hombre en el medio**, se produce cua
         !!! warning "Importante" 
             el TTL **no indica cada cuánto tiempo se actualiza el registro en el servidor DNS autoritativo**. Indica cuánto tiempo otros servidores pueden conservar ese registro en su caché.
 
-### 9.3 Tipos de Registros DNS
+### 10.3 Tipos de Registros DNS
 
-#### 9.3.1 Registro A (Address)
+#### 10.3.1 Registro A (Address)
 
 - Los registros de direcciones, o registros A, son los registros DNS más utilizados. Crean una conexión directa entre **una dirección IPv4** y un nombre de dominio.
 - Permiten que un navegador web cargue un sitio utilizando un nombre de dominio legible, evitando que el usuario tenga que recordar complejas direcciones IP numéricas.
@@ -1028,7 +1027,7 @@ Un ataque **Man-in-the-Middle (MITM)**, o **hombre en el medio**, se produce cua
 !!! tip "Sintaxis típica"
     midominio.com. IN A 192.0.2.15.
 
-#### 9.3.2 Registro AAAA (Quad A)
+#### 10.3.2 Registro AAAA (Quad A)
 
 Funciona de manera similar al registro A, pero conecta nombres de dominio **con direcciones IPv6**.
 Aunque menos común que IPv4, su adopción global va en aumento para resolver el problema del agotamiento de las direcciones IPv4 tradicionales.
@@ -1036,7 +1035,7 @@ Aunque menos común que IPv4, su adopción global va en aumento para resolver el
 !!! tip "Sintaxis típica"
     midominio.net. IN AAAA 2001:0db8:85a3:0000:0000:8a2e:0370:1234
 
-#### 9.3.3 Registro CNAME (Canonical Name)
+#### 10.3.3 Registro CNAME (Canonical Name)
 
 Los registros de nombres canónicos, o registros CNAME, dirigen un dominio de alias a un dominio canónico. 
 Los registros CNAME se usan a menudo para asignar un nombre de dominio con un alias al dominio principal que lleva el registro A o AAAA.
@@ -1050,7 +1049,7 @@ Los registros CNAME se usan a menudo para asignar un nombre de dominio con un al
         - Los registros de servidores de correo (MX) y servidores de nombres (NS) nunca deben estar dirigidos a un CNAME.
         - Aunque técnicamente es posible apuntar un CNAME a otro CNAME, esta práctica no se recomienda porque resulta ineficaz y ralentiza la velocidad de carga.
 
-#### 9.3.4 Registro DNAME
+#### 10.3.4 Registro DNAME
 
 Los registros de nombres de delegación, o registros DNAME, se utilizan para redirigir varios subdominios con un registro y apuntarlos a otro dominio.
 
@@ -1059,13 +1058,13 @@ Los registros de nombres de delegación, o registros DNAME, se utilizan para red
     - Un registro DNAME que vincule `domain.com` a `example.com` vinculará `product.domain.com`, `trial.domain.com`, y `blog.domain.com` a `example.com`. 
     - Estos registros son útiles para administrar dominios a gran escala y para administrar cambios de nombres de dominio al garantizar que los subdominios estén vinculados correctamente.
 
-#### 9.3.5 Registros CAA
+#### 10.3.5 Registros CAA
 
 Los registros de autorización de autoridad de certificación, o registros CAA, permiten a los propietarios de dominios especificar qué **autoridades de certificación (CA)** pueden emitir certificados para su dominio.
 
 Una CA es una organización que valida la identidad de los sitios web y los conecta a claves criptográficas mediante la emisión de certificados digitales.
 
-#### 9.3.5 Registro NS (Nameserver)
+#### 10.3.5 Registro NS (Nameserver)
 
 - Especifica qué servidor de nombres o servidor DNS en particular actúa como la autoridad autoritativa para un dominio o subdominio.
 
@@ -1073,7 +1072,7 @@ Una CA es una organización que valida la identidad de los sitios web y los cone
     - El registro NS indica qué servidor **alberga físicamente los archivos de zona del dominio**. 
     - Sin un registro NS debidamente configurado, es imposible cargar o acceder a un sitio web.
 
-#### 9.3.5 Registro MX (Mail Exchange)
+#### 10.3.5 Registro MX (Mail Exchange)
 
 Los registros MX son indispensables para la recepción de correos electrónicos bajo el nombre de dominio.
 
@@ -1082,34 +1081,38 @@ Indica cuáles son los servidores de correo autorizados para recibir los mensaje
 !!! example "Sintaxis típica"
     midominio.com. IN MX 10 mail.midominio.com..
 
-#### 9.3.6 Registro TXT
+#### 10.3.6 Registro TXT
 
 Permite que un administrador pueda almacenar notas de texto en el registro. Estos registros se suelen utilizar para la seguridad del correo electrónico.
 
-#### 9.3.7 Registros CERT
+#### 10.3.7 Registros CERT
 
 Los certificados, o registros CERT, almacenan certificados que verifican la autenticidad de todas las partes involucradas.  
 
 Este tipo de registro es particularmente valioso cuando se protege y encripta información confidencial.
 
-#### 9.3.8 Registros SOA
+#### 10.3.8 Registros SOA
 
 Los registros de inicio de autoridad, o registros SOA, almacenan información administrativa importante sobre un dominio. Esta información puede incluir la dirección de correo electrónico del administrador del dominio, información sobre las actualizaciones del dominio y cuándo un servidor debe actualizar su información.
 
-#### 9.3.9 Registros PTR
+#### 10.3.9 Registros PTR
 
 Los registros de puntero, o registros PTR, funcionan en la dirección opuesta a los registros A. Se utilizan para **conectar una dirección IP con un nombre de dominio, en lugar de un nombre de dominio con una dirección IP**.
 
 Cuando una búsqueda de DNS comienza con una dirección IP, encuentra el nombre de host correspondiente. Estos registros se utilizan para detectar spam comprobando si las direcciones IP y las direcciones de correo electrónico asociadas son utilizadas por servidores de correo electrónico legítimos. El host del servidor debe configurar los registros PTR.
 
-## 10 - Herramientas de Diagnóstico Técnico de Registros DNS
-
-# hasta aqui
+## 11 - Herramientas de Diagnóstico Técnico de Registros DNS
 
 Para verificar y solucionar problemas con las zonas DNS, los administradores de sistemas y profesionales de redes emplean herramientas de terminal populares:
 
-    nslookup: Permite consultar de forma rápida la dirección IP asociada a un dominio y ver registros básicos como A, MX o NS.
+!!! tip "nslookup"
+    Permite consultar de forma rápida la dirección IP asociada a un dominio y ver registros básicos como A, MX o NS.
+
+!!! tip "dig (Domain Information Groper)"
     dig (Domain Information Groper): Ofrece información mucho más profunda y detallada sobre las consultas DNS, incluyendo los tiempos de respuesta del servidor y la jerarquía de autoridad.
+
+
+# hasta aqui
 
 https://www.cloudflare.com/es-es/learning/dns/dns-records/
 https://www.ibm.com/es-es/think/topics/dns-records
