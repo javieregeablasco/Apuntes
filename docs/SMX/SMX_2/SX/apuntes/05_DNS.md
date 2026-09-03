@@ -29,6 +29,8 @@ schedule: 233h - 7h/w
 |**g)** Se ha trabajado en grupo para realizar transferencias de zona entre dos o más servidores.|
 |**h)** Se ha comprobado el funcionamiento correcto del servidor.|
 
+<!-- > **Importante:** el DNS no es el encargado de conectar un dispositivo a una red Wi-Fi. En una conexión Wi-Fi intervienen tecnologías y protocolos como **IEEE 802.11** y, habitualmente, **DHCP** para obtener la configuración de red. El DNS puede utilizarse posteriormente para resolver los nombres de los servicios a los que queremos acceder. -->
+
 ## 1 - Introducción
 
 !!! question "¿Qué es el DNS?"
@@ -59,27 +61,7 @@ schedule: 233h - 7h/w
         - **Enviar y recibir correos electrónicos**.
         - **Utilizar servicios de streaming**.
         - **Jugar a videojuegos online**.
-        - **Acceder a diferentes servicios y aplicaciones de Internet**.
-
-<!-- !!! warning "Resolución de nombre inversa"
-
-    - La resolución de nombre inversa (o *reverse DNS lookup*) es el proceso contrario a la resolución de nombres habitual: en lugar de preguntar "¿qué dirección IP corresponde a este nombre de dominio?", la consulta pregunta "¿qué nombre de dominio corresponde a esta dirección IP?".
-    - Para llevarla a cabo, el DNS utiliza un dominio especial llamado **in-addr.arpa** (para IPv4) o **ip6.arpa** (para IPv6). La dirección IP se transforma e inserta dentro de este dominio en orden inverso a como se escribe normalmente.  
-
-        !!! example "Ejemplo"
-            
-            - Para averiguar el nombre asociado a la IP `192.168.10.20`, el *resolver* consulta el dominio:  
-            `20.10.168.192.in-addr.arpa`  
-            - El registro que responde a este tipo de consulta se llama **registro PTR** (*pointer record*), y es el encargado de indicar qué nombre de dominio corresponde a esa dirección IP.  
-    
-    - **Usos habituales de la resolución inversa:**
-        - Verificación de correo electrónico: muchos servidores de correo comprueban que la IP del remitente tenga un PTR válido antes de aceptar el mensaje, como medida contra el *spam*.
-        - Diagnóstico y registro (*logging*): en herramientas como `traceroute`, `ping` o en los logs de un servidor, es más legible ver el nombre de una máquina que su dirección IP.
-        - Auditoría y seguridad: permite identificar qué equipo hay detrás de una IP concreta durante el análisis de tráfico o incidentes.
-    
-        !!! failure "A diferencia de la resolución directa, la resolución inversa requiere que el administrador de la red configure explícitamente esta zona y sus registros PTR, ya que no se genera de forma automática a partir de los registros A o AAAA." -->
-
-<!-- > **Importante:** el DNS no es el encargado de conectar un dispositivo a una red Wi-Fi. En una conexión Wi-Fi intervienen tecnologías y protocolos como **IEEE 802.11** y, habitualmente, **DHCP** para obtener la configuración de red. El DNS puede utilizarse posteriormente para resolver los nombres de los servicios a los que queremos acceder. -->
+        - **Acceder a diferentes servicios y aplicaciones de Internet**.        
 
 ## 2 - Protocolo DNS
 
@@ -87,7 +69,7 @@ schedule: 233h - 7h/w
 
 - **El servicio de nombres de dominio utiliza el protocolo DNS para realizar las consultas y las respuestas**.
 - Se trata de un protocolo de **capa de aplicación** que puede utilizar tanto UDP como TCP en la capa de transporte.  
-- Habitualmente, tanto las consultas del cliente como las respuestas del servidor caben en un datagrama (512 bytes) y se utiliza UDP (de hecho, generalmente se dice que el DNS usa UDP). 
+- Habitualmente, tanto las consultas del cliente como las respuestas del servidor caben en un datagrama (512 bytes) y se utiliza UDP (de hecho, generalmente se dice que el DNS usa UDP).
 - Si la información a transmitir es amplia (por ejemplo, una respuesta con una lista con mucha información), la comunicación pasa a TCP automáticamente.
 - Otro caso en el que la comunicación es por TCP es cuando se realiza la transferencia de información de una zona entre servidores primarios y secundarios. **El servidor DNS utiliza el puerto privilegiado 53**.
 
@@ -97,7 +79,7 @@ schedule: 233h - 7h/w
     - Los datagramas DNS se componen de varios apartados, tal como se puede ver en la siguiente consulta con host:
 
         !!! example "Ejemplo de consulta DNS"
-            ![imagen](./img_5/img_5_17.png){.sietecinco}
+            ![imagen](./img_5/img_5_17.png){.sietecinco}            
     
 ## 3 - Mecanismos de comunicación DNS
 
@@ -130,8 +112,6 @@ La comunicación DNS es un mecanismo de consulta/respuesta entre **el cliente y 
 - **Zona secundaria.** Es una copia de solo lectura de una zona primaria, obtenida por red desde otro servidor DNS. No se puede editar directamente ni almacenarse como zona integrada, ya que siempre depende de la fuente primaria.
 - **Zona de rutas internas (*stub*).** Contiene únicamente los registros NS (y sus direcciones) necesarios para identificar qué servidores son autoritativos para una zona concreta, sin el resto de datos. Se usa para mantener actualizada la lista de servidores de una zona delegada y para mejorar la resolución evitando consultas innecesarias a los servidores raíz.
 - **Zona de búsqueda inversa.** Permite la consulta contraria a la habitual: a partir de una dirección IP, obtener el nombre del equipo (en vez de nombre → IP).
-
-<!-- Se construye bajo el dominio especial `in-addr.arpa`, donde los octetos de la dirección IPv4 se invierten para formar la jerarquía de subdominios. -->
 
 !!! warning "Zona de búsqueda inversa"
 
@@ -227,9 +207,9 @@ Los servidores raíz **no conocen directamente la dirección IP** del dominio qu
 
 Por ejemplo, si estamos buscando:
 
-```text
-www.aules.edu.gva.es
-```
+    ```text
+    www.aules.edu.gva.es
+    ```
 
 el servidor raíz puede indicar qué servidores se encargan del TLD `.es`.
 
@@ -242,20 +222,20 @@ El resolver recursivo consulta entonces a un **servidor TLD** (*Top-Level Domain
 
 Un TLD es la parte final de un nombre de dominio, como:
 
-```text
-.com
-.es
-.org
-.net
-```
+    ```text
+    .com
+    .es
+    .org
+    .net
+    ```
 
 El servidor TLD no proporciona necesariamente la dirección IP del equipo que buscamos. Su función es indicar cuáles son los **servidores DNS autoritativos** encargados del dominio correspondiente.
 
 Por ejemplo, los servidores responsables del TLD `.es` pueden indicar qué servidores DNS son autoritativos para:
 
-```text
-aules.edu.gva.es
-```
+    ```text
+    aules.edu.gva.es
+    ```
 
 ---
 
@@ -268,9 +248,9 @@ Un servidor autoritativo dispone de la **información oficial de la zona DNS que
 
 Por ejemplo, un registro **A** puede asociar un nombre con una dirección IPv4:
 
-```text
-www.aules.edu.gva.es  →  195.77.20.168
-```
+    ```text
+    www.aules.edu.gva.es  →  195.77.20.168
+    ```
 
 Para IPv6 se utiliza normalmente un registro **AAAA**.
 
@@ -295,58 +275,17 @@ De esta forma, si otro dispositivo realiza posteriormente la misma consulta, el 
 
 De forma simplificada, podemos representar la resolución de un nombre de dominio de la siguiente manera:
 
-<!-- ```text
-              Cliente
-                 │
-                 │ Consulta DNS
-                 ▼
-        ┌─────────────────┐
-        │ DNS recursivo   │
-        │    Resolver     │
-        └────────┬────────┘
-                 │
-                 │ 1. Consulta
-                 ▼
-        ┌─────────────────┐
-        │ Servidor raíz   │
-        └────────┬────────┘
-                 │
-                 │ Indica el TLD
-                 ▼
-        ┌─────────────────┐
-        │ Servidor TLD    │
-        │     (.es)       │
-        └────────┬────────┘
-                 │
-                 │ Indica los servidores
-                 │ autoritativos
-                 ▼
-        ┌─────────────────────┐
-        │ Servidor autoritativo│
-        └──────────┬──────────┘
-                   │
-                   │ Registro A / AAAA
-                   ▼
-              Dirección IP
-                   │
-                   ▼
-              DNS Resolver
-                   │
-                   ▼
-                Cliente
-``` -->
-
-```mermaid
-flowchart TD
-    A[Cliente] -->|1. Consulta DNS| B[DNS recursivo<br/>Resolver]
-    B -->|2-3. Consulta a servidor raíz | C[Servidor raíz]
-    C -->|4-5. Consulta a servidor TLD| D["Servidor TLD<br/>(.es)"]
-    D -->|6-7. Indica los servidores<br/>autoritativos| E[Servidor autoritativo]
-    E -->|Registro A / AAAA| F[Dirección IP]
-    F -->|192.0.2.1| G[DNS Resolver]
-    G -->|8. Entrega de IP a cliente <br/>192.0.2.1| H[Cliente]
-    H -->|192.0.2.1| I["Servidor (web)"]
-```
+    ```mermaid
+    flowchart TD
+        A[Cliente] -->|1. Consulta DNS| B[DNS recursivo<br/>Resolver]
+        B -->|2-3. Consulta a servidor raíz | C[Servidor raíz]
+        C -->|4-5. Consulta a servidor TLD| D["Servidor TLD<br/>(.es)"]
+        D -->|6-7. Indica los servidores<br/>autoritativos| E[Servidor autoritativo]
+        E -->|Registro A / AAAA| F[Dirección IP]
+        F -->|192.0.2.1| G[DNS Resolver]
+        G -->|8. Entrega de IP a cliente <br/>192.0.2.1| H[Cliente]
+        H -->|192.0.2.1| I["Servidor (web)"]
+    ```
 
 !!! tip "Resumen de los que hemos visto"
 
@@ -372,20 +311,8 @@ El sistema DNS está organizado mediante una **estructura jerárquica**, similar
 Si tenemos el siguiente nombre:
 ![Descripción de la imagen](./img_5/img_5_11.png){.margintop10}
 
-<!-- ```text
-www.edu.gva.es
-``` -->
-
 Su estructura jerárquica sería:
 ![Descripción de la imagen](./img_5/img_5_12.png){.margintop10}
-
-<!-- ```text
-.
-└── es
-    └── gva
-        └── edu
-            └── www
-``` -->
 
 Cada nivel representa una parte diferente de la jerarquía DNS.
 
@@ -393,9 +320,9 @@ Cada nivel representa una parte diferente de la jerarquía DNS.
 
 En la parte superior de la jerarquía se encuentra la **raíz DNS**, representada mediante un punto:
 
-```text
-.
-```
+    ```text
+    .
+    ```
 
 La raíz es el nivel superior de todo el sistema DNS.
 
@@ -414,13 +341,13 @@ Por debajo de la raíz se encuentran los **dominios de nivel superior**, conocid
 
 Algunos ejemplos son:
 
-```text
-.com
-.org
-.net
-.es
-.edu
-```
+    ```text
+    .com
+    .org
+    .net
+    .es
+    .edu
+    ```
 
 Existen diferentes tipos de TLD. Por ejemplo:
 
@@ -429,15 +356,15 @@ Existen diferentes tipos de TLD. Por ejemplo:
 
 En el caso de:
 
-```text
-www.edu.gva.es
-```
+    ```text
+    www.edu.gva.es
+    ```
 
 el TLD es:
 
-```text
-.es
-```
+    ```text
+    .es
+    ```
 
 ---
 
@@ -447,52 +374,15 @@ A la izquierda del TLD encontramos otros niveles de la jerarquía.
 
 En el caso de:
 
-```text
-www.edu.gva.es
-```
+    ```text
+    www.edu.gva.es
+    ```
 
 Un dominio dentro del TLD `.es` sería.
 
-```text
-gva.es
-```
-
-<!-- ![Descripción de la imagen](./img_5/img_5_10.jpeg){.marco .margintop10} -->
-
-<!-- ```text
-www . edu . gva . es
- │     │     │    │
- │     │     │    └── TLD
- │     │     └─────── Dominio
- │     └───────────── Subdominio
- └─────────────────── Nombre de host
-``` -->
-
-<!-- Es importante tener en cuenta que los términos **dominio** y **subdominio** dependen del nivel que estemos analizando.
-
-Por ejemplo:
-
-```text
-gva.es
-```
-
-es un dominio dentro de `.es`.
-
-A su vez:
-
-```text
-edu.gva.es
-```
-
-es un subdominio de `gva.es`.
-
-Y:
-
-```text
-www.edu.gva.es
-```
-
-es un nombre situado dentro de `edu.gva.es`. -->
+    ```text
+    gva.es
+    ```
 
 ---
 
@@ -502,25 +392,25 @@ Un **subdominio** es un dominio que se encuentra por debajo de otro dominio dent
 
 En el caso de:
 
-```text
-gva.es
-```
+    ```text
+    gva.es
+    ```
 
 podría tener diferentes subdominios:
 
-```text
-edu.gva.es
-san.gva.es
-just.gva.es
-```
+    ```text
+    edu.gva.es
+    san.gva.es
+    just.gva.es
+    ```
 
 Y, a su vez, `edu.gva.es` podría tener otros niveles:
 
-```text
-www.edu.gva.es
-aules.edu.gva.es
-correo.edu.gva.es
-```
+    ```text
+    www.edu.gva.es
+    aules.edu.gva.es
+    correo.edu.gva.es
+    ```
 
 Los subdominios permiten organizar diferentes servicios, departamentos o recursos dentro de una misma estructura de nombres.
 
@@ -532,20 +422,9 @@ Un **FQDN (*Fully Qualified Domain Name*)**, o **nombre de dominio completamente
 
 En el caso de tendríamos:
 
-```text
-www.edu.gva.es.
-```
-
-
-<!-- ```text
-.          → raíz
-es         → TLD
-gva        → dominio
-edu        → subdominio
-www        → nombre situado dentro de edu.gva.es
-``` -->
-
-<!-- El FQDN permite identificar un nombre de manera inequívoca dentro de la jerarquía DNS. -->
+    ```text
+    www.edu.gva.es.
+    ```
 
 !!! tip "Importante"
     Los nombres DNS se interpretan **de derecha a izquierda**.
@@ -558,22 +437,21 @@ En DNS, un nombre como `www.edu.gva.es` puede utilizarse para identificar un ser
 
 Por ejemplo, podríamos tener:
 
-```text
-www.edu.gva.es
-correo.edu.gva.es
-ftp.edu.gva.es
-```
+    ```text
+    www.edu.gva.es
+    correo.edu.gva.es
+    ftp.edu.gva.es
+    ```
 
 Cada nombre podría estar asociado mediante DNS a una dirección IP diferente:
 
-```text
-www.edu.gva.es       → 192.168.1.10
-correo.edu.gva.es    → 192.168.1.20
-ftp.edu.gva.es       → 192.168.1.30
-```
+    ```text
+    www.edu.gva.es       → 192.168.1.10
+    correo.edu.gva.es    → 192.168.1.20
+    ftp.edu.gva.es       → 192.168.1.30
+    ```
 
 !!! warning "Importante"
-
     - Cada nombre DNS **no representa necesariamente un único equipo físico**.  
     - Un mismo servicio puede estar distribuido entre varios servidores y una misma dirección IP puede utilizarse para diferentes nombres.
 
@@ -587,32 +465,30 @@ La zona contiene los **registros DNS** que proporcionan información sobre los n
 
 Por ejemplo, una organización podría administrar la zona:
 
-```text
-edu.gva.es
-```
+    ```text
+    edu.gva.es
+    ```
 
-y dentro de ella tener:
+y dentro de ella tener, en un primer escenario, todos los nombres agrupados en una única zona:
 
-```text
-www.edu.gva.es
-correo.edu.gva.es
-ftp.edu.gva.es
-```
+    ```text
+    www.edu.gva.es
+    correo.edu.gva.es
+    ftp.edu.gva.es
+    ```
 
 La zona podría contener registros como:
 
-```text
-www.edu.gva.es      → 192.168.10.10
-correo.edu.gva.es   → 192.168.10.20
-ftp.edu.gva.es      → 192.168.10.30
-```
+    ```text
+    www.edu.gva.es      → 192.168.10.10
+    correo.edu.gva.es   → 192.168.10.20
+    ftp.edu.gva.es      → 192.168.10.30
+    ```
 
 !!! warning "Dominio y zona no son exactamente lo mismo"
-
-    1. Aunque en muchos ejemplos sencillos un dominio y una zona pueden parecer equivalentes, **dominio y zona son conceptos diferentes**.
+    1. Aunque en el ejemplo anterior el dominio `edu.gva.es` y la zona que lo administra coinciden, **dominio y zona son conceptos diferentes**.
     1. Un dominio representa una parte de la **jerarquía de nombres DNS**, mientras que una zona representa una parte de esa jerarquía que está **administrativamente gestionada mediante servidores DNS autoritativos**.
-    1. Un dominio puede contener diferentes subdominios y estos pueden estar delegados en otras zonas.  
-    En nuestro ejemplo:
+    1. Un dominio puede contener diferentes subdominios y estos pueden estar delegados en otras zonas. Veamos un segundo escenario, alternativo al anterior, en el que la organización decide **dividir** la administración de `edu.gva.es` en dos zonas distintas:
     ```mermaid
     flowchart TD
         A[edu.gva.es] --> X((　))
@@ -622,17 +498,7 @@ ftp.edu.gva.es      → 192.168.10.30
         C --> E[ftp.edu.gva.es]
     style X fill:none,stroke:none
     ```
-    La organización puede administrar directamente `edu.gva.es`, mientras que `www.edu.gva.es`, `correo.edu.gva.es` y `rrhh.empresa.es` pueden estar delegados en otros servidores DNS.
-
-<!-- ```text
-                empresa.es
-                    │
-          ┌─────────┴─────────┐
-          │                   │
-      ventas.empresa.es   rrhh.empresa.es
-          │                   │
-       Zona A                Zona B
-``` -->
+    En este segundo escenario, la organización administra directamente una zona con `www.edu.gva.es` y `correo.edu.gva.es` (Zona A), mientras que `ftp.edu.gva.es` está delegado a otros servidores DNS que administran la Zona B. Ambas zonas siguen perteneciendo al mismo dominio `edu.gva.es`, pero están gestionadas de forma independiente.
 
 ---
 
@@ -656,7 +522,7 @@ De esta forma, el DNS organiza los nombres mediante una estructura jerárquica e
 
 ## 8 - Servidores DNS públicos y privados
 
-No todos los servidores DNS tienen la misma función ni están disponibles para los mismos usuarios. 
+No todos los servidores DNS tienen la misma función ni están disponibles para los mismos usuarios.
 
 Dependiendo de quién pueda utilizarlos y de dónde se encuentren, podemos distinguir entre **servidores DNS públicos** y **servidores DNS privados**.
 
@@ -680,10 +546,10 @@ Algunos ejemplos conocidos son:
 
 Por ejemplo, podemos configurar un ordenador para que utilice:
 
-```text
-Servidor DNS preferido: 1.1.1.1
-Servidor DNS alternativo: 1.0.0.1
-```
+    ```text
+    Servidor DNS preferido: 1.1.1.1
+    Servidor DNS alternativo: 1.0.0.1
+    ```
 
 A partir de ese momento, las consultas DNS realizadas por el dispositivo podrán enviarse a los servidores de Cloudflare.
 
@@ -863,7 +729,7 @@ Su principal utilidad es permitir que un dispositivo o servidor cuya dirección 
 
 **DNSSEC (Domain Name System Security Extensions o extensiones de seguridad para el DNS)** es un conjunto de extensiones que permite añadir **autenticidad e integridad** a la información proporcionada por DNS.
 
-El funcionamiento tradicional de DNS presenta un problema: un atacante podría intentar proporcionar al cliente una respuesta DNS falsa. 
+El funcionamiento tradicional de DNS presenta un problema: un atacante podría intentar proporcionar al cliente una respuesta DNS falsa.
 
 !!! example "Ejemplo"
     Ante una consulta como:
@@ -925,8 +791,8 @@ Este ataque se conoce como **DNS cache poisoning o envenenamiento de la caché D
 
     Este tipo de ataque puede utilizarse, por ejemplo, como parte de una campaña de **phishing**.
 
-    !!! success "Prevención contra el dead cache poisoning" 
-        DNSSEC ayuda a prevenir el problema del ataque por "dead cache poisoning" porque permite al resolver DNS comprobar mediante firmas digitales que los registros DNS recibidos son auténticos y no han sido modificados.
+    !!! success "Prevención contra el DNS cache poisoning" 
+        DNSSEC ayuda a prevenir el problema del ataque de envenenamiento de caché porque permite al resolver DNS comprobar mediante firmas digitales que los registros DNS recibidos son auténticos y no han sido modificados.
 
     !!! warning "Importante"
         - No debemos confundir el **envenenamiento de la caché DNS** con el hecho de que un servidor DNS haya sido comprometido. 
@@ -958,7 +824,7 @@ Un ataque **Man-in-the-Middle (MITM)**, o **hombre en el medio**, se produce cua
 
 ### 10.1 Introducción
 
-- Los **registros DNS** son datos que contienen información sobre los nombres de dominio y los servicios asociados a ellos. 
+1. Los **registros DNS** son datos que contienen información sobre los nombres de dominio y los servicios asociados a ellos.
 
     !!! example "Ejemplo"
         Un registro de tipo **A** permite asociar un nombre de dominio con **una dirección IPv4**:
@@ -967,7 +833,7 @@ Un ataque **Man-in-the-Middle (MITM)**, o **hombre en el medio**, se produce cua
         www.ejemplo.com → 192.0.2.10
         ```
 
-- En los **servidores DNS autoritativos**, estos registros pueden almacenarse en **archivos de zona**. Un archivo de zona es un archivo de texto que contiene los registros DNS y determinadas directivas que describen una zona DNS.
+1. En los **servidores DNS autoritativos**, estos registros pueden almacenarse en **archivos de zona**. Un archivo de zona es un archivo de texto que contiene los registros DNS y determinadas directivas que describen una zona DNS.
 
     !!! example "Ejemplo"
         Un archivo de zona puede contener registros como:
@@ -978,7 +844,7 @@ Un ataque **Man-in-the-Middle (MITM)**, o **hombre en el medio**, se produce cua
         mail              IN    A       192.0.2.20
         ```
 
-- La **sintaxis de los archivos de zona** establece cómo deben escribirse estos registros y directivas para que el servidor DNS pueda interpretarlos correctamente.
+1. La **sintaxis de los archivos de zona** establece cómo deben escribirse estos registros y directivas para que el servidor DNS pueda interpretarlos correctamente.
 
     !!! example "Ejemplo"
         Cuando un usuario introduce en su navegador una dirección como:
@@ -991,7 +857,7 @@ Un ataque **Man-in-the-Middle (MITM)**, o **hombre en el medio**, se produce cua
 
         El equipo del usuario normalmente realiza la consulta a un **servidor DNS recursivo** o *resolver*. Este servidor puede disponer de la respuesta en su **caché**. Si no la tiene, puede realizar consultas a otros servidores DNS hasta encontrar la información necesaria.
 
-- En una resolución DNS pueden intervenir diferentes tipos de servidores, entre ellos:
+1. En una resolución DNS pueden intervenir diferentes tipos de servidores, entre ellos:
 
     - **Servidores DNS recursivos:** reciben las consultas de los clientes y se encargan de obtener la respuesta.
     - **Servidores DNS raíz:** indican qué servidores son responsables de los diferentes dominios de nivel superior (*Top-Level Domains* o  TLD), como `.com`, `.org` o `.es`.
@@ -1039,7 +905,7 @@ Aunque menos común que IPv4, su adopción global va en aumento para resolver el
 
 #### 10.3.3 Registro CNAME (Canonical Name)
 
-Los registros de nombres canónicos, o registros CNAME, dirigen un dominio de alias a un dominio canónico. 
+Los registros de nombres canónicos, o registros CNAME, dirigen un dominio de alias a un dominio canónico.
 Los registros CNAME se usan a menudo para asignar un nombre de dominio con un alias al dominio principal que lleva el registro A o AAAA.
 
 !!! example "Ejemplo"
@@ -1066,38 +932,38 @@ Los registros de autorización de autoridad de certificación, o registros CAA, 
 
 Una CA es una organización que valida la identidad de los sitios web y los conecta a claves criptográficas mediante la emisión de certificados digitales.
 
-#### 10.3.5 Registro NS (Nameserver)
+#### 10.3.6 Registro NS (Nameserver)
 
 - Especifica qué servidor de nombres o servidor DNS en particular actúa como la autoridad autoritativa para un dominio o subdominio.
 
 !!! warning "Importante"
-    - El registro NS indica qué servidor **alberga físicamente los archivos de zona del dominio**. 
+    - El registro NS indica qué servidor **alberga físicamente los archivos de zona del dominio**.
     - Sin un registro NS debidamente configurado, es imposible cargar o acceder a un sitio web.
 
-#### 10.3.5 Registro MX (Mail Exchange)
+#### 10.3.7 Registro MX (Mail Exchange)
 
 Los registros MX son indispensables para la recepción de correos electrónicos bajo el nombre de dominio.
 
 Indica cuáles son los servidores de correo autorizados para recibir los mensajes mediante el protocolo SMTP.
 
 !!! example "Sintaxis típica"
-    midominio.com. IN MX 10 mail.midominio.com..
+    midominio.com. IN MX 10 mail.midominio.com.
 
-#### 10.3.6 Registro TXT
+#### 10.3.8 Registro TXT
 
 Permite que un administrador pueda almacenar notas de texto en el registro. Estos registros se suelen utilizar para la seguridad del correo electrónico.
 
-#### 10.3.7 Registros CERT
+#### 10.3.9 Registros CERT
 
 Los certificados, o registros CERT, almacenan certificados que verifican la autenticidad de todas las partes involucradas.  
 
 Este tipo de registro es particularmente valioso cuando se protege y encripta información confidencial.
 
-#### 10.3.8 Registros SOA
+#### 10.3.10 Registros SOA
 
 Los registros de inicio de autoridad, o registros SOA, almacenan información administrativa importante sobre un dominio. Esta información puede incluir la dirección de correo electrónico del administrador del dominio, información sobre las actualizaciones del dominio y cuándo un servidor debe actualizar su información.
 
-#### 10.3.9 Registros PTR
+#### 10.3.11 Registros PTR
 
 Los registros de puntero, o registros PTR, funcionan en la dirección opuesta a los registros A. Se utilizan para **conectar una dirección IP con un nombre de dominio, en lugar de un nombre de dominio con una dirección IP**.
 
@@ -1113,19 +979,17 @@ Para verificar y solucionar problemas con las zonas DNS, los administradores de 
 !!! tip "dig (Domain Information Groper)"
     dig (Domain Information Groper): Ofrece información mucho más profunda y detallada sobre las consultas DNS, incluyendo los tiempos de respuesta del servidor y la jerarquía de autoridad.
 
+<!-- # hasta aqui -->
 
-<!-- # hasta aqui
-
-https://www.cloudflare.com/es-es/learning/dns/dns-records/
+<!-- https://www.cloudflare.com/es-es/learning/dns/dns-records/
 https://www.ibm.com/es-es/think/topics/dns-records
 https://www.site24x7.com/es/learn/dns-record-types.html
 https://blog.infranetworking.com/registros-dns-que-son-y-cuales-tipos-hay/
 https://www.digicert.com/es/faq/dns/what-are-dns-records
 https://www.webempresa.com/blog/que-es-un-registro-dns-y-que-tipos-hay.html
-https://easydmarc.com/blog/es/8-tipos-comunes-de-registros-dns/
+https://easydmarc.com/blog/es/8-tipos-comunes-de-registros-dns/ -->
 
-
-# hasta aqui -->
+<!-- # hasta aqui -->
 
 <!-- https://notebook.google.com/notebook/3ba0b1e5-23cc-414c-a66b-1591bdf88c4a -->
 
