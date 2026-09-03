@@ -979,7 +979,106 @@ Para verificar y solucionar problemas con las zonas DNS, los administradores de 
 !!! tip "dig (Domain Information Groper)"
     dig (Domain Information Groper): Ofrece información mucho más profunda y detallada sobre las consultas DNS, incluyendo los tiempos de respuesta del servidor y la jerarquía de autoridad.
 
+## 12 - Tarea RA2-CEbc - Resolución manual de un dominio
 <!-- # hasta aqui -->
+
+- El proposito de esta tarea es que el alumno comprenda cómo se resuelve un nombre de dominio en Internet y cómo se obtiene la dirección IP asociada a ese nombre.
+- Para el ejemplo usaremos el dominio `www.aules.edu.gva.es` y realizaremos la resolución de forma manual, paso a paso, para comprender el proceso completo.
+
+### 12.1 Paso 1: Consulta al servidor raíz
+
+- El primer paso en la resolución de un nombre de dominio es consultar a un **servidor raíz**. Los servidores raíz son los encargados de dirigir las consultas hacia los servidores de nivel superior (TLD) correspondientes.
+
+!!! question "Pregunta"
+    - ¿Cuál es el TLD (Top-Level Domain) del dominio `www.aules.edu.gva.es`?
+    - ¿Quién realiza la consulta inicial al servidor raíz para obtener información sobre el TLD?
+    - ¿Cuál es la dirección IP de un servidor raíz?
+    - Para obtener la dirección IP de un servidor raíz, podemos consultar la lista oficial de servidores raíz. Por ejemplo, el servidor raíz `a.root-servers.net` tiene la dirección IP `.
+    - Para realizar la consulta al servidor raíz, podemos utilizar herramientas como `nslookup` o `dig`. Por ejemplo, podemos ejecutar el siguiente comando en la terminal:
+
+    ```bash
+    nslookup -type=NS . a.root-servers.net
+    ```
+  ![Descripción de la imagen](./img_5/img_5_19.png){ .margintop10 .marginbottom10}
+  ![Descripción de la imagen](./img_5/img_5_20.png){ .margintop10 .marginbottom10}
+  ![Descripción de la imagen](./img_5/img_5_21.png){ .margintop10 .marginbottom10}
+  ![Descripción de la imagen](./img_5/img_5_22.png){ .margintop10 .marginbottom10}
+  ![Descripción de la imagen](./img_5/img_5_23.png){ .margintop10 .marginbottom10}
+  ![Descripción de la imagen](./img_5/img_5_24.png){ .margintop10 .marginbottom10}
+  ![Descripción de la imagen](./img_5/img_5_25.png){ .margintop10 .marginbottom10}
+  ![Descripción de la imagen](./img_5/img_5_26.png){ .margintop10 .marginbottom10}
+  ![Descripción de la imagen](./img_5/img_5_27.png){ .margintop10 .marginbottom10}
+  ![Descripción de la imagen](./img_5/img_5_28.png){ .margintop10 .marginbottom10}
+  ![Descripción de la imagen](./img_5/img_5_29.png){ .margintop10 .marginbottom10}
+  ![Descripción de la imagen](./img_5/img_5_30.png){ .margintop10 .marginbottom10}
+  ![Descripción de la imagen](./img_5/img_5_31.png){ .margintop10 .marginbottom10}
+
+
+Desglose:
+
+nslookup: herramienta de línea de comandos para consultar servidores DNS y resolver nombres de dominio.
+-type=NS: indica que quieres consultar los registros NS (Name Server), es decir, quieres saber qué servidores DNS son los autoritativos (los "oficiales") para ese dominio.
+gva.es: el dominio que estás consultando (en este caso, el de la Generalitat Valenciana).
+a.nic.es: el servidor DNS al que le estás preguntando directamente, en lugar de usar el servidor DNS configurado por defecto en tu equipo. a.nic.es es uno de los servidores raíz/autoritativos del .es, gestionado por Red.es (la entidad responsable del dominio .es).
+
+En resumen: le estás preguntando directamente a un servidor autoritativo del TLD .es cuáles son los servidores de nombres delegados para gva.es.
+
+Explicación del resultado
+Servidor:  UnKnown
+Address:  2001:67c:21cc:2000::64:41
+
+Esto indica el servidor que respondió a tu consulta (en este caso a.nic.es), identificado por su dirección IPv6 (2001:67c:21cc:2000::64:41). Aparece como "UnKnown" (desconocido) porque tu resolutor local no pudo hacer la resolución inversa (PTR) de esa IP a un nombre legible, pero es simplemente el servidor a.nic.es que interrogaste.
+
+gva.es  nameserver = tirant.gva.es
+gva.es  nameserver = ninot.gva.es
+gva.es  nameserver = ninot2.gva.es
+gva.es  nameserver = tirant2.gva.es
+
+Estos son los 4 servidores de nombres (NS) delegados oficialmente para el dominio gva.es. Es decir, cualquier consulta sobre subdominios o registros de gva.es (como www.gva.es, correo, etc.) debe resolverse a través de alguno de estos cuatro servidores.
+
+ninot.gva.es    internet address = 195.77.16.50
+ninot2.gva.es   internet address = 193.144.127.33
+tirant.gva.es   internet address = 193.144.127.68
+tirant2.gva.es  internet address = 193.145.200.15
+
+Esto es la información adicional ("glue records") que añade nslookup: las direcciones IP (IPv4) correspondientes a cada uno de esos servidores de nombres, para que no tengas que hacer una consulta aparte para saber a qué IP corresponde cada nombre.
+
+En conjunto
+
+El comando te confirma que gva.es tiene delegada su zona DNS a 4 servidores (con nombres que hacen referencia a monumentos/personajes valencianos: Tirant lo Blanc y el Ninot de las Fallas), con redundancia doble (tirant/tirant2 y ninot/ninot2), probablemente en ubicaciones o infraestructuras distintas para tener alta disponibilidad, y te da directamente sus IPs para poder consultarlos si quisieras.
+
+---
+
+Opción 2: Preguntar directamente a los servidores autoritativos de gva.es
+
+Como ya sabes (por el comando anterior) que los servidores autoritativos de gva.es son tirant.gva.es, ninot.gva.es, etc., puedes preguntarles directamente a ellos para asegurarte de que la respuesta es "de primera mano" y no viene de una caché intermedia:
+
+nslookup edu.gva.es tirant.gva.es
+Opción 3: Comprobar primero si edu.gva.es tiene delegación NS propia
+
+Antes de nada, sería buena práctica repetir el mismo tipo de consulta que hiciste antes, pero ahora sobre el subdominio, para ver si tiene sus propios servidores NS delegados (algunas administraciones grandes delegan subdominios como edu a infraestructura distinta):
+
+nslookup -type=NS edu.gva.es
+Si te devuelve servidores NS → significa que edu.gva.es tiene su propia zona delegada, y deberías consultar a esos servidores para obtener los registros más fiables.
+Si no te devuelve nada (o error) → significa que edu.gva.es es solo un registro más dentro de la zona gva.es, y basta con preguntar a tirant.gva.es o ninot.gva.es como en la Opción 2.
+Resumen práctico
+
+Yo probaría en este orden:
+
+nslookup -type=NS edu.gva.es → para ver si hay delegación propia.
+nslookup edu.gva.es tirant.gva.es → para preguntar directamente a un servidor autoritativo de gva.es y evitar cachés.
+Si quieres un tipo de registro concreto (A, AAAA, MX, TXT...), añade -type=A, -type=MX, etc.
+
+---
+
+Antes de nada, un apunte sobre lo que obtuviste: al pedir -type=NS para edu.gva.es, el servidor no te devolvió servidores NS, sino el registro SOA (Start of Authority) de gva.es. Esto confirma la Opción 3 de antes: edu.gva.es no tiene delegación propia, es simplemente un subdominio más dentro de la zona gva.es. Por eso el servidor te "redirige" mostrándote quién es la autoridad de la zona padre (ninot.gva.es como servidor primario).
+
+---
+
+<!-- - Para el dominio `www.aules.edu.gva.es`, la consulta inicial se realiza al servidor raíz para obtener información sobre el TLD `.es`. -->
+
+<!-- https://www.youtube.com/watch?v=NiQTs9DbtW4 -->
+<!-- https://root-servers.org/ -->
 
 <!-- https://www.cloudflare.com/es-es/learning/dns/dns-records/
 https://www.ibm.com/es-es/think/topics/dns-records
