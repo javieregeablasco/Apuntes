@@ -999,11 +999,12 @@ Para verificar y solucionar problemas con las zonas DNS, los administradores de 
         ```bash
         nslookup -type=NS es a.root-servers.net
         ```
-        !!! info "Explicación del comando"
-            - `nslookup`: herramienta de línea de comandos para consultar servidores DNS y resolver nombres de dominio.
-            - `-type=NS`: indica que queremos consultar los registros NS (Name Server), es decir, quieremos saber qué servidores DNS son los autoritativos (los "oficiales") para ese dominio.
-            - `es`: el TLD que estamos consultando.
-            - `a.root-servers.net`: el servidor raíz al que le estamos preguntando directamente (en lugar de usar el servidor DNS configurado por defecto en nuestro equipo). 
+    !!! info "Explicación del comando"
+        - `nslookup`: herramienta de línea de comandos para consultar servidores DNS y resolver nombres de dominio.
+        - `-type=NS`: indica que queremos consultar los registros NS (Name Server), es decir, quieremos saber qué servidores DNS son los autoritativos (los "oficiales") para ese dominio.
+        - `es`: el TLD que estamos consultando.
+        - `a.root-servers.net`: el servidor raíz al que le estamos preguntando directamente (en lugar de usar el servidor DNS configurado por defecto en nuestro equipo).
+
                 ![Descripción de la imagen](./img_5/img_5_20.png){ .marginbottom10}
 
 ### 12.2 Paso 2: Consulta al servidor raíz
