@@ -1028,10 +1028,11 @@ Para verificar y solucionar problemas con las zonas DNS, los administradores de 
     - ¿Quién realiza la consulta al servidor autoritativo para obtener información sobre el dominio aules.edu.gva.es?
     - ¿Cuál sería la línea de comando para consultar los servidores autoritativos de gva.es?
         ![Descripción de la imagen](./img_5/img_5_28.png){ .margintop10 .marginbottom10}
-
+    - ¿Cuál es el nombre canonico de aules.edu.gva.es?
+        ![Descripción de la imagen](./img_5/img_5_29.png){ .margintop10 .marginbottom10}
+    
 ---
 
-![Descripción de la imagen](./img_5/img_5_29.png){ .margintop10 .marginbottom10}
 ![Descripción de la imagen](./img_5/img_5_30.png){ .margintop10 .marginbottom10}
 ![Descripción de la imagen](./img_5/img_5_31.png){ .margintop10 .marginbottom10}
 ![Descripción de la imagen](./img_5/img_5_32.png){ .margintop10 .marginbottom10}
