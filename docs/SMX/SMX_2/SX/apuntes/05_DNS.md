@@ -1015,10 +1015,15 @@ Para verificar y solucionar problemas con las zonas DNS, los administradores de 
     - ¿Cuál sería la línea de comando para consultar los servidores autoritativos de gva.es?
         ![Descripción de la imagen](./img_5/img_5_21.png){ .margintop10 .marginbottom10}
 
+### 12.3 Paso 3: Consulta del subdominio edu.gva.es al servidor autoritativo de gva.es
+
+!!! question "Pregunta"
+    - ¿Quién realiza la consulta al servidor autoritativo del TLD .es para obtener información sobre el dominio gva.es?
+    - ¿Cuál sería la línea de comando para consultar los servidores autoritativos de gva.es?
+        ![Descripción de la imagen](./img_5/img_5_23.png){ .margintop10 .marginbottom10}
+
 ---
 
-  ![Descripción de la imagen](./img_5/img_5_22.png){ .margintop10 .marginbottom10}
-  ![Descripción de la imagen](./img_5/img_5_23.png){ .margintop10 .marginbottom10}
   ![Descripción de la imagen](./img_5/img_5_24.png){ .margintop10 .marginbottom10}
   ![Descripción de la imagen](./img_5/img_5_25.png){ .margintop10 .marginbottom10}
   ![Descripción de la imagen](./img_5/img_5_26.png){ .margintop10 .marginbottom10}
