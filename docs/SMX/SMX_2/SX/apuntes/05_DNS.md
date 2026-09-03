@@ -1030,10 +1030,15 @@ Para verificar y solucionar problemas con las zonas DNS, los administradores de 
         ![Descripción de la imagen](./img_5/img_5_28.png){ .margintop10 .marginbottom10}
     - ¿Cuál es el nombre canonico de aules.edu.gva.es?
         ![Descripción de la imagen](./img_5/img_5_29.png){ .margintop10 .marginbottom10}
-    
+
+### 12.5 Paso 5: Confirmación de la IP
+
+!!! question "Pregunta"
+    - ¿Qué ocurre si escribimos la IP en el navegador? ¿Se abre la web de aules.edu.gva.es?
+    ![Descripción de la imagen](./img_5/img_5_30.png){ .margintop10 .marginbottom10}
+
 ---
 
-![Descripción de la imagen](./img_5/img_5_30.png){ .margintop10 .marginbottom10}
 ![Descripción de la imagen](./img_5/img_5_31.png){ .margintop10 .marginbottom10}
 ![Descripción de la imagen](./img_5/img_5_32.png){ .margintop10 .marginbottom10}
 ![Descripción de la imagen](./img_5/img_5_33.png){ .margintop10 .marginbottom10}
