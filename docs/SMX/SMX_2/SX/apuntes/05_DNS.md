@@ -979,7 +979,7 @@ Para verificar y solucionar problemas con las zonas DNS, los administradores de 
 !!! tip "dig (Domain Information Groper)"
     dig (Domain Information Groper): Ofrece información mucho más profunda y detallada sobre las consultas DNS, incluyendo los tiempos de respuesta del servidor y la jerarquía de autoridad.
 
-## 12 - Tarea RA2-CEbc - Resolución manual de un dominio
+## 12 - Tarea RA2-CEbc-1 - Resolución manual de un dominio
 <!-- # hasta aqui -->
 
 - El proposito de esta tarea es que el alumno comprenda cómo se resuelve un nombre de dominio en Internet y cómo se obtiene la dirección IP asociada a ese nombre.
@@ -1039,9 +1039,14 @@ Para verificar y solucionar problemas con las zonas DNS, los administradores de 
 
 ---
 
-![Descripción de la imagen](./img_5/img_5_31.png){ .margintop10 .marginbottom10}
-![Descripción de la imagen](./img_5/img_5_32.png){ .margintop10 .marginbottom10}
-![Descripción de la imagen](./img_5/img_5_33.png){ .margintop10 .marginbottom10}
+## 13 - Tarea RA2-CEbc-2 - Resolución manual de un dominio
+
+!!! question "Pregunta"
+    - Redactar el comando para consultar el dominio gmail.es y obtener los servidores autoritativos de correo electrónico de gmail.es.
+    - Resultado esperado:
+        ![Descripción de la imagen](./img_5/img_5_32-1.png){ .margintop10 .marginbottom10}
+    - Redactar el comando para consultar la IP de uno de los servidores.
+        ![Descripción de la imagen](./img_5/img_5_33-1.png){ .margintop10 .marginbottom10}
 
 
 Desglose:
