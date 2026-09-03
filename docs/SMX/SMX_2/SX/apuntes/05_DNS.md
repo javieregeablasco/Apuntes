@@ -990,8 +990,10 @@ Para verificar y solucionar problemas con las zonas DNS, los administradores de 
 - El primer paso en la resolución de un nombre de dominio es consultar a un **servidor raíz**. Los servidores raíz son los encargados de dirigir las consultas hacia los servidores de nivel superior (TLD) correspondientes.
 
 !!! question "Pregunta"
-    - ¿Cuál es el TLD (Top-Level Domain) del dominio `www.aules.edu.gva.es`?
     - ¿Quién realiza la consulta inicial al servidor raíz para obtener información sobre el TLD?
+    - ¿Cuál es el TLD (Top-Level Domain) del dominio `www.aules.edu.gva.es`?
+    - Consultar la base de datos de [iana.org](https://www.iana.org/domains/root/db) para verificar si el TLD está registrado.
+    - Consultar la base de datos de [iana.org](https://www.iana.org/domains/root/servers) para obtener la lista de servidores raíz y sus direcciones IP (también se puede realizar la consulta a [root-servers.org](https://www.root-servers.org/).
     - ¿Cuál es la dirección IP de un servidor raíz?
     - Para obtener la dirección IP de un servidor raíz, podemos consultar la lista oficial de servidores raíz. Por ejemplo, el servidor raíz `a.root-servers.net` tiene la dirección IP `.
     - Para realizar la consulta al servidor raíz, podemos utilizar herramientas como `nslookup` o `dig`. Por ejemplo, podemos ejecutar el siguiente comando en la terminal:
@@ -999,8 +1001,7 @@ Para verificar y solucionar problemas con las zonas DNS, los administradores de 
     ```bash
     nslookup -type=NS . a.root-servers.net
     ```
-  ![Descripción de la imagen](./img_5/img_5_19.png){ .margintop10 .marginbottom10}
-  ![Descripción de la imagen](./img_5/img_5_20.png){ .margintop10 .marginbottom10}
+    ![Descripción de la imagen](./img_5/img_5_20.png){ .margintop10 .marginbottom10}
   ![Descripción de la imagen](./img_5/img_5_21.png){ .margintop10 .marginbottom10}
   ![Descripción de la imagen](./img_5/img_5_22.png){ .margintop10 .marginbottom10}
   ![Descripción de la imagen](./img_5/img_5_23.png){ .margintop10 .marginbottom10}
