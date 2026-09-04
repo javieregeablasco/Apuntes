@@ -1048,50 +1048,48 @@ Para verificar y solucionar problemas con las zonas DNS, los administradores de 
     - Redactar el comando para consultar la IP de uno de los servidores.
         ![Descripción de la imagen](./img_5/img_5_33-1.png){ .margintop10 .marginbottom10}
 
-
-Desglose:
-
----
-
-Opción 2: Preguntar directamente a los servidores autoritativos de gva.es
-
-Como ya sabes (por el comando anterior) que los servidores autoritativos de gva.es son tirant.gva.es, ninot.gva.es, etc., puedes preguntarles directamente a ellos para asegurarte de que la respuesta es "de primera mano" y no viene de una caché intermedia:
-
-nslookup edu.gva.es tirant.gva.es
-Opción 3: Comprobar primero si edu.gva.es tiene delegación NS propia
-
-Antes de nada, sería buena práctica repetir el mismo tipo de consulta que hiciste antes, pero ahora sobre el subdominio, para ver si tiene sus propios servidores NS delegados (algunas administraciones grandes delegan subdominios como edu a infraestructura distinta):
-
-nslookup -type=NS edu.gva.es
-Si te devuelve servidores NS → significa que edu.gva.es tiene su propia zona delegada, y deberías consultar a esos servidores para obtener los registros más fiables.
-Si no te devuelve nada (o error) → significa que edu.gva.es es solo un registro más dentro de la zona gva.es, y basta con preguntar a tirant.gva.es o ninot.gva.es como en la Opción 2.
-Resumen práctico
-
-Yo probaría en este orden:
-
-nslookup -type=NS edu.gva.es → para ver si hay delegación propia.
-nslookup edu.gva.es tirant.gva.es → para preguntar directamente a un servidor autoritativo de gva.es y evitar cachés.
-Si quieres un tipo de registro concreto (A, AAAA, MX, TXT...), añade -type=A, -type=MX, etc.
+## 14 - Tarea RA2-CEbc-3 - Resolución manual de un dominio
 
 ---
 
-Antes de nada, un apunte sobre lo que obtuviste: al pedir -type=NS para edu.gva.es, el servidor no te devolvió servidores NS, sino el registro SOA (Start of Authority) de gva.es. Esto confirma la Opción 3 de antes: edu.gva.es no tiene delegación propia, es simplemente un subdominio más dentro de la zona gva.es. Por eso el servidor te "redirige" mostrándote quién es la autoridad de la zona padre (ninot.gva.es como servidor primario).
+## 15 - Tarea RA2-CEde-1 - Instalación y configuración de un servidor DNS con Windows Server 2025
 
+Antes de instalar y configurar el rol de servidor DNS, instalaremos el rol de Active Directory Domain Services (AD DS), ya que en este caso queremos un DNS integrado en un dominio de Active Directory (el escenario más habitual en entornos empresariales).
+
+Motivos:
+
+- Aunque el rol DNS de Windows Server no requiere AD DS para funcionar, cuando DNS da servicio a un dominio de AD conviene que estén integrados.
+- Al promover el servidor a controlador de dominio, si no existe ya un servidor DNS accesible para el dominio, Windows instala y configura automáticamente el rol DNS, creando la zona correspondiente con los registros SRV necesarios para la localización de los controladores de dominio (LDAP, Kerberos, etc.).
+- Esto simplifica la práctica: en vez de instalar y configurar DNS manualmente y luego preparar la integración con AD, dejamos que el propio proceso de promoción a DC lo resuelva.
+
+### 15.1 Instalación del rol de Active Directory Domain Services (AD DS)
+
+1. En una red doméstica, cada equipo se administra de forma individual: el usuario configura sus propios permisos, contraseñas, accesos a dispositivos, etc. En una empresa con decenas o cientos de equipos, gestionar la seguridad equipo por equipo es inviable al resultar lento, costoso y, sobre todo, inconsistente.
+1. Una parte importante de los incidentes de seguridad en las organizaciones no se debe a fallos de las herramientas de protección (firewall, VPN, antivirus), sino a errores de configuración en los equipos y servicios de red. Por ello, es fundamental poder definir de **forma centralizada** qué puede o no puede hacer el usuario final en los equipos de la empresa, por ejemplo:
+
+    - Deshabilitar los puertos USB de los equipos de la empresa.
+    - Limitar el acceso a ciertos sitios web.
+    - Restringir el acceso al disco duro local de los equipos.
+    - Restringir el uso de archivos ejecutables descargados de Internet.
+    - Instalar software solo desde repositorios oficiales de la empresa.
+    - Forzar políticas de contraseñas seguras y definir la caducidad de las mismas.
+
+1. AD DS es el rol de Windows Server que permite centralizar la gestión de identidades (usuarios, equipos, grupos) de toda la organización en un dominio, y aplicar de forma automática y uniforme políticas de seguridad y configuración mediante Directivas de Grupo (GPO – Group Policy Objects).
+1. Por este motivo, antes de instalar y configurar el rol de servidor DNS, instalaremos primero el rol de Active Directory Domain Services (AD DS): Será la base sobre la que se sustente la **gestión centralizada** de usuarios, equipos y políticas de seguridad de nuestra organización, y también porque el propio proceso de instalación de AD DS se encarga de configurar el servicio DNS necesario para el funcionamiento del dominio.
+
+#### 15.1.1 Instalación del rol AD DS
+
+
+
+<!-- poner mas ejemplos
+https://serviciosgm.readthedocs.io/es/latest/windows/dns/tarea1.html -->
+
+<!-- Imagen que explica muy bien las zonas DNS
+https://asir.readthedocs.io/es/latest/Tema_3_DNS/Index.html -->
 ---
-
-<!-- - Para el dominio `www.aules.edu.gva.es`, la consulta inicial se realiza al servidor raíz para obtener información sobre el TLD `.es`. -->
 
 <!-- https://www.youtube.com/watch?v=NiQTs9DbtW4 -->
-<!-- https://root-servers.org/ -->
-
-<!-- https://www.cloudflare.com/es-es/learning/dns/dns-records/
-https://www.ibm.com/es-es/think/topics/dns-records
-https://www.site24x7.com/es/learn/dns-record-types.html
-https://blog.infranetworking.com/registros-dns-que-son-y-cuales-tipos-hay/
-https://www.digicert.com/es/faq/dns/what-are-dns-records
-https://www.webempresa.com/blog/que-es-un-registro-dns-y-que-tipos-hay.html
-https://easydmarc.com/blog/es/8-tipos-comunes-de-registros-dns/ -->
-
+ 
 <!-- # hasta aqui -->
 
 <!-- https://notebook.google.com/notebook/3ba0b1e5-23cc-414c-a66b-1591bdf88c4a -->
@@ -1100,10 +1098,8 @@ https://easydmarc.com/blog/es/8-tipos-comunes-de-registros-dns/ -->
 <!-- https://sri.codeandcoke.com/doku.php?id=sri:t2
 https://ioc.xtec.cat/materials/FP/Recursos/fp_smx_m07_/web/fp_smx_m07_htmlindex/WebContent/u1/a2/continguts.html
 https://serviciosgm.readthedocs.io/es/latest/windows/dns/index.html
-http://127.0.0.1:5500/docs/SMX/SMX_2/SX/sxe/UD02/2._Servei_DNS/1_introducci.html
+
 https://www.youtube.com/watch?v=TwMAS7Iha30
-https://asir.readthedocs.io/es/latest/Tema_3_DNS/Index.html -->
-<!-- file:///C:/Users/titan/Documents/GitHub/githubpages/Apuntes/docs/SMX/SMX_2/SX/admin/recursos/tema3dns.pdf -->
 <!-- https://www.youtube.com/watch?v=EfSbT3gJUFY&t=47s -->
 
 <!-- para nat -->
