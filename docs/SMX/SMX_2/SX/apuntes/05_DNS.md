@@ -1062,7 +1062,7 @@ Motivos:
 - Al promover el servidor a controlador de dominio, si no existe ya un servidor DNS accesible para el dominio, Windows instala y configura automáticamente el rol DNS, creando la zona correspondiente con los registros SRV necesarios para la localización de los controladores de dominio (LDAP, Kerberos, etc.).
 - Esto simplifica la práctica: en vez de instalar y configurar DNS manualmente y luego preparar la integración con AD, dejamos que el propio proceso de promoción a DC lo resuelva.
 
-### 15.1 Instalación del rol de Active Directory Domain Services (AD DS)
+### 15.1 Active Directory Domain Services (AD DS)
 
 1. En una red doméstica, cada equipo se administra de forma individual: el usuario configura sus propios permisos, contraseñas, accesos a dispositivos, etc. En una empresa con decenas o cientos de equipos, gestionar la seguridad equipo por equipo es inviable al resultar lento, costoso y, sobre todo, inconsistente.
 1. Una parte importante de los incidentes de seguridad en las organizaciones no se debe a fallos de las herramientas de protección (firewall, VPN, antivirus), sino a errores de configuración en los equipos y servicios de red. Por ello, es fundamental poder definir de **forma centralizada** qué puede o no puede hacer el usuario final en los equipos de la empresa, por ejemplo:
@@ -1077,9 +1077,74 @@ Motivos:
 1. AD DS es el rol de Windows Server que permite centralizar la gestión de identidades (usuarios, equipos, grupos) de toda la organización en un dominio, y aplicar de forma automática y uniforme políticas de seguridad y configuración mediante Directivas de Grupo (GPO – Group Policy Objects).
 1. Por este motivo, antes de instalar y configurar el rol de servidor DNS, instalaremos primero el rol de Active Directory Domain Services (AD DS): Será la base sobre la que se sustente la **gestión centralizada** de usuarios, equipos y políticas de seguridad de nuestra organización, y también porque el propio proceso de instalación de AD DS se encarga de configurar el servicio DNS necesario para el funcionamiento del dominio.
 
-#### 15.1.1 Instalación del rol AD DS
+### 15.2 Instalación del rol AD DS en AWS
 
+Para la instalación del rol AD DS en un servidor Windows Server 2025 en AWS, podemos seguir los siguientes pasos:
 
+1. Lanzar una nueva instancia de Windows Server 2025 en AWS. En este caso definiremos en qué subzona de la VPC se encuentra la instancia EC2, ya que esto puede afectar a la conectividad y al rendimiento de la red.  
+    - Resumen de la configuración de la instancia (acordarse de seleccionar el par de clave `vockey` para el inicio de sesión y seleccionar `50GiB` de capacidad para el volumen de la instancia).  
+    ![Descripción de la imagen](./img_5/img_5_40.png){ .margintop10 .marginbottom10}
+    - Captura del apartado de configuración de red dónde eligiremos la Subred en la cual desplegaremos nuestra instancia.
+    ![Descripción de la imagen](./img_5/img_5_41.png){ .margintop10 .marginbottom10 .marco}
+    - Esperaremos a que la instancia esté disponible. A partir de entonces no podremos conectar via `RDP`.
+    ![Descripción de la imagen](./img_5/img_5_42.png){ .margintop10 .marginbottom10 .marco}
+1. **Optional** renombrar la máquina creada.
+![Descripción de la imagen](./img_5/img_5_43.png){ .margintop10 .marginbottom10 .marco}
+1. En añadir rol seleccionamos Active Directory Domain Services (AD DS).
+![Descripción de la imagen](./img_5/img_5_44.png){ .margintop10 .marginbottom10 .marco}
+1. Dejamos el resto de opciones con los valores por defecto. En la página de `Confirmation` ticamos la opción de `Restart if required`.
+![Descripción de la imagen](./img_5/img_5_45.png){ .margintop10 .marginbottom10 .marco}
+1. Una vez finalizada la instalación del servicio el sistema nos pedirá **promover el servidor a controlador de dominio**.
+![Descripción de la imagen](./img_5/img_5_46.png){ .margintop10 .marginbottom10 .marco}
+![Descripción de la imagen](./img_5/img_5_47.png){ .margintop10 .marginbottom10 .marco}
+1. En `Deployment Configuration` seleccionamos `Add a new forest` e introducimos un nombre de dominio para el dominio de AD interno. Por buenas práctica de Microsoft se recomienda usar el nombre de dominio de la empresa (de internet) + un subdominio (ad).
+![Descripción de la imagen](./img_5/img_5_48.png){ .margintop10 .marginbottom10 .marco}
+1. Al ser un bosque nuevo, dejaremos los valores por defecto de los niveles funcionales. Como AD requiere de un servidor DNS para funcionar, nos viene la opción DNS ticada por defecto. Para finalizar introduciremos una contraseña (no se recomienda que la contraseña coincida con la contraseña de administrador).  
+![Descripción de la imagen](./img_5/img_5_49.png){ .margintop10 .marginbottom10 .marco}
+1. En `DNS Options` nos saldrá un aviso de error que no tendremos en cuenta ya que el servicio DNS aún no está creado.
+![Descripción de la imagen](./img_5/img_5_50.png){ .margintop10 .marginbottom10 .marco}
+1. En `Aditional Options` dejaremos el nombre por defecto de dominio de NetBios (solo para compatibilidad con equipo antiguos / obsoletos).
+![Descripción de la imagen](./img_5/img_5_51.png){ .margintop10 .marginbottom10 .marco}
+1. Pasamos las ventanas de opciones. En `Prerequisites Check` apuntaremos las advertencias para gestionarlas más adelante.
+![Descripción de la imagen](./img_5/img_5_52.png){ .margintop10 .marginbottom10 .marco}
+1. Una vez reiniciada la máquina veremos que aunque parezca que no ha occurido nada hemos entrado como administrador DENTRO del dominio del Active Directory.
+![Descripción de la imagen](./img_5/img_5_53.png){ .margintop10 .marginbottom10 .marco}
+1. Para que el AD pueda levantarse sin problemas necesitaremos que nuestro servidor tenga una IP fija. Buscaremos en EC2 → Detalles la IP actual de nuestra instancia y en configuración de red la cambiaremos por otra (172.31.39.10).
+![Descripción de la imagen](./img_5/img_5_54.png){ .margintop10 .marginbottom10 .marco}
+1. Creación de una IP estática en AWS con **EIP (Elastic IP Address)**.
+    - No es necesario realizar ninguna operación adicional. En AWS, al crear una instancia EC2, se le asigna una IP privada que es **estática por naturaleza**.
+    - No cambia mientras la instancia no se termine (sobrevive a stop/start, reinicios, etc.). Así pues no necesitaremos realizar nada especial en ese sentido.
+    - Si queremos `reservar la IP` en caso de eliminar / reemplazar la instancia, podremos hacerlo moviendo la IP a una Elastic Network Interface (ENI) separada, que podremos desasociar y reasociar a otra instancia si hace falta.
+    - !!! question "En un entorno no AWS (no virtual) como se configuraría la interfaz de red de nuestra máquina a IP estática?"
+1. Después de un tiempo, aparecerán los servicios AD DS y DNS en nuestra máquina.
+    - Servicio AD DS
+    ![Descripción de la imagen](./img_5/img_5_55.png){ .margintop10 .marginbottom10}
+    - Servicio DNS
+    ![Descripción de la imagen](./img_5/img_5_56.png){ .margintop10 .marginbottom10}
+
+---
+
+![Descripción de la imagen](./img_5/img_5_57.png){ .margintop10 .marginbottom10}
+![Descripción de la imagen](./img_5/img_5_58.png){ .margintop10 .marginbottom10}
+![Descripción de la imagen](./img_5/img_5_59.png){ .margintop10 .marginbottom10}
+![Descripción de la imagen](./img_5/img_5_60.png){ .margintop10 .marginbottom10}
+![Descripción de la imagen](./img_5/img_5_51.png){ .margintop10 .marginbottom10}
+
+### 15.3 Configuración del servidor DNS
+
+<!-- https://youtu.be/cJPT4oLpEWI?si=dfSJOXEhFoTnW40c&t=917 -->
+<!-- file:///C:/Users/titan/Downloads/UT02_ServicioDNS_Windows.pdf -->
+<!-- https://www.youtube.com/watch?v=TwMAS7Iha30 -->
+
+lanza cmd windows + r
+services.msc
+
+<!-- clave B(yOoX))w1DwyvgA6LeRgbEquLuQcIKW -->
+
+ 
+
+<!-- dhcp options set -->
+<!-- https://www.youtube.com/watch?v=1aysEp601sk&t=175s -->
 
 <!-- poner mas ejemplos
 https://serviciosgm.readthedocs.io/es/latest/windows/dns/tarea1.html -->
@@ -1087,8 +1152,7 @@ https://serviciosgm.readthedocs.io/es/latest/windows/dns/tarea1.html -->
 <!-- Imagen que explica muy bien las zonas DNS
 https://asir.readthedocs.io/es/latest/Tema_3_DNS/Index.html -->
 ---
-
-<!-- https://www.youtube.com/watch?v=NiQTs9DbtW4 -->
+ 
  
 <!-- # hasta aqui -->
 
@@ -1099,7 +1163,6 @@ https://asir.readthedocs.io/es/latest/Tema_3_DNS/Index.html -->
 https://ioc.xtec.cat/materials/FP/Recursos/fp_smx_m07_/web/fp_smx_m07_htmlindex/WebContent/u1/a2/continguts.html
 https://serviciosgm.readthedocs.io/es/latest/windows/dns/index.html
 
-https://www.youtube.com/watch?v=TwMAS7Iha30
 <!-- https://www.youtube.com/watch?v=EfSbT3gJUFY&t=47s -->
 
 <!-- para nat -->
