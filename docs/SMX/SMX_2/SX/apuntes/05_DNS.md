@@ -1150,12 +1150,16 @@ Para la instalación del rol AD DS en un servidor Windows Server 2025 en AWS, po
 - Si ejecutamos el comando `ipconfig /all` veremos que la configuración DNS de la interfaz apunta a la IPv4 `172.31.39.99` y a la IPv6 `::1` (localhost mediante IPv6).
     ![Descripción de la imagen](./img_5/img_5_60.png){ .margintop10 .marginbottom10}
 
+- En `Forwarders` veremos la IP de DNS que usaba nuestra máquina antes de server subida a controladora de dominio. Ahora ese DNS será usando para recibir la consultas DNS que nuestro servidor no será capaz de resolver.
+    ![Descripción de la imagen](./img_5/img_5_61.png){ .margintop10 .marginbottom10}
+
+- Aunque no sea absolutamente necesario en AWS añadiremos un par de servidores externos a AWS como google (8.8.8.8) y cloudfare (1.1.1.1).  
+    ![Descripción de la imagen](./img_5/img_5_62.png){ .margintop10 .marginbottom10}
+
 
 ---    
 
 
-![Descripción de la imagen](./img_5/img_5_61.png){ .margintop10 .marginbottom10}
-![Descripción de la imagen](./img_5/img_5_62.png){ .margintop10 .marginbottom10}
 ![Descripción de la imagen](./img_5/img_5_63.png){ .margintop10 .marginbottom10}
 ![Descripción de la imagen](./img_5/img_5_64.png){ .margintop10 .marginbottom10}
 ![Descripción de la imagen](./img_5/img_5_65.png){ .margintop10 .marginbottom10}
