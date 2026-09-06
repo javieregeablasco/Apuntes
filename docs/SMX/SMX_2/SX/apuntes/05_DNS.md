@@ -1190,18 +1190,17 @@ cuenta.
 ```
 
 - Comprobaremos el estado de nuestro controlador de dominio mediante `dcdiag`. Esta herramienta realiza diferentes pruebas sobre los servicios y componentes de Active Directory.
-
-  Un resultado sin errores relevantes indica que el controlador de dominio funciona correctamente.
+Un resultado sin errores relevantes indica que el controlador de dominio funciona correctamente.
 
   Podemos ejecutar:
 
   `dcdiag`
+  ![Descripción de la imagen](./img_5/img_5_67.png){ .margintop10 .marginbottom10}
 
   También podemos realizar una comprobación específica del servicio DNS mediante:
 
   `dcdiag /test:dns`
 
-  ![Descripción de la imagen](./img_5/img_5_67.png){ .margintop10 .marginbottom10}
 
 ---    
 
