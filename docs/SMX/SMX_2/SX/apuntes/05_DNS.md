@@ -1138,11 +1138,11 @@ Para la instalación del rol AD DS en un servidor Windows Server 2025 en AWS, po
 
 - Como ya hemos comentado, en AWS tenemos de facto IP estática para la instancia dónde estan instalados el servidor DNS (y el AD DS).
 
-- Si abrimos la configuración del adaptador de red veremos que apunta al localhost (127.0.0.1). Esa configuración es correcta ya que la propia máquina hace de contraladora de dominio y de servidor DNS.
+- Si abrimos la configuración del adaptador de red veremos que apunta al localhost (127.0.0.1). Esa configuración es correcta ya que la propia máquina hace de contraladora de dominio y de servidor DNS.  
     ![Descripción de la imagen](./img_5/img_5_57.png){ .margintop10 .marginbottom10 .marco}
 
-- A fines didácticos cambiaremos la IP del DNS preferido a la IP real de nuestra máquina (en el ejemplo 172.31.39.99).
-    ![Descripción de la imagen](./img_5/img_5_58.png){.cincozero .margintop10 .marginbottom10}
+- A fines didácticos cambiaremos la IP del DNS preferido a la IP real de nuestra máquina (en el ejemplo 172.31.39.99).  
+    ![Descripción de la imagen](./img_5/img_5_58.png){.sietecinco .margintop10 .marginbottom10 .marco}
 
 
 ---    
