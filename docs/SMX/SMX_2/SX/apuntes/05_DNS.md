@@ -1147,14 +1147,22 @@ Para la instalación del rol AD DS en un servidor Windows Server 2025 en AWS, po
 - Si abrimos las propiedades del servidor DNS veremos que en `interfaces` tenemos la IP de nuestro servidor DNS y una IPv6 de tipo link-local que Windows ha asignado automáticamente a la interfaz de red.
     ![Descripción de la imagen](./img_5/img_5_59.png){ .margintop10 .marginbottom10}
 
-- Si ejecutamos el comando `ipconfig /all` veremos que la configuración DNS de la interfaz apunta a la IPv4 `172.31.39.99` y a la IPv6 `::1` (localhost para IPv6).
+- Si ejecutamos el comando `ipconfig /all` veremos que la configuración DNS de la interfaz apunta a la IPv4 `172.31.39.99` y a la IPv6 `::1` (localhost mediante IPv6).
     ![Descripción de la imagen](./img_5/img_5_60.png){ .margintop10 .marginbottom10}
 
 
 ---    
 
 
-![Descripción de la imagen](./img_5/img_5_51.png){ .margintop10 .marginbottom10}
+![Descripción de la imagen](./img_5/img_5_61.png){ .margintop10 .marginbottom10}
+![Descripción de la imagen](./img_5/img_5_62.png){ .margintop10 .marginbottom10}
+![Descripción de la imagen](./img_5/img_5_63.png){ .margintop10 .marginbottom10}
+![Descripción de la imagen](./img_5/img_5_64.png){ .margintop10 .marginbottom10}
+![Descripción de la imagen](./img_5/img_5_65.png){ .margintop10 .marginbottom10}
+![Descripción de la imagen](./img_5/img_5_66.png){ .margintop10 .marginbottom10}
+![Descripción de la imagen](./img_5/img_5_67.png){ .margintop10 .marginbottom10}
+![Descripción de la imagen](./img_5/img_5_68.png){ .margintop10 .marginbottom10}
+![Descripción de la imagen](./img_5/img_5_69.png){ .margintop10 .marginbottom10}
 
 <!-- ad ds -->
 <!-- https://youtu.be/cJPT4oLpEWI?si=dfSJOXEhFoTnW40c&t=917 -->
