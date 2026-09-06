@@ -14,11 +14,11 @@ schedule: 224h - 7h/w
 
 ## 1 - Calendario escolar
 
-![imagen](../../../2627/26-27_FP_CALENDARI.png){.marco}
+![imagen](./img/UT0/26-27_FP_CALENDARI.png){.marco}
 
 ## 2 - Horario de sesiones
 
-![imagen](../../../2627/Horario%20SMX%201.png){.marco}
+![imagen](./img/UT0/Horario%20SMX%201.png){.marco}
 
 ## 3 - Contenidos
 
