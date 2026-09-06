@@ -1163,7 +1163,7 @@ Para la instalación del rol AD DS en un servidor Windows Server 2025 en AWS, po
 
 #### 16.3 Configuración del AD DS
 
-- Si abrimos el `Active Directory Users and Computers` veremos que solo tenemos 2 usuarios (`Administrator` + `Guest`). Una buena práctica consiste en **crear otro usuario con privilegios de administrador** y usarla habitualmente para tareas administrativas dejando la cuenta `Administrator` para casos de emergencia en caso de robo de credenciales.
+- Si abrimos el `Active Directory Users and Computers` veremos que solo tenemos 2 usuarios (`Administrator` + `Guest`). Una buena práctica consiste en **crear otro usuario con privilegios de administrador** y usarla habitualmente para tareas administrativas dejando la cuenta `Administrator` para casos de emergencia en caso de robo de credenciales.  
 **Nota:** También permite facilitar la trazabilidad de cada acción realizada sobre el `AD DS` al ser una cuenta con el nombre de una persona fácil de identificar.
     ![Descripción de la imagen](./img_5/img_5_64.png){ .margintop10 .marginbottom10}
     !!! warning "¡No utilizar la misma contraseña que para el usuario administrator!"
