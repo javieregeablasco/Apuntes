@@ -1200,8 +1200,10 @@ Un resultado sin errores relevantes indica que el controlador de dominio funcion
 
 ![Descripción de la imagen](./img_5/img_5_69.png){ .margintop10 .marginbottom10}
 
+<!-- https://youtu.be/TwMAS7Iha30?si=bCpxwL09UBLY9Oi_ -->
+
 <!-- ad ds -->
-<!-- https://youtu.be/cJPT4oLpEWI?si=dfSJOXEhFoTnW40c&t=917 -->
+
 <!-- file:///C:/Users/titan/Downloads/UT02_ServicioDNS_Windows.pdf -->
 
 <!-- https://www.youtube.com/watch?v=TwMAS7Iha30 -->
