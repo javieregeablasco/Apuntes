@@ -1144,13 +1144,16 @@ Para la instalación del rol AD DS en un servidor Windows Server 2025 en AWS, po
 - A fines didácticos cambiaremos la IP del DNS preferido a la IP real de nuestra máquina (en el ejemplo 172.31.39.99).  
     ![Descripción de la imagen](./img_5/img_5_58.png){.leftsietecinco .margintop10 .marginbottom10 .marco}
 
-- Si abrimos las propiedades del servidor DNS veremos lo siguiente en `interfaces`.
+- Si abrimos las propiedades del servidor DNS veremos que en `interfaces` tenemos la IP de nuestro servidor DNS y una IPv6 de tipo link-local que Windows ha asignado automáticamente a la interfaz de red.
     ![Descripción de la imagen](./img_5/img_5_59.png){ .margintop10 .marginbottom10}
+
+- Si ejecutamos el comando `ipconfig /all` veremos que la configuración DNS de la interfaz apunta a la IPv4 `172.31.39.99` y a la IPv6 `::1` (localhost para IPv6).
+    ![Descripción de la imagen](./img_5/img_5_60.png){ .margintop10 .marginbottom10}
+
 
 ---    
 
 
-![Descripción de la imagen](./img_5/img_5_60.png){ .margintop10 .marginbottom10}
 ![Descripción de la imagen](./img_5/img_5_51.png){ .margintop10 .marginbottom10}
 
 <!-- ad ds -->
