@@ -1127,32 +1127,16 @@ Para la instalación del rol AD DS en un servidor Windows Server 2025 en AWS, po
     ![Descripción de la imagen](./img_5/img_5_55.png){ .margintop10 .marginbottom10}
     - Servicio DNS
     ![Descripción de la imagen](./img_5/img_5_56.png){ .margintop10 .marginbottom10}
-1. **Verificación final.** Para comprobar que el dominio y el DNS han quedado correctamente configurados, podemos:
+<!-- 1. **Verificación final.** Para comprobar que el dominio y el DNS han quedado correctamente configurados, podemos:
     - Ejecutar `dcdiag` en una consola para diagnosticar el estado del controlador de dominio.
     - Ejecutar `nslookup <nombre-del-dominio>` para comprobar que el propio servidor resuelve correctamente los registros de su dominio.
-    - Abrir la consola "Usuarios y equipos de Active Directory" para confirmar que el dominio se ha creado correctamente.
+    - Abrir la consola "Usuarios y equipos de Active Directory" para confirmar que el dominio se ha creado correctamente. -->
 
-### 16 - Tarea RA2-CEf - Configuración del servidor DNS
 
-#### 16.1 Configuración del adaptador de red
+ 
+ 
 
-- Como ya hemos comentado, en AWS tenemos de facto IP estática para la instancia dónde estan instalados el servidor DNS (y el AD DS).
-
-- Si abrimos la configuración del adaptador de red veremos que apunta al localhost (127.0.0.1). Esa configuración es correcta ya que la propia máquina hace de contraladora de dominio y de servidor DNS.  
-    ![Descripción de la imagen](./img_5/img_5_57.png){ .margintop10 .marginbottom10 .marco}
-
-- A fines didácticos cambiaremos la IP del DNS preferido a la IP real de nuestra máquina (en el ejemplo 172.31.39.99).  
-    ![Descripción de la imagen](./img_5/img_5_58.png){.leftsietecinco .margintop10 .marginbottom10 .marco}
-
-#### 16.2 Configuración del DNS
-
-- Si abrimos las propiedades del servidor DNS veremos que en `interfaces` tenemos la IP de nuestro servidor DNS y una IPv6 de tipo link-local que Windows ha asignado automáticamente a la interfaz de red.  
-    ![Descripción de la imagen](./img_5/img_5_59.png){ .margintop10 .marginbottom10}
-
-- Si ejecutamos el comando `ipconfig /all` veremos que la configuración DNS de la interfaz apunta a la IPv4 `172.31.39.99` y a la IPv6 `::1` (localhost mediante IPv6).
-    ![Descripción de la imagen](./img_5/img_5_60.png){ .margintop10 .marginbottom10}
-
-- En `Forwarders` veremos la IP de DNS que usaba nuestra máquina antes de server subida a controladora de dominio. Ahora ese DNS será usando para recibir la consultas DNS que nuestro servidor no será capaz de resolver.
+- En `Forwarders` veremos la IP de DNS que usaba nuestra máquina antes de ser promocionada a controladora de dominio. Ahora ese DNS será usando para recibir la consultas DNS que nuestro servidor no será capaz de resolver.
     ![Descripción de la imagen](./img_5/img_5_61.png){ .margintop10 .marginbottom10}
 
 - Aunque no sea absolutamente necesario en AWS añadiremos un par de servidores externos a AWS como google (8.8.8.8) y cloudfare (1.1.1.1).  
@@ -1175,6 +1159,78 @@ Para la instalación del rol AD DS en un servidor Windows Server 2025 en AWS, po
 
 - Comprobaremos la integridad de nuestro controlador de dominio con `dcdiag`. El AD DS funcionará correctamente si el resultado de todas las pruebas en satifatorio.
     ![Descripción de la imagen](./img_5/img_5_67.png){ .margintop10 .marginbottom10}
+
+### 16 - Tarea RA2-CEf - Configuración del servidor DNS
+
+#### 16.1 Configuración del adaptador de red
+
+- Como ya hemos comentado, en AWS la instancia dispone de una dirección IPv4 privada asociada a su interfaz de red (ENI). Para un controlador de dominio es importante que esta dirección sea estable, ya que será utilizada por los clientes para localizar los servicios de Active Directory y DNS.
+
+- Si abrimos la configuración del adaptador de red veremos que el servidor DNS puede estar configurado para utilizar el propio servidor como servidor DNS. En nuestro caso, la dirección `127.0.0.1` corresponde al *localhost* (la propia máquina), por lo que el servidor puede realizar consultas DNS contra sí mismo.
+    ![Descripción de la imagen](./img_5/img_5_57.png){ .margintop10 .marginbottom10 .marco}
+
+- A efectos didácticos cambiaremos la dirección del DNS preferido a la dirección IPv4 privada de nuestra máquina (en el ejemplo, `172.31.39.99`). De esta forma podremos identificar claramente cuál es la dirección del servidor DNS que utilizarán los equipos de nuestra red.
+    ![Descripción de la imagen](./img_5/img_5_58.png){.leftsietecinco .margintop10 .marginbottom10 .marco}
+
+#### 16.2 Configuración del DNS
+
+- Si abrimos las propiedades del servidor DNS veremos que en `Interfaces` aparece la dirección IPv4 de nuestro servidor y, si IPv6 está habilitado, también puede aparecer una dirección IPv6. Windows puede asignar automáticamente a la interfaz una dirección IPv6 de tipo *link-local* (`fe80::/10`).
+    ![Descripción de la imagen](./img_5/img_5_59.png){ .margintop10 .marginbottom10}
+
+- Es importante distinguir esta dirección de `::1`, que es la dirección de *loopback* de IPv6 y equivale conceptualmente a `127.0.0.1` en IPv4.
+
+- Si ejecutamos el comando `ipconfig /all` veremos la configuración de red de nuestra interfaz. En nuestro caso, el servidor utiliza como DNS la dirección IPv4 `172.31.39.99` y la dirección IPv6 `::1`.
+    ![Descripción de la imagen](./img_5/img_5_60.png){ .margintop10 .marginbottom10}
+
+- En `Forwarders` podemos configurar otros servidores DNS a los que nuestro servidor enviará las consultas que no pueda resolver utilizando sus propias zonas o la información almacenada en caché.  
+Por ejemplo, si un cliente solicita resolver `www.google.com` y nuestro servidor DNS no dispone de esa información en sus zonas ni en su caché, puede reenviar la consulta a uno de los servidores configurados como *forwarders*.
+    ![Descripción de la imagen](./img_5/img_5_61.png){ .margintop10 .marginbottom10}
+
+
+* Aunque no es obligatorio utilizar servidores DNS externos en AWS, a efectos didácticos añadiremos un par de servidores DNS públicos:
+
+  * **Google DNS:** `8.8.8.8`
+  * **Cloudflare DNS:** `1.1.1.1`
+
+* En la pestaña `Monitoring` podremos realizar diferentes pruebas para comprobar el funcionamiento del servidor DNS. También podremos comprobar la resolución recursiva de nombres externos.
+
+  Un resultado correcto en estas pruebas nos permitirá comprobar que nuestro servidor DNS puede resolver tanto los nombres pertenecientes a sus propias zonas como nombres externos mediante el mecanismo de resolución configurado.
+
+#### 16.3 Configuración del AD DS
+
+* Si abrimos `Active Directory Users and Computers` veremos las cuentas integradas que se han creado al instalar Active Directory. Entre ellas se encuentran `Administrator`, `Guest` y `krbtgt`.
+
+* Una buena práctica consiste en crear una cuenta administrativa individual para cada administrador y utilizarla para realizar las tareas administrativas del dominio. De esta forma, las acciones realizadas sobre Active Directory pueden asociarse a una identidad concreta, facilitando la trazabilidad y la auditoría.
+
+* La cuenta integrada `Administrator` debe conservarse adecuadamente protegida y puede reservarse para situaciones excepcionales de administración o recuperación. No es recomendable utilizarla como cuenta habitual de administración.
+
+!!! tip "Creamos una cuenta administrativa propia"
+
+```
+Para evitar utilizar habitualmente la cuenta integrada `Administrator`,
+crearemos una cuenta administrativa individual para realizar las tareas
+de administración del dominio.
+```
+
+!!! warning "No reutilices la contraseña de Administrator"
+
+```
+La nueva cuenta debe utilizar una contraseña diferente y robusta. Nunca
+debemos reutilizar la contraseña de una cuenta administrativa en otra
+cuenta.
+```
+
+* Comprobaremos el estado de nuestro controlador de dominio mediante `dcdiag`. Esta herramienta realiza diferentes pruebas sobre los servicios y componentes de Active Directory.
+
+  Un resultado sin errores relevantes indica que el controlador de dominio funciona correctamente.
+
+  Podemos ejecutar:
+
+  `dcdiag`
+
+  También podemos realizar una comprobación específica del servicio DNS mediante:
+
+  `dcdiag /test:dns`
 
 
 ---    
