@@ -1133,24 +1133,9 @@ Para la instalación del rol AD DS en un servidor Windows Server 2025 en AWS, po
     - Abrir la consola "Usuarios y equipos de Active Directory" para confirmar que el dominio se ha creado correctamente. -->
 
 
- 
- 
- 
+   
 
-- Aunque no sea absolutamente necesario en AWS añadiremos un par de servidores externos a AWS como google (8.8.8.8) y cloudfare (1.1.1.1).  
-    ![Descripción de la imagen](./img_5/img_5_62.png){ .margintop10 .marginbottom10}
-
-- En la pestaña `Monitoring` podremos realizar un test contra nuestro servidor DNS así como una consulta recursiva a otros servidores. Un resultado favorable en ambas pruebas significará que nuestro servidor DNS funciona correctamente.  
-    ![Descripción de la imagen](./img_5/img_5_63.png){ .margintop10 .marginbottom10}
-
-#### 16.3 Configuración del AD DS
-
-- Si abrimos el `Active Directory Users and Computers` veremos que solo tenemos 2 usuarios (`Administrator` + `Guest`). Una buena práctica consiste en **crear otro usuario con privilegios de administrador** y usarla habitualmente para tareas administrativas dejando la cuenta `Administrator` para casos de emergencia en caso de robo de credenciales.  
-**Nota:** También permite facilitar la trazabilidad de cada acción realizada sobre el `AD DS` al ser una cuenta con el nombre de una persona fácil de identificar.
-    ![Descripción de la imagen](./img_5/img_5_64.png){ .margintop10 .marginbottom10}
-
-    !!! tip "Copiamos el usuario administrator"
-        ![Descripción de la imagen](./img_5/img_5_65.png){ .margintop10 .marginbottom10}
+    
 
     !!! warning "¡No utilizar la misma contraseña que para el usuario administrator!"
         ![Descripción de la imagen](./img_5/img_5_66.png){ .margintop10 .marginbottom10}
@@ -1189,27 +1174,25 @@ Para la instalación del rol AD DS en un servidor Windows Server 2025 en AWS, po
     **Cloudflare DNS:** `1.1.1.1`
     ![Descripción de la imagen](./img_5/img_5_61.png){ .margintop10 .marginbottom10}
 
-* En la pestaña `Monitoring` podremos realizar diferentes pruebas para comprobar el funcionamiento del servidor DNS. También podremos comprobar la resolución recursiva de nombres externos.
-
-  Un resultado correcto en estas pruebas nos permitirá comprobar que nuestro servidor DNS puede resolver tanto los nombres pertenecientes a sus propias zonas como nombres externos mediante el mecanismo de resolución configurado.
+- En la pestaña `Monitoring` podremos realizar diferentes pruebas para comprobar el funcionamiento del servidor DNS. También podremos comprobar la resolución recursiva de nombres externos.  
+Un resultado correcto en estas pruebas nos permitirá comprobar que nuestro servidor DNS puede resolver tanto los nombres pertenecientes a sus propias zonas como nombres externos mediante el mecanismo de resolución configurado.
+    ![Descripción de la imagen](./img_5/img_5_63.png){ .margintop10 .marginbottom10}
 
 #### 16.3 Configuración del AD DS
 
-* Si abrimos `Active Directory Users and Computers` veremos las cuentas integradas que se han creado al instalar Active Directory. Entre ellas se encuentran `Administrator`, `Guest` y `krbtgt`.
+- Si abrimos `Active Directory Users and Computers` veremos las cuentas integradas que se han creado al instalar Active Directory. Entre ellas se encuentran `Administrator`, `Guest` y `krbtgt`.
+     ![Descripción de la imagen](./img_5/img_5_64.png){ .margintop10 .marginbottom10}
 
-* Una buena práctica consiste en crear una cuenta administrativa individual para cada administrador y utilizarla para realizar las tareas administrativas del dominio. De esta forma, las acciones realizadas sobre Active Directory pueden asociarse a una identidad concreta, facilitando la trazabilidad y la auditoría.
+- Una buena práctica consiste en crear una cuenta administrativa individual para cada administrador y utilizarla para realizar las tareas administrativas del dominio. De esta forma, las acciones realizadas sobre Active Directory pueden asociarse a una identidad concreta, facilitando la trazabilidad y la auditoría.
 
-* La cuenta integrada `Administrator` debe conservarse adecuadamente protegida y puede reservarse para situaciones excepcionales de administración o recuperación. No es recomendable utilizarla como cuenta habitual de administración.
+- La cuenta integrada `Administrator` debe conservarse adecuadamente protegida y puede reservarse para situaciones excepcionales de administración o recuperación. No es recomendable utilizarla como cuenta habitual de administración.
 
 !!! tip "Creamos una cuenta administrativa propia"
+    Para evitar utilizar habitualmente la cuenta integrada `Administrator`, crearemos una cuenta administrativa individual para realizar las tareas de administración del dominio.
+    ![Descripción de la imagen](./img_5/img_5_65.png){ .margintop10 .marginbottom10}
 
-```
-Para evitar utilizar habitualmente la cuenta integrada `Administrator`,
-crearemos una cuenta administrativa individual para realizar las tareas
-de administración del dominio.
-```
-
-!!! warning "No reutilices la contraseña de Administrator"
+!!! warning "¡No reutilices la contraseña de Administrator!"
+    ![Descripción de la imagen](./img_5/img_5_66.png){ .margintop10 .marginbottom10}
 
 ```
 La nueva cuenta debe utilizar una contraseña diferente y robusta. Nunca
