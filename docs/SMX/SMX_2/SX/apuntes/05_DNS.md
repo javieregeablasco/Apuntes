@@ -1194,9 +1194,7 @@ Un resultado sin errores relevantes indica que el controlador de dominio funcion
 - También podemos realizar una comprobación específica del servicio DNS mediante `dcdiag /test:dns`
     ![Descripción de la imagen](./img_5/img_5_68.png){ .margintop10 .marginbottom10}
 
-
----    
-
+---
 
 ![Descripción de la imagen](./img_5/img_5_69.png){ .margintop10 .marginbottom10}
 
@@ -1213,8 +1211,6 @@ services.msc
 
 <!-- clave B(yOoX))w1DwyvgA6LeRgbEquLuQcIKW -->
 
- 
-
 <!-- dhcp options set -->
 <!-- https://www.youtube.com/watch?v=1aysEp601sk&t=175s -->
 
@@ -1224,8 +1220,7 @@ https://serviciosgm.readthedocs.io/es/latest/windows/dns/tarea1.html -->
 <!-- Imagen que explica muy bien las zonas DNS
 https://asir.readthedocs.io/es/latest/Tema_3_DNS/Index.html -->
 ---
- 
- 
+
 <!-- # hasta aqui -->
 
 <!-- https://notebook.google.com/notebook/3ba0b1e5-23cc-414c-a66b-1591bdf88c4a -->
@@ -1247,7 +1242,7 @@ https://www.redeszone.net/tutoriales/redes-cable/calcular-subnetting-ip-red-masc
 https://www.1nce.com/es-es/recursos/iot-knowledge-base/que-es-el-mecanismo-nat
 https://openwebinars.net/blog/nat-que-es-y-para-que-sirve/
 -->
-n
+
 <!-- https://www.dreamhost.com/blog/es/nameservers-vs-dns-guia/ -->
 
 <!-- pracrica DNS -->
