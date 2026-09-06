@@ -1191,15 +1191,13 @@ Entre ellas se encuentran `Administrator` y `Guest`.
 Un resultado sin errores relevantes indica que el controlador de dominio funciona correctamente.
     ![Descripción de la imagen](./img_5/img_5_67.png){ .margintop10 .marginbottom10}
 
-  También podemos realizar una comprobación específica del servicio DNS mediante:
-
-  `dcdiag /test:dns`
+- También podemos realizar una comprobación específica del servicio DNS mediante `dcdiag /test:dns`
+    ![Descripción de la imagen](./img_5/img_5_68.png){ .margintop10 .marginbottom10}
 
 
 ---    
 
 
-![Descripción de la imagen](./img_5/img_5_68.png){ .margintop10 .marginbottom10}
 ![Descripción de la imagen](./img_5/img_5_69.png){ .margintop10 .marginbottom10}
 
 <!-- ad ds -->
