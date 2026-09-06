@@ -1081,48 +1081,61 @@ Motivos:
 
 Para la instalación del rol AD DS en un servidor Windows Server 2025 en AWS, podemos seguir los siguientes pasos:
 
-1. Lanzar una nueva instancia de Windows Server 2025 en AWS. En este caso definiremos en qué subzona de la VPC se encuentra la instancia EC2, ya que esto puede afectar a la conectividad y al rendimiento de la red.  
+1. Lanzar una nueva instancia de Windows Server 2025 en AWS. En este caso definiremos en qué subred de la VPC se encuentra la instancia EC2, ya que esto puede afectar a la conectividad y al rendimiento de la red.  
     - Resumen de la configuración de la instancia (acordarse de seleccionar el par de clave `vockey` para el inicio de sesión y seleccionar `50GiB` de capacidad para el volumen de la instancia).  
     ![Descripción de la imagen](./img_5/img_5_40.png){ .margintop10 .marginbottom10}
     - Captura del apartado de configuración de red dónde eligiremos la Subred en la cual desplegaremos nuestra instancia.
     ![Descripción de la imagen](./img_5/img_5_41.png){ .margintop10 .marginbottom10 .marco}
-    - Esperaremos a que la instancia esté disponible. A partir de entonces no podremos conectar via `RDP`.
+    - Esperaremos a que la instancia esté disponible. A partir de entonces sí podremos conectar via `RDP`.
     ![Descripción de la imagen](./img_5/img_5_42.png){ .margintop10 .marginbottom10 .marco}
-1. **Optional** renombrar la máquina creada.
+1. **Opcional**: renombrar la máquina creada.
 ![Descripción de la imagen](./img_5/img_5_43.png){ .margintop10 .marginbottom10 .marco}
 1. En añadir rol seleccionamos Active Directory Domain Services (AD DS).
 ![Descripción de la imagen](./img_5/img_5_44.png){ .margintop10 .marginbottom10 .marco}
-1. Dejamos el resto de opciones con los valores por defecto. En la página de `Confirmation` ticamos la opción de `Restart if required`.
+1. Dejamos el resto de opciones con los valores por defecto. En la página de `Confirmation` marcamos la opción de `Restart if required`.
 ![Descripción de la imagen](./img_5/img_5_45.png){ .margintop10 .marginbottom10 .marco}
 1. Una vez finalizada la instalación del servicio el sistema nos pedirá **promover el servidor a controlador de dominio**.
 ![Descripción de la imagen](./img_5/img_5_46.png){ .margintop10 .marginbottom10 .marco}
 ![Descripción de la imagen](./img_5/img_5_47.png){ .margintop10 .marginbottom10 .marco}
-1. En `Deployment Configuration` seleccionamos `Add a new forest` e introducimos un nombre de dominio para el dominio de AD interno. Por buenas práctica de Microsoft se recomienda usar el nombre de dominio de la empresa (de internet) + un subdominio (ad).
+1. En `Deployment Configuration` seleccionamos `Add a new forest` e introducimos un nombre de dominio para el dominio de AD interno. Por buena práctica de Microsoft se recomienda usar el nombre de dominio de la empresa (de internet) + un subdominio (ad).
 ![Descripción de la imagen](./img_5/img_5_48.png){ .margintop10 .marginbottom10 .marco}
-1. Al ser un bosque nuevo, dejaremos los valores por defecto de los niveles funcionales. Como AD requiere de un servidor DNS para funcionar, nos viene la opción DNS ticada por defecto. Para finalizar introduciremos una contraseña (no se recomienda que la contraseña coincida con la contraseña de administrador).  
+1. Al ser un bosque nuevo, dejaremos los valores por defecto de los niveles funcionales. Como AD requiere de un servidor DNS para funcionar, nos viene la opción DNS marcada por defecto. Para finalizar introduciremos la contraseña de restauración de servicios de directorio (**DSRM – Directory Services Restore Mode**), que se utiliza para iniciar el servidor en modo de recuperación de AD en caso de fallo grave. No se recomienda que esta contraseña coincida con la contraseña de administrador.
 ![Descripción de la imagen](./img_5/img_5_49.png){ .margintop10 .marginbottom10 .marco}
-1. En `DNS Options` nos saldrá un aviso de error que no tendremos en cuenta ya que el servicio DNS aún no está creado.
+1. En `DNS Options` nos aparecerá un aviso indicando que no se puede crear una delegación para este servidor DNS, ya que no existe una zona superior (padre) que la administre. Es un aviso esperado al crear un bosque nuevo (todavía no existe ningún dominio DNS previo al que delegar) y lo podemos ignorar.
 ![Descripción de la imagen](./img_5/img_5_50.png){ .margintop10 .marginbottom10 .marco}
-1. En `Aditional Options` dejaremos el nombre por defecto de dominio de NetBios (solo para compatibilidad con equipo antiguos / obsoletos).
+1. En `Additional Options` dejaremos el nombre por defecto de dominio de NetBIOS (solo para compatibilidad con equipos antiguos / obsoletos).
 ![Descripción de la imagen](./img_5/img_5_51.png){ .margintop10 .marginbottom10 .marco}
-1. Pasamos las ventanas de opciones. En `Prerequisites Check` apuntaremos las advertencias para gestionarlas más adelante.
+1. Continuamos por las ventanas de `Paths` (donde se define la ubicación de la base de datos de AD, los logs y el volumen SYSVOL) y `Review Options` (resumen de toda la configuración elegida). En `Prerequisites Check` apuntaremos las advertencias para gestionarlas más adelante (entre ellas, es habitual que aparezca un aviso relacionado con la configuración de IP estática del servidor, que trataremos en el punto 12).
 ![Descripción de la imagen](./img_5/img_5_52.png){ .margintop10 .marginbottom10 .marco}
-1. Una vez reiniciada la máquina veremos que aunque parezca que no ha occurido nada hemos entrado como administrador DENTRO del dominio del Active Directory.
+1. Una vez reiniciada la máquina, veremos que aunque parezca que no ha ocurrido nada, ahora iniciamos sesión como **DOMINIO\Administrador** (cuenta de dominio) en lugar de como administrador local del servidor. Podemos comprobarlo, por ejemplo, ejecutando `whoami` en una consola.
 ![Descripción de la imagen](./img_5/img_5_53.png){ .margintop10 .marginbottom10 .marco}
-1. Para que el AD pueda levantarse sin problemas necesitaremos que nuestro servidor tenga una IP fija. Buscaremos en EC2 → Detalles la IP actual de nuestra instancia y en configuración de red la cambiaremos por otra (172.31.39.10).
-![Descripción de la imagen](./img_5/img_5_54.png){ .margintop10 .marginbottom10 .marco}
-1. Creación de una IP estática en AWS con **EIP (Elastic IP Address)**.
-    - No es necesario realizar ninguna operación adicional. En AWS, al crear una instancia EC2, se le asigna una IP privada que es **estática por naturaleza**.
-    - No cambia mientras la instancia no se termine (sobrevive a stop/start, reinicios, etc.). Así pues no necesitaremos realizar nada especial en ese sentido.
-    - Si queremos `reservar la IP` en caso de eliminar / reemplazar la instancia, podremos hacerlo moviendo la IP a una Elastic Network Interface (ENI) separada, que podremos desasociar y reasociar a otra instancia si hace falta.
-    - !!! question "En un entorno no AWS (no virtual) como se configuraría la interfaz de red de nuestra máquina a IP estática?"
+1. Active Directory necesita que la IP del controlador de dominio no cambie, ya que los registros DNS y SRV del dominio se generan sobre esa IP. En AWS, la IP privada de una instancia EC2 ya es **estática por naturaleza** mientras no se elimine la instancia (sobrevive a stop/start, reinicios, etc.), por lo que no es necesario realizar ningún cambio a nivel de AWS.
+
+    Aun así, es recomendable **fijar esa misma IP privada como estática dentro de la configuración de red de Windows** (en lugar de dejarla en modo DHCP), para evitar problemas si el adaptador de red se reinicia. Para ello, buscaremos en EC2 → Detalles la IP privada actual de nuestra instancia (en este ejemplo, 172.31.39.10) y configuraremos esa **misma IP** como estática en las propiedades de red de Windows.
+
+    !!! warning "Importante"
+        La IP que configuremos manualmente en Windows debe **coincidir siempre** con la IP privada que AWS ya tiene asignada a la instancia. Si configuramos una IP diferente, la instancia perderá la conectividad de red, ya que AWS solo enruta tráfico a las IPs asociadas a esa interfaz de red (ENI).
+
+    ![Descripción de la imagen](./img_5/img_5_54.png){ .margintop10 .marginbottom10 .marco}
+
+1. Si además de la IP privada estática queremos que el servidor tenga una **IP pública fija** para acceso desde Internet, esto se resuelve mediante una **Elastic IP (EIP)**, que es un concepto independiente de la IP privada usada por AD/DNS internamente:
+    - Al crear una Elastic IP y asociarla a la instancia, esta IP pública no cambiará mientras esté asociada, ni siquiera si la instancia se detiene y se vuelve a iniciar.
+    - Si en el futuro queremos eliminar o reemplazar la instancia sin perder la IP pública, podemos mover la Elastic IP a una Elastic Network Interface (ENI) separada, que podremos desasociar y volver a asociar a otra instancia cuando haga falta.
+    - !!! question "En un entorno no AWS (no virtual), ¿cómo se configuraría la interfaz de red de nuestra máquina a IP estática?"
 1. Después de un tiempo, aparecerán los servicios AD DS y DNS en nuestra máquina.
     - Servicio AD DS
     ![Descripción de la imagen](./img_5/img_5_55.png){ .margintop10 .marginbottom10}
     - Servicio DNS
     ![Descripción de la imagen](./img_5/img_5_56.png){ .margintop10 .marginbottom10}
+1. **Verificación final.** Para comprobar que el dominio y el DNS han quedado correctamente configurados, podemos:
+    - Ejecutar `dcdiag` en una consola para diagnosticar el estado del controlador de dominio.
+    - Ejecutar `nslookup <nombre-del-dominio>` para comprobar que el propio servidor resuelve correctamente los registros de su dominio.
+    - Abrir la consola "Usuarios y equipos de Active Directory" para confirmar que el dominio se ha creado correctamente.
 
----
+### 16 - Tarea RA2-CEf - Configuración del servidor DNS
+
+---    
+
 
 ![Descripción de la imagen](./img_5/img_5_57.png){ .margintop10 .marginbottom10}
 ![Descripción de la imagen](./img_5/img_5_58.png){ .margintop10 .marginbottom10}
@@ -1130,10 +1143,10 @@ Para la instalación del rol AD DS en un servidor Windows Server 2025 en AWS, po
 ![Descripción de la imagen](./img_5/img_5_60.png){ .margintop10 .marginbottom10}
 ![Descripción de la imagen](./img_5/img_5_51.png){ .margintop10 .marginbottom10}
 
-### 15.3 Configuración del servidor DNS
-
+<!-- ad ds -->
 <!-- https://youtu.be/cJPT4oLpEWI?si=dfSJOXEhFoTnW40c&t=917 -->
 <!-- file:///C:/Users/titan/Downloads/UT02_ServicioDNS_Windows.pdf -->
+
 <!-- https://www.youtube.com/watch?v=TwMAS7Iha30 -->
 
 lanza cmd windows + r
@@ -1175,8 +1188,7 @@ https://www.redeszone.net/tutoriales/redes-cable/calcular-subnetting-ip-red-masc
 https://www.1nce.com/es-es/recursos/iot-knowledge-base/que-es-el-mecanismo-nat
 https://openwebinars.net/blog/nat-que-es-y-para-que-sirve/
 -->
-
-<!-- https://www.webempresa.com/blog/servidor-dns-como-solucionar-problemas-habituales.html -->
+n
 <!-- https://www.dreamhost.com/blog/es/nameservers-vs-dns-guia/ -->
 
 <!-- pracrica DNS -->
