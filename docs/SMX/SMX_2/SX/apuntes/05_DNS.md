@@ -1194,6 +1194,18 @@ Un resultado sin errores relevantes indica que el controlador de dominio funcion
 - También podemos realizar una comprobación específica del servicio DNS mediante `dcdiag /test:dns`
     ![Descripción de la imagen](./img_5/img_5_68.png){ .margintop10 .marginbottom10}
 
+#### 16.4 Zona directa e inversa
+
+#### 16.5 Trusted points y reenviadores
+
+#### 16.6 Otras opciones
+
+#### 16.7 Aging y scavenging
+
+#### 16.8 Best practices analyzer (BPA)
+
+#### 16.9 Best practices analyzer (BPA)
+
 ---
 
 ![Descripción de la imagen](./img_5/img_5_69.png){ .margintop10 .marginbottom10}

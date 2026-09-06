@@ -95,20 +95,20 @@ markdown_extensions:
   
 
 nav: 
-  # - Aplicaciones Ofimáticas: 
-  #   - Presentación módulo: SMX/SMX_1/AO/00_Temario.md
-  #   - UT 1 - Instalación de aplicaciones Ofimáticas: SMX/SMX_1/AO/01_Instalacion de aplicaciones ofimaticas.md
-  #   - UT 2 - Procesadores de texto:
-  #     - UT 21 - Características de los procesadores de texto: SMX/SMX_1/AO/02_Procesadores_de_texto/021_Procesadores_de_texto.md
-  #     - UT 22 - Instalación de LibreOffice Writer: SMX/SMX_1/AO/02_Procesadores_de_texto/022_LibreOffice_Writer_Instalacion.md
-  #     - UT 23 - LibreOffice Writer: SMX/SMX_1/AO/02_Procesadores_de_texto/023_LibreOffice_Writer.md
-  #   - UT 3 - Hojas de cálculo: SMX/SMX_1/AO/03_Hojas de calculo.md
-  #   - UT 4 - Presentaciones: SMX/SMX_1/AO/07_Presentaciones.md
-  #   - UT 5 - Bases de datos: SMX/SMX_1/AO/04_Bases de datos.md
-  #   - UT 6 - Edición de imágenes: SMX/SMX_1/AO/05_Imagenes.md
-  #   - UT 7 - Edición de vídeos: SMX/SMX_1/AO/06_Captura e edicion de video.md
-  #   - UT 8 - Agenda electrónica y comunicación: SMX/SMX_1/AO/08_Correo electronico.md
-  #   - UT 9 - Gestión de incidencias: SMX/SMX_1/AO/09_Resolucion de incidencias.md
+  - Aplicaciones Ofimáticas: 
+    - Presentación módulo: SMX/SMX_1/AO/00_Temario.md
+    - UT 1 - Instalación de aplicaciones Ofimáticas: SMX/SMX_1/AO/01_Instalacion de aplicaciones ofimaticas.md
+    - UT 2 - Procesadores de texto:
+       - UT 21 - Características de los procesadores de texto: SMX/SMX_1/AO/02_Procesadores_de_texto/021_Procesadores_de_texto.md
+       - UT 22 - Instalación de LibreOffice Writer: SMX/SMX_1/AO/02_Procesadores_de_texto/022_LibreOffice_Writer_Instalacion.md
+       - UT 23 - LibreOffice Writer: SMX/SMX_1/AO/02_Procesadores_de_texto/023_LibreOffice_Writer.md
+    - UT 3 - Hojas de cálculo: SMX/SMX_1/AO/03_Hojas de calculo.md
+    - UT 4 - Presentaciones: SMX/SMX_1/AO/07_Presentaciones.md
+    - UT 5 - Bases de datos: SMX/SMX_1/AO/04_Bases de datos.md
+    - UT 6 - Edición de imágenes: SMX/SMX_1/AO/05_Imagenes.md
+    - UT 7 - Edición de vídeos: SMX/SMX_1/AO/06_Captura e edicion de video.md
+    - UT 8 - Agenda electrónica y comunicación: SMX/SMX_1/AO/08_Correo electronico.md
+    - UT 9 - Gestión de incidencias: SMX/SMX_1/AO/09_Resolucion de incidencias.md
                                                   
   # - Programación en Python: 
   #   - Presentación módulo: SMX/SMX_2/Opt_Python/00_Temario.md

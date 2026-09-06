@@ -4,7 +4,7 @@ title: Aplicaciones ofimáticas
 module number: 0223
 lesson: UD. 0.0 - Temario y métodos de evaluación  
 author: Javier Egea Blasco  
-year: 25-26  
+year: 25-27  
 keywords: SMX, AO
 layout: default  
 schedule: 224h - 7h/w
@@ -14,11 +14,11 @@ schedule: 224h - 7h/w
 
 ## 1 - Calendario escolar
 
-![imagen](../AO/img/UT0/CAL_2025-2026.png){.sietecinco}
+![imagen](../../../2627/26-27_FP_CALENDARI.png){.marco}
 
 ## 2 - Horario de sesiones
 
-![imagen](../AO/img/UT0/horario.png){.cincozero}
+![imagen](../../../2627/Horario%20SMX%201.png){.marco}
 
 ## 3 - Contenidos
 
@@ -176,7 +176,7 @@ A continuación, se presentan los contenidos de este módulo tal y como aparecen
     |RA4. Elabora documentos con bases de datos ofimáticas describiendo y aplicando operaciones de manipulación de datos. ||
     |-|-|
     |**a)** Se han identificado los elementos de las bases de datos relacionales. |10%|
-    |**b)** Se han creado bases de datos ofimáticas. |15%|
+    |**b)** `Se han creado bases de datos ofimáticas.` |15%|
     |**c)** Se han utilizado las tablas de la base de datos (insertar, modificar y eliminar registros).|10%|
     |**d)** Se han utilizado asistentes en la creación de consultas. |15%|
     |**e)** Se han utilizado asistentes en la creación de formularios. |15%|
@@ -188,7 +188,7 @@ A continuación, se presentan los contenidos de este módulo tal y como aparecen
     |RA5. Manipula imágenes digitales analizando las posibilidades de distintos programas y aplicando técnicas de captura y edición básicas.||
     |-|-|
     |**a)** Se han analizado los distintos formatos de imágenes. |20%|
-    |**b)** Se ha realizado la adquisición de imágenes con periféricos. |25%|
+    |**b)** `Se ha realizado la adquisición de imágenes con periféricos.` |25%|
     |**c)** Se ha trabajado con imágenes a diferentes resoluciones, según su finalidad.|25%|
     |**d)** Se han empleado herramientas para la edición de imagen digital. |20%|
     |**e)** Se han importado y exportado imágenes en diversos formatos. |10%|
@@ -199,7 +199,7 @@ A continuación, se presentan los contenidos de este módulo tal y como aparecen
     |**a)** Se han reconocido los elementos que componen una secuencia de video.|20%|
     |**b)** Se han estudiado los tipos de formatos y códecs más empleados. |20%|
     |**c)** Se han importado y exportado secuencias de video. |20%|
-    |**d)** Se han capturado secuencias de video con recursos adecuados. |20%|
+    |**d)** `Se han capturado secuencias de video con recursos adecuados.` |20%|
     |**e)** Se han elaborado video tutoriales. |20%|
 
 === "RA 7"
@@ -210,7 +210,7 @@ A continuación, se presentan los contenidos de este módulo tal y como aparecen
     |**c)** Se han aplicado y reconocido las distintas tipografías y normas básicas de composición, diseño y utilización del color. |20%|
     |**d)** Se han diseñado plantillas de presentaciones. |20%|
     |**e)** Se han creado presentaciones. |30%|
-    |**f)** Se han utilizado periféricos para ejecutar presentaciones. |5%|
+    |**f)** `Se han utilizado periféricos para ejecutar presentaciones.` |5%|
 
 === "RA 8"
     |RA8. Realiza operaciones de gestión del correo y la agenda electrónica, relacionando necesidades de uso con su configuración.||
@@ -292,10 +292,22 @@ En el caso concreto del módulo **Aplicaciones Ofimáticas**, en cada unidad de 
         **i)** Se han propuesto soluciones software para entornos de aplicación.  
 
     === "RA 2"
-        **g)** Se han elaborado manuales específicos.
+        **f)** Se han elaborado manuales específicos.
 
     === "RA 3"
-        **g)** Se han importado y exportado hojas de cálculo creadas con otras aplicaciones y en otros formatos.
+        **f)** Se han importado y exportado hojas de cálculo creadas con otras aplicaciones y en otros formatos.
+
+    === "RA 4"
+        **b)** Se han creado bases de datos ofimáticas.
+
+    === "RA 5"
+        **b)** Se ha realizado la adquisición de imágenes con periféricos.
+
+    === "RA 6"
+        **f)** Se han capturado secuencias de video con recursos adecuados.
+
+    === "RA 7"
+        **f)** Se han utilizado periféricos para ejecutar presentaciones.
 
     === "RA 8"
         **e)** Se ha operado con la libreta de direcciones.  
@@ -321,21 +333,22 @@ En caso de no superar el módulo, el alumna/o dispondrá de un proceso de recupe
 |**RA 3** - Elabora documentos y plantillas de calculo, describiendo y aplicando opciones avanzadas de hojas de calculo.|18%|
 |**RA 4** - Elabora documentos con bases de datos ofimaticas describiendo y aplicando operaciones de manipulacion de datos.|18%|
 |**RA 5** - Manipula imágenes digitales analizando las posibilidades de distintos programas y aplicando técnicas de captura y edicion basicas.|10%|
-|**RA 6** - Manipula secuencias de vídeo analizando las posibilidades de distintos programas y aplicando técnicas de captura y edición básicas.|5%|
+|**RA 6** - Manipula secuencias de vídeo analizando las posibilidades de distintos programas y aplicando técnicas de captura y edición básicas.|10%|
 |**RA 7** - Elabora presentaciones multimedia describiendo y aplicando normas basicas de composicion y diseño.|10%|
-|**RA 8** - Realiza operaciones de gestion del correo y la agenda electronica, relacionando necesidades de uso con su configuración.|10%|
+|**RA 8** - Realiza operaciones de gestion del correo y la agenda electronica, relacionando necesidades de uso con su configuración.|5%|
 |**RA 9** - Aplica técnicas de soporte en el uso de aplicaciones, identificando y resolviendo incidencias.|5%|
 
 ### 6.2 - Instrumentos de recuperación
 
 - Se propondrá a los alumnos una serie de **recuperaciones** que le permitirán recuperar los **criterios de evaluación** no superados.
 - Si el alumno **no entrega los trabajos obligatorios o presenta tasas de absentismo elevadas**, perderá la evaluación continua y deberá presentarse a la evaluación **ordinaria** y/o **extraordinaria**.
+<!-- - Para poder presentarse a las convocatorias ordinarias y extraordinarias **el alumno deberá realizar todas las tareas no entregadas de los RA no aprobados y haber obtenido una nota superior o igual a 3 en las mismas.** -->
 
 ### 6.3 - Calendario de evaluaciones
 
 1. Evaluación inicial (primer mes).
 1. **Una evaluación parcial por cada trimestre**.
-    - Se daran las notas de los **RA** completados y también la nota **parcial** de los **RA** incompletos.
+    - Se darán las notas de los **RA** completados y también la nota **parcial** de los **RA** incompletos.
     - Para tener el aprobado será necesario haber alcanzado una puntuación superior o igual a 5 en los **Resultados de Aprendizaje RA** completados.
 1. **Evaluación ordinaria** y **extraordinaria**: Permitirán recuperar los **RA no superados**.
 
@@ -352,24 +365,24 @@ En caso de suspender el módulo en la convocatoria ordinaria, se dispondrá de u
 
 ```mermaid
 flowchart TB
-  A["Instalación de aplicaciones ofimáticas."]
-  B["Elaboración de documentos de texto."]
-  C["Elaboración de hojas de cálculo."]
-  D["Elaboración de presentaciones."]
-  E["Elaboración de bases de datos ofimáticas."]
-  F["Edición digital de imágenes."]
-  G["Edición de videos digital."]
-  H["Gestión de correo electrónico."]
-  I["Resolución de incidencias."]
+  A["RA.1 - Instalación de aplicaciones ofimáticas."]
+  B["RA.2 - Elaboración de documentos de texto."]
+  C["RA.3 - Elaboración de hojas de cálculo."]
+  D["RA.7 - Elaboración de presentaciones."]
+  E["RA.4 - Elaboración de bases de datos ofimáticas."]
+  F["RA.5 - Edición digital de imágenes."]
+  G["RA.1-Edición de videos digital."]
+  H["RA.1-Gestión de correo electrónico."]
+  I["RA.1-Resolución de incidencias."]
   AA["7h"]
-  BB["35h"]
-  CC["35h"]
+  BB["42h"]
+  CC["42h"]
   DD["21h"]
-  EE["38h"]
+  EE["28h"]
   FF["21h"]
   GG["21h"]
-  HH["7h"]
-  II["7h"]
+  HH["4h"]
+  II["5h"]
 
   subgraph Orden y duración de las UT
 
