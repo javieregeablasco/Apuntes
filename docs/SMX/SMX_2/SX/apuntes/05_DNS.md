@@ -1132,17 +1132,6 @@ Para la instalación del rol AD DS en un servidor Windows Server 2025 en AWS, po
     - Ejecutar `nslookup <nombre-del-dominio>` para comprobar que el propio servidor resuelve correctamente los registros de su dominio.
     - Abrir la consola "Usuarios y equipos de Active Directory" para confirmar que el dominio se ha creado correctamente. -->
 
-
-   
-
-    
-
-    !!! warning "¡No utilizar la misma contraseña que para el usuario administrator!"
-        ![Descripción de la imagen](./img_5/img_5_66.png){ .margintop10 .marginbottom10}
-
-- Comprobaremos la integridad de nuestro controlador de dominio con `dcdiag`. El AD DS funcionará correctamente si el resultado de todas las pruebas en satifatorio.
-    ![Descripción de la imagen](./img_5/img_5_67.png){ .margintop10 .marginbottom10}
-
 ### 16 - Tarea RA2-CEf - Configuración del servidor DNS
 
 #### 16.1 Configuración del adaptador de red
@@ -1200,7 +1189,7 @@ debemos reutilizar la contraseña de una cuenta administrativa en otra
 cuenta.
 ```
 
-* Comprobaremos el estado de nuestro controlador de dominio mediante `dcdiag`. Esta herramienta realiza diferentes pruebas sobre los servicios y componentes de Active Directory.
+- Comprobaremos el estado de nuestro controlador de dominio mediante `dcdiag`. Esta herramienta realiza diferentes pruebas sobre los servicios y componentes de Active Directory.
 
   Un resultado sin errores relevantes indica que el controlador de dominio funciona correctamente.
 
@@ -1212,6 +1201,7 @@ cuenta.
 
   `dcdiag /test:dns`
 
+  ![Descripción de la imagen](./img_5/img_5_67.png){ .margintop10 .marginbottom10}
 
 ---    
 
