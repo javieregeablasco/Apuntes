@@ -1169,11 +1169,13 @@ Para la instalación del rol AD DS en un servidor Windows Server 2025 en AWS, po
     !!! warning "¡No utilizar la misma contraseña que para el usuario administrator!"
     ![Descripción de la imagen](./img_5/img_5_65.png){ .margintop10 .marginbottom10}
 
+- Comprobaremos la integridad de nuestro controlador de dominio con `dcdiag`. El AD DS funcionará correctamente si el resultado de todas las pruebas en satifatorio.
+    ![Descripción de la imagen](./img_5/img_5_66.png){ .margintop10 .marginbottom10}
+
 
 ---    
 
 
-![Descripción de la imagen](./img_5/img_5_66.png){ .margintop10 .marginbottom10}
 ![Descripción de la imagen](./img_5/img_5_67.png){ .margintop10 .marginbottom10}
 ![Descripción de la imagen](./img_5/img_5_68.png){ .margintop10 .marginbottom10}
 ![Descripción de la imagen](./img_5/img_5_69.png){ .margintop10 .marginbottom10}
