@@ -1135,9 +1135,7 @@ Para la instalación del rol AD DS en un servidor Windows Server 2025 en AWS, po
 
  
  
-
-- En `Forwarders` veremos la IP de DNS que usaba nuestra máquina antes de ser promocionada a controladora de dominio. Ahora ese DNS será usando para recibir la consultas DNS que nuestro servidor no será capaz de resolver.
-    ![Descripción de la imagen](./img_5/img_5_61.png){ .margintop10 .marginbottom10}
+ 
 
 - Aunque no sea absolutamente necesario en AWS añadiremos un par de servidores externos a AWS como google (8.8.8.8) y cloudfare (1.1.1.1).  
     ![Descripción de la imagen](./img_5/img_5_62.png){ .margintop10 .marginbottom10}
@@ -1183,14 +1181,13 @@ Para la instalación del rol AD DS en un servidor Windows Server 2025 en AWS, po
     ![Descripción de la imagen](./img_5/img_5_60.png){ .margintop10 .marginbottom10}
 
 - En `Forwarders` podemos configurar otros servidores DNS a los que nuestro servidor enviará las consultas que no pueda resolver utilizando sus propias zonas o la información almacenada en caché.  
-Por ejemplo, si un cliente solicita resolver `www.google.com` y nuestro servidor DNS no dispone de esa información en sus zonas ni en su caché, puede reenviar la consulta a uno de los servidores configurados como *forwarders*.
+**Por ejemplo**, si un cliente solicita resolver `www.google.com` y nuestro servidor DNS no dispone de esa información en sus zonas ni en su caché, puede reenviar la consulta a uno de los servidores configurados como *forwarders*.
+
+- Aunque no es obligatorio utilizar servidores DNS externos en AWS, a efectos didácticos añadiremos un par de servidores DNS públicos:  
+
+    **Google DNS:** `8.8.8.8`  
+    **Cloudflare DNS:** `1.1.1.1`
     ![Descripción de la imagen](./img_5/img_5_61.png){ .margintop10 .marginbottom10}
-
-
-* Aunque no es obligatorio utilizar servidores DNS externos en AWS, a efectos didácticos añadiremos un par de servidores DNS públicos:
-
-  * **Google DNS:** `8.8.8.8`
-  * **Cloudflare DNS:** `1.1.1.1`
 
 * En la pestaña `Monitoring` podremos realizar diferentes pruebas para comprobar el funcionamiento del servidor DNS. También podremos comprobar la resolución recursiva de nombres externos.
 
