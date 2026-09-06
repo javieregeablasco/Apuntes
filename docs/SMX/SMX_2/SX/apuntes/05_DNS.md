@@ -1183,11 +1183,8 @@ Un resultado correcto en estas pruebas nos permitirá comprobar que nuestro serv
 !!! warning "¡No reutilices la contraseña de Administrator!"
     ![Descripción de la imagen](./img_5/img_5_66.png){ .margintop10 .marginbottom10}
 
-```
-La nueva cuenta debe utilizar una contraseña diferente y robusta. Nunca
-debemos reutilizar la contraseña de una cuenta administrativa en otra
-cuenta.
-```
+!!! warning "Importante" 
+    La nueva cuenta debe utilizar una contraseña diferente y robusta. Nunca debemos reutilizar la contraseña de una cuenta administrativa en otra cuenta.
 
 - Comprobaremos el estado de nuestro controlador de dominio mediante `dcdiag`. Esta herramienta realiza diferentes pruebas sobre los servicios y componentes de Active Directory.
 Un resultado sin errores relevantes indica que el controlador de dominio funciona correctamente.
