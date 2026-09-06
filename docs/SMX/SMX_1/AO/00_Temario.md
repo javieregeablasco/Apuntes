@@ -4,7 +4,7 @@ title: Aplicaciones ofimáticas
 module number: 0223
 lesson: UD. 0.0 - Temario y métodos de evaluación  
 author: Javier Egea Blasco  
-year: 25-27  
+year: 26-27
 keywords: SMX, AO
 layout: default  
 schedule: 224h - 7h/w
