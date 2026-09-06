@@ -1169,7 +1169,8 @@ Un resultado correcto en estas pruebas nos permitirá comprobar que nuestro serv
 
 #### 16.3 Configuración del AD DS
 
-- Si abrimos `Active Directory Users and Computers` veremos las cuentas integradas que se han creado al instalar Active Directory. Entre ellas se encuentran `Administrator`, `Guest` y `krbtgt`.
+- Si abrimos `Active Directory Users and Computers` veremos las cuentas integradas que se han creado al instalar Active Directory.  
+Entre ellas se encuentran `Administrator` y `Guest`.
      ![Descripción de la imagen](./img_5/img_5_64.png){ .margintop10 .marginbottom10}
 
 - Una buena práctica consiste en crear una cuenta administrativa individual para cada administrador y utilizarla para realizar las tareas administrativas del dominio. De esta forma, las acciones realizadas sobre Active Directory pueden asociarse a una identidad concreta, facilitando la trazabilidad y la auditoría.
