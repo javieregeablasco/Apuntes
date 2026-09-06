@@ -1,0 +1,1941 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Javier Egea Blasco">
+      
+      
+        <link rel="canonical" href="https://javieregeablasco.github.io/Apuntes/SMX/SMX_2/Opt_Python/05_AccesoDatosBasico/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Introducción a la programación en Python - Javier Egea Blasco</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ut-5-manejo-de-ficheros" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../../../.." title="Javier Egea Blasco" class="md-header__button md-logo" aria-label="Javier Egea Blasco" data-md-component="logo">
+      
+  <img src="../../../../assets/mre.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Javier Egea Blasco
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Introducción a la programación en Python
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Compartir" aria-label="Compartir" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../SMX_1/AO/00_Temario/" class="md-tabs__link">
+          
+  
+  
+  Aplicaciones Ofimáticas
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../SX/apuntes/00_Temario/" class="md-tabs__link">
+          
+  
+  
+  Servicios en redes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../DAW/DAW_2/PWES/UT.%200-Temario/" class="md-tabs__link">
+          
+  
+  
+  Under development
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Javier Egea Blasco" class="md-nav__button md-logo" aria-label="Javier Egea Blasco" data-md-component="logo">
+      
+  <img src="../../../../assets/mre.png" alt="logo">
+
+    </a>
+    Javier Egea Blasco
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aplicaciones Ofimáticas
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Aplicaciones Ofimáticas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SMX_1/AO/00_Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Presentación módulo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SMX_1/AO/01_Instalacion%20de%20aplicaciones%20ofimaticas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 1 - Instalación de aplicaciones Ofimáticas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 2 - Procesadores de texto
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UT 2 - Procesadores de texto
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SMX_1/AO/02_Procesadores_de_texto/021_Procesadores_de_texto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 21 - Características de los procesadores de texto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SMX_1/AO/02_Procesadores_de_texto/022_LibreOffice_Writer_Instalacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 22 - Instalación de LibreOffice Writer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SMX_1/AO/02_Procesadores_de_texto/023_LibreOffice_Writer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 23 - LibreOffice Writer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SMX_1/AO/03_Hojas%20de%20calculo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 3 - Hojas de cálculo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SMX_1/AO/07_Presentaciones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 4 - Presentaciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SMX_1/AO/04_Bases%20de%20datos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 5 - Bases de datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SMX_1/AO/05_Imagenes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 6 - Edición de imágenes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SMX_1/AO/06_Captura%20e%20edicion%20de%20video/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 7 - Edición de vídeos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SMX_1/AO/08_Correo%20electronico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 8 - Agenda electrónica y comunicación
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SMX_1/AO/09_Resolucion%20de%20incidencias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 9 - Gestión de incidencias
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Servicios en redes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Servicios en redes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SX/apuntes/00_Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Presentación módulo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SX/apuntes/01_Redes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Redes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SX/apuntes/02_TCP-IP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocolo TCP/IP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SX/apuntes/03_Conexiones-remotas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Acceso y control remoto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SX/apuntes/04_DHCP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocolo DHCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SX/apuntes/05_DNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocolo DNS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Under development
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Under development
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../DAW/DAW_2/PWES/UT.%200-Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Presentación módulo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-manejo-de-ficheros-en-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 - Manejo de ficheros en Python
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 - Manejo de ficheros en Python">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-apertura-y-lectura-de-un-fichero" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 - Apertura y lectura de un fichero
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1 - Apertura y lectura de un fichero">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-abrir-un-archivo-con-open" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1.1 - Abrir un archivo con open()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-leer-un-archivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1.2 - Leer un archivo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-cerrar-un-archivo-con-close" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1.2 - Cerrar un archivo con close()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#113-abrir-un-archivo-con-with" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1.3 - Abrir un archivo con with
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#114-argumentos-de-open" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1.4 - Argumentos de open()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#115-tarea-ra5-ced" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1.5 - Tarea RA5-CEd
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-escritura-de-un-archivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 - Escritura de un archivo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-renombrado-y-ruta-a-un-archivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 - Renombrado y ruta a un archivo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-leer-un-fichero-de-internet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 - Leer un fichero de internet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tarea-ra5-cee" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tarea RA5-CEe
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-poo-y-manejo-de-ficheros" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.5 - POO y manejo de ficheros
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tarea-ra4-cee" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tarea RA4-CEe
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="ut-5-manejo-de-ficheros"><strong>UT 5 - Manejo de ficheros</strong></h1>
+<p><img alt="Descripción de la imagen" class="cincozero" src="../img/UT5/dataaaccess.webp" /></p>
+<p><br></p>
+<p><strong>Resultados de aprendizaje y criterios de evaluacion que se evaluarán en esta unidad.</strong>  </p>
+<table>
+<thead>
+<tr>
+<th>RA4. Desarrolla programas organizados en clases analizando y aplicando los principios de la programación orientada a objetos.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>e)</strong> Se han desarrollado programas que instancien y utilicen objetos de las clases creadas anteriormente.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>RA5. Realiza operaciones de entrada y salida de información, utilizando procedimientos específicos del lenguaje y librerías de clases.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>d)</strong> Se han utilizado ficheros para almacenar y recuperar información.</td>
+</tr>
+<tr>
+<td><strong>e)</strong> Se han creado programas que utilicen diversos métodos de acceso al contenido de los ficheros.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h2 id="1-manejo-de-ficheros-en-python"><strong>1 - Manejo de ficheros en Python</strong></h2>
+<p>El manejo de archivos permite leer y escribir información en ficheros almacenados en el sistema. Python proporciona funciones que facilitan este proceso, y a continuación veremos cómo acceder a un archivo y leer su contenido.</p>
+<h3 id="11-apertura-y-lectura-de-un-fichero"><strong>1.1 - Apertura y lectura de un fichero</strong></h3>
+<h4 id="111-abrir-un-archivo-con-open"><strong>1.1.1 - Abrir un archivo con open()</strong></h4>
+<p>Para acceder a un archivo, en primer lugar debemos abrirlo indicando <strong>la ruta y el nombre del fichero</strong> al que queremos acceder. Además, debemos especificar <strong>el modo de apertura</strong> (p.e., lectura <code>r</code> o escritura <code>w</code>).</p>
+<p><div class="language-py highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">ruta</span><span class="o">=</span> <span class="s2">"docs/SMX/SMX_2/Opt_Python/code/UT5/"</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">archivo</span> <span class="o">=</span> <span class="s2">"fichero.txt"</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">fichero</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">ruta</span> <span class="o">+</span> <span class="n">archivo</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">)</span>
+</span></code></pre></div>
+<strong>Nota:</strong> La ruta puede ser absoluta o relativa. En este caso es relativa a la carpeta desde la que se ejecuta el entorno de Python, lo que a veces puede resultar poco práctico si cambiamos de ubicación el proyecto.</p>
+<h4 id="112-leer-un-archivo"><strong>1.1.2 - Leer un archivo</strong></h4>
+<p>Una vez abierto el archivo, podemos leer su contenido utilizando métodos como <strong>read()</strong>, <strong>readline()</strong> o <strong>readlines()</strong>.</p>
+<ul>
+<li>
+<p><strong>Ejemplo con read():</strong>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Leer todo el contenido del archivo</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">contenido</span> <span class="o">=</span> <span class="n">fichero</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">contenido</span><span class="p">)</span>
+</span></code></pre></div>
+    Si el archivo es muy grande, es recomendable leerlo línea por línea para evitar cargar todo el contenido en memoria de una sola vez.<br />
+    <br></p>
+</li>
+<li>
+<p><strong>Ejemplo con readline():</strong><br />
+readline() lee una línea del archivo cada vez que se llama. 
+<div class="language-py highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">fichero</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># Asegurarse de estar al inicio del archivo</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1"># Leer línea a línea usando readline()</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">linea</span> <span class="o">=</span> <span class="n">fichero</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="c1"># Recuperar la cantidad de líneas del objeto fichero</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="n">cantidad_lineas</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">fichero</span><span class="o">.</span><span class="n">readline</span><span class="p">())</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Número de líneas en el archivo:"</span><span class="p">,</span> <span class="n">cantidad_lista_lineas</span><span class="p">)</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="c1"># Leer todas las líneas del objeto fichero</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="k">while</span> <span class="n">linea</span> <span class="o">!=</span> <span class="s2">""</span><span class="p">:</span>      <span class="c1"># readline() devuelve "" cuando llega al final del archivo</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">linea</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="c1"># strip() elimina espacios en blanco y saltos de línea</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>    <span class="nb">input</span><span class="p">(</span><span class="s2">"Pulsa Enter para leer la siguiente línea"</span><span class="p">)</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>    <span class="n">linea</span> <span class="o">=</span> <span class="n">fichero</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+</span></code></pre></div>
+<br></p>
+</li>
+<li>
+<p><strong>Ejemplo con readlines():</strong><br />
+readlines() lee todas las líneas del archivo de una vez y devuelve <strong>una lista</strong>, donde cada elemento es una línea del fichero.
+<div class="language-py highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">fichero</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># Asegurarse de estar al inicio del archivo</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c1"># Obtener todas las líneas como una lista</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">lista_lineas</span> <span class="o">=</span> <span class="n">fichero</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c1"># Recorrer la lista para trabajar con cada línea</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="k">for</span> <span class="n">linea</span> <span class="ow">in</span> <span class="n">lista_lineas</span><span class="p">:</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"-"</span><span class="o">*</span><span class="mi">45</span><span class="p">)</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"| Contenido con strip | Contenido sin strip |"</span><span class="p">)</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"|</span><span class="si">{</span><span class="n">linea</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="si">:</span><span class="s2">&lt;21</span><span class="si">}</span><span class="s2">|</span><span class="si">{</span><span class="n">linea</span><span class="si">:</span><span class="s2">&lt;21</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\r</span><span class="s2">-"</span><span class="o">+</span><span class="s2">"-"</span><span class="o">*</span><span class="mi">44</span><span class="p">)</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>    <span class="nb">input</span><span class="p">(</span><span class="s2">"Pulsa Enter para leer la siguiente línea"</span><span class="p">)</span>
+</span></code></pre></div></p>
+</li>
+</ul>
+<h4 id="112-cerrar-un-archivo-con-close"><strong>1.1.2 - Cerrar un archivo con close()</strong></h4>
+<p>El método close() cierra el fichero referenciado por el objeto creado con open().<br />
+Es importante cerrar el archivo después de terminar las operaciones para liberar recursos del sistema. Si no se cierra explícitamente un fichero, Python intentará cerrarlo cuando estime que ya no se va a usar más.</p>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">fichero</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span></code></pre></div>
+<h4 id="113-abrir-un-archivo-con-with"><strong>1.1.3 - Abrir un archivo con with</strong></h4>
+<p>Una forma más segura y conveniente de manejar archivos en Python es utilizando la declaración <strong>with</strong>. Esta estructura garantiza que el archivo se cierre automáticamente al finalizar el bloque de código, <strong>incluso si ocurre una excepción</strong>.</p>
+<ul>
+<li>
+<p><strong>Ejemplo con read():</strong><br />
+<div class="language-py highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">ruta</span><span class="o">=</span> <span class="s2">"docs/SMX/SMX_2/Opt_Python/code/UT5/"</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">archivo</span> <span class="o">=</span> <span class="s2">"fichero.txt"</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">ruta</span><span class="o">+</span><span class="n">archivo</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">)</span> <span class="k">as</span> <span class="n">fichero</span><span class="p">:</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    <span class="n">contenido</span> <span class="o">=</span> <span class="n">fichero</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">contenido</span><span class="p">)</span>
+</span></code></pre></div>
+<br></p>
+</li>
+<li>
+<p><strong>Ejemplo con readline():</strong>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">ruta</span> <span class="o">+</span> <span class="n">archivo</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">fichero</span><span class="p">:</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="n">linea</span> <span class="o">=</span> <span class="n">fichero</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="k">while</span> <span class="n">linea</span> <span class="o">!=</span> <span class="s2">""</span><span class="p">:</span>       <span class="c1"># mientras no esté vacía</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>        <span class="nb">print</span><span class="p">(</span><span class="n">linea</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span> <span class="c1"># evita doble salto de línea</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>        <span class="n">linea</span> <span class="o">=</span> <span class="n">fichero</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+</span></code></pre></div>
+<br>    </p>
+</li>
+<li>
+<p><strong>Ejemplo con readlines():</strong>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">ruta</span> <span class="o">+</span> <span class="n">archivo</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">fichero</span><span class="p">:</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    <span class="n">lista_lineas</span> <span class="o">=</span> <span class="n">fichero</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    <span class="k">for</span> <span class="n">linea</span> <span class="ow">in</span> <span class="n">lista_lineas</span><span class="p">:</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>        <span class="nb">print</span><span class="p">(</span><span class="n">linea</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span> <span class="c1"># evita doble salto de línea</span>
+</span></code></pre></div></p>
+</li>
+</ul>
+<h4 id="114-argumentos-de-open"><strong>1.1.4 - Argumentos de open()</strong></h4>
+<p>Cuando se trabaja con archivos es importante especificar <strong>el modo de apertura</strong>. Ese modo indica cómo se abrirá el archivo (solo lectura, escritura, añadir, etc.).<br />
+De esta forma el programador puede controlar el comportamiento del acceso al archivo y <strong>la gestión de posibles excepciones</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Modo</th>
+<th>Significado</th>
+<th>Permite leer</th>
+<th>Permite escribir</th>
+<th>Crea archivo si no existe</th>
+<th>Sobrescribe archivo</th>
+<th>Posición inicial</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>'r'</code></td>
+<td>Lectura</td>
+<td>✔</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>Inicio</td>
+</tr>
+<tr>
+<td><code>'w'</code></td>
+<td>Escritura</td>
+<td>❌</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>Inicio</td>
+</tr>
+<tr>
+<td><code>'a'</code></td>
+<td>Añadir (append)</td>
+<td>❌</td>
+<td>✔</td>
+<td>✔</td>
+<td>❌</td>
+<td>Final</td>
+</tr>
+<tr>
+<td><code>'r+'</code></td>
+<td>Lectura y escritura</td>
+<td>✔</td>
+<td>✔</td>
+<td>❌</td>
+<td>❌</td>
+<td>Inicio</td>
+</tr>
+<tr>
+<td><code>'w+'</code></td>
+<td>Lectura y escritura</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>Inicio</td>
+</tr>
+<tr>
+<td><code>'a+'</code></td>
+<td>Lectura y escritura</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>❌</td>
+<td>Final</td>
+</tr>
+<tr>
+<td><code>'x'</code></td>
+<td>Creación exclusiva</td>
+<td>❌</td>
+<td>✔</td>
+<td>✔ (solo si no existe)</td>
+<td>❌</td>
+<td>Inicio</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Notas importantes</p>
+<ul>
+<li>Si el archivo no existe, 'r' produce error, mientras que 'w', 'a', 'w+', 'a+', y 'x' lo crean.</li>
+<li>El modo 'x' sirve para crear archivos nuevos evitando sobrescrituras: si el archivo ya existe → lanza error.</li>
+<li>Cuando el archivo se abre en modo añadir ('a' o 'a+'), la escritura siempre se realiza al final del archivo.</li>
+</ul>
+</div>
+<h4 id="115-tarea-ra5-ced"><strong>1.1.5 - Tarea RA5-CEd</strong></h4>
+<div class="admonition excercise">
+<p class="admonition-title">Manejo de excepciones al abrir un archivo</p>
+<ol>
+<li>Crear un archivo de texto con 20 líneas de texto. </li>
+<li>Escribir un programa en Python que haga lo siguiente:    <ul>
+<li>Solicite al usuario que ingrese el nombre del archivo a abrir.</li>
+<li>Intente abrir el archivo en modo lectura 'r' usando <strong>un bloque try</strong>.</li>
+<li>Si ocurre una excepción, se capturará y manejará con los siguientes casos específicos:<ul>
+<li>Si ocurre un FileNotFoundError, se mostrará el mensaje: "Error de acceso: El archivo no existe."</li>
+<li>Si ocurre un UnicodeDecodeError, se mostrará el mensaje: "Error al leer el archivo: Posible codificación incorrecta."</li>
+<li>Para cualquier otra excepción, se mostrará el mensaje: "Error inesperado al abrir el archivo."</li>
+</ul>
+</li>
+<li>Si el archivo se abre correctamente, leer y mostrar las 10 primeras líneas del archivo.</li>
+</ul>
+</li>
+</ol>
+</div>
+<p><br></p>
+<h3 id="12-escritura-de-un-archivo"><strong>1.2 - Escritura de un archivo</strong></h3>
+<ul>
+<li>
+<p><strong>Ejemplo de escritura en un archivo usando with:</strong>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">ruta</span> <span class="o">=</span> <span class="s2">"docs/SMX/SMX_2/Opt_Python/code/UT5/"</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">archivo</span> <span class="o">=</span> <span class="s2">"fichero2.txt"</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">ruta</span> <span class="o">+</span> <span class="n">archivo</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">fichero</span><span class="p">:</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    <span class="n">fichero</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"Esta es una línea escrita en el archivo.</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+</span></code></pre></div></p>
+<p><strong>Explicación del código</strong>:  </p>
+<ul>
+<li>Se abre el archivo en modo escritura ('w'). Si el archivo ya existe, se sobrescribe.  </li>
+<li>Se escribe una línea de texto en el archivo utilizando el método write().</li>
+</ul>
+<p><br></p>
+</li>
+<li>
+<p><strong>Otro ejemplo:</strong>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">ruta</span> <span class="o">=</span> <span class="s2">"docs/SMX/SMX_2/Opt_Python/code/UT5/"</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">archivo</span> <span class="o">=</span> <span class="s2">"fichero2.txt"</span> 
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">ruta</span> <span class="o">+</span> <span class="n">archivo</span><span class="p">,</span> <span class="s2">"a"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">fichero</span><span class="p">:</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>        <span class="n">fichero</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Línea añadida número </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+</span></code></pre></div>
+    <strong>Explicación del código</strong>:  </p>
+<ul>
+<li>Se abre el archivo en modo añadir ('a'). Si el archivo no existe, se crea.  </li>
+<li>Se añaden cinco líneas al final del archivo utilizando un bucle for y el método write().<br />
+<br></li>
+</ul>
+</li>
+<li>
+<p><strong>Mismo ejemplo que el anterior pero con el método .writelines():</strong>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">ruta</span> <span class="o">=</span> <span class="s2">"docs/SMX/SMX_2/Opt_Python/code/UT5/"</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">archivo</span> <span class="o">=</span> <span class="s2">"fichero2.txt"</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="c1"># Generar todas las líneas primero en una lista (cada una incluye \n)</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="n">lineas</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>    <span class="n">lineas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Línea añadida número </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="c1"># otra manera de hacerlo:</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="c1"># lineas = [f"Línea añadida número {i+1}\n" for i in range(5)]</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">ruta</span> <span class="o">+</span> <span class="n">archivo</span><span class="p">,</span> <span class="s2">"a"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">fichero</span><span class="p">:</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>    <span class="n">fichero</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">lineas</span><span class="p">)</span>
+</span></code></pre></div>
+    <strong>Explicación del código</strong>:  </p>
+<ul>
+<li>Se abre el archivo en modo añadir ('a'). Si el archivo no existe, se crea.  </li>
+<li>Se generan cinco líneas mediante un bucle for y se guardan en una lista.  </li>
+<li>Se añaden todas las líneas al final del archivo utilizando el método writelines(), que escribe una lista de cadenas en el archivo.
+<br></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Diferencia entre write() y writelines()</p>
+<ul>
+<li>El método write() escribe una sola cadena en el archivo. Si se desea escribir múltiples líneas, se debe llamar a write() varias veces o utilizar un bucle.</li>
+<li>El método writelines() escribe una lista de cadenas en el archivo de una sola vez. Cada cadena en la lista se escribe tal cual, por lo que es <strong>necesario incluir manualmente los saltos de línea (<code>\n</code>)</strong> si se desea que cada cadena aparezca en una línea separada.<br />
+<strong>Ejemplo:</strong> nuevas_lineas.append(str(numero) + "\n").</li>
+</ul>
+</div>
+</li>
+</ul>
+<p><br></p>
+<h3 id="13-renombrado-y-ruta-a-un-archivo"><strong>1.3 - Renombrado y ruta a un archivo</strong></h3>
+<p>Para renombrar un archivo o moverlo a otra ubicación, podemos utilizar el módulo <code>os</code> de Python, que proporciona funciones para interactuar con el sistema operativo.  </p>
+<ul>
+<li><code>os.rename(origen, destino)</code> : Renombra un archivo o lo mueve si el destino incluye una ruta diferente.</li>
+<li><code>os.replace(origen, destino)</code> : Similar a <code>rename</code>, pero reemplaza el archivo destino si ya existe.</li>
+<li><code>os.listdir(ruta)</code> : Devuelve una lista con los ficheros y directorios contenidos en la ruta.</li>
+<li><code>os.getcwd()</code> : Devuelve la ruta completa del directorio actual.</li>
+<li><code>os.chdir(ruta)</code> : Cambia el directorio de trabajo actual.</li>
+<li><code>os.mkdir(ruta)</code> : Crea un nuevo directorio en la ruta indicada.</li>
+<li><code>os.makedirs(ruta)</code> : Crea directorios recursivamente, creando todos los directorios intermedios necesarios.</li>
+<li><code>os.rmdir(ruta)</code> : Borra el directorio indicado, siempre que esté vacío.</li>
+<li><code>os.path.exists(ruta)</code> : Devuelve True si la ruta existe, False en caso contrario.</li>
+</ul>
+<p><br></p>
+<p><strong>Ejemplo:</strong>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="c1"># Definicion de las rutas y el archivo</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="n">ruta_origen</span> <span class="o">=</span> <span class="s2">"docs/SMX/SMX_2/Opt_Python/code/UT5/"</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="n">ruta_destino</span> <span class="o">=</span> <span class="s2">"docs/SMX/SMX_2/Opt_Python/code/UT5/copias/"</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="n">archivo</span> <span class="o">=</span> <span class="s2">"fichero.txt"</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="n">archivo_nuevo</span> <span class="o">=</span> <span class="s2">"fichero_nuevo.txt"</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="c1"># Construccion de las rutas completas</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="n">origen</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ruta_origen</span><span class="p">,</span> <span class="n">archivo</span><span class="p">)</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="n">destino</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ruta_destino</span><span class="p">,</span> <span class="n">archivo_nuevo</span><span class="p">)</span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="c1"># Asegurarse de que la carpeta de destino existe</span>
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">ruta_destino</span><span class="p">):</span>
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">ruta_destino</span><span class="p">)</span>
+</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>
+</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="c1"># Renombrar o mover el archivo</span>
+</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">ruta_origen</span> <span class="o">+</span> <span class="n">archivo</span><span class="p">,</span> <span class="n">ruta_destino</span> <span class="o">+</span> <span class="n">archivo_nuevo</span><span class="p">)</span>
+</span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Archivo renombrado o movido correctamente."</span><span class="p">)</span>   
+</span></code></pre></div></p>
+<h3 id="14-leer-un-fichero-de-internet"><strong>1.4 - Leer un fichero de internet</strong></h3>
+<p>Python también permite leer archivos directamente desde internet utilizando módulos como <code>requests</code> o <code>urllib</code>. </p>
+<p><strong>Ejemplo con urllib:</strong>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">urllib</span><span class="w"> </span><span class="kn">import</span> <span class="n">request</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">urllib.parse</span><span class="w"> </span><span class="kn">import</span> <span class="n">urljoin</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="c1"># Definicion de las rutas y nombres de archivos</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="n">ruta_origen</span> <span class="o">=</span> <span class="s2">"https://www.gutenberg.org/cache/epub/51804/"</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="n">ruta_destino</span> <span class="o">=</span> <span class="s2">"docs/SMX/SMX_2/Opt_Python/code/UT5/"</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="n">archivo_origen</span> <span class="o">=</span> <span class="s2">"pg51804.txt"</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="n">archivo_nuevo</span> <span class="o">=</span> <span class="s2">"Plaga de pitones.txt"</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="c1"># Construccion de las rutas completas</span>
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="n">origen</span> <span class="o">=</span> <span class="n">urljoin</span><span class="p">(</span><span class="n">ruta_origen</span><span class="p">,</span> <span class="n">archivo_origen</span><span class="p">)</span>
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="n">destino</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ruta_destino</span><span class="p">,</span> <span class="n">archivo_nuevo</span><span class="p">)</span>
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>
+</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="c1"># Descargar el archivo desde Gutenberg</span>
+</span><span id="__span-12-16"><a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="n">fichero</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">origen</span><span class="p">)</span>
+</span><span id="__span-12-17"><a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="n">contenido_libro</span> <span class="o">=</span> <span class="n">fichero</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span><span id="__span-12-18"><a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a>
+</span><span id="__span-12-19"><a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a><span class="c1"># Guardar el contenido en el archivo local</span>
+</span><span id="__span-12-20"><a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">destino</span><span class="p">,</span> <span class="s1">'wb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">archivo</span><span class="p">:</span>  <span class="c1"># 'wb' porque es bytes</span>
+</span><span id="__span-12-21"><a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a>    <span class="n">archivo</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">contenido_libro</span><span class="p">)</span>
+</span><span id="__span-12-22"><a id="__codelineno-12-22" name="__codelineno-12-22" href="#__codelineno-12-22"></a>
+</span><span id="__span-12-23"><a id="__codelineno-12-23" name="__codelineno-12-23" href="#__codelineno-12-23"></a><span class="c1"># Leer el archivo </span>
+</span><span id="__span-12-24"><a id="__codelineno-12-24" name="__codelineno-12-24" href="#__codelineno-12-24"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">destino</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">)</span> <span class="k">as</span> <span class="n">archivo</span><span class="p">:</span>
+</span><span id="__span-12-25"><a id="__codelineno-12-25" name="__codelineno-12-25" href="#__codelineno-12-25"></a>    <span class="k">for</span> <span class="n">lineas</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">25</span><span class="p">):</span>
+</span><span id="__span-12-26"><a id="__codelineno-12-26" name="__codelineno-12-26" href="#__codelineno-12-26"></a>        <span class="nb">print</span><span class="p">(</span><span class="n">archivo</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> 
+</span></code></pre></div></p>
+<h3 id="tarea-ra5-cee"><strong>Tarea RA5-CEe</strong></h3>
+<div class="admonition excercise">
+<p class="admonition-title">Descargar y modificar un archivo.txt desde internet</p>
+<ol>
+<li>Escribir un programa en Python que haga lo siguiente:    <ul>
+<li>Descargar un archivo de texto desde la URL proporcionada: <a href="../code/UT5/fichero.txt">descargar archivo</a></li>
+<li>Guardar el archivo en una ubicación local con un nombre específico (p.e. vuestro nombre).</li>
+<li>Abrir el archivo y multiplicar el valor numérico que aparece en cada línea por 2.</li>
+<li>Guardar los resultados en un nuevo archivo de texto llamado "resultados.txt".
+Podéis usar cualquiera de los métodos write o writelines para guardar los resultados.</li>
+</ul>
+</li>
+</ol>
+</div>
+<p><br ></p>
+<h3 id="15-poo-y-manejo-de-ficheros"><strong>1.5 - POO y manejo de ficheros</strong></h3>
+<p><strong>Ejemplo de una clase que maneja ficheros:</strong></p>
+<details class="note">
+<summary>Clase LeerArchivo</summary>
+<div class="language-py highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">LeerArchivo</span><span class="p">:</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ruta</span><span class="p">,</span> <span class="n">nombre</span><span class="p">):</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">ruta</span> <span class="o">=</span> <span class="n">ruta</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">nombre</span> <span class="o">=</span> <span class="n">nombre</span>        
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">lista_lineas</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">plano_lineas</span> <span class="o">=</span> <span class="s2">""</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">cantidad</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">lectura_exitosa</span> <span class="o">=</span> <span class="kc">False</span>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>        <span class="k">try</span><span class="p">:</span>
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ruta</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">nombre</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">lista_lineas</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>                <span class="n">file</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">plano_lineas</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">cantidad</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lista_lineas</span><span class="p">)</span>
+</span><span id="__span-13-16"><a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">lectura_exitosa</span> <span class="o">=</span> <span class="kc">True</span>
+</span><span id="__span-13-17"><a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a>        <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+</span><span id="__span-13-18"><a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a>            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Error: El archivo '</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">nombre</span><span class="si">}</span><span class="s2">' no se encontró en la ruta '</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">ruta</span><span class="si">}</span><span class="s2">'."</span><span class="p">)</span>
+</span><span id="__span-13-19"><a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a>        <span class="k">except</span> <span class="ne">IOError</span><span class="p">:</span>
+</span><span id="__span-13-20"><a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a>            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Error: No se pudo abrir el archivo '</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">nombre</span><span class="si">}</span><span class="s2">'."</span><span class="p">)</span>
+</span><span id="__span-13-21"><a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a>
+</span><span id="__span-13-22"><a id="__codelineno-13-22" name="__codelineno-13-22" href="#__codelineno-13-22"></a>
+</span><span id="__span-13-23"><a id="__codelineno-13-23" name="__codelineno-13-23" href="#__codelineno-13-23"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">leer_lineas</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-13-24"><a id="__codelineno-13-24" name="__codelineno-13-24" href="#__codelineno-13-24"></a>        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span><span id="__span-13-25"><a id="__codelineno-13-25" name="__codelineno-13-25" href="#__codelineno-13-25"></a>          <span class="n">indice_linea</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Introduce el número de línea a leer entre (1 y </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">cantidad</span><span class="si">}</span><span class="s2">)/"</span>
+</span><span id="__span-13-26"><a id="__codelineno-13-26" name="__codelineno-13-26" href="#__codelineno-13-26"></a>          <span class="s2">"o 'salir' para terminar: "</span><span class="p">)</span>
+</span><span id="__span-13-27"><a id="__codelineno-13-27" name="__codelineno-13-27" href="#__codelineno-13-27"></a>
+</span><span id="__span-13-28"><a id="__codelineno-13-28" name="__codelineno-13-28" href="#__codelineno-13-28"></a>          <span class="k">if</span> <span class="n">indice_linea</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">'salir'</span><span class="p">:</span>
+</span><span id="__span-13-29"><a id="__codelineno-13-29" name="__codelineno-13-29" href="#__codelineno-13-29"></a>              <span class="nb">print</span><span class="p">(</span><span class="s2">"Saliendo de la lectura de líneas..."</span><span class="p">)</span>
+</span><span id="__span-13-30"><a id="__codelineno-13-30" name="__codelineno-13-30" href="#__codelineno-13-30"></a>              <span class="k">break</span>
+</span><span id="__span-13-31"><a id="__codelineno-13-31" name="__codelineno-13-31" href="#__codelineno-13-31"></a>
+</span><span id="__span-13-32"><a id="__codelineno-13-32" name="__codelineno-13-32" href="#__codelineno-13-32"></a>          <span class="k">if</span> <span class="ow">not</span> <span class="n">indice_linea</span><span class="o">.</span><span class="n">isdigit</span><span class="p">():</span>
+</span><span id="__span-13-33"><a id="__codelineno-13-33" name="__codelineno-13-33" href="#__codelineno-13-33"></a>              <span class="nb">print</span><span class="p">(</span><span class="s2">"Error: Debes introducir un número"</span><span class="p">)</span>
+</span><span id="__span-13-34"><a id="__codelineno-13-34" name="__codelineno-13-34" href="#__codelineno-13-34"></a>              <span class="k">continue</span>
+</span><span id="__span-13-35"><a id="__codelineno-13-35" name="__codelineno-13-35" href="#__codelineno-13-35"></a>
+</span><span id="__span-13-36"><a id="__codelineno-13-36" name="__codelineno-13-36" href="#__codelineno-13-36"></a>          <span class="n">indice_linea</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">indice_linea</span><span class="p">)</span>
+</span><span id="__span-13-37"><a id="__codelineno-13-37" name="__codelineno-13-37" href="#__codelineno-13-37"></a>
+</span><span id="__span-13-38"><a id="__codelineno-13-38" name="__codelineno-13-38" href="#__codelineno-13-38"></a>          <span class="k">if</span> <span class="ow">not</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">indice_linea</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cantidad</span><span class="p">):</span> 
+</span><span id="__span-13-39"><a id="__codelineno-13-39" name="__codelineno-13-39" href="#__codelineno-13-39"></a>              <span class="nb">print</span><span class="p">(</span><span class="s2">"Error: Debes introducir un número entre 1 y"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cantidad</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-13-40"><a id="__codelineno-13-40" name="__codelineno-13-40" href="#__codelineno-13-40"></a>              <span class="k">continue</span>
+</span><span id="__span-13-41"><a id="__codelineno-13-41" name="__codelineno-13-41" href="#__codelineno-13-41"></a>
+</span><span id="__span-13-42"><a id="__codelineno-13-42" name="__codelineno-13-42" href="#__codelineno-13-42"></a>          <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"La linea </span><span class="si">{</span><span class="n">indice_linea</span><span class="si">}</span><span class="s2"> tiene el siguiente contenido:"</span><span class="p">)</span>
+</span><span id="__span-13-43"><a id="__codelineno-13-43" name="__codelineno-13-43" href="#__codelineno-13-43"></a>          <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lista_lineas</span><span class="p">[</span><span class="n">indice_linea</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+</span><span id="__span-13-44"><a id="__codelineno-13-44" name="__codelineno-13-44" href="#__codelineno-13-44"></a>
+</span><span id="__span-13-45"><a id="__codelineno-13-45" name="__codelineno-13-45" href="#__codelineno-13-45"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">leer_linea_a_linea</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-13-46"><a id="__codelineno-13-46" name="__codelineno-13-46" href="#__codelineno-13-46"></a>        <span class="k">for</span> <span class="n">linea</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">lista_lineas</span><span class="p">:</span>
+</span><span id="__span-13-47"><a id="__codelineno-13-47" name="__codelineno-13-47" href="#__codelineno-13-47"></a>            <span class="nb">print</span><span class="p">(</span><span class="n">linea</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+</span><span id="__span-13-48"><a id="__codelineno-13-48" name="__codelineno-13-48" href="#__codelineno-13-48"></a>            <span class="nb">input</span><span class="p">(</span><span class="s2">"Pulsa Enter para continuar..."</span><span class="p">)</span>
+</span><span id="__span-13-49"><a id="__codelineno-13-49" name="__codelineno-13-49" href="#__codelineno-13-49"></a>
+</span><span id="__span-13-50"><a id="__codelineno-13-50" name="__codelineno-13-50" href="#__codelineno-13-50"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">leer_todo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span id="__span-13-51"><a id="__codelineno-13-51" name="__codelineno-13-51" href="#__codelineno-13-51"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">plano_lineas</span>
+</span><span id="__span-13-52"><a id="__codelineno-13-52" name="__codelineno-13-52" href="#__codelineno-13-52"></a>
+</span><span id="__span-13-53"><a id="__codelineno-13-53" name="__codelineno-13-53" href="#__codelineno-13-53"></a><span class="c1"># Programa principal</span>
+</span><span id="__span-13-54"><a id="__codelineno-13-54" name="__codelineno-13-54" href="#__codelineno-13-54"></a><span class="n">ruta_defecto</span> <span class="o">=</span> <span class="s2">"docs/SMX/SMX_2/Opt_Python/code/UT5/"</span>
+</span><span id="__span-13-55"><a id="__codelineno-13-55" name="__codelineno-13-55" href="#__codelineno-13-55"></a><span class="n">archivo_defecto</span> <span class="o">=</span> <span class="s2">"archivo.txt"</span>
+</span><span id="__span-13-56"><a id="__codelineno-13-56" name="__codelineno-13-56" href="#__codelineno-13-56"></a>
+</span><span id="__span-13-57"><a id="__codelineno-13-57" name="__codelineno-13-57" href="#__codelineno-13-57"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"|------------------------------------------------------------|"</span><span class="p">)</span>
+</span><span id="__span-13-58"><a id="__codelineno-13-58" name="__codelineno-13-58" href="#__codelineno-13-58"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"| Bienvenido a mi programa de apertura y lectura de archivos |"</span><span class="p">)</span>
+</span><span id="__span-13-59"><a id="__codelineno-13-59" name="__codelineno-13-59" href="#__codelineno-13-59"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"|------------------------------------------------------------|"</span><span class="p">)</span>
+</span><span id="__span-13-60"><a id="__codelineno-13-60" name="__codelineno-13-60" href="#__codelineno-13-60"></a><span class="nb">input</span><span class="p">(</span><span class="s2">"(Pulsa Enter para continuar)</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-13-61"><a id="__codelineno-13-61" name="__codelineno-13-61" href="#__codelineno-13-61"></a>
+</span><span id="__span-13-62"><a id="__codelineno-13-62" name="__codelineno-13-62" href="#__codelineno-13-62"></a><span class="n">nombre_archivo</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Introduce el nombre del archivo a abrir: "</span><span class="p">)</span>
+</span><span id="__span-13-63"><a id="__codelineno-13-63" name="__codelineno-13-63" href="#__codelineno-13-63"></a><span class="n">ruta_archivo</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Introduce la ruta del archivo a abrir: "</span><span class="p">)</span>
+</span><span id="__span-13-64"><a id="__codelineno-13-64" name="__codelineno-13-64" href="#__codelineno-13-64"></a><span class="nb">input</span><span class="p">(</span><span class="s2">"(Pulsa Enter para continuar)</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-13-65"><a id="__codelineno-13-65" name="__codelineno-13-65" href="#__codelineno-13-65"></a>
+</span><span id="__span-13-66"><a id="__codelineno-13-66" name="__codelineno-13-66" href="#__codelineno-13-66"></a><span class="k">if</span> <span class="n">ruta_archivo</span> <span class="o">==</span> <span class="s2">""</span><span class="p">:</span>
+</span><span id="__span-13-67"><a id="__codelineno-13-67" name="__codelineno-13-67" href="#__codelineno-13-67"></a>    <span class="n">ruta</span> <span class="o">=</span> <span class="n">ruta_defecto</span>
+</span><span id="__span-13-68"><a id="__codelineno-13-68" name="__codelineno-13-68" href="#__codelineno-13-68"></a><span class="k">if</span> <span class="n">nombre_archivo</span> <span class="o">==</span> <span class="s2">""</span><span class="p">:</span>
+</span><span id="__span-13-69"><a id="__codelineno-13-69" name="__codelineno-13-69" href="#__codelineno-13-69"></a>    <span class="n">nombre</span> <span class="o">=</span> <span class="n">archivo_defecto</span>
+</span><span id="__span-13-70"><a id="__codelineno-13-70" name="__codelineno-13-70" href="#__codelineno-13-70"></a>
+</span><span id="__span-13-71"><a id="__codelineno-13-71" name="__codelineno-13-71" href="#__codelineno-13-71"></a><span class="n">archivo</span> <span class="o">=</span> <span class="n">LeerArchivo</span><span class="p">(</span><span class="n">ruta</span><span class="p">,</span> <span class="n">nombre</span><span class="p">)</span>
+</span><span id="__span-13-72"><a id="__codelineno-13-72" name="__codelineno-13-72" href="#__codelineno-13-72"></a>
+</span><span id="__span-13-73"><a id="__codelineno-13-73" name="__codelineno-13-73" href="#__codelineno-13-73"></a>
+</span><span id="__span-13-74"><a id="__codelineno-13-74" name="__codelineno-13-74" href="#__codelineno-13-74"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"|----------------------------------------|"</span><span class="p">)</span>
+</span><span id="__span-13-75"><a id="__codelineno-13-75" name="__codelineno-13-75" href="#__codelineno-13-75"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"| (1) Para leer la totalidad del archivo |"</span><span class="p">)</span>
+</span><span id="__span-13-76"><a id="__codelineno-13-76" name="__codelineno-13-76" href="#__codelineno-13-76"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"| (2) Para leer el archivo linea a linea |"</span><span class="p">)</span>
+</span><span id="__span-13-77"><a id="__codelineno-13-77" name="__codelineno-13-77" href="#__codelineno-13-77"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"| (3) Para leer una linea del archivo    |"</span><span class="p">)</span>
+</span><span id="__span-13-78"><a id="__codelineno-13-78" name="__codelineno-13-78" href="#__codelineno-13-78"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"| (0) Para salir del programa            |"</span><span class="p">)</span>
+</span><span id="__span-13-79"><a id="__codelineno-13-79" name="__codelineno-13-79" href="#__codelineno-13-79"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"|----------------------------------------|"</span><span class="p">)</span>
+</span><span id="__span-13-80"><a id="__codelineno-13-80" name="__codelineno-13-80" href="#__codelineno-13-80"></a><span class="n">eleccion</span>  <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Elegir la opción (0, para salir): "</span><span class="p">)</span>
+</span><span id="__span-13-81"><a id="__codelineno-13-81" name="__codelineno-13-81" href="#__codelineno-13-81"></a>
+</span><span id="__span-13-82"><a id="__codelineno-13-82" name="__codelineno-13-82" href="#__codelineno-13-82"></a><span class="k">match</span> <span class="n">eleccion</span><span class="p">:</span>
+</span><span id="__span-13-83"><a id="__codelineno-13-83" name="__codelineno-13-83" href="#__codelineno-13-83"></a>    <span class="k">case</span> <span class="s2">"0"</span><span class="p">:</span>
+</span><span id="__span-13-84"><a id="__codelineno-13-84" name="__codelineno-13-84" href="#__codelineno-13-84"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">"Saliendo del programa..."</span><span class="p">)</span>
+</span><span id="__span-13-85"><a id="__codelineno-13-85" name="__codelineno-13-85" href="#__codelineno-13-85"></a>        <span class="n">exit</span><span class="p">()</span>
+</span><span id="__span-13-86"><a id="__codelineno-13-86" name="__codelineno-13-86" href="#__codelineno-13-86"></a>    <span class="k">case</span> <span class="s2">"1"</span><span class="p">:</span>
+</span><span id="__span-13-87"><a id="__codelineno-13-87" name="__codelineno-13-87" href="#__codelineno-13-87"></a>        <span class="nb">print</span><span class="p">(</span> <span class="s2">"Contenido completo del archivo:"</span><span class="p">)</span>
+</span><span id="__span-13-88"><a id="__codelineno-13-88" name="__codelineno-13-88" href="#__codelineno-13-88"></a>        <span class="nb">print</span><span class="p">(</span><span class="n">archivo</span><span class="o">.</span><span class="n">leer_todo</span><span class="p">())</span>
+</span><span id="__span-13-89"><a id="__codelineno-13-89" name="__codelineno-13-89" href="#__codelineno-13-89"></a>    <span class="k">case</span> <span class="s2">"2"</span><span class="p">:</span>
+</span><span id="__span-13-90"><a id="__codelineno-13-90" name="__codelineno-13-90" href="#__codelineno-13-90"></a>        <span class="n">archivo</span><span class="o">.</span><span class="n">leer_linea_a_linea</span><span class="p">()</span>
+</span><span id="__span-13-91"><a id="__codelineno-13-91" name="__codelineno-13-91" href="#__codelineno-13-91"></a>    <span class="k">case</span> <span class="s2">"3"</span><span class="p">:</span>
+</span><span id="__span-13-92"><a id="__codelineno-13-92" name="__codelineno-13-92" href="#__codelineno-13-92"></a>        <span class="n">archivo</span><span class="o">.</span><span class="n">leer_lineas</span><span class="p">()</span>
+</span><span id="__span-13-93"><a id="__codelineno-13-93" name="__codelineno-13-93" href="#__codelineno-13-93"></a>    <span class="k">case</span><span class="w"> </span><span class="s2">"</span><span class="k">_</span><span class="s2">":</span>
+</span><span id="__span-13-94"><a id="__codelineno-13-94" name="__codelineno-13-94" href="#__codelineno-13-94"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">"Opción no válida. Por favor, elige una opción del 0 al 4."</span><span class="p">)</span>
+</span></code></pre></div>
+</details>
+<h3 id="tarea-ra4-cee"><strong>Tarea RA4-CEe</strong></h3>
+<div class="admonition excercise">
+<p class="admonition-title">Método escribir en un archivo</p>
+<ol>
+<li>Revisar el programa anterior para entender su lógica y realizar lo siguiente.<ul>
+<li>Ampliar la clase <strong>LeerArchivo</strong> añadiendo un método que permitirá añadir una linea al archivo abierto. </li>
+</ul>
+</li>
+<li>El nuevo método debe llamarse <strong>escribir_linea(self, ...)</strong> y debe hacer lo siguiente:<ul>
+<li>Pedir por consola al usuario la información a añadir (una línea de texto)</li>
+<li>Escribir esa línea nueva <strong>al final del archivo</strong>.</li>
+<li>Guardar y cerrar el archivo. </li>
+</ul>
+</li>
+</ol>
+</div>
+<!-- poner __str__()
+ https://hektorprofe.github.io/python/herencia-en-la-poo/ejercicios/  -->
+
+<!-- === "RA 1"
+    |RA1. Reconoce la estructura de un programa informático, identificando y relacionando los elementos propios del lenguaje de programación utilizado.|Peso|
+    |-|-|
+    *|**a)** Se han identificado los bloques que componen la estructura de un programa informático. |12%|
+    *|**b)** Se han respetado las especificaciones técnicas del proceso de instalación. |11%|
+    *|**c)** Se han utilizado entornos integrados de desarrollo. |11%|
+    *|**d)** Se han identificado los distintos tipos de variables y la utilidad específica de cada uno. |11%|
+    *|**e)** Se ha modificado el código de un programa para crear y utilizar variables. |11%|
+    *|**f)** Se han creado y utilizado constantes y literales. |11%|
+    *|**g)** Se han clasificado, reconocido y utilizado en expresiones los operadores del lenguaje. |11%|
+    *|**h)** Se ha comprobado el funcionamiento de las conversiones de tipo explícitas e implícitas. |11%|
+    *|**i)** Se han introducido comentarios en el código. |11%|
+
+
+=== "RA 2"
+    |RA2. Escribe y prueba programas sencillos, reconociendo y aplicando los fundamentos de la programación orientada a objetos.|Peso|
+    |-|-|
+    *|**a)** Se han identificado los fundamentos de la programación orientada a objetos. |12%|    
+    *|**c)** Se han instanciado objetos a partir de clases predefinidas.|11%|
+    *|**d)** Se han utilizado métodos y propiedades de los objetos.|11%|
+    *|**e)** Se han escrito llamadas a métodos estáticos.|11%|
+    *|**f)** Se han utilizado parámetros en la llamada a métodos.|11%|
+
+=== "RA 3"
+    |RA3. Escribe y depura código, analizando y utilizando las estructuras de control del lenguaje.|Peso|
+    |-|-|
+    *|**a)** Se ha escrito y probado código que haga uso de estructuras de selección.|12%|
+    *|**b)** Se han utilizado estructuras de repetición.|11%|
+    *|**c)** Se han reconocido las posibilidades de las sentencias de salto.|11%|
+    *|**d)** Se ha escrito código utilizando control de excepciones.|11%|
+    *|**e)** Se han creado programas ejecutables utilizando diferentes estructuras de control.|11%|
+    *|**h)** Se han creado excepciones.|11%|
+    *|**i)** Se han utilizado aserciones para la detección y corrección de errores durante la fase de desarrollo.|11%|
+
+=== "RA 4"
+    |RA4. Desarrolla programas organizados en clases analizando y aplicando los principios de la programación orientada a objetos.|Peso|
+    |-|-|
+    *|**a)** Se ha reconocido la sintaxis, estructura y componentes típicos de una clase.|12%|
+    |**b)** Se han definido clases.|11%|
+    |**c)** Se han definido propiedades y métodos.|11%|
+    |**d)** Se han creado constructores.|11%|
+    |**e)** Se han desarrollado programas que instancien y utilicen objetos de las clases creadas anteriormente.|11%|
+
+=== "RA 5"
+    |RA5. Realiza operaciones de entrada y salida de información, utilizando procedimientos específicos del lenguaje y librerías de clases.|Peso|
+    |-|-|
+    *|**a)** Se ha utilizado la consola para realizar operaciones de entrada y salida de información.|16%|
+    *|**b)** Se han aplicado formatos en la visualización de la información.|12%|
+    *|**c)** Se han reconocido las posibilidades de entrada / salida del lenguaje y las librerías asociadas.|12%|
+    *|**d)** Se han utilizado ficheros para almacenar y recuperar información.|12%|
+    *|**e)** Se han creado programas que utilicen diversos métodos de acceso al contenido de los ficheros.|12%|
+    |**f)** Se han utilizado las herramientas del entorno de desarrollo para crear interfaces gráficos de usuario simples.|12%|
+    |**g)** Se han programado controladores de eventos.|12%|
+    |**h)** Se han escrito programas que utilicen interfaces gráficos para la entrada y salida de información.|12%|
+
+=== "RA 6"
+    |RA6. Escribe programas que manipulen información, seleccionando y utilizando tipos avanzados de datos.|Peso|
+    |-|-|
+    |**c)** Se han utilizado listas para almacenar y procesar información.|10%|
+    |**e)** Se han reconocido las características y ventajas de cada una de las colecciones de datos disponibles.|10%|
+    |**f)** Se han creado clases y métodos genéricos.|10%|
+    |**g)** Se han utilizado expresiones regulares en la búsqueda de patrones en cadenas de texto.|10%|
+    |**i)** Se han realizado programas que realicen manipulaciones sobre documentos escritos en diferentes lenguajes de intercambio de datos.|10%|
+    |**j)** Se han utilizado operaciones agregadas para el manejo de información almacenada en colecciones.|10%| 
+-->
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 - Javier Egea Blasco
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress - navigation.expand - navigation.path", "navigation.instant.progress", "navigation.instant.preview", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "toc.follow", "navigation.footer", "navigation.top", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.tabs.link"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

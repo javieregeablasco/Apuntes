@@ -1,0 +1,3085 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Javier Egea Blasco">
+      
+      
+        <link rel="canonical" href="https://javieregeablasco.github.io/Apuntes/DAW/DAW_2/AWS/UT.%205-Instancias/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Introducción a la nube pública - Javier Egea Blasco</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ut-5-instancias-y-seguridad-en-aws" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../../../.." title="Javier Egea Blasco" class="md-header__button md-logo" aria-label="Javier Egea Blasco" data-md-component="logo">
+      
+  <img src="../../../../assets/mre.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Javier Egea Blasco
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Introducción a la nube pública
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Compartir" aria-label="Compartir" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../SMX/SMX_1/AO/00_Temario/" class="md-tabs__link">
+          
+  
+  
+  Aplicaciones Ofimáticas
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../SMX/SMX_2/SX/apuntes/00_Temario/" class="md-tabs__link">
+          
+  
+  
+  Servicios en redes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../PWES/UT.%200-Temario/" class="md-tabs__link">
+          
+  
+  
+  Under development
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Javier Egea Blasco" class="md-nav__button md-logo" aria-label="Javier Egea Blasco" data-md-component="logo">
+      
+  <img src="../../../../assets/mre.png" alt="logo">
+
+    </a>
+    Javier Egea Blasco
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aplicaciones Ofimáticas
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Aplicaciones Ofimáticas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_1/AO/00_Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Presentación módulo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_1/AO/01_Instalacion%20de%20aplicaciones%20ofimaticas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 1 - Instalación de aplicaciones Ofimáticas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 2 - Procesadores de texto
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UT 2 - Procesadores de texto
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_1/AO/02_Procesadores_de_texto/021_Procesadores_de_texto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 21 - Características de los procesadores de texto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_1/AO/02_Procesadores_de_texto/022_LibreOffice_Writer_Instalacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 22 - Instalación de LibreOffice Writer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_1/AO/02_Procesadores_de_texto/023_LibreOffice_Writer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 23 - LibreOffice Writer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_1/AO/03_Hojas%20de%20calculo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 3 - Hojas de cálculo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_1/AO/07_Presentaciones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 4 - Presentaciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_1/AO/04_Bases%20de%20datos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 5 - Bases de datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_1/AO/05_Imagenes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 6 - Edición de imágenes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_1/AO/06_Captura%20e%20edicion%20de%20video/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 7 - Edición de vídeos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_1/AO/08_Correo%20electronico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 8 - Agenda electrónica y comunicación
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_1/AO/09_Resolucion%20de%20incidencias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 9 - Gestión de incidencias
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Servicios en redes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Servicios en redes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_2/SX/apuntes/00_Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Presentación módulo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_2/SX/apuntes/01_Redes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Redes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_2/SX/apuntes/02_TCP-IP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocolo TCP/IP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_2/SX/apuntes/03_Conexiones-remotas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Acceso y control remoto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_2/SX/apuntes/04_DHCP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocolo DHCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_2/SX/apuntes/05_DNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocolo DNS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Under development
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Under development
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PWES/UT.%200-Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Presentación módulo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 - Introducción
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-instancias-ec2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 - Instancias EC2
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 - Instancias EC2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-instancias-de-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 - Instancias de AWS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-ami-amazon-machine-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 - AMI (Amazon Machine Image)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 - AMI (Amazon Machine Image)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221-tipos-de-ami" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.1 - Tipos de AMI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222-regiones-y-amis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.2 - Regiones y AMIs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#223-crear-una-ami" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.3 - Crear una AMI
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-ebs-elastic-block-store" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 - EBS (Elastic Block Store)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 - EBS (Elastic Block Store)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231-concepto-basico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.1 - Concepto básico
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#232-uso-con-ec2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.2 - Uso con EC2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#233-otros-tipos-de-almacenamientos-de-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3.3 - Otros tipos de almacenamientos de AWS
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-tarea-ra2-ceb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 - Tarea RA2-CEb
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4 - Tarea RA2-CEb">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#241-infraestructura-de-red-basica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.1 - Infraestructura de red básica
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#242-lanzar-instancia-14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.2 - Lanzar instancia 1/4
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#243-lanzar-instancia-24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.3 - Lanzar instancia 2/4
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#244-lanzar-instancia-34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.4 - Lanzar instancia 3/4
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#245-lanzar-instancia-44" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.5 - Lanzar instancia 4/4
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#246-panel-de-control-de-las-instancias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.6 - Panel de control de las instancias
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#247-conexion-remota-con-la-instancia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.7 - Conexión remota con la instancia
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#248-conexion-con-la-instancia-desde-la-consola-de-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.8 - Conexión con la instancia desde la consola de AWS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#249-realizar-ping-a-la-instancia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.9 - Realizar Ping a la instancia
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2410-modificar-el-tamano-de-un-ebs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.10 - Modificar el tamaño de un EBS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2411-anadir-un-ebs-a-la-instancia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.11 - Añadir un EBS a la instancia
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2412-condiciones-de-entrega-de-la-tarea-ra2-ceb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.12 - Condiciones de entrega de la tarea RA2-CEb
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-grupos-de-seguridad-sg-y-listas-de-control-de-acceso-acl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 - Grupos de seguridad (SG) y listas de control de acceso (ACL)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 - Grupos de seguridad (SG) y listas de control de acceso (ACL)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 - Introducción
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-grupos-de-seguridad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 - Grupos de seguridad
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-ejemplo-de-sg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 - Ejemplo de SG
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-tarea-ra2-cec-parte-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 - Tarea RA2-CEc (parte 1)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-acl-de-red" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 - ACL de red
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#37-tabla-comparativa-entre-sg-y-acl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.7 - Tabla comparativa entre SG y ACL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#38-tarea-ra2-cec-parte-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.8 - Tarea RA2-CEc (parte 2)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#39-tarea-ra2-cec-parte-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.9 - Tarea RA2-CEc (parte 3)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#310-condiciones-de-entrega-de-la-tarea-ra2-cec" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.10 - Condiciones de entrega de la tarea RA2-CEc
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-nat-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 - NAT gateway
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4 - NAT gateway">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-caracteristicas-de-un-nat-gateway-de-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 - Características de un NAT Gateway de AWS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-tipos-de-despliegue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 - Tipos de despliegue
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-tarea-ra2-ced" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 - Tarea RA2-CEd
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#431-crear-el-nat-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3.1 - Crear el NAT Gateway
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#432-modificar-la-tabla-de-enrutamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3.2 - Modificar la tabla de enrutamiento
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#433-conexion-a-la-ec2-de-la-subred-privada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3.3 - Conexión a la EC2 de la subred privada
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#434-condiciones-de-entrega-de-la-tarea-ra2-ced" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3.4 - Condiciones de entrega de la tarea RA2-CEd
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-reglas-encadenadas-en-grupos-de-seguridad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 - Reglas encadenadas en grupos de seguridad
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5 - Reglas encadenadas en grupos de seguridad">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tarea-ra3-ceab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tarea RA3-CEab
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-caso-practico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6 - Caso práctico
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6 - Caso práctico">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tarea-ra3-cec-montar-un-servidor-web-y-una-base-de-datos-mysql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tarea RA3-CEc: Montar un servidor web y una base de datos mysql
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enlaces-de-interes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enlaces de interés
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="ut-5-instancias-y-seguridad-en-aws"><strong>UT. 5 - Instancias y seguridad en AWS</strong></h1>
+<p><img alt="Descripción de la imagen" class="sietecinco" src="../ut5/initi.png" /></p>
+<p><br></p>
+<p><strong>Resultados de aprendizaje y criterios de evaluacion que se evaluarán en esta unidad.</strong>  </p>
+<table>
+<thead>
+<tr>
+<th><strong>Resultados de aprendizaje de la unidad didáctica:</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RA. 2:</strong> Identifica los componentes clave de la infraestructura global de la nube, diferenciando servicios principales, regiones, zonas de disponibilidad y aplicando medidas básicas de seguridad como el modelo de responsabilidad compartida, gestión de accesos y protección de datos.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><strong>Criterios de evaluación de la unidad didáctica:</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>b)</strong> Se ha demostrado la capacidad para explorar y describir las principales categorías de servicios disponibles.</td>
+</tr>
+<tr>
+<td><strong>c)</strong> Se ha realizado una evaluación del uso adecuado de servicios básicos en ejercicios prácticos.</td>
+</tr>
+<tr>
+<td><strong>d)</strong> Se ha comprendido el modelo de responsabilidad compartida en la nube.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><strong>Resultados de aprendizaje de la unidad didáctica:</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RA. 3:</strong> Diseña y configura redes virtuales y servicios de cómputo en la nube, aplicando buenas prácticas de seguridad, estrategias de balanceo de carga, escalado automático y aprovechando tecnologías serverless, contenedores y máquinas virtuales según casos de uso específicos.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><strong>Criterios de evaluación de la unidad didáctica:</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>a)</strong> Se ha realizado el diseño y configuración de redes virtuales privadas.</td>
+</tr>
+<tr>
+<td><strong>b)</strong> Se ha aplicado buenas prácticas de seguridad en redes y arquitecturas.</td>
+</tr>
+<tr>
+<td><strong>c)</strong> Se ha participado activamente en la creación y configuración de una red funcional.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h2 id="1-introduccion"><strong>1 - Introducción</strong></h2>
+<p>Uno de los servicios más utilizados de AWS es <strong>Amazon EC2 (Elastic Compute Cloud)</strong>, que permite lanzar y administrar <strong>instancias</strong>, es decir, <strong>máquinas virtuales</strong> que funcionan de manera similar a un ordenador físico.  </p>
+<p>Estas <strong>instancias</strong> pueden configurarse con distintos sistemas operativos, hardware para adaptarse a las necesidades de cada proyecto (aplicación web, base de datos...).</p>
+<p>Al igual que cualquier dispositivo, las instancias necesitan un mecanismo de control de tráfico para <strong>garantizar su seguridad</strong>. En este contexto aparecen los <strong>grupos de seguridad</strong> (Security Groups, SG). Un grupo de seguridad no es más que un <strong>firewall virtual</strong>, que supervisa y restrinje el tráfico entrante y saliente de las instancias.</p>
+<p>En conjunto, las EC2 y los SG constituyen la base de la infraestructura en la nube: las instancias proporcionan la capacidad de cómputo, mientras que los grupos de seguridad ofrecen la primera línea de defensa para proteger los recursos desplegados.</p>
+<h2 id="2-instancias-ec2"><strong>2 - Instancias EC2</strong></h2>
+<h3 id="21-instancias-de-aws"><strong>2.1 - Instancias de AWS</strong></h3>
+<p>Como hemos dicho, una instancia EC2 (<strong>E</strong>lastic <strong>C</strong>loud <strong>C</strong>ompute) es básicamente una computadora en la nube.<br />
+<strong>Al igual que los equipos físicos</strong>, las instancias se caracterizan por una serie de características como potencia de computo, RAM y otras características que veremos a continuación.</p>
+<p><strong>Nomenclatura de las instancias EC2</strong><br />
+El nombre de la instancia define las especificaciones de la misma es decir, la familia, la generación, la capacidad adicional y el tamaño.</p>
+<p><img alt="" class="doscinco" src="../ut5/ec2.webp" /></p>
+<ul>
+<li>
+<p><strong>Familia</strong><br />
+La familia define la optimización principal de la máquina, dicho en otras palabras, el uso preferente que debemos dar a esas máquinas.  </p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Familia</th>
+<th>Aplicación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">C</td>
+<td>Compute Optimized. Para cargas de trabajo que requieren mucha CPU (alta      relación CPU/memoria).</td>
+</tr>
+<tr>
+<td style="text-align: center;">M</td>
+<td>General Purpose. Equilibrio entre CPU, memoria y almacenamiento. Usadas para       la mayoría de aplicaciones estándar.</td>
+</tr>
+<tr>
+<td style="text-align: center;">R</td>
+<td>Memory Optimized. Diseñadas para cargas de trabajo que requieren gran     cantidad de memoria en relación con la CPU.</td>
+</tr>
+<tr>
+<td style="text-align: center;">I</td>
+<td>Storage Optimized (I/O Optimized). Pensadas para cargas que requieren     altísimo rendimiento en disco local (NVMe/SSD).</td>
+</tr>
+<tr>
+<td style="text-align: center;">G</td>
+<td><strong>Graphics / GPU-based</strong>. Para machine learning (basadas en GPU NVIDIA).</td>
+</tr>
+<tr>
+<td style="text-align: center;">P</td>
+<td><strong>Accelerated Computing (GPU)</strong>. Para entrenamiento de deep learning,     computación científica, simulaciones de alto nivel.</td>
+</tr>
+<tr>
+<td style="text-align: center;">X</td>
+<td>Extra Memory Optimized. Instancias con terabytes de RAM, usadas para grandes       bases de datos o aplicaciones que requieren mucha memoria.</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>Generación</strong><br />
+Representan la evolución tecnológica de las instancias. Cada nueva generación trae mejor rendimiento, menor coste por hora y mejor eficiencia energética.<br />
+La generación de una instancia EC2 se identifica por el número que acompaña a la familia.<br><br />
+<strong>Ejemplos:</strong>  </p>
+<table>
+<thead>
+<tr>
+<th>Instancias</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>t<strong>2</strong>.micro</td>
+<td>2ª generación de instancias de uso general.</td>
+</tr>
+<tr>
+<td>t<strong>3</strong>.micro</td>
+<td>3ª generación, más eficiente que t2.</td>
+</tr>
+<tr>
+<td>t<strong>4</strong>g.micro</td>
+<td>4ª generación, basada en procesadores ARM Graviton2 de AWS.</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>Capacidad adicional</strong><br />
+La capacidad adicional de EC2 se refiere a esas optimizaciones extra (almacenamiento, red, EBS, GPU, bare metal, etc.) que hacen que dos instancias de la misma familia y tamaño puedan comportarse de forma distinta.<br />
+Las letras utilizadas en el nombre de instancia y las propiedades asociadas se explican en la tabla siguiente.  </p>
+<table>
+<thead>
+<tr>
+<th>Nombre</th>
+<th>Propiedad</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a</td>
+<td>Procesador AMD</td>
+<td>m5a</td>
+</tr>
+<tr>
+<td>d</td>
+<td>Almacenamiento SSD NVMe local</td>
+<td>m5d</td>
+</tr>
+<tr>
+<td>e</td>
+<td>Capacidad extra</td>
+<td>P6e</td>
+</tr>
+<tr>
+<td>g</td>
+<td>Procesador Graviton(ARM)</td>
+<td>m6g</td>
+</tr>
+<tr>
+<td>n</td>
+<td>Redes de alta velocidad</td>
+<td>c5n</td>
+</tr>
+<tr>
+<td>z</td>
+<td>Alta frecuencia de CPU</td>
+<td>m5zn</td>
+</tr>
+<tr>
+<td>.metal</td>
+<td>Bare metal</td>
+<td>m8g.metal</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>Tamaño de la instancia</strong><br />
+El <strong>tamaño de una instancia de EC2 en AWS</strong> se refiere a la combinación de recursos de hardware virtualizados (vCPU, memoria RAM, almacenamiento y capacidad de red) que se asignan a una máquina virtual. En otras palabras, define la <strong>potencia y capacidad de cómputo</strong> que tendrá la instancia dentro de la familia de instancias elegida.<br />
+<br></p>
+<p><strong>Tabla comparativa de tamaños de instancias:</strong>  </p>
+<table>
+<thead>
+<tr>
+<th>Instancia</th>
+<th>vCPU</th>
+<th>RAM (GB)</th>
+<th>Almacenamiento (GB)</th>
+<th>Red (Gbit/s)</th>
+<th>Ancho de banda de EBS</th>
+<th>Precio USD/h (% aumento)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>r5d.xlarge</td>
+<td>4</td>
+<td>32</td>
+<td>1 x 150</td>
+<td>Hasta 10</td>
+<td>Hasta 4750</td>
+<td>0.288</td>
+</tr>
+<tr>
+<td>r5d.2xlarge</td>
+<td>8</td>
+<td>64</td>
+<td>1 x 300</td>
+<td>Hasta 10</td>
+<td>Hasta 4750</td>
+<td>0.576 (+100%)</td>
+</tr>
+<tr>
+<td>r5d.4xlarge</td>
+<td>16</td>
+<td>128</td>
+<td>2 x 300</td>
+<td>Hasta 10</td>
+<td>4750</td>
+<td>1.152 (+100%)</td>
+</tr>
+<tr>
+<td>r5d.8xlarge</td>
+<td>32</td>
+<td>256</td>
+<td>2 x 600</td>
+<td>10</td>
+<td>6800</td>
+<td>2.304 (+100%)</td>
+</tr>
+<tr>
+<td><br></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h3 id="22-ami-amazon-machine-image"><strong>2.2 - AMI (Amazon Machine Image)</strong></h3>
+<p>Una AMI es una plantilla que contiene la información necesaria para lanzar una instancia de EC2. Es como si fuera la <code>imagen base</code> de una máquina virtual.</p>
+<p>Cada AMI incluye:</p>
+<ul>
+<li><strong>Un sistema operativo</strong> (Amazon Linux, Ubuntu, Windows Server, etc.).</li>
+<li><strong>Software preinstalado</strong> (Apache, Nginx, MySQL, Docker, etc.).</li>
+<li><strong>Configuración de permisos</strong> (qué usuarios pueden usar la AMI, no es posible hacerlo con las cuentas de ALB).</li>
+<li><strong>Configuración de volumen raíz</strong> (el disco donde se instala el sistema).</li>
+<li>...</li>
+</ul>
+<p>Cuando se lanza una <strong>instancia EC2</strong>, se elige una AMI como punto de partida, y a partir de ahí la instancia puede configurarse, modificarse y <strong>personalizarse</strong>.</p>
+<h4 id="221-tipos-de-ami"><strong>2.2.1 - Tipos de AMI</strong></h4>
+<ol>
+<li>
+<p><strong>AMIs públicas</strong></p>
+<ul>
+<li>Disponibles en el catálogo de AWS.</li>
+<li>Incluyen imágenes oficiales de Amazon (Amazon Linux, Windows, etc.) y distribuciones de Linux mantenidas por la comunidad o proveedores (Ubuntu, Debian, RHEL…).</li>
+</ul>
+</li>
+<li>
+<p><strong>AMIs privadas</strong></p>
+<ul>
+<li>Creadas por <strong>un usuario</strong>.</li>
+<li>Solo accesibles para la cuenta propietaria (posibilidad de compartir).</li>
+</ul>
+</li>
+<li>
+<p><strong>AMIs del AWS Marketplace</strong></p>
+<ul>
+<li>Imágenes de terceros (generalmente de pago) con aplicaciones ya listas (WordPress, SAP, soluciones de seguridad, etc.).</li>
+</ul>
+</li>
+</ol>
+<h4 id="222-regiones-y-amis"><strong>2.2.2 - Regiones y AMIs</strong></h4>
+<ul>
+<li>Una AMI está <strong>ligada a una región</strong>.</li>
+<li>Si se necesita usarla en otra región, se debe <strong>copiar</strong>.</li>
+</ul>
+<h4 id="223-crear-una-ami"><strong>2.2.3 - Crear una AMI</strong></h4>
+<p>Se pueden crear AMI's desde:</p>
+<ol>
+<li><strong>Una instancia EC2 existente</strong> → Tomar un snapshot y convertir en AMI.</li>
+<li><strong>Un snapshot de EBS</strong> → Luego convertir en AMI.</li>
+<li><strong>Importar una VM</strong> (desde VMware, VirtualBox o Hyper-V con la herramienta VM Import/Export).</li>
+</ol>
+<h3 id="23-ebs-elastic-block-store"><strong>2.3 - EBS (Elastic Block Store)</strong></h3>
+<p><strong>EBS (Elastic Block Store)</strong> es el servicio de <strong>almacenamiento en bloque</strong> que se usa para las instancias EC2. Dicho en otras palabras, es el <strong>disco duro</strong> de las instancias y se puede usar para instalar el sistema operativo, guardar bases de datos, etc.</p>
+<h4 id="231-concepto-basico"><strong>2.3.1 - Concepto básico</strong></h4>
+<div class="admonition info">
+<p class="admonition-title">Características principales</p>
+<ul>
+<li><strong>Persistente</strong>: los datos persisten aunque la instancia EC2 se detenga o se termine (si el volumen no se borra automáticamente al terminar la instancia).</li>
+<li><strong>Redimensionable</strong>: Se puede cambiar el tamaño, tipo o rendimiento sin reiniciar la instancia (en muchos casos).</li>
+<li><strong>Alta disponibilidad</strong>: cada volumen EBS se replica automáticamente dentro de la zona de disponibilidad (AZ) para protegerlo de fallos de hardware.</li>
+<li><strong>Snapshots</strong>: Se pueden programar copias de seguridad incrementales en S3 (Snapshots EBS).</li>
+<li><strong>Tipos de volumen</strong>: AWS ofrece varios tipos (SSD y HDD) adaptados a rendimiento y coste:<br />
+&nbsp;&nbsp;&nbsp;&nbsp; <strong>gp3/gp2</strong>: SSD de uso general.<br />
+&nbsp;&nbsp;&nbsp;&nbsp; <strong>io1/io2</strong>: SSD de alto rendimiento para IOPS elevados.<br />
+&nbsp;&nbsp;&nbsp;&nbsp; <strong>st1</strong>: HDD optimizado para throughput.<br />
+&nbsp;&nbsp;&nbsp;&nbsp; <strong>sc1</strong>: HDD de bajo coste para datos menos usados.</li>
+</ul>
+</div>
+<hr />
+<h4 id="232-uso-con-ec2"><strong>2.3.2 - Uso con EC2</strong></h4>
+<ul>
+<li>Al lanzar una instancia EC2, se crea automáticamente un volumen EBS para el sistema operativo.</li>
+<li>Se puede <strong>adjuntar</strong> varios volúmenes EBS a una misma instancia EC2.</li>
+<li><strong>Se deben montar</strong> como dispositivos de bloque en el sistema operativo y luego se formatean y usan como cualquier disco.</li>
+<li>Es posible <strong>desadjuntar</strong> un volumen de una instancia y <strong>adjuntarlo</strong> a otra (útil para migrar datos).</li>
+</ul>
+<hr />
+<h4 id="233-otros-tipos-de-almacenamientos-de-aws"><strong>2.3.3 - Otros tipos de almacenamientos de AWS</strong></h4>
+<ul>
+<li><strong>Instance store</strong>: almacenamiento efímero local (desaparece al detener/terminar la instancia).</li>
+<li><strong>S3</strong>: almacenamiento de objetos, no en bloques.</li>
+<li><strong>EFS</strong>: almacenamiento de archivos (compartido NFS).</li>
+</ul>
+<hr />
+<h3 id="24-tarea-ra2-ceb"><strong>2.4 - Tarea RA2-CEb</strong></h3>
+<p>Realizar el siguiente escenario.
+De momento, no tener en cuenta los grupos de seguridad.  </p>
+<p><img alt="" class="sietecinco" src="../ut5/pr%C3%A1ctica1.png" /></p>
+<div class="admonition question">
+<p class="admonition-title">Preguntas a responder:</p>
+<ol>
+<li>Suponiendo que queremos usar la EC2 de la subred pública como servidor web (frontend), ¿Qué debemos hacer para ampliar la infraestructura e incorporar un servidor para el backend?</li>
+<li>Queremos, además, guardar imágenes, PDFs y vídeos para que los clientes puedan descargarlos.<br />
+¿Qué tipo de almacenamiento de AWS sería el más adecuado?<br />
+Buscar un ejemplo de tipo de almacenamiento adecuado en AWS. </li>
+</ol>
+</div>
+<hr />
+<h4 id="241-infraestructura-de-red-basica"><strong>2.4.1 - Infraestructura de red básica</strong></h4>
+<p><img alt="" class="original marco" src="../ut5/RA2CEb.png" />
+<br></p>
+<h4 id="242-lanzar-instancia-14"><strong>2.4.2 - Lanzar instancia 1/4</strong></h4>
+<div class="admonition tip">
+<p class="admonition-title">Vamos a EC2</p>
+</div>
+<p>Una vez dentro del menú de instancias veremos los apartados principales de EC2</p>
+<ul>
+<li>
+<p><strong>Instances (Instancias):</strong><br />
+Donde se puede lanzar, detener, reiniciar o terminar instancias EC2.</p>
+</li>
+<li>
+<p><strong>Images (Imágenes):</strong>
+Donde se puede gestionar las AMIs, que son plantillas para lanzar nuevas instancias con un sistema operativo y software preinstalado.</p>
+</li>
+<li>
+<p><strong>Elastic Block Store (EBS):</strong>
+Servicio de almacenamiento en bloques persistente. Permite crear y asociar volúmenes a las instancias EC2.<br />
+<strong>Nota:</strong> EBS no es específico de EC2 pero, tiene su propio menú aquí.</p>
+</li>
+<li>
+<p><strong>Network &amp; Security (Red y seguridad):</strong>
+Desde aquí se gestion los Security Groups, Elastic IPs, Key Pairs y VPCs asociadas a las instancias.
+Básicamente, es donde se definen las reglas de seguridad y de conectividad.</p>
+</li>
+<li>
+<p><strong>Load Balancing (Balanceo de carga):</strong>
+Sección para crear y administrar Elastic Load Balancers (ELB), que reparten el tráfico entre varias instancias.</p>
+</li>
+<li>
+<p><strong>Auto Scaling:</strong>
+Aquí se configuran los <strong>Auto Scaling Groups</strong>, que crean o destruyen instancias automáticamente según las métricas (CPU, tráfico, etc.) para mantener el rendimiento.</p>
+</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Lanzamos una instancia.</p>
+</div>
+<p><img alt="" class="original marco" src="../ut5/RA2CEb1.png" />
+<br></p>
+<h4 id="243-lanzar-instancia-24"><strong>2.4.3 - Lanzar instancia 2/4</strong></h4>
+<ol>
+<li>Damos un nombre a la instancia.</li>
+<li>
+<p>Seleccionamos el tipo de instancia y la AMI adecuada a nuestras necesidades.</p>
+<p><img alt="" class="original" src="../ut5/RA2CEb2.png" />
+<br>
+<img alt="" class="original" src="../ut5/RA2CEb2-1.png" />
+<br></p>
+</li>
+</ol>
+<h4 id="244-lanzar-instancia-34"><strong>2.4.4 - Lanzar instancia 3/4</strong></h4>
+<ol>
+<li>
+<p>Elegimos el par de claves con el que podremos conectarnos por SSH a nuestra instancia.</p>
+<p><img alt="" class="original" src="../ut5/RA2CEb3-1.png" />
+<br></p>
+</li>
+<li>
+<p>Configuración de red y seguridad</p>
+<p><img alt="" class="original" src="../ut5/RA2CEb3.png" />
+<br>    </p>
+</li>
+</ol>
+<h4 id="245-lanzar-instancia-44"><strong>2.4.5 - Lanzar instancia 4/4</strong></h4>
+<ol>
+<li>
+<p>Elegimos el tamaño del almacenamiento del volumen raíz. </p>
+<p><img alt="" class="original" src="../ut5/RA2CEb3-2.png" />
+<br>    </p>
+</li>
+<li>
+<p>Modificar volumen (sí necesario)<br />
+Es posible <strong>aumentar</strong> el tamaño del volumen raíz. Para ello, basta con detener la instancia, ir al menú de los volumenes EBS y modificar el tamaño.<br />
+<strong>Nota:</strong> Ampliar la capacidad del volumen no presenta ninguna dificultad. Reducirlo implica realizar una <strong>snapshot del mismo</strong>, <strong>eliminar</strong> el EBS original, <strong>crear y poner otro</strong> de menor tamaño.     </p>
+<p><img alt="" class="original marco" src="../ut5/RA2CEb3-3.png" />
+<br>   </p>
+</li>
+</ol>
+<h4 id="246-panel-de-control-de-las-instancias"><strong>2.4.6 - Panel de control de las instancias</strong></h4>
+<ul>
+<li>
+<p><strong>Instancias</strong></p>
+<p><img alt="" class="original marco" src="../ut5/RA2CEb4.png" />
+<br></p>
+</li>
+<li>
+<p><strong>Resumen de las instancias</strong><br />
+<strong>Nota:</strong> Asegurarse de que tenemos un IPv4 pública. De lo contrario no será posible conectarse remotamente con la instancia.</p>
+<p><img alt="" class="original marco" src="../ut5/RA2CEb5.png" />
+<br></p>
+</li>
+</ul>
+<h4 id="247-conexion-remota-con-la-instancia"><strong>2.4.7 - Conexión remota con la instancia</strong></h4>
+<p>El laboratorio crea por defecto una clave llamada <strong>vockey</strong>. Esa llave que ya hemos usado a la hora de configurar nustra instancia EC2 permitirá a un cliente SSH conectarse a ella de forma remota.</p>
+<ol>
+<li><strong>Descargar el archivo de clave privada labsuser.pem</strong><br />
+El fichero labsuser.pem se encuentra disponible en <strong>AWS Academy Learner Lab</strong> en <code>AWS Details</code>.
+El fichero labsuser.pem contiene la parte privada de la clave que necesitará el cliente SSH para conectarse a la EC2 en la cual se encuentra instalada la parte pública de la clave.</li>
+</ol>
+<p><img alt="" class="cincozero marco" src="../ut5/RA2CEb6.png" />
+<br></p>
+<ol>
+<li>
+<p><strong>Cambiar los permisos del archivo labsuser.pem</strong><br />
+Para cambiar los permisos a solo lectura por el propietario usaremos:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>chmod<span class="w"> </span><span class="m">400</span><span class="w"> </span>labsuser.pem
+</span></code></pre></div>
+<br></p>
+</li>
+<li>
+<p><strong>Conexión remota por SSH a la instancia</strong><br />
+Para conectarnos a la instancia por SSH usaremos el cliente de ssh con los siguientes argumentos:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ssh<span class="w"> </span>-i<span class="w"> </span>labsuser.pem<span class="w"> </span>ec2-user@3.90.114.96<span class="w">   </span>
+</span></code></pre></div></p>
+<div class="admonition info">
+<p class="admonition-title">Explicación del comando</p>
+<p>🔹<strong>ssh:</strong> Cliente de Secure Shell, que permite conectarte de forma remota y segura a otro equipo.<br />
+🔹<strong>-i labsuser.pem:</strong> La opción -i especifica la clave privada (<strong>labsuser.pem</strong>) que se usará para autenticarse.<br />
+🔹<strong>ec2-user@3.90.114.96:</strong> Indica usuario y dirección de la instancia a la que nos queremos conectar.   </p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">¿Cómo saber nuestro nombre de usuario?</p>
+<p><img alt="" src="../ut5/RA2CEb8.png" /> </p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">¿Cómo saber la ip de la instancia?</p>
+<p><img alt="" src="../ut5/RA2CEb7.png" /> </p>
+</div>
+<p><br></p>
+</li>
+</ol>
+<h4 id="248-conexion-con-la-instancia-desde-la-consola-de-aws"><strong>2.4.8 - Conexión con la instancia desde la consola de AWS</strong></h4>
+<p>También es posible conectarse a la instancia desde el panel de control de AWS.</p>
+<p><img alt="" class="original marco" src="../ut5/RA2CEb9.png" /></p>
+<p><br></p>
+<p>Una vez hecha la conexión podremos usar ese servicio virtualizado.</p>
+<p><img alt="" class="original marco" src="../ut5/RA2CEb11.png" /></p>
+<p><br></p>
+<h4 id="249-realizar-ping-a-la-instancia"><strong>2.4.9 - Realizar Ping a la instancia</strong></h4>
+<p>Si queremos realizar un ping a la instancia desde cualquier ordenador veremos que no es posible.</p>
+<p><img alt="" class="cincozero" src="../ut5/RA2CEb12.png" />
+<br></p>
+<p>Para poder realizar el ping deberemos agregar reglas <strong>al grupo de seguridad de la instancia</strong>. En este caso añadiremos una regla de protocolo de mensajes de control de Internet <strong>ICMP</strong>.  </p>
+<p><img alt="" class="original marco" src="../ut5/RA2CEb13.png" />
+<br></p>
+<p>Después de agregar la regla ICMP sí que será posible realizar un ping a nuestra instancia.   </p>
+<p><img alt="" class="cincozero" src="../ut5/RA2CEb14.png" />
+<br></p>
+<h4 id="2410-modificar-el-tamano-de-un-ebs"><strong>2.4.10 - Modificar el tamaño de un EBS</strong></h4>
+<p>Aunque en la consola de EC2 podamos gestionar los volúmenes EBS asociados a nuestras instancias, EC2 y EBS son <strong>servicios independientes</strong> dentro de AWS.</p>
+<ol>
+<li>
+<p><strong>Modificar volumen</strong>
+Desde el menú de la instancia o directamente desde el menú EBS seleccionamos modificar volumen y lo ajustamos al tamaño deseado (p.e. 20 GiB).</p>
+<p><img alt="" class="original marco" src="../ut5/RA2CEb31.png" />
+ <br></p>
+<p>No saldrá el siguiente mensaje de advertencia:</p>
+<p><img alt="" class="cincozero" src="../ut5/RA2CEb32.png" />
+ <br>
+Confirmamos y seguimos.</p>
+</li>
+</ol>
+<p><br></p>
+<ol>
+<li>
+<p><strong>Ampliación de un sistema de archivos después de cambiar el tamaño de un volumen de Amazon EBS (solo EC2 amazon linux)</strong><br />
+Toda la información <a href="https://docs.aws.amazon.com/es_es/ebs/latest/userguide/recognize-expanded-volume-linux.html">aquí</a>  </p>
+<div class="admonition tip">
+<p class="admonition-title">Conéctarse a la instancia con SSH y listar dispositivos (de bloque).</p>
+</div>
+<p>Utilizaremos el comando <strong>lsblk</strong> para comparar el tamaño de la partición con el tamaño del volumen.</p>
+<p><img alt="" class="original" src="../ut5/RA2CEb33.png" />
+<br></p>
+<div class="admonition tip">
+<p class="admonition-title">Ampliar la partición</p>
+</div>
+<p>Si no coincide el tamaño del volumen con el tamaño de la partición deberemos ampliarla con <strong>growpart</strong>. </p>
+<p><img alt="" class="original" src="../ut5/RA2CEb34.png" />
+<br></p>
+<div class="admonition tip">
+<p class="admonition-title">Comprobar que la partición se ha ampliado</p>
+</div>
+<p><img alt="" class="original" src="../ut5/RA2CEb35.png" />
+<br></p>
+<div class="admonition tip">
+<p class="admonition-title">Comprobar el tamaño del sistema de archivos</p>
+</div>
+<p>Con <strong>df -hT</strong> podemos comprobar el tamaño y el tipo de sistema de archivos de cada dispositivo. En este caso, verificaremos si <strong>/dev/nvme0n1p1</strong> (la partición actual) y <strong>/dev/nvme1n1</strong> (el nuevo volumen EBS) tienen el mismo tamaño.
+Si el tamaño del nuevo volumen es mayor, será necesario ampliar el sistema de archivos para aprovechar todo el espacio adicional disponible en el volumen.  </p>
+<p><img alt="" class="original" src="../ut5/RA2CEb36.png" />
+<br></p>
+<div class="admonition tip">
+<p class="admonition-title">Ampliar el sistema de archivos</p>
+</div>
+<p>Para un sistema de archivos XFS usaremos <strong>xfs_growfs</strong>.    </p>
+<p><img alt="" class="original" src="../ut5/RA2CEb37.png" />
+<br></p>
+<p>Comprobamos de nuevo el tamaño de la partición:
+<img alt="" class="original" src="../ut5/RA2CEb38.png" />
+<br></p>
+<p>Ya podemos usar esa partición.<br />
+<br></p>
+</li>
+</ol>
+<h4 id="2411-anadir-un-ebs-a-la-instancia"><strong>2.4.11 - Añadir un EBS a la instancia</strong></h4>
+<p>En muchos casos puede resultar necesario añadir volúmenes EBS adicionales a una instancia, ya sea para ampliar capacidad, separar datos del sistema operativo, realizar migraciones o incluso compartir información entre diferentes instancias (adjuntando y desadjuntando volúmenes).</p>
+<ol>
+<li>
+<p><strong>Crear un volumen EBS</strong></p>
+<p><img alt="" class="original marco" src="../ut5/RA2CEb16.png" />
+ <br></p>
+<p><strong>Nota importante:</strong><br />
+El volumen debe crearse en la misma <strong>zona de disponibilidad</strong> que la EC2. </p>
+<p><img alt="" class="original marco" src="../ut5/RA2CEb17.png" />
+ <br></p>
+</li>
+<li>
+<p><strong>Adjuntar el volumen EBS a la instancia EC2</strong><br />
+Si volvemos al menú de volúmenes EBS, veremos que el nuevo volumen aparece como disponible.</p>
+<p><img alt="" class="original marco" src="../ut5/RA2CEb18.png" />
+ <br></p>
+<p>Seleccionamos el EBS disponible y lo asociamos.</p>
+<p><img alt="" class="original marco" src="../ut5/RA2CEb20.png" />
+ <br></p>
+<p>Si volvemos a la EC2, en el apartado <strong>Almacenamiento</strong> veremos los EBS asociados a la instancia.</p>
+<p><img alt="" class="original marco" src="../ut5/RA2CEb21.png" />
+ <br></p>
+</li>
+<li>
+<p><strong>Adjuntar un volumen de Amazon EBS a una instancia de Amazon EC2</strong><br />
+Toda la información <a href="https://docs.aws.amazon.com/es_es/ebs/latest/userguide/ebs-attaching-volume.html">aquí</a>  </p>
+<div class="admonition tip">
+<p class="admonition-title">Conéctarse a la instancia mediante SSH</p>
+</div>
+<p>Utilizaremos el comando <strong>lsblk</strong> para ver los dispositivos de disco disponibles y sus puntos de montaje (si los hay).</p>
+<p><img alt="" class="original" src="../ut5/RA2CEb22.png" />
+<br></p>
+<p>Como podemos ver en la imagen el volumen adjunto es <strong>/dev/nvme1n1</strong>. No tiene particiones ni se ha montado aún.  </p>
+<div class="admonition tip">
+<p class="admonition-title">Determinar si hay un sistema de archivos en el volumen</p>
+</div>
+<p>Utilizaremos el comando <strong>file -s</strong> para obtener información sobre un dispositivo. Si el resultado es <strong>data</strong>, significa que no se encuentra ningún sistema de archivos en el dispositivo. </p>
+<p><img alt="" class="original" src="../ut5/RA2CEb23.png" />
+<br></p>
+<div class="admonition tip">
+<p class="admonition-title">Obtener información sobre todos los dispositivos asociados a la instancia</p>
+</div>
+<p>Utilizaremos el comando <strong>lsblk -f</strong> para obtener información sobre todos los dispositivos asociados a la instancia. </p>
+<p><img alt="" class="original" src="../ut5/RA2CEb24.png" />
+<br></p>
+<p>La columna FSTYPE muestra el tipo de sistema de archivos. Si la columna está vacía para un dispositivo específico, significa que el dispositivo no tiene un sistema de archivos.</p>
+<div class="admonition tip">
+<p class="admonition-title">Crear un sistema de archivos</p>
+</div>
+<p>Si tenemos un volumen vacío, crearemos el sistema de archivos con <strong>mkfs -t</strong>.  </p>
+<p><img alt="" class="original" src="../ut5/RA2CEb25.png" />
+<br></p>
+<div class="admonition tip">
+<p class="admonition-title">Crear un directorio para el punto de montaje</p>
+</div>
+<p>Utilizaremos el comando <strong>mkdir</strong> para crear un directorio para el punto de montaje del volumen.   </p>
+<p><img alt="" class="original" src="../ut5/RA2CEb26.png" />
+<br></p>
+<div class="admonition tip">
+<p class="admonition-title">Montar el volumen</p>
+</div>
+<p>Montaremos el volumen con <strong>mount</strong>.   </p>
+<p><img alt="" class="original" src="../ut5/RA2CEb27.png" />
+<br></p>
+<div class="admonition tip">
+<p class="admonition-title">Montar el volumen automáticamente después de un reinicio</p>
+</div>
+<p><img alt="1⃣" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/31-20e3.svg" title=":one:" /> Usaremos <strong>blkid</strong> para encontrar el <strong>UUID</strong> del dispositivo.   </p>
+<p><img alt="" class="original" src="../ut5/RA2CEb28.png" />
+<br>
+<img alt="2⃣" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/32-20e3.svg" title=":two:" /> Editamos el archivo <strong>/etc/fstab</strong> (p.e. nano ) y añadimos los campos UUID, el punto de montaje, el sistema de archivos y las opciones de montaje.  </p>
+<p><img alt="" class="original" src="../ut5/RA2CEb29.png" />
+<br></p>
+<p><img alt="3⃣" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/33-20e3.svg" title=":three:" /> Verificar que la entrada funciona correctamente.<br />
+Para ello usaremos:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>umount<span class="w"> </span>/data
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>sudo<span class="w"> </span>mount<span class="w"> </span>-a
+</span></code></pre></div>
+Para desmontar y montar automáticamente el dispositivo. Si no hay errores la operación se habrá realizado correctamente.</p>
+<p><img alt="" class="original" src="../ut5/RA2CEb30.png" />
+<br></p>
+</li>
+</ol>
+<h4 id="2412-condiciones-de-entrega-de-la-tarea-ra2-ceb"><strong>2.4.12 - Condiciones de entrega de la tarea RA2-CEb</strong></h4>
+<div class="admonition warning">
+<p class="admonition-title">Condiciones de la entrega</p>
+<ul>
+<li>Realizar capturas de pantalla del mapa de recursos de la VPC. </li>
+<li>Realizar capturas de pantalla del ping desde vuestro ordenador a la instancia. </li>
+<li>Realizar capturas de pantalla de la conexión por SSH a la instancia desde vuestro ordenador. </li>
+<li>Realizar capturas de pantalla con el tamaño del EBS de la instancia modificado. </li>
+<li>Realizar capturas de pantalla con el nuevo EBS asociado a la instancia. </li>
+<li>Comentar brevemente cada captura para entender a qué corresponde y subir el documento a la tarea correspondiente de AULES.</li>
+</ul>
+</div>
+<h2 id="3-grupos-de-seguridad-sg-y-listas-de-control-de-acceso-acl"><strong>3 - Grupos de seguridad (SG) y listas de control de acceso (ACL)</strong></h2>
+<h3 id="31-introduccion"><strong>3.1 - Introducción</strong></h3>
+<p>Los <strong>grupos de seguridad</strong> y las <strong>ACL de red y de VPC</strong> son componentes fundamentales de la <strong>seguridad</strong> en un entorno de nube. Aunque funcionan de manera similar a los <strong>firewalls</strong>, no son exactamente lo mismo, ya que presentan diferencias en su uso y alcance.</p>
+<p>Dentro del modelo de <strong>nube pública</strong>, el proveedor está obligado contractualmente a cumplir con su parte del modelo de <strong>responsabilidad compartida</strong>. Sin embargo, la configuración de los grupos de seguridad es <strong>responsabilidad del cliente</strong>.</p>
+<p>Por defecto, al lanzar una instancia <strong>EC2 en AWS</strong>, la única regla permitida es la apertura del <strong>puerto 22</strong> para el <strong>acceso SSH</strong>.</p>
+<p>Para garantizar el correcto despliegue de las aplicaciones, será necesario ampliar las reglas de los grupos de seguridad, asegurando siempre que estas configuraciones no comprometan la seguridad del entorno.</p>
+<h3 id="32-grupos-de-seguridad"><strong>3.2 - Grupos de seguridad</strong></h3>
+<p><img alt="" class="sietecinco" src="../ut5/SG-0.png" />
+    <br></p>
+<div class="admonition tip">
+<p class="admonition-title">¿Qué es un grupo de seguridad?</p>
+</div>
+<p>Un grupo de seguridad es <strong>un conjunto de reglas de firewall virtual</strong> que controlan el <strong>tráfico entrante y saliente</strong> de una <strong>instancia</strong>.<br />
+- <strong>Tráfico entrante:</strong> Qué puede entrar a la instancia.<br />
+- <strong>Tráfico saliente:</strong> Qué puede salir de la instancia.</p>
+<blockquote>
+<p><strong>Ejemplo:</strong> <br />
+- <strong>Permitir</strong> que todo el mundo (0.0.0.0/32) visite mi sitio web en el puerto 443 (HTTPS).<br />
+- <strong>Bloquear todo lo demás</strong> (entre otros, rechazar conexiones HTTP sobre el puerto 80).</p>
+</blockquote>
+<p>Los grupos de seguridad se aplican a <strong>nivel de instancia</strong>, no a <strong>nivel de subred</strong> (de esa función se encargan las <strong>ACL de red</strong>).
+<br></p>
+<div class="admonition tip">
+<p class="admonition-title">Características de un grupo de seguridad</p>
+</div>
+<ol>
+<li>Todo lo que no está <strong>permitido explícitamente</strong> está <strong>prohibido</strong>.</li>
+<li>Configuración por defecto del SG:<ul>
+<li><strong>Tráfico entrante:</strong> Solo se aceptan conexiones SSH sobre el puerto 22 (TCP).</li>
+<li><strong>Tráfico saliente:</strong> Todo está permitido. Es decir, la instancia puede conectarse a cualquier IP.</li>
+</ul>
+</li>
+<li>
+<p>Los grupos de seguridad son por naturaleza <strong>con estado</strong> (<em>stateful</em>):<br />
+   las respuestas al tráfico permitido se <strong>aceptan automáticamente</strong> sin necesidad de una regla explícita en la dirección opuesta.<br />
+   No obstante, esto <strong>no significa que la entrada y la salida sean simétricas</strong>, sino que <strong>el tráfico de retorno</strong> está permitido.</p>
+<blockquote>
+<p><strong>Ejemplo:</strong><br />
+- Si <strong>permites tráfico ICMP de salida</strong>, la instancia podrá hacer <code>ping</code> a cualquier IP pública.<br />
+- Las <strong>respuestas ICMP</strong> (eco reply) se permitirán automáticamente.<br />
+- Pero si no tienes una regla ICMP de <strong>entrada</strong>, <strong>nadie podrá iniciar un ping hacia la instancia</strong>.</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Las reglas de un SG no tienen orden de prioridad</strong>.<br />
+   Todas se evalúan <strong>en conjunto</strong> y solo pueden <strong>permitir tráfico</strong>.<br />
+   Si no existe una regla que lo permita, el tráfico se <strong>deniega por defecto</strong>.</p>
+</li>
+<li>Una instancia <strong>debe tener</strong> un grupo de seguridad.   </li>
+<li>Varias instancias <strong>pueden compartir</strong> un mismo grupo de seguridad.   </li>
+<li>Los grupos de seguridad <strong>son específicos a una zona y VPC</strong>.</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Configuración de las reglas de entrada y salida.</p>
+</div>
+<p>Para que una instancia funcione correctamente <strong>y esté segura</strong>, es imprescindible definir <strong>las reglas de entrada (inbound) y de salida (outbound) del grupo de seguridad (SG)</strong>:  </p>
+<ul>
+<li>
+<p><strong>Reglas de entrada:</strong><br />
+Controlan qué tráfico puede entrar a la instancia desde Internet u otras redes.<br />
+Por defecto las EC2 solo aceptan conexiones SSH. </p>
+<p><img alt="" class="original marco" src="../ut5/sg-1.png" />
+<br></p>
+<blockquote>
+<p><strong>Ejemplo:</strong><br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>Permitir</strong> el puerto 80 (HTTP) o 443 (HTTPS) para que una web sea accesible públicamente.<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;<strong>Restringir</strong> todo lo que no sea necesario: Todo lo que no está <strong>permitido explicitamente</strong> está  prohibido.  </p>
+</blockquote>
+</li>
+</ul>
+<p><br></p>
+<ul>
+<li>
+<p><strong>Reglas de salida:</strong><br />
+Controlan qué tráfico puede salir desde la instancia <strong>hacia otras redes o Internet</strong>.<br />
+<strong>Por defecto</strong>, AWS permite todo el <strong>tráfico de salida</strong>.</p>
+<p><img alt="" class="original marco" src="../ut5/sg-2.png" />
+<br></p>
+</li>
+<li>
+<p><strong>El destino</strong> y el <strong>origen</strong> del tráfico puede ser un <strong>CIDR</strong> o <strong>otro grupo de seguridad</strong> (lo veremos más adelante).<br />
+<img alt="" class="original marco" src="../ut5/sg-3.png" />
+<br></p>
+</li>
+<li>
+<p><strong>Resumen:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Tipo de regla</th>
+<th>Qué tráfico puede iniciar una conexión</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Entrada (Inbound)</strong></td>
+<td>Qué tráfico puede <strong>iniciar</strong> conexión <strong>hacia</strong> la instancia.</td>
+<td>Permitir SSH (22) desde determinadas IP's.</td>
+</tr>
+<tr>
+<td><strong>Salida (Outbound)</strong></td>
+<td><strong>Hacia</strong> qué destinos puede <strong>iniciar</strong> conexión la instancia.</td>
+<td>Permitir HTTP (80) hacia Internet.</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h3 id="33-ejemplo-de-sg"><strong>3.3 - Ejemplo de SG</strong></h3>
+<p>En el siguiente ejemplo tenemos una VPC, una subred con <strong>una instancia EC2</strong>, una puerta de enlace de Internet y <strong>un grupo de seguridad</strong>.<br />
+Como hemos dicho <strong>el grupo de seguridad se asigna a la instancia</strong> y actúa como un firewall virtual.<br />
+El único tráfico que llega a la instancia es el permitido por las reglas del grupo de seguridad. </p>
+<ul>
+<li>
+<p><strong>Infraestructura</strong>
+<img alt="" class="original" src="../ut5/SG.png" /><br />
+<br></p>
+</li>
+<li>
+<p><strong>Configuración de las reglas de entrada de la instancia</strong> </p>
+<p><img alt="" class="original marco" src="../ut5/sg-rules.png" />  </p>
+</li>
+</ul>
+<h3 id="34-tarea-ra2-cec-parte-1"><strong>3.4 - Tarea RA2-CEc (parte 1)</strong></h3>
+<ol>
+<li>Retomar el escenario de la tarea RA2-CEb. </li>
+<li>
+<p>Ampliar el escenario con una segunda instancia que se encontrará en una subred privada.
+El escenario quedará de la siguiente manera:
+<img alt="" class="sietecinco" src="../ut5/VPC2.png" />  </p>
+</li>
+<li>
+<p>Poblar las RT para que las instancias de las subredes solo se puedan comunicar <strong>la una con la otra y no con toda la VPC</strong>.  </p>
+</li>
+<li>
+<p>Poblar los grupos de seguridad de la siguiente manera:  </p>
+<table>
+<thead>
+<tr>
+<th>Instancia</th>
+<th>Subred</th>
+<th>Grupo de Seguridad</th>
+<th>Reglas de Entrada</th>
+<th>Reglas de Salida</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Web</td>
+<td>Pública</td>
+<td>SG-Web</td>
+<td>80, 443 desde Internet;  22 desde IP admin</td>
+<td>Todo permitido (o restringir a lo necesario)</td>
+</tr>
+<tr>
+<td>DB</td>
+<td>Privada</td>
+<td>SG-DB</td>
+<td>3306 desde SG-Web</td>
+<td>Todo permitido (o restringir a lo necesario)</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+<h3 id="35-acl-de-red"><strong>3.5 - ACL de red</strong></h3>
+<p><img alt="" class="doscinco" src="../ut5/acl.jpg" />
+    <br></p>
+<div class="admonition tip">
+<p class="admonition-title">¿Qué es una lista de control de acceso ACL?</p>
+</div>
+<p>Las <strong>Network ACL (NACL)</strong> son un componente de seguridad que actúa a nivel de <strong>subred</strong> dentro de una <strong>VPC</strong>.</p>
+<p><br>
+<img alt="" class="sietecinco" src="../ut5/nacl.png" />  </p>
+<div class="admonition tip">
+<p class="admonition-title">Características de las NACL</p>
+</div>
+<ol>
+<li><strong>Se aplican a nivel de subred</strong>: Todas las instancias dentro de esa subred quedan sujetas a las reglas de la ACL.  </li>
+<li>Cada <strong>VPC</strong> en AWS tiene <strong>una ACL por defecto</strong>, y se pueden crear ACLs personalizadas para afinar el control del tráfico.</li>
+<li><strong>Son sin estado</strong> (stateless): No recuerdan el estado de la conexión. Por ejemplo, si se permite el tráfico entrante en un puerto, <strong>también se debe</strong> permitir explícitamente el tráfico de salida de respuesta.</li>
+<li><strong>Soportan reglas de entrada y salida</strong>:    <ul>
+<li>Reglas de entrada → Controlan tráfico <strong>entrante a la subred</strong>.</li>
+<li>Reglas de salida → Controlan tráfico <strong>saliente desde la subred</strong>.</li>
+</ul>
+</li>
+<li><strong>Orden numérico de las reglas</strong><ul>
+<li>Cada regla tiene un número (del 1 al 32766).</li>
+<li>Se evalúan en <strong>orden ascendente</strong> → la primera regla que coincida se aplica, y se ignoran las siguientes.</li>
+</ul>
+</li>
+<li><strong>Acciones posibles</strong><ul>
+<li><code>ALLOW</code>: Permitir tráfico.</li>
+<li><code>DENY</code>: Bloquear tráfico.</li>
+</ul>
+</li>
+<li>
+<p><strong>ACL por defecto</strong>  </p>
+<div class="admonition warning">
+<p class="admonition-title">¡Por defecto, todo está abierto en las NACL!</p>
+<ul>
+<li>La <strong>NACL por defecto</strong> de una VPC permite todo el tráfico entrante y saliente.</li>
+<li>Las <strong>ACL personalizadas</strong> niegan todo el tráfico hasta que se configuren reglas.</li>
+</ul>
+</div>
+</li>
+</ol>
+<p><strong>Ejemplo de ACL</strong><br />
+En el siguiente ejemplo, tenemos una VPC con dos subredes.<br />
+Cada <strong>subred tiene una ACL de red</strong>. Cuando el tráfico entra en la VPC, el enrutador envía el tráfico a su destino.  <br />
+La ACL de red A determina qué tráfico destinado a la subred 1 puede entrar en la subred 1, y qué tráfico destinado a una ubicación fuera de la subred 1 puede salir de la subred 1.<br />
+Del mismo modo, la ACL de red B determina qué tráfico puede entrar y salir de la subred 2.
+<img alt="" class="original" src="../ut5/acl.png" />  </p>
+<p>Si vamos a AWS y consultamos las ACL de cada red veremos que, como hemos dicho anteriormente, <strong>todo el tráfico entrante y saliente está permitido por defecto</strong>.</p>
+<p><img alt="" class="original" src="../ut5/acl1.png" />  </p>
+<p><br></p>
+<h3 id="37-tabla-comparativa-entre-sg-y-acl"><strong>3.7 - Tabla comparativa entre SG y ACL</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Característica</th>
+<th><strong>Security Groups (SG)</strong></th>
+<th><strong>Network ACLs (NACL)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Naturaleza</strong></td>
+<td><em>Stateful</em> (tienen “efecto memoria”)</td>
+<td><em>Stateless</em> (no recuerdan conexiones)</td>
+</tr>
+<tr>
+<td><strong>Nivel de aplicación</strong></td>
+<td>Asociados a <strong>instancias EC2</strong> (interfaz de red)</td>
+<td>Asociados a <strong>subredes</strong></td>
+</tr>
+<tr>
+<td><strong>Reglas de entrada y salida</strong></td>
+<td>Reglas de entrada y salida se procesan <strong>por separado</strong>, pero las respuestas se permiten automáticamente</td>
+<td>Se deben definir reglas para entrada <strong>y</strong> salida; si no, el tráfico será bloqueado</td>
+</tr>
+<tr>
+<td><strong>Orden de evaluación</strong></td>
+<td>No tienen orden; se procesan todas las reglas</td>
+<td>Se procesan en orden ascendente por número de regla (más bajo = mayor prioridad)</td>
+</tr>
+<tr>
+<td><strong>Acciones</strong></td>
+<td>Solo permiten <strong>Allow</strong> (permitir tráfico)</td>
+<td>Admiten <strong>Allow</strong> y <strong>Deny</strong> (puedes denegar explícitamente)</td>
+</tr>
+<tr>
+<td><strong>Predeterminado</strong></td>
+<td>Todo el tráfico está <strong>denegado por defecto</strong> (excepto lo que se permita explícitamente)</td>
+<td>Todo el tráfico está <strong>permitido por defecto</strong> (excepto lo que se niegue explícitamente)</td>
+</tr>
+<tr>
+<td><strong>Casos de uso típicos</strong></td>
+<td>Control fino del tráfico a instancias (ej. abrir 22/SSH o 443/HTTPS)</td>
+<td>Control global a nivel de subred, aplicar restricciones más amplias (ej. denegar rangos IP completos)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="38-tarea-ra2-cec-parte-2"><strong>3.8 - Tarea RA2-CEc (parte 2)</strong></h3>
+<ol>
+<li>Ampliar el escenario para que quede de la siguiente manera:
+<img alt="" class="sietecinco" src="../ut5/VPC2-2.png" /></li>
+<li>Reflexionar sobre como impedir que las instancias de la subred privada no puedan establecer conexiones la una con la otra.</li>
+<li>Realizar las modificaciones necesarias a los SG y ACL para impedir dicho tráfico.</li>
+<li>Realizar capturas de pantallas de los SG ACL y mapa de recursos de la VPC y subirlas a la tarea <strong>RA2-CEc</strong> de AULES.</li>
+</ol>
+<h3 id="39-tarea-ra2-cec-parte-3"><strong>3.9 - Tarea RA2-CEc (parte 3)</strong></h3>
+<p><strong>Formas de conectarse a las instancias (públicas y privadas).</strong>  </p>
+<ol>
+<li>
+<p><strong>Conexión a la EC2 pública.</strong>  </p>
+<ul>
+<li>
+<p><strong>Conexión a la EC2 pública mediante interfaz de AWS</strong>
+<img alt="" class="original" src="../ut5/RA2CEc3.png" /> <br> 
+Luego:<br />
+<img alt="" class="original" src="../ut5/RA2CEc4.png" />  <br>
+Desde esa conexión podremos hacer ping a las EC2 de la subred privada.
+<img alt="" class="cincozero" src="../ut5/RA2CEc5.png" />  <br></p>
+</li>
+<li>
+<p><strong>Conexión a la EC2 pública mediante SSH</strong>
+Como ya hemos visto, en linux usaremos el comando:<br />
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ssh<span class="w"> </span>-i<span class="w"> </span>&lt;CLAVE_PRIVADA&gt;<span class="w"> </span>&lt;NOMBRE_DE_USUARIO&gt;@&lt;IP_DE_LA_INSTANCIA&gt;
+</span></code></pre></div>
+<img alt="" class="cincozero" src="../ut5/RA2CEc6.png" />  <br></p>
+</li>
+<li>
+<p><strong>Conexión a la EC2 pública mediante AWS CLI y EC2 Instance Connect </strong><br />
+Para ello usaremos el comando de aws:<br />
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>aws<span class="w"> </span>ec2-instance-connect<span class="w"> </span>ssh<span class="w"> </span>--instance-id<span class="w"> </span>&lt;ID_DE_LA_INSTANCIA&gt;<span class="w"> </span>--os-user<span class="w"> </span>&lt;NOMBRE_DE_USUARIO&gt;
+</span></code></pre></div>
+<img alt="" class="sietecinco" src="../ut5/RA2CEc7.png" />  <br></p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Conexión a las EC2 privadas.</strong>  </p>
+<ul>
+<li>
+<p><strong>Mediante interfaz de AWS</strong>
+El procedimiento es identico al anterior pero, al no disponer de <strong>IP pública</strong> haremos la conexión a través de un punto de conexión.<br><br />
+<strong>Nota importante:</strong>
+Para crear el punto de conexión, se recomienda usar el mismo grupo de seguridad que el de la instancia a la que queremos acceder. <br />
+<img alt="" class="sietecinco" src="../ut5/RA2CEc8.png" />  <br>
+Luego
+<img alt="" class="sietecinco" src="../ut5/RA2CEc9.png" />
+<img alt="" class="sietecinco" src="../ut5/RA2CEc10.png" />  <br>
+Esperamos a que esté disponible... Puede tardar varios minutos.
+<img alt="" class="sietecinco" src="../ut5/RA2CEc11.png" />  <br>
+Una vez disponible, lo seleccionamos y seguimos con la conexión.
+<img alt="" class="sietecinco" src="../ut5/RA2CEc12.png" />  <br>
+Intentaremos conectarnos pero no podremos hacerlo.
+<img alt="" class="sietecinco" src="../ut5/RA2CEc14.png" />  <br></p>
+</li>
+<li>
+<p><strong>Conexión mediante AWS CLI y EC2 Instance Connect EndPoint</strong><br />
+Para ello usaremos el comando de aws:<br />
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>aws<span class="w"> </span>ec2-instance-connect<span class="w"> </span>ssh<span class="w"> </span>--instance-id<span class="w"> </span>i-1234567890example<span class="w"> </span>--connection-type<span class="w"> </span>eice
+</span></code></pre></div>
+Que nos devolverá el siguiente error:
+<img alt="" class="sietecinco" src="../ut5/RA2CEc13.png" />  <br>
+Ese error se debe a las limitaciones de los permisos del usuario <strong>labrole</strong> dentro del recurso IAM (Identity and Access Management).
+Si vamos a <strong>IAM → Panel</strong>, veremos que nuestra cuenta tiene 24 roles asignados...
+<img alt="" class="sietecinco" src="../ut5/RA2CEc15.png" />  <br>
+...Dentro de los cuales encontraremos el LabRole.
+<img alt="" class="sietecinco" src="../ut5/RA2CEc16.png" />  <br>
+Dentro de LabRole encontraremos la política de permisos de ese rol. De disponer de las credenciales necesarias, podriamos agregar más roles a nuestro usuario (y apmpliar o reducir la política de permisos). Con el rol asignado por el <strong>learner lab</strong> no es posible hacerlo.
+<img alt="" class="sietecinco" src="../ut5/RA2CEc17.png" />  <br></p>
+</li>
+<li>
+<p><strong>Conexión mediante instancia bastión</strong><br />
+En este caso, utilizaremos la instancia pública a la que tenemos acceso como una instancia bastión. Es decir, primero nos conectaremos a ella y, desde allí, estableceremos una conexión SSH hacia las instancias ubicadas en la subred privada.
+Para poder conectarnos por SSH a la EC2 de la subred privada, necesitaremos trasladar el archivo de la clave privada a la EC2 pública.<br />
+Mover nuestra clave privada no se considera una buena práctica desde el punto de vista de la seguridad informática, pero nos permitirá familiarizarnos con nuevas funcionalidades de AWS.</p>
+<ul>
+<li><strong>Opción 1: Mover archivo con scp</strong><br />
+En este caso usaremos el comando <code>scp</code> (Secure CoPy) para enviar el archivo *.pem desde la máquina local a la instancia EC2 pública.<br><br />
+En linux usaremos el comando:<br />
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>scp<span class="w"> </span>-i<span class="w"> </span>&lt;ARCHIVO_PEM&gt;<span class="w"> </span>&lt;ARCHIVO_A_TRANSFERIR&gt;<span class="w"> </span>&lt;NOMBRE_DE_USUARIO&gt;@&lt;IP_DE_LA_INSTANCIA&gt;:&lt;RUTA_ARCHIVO_DESTINO&gt;
+</span></code></pre></div>
+Donde -i especifica la clave privada.<br>
+<img alt="" class="original" src="../ut5/RA2CEc19.png" /><br><br />
+A partir de entonces, ya tendremos disponible dentro de nuestra EC2 pública la clave privada para conectarnos a las EC2 privadas.</li>
+</ul>
+<p><img alt="" class="original" src="../ut5/RA2CEc20.png" />  <br></p>
+<ul>
+<li>
+<p><strong>Opción 2: Mover archivo.pem con Cloud9</strong><br />
+Cloud9 es un entorno de desarrollo integrado (IDE) basado en la nube que permite escribir, ejecutar y depurar código directamente desde el navegador web, sin necesidad de instalar nada en el equipo local.<br />
+Está completamente integrado con los servicios de AWS (como EC2, Lambda, S3 o CloudFormation) y propone una terminal Linux completa dentro del entorno, como si estuvieramos conectado por SSH a una instancia EC2.</p>
+<div class="admonition warning">
+<p class="admonition-title">Nota importante:</p>
+<p>Cloud9 no es un servicio para mover archivos. Es un IDE para compartir, ejecutar y depurar código sin necesidad de tener ningún programa instalado en nuestro ordenador local.<br />
+Lo usaremos como excusa para descubrir sus funcionalidades y por la facilidad que incorpora a la hora de subir y descargar archivos.</p>
+</div>
+<p><strong>Creamos el entorno.</strong>
+<img alt="" class="original" src="../ut5/RA2CEc21.png" />  <br>
+Rellenamos los campos necesarios.
+<img alt="" class="original" src="../ut5/RA2CEc22.png" />  <br>
+<img alt="" class="original" src="../ut5/RA2CEc23.png" />  <br>
+<img alt="" class="original" src="../ut5/RA2CEc24.png" />  <br>
+Esperamos a que el servicio esté disponible y luego ya lo podremos usar.
+<img alt="" class="original" src="../ut5/RA2CEc25.png" />  <br>
+Ejemplo de ejecución de un programa de python.
+<img alt="" class="original" src="../ut5/RA2CEc26.png" />  <br>
+Intentamos conectarnos por ssh a cualquier otra instancia pero tampoco funciona.
+<img alt="" class="original" src="../ut5/RA2CEc27.png" />  <br></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="310-condiciones-de-entrega-de-la-tarea-ra2-cec"><strong>3.10 - Condiciones de entrega de la tarea RA2-CEc</strong></h3>
+<p>Mediante conexiones a las diferentes instancias, comprobar (mediantes ping) que las configuraciones de los grupos de seguridad y de las listas de control de acceso a las subredes (NACL) cumplen (o no) con los objetivos propuestos (instancias de la subred privada aisladas).  </p>
+<div class="admonition warning">
+<p class="admonition-title">Condiciones de la entrega</p>
+<ol>
+<li>Realizar capturas de pantallas de los pings entre instancias de la subred privada.  </li>
+<li>Realizar capturas de pantallas de los pings entre instancias de la subred privada y la instancia de la subred pública.</li>
+<li>Comentar brevemente cada captura para entender a qué corresponde.</li>
+<li>¿Qué conclusión podemos sacar?  </li>
+<li>Subir el documento a la tarea correspondiente de AULES.</li>
+</ol>
+</div>
+<h2 id="4-nat-gateway"><strong>4 - NAT gateway</strong></h2>
+<ul>
+<li>NAT gateway es un servicio de traducción de direcciones de red (NAT) que permite a las instancias de una subred privada tener acceso a Internet o a otros servicios de AWS, <strong>sin exponer</strong> sus IP privadas.</li>
+<li>Este servicio resulta particularmente útil por necesidad de los servicios de las EC2 de la subred privada (p.e. actualización de software) a la vez que impide que servicios externos inicien una conexión con esas instancias.</li>
+</ul>
+<h3 id="41-caracteristicas-de-un-nat-gateway-de-aws"><strong>4.1 - Características de un NAT Gateway de AWS</strong></h3>
+<ol>
+<li>
+<p>Solo existe un tipo de NAT Gateway, pero puede actuar como:  </p>
+<ul>
+<li>NAT Gateway público: cuando está en una subred pública y tiene asociada una Elastic IP (EIP).</li>
+<li>NAT Gateway privado: cuando está en una subred privada y se usa para enrutar tráfico hacia otra VPC o VPN, sin acceso a Internet.  </li>
+</ul>
+</li>
+<li>
+<p>Debe crearse en una zona de disponibilidad específica (AZ).</p>
+</li>
+<li>Soporta los protocolos: TCP, UDP y ICMP.</li>
+<li>No se le puede asociar un grupo de seguridad (Security Group); en su lugar, se controlan los accesos mediante las Listas de Control de Acceso (ACLs) de red.</li>
+</ol>
+<h3 id="42-tipos-de-despliegue"><strong>4.2 - Tipos de despliegue</strong></h3>
+<ul>
+<li><strong>NAT Gateway público</strong>  </li>
+</ul>
+<div class="admonition info">
+<p>Se ubica en una subred pública.<br />
+Se le asigna una Elastic IP.
+Permite que las instancias en una subred privada puedan acceder a Internet. 
+No permite que el tráfico desde Internet inicie conexiones hacia las instancias privadas.</p>
+</div>
+<ul>
+<li><strong>NAT Gateway privado</strong></li>
+</ul>
+<div class="admonition info">
+<p>Se ubica en una subred privada pero se usa en conjunto con un Transit Gateway o una VPN/Direct Connect.
+No tiene Elastic IP.
+Sirve para enrutamiento privado: Las instancias en una subred privada pueden comunicarse con otras redes (VPCs, etc.) y ocultan sus direcciones privadas detrás de una IP en el lado del NAT.</p>
+</div>
+<ul>
+<li><strong>Resumen comparativo:</strong></li>
+</ul>
+<div class="admonition info">
+<table>
+<thead>
+<tr>
+<th><strong>Característica</strong></th>
+<th><strong>NAT Gateway Público</strong></th>
+<th><strong>NAT Gateway Privado</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ubicación</strong></td>
+<td>Subred pública</td>
+<td>Subred privada</td>
+</tr>
+<tr>
+<td><strong>Elastic IP</strong></td>
+<td>Requiere una Elastic IP</td>
+<td>No necesita Elastic IP</td>
+</tr>
+<tr>
+<td><strong>Acceso a Internet</strong></td>
+<td>Permite que las instancias privadas accedan a Internet</td>
+<td>No tiene acceso directo a Internet</td>
+</tr>
+<tr>
+<td><strong>Rutas (Route Table)</strong></td>
+<td>Las subredes privadas deben tener una ruta hacia el NAT Gateway</td>
+<td>Se usa para enrutar tráfico hacia otra VPC o VPN</td>
+</tr>
+<tr>
+<td><strong>Uso típico</strong></td>
+<td>Salida a Internet desde instancias privadas (actualizaciones, descargas, etc.)</td>
+<td>Comunicación privada entre redes sin exposición pública</td>
+</tr>
+<tr>
+<td><strong>Seguridad</strong></td>
+<td>No admite SG's, solo ACL de red</td>
+<td>No admite SG, solo ACL de red</td>
+</tr>
+<tr>
+<td><strong>Alta disponibilidad</strong></td>
+<td>Se debe desplegar <strong>uno por zona de disponibilidad (AZ)</strong></td>
+<td>Uno por AZ si se requiere redundancia</td>
+</tr>
+<tr>
+<td><strong>Protocolos soportados</strong></td>
+<td>TCP, UDP, ICMP</td>
+<td>TCP, UDP, ICMP</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="43-tarea-ra2-ced"><strong>4.3 - Tarea RA2-CEd</strong></h3>
+<p>Para realizar la tarea retomaremos el escenario de la <strong>Tarea RA2-CEc</strong>, y pondremos un NAT gateway público para que las instancias de la subred privada puedan acceder a internet.</p>
+<p><img alt="" class="sietecinco" src="../ut5/VPC2-nat.png" />  </p>
+<p>Este esquema tiene un error de concepto aunque siempre se representa de esa manera ¿Cuál?</p>
+<h3 id="431-crear-el-nat-gateway"><strong>4.3.1 - Crear el NAT Gateway</strong></h3>
+<p>Vamos al menú de NAT Gateway y creamos nuestro NAT Gateway.<br />
+Si no tenemos ninguna IP elástica, dejaremos que AWS le asigne una. </p>
+<p><img alt="" class="original marco" src="../ut5/RA2CEc1.png" />  </p>
+<h3 id="432-modificar-la-tabla-de-enrutamiento"><strong>4.3.2 - Modificar la tabla de enrutamiento</strong></h3>
+<p>Enlazamos todo el tráfico hacia internet de la tabla de enrutamiento de la subred privada hacia el NAT Gateway</p>
+<p><img alt="" class="original marco" src="../ut5/RA2CEc2.png" />  </p>
+<h3 id="433-conexion-a-la-ec2-de-la-subred-privada"><strong>4.3.3 - Conexión a la EC2 de la subred privada</strong></h3>
+<p>Al carecer, la EC2 de la subred privada de IP pública, para poder conectarnos a ella, primero deberemos conectarnos a la EC2 de la subred pública, y luego, desde ella, conectarnos a la EC2 de la subred privada. </p>
+<div class="admonition info">
+<p class="admonition-title">Preparación de las variables de entorno</p>
+</div>
+<p>Antes de conectar por SSH a una instancia, es recomendable preparar el entorno de autenticación cargando la clave privada en el agente SSH.</p>
+<ol>
+<li>
+<p>Ejecutar ssh-agent en segundo plano
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nb">eval</span><span class="w"> </span><span class="k">$(</span>ssh-agent<span class="k">)</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p>Cargar en memoria la clave privada de la instancia
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>ssh-add<span class="w"> </span>labsuser.pem
+</span></code></pre></div></p>
+</li>
+<li>
+<p>Comprobar las claves añadidas al agente ssh
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>ssh-add<span class="w"> </span>-l<span class="w"> </span>
+</span></code></pre></div></p>
+</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">¿Por qué usar ssh-agent?</p>
+<p>El agente SSH permite mantener las claves privadas cargadas en memoria durante la sesión.<br />
+<strong>Ventajas:</strong><br />
+- Evita tener que escribir la ruta o la contraseña de la clave en cada conexión.<br />
+- Mejora la seguridad, ya que la clave no se guarda en texto plano ni se reenvía en cada conexión.<br />
+- Facilita la autenticación si se conectan varias veces a la misma instancia o a distintos servidores dentro del mismo entorno.</p>
+</div>
+<p><br></p>
+<div class="admonition info">
+<p class="admonition-title">Conexión a la instancia EC2 mediante SSH</p>
+</div>
+<p>Una vez configurado el agente SSH y cargada la clave privada, nos conectaremos a la instancia EC2 de la subred pública.</p>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>ssh<span class="w"> </span>-A<span class="w"> </span>ec2-user@dirección-ip-pública
+</span></code></pre></div>
+<strong>Nota:</strong><br />
+Con la <strong>opción -A</strong>, las claves se mantienen en memoria.<br />
+Ya no es necesario utilizar la <strong>opción -i</strong> para especificar la clave privada que se usará.</p>
+<p><br></p>
+<div class="admonition info">
+<p class="admonition-title">Conexión a la instancia EC2 de la subred privada</p>
+</div>
+<p>Una vez conectados a la instancia pública, desde ella nos conectaremos a la instancia de la subred privada.<br />
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>ssh<span class="w"> </span>ec2-user@direccion-ip-privada
+</span></code></pre></div>
+<br></p>
+<h3 id="434-condiciones-de-entrega-de-la-tarea-ra2-ced"><strong>4.3.4 - Condiciones de entrega de la tarea RA2-CEd</strong></h3>
+<div class="admonition task">
+<p class="admonition-title">Tarea RA2-CEd: Pruebas de ping</p>
+<p><strong>Comprobar:</strong><br />
+Realizar una prueba de ping de las 2 instancias hacia internet (p.e google.es).<br />
+Realizar capturas (3 capturas en total).</p>
+</div>
+<p><br></p>
+<h2 id="5-reglas-encadenadas-en-grupos-de-seguridad"><strong>5 - Reglas encadenadas en grupos de seguridad</strong></h2>
+<p>Como hemos visto, AWS ofrece diferentes herramientas para proteger una infraestructura en la nube, como los grupos de seguridad (<strong>Security Groups</strong>) y las listas de control de acceso a red (<strong>NACL</strong>).<br />
+Una funcionalidad especialmente interesante es la posibilidad de encadenar grupos de seguridad (<strong>Security Groups Chaining</strong>), lo que permite aplicar un modelo de seguridad por capas dentro de una VPC.</p>
+<p><strong>Comprendiendo el encadenamiento de grupos de seguridad</strong>  </p>
+<ul>
+<li>Encadenar grupos de seguridad significa referenciar un grupo de seguridad dentro de otro.  </li>
+<li>De esta forma, se pueden crear reglas que <strong>solo permiten el tráfico procedente de instancias asociadas a un grupo de seguridad concreto</strong>, añadiendo una capa adicional de control y segmentación del tráfico.</li>
+</ul>
+<p><br></p>
+<div class="admonition tip">
+<p class="admonition-title">Ejemplo:</p>
+<p><strong>Tenemos:</strong></p>
+<ol>
+<li>Un grupo de seguridad para los servidores web, que permite conexiones HTTP y HTTPS.</li>
+<li>Otro grupo de seguridad para los servidores de base de datos, que <strong>solo acepta tráfico desde el grupo de seguridad del servidor web</strong>.</li>
+</ol>
+</div>
+<p>De esa manera, conseguimos un entorno más seguro, en el que cada capa (web, base de datos, etc.) solo puede comunicarse con las capas que realmente necesita.</p>
+<p>Esta técnica facilita una gestión más ordenada y modular de la seguridad, ya que podemos reutilizar y combinar grupos de seguridad según las necesidades de cada componente de la infraestructura.</p>
+<h3 id="tarea-ra3-ceab"><strong>Tarea RA3-CEab</strong></h3>
+<p>Para entender mejor la posiblidad de las reglas encadenas, usaremos el siguiente escenario:</p>
+<p><img alt="" class="cincozero marco" src="../ut5/RA3-CEab-ver2.png" />  </p>
+<p><strong>Condiciones especificas de la infraestructura:</strong></p>
+<ol>
+<li>Lanzar 3 instancias en la subred pública. La <strong>instancia 1 tendrá IP pública</strong>, las otras 2 no. </li>
+<li>Los grupos de seguridad de las instancias (2 y 3) de la subred pública serán encadenados <strong>directamente</strong> al grupo de seguridad de la instancia 1.</li>
+<li>Lanzar 2 instancias en la subred privada y encadenar los grupos de seguridad de esas instancias al grupo de seguridad de la instancia 1.</li>
+</ol>
+<p><strong>Comprobaciones a realizar:</strong>  </p>
+<ol>
+<li>Realizar una conexión SSH a la <strong>instancia 1</strong>.</li>
+<li>Desde la instancia 1 realizar pings al resto de instancias (4 pings en total). </li>
+<li>Propagarse a una de las 2 instancias de la subred pública y realizar pings a las otras instancias (4 pings en total). Si no hay errores solo se podrá hacer ping a la instancia 1. Al resto de instancias (2 en la subred pública y 2 en la subred privada, no se les podrá hacer ping.)</li>
+<li>Desde la instancia dónde nos encontramos, intentar propagarse a otra instancia (da igual que sea de la subred pública o privada). </li>
+<li>Desde la instancia 1, propagarse a una de las instancias de la subred privada y realizar pings a las otras instancias (4 pings en total). </li>
+</ol>
+<p><strong>Ejemplos de pings entre instancias:</strong></p>
+<div class="admonition tip">
+<p class="admonition-title">Instancia 1 al resto de instancias</p>
+</div>
+<p><img alt="" class="cincozero" src="../ut5/RA3-CEab-1.png" />  </p>
+<div class="admonition tip">
+<p class="admonition-title">Instancia subred pública al resto de instancias</p>
+</div>
+<p><img alt="" class="cincozero" src="../ut5/RA3-CEab-2.png" />  </p>
+<div class="admonition tip">
+<p class="admonition-title">Instancia subred privada al resto de instancias</p>
+</div>
+<p><img alt="" class="cincozero" src="../ut5/RA3-CEab-3.png" />  </p>
+<p><br></p>
+<div class="admonition warning">
+<p class="admonition-title">Condiciones de la entrega:</p>
+<ul>
+<li>Realizar capturas de pantalla de los pings entre instancias. </li>
+<li>Comentar brevemente cada captura para entender a qué corresponde</li>
+<li>Subir el documento a la tarea correspondiente de AULES.</li>
+</ul>
+</div>
+<h2 id="6-caso-practico"><strong>6 - Caso práctico</strong></h2>
+<h3 id="tarea-ra3-cec-montar-un-servidor-web-y-una-base-de-datos-mysql">Tarea RA3-CEc: Montar un servidor web y una base de datos mysql</h3>
+<p><strong>Escenario propuesto:</strong>
+<img alt="" class="sietecinco" src="../ut5/VPC2-nat.png" />  </p>
+<div class="admonition task">
+<p class="admonition-title">Tarea RA3-CEc (continuación): Montar un servidor web y un agente mysql</p>
+<p><strong>1. Instancia pública</strong><br />
+Instalar un servidor web Apache, que será accesible desde cualquier equipo externo a la VPC por el puerto 80, utilizando tanto su nombre DNS como su dirección IP pública.</p>
+<p><strong>2. Instancia privada</strong><br />
+Instala un servicio de MySQL. </p>
+<p><strong>3. Conexión a la BBDD</strong><br />
+Conectarse a la instancia de la subred pública y realizar una prueba de conexión <strong>al servidor de base de datos</strong>. Para esa conexión, se utilizará un cliente mysql.</p>
+<p><strong>4. Realizar capturas</strong><br />
+De la conexión a la base de datos.<br />
+El servidor web desplegado.  </p>
+</div>
+<!-- instalar firewall sobre una EC2 Amazon linux 
+-Instalar el firewall
+sudo dnf install firewalld -y
+-Habilitar y levantar
+sudo systemctl enable firewalld
+sudo systemctl start firewalld
+-Comprobar su estado:
+sudo firewall-cmd --state
+-Configurar las instancias
+sudo firewall-cmd --permanent --add-rich-rule='rule family="ipv4" source address="172.18.2.184" reject' && sudo firewall-cmd --reload
+sudo firewall-cmd --permanent --add-rich-rule='rule family="ipv4" source address="172.18.2.193" reject' && sudo firewall-cmd --reload -->
+
+<h2 id="enlaces-de-interes"><strong>Enlaces de interés</strong></h2>
+<p>Documentación de <a href="https://docs.aws.amazon.com">AWS</a><br />
+Instancias <a href="https://docs.aws.amazon.com/es_es/ec2/?icmpid=docs_homepage_featuredsvcs">EC2</a><br />
+Tipos de instancias <a href="https://aws.amazon.com/es/ec2/instance-types">EC2</a><br />
+Controlar el tráfico hacia los recursos de AWS mediante <a href="https://docs.aws.amazon.com/es_es/vpc/latest/userguide/vpc-security-groups.html#security-group-basics">grupos de seguridad</a><br />
+<a href="https://docs.aws.amazon.com/es_es/AWSEC2/latest/UserGuide/ec2-security-groups.html">Grupos de seguridad de instancias EC2</a><br />
+Control del tráfico de la subred con <a href="https://docs.aws.amazon.com/es_es/vpc/latest/userguide/vpc-network-acls.html">listas de control de acceso a la red</a><br />
+Tipos y caracteristicas de las <a href="https://docs.aws.amazon.com/es_es/ebs/latest/userguide/ebs-volume-types.html">EBS</a><br />
+<a href="https://docs.aws.amazon.com/es_es/vpc/latest/userguide/vpc-nat-gateway.html">Gateways NAT</a><br />
+<a href="https://docs.aws.amazon.com/es_es/ebs/latest/userguide/recognize-expanded-volume-linux.html">Ampliar volúmenes EBS</a><br />
+<a href="https://docs.aws.amazon.com/es_es/ebs/latest/userguide/ebs-attaching-volume.html">Adjuntar volúmenes EBS</a><br />
+<a href="https://docs.aws.amazon.com/es_es/AWSEC2/latest/UserGuide/ec2-instance-connect-prerequisites.html">Rquisitos para CE2 Instance Connect</a><br />
+<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-connect-methods.html#connect-linux-inst-eic-cli-ssh">EC2 Instance Connect</a>  </p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 - Javier Egea Blasco
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress - navigation.expand - navigation.path", "navigation.instant.progress", "navigation.instant.preview", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "toc.follow", "navigation.footer", "navigation.top", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.tabs.link"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,3146 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Javier Egea Blasco">
+      
+      
+        <link rel="canonical" href="https://javieregeablasco.github.io/Apuntes/DAW/DAW_2/AWS/UT.%207-Dockers/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Introducción a la nube pública - Javier Egea Blasco</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ut-7-dockers-y-cloud-formation" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../../../.." title="Javier Egea Blasco" class="md-header__button md-logo" aria-label="Javier Egea Blasco" data-md-component="logo">
+      
+  <img src="../../../../assets/mre.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Javier Egea Blasco
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Introducción a la nube pública
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Compartir" aria-label="Compartir" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../SMX/SMX_1/AO/00_Temario/" class="md-tabs__link">
+          
+  
+  
+  Aplicaciones Ofimáticas
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../SMX/SMX_2/SX/apuntes/00_Temario/" class="md-tabs__link">
+          
+  
+  
+  Servicios en redes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../PWES/UT.%200-Temario/" class="md-tabs__link">
+          
+  
+  
+  Under development
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Javier Egea Blasco" class="md-nav__button md-logo" aria-label="Javier Egea Blasco" data-md-component="logo">
+      
+  <img src="../../../../assets/mre.png" alt="logo">
+
+    </a>
+    Javier Egea Blasco
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aplicaciones Ofimáticas
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Aplicaciones Ofimáticas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_1/AO/00_Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Presentación módulo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_1/AO/01_Instalacion%20de%20aplicaciones%20ofimaticas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 1 - Instalación de aplicaciones Ofimáticas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 2 - Procesadores de texto
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UT 2 - Procesadores de texto
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_1/AO/02_Procesadores_de_texto/021_Procesadores_de_texto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 21 - Características de los procesadores de texto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_1/AO/02_Procesadores_de_texto/022_LibreOffice_Writer_Instalacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 22 - Instalación de LibreOffice Writer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_1/AO/02_Procesadores_de_texto/023_LibreOffice_Writer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 23 - LibreOffice Writer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_1/AO/03_Hojas%20de%20calculo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 3 - Hojas de cálculo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_1/AO/07_Presentaciones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 4 - Presentaciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_1/AO/04_Bases%20de%20datos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 5 - Bases de datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_1/AO/05_Imagenes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 6 - Edición de imágenes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_1/AO/06_Captura%20e%20edicion%20de%20video/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 7 - Edición de vídeos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_1/AO/08_Correo%20electronico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 8 - Agenda electrónica y comunicación
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_1/AO/09_Resolucion%20de%20incidencias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 9 - Gestión de incidencias
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Servicios en redes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Servicios en redes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_2/SX/apuntes/00_Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Presentación módulo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_2/SX/apuntes/01_Redes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Redes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_2/SX/apuntes/02_TCP-IP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocolo TCP/IP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_2/SX/apuntes/03_Conexiones-remotas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Acceso y control remoto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_2/SX/apuntes/04_DHCP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocolo DHCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_2/SX/apuntes/05_DNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocolo DNS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Under development
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Under development
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PWES/UT.%200-Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Presentación módulo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 - Docker
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 - Docker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 - Introducción
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-como-funciona-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 - ¿Cómo Funciona Docker?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-conceptos-clave-de-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 - Conceptos clave de docker
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-kubernetes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 - Kubernetes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.4 - Kubernetes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#141-para-que-sirve-kubernetes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4.1 - ¿Para qué sirve Kubernetes?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#142-conceptos-basicos-de-kubernetes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4.2 - Conceptos básicos de Kubernetes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-como-desplegar-contenedores-en-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 - ¿Cómo desplegar contenedores en AWS?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 - ¿Cómo desplegar contenedores en AWS?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-amazon-ecr-elastic-container-registry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 - Amazon ECR (Elastic Container Registry)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-amazon-ecs-elastic-container-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 - Amazon ECS (Elastic Container Service)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 - Amazon ECS (Elastic Container Service)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221-ecs-sobre-ec2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.1 - ECS sobre EC2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222-ecs-con-fargate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.2 - ECS con Fargate
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-amazon-eks-elastic-kubernetes-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 - Amazon EKS (Elastic Kubernetes Service)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-aws-lambda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 - AWS Lambda
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-aws-app-runner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 - AWS App Runner
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-ecr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 - ECR
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 - ECR">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-creacion-de-un-repositorio-privado-ecr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 - Creación de un repositorio privado ECR
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 - Creación de un repositorio privado ECR">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#311-acceder-a-ecr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1.1 - Acceder a ECR
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#312-crear-repositorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1.2 - Crear repositorio
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#313-descargar-una-imagen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1.3 - Descargar una imagen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#314-subir-la-imagen-al-repositorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1.4 - Subir la imagen al repositorio
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-ecs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 - ECS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4 - ECS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 - Introducción
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-acceder-a-ecs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 - Acceder a ECS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-crear-un-cluster" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 - Crear un clúster
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-crear-una-tarea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 - Crear una tarea
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-desplegar-un-servicio-nuevo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5 - Desplegar un servicio nuevo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46-comprobacion-del-grupo-de-seguridad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6 - Comprobación del grupo de seguridad
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#47-comprobacion-del-servicio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.7 - Comprobación del servicio
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#48-tarea-ra4-ced" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.8 - Tarea RA4-CEd
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#49-creacion-de-una-nueva-revision-de-la-definicion-de-tarea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.9 – Creación de una nueva revisión de la definición de tarea
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.9 – Creación de una nueva revisión de la definición de tarea">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#491-crear-y-subir-el-dockerfile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.9.1 - Crear y subir el Dockerfile
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#492-subir-la-imagen-a-ecr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.9.2 - Subir la imagen a ECR
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#492-crear-una-revision-de-nuestra-tarea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.9.2 - Crear una revisión de nuestra tarea
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#493-actualizar-el-servicio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.9.3 - Actualizar el servicio
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#494-comprobar-el-estado-de-las-tareas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.9.4 - Comprobar el estado de las tareas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#495-estado-del-servicio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.9.5 - Estado del servicio
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#496-registros-del-contenedor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.9.6 - Registros del contenedor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#497-pilas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.9.7 - Pilas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-aws-cloudformation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 - AWS CloudFormation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5 - AWS CloudFormation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-como-usar-cloudformation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 - Como usar CloudFormation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-secciones-de-una-plantilla" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 - Secciones de una plantilla
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-ciclo-de-vida-de-una-pila" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 - Ciclo de vida de una pila
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-lanzar-una-pila-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 - Lanzar una pila (stack)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55-tarea-ra4-cee-actualizar-una-pila" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5 - Tarea RA4-CEe: Actualizar una pila
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.5 - Tarea RA4-CEe: Actualizar una pila">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#551-edicion-de-la-seccion-recursosresources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5.1 - Edición de la sección 'Recursos/Resources'
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.5.1 - Edición de la sección &#39;Recursos/Resources&#39;">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#5511-anadir-la-vpc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5.1.1 - Añadir la VPC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5512-anadir-y-configurar-el-igw" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5.1.2 - Añadir y configurar el IGW
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5513-anadir-y-configurar-el-igw" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5.1.3 - Añadir y configurar el IGW
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5514-anadir-subredes-publicas-y-privadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5.1.4 - Añadir subredes públicas y privadas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5515-anadir-la-tabla-de-enrutamiento-de-la-subred-publica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5.1.5 - Añadir la tabla de enrutamiento de la subred pública
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5516-anadir-un-grupo-de-seguridad-para-la-instancia-ec2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5.1.6 - Añadir Un grupo de seguridad para la instancia EC2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5517-instancia-ec2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5.1.7 - Instancia EC2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5518-lienzo-final" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5.1.8 - Lienzo final
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#552-edicion-de-la-seccion-parametrosparameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5.2 - Edición de la sección 'Parámetros/Parameters'
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#553-validar-la-plantilla" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5.3 - Validar la plantilla
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#554-ejecutar-el-conjunto-de-cambios-e-iniciar-el-despliegue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5.4 - Ejecutar el conjunto de cambios e iniciar el despliegue
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#555-definir-un-rol-de-iam-para-la-instancia-ec2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5.5 - Definir un rol de IAM para la instancia EC2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#556-definir-la-clave-con-la-que-se-podra-acceder-a-la-instancia-ec2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5.6 - Definir la clave con la que se podrá acceder a la instancia EC2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#557-instalar-nginx-sobre-la-instancia-ec2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5.7 - Instalar Nginx sobre la instancia EC2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#557-condiciones-de-entrega-de-la-tarea-ra4-cee" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5.7 - Condiciones de entrega de la tarea RA4-CEe
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#56-iac-generator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.6 - IaC generator
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.6 - IaC generator">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#561-acceder-al-servicio-iac-generator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.6.1 - Acceder al servicio IaC generator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#562-crear-una-plantilla-con-iac-generator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.6.2 - Crear una plantilla con IaC generator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#563-explorar-la-plantilla-creada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.6.3 - Explorar la plantilla creada
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#57-cloudformation-iac-cdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.7 - CloudFormation + IaC + CDK
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enlaces-de-interes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enlaces de interés
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="ut-7-dockers-y-cloud-formation"><strong>UT. 7 - Dockers y Cloud Formation</strong></h1>
+<p><img alt="Descripción de la imagen" class="trescinco" src="../ut7/doc-1.webp" />
+<br></p>
+<p><strong>Resultados de aprendizaje y criterios de evaluacion que se evaluarán en esta unidad.</strong>  </p>
+<table>
+<thead>
+<tr>
+<th><strong>Resultados de aprendizaje de la unidad didáctica:</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RA. 4:</strong> Gestiona servicios de almacenamiento y bases de datos en la nube, seleccionando tecnologías adecuadas para casos específicos, y diseña arquitecturas escalables y resilientes utilizando herramientas de monitoreo y optimización para mejorar el rendimiento.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><strong>Criterios de evaluación de la unidad didáctica:</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>d)</strong> Se ha diseñado arquitecturas escalables y resilientes basadas en las mejores prácticas.</td>
+</tr>
+<tr>
+<td><strong>e)</strong> Se ha hecho uso de herramientas de monitoreo y recomendaciones de optimización.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="1-docker"><strong>1 - Docker</strong></h2>
+<h3 id="11-introduccion"><strong>1.1 - Introducción</strong></h3>
+<p>Docker es una plataforma que permite crear, empaquetar y ejecutar aplicaciones dentro de <strong>contenedores</strong>.<br />
+<strong>Un contenedor</strong> es un entorno aislado que contiene todo lo necesario para ejecutar una aplicación: código, librerías, configuraciones y dependencias.</p>
+<h3 id="12-como-funciona-docker"><strong>1.2 - ¿Cómo Funciona Docker?</strong></h3>
+<p>Docker funciona mediante <strong>imágenes</strong>, <strong>contenedores</strong> y <strong>mecanismos de aislamiento a nivel de sistema operativo</strong> gestionados por el motor de ejecución <strong>Docker engine</strong>.</p>
+<h3 id="13-conceptos-clave-de-docker"><strong>1.3 - Conceptos clave de docker</strong></h3>
+<p><img alt="Descripción de la imagen" class="sietecinco" src="../ut7/doc-2.png" /></p>
+<ul>
+<li>
+<p><strong>Docker Engine</strong><br />
+Docker Engine es el motor de contenedores de Docker. Utiliza funciones del sistema operativo (especialmente del kernel de Linux) para crear entornos aislados llamados contenedores.</p>
+<ul>
+<li>
+<p><strong>Docker Engine está compuesto por:</strong></p>
+<ul>
+<li>Docker Daemon (dockerd)</li>
+<li>Docker CLI</li>
+<li>API REST de Docker  </li>
+</ul>
+</li>
+<li>
+<p><strong>Sus funciones principales son:</strong>  </p>
+<ul>
+<li>Construir imágenes</li>
+<li>Ejecutar y supervisar contenedores</li>
+<li>Gestionar redes, volúmenes y almacenamiento</li>
+<li>Descargar imágenes desde registros (Docker Hub, <strong>AWS ECR</strong>, etc.)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Imagen:</strong>  </p>
+<ul>
+<li><strong>La imagen</strong> es <strong>una plantilla de solo lectura</strong> que se utiliza para <strong>crear contenedores</strong>. A partir de una imagen pueden crearse <strong>múltiples contenedores</strong>.</li>
+<li>Las imágenes, además de tener su sistema de ficheros predefinido, tienen una serie de parámetros predefinidos (comandos, de variables de entorno, etc.) con valores por defecto y que se pueden personalizar en el momento de crear el contenedor.</li>
+<li><strong>Docker Engine</strong> permite crear nuevas imágenes basándose en imágenes existentes, normalmente mediante un <strong>Dockerfile</strong>.</li>
+<li><strong>Una imagen</strong> está formada por <strong>capas</strong> (layers). Al construir <strong>una nueva imagen</strong>, Docker reutiliza las capas de la imagen original y añade <strong>únicamente las capas modificadas</strong>.<br />
+<br></li>
+</ul>
+</li>
+<li>
+<p><strong>Contenedor (container)</strong>:<br />
+Un contenedor es un paquete ejecutable independiente que incluye todo lo necesario para ejecutar una aplicación: código, tiempo de ejecución, herramientas del sistema, librerías y configuración. Los contenedores comparten el kernel del sistema anfitrión, lo que los hace ligeros y eficientes.  </p>
+<ul>
+<li>Son instancias ejecutables de una imagen.  </li>
+<li>Pueden ser creados, arrancados, detenidos, reiniciados y eliminados.</li>
+<li>Cada contenedor Docker posee un identificador único (ID) de 64 caracteres (normalmente se utiliza la versión corta de 12 caracteres).</li>
+<li>Los comandos de Docker aceptan tanto el ID completo como el reducido.</li>
+<li>Es posible referirse a un contenedor usando solo los primeros caracteres de su ID, siempre que dicho prefijo sea único.<br />
+<br></li>
+</ul>
+</li>
+<li>
+<p><strong>Dockerfile:</strong><br />
+Un Dockerfile es un archivo de texto que contiene instrucciones para construir una imagen Docker, incluyendo la imagen base, los paquetes necesarios y la configuración del entorno.<br />
+<br></p>
+</li>
+<li>
+<p><strong>Registro (registry):</strong><br />
+Las imágenes Docker se almacenan en registros, que actúan como repositorios de imágenes de contenedores. Docker Hub es el registro público más conocido, aunque las organizaciones suelen emplear registros privados como <strong>AWS ECR</strong>.<br />
+<br></p>
+</li>
+<li>
+<p><strong>Contenerización:</strong><br />
+El proceso de empaquetar una aplicación y todas sus dependencias en un contenedor se conoce como contenerización. Gracias a ello, los contenedores pueden ejecutarse de forma uniforme en cualquier sistema que disponga de Docker.</p>
+</li>
+</ul>
+<h3 id="14-kubernetes"><strong>1.4 - Kubernetes</strong></h3>
+<p>Kubernetes es un sistema que gestiona clusters de servidores y se encarga de ejecutar contenedores (normalmente Docker o cualquier imagen compatible con el estándar OCI) de forma:</p>
+<ul>
+<li>Distribuida</li>
+<li>Resiliente</li>
+<li>Escalable</li>
+<li>Automatizada</li>
+</ul>
+<p>Fue desarrollado por Google basándose en más de 10 años de experiencia gestionando contenedores internamente (Borg), y actualmente lo mantiene la Cloud Native Computing Foundation (CNCF).  </p>
+<p><br></p>
+<h4 id="141-para-que-sirve-kubernetes"><strong>1.4.1 - ¿Para qué sirve Kubernetes?</strong></h4>
+<p>Kubernetes ayuda a:</p>
+<ul>
+<li>Ejecutar aplicaciones distribuidas en muchos contenedores.</li>
+<li>Escalar de forma automática cuando aumenta la carga.</li>
+<li>Reiniciar contenedores si fallan.</li>
+<li>Distribuir la carga entre múltiples nodos.</li>
+<li>Actualizar versiones de la aplicación sin interrupciones (rolling updates).</li>
+<li>Programar contenedores en nodos disponibles.</li>
+<li>Gestionar redes y almacenamiento persistente para contenedores.</li>
+</ul>
+<p>Es decir, permite ejecutar aplicaciones complejas en producción sin preocuparte de la infraestructura paso a paso.</p>
+<p><br></p>
+<h4 id="142-conceptos-basicos-de-kubernetes"><strong>1.4.2 - Conceptos básicos de Kubernetes</strong></h4>
+<p>Lista de los recursos más importantes dentro de un cluster:</p>
+<ol>
+<li>
+<p><strong>Nodo (Node)</strong><br />
+Máquina física o virtual donde Kubernetes ejecuta contenedores.<br />
+Puede ser:</p>
+<ul>
+<li>Master node → gestiona el cluster</li>
+<li>Worker node → ejecuta las aplicaciones</li>
+</ul>
+</li>
+<li>
+<p><strong>Pod</strong><br />
+Es la unidad mínima en Kubernetes.<br />
+Un Pod puede contener uno o varios contenedores que funcionan como una unidad.</p>
+</li>
+<li>
+<p><strong>Deployment</strong><br />
+Define:</p>
+<ul>
+<li>Cuántos Pods se necesitan</li>
+<li>cómo se actualizan</li>
+<li>cómo se mantienen en ejecución</li>
+<li>Kubernetes garantiza que el estado deseado coincida con el estado real.</li>
+</ul>
+</li>
+<li>
+<p><strong>Service</strong></p>
+<ul>
+<li>Abstracción de red:</li>
+<li>Permite que los Pods sean accesibles dentro o fuera del cluster.</li>
+</ul>
+</li>
+</ol>
+<p>Tipos comunes:</p>
+<ul>
+<li>ClusterIP (interno)</li>
+<li>NodePort</li>
+<li>
+<p>LoadBalancer (externo, usado en nubes como AWS)</p>
+</li>
+<li>
+<p><strong>Namespace</strong>
+Sirve para organizar recursos dentro del cluster (útil en empresas con varios equipos/proyectos).</p>
+</li>
+<li>
+<p><strong>Volúmenes (Volumes)</strong>
+Permiten persistir datos incluso cuando los Pods mueren y se recrean.</p>
+</li>
+</ul>
+<hr />
+<h2 id="2-como-desplegar-contenedores-en-aws"><strong>2 - ¿Cómo desplegar contenedores en AWS?</strong></h2>
+<p>AWS proporciona varias herramientas para trabajar con contenedores que permiten:
+- Almacenar imágenes de contenedores.
+- Orquestar y escalar aplicaciones.
+- Ejecutar contenedores con o sin gestión directa de servidores, según el servicio utilizado.</p>
+<p>En el caso de <strong>Amazon ECS (Elastic Container Service)</strong>, el proceso general de despliegue es el siguiente:</p>
+<div class="admonition warning">
+<p class="admonition-title">Pasos generales para desplegar un contenedor en AWS (ECS)</p>
+<ul>
+<li>Crear la imagen del contenedor (Dockerfile y build de la imagen).</li>
+<li>Subir la imagen a un repositorio de AWS (Amazon ECR).</li>
+<li>Definir la <strong>Task Definition</strong>, donde se especifica cómo debe ejecutarse el contenedor (imagen, CPU, memoria, puertos, variables de entorno, etc.).</li>
+<li>Preparar la infraestructura de red (VPC, subredes y grupos de seguridad), si no se utiliza la VPC por defecto.</li>
+<li>Crear un <strong>clúster ECS</strong>, que actúa como contenedor lógico de los recursos de ejecución.</li>
+<li>Crear un <strong>servicio ECS</strong>, encargado de lanzar y mantener las tareas en ejecución, así como de su escalado y disponibilidad.</li>
+</ul>
+</div>
+<h3 id="21-amazon-ecr-elastic-container-registry"><strong>2.1 - Amazon ECR (Elastic Container Registry)</strong></h3>
+<p>Amazon ECR es un registro de contenedores donde almacenar las imágenes Docker.</p>
+<p><strong>Funciones principales:</strong></p>
+<ul>
+<li>Almacenar imágenes Docker a nivel empresarial.</li>
+<li>Integración nativa con ECS, EKS, Lambda y CodePipeline.</li>
+<li>Control de acceso mediante IAM.</li>
+<li>Alta disponibilidad y cifrado en reposo.</li>
+</ul>
+<p>ECR es el punto de partida para desplegar contenedores en AWS, ya que las imágenes deben estar accesibles desde los servicios que las ejecutan.</p>
+<h3 id="22-amazon-ecs-elastic-container-service"><strong>2.2 - Amazon ECS (Elastic Container Service)</strong></h3>
+<p>Amazon ECS es la plataforma de orquestación de contenedores de AWS. Permite ejecutar contenedores Docker en dos modos: <strong>EC2</strong> y <strong>Fargate</strong>.</p>
+<h4 id="221-ecs-sobre-ec2"><strong>2.2.1 - ECS sobre EC2</strong></h4>
+<ul>
+<li>Los contenedores se ejecutan en instancias EC2 administradas (parcial o totalmente) por el usuario.</li>
+<li>El usuario decide el tamaño, tipo y cantidad de máquinas.</li>
+<li>Dependiendo de la opción elegida, puede requerir aplicar parches, gestionar capacidad y asegurar servidores.</li>
+</ul>
+<h4 id="222-ecs-con-fargate"><strong>2.2.2 - ECS con Fargate</strong></h4>
+<ul>
+<li>Es un servicio <strong>serverless</strong>: no requiere gestionar máquinas.</li>
+<li>Ejecuta contenedores sin preocuparte por <strong>servidores ni escalado</strong>.</li>
+<li>Pago por uso de cada contenedor.</li>
+<li>Ideal para aplicaciones basadas en microservicios o arquitecturas distribuidas.</li>
+</ul>
+<h3 id="23-amazon-eks-elastic-kubernetes-service"><strong>2.3 - Amazon EKS (Elastic Kubernetes Service)</strong></h3>
+<p>Amazon EKS permite desplegar contenedores utilizando Kubernetes, el estándar de orquestación más extendido.</p>
+<ul>
+<li>AWS gestiona el control plane.</li>
+<li>El usuario gestiona los nodos (EC2) o Fargate como backend.</li>
+<li>Total compatibilidad con imágenes Docker o de cualquier estándar OCI.</li>
+<li>Es ideal si se necesita mantener compatibilidad con Kubernetes o en un entorno multi-cloud.</li>
+</ul>
+<h3 id="24-aws-lambda"><strong>2.4 - AWS Lambda</strong></h3>
+<p>AWS Lambda permite empaquetar funciones en imágenes Docker de hasta 10 GB.</p>
+<p>Esto ofrece ventajas como:</p>
+<ul>
+<li>Usar dependencias complejas no soportadas en Lambda tradicional.</li>
+<li>Migrar aplicaciones que ya se ejecutan en contenedores.</li>
+<li>Unificar pipelines de CI/CD basados en Docker.</li>
+<li>Lambda ejecuta el contenedor como una función serverless, sin servidores.</li>
+</ul>
+<h3 id="25-aws-app-runner"><strong>2.5 - AWS App Runner</strong></h3>
+<p>AWS App Runner es un servicio de alto nivel para desplegar aplicaciones web y APIs directamente desde:  </p>
+<ul>
+<li>Un repositorio de código</li>
+<li>Una imagen Docker en ECR</li>
+</ul>
+<p>Es ideal para desarrolladores que quieren centrarse en el código y dejar toda la infraestructura a AWS.</p>
+<hr />
+<h2 id="3-ecr"><strong>3 - ECR</strong></h2>
+<p>Cuando se desarrollan aplicaciones con Docker, resulta imprescindible disponer de un repositorio adecuado para almacenar las imágenes generadas.  <strong>Docker Hub</strong> resulta ser una opción idónea para la distribución de <strong>imágenes públicas</strong> pero, el <strong>código propietario</strong> requiere un entorno privado, seguro y con alta disponibilidad. Para este último caso, AWS propone <strong>Amazon Elastic Container Registry (ECR)</strong>.  </p>
+<p>ECR es el servicio de registro de contenedores Docker totalmente gestionado por AWS, diseñado para integrarse con otros servicios, como ECS, EKS y Fargate. Este servicio asume la gestión de funciones esenciales, entre ellas el análisis de vulnerabilidades, el control de acceso, el cifrado y la aplicación de políticas de ciclo de vida, todo ello accesible a través de una API.</p>
+<h3 id="31-creacion-de-un-repositorio-privado-ecr"><strong>3.1 - Creación de un repositorio privado ECR</strong></h3>
+<h4 id="311-acceder-a-ecr"><strong>3.1.1 - Acceder a ECR</strong></h4>
+<p>Primero accederemos al servicio tecleando ECR en la barra de búsqueda.</p>
+<p><img alt="Descripción de la imagen" class="sietecinco marco" src="../ut7/ECR-1.png" />  </p>
+<p><br></p>
+<h4 id="312-crear-repositorio"><strong>3.1.2 - Crear repositorio</strong></h4>
+<p>Creamos nuestro repositorio privado. Indicamos la ruta y en configuración de las etiquetas de imagen seleccionamos immutable.   </p>
+<p><img alt="Descripción de la imagen" class="sietecinco marco" src="../ut7/ECR-2.png" /></p>
+<p>Motivos por los cuales se recomienda seleccionar immutable:</p>
+<ul>
+<li>
+<p>Evita sobrescrituras accidentales o malintencionadas:<br />
+Una vez publicada una imagen con una etiqueta (v1.0.0, latest...), ya no puede ser reemplazada por otra imagen posterior.</p>
+</li>
+<li>
+<p>Garantiza la trazabilidad de versiones<br />
+La inmutabilidad asegura que cada etiqueta corresponde siempre a la misma imagen.</p>
+</li>
+<li>
+<p>Mejora la seguridad y aporta estabilidad a los despliegues
+Si las etiquetas cambian su contenido, se pueden generar despliegues impredecibles. La inmutabilidad contribuye a que cada despliegue sea reproducible y consistente.</p>
+</li>
+</ul>
+<p><br></p>
+<h4 id="313-descargar-una-imagen"><strong>3.1.3 - Descargar una imagen</strong></h4>
+<p>Para el caso, descargaremos <strong>el servidor web nginx</strong>.</p>
+<p>Desde la CLI de AWS hacemos pull sobre la imagen de nginx:</p>
+<p><img alt="Descripción de la imagen" class="cincozero" src="../ut7/ECR-3.png" /></p>
+<p><strong>Nota:</strong><br />
+Si no especificamos ninguna etiqueta, Docker asume automáticamente <strong>latest</strong>. Cualquier versión distinta debe indicarse de forma explícita con el formato <strong>imagen:tag</strong>.<br />
+Por ejemplo, si queremos descargar una imagen especifica de <code>nginx</code>, simplemente especificaremos la versión o su nombre.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>docker<span class="w"> </span>pull<span class="w"> </span>nginx:1.25.3
+</span></code></pre></div></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>docker<span class="w"> </span>pull<span class="w"> </span>nginx:alpine
+</span></code></pre></div>
+<p><br></p>
+<h4 id="314-subir-la-imagen-al-repositorio"><strong>3.1.4 - Subir la imagen al repositorio</strong></h4>
+<p>Para ello deberemos consultar los comandos de envío en nuestro repositorio → imágenes → ver comandos de envío.  </p>
+<p><img alt="Descripción de la imagen" class="nuevezero marco" src="../ut7/ECR-4.png" /></p>
+<p><img alt="Descripción de la imagen" class="seiszero marco" src="../ut7/ECR-5.png" /></p>
+<p><br>
+Copiamos la primera línea de comando. Al ejecutar el comando desde la CLI de la interfaz de AWS, no debemos modificar nada.<br />
+Al ya disponer de la imagen, tampoco es necesario ejecutar el segundo comando. </p>
+<p><img alt="Descripción de la imagen" class="ochocinco" src="../ut7/ECR-6.png" /></p>
+<p><br>
+Ejecutamos el comando 3 con el que etiquetaremos la imagen que subiremos al repositorio.<br />
+Cambiaremos el nombre de la imagen así como la versión para poder modificarla.  </p>
+<p><img alt="Descripción de la imagen" class="ochocinco" src="../ut7/ECR-7.png" /></p>
+<p><img alt="Descripción de la imagen" class="ochocinco" src="../ut7/ECR-8.png" /></p>
+<p><br>
+Finalmente, subimos la imagen.   </p>
+<p><img alt="Descripción de la imagen" class="ochocinco" src="../ut7/ECR-9.png" /></p>
+<p><br>
+Si todo ha ido bien, la imagen aparecerá disponible en nuestro repositorio.</p>
+<p><img alt="Descripción de la imagen" class="cien marco" src="../ut7/ECR-10.png" />  </p>
+<p><br></p>
+<h2 id="4-ecs"><strong>4 - ECS</strong></h2>
+<h3 id="41-introduccion"><strong>4.1 - Introducción</strong></h3>
+<p>Amazon ECS (Elastic Container Service) es el servicio de AWS para ejecutar y orquestar contenedores Docker de forma gestionada.</p>
+<p>ECS permite desplegar aplicaciones en contenedores sin necesidad de administrar directamente servidores, encargándose de tareas como el arranque, supervisión, escalado y recuperación de los contenedores.</p>
+<p>Las aplicaciones se ejecutan dentro de <strong>clusters</strong>, utilizando <strong>infraestructura EC2</strong> (con mayor control) o <strong>Fargate (modelo serverless)</strong>. </p>
+<h3 id="42-acceder-a-ecs"><strong>4.2 - Acceder a ECS</strong></h3>
+<p>Nos dirigimos a <strong>ECS</strong> pero primero deberemos crear <strong>un clúster</strong>.<br />
+En Amazon ECS (Elastic Container Service), <strong>un cluster</strong> es el <strong>contenedor lógico</strong> donde AWS agrupa y gestiona <strong>los recursos de cómputo</strong> que van a ejecutar contenedores Docker.</p>
+<p><img alt="Descripción de la imagen" class="nuevezero marco" src="../ut7/ECS-1.png" /></p>
+<h3 id="43-crear-un-cluster"><strong>4.3 - Crear un clúster</strong></h3>
+<p>Creamos nuestro clúster usando la opción <strong>Solo Fargate</strong>, que suele ser la más flexible para la mayoría de los servicios.</p>
+<p><img alt="Descripción de la imagen" class="nuevezero marco" src="../ut7/ECS-2.png" /></p>
+<p>A los pocos instantes tendremos nuestro cluster disponible.</p>
+<p><img alt="Descripción de la imagen" class="nuevezero marco" src="../ut7/ECS-3.png" /></p>
+<h3 id="44-crear-una-tarea"><strong>4.4 - Crear una tarea</strong></h3>
+<p>Una <strong>tarea (Task)</strong> es la <strong>ejecución en tiempo real</strong> de una <strong>definición de tarea (Task Definition)</strong>, que actúa como plantilla.</p>
+<p>La definición de tarea especifica:</p>
+<ul>
+<li>La imagen del contenedor a ejecutar.</li>
+<li>Los recursos asignados (CPU y memoria).</li>
+<li>Los puertos, variables de entorno y otros parámetros.</li>
+</ul>
+<p>Cuando una tarea se lanza:</p>
+<ul>
+<li>Se ejecuta en un <strong>clúster ECS</strong>.</li>
+<li>Pone en funcionamiento <strong>uno o varios contenedores</strong> según lo definido.</li>
+<li>Permite ejecutar aplicaciones como <strong>microservicios</strong>, <strong>aplicaciones web</strong> o procesos puntuales.</li>
+</ul>
+<p>Una tarea puede ejecutarse:</p>
+<ul>
+<li>De forma <strong>puntual</strong> (por ejemplo, una tarea batch).</li>
+<li>O ser gestionada por un <strong>servicio ECS</strong>, que se encarga de mantenerla activa y escalada.</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Crear una nueva definición de tarea</p>
+</div>
+<p><img alt="Descripción de la imagen" class="nuevezero marco" src="../ut7/ECS-4.png" /></p>
+<p>Bajamos:</p>
+<p><img alt="Descripción de la imagen" class="nuevezero marco" src="../ut7/ECS-5.png" /></p>
+<p>Bajamos: Tendremos que buscar la imagen que hemos subido a nuestro repositorio.</p>
+<p><img alt="Descripción de la imagen" class="nuevezero marco" src="../ut7/ECS-6.png" /></p>
+<h3 id="45-desplegar-un-servicio-nuevo"><strong>4.5 - Desplegar un servicio nuevo</strong></h3>
+<p>Para ello creamos un servicio nuevo.
+Vamos a Clústeres → Servicios → Crear  </p>
+<p><img alt="Descripción de la imagen" class="nuevezero marco" src="../ut7/ECS-7.png" /></p>
+<p>Seleccionamos la VPC sobre la cual se desplegará el servicio.</p>
+<p><img alt="Descripción de la imagen" class="nuevezero marco" src="../ut7/ECS-8.png" /></p>
+<p>Al cabo de varios minutos ya tendremos nuestro servicio desplegado.</p>
+<p><img alt="Descripción de la imagen" class="nuevezero marco" src="../ut7/ECS-9.png" /></p>
+<h3 id="46-comprobacion-del-grupo-de-seguridad"><strong>4.6 - Comprobación del grupo de seguridad</strong></h3>
+<p>Si el servicio se ha levantado correctamente <strong>pero</strong> no es posible acceder a él, posiblemente hay <strong>un problema de configuración del grupo de seguridad de la tarea</strong>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Acceder al grupo de la seguridad de la tarea</p>
+</div>
+<p><img alt="Descripción de la imagen" class="original marco" src="../ut7/docker/dock-23.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Comprobar que los puertos necesarios al servicio están abiertos</p>
+</div>
+<p><img alt="Descripción de la imagen" class="original marco" src="../ut7/docker/dock-24.png" /></p>
+<h3 id="47-comprobacion-del-servicio"><strong>4.7 - Comprobación del servicio</strong></h3>
+<p>Si vamos a Clústeres → Tareas → Nuestra tarea → Redes podremos acceder al servicio por la IP pública.   </p>
+<p><img alt="Descripción de la imagen" class="nuevezero marco" src="../ut7/ECS-10.png" /></p>
+<p><img alt="Descripción de la imagen" class="nuevezero" src="../ut7/ECS-11.png" /></p>
+<h3 id="48-tarea-ra4-ced"><strong>4.8 - Tarea RA4-CEd</strong></h3>
+<div class="admonition warning">
+<p class="admonition-title">Tarea</p>
+<ol>
+<li>Montar el ejemplo anterior.</li>
+<li>Realizar capturas de la imagen subida al repositorio.</li>
+<li>Realizar capturas del cluster y del servicio.</li>
+<li>Realizar capturas del cluster y de la tarea.</li>
+<li>Realizar capturas de los detalles de la tarea.</li>
+<li>Realizar capturas del servicio levantado.</li>
+<li>Adjuntar las capturas a un documento, y comentar brevemente cada captura.</li>
+<li>Subir el documento a AULES en la tarea correspondiente. </li>
+</ol>
+</div>
+<h3 id="49-creacion-de-una-nueva-revision-de-la-definicion-de-tarea"><strong>4.9 – Creación de una nueva revisión de la definición de tarea</strong></h3>
+<p>En este apartado se creará una <strong>nueva revisión de la definición de tarea</strong>, utilizando una versión modificada del contenedor <strong>nginx</strong> empleado anteriormente.</p>
+<p>Para ello, se partirá de un <strong>Dockerfile actualizado</strong>, se generará una nueva imagen del contenedor y se publicará en el repositorio correspondiente. A continuación, se registrará una nueva revisión de la Task Definition que referencie dicha imagen, la cual podrá utilizarse para lanzar una nueva tarea o actualizar un servicio existente.</p>
+<h4 id="491-crear-y-subir-el-dockerfile"><strong>4.9.1 - Crear y subir el Dockerfile</strong></h4>
+<p>Para crear el Dockerfile usaremos un archivo index.html específico y subiremos los archivos a la consola de AWS.  </p>
+<p><strong>Ejemplo de Dockerfile</strong>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>FROM<span class="w"> </span>nginx:latest
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>COPY<span class="w"> </span>index.html<span class="w"> </span>/usr/share/nginx/html
+</span></code></pre></div></p>
+<p><strong>Resultado después de subir el Dockerfile y el index.html a AWS</strong></p>
+<p><img alt="Descripción de la imagen" class="original" src="../ut7/docker/dock-1.png" /></p>
+<h4 id="492-subir-la-imagen-a-ecr"><strong>4.9.2 - Subir la imagen a ECR</strong></h4>
+<div class="admonition tip">
+<p class="admonition-title">Obtener un token de autenticación</p>
+<p>Para ello vamos <strong>ECR → Registro privado → Repositorios → Imágenes → Ver comandos de envío</strong> y ejecutamos la primera linea de comando.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Crear la imagen</p>
+<p>Ejecutamos la segunda línea de comando.  </p>
+<p><img alt="Descripción de la imagen" class="original" src="../ut7/docker/dock-2-1.png" /></p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Etiquetar la imagen y subir la imagen al ECR</p>
+<p>Cambiamos la etiqueta de la imagen que hemos creado.</p>
+<p><img alt="Descripción de la imagen" class="original" src="../ut7/docker/dock-3.png" /></p>
+<p>Subimos la imagen a nuestro repositorio. </p>
+<p><img alt="Descripción de la imagen" class="original" src="../ut7/docker/dock-4.png" /></p>
+</div>
+<p><strong>Nota IMPORTANTE</strong><br />
+Es posible que no sea posible subir más de una imagen al repositorio por limitaciones del <strong>labrole</strong>.<br />
+Para seguir con la práctica, <strong>borrar la imagen anterior</strong>.</p>
+<p>ECR con la nueva imagen subida.  </p>
+<p><img alt="Descripción de la imagen" class="nuevezero marco" src="../ut7/docker/dock-4-1.png" /></p>
+<hr />
+<h4 id="492-crear-una-revision-de-nuestra-tarea"><strong>4.9.2 - Crear una revisión de nuestra tarea</strong></h4>
+<p>Accedemos a ECS → Definiciones de tareas y creamos una nueva revisión de nuestra definición de tarea.</p>
+<p>En ECS, cualquier modificación de una definición genera automáticamente una nueva revisión. 
+El servicio no se ve afectado hasta que se actualiza para utilizar dicha revisión.</p>
+<p>Una vez actualizamos el servicio, ECS reemplaza progresivamente las tareas que usan la revisión anterior por las nuevas, según la estrategia de despliegue configurada.</p>
+<p><img alt="Descripción de la imagen" class="nuevezero marco" src="../ut7/docker/dock-5.png" /></p>
+<p><br></p>
+<p>Una vez hemos pinchado en el enlace, revisamos que las opciones son las correctas:  </p>
+<ul>
+<li>Tipo de infraestructura (Fargate)</li>
+</ul>
+<p><img alt="Descripción de la imagen" class="nuevezero marco" src="../ut7/docker/dock-6.png" /></p>
+<ul>
+<li>Imagen utilizada para la revisión  </li>
+</ul>
+<p><img alt="Descripción de la imagen" class="seiscinco marco" src="../ut7/docker/dock-7.png" /></p>
+<ul>
+<li>Revisión creada</li>
+</ul>
+<p><img alt="Descripción de la imagen" class="nuevezero marco" src="../ut7/docker/dock-8.png" /></p>
+<hr />
+<h4 id="493-actualizar-el-servicio"><strong>4.9.3 - Actualizar el servicio</strong></h4>
+<ul>
+<li>Actualizaremos el servicio para que use la nueva revisión de nuestra tarea.</li>
+</ul>
+<p><img alt="Descripción de la imagen" class="nuevezero marco" src="../ut7/docker/dock-9.png" /></p>
+<ul>
+<li>Seleccionamos la nueva definición de tarea.</li>
+</ul>
+<p><img alt="Descripción de la imagen" class="nuevezero marco" src="../ut7/docker/dock-10.png" /></p>
+<hr />
+<h4 id="494-comprobar-el-estado-de-las-tareas"><strong>4.9.4 - Comprobar el estado de las tareas</strong></h4>
+<p>Si vamos a <strong>cluster → Tareas</strong> veremos como la nueva tarea se va creando y una vez levantada, la anterior tarea se detiene. </p>
+<p><img alt="Descripción de la imagen" class="nuevezero marco" src="../ut7/docker/dock-11.png" /></p>
+<p><img alt="Descripción de la imagen" class="nuevezero marco" src="../ut7/docker/dock-12.png" /></p>
+<p><img alt="Descripción de la imagen" class="nuevezero marco" src="../ut7/docker/dock-13.png" />  </p>
+<hr />
+<h4 id="495-estado-del-servicio"><strong>4.9.5 - Estado del servicio</strong></h4>
+<p>Una vez que el servicion está levantado, vamos <strong>Redes</strong>, recuperamos la IP del contenedor y comprobamos el resultado.  </p>
+<p><img alt="Descripción de la imagen" class="nuevezero marco" src="../ut7/docker/dock-14.png" /></p>
+<p><img alt="Descripción de la imagen" class="nuevezero" src="../ut7/docker/dock-15.png" /></p>
+<hr />
+<h4 id="496-registros-del-contenedor"><strong>4.9.6 - Registros del contenedor</strong></h4>
+<p>En la pestaña <strong>Registros</strong> podremos supervisar todo el tráfico de red desde y hacia nuestro contenedor. </p>
+<p><img alt="Descripción de la imagen" class="original" src="../ut7/docker/dock-16.png" /></p>
+<hr />
+<h4 id="497-pilas"><strong>4.9.7 - Pilas</strong></h4>
+<p>Como podemos ver el despliegue del servicio ha generado una <strong>pila (stack)</strong> que veremos en el siguiente capítulo.</p>
+<p>Una pila de <strong>CloudFormation</strong> es una unidad lógica de despliegue que agrupa un conjunto de recursos de AWS (EC2, VPC, subredes, IAM, RDS, etc.) que se crean, actualizan y eliminan conjuntamente a partir de <strong>una plantilla (template)</strong> de CloudFormation.</p>
+<p>Dicho de otra manera: una pila es <strong>la instanciación de una plantilla de CloudFormation</strong>.</p>
+<p><img alt="Descripción de la imagen" class="original marco" src="../ut7/docker/dock-17.png" /><br></p>
+<ul>
+<li>Si eliminamos la pila, <strong>eliminaremos el servicio</strong>.</li>
+</ul>
+<p><img alt="Descripción de la imagen" class="original marco" src="../ut7/docker/dock-18.png" /><br></p>
+<ul>
+<li>El archivo de la plantilla con la que se ha creado la pila, puede cargarse y descargarse y tiene 2 formatos: <strong>YAML o JSON</strong> </li>
+</ul>
+<p><img alt="Descripción de la imagen" class="original marco" src="../ut7/docker/dock-19.png" /><br></p>
+<ul>
+<li>JSON</li>
+</ul>
+<p><img alt="Descripción de la imagen" class="original marco" src="../ut7/docker/dock-20.png" /><br>  </p>
+<ul>
+<li>YAML</li>
+</ul>
+<p><img alt="Descripción de la imagen" class="original marco" src="../ut7/docker/dock-21.png" /><br>  </p>
+<ul>
+<li>También se puede crear una plantilla nueva o modificar una existente con <strong>Infraestructure Composer</strong></li>
+</ul>
+<p><img alt="Descripción de la imagen" class="original marco" src="../ut7/docker/dock-21-1.png" /><br></p>
+<hr />
+<h2 id="5-aws-cloudformation"><strong>5 - AWS CloudFormation</strong></h2>
+<p><strong>CloudFormation</strong> es un servicio de AWS que permite definir, desplegar y administrar infraestructuras en la nube mediante el enfoque de <strong>Infraestructura como Código (IaC)</strong>. A través de este servicio es posible automatizar la creación y gestión de recursos de AWS utilizando <strong>plantillas</strong>.</p>
+<h3 id="51-como-usar-cloudformation"><strong>5.1 - Como usar CloudFormation</strong></h3>
+<p>Para trabajar con CloudFormation es necesario comprender tres conceptos clave:</p>
+<ul>
+<li>
+<p><strong>Plantilla (Template):</strong><br />
+Es un archivo en formato <strong>JSON</strong> o <strong>YAML</strong> en el que se describen los recursos de AWS que se desean crear, así como sus propiedades, configuraciones y relaciones. </p>
+</li>
+<li>
+<p><strong>Stack (Pila):</strong><br />
+Es la unidad básica de gestión en CloudFormation. A partir de la plantilla, el servicio crea un Stack que agrupa todos los recursos definidos en ella. Al eliminar un Stack, CloudFormation elimina automáticamente todos los recursos asociados, salvo que se haya indicado explícitamente una política de retención.</p>
+</li>
+<li>
+<p><strong>Servicio CloudFormation:</strong><br />
+Es el encargado de interpretar la plantilla, analizar las dependencias entre los distintos recursos y realizar las llamadas necesarias a las APIs de AWS para crear, actualizar o eliminar la infraestructura de forma ordenada y controlada.</p>
+</li>
+</ul>
+<h3 id="52-secciones-de-una-plantilla"><strong>5.2 - Secciones de una plantilla</strong></h3>
+<p>Una plantilla de CloudFormation está compuesta por secciones bien diferenciadas. Cada una de ellas cumple una función específica dentro del proceso de definición y despliegue de la infraestructura como código (IaC). </p>
+<ul>
+<li>
+<p><strong>Resources</strong><br />
+<strong>Es la sección obligatoria de la plantilla</strong>.
+En ella se definen todos los recursos de AWS que se van a crear, modificar o eliminar durante el despliegue del stack.
+Cada recurso se identifica mediante un nombre lógico y especifica su tipo (Type) y sus propiedades (Properties).</p>
+</li>
+<li>
+<p><strong>Parameters</strong><br />
+Permite definir valores de entrada que el usuario puede proporcionar en el momento de <strong>crear o actualizar el stack</strong>.
+Los parámetros facilitan la reutilización y flexibilidad de la plantilla, ya que permiten personalizar aspectos como tipos de instancia, rangos de direcciones IP, nombres de recursos o claves SSH sin modificar <strong>el código de la plantilla</strong>.</p>
+</li>
+<li>
+<p><strong>Outputs</strong><br />
+Se utiliza para declarar valores de salida que CloudFormation muestra una vez finalizado el despliegue.
+Estos valores pueden ser, por ejemplo, la dirección IP pública de una instancia o el ID de una VPC.</p>
+</li>
+<li>
+<p><strong>Mappings</strong><br />
+Contiene tablas de correspondencia estáticas que permiten asociar valores según determinadas claves, como regiones, entornos o tipos de instancia. </p>
+</li>
+<li>
+<p><strong>Metadata</strong><br />
+Proporciona información adicional sobre la plantilla.</p>
+</li>
+<li>
+<p><strong>Rules</strong><br />
+Permite definir <strong>reglas de validación</strong> sobre los parámetros introducidos por el usuario.
+Estas reglas se evalúan antes de crear o actualizar el stack y permiten asegurar que los valores proporcionados cumplen determinadas condiciones lógicas, evitando errores de configuración.</p>
+</li>
+<li>
+<p><strong>Conditions</strong><br />
+Se utiliza para definir condiciones lógicas que determinan si ciertos recursos o propiedades deben crearse o aplicarse.
+Gracias a esta sección, una misma plantilla puede adaptarse a distintos escenarios, como entornos de desarrollo y producción, sin duplicar código.</p>
+</li>
+<li>
+<p><strong>Transform</strong><br />
+Permite declarar macros o transformaciones que CloudFormation debe aplicar antes de procesar la plantilla.</p>
+</li>
+<li>
+<p><strong>Versión del formato</strong><br />
+Indica la versión del formato de la plantilla, normalmente mediante la clave AWSTemplateFormatVersion.
+Aunque actualmente existe <strong>una única versión válida</strong>, su inclusión es recomendable por motivos de compatibilidad y claridad.</p>
+</li>
+<li>
+<p><strong>Description</strong><br />
+Es un campo textual opcional. Es muy recomendable, ya que facilita la comprensión, el mantenimiento y la reutilización de la plantilla por otros usuarios o equipos de trabajo.</p>
+</li>
+</ul>
+<p><strong>Ejemplo de plantilla</strong>  </p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">YAML</label><label for="__tabbed_1_2">JSON</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nt">AWSTemplateFormatVersion</span><span class="p">:</span><span class="w"> </span><span class="s">"2010-09-09"</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nt">Description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="no">Plantilla de ejemplo que despliega una instancia EC2 básica</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="no">y muestra su IP pública como salida.</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="nt">Parameters</span><span class="p">:</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="nt">InstanceType</span><span class="p">:</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">        </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">String</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">        </span><span class="nt">Default</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">t2.micro</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">        </span><span class="nt">Description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Tipo de instancia EC2</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">        </span><span class="nt">AllowedValues</span><span class="p">:</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">t2.micro</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">t2.small</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="nt">Mappings</span><span class="p">:</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">  </span><span class="nt">RegionMap</span><span class="p">:</span>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">    </span><span class="nt">eu-west-1</span><span class="p">:</span>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">      </span><span class="nt">AMI</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ami-0a8e758f5e873d1c1</span>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">    </span><span class="nt">us-east-1</span><span class="p">:</span>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">      </span><span class="nt">AMI</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ami-0c02fb55956c7d316</span>
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="nt">Resources</span><span class="p">:</span>
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="w">  </span><span class="nt">WebServer</span><span class="p">:</span>
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="w">    </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AWS::EC2::Instance</span>
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="w">    </span><span class="nt">Properties</span><span class="p">:</span>
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="w">      </span><span class="nt">InstanceType</span><span class="p">:</span><span class="w"> </span><span class="kt">!Ref</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">InstanceType</span>
+</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="w">      </span><span class="nt">ImageId</span><span class="p">:</span><span class="w"> </span><span class="kt">!FindInMap</span>
+</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RegionMap</span>
+</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="kt">!Ref</span><span class="w"> </span><span class="s">"AWS::Region"</span>
+</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AMI</span>
+</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a><span class="w">      </span><span class="nt">Tags</span><span class="p">:</span>
+</span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a><span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Name</span>
+</span><span id="__span-3-33"><a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a><span class="w">          </span><span class="nt">Value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ServidorWebEjemplo</span>
+</span><span id="__span-3-34"><a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a>
+</span><span id="__span-3-35"><a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a><span class="nt">Outputs</span><span class="p">:</span>
+</span><span id="__span-3-36"><a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a><span class="w">  </span><span class="nt">InstanceId</span><span class="p">:</span>
+</span><span id="__span-3-37"><a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a><span class="w">    </span><span class="nt">Description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ID de la instancia EC2</span>
+</span><span id="__span-3-38"><a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a><span class="w">    </span><span class="nt">Value</span><span class="p">:</span><span class="w"> </span><span class="kt">!Ref</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WebServer</span>
+</span><span id="__span-3-39"><a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a>
+</span><span id="__span-3-40"><a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a><span class="w">  </span><span class="nt">PublicIP</span><span class="p">:</span>
+</span><span id="__span-3-41"><a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a><span class="w">    </span><span class="nt">Description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dirección IP pública de la instancia</span>
+</span><span id="__span-3-42"><a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a><span class="w">    </span><span class="nt">Value</span><span class="p">:</span><span class="w"> </span><span class="kt">!GetAtt</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WebServer.PublicIp</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-json highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">{</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">"AWSTemplateFormatVersion"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2010-09-09"</span><span class="p">,</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plantilla de ejemplo que despliega una instancia EC2 básica y muestra su IP pública como salida."</span><span class="p">,</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span><span class="nt">"Parameters"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="nt">"InstanceType"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">      </span><span class="nt">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"String"</span><span class="p">,</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">      </span><span class="nt">"Default"</span><span class="p">:</span><span class="w"> </span><span class="s2">"t2.micro"</span><span class="p">,</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">      </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tipo de instancia EC2"</span><span class="p">,</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">      </span><span class="nt">"AllowedValues"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">        </span><span class="s2">"t2.micro"</span><span class="p">,</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">        </span><span class="s2">"t2.small"</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">      </span><span class="p">]</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">  </span><span class="p">},</span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">  </span><span class="nt">"Mappings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">    </span><span class="nt">"RegionMap"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">      </span><span class="nt">"eu-west-1"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="w">        </span><span class="nt">"AMI"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ami-0a8e758f5e873d1c1"</span>
+</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="w">      </span><span class="p">},</span>
+</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="w">      </span><span class="nt">"us-east-1"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="w">        </span><span class="nt">"AMI"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ami-0c02fb55956c7d316"</span>
+</span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="w">      </span><span class="p">}</span>
+</span><span id="__span-4-25"><a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-4-26"><a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a><span class="w">  </span><span class="p">},</span>
+</span><span id="__span-4-27"><a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a>
+</span><span id="__span-4-28"><a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a><span class="w">  </span><span class="nt">"Resources"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-29"><a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a><span class="w">    </span><span class="nt">"WebServer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-30"><a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a><span class="w">      </span><span class="nt">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AWS::EC2::Instance"</span><span class="p">,</span>
+</span><span id="__span-4-31"><a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a><span class="w">      </span><span class="nt">"Properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-32"><a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a><span class="w">        </span><span class="nt">"InstanceType"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-33"><a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a><span class="w">          </span><span class="nt">"Ref"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InstanceType"</span>
+</span><span id="__span-4-34"><a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a><span class="w">        </span><span class="p">},</span>
+</span><span id="__span-4-35"><a id="__codelineno-4-35" name="__codelineno-4-35" href="#__codelineno-4-35"></a><span class="w">        </span><span class="nt">"ImageId"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-36"><a id="__codelineno-4-36" name="__codelineno-4-36" href="#__codelineno-4-36"></a><span class="w">          </span><span class="nt">"Fn::FindInMap"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-4-37"><a id="__codelineno-4-37" name="__codelineno-4-37" href="#__codelineno-4-37"></a><span class="w">            </span><span class="s2">"RegionMap"</span><span class="p">,</span>
+</span><span id="__span-4-38"><a id="__codelineno-4-38" name="__codelineno-4-38" href="#__codelineno-4-38"></a><span class="w">            </span><span class="p">{</span>
+</span><span id="__span-4-39"><a id="__codelineno-4-39" name="__codelineno-4-39" href="#__codelineno-4-39"></a><span class="w">              </span><span class="nt">"Ref"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AWS::Region"</span>
+</span><span id="__span-4-40"><a id="__codelineno-4-40" name="__codelineno-4-40" href="#__codelineno-4-40"></a><span class="w">            </span><span class="p">},</span>
+</span><span id="__span-4-41"><a id="__codelineno-4-41" name="__codelineno-4-41" href="#__codelineno-4-41"></a><span class="w">            </span><span class="s2">"AMI"</span>
+</span><span id="__span-4-42"><a id="__codelineno-4-42" name="__codelineno-4-42" href="#__codelineno-4-42"></a><span class="w">          </span><span class="p">]</span>
+</span><span id="__span-4-43"><a id="__codelineno-4-43" name="__codelineno-4-43" href="#__codelineno-4-43"></a><span class="w">        </span><span class="p">},</span>
+</span><span id="__span-4-44"><a id="__codelineno-4-44" name="__codelineno-4-44" href="#__codelineno-4-44"></a><span class="w">        </span><span class="nt">"Tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-4-45"><a id="__codelineno-4-45" name="__codelineno-4-45" href="#__codelineno-4-45"></a><span class="w">          </span><span class="p">{</span>
+</span><span id="__span-4-46"><a id="__codelineno-4-46" name="__codelineno-4-46" href="#__codelineno-4-46"></a><span class="w">            </span><span class="nt">"Key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Name"</span><span class="p">,</span>
+</span><span id="__span-4-47"><a id="__codelineno-4-47" name="__codelineno-4-47" href="#__codelineno-4-47"></a><span class="w">            </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ServidorWebEjemplo"</span>
+</span><span id="__span-4-48"><a id="__codelineno-4-48" name="__codelineno-4-48" href="#__codelineno-4-48"></a><span class="w">          </span><span class="p">}</span>
+</span><span id="__span-4-49"><a id="__codelineno-4-49" name="__codelineno-4-49" href="#__codelineno-4-49"></a><span class="w">        </span><span class="p">]</span>
+</span><span id="__span-4-50"><a id="__codelineno-4-50" name="__codelineno-4-50" href="#__codelineno-4-50"></a><span class="w">      </span><span class="p">}</span>
+</span><span id="__span-4-51"><a id="__codelineno-4-51" name="__codelineno-4-51" href="#__codelineno-4-51"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-4-52"><a id="__codelineno-4-52" name="__codelineno-4-52" href="#__codelineno-4-52"></a><span class="w">  </span><span class="p">},</span>
+</span><span id="__span-4-53"><a id="__codelineno-4-53" name="__codelineno-4-53" href="#__codelineno-4-53"></a>
+</span><span id="__span-4-54"><a id="__codelineno-4-54" name="__codelineno-4-54" href="#__codelineno-4-54"></a><span class="w">  </span><span class="nt">"Outputs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-55"><a id="__codelineno-4-55" name="__codelineno-4-55" href="#__codelineno-4-55"></a><span class="w">    </span><span class="nt">"InstanceId"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-56"><a id="__codelineno-4-56" name="__codelineno-4-56" href="#__codelineno-4-56"></a><span class="w">      </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID de la instancia EC2"</span><span class="p">,</span>
+</span><span id="__span-4-57"><a id="__codelineno-4-57" name="__codelineno-4-57" href="#__codelineno-4-57"></a><span class="w">      </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-58"><a id="__codelineno-4-58" name="__codelineno-4-58" href="#__codelineno-4-58"></a><span class="w">        </span><span class="nt">"Ref"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WebServer"</span>
+</span><span id="__span-4-59"><a id="__codelineno-4-59" name="__codelineno-4-59" href="#__codelineno-4-59"></a><span class="w">      </span><span class="p">}</span>
+</span><span id="__span-4-60"><a id="__codelineno-4-60" name="__codelineno-4-60" href="#__codelineno-4-60"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-4-61"><a id="__codelineno-4-61" name="__codelineno-4-61" href="#__codelineno-4-61"></a><span class="w">    </span><span class="nt">"PublicIP"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-62"><a id="__codelineno-4-62" name="__codelineno-4-62" href="#__codelineno-4-62"></a><span class="w">      </span><span class="nt">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dirección IP pública de la instancia"</span><span class="p">,</span>
+</span><span id="__span-4-63"><a id="__codelineno-4-63" name="__codelineno-4-63" href="#__codelineno-4-63"></a><span class="w">      </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-64"><a id="__codelineno-4-64" name="__codelineno-4-64" href="#__codelineno-4-64"></a><span class="w">        </span><span class="nt">"Fn::GetAtt"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-4-65"><a id="__codelineno-4-65" name="__codelineno-4-65" href="#__codelineno-4-65"></a><span class="w">          </span><span class="s2">"WebServer"</span><span class="p">,</span>
+</span><span id="__span-4-66"><a id="__codelineno-4-66" name="__codelineno-4-66" href="#__codelineno-4-66"></a><span class="w">          </span><span class="s2">"PublicIp"</span>
+</span><span id="__span-4-67"><a id="__codelineno-4-67" name="__codelineno-4-67" href="#__codelineno-4-67"></a><span class="w">        </span><span class="p">]</span>
+</span><span id="__span-4-68"><a id="__codelineno-4-68" name="__codelineno-4-68" href="#__codelineno-4-68"></a><span class="w">      </span><span class="p">}</span>
+</span><span id="__span-4-69"><a id="__codelineno-4-69" name="__codelineno-4-69" href="#__codelineno-4-69"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-4-70"><a id="__codelineno-4-70" name="__codelineno-4-70" href="#__codelineno-4-70"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-4-71"><a id="__codelineno-4-71" name="__codelineno-4-71" href="#__codelineno-4-71"></a><span class="p">}</span><span class="w">  </span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="53-ciclo-de-vida-de-una-pila"><strong>5.3 - Ciclo de vida de una pila</strong></h3>
+<p>Una pila (stack) es un conjunto de recursos que se crean, actualizan y eliminan de forma conjunta a partir de una plantilla. A lo largo de su existencia, una pila pasa por distintas fases:</p>
+<ul>
+<li>
+<p><strong>Creación (CREATE)</strong>
+Creación de los recursos <strong>definidos en la plantilla</strong>, en el orden correcto según las dependencias.</p>
+</li>
+<li>
+<p><strong>Actualización (UPDATE)</strong>
+Permite modificar una pila existente cambiando la plantilla o los parámetros, sin necesidad de recrear todos los recursos desde cero.</p>
+</li>
+<li>
+<p><strong>Eliminación (DELETE)</strong>
+Eliminación de la pila y de todos los <strong>recursos creados con ella</strong>.</p>
+</li>
+<li>
+<p><strong>Reversión (ROLLBACK)</strong>
+Si ocurre un error durante la creación o actualización, CloudFormation deshace los cambios realizados para evitar configuraciones inconsistentes.</p>
+</li>
+</ul>
+<h3 id="54-lanzar-una-pila-stack"><strong>5.4 - Lanzar una pila (stack)</strong></h3>
+<p>El proceso básico para desplegar una infraestructura con CloudFormation es el siguiente:  </p>
+<ol>
+<li>
+<p><strong>Acceder a la consola de AWS CloudFormation:</strong>
+<img alt="Descripción de la imagen" class="sietecinco marco margintop20" src="../ut7/cloudformation/cf-2.png" /><br>  </p>
+</li>
+<li>
+<p><strong>Subir la plantilla:</strong><br />
+La plantilla puede <strong>cargarse directamente</strong> desde la consola de CloudFormation o almacenarse previamente en un bucket de Amazon S3.<br />
+<img alt="Descripción de la imagen" class="sietecinco marco margintop20" src="../ut7/cloudformation/cf-3.png" /><br>  </p>
+</li>
+<li>
+<p><strong>Crear la pila stack:</strong><br />
+Se asigna un nombre a la pila y se introducen los parámetros necesarios definidos en la plantilla.<br />
+<img alt="Descripción de la imagen" class="sietecinco marco margintop20" src="../ut7/cloudformation/cf-4.png" /><br></p>
+</li>
+<li>
+<p><strong>Configurar opciones de pila:</strong><br />
+En esta etapa se definen opciones de control, seguridad y supervisión de la pila.<br />
+<img alt="Descripción de la imagen" class="sietecinco marco margintop20" src="../ut7/cloudformation/cf-5.png" /><br></p>
+</li>
+<li>
+<p><strong>Revisar y crear:</strong><br />
+Revisamos y, si todo está correcto, creamos la pila.<br />
+<img alt="Descripción de la imagen" class="sietecinco marco margintop20" src="../ut7/cloudformation/cf-6.png" /><br></p>
+</li>
+<li>
+<p><strong>Supervisar el despliegue:</strong><br />
+Desde la consola se puede seguir el progreso de la creación y ver el estado de cada recurso.<br />
+<img alt="Descripción de la imagen" class="sietecinco marco margintop20" src="../ut7/cloudformation/cf-7.png" /><br>
+<img alt="Descripción de la imagen" class="sietecinco marco" src="../ut7/cloudformation/cf-8.png" /><br></p>
+</li>
+<li>
+<p><strong>Verificar la creación:</strong><br />
+Una vez completado el proceso, se revisan los recursos creados y las salidas (Outputs) de la pila.
+<img alt="Descripción de la imagen" class="sietecinco marco margintop20" src="../ut7/cloudformation/cf-9.png" /><br>
+<img alt="Descripción de la imagen" class="sietecinco marco" src="../ut7/cloudformation/cf-10.png" /><br>
+<img alt="Descripción de la imagen" class="sietecinco marco" src="../ut7/cloudformation/cf-11.png" /><br></p>
+</li>
+</ol>
+<h3 id="55-tarea-ra4-cee-actualizar-una-pila"><strong>5.5 - Tarea RA4-CEe: Actualizar una pila</strong></h3>
+<p>En esta tarea actualizaremos la plantilla anterior con <strong>Infraestructure Composer</strong> y añadiremos:</p>
+<ol>
+<li>Creación de una VPC + Subred Pública + IGW</li>
+<li>Configuración del grupo de seguridad de la EC2.</li>
+<li>Añadir el par de claves de nuestra cuenta a la EC2.</li>
+<li>Instalación de Nginx en la EC2.</li>
+<li>Configuración de los outputs para visualizar: IP's pública, VPC CIDR...</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Importante</p>
+<ol>
+<li>Para editar la plantilla, principalmente, tendremos que <strong>ampliar</strong> los apartados <strong>recursos</strong> y <strong>parámetros</strong> de la misma.  </li>
+<li>La documentación referente a lo que debemos hacer se encuentra <a href="https://docs.aws.amazon.com/es_es/AWSCloudFormation/latest/TemplateReference/aws-template-resource-type-ref.html">aquí</a>.</li>
+</ol>
+</div>
+<hr />
+<h4 id="551-edicion-de-la-seccion-recursosresources"><strong>5.5.1 - Edición de la sección 'Recursos/Resources'</strong></h4>
+<div class="admonition tip">
+<p class="admonition-title">Edición de los recursos</p>
+<p>La sección <strong>Resources</strong> contiene el código para la declaración de todos los recursos que formarán parte del stack.  </p>
+<p>Cada recurso representa un servicio concreto: EC2, VPC, subredes, grupos de seguridad, RDS, IAM, etc.  </p>
+<p>Es la única sección obligatoria de una plantilla de CloudFormation.</p>
+</div>
+<p><br></p>
+<h5 id="5511-anadir-la-vpc"><strong>5.5.1.1 - Añadir la VPC</strong></h5>
+<ul>
+<li>Accedemos a <strong>Infraestructure Composer</strong>  </li>
+</ul>
+<p><img alt="Descripción de la imagen" class="sietecinco marco" src="../ut7/cloudformation/cf-ra4cee-1.png" /><br></p>
+<ul>
+<li>Añadimos la VPC al lienzo:</li>
+</ul>
+<p><img alt="Descripción de la imagen" class="cincozero marco" src="../ut7/cloudformation/cf-ra4cee-2.png" /><br></p>
+<ul>
+<li>Editamos y cambiamos la configuración de las propiedades del recurso:<br />
+Esta operación se puede hacer entrando por <code>detalles</code> o por <code>plantilla</code>.<br />
+<br>
+<strong>Detalles:</strong>
+<img alt="Descripción de la imagen" class="sietecinco marco" src="../ut7/cloudformation/cf-ra4cee-3.png" /><br>
+<br>
+<strong>Plantilla:</strong>
+<img alt="Descripción de la imagen" class="treszero marco" src="../ut7/cloudformation/cf-ra4cee-4.png" /><br>
+<br>
+<strong>Nota:</strong><ul>
+<li>La Función intrínseca <strong>!Ref:</strong> conecta el valor que escribió el usuario con la propiedad del recurso.  </li>
+<li>Deberemos configurar los valores por defecto dentro del apartado <strong>parametros</strong> de la plantilla. </li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<h5 id="5512-anadir-y-configurar-el-igw"><strong>5.5.1.2 - Añadir y configurar el IGW</strong></h5>
+<ul>
+<li>
+<p>Añadimos el IGW al lienzo:<br />
+<img alt="Descripción de la imagen" class="cincozero marco" src="../ut7/cloudformation/cf-ra4cee-5.png" /><br></p>
+</li>
+<li>
+<p>Configuración del IGW:<br />
+<img alt="Descripción de la imagen" class="treszero marco" src="../ut7/cloudformation/cf-ra4cee-6.png" /><br></p>
+</li>
+</ul>
+<p><br></p>
+<h5 id="5513-anadir-y-configurar-el-igw"><strong>5.5.1.3 - Añadir y configurar el IGW</strong></h5>
+<ul>
+<li>
+<p>Conectar el IGW a nuestra VPC<br />
+<img alt="Descripción de la imagen" class="cuatrozero marco" src="../ut7/cloudformation/cf-ra4cee-7.png" /><br></p>
+</li>
+<li>
+<p>Configuración: <br />
+<img alt="Descripción de la imagen" class="treszero marco" src="../ut7/cloudformation/cf-ra4cee-8.png" /><br></p>
+</li>
+</ul>
+<h5 id="5514-anadir-subredes-publicas-y-privadas"><strong>5.5.1.4 - Añadir subredes públicas y privadas</strong></h5>
+<ul>
+<li>
+<p>Crear la subredes públicas y privadas<br />
+<img alt="Descripción de la imagen" class="cincozero marco" src="../ut7/cloudformation/cf-ra4cee-9.png" /><br></p>
+</li>
+<li>
+<p>Configuración de las subredes<br />
+<img alt="Descripción de la imagen" class="doscinco marco" src="../ut7/cloudformation/cf-ra4cee-10.png" /><br></p>
+</li>
+</ul>
+<h5 id="5515-anadir-la-tabla-de-enrutamiento-de-la-subred-publica"><strong>5.5.1.5 - Añadir la tabla de enrutamiento de la subred pública</strong></h5>
+<ul>
+<li>
+<p>Crear el recurso 
+<img alt="Descripción de la imagen" class="cincozero marco" src="../ut7/cloudformation/cf-ra4cee-11.png" /><br></p>
+</li>
+<li>
+<p>Asociar el recurso a la VPC<br />
+<img alt="Descripción de la imagen" class="doscinco marco" src="../ut7/cloudformation/cf-ra4cee-12.png" /><br></p>
+</li>
+<li>
+<p>Crear las asociaciones a la subred pública<br />
+<img alt="Descripción de la imagen" class="trescinco marco" src="../ut7/cloudformation/cf-ra4cee-13.png" /><br></p>
+</li>
+<li>
+<p>Asociar el IGW a la subred pública.<br />
+<img alt="Descripción de la imagen" class="trescinco marco" src="../ut7/cloudformation/cf-ra4cee-14.png" /><br></p>
+</li>
+<li>
+<p>Repetiremos lo mismo con la subred privada a diferencia de que no haremos la declaración <strong>AWS::EC2::Route</strong> al no poder hacer declaración vacías (sin valores).</p>
+</li>
+</ul>
+<p><img alt="Descripción de la imagen" class="trescinco marco" src="../ut7/cloudformation/cf-ra4cee-14-1.png" /><br></p>
+<h5 id="5516-anadir-un-grupo-de-seguridad-para-la-instancia-ec2"><strong>5.5.1.6 - Añadir Un grupo de seguridad para la instancia EC2</strong></h5>
+<ul>
+<li>
+<p>Crear el recurso 
+<img alt="Descripción de la imagen" class="sietecinco marco" src="../ut7/cloudformation/cf-ra4cee-15.png" /><br></p>
+</li>
+<li>
+<p>Configurar el recurso<br />
+<img alt="Descripción de la imagen" class="cuatrocinco marco" src="../ut7/cloudformation/cf-ra4cee-16.png" /><br></p>
+</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Nota</p>
+<p>Tenemos creado el SG pero la asociación con la EC2 se hará desde la misma EC2.</p>
+</div>
+<p><br></p>
+<h5 id="5517-instancia-ec2"><strong>5.5.1.7 - Instancia EC2</strong></h5>
+<ul>
+<li>Asociar la instancia EC2 a la subred pública y asociarle el grupo de seguridad anterior.  </li>
+</ul>
+<p><img alt="Descripción de la imagen" class="trescinco marco" src="../ut7/cloudformation/cf-ra4cee-17.png" /><br></p>
+<h5 id="5518-lienzo-final"><strong>5.5.1.8 - Lienzo final</strong></h5>
+<ul>
+<li>Si todo ha ido bien, este debería ser el aspecto final del lienzo de la plantilla.<br />
+<img alt="Descripción de la imagen" class="cien marco margintop20" src="../ut7/cloudformation/cf-ra4cee-18.png" /><br>  </li>
+</ul>
+<h4 id="552-edicion-de-la-seccion-parametrosparameters"><strong>5.5.2 - Edición de la sección 'Parámetros/Parameters'</strong></h4>
+<div class="admonition tip">
+<p class="admonition-title">Parámetros de una plantilla</p>
+<ol>
+<li>Los parámetros son <strong>variables de entrada</strong> definidas en la plantilla que permiten personalizar el despliegue sin modificar el código de la plantilla.</li>
+<li>Permite introducir valores dinámicos en el momento de crear o actualizar una pila (stack), evitando que la plantilla quede <strong>acoplada a valores fijos</strong>.</li>
+</ol>
+</div>
+<p>Para esta primera modificación, parametrizaremos los rangos CIDR de la VPC así de las subredes asociadas.  </p>
+<p><img alt="Descripción de la imagen" class="treszero marco margintop20" src="../ut7/cloudformation/cf-ra4cee-19.png" /><br>  </p>
+<h4 id="553-validar-la-plantilla"><strong>5.5.3 - Validar la plantilla</strong></h4>
+<ul>
+<li>
+<p>Antes de poder seguir deberemos validar la plantilla para asegurarnos de que es coherente.
+<img alt="Descripción de la imagen" class="cien marco margintop20" src="../ut7/cloudformation/cf-ra4cee-19-1.png" /><br></p>
+</li>
+<li>
+<p>Si la plantilla es válida nos aparecerá lo siguiente:
+<img alt="Descripción de la imagen" class="cien marco margintop20" src="../ut7/cloudformation/cf-ra4cee-19-2.png" /><br></p>
+</li>
+<li>
+<p>Si hay errores, nos aparecerán en la parte de abajo de la interfaz.
+<img alt="Descripción de la imagen" class="cien marco margintop20" src="../ut7/cloudformation/cf-ra4cee-19-3.png" /><br></p>
+</li>
+<li>
+<p>Una vez que la plantilla ha sido validada pulsamos <strong>actualizar plantilla</strong>. En la siguiente pantalla, confirmamos los cambios.  <br />
+<img alt="Descripción de la imagen" class="cien marco margintop20" src="../ut7/cloudformation/cf-ra4cee-19-4.png" /><br>
+<img alt="Descripción de la imagen" class="cincozero marco" src="../ut7/cloudformation/cf-ra4cee-20.png" /><br></p>
+</li>
+<li>
+<p>Si todo ha ido bien volveremos al paso 1 y le daremos a siguiente.
+<img alt="Descripción de la imagen" class="cien marco margintop20" src="../ut7/cloudformation/cf-ra4cee-21.png" /><br></p>
+</li>
+<li>
+<p>En el paso 2, especificamos los cambios que queremos realizar a nuestro despliegue.
+<img alt="Descripción de la imagen" class="cien marco margintop20" src="../ut7/cloudformation/cf-ra4cee-22.png" /><br></p>
+</li>
+<li>
+<p>En el paso 3, podemos modificar los permisos (opcional).
+<img alt="Descripción de la imagen" class="cien marco margintop20" src="../ut7/cloudformation/cf-ra4cee-23.png" /><br></p>
+</li>
+<li>
+<p>En el paso 4, revisamos los cambios
+<img alt="Descripción de la imagen" class="cien marco margintop20" src="../ut7/cloudformation/cf-ra4cee-24.png" /><br></p>
+</li>
+<li>
+<p>Al final tendremos los cambios subidos al bucket listos para ser ejecutados.
+<img alt="Descripción de la imagen" class="cien marco margintop20" src="../ut7/cloudformation/cf-ra4cee-26.png" /><br></p>
+</li>
+</ul>
+<h4 id="554-ejecutar-el-conjunto-de-cambios-e-iniciar-el-despliegue"><strong>5.5.4 - Ejecutar el conjunto de cambios e iniciar el despliegue</strong></h4>
+<ul>
+<li>
+<p>Ejecutamos el conjunto de cambios para aplicar las modificaciones definidas en la plantilla sobre la pila existente.
+<img alt="Descripción de la imagen" class="cien marco margintop20" src="../ut7/cloudformation/cf-ra4cee-28.png" /><br>
+<img alt="Descripción de la imagen" class="cincozero marco" src="../ut7/cloudformation/cf-ra4cee-29.png" /><br></p>
+</li>
+<li>
+<p>Desde la interfaz disponemos de diferentes vistas que permiten supervisar el estado del despliegue.
+<img alt="Descripción de la imagen" class="cien marco margintop20" src="../ut7/cloudformation/cf-ra4cee-27.png" />
+<img alt="Descripción de la imagen" class="cien marco margintop20" src="../ut7/cloudformation/cf-ra4cee-30.png" />
+<img alt="Descripción de la imagen" class="cien marco margintop20" src="../ut7/cloudformation/cf-ra4cee-31.png" /><br></p>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Errores durante el despliegue</p>
+<ol>
+<li>Que la plantilla sea válida no significa necesariamente que el despliegue se realice correctamente.</li>
+<li>En caso de producirse errores durante el despliegue, CloudFormation realizará automáticamente un rollback, eliminando los recursos creados y devolviendo la infraestructura a su estado anterior.</li>
+<li>Los errores aparecerán en las distintas vistas de supervisión del despliegue y deberán ser analizados y corregidos para completar correctamente el proceso.  </li>
+</ol>
+</div>
+<h4 id="555-definir-un-rol-de-iam-para-la-instancia-ec2"><strong>5.5.5 - Definir un rol de IAM para la instancia EC2</strong></h4>
+<p>Actualmente, la EC2 que hemos creado no tiene ningún perfil IAM definido.<br />
+Esto implica que las aplicaciones que se ejecuten sobre la instancia no podrán acceder a otros servicios de AWS de forma segura, viéndose obligadas a integrar claves de acceso, lo cual no es una buena práctica.</p>
+<p>En esta actividad se definirá y asociará un rol de IAM a la instancia EC2 mediante un <strong>Instance Profile</strong>:   </p>
+<ul>
+<li>Documentación a consultar para crear el recurso de perfil de instancia : <a href="https://docs.aws.amazon.com/es_es/AWSCloudFormation/latest/TemplateReference/aws-resource-iam-instanceprofile.html">AWS::IAM::InstanceProfile</a>. </li>
+<li>Documentación a consultar para asociar ese recurso a una instancia: <a href="https://docs.aws.amazon.com/es_es/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-instance.html#cfn-ec2-instance-iaminstanceprofile">AWS::EC2::Instance</a>. </li>
+</ul>
+<p><br></p>
+<!-- Crear el Instance Profile
+
+LabInstanceProfile:
+  Type: AWS::IAM::InstanceProfile
+  Properties:
+    Roles:
+      - LabRole 
+-->
+
+<!-- Asociar a la instancia
+WebServer:
+  ...
+  Properties:
+    ...
+    IamInstanceProfile: !Ref LabInstanceProfile
+    ...
+
+-->
+
+<h4 id="556-definir-la-clave-con-la-que-se-podra-acceder-a-la-instancia-ec2"><strong>5.5.6 - Definir la clave con la que se podrá acceder a la instancia EC2</strong></h4>
+<p>Del mismo modo que en el punto anterior, actualmente no existe ningún par de claves definido para poder acceder a la instancia mediante SSH.</p>
+<p>En esta actividad se definirá y asociará el par de claves a la instancia EC2:   </p>
+<ul>
+<li>Documentación a consultar para crear el recurso de par de claves : <a href="https://docs.aws.amazon.com/es_es/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-keypair.html">AWS::EC2::KeyPair</a>. </li>
+<li>Documentación a consultar para asociar ese recurso a una instancia: <a href="https://docs.aws.amazon.com/es_es/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-instance.html#cfn-ec2-instance-keyname">AWS::EC2::Instance</a>. </li>
+</ul>
+<p><br></p>
+<!-- Definir el recurso
+
+Parameters:
+  KeyPairName:
+    Type: AWS::EC2::KeyPair::KeyName
+    Description: Nombre del par de claves SSH
+    Default: vockey
+-->
+
+<!-- Propiedad de la instancia
+WebServer:
+  ...
+  Properties:
+    ...
+    KeyName: !Ref KeyPairName
+    ...
+-->
+
+<h4 id="557-instalar-nginx-sobre-la-instancia-ec2"><strong>5.5.7 - Instalar Nginx sobre la instancia EC2</strong></h4>
+<p>Para terminar, durante el despliegue de la instancia, también instalaremos el servidor web Nginx.  </p>
+<ul>
+<li>Documentación a consultar para añadir esa propiedad a la instancia: <a href="https://docs.aws.amazon.com/es_es/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-instance.html#cfn-ec2-instance-userdata">AWS::EC2::Instance</a>. </li>
+</ul>
+<p>Script a añadir:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="ch">#!/bin/bash</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>yum<span class="w"> </span>update<span class="w"> </span>-y
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>yum<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>nginx
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>nginx
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>systemctl<span class="w"> </span>start<span class="w"> </span>nginx
+</span></code></pre></div></p>
+<!-- Propiedad de la instancia
+WebServer:
+  ...
+  Properties:
+    ...
+    UserData: !Base64 |
+      #!/bin/bash
+      yum update -y
+      yum install -y nginx
+      systemctl enable nginx
+      systemctl start nginx
+    ...
+-->
+
+<p><br></p>
+<h4 id="557-condiciones-de-entrega-de-la-tarea-ra4-cee"><strong>5.5.7 - Condiciones de entrega de la tarea RA4-CEe</strong></h4>
+<div class="admonition warning">
+<p class="admonition-title">Condiciones de la entrega</p>
+<ol>
+<li>Adjuntar a la tarea la plantilla final (tarea guiada + rol IAM + Instalación automática de Nginx).</li>
+<li>Realizar capturas de pantalla del mapa de recursos de la VPC desplegada.</li>
+<li>Realizar capturas de pantalla del servidor Nginx desplegado.</li>
+<li>Comentar brevemente cada captura para entender a qué corresponde y subir el documento a la tarea correspondiente de AULES.</li>
+</ol>
+</div>
+<h3 id="56-iac-generator"><strong>5.6 - IaC generator</strong></h3>
+<p>El IaC Generator en AWS es una funcionalidad de AWS CloudFormation diseñada para generar <strong>código de Infraestructura (IaC)</strong> a partir de recursos ya existentes.<br />
+Su objetivo principal es facilitar la transición desde infraestructuras creadas manualmente hacia un enfoque declarativo y versionable.</p>
+<div class="admonition warning">
+<p class="admonition-title">Principales limitaciones de IaC generator</p>
+<ul>
+<li>No genera plantillas “perfectas” ni optimizadas</li>
+<li>Puede requerir refactorización manual</li>
+<li>No cubre todos los servicios</li>
+<li>No sustituye el diseño IaC desde cero</li>
+</ul>
+</div>
+<h4 id="561-acceder-al-servicio-iac-generator"><strong>5.6.1 - Acceder al servicio IaC generator</strong></h4>
+<p>Vamos al servicio de <strong>CloudFormation</strong>, seleccionamos <strong>Generador de IaC</strong> e iniciamos un análisis de lo recursos de nuestra cuenta. 
+<img alt="Descripción de la imagen" class="cien marco margintop20" src="../ut7/IACgen/IAC-1.png" /><br>
+<img alt="Descripción de la imagen" class="cien marco" src="../ut7/IACgen/IAC-2.png" /><br>
+Una vez que el análisis haya terminado veremos una página similar a la siguiente.  </p>
+<p><img alt="Descripción de la imagen" class="cien marco" src="../ut7/IACgen/IAC-3.png" /><br></p>
+<p>Podremos ver un resumen de los servicios escaneados.  </p>
+<p><img alt="Descripción de la imagen" class="cien marco" src="../ut7/IACgen/IAC-4.png" /><br></p>
+<p>Así como el detalle de los servicios.  </p>
+<p><img alt="Descripción de la imagen" class="cuatrozero marco" src="../ut7/IACgen/IAC-5.png" /><br></p>
+<h4 id="562-crear-una-plantilla-con-iac-generator"><strong>5.6.2 - Crear una plantilla con IaC generator</strong></h4>
+<p>Seleccionamos <strong>Crear plantilla</strong> y completamos los pasos previos a la creación de la plantilla.
+<img alt="Descripción de la imagen" class="cien marco margintop20" src="../ut7/IACgen/IAC-6.png" /><br>
+Como podemos ver, hay infinidad de recursos. Tendremos que seleccionarlos uno a uno.    </p>
+<p><img alt="Descripción de la imagen" class="cien marco" src="../ut7/IACgen/IAC-7.png" /><br>
+<img alt="Descripción de la imagen" class="cien marco" src="../ut7/IACgen/IAC-8.png" /><br>
+Una vez seleccionados los recursos, nos apareceran los recursos relacionados. Tendremos que seleccionarlos... </p>
+<p><img alt="Descripción de la imagen" class="cien marco" src="../ut7/IACgen/IAC-9.png" /><br>
+<img alt="Descripción de la imagen" class="cien marco" src="../ut7/IACgen/IAC-10.png" /><br></p>
+<p>Revisamos y creamos la plantilla.  </p>
+<p><img alt="Descripción de la imagen" class="cien marco" src="../ut7/IACgen/IAC-11.png" /><br></p>
+<p>Si salen errores es probable que hayamos seleccionado recursos huérfanos y decir recursos que por si solos no pueden crearse.</p>
+<p><img alt="Descripción de la imagen" class="cien marco" src="../ut7/IACgen/IAC-12.png" /><br>
+<img alt="Descripción de la imagen" class="cien marco" src="../ut7/IACgen/IAC-13.png" /><br>
+Podemos eliminarlos o ampliar los recursos para la creación de la plantilla.  </p>
+<p><img alt="Descripción de la imagen" class="cien marco" src="../ut7/IACgen/IAC-14.png" /><br></p>
+<h4 id="563-explorar-la-plantilla-creada"><strong>5.6.3 - Explorar la plantilla creada</strong></h4>
+<p>Una vez creada la plantilla podremos explorarla, modificarla y por supuesto, guardarla.   </p>
+<p><img alt="Descripción de la imagen" class="cien marco" src="../ut7/IACgen/IAC-15.png" /><br>
+<img alt="Descripción de la imagen" class="cien marco" src="../ut7/IACgen/IAC-16.png" /><br></p>
+<div class="admonition warning">
+<p class="admonition-title">Nota importante</p>
+<p>IaC generator no guarda el contenido de las instancias EC2. Para ello tendremos que crear <strong>una AMI a partir de una instancia existente</strong> como hemos visto en la UT6.  </p>
+</div>
+<h3 id="57-cloudformation-iac-cdk"><strong>5.7 - CloudFormation + IaC + CDK</strong></h3>
+<p><img alt="Descripción de la imagen" class="doscinco" src="../ut7/cloudformation/WIP.avif" /><br></p>
+<h2 id="enlaces-de-interes"><strong>Enlaces de interés</strong></h2>
+<p>Documentación de <a href="https://docs.aws.amazon.com">AWS</a><br />
+<a href="https://docs.aws.amazon.com/es_es/AmazonECR/latest/userguide/repository-create.html">Repositorio privado</a> de Amazon<br />
+Amazon <a href="https://docs.aws.amazon.com/es_es/elasticloadbalancing/latest/userguide/what-is-load-balancing.html">Elastic Container Registry</a> Documentation  <br />
+Documentacion de <a href="https://docs.aws.amazon.com/es_es/cloudformation/">CloudFormation</a><br />
+¿Qué es <a href="https://docs.aws.amazon.com/es_es/cdk/v2/guide/home.html">AWS CDK</a>?<br />
+Fragmentos de <a href="https://docs.aws.amazon.com/es_es/AWSCloudFormation/latest/UserGuide/template-snippets.html">plantillas de CloudFormation</a><br />
+Tipos de <a href="https://docs.aws.amazon.com/es_es/AWSCloudFormation/latest/TemplateReference/aws-template-resource-type-ref.html">recursos y propiedades</a> de CloudFormation</p>
+<!-- === "RA 1"
+    |RA1. Comprende los fundamentos de la computación en la nube, sus ventajas frente a sistemas tradicionales, el marco de adopción, los principios de migración y los aspectos clave de facturación, como estimación y optimización de costos.||
+    |-|-|
+    *|**a)** Se ha comprendido los conceptos fundamentales de la computación en la nube.|20%|  
+    *|**b)** Se ha demostrado la capacidad para explicar las ventajas de la nube frente a sistemas tradicionales.|20%|  
+    *|**c)** Se ha participado en actividades relacionadas con el ecosistema de servicios en la nube.|15%|
+    *|**d)** Se han identificado los principios básicos de la facturación y costos en la nube.|15%|
+    *|**e)** Se ha hecho uso correcto de herramientas para estimar y gestionar presupuestos.|15%|
+    *|**f)** Se ha participado en actividades prácticas sobre gestión de costos.|15%|
+
+=== "RA 2"
+    |RA2. Identifica los componentes clave de la infraestructura global de la nube, diferenciando servicios principales, regiones, zonas de disponibilidad y aplicando medidas básicas de seguridad como el modelo de responsabilidad compartida, gestión de accesos y protección de datos.||
+    |-|-|
+    *|**a)** Se ha adquirido conocimiento de los componentes de una infraestructura global en la nube. |20%|
+    *|**b)** Se ha demostrado la capacidad para explorar y describir las principales categorías de servicios disponibles.|20%|
+    *|**c)** Se ha realizado una evaluación del uso adecuado de servicios básicos en ejercicios prácticos.|15%|
+    *|**d)** Se ha comprendido el modelo de responsabilidad compartida en la nube.|15%|
+    *|**e)** Se ha aplicado medidas de seguridad básicas mediante herramientas de gestión de acceso.|15%|
+    *|**f)** Se han realizado ejercicios sobre gestión de usuarios y políticas de seguridad.|15%|
+
+=== "RA 3"
+    |RA3. Diseña y configura redes virtuales y servicios de cómputo en la nube, aplicando buenas prácticas de seguridad, estrategias de balanceo de carga, escalado automático y aprovechando tecnologías serverless, contenedores y máquinas virtuales según casos de uso específicos.||
+    |-|-|
+    *|**a)** Se ha realizado el diseño y configuración de redes virtuales privadas.|20%|
+    *|**b)** Se ha aplicado buenas prácticas de seguridad en redes y arquitecturas.|20%|
+    *|**c)** Se ha participado activamente en la creación y configuración de una red funcional.|15%|
+    *|**d)** Se ha realizado la selección de servicios de computación adecuados según casos de uso.|15%|
+    *|**e)** Se ha llevado a cabo la configuración y gestión de balanceo de carga y escalado automático.|15%|
+    *|**f)** Se han desarrollado prácticas relacionadas con la optimización de recursos computacionales.|15%|
+
+=== "RA 4"
+    |RA4. Gestiona servicios de almacenamiento y bases de datos en la nube, seleccionando tecnologías adecuadas para casos específicos, y diseña arquitecturas escalables y resilientes utilizando herramientas de monitoreo y optimización para mejorar el rendimiento.||
+    |-|-|
+    |**a)** Se ha realizado la diferenciación entre tecnologías de almacenamiento en la nube.|20%|
+    |**b)** Se ha llevado a cabo la configuración y gestión de bases de datos en un entorno de nube.|20%|
+    |**c)** Se ha trabajado en la resolución de problemas prácticos sobre almacenamiento y bases de datos.|20%|
+    |**d)** Se ha diseñado arquitecturas escalables y resilientes basadas en las mejores prácticas.|20%|
+    *|**e)** Se ha hecho uso de herramientas de monitoreo y recomendaciones de optimización.|10%|
+    *|**f)** Se ha participado en actividades que simulen el análisis y mejora de arquitecturas existentes.|10%| -->
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 - Javier Egea Blasco
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress - navigation.expand - navigation.path", "navigation.instant.progress", "navigation.instant.preview", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "toc.follow", "navigation.footer", "navigation.top", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.tabs.link"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

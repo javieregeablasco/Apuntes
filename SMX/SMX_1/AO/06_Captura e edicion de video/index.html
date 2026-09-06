@@ -1,0 +1,2885 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Javier Egea Blasco">
+      
+      
+        <link rel="canonical" href="https://javieregeablasco.github.io/Apuntes/SMX/SMX_1/AO/06_Captura%20e%20edicion%20de%20video/">
+      
+      
+        <link rel="prev" href="../05_Imagenes/">
+      
+      
+        <link rel="next" href="../08_Correo%20electronico/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Aplicaciones ofimáticas - Javier Egea Blasco</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-introduccion" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../../../.." title="Javier Egea Blasco" class="md-header__button md-logo" aria-label="Javier Egea Blasco" data-md-component="logo">
+      
+  <img src="../../../../assets/mre.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Javier Egea Blasco
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Aplicaciones ofimáticas
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Compartir" aria-label="Compartir" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../00_Temario/" class="md-tabs__link">
+          
+  
+  
+  Aplicaciones Ofimáticas
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../SMX_2/SX/apuntes/00_Temario/" class="md-tabs__link">
+          
+  
+  
+  Servicios en redes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../DAW/DAW_2/PWES/UT.%200-Temario/" class="md-tabs__link">
+          
+  
+  
+  Under development
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Javier Egea Blasco" class="md-nav__button md-logo" aria-label="Javier Egea Blasco" data-md-component="logo">
+      
+  <img src="../../../../assets/mre.png" alt="logo">
+
+    </a>
+    Javier Egea Blasco
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aplicaciones Ofimáticas
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Aplicaciones Ofimáticas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00_Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Presentación módulo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_Instalacion%20de%20aplicaciones%20ofimaticas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 1 - Instalación de aplicaciones Ofimáticas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 2 - Procesadores de texto
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UT 2 - Procesadores de texto
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_Procesadores_de_texto/021_Procesadores_de_texto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 21 - Características de los procesadores de texto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_Procesadores_de_texto/022_LibreOffice_Writer_Instalacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 22 - Instalación de LibreOffice Writer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_Procesadores_de_texto/023_LibreOffice_Writer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 23 - LibreOffice Writer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_Hojas%20de%20calculo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 3 - Hojas de cálculo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_Presentaciones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 4 - Presentaciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_Bases%20de%20datos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 5 - Bases de datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_Imagenes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 6 - Edición de imágenes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 7 - Edición de vídeos
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 7 - Edición de vídeos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 - Introducción
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-tipos-de-video-digital" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 - Tipos de vídeo digital
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-conceptos-basicos-de-video-digital" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 - Conceptos básicos de vídeo digital
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 - Conceptos básicos de vídeo digital">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-resolucion-y-relacion-de-aspecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Resolución y relación de aspecto
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 Resolución y relación de aspecto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#311-resolucion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1.1 - Resolución
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#312-relacion-de-aspecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1.2 - Relación de aspecto
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-fotogramas-por-segundo-framerate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 - Fotogramas por segundo / Framerate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-codificacion-y-descodificacion-de-video-digital" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 - Codificación y descodificación de vídeo digital
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 - Codificación y descodificación de vídeo digital">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#331-tipos-de-compresion-en-video" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.1 - Tipos de compresión en vídeo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#332-codecs-de-video" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.2 - Codecs de vídeo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-tasa-de-bits-bitrate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 - Tasa de bits / Bitrate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-audio-en-un-video" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 - Audio en un vídeo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.5 - Audio en un vídeo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#351-tipos-de-audio-en-un-video" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5.1 - Tipos de audio en un vídeo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#352-calidad-del-audio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5.2 - Calidad del audio
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#353-tratamiento-digital-del-sonido" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5.3 - Tratamiento digital del sonido
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#354-canales-de-audio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5.4 - Canales de audio
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#355-formatos-de-audio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5.5 - Formatos de audio
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#356-edicion-de-audio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5.6 - Edición de audio
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-subtitulos-de-un-video" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6 - Subtitulos de un vídeo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.6 - Subtitulos de un vídeo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#361-generar-subtitulos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6.1 - Generar subtítulos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#362-formatos-de-archivos-de-subtitulos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6.2 - Formatos de archivos de subtítulos
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-contenedores-de-video" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 - Contenedores de vídeo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-tarea-ra6-ceb-conceptos-basicos-sobre-videos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 - Tarea RA6-CEb - Conceptos básicos sobre videos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5 - Tarea RA6-CEb - Conceptos básicos sobre videos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-tarea-ra6-ceb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 - Tarea RA6-CEb
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-entrega-de-la-tarea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 - Entrega de la tarea
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-clipchamp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6 - Clipchamp
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6 - Clipchamp">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-requisistos-de-clipchamp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 - Requisistos de Clipchamp
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-especificaciones-tecnicas-de-clipchamp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 - Especificaciones técnicas de Clipchamp
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-tarea-ra6-ceac" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 - Tarea RA6-CEac
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.3 - Tarea RA6-CEac">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#631-edicion-de-un-video-con-clipchamp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3.1 - Edición de un video con Clipchamp
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#632-funcionalidades-de-clipchamp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3.2 - Funcionalidades de Clipchamp
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#633-funcionalidades-secundarias-de-los-elementos-de-un-proyecto-de-clipchamp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3.3 - Funcionalidades secundarias de los elementos de un proyecto de Clipchamp
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#633-creacion-de-un-proyecto-multimedia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3.3 - Creación de un proyecto multimedia
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-tarea-ra6-cede" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 - Tarea RA6-CEde
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.4 - Tarea RA6-CEde">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#641-realizacion-de-un-video-tutorial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4.1 - Realización de un vídeo tutorial
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#642-entrega-de-la-tarea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4.2 - Entrega de la tarea
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_Correo%20electronico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 8 - Agenda electrónica y comunicación
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_Resolucion%20de%20incidencias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 9 - Gestión de incidencias
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Servicios en redes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Servicios en redes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SMX_2/SX/apuntes/00_Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Presentación módulo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SMX_2/SX/apuntes/01_Redes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Redes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SMX_2/SX/apuntes/02_TCP-IP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocolo TCP/IP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SMX_2/SX/apuntes/03_Conexiones-remotas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Acceso y control remoto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SMX_2/SX/apuntes/04_DHCP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocolo DHCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SMX_2/SX/apuntes/05_DNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocolo DNS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Under development
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Under development
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../DAW/DAW_2/PWES/UT.%200-Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Presentación módulo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 - Introducción
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-tipos-de-video-digital" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 - Tipos de vídeo digital
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-conceptos-basicos-de-video-digital" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 - Conceptos básicos de vídeo digital
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 - Conceptos básicos de vídeo digital">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-resolucion-y-relacion-de-aspecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Resolución y relación de aspecto
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 Resolución y relación de aspecto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#311-resolucion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1.1 - Resolución
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#312-relacion-de-aspecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1.2 - Relación de aspecto
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-fotogramas-por-segundo-framerate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 - Fotogramas por segundo / Framerate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-codificacion-y-descodificacion-de-video-digital" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 - Codificación y descodificación de vídeo digital
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 - Codificación y descodificación de vídeo digital">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#331-tipos-de-compresion-en-video" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.1 - Tipos de compresión en vídeo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#332-codecs-de-video" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.2 - Codecs de vídeo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-tasa-de-bits-bitrate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 - Tasa de bits / Bitrate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-audio-en-un-video" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 - Audio en un vídeo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.5 - Audio en un vídeo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#351-tipos-de-audio-en-un-video" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5.1 - Tipos de audio en un vídeo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#352-calidad-del-audio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5.2 - Calidad del audio
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#353-tratamiento-digital-del-sonido" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5.3 - Tratamiento digital del sonido
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#354-canales-de-audio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5.4 - Canales de audio
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#355-formatos-de-audio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5.5 - Formatos de audio
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#356-edicion-de-audio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5.6 - Edición de audio
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-subtitulos-de-un-video" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6 - Subtitulos de un vídeo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.6 - Subtitulos de un vídeo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#361-generar-subtitulos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6.1 - Generar subtítulos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#362-formatos-de-archivos-de-subtitulos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6.2 - Formatos de archivos de subtítulos
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-contenedores-de-video" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 - Contenedores de vídeo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-tarea-ra6-ceb-conceptos-basicos-sobre-videos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 - Tarea RA6-CEb - Conceptos básicos sobre videos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5 - Tarea RA6-CEb - Conceptos básicos sobre videos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-tarea-ra6-ceb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 - Tarea RA6-CEb
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-entrega-de-la-tarea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 - Entrega de la tarea
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-clipchamp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6 - Clipchamp
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6 - Clipchamp">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-requisistos-de-clipchamp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 - Requisistos de Clipchamp
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-especificaciones-tecnicas-de-clipchamp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 - Especificaciones técnicas de Clipchamp
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-tarea-ra6-ceac" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 - Tarea RA6-CEac
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.3 - Tarea RA6-CEac">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#631-edicion-de-un-video-con-clipchamp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3.1 - Edición de un video con Clipchamp
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#632-funcionalidades-de-clipchamp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3.2 - Funcionalidades de Clipchamp
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#633-funcionalidades-secundarias-de-los-elementos-de-un-proyecto-de-clipchamp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3.3 - Funcionalidades secundarias de los elementos de un proyecto de Clipchamp
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#633-creacion-de-un-proyecto-multimedia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3.3 - Creación de un proyecto multimedia
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-tarea-ra6-cede" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 - Tarea RA6-CEde
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.4 - Tarea RA6-CEde">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#641-realizacion-de-un-video-tutorial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4.1 - Realización de un vídeo tutorial
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#642-entrega-de-la-tarea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4.2 - Entrega de la tarea
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>UT 7 - Edición de vídeos</h1>
+
+<p><img alt="Descripción de la imagen" class="cincocero marginbottom40" src="../img/UT6/vid-6.JPG" /></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Resultados de aprendizaje de la unidad didáctica:</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>RA. 6:</strong> Manipula secuencias de video analizando las posibilidades de distintos programas y aplicando técnicas de captura y edición básicas.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Criterios de evaluación de la unidad didáctica:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>a)</strong> Se han reconocido los elementos que componen una secuencia de video.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>b)</strong> Se han estudiado los tipos de formatos y códecs más empleados.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>c)</strong> Se han importado y exportado secuencias de video.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>d)</strong> Se han capturado secuencias de video con recursos adecuados.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>e)</strong> Se han elaborado video tutoriales.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="1-introduccion">1 - Introducción</h2>
+<p>El vídeo digital es una parte fundamental de la informática moderna y se utiliza en una amplia variedad de aplicaciones, desde el streaming en plataformas digitales hasta la videoconferencia o la creación de contenido en redes sociales.<br />
+En esta unidad didáctica, se explorarán los conceptos básicos relacionados con el vídeo digital (códecs, framerate, resolución...).</p>
+<h2 id="2-tipos-de-video-digital">2 - Tipos de vídeo digital</h2>
+<ul>
+<li>
+<p>Una de las clasificaciones más importantes del vídeo digital se basa en su método de escaneo: vídeo progresivo y vídeo entrelazado.</p>
+</li>
+<li>
+<p>El <strong>vídeo progresivo</strong> muestra todas las líneas de cada fotograma de forma secuencial en un mismo instante, mientras que el <strong>vídeo entrelazado</strong> divide cada fotograma en dos campos (líneas pares e impares) que se muestran en momentos alternos.  </p>
+</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Ejemplo de exploración entrelazada</p>
+<p><img alt="Descripción de la imagen" class="margintopbottom10" src="../img/UT6/vid-1.webp" /></p>
+</div>
+<ul>
+<li>En la actualidad, el formato predominante es el <strong>progresivo</strong>, ya que se adapta mejor a las pantallas digitales modernas y evita los artefactos visuales propios del entrelazado.  </li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Ejemplo de diferencias de nitidez entre exploración progresiva y entrelazada (efecto combing)</p>
+<p><img alt="Descripción de la imagen" class="margintopbottom10" src="../img/UT6/vid-2.webp" /></p>
+</div>
+<h2 id="3-conceptos-basicos-de-video-digital">3 - Conceptos básicos de vídeo digital</h2>
+<p>El formato de vídeo digital define cómo se representa, codifica y almacena un vídeo. Incluye parámetros como resolución, tasa de fotogramas, bitrate, códec y otros aspectos relacionados con la calidad y el tamaño del archivo.</p>
+<h3 id="31-resolucion-y-relacion-de-aspecto">3.1 Resolución y relación de aspecto</h3>
+<h4 id="311-resolucion">3.1.1 - Resolución</h4>
+<p>La resolución indica el número de píxeles que componen cada fotograma (ancho × alto).
+<img alt="Descripción de la imagen" class="margintopbottom10" src="../img/UT6/vid-3.webp" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Resolución de 720 (HD)</p>
+</div>
+<p>Es la resolución más baja considerada HDTV (1280 × 720 píxeles). Se utiliza para contenido ligero o web, aunque hoy en día resulta limitada, ya que la mayoría de pantallas soportan resoluciones superiores.</p>
+<div class="admonition tip">
+<p class="admonition-title">Resolución de 1080 (Full HD)</p>
+</div>
+<p>La resolución 1920 × 1080 píxeles, conocida como Full HD, es el estándar más extendido. Ofrece buena calidad de imagen con un tamaño de archivo moderado y es habitual en televisores y dispositivos móviles.</p>
+<div class="admonition tip">
+<p class="admonition-title">Resolución de 2K o QHD (Quad High Definition)</p>
+</div>
+<p>Incluye resoluciones como 2048 × 1080 (2K) y 2560 × 1440 (QHD). Proporciona mayor detalle y permite más flexibilidad en edición, reencuadre y uso en pantallas grandes.</p>
+<div class="admonition tip">
+<p class="admonition-title">Resolución de 4K (Ultra HD)</p>
+</div>
+<p>La resolución 3840 × 2160 píxeles (UHD) ofrece gran nivel de detalle. Es útil especialmente en edición y postproducción, ya que permite recortar o ajustar la imagen sin pérdida notable de calidad.</p>
+<div class="admonition tip">
+<p class="admonition-title">Resolución de 8K</p>
+</div>
+<p>Con 7680 × 4320 píxeles, es una resolución muy alta poco utilizada en consumo. Se emplea principalmente en producción profesional para efectos visuales y reencuadres sin pérdida de calidad.</p>
+<h4 id="312-relacion-de-aspecto">3.1.2 - Relación de aspecto</h4>
+<p>La relación de aspecto es la proporción entre el ancho y el alto de una imagen, expresada como dos números (por ejemplo, 16:9 o 4:3).</p>
+<p>No indica la calidad, sino la forma del vídeo (horizontal, vertical o cuadrada).
+<img alt="Descripción de la imagen" class="margintopbottom10" src="../img/UT6/vid-5.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Relaciones de aspecto habituales</p>
+<div class="admonition info">
+<p class="admonition-title">1:1 (Cuadrado)</p>
+<p>Formato equilibrado, común en redes sociales.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">9:16 (Vertical)</p>
+<p>Formato móvil por excelencia. Usado en TikTok, Reels, Stories y Shorts.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">16:9 (Panorámico)</p>
+<p>Estándar actual en televisión, YouTube y contenido digital.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">16:10</p>
+<p>Similar a 16:9 pero ligeramente más alto. Común en monitores de ordenador y productividad.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">4:3 (Clásico)</p>
+<p>Formato antiguo de televisión. Hoy en desuso.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">5:4</p>
+<p>Formato cercano al cuadrado, usado en monitores antiguos. Poco habitual actualmente.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">1.85:1 (Cinematográfico estándar)</p>
+<p>Muy utilizado en cine. Similar a 16:9 pero ligeramente más ancho.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">2.35:1 (Cinematográfico panorámico)</p>
+<p>Formato muy ancho típico del cine moderno (CinemaScope). Sensación más épica.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">21:9 (Ultrapanorámico)</p>
+<p>Versión comercial del formato cinematográfico. Usado en monitores y cine.</p>
+<p>Un vídeo es, en esencia, una sucesión de imágenes (fotogramas) que, al reproducirse a gran velocidad, crean la ilusión de movimiento.</p>
+</div>
+</div>
+<h3 id="32-fotogramas-por-segundo-framerate">3.2 - Fotogramas por segundo / Framerate</h3>
+<ul>
+<li>
+<p>Es la unidad mínima de una secuencia de vídeo.</p>
+</li>
+<li>
+<p>El framerate (FPS) indica cuántas imágenes se muestran por segundo (ej. 24, 30 o 60 fps).</p>
+</li>
+<li>
+<p>A mayor tasa de fotogramas, mayor es la fluidez del movimiento percibido.</p>
+</li>
+</ul>
+<h3 id="33-codificacion-y-descodificacion-de-video-digital">3.3 - Codificación y descodificación de vídeo digital</h3>
+<p>Para codificar y decodificar la información de vídeo se utilizan los códecs (codificador/descodificador), que son algoritmos encargados de comprimir y descomprimir los datos audiovisuales.</p>
+<p>Su función es reducir el tamaño del archivo sin perder una calidad significativa, lo que resulta esencial para el almacenamiento, la edición y la transmisión en streaming.</p>
+<h4 id="331-tipos-de-compresion-en-video">3.3.1 - Tipos de compresión en vídeo</h4>
+<p>La compresión que aplican los códecs modernos se basa principalmente en dos técnicas complementarias:</p>
+<ul>
+<li><strong>Compresión espacial</strong> (intra-frame):<br />
+Reduce la información dentro de un mismo fotograma eliminando redundancias entre píxeles. Se comprimen zonas con colores o patrones similares.</li>
+<li><strong>Compresión temporal</strong> (inter-frame):<br />
+Aprovecha la similitud entre fotogramas consecutivos, almacenando solo los cambios entre ellos en lugar de cada imagen completa.</li>
+</ul>
+<h4 id="332-codecs-de-video">3.3.2 - Codecs de vídeo</h4>
+<p>Un códec de vídeo (codificador/descodificador) es un algoritmo encargado de comprimir y descomprimir datos de vídeo digital.</p>
+<p>Su objetivo principal es reducir el tamaño de los archivos manteniendo la mayor calidad posible, facilitando así su almacenamiento, edición y transmisión.</p>
+<p>Los códecs trabajan eliminando información redundante tanto dentro de cada fotograma (compresión espacial) como entre fotogramas consecutivos (compresión temporal). Gracias a esto, permiten manejar vídeos de alta resolución como Full HD, 4K o 8K sin requerir volúmenes de datos excesivos.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tipos de códecs</p>
+<p>Los códecs pueden clasificarse en dos grandes grupos:</p>
+<div class="admonition info">
+<p class="admonition-title">Códecs con pérdida (lossy)</p>
+<p>Eliminan información que se considera poco perceptible para el ojo humano con el objetivo de reducir el tamaño del archivo.</p>
+<p>Son los más utilizados en vídeo digital.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Códecs sin pérdida (lossless)</p>
+<p>Conservan toda la información original del vídeo, sin pérdida de calidad, pero generan archivos mucho más grandes.<br />
+Se usan principalmente en entornos profesionales de edición.</p>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Códecs más utilizados actualmente</p>
+<ul>
+<li><strong>MPEG-4</strong><br />
+Códec de vídeo muy popular que ofrece altas tasas de compresión manteniendo una buena calidad de imagen. Se utiliza en diversas aplicaciones, como el streaming de vídeo, las videoconferencias y la edición.</li>
+<li><strong>H.264 (AVC)</strong><br />
+Es el códec más extendido. Ofrece buen equilibrio entre calidad y tamaño y es compatible con prácticamente todos los dispositivos y plataformas.</li>
+<li><strong>H.265 (HEVC)</strong><br />
+Evolución del H.264. Permite una compresión más eficiente (aproximadamente la mitad de tamaño para calidad similar), especialmente útil en 4K y 8K.</li>
+<li><strong>AV1</strong><br />
+Códec moderno, libre de licencias en muchos casos, muy eficiente en streaming. Está siendo adoptado por plataformas como YouTube o Netflix.</li>
+<li><strong>VP8/VP9</strong><br />
+Desarrollado por Google como alternativa a H.264/H.265, muy utilizado en YouTube.</li>
+<li><strong>Códecs profesionales (ProRes, DNxHD/HR)</strong><br />
+Usados en producción y postproducción. Prioriza la calidad frente al tamaño, facilitando la edición.</li>
+</ul>
+</div>
+<h3 id="34-tasa-de-bits-bitrate">3.4 - Tasa de bits / Bitrate</h3>
+<p>El bitrate o tasa de bits es la cantidad de datos que se codifican o transmiten por segundo en un video, normalmente medida en Mbps (megabits por segundo). Un bitrate más alto suele implicar mayor calidad de imagen y mejor fidelidad de color, pero también genera archivos más grandes.</p>
+<p>Es un factor clave en la calidad del video, aunque su impacto depende también del códec y del tipo de compresión utilizados, por lo que no debe considerarse de forma aislada frente a la resolución u otros parámetros.</p>
+<h3 id="35-audio-en-un-video">3.5 - Audio en un vídeo</h3>
+<p>El audio complementa la información visual y mejora significativamente la experiencia del espectador. Un vídeo sin audio puede resultar incompleto o difícil de interpretar, especialmente cuando depende de diálogos, narración o efectos sonoros.</p>
+<p>En un proyecto audiovisual, el audio puede clasificarse en varias categorías:</p>
+<h4 id="351-tipos-de-audio-en-un-video">3.5.1 - Tipos de audio en un vídeo</h4>
+<ul>
+<li><strong>Voz o diálogo:</strong><br />
+Es el elemento principal cuando hay personas hablando (entrevistas, explicaciones, narraciones).</li>
+<li><strong>Música:</strong><br />
+Se utiliza para generar emociones, marcar ritmo o reforzar el mensaje.</li>
+<li><strong>Efectos de sonido (SFX):</strong><br />
+Añaden realismo o enfatizan acciones (pasos, puertas, ambiente, etc.).</li>
+<li><strong>Sonido ambiente:</strong><br />
+Refleja el entorno donde se desarrolla la escena (ruido de ciudad, naturaleza, interiores, etc.).</li>
+</ul>
+<h4 id="352-calidad-del-audio">3.5.2 - Calidad del audio</h4>
+<p>Un audio de mala calidad puede arruinar incluso un vídeo visualmente atractivo. Es importante considerar:</p>
+<ul>
+<li><strong>Claridad:</strong><br />
+Evitar ruidos, interferencias o distorsión.</li>
+<li><strong>Volumen adecuado:</strong><br />
+Ni demasiado bajo ni saturado.</li>
+<li><strong>Balance:</strong><br />
+Ajustar correctamente la relación entre voz, música y efectos.</li>
+<li><strong>Sincronización:</strong><br />
+El audio debe coincidir perfectamente con la imagen.</li>
+</ul>
+<h4 id="353-tratamiento-digital-del-sonido">3.5.3 - Tratamiento digital del sonido</h4>
+<p>El sonido se transmite en forma de ondas y los ordenadores trabajan con información digital. Por ese motivo el sonido deberá ser digitalizado antes de poder ser usado en el ordenador.</p>
+<ul>
+<li><strong>Muestreo (sampling):</strong><br />
+El proceso de sampling del sonido consiste en tomar muestras de una señal sonora (muestreo) a intervalos constantes de tiempo (frecuencia de muestreo).</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Ejemplo</p>
+<p>Una frecuencia de 44.100 Hz (estándar de CD) significa que el ordenador "escucha" y registra el sonido 44.100 veces por segundo.</p>
+</div>
+<ul>
+<li><strong>Digitalización (profundidad de bits):</strong><br />
+Es la cantidad de bits empleados para guardar el valor de cada punto muestreado: a más bits, mayor calidad.  </li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Ejemplo</p>
+<ul>
+<li><strong>16 bits</strong>: Ofrecen 65.536 niveles (calidad de CD).</li>
+<li><strong>24 bits</strong>: Proporcionan una precisión extrema, usada en estudios de grabación profesionales.</li>
+</ul>
+</div>
+<ul>
+<li><strong>Importancia del muestro y la digitalización en la calidad del audio</strong><br />
+<img alt="Descripción de la imagen" class="marco ochozero margintopbottom10" src="../img/UT6/vid-7.png" /><br />
+Una mayor frecuencia de muestreo permite capturar frecuencias más altas del sonido, aunque a partir de ciertos valores (como 44.1 kHz) no siempre supone una mejora perceptible para el oído humano.<br />
+La profundidad de bits determina el rango dinámico y la precisión de la señal digital. Un mayor número de bits reduce el ruido de cuantificación y permite una reproducción más fiel y detallada del audio.</li>
+</ul>
+<h4 id="354-canales-de-audio">3.5.4 - Canales de audio</h4>
+<p>Los canales de audio representan las distintas pistas independientes por las que se distribuye el sonido. El caso más común es el audio mono (un solo canal) y estéreo (dos canales: izquierdo y derecho), que permite una percepción espacial básica.</p>
+<p>En sistemas más avanzados, como el audio multicanal (por ejemplo, 5.1 o 7.1), se añaden más canales para mejorar la inmersión y ubicar sonidos en distintas posiciones alrededor del oyente.</p>
+<p>En general, cuantos más canales haya, mayor será la capacidad de recrear un entorno sonoro realista, aunque también aumenta la complejidad del sistema y los requisitos de almacenamiento y procesamiento.</p>
+<h4 id="355-formatos-de-audio">3.5.5 - Formatos de audio</h4>
+<p>Los formatos más comunes en vídeo digital incluyen:</p>
+<ul>
+<li>AAC (Advanced Audio Codec):<br />
+Muy utilizado por su buena calidad y compresión eficiente.</li>
+<li>MP3 (MPEG Audio Layer III):<br />
+Popular, aunque menos eficiente que AAC.</li>
+<li>WAV:<br />
+Alta calidad sin compresión, pero ocupa más espacio.</li>
+</ul>
+<p><strong>Nota:</strong><br />
+A la hora de elegir un formato u otro, también se deberá tener en cuenta la compatibilidad de los mismos con el software / hardware de reproducción disponible.  </p>
+<p><strong>Tabla resumen de los formatos de audio</strong>  </p>
+<table>
+<thead>
+<tr>
+<th>Formato de audio</th>
+<th>Frecuencia de muestreo</th>
+<th>Profundidad de bits</th>
+<th>Calidad de audio</th>
+<th>Compatibilidad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MP3</td>
+<td>32 kHz, 44,1 kHz, 48 kHz</td>
+<td>16 bits</td>
+<td>Buena</td>
+<td>Amplia</td>
+</tr>
+<tr>
+<td>WAV</td>
+<td>44,1 kHz, 48 kHz</td>
+<td>16 bits, 24 bits</td>
+<td>Excelente</td>
+<td>Moderada</td>
+</tr>
+<tr>
+<td>AAC</td>
+<td>8 kHz – 96 kHz</td>
+<td>16 bits, 24 bits</td>
+<td>Muy buena</td>
+<td>Amplia</td>
+</tr>
+</tbody>
+</table>
+<h4 id="356-edicion-de-audio">3.5.6 - Edición de audio</h4>
+<p>Durante la postproducción, es habitual trabajar el audio para mejorar el resultado final:</p>
+<ul>
+<li>Eliminación de ruido</li>
+<li>Ajuste de niveles</li>
+<li>Ecualización</li>
+<li>Compresión</li>
+<li>Inserción de música y efectos</li>
+</ul>
+<p>Programas como editores de vídeo o software específico de audio permiten realizar estos ajustes de forma precisa.</p>
+<h3 id="36-subtitulos-de-un-video">3.6 - Subtitulos de un vídeo</h3>
+<p>Los subtítulos son textos que se superponen a la imagen de un vídeo para proporcionar información adicional, como diálogos, descripciones o traducciones. Son esenciales para mejorar la accesibilidad y la comprensión del contenido, especialmente para personas con discapacidades auditivas o para audiencias que hablan diferentes idiomas.</p>
+<h4 id="361-generar-subtitulos">3.6.1 - Generar subtítulos</h4>
+<p>Existen varias formas de generar subtítulos para un vídeo:</p>
+<ul>
+<li><strong>Manual:</strong><br />
+Se pueden crear manualmente utilizando software de edición de vídeo o herramientas específicas de subtitulado, lo que permite un control total sobre el contenido y la sincronización, aunque puede ser laborioso.</li>
+<li><strong>Automático:</strong><br />
+Algunos programas y plataformas ofrecen generación automática de subtítulos mediante reconocimiento de voz, lo que agiliza el proceso, aunque la precisión puede variar dependiendo de la calidad del audio y el idioma.</li>
+</ul>
+<h4 id="362-formatos-de-archivos-de-subtitulos">3.6.2 - Formatos de archivos de subtítulos</h4>
+<p>Los formatos de subtítulos más comunes incluyen:</p>
+<ol>
+<li>
+<p><strong>SRT (SubRip Subtitle):</strong><br />
+El formato SRT (SubRip) es el estándar más popular y utilizado en el mundo del vídeo debido a su extrema sencillez.</p>
+<ul>
+<li>
+<p><strong>Simplicidad técnica:</strong> Se trata de archivos de texto plano que solo contienen la información esencial: el texto del subtítulo y las marcas de tiempo.</p>
+</li>
+<li>
+<p><strong>Sin diseño:</strong> A diferencia de otros formatos, el SRT no incluye estilos (como colores o fuentes), lo que lo hace ligero y fácil de editar con herramientas básicas como el Bloc de notas.</p>
+</li>
+<li>
+<p><strong>Compatibilidad universal:</strong> Es aceptado por prácticamente todas las plataformas relevantes, incluyendo redes sociales (Facebook, YouTube, LinkedIn) y servicios de streaming (Netflix, Amazon).</p>
+</li>
+<li>
+<p><strong>Edición accesible:</strong> Cualquier creador puede modificar un archivo SRT manualmente o mediante editores de terceros sin necesidad de software complejo.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>VTT (WebVTT):</strong><br />
+El formato WebVTT (Web Video Text Track) es el estándar moderno para la web, nacido en 2010 como una evolución directa del popular SRT.</p>
+<ul>
+<li>
+<p><strong>Creado por el grupo WHATWG</strong> (originalmente se llamó WebSRT), comparte gran parte de la estructura básica de su antecesor SRT.</p>
+</li>
+<li>
+<p><strong>Mejoras sobre SRT:</strong> WebVTT permite incluir metadatos, descripciones y detalles sobre la ubicación de los marcos en pantalla.</p>
+</li>
+<li>
+<p><strong>Identificadores flexibles:</strong> Los identificadores de pista son opcionales, lo que simplifica su creación en ciertos contextos.</p>
+</li>
+<li>
+<p><strong>Es el estándar de la web:</strong> Al ser la base del HTML5, es el formato predilecto para reproductores web modernos y plataformas como YouTube, Vimeo y Video.js.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>DFXP/XML (Distribution Format Exchange Profile):</strong><br />
+Formato basado en XML utilizado en entornos profesionales, especialmente para la transmisión y distribución de contenido.</p>
+<ul>
+<li>
+<p><strong>Responde a la necesidad del 54% de los consumidores</strong> que exigen contenidos de video más accesibles y de alta calidad por parte de las marcas.</p>
+</li>
+<li>
+<p><strong>Compatibilidad Amplia:</strong> Es compatible con grandes plataformas como YouTube, Vimeo y Netflix.</p>
+</li>
+<li>
+<p><strong>Diferencia con SRT:</strong> El DFXP es mucho más complejo porque incluye instrucciones detalladas sobre el formato y la ubicación exacta de los subtítulos en la pantalla.</p>
+</li>
+<li>
+<p><strong>Se entrega mediante archivos con extensión .dfxp</strong>, bajo el lenguaje de marcado XML.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>SCC (Scenarist Closed Caption):</strong></p>
+<ul>
+<li>
+<p>El formato SCC (Scenarist Closed Caption) es uno de los estándares de subtitulado más antiguos, diseñado originalmente para la televisión analógica y soportes como VHS o DVD.  </p>
+</li>
+<li>
+<p>A pesar de su antigüedad, no ha desaparecido; al contrario, se ha adaptado a la era digital siendo utilizado por plataformas como <strong>iTunes, Amazon y Netflix</strong>, así como en programas de edición de vídeo. Su relevancia actual se debe a su <strong>excelente capacidad para manejar elementos estilísticos</strong> (posicionamiento en pantalla, cursivas y símbolos musicales), lo cual es fundamental para que los creadores cumplan con las normativas legales de accesibilidad (requisitos de la FCC).</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>iTT (iTunes Timed Text):</strong><br />
+Apple mantiene estándares muy estrictos y solo admite tres formatos de subtítulos en su plataforma, destacando principalmente el uso de iTT por encima de otros como SCC o DFXP.</p>
+<ul>
+<li>
+<p><strong>Nativo de Apple:</strong> Es el formato estándar y optimizado para la iTunes Store.</p>
+</li>
+<li>
+<p><strong>Flexibilidad estética:</strong> Permite personalizar colores, ubicación y formatos de texto.</p>
+</li>
+<li>
+<p><strong>Soporte Unicode:</strong> Su gran ventaja competitiva es la capacidad de manejar caracteres no romanos (como alfabetos asiáticos), algo que muchos otros formatos no pueden procesar correctamente.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>ASS (Advanced SubStation Alpha):</strong>
+Es el favorito de los fans del anime y editores avanzados. Permite un control total sobre el diseño: fuentes personalizadas, colores, posiciones exactas, bordes e incluso efectos de karaoke.</p>
+<ul>
+<li>
+<p><strong>Uso principal:</strong> Fansubbing, ediciones complejas y videos que requieren que el texto no tape elementos importantes de la imagen.</p>
+</li>
+<li>
+<p><strong>Ventaja:</strong> Extrema flexibilidad visual.</p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="4-contenedores-de-video">4 - Contenedores de vídeo</h3>
+<p>Los contenedores de vídeo son formatos de archivo que empaquetan y estructuran flujos de datos de vídeo, audio, subtítulos y metadatos en un solo archivo. A diferencia de los códecs, no determinan la compresión, sino cómo se almacena.</p>
+<p>Los más comunes incluyen MP4, MOV, MKV, AVI y WebM.</p>
+<div class="admonition tip">
+<p class="admonition-title">Características de los contenedores de vídeo más utilizados</p>
+<ul>
+<li>
+<p><strong>MP4 (MPEG-4 Part 14):</strong><br />
+El estándar más extendido. Ofrece excelente compatibilidad con la web, dispositivos móviles y   reproductores multimedia.</p>
+</li>
+<li>
+<p><strong>MOV (QuickTime File Format):</strong><br />
+Desarrollado por Apple, utilizado comúnmente en edición de vídeo profesional.</p>
+</li>
+<li>
+<p><strong>MKV (Matroska):</strong><br />
+Contenedor de código abierto muy versátil, capaz de almacenar múltiples pistas de audio, vídeos y   subtítulos en un solo archivo.</p>
+</li>
+<li>
+<p><strong>AVI (Audio Video Interleave):</strong><br />
+Uno de los formatos más antiguos y compatibles, desarrollado por Microsoft.</p>
+</li>
+<li>
+<p><strong>WebM:</strong><br />
+Optimizado para la web y HTML5, ofrece alta calidad con buena compresión.</p>
+</li>
+<li>
+<p><strong>MXF (Material Exchange Format):</strong><br />
+Estándar profesional utilizado en la industria de la televisión y el cine.</p>
+</li>
+</ul>
+</div>
+<p>Para elegir el mejor, se debe considerar la compatibilidad con el reproductor final y el propósito del vídeo (streaming vs. almacenamiento).</p>
+<h2 id="5-tarea-ra6-ceb-conceptos-basicos-sobre-videos">5 - Tarea RA6-CEb - Conceptos básicos sobre videos</h2>
+<h3 id="51-tarea-ra6-ceb">5.1 - Tarea RA6-CEb</h3>
+<div class="admonition warning">
+<p class="admonition-title">Trabajo a realizar</p>
+<ul>
+<li>Para esta evaluación, deberéis responder a 20 preguntas tipo test.</li>
+<li>Podéis descargar el archivo de texto desde el siguiente <a href="../06-videos/Tarea%20RA6-CEb/RA6%20CEb.odt">enlace</a></li>
+<li>Subrayar la respuesta que consideráis correcta.</li>
+</ul>
+</div>
+<h3 id="52-entrega-de-la-tarea">5.2 - Entrega de la tarea</h3>
+<div class="admonition warning">
+<p class="admonition-title">Condiciones de entrega de la tarea</p>
+<ul>
+<li>Guardar el documento con RA6-CEb-NombreApellidos en formato <strong>odt</strong>, <strong>formato nativo</strong> de LibreOffice writer.</li>
+<li><strong>No se aceptará ningun formato que no sea odb</strong>.  </li>
+<li>Subir la base de datos, a la tarea RA6-CEb de <strong>Aules</strong>.</li>
+<li>A partir de momento de apertura de la tarea, dispondréis de <strong>20 minutos</strong> para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.</li>
+</ul>
+</div>
+<h2 id="6-clipchamp">6 - Clipchamp</h2>
+<p>Clipchamp es una plataforma de edición de vídeo en línea que ofrece una amplia gama de herramientas para crear, editar y compartir vídeos de manera sencilla y accesible.
+Clipchamp es parte del paquete de aplicaciones de Microsoft y se integra con servicios como OneDrive, lo que facilita la gestión de archivos y la colaboración en proyectos de vídeo.</p>
+<h3 id="61-requisistos-de-clipchamp">6.1 - Requisistos de Clipchamp</h3>
+<p>Clipchamp es un servicio online que no es compatible con firefox por lo que se deberá usar navegadores como <strong>Microsoft Edge</strong>, <strong>Google Chrome (o Chromium)</strong>.</p>
+<h3 id="62-especificaciones-tecnicas-de-clipchamp">6.2 - Especificaciones técnicas de Clipchamp</h3>
+<p>Clipchamp ofrece una variedad de funciones para la edición de vídeo, incluyendo:</p>
+<ol>
+<li>
+<p><strong>Edición de Vídeo Básica y Avanzada:</strong> Recortar, dividir, cambiar el tamaño/relación de aspecto, voltear, girar y ajustar la velocidad de los clips en una línea de tiempo intuitiva.</p>
+</li>
+<li>
+<p><strong>Grabación de Pantalla y Cámara:</strong> Funcionalidad para grabar la pantalla del ordenador, la cámara web, o ambas simultáneamente, <strong>ideal para tutoriales</strong>.</p>
+</li>
+<li>
+<p><strong>Inteligencia Artificial (IA):</strong> Generación de voz a partir de texto con múltiples idiomas y estilos, y creación automática de vídeos.</p>
+</li>
+<li>
+<p><strong>Recursos Multimedia y Efectos:</strong> Acceso a una biblioteca con música, vídeos y imágenes de archivo sin derechos de autor, además de filtros, transiciones y efectos visuales.</p>
+</li>
+<li>
+<p><strong>Personalización de Texto:</strong> Adición de títulos y textos animados con fuentes, colores y estilos personalizables.</p>
+</li>
+<li>
+<p><strong>Kit de Marca (Premium):</strong> Gestión de logotipos, fuentes y paletas de colores personalizados para mantener la coherencia visual en todos los vídeos.</p>
+</li>
+<li>
+<p><strong>Exportación y Compartición:</strong> Exportación de vídeos en diversas resoluciones (hasta 4K) y formato directo para plataformas como YouTube, TikTok o LinkedIn.</p>
+</li>
+</ol>
+<h3 id="63-tarea-ra6-ceac">6.3 - Tarea RA6-CEac</h3>
+<h4 id="631-edicion-de-un-video-con-clipchamp">6.3.1 - Edición de un video con Clipchamp</h4>
+<div class="admonition warning">
+<p class="admonition-title">Clipchamp guarda automáticamente los proyectos en la nube, pero es importante guardar el proyecto de forma manual para evitar perder los avances realizados.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Trabajo a realizar</p>
+<ul>
+<li>En esta tarea crearemos un vídeo para familiarizarnos con Clipchamp.</li>
+<li>El vídeo deberá incluir al menos:<ul>
+<li>Uno o varios secuencias de vídeos. Los vídeos así como las imágenes y más elementos, se podrán descargar desde el propio Clipchamp o desde portales como <a href="https://pixabay.com/">pixabay</a>, <a href="https://pexels.com">pexels</a>, etc.</li>
+<li>Música de fondo (puede ser de la biblioteca de Clipchamp).</li>
+<li>Títulos o textos animados.</li>
+<li>Al menos una transición entre clips.</li>
+</ul>
+</li>
+</ul>
+</div>
+<h4 id="632-funcionalidades-de-clipchamp">6.3.2 - Funcionalidades de Clipchamp</h4>
+<p><img alt="imagen" class="cincocero marginbottom40" src="../img/UT6/vid-8.png" /></p>
+<p>Ir familiarizándose con las distintas funcionalidades de Clipchamp, como:</p>
+<ul>
+<li>Carpeta de recursos multimedia (My media).</li>
+<li>Record &amp; create (grabar pantalla, cámara o ambas).</li>
+<li>Text (añadir títulos y textos animados).</li>
+<li>Music (agregar música de fondo).</li>
+<li>Stock video (acceso a vídeos de archivo sin derechos de autor).</li>
+<li>Stock images (acceso a imágenes de archivo sin derechos de autor).</li>
+<li>Templates (plantillas de vídeo predefinidas para diferentes formatos y plataformas).</li>
+<li>Graphics (filtros, transiciones y efectos visuales).</li>
+<li>Transitions (variedad de transiciones para suavizar el cambio entre clips).</li>
+<li>Kit de marca (gestión de logotipos, fuentes y paletas de colores personalizados para mantener la coherencia visual en todos los vídeos).</li>
+</ul>
+<h4 id="633-funcionalidades-secundarias-de-los-elementos-de-un-proyecto-de-clipchamp">6.3.3 - Funcionalidades secundarias de los elementos de un proyecto de Clipchamp</h4>
+<p>Una vez añadidos los elementos al proyecto, se pueden explorar las funcionalidades secundarias de cada uno de ellos, como:</p>
+<p><img alt="imagen" class="cincocero marginbottom40" src="../img/UT6/vid-9.png" /></p>
+<ul>
+<li>Ajustar la duración de un clip.</li>
+<li>Cambiar la posición de un clip en la línea de tiempo.</li>
+<li>Ajustar el volumen de una pista de audio.</li>
+<li>Aplicar efectos visuales a un clip.</li>
+<li>etc</li>
+</ul>
+<h4 id="633-creacion-de-un-proyecto-multimedia">6.3.3 - Creación de un proyecto multimedia</h4>
+<div class="admonition tip">
+<p class="admonition-title">Parte 1 - Creación de un proyecto multimedia</p>
+</div>
+<ol>
+<li>Crear un proyecto.</li>
+<li>Darle un nombre y seleccionar la relación de aspecto adecuada para el formato del vídeo que se desea crear.</li>
+<li>Guardar el proyecto.</li>
+<li>Importar los recursos multimedia (vídeos, imágenes, música, audio, subtítulos...) que se van a utilizar en el proyecto.</li>
+<li>Arrastrar un video a la línea de tiempo.</li>
+<li>Comprobar si el vídeo se reproduce correctamente y si tiene pista de audio. Contemplar la posibilidad de silenciar el audio del vídeo si no es necesario o de exportarlo para usarlo como pista de audio independiente.</li>
+<li>Comprobar la posibilidad de acelerar o ralentizar el vídeo.</li>
+<li>Usar la herramienta de tijeras para dividir el clip en dos o más partes para eliminar las partes no deseadas.</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Parte 2 - Transiciones y fundidos</p>
+</div>
+<ol>
+<li>Añadir otro vídeo a la misma barra de tiempo que el video anterior.</li>
+<li>Añadir una transición entre los 2 videos.</li>
+<li>Añadir otro vídeo a la barra de tiempo, pero esta vez debajo de los otros dos.</li>
+<li>Ajustar la posición del vídeo para que haya una solapa entre el vídeo de abajo y el de arriba.</li>
+<li>Aplicar un fundido de entrada al vídeo de abajo para que se vea el vídeo de abajo a medida que el vídeo de arriba se va atenuando.</li>
+<li>Aplicar un fundido de salida en negro para finalizar el vídeo.</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Parte 3 - Añadir una pista de audio</p>
+</div>
+<ol>
+<li>Añadir una pista de audio a la barra de tiempo.</li>
+<li>Ajustar el volumen del audio teniendo en cuenta si se trata de una música de fondo o de contenido necesario para la comprensión del vídeo.</li>
+<li>Comprobar la posibilidad de acelerar o ralentizar el audio.</li>
+<li>Establecer fundidos al inicio y al final del audio para que no se corten de forma abrupta al finalizarse el vídeo.</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Parte 4 - Subtítulos</p>
+</div>
+<ol>
+<li>Descargar un audio de voz. Por ejemplo desde <a href="https://www.bbc.co.uk/programmes/p02pc9tn/episodes/downloads">aquí</a>.</li>
+<li>Agregarla al proyecto.</li>
+<li>Ajustar el volúmen de las pistas para que el audio de sonido ambiental no dificulte la compresión de la pista de voz.</li>
+<li>Comprobar sí la generación de subtítulos automáticos se realiza correctamente.</li>
+<li>Comprobar la posibilidad de ocultar los subtítulos.</li>
+<li>Comprobar la posibilidad de modificar el contenido de los subtítulos.  </li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Parte 5 - Textos</p>
+</div>
+<ol>
+<li>Añadir texto al proyecto.</li>
+<li>Situarlo antes de las pistas de vídeo (o solaparlo ligeramente).</li>
+<li>Personalizar el texto (fuente, tamaño, color, animación...).</li>
+<li>Comprobar la posibilidad de establecer una duración para el texto.</li>
+<li>Repartir la misma operación pero esta vez al final del vídeo para añadir un texto de despedida con vuestro nombre.</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Parte 6 - Pantalla verde (Chroma Key)</p>
+</div>
+<ol>
+<li>Añadir un vídeo con fondo verde a la línea de tiempo.</li>
+<li>Añadir otro vídeo debajo del vídeo con fondo verde.</li>
+<li>Aplicar el efecto "Clave de croma" para eliminar el fondo verde y mostrar el vídeo de abajo.</li>
+<li>Ajustar el efecto para eliminar cualquier resto de verde que pueda quedar.</li>
+<li>Comprobar la posibilidad de usar un fondo difuminado para evitar que el vídeo de abajo se vea demasiado nítido en comparación con el vídeo de arriba.</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Parte 7 - Exportar el proyecto y entrega de la tarea</p>
+</div>
+<ol>
+<li>Exportar el proyecto en formato MP4 con resolución 720p.</li>
+<li>Guardar el proyecto como RA6-CEac-NombreApellidos.</li>
+<li>Subir el proyecto a la tarea de <strong>Aules</strong>.</li>
+<li>A partir de la apertura de la tarea, dispondréis de <strong>2 semanas</strong> para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.</li>
+</ol>
+<h3 id="64-tarea-ra6-cede">6.4 - Tarea RA6-CEde</h3>
+<h4 id="641-realizacion-de-un-video-tutorial">6.4.1 - Realización de un vídeo tutorial</h4>
+<div class="admonition warning">
+<p class="admonition-title">Trabajo a realizar</p>
+<ul>
+<li>Para esta tarea se deberá realizar un vídeo tutorial sobre el uso de una aplicación ofimática.</li>
+<li>El vídeo deberá incluir al menos:<ul>
+<li>Una introducción al tema que se va a tratar.</li>
+<li>Una explicación paso a paso de cómo realizar una tarea concreta con la aplicación ofimática elegida.</li>
+<li>Un resumen final con las conclusiones más importantes.</li>
+</ul>
+</li>
+</ul>
+</div>
+<p>Posibles temas para el vídeo tutorial:</p>
+<ul>
+<li>Cómo crear un documento con LibreOffice Writer.</li>
+<li>Cómo crear una hoja de cálculo con LibreOffice Calc.</li>
+<li>Cómo crear una base de datos en LibreOffice Base.</li>
+<li>Cómo crear una presentación en LibreOffice Impress.</li>
+<li>Cómo crear una imagen con GIMP.</li>
+<li>Cómo crear un vídeo con Clipchamp.</li>
+<li>Cómo cambiar el tamaño y la fuente de un texto en LibreOffice Writer.</li>
+<li>Cómo insertar una tabla en LibreOffice Writer.</li>
+<li>Cómo crear una fórmula en LibreOffice Calc.</li>
+<li>Cómo crear un gráfico en LibreOffice Calc.</li>
+<li>Cómo crear una consulta en LibreOffice Base.</li>
+<li>etc.</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Pasos para crear un vídeo tutorial</p>
+<ul>
+<li><strong>¿Qué es un video tutorial?</strong><br />
+Un vídeo tutorial es un recurso audiovisual diseñado para enseñar cómo realizar una tarea específica o comprender un concepto determinado.</li>
+<li><strong>Cómo hacer un video tutorial paso a paso.</strong><br />
+Paso 1. Análizar el aprendizaje a realizar en el vídeo tutorial<br />
+Paso 2. Crear un esquema del contenido del vídeo tutorial (guión)<br />
+Paso 3. Grabar las diferentes partes del vídeo tutorial<br />
+Paso 4. Editar el video tutorial (recortar, añadir transiciones, efectos, música de fondo, textos, créditos de introducción y final, etc.)  </li>
+</ul>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Ejemplos de video tutoriales</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=9FvDdXNe2fI&amp;list=PLLLaU95AMQPqAgeXCjQgXawAPABR19U2k&amp;index=15">Ejemplo 1: LibreOffice Writer</a></li>
+<li><a href="https://www.youtube.com/watch?v=8MI61KWEYH4&amp;list=PLLLaU95AMQPrMifyMRgiwhqKA64g7Kiea&amp;index=17">Ejemplo 2: LibreOffice Calc</a></li>
+<li><a href="https://www.youtube.com/watch?v=ryW0pROGXQY&amp;list=PLG1qdjD__qH64tCQ756M--FVvhHyCLUA9&amp;index=18">Ejemplo 3: Gimp</a></li>
+</ul>
+</div>
+<h4 id="642-entrega-de-la-tarea">6.4.2 - Entrega de la tarea</h4>
+<div class="admonition warning">
+<p class="admonition-title">Condiciones de entrega de la tarea</p>
+<ol>
+<li>Exportar el proyecto en formato MP4 con resolución 1080p.</li>
+<li>Guardar el proyecto como RA6-CEde-NombreApellidos.</li>
+<li>Subir el proyecto a la tarea de <strong>Aules</strong>.</li>
+<li>A partir de la apertura de la tarea, dispondréis de <strong>2 semanas</strong> para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.</li>
+</ol>
+</div>
+<!-- https://victorialloret.com/hacer-video-tutorial-grabando-pantalla/ -->
+
+<table>
+<thead>
+<tr>
+<th><strong>Licencia Creative Commons:</strong></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="alt text" src="../../../../assets/by-nc-nd-eu_.png" /></td>
+<td><strong>Reconocimiento-NoComercial-CompartirIgual CC BY-NC-SA:</strong>  No se permite un uso comercial de la obra original ni de las posibles obras derivadas, la distribución de la cuales se debe hace con una licencia igual a la que regula la obra original.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pie" >
+        
+          
+          <a href="../05_Imagenes/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: UT 6 - Edición de imágenes">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                UT 6 - Edición de imágenes
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../08_Correo%20electronico/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: UT 8 - Agenda electrónica y comunicación">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              <div class="md-ellipsis">
+                UT 8 - Agenda electrónica y comunicación
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 - Javier Egea Blasco
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress - navigation.expand - navigation.path", "navigation.instant.progress", "navigation.instant.preview", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "toc.follow", "navigation.footer", "navigation.top", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.tabs.link"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

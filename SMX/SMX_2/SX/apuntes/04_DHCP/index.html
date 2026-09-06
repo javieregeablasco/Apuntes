@@ -1,0 +1,4108 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Javier Egea Blasco">
+      
+      
+        <link rel="canonical" href="https://javieregeablasco.github.io/Apuntes/SMX/SMX_2/SX/apuntes/04_DHCP/">
+      
+      
+        <link rel="prev" href="../03_Conexiones-remotas/">
+      
+      
+        <link rel="next" href="../05_DNS/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Servicios en red - Javier Egea Blasco</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-introduccion" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../../../../.." title="Javier Egea Blasco" class="md-header__button md-logo" aria-label="Javier Egea Blasco" data-md-component="logo">
+      
+  <img src="../../../../../assets/mre.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Javier Egea Blasco
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Servicios en red
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Compartir" aria-label="Compartir" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../SMX_1/AO/00_Temario/" class="md-tabs__link">
+          
+  
+  
+  Aplicaciones Ofimáticas
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../00_Temario/" class="md-tabs__link">
+          
+  
+  
+  Servicios en redes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../DAW/DAW_2/PWES/UT.%200-Temario/" class="md-tabs__link">
+          
+  
+  
+  Under development
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="Javier Egea Blasco" class="md-nav__button md-logo" aria-label="Javier Egea Blasco" data-md-component="logo">
+      
+  <img src="../../../../../assets/mre.png" alt="logo">
+
+    </a>
+    Javier Egea Blasco
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aplicaciones Ofimáticas
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Aplicaciones Ofimáticas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX_1/AO/00_Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Presentación módulo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX_1/AO/01_Instalacion%20de%20aplicaciones%20ofimaticas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 1 - Instalación de aplicaciones Ofimáticas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 2 - Procesadores de texto
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UT 2 - Procesadores de texto
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX_1/AO/02_Procesadores_de_texto/021_Procesadores_de_texto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 21 - Características de los procesadores de texto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX_1/AO/02_Procesadores_de_texto/022_LibreOffice_Writer_Instalacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 22 - Instalación de LibreOffice Writer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX_1/AO/02_Procesadores_de_texto/023_LibreOffice_Writer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 23 - LibreOffice Writer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX_1/AO/03_Hojas%20de%20calculo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 3 - Hojas de cálculo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX_1/AO/07_Presentaciones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 4 - Presentaciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX_1/AO/04_Bases%20de%20datos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 5 - Bases de datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX_1/AO/05_Imagenes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 6 - Edición de imágenes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX_1/AO/06_Captura%20e%20edicion%20de%20video/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 7 - Edición de vídeos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX_1/AO/08_Correo%20electronico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 8 - Agenda electrónica y comunicación
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX_1/AO/09_Resolucion%20de%20incidencias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 9 - Gestión de incidencias
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Servicios en redes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Servicios en redes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00_Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Presentación módulo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_Redes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Redes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_TCP-IP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocolo TCP/IP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_Conexiones-remotas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Acceso y control remoto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocolo DHCP
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocolo DHCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 - Introducción
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-dhcp-dynamic-host-configuration-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 - DHCP (Dynamic Host Configuration Protocol)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 - DHCP (Dynamic Host Configuration Protocol)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-caracteristicas-principales-de-dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Características principales de DHCP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-componentes-del-funcionamiento-de-dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Componentes del funcionamiento de DHCP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 Componentes del funcionamiento de DHCP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221-servidor-dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.1 Servidor DHCP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222-cliente-dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.2 Cliente DHCP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#223-rele-dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.3 Relé DHCP
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-modelo-de-cliente-y-servidor-dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Modelo de cliente y servidor DHCP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-ventajas-y-desventajas-de-dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Ventajas y desventajas de DHCP
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-configuracion-de-dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 - Configuración de DHCP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 - Configuración de DHCP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-configuracion-de-un-equipo-a-la-red-informatica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Configuración de un equipo a la red informática
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-asignacion-de-ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Asignación de IP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 Asignación de IP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#321-direccion-ip-estatica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2.1 Dirección IP estática
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#322-direccion-ip-dinamica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2.2 Dirección IP dinámica
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-tarea-ra1-def-1-instalacion-y-configuracion-de-un-dhcp-con-windows-server-en-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 - Tarea RA1-def-1 - Instalación y configuración de un DHCP con Windows Server en AWS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4 - Tarea RA1-def-1 - Instalación y configuración de un DHCP con Windows Server en AWS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-objetivo-de-la-practica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Objetivo de la práctica
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-limitaciones-de-aws-para-el-despliegue-de-un-servicio-dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Limitaciones de AWS para el despliegue de un servicio DHCP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-arquitectura-del-laboratorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Arquitectura del laboratorio
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.3 Arquitectura del laboratorio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#431-activar-comprobar-el-nested-virtualization-en-una-instancia-ya-existente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3.1 Activar / comprobar el nested virtualization en una instancia YA existente
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#432-crear-el-switch-virtual-interno" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3.2 Crear el switch virtual interno
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#433-configurar-los-parametros-de-red" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3.3 Configurar los parámetros de red
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-instalacion-y-configuracion-del-rol-dhcp-en-el-host-windows-server-anfitrion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 Instalación y configuración del rol DHCP en el host (Windows Server anfitrión)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.4 Instalación y configuración del rol DHCP en el host (Windows Server anfitrión)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#441-instalar-el-rol-dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4.1 Instalar el rol DHCP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#442-configurar-el-rol-dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4.2 Configurar el rol DHCP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#443-crear-el-ambito-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4.3 Crear el ámbito (scope)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#444-activar-el-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4.4 Activar el scope
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#445-configurar-opciones-del-ambito" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4.5 Configurar opciones del ámbito
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#446-best-practices-analyzer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4.6 Best Practices analyzer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#447-comprobar-el-servicio-por-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4.7 Comprobar el servicio por CLI
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-creacion-de-las-maquinas-virtuales-cliente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5 Creación de las máquinas virtuales cliente
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.5 Creación de las máquinas virtuales cliente">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#451-creacion-de-las-carpetas-de-trabajo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5.1 Creación de las carpetas de trabajo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#452-descargar-el-iso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5.2 Descargar el ISO
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#453-crear-la-vm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5.3 Crear la VM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#454-arrancar-la-vm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5.4 Arrancar la VM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#454-verificar-la-conexion-a-la-red-a-la-asignacion-de-la-ip-por-parte-del-dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5.4 Verificar la conexión a la red a la asignación de la IP por parte del DHCP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46-supervision-del-proceso-de-broadcast-y-asignacion-dora-con-wireshark" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6 Supervisión del proceso de broadcast y asignación (DORA) con Wireshark
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#461-descargar-e-instalar-wireshark" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6.1 Descargar e instalar Wireshark
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#462-primeras-capturas-con-wireshark" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6.2 Primeras capturas con Wireshark
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#463-capturas-del-dora-entre-mv-y-dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6.3 Capturas del DORA entre MV y DHCP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#47-creacion-de-otra-maquina-virtual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.7 Creación de otra máquina virtual
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-tarea-ra1-def-2-instalacion-y-configuracion-de-un-dhcp-con-ubuntu-server-en-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 - Tarea RA1-def-2 - Instalación y configuración de un DHCP con Ubuntu Server en AWS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5 - Tarea RA1-def-2 - Instalación y configuración de un DHCP con Ubuntu Server en AWS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-objetivo-de-la-practica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Objetivo de la práctica
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-arquitectura-del-laboratorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Arquitectura del laboratorio
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-instalacion-de-gnome-en-ubuntu-server-2204" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Instalación de GNOME en Ubuntu Server 22.04
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-primera-conexion-por-escritorio-grafico-a-ubuntu-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 Primera conexión por escritorio gráfico a Ubuntu Server
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55-activar-la-virtualizacion-de-la-cpu-por-la-consola-de-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5 Activar la virtualización de la CPU por la consola de AWS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#56-instalacion-de-kvm-y-herramientas-relacionadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.6 Instalación de KVM y herramientas relacionadas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#57-anadir-usuarios-a-los-grupos-necesarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.7 Añadir usuarios a los grupos necesarios
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#58-comprobar-que-el-servicio-libvirt-esta-activo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.8 Comprobar que el servicio libvirt está activo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#59-verificar-que-devkvm-existe-y-los-permisos-de-usuario-del-directorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.9 Verificar que /dev/kvm existe y los permisos de usuario del directorio
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#510-listar-el-hipervisor-detectado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.10 Listar el hipervisor detectado
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#511-crear-la-red-aislada-y-el-switch-virtual-sin-acceso-al-exterior" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.11 Crear la red aislada y el switch virtual sin acceso al exterior
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#512-configurar-el-switch-virtual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.12 Configurar el switch virtual
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#513-configurar-la-maquina-anfitriona-como-servidor-dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.13 Configurar la máquina anfitriona como servidor DHCP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#514-configurar-el-ambito-de-nuestro-servidor-dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.14 Configurar el ámbito de nuestro servidor DHCP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#515-arrancar-el-servicio-dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.15 Arrancar el servicio DHCP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#516-descargar-la-imagen-de-las-maquinas-virtuales-cliente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.16 Descargar la imagen de las máquinas virtuales cliente
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#517-crear-la-vm-con-virt-install-consola-de-texto-sin-necesidad-de-gui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.17 Crear la VM con virt-install (consola de texto, sin necesidad de GUI)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#518-conectarse-por-consola-serie-a-la-vm-y-comprobar-la-interfaz-de-red" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.18 Conectarse por consola serie a la VM y comprobar la interfaz de red
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#519-solicita-la-ip-por-dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.19 Solicita la IP por DHCP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#520-gestion-de-las-maquinas-virtuales-por-consola" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.20 Gestión de las máquinas virtuales por consola
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#521-segundo-cliente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.21 Segundo cliente
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#522-ver-el-proceso-de-broadcast-y-asignacion-dora" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.22 Ver el proceso de broadcast y asignación DORA
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#523-leases-concedidos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.23 Leases concedidos
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicios-adicionales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejercicios adicionales
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_DNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocolo DNS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Under development
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Under development
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../DAW/DAW_2/PWES/UT.%200-Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Presentación módulo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 - Introducción
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-dhcp-dynamic-host-configuration-protocol" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 - DHCP (Dynamic Host Configuration Protocol)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 - DHCP (Dynamic Host Configuration Protocol)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-caracteristicas-principales-de-dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Características principales de DHCP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-componentes-del-funcionamiento-de-dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Componentes del funcionamiento de DHCP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 Componentes del funcionamiento de DHCP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221-servidor-dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.1 Servidor DHCP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222-cliente-dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.2 Cliente DHCP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#223-rele-dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.3 Relé DHCP
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-modelo-de-cliente-y-servidor-dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Modelo de cliente y servidor DHCP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-ventajas-y-desventajas-de-dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Ventajas y desventajas de DHCP
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-configuracion-de-dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 - Configuración de DHCP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 - Configuración de DHCP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-configuracion-de-un-equipo-a-la-red-informatica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Configuración de un equipo a la red informática
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-asignacion-de-ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Asignación de IP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 Asignación de IP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#321-direccion-ip-estatica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2.1 Dirección IP estática
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#322-direccion-ip-dinamica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2.2 Dirección IP dinámica
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-tarea-ra1-def-1-instalacion-y-configuracion-de-un-dhcp-con-windows-server-en-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 - Tarea RA1-def-1 - Instalación y configuración de un DHCP con Windows Server en AWS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4 - Tarea RA1-def-1 - Instalación y configuración de un DHCP con Windows Server en AWS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-objetivo-de-la-practica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Objetivo de la práctica
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-limitaciones-de-aws-para-el-despliegue-de-un-servicio-dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Limitaciones de AWS para el despliegue de un servicio DHCP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-arquitectura-del-laboratorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Arquitectura del laboratorio
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.3 Arquitectura del laboratorio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#431-activar-comprobar-el-nested-virtualization-en-una-instancia-ya-existente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3.1 Activar / comprobar el nested virtualization en una instancia YA existente
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#432-crear-el-switch-virtual-interno" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3.2 Crear el switch virtual interno
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#433-configurar-los-parametros-de-red" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3.3 Configurar los parámetros de red
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-instalacion-y-configuracion-del-rol-dhcp-en-el-host-windows-server-anfitrion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 Instalación y configuración del rol DHCP en el host (Windows Server anfitrión)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.4 Instalación y configuración del rol DHCP en el host (Windows Server anfitrión)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#441-instalar-el-rol-dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4.1 Instalar el rol DHCP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#442-configurar-el-rol-dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4.2 Configurar el rol DHCP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#443-crear-el-ambito-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4.3 Crear el ámbito (scope)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#444-activar-el-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4.4 Activar el scope
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#445-configurar-opciones-del-ambito" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4.5 Configurar opciones del ámbito
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#446-best-practices-analyzer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4.6 Best Practices analyzer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#447-comprobar-el-servicio-por-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4.7 Comprobar el servicio por CLI
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-creacion-de-las-maquinas-virtuales-cliente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5 Creación de las máquinas virtuales cliente
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.5 Creación de las máquinas virtuales cliente">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#451-creacion-de-las-carpetas-de-trabajo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5.1 Creación de las carpetas de trabajo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#452-descargar-el-iso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5.2 Descargar el ISO
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#453-crear-la-vm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5.3 Crear la VM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#454-arrancar-la-vm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5.4 Arrancar la VM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#454-verificar-la-conexion-a-la-red-a-la-asignacion-de-la-ip-por-parte-del-dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5.4 Verificar la conexión a la red a la asignación de la IP por parte del DHCP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46-supervision-del-proceso-de-broadcast-y-asignacion-dora-con-wireshark" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6 Supervisión del proceso de broadcast y asignación (DORA) con Wireshark
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#461-descargar-e-instalar-wireshark" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6.1 Descargar e instalar Wireshark
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#462-primeras-capturas-con-wireshark" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6.2 Primeras capturas con Wireshark
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#463-capturas-del-dora-entre-mv-y-dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6.3 Capturas del DORA entre MV y DHCP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#47-creacion-de-otra-maquina-virtual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.7 Creación de otra máquina virtual
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-tarea-ra1-def-2-instalacion-y-configuracion-de-un-dhcp-con-ubuntu-server-en-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 - Tarea RA1-def-2 - Instalación y configuración de un DHCP con Ubuntu Server en AWS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5 - Tarea RA1-def-2 - Instalación y configuración de un DHCP con Ubuntu Server en AWS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-objetivo-de-la-practica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Objetivo de la práctica
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-arquitectura-del-laboratorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Arquitectura del laboratorio
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-instalacion-de-gnome-en-ubuntu-server-2204" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Instalación de GNOME en Ubuntu Server 22.04
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-primera-conexion-por-escritorio-grafico-a-ubuntu-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 Primera conexión por escritorio gráfico a Ubuntu Server
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55-activar-la-virtualizacion-de-la-cpu-por-la-consola-de-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5 Activar la virtualización de la CPU por la consola de AWS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#56-instalacion-de-kvm-y-herramientas-relacionadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.6 Instalación de KVM y herramientas relacionadas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#57-anadir-usuarios-a-los-grupos-necesarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.7 Añadir usuarios a los grupos necesarios
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#58-comprobar-que-el-servicio-libvirt-esta-activo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.8 Comprobar que el servicio libvirt está activo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#59-verificar-que-devkvm-existe-y-los-permisos-de-usuario-del-directorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.9 Verificar que /dev/kvm existe y los permisos de usuario del directorio
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#510-listar-el-hipervisor-detectado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.10 Listar el hipervisor detectado
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#511-crear-la-red-aislada-y-el-switch-virtual-sin-acceso-al-exterior" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.11 Crear la red aislada y el switch virtual sin acceso al exterior
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#512-configurar-el-switch-virtual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.12 Configurar el switch virtual
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#513-configurar-la-maquina-anfitriona-como-servidor-dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.13 Configurar la máquina anfitriona como servidor DHCP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#514-configurar-el-ambito-de-nuestro-servidor-dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.14 Configurar el ámbito de nuestro servidor DHCP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#515-arrancar-el-servicio-dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.15 Arrancar el servicio DHCP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#516-descargar-la-imagen-de-las-maquinas-virtuales-cliente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.16 Descargar la imagen de las máquinas virtuales cliente
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#517-crear-la-vm-con-virt-install-consola-de-texto-sin-necesidad-de-gui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.17 Crear la VM con virt-install (consola de texto, sin necesidad de GUI)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#518-conectarse-por-consola-serie-a-la-vm-y-comprobar-la-interfaz-de-red" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.18 Conectarse por consola serie a la VM y comprobar la interfaz de red
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#519-solicita-la-ip-por-dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.19 Solicita la IP por DHCP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#520-gestion-de-las-maquinas-virtuales-por-consola" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.20 Gestión de las máquinas virtuales por consola
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#521-segundo-cliente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.21 Segundo cliente
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#522-ver-el-proceso-de-broadcast-y-asignacion-dora" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.22 Ver el proceso de broadcast y asignación DORA
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#523-leases-concedidos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.23 Leases concedidos
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejercicios-adicionales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ejercicios adicionales
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p><img alt="Descripción de la imagen" class="img2 marginbottom40" src="../img_4/img_4_4.png" /></p>
+<p><strong>Resultados de aprendizaje y criterios de evaluacion que se evaluarán en esta unidad.</strong>  </p>
+<table>
+<thead>
+<tr>
+<th><strong>Resultados de aprendizaje de la unidad didáctica:</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RA. 1:</strong> Instala servicios de configuración dinámica, describiendo sus características y aplicaciones.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><strong>Criterios de evaluación de la unidad didáctica:</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>a)</strong> Se ha reconocido el funcionamiento de los mecanismos automatizados de configuración de los parámetros de red.</td>
+</tr>
+<tr>
+<td><strong>b)</strong> Se han identificado las ventajas que proporcionan.</td>
+</tr>
+<tr>
+<td><strong>c)</strong> Se han ilustrado los procedimientos y pautas que intervienen en una solicitud de configuración de los parámetros de red.</td>
+</tr>
+<tr>
+<td><strong>d)</strong> Se ha instalado un servicio de configuración dinámica de los parámetros de red.</td>
+</tr>
+<tr>
+<td><strong>e)</strong> Se ha preparado el servicio para asignar la configuración básica a los sistemas de una red local.</td>
+</tr>
+<tr>
+<td><strong>f)</strong> Se han realizado asignaciones dinámicas y estáticas.</td>
+</tr>
+<tr>
+<td><strong>g)</strong> Se han integrado en el servicio opciones adicionales de configuración.</td>
+</tr>
+<tr>
+<td><strong>h)</strong> Se ha verificando la correcta asignación de los parámetros.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="1-introduccion">1 - Introducción</h2>
+<p>Con el crecimiento de las redes locales (LAN) y la expansión de internet, surgió la necesidad de un sistema más dinámico y flexible para la asignación de direcciones IP. Aquí es donde surge DHCP, que fue diseñado para superar las limitaciones de BOOTP, permitiendo la asignación automática, dinámica y más eficiente de las direcciones IP.</p>
+<p>Los servicios DNS y DHCP son dos de los servicios más importantes en una red TCP/IP. Ambos permiten la <strong>configuración automática de los parámetros de red</strong> en los equipos clientes, lo que facilita la administración de redes y mejora la experiencia del usuario.</p>
+<h2 id="2-dhcp-dynamic-host-configuration-protocol">2 - DHCP (Dynamic Host Configuration Protocol)</h2>
+<p>El DHCP (Dynamic Host Configuration Protocol) es un protocolo de red que permite a los dispositivos obtener automáticamente una dirección IP y otros parámetros necesarios para conectarse a la red, como la máscara de subred, la puerta de enlace predeterminada y los servidores DNS. Esto elimina la necesidad de configurar manualmente cada dispositivo, facilitando enormemente la administración de redes grandes.</p>
+<p>Antes del DHCP, las redes dependían del protocolo BOOTP (Bootstrap Protocol), que proporcionaba configuraciones básicas, como la asignación de direcciones IP. Sin embargo, BOOTP presentaba varias limitaciones:</p>
+<ul>
+<li>Configuración manual: Los administradores debían asignar manualmente una IP a cada dispositivo, lo que era tedioso y poco práctico en redes grandes.</li>
+<li>Asignación estática: Las direcciones IP eran fijas, lo que significaba que cada dispositivo mantenía la misma dirección aunque se desconectara, lo que no permitía un uso eficiente de las direcciones disponibles.</li>
+<li>Falta de flexibilidad: No estaba diseñado para gestionar redes dinámicas o móviles, como dispositivos que se mueven entre diferentes áreas de cobertura o redes.</li>
+</ul>
+<h3 id="21-caracteristicas-principales-de-dhcp">2.1 Características principales de DHCP</h3>
+<ul>
+<li>
+<p><strong>Asignación automática de IPs:</strong><br />
+DHCP permite la asignación dinámica de direcciones IP a los dispositivos cuando se conectan a la red. Esto asegura que no haya conflictos de direcciones IP duplicadas.</p>
+</li>
+<li>
+<p><strong>Escalabilidad:</strong><br />
+Ideal para redes grandes, donde administrar direcciones IP de manera manual sería inviable. Con DHCP, se pueden gestionar cientos o miles de dispositivos de manera eficiente.</p>
+</li>
+<li>
+<p><strong>Facilidad de configuración:</strong><br />
+Al automatizar la asignación de IPs y otros parámetros de red, los administradores pueden reducir significativamente el tiempo y esfuerzo que implicaría configurar manualmente cada dispositivo.</p>
+</li>
+<li>
+<p><strong>Compatibilidad con diferentes tipos de asignación:</strong><br />
+Asignación manual: El administrador asigna una IP específica a un dispositivo, aunque este se conecte de manera dinámica.
+Asignación automática: El servidor DHCP asigna una IP de forma permanente a un dispositivo desde el momento de su primera conexión.
+Asignación dinámica: El servidor DHCP asigna una IP por un tiempo limitado (lease time), tras lo cual la IP puede ser reasignada si no se renueva el arrendamiento.</p>
+</li>
+<li>
+<p><strong>Administración centralizada:</strong><br />
+Con un servidor DHCP centralizado, los administradores pueden gestionar y actualizar las configuraciones de red desde un solo lugar, en lugar de acceder a cada dispositivo de manera individual.</p>
+</li>
+</ul>
+<h3 id="22-componentes-del-funcionamiento-de-dhcp">2.2 Componentes del funcionamiento de DHCP</h3>
+<p>La arquitectura de DHCP está formada por tres elementos principales: los servidores DHCP, los clientes DHCP y los agentes de retransmisión DHCP. La comunicación entre cliente y servidor se realiza a través de un intercambio de mensajes DHCP, mediante el cual el cliente obtiene y renueva tanto la concesión de su dirección IP como el resto de parámetros de configuración de red.</p>
+<ul>
+<li><strong>Servidor DHCP</strong></li>
+<li><strong>Cliente DHCP</strong></li>
+<li><strong>Relé DHCP</strong></li>
+</ul>
+<h4 id="221-servidor-dhcp">2.2.1 Servidor DHCP</h4>
+<p>El servidor DHCP constituye la pieza central de todo el protocolo. Su cometido es entregar direcciones IP y demás parámetros de red a los equipos que las solicitan. Para ello, mantiene un conjunto de direcciones disponibles (conocido como pool) y controla las concesiones que se van otorgando a cada cliente.</p>
+<p>Entre los parámetros que el servidor puede asignar a los clientes se encuentran:</p>
+<p><strong>Además, el servidor entrega parámetros como:</strong></p>
+<ul>
+<li><strong>Direcciones IP dinámicas</strong> y temporales tomadas de un pool, asignadas a cualquier cliente dentro de una subred determinada (concesión dinámica).</li>
+<li><strong>Direcciones IP fijas</strong> asociadas a un cliente concreto según su dirección MAC (concesión estática).</li>
+<li><strong>Máscara de subred</strong></li>
+<li><strong>Puerta de enlace predeterminada</strong></li>
+<li><strong>Servidor DNS</strong></li>
+</ul>
+<p>Asimismo, el servidor DHCP guarda de forma persistente la información de red entregada a los clientes. Puesto que DHCP nació como una evolución de BOOTP, los servidores DHCP también son capaces de atender solicitudes procedentes de este protocolo anterior.</p>
+<div class="admonition tip">
+<p class="admonition-title">Ejemplo de configuración de un servidor DHCP de un router Asus rt-ax58u"</p>
+<p><img alt="descripcion de la imagen" src="../img_4/img_4_6.png" /></p>
+</div>
+<h4 id="222-cliente-dhcp">2.2.2 Cliente DHCP</h4>
+<p>Se considera cliente DHCP a cualquier dispositivo IP de la red configurado para comportarse como host y solicitar a un servidor DHCP los parámetros necesarios para funcionar, entre ellos su dirección IP.</p>
+<p>Cuando un equipo actúa como cliente DHCP, obtiene su configuración TCP/IP (incluida la dirección IP) desde un servidor DHCP externo a través de cualquiera de sus interfaces físicas.</p>
+<p>Para habilitar este comportamiento es necesario configurar una interfaz lógica del dispositivo, de modo que solicite la dirección al servidor DHCP correspondiente. Además, deben definirse los siguientes parámetros:</p>
+<ul>
+<li>El identificador de clase de proveedor.</li>
+<li>El tiempo de concesión.</li>
+<li>La dirección del servidor DHCP.</li>
+<li>El número de intentos de retransmisión.</li>
+<li>El intervalo entre reintentos.</li>
+</ul>
+<p>Las concesiones obtenidas como cliente pueden renovarse posteriormente.</p>
+<div class="admonition tip">
+<p class="admonition-title">Ejemplo de asignación de parámetros</p>
+<p>En la siguiente imagen se muestra un fragmento del resultado de la ejecución del comando <code>ipconfig /all</code> en un equipo con Windows 11, donde se puede observar que la dirección IP ha sido asignada por un servidor DHCP.</p>
+<p><img alt="Descripción de la imagen" src="../img_4/img_4_5.png" /></p>
+</div>
+<h4 id="223-rele-dhcp">2.2.3 Relé DHCP</h4>
+<p>El agente de retransmisión DHCP es un host TCP/IP cuya función consiste en hacer de puente entre clientes y servidores DHCP cuando ambos se encuentran en subredes distintas, reenviando los mensajes correspondientes entre ellos. Gracias a este mecanismo, en redes de gran tamaño con múltiples subredes, basta con un único servidor DHCP para atender a todos los clientes, siempre que existan agentes de retransmisión situados en los routers que interconectan dichas subredes.</p>
+<p>Un mismo dispositivo puede combinar ambos roles si gestiona distintas interfaces o subredes, pero no puede actuar simultáneamente como servidor DHCP y como agente de retransmisión DHCP para una misma interfaz o subred. La diferencia entre ambos roles es clara: el servidor responde directamente al cliente entregándole una dirección IP de su propio rango, mientras que el agente de retransmisión se limita a reenviar los mensajes DHCP entre el cliente y el servidor configurado, incluso cuando ambos pertenecen a redes IP distintas.</p>
+<h3 id="23-modelo-de-cliente-y-servidor-dhcp">2.3 Modelo de cliente y servidor DHCP</h3>
+<p><img alt="Descripción de la imagen" class="marginbottom40 marco" src="../img_4/img_4_2.png" /></p>
+<p>El proceso de asignación de direcciones IP mediante DHCP sigue un ciclo de cuatro pasos, conocido como DORA:</p>
+<ol>
+<li><strong>Discover (Descubrimiento):</strong><br />
+Cuando un dispositivo (cliente) se conecta a la red, envía un mensaje de broadcast llamado "DHCP Discover" para encontrar servidores DHCP disponibles.</li>
+<li><strong>Offer (Oferta):</strong><br />
+Los servidores DHCP responden con un mensaje "DHCP Offer", que contiene una dirección IP disponible y otros parámetros de red.</li>
+<li><strong>Request (Solicitud):</strong><br />
+El cliente selecciona una oferta y responde con un "DHCP Request" para aceptar la IP ofrecida.</li>
+<li><strong>Acknowledge (Confirmación):</strong><br />
+El servidor DHCP responde con un mensaje "DHCP Acknowledge", confirmando que la IP ha sido asignada y que el dispositivo puede usarla.</li>
+</ol>
+<h3 id="24-ventajas-y-desventajas-de-dhcp">2.4 Ventajas y desventajas de DHCP</h3>
+<div class="admonition success">
+<p class="admonition-title">Ventajas de DHCP</p>
+</div>
+<p>Reducción de errores humanos: Al automatizar el proceso, se minimizan los errores que pueden ocurrir durante la configuración manual de direcciones IP.</p>
+<p>Optimización de recursos: La capacidad de reutilizar direcciones IP gracias al tiempo de arrendamiento ayuda a optimizar el uso del espacio de direcciones IP en la red.</p>
+<p>Configuración remota: Los administradores pueden realizar cambios en la configuración de red sin necesidad de acceso físico a los dispositivos.</p>
+<div class="admonition failure">
+<p class="admonition-title">Desventajas de DHCP</p>
+</div>
+<p>Falta de control sobre la asignación de IPs: Al usar DHCP, puede haber menos control directo sobre qué dispositivos reciben qué IPs, a menos que se configure la asignación manual.</p>
+<p>Punto único de fallo: Si el servidor DHCP falla, los dispositivos nuevos o que necesitan renovar su dirección IP no podrán conectarse a la red correctamente.</p>
+<h2 id="3-configuracion-de-dhcp">3 - Configuración de DHCP</h2>
+<p><img alt="Descripción de la imagen" class="marco" src="../img_4/img_4_3.png" /></p>
+<h3 id="31-configuracion-de-un-equipo-a-la-red-informatica">3.1 Configuración de un equipo a la red informática</h3>
+<p>Cualquier equipo que pertenece a una red requiere que se configure con unos parámetros mínimos, que son <strong>la dirección IP, la máscara y la puerta de enlace por defecto</strong>.  </p>
+<p>La dirección IP identifica al equipo de manera única, y la máscara permite determinar la red o subred en la que se encuentra el equipo.</p>
+<p>Con estos dos parámetros es suficiente para tener conectividad en la red. Si se quiere disponer de acceso fuera de la red propia (por ejemplo, a Internet o al resto de la red corporativa), es necesario definir también <strong>la puerta de enlace predeterminada</strong>.</p>
+<p>Aparte de la configuración básica, los equipos pueden necesitar (y de hecho lo necesitan) más parámetros de configuración como, por ejemplo: el nombre del host, el servidor DNS, el archivo de inicio a descargar, etc.</p>
+<h3 id="32-asignacion-de-ip">3.2 Asignación de IP</h3>
+<p>Todo equipo de red necesita disponer de una dirección IP que lo identifique de manera única en la red.</p>
+<p>Ejemplo de configuración de red de un equipo doméstico:</p>
+<p>La mayoría de los usuarios disponen en casa de un equipo (o más) conectados a un router que proporciona el acceso a Internet. Este equipo está configurado como cliente DHCP y, al iniciarse, recibe la configuración de red del router. Puedes comprobar en tu casa qué configuración tienes. Una configuración de ejemplo podría ser:</p>
+<h4 id="321-direccion-ip-estatica">3.2.1 Dirección IP estática</h4>
+<p>Una dirección <strong>IP estática</strong> es una dirección que se asigna manualmente a un dispositivo y permanece fija a lo largo del tiempo. A diferencia de una <strong>IP dinámica</strong> (asignada por DHCP), la dirección estática no cambia, lo que es útil en casos donde se necesita una IP constante, como en servidores o dispositivos críticos.</p>
+<div class="admonition tip">
+<p class="admonition-title">Características de las direcciones IP estáticas:</p>
+<ul>
+<li><strong>Permanencia:</strong> La dirección no cambia, a menos que el administrador lo decida.</li>
+<li><strong>Configuración manual:</strong> Las direcciones deben asignarse manualmente en el dispositivo o servidor de red.</li>
+<li><strong>Uso en dispositivos críticos:</strong> Suelen asignarse a servidores, impresoras, routers, cámaras de seguridad y otros equipos que requieren estabilidad.</li>
+</ul>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Ventajas de las IP estáticas:</p>
+<ul>
+<li><strong>Acceso remoto constante:</strong> Es más sencillo acceder a dispositivos de forma remota sin preocuparse por cambios de IP.</li>
+<li><strong>Estabilidad en servicios de red:</strong> Es ideal para servicios que requieren una dirección IP fija, como servidores de correo, web o bases de datos.</li>
+<li><strong>Configuración de reglas de red:</strong> Facilita la creación de reglas para firewalls o VPN, ya que la dirección es predecible.</li>
+</ul>
+</div>
+<div class="admonition failure">
+<p class="admonition-title">Desventajas de las IP estáticas:</p>
+<ul>
+<li><strong>Conflictos de IP:</strong> Si no se gestiona adecuadamente, puede haber conflictos cuando dos dispositivos intentan usar la misma dirección.</li>
+<li><strong>Mayor carga administrativa:</strong> Requiere mayor trabajo manual, lo que aumenta la posibilidad de errores en redes grandes.</li>
+<li><strong>Menor flexibilidad:</strong> En redes con muchos dispositivos que se conectan y desconectan, las direcciones estáticas son menos prácticas.</li>
+</ul>
+</div>
+<h4 id="322-direccion-ip-dinamica">3.2.2 Dirección IP dinámica</h4>
+<p>Una dirección <strong>IP dinámica</strong> es una dirección que se asigna automáticamente a un dispositivo por un servidor DHCP y puede cambiar con el tiempo. Esto permite una gestión más eficiente de las direcciones IP, especialmente en redes grandes o con muchos dispositivos que se conectan y desconectan.</p>
+<div class="admonition tip">
+<p class="admonition-title">Características de las direcciones IP dinámicas:</p>
+<ul>
+<li><strong>Asignación automática:</strong> El servidor DHCP asigna la dirección IP sin intervención manual.</li>
+<li><strong>Temporalidad:</strong> La dirección puede cambiar después de un período de tiempo (lease time) o cuando el dispositivo se reconecta a la red.</li>
+<li><strong>Uso eficiente del espacio de direcciones:</strong> Permite reutilizar direcciones IP, optimizando su uso en redes con muchos dispositivos.</li>
+</ul>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Ventajas de las IP dinámicas:</p>
+<ul>
+<li><strong>Facilidad de administración:</strong> Reduce la carga administrativa al eliminar la necesidad de asignar direcciones manualmente.</li>
+<li><strong>Flexibilidad:</strong> Ideal para redes con dispositivos que se conectan y desconectan frecuentemente, como laptops, smartphones y tablets.</li>
+<li><strong>Prevención de conflictos de IP:</strong> El servidor DHCP gestiona las direcciones, minimizando el riesgo de conflictos.</li>
+</ul>
+</div>
+<div class="admonition failure">
+<p class="admonition-title">Desventajas de las IP dinámicas:</p>
+<ul>
+<li><strong>Cambio de dirección:</strong> La dirección IP puede cambiar, lo que puede ser problemático para servicios que requieren una IP constante.</li>
+<li><strong>Dependencia del servidor DHCP:</strong> Si el servidor falla, los dispositivos pueden no obtener una dirección IP válida.</li>
+<li><strong>Menor control sobre la asignación:</strong> Puede ser más difícil rastrear qué dispositivo tiene qué dirección IP en un momento dado.</li>
+</ul>
+</div>
+<h2 id="4-tarea-ra1-def-1-instalacion-y-configuracion-de-un-dhcp-con-windows-server-en-aws">4 - Tarea RA1-def-1 - Instalación y configuración de un DHCP con Windows Server en AWS</h2>
+<h3 id="41-objetivo-de-la-practica">4.1 Objetivo de la práctica</h3>
+<ul>
+<li>Desplegar un servidor DHCP en Windows Server sobre AWS con virtualización anidada.</li>
+<li>En este primer paso instalaremos y configuraremos el rol <strong>DHCP Server</strong> en Windows Server, y observaremos en tiempo real cómo varios equipos cliente obtienen su configuración IP (DHCPDISCOVER → OFFER → REQUEST → ACK), reservas, exclusiones, ámbitos (scopes), opciones de ámbito (DNS, puerta de enlace, etc.).</li>
+</ul>
+<h3 id="42-limitaciones-de-aws-para-el-despliegue-de-un-servicio-dhcp">4.2 Limitaciones de AWS para el despliegue de un servicio DHCP</h3>
+<p>Dentro de <strong>una VPC</strong> (virtual private cloud) de AWS, <strong>el tráfico broadcast/multicast no se propaga entre instancias</strong>.</p>
+<p>DHCP depende de broadcasts (<code>255.255.255.255</code>), así que un cliente en una instancia EC2 <strong>nunca "verá" un DHCPOFFER</strong> de otra instancia EC2 en la misma subred.<br />
+Cada tarjeta de red ENI (Elastic Network Interface) recibe su IP exclusivamente <strong>del DHCP interno de AWS, que no se puede sustituir</strong>.</p>
+<p><strong>Solución:</strong> Montar toda la práctica <strong>dentro</strong> de una sola instancia EC2, usando un hipervisor anidado (Hyper-V) donde sí existe broadcast real entre las VMs virtuales.</p>
+<div class="admonition important">
+<p class="admonition-title">Novedad Feb 2026</p>
+<ul>
+<li>Desde el <strong>16 de febrero de 2026</strong>, AWS soporta oficialmente virtualización anidada en instancias EC2 <strong>normales</strong> (no metal). ctica. </li>
+<li>Familias soportadas actualmente: <code>C8i</code>, <code>M8i</code>, <code>R8i</code>, <code>C8id</code>, <code>R8id</code>, <code>M8id</code>, <code>C8i-flex</code>, <code>R8i-flex</code>, <code>M8i-flex</code>, <code>X8i</code>, <code>C7i</code>, <code>R7i</code>, <code>M7i</code>, <code>C7id</code>, <code>R7id</code>, <code>M7id</code>, <code>C7i-flex</code>, <code>R7i-flex</code>, <code>M7i-flex</code>, <code>I7i</code>. </li>
+<li>Solo procesadores Intel (no Graviton). Hipervisores L1 soportados: <strong>Hyper-V</strong> y <strong>KVM</strong>.</li>
+</ul>
+</div>
+<h3 id="43-arquitectura-del-laboratorio">4.3 Arquitectura del laboratorio</h3>
+<div class="admonition important">
+<p class="admonition-title">Diagrama de la infraestructura de red</p>
+<p><img alt="Descripción de la imagen" src="../img_4/img_4_9.png" /></p>
+</div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Instancia<span class="w"> </span>EC2<span class="w"> </span><span class="o">(</span>m7i.large,<span class="w"> </span>100GB,<span class="w"> </span>Windows<span class="w"> </span>Server<span class="w"> </span><span class="m">2025</span><span class="w"> </span>Base,<span class="w"> </span>Virtualización<span class="w"> </span>HVM<span class="o">)</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>│
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>├──<span class="w"> </span>Hyper-V
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>│<span class="w">   </span>│
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>│<span class="w">   </span>├──<span class="w"> </span>Switch<span class="w"> </span>virtual<span class="w"> </span><span class="s2">"Interno"</span><span class="w"> </span><span class="o">(</span>Internal<span class="w"> </span>/<span class="w"> </span>Private<span class="o">)</span><span class="w"> </span>sin<span class="w"> </span>salida<span class="w"> </span>a<span class="w"> </span>la<span class="w"> </span>VPC
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>│<span class="w">   </span>│
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>│<span class="w">   </span>├──<span class="w"> </span>Windows<span class="w"> </span>Server<span class="w"> </span><span class="m">2025</span><span class="w"> </span>Base<span class="w"> </span>→<span class="w"> </span>Rol<span class="w"> </span>DHCP<span class="w"> </span>Server
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>│<span class="w">   </span>│
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>│<span class="w">   </span>├──<span class="w"> </span>VM-1:<span class="w"> </span>Alpine<span class="w"> </span>Linux<span class="w"> </span><span class="o">(</span>cliente<span class="o">)</span><span class="w"> </span>→<span class="w"> </span>IP<span class="w"> </span>por<span class="w"> </span>DHCP
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>│<span class="w">   </span>└──<span class="w"> </span>VM-2:<span class="w"> </span>Windows<span class="w"> </span><span class="m">10</span>/11<span class="w"> </span><span class="o">(</span>cliente<span class="o">)</span><span class="w"> </span>→<span class="w"> </span>IP<span class="w"> </span>por<span class="w"> </span>DHCP
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>│<span class="w">   </span>
+</span></code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Con el switch en modo <strong>Interno/Privado</strong> (no "Externo"), el broadcast DHCP se queda encerrado dentro del propio hipervisor Hyper-V.</p>
+</div>
+<h4 id="431-activar-comprobar-el-nested-virtualization-en-una-instancia-ya-existente">4.3.1 Activar / comprobar el nested virtualization en una instancia YA existente</h4>
+<p>Para ello, nos conectaremos a la instancia de Windows Server creada en prácticas anteriores.</p>
+<div class="admonition question">
+<p class="admonition-title">Comprobación del Nested Virtualization</p>
+<ul>
+<li>
+<p>Abrimos el Windows Powershell y escribimos el siguiente comando
+<div class="language-powershell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">Get-WindowsFeature</span> <span class="n">-Name</span> <span class="n">Hyper-V</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p>Si Obtenemos el siguiente resultado ([ ] vacío + Available) significa que está <strong>disponible por no instalado</strong>.
+<img alt="Descripción de la imagen" class="margintop10" src="../img_4/img_4_8.png" /></p>
+</li>
+</ul>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Activar la virtualización de la CPU por la consola de AWS</p>
+<ul>
+<li>
+<p>Abrimos el powershell de AWS y escribimos los siguientes comandos:<br />
+<strong>Nota IMPORTANTE:</strong> Cambiar la id por la <strong>id de vuestra instancia</strong>.
+<div class="language-powershell highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c"># 1. Parar la instancia (aunque la acabes de arrancar)</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">aws</span> <span class="n">ec2</span> <span class="nb">stop-instances</span> <span class="p">-</span><span class="n">-instance-ids</span> <span class="n">i</span><span class="p">-</span><span class="n">069fe851e6325d765</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c"># 2. Esperar a que quede realmente parada</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="n">aws</span> <span class="n">ec2</span> <span class="n">wait</span> <span class="n">instance-stopped</span> <span class="p">-</span><span class="n">-instance-ids</span> <span class="n">i</span><span class="p">-</span><span class="n">069fe851e6325d765</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c"># 3. Activar nested virtualization con el comando correcto</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="n">aws</span> <span class="n">ec2</span> <span class="n">modify-instance-cpu-options</span> <span class="p">\</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>  <span class="p">-</span><span class="n">-instance-id</span> <span class="n">i</span><span class="p">-</span><span class="n">069fe851e6325d765</span> <span class="p">\</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>  <span class="p">-</span><span class="n">-nested-virtualization</span> <span class="n">enabled</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="c"># 4. Arrancarla de nuevo</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="n">aws</span> <span class="n">ec2</span> <span class="nb">start-instances</span> <span class="p">-</span><span class="n">-instance-ids</span> <span class="n">i</span><span class="p">-</span><span class="n">069fe851e6325d765</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p>Lanzar el powershell de AWS.
+<img alt="Descripción de la imagen" class="margintop10" src="../img_4/img_4_48.png" /></p>
+</li>
+<li>Comandos en ejecución.<br />
+<img alt="Descripción de la imagen" class="margintop10 leftcien" src="../img_4/img_4_46.png" /></li>
+</ul>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Activación del Nested Vitualization</p>
+<ul>
+<li>Activaremos la virtualización anidada con el siguiente comando.
+<div class="language-powershell highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">Install-WindowsFeature</span> <span class="n">-Name</span> <span class="n">Hyper-V</span> <span class="n">-IncludeManagementTools</span> <span class="n">-Restart</span>
+</span></code></pre></div>
+<img alt="Descripción de la imagen" class="leftcien" src="../img_4/img_4_47.png" /></li>
+<li>Como hemos incluido la opción de reinicio del sistema, perderemos la conexión con la instancia...</li>
+</ul>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Comprobación del Nested Virtualization por CLI</p>
+<ul>
+<li>Nos conectamos de nuevo a la instancia.
+Abrimos el Windows Powershell y escribimos el siguiente comando
+<div class="language-powershell highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">Get-WindowsFeature</span> <span class="n">-Name</span> <span class="n">Hyper-V</span>
+</span></code></pre></div></li>
+<li>Si nos aparece [X] Hyper-V, significa que el servicio se ha instalado correctamente.
+<img alt="Descripción de la imagen" class="margintop10" src="../img_4/img_4_45.png" /></li>
+</ul>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Comprobación del Nested Virtualization en la consola de Windows Server</p>
+<ul>
+<li>Abrimos el <strong>Server Manager</strong>.
+<img alt="Descripción de la imagen" class="margintop10" src="../img_4/img_4_10.png" /></li>
+<li>Seleccionamos Local Server → Services → buscamos hyper-V 
+<img alt="Descripción de la imagen" class="margintop10" src="../img_4/img_4_49.png" /></li>
+</ul>
+</div>
+<h4 id="432-crear-el-switch-virtual-interno">4.3.2 Crear el switch virtual interno</h4>
+<ul>
+<li>
+<p>Vamos a <strong>Hyper-V Manager</strong> → <strong>Virtual Switch Manager</strong>:
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_50.png" /></p>
+</li>
+<li>
+<p>Luego seleccionamos → <strong>New virtual network switch</strong>
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_51.png" /></p>
+</li>
+<li>
+<p>Tipo: <strong>Internal</strong>. Esto asegura que el tráfico DHCP nunca sale hacia la red de AWS ni a otras instancias. También seleccionaremos <strong>Enable virtual LAN id...</strong>. De ese modo el adaptador de red virtual aparecerá con cualquier otro adaptador.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_41.png" />
+Después de <strong>ipconfig</strong>
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_53.png" /></p>
+</li>
+<li>
+<p>Si volvemos a <strong>Hyper-V</strong> → <strong>SERVERS</strong> → Refrescamos el estado del servidor (solo tenemos uno) veremos que tenemos unaIP interna del servidor en nuestra red virtual privada, siendo la otra IP, la IP de la instancia dentro de <strong>la VPC de AWS</strong>.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_52.png" /></p>
+</li>
+</ul>
+<h4 id="433-configurar-los-parametros-de-red">4.3.3 Configurar los parámetros de red</h4>
+<ul>
+<li>Como podemos ver en las capturas anteriores, el servidor tiene asignada la IP 169.254.200.142.</li>
+<li>Esto se debe a la falta de un servidor DHCP en la red virtual, lo que provoca la activación automática de una dirección APIPA (Automatic Private IP Addressing).</li>
+<li>
+<p>Hasta que no despleguemos el servidor DHCP, la asignación de IPs en la red privada no podrá realizarse de forma automática, por lo que deberemos configurar manualmente la IP del servidor.</p>
+</li>
+<li>
+<p>Nos dirigimos a <strong>Local Server</strong> → <strong>Properties</strong> → <strong>vEthernet</strong>
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_54.png" /></p>
+</li>
+<li>
+<p>Una vez encontrado el adaptador, configuraremos <strong>el protocolo TCP/IPv4</strong>.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_55_1.png" /></p>
+</li>
+<li>
+<p>Refrescamos la información y ya tendremos la IP esperada para nuestro servidor.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_56_1.png" /></p>
+</li>
+<li>
+<p>Con esto ya tendremos montada la red virtual de Windows Server. El siguiente paso será montar el servicio DHCP sobre el servidor de Windows Server.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_57.png" /></p>
+</li>
+</ul>
+<h3 id="44-instalacion-y-configuracion-del-rol-dhcp-en-el-host-windows-server-anfitrion">4.4 Instalación y configuración del rol DHCP en el host (Windows Server anfitrión)</h3>
+<h4 id="441-instalar-el-rol-dhcp">4.4.1 Instalar el rol DHCP</h4>
+<ul>
+<li>Nos dirigimos a la consola de Windows Server y seleccionamos <strong>Add roles and features</strong>.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_11.png" /></li>
+<li>En server roles seleccionamos el servicio que queremos implementar.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_12.png" /></li>
+<li>Confirmamos las caracteristicas necesarias para el servivio DHCP.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_13.png" /></li>
+<li>Recordatorios: De nada sirve lanzar un servicio sin un planteamiento previo.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_14.png" /></li>
+<li>La instalación del servicio DHCP <strong>no requiere reinicio</strong> pero, lo ticamos de todos modos.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_15.png" /></li>
+<li>Se inicia la instalación.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_16.png" /></li>
+<li>Al final el instalador dirá que el DHCP requiere configuración. Lo haremos en el siguiente paso. De momento cerramos el asistente.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_19.png" /></li>
+</ul>
+<h4 id="442-configurar-el-rol-dhcp">4.4.2 Configurar el rol DHCP</h4>
+<ul>
+<li>Volvemos al panel de control dónde veremos que tenemos el servicio DHCP disponible.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_58.png" /></li>
+<li>Completamos la configuración del DHCP.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_17.png" /></li>
+<li>Hacemos un commit.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_18.png" /></li>
+<li>Vamos al panel de control del DHCP y comprobamos que el servicio sobre IPv4 y IPv6 está implementado.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_20.png" />
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_23.png" /></li>
+</ul>
+<h4 id="443-crear-el-ambito-scope">4.4.3 Crear el ámbito (scope)</h4>
+<p>Una vez instalado el rol de servidor DHCP, el siguiente paso es crear un ámbito (scope), es decir, el rango de direcciones IP que el servidor podrá asignar automáticamente a los equipos de la red. En este apartado configuraremos dicho rango junto con los parámetros básicos necesarios (máscara de subred, puerta de enlace, duración de la concesión, etc.) para que los clientes de la red privada puedan obtener su configuración de red de forma automática.</p>
+<ul>
+<li>Vamos a la consola de configuración de DHCP.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_61.png" /></li>
+<li>Seleccionamos <strong>new scope</strong> y damos un nombre al ámbito.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_62.png" /></li>
+<li>Estableceremos un rango de direcciones suficiente, siempre en función de nuestras necesidades. También tendremos que tener en cuenta dejar fuera del rango DHCP las direcciones IP reservadas para los sistemas que requieren <strong>IP estática</strong>, como switches, servidores de dominio, servidores DHCP, impresoras o sistemas de almacenamiento en red. Por último, deberemos reservar otro rango de direcciones IP para los dispositivos no anclados a la red, como tabletas, ordenadores portátiles o teléfonos móviles.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_60.png" /></li>
+<li>Dejamos en blanco la pantalla de <strong>Add Exclusions and Delay</strong>.</li>
+<li>Configurar la duración del lease (lease duration) es decir, el tiempo durante el cual un cliente mantendrá asignada una dirección IP antes de tener que renovarla. Este valor debe ajustarse según el tipo de red y de dispositivos que la componen: en redes estables con equipos fijos conviene establecer una duración larga (varios días), mientras que en redes con gran cantidad de dispositivos móviles o temporales resulta más adecuado un lease corto, ya que permite liberar y reutilizar las direcciones IP con mayor frecuencia.
+En nuestro caso, estableceremos una duración de lease de 8 días (valor por defecto).</li>
+<li>En <strong>Configure DHCP Options</strong> seleccionamos la opción <strong>No</strong> para configurarlo más adelante.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_63.png" /></li>
+<li>En post installation no saldrá un aviso de reiniciar el servicio.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_21.png" /></li>
+<li>Reiniciamos el servicio.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_22.png" /></li>
+</ul>
+<h4 id="444-activar-el-scope">4.4.4 Activar el scope</h4>
+<ul>
+<li>Vamos a la consola de DHCo y veremos nuestro scope en rojo (desactivado).
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_64.png" /></li>
+<li>Haremos clic derecho y lo activaremos.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_65.png" /></li>
+</ul>
+<h4 id="445-configurar-opciones-del-ambito">4.4.5 Configurar opciones del ámbito</h4>
+<p>Las opciones de ámbito son parámetros de configuración adicionales que el servidor DHCP puede asignar a los clientes DHCP por ejemplo el DNS y la puerta de enlace (enrutador).</p>
+<ul>
+<li>Vamos a scope y seleccionamos <strong>Configure Options...</strong>
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_66.png" /></li>
+<li>Buscamos la opción <strong>003 Enrutador</strong>, que permitirá a las máquinas conectadas a la red virtual acceder a Internet. No configuraremos el DNS, ya que lo veremos en otra unidad, ni definiremos un controlador de dominio, puesto que la implementación de Active Directory se tratará más adelante y queda fuera del alcance de este apartado.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_67.png" /></li>
+<li>Comprobamos que la option se ha guardado correctamente.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_68.png" /></li>
+</ul>
+<h4 id="446-best-practices-analyzer">4.4.6 Best Practices analyzer</h4>
+<p>No es una herramienta especifica del servicio DHCP sino de todo el ecosistema de Windows Server.</p>
+<ul>
+<li>Vamos a BPA → <strong>TASKS</strong> → Start BPA Scan
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_69.png" /></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Algunos de los errores o advertencias que aparecen se deben a las limitaciones de nuestra infraestructura. No los tendremos en cuenta.</p>
+</div>
+<h4 id="447-comprobar-el-servicio-por-cli">4.4.7 Comprobar el servicio por CLI</h4>
+<div class="language-powershell highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">Get-DhcpServerV4Scope</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nb">Get-DhcpServerV4OptionValue</span> <span class="n">-ScopeId</span> <span class="n">192</span><span class="p">.</span><span class="n">168</span><span class="p">.</span><span class="n">10</span><span class="p">.</span><span class="n">0</span>
+</span></code></pre></div>
+<p><img alt="Descripción de la imagen" class="marginbottom10" src="../img_4/img_4_70.png" /></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">ipconfig</span>
+</span></code></pre></div>
+<p><img alt="Descripción de la imagen" class="marginbottom10" src="../img_4/img_4_71.png" /></p>
+<ul>
+<li>Con esto ya tendremos montada la red virtual de Windows Server y el servidor DHCP. El siguiente paso será montar clientes con Alpine Linux y comprobar si las asignaciones de IP y el acceso a internet se hace correctamente.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_72.png" /></li>
+</ul>
+<h3 id="45-creacion-de-las-maquinas-virtuales-cliente">4.5 Creación de las máquinas virtuales cliente</h3>
+<ul>
+<li>Con RAM limitada (<code>m7i.large</code> con 8 GiB), lo más eficiente es que <strong>el propio host Windows Server actúe como servidor DHCP</strong> y usar Hyper-V solo para las VMs cliente.  </li>
+<li>Como cliente, <strong>Alpine Linux</strong> es la opción más ligera (256–512 MB por VM) y perfectamente válida para ver el proceso DHCP completo.</li>
+</ul>
+<h4 id="451-creacion-de-las-carpetas-de-trabajo">4.5.1 Creación de las carpetas de trabajo</h4>
+<p>Crearemos dos carpetas de trabajo: <strong>ISOs</strong> y <strong>VMs</strong>.</p>
+<ul>
+<li><strong>ISO</strong> contendrá los archivos .iso de los sistemas operativos que descargaremos.</li>
+<li><strong>VM</strong> contendrá los discos duros de las máquinas virtuales que lanzaremos.</li>
+</ul>
+<p>La creación de las carpetas se puede realizar tanto desde el explorador de archivos como en línea de comandos:</p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nb">New-Item</span> <span class="n">-Path</span> <span class="s2">"C:\ISO"</span> <span class="n">-ItemType</span> <span class="n">Directory</span> <span class="n">-Force</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nb">New-Item</span> <span class="n">-Path</span> <span class="s2">"C:\VM"</span> <span class="n">-ItemType</span> <span class="n">Directory</span> <span class="n">-Force</span>
+</span></code></pre></div>
+<h4 id="452-descargar-el-iso">4.5.2 Descargar el ISO</h4>
+<ul>
+<li>Como ya hemos comentado, descargaremos <a href="https://alpinelinux.org/downloads/">Alpine Linux</a> al ser una versión muy ligera de linux.</li>
+<li>La versión elegida para nuestras prácticas será la versión optimizada para virtualización y arquitectura de 32 bits (Virtual + x86).</li>
+<li>Al igual que para la creación de las carpetas, la imagen se puede descargar con la ayuda del navegador o por línea de comandos.</li>
+</ul>
+<div class="language-powershell highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nb">Invoke-WebRequest</span> <span class="n">-Uri</span> <span class="s2">"https://dl-cdn.alpinelinux.org/alpine/v3.24/releases/x86/alpine-virt-3.24.1-x86.iso"</span> <span class="n">-OutFile</span> <span class="s2">"C:\ISO\alpine.iso"</span>
+</span></code></pre></div>
+<p><img alt="Descripción de la imagen" class="marginbottom10" src="../img_4/img_4_73.png" /></p>
+<ul>
+<li>Comprobamos que la descarga es correcta (debe rondar los 45-50 MB):</li>
+</ul>
+<div class="language-powershell highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nb">Get-Item</span> <span class="s2">"C:\ISO\alpine.iso"</span> <span class="p">|</span> <span class="nb">Select-Object</span> <span class="n">Name</span><span class="p">,</span> <span class="n">Length</span>
+</span></code></pre></div>
+<p><img alt="Descripción de la imagen" class="marginbottom10" src="../img_4/img_4_74.png" /></p>
+<h3 id="453-crear-la-vm">4.5.3 Crear la VM</h3>
+<div class="admonition tip">
+<p class="admonition-title">Podemos usar el asistente para la creación de la máquina virtual.</p>
+<ul>
+<li>Para ello iremos a <strong>Hyper-V Manager</strong> → <strong>New</strong> → <strong>Virtual Machine</strong>"
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_75.png" /></li>
+<li>Damos un nombre a la máquina.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_76.png" /></li>
+<li>Seleccionamos <strong>Generation 1</strong>.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_77.png" /></li>
+<li>Asignamos 512MB de memoria RAM para la máquina.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_78.png" /></li>
+<li>Conectamos la máquina a nuestro switch virtual.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_79.png" /></li>
+<li>Disco duro virtaul. Ubicaremos el disco duro en la carpeta *<em>VM</em> creada anteriormente.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_91.png" /></li>
+<li>Opciones de instalación del SO. En <strong>Image file</strong> ponemos la ubicación de nuestra imagen.iso.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_92.png" /></li>
+<li>Finalizamos la creación de la máquina virtual.
+<img alt="Descripción de la imagen" class="margintop10" src="../img_4/img_4_93.png" /></li>
+</ul>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Creación de la máquina virtual por línea de comando.</p>
+<ul>
+<li>Declarar la máquina    </li>
+</ul>
+<div class="language-powershell highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nb">New-VM</span> <span class="n">-Name</span> <span class="s2">"Cliente-1"</span> <span class="p">`</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">-MemoryStartupBytes</span> <span class="n">512MB</span> <span class="p">`</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="n">-Generation</span> <span class="n">1</span> <span class="p">`</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="n">-NewVHDPath</span> <span class="s2">"C:\VM\Cliente-1.vhdx"</span> <span class="p">`</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="n">-NewVHDSizeBytes</span> <span class="n">4GB</span> <span class="p">`</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="n">-SwitchName</span> <span class="s2">"LAN-Práctica-DHCP"</span>
+</span></code></pre></div>
+<ul>
+<li>Declarar la unidad de DVD  y montar el <strong>ISO</strong>.
+!!! warning "Las VMs Generation 1 traen una unidad de DVD por defecto (a diferencia de Generation 2, donde hay que añadirla explícitamente con Add-VMDvdDrive). Por tanto, basta con usar Set-VMDvdDrive para montar la ISO en la unidad ya existente.</li>
+</ul>
+<div class="language-powershell highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nb">Set-VMDvdDrive</span> <span class="n">-VMName</span> <span class="s2">"CLIENTE-1"</span> <span class="n">-Path</span> <span class="s2">"C:\ISOs\alpine.iso"</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="nb">Get-VMDvdDrive</span> <span class="n">-VMName</span> <span class="s2">"CLIENTE-1"</span>   <span class="c"># debe mostrar el Path del ISO</span>
+</span></code></pre></div>
+<ul>
+<li>definir el orden de arranque (DVD antes que red)</li>
+</ul>
+<div class="language-powershell highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nb">Stop-VM</span> <span class="n">-Name</span> <span class="s2">"Cliente-1"</span> <span class="n">-TurnOff</span> <span class="n">-Force</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="nb">Set-VMFirmware</span> <span class="n">-VMName</span> <span class="s2">"Cliente-1"</span> <span class="n">-FirstBootDevice</span> <span class="p">(</span><span class="nb">Get-VMDvdDrive</span> <span class="n">-VMName</span> <span class="s2">"Cliente-1"</span><span class="p">)</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="nb">Start-VM</span> <span class="n">-Name</span> <span class="s2">"Cliente-1"</span>
+</span></code></pre></div>
+</div>
+<h3 id="454-arrancar-la-vm">4.5.4 Arrancar la VM</h3>
+<ul>
+<li>Arrancamos la máquina virtual desde el <strong>Hyper-V Manager</strong>
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_94.png" /></li>
+<li>Esperamos a que se cargue el SO.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_42.png" /></li>
+<li>La contraseña del login es <strong>root</strong>.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_95.png" /></li>
+</ul>
+<h3 id="454-verificar-la-conexion-a-la-red-a-la-asignacion-de-la-ip-por-parte-del-dhcp">4.5.4 Verificar la conexión a la red a la asignación de la IP por parte del DHCP</h3>
+<ul>
+<li>
+<p>Dentro de la consola de la VM confirmaremos el nombre real de la interfaz (eth0, enp0s3...):<br />
+    <div class="language-shell highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>ip<span class="w"> </span>link<span class="w"> </span>show<span class="w">           </span>
+</span></code></pre></div></p>
+<p><img alt="Descripción de la imagen" src="../img_4/img_4_96.png" /></p>
+</li>
+<li>
+<p>Si aparece "state DOWN", levantaremos la interfaz.
+    <div class="language-shell highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>ip<span class="w"> </span>link<span class="w"> </span><span class="nb">set</span><span class="w"> </span>eth0<span class="w"> </span>up<span class="w">    </span>
+</span></code></pre></div></p>
+<p><img alt="Descripción de la imagen" class="margintop10" src="../img_4/img_4_97.png" /></p>
+</li>
+<li>
+<p>Solicitamos una dirección IP con:
+    <div class="language-shell highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>udhcpc<span class="w"> </span>-i<span class="w"> </span>eth0
+</span></code></pre></div></p>
+<p><img alt="Descripción de la imagen" src="../img_4/img_4_98.png" /></p>
+</li>
+<li>
+<p>Como podemos ver, la solicitud no se realiza. Eso se puede deber a, al menos 2 causas.<br />
+No hemos asociado el <strong>Switch Virtual</strong> a nuestra <strong>máquina anfitrión</strong>.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom20" src="../img_4/img_4_99.png" />
+Cuando hemos creado el switch virtual hemos autorizado el VLAN ID → Lo deseleccionaremos.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_101.png" /></p>
+</li>
+<li>
+<p>Solicitamos de nuevo una dirección IP:
+    <div class="language-shell highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>udhcpc<span class="w"> </span>-i<span class="w"> </span>eth0
+</span></code></pre></div></p>
+<p><img alt="Descripción de la imagen" src="../img_4/img_4_100.png" /></p>
+</li>
+</ul>
+<h3 id="46-supervision-del-proceso-de-broadcast-y-asignacion-dora-con-wireshark">4.6 Supervisión del proceso de broadcast y asignación (DORA) con Wireshark</h3>
+<ul>
+<li>En esta parte supervisaremos la activida de red con <strong>Wireshark</strong> para ver el proceso DORA: DHCPDISCOVER → DHCPOFFER → DHCPREQUEST → DHCPACK.</li>
+<li>Wireshark es un popular analizador de protocolos de red de código abierto.  </li>
+<li>Permite capturar y examinar <strong>en tiempo real</strong> el tráfico de datos que pasa por una red de comunicaciones, mostrando los paquetes individuales de información.</li>
+</ul>
+<h3 id="461-descargar-e-instalar-wireshark">4.6.1 Descargar e instalar Wireshark</h3>
+<div class="admonition tip">
+<p class="admonition-title">Por línea de comandos</p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="nb">Invoke-WebRequest</span> <span class="n">-Uri</span> <span class="s2">"https://2.na.dl.wireshark.org/win64/Wireshark-latest-x64.exe"</span> <span class="n">-OutFile</span> <span class="s2">"C:\Wireshark-installer.exe"</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="nb">Start-Process</span> <span class="s2">"C:\Wireshark-installer.exe"</span>
+</span></code></pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Descargar desde la página oficial</p>
+<p><img alt="Descripción de la imagen" src="../img_4/img_4_84.png" /></p>
+</div>
+<h3 id="462-primeras-capturas-con-wireshark">4.6.2 Primeras capturas con Wireshark</h3>
+<ul>
+<li>Una vez en ejecución la aplicación nos mostrará todos los adaptadores de red disponibles.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_85.png" /></li>
+<li>Si no se detecta ninguna actividad de red, ponemos forzar tráfico haciendo ping desde la máquina virtual con Alpine Linux a otros dispositvos de la red. De esa manera también nos aseguraremos que todo funciona correctamente.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_86.png" /></li>
+</ul>
+<h3 id="463-capturas-del-dora-entre-mv-y-dhcp">4.6.3 Capturas del DORA entre MV y DHCP</h3>
+<ul>
+<li>Wireshark solo captura el tráfico a partir del momento en el cual se está ejecutando. Por ese motivo deberemos forzar el DORA entre MV y DHCP. Para ello forzaremos a la MV a devolver la IP asignada y negociaremos otra.</li>
+<li>Primero comprobaremos que la MV está conectada a la red. Si no lo está levantaremos el servicio.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_87.png" /></li>
+<li>Si la MV estaba conectada, devolveremos la IP asignada.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_88.png" /></li>
+<li>Forzamos la negociación de una nueva IP con el servidor DHCP.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_89.png" /></li>
+<li>Aplicando filtros o simplemente ordenando los protocolos en orden alfabetico podremos ver las 4 fases del procesa DORA.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_90.png" /></li>
+</ul>
+<h3 id="47-creacion-de-otra-maquina-virtual">4.7 Creación de otra máquina virtual</h3>
+<p>Para comprobar que los conocimientos han sido asimilados correctamente. Lanzar otra máquina virtual y comprobar con Wireshark el proceso DORA.</p>
+<p>La máquina virtual podrá ser del mismo tipo que la MV anterior o estar montada con un SO de <em>Windows</em>*.</p>
+<p>Si elegís esta última opción podreís descargar un SO de uso limitado desde <a href="https://www.microsoft.com/es-es/evalcenter/">el centro de evaluación de Microsoft</a>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Comandos para devolver IP y solicitarla de nuevo</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>ipconfig /release
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>ipconfig /renew
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>ipconfig /all
+</span></code></pre></div>
+</div>
+<h2 id="5-tarea-ra1-def-2-instalacion-y-configuracion-de-un-dhcp-con-ubuntu-server-en-aws">5 - Tarea RA1-def-2 - Instalación y configuración de un DHCP con Ubuntu Server en AWS</h2>
+<h3 id="51-objetivo-de-la-practica">5.1 Objetivo de la práctica</h3>
+<ul>
+<li>Desplegar un servidor DHCP en Ubuntu Server 22.04 LTS sobre AWS con virtualización anidada.</li>
+<li>En este primer paso instalaremos y configuraremos el rol <strong>DHCP Server</strong> en Ubuntu Server, y observaremos en tiempo real cómo varios equipos cliente obtienen su configuración IP (DHCPDISCOVER → OFFER → REQUEST → ACK), reservas, exclusiones, ámbitos (scopes), opciones de ámbito (DNS, puerta de enlace, etc.).</li>
+</ul>
+<h3 id="52-arquitectura-del-laboratorio">5.2 Arquitectura del laboratorio</h3>
+<ul>
+<li>Instancia EC2 (m7i.large, 100GB, Unbuntu Server 24.04 LTS</li>
+<li>Virtualización KVM + QEMU + libvirt)</li>
+</ul>
+<p><img alt="Descripción de la imagen" class="marginbottom10" src="../img_4/img_4_122.png" /></p>
+<!-- ┌───────────────────────────────┐
+          │         UBUNTU SERVER         │
+          │                               │
+          │      KVM + QEMU + libvirt     │ 
+          │                               │
+          │   ┌───────────────────────┐   │
+          │   │       RED DHCP        │   │
+          │   │    192.168.50.0/24    │   │
+          │   │                       │   │
+          │   │   ┌───────────────┐   │   │
+          │   │   │ DHCP SERVER   │   │   │
+          │   │   │ Ubuntu Server │   │   │
+          │   │   │ 192.168.50.10 │   │   │
+          │   │   └───────┬───────┘   │   │
+          │   │           │           │   │
+          │   │      ┌────┴────┐      │   │
+          │   │      │ virtual │      │   │
+          │   │      │ switch  │      │   │
+          │   │      └─┬──┬──┬─┘      │   │
+          │   │        │  │  │        │   │
+          │   │      VM1 VM2 VM3      │   │
+          │   │     DHCP DHCP DHCP    │   │
+          │   │                       │   │
+          │   └───────────────────────┘   │
+          └───────────────────────────────┘
+-->
+
+<!-- ```mermaid
+flowchart TB
+    subgraph Host["UBUNTU SERVER (KVM + QEMU + libvirt)"]
+        direction TB
+
+        subgraph Red["RED DHCP (192.168.50.0/24)"]
+            direction TB
+
+            DHCP["<b>DHCP SERVER</b><br/>Ubuntu Server<br/>192.168.50.10"]
+            Switch["virtual switch"]
+
+            subgraph VMs["Clientes DHCP"]
+                direction LR
+                VM1["VM1<br/>(DHCP)"]
+                VM2["VM2<br/>(DHCP)"]
+                VM3["VM3<br/>(DHCP)"]
+            end
+
+            DHCP --- Switch
+            Switch --- VM1
+            Switch --- VM2
+            Switch --- VM3
+        end
+    %% Estilos visuales
+    style Host fill:#f9f9f9,stroke:#333,stroke-width:2px
+    style Red fill:#e1f5fe,stroke:#0288d1,stroke-width:2px
+    style DHCP fill:#fff3e0,stroke:#f57c00,stroke-width:1px
+    style Switch fill:#e8f5e9,stroke:#388e3c,stroke-width:1px
+    style VMs fill:#ffffff,stroke:none
+    end
+``` -->
+
+<div class="admonition note">
+<p class="admonition-title">Explicación de los elementos de la arquitectura</p>
+<ul>
+<li><strong>KVM + QEMU + libvirt</strong> es la pila de virtualización nativa de Linux y está pensada para virtualización de servidores. <ul>
+<li><strong>KVM</strong> → proporciona la virtualización mediante el kernel.</li>
+<li><strong>QEMU</strong> → ejecuta/emula el hardware de las máquinas virtuales.</li>
+<li><strong>libvirt</strong> → capa de administración de KVM/QEMU.</li>
+</ul>
+</li>
+<li><strong>virt-manager</strong> → interfaz gráfica para administrar libvirt.</li>
+</ul>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Equivalencia con Windows Server</p>
+<table>
+<thead>
+<tr>
+<th>Windows Server</th>
+<th>Ubuntu Server</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Hyper-V</strong></td>
+<td><strong>KVM + QEMU</strong></td>
+</tr>
+<tr>
+<td>Hyper-V Manager</td>
+<td><strong>virt-manager</strong></td>
+</tr>
+<tr>
+<td>PowerShell / herramientas Hyper-V</td>
+<td><strong>virsh / virt-install</strong></td>
+</tr>
+<tr>
+<td>Virtual Switch</td>
+<td><strong>Redes virtuales de libvirt / bridges</strong></td>
+</tr>
+<tr>
+<td>VM</td>
+<td>VM KVM/QEMU</td>
+</tr>
+<tr>
+<td>VHDX</td>
+<td>qcow2 / raw</td>
+</tr>
+<tr>
+<td>Hyper-V NAT / switches</td>
+<td>NAT / bridge de libvirt</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="53-instalacion-de-gnome-en-ubuntu-server-2204">5.3 Instalación de GNOME en Ubuntu Server 22.04</h3>
+<ul>
+<li>Para facilitar algunas etapas de la configuración de esta práctica, instalaremos la interfaz gráfica <strong>GNOME</strong> sobre la instancia de Ubuntu Server que hemos creado anteriormente.</li>
+<li>Instalar un escritorio gráfico no se suele recomendar en entornos de producción, por rendimiento y seguridad pero, dentro de un contexto de prácticas, puede estar plenamente justificado.</li>
+<li>GNOME propone un escrotorio completo o mínimo, siendo el completo el que instalaremos.</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Instalación de GNOME</p>
+<ul>
+<li>Nos conectamos a nuestra instancia desde la consola de AWS.</li>
+<li>Instalamos las actualizaciones disponibles en los repositorios.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>upgrade<span class="w"> </span>-y
+</span></code></pre></div></li>
+<li>Instalamos <strong>tasksel</strong> que nos permitirá instalar todo el entorno de escritorio en un solo paso.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>tasksel<span class="w"> </span>-y
+</span></code></pre></div></li>
+<li>Instalamos GNOME
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ubuntu-desktop<span class="w"> </span>-y
+</span></code></pre></div></li>
+<li>
+<p>Configurar el archivo <strong>.xsession</strong> para el usuario. Aquí nos aseguraremos de que <strong>Xrdp</strong> sepa exactamente qué entorno de escritorio debe lanzar al autenticarse.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"gnome-session"</span><span class="w"> </span>&gt;<span class="w"> </span>~/.xsession
+</span></code></pre></div></p>
+</li>
+<li>
+<p>Evitar que GDM3 bloquee el arranque gráfico. En servidores en la nube (AWS/Cloud) sin monitor físico, GDM entra en conflicto con las sesiones remotas de Xrdp. Detendremos el servicio gdm3:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>gdm3
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>disable<span class="w"> </span>gdm3
+</span></code></pre></div></p>
+</li>
+<li>
+<p>Reiniciar el servicio de Xrdp. Aplicaremos los cambios y reiniciaremos el demonio de escritorio remoto:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>xrdp
+</span></code></pre></div></p>
+</li>
+</ul>
+</div>
+<h3 id="54-primera-conexion-por-escritorio-grafico-a-ubuntu-server">5.4 Primera conexión por escritorio gráfico a Ubuntu Server</h3>
+<ul>
+<li>Lanzamos desde Windows la aplicación de conexión a escritorio remoto e introducimos la contraseña de nuestra máquina.<br />
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_110.png" /></li>
+<li>Para la práctica, no tendremos en cuenta la advertencias de seguridad.</li>
+<li>Introducimos nuestras credenciales en la pasarela (servidor Xrdp).
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_111.png" /></li>
+<li>Si la sesión de ubuntu se ha cerrado, introducimos de nuevo las credenciales.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_112.png" /></li>
+<li>Si todo ha ido bien, estaremos en el escritorio gráfico típico de Ubuntu Desktop.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_113.png" /></li>
+</ul>
+<h3 id="55-activar-la-virtualizacion-de-la-cpu-por-la-consola-de-aws">5.5 Activar la virtualización de la CPU por la consola de AWS</h3>
+<div class="admonition success">
+<p class="admonition-title">Activar la virtualización de la CPU por la consola de AWS</p>
+<ul>
+<li>Abrimos el cloudshell de AWS y escribimos los siguientes comandos:  </li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Cambiar la id por la id de vuestra instancia</p>
+</div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="c1"># 1. Parar la instancia. También se puede hacer desde la consola de AWS. </span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>aws<span class="w"> </span>ec2<span class="w"> </span>stop-instances<span class="w"> </span>--instance-ids<span class="w"> </span>i-069fe851e6325d765
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="c1"># 2. Esperar a que quede realmente parada</span>
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>aws<span class="w"> </span>ec2<span class="w"> </span><span class="nb">wait</span><span class="w"> </span>instance-stopped<span class="w"> </span>--instance-ids<span class="w"> </span>i-069fe851e6325d765
+</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>
+</span><span id="__span-25-7"><a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a><span class="c1"># 3. Activar nested virtualization con el comando correcto</span>
+</span><span id="__span-25-8"><a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a>aws<span class="w"> </span>ec2<span class="w"> </span>modify-instance-cpu-options<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-25-9"><a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a><span class="w">  </span>--instance-id<span class="w"> </span>i-069fe851e6325d765<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-25-10"><a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a><span class="w">  </span>--nested-virtualization<span class="w"> </span>enabled
+</span><span id="__span-25-11"><a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a>
+</span><span id="__span-25-12"><a id="__codelineno-25-12" name="__codelineno-25-12" href="#__codelineno-25-12"></a><span class="c1"># 4. Arrancarla de nuevo</span>
+</span><span id="__span-25-13"><a id="__codelineno-25-13" name="__codelineno-25-13" href="#__codelineno-25-13"></a>aws<span class="w"> </span>ec2<span class="w"> </span>start-instances<span class="w"> </span>--instance-ids<span class="w"> </span>i-069fe851e6325d765
+</span></code></pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Comprobar la virtualización de la instancia</p>
+<ul>
+<li>Desde la consola de AWS ejecutamos el comando
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>aws<span class="w"> </span>ec2<span class="w"> </span>describe-instances<span class="w"> </span>--instance-ids<span class="w"> </span>i-069fe851e6325d765<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>--query<span class="w"> </span><span class="s2">"Reservations[].Instances[].CpuOptions"</span>
+</span></code></pre></div>
+<img alt="Descripción de la imagen" class="marginbottom10" src="../img_4/img_4_114.png" /></li>
+<li>También lo podemos comprobar desde la propia instancia con:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>egrep<span class="w"> </span>-c<span class="w"> </span><span class="s1">'(vmx|svm)'</span><span class="w"> </span>/proc/cpuinfo
+</span></code></pre></div>
+Si nos devuelve un valor mayor que 0, significa que la CPU expone las extensiones de virtualización (Intel VT-x/ AMD AMD-V).<br />
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_4/img_4_115.png" /></li>
+<li>Otra manera sería usando la aplicación <strong>cpu-checker</strong>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>cpu-checker
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>sudo<span class="w"> </span>kvm-ok
+</span></code></pre></div>
+<img alt="Descripción de la imagen" class="marginbottom10" src="../img_4/img_4_116.png" /></li>
+</ul>
+</div>
+<h3 id="56-instalacion-de-kvm-y-herramientas-relacionadas">5.6 Instalación de KVM y herramientas relacionadas</h3>
+<ul>
+<li>
+<p>Instalaremos KVM y las herraminetas relacionadas con:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>qemu-kvm<span class="w"> </span>libvirt-daemon-system<span class="w"> </span>libvirt-clients<span class="w"> </span>bridge-utils<span class="w"> </span>virtinst<span class="w"> </span>virt-manager
+</span></code></pre></div>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Explicación de las aplicaciones instaladas</p>
+<ul>
+<li><strong>qemu-kvm</strong> → el hipervisor en sí.</li>
+<li><strong>libvirt-daemon-system / libvirt-clients</strong> → capa de gestión (permite usar virsh, virt-install, etc.).</li>
+<li><strong>bridge-utils</strong> → para redes puente entre las VMs anidadas.</li>
+<li><strong>virtinst</strong> → herramientas para crear VMs desde línea de comandos (virt-install).</li>
+<li><strong>virt-manager</strong> → interfaz gráfica de gestión (solo si disponemos de entorno gráfico).</li>
+</ul>
+</div>
+<h3 id="57-anadir-usuarios-a-los-grupos-necesarios">5.7 Añadir usuarios a los grupos necesarios</h3>
+<ul>
+<li>Para poder utilizar las opciones de virtualización deberemos añadir nuestro usuario <strong>a los grupos libvirt y kvm</strong>.
+    <div class="language-bash highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>sudo<span class="w"> </span>usermod<span class="w"> </span>-aG<span class="w"> </span>libvirt<span class="w"> </span><span class="nv">$USER</span>
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>sudo<span class="w"> </span>usermod<span class="w"> </span>-aG<span class="w"> </span>kvm<span class="w"> </span><span class="nv">$USER</span>
+</span></code></pre></div></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Desloggearse para que los cambios surtan efecto</p>
+</div>
+<h3 id="58-comprobar-que-el-servicio-libvirt-esta-activo">5.8 Comprobar que el servicio libvirt está activo</h3>
+<ul>
+<li>
+<p>Lo comprobaremos con:
+    <div class="language-bash highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>libvirtd
+</span></code></pre></div>
+    <img alt="Descripción de la imagen" class="marginbottom10" src="../img_4/img_4_117.png" /></p>
+</li>
+<li>
+<p>Si, como en el caso de la imagen, nos muestra inactive, los activaremos con:</p>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>libvirtd
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>libvirtd
+</span></code></pre></div>
+<img alt="Descripción de la imagen" class="marginbottom10" src="../img_4/img_4_118.png" /></p>
+</li>
+</ul>
+<h3 id="59-verificar-que-devkvm-existe-y-los-permisos-de-usuario-del-directorio">5.9 Verificar que /dev/kvm existe y los permisos de usuario del directorio</h3>
+<ul>
+<li>Lo verificaremos con:
+    <div class="language-bash highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>ls<span class="w"> </span>-l<span class="w"> </span>/dev/kvm
+</span></code></pre></div>
+    <img alt="Descripción de la imagen" class="marginbottom10" src="../img_4/img_4_119.png" /></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<ul>
+<li><strong>rw-rw----+</strong> → El propietario <strong>root</strong> y el grupo <strong>kvm</strong> tienen permisos de lectura y escritura (rw-). </li>
+<li>El símbolo + indica que tiene Listas de Control de Acceso (ACL) adicionales aplicadas.</li>
+</ul>
+</div>
+<h3 id="510-listar-el-hipervisor-detectado">5.10 Listar el hipervisor detectado</h3>
+<ul>
+<li>Listaremos los servicios de virtualización con:
+    <div class="language-bash highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>virsh<span class="w"> </span>list<span class="w"> </span>--all
+</span></code></pre></div>
+    <img alt="Descripción de la imagen" class="marginbottom10" src="../img_4/img_4_120.png" /></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>A esta altura de la práctica, que la lista esté vacía no es motivo de preocupación. Aún no hemos creado ninguna máquina virtual.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">De no devolver un error tipo <em>failed to connect to the hypervisor</em> confirma que:</p>
+<ul>
+<li><strong>libvirtd</strong> se está ejecutando correctamente.</li>
+<li>Nuestro usuario tiene permisos <strong>para comunicarse con el hipervisor</strong>.</li>
+<li><strong>KVM/QEMU</strong> están listos para usarse.</li>
+</ul>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Aplicación Virt-Manager</p>
+<ul>
+<li>Si nos conectamos por escritorio remoto, también podremos ver que el asistente (gráfico) de virtualización (virt-manager) está instalado.
+<img alt="Descripción de la imagen" class="margintop10 " marginbottom10="marginbottom10" src="../img_4/img_4_121.png" /></li>
+<li>Escritorio de Virt-Manager
+<img alt="Descripción de la imagen" class="margintop10" src="../img_4/img_4_123.png" /></li>
+</ul>
+</div>
+<h3 id="511-crear-la-red-aislada-y-el-switch-virtual-sin-acceso-al-exterior">5.11 Crear la red aislada y el switch virtual sin acceso al exterior</h3>
+<ul>
+<li>
+<p>Como el la práctica anterior, crearemos una red privada para evitar ingerencias de AWS a la hora de asignar IPs.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>~/Documents/UbunterServerDHCP.xml<span class="w"> </span><span class="s">&lt;&lt; 'EOF'</span>
+</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="s">&lt;network&gt;</span>
+</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a><span class="s">  &lt;name&gt;RedPrivada-DHCP&lt;/name&gt;</span>
+</span><span id="__span-35-4"><a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a><span class="s">  &lt;bridge name='Switch-Virtual' stp='on' delay='0'/&gt;</span>
+</span><span id="__span-35-5"><a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a><span class="s">&lt;/network&gt;</span>
+</span><span id="__span-35-6"><a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a><span class="s">EOF</span>
+</span><span id="__span-35-7"><a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a>
+</span><span id="__span-35-8"><a id="__codelineno-35-8" name="__codelineno-35-8" href="#__codelineno-35-8"></a>sudo<span class="w"> </span>virsh<span class="w"> </span>net-define<span class="w"> </span>~/Documents/UbunterServerDHCP.xml
+</span><span id="__span-35-9"><a id="__codelineno-35-9" name="__codelineno-35-9" href="#__codelineno-35-9"></a>sudo<span class="w"> </span>virsh<span class="w"> </span>net-start<span class="w"> </span>RedPrivada-DHCP
+</span><span id="__span-35-10"><a id="__codelineno-35-10" name="__codelineno-35-10" href="#__codelineno-35-10"></a>sudo<span class="w"> </span>virsh<span class="w"> </span>net-autostart<span class="w"> </span>RedPrivada-DHCP
+</span></code></pre></div>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Importante</p>
+<p>Al <strong>no</strong> incluir ningún bloque <code>&lt;forward&gt;</code> ni <code>&lt;ip&gt;</code>, esta red queda en modo <em>isolated</em>. Libvirt no le asigna su propio DHCP interno ni la conecta a internet.</p>
+</div>
+<ul>
+<li>
+<p>Verificaremos que se ha creado switch virtual correctamente:  </p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>ip<span class="w"> </span>link<span class="w"> </span>show<span class="w"> </span>Switch-Virtual
+</span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>virsh<span class="w"> </span>net-list<span class="w"> </span>--all
+</span></code></pre></div>
+<p><img alt="Descripción de la imagen" src="../img_4/img_4_124.png" /></p>
+</li>
+</ul>
+<h3 id="512-configurar-el-switch-virtual">5.12 Configurar el switch virtual</h3>
+<ul>
+<li>
+<p>A diferencia de la práctica de Windows Server aquí sí que podemos / debemos asignar un IP al switch virtual.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>sudo<span class="w"> </span>ip<span class="w"> </span>addr<span class="w"> </span>add<span class="w"> </span><span class="m">192</span>.168.50.1/24<span class="w"> </span>dev<span class="w"> </span>Switch-Virtual
+</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>sudo<span class="w"> </span>ip<span class="w"> </span>link<span class="w"> </span><span class="nb">set</span><span class="w"> </span>Switch-Virtual<span class="w"> </span>up
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">En estas condiciones, el switch virtual no es persistente. Eso quiere decir que lo tendremos que iniciar cada vez que retomemos la práctica</p>
+</div>
+</li>
+<li>
+<p>Para evitar de tener que asignar un IP al switch virtual y el posterior reinicio del servicio DHCP podremos intentar lo siguiente:</p>
+<div class="admonition warning">
+<p class="admonition-title">Los pasos a continuación solo se podrán hacer después de haber completado la práctica</p>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Hacer el switch virtual persistente con un hook</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/etc/libvirt/hooks
+</span><span id="__span-38-2"><a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/libvirt/hooks/network<span class="w"> </span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="s">&lt;&lt; 'EOF'</span>
+</span><span id="__span-38-3"><a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a><span class="s">#!/bin/bash</span>
+</span><span id="__span-38-4"><a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a><span class="s">if [ "$1" = "RedPrivada-DHCP" ] &amp;&amp; [ "$2" = "started" ]; then</span>
+</span><span id="__span-38-5"><a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a><span class="s">    ip addr add 192.168.50.1/24 dev Switch-Virtual</span>
+</span><span id="__span-38-6"><a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a><span class="s">fi</span>
+</span><span id="__span-38-7"><a id="__codelineno-38-7" name="__codelineno-38-7" href="#__codelineno-38-7"></a><span class="s">EOF</span>
+</span><span id="__span-38-8"><a id="__codelineno-38-8" name="__codelineno-38-8" href="#__codelineno-38-8"></a>sudo<span class="w"> </span>chmod<span class="w"> </span>+x<span class="w"> </span>/etc/libvirt/hooks/network
+</span><span id="__span-38-9"><a id="__codelineno-38-9" name="__codelineno-38-9" href="#__codelineno-38-9"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>libvirtd
+</span></code></pre></div>
+</div>
+<div class="admonition success">
+<p class="admonition-title">Iniciar el servicio DHCP solo después de que el virtual switch tenga IP</p>
+<ul>
+<li>Abriremos un editor vacío  que creará automáticamente <code>/etc/systemd/system/isc-dhcp-server.service.d/override.conf</code>.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>edit<span class="w"> </span>isc-dhcp-server
+</span></code></pre></div></li>
+<li>Dentro del editor escribiremos: 
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="k">[Unit]</span>
+</span><span id="__span-40-2"><a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a><span class="na">After</span><span class="o">=</span><span class="s">libvirtd.service</span>
+</span><span id="__span-40-3"><a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a><span class="na">Requires</span><span class="o">=</span><span class="s">libvirtd.service</span>
+</span><span id="__span-40-4"><a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a>
+</span><span id="__span-40-5"><a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a><span class="k">[Service]</span>
+</span><span id="__span-40-6"><a id="__codelineno-40-6" name="__codelineno-40-6" href="#__codelineno-40-6"></a><span class="na">ExecStartPre</span><span class="o">=</span><span class="s">/bin/bash -c 'for i in $(seq 1 15)</span><span class="c1">; do ip addr show Switch-Virtual | grep -q "192.168.50.1" &amp;&amp; exit 0; sleep 1;  done; exit 1'</span>
+</span></code></pre></div>
+<img alt="Descripción de la imagen" class="marginbottom10 margintop10" src="../img_4/img_4_132.png" /></li>
+<li>Guardar y cierrar. <ul>
+<li><code>After= + Requires=</code> → obliga a que isc-dhcp-server arranque después de libvirtd, y no arranque en absoluto si libvirtd  falla.</li>
+<li><code>ExecStartPre=/bin/bash -c 'for i in $(seq 1 15)</code> → reintenta cada segundo durante 15 segundos, y solo lanza dhcpd  cuando confirma que la IP ya está cargada.</li>
+</ul>
+</li>
+<li>Recargar systemd. 
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
+</span><span id="__span-41-2"><a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a>sudo<span class="w"> </span>reboot
+</span></code></pre></div></li>
+<li>Tras el reinicio, comprobar.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>ip<span class="w"> </span>addr<span class="w"> </span>show<span class="w"> </span>Switch-Virtual
+</span><span id="__span-42-2"><a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>isc-dhcp-server
+</span></code></pre></div>
+<img alt="Descripción de la imagen" src="../img_4/img_4_133.png" /></li>
+</ul>
+</div>
+</li>
+</ul>
+<h3 id="513-configurar-la-maquina-anfitriona-como-servidor-dhcp">5.13 Configurar la máquina anfitriona como servidor DHCP</h3>
+<ul>
+<li>
+<p>Instalamos el servicio DHCP</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>isc-dhcp-server
+</span></code></pre></div>
+</li>
+<li>
+<p>Definir qué interfaz debe escuchar el servidor DHCP
+Para ello tendremos que editar el archivo <code>/etc/default/isc-dhcp-server</code></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/default/isc-dhcp-server
+</span></code></pre></div>
+<p>Bajamos hasta la línea INTERFACESv4="" y ponemos el valor Switch-Virtual
+<div class="language-text highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>INTERFACESv4="Switch-Virtual"
+</span></code></pre></div>
+<img alt="Descripción de la imagen" class="marco" src="../img_4/img_4_126.png" /></p>
+</li>
+</ul>
+<h3 id="514-configurar-el-ambito-de-nuestro-servidor-dhcp">5.14 Configurar el ámbito de nuestro servidor DHCP</h3>
+<ul>
+<li>
+<p>Para configurar el ámbito editaremos el archivo <code>/etc/dhcp/dhcpd.conf</code></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/dhcp/dhcpd.conf
+</span></code></pre></div>
+</li>
+<li>
+<p>Añadiremos al final:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>subnet 192.168.50.0 netmask 255.255.255.0 {
+</span><span id="__span-47-2"><a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a>  range 192.168.50.100 192.168.50.200;
+</span><span id="__span-47-3"><a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a>  option routers 192.168.50.1;
+</span><span id="__span-47-4"><a id="__codelineno-47-4" name="__codelineno-47-4" href="#__codelineno-47-4"></a>  option domain-name-servers 8.8.8.8;
+</span><span id="__span-47-5"><a id="__codelineno-47-5" name="__codelineno-47-5" href="#__codelineno-47-5"></a>  option subnet-mask 255.255.255.0;
+</span><span id="__span-47-6"><a id="__codelineno-47-6" name="__codelineno-47-6" href="#__codelineno-47-6"></a>  default-lease-time 600;
+</span><span id="__span-47-7"><a id="__codelineno-47-7" name="__codelineno-47-7" href="#__codelineno-47-7"></a>  max-lease-time 7200;
+</span><span id="__span-47-8"><a id="__codelineno-47-8" name="__codelineno-47-8" href="#__codelineno-47-8"></a>}
+</span></code></pre></div>
+<p><img alt="Descripción de la imagen" src="../img_4/img_4_127.png" /></p>
+</li>
+</ul>
+<h3 id="515-arrancar-el-servicio-dhcp">5.15 Arrancar el servicio DHCP</h3>
+<ul>
+<li>
+<p>Para arrancar el servicio y comprobar que el servicio se ha levantado correctamente usaremos:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>isc-dhcp-server
+</span><span id="__span-48-2"><a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>isc-dhcp-server
+</span></code></pre></div>
+<p><img alt="Descripción de la imagen" src="../img_4/img_4_127.png" /></p>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Si falla al arrancar</p>
+<ul>
+<li>Revisar si <code>INTERFACESv4</code> apunta a una interfaz que no existe todavía o el archivo <code>dhcpd.conf</code>.</li>
+<li>Si hay un error de sintaxis usar:
+    <div class="language-bash highlight"><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>sudo<span class="w"> </span>dhcpd<span class="w"> </span>-t<span class="w"> </span>-cf<span class="w"> </span>/etc/dhcp/dhcpd.conf
+</span></code></pre></div></li>
+</ul>
+</div>
+<h3 id="516-descargar-la-imagen-de-las-maquinas-virtuales-cliente">5.16 Descargar la imagen de las máquinas virtuales cliente</h3>
+<p>Igual que en la práctica de Windows Server, usaremos <strong>Alpine Linux</strong> por su ligereza (256–512 MB por VM).</p>
+<ul>
+<li>
+<p>Podemos usar el escritorio gráfico para descargar la iso del SO de Alpine Linux pero, lo haremos por línea de comando.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>&lt;!--<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>~/Documents/iso<span class="w"> </span>~/Documents/vm<span class="w"> </span>--&gt;
+</span><span id="__span-50-2"><a id="__codelineno-50-2" name="__codelineno-50-2" href="#__codelineno-50-2"></a>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/var/lib/libvirt/images
+</span><span id="__span-50-3"><a id="__codelineno-50-3" name="__codelineno-50-3" href="#__codelineno-50-3"></a>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/var/lib/libvirt/vm
+</span><span id="__span-50-4"><a id="__codelineno-50-4" name="__codelineno-50-4" href="#__codelineno-50-4"></a>sudo<span class="w"> </span>wget<span class="w"> </span>-O<span class="w"> </span>/var/lib/libvirt/images/alpine.iso<span class="w"> </span>https://dl-cdn.alpinelinux.org/alpine/v3.24/releases/x86/alpine-virt-3.24.1-x86.iso
+</span><span id="__span-50-5"><a id="__codelineno-50-5" name="__codelineno-50-5" href="#__codelineno-50-5"></a>ls<span class="w"> </span>-lh<span class="w"> </span>~/iso/alpine.iso<span class="w">   </span>
+</span></code></pre></div>
+<p><img alt="Descripción de la imagen" src="../img_4/img_4_125.png" /></p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<ul>
+<li>El proceso QEMU que ejecuta la VM se lanza con el usuario libvirt-qemu (por aislamiento/seguridad). Ese usuario no tiene permiso para atravesar el directorio /home/ubuntu. </li>
+<li>Por ese motivo usaremos el directorio <code>/var/lib/libvirt/</code>. </li>
+</ul>
+</div>
+<h3 id="517-crear-la-vm-con-virt-install-consola-de-texto-sin-necesidad-de-gui">5.17 Crear la VM con virt-install (consola de texto, sin necesidad de GUI)</h3>
+<ul>
+<li>Para crear nuestra primera VM usaremos el script:
+    <div class="language-bash highlight"><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>sudo<span class="w"> </span>virt-install<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-51-2"><a id="__codelineno-51-2" name="__codelineno-51-2" href="#__codelineno-51-2"></a><span class="w">  </span>--name<span class="w"> </span>Cliente-1<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-51-3"><a id="__codelineno-51-3" name="__codelineno-51-3" href="#__codelineno-51-3"></a><span class="w">  </span>--memory<span class="w"> </span><span class="m">256</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-51-4"><a id="__codelineno-51-4" name="__codelineno-51-4" href="#__codelineno-51-4"></a><span class="w">  </span>--vcpus<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-51-5"><a id="__codelineno-51-5" name="__codelineno-51-5" href="#__codelineno-51-5"></a><span class="w">  </span>--disk<span class="w"> </span><span class="nv">path</span><span class="o">=</span>/var/lib/libvirt/vm/Cliente-1.qcow2,size<span class="o">=</span><span class="m">4</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-51-6"><a id="__codelineno-51-6" name="__codelineno-51-6" href="#__codelineno-51-6"></a><span class="w">  </span>--cdrom<span class="w"> </span>/var/lib/libvirt/images/alpine.iso<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-51-7"><a id="__codelineno-51-7" name="__codelineno-51-7" href="#__codelineno-51-7"></a><span class="w">  </span>--network<span class="w"> </span><span class="nv">network</span><span class="o">=</span>RedPrivada-DHCP<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-51-8"><a id="__codelineno-51-8" name="__codelineno-51-8" href="#__codelineno-51-8"></a><span class="w">  </span>--graphics<span class="w"> </span>none<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-51-9"><a id="__codelineno-51-9" name="__codelineno-51-9" href="#__codelineno-51-9"></a><span class="w">  </span>--console<span class="w"> </span>pty,target_type<span class="o">=</span>serial<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-51-10"><a id="__codelineno-51-10" name="__codelineno-51-10" href="#__codelineno-51-10"></a><span class="w">  </span>--os-variant<span class="w"> </span>alpinelinux3.19
+</span></code></pre></div></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Notas</p>
+<ul>
+<li><strong>La opción</strong> <code>--console pty,target_type=serial</code> nos conectará automáticamente a la <strong>consola serie</strong> de la VM en la misma terminal SSH.</li>
+<li>En el prompt <code>localhost login:</code> entraremos como <code>root</code> con la contraseña <strong>root</strong>.</li>
+<li>Para salir de la consola serie sin apagar la VM cerraremos la ventana con la que estamos loggeado.</li>
+</ul>
+</div>
+<h3 id="518-conectarse-por-consola-serie-a-la-vm-y-comprobar-la-interfaz-de-red">5.18 Conectarse por consola serie a la VM y comprobar la interfaz de red</h3>
+<ul>
+<li>
+<p>Para conectarnos de nuevo a la VM y configurar la interfaz de red usaremos:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a>sudo<span class="w"> </span>virsh<span class="w"> </span>start<span class="w"> </span>Cliente-1
+</span><span id="__span-52-2"><a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a>virsh<span class="w"> </span>console<span class="w"> </span>Cliente-1
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>El comando <code>sudo virsh start Cliente-1</code>solo es necesario si la VM está apagada.</p>
+</div>
+</li>
+<li>
+<p>Comprobaremos el estado de la interfaz con:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a>ip<span class="w"> </span>link<span class="w"> </span>show
+</span></code></pre></div>
+<p><img alt="Descripción de la imagen" src="../img_4/img_4_129.png" /></p>
+</li>
+<li>
+<p>Si tenemos el <code>eth0</code> en DOWN, lo levantaremos con:
+    <div class="language-bash highlight"><pre><span></span><code><span id="__span-54-1"><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a>ip<span class="w"> </span>link<span class="w"> </span><span class="nb">set</span><span class="w"> </span>eth0<span class="w"> </span>up
+</span><span id="__span-54-2"><a id="__codelineno-54-2" name="__codelineno-54-2" href="#__codelineno-54-2"></a>ip<span class="w"> </span>link<span class="w"> </span>show<span class="w"> </span>eth0
+</span></code></pre></div></p>
+<p><img alt="Descripción de la imagen" src="../img_4/img_4_130.png" /></p>
+</li>
+</ul>
+<h3 id="519-solicita-la-ip-por-dhcp">5.19 Solicita la IP por DHCP</h3>
+<ul>
+<li>
+<p>Solicitaremos un IP al DHCP con:
+    <div class="language-bash highlight"><pre><span></span><code><span id="__span-55-1"><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a>udhcpc<span class="w"> </span>-i<span class="w"> </span>eth0
+</span></code></pre></div></p>
+<p><img alt="Descripción de la imagen" src="../img_4/img_4_131.png" /></p>
+</li>
+</ul>
+<h3 id="520-gestion-de-las-maquinas-virtuales-por-consola">5.20 Gestión de las máquinas virtuales por consola</h3>
+<ul>
+<li>Para acceder a la ayuda de virsh teclar:</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-56-1"><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a>virsh
+</span></code></pre></div>
+<ul>
+<li>
+<p>Comandos más habituales</p>
+<table>
+<thead>
+<tr>
+<th>Comando</th>
+<th>Qué hace</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>virsh destroy <code>&lt;Cliente-1&gt;</code></td>
+<td>Apagado forzoso e inmediato</td>
+</tr>
+<tr>
+<td>virsh shutdown <code>&lt;Cliente-1&gt;</code></td>
+<td>Apagado ordenado (envía señal ACPI, espera a que el SO se apague solo)</td>
+</tr>
+<tr>
+<td>virsh reboot <code>&lt;Cliente-1&gt;</code></td>
+<td>Reinicio ordenado (equivalente ACPI)</td>
+</tr>
+<tr>
+<td>virsh undefine <code>&lt;Cliente-1&gt;</code></td>
+<td>Elimina la definición de la VM (metadatos)</td>
+</tr>
+<tr>
+<td>virsh undefine <code>&lt;Cliente-1&gt;</code> --remove-all-storage</td>
+<td>Elimina la definición de la VM y del disco --remove-all-storage</td>
+</tr>
+<tr>
+<td>virsh list --all</td>
+<td>Lista todas las máquinas y su estado</td>
+</tr>
+<tr>
+<td>virsh console <code>&lt;Cliente-1&gt;</code></td>
+<td>Conexión por consale a la MV</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h3 id="521-segundo-cliente">5.21 Segundo cliente</h3>
+<ul>
+<li>Repetir los pasos anteriores y crear una segunda VM con nombre <code>Cliente-2</code>.</li>
+</ul>
+<h3 id="522-ver-el-proceso-de-broadcast-y-asignacion-dora">5.22 Ver el proceso de broadcast y asignación DORA</h3>
+<p>En este caso no usaremos wireshark sino el propio log del servicio DHCP.</p>
+<ul>
+<li>
+<p>Nos conectamos a nuestra instancia anfitrión y lanzamos el log.
+    <div class="language-bash highlight"><pre><span></span><code><span id="__span-57-1"><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a>sudo<span class="w"> </span>journalctl<span class="w"> </span>-u<span class="w"> </span>isc-dhcp-server<span class="w"> </span>-f
+</span></code></pre></div></p>
+<p><strong>No cerraremos la ventana, lo dejamos corriendo.</strong></p>
+</li>
+<li>
+<p>Abrimos otra conexión con nuestra instancia y la usaremos para conectarnos a nuestra(s) MV.</p>
+<ul>
+<li>
+<p>Levantamos la interfaz de red con:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-58-1"><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a>ip<span class="w"> </span>link<span class="w"> </span><span class="nb">set</span><span class="w"> </span>eth0<span class="w"> </span>up
+</span></code></pre></div></p>
+</li>
+<li>
+<p>Iniciamos el proceso DORA:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-59-1"><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a>udhcpc -i eth0
+</span></code></pre></div>
+<img alt="Descripción de la imagen" src="../img_4/img_4_134.png" /></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Volvemos al log dónde podremos ver el DORA.
+<img alt="Descripción de la imagen" src="../img_4/img_4_135.png" /></p>
+</li>
+</ul>
+<h3 id="523-leases-concedidos">5.23 Leases concedidos</h3>
+<ul>
+<li>
+<p>Con el siguiente comando podemos consultar el registro de concesiones (leases) del servidor DHCP, donde se muestra qué dirección IP tiene asignada cada cliente, la duración de la concesión y su fecha de inicio y expiración.</p>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-60-1"><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a>cat<span class="w"> </span>/var/lib/dhcp/dhcpd.leases
+</span></code></pre></div>
+<img alt="Descripción de la imagen" src="../img_4/img_4_136.png" /></p>
+</li>
+</ul>
+<!-- https://claude.ai/chat/062d0a59-02ce-4044-b774-4249a42049e9 -->
+<!-- https://gemini.google.com/u/1/app/ad715c98d45d977e?hl=es-ES -->
+<!-- https://chatgpt.com/c/6a87ef1d-7130-83ed-8c1c-e4a9da08330f -->
+
+<h1 id="ejercicios-adicionales">Ejercicios adicionales</h1>
+<ul>
+<li><strong>Reservas</strong> por MAC: <code>Add-DhcpServerV4Reservation</code>.</li>
+<li><strong>Exclusiones</strong> dentro del ámbito: <code>Add-DhcpServerV4ExclusionRange</code>.</li>
+<li><strong>Liberar y renovar</strong> (contraste DISCOVER completo de 4 paquetes vs. renovación de 2 paquetes): en Alpine, <code>udhcpc -R</code> para liberar y volver a pedir.</li>
+<li><strong>Agotamiento del ámbito</strong>: crear un ámbito de prueba muy pequeño (p. ej. solo 2-3 IPs) para que los alumnos vean qué ocurre cuando un cliente no puede recibir oferta.</li>
+</ul>
+<!-- para nat -->
+<!-- tipo de elementos de red -->
+<!-- https://itadmins.es/networking-ii-dispositivos-de-red-y-tipos-de-trafico/ -->
+
+<!-- # NAT -->
+<!-- https://www.manageengine.com/latam/oputils/direcciones-ip-fundamentos.html
+https://www.redeszone.net/tutoriales/redes-cable/calcular-subnetting-ip-red-mascara-subred-ipv4/
+https://www.1nce.com/es-es/recursos/iot-knowledge-base/que-es-el-mecanismo-nat
+https://openwebinars.net/blog/nat-que-es-y-para-que-sirve/
+-->
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pie" >
+        
+          
+          <a href="../03_Conexiones-remotas/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Acceso y control remoto">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Acceso y control remoto
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../05_DNS/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Protocolo DNS">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              <div class="md-ellipsis">
+                Protocolo DNS
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 - Javier Egea Blasco
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress - navigation.expand - navigation.path", "navigation.instant.progress", "navigation.instant.preview", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "toc.follow", "navigation.footer", "navigation.top", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.tabs.link"], "search": "../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

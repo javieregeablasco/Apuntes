@@ -1,0 +1,2343 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Javier Egea Blasco">
+      
+      
+        <link rel="canonical" href="https://javieregeablasco.github.io/Apuntes/SMX/SMX_1/AO/01_Instalacion%20de%20aplicaciones%20ofimaticas/">
+      
+      
+        <link rel="prev" href="../00_Temario/">
+      
+      
+        <link rel="next" href="../02_Procesadores_de_texto/021_Procesadores_de_texto/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Aplicaciones ofimáticas - Javier Egea Blasco</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#objetivos-didacticos" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../../../.." title="Javier Egea Blasco" class="md-header__button md-logo" aria-label="Javier Egea Blasco" data-md-component="logo">
+      
+  <img src="../../../../assets/mre.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Javier Egea Blasco
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Aplicaciones ofimáticas
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Compartir" aria-label="Compartir" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../00_Temario/" class="md-tabs__link">
+          
+  
+  
+  Aplicaciones Ofimáticas
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../SMX_2/SX/apuntes/00_Temario/" class="md-tabs__link">
+          
+  
+  
+  Servicios en redes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../DAW/DAW_2/PWES/UT.%200-Temario/" class="md-tabs__link">
+          
+  
+  
+  Under development
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Javier Egea Blasco" class="md-nav__button md-logo" aria-label="Javier Egea Blasco" data-md-component="logo">
+      
+  <img src="../../../../assets/mre.png" alt="logo">
+
+    </a>
+    Javier Egea Blasco
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aplicaciones Ofimáticas
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Aplicaciones Ofimáticas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00_Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Presentación módulo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 1 - Instalación de aplicaciones Ofimáticas
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 1 - Instalación de aplicaciones Ofimáticas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivos-didacticos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objetivos didácticos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#indice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Indice
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-concepto-de-aplicacion-ofimatica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 - Concepto de aplicación ofimática
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-tipos-de-aplicaciones-ofimaticas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 - Tipos de aplicaciones ofimáticas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 - Tipos de aplicaciones ofimáticas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-procesador-de-texto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 - Procesador de texto
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-hoja-de-caculo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 - Hoja de cáculo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-gestor-de-base-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 - Gestor de base de datos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-editores-de-imagen-y-video" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 - Editores de imagen y vídeo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-programa-de-presentaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 - Programa de presentaciones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-gestores-de-agenda-y-correo-electronico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6 - Gestores de agenda y correo electrónico
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-clasificacion-del-software-ofimatico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 - Clasificación del software ofimático
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-licencias-de-uso-del-software-ofimatico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 - Licencias de uso del software ofimático
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4 - Licencias de uso del software ofimático">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-tipos-de-licencias-de-uso-software-propietario-y-software-libre" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 - Tipos de licencias de uso, software propietario y software libre
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-tipos-de-licencias-de-uso-copyright-dominio-publico-y-copyleft" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 - Tipos de licencias de uso, Copyright, dominio público y copyleft
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-comprobacion-de-conocimientos-ra1-ceh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 - Comprobación de conocimientos RA1 CEh
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-suites-de-aplicaciones-ofimaticas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 - Suites de aplicaciones ofimáticas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5 - Suites de aplicaciones ofimáticas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-caracteristicas-principales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 - Características principales
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-componentes-habituales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 - Componentes habituales
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-tipos-de-suites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 - Tipos de suites
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-ejemplos-de-suites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 - Ejemplos de suites
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-instalacion-de-suites-de-aplicaciones-ofimaticas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6 - Instalación de suites de aplicaciones ofimáticas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6 - Instalación de suites de aplicaciones ofimáticas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-requisitos-de-las-suites-ofimaticas-mas-conocidas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 - Requisitos de las suites ofimáticas más conocidas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-instalacion-tipica-de-openoffice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 - Instalación típica de OpenOffice
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-reinstalacion-de-openoffice-y-personalizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 - Reinstalación de OpenOffice y personalización
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-actualizaciones-de-openoffice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 - Actualizaciones de OpenOffice
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65-resolucion-de-problemas-durante-la-instalacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5 - Resolución de problemas durante la instalación
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 2 - Procesadores de texto
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UT 2 - Procesadores de texto
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_Procesadores_de_texto/021_Procesadores_de_texto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 21 - Características de los procesadores de texto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_Procesadores_de_texto/022_LibreOffice_Writer_Instalacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 22 - Instalación de LibreOffice Writer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_Procesadores_de_texto/023_LibreOffice_Writer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 23 - LibreOffice Writer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_Hojas%20de%20calculo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 3 - Hojas de cálculo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_Presentaciones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 4 - Presentaciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_Bases%20de%20datos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 5 - Bases de datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_Imagenes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 6 - Edición de imágenes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_Captura%20e%20edicion%20de%20video/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 7 - Edición de vídeos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_Correo%20electronico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 8 - Agenda electrónica y comunicación
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_Resolucion%20de%20incidencias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 9 - Gestión de incidencias
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Servicios en redes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Servicios en redes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SMX_2/SX/apuntes/00_Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Presentación módulo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SMX_2/SX/apuntes/01_Redes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Redes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SMX_2/SX/apuntes/02_TCP-IP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocolo TCP/IP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SMX_2/SX/apuntes/03_Conexiones-remotas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Acceso y control remoto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SMX_2/SX/apuntes/04_DHCP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocolo DHCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SMX_2/SX/apuntes/05_DNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocolo DNS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Under development
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Under development
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../DAW/DAW_2/PWES/UT.%200-Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Presentación módulo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivos-didacticos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objetivos didácticos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#indice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Indice
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-concepto-de-aplicacion-ofimatica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 - Concepto de aplicación ofimática
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-tipos-de-aplicaciones-ofimaticas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 - Tipos de aplicaciones ofimáticas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 - Tipos de aplicaciones ofimáticas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-procesador-de-texto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 - Procesador de texto
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-hoja-de-caculo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 - Hoja de cáculo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-gestor-de-base-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 - Gestor de base de datos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-editores-de-imagen-y-video" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 - Editores de imagen y vídeo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-programa-de-presentaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 - Programa de presentaciones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-gestores-de-agenda-y-correo-electronico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6 - Gestores de agenda y correo electrónico
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-clasificacion-del-software-ofimatico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 - Clasificación del software ofimático
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-licencias-de-uso-del-software-ofimatico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 - Licencias de uso del software ofimático
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4 - Licencias de uso del software ofimático">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-tipos-de-licencias-de-uso-software-propietario-y-software-libre" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 - Tipos de licencias de uso, software propietario y software libre
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-tipos-de-licencias-de-uso-copyright-dominio-publico-y-copyleft" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 - Tipos de licencias de uso, Copyright, dominio público y copyleft
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-comprobacion-de-conocimientos-ra1-ceh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 - Comprobación de conocimientos RA1 CEh
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-suites-de-aplicaciones-ofimaticas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 - Suites de aplicaciones ofimáticas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5 - Suites de aplicaciones ofimáticas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-caracteristicas-principales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 - Características principales
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-componentes-habituales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 - Componentes habituales
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-tipos-de-suites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 - Tipos de suites
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-ejemplos-de-suites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 - Ejemplos de suites
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-instalacion-de-suites-de-aplicaciones-ofimaticas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6 - Instalación de suites de aplicaciones ofimáticas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6 - Instalación de suites de aplicaciones ofimáticas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-requisitos-de-las-suites-ofimaticas-mas-conocidas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 - Requisitos de las suites ofimáticas más conocidas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-instalacion-tipica-de-openoffice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 - Instalación típica de OpenOffice
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-reinstalacion-de-openoffice-y-personalizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 - Reinstalación de OpenOffice y personalización
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-actualizaciones-de-openoffice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 - Actualizaciones de OpenOffice
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65-resolucion-de-problemas-durante-la-instalacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5 - Resolución de problemas durante la instalación
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>UT 1 - Instalación de aplicaciones Ofimáticas</h1>
+
+<p><img alt="Descripción de la imagen" class="img-center" src="../img/UT1/Installing%20Software.png" width="75%" /></p>
+<h2 id="objetivos-didacticos">Objetivos didácticos</h2>
+<p><strong>¿Qué veremos en esta unidad?</strong>  </p>
+<ul>
+<li>Identificar las distintas fases del proceso de instalación.</li>
+<li>Instalar, configurar, personalizar, actualizar y desinstalar aplicaciones.</li>
+<li>Resolver problemas surgidos durante la instalación.</li>
+<li>Distinguir los distintos tipos de licencias software.</li>
+<li><em>Realizar informes de incidencias</em>.</li>
+<li><em>Solucionar problemas utilizando documentación, ayuda y soporte técnico</em>.</li>
+</ul>
+<p><br></p>
+<p><strong>Resultados de aprendizaje y criterios de evaluacion que se evaluarán en esta unidad.</strong>  </p>
+<table>
+<thead>
+<tr>
+<th><strong>Resultados de aprendizaje de la unidad didáctica:</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RA. 1:</strong> Se han identificado y establecido las fases del proceso de instalación.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><strong>Criterios de evaluación de la unidad didáctica:</strong></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a) Se han identificado y establecido las fases del proceso de instalación.</td>
+<td></td>
+</tr>
+<tr>
+<td>b) Se han respetado las especificaciones técnicas del proceso de instalación.</td>
+<td></td>
+</tr>
+<tr>
+<td>c) Se han configurado las aplicaciones según los criterios establecidos.</td>
+<td></td>
+</tr>
+<tr>
+<td><em>d) Se han documentado las incidencias.</em></td>
+<td>Evaluado en empresa</td>
+</tr>
+<tr>
+<td>e) Se han solucionado problemas en la instalación o integración con el sistema informático.</td>
+<td></td>
+</tr>
+<tr>
+<td>f) Se han eliminado y/o añadido componentes de la instalación en el equipo.</td>
+<td></td>
+</tr>
+<tr>
+<td>g) Se han actualizado las aplicaciones.</td>
+<td></td>
+</tr>
+<tr>
+<td>h) Se han respetado las licencias software.</td>
+<td></td>
+</tr>
+<tr>
+<td><em>i) Se han propuesto soluciones software para entornos de aplicación.</em></td>
+<td>Evaluado en empresa</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h2 id="indice"><strong>Indice</strong></h2>
+<ol>
+<li>Concepto de aplicación ofimática.</li>
+<li>Tipos de aplicaciones ofimáticas.</li>
+<li>Gestores de agenda y correo electrónico</li>
+<li>Suites de aplicaciones ofimáticas.</li>
+<li>Necesidades de los entornos de aplicación.</li>
+<li>Procedimientos de instalación.</li>
+<li>Configuración y actualizaciones.</li>
+<li>Documentación y soporte técnico.</li>
+</ol>
+<h2 id="1-concepto-de-aplicacion-ofimatica"><strong>1 - Concepto de aplicación ofimática</strong></h2>
+<p>Una <strong>aplicación ofimática</strong> es un tipo de <strong>software</strong> diseñado para realizar tareas comunes en una oficina o entorno laboral. Su propósito es <strong>automatizar, simplificar y mejorar la productividad</strong> en actividades cotidianas.</p>
+<p>Originalmente, estas herramientas se centraban en funciones básicas como:</p>
+<ul>
+<li><strong>Procesadores de texto</strong>: Para crear y editar documentos escritos.</li>
+<li><strong>Hojas de cálculo</strong>: Para realizar cálculos numéricos y análisis de datos.</li>
+<li><strong>Programas de presentación</strong>: Para elaborar diapositivas con textos e imágenes para exposiciones.</li>
+<li><strong>Gestores de bases de datos</strong>: Para organizar y gestionar grandes volúmenes de información.</li>
+</ul>
+<p>Con la evolución de la tecnología, las suites ofimáticas se han expandido para incluir una variedad de herramientas, desde <strong>clientes de correo electrónico</strong> y <strong>calendarios</strong> hasta <strong>editores de gráficos</strong> y <strong>software de videoconferencia</strong>. </p>
+<p><br>
+Actualmente, muchas de estas aplicaciones se ofrecen como servicios en la nube (online), lo que permite a los usuarios acceder a sus documentos y trabajar de forma colaborativa desde cualquier dispositivo con conexión a internet.</p>
+<div class="admonition question">
+<p class="admonition-title">¿Qué servicio en la nube usamos habitualmente sin darnos cuenta?</p>
+</div>
+<p><br></p>
+<table>
+<thead>
+<tr>
+<th><strong>Resumen:</strong></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Informática</strong></td>
+<td>Tratamiento automático de la información con ordenadores.</td>
+</tr>
+<tr>
+<td><strong>Ofimática</strong></td>
+<td><strong>Ofi</strong>cina + Infor<strong>mática</strong>, se refiere al uso de la informática para facilitar las tareas habituales que surgen en el hogar y la empresa.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition question">
+<p class="admonition-title">¿Cuáles son las diferencias entre MS Office y LibreOffice?</p>
+</div>
+<h2 id="2-tipos-de-aplicaciones-ofimaticas"><strong>2 - Tipos de aplicaciones ofimáticas</strong></h2>
+<p>Citaremos las más habituales para las personas no expertas.</p>
+<ul>
+<li><strong>Procesadores de texto</strong></li>
+<li><strong>Hojas de cálculo</strong></li>
+<li><strong>Gestores de bases de datos</strong></li>
+<li><strong>Editores de imagen y vídeo</strong></li>
+<li><strong>Programa de presentaciones</strong></li>
+<li><strong>Gestores de agenda y correo electrónico</strong></li>
+</ul>
+<div class="admonition question">
+<p class="admonition-title">Nombrar desarrolladores de aplicaciones ofimáticas.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Dar ejemplos de aplicaciones ofimáticas gratuitas o de pago.</p>
+</div>
+<p><br></p>
+<h3 id="21-procesador-de-texto"><strong>2.1 - Procesador de texto</strong></h3>
+<p><strong>¿Qué podemos hacer con un procesador de texto?</strong>  </p>
+<ul>
+<li>Formato de caracteres: tamaño, tipo, color, etc.</li>
+<li>Formato de párrafos con sangrías, espacio entre líneas, justificación del texto, etc.</li>
+<li>Formato de página que define márgenes, pie, encabezado y es compatible con etiquetas, cartas, sobres, etc.</li>
+<li>Impresión del trabajo por impresora.</li>
+<li>Incorporación de gráficos, imágenes, tablas, etc.</li>
+<li>Corrección ortográfica y gramatical.</li>
+<li>Inclusión de hipervínculos, índices, etc.</li>
+<li>Dispone de pequeños detalles que permiten una buena presentación de los textos, como la enumeración, la combinación de correspondencia, i plantillas predefinidas.</li>
+<li>Macros</li>
+</ul>
+<h3 id="22-hoja-de-caculo"><strong>2.2 - Hoja de cáculo</strong></h3>
+<p><strong>¿Qué podemos hacer con una hoja de cáculo?</strong></p>
+<ul>
+<li>Permite el tratamiento de datos en una o diversas hojas.</li>
+<li>Incorpora fórmulas de todo tipo.</li>
+<li>Permite formatear los datos con la misma amplitud que el procesador de textos.</li>
+<li>Permite recorrer las fórmulas, para saber de donde proceden los datos.</li>
+<li>Gráficas.</li>
+<li>Permite copiar fórmulas de manera inteligente.</li>
+<li>Corrección ortográfica, uso de macros, imágenes, vídeo y sonido</li>
+</ul>
+<h3 id="23-gestor-de-base-de-datos"><strong>2.3 - Gestor de base de datos</strong></h3>
+<p><strong>¿Qué podemos hacer con un gestor de base de datos?</strong></p>
+<ul>
+<li>Creación y mantenimiento de tablas.</li>
+<li>Posibilidad de incluir consultas automatizadas.</li>
+<li>Formularios para la introducción de los datos.</li>
+<li>Informes para la presentación de los datos.</li>
+<li>Asistentes para facilitar el acceso a todas las funciones.</li>
+</ul>
+<h3 id="24-editores-de-imagen-y-video"><strong>2.4 - Editores de imagen y vídeo</strong></h3>
+<p><strong>¿Qué podemos hacer con un editor audiovisual?</strong></p>
+<ul>
+<li>Realizar el tratamiento de material audiovisual.</li>
+<li>Editar y retocar imágenes digitales (ajuste de color, brillo, contraste, recortes, capas, filtros, etc.).</li>
+<li>Editar vídeos: cortar y unir fragmentos, añadir transiciones, títulos, efectos visuales y de sonido.</li>
+<li>Exportar proyectos en diferentes formatos (imagen, secuencia de vídeo, GIF animado, etc.).</li>
+</ul>
+<h3 id="25-programa-de-presentaciones"><strong>2.5 - Programa de presentaciones</strong></h3>
+<p><strong>Permiten, entre otros:</strong></p>
+<ul>
+<li>Elaborar presentaciones basadas en diapositivas.</li>
+<li>Incluir y editar texto de forma sencilla.</li>
+<li>Insertar imágenes, gráficos, tablas, sonido y vídeo.</li>
+<li>Aplicar efectos y animaciones a los contenidos.</li>
+<li>Configurar transiciones entre diapositivas.</li>
+<li>Facilitar la exposición de ideas de manera visual y estructurada.</li>
+<li>Exportar la presentación en distintos formatos (PDF, vídeo, imágenes, etc.).</li>
+</ul>
+<h3 id="26-gestores-de-agenda-y-correo-electronico"><strong>2.6 - Gestores de agenda y correo electrónico</strong></h3>
+<p><strong>Permiten, entre otros:</strong></p>
+<ul>
+<li>Las cuentas de correo nos permiten comunicarnos e intercambiar documentación de
+forma inmediata.</li>
+<li>La agenda electrónica organiza nuestras tareas, nos avisa de los plazos y programa
+reuniones.</li>
+<li><strong>¡Nos recuerda si tenemos tareas por entregar!</strong></li>
+</ul>
+<h2 id="3-clasificacion-del-software-ofimatico"><strong>3 - Clasificación del software ofimático</strong></h2>
+<p>Las aplicaciones ofimáticas se pueden clasificar según el tipo de software en diferentes categorías, basadas en cómo se distribuyen, cómo se usan y cómo se gestionan. Las más comunes son:</p>
+<ul>
+<li>
+<p><strong>Software de escritorio</strong>: Se instalan y ejecutan localmente en el ordenador del usuario.
+Ejemplos: Microsoft Office, LibreOffice, Apple iWork.</p>
+</li>
+<li>
+<p><strong>Software en la nube</strong>: Se accede y utiliza directamente desde el navegador web, sin necesidad de instalación local.
+Ejemplos: Google Workspace, Microsoft 365 (versión online).</p>
+</li>
+<li>
+<p><strong>Software híbrido</strong>: Combina características de escritorio y de la nube. Se instalan en el dispositivo, pero se integran con servicios online para sincronización y acceso desde cualquier lugar.
+Ejemplo: Microsoft 365 (aplicaciones de escritorio integradas con OneDrive).</p>
+</li>
+</ul>
+<div class="admonition question">
+<p class="admonition-title">¿Cuales son las ventajas e inconvenientes del software de escritorio?</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">¿Cuales son las ventajas e inconvenientes del software en la nube?</p>
+</div>
+<h2 id="4-licencias-de-uso-del-software-ofimatico"><strong>4 - Licencias de uso del software ofimático</strong></h2>
+<p>La <strong>licencia software es el contrato</strong> que suscribe el desarrollador de un programa con el usuario que lo quiere utilizar.</p>
+<p>Este contrato regula:  </p>
+<ul>
+<li>Lo que el usuario puede hacer con el programa.</li>
+<li>Lo que el usuario puede exigir al desarrollador.</li>
+</ul>
+<p>Son los conocidos <strong>términos y condiciones</strong> para la instalación de software que aparecen cada vez que instalamos software (no solo software ofimático).</p>
+<p><img alt="" class="original" src="../img/UT1/rh_licence.png" /></p>
+<p><br></p>
+<h3 id="41-tipos-de-licencias-de-uso-software-propietario-y-software-libre"><strong>4.1 - Tipos de licencias de uso, software propietario y software libre</strong></h3>
+<p><img alt="" class="cincozero" src="../img/UT1/libreprivativo.webp" />
+<br></p>
+<ul>
+<li><strong>Software propietario</strong><br />
+En el software propietario, privativo o no libre, el desarrollador establece a través de la licencia sus propios términos de uso del programa. Habitualmente se prohíbe la distribución del mismo y el acceso a su código fuente, pero estas licencias pueden impedir además su uso para un determinado fin o incluso limitar el número de veces que el usuario puede instalar el programa.</li>
+</ul>
+<p><br></p>
+<ul>
+<li>
+<p><strong>Software libre</strong><br />
+El software libre es aquel que nos garantiza como usuarios la posibilidad de realizar
+cuatro acciones sin restricción alguna:  </p>
+<ol>
+<li>Utilizar el programa en cualquier contexto.</li>
+<li>Compartir copias del programa con otros usuarios.</li>
+<li>Acceder al código fuente, y poder mejorarlo o modificarlo para que el programa se comporte de acuerdo con nuestras necesidades.</li>
+<li>Compartir ese programa modificado o mejorado con otros usuarios.</li>
+</ol>
+</li>
+</ul>
+<div class="admonition question">
+<p class="admonition-title">¿Qué diferencia elemental existe entre el software propietario y el software libre?</p>
+</div>
+<p><br></p>
+<h3 id="42-tipos-de-licencias-de-uso-copyright-dominio-publico-y-copyleft"><strong>4.2 - Tipos de licencias de uso, Copyright, dominio público y copyleft</strong></h3>
+<p><img alt="" class="doscinco" src="../img/UT1/copy.webp" /></p>
+<p>Antes de instalar cualquier programa, es importante conocer quién posee los derechos sobre él. Conceptos como copyright, dominio público y copyleft nos ayudan a entender qué podemos hacer legalmente con ese software.</p>
+<p>📌 <strong>Copyright</strong>  </p>
+<ul>
+<li>Es el <strong>derecho de autor</strong> tradicional.</li>
+<li>El creador de una obra (texto, música, software, imagen, etc.) obtiene derechos exclusivos sobre su uso, reproducción y distribución.</li>
+<li>Nadie puede usar la obra sin su permiso, salvo en casos específicos como la <em>copia privada</em> o el <em>uso justo</em>.</li>
+</ul>
+<hr />
+<p>📌 <strong>Dominio público</strong></p>
+<ul>
+<li>Obras que <strong>no tienen restricciones de copyright</strong>.</li>
+<li>Puede ser porque el plazo legal de protección expiró o porque el autor renunció a sus derechos.</li>
+<li>Cualquiera puede usarlas, copiarlas, modificarlas y distribuirlas sin necesidad de pedir permiso.</li>
+</ul>
+<hr />
+<p>📌 <strong>Copyleft</strong></p>
+<ul>
+<li>Es un modelo de licencia alternativa dentro del copyright.</li>
+<li>Permite usar, modificar y redistribuir la obra <strong>libremente</strong>, siempre que las versiones derivadas se distribuyan bajo las mismas condiciones.</li>
+<li>Muy común en el software libre (ej.: licencia GPL (<strong>G</strong>eneral <strong>P</strong>ublic <strong>L</strong>icense)).</li>
+</ul>
+<hr />
+<p>👉 <strong>En resumen</strong>:</p>
+<ul>
+<li><strong>Copyright</strong> = Todos los derechos reservados.</li>
+<li><strong>Dominio público</strong> = Ningún derecho exclusivo, uso totalmente libre.</li>
+<li><strong>Copyleft</strong> = Algunos derechos reservados, pero con obligación de mantener la libertad de derechos en las versiones derivadas.</li>
+</ul>
+<h3 id="43-comprobacion-de-conocimientos-ra1-ceh"><strong>4.3 - Comprobación de conocimientos RA1 CEh</strong></h3>
+<p>Ir a Aules, descargar rellenar y volver a subir el documento RA1 CEh.</p>
+<h2 id="5-suites-de-aplicaciones-ofimaticas"><strong>5 - Suites de aplicaciones ofimáticas</strong></h2>
+<p>Las <strong>suites de aplicaciones ofimáticas</strong> son conjuntos de programas diseñados para facilitar las tareas habituales en entornos de oficina, estudio o trabajo colaborativo. Estas suites <strong>integran diferentes tipos de aplicaciones</strong> que permiten crear, editar, organizar y compartir documentos de texto, hojas de cálculo, presentaciones, bases de datos, entre otros.</p>
+<h3 id="51-caracteristicas-principales"><strong>5.1 - Características principales</strong></h3>
+<ul>
+<li><strong>Integración:</strong> Las aplicaciones suelen compartir un entorno común y permiten intercambio de datos entre ellas (p.e., insertar una tabla de una hoja de cálculo en un documento de texto).</li>
+<li><strong>Colaboración:</strong> las versiones modernas permiten la edición simultánea en línea y la sincronización en la nube.</li>
+<li><strong>Multiplataforma:</strong> Existen programas de instalación de suites para todos los sistemas operativos del mercado (Windows, macOS, Linux, Android, iOS).</li>
+</ul>
+<h3 id="52-componentes-habituales"><strong>5.2 - Componentes habituales</strong></h3>
+<ol>
+<li><strong>Procesador de textos:</strong> para redactar y dar formato a documentos (ej. Microsoft Word, Writer en LibreOffice, Google Docs).</li>
+<li><strong>Hoja de cálculo:</strong> para gestionar datos numéricos y cálculos (ej. Excel, Calc, Google Sheets).
+. <strong>Presentaciones:</strong> para crear diapositivas (ej. PowerPoint, Impress, Google Slides).</li>
+<li><strong>Gestor de bases de datos:</strong> para organizar y consultar información (ej. Microsoft Access, Base en LibreOffice).</li>
+<li><strong>Clientes de correo y agenda:</strong> (ej. Outlook, Thunderbird).</li>
+<li><strong>Otras utilidades:</strong> editores de gráficos, herramientas de dibujo, aplicaciones para tomar notas, etc.</li>
+</ol>
+<h3 id="53-tipos-de-suites"><strong>5.3 - Tipos de suites</strong></h3>
+<ol>
+<li><strong>De escritorio:</strong> Es decir instaladas en el ordenador.</li>
+<li><strong>En la nube:</strong> Accesibles desde un navegador (Google Workspace, Microsoft 365 Online...).</li>
+<li><strong>Híbridas:</strong> Se instalan localmente por se pueden sincronizar en la nube (Microsoft 365, OnlyOffice).</li>
+</ol>
+<h3 id="54-ejemplos-de-suites"><strong>5.4 - Ejemplos de suites</strong></h3>
+<ul>
+<li><strong>Microsoft Office / Microsoft 365</strong></li>
+<li><strong>LibreOffice</strong> alternativa libre y gratuita, basada en el proyecto OpenOffice.</li>
+<li><strong>OpenOffice</strong></li>
+<li><strong>Google Workspace:</strong> Totalmente en la nube, está claramente orientada al trabajo colaborativo.</li>
+<li><strong>OnlyOffice y WPS Office:</strong> opciones ligeras y compatibles con múltiples formatos.</li>
+</ul>
+<h2 id="6-instalacion-de-suites-de-aplicaciones-ofimaticas"><strong>6 - Instalación de suites de aplicaciones ofimáticas</strong></h2>
+<p>El proceso de instalación de una suite de aplicaciones ofimáticas suele ser sencillo y guiado, pero es importante conocer las distintas posibilidades: instalación local en el equipo, instalación en red para varios usuarios o incluso el uso de versiones en la nube.<br />
+En nuestro caso nos limitaremos a una instalación local en un solo ordenador por lo que será importante ver si el hardware y software del ordenador es capaz de soportar dicha instalación. </p>
+<h3 id="61-requisitos-de-las-suites-ofimaticas-mas-conocidas"><strong>6.1 - Requisitos de las suites ofimáticas más conocidas</strong></h3>
+<p>A continuación una tabla con los requisitos minimos de algunas suites.</p>
+<p><img alt="" class="sietecinco" src="../img/UT1/requisitos.png" /></p>
+<p>Como queda evidente, esos requisitos son de hardware y software obsoletos...</p>
+<div class="admonition task">
+<p class="admonition-title">Tarea RA1-CEb: Se han respetado las especificaciones técnicas del proceso de instalación.</p>
+<ul>
+<li>Buscar los requisitos de la última versión de OpenOffice.  </li>
+<li>Comprobar si vuestro equipo cumple con los requisitos mínimos para poder instalarlo.</li>
+<li>Realizar capturas de pantalla tanto de los requisitos de OpenOffice como de las especificaciones de vuestro equipo.</li>
+<li>Responder a la siguiente pregunta: ¿Bajo qué versión de licencia se permite el uso de OpenOffice? </li>
+<li>Subir el documento a Aules en la tarea <strong>Tarea RA1-CEb</strong>.</li>
+</ul>
+</div>
+<h3 id="62-instalacion-tipica-de-openoffice"><strong>6.2 - Instalación típica de OpenOffice</strong></h3>
+<p>Según el sistema operativo, descargar el paquete de instalación correspondiente y proceder a la instalación. </p>
+<div class="admonition task">
+<p class="admonition-title">Tarea RA1-CEa: Se han identificado y establecido las fases del proceso de instalación.</p>
+<ul>
+<li>Realizar capturas de pantalla de los momentos clave de la instalación.  </li>
+<li>Comentar brevemente lo que se realiza en cada momento.</li>
+<li>Subir el documento a Aules en la tarea <strong>Tarea RA1-CEa</strong>.</li>
+</ul>
+</div>
+<h3 id="63-reinstalacion-de-openoffice-y-personalizacion"><strong>6.3 - Reinstalación de OpenOffice y personalización</strong></h3>
+<p>Después de finalizar la instalación y de comprobar que el software instalado funciona correctamente, volver a ejecutar el instalador.<br />
+Al detectarse una instalación anterior el programa propondrá:
+    - Modificar la instalación, es decir, añadir o eliminar programas de la suite (p.e., no instalar el módulo <code>OpenOffice Math</code>).
+    - Reparar la instalación anterior si se han producido errores durante la instalación o si más simplemente el programa ha emprezado a dar errores durante el uso normal del mismo.
+    - Desinstalar completamente la suite. </p>
+<div class="admonition task">
+<p class="admonition-title">Tarea RA1-CEcf: Se han configurado las aplicaciones según los criterios establecidos / Se han eliminado y/o añadido componentes de la instalación en el equipo</p>
+<ul>
+<li>Repetir la instalación de OpenOffice y esta vez <strong>no instalar</strong>:<ol>
+<li>OpenOffice Impress</li>
+<li>OpenOffice Math  </li>
+</ol>
+</li>
+<li>Comentar brevemente lo que se realiza en cada momento.</li>
+<li>Subir el documento a Aules en la tarea <strong>Tarea RA1-CEcf</strong>.</li>
+</ul>
+</div>
+<h3 id="64-actualizaciones-de-openoffice"><strong>6.4 - Actualizaciones de OpenOffice</strong></h3>
+<p>Las actualizaciones de cualquier programa forman parte del proceso de mantenimiento normal del software. Su finalidad es garantizar <strong>la seguridad, estabilidad y mejora continua</strong> del software instalado.<br />
+A través de estas actualizaciones se corrigen errores detectados en versiones anteriores, se cierran posibles vulnerabilidades de seguridad y, en ocasiones, se incorporan nuevas funciones.</p>
+<p>Es importante entender que actualizar un programa no solo significa “tener la última versión”, sino también asegurar que el software se adapta a los cambios tecnológicos y a las necesidades de los usuarios.  </p>
+<p><br>
+En el caso de OpenOffice, estas actualizaciones pueden realizarse de dos formas principales:</p>
+<ul>
+<li>
+<p>Actualización automática: el propio programa puede avisar al usuario cuando existe una nueva versión disponible, simplificando el proceso.</p>
+</li>
+<li>
+<p>Actualización manual: el usuario descarga la última versión desde la página oficial y realiza la instalación de manera directa.</p>
+</li>
+</ul>
+<div class="admonition task">
+<p class="admonition-title">Tarea RA1-CEg: Se han actualizado las aplicaciones.</p>
+<ul>
+<li>Lanzar OpenOffice y familiarizarse con el entorno gráfico.</li>
+<li>Buscar la opción que permita comprobar si OpenOffice se encuentra totalmente actualizado.   </li>
+<li>Realizar una captura de pantalla donde se muestra que OpenOffice está actualizado (o no). </li>
+<li>Subir el documento a Aules en la tarea <strong>Tarea RA1-CEg</strong>.</li>
+<li>Responder a la siguiente pregunta: ¿Qué se debería hacer si aparece que OpenOffice no está actualizado? </li>
+<li>Responder a la siguiente pregunta: ¿Como se debería actualizar OpenOffice si aparece que está actualizado? </li>
+</ul>
+</div>
+<h3 id="65-resolucion-de-problemas-durante-la-instalacion"><strong>6.5 - Resolución de problemas durante la instalación</strong></h3>
+<p>Durante la instalación de un programa pueden surgir distintos problemas que afectarán a su funcionamiento o integración con el sistema informático.  </p>
+<p>Estos problemas pueden estar relacionados con la compatibilidad del software, la configuración del sistema operativo, la falta de recursos disponibles o incluso con errores de permisos.</p>
+<p>Comprender y resolver estas situaciones es fundamental, ya que garantiza que las aplicaciones ofimáticas funcionen correctamente. </p>
+<div class="admonition task">
+<p class="admonition-title">Tarea RA1-CEe: Se han solucionado problemas en la instalación o integración con el sistema informático.</p>
+<p><strong>Actividad en grupos con exposición oral.</strong>  </p>
+<p><strong>Formación de grupos:</strong>    <br />
+- Componer grupos de 3-4 personas.</p>
+<p><strong>Escenarios a debatir:</strong><br />
+- La instalación se interrumpe por falta de permisos de administrador.<br />
+- El sistema muestra incompatibilidad con la versión descargada.<br />
+- Tras la instalación, los archivos .docx o .xlsx no se abren con la suite instalada por defecto.<br />
+- Conflictos entre versiones previas y la nueva instalación.<br />
+- Error al actualizar la suite por falta de espacio en disco.  </p>
+<p><strong>Tarea del grupo:</strong><br />
+- Identificar el problema principal del caso.<br />
+- Proponer posibles soluciones técnicas.<br />
+- Redactar un breve informe de resolución con pasos claros.  </p>
+<p><strong>Puesta en común:</strong><br />
+- Cada grupo expone sus soluciones, las dificultades detectadas y la solución adoptada.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th><strong>Licencia Creative Commons:</strong></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="alt text" src="../../../../assets/by-nc-nd-eu_.png" /></td>
+<td><strong>Reconocimiento-NoComercial-CompartirIgual CC BY-NC-SA:</strong>  No se permite un uso comercial de la obra original ni de las posibles obras derivadas, la distribución de la cuales se debe hace con una licencia igual a la que regula la obra original.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pie" >
+        
+          
+          <a href="../00_Temario/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Presentación módulo">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Presentación módulo
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../02_Procesadores_de_texto/021_Procesadores_de_texto/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: UT 21 - Características de los procesadores de texto">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              <div class="md-ellipsis">
+                UT 21 - Características de los procesadores de texto
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 - Javier Egea Blasco
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress - navigation.expand - navigation.path", "navigation.instant.progress", "navigation.instant.preview", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "toc.follow", "navigation.footer", "navigation.top", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.tabs.link"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

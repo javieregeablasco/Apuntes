@@ -1,0 +1,3172 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Javier Egea Blasco">
+      
+      
+        <link rel="canonical" href="https://javieregeablasco.github.io/Apuntes/SMX/SMX_1/AO/04_Bases%20de%20datos/">
+      
+      
+        <link rel="prev" href="../07_Presentaciones/">
+      
+      
+        <link rel="next" href="../05_Imagenes/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Aplicaciones ofimáticas - Javier Egea Blasco</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-introduccion" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../../../.." title="Javier Egea Blasco" class="md-header__button md-logo" aria-label="Javier Egea Blasco" data-md-component="logo">
+      
+  <img src="../../../../assets/mre.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Javier Egea Blasco
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Aplicaciones ofimáticas
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Compartir" aria-label="Compartir" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../00_Temario/" class="md-tabs__link">
+          
+  
+  
+  Aplicaciones Ofimáticas
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../SMX_2/SX/apuntes/00_Temario/" class="md-tabs__link">
+          
+  
+  
+  Servicios en redes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../DAW/DAW_2/PWES/UT.%200-Temario/" class="md-tabs__link">
+          
+  
+  
+  Under development
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Javier Egea Blasco" class="md-nav__button md-logo" aria-label="Javier Egea Blasco" data-md-component="logo">
+      
+  <img src="../../../../assets/mre.png" alt="logo">
+
+    </a>
+    Javier Egea Blasco
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aplicaciones Ofimáticas
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Aplicaciones Ofimáticas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00_Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Presentación módulo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_Instalacion%20de%20aplicaciones%20ofimaticas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 1 - Instalación de aplicaciones Ofimáticas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 2 - Procesadores de texto
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UT 2 - Procesadores de texto
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_Procesadores_de_texto/021_Procesadores_de_texto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 21 - Características de los procesadores de texto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_Procesadores_de_texto/022_LibreOffice_Writer_Instalacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 22 - Instalación de LibreOffice Writer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_Procesadores_de_texto/023_LibreOffice_Writer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 23 - LibreOffice Writer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_Hojas%20de%20calculo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 3 - Hojas de cálculo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_Presentaciones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 4 - Presentaciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 5 - Bases de datos
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 5 - Bases de datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 - Introducción
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 - Introducción">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-que-es-una-base-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 - ¿Qué es una base de datos?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-que-es-una-base-de-datos-relacional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 - ¿Qué es una base de datos relacional?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-que-es-una-tabla-de-una-base-de-datos-relacional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 - ¿Qué es una tabla de una base de datos relacional?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-libreoffice-base" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 - LibreOffice Base
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-tarea-ra4-cea-tablas-y-relaciones-entre-tablas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 - Tarea RA4-CEa Tablas y relaciones entre tablas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 - Tarea RA4-CEa Tablas y relaciones entre tablas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-parte-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 - Parte 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-parte-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 - Parte 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-parte-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 - Parte 3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-entrega-de-la-tarea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 - Entrega de la tarea
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-tarea-ra4-cece-formularios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 - Tarea RA4-CEce Formularios
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 - Tarea RA4-CEce Formularios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-parte-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 - Parte 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-parte-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 - Parte 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-entrega-de-la-tarea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 - Entrega de la tarea
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-tarea-ra4-cedg-consultas-a-la-base-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 - Tarea RA4-CEdg Consultas a la base de datos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4 - Tarea RA4-CEdg Consultas a la base de datos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-introduccion-a-las-consultas-sql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 - Introducción a las consultas SQL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-consultas-en-modo-diseno" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 - Consultas en modo diseño
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.2 - Consultas en modo diseño">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#421-consultas-sobre-una-tabla" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2.1 - Consultas sobre una tabla
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#422-consultas-sobre-varias-tablas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2.2 - Consultas sobre varias tablas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-entrega-de-la-tarea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 - Entrega de la tarea
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-tarea-ra4-cef-informes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 - Tarea RA4-CEf Informes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#51-creacion-de-una-informe-con-el-asistente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 - Creación de una informe con el asistente
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#52-trabajo-a-realizar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 - Trabajo a realizar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#53-entrega-de-la-tarea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 - Entrega de la tarea
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-tarea-ra4-ceh-macros" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6 - Tarea RA4-CEh Macros
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6 - Tarea RA4-CEh Macros">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-guardar-las-macros-en-la-base-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 - Guardar las macros en la base de datos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-asignar-eventos-al-checkbox-casilla-del-formulario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 - Asignar eventos al checkbox (casilla) del formulario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-colocar-una-barra-de-desplazamiento-y-asignarle-un-evento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 - Colocar una barra de desplazamiento y asignarle un evento
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-colocar-un-boton-guardar-y-nuevo-socio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 - Colocar un botón Guardar y nuevo Socio
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65-asignar-eventos-al-formulario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5 - Asignar eventos al formulario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#66-lanzar-formulario-al-abrir-la-base-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.6 - Lanzar formulario al abrir la base de datos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#67-entrega-de-la-tarea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.7 - Entrega de la tarea
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-tarea-ra4-ceb-base-de-datos-completa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7 - Tarea RA4-CEb Base de datos completa
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7 - Tarea RA4-CEb Base de datos completa">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-importar-las-tablas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 - Importar las tablas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-formularios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 - Formularios
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-consultas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 - Consultas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74-entrega-de-la-tarea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4 - Entrega de la tarea
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_Imagenes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 6 - Edición de imágenes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_Captura%20e%20edicion%20de%20video/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 7 - Edición de vídeos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_Correo%20electronico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 8 - Agenda electrónica y comunicación
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_Resolucion%20de%20incidencias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 9 - Gestión de incidencias
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Servicios en redes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Servicios en redes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SMX_2/SX/apuntes/00_Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Presentación módulo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SMX_2/SX/apuntes/01_Redes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Redes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SMX_2/SX/apuntes/02_TCP-IP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocolo TCP/IP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SMX_2/SX/apuntes/03_Conexiones-remotas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Acceso y control remoto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SMX_2/SX/apuntes/04_DHCP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocolo DHCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SMX_2/SX/apuntes/05_DNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocolo DNS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Under development
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Under development
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../DAW/DAW_2/PWES/UT.%200-Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Presentación módulo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 - Introducción
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 - Introducción">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-que-es-una-base-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 - ¿Qué es una base de datos?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-que-es-una-base-de-datos-relacional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 - ¿Qué es una base de datos relacional?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-que-es-una-tabla-de-una-base-de-datos-relacional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 - ¿Qué es una tabla de una base de datos relacional?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-libreoffice-base" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 - LibreOffice Base
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-tarea-ra4-cea-tablas-y-relaciones-entre-tablas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 - Tarea RA4-CEa Tablas y relaciones entre tablas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 - Tarea RA4-CEa Tablas y relaciones entre tablas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-parte-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 - Parte 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-parte-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 - Parte 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-parte-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 - Parte 3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-entrega-de-la-tarea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 - Entrega de la tarea
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-tarea-ra4-cece-formularios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 - Tarea RA4-CEce Formularios
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 - Tarea RA4-CEce Formularios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-parte-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 - Parte 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-parte-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 - Parte 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-entrega-de-la-tarea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 - Entrega de la tarea
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-tarea-ra4-cedg-consultas-a-la-base-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 - Tarea RA4-CEdg Consultas a la base de datos
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4 - Tarea RA4-CEdg Consultas a la base de datos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-introduccion-a-las-consultas-sql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 - Introducción a las consultas SQL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-consultas-en-modo-diseno" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 - Consultas en modo diseño
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.2 - Consultas en modo diseño">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#421-consultas-sobre-una-tabla" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2.1 - Consultas sobre una tabla
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#422-consultas-sobre-varias-tablas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2.2 - Consultas sobre varias tablas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-entrega-de-la-tarea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 - Entrega de la tarea
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-tarea-ra4-cef-informes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 - Tarea RA4-CEf Informes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#51-creacion-de-una-informe-con-el-asistente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 - Creación de una informe con el asistente
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#52-trabajo-a-realizar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 - Trabajo a realizar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#53-entrega-de-la-tarea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 - Entrega de la tarea
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-tarea-ra4-ceh-macros" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6 - Tarea RA4-CEh Macros
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6 - Tarea RA4-CEh Macros">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-guardar-las-macros-en-la-base-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 - Guardar las macros en la base de datos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-asignar-eventos-al-checkbox-casilla-del-formulario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 - Asignar eventos al checkbox (casilla) del formulario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-colocar-una-barra-de-desplazamiento-y-asignarle-un-evento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 - Colocar una barra de desplazamiento y asignarle un evento
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-colocar-un-boton-guardar-y-nuevo-socio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 - Colocar un botón Guardar y nuevo Socio
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65-asignar-eventos-al-formulario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5 - Asignar eventos al formulario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#66-lanzar-formulario-al-abrir-la-base-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.6 - Lanzar formulario al abrir la base de datos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#67-entrega-de-la-tarea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.7 - Entrega de la tarea
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-tarea-ra4-ceb-base-de-datos-completa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7 - Tarea RA4-CEb Base de datos completa
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7 - Tarea RA4-CEb Base de datos completa">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-importar-las-tablas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 - Importar las tablas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-formularios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 - Formularios
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-consultas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 - Consultas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74-entrega-de-la-tarea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4 - Entrega de la tarea
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>UT 5 - Bases de datos</h1>
+
+<p><img alt="Descripción de la imagen" class="doscinco marginbottom40" src="../img/UT4/bbdd-01.png" /></p>
+<table>
+<thead>
+<tr>
+<th><strong>Resultados de aprendizaje de la unidad didáctica:</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RA. 4:</strong> Elabora documentos con bases de datos ofimáticas describiendo y aplicando operaciones de manipulación de datos.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Criterios de evaluación de la unidad didáctica:</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>a)</strong> Se han identificado los elementos de las bases de datos relacionales.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>b)</strong> Se han creado bases de datos ofimáticas.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>c)</strong> Se han utilizado las tablas de la base de datos (insertar, modificar y eliminar registros).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>d)</strong> Se han utilizado asistentes en la creación de consultas.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>e)</strong> Se han utilizado asistentes en la creación de formularios.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>f)</strong> Se han utilizado asistentes en la creación de informes.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>g)</strong> Se ha realizado búsqueda y filtrado sobre la información almacenada.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>h)</strong> Se han creado y utilizado macros.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Nota:</p>
+<p>El criterio de evaluación <strong>b) Se han creado bases de datos ofimáticas</strong>, será evaluado durante la FCT.</p>
+</div>
+<h2 id="1-introduccion">1 - Introducción</h2>
+<h3 id="11-que-es-una-base-de-datos">1.1 - ¿Qué es una base de datos?</h3>
+<p>Una base de datos es un sistema organizado para <strong>almacenar</strong>, <strong>gestionar</strong> y <strong>consultar</strong> información de forma estructurada.</p>
+<p>En términos simples, es como un archivo digital inteligente donde los datos (por ejemplo, nombres, productos, precios, usuarios, pedidos, etc.) se guardan de manera ordenada para poder buscar, modificar o eliminar información rápidamente.</p>
+<p>Normalmente, <strong>las bases de datos se gestionan mediante un Sistema de Gestión de Bases de Datos (SGBD)</strong> como:</p>
+<ul>
+<li>MySQL</li>
+<li>PostgreSQL</li>
+<li>Oracle Database</li>
+</ul>
+<h3 id="12-que-es-una-base-de-datos-relacional">1.2 - ¿Qué es una base de datos relacional?</h3>
+<p>Para poder almacenar de forma ordenada, toda la información generada por, por ejemplo un negocio, es necesario dividir la base de datos en tablas.<br />
+Cada tabla albergará una clase de datos (clientes, pedidos, ventas, stock, ...). Como es fácil de intuir, muchos datos de las diferentes tablas tendrán <strong>relación</strong> los unos con los otros <strong>mediante campos comunes</strong>.<br />
+<strong>En una base de datos relacional</strong>, una relación es la <strong>conexión lógica entre dos tablas</strong> mediante un campo común.</p>
+<div class="admonition tip">
+<p class="admonition-title">Ejemplo de relación entre tablas</p>
+<p>Supongamos dos tablas:  </p>
+<ul>
+<li>Clientes (id_cliente, nombre)</li>
+<li>Pedidos (id_pedido, fecha, id_cliente)</li>
+</ul>
+<p>El campo <strong>id_cliente en la tabla Pedidos</strong> conecta con el <strong>id_cliente de la tabla Clientes</strong>.<br />
+→ Esa conexión es la relación existente entre las 2 tablas.</p>
+</div>
+<h3 id="13-que-es-una-tabla-de-una-base-de-datos-relacional">1.3 - ¿Qué es una tabla de una base de datos relacional?</h3>
+<p>Una tabla es un conjunto de datos organizados en filas y columnas.<br />
+Cada fila representa un registro (por ejemplo, un cliente, un pedido, un producto, etc.) y cada columna representa un campo o atributo (por ejemplo, nombre, fecha, precio, etc.).
+Una tabla de una base de datos relacional se caracteriza por:</p>
+<ul>
+<li>Tener un <strong>nombre</strong> que la identifica.</li>
+<li>Contener <strong>campos</strong> (columnas) que definen los atributos de los datos.</li>
+<li>Contener <strong>registros</strong> (filas) que representan las instancias de los datos.</li>
+<li>Tener una <strong>clave primaria</strong>: Es el campo que identifica de forma única un registro de la tabla (por ejemplo, el id_cliente dentro de la tabla Clientes).</li>
+<li>Tener una <strong>clave foránea</strong>, que es un campo que se utiliza para establecer una relación con otra tabla (por ejemplo, el id_cliente que se repite entre las tablas Clientes y Pedidos).</li>
+<li>Permitir la <strong>manipulación de datos</strong> mediante operaciones como inserción, actualización, eliminación y consulta.</li>
+</ul>
+<p><strong>Ejemplo de tablas en una base de datos.</strong>  </p>
+<p><img alt="Descripción de la imagen" class="cincozero" src="../img/UT4/bbdd-02.png" /></p>
+<h3 id="14-libreoffice-base">1.4 - LibreOffice Base</h3>
+<div class="admonition warning">
+<p class="admonition-title">¿Qué es LibreOffice Base?</p>
+</div>
+<p>LibreOffice Base es una aplicación de gestión de bases de datos con interfaz gráfica que permite crear, administrar y consultar bases de datos.</p>
+<div class="admonition warning">
+<p class="admonition-title">¿Cómo funciona LibreOffice Base?</p>
+</div>
+<p>LibreOffice Base puede funcionar de dos maneras:</p>
+<ol>
+<li>
+<p>Base de datos embebida utilizando motores internos como <strong>HSQLDB</strong> y <strong>Firebird</strong> y actuando como un <strong>SGBD ligero de escritorio</strong>.</p>
+</li>
+<li>
+<p>Conexión a un servidor externo como MySQL, PostgreSQL, MariaDB y funcionando <strong>únicamente como interfaz gráfica</strong>, mientras que el SGBD es el servidor externo.</p>
+</li>
+</ol>
+<h2 id="2-tarea-ra4-cea-tablas-y-relaciones-entre-tablas">2 - Tarea RA4-CEa Tablas y relaciones entre tablas</h2>
+<h3 id="21-parte-1">2.1 - Parte 1</h3>
+<div class="admonition warning">
+<p class="admonition-title">1 - Creación de una base de datos</p>
+<ol>
+<li>Abrir el asistente de bases de datos de LibreOffice Base y elegir crear una base de datos nueva.</li>
+<li>Después de pulsar siguiente, dejar las opciones por defecto (registrar la BBDD, la hace disponible para todas las aplicaciones de LibreOffice).</li>
+<li>Para finalizar guardar la BBDD con el siguiente nombre: RA4-CEa-NombreApellidos</li>
+<li>
+<p>Una vez abierta la BBDD, nos encontraremos con la siguiente interfaz.<br />
+<img alt="Descripción de la imagen" class="ochocinco marco margintop10 marginbottom20" src="../img/UT4/bbdd-03.png" /></p>
+</li>
+<li>
+<p><strong>Barra de herramientas</strong><br />
+Los botones de la barra de herramientas estándar permite acceder a las funciones más habituales de Base: </p>
+<ul>
+<li><strong>Abrir</strong>, <strong>guardar</strong>, <strong>copiar</strong> y <strong>pegar</strong>, acceder a la ayuda, formularios, botones específicos para tablas, ordenar, etc.  </li>
+</ul>
+</li>
+<li><strong>Panel de base de datos</strong>  <br />
+El panel de base de datos permite seleccionar el tipo de objeto de la Base de datos con el que se quiere trabajar. <ul>
+<li>En una base de datos de Base hay cuatro tipos principales de objetos: <strong>tablas</strong>, <strong>consultas</strong>, <strong>formularios</strong> e <strong>informes</strong>.</li>
+</ul>
+</li>
+<li><strong>Panel de tareas</strong>
+El panel de tareas permite decidir qué hacer con el objeto seleccionado. <ul>
+<li>Por ejemplo, si se selecciona el tipo de objeto "Tablas", el panel de tareas ofrece la posibilidad de crear una tabla nueva, abrir una tabla existente, etc.</li>
+</ul>
+</li>
+<li><strong>Panel de objetos</strong>
+En el panel de objetos se muestran los objetos que hay en la base de datos. Esos objetos pueden ser de tipo <strong>tablas</strong>, <strong>consultas</strong>, <strong>formularios</strong> e <strong>informes</strong>. <ul>
+<li>Al estar la BBDD vacía no mostrará nada. De existir objetos, aparecerán de la siguiente manera.<ul>
+<li>Objetos de tablas:<br />
+<img alt="Descripción de la imagen" class="leftcincocero marco margintop10 marginbottom20" src="../img/UT4/bbdd-04.png" /></li>
+<li>Objetos de consultas:
+<img alt="Descripción de la imagen" class="leftcincocero marco margintop10 marginbottom20" src="../img/UT4/bbdd-05.png" /></li>
+<li>Objetos de formularios:
+<img alt="Descripción de la imagen" class="leftcincocero marco margintop10 marginbottom20" src="../img/UT4/bbdd-06.png" /></li>
+<li>Objetos de informes:
+<img alt="Descripción de la imagen" class="leftcincocero marco margintop10" src="../img/UT4/bbdd-07.png" /></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Tablas</p>
+<p>En las tablas se almacena la información estructurada de la base de datos. Cada tabla está compuesta por campos (columnas) y registros (filas). Una base de datos suele contener varias tablas relacionadas entre sí.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Formularios</p>
+<p>Los formularios permiten introducir, modificar y visualizar datos de las tablas de forma más cómoda y controlada. No almacenan información por sí mismos, sino que actúan como interfaz de acceso a las tablas o consultas.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Consultas</p>
+<p>Las consultas permiten obtener información específica de una o varias tablas. Se utilizan para filtrar, ordenar o combinar datos mediante criterios determinados.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Informes</p>
+<p>Los informes permiten presentar los datos de forma organizada y lista para imprimir o exportar. Se basan en la información de tablas o consultas y muestran los datos con un formato definido. Cada vez que se ejecutan, reflejan el estado actual de la base de datos.</p>
+</div>
+</div>
+<h3 id="22-parte-2">2.2 - Parte 2</h3>
+<div class="admonition warning">
+<p class="admonition-title">2 - Creación de las tablas en LibreOffice Base</p>
+<p>Una tabla de una base de datos es un conjunto de datos organizados en filas y columnas.<br />
+Cada fila representa un registro (por ejemplo, un cliente, un pedido, un producto, etc.) y cada columna representa un campo o atributo (por ejemplo, nombre, fecha, precio, etc.).  </p>
+<div class="admonition tip">
+<p class="admonition-title">Campos de una tabla en LibreOffice Base</p>
+<p>Al crear una tabla, es necesario definir los campos que formarán parte de la tabla.<br />
+El nombre de los campos puede estar formado por un máximo de 64 caracteres alfanuméricos.<br />
+Aunque hoy en día los SGBD permiten cualquier carácter, <strong>ES MUY ACONSEJABLE</strong> seguir las reglas siguientes:  </p>
+<ul>
+<li>Por claridad, poner <strong>nombres significativos</strong> (Apellido, Nombre, Telf, etc.).</li>
+<li><strong>No incluir espacios en blanco</strong> dentro de los nombres de campo. Poner un guión bajo <code>_</code> en su lugar (p.e.: precio_unitario).  </li>
+<li><strong>No utilizar caracteres especiales</strong> como acentos, $, &amp;, @, #, %, Ç, etc.</li>
+</ul>
+<p><strong>Ejemplo de campos de una tabla de una base de datos</strong>
+<img alt="Descripción de la imagen" class="leftseiscero marco margintop10 marginbottom20" src="../img/UT4/bbdd-08.png" /></p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tipos de datos en LibreOffice Base</p>
+<p>En LibreOffice Base, al crear una tabla, es necesario definir el tipo de datos para cada campo. Algunos de los tipos de datos más comunes son:</p>
+<ul>
+<li><strong>Texto</strong>: Para almacenar cadenas de caracteres cortas, como nombres o direcciones.</li>
+<li><strong>Nota</strong>: Para almacenar textos largos, como descripciones o comentarios.</li>
+<li><strong>Númerico</strong>: Para almacenar valores numéricos, como precios o cantidades.</li>
+<li><strong>Fecha/hora</strong>: Para almacenar fechas/horas, como fechas de nacimiento o fechas de pedidos o horarios.</li>
+<li><strong>Sí/No (Booleano)</strong>: Para almacenar valores de Sí/No, verdadero/falso, como si un cliente está activo o no.</li>
+<li><strong>OTHER (Objetos)</strong>: Para almacenar objetos como archivos o documentos.</li>
+<li><strong>Imagen</strong>: Para almacenar imágenes, como fotos de productos o clientes.</li>
+<li><strong>Clave primaria</strong>: Para identificar de forma única cada registro en la tabla, como un número de identificación o un código de producto.</li>
+</ul>
+<p><strong>Ejemplo de todos los tipos de datos disponibles en LibreOffice Base</strong>
+<img alt="Descripción de la imagen" class="lefttrescero marco margintop10 marginbottom20" src="../img/UT4/bbdd-09.png" /></p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Clave primaria</p>
+<p>La clave primaria es un campo <strong>único</strong> es decir, tiene un valor que no se puede repetir y <strong>que identifica de forma única a cada registro</strong> de la tabla.<br />
+Es muy aconsejable, por no decir obligatorio, que la tabla tenga un campo que sirva como <strong>clave primaria</strong> ya que, entre otros:</p>
+<ul>
+<li>Garantiza la integridad de entidad.</li>
+<li>Facilita la creación de claves foráneas en otras tablas.</li>
+<li>Mejora el rendimiento en búsquedas e indexación.</li>
+<li>El campo de clave primaria se identifica inmediatamente al tener el símbolo de la clave, como se puede ver a continuación.</li>
+</ul>
+<p><strong>Campo identificado como clave primaria</strong>
+<img alt="Descripción de la imagen" class="lefttrescero marco margintop10 marginbottom20" src="../img/UT4/bbdd-11.png" />
+<strong>Campo con registros que no se repiten</strong>
+<img alt="Descripción de la imagen" class="lefttrescero marco margintop10 marginbottom20" src="../img/UT4/bbdd-10.png" /></p>
+<div class="admonition question">
+<p class="admonition-title">¿Como podemos asegurarnos de que los registros del campo con clave primaria no se puedan repetir?</p>
+</div>
+</div>
+<div class="admonition task">
+<p class="admonition-title">Trabajo a realizar 1/3</p>
+<ul>
+<li>Descargar todos los contenidos necesarios a la tarea desde el siguiente <a href="../04_bases%20de%20datos/Tareas/RA4-CEa/datosBBDD/RA4-CEa.zip">enlace</a>.</li>
+<li>Abrir el archivo <strong>gimnasio.ods</strong> y arrastrar las <strong>7 primeras hojas</strong> de la hoja de cálculo  al campo <strong>Tablas</strong> de la base de datos.</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Cuidado a la hora de definir el campo de clave primaria</p>
+</div>
+<p><strong>Resultado esperado después de importar las diferentes hojas de la hoja de cálculo</strong>
+<img alt="Descripción de la imagen" class="leftseiscero marco margintop10 marginbottom20" src="../img/UT4/bbdd-12.png" /></p>
+<ul>
+<li>Campos de la tabla <strong>Actividades</strong>
+<img alt="Descripción de la imagen" class="lefttrescinco marco margintop10 marginbottom20" src="../img/UT4/bbdd-16.png" /></li>
+<li>Campos de la tabla <strong>Dias_Semana</strong>
+<img alt="Descripción de la imagen" class="lefttrescinco marco margintop10 marginbottom20" src="../img/UT4/bbdd-40.png" /></li>
+<li>Campos de la tabla <strong>Horario_Actividades</strong>
+<img alt="Descripción de la imagen" class="lefttrescinco marco margintop10 marginbottom20" src="../img/UT4/bbdd-17.png" /></li>
+<li>Campos de la tabla <strong>Manaña/Tarde</strong>
+<img alt="Descripción de la imagen" class="lefttrescinco marco margintop10 marginbottom20" src="../img/UT4/bbdd-41.png" /></li>
+<li>Campos de la tabla <strong>Rango_Horas</strong><br />
+<img alt="Descripción de la imagen" class="leftcuatrocero marco margintop10 marginbottom20" src="../img/UT4/bbdd-42.png" /></li>
+<li>Campos de la tabla <strong>Socios</strong>
+<img alt="Descripción de la imagen" class="lefttrescinco marco margintop10 marginbottom20" src="../img/UT4/bbdd-18.png" /></li>
+<li>Campos de la tabla <strong>Tipo_Cuota</strong>
+<img alt="Descripción de la imagen" class="lefttrescinco marco margintop10" src="../img/UT4/bbdd-19.png" /></li>
+</ul>
+</div>
+</div>
+<h3 id="23-parte-3">2.3 - Parte 3</h3>
+<div class="admonition warning">
+<p class="admonition-title">3 - Relaciones entre tablas</p>
+<p>En una base de datos relacional, una relación es la conexión lógica entre dos tablas mediante un campo común.<br />
+Para establecer una relación entre dos tablas, es necesario que ambas tablas tengan un campo con el mismo tipo de datos y que campo se utilice como clave primaria en una tabla y como clave foránea en la otra tabla.<br />
+La relación entre las tablas permite realizar consultas que combinan datos de ambas tablas, lo que facilita la obtención de rmación más completa y detallada.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tipos de relaciones entre tablas en una base de datos</p>
+<p>Existen tres tipos básicos de relaciones entre tablas:</p>
+<ul>
+<li>
+<p><strong>Uno a muchos (1:N)</strong>. Este tipo se da cuando una fila de la primera tabla puede estar relacionada con muchas filas de egunda tabla, pero una fila de la segunda solo está relacionada con una de la primera.<br />
+En el siguiente ejemplo, vemos como un vendedor con Id única (IdVendedor) de la tabla <strong>Vendedores</strong> puede aparecer en iples registros de la tabla <strong>Ventas</strong> (al haber realizado múltiples ventas). 
+<img alt="Descripción de la imagen" class="leftsietecinco marco margintop10 marginbottom20" src="../img/UT4/bbdd-13.png" /></p>
+</li>
+<li>
+<p><strong>Muchos a muchos (N:N)</strong>. Esta clase de relación ocurre cuando una fila de la primera tabla puede estar relacionada muchas filas de la segunda tabla y una fila de la segunda tabla puede estarlo con muchas filas de la primera.<br />
+Un ejemplo de este tipo lo tenemos en la relación entre la tabla Peliculas y la tabla Interpretes porque dada una película puede tener muchos intérpretes y viceversa: dado un intérprete, este puede haber intervenido en muchas películas.</p>
+</li>
+<li>
+<p><strong>Uno a uno (1 a 1)</strong>. Este tipo de relación aparece con menos frecuencia y sucede cuando una fila de la primera tabla  puede estar relacionada con una fila de la segunda y una fila de la segunda tabla solo puede estar relacionada con de la primera.<br />
+Un ejemplo de este tipo de relaciones podría ser entre una tabla con países y otra con jefes de gobierno, dado que, realmente, un país solo tiene un jefe de gobierno y un jefe de gobierno lo es de un solo país.</p>
+</li>
+</ul>
+</div>
+<div class="admonition task">
+<p class="admonition-title">Trabajo a realizar 2/3</p>
+<p>Preparar las relaciones entre las tablas de la base de datos para ello, ir a:</p>
+<ul>
+<li>Herramientas → <strong>Relaciones</strong></li>
+<li>Dentro de la ventana de relaciones pinchar en el icono <strong>Añadir tablas</strong>.
+<img alt="Descripción de la imagen" class="leftcuatrocero marco margintop10 marginbottom20" src="../img/UT4/bbdd-21.png" /></li>
+<li>Añadir todas las tablas disponibles.
+<img alt="Descripción de la imagen" class="leftoriginal marco margintop10 marginbottom20" src="../img/UT4/bbdd-22.png" /></li>
+</ul>
+</div>
+<div class="admonition task">
+<p class="admonition-title">Trabajo a realizar 3/3</p>
+<ul>
+<li>Preparar las relaciones entre las tablas.</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">¿Qué relaciones entre tablas tenemos en nuestra base de datos?</p>
+</div>
+<ul>
+<li>Para establecer las relaciones pincheremos en el icono <strong>Relación nueva...</strong>. 
+<img alt="Descripción de la imagen" class="leftcuatrocero marco margintop10 marginbottom20" src="../img/UT4/bbdd-23.png" /></li>
+<li>Rellenaremos los campos para definir la relación entre tablas.
+<img alt="Descripción de la imagen" class="leftcuatrocero marco margintop10 marginbottom20" src="../img/UT4/bbdd-24.png" /></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">¿A qué corresponden los campos <code>Opciones de actualización</code> y <code>Opciones de eliminación</code>?</p>
+</div>
+<ul>
+<li>Resultado final después de establecer todas las relaciones entre tablas.
+<img alt="Descripción de la imagen" class="leftoriginal marco margintop10" src="../img/UT4/bbdd-48.png" /></li>
+</ul>
+</div>
+</div>
+<h3 id="23-entrega-de-la-tarea">2.3 - Entrega de la tarea</h3>
+<div class="admonition warning">
+<p class="admonition-title">Condiciones de entrega de la tarea</p>
+<ul>
+<li>Guardar el documento con RA4-CEa-NombreApellidos en formato <strong>odb</strong>, <strong>formato nativo</strong> de LibreOffice Base.</li>
+<li><strong>No se aceptará ningun formato que no sea odb</strong>.  </li>
+<li>Subir la base de datos, a la tarea RA4-CEa de <strong>Aules</strong>.</li>
+<li>A partir de momento de apertura de la tarea, dispondréis de <strong>14 días</strong> para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestros ejercicios.</li>
+</ul>
+</div>
+<h2 id="3-tarea-ra4-cece-formularios">3 - Tarea RA4-CEce Formularios</h2>
+<div class="admonition warning">
+<p class="admonition-title">Para esta tarea, deberéis recuperar la base de datos creada en la tarea RA4-CEa</p>
+</div>
+<h3 id="31-parte-1">3.1 - Parte 1</h3>
+<div class="admonition warning">
+<p class="admonition-title">1 - Formularios</p>
+<p>Un formulario es un objeto de base de datos que proporciona una interfaz intuitiva para <strong>introducir</strong>, <strong>modificar</strong> y <strong>visualizar los datos</strong> almacenados en las tablas de nuestra base de datos.<br />
+Los formularios están diseñados para simplificar las consultas <strong>CRUD</strong> (Create, Read, Update, Delete), permitiendo a los usuarios interactuar con la base de datos sin necesidad de trabajar directamente con tablas o consultas SQL.</p>
+<p><strong>Ejemplo de interfaz de formulario:</strong>
+<img alt="Descripción de la imagen" class="leftsietecinco margintop10 marginbottom20" src="../img/UT4/bbdd-25.png" /></p>
+</div>
+<h3 id="32-parte-2">3.2 - Parte 2</h3>
+<div class="admonition warning">
+<p class="admonition-title">2 - Creación de formularios</p>
+<div class="admonition tip">
+<p class="admonition-title">Elementos fundamentales de un formulario</p>
+<p>Un formulario puede contener diversos elementos que facilitan la interacción con los datos.<br />
+Algunos de los elementos más comunes son:</p>
+<ul>
+<li><strong>Cuadros de texto</strong>: Permiten ingresar o mostrar datos alfanuméricos.</li>
+<li><strong>Cuadros combinados</strong>: Ofrecen una lista desplegable de opciones para seleccionar un valor específico.</li>
+<li><strong>Botones de opción</strong>: Permiten seleccionar una opción entre varias disponibles.</li>
+<li><strong>Casillas de verificación</strong>: Permiten marcar o desmarcar opciones.</li>
+<li><strong>Botones de comando</strong>: Permiten ejecutar acciones específicas, como guardar un registro, eliminar un registro o navegar entre registros.</li>
+<li>... y muchos más.  </li>
+</ul>
+<p><strong>Ejemplo de formulario</strong> <br />
+<img alt="Descripción de la imagen" class="leftcincocero margintop10 marginbottom20" src="../img/UT4/bbdd-26.png" /></p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Elementos gráficos de un formulario</p>
+<p>Además de los elementos de control, un formulario también puede incluir elementos gráficos para mejorar su apariencia y usabilidad. Algunos ejemplos de elementos gráficos son:</p>
+<ul>
+<li><strong>Etiquetas</strong>: Se utilizan para identificar los campos del formulario y proporcionar información adicional al usuario.</li>
+<li><strong>Imágenes</strong>: Se pueden incluir imágenes para hacer el formulario más atractivo visualmente o para representar información de manera gráfica.</li>
+<li><strong>Líneas y formas</strong>: Se pueden utilizar para organizar visualmente el formulario y separar secciones o grupos de campos relacionados.</li>
+<li>... y muchos más.  </li>
+</ul>
+<p><strong>Ejemplo de formulario con elementos gráficos añadidos</strong> <br />
+<img alt="Descripción de la imagen" class="leftcincocero margintop10 marginbottom20" src="../img/UT4/bbdd-27.png" /></p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Creación de formularios con el asistente de LibreOffice Base</p>
+<p>LibreOffice Base ofrece un asistente para la creación de formularios que guía al usuario a través de los pasos necesarios para diseñar un formulario de manera rápida y sencilla.  </p>
+<ul>
+<li>Vamos a <strong>Formularios → Crear formulario con asistente...</strong>.
+<img alt="Descripción de la imagen" class="leftcincocero margintop10 marginbottom20" src="../img/UT4/bbdd-28.png" /></li>
+<li>Elegimos la tabla de la base de datos que usaremos así como los campos que queremos pintar en el formulario.
+<img alt="Descripción de la imagen" class="leftcincocero margintop10 marginbottom20" src="../img/UT4/bbdd-29.png" /></li>
+<li>En el siguientre paso, dejamos las opciones por defecto. </li>
+<li>Organizar controles: Elegimos la disposición de controles dentro de la interfaz que más nos guste.<br />
+<img alt="Descripción de la imagen" class="leftoriginal margintop10 marginbottom20" src="../img/UT4/bbdd-30.png" /></li>
+<li>En <strong>Establecer entrada de datos</strong> marcaremos si los datos se pueden modificar (insertar, modificar o eliminar).
+<img alt="Descripción de la imagen" class="leftcincocero margintop10 marginbottom20" src="../img/UT4/bbdd-31.png" /></li>
+<li>En <strong>Aplicar estilos</strong> elegimos el diseño de los campos y el color de fondo.</li>
+<li>Finalemente, damos un nombre al formulario y nos ponemos a trabajar con él para hacerlo plenamente funcional. 
+<img alt="Descripción de la imagen" class="leftcincocero margintop10 marginbottom20" src="../img/UT4/bbdd-32.png" /></li>
+</ul>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Modificación del formulario creado con el asistente</p>
+<p>Como podemos ver, el formulario creado con el asistente no tiene en cuenta que algunos campos están enlazados con otras tablas, por lo que los muestra como cuadros de texto.<br />
+<img alt="Descripción de la imagen" class="leftsietecero margintop10 marginbottom20" src="../img/UT4/bbdd-37.png" />
+Para que el formulario sea plenamente funcional, es necesario modificarlo para que los campos relacionados con otras tablas se muestren como cuadros combinados.</p>
+<ul>
+<li>Selecionamos uno de los campos a modificar, hacemos click derecho, seleccionamos <strong>desagrupar</strong> y eliminamos el campo.</li>
+<li>En la barra de herramientas de controles, seleccionamos el control <strong>Cuadro combinado</strong> y lo colocamos en el lugar donde estaba el campo eliminado.</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Muy importante</p>
+<p>Cuando seleccionamos el control de cuadro combinado, es necesario que el botón de "<strong>Alternar asistentes de control de formulario</strong>" esté activado. De lo contrario, no aparecerá el asistente para configurar correctamente el cuadro combinado.
+<img alt="Descripción de la imagen" class="leftcuatrocero margintop10" src="../img/UT4/bbdd-33.png" /></p>
+</div>
+<ul>
+<li>Una vez abierto el asistente, elegimos la tabla <strong>Socios</strong>.
+<img alt="Descripción de la imagen" class="leftcuatrocero margintop10 marginbottom20" src="../img/UT4/bbdd-34.png" /></li>
+<li>Luego elegimos el campo que queremos visualizar (Cuota).
+<img alt="Descripción de la imagen" class="leftcuatrocero margintop10 marginbottom20" src="../img/UT4/bbdd-35.png" /></li>
+<li>En <strong>campo de base de datos</strong> elegimos la opción <strong>Sí</strong>, al ser un campo que deseamos poder modificar. 
+<img alt="Descripción de la imagen" class="leftcuatrocero margintop10 marginbottom20" src="../img/UT4/bbdd-36.png" /></li>
+<li>Si todo ha ido bien, después de finalizar el cuadro combinado debería mostrar los valores de la tabla enlazada (relacionada) <strong>Tipo_cuota</strong> dentro del formulario. Una vez seleccionada una opción, ese valor se escribirá dentro de la tabla <strong>Socios</strong>. 
+<img alt="Descripción de la imagen" class="leftseiscero margintop10 marginbottom20" src="../img/UT4/bbdd-38.png" /></li>
+</ul>
+</div>
+<div class="admonition task">
+<p class="admonition-title">Trabajo a realizar 1/3</p>
+<ul>
+<li>Realizar el formulario explicado más arriba. </li>
+<li>Modificar el campo <strong>Actividad preferida</strong> para que enlace el valor del campo con los valores de la tabla <strong>Actividades</strong>.  </li>
+</ul>
+</div>
+<div class="admonition task">
+<p class="admonition-title">Trabajo a realizar 2/3 (opcional)</p>
+<ul>
+<li>Mejorar el aspecto visual del formulario (interfaz).</li>
+</ul>
+</div>
+<div class="admonition task">
+<p class="admonition-title">Trabajo a realizar 3/3</p>
+<p>El formulario anterior se diseñó para solamente visualizar los datos personales del usuario.</p>
+<ul>
+<li>Crear un formulario que llamaréis <strong>Socios_Actividades</strong>.</li>
+<li>Ese formulario sirvirá para que cada socio pueda elegir una actividad por día.</li>
+<li><strong>Ejemplo de formulario</strong> (los estilos son opcionales).
+<img alt="Descripción de la imagen" class="leftseiscero margintop10 marginbottom20" src="../img/UT4/bbdd-39.png" /></li>
+<li>Los campos <strong>Actividad lunes, martes..., domingo</strong> deberán reemplazarse por cuadros combinados.</li>
+<li>El formulario deberá ser plenamente funcional es decir, la tabla <strong>Socios</strong> deberá actualizarse con los nuevos valores elegidos. </li>
+</ul>
+</div>
+</div>
+<h3 id="33-entrega-de-la-tarea">3.3 - Entrega de la tarea</h3>
+<div class="admonition warning">
+<p class="admonition-title">Condiciones de entrega de la tarea</p>
+<ul>
+<li>Guardar el documento con RA4-CEce-NombreApellidos en formato <strong>odb</strong>, <strong>formato nativo</strong> de LibreOffice Base.</li>
+<li><strong>No se aceptará ningun formato que no sea odb</strong>.  </li>
+<li>Subir la base de datos, a la tarea RA4-CEce de <strong>Aules</strong>.</li>
+<li>A partir de momento de apertura de la tarea, dispondréis de <strong>14 días</strong> para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestros ejercicios.</li>
+</ul>
+</div>
+<h2 id="4-tarea-ra4-cedg-consultas-a-la-base-de-datos">4 - Tarea RA4-CEdg Consultas a la base de datos</h2>
+<div class="admonition warning">
+<p class="admonition-title">Para esta tarea, deberéis recuperar la base de datos creada en la tarea RA4-CEce</p>
+</div>
+<p>Las consultas sirven para <strong>recuperar</strong>, <strong>manipular</strong> y <strong>analizar</strong> los datos almacenados en las tablas de una base de datos. En otras palabras, las consultas permiten obtener información específica de una o varias tablas mediante criterios determinados.<br />
+Las consultas son una herramienta fundamental para trabajar con bases de datos, ya que permiten:</p>
+<ul>
+<li><strong>Filtrar la información</strong> para recuperar sólo aquellos datos interesantes para cada caso.</li>
+<li><strong>Ordenar la información</strong> recuperada utilizando tantos criterios como sean necesarios.</li>
+<li><strong>Utilizar varias tablas</strong> para obtener datos combinados de ellas.  </li>
+</ul>
+<p>En LibreOffice Base, las consultas se pueden realizar de tres maneras distintas: <strong>Modo Diseño</strong>, <strong>con el asistente</strong> o utilizando <strong>SQL</strong>.</p>
+<h3 id="41-introduccion-a-las-consultas-sql">4.1 - Introducción a las consultas SQL</h3>
+<p>Las consultas SQL (Structured Query Language) son una herramienta fundamental en la gestión de bases de datos relacionales. Utilizan un lenguaje de programación específico para interactuar con la base de datos y realizar diversas operaciones, como recuperar, insertar, actualizar o eliminar datos.</p>
+<p>Para realizar consultas SQL iremos a <strong>Consultas</strong> y pulsaremos el enlace de <strong>Crear consulta en modo SQL...</strong>.
+<img alt="Descripción de la imagen" class="leftcuatrocero margintop10 marginbottom20" src="../img/UT4/bbdd-43.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Ejemplo de consulta SQL</p>
+<p>En este ejemplo, recuperaremos todos los socios que praticarán ciclo indor el lunes.</p>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Socios</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">Actividad_Lunes</span><span class="o">=</span><span class="s1">'Ciclo indoor'</span><span class="p">;</span><span class="w">  </span>
+</span></code></pre></div>
+<p>Esta consulta selecciona <strong>todos los campos</strong> de la tabla "Socios" y devuelve una lista y devuelve los valores que cumplen la condición (filtrado) donde el campo Actividad_Lunes='Ciclo indoor'.
+<img alt="Descripción de la imagen" class="leftsietecero margintop10 marginbottom20" src="../img/UT4/bbdd-44.png" /><br />
+<strong class="yellowhighlight">Guardar la consulta como consulta_1</strong>.</p>
+</div>
+<div class="admonition task">
+<p class="admonition-title">Trabajo a realizar</p>
+<div class="admonition exercise">
+<p class="admonition-title">Ejercicio 1</p>
+<p>Modificar la consulta anterior para que devuelva solamente los nombres y apellidos de los socios que harán body pump el martes.<br />
+<strong class="yellowhighlight">Guardar la consulta como consulta_2</strong>.</p>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Ejercicio 2</p>
+<p>Modificar la consulta anterior para que devuelva solamente los nombres y apellidos de los socios que harán body pump el viernes por la tarde y tienen una cuota anual.<br />
+<strong class="yellowhighlight">Guardar la consulta como consulta_3</strong>.</p>
+</div>
+</div>
+<h3 id="42-consultas-en-modo-diseno">4.2 - Consultas en modo diseño</h3>
+<h4 id="421-consultas-sobre-una-tabla">4.2.1 - Consultas sobre una tabla</h4>
+<p>Esta vez eligiremos la opción <strong>Crear consulta en modo de diseño...</strong> y seleccionamos la tabla sobre la cual queremos trabajar (tabla <strong>Socios</strong>).</p>
+<div class="admonition tip">
+<p class="admonition-title">Ejemplo de consulta</p>
+<p><img alt="Descripción de la imagen" class="lefttrescero margintop10 marginbottom20" src="../img/UT4/bbdd-46.png" />
+En esta consulta visualizamos los campos <strong>Nombre</strong> y <strong>Apellidos</strong>. Además, ordenaremos los resultados por orden alfabético sobre la columna <strong>Nombre</strong>.<br />
+<strong class="yellowhighlight">Guardar la consulta como consulta_4</strong>.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Ejemplo de consulta con un criterio</p>
+<p>En esta consulta añadimos un criterio a la consulta anterior para que nos devuelva los valores que cumplan la condición Cuota = Anual.
+<img alt="Descripción de la imagen" class="leftcuatrocero margintop10 marginbottom20" src="../img/UT4/bbdd-47.png" /><br />
+<strong class="yellowhighlight">Guardar la consulta como consulta_5</strong>.</p>
+</div>
+<div class="admonition task">
+<p class="admonition-title">Trabajo a realizar</p>
+<div class="admonition exercise">
+<p class="admonition-title">Ejercicio 3</p>
+<p>Modificar la consulta anterior para que devuelva los registros que cumplan las condiciones <strong>Cuota = Anual O Cuota = Mensual</strong>.<br />
+<strong class="yellowhighlight">Guardar la consulta como consulta_6</strong>.</p>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Ejercicio 4</p>
+<p>Crear una consulta que devuelva <strong>la cantidad de registros</strong> que cumplan la condición <strong>Cuota = Anual</strong>. Admeás, se le dará un alias al resultado obtenido. Por ejemplo, <code>Cantidad de socios con cuota anual</code>.<br />
+<strong class="yellowhighlight">Guardar la consulta como consulta_7</strong>.  </p>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Ejercicio 5</p>
+<p>Crear una consulta que devuelva la cantidad de registros que cumplan las condiciones <strong>Cuota = Anual O Trimestral O Mensual</strong>.<br />
+<strong class="yellowhighlight">Guardar la consulta como consulta_8</strong>.</p>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Ejercicio 6</p>
+<p>Crear una consulta que devuelva todos los registros que cumplan las condiciones <strong>Actividad_Miércoles no es nulo</strong>.<br />
+<strong class="yellowhighlight">Guardar la consulta como consulta_9</strong>.</p>
+</div>
+</div>
+<h4 id="422-consultas-sobre-varias-tablas">4.2.2 - Consultas sobre varias tablas</h4>
+<p>Cuando una sola tabla no es suficiente para la consulta a realizar, usaremos consultas relacionales (o Joins) sobre <strong>varias tablas</strong>.</p>
+<div class="admonition task">
+<p class="admonition-title">Trabajo realizar</p>
+<p>En este ejemplo nos proponemos de recuperar todos los usuarios que harán la actividad <strong>entrenamiento funcional</strong> el <strong>lunes</strong> por la <strong>mañana</strong> y además, saber el <strong>horario</strong> de dicha actividad.</p>
+<div class="admonition exercise">
+<p class="admonition-title">Ejercicio 7</p>
+<p>Para ir entendiendo progresivamente las ventajas (y los peligros) de las consultas relacionales, realizar primero la consulta:</p>
+<ul>
+<li>Usuarios: <strong>Nombre</strong> y <strong>Apellidos</strong></li>
+<li>Actividad: <strong>entrenamiento funcional</strong></li>
+<li>Día: <strong>lunes</strong></li>
+<li>Franja horaria: <strong>mañana</strong></li>
+</ul>
+<p><strong class="yellowhighlight">Guardar la consulta como consulta_10</strong>.</p>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Ejercicio 8</p>
+<p>Revisar las tablas y buscar en qué tabla tenemos la información del horario de las actividades.<br />
+Añadir esa tabla a la consulta.</p>
+<ul>
+<li>Crear la consulta para recuperar <strong>Nombre</strong>, <strong>Apellidos</strong> de los socios que harán <strong>entrenamiento funcional</strong> el <strong>lunes</strong> por la <strong>mañana</strong>.</li>
+<li>Además la tabla deberá devolver <strong>el horario</strong> de la actividad <strong>entrenamiento funcional</strong>.<br />
+<strong>Ejemplo de resultado:</strong>
+<img alt="Descripción de la imagen" class="leftcuatrocero margintop10 marginbottom20" src="../img/UT4/bbdd-49.png" /></li>
+</ul>
+<p><strong class="yellowhighlight">Guardar la consulta como consulta_11</strong>.</p>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Ejercicio 9</p>
+<ul>
+<li>Realizar una consulta que devuelva la cantidad total de dinero obtenida de los socios que tienen <strong>una cuota mensual</strong>.<br />
+<strong>Ejemplo de resultado:</strong>
+<img alt="Descripción de la imagen" class="lefttrescero margintop10 marginbottom20" src="../img/UT4/bbdd-50.png" />     <br />
+<strong class="yellowhighlight">Guardar la consulta como consulta_12</strong>.</li>
+</ul>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Ejercicio 10</p>
+<ul>
+<li>Realizar una consulta que devuelva la cantidad total de dinero obtenida de los socios que tienen <strong>una cuota mensual</strong> y <strong>anual</strong>.<br />
+<strong>Ejemplo de resultado:</strong>
+<img alt="Descripción de la imagen" class="lefttrescero margintop10 marginbottom20" src="../img/UT4/bbdd-51.png" />     <br />
+<strong class="yellowhighlight">Guardar la consulta como consulta_13</strong>.</li>
+</ul>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Ejercicio 11</p>
+<ul>
+<li>Realizar una consulta que devuelva la cantidad total de dinero obtenida de <strong>todos los socios</strong>.<br />
+<strong class="yellowhighlight">Guardar la consulta como consulta_14</strong>.</li>
+</ul>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Ejercicio 12</p>
+<ul>
+<li>Realizar una consulta que haga lo siguiente: Devuelver id, nombre y apellidos + activo el lunes + actividad de mañana + horario de la actividad.<br />
+<strong>Ejemplo de resultado:</strong>
+<img alt="Descripción de la imagen" class="leftcuatrocero margintop10 marginbottom20" src="../img/UT4/bbdd-52.png" />     <br />
+<strong class="yellowhighlight">Guardar la consulta como consulta_15</strong>.</li>
+</ul>
+</div>
+</div>
+<h3 id="43-entrega-de-la-tarea">4.3 - Entrega de la tarea</h3>
+<div class="admonition warning">
+<p class="admonition-title">Condiciones de entrega de la tarea</p>
+<ul>
+<li>Guardar el documento con RA4-CEdg-NombreApellidos en formato <strong>odb</strong>, <strong>formato nativo</strong> de LibreOffice Base.</li>
+<li><strong>No se aceptará ningun formato que no sea odb</strong>.  </li>
+<li>Subir la base de datos, a la tarea RA4-CEdg de <strong>Aules</strong>.</li>
+<li>A partir de momento de apertura de la tarea, dispondréis de <strong>14 días</strong> para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestros ejercicios.</li>
+</ul>
+</div>
+<h2 id="5-tarea-ra4-cef-informes">5 - Tarea RA4-CEf Informes</h2>
+<div class="admonition warning">
+<p class="admonition-title">Para esta tarea, deberéis recuperar la base de datos creada en la tarea RA4-CEdg</p>
+</div>
+<p>Los informes son objetos de base de datos que permiten presentar los datos de forma organizada y lista para imprimir o exportar. Se basan en la información de tablas o consultas y muestran los datos con un formato definido. Cada vez que se ejecutan, reflejan el estado actual de la base de datos.</p>
+<h2 id="51-creacion-de-una-informe-con-el-asistente">5.1 - Creación de una informe con el asistente</h2>
+<ul>
+<li>Eligimos la opción Crear informe en modo de diseño... y seleccionamos la tabla (o consulta) que usaremos para crear el informe.</li>
+<li>Elegimos los campos que queremos mostrar en el informe.
+<img alt="Descripción de la imagen" class="leftseiscero margintop10 marginbottom20" src="../img/UT4/bbdd-53.png" /></li>
+<li>Etiquetamos los campos para que el informe sea más legible.
+<img alt="Descripción de la imagen" class="leftseiscero margintop10 marginbottom20" src="../img/UT4/bbdd-54.png" /></li>
+<li>Elegimos el o los campos por los que queremos agrupar la información.
+<img alt="Descripción de la imagen" class="leftseiscero margintop10 marginbottom20" src="../img/UT4/bbdd-55.png" /></li>
+<li>Elegimos los otros campos por los que queremos ordenar la información.
+<img alt="Descripción de la imagen" class="leftseiscero margintop10 marginbottom20" src="../img/UT4/bbdd-56.png" /></li>
+<li>Elegir la disposición de los campos dentro del informe.
+<img alt="Descripción de la imagen" class="leftseiscero margintop10 marginbottom20" src="../img/UT4/bbdd-57.png" /></li>
+<li>Para finalizar damos un nombre al informe y ya podemos trabajar con él para darle el formato que queramos.<br />
+En este caso, el informe se actualizará cada vez que se ejecute, mostrando el estado actual de la base de datos (informe dinámico).
+<img alt="Descripción de la imagen" class="leftseiscero margintop10 marginbottom20" src="../img/UT4/bbdd-58.png" />
+El informe generado es un documento independiente de la base de datos, por lo que se puede modificar su formato sin afectar a la base de datos.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom20" src="../img/UT4/bbdd-59.png" /></li>
+</ul>
+<p><strong class="yellowhighlight">Guardar el informe con informe_1</strong>.</p>
+<h2 id="52-trabajo-a-realizar">5.2 - Trabajo a realizar</h2>
+<p>El informe que crearemos se propone listar las actividades que realizarán los socios el martes por la tarde.<br />
+En este caso el no se hará sobre una tabla, sino sobre una consulta. Por lo tanto, antes de crear el informe, es necesario crear la consulta que devuelva los datos necesarios para el informe.</p>
+<ul>
+<li>Crear una consulta que devuelva el <strong>nombre</strong>, <strong>apellidos</strong> y <strong>actividad</strong> de los socios que harán una actividad el <strong>martes</strong> por la <strong>tarde</strong>.</li>
+<li><strong class="yellowhighlight">Guardar la consulta como Consulta_informe</strong>.  </li>
+<li><strong>Ejemplo de resultado de la consulta</strong>
+<img alt="Descripción de la imagen" class="leftcuatrocero margintop10 marginbottom20" src="../img/UT4/bbdd-60.png" /></li>
+<li>Crear un informe que muestre la información de la consulta anterior.</li>
+<li><strong class="yellowhighlight">Guardar el informe como Consulta_informe</strong>.  </li>
+<li><strong>Ejemplo de resultado del informe</strong>
+<img alt="Descripción de la imagen" class="margintop10 marginbottom20 marco" src="../img/UT4/bbdd-61.png" /></li>
+</ul>
+<h2 id="53-entrega-de-la-tarea">5.3 - Entrega de la tarea</h2>
+<div class="admonition warning">
+<p class="admonition-title">Condiciones de entrega de la tarea</p>
+<ul>
+<li>Guardar el documento con RA4-CEf-NombreApellidos en formato <strong>odb</strong>, <strong>formato nativo</strong> de LibreOffice Base.</li>
+<li><strong>No se aceptará ningun formato que no sea odb</strong>.  </li>
+<li>Subir la base de datos, a la tarea RA4-CEf de <strong>Aules</strong>.</li>
+<li>A partir de momento de apertura de la tarea, dispondréis de <strong>14 días</strong> para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestros ejercicios.</li>
+</ul>
+</div>
+<h2 id="6-tarea-ra4-ceh-macros">6 - Tarea RA4-CEh Macros</h2>
+<p>Las macros son secuencias de comandos que permiten automatizar tareas repetitivas o complejas dentro de una base de datos. En LibreOffice Base, las macros se pueden crear utilizando el lenguaje de programación <strong>LibreOffice Basic</strong> o utilizando otros lenguajes compatibles como Python o JavaScript. Las macros pueden ser utilizadas para realizar una amplia variedad de tareas, como:</p>
+<ul>
+<li>Automatizar la entrada de datos.</li>
+<li>Realizar cálculos complejos.</li>
+<li>Generar informes personalizados.</li>
+<li>Interactuar con otras aplicaciones de LibreOffice, como Writer o Calc.</li>
+<li><strong>Aportar funcionalidades adicionales a los formularios, como mejorar la interacción con los campos...</strong></li>
+<li>... y muchas más.</li>
+</ul>
+<h3 id="61-guardar-las-macros-en-la-base-de-datos">6.1 - Guardar las macros en la base de datos</h3>
+<ul>
+<li>Para ello iremos a <strong>Herramientas → Macros → Organizar macros → Basic</strong>.</li>
+<li>
+<p>Una vez abierto el cuadro de diálogo vamos a nuestro archivo, seleccionamos <strong>Standard</strong>, pulsamos <strong>Nuevo</strong> y damos <strong>un nombre</strong> al módulo que contendrá nuestras macros.<br />
+<img alt="Descripción de la imagen" class="margintop10 marginbottom20" src="../img/UT4/bbdd-75.png" /></p>
+</li>
+<li>
+<p>Copiamos el siguiente código en el editor de macros:</p>
+</li>
+</ul>
+<div class="language-basic highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">'******** MACRO ABRIR EL FORMULARIO SOCIOS_ACTIVIDADES AL ABRIRSE LA BBDD *********</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="vg">Sub</span><span class="w"> </span><span class="vg">AbrirFormInicio</span><span class="p">(</span><span class="vg">oEvento</span><span class="w"> </span><span class="vg">As</span><span class="w"> </span><span class="vg">Object</span><span class="p">)</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="vg">On</span><span class="w"> </span><span class="vg">Error</span><span class="w"> </span><span class="vg">Resume</span><span class="w"> </span><span class="vg">Next</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">        </span><span class="vg">Dim</span><span class="w"> </span><span class="vg">Control</span><span class="w"> </span><span class="vg">as</span><span class="w"> </span><span class="vg">Object</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">        </span><span class="vg">Control</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vg">ThisDatabaseDocument</span><span class="o">.</span><span class="vg">CurrentController</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">        </span><span class="vg">If</span><span class="w"> </span><span class="vg">Not</span><span class="w"> </span><span class="vg">Control</span><span class="o">.</span><span class="vg">IsConnected</span><span class="w"> </span><span class="vg">Then</span><span class="w"> </span><span class="vg">Control</span><span class="o">.</span><span class="vg">Connect</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">        </span><span class="vg">ThisDatabaseDocument</span><span class="o">.</span><span class="vg">FormDocuments</span><span class="o">.</span><span class="vg">GetByName</span><span class="p">(</span><span class="s2">"Socios_Actividades"</span><span class="p">)</span><span class="o">.</span><span class="vg">Open</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="vg">End</span><span class="w"> </span><span class="vg">Sub</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="c1">'******** MACRO PARA ESTABLECER LA VISIBILIDAD DE CAMPOS DE ACTIVIDADES *********</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="vg">Sub</span><span class="w"> </span><span class="vg">ControlarVisibilidad</span><span class="p">(</span><span class="vg">oEvento</span><span class="w"> </span><span class="vg">As</span><span class="w"> </span><span class="vg">Object</span><span class="p">)</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="vg">Dim</span><span class="w"> </span><span class="vg">oControl</span><span class="w"> </span><span class="vg">As</span><span class="w"> </span><span class="vg">Object</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">    </span><span class="vg">Dim</span><span class="w"> </span><span class="vg">oFormulario</span><span class="w"> </span><span class="vg">As</span><span class="w"> </span><span class="vg">Object</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">    </span><span class="vg">Dim</span><span class="w"> </span><span class="vg">oLabelModelo</span><span class="w"> </span><span class="vg">As</span><span class="w"> </span><span class="vg">Object</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">    </span><span class="vg">Dim</span><span class="w"> </span><span class="vg">oCuadroModelo</span><span class="w"> </span><span class="vg">As</span><span class="w"> </span><span class="vg">Object</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">    </span><span class="vg">Dim</span><span class="w"> </span><span class="vg">oLabelControl</span><span class="w"> </span><span class="vg">As</span><span class="w"> </span><span class="vg">Object</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">    </span><span class="vg">Dim</span><span class="w"> </span><span class="vg">oCuadroControl</span><span class="w"> </span><span class="vg">As</span><span class="w"> </span><span class="vg">Object</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">    </span><span class="vg">Dim</span><span class="w"> </span><span class="vg">nombreCheckbox</span><span class="w"> </span><span class="vg">As</span><span class="w"> </span><span class="vg">String</span>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">    </span><span class="vg">Dim</span><span class="w"> </span><span class="vg">num</span><span class="w"> </span><span class="vg">As</span><span class="w"> </span><span class="vg">String</span>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">    </span><span class="c1">' Control que disparó el evento</span>
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">    </span><span class="vg">oControl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vg">oEvento</span><span class="o">.</span><span class="vg">Source</span>
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="w">    </span><span class="c1">' Formulario</span>
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="w">    </span><span class="vg">oFormulario</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vg">oControl</span><span class="o">.</span><span class="vg">Model</span><span class="o">.</span><span class="vg">Parent</span>
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="w">    </span><span class="c1">' Nombre del checkbox</span>
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="w">    </span><span class="vg">nombreCheckbox</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vg">oControl</span><span class="o">.</span><span class="vg">Model</span><span class="o">.</span><span class="vg">Name</span>
+</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="w">    </span><span class="c1">' Extraer número del checkbox (1,2,3...)</span>
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="w">    </span><span class="vg">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vg">Right</span><span class="p">(</span><span class="vg">nombreCheckbox</span><span class="p">,</span><span class="il">1</span><span class="p">)</span>
+</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="w">    </span><span class="c1">' Obtener modelos de los controles</span>
+</span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="w">    </span><span class="vg">oLabelModelo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vg">oFormulario</span><span class="o">.</span><span class="vg">getByName</span><span class="p">(</span><span class="s2">"label"</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="vg">num</span><span class="p">)</span>
+</span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a><span class="w">    </span><span class="vg">oCuadroModelo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vg">oFormulario</span><span class="o">.</span><span class="vg">getByName</span><span class="p">(</span><span class="s2">"Cuadro_combinado_"</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="vg">num</span><span class="p">)</span>
+</span><span id="__span-1-33"><a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a><span class="w">    </span><span class="c1">' Obtener controles visibles</span>
+</span><span id="__span-1-34"><a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a><span class="w">    </span><span class="vg">oLabelControl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vg">ThisComponent</span><span class="o">.</span><span class="vg">CurrentController</span><span class="o">.</span><span class="vg">getControl</span><span class="p">(</span><span class="vg">oLabelModelo</span><span class="p">)</span>
+</span><span id="__span-1-35"><a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a><span class="w">    </span><span class="vg">oCuadroControl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vg">ThisComponent</span><span class="o">.</span><span class="vg">CurrentController</span><span class="o">.</span><span class="vg">getControl</span><span class="p">(</span><span class="vg">oCuadroModelo</span><span class="p">)</span>
+</span><span id="__span-1-36"><a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a><span class="w">    </span><span class="c1">' Mostrar u ocultar</span>
+</span><span id="__span-1-37"><a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a><span class="w">    </span><span class="vg">oLabelControl</span><span class="o">.</span><span class="vg">Visible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="vg">oControl</span><span class="o">.</span><span class="vg">State</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="il">1</span><span class="p">)</span>
+</span><span id="__span-1-38"><a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a><span class="w">    </span><span class="vg">oCuadroControl</span><span class="o">.</span><span class="vg">Visible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="vg">oControl</span><span class="o">.</span><span class="vg">State</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="il">1</span><span class="p">)</span>
+</span><span id="__span-1-39"><a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a><span class="vg">End</span><span class="w"> </span><span class="vg">Sub</span>
+</span><span id="__span-1-40"><a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a>
+</span><span id="__span-1-41"><a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a><span class="c1">'******** MACRO PARA ACTUALIZAR LA VISIBILIDAD DE CAMPOS DE ACTIVIDADES DESPUES DE CAMBIOS *********</span>
+</span><span id="__span-1-42"><a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a><span class="vg">Sub</span><span class="w"> </span><span class="vg">ActualizarVisibilidadRegistros</span><span class="p">(</span><span class="vg">oEvento</span><span class="w"> </span><span class="vg">As</span><span class="w"> </span><span class="vg">Object</span><span class="p">)</span>
+</span><span id="__span-1-43"><a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a><span class="c1">'MsgBox "ha funcionado"</span>
+</span><span id="__span-1-44"><a id="__codelineno-1-44" name="__codelineno-1-44" href="#__codelineno-1-44"></a><span class="w">    </span><span class="vg">Dim</span><span class="w"> </span><span class="vg">oFormulario</span><span class="w"> </span><span class="vg">As</span><span class="w"> </span><span class="vg">Object</span>
+</span><span id="__span-1-45"><a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a><span class="w">    </span><span class="vg">Dim</span><span class="w"> </span><span class="vg">i</span><span class="w"> </span><span class="vg">As</span><span class="w"> </span><span class="vg">Integer</span>
+</span><span id="__span-1-46"><a id="__codelineno-1-46" name="__codelineno-1-46" href="#__codelineno-1-46"></a><span class="w">    </span><span class="vg">Dim</span><span class="w"> </span><span class="vg">oCheckbox</span><span class="w"> </span><span class="vg">As</span><span class="w"> </span><span class="vg">Object</span>
+</span><span id="__span-1-47"><a id="__codelineno-1-47" name="__codelineno-1-47" href="#__codelineno-1-47"></a><span class="w">    </span><span class="vg">Dim</span><span class="w"> </span><span class="vg">oLabelModelo</span><span class="w"> </span><span class="vg">As</span><span class="w"> </span><span class="vg">Object</span>
+</span><span id="__span-1-48"><a id="__codelineno-1-48" name="__codelineno-1-48" href="#__codelineno-1-48"></a><span class="w">    </span><span class="vg">Dim</span><span class="w"> </span><span class="vg">oCuadroModelo</span><span class="w"> </span><span class="vg">As</span><span class="w"> </span><span class="vg">Object</span>
+</span><span id="__span-1-49"><a id="__codelineno-1-49" name="__codelineno-1-49" href="#__codelineno-1-49"></a><span class="w">    </span><span class="vg">Dim</span><span class="w"> </span><span class="vg">oLabelControl</span><span class="w"> </span><span class="vg">As</span><span class="w"> </span><span class="vg">Object</span>
+</span><span id="__span-1-50"><a id="__codelineno-1-50" name="__codelineno-1-50" href="#__codelineno-1-50"></a><span class="w">    </span><span class="vg">Dim</span><span class="w"> </span><span class="vg">oCuadroControl</span><span class="w"> </span><span class="vg">As</span><span class="w"> </span><span class="vg">Object</span>
+</span><span id="__span-1-51"><a id="__codelineno-1-51" name="__codelineno-1-51" href="#__codelineno-1-51"></a><span class="w">    </span><span class="c1">'oFormulario = oEvento.Source</span>
+</span><span id="__span-1-52"><a id="__codelineno-1-52" name="__codelineno-1-52" href="#__codelineno-1-52"></a><span class="w">    </span><span class="vg">oFormulario</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vg">oEvento</span><span class="o">.</span><span class="vg">Source</span><span class="o">.</span><span class="vg">Model</span><span class="o">.</span><span class="vg">Parent</span>
+</span><span id="__span-1-53"><a id="__codelineno-1-53" name="__codelineno-1-53" href="#__codelineno-1-53"></a>
+</span><span id="__span-1-54"><a id="__codelineno-1-54" name="__codelineno-1-54" href="#__codelineno-1-54"></a><span class="w">    </span><span class="vg">For</span><span class="w"> </span><span class="vg">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="il">1</span><span class="w"> </span><span class="vg">To</span><span class="w"> </span><span class="il">5</span><span class="w">   </span>
+</span><span id="__span-1-55"><a id="__codelineno-1-55" name="__codelineno-1-55" href="#__codelineno-1-55"></a><span class="w">        </span><span class="vg">oCheckbox</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vg">oFormulario</span><span class="o">.</span><span class="vg">getByName</span><span class="p">(</span><span class="s2">"Casilla_"</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="vg">i</span><span class="p">)</span>
+</span><span id="__span-1-56"><a id="__codelineno-1-56" name="__codelineno-1-56" href="#__codelineno-1-56"></a><span class="w">        </span><span class="vg">oLabelModelo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vg">oFormulario</span><span class="o">.</span><span class="vg">getByName</span><span class="p">(</span><span class="s2">"label"</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="vg">i</span><span class="p">)</span>
+</span><span id="__span-1-57"><a id="__codelineno-1-57" name="__codelineno-1-57" href="#__codelineno-1-57"></a><span class="w">        </span><span class="vg">oCuadroModelo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vg">oFormulario</span><span class="o">.</span><span class="vg">getByName</span><span class="p">(</span><span class="s2">"Cuadro_combinado_"</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="vg">i</span><span class="p">)</span>
+</span><span id="__span-1-58"><a id="__codelineno-1-58" name="__codelineno-1-58" href="#__codelineno-1-58"></a><span class="w">        </span><span class="vg">oLabelControl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vg">ThisComponent</span><span class="o">.</span><span class="vg">CurrentController</span><span class="o">.</span><span class="vg">getControl</span><span class="p">(</span><span class="vg">oLabelModelo</span><span class="p">)</span>
+</span><span id="__span-1-59"><a id="__codelineno-1-59" name="__codelineno-1-59" href="#__codelineno-1-59"></a><span class="w">        </span><span class="vg">oCuadroControl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vg">ThisComponent</span><span class="o">.</span><span class="vg">CurrentController</span><span class="o">.</span><span class="vg">getControl</span><span class="p">(</span><span class="vg">oCuadroModelo</span><span class="p">)</span>
+</span><span id="__span-1-60"><a id="__codelineno-1-60" name="__codelineno-1-60" href="#__codelineno-1-60"></a><span class="w">        </span><span class="vg">oLabelControl</span><span class="o">.</span><span class="vg">Visible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="vg">oCheckbox</span><span class="o">.</span><span class="vg">State</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="il">1</span><span class="p">)</span>
+</span><span id="__span-1-61"><a id="__codelineno-1-61" name="__codelineno-1-61" href="#__codelineno-1-61"></a><span class="w">        </span><span class="vg">oCuadroControl</span><span class="o">.</span><span class="vg">Visible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="vg">oCheckbox</span><span class="o">.</span><span class="vg">State</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="il">1</span><span class="p">)</span>
+</span><span id="__span-1-62"><a id="__codelineno-1-62" name="__codelineno-1-62" href="#__codelineno-1-62"></a><span class="w">    </span><span class="vg">Next</span><span class="w"> </span><span class="vg">i</span>
+</span><span id="__span-1-63"><a id="__codelineno-1-63" name="__codelineno-1-63" href="#__codelineno-1-63"></a>
+</span><span id="__span-1-64"><a id="__codelineno-1-64" name="__codelineno-1-64" href="#__codelineno-1-64"></a><span class="vg">End</span><span class="w"> </span><span class="vg">Sub</span>
+</span><span id="__span-1-65"><a id="__codelineno-1-65" name="__codelineno-1-65" href="#__codelineno-1-65"></a>
+</span><span id="__span-1-66"><a id="__codelineno-1-66" name="__codelineno-1-66" href="#__codelineno-1-66"></a><span class="c1">'******** MACRO PARA CAMBIAR DE REGISTROS DESDE UN BOTON *********</span>
+</span><span id="__span-1-67"><a id="__codelineno-1-67" name="__codelineno-1-67" href="#__codelineno-1-67"></a><span class="vg">Sub</span><span class="w"> </span><span class="vg">IrARegistro</span><span class="p">(</span><span class="vg">oEvent</span><span class="p">)</span>
+</span><span id="__span-1-68"><a id="__codelineno-1-68" name="__codelineno-1-68" href="#__codelineno-1-68"></a><span class="w">    </span><span class="vg">Dim</span><span class="w"> </span><span class="vg">oForm</span><span class="w"> </span><span class="vg">As</span><span class="w"> </span><span class="vg">Object</span>
+</span><span id="__span-1-69"><a id="__codelineno-1-69" name="__codelineno-1-69" href="#__codelineno-1-69"></a><span class="w">    </span><span class="vg">Dim</span><span class="w"> </span><span class="vg">oBarra</span><span class="w"> </span><span class="vg">As</span><span class="w"> </span><span class="vg">Object</span>
+</span><span id="__span-1-70"><a id="__codelineno-1-70" name="__codelineno-1-70" href="#__codelineno-1-70"></a><span class="w">    </span><span class="vg">Dim</span><span class="w"> </span><span class="vg">posicion</span><span class="w"> </span><span class="vg">As</span><span class="w"> </span><span class="vg">Long</span>
+</span><span id="__span-1-71"><a id="__codelineno-1-71" name="__codelineno-1-71" href="#__codelineno-1-71"></a><span class="w">    </span><span class="vg">Dim</span><span class="w"> </span><span class="vg">i</span><span class="w"> </span><span class="vg">As</span><span class="w"> </span><span class="vg">Long</span>
+</span><span id="__span-1-72"><a id="__codelineno-1-72" name="__codelineno-1-72" href="#__codelineno-1-72"></a><span class="w">    </span><span class="vg">oBarra</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vg">oEvent</span><span class="o">.</span><span class="vg">Source</span><span class="o">.</span><span class="vg">Model</span>
+</span><span id="__span-1-73"><a id="__codelineno-1-73" name="__codelineno-1-73" href="#__codelineno-1-73"></a><span class="w">    </span><span class="vg">posicion</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vg">oBarra</span><span class="o">.</span><span class="vg">ScrollValue</span>
+</span><span id="__span-1-74"><a id="__codelineno-1-74" name="__codelineno-1-74" href="#__codelineno-1-74"></a><span class="w">    </span><span class="vg">oForm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vg">oEvent</span><span class="o">.</span><span class="vg">Source</span><span class="o">.</span><span class="vg">Model</span><span class="o">.</span><span class="vg">Parent</span>
+</span><span id="__span-1-75"><a id="__codelineno-1-75" name="__codelineno-1-75" href="#__codelineno-1-75"></a><span class="w">    </span><span class="vg">oForm</span><span class="o">.</span><span class="vg">First</span>
+</span><span id="__span-1-76"><a id="__codelineno-1-76" name="__codelineno-1-76" href="#__codelineno-1-76"></a>
+</span><span id="__span-1-77"><a id="__codelineno-1-77" name="__codelineno-1-77" href="#__codelineno-1-77"></a><span class="w">    </span><span class="vg">For</span><span class="w"> </span><span class="vg">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="il">1</span><span class="w"> </span><span class="vg">To</span><span class="w"> </span><span class="vg">posicion</span>
+</span><span id="__span-1-78"><a id="__codelineno-1-78" name="__codelineno-1-78" href="#__codelineno-1-78"></a><span class="w">        </span><span class="vg">oForm</span><span class="o">.</span><span class="vg">Next</span>
+</span><span id="__span-1-79"><a id="__codelineno-1-79" name="__codelineno-1-79" href="#__codelineno-1-79"></a><span class="w">    </span><span class="vg">Next</span><span class="w"> </span><span class="vg">i</span>
+</span><span id="__span-1-80"><a id="__codelineno-1-80" name="__codelineno-1-80" href="#__codelineno-1-80"></a>
+</span><span id="__span-1-81"><a id="__codelineno-1-81" name="__codelineno-1-81" href="#__codelineno-1-81"></a><span class="w">    </span><span class="vg">oBarra</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vg">oForm</span><span class="o">.</span><span class="vg">getByName</span><span class="p">(</span><span class="s2">"barraRegistros"</span><span class="p">)</span>
+</span><span id="__span-1-82"><a id="__codelineno-1-82" name="__codelineno-1-82" href="#__codelineno-1-82"></a><span class="w">    </span><span class="vg">oBarra</span><span class="o">.</span><span class="vg">ScrollValueMax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vg">oForm</span><span class="o">.</span><span class="vg">RowCount</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="il">1</span>
+</span><span id="__span-1-83"><a id="__codelineno-1-83" name="__codelineno-1-83" href="#__codelineno-1-83"></a>
+</span><span id="__span-1-84"><a id="__codelineno-1-84" name="__codelineno-1-84" href="#__codelineno-1-84"></a><span class="vg">End</span><span class="w"> </span><span class="vg">Sub</span>
+</span><span id="__span-1-85"><a id="__codelineno-1-85" name="__codelineno-1-85" href="#__codelineno-1-85"></a>
+</span><span id="__span-1-86"><a id="__codelineno-1-86" name="__codelineno-1-86" href="#__codelineno-1-86"></a><span class="c1">'************ MACRO PARA ESTABLECER LA PANTALLA COMPLETA *************</span>
+</span><span id="__span-1-87"><a id="__codelineno-1-87" name="__codelineno-1-87" href="#__codelineno-1-87"></a><span class="vg">Sub</span><span class="w"> </span><span class="vg">PantallaCompleta</span><span class="p">(</span><span class="vg">Evento</span><span class="w"> </span><span class="vg">As</span><span class="w"> </span><span class="vg">Object</span><span class="p">)</span><span class="c1">'Evento al cargar</span>
+</span><span id="__span-1-88"><a id="__codelineno-1-88" name="__codelineno-1-88" href="#__codelineno-1-88"></a><span class="w">    </span><span class="vg">On</span><span class="w"> </span><span class="vg">Error</span><span class="w"> </span><span class="vg">Resume</span><span class="w"> </span><span class="vg">Next</span>
+</span><span id="__span-1-89"><a id="__codelineno-1-89" name="__codelineno-1-89" href="#__codelineno-1-89"></a><span class="w">    </span><span class="vg">Dim</span><span class="w"> </span><span class="vg">oFrame</span><span class="w"> </span><span class="vg">As</span><span class="w"> </span><span class="vg">Object</span>
+</span><span id="__span-1-90"><a id="__codelineno-1-90" name="__codelineno-1-90" href="#__codelineno-1-90"></a><span class="w">    </span><span class="vg">Dim</span><span class="w"> </span><span class="vg">oDispatchHelper</span>
+</span><span id="__span-1-91"><a id="__codelineno-1-91" name="__codelineno-1-91" href="#__codelineno-1-91"></a><span class="w">    </span><span class="vg">oFrame</span><span class="o">=</span><span class="vg">Evento</span><span class="o">.</span><span class="vg">Source</span><span class="o">.</span><span class="vg">Parent</span><span class="o">.</span><span class="vg">Parent</span><span class="o">.</span><span class="vg">CurrentController</span><span class="o">.</span><span class="vg">Frame</span>
+</span><span id="__span-1-92"><a id="__codelineno-1-92" name="__codelineno-1-92" href="#__codelineno-1-92"></a><span class="w">    </span><span class="vg">oDispatchHelper</span><span class="o">=</span><span class="vg">CreateUnoService</span><span class="p">(</span><span class="s2">"com.sun.star.frame.DispatchHelper"</span><span class="p">)</span>
+</span><span id="__span-1-93"><a id="__codelineno-1-93" name="__codelineno-1-93" href="#__codelineno-1-93"></a><span class="w">    </span><span class="vg">oDispatchHelper</span><span class="o">.</span><span class="vg">ExecuteDispatch</span><span class="p">(</span><span class="vg">oFrame</span><span class="p">,</span><span class="s2">".uno:FullScreen"</span><span class="p">,</span><span class="s2">""</span><span class="p">,</span><span class="il">0</span><span class="p">,</span><span class="vg">Array</span><span class="p">())</span>
+</span><span id="__span-1-94"><a id="__codelineno-1-94" name="__codelineno-1-94" href="#__codelineno-1-94"></a><span class="w">    </span><span class="vg">Dim</span><span class="w"> </span><span class="vg">Allowed</span><span class="w"> </span><span class="vg">As</span><span class="w"> </span><span class="vg">Variant</span>
+</span><span id="__span-1-95"><a id="__codelineno-1-95" name="__codelineno-1-95" href="#__codelineno-1-95"></a><span class="w">    </span><span class="vg">Dim</span><span class="w"> </span><span class="vg">Layout</span><span class="w"> </span><span class="vg">As</span><span class="w"> </span><span class="vg">Object</span>
+</span><span id="__span-1-96"><a id="__codelineno-1-96" name="__codelineno-1-96" href="#__codelineno-1-96"></a><span class="w">    </span><span class="vg">Dim</span><span class="w"> </span><span class="vg">I</span><span class="w"> </span><span class="vg">As</span><span class="w"> </span><span class="vg">Integer</span>
+</span><span id="__span-1-97"><a id="__codelineno-1-97" name="__codelineno-1-97" href="#__codelineno-1-97"></a><span class="w">    </span><span class="vg">Dim</span><span class="w"> </span><span class="vg">strURL</span><span class="w"> </span><span class="vg">As</span><span class="w"> </span><span class="vg">String</span>
+</span><span id="__span-1-98"><a id="__codelineno-1-98" name="__codelineno-1-98" href="#__codelineno-1-98"></a><span class="w">    </span><span class="vg">If</span><span class="w"> </span><span class="vg">IsMissing</span><span class="p">(</span><span class="vg">Allowed</span><span class="p">)</span><span class="w"> </span><span class="vg">Or</span><span class="w"> </span><span class="vg">Not</span><span class="w"> </span><span class="vg">IsArray</span><span class="p">(</span><span class="vg">Allowed</span><span class="p">)</span><span class="w"> </span><span class="vg">Then</span><span class="w"> </span><span class="vg">Allowed</span><span class="o">=</span><span class="vg">Array</span><span class="p">()</span>
+</span><span id="__span-1-99"><a id="__codelineno-1-99" name="__codelineno-1-99" href="#__codelineno-1-99"></a><span class="w">    </span><span class="vg">BubbleSort</span><span class="p">(</span><span class="vg">Allowed</span><span class="p">)</span><span class="c1">'llamada a la funcion BubbleShort</span>
+</span><span id="__span-1-100"><a id="__codelineno-1-100" name="__codelineno-1-100" href="#__codelineno-1-100"></a><span class="w">    </span><span class="vg">oFrame</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vg">ThisComponent</span><span class="o">.</span><span class="vg">CurrentController</span><span class="o">.</span><span class="vg">Frame</span>
+</span><span id="__span-1-101"><a id="__codelineno-1-101" name="__codelineno-1-101" href="#__codelineno-1-101"></a><span class="w">    </span><span class="vg">Layout</span><span class="o">=</span><span class="vg">oFrame</span><span class="o">.</span><span class="vg">LayoutManager</span><span class="w"> </span>
+</span><span id="__span-1-102"><a id="__codelineno-1-102" name="__codelineno-1-102" href="#__codelineno-1-102"></a><span class="w">    </span><span class="vg">For</span><span class="w"> </span><span class="vg">I</span><span class="o">=</span><span class="il">0</span><span class="w"> </span><span class="vg">To</span><span class="w"> </span><span class="vg">UBound</span><span class="p">(</span><span class="vg">Layout</span><span class="o">.</span><span class="vg">Elements</span><span class="p">)</span>
+</span><span id="__span-1-103"><a id="__codelineno-1-103" name="__codelineno-1-103" href="#__codelineno-1-103"></a><span class="w">        </span><span class="vg">strURL</span><span class="o">=</span><span class="vg">Layout</span><span class="o">.</span><span class="vg">Elements</span><span class="p">(</span><span class="vg">I</span><span class="p">)</span><span class="o">.</span><span class="vg">ResourceURL</span>
+</span><span id="__span-1-104"><a id="__codelineno-1-104" name="__codelineno-1-104" href="#__codelineno-1-104"></a><span class="w">        </span><span class="vg">If</span><span class="w"> </span><span class="vg">BinSearch</span><span class="p">(</span><span class="vg">strURL</span><span class="p">,</span><span class="vg">Allowed</span><span class="p">)</span><span class="o">&gt;=</span><span class="il">0</span><span class="w"> </span><span class="vg">Then</span><span class="w"> </span><span class="c1">'llamada a la funcion BinSearch</span>
+</span><span id="__span-1-105"><a id="__codelineno-1-105" name="__codelineno-1-105" href="#__codelineno-1-105"></a><span class="w">            </span><span class="vg">Layout</span><span class="o">.</span><span class="vg">showElement</span><span class="p">(</span><span class="vg">strURL</span><span class="p">)</span>
+</span><span id="__span-1-106"><a id="__codelineno-1-106" name="__codelineno-1-106" href="#__codelineno-1-106"></a><span class="w">        </span><span class="vg">Else</span>
+</span><span id="__span-1-107"><a id="__codelineno-1-107" name="__codelineno-1-107" href="#__codelineno-1-107"></a><span class="w">            </span><span class="vg">Layout</span><span class="o">.</span><span class="vg">hideElement</span><span class="p">(</span><span class="vg">strURL</span><span class="p">)</span>
+</span><span id="__span-1-108"><a id="__codelineno-1-108" name="__codelineno-1-108" href="#__codelineno-1-108"></a><span class="w">        </span><span class="vg">End</span><span class="w"> </span><span class="vg">If</span>
+</span><span id="__span-1-109"><a id="__codelineno-1-109" name="__codelineno-1-109" href="#__codelineno-1-109"></a><span class="w">    </span><span class="vg">Next</span><span class="w"> </span><span class="vg">I</span>
+</span><span id="__span-1-110"><a id="__codelineno-1-110" name="__codelineno-1-110" href="#__codelineno-1-110"></a><span class="vg">End</span><span class="w"> </span><span class="vg">Sub</span>
+</span></code></pre></div>
+<ul>
+<li>Una vez guardadas, las macros deberan aparecer de la siguiente manera.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom20 marco" src="../img/UT4/bbdd-70.png" /></li>
+</ul>
+<h3 id="62-asignar-eventos-al-checkbox-casilla-del-formulario">6.2 - Asignar eventos al checkbox (casilla) del formulario</h3>
+<ul>
+<li>
+<p>En esta sección, asignaremos el evento <strong>ControlarVisibilidad</strong> a cada una de las casillas del formulario <strong>Socios_Actividades</strong> para que, al marcar o desmarcar cada casilla, se muestre u oculte el cuadro combinado correspondiente a la actividad del día.
+<img alt="Descripción de la imagen" class="leftsietecinco margintop10 marginbottom20" src="../img/UT4/bbdd-64.png" /></p>
+</li>
+<li>
+<p>Tendremos que controlar el nombre de cada casilla para que el evento sepa qué cuadro combinado mostrar u ocultar. Por ejemplo, la casilla del lunes tendrá el nombre <strong>Casilla_1</strong>, la del martes <strong>Casilla_2</strong> y así sucesivamente.
+<img alt="Descripción de la imagen" class="leftsietecinco margintop10 marginbottom20" src="../img/UT4/bbdd-65.png" /></p>
+</li>
+<li>
+<p>También tendremos que controlar el nombre de los cuadros combinados para que la macro se ejecute correctamente.
+<img alt="Descripción de la imagen" class="leftsietecinco margintop10 marginbottom20" src="../img/UT4/bbdd-66.png" /></p>
+</li>
+<li>
+<p>Para finalizar, también revisaremos el nombre de las etiquetas de los cuadros combinados.
+<img alt="Descripción de la imagen" class="leftsietecinco margintop10 marginbottom20" src="../img/UT4/bbdd-77.png" /></p>
+</li>
+</ul>
+<h3 id="63-colocar-una-barra-de-desplazamiento-y-asignarle-un-evento">6.3 - Colocar una barra de desplazamiento y asignarle un evento</h3>
+<ul>
+<li>
+<p>Colocamos una barra de desplazamiento con el nombre barraRegistros.<br />
+<img alt="Descripción de la imagen" class="leftsietecinco margintop10 marginbottom20" src="../img/UT4/bbdd-67.png" /></p>
+</li>
+<li>
+<p>Asignaremos las macros <strong>IrARegistro</strong> y <strong>ActualizarVisibilidadRegistros</strong> a los eventos como se puede ver en la siguiente imagen.
+<img alt="Descripción de la imagen" class="leftsietecinco margintop10 marginbottom20" src="../img/UT4/bbdd-76-1.png" /></p>
+</li>
+</ul>
+<h3 id="64-colocar-un-boton-guardar-y-nuevo-socio">6.4 - Colocar un botón Guardar y nuevo Socio</h3>
+<ul>
+<li>
+<p>Colocaremos un botón de guardar y le asignaremos la acción <strong>Guardar registro</strong>.<br />
+<img alt="Descripción de la imagen" class="leftsietecinco margintop10 marginbottom20" src="../img/UT4/bbdd-68.png" /></p>
+</li>
+<li>
+<p>Seguidamente colocaremos el botón de nuevo socio asignándole la acción <strong>Registro nuevo</strong>.
+<img alt="Descripción de la imagen" class="leftsietecinco margintop10 marginbottom20" src="../img/UT4/bbdd-69.png" /></p>
+</li>
+</ul>
+<h3 id="65-asignar-eventos-al-formulario">6.5 - Asignar eventos al formulario</h3>
+<p>En este apartado visualizaremos el formulario a pantalla completa sin ningún menú de LibreOffice Base.  </p>
+<ul>
+<li>
+<p>Ir a <strong>Formulario</strong> → <strong>Propiedades de formulario</strong>.<br />
+<img alt="Descripción de la imagen" class="leftseiscero margintop10 marginbottom20" src="../img/UT4/bbdd-71.png" /></p>
+</li>
+<li>
+<p>En eventos asignar las macros a los eventos con se indican en la imagen.
+<img alt="Descripción de la imagen" class="leftcincocero margintop10 marginbottom20" src="../img/UT4/bbdd-72-1.png" /></p>
+</li>
+</ul>
+<h3 id="66-lanzar-formulario-al-abrir-la-base-de-datos">6.6 - Lanzar formulario al abrir la base de datos</h3>
+<p>Lo que haremos aquí es lanzar la macro <strong>AbrirFormInicio</strong> cuando abrimos nuestra base de datos.</p>
+<ul>
+<li>Vamos a <strong>Herramientas</strong> → <strong>Personalizar</strong>.
+<img alt="Descripción de la imagen" class="leftseiscero margintop10 marginbottom20" src="../img/UT4/bbdd-73.png" /></li>
+<li>Asignamos la macro <strong>AbrirFormInicio</strong> al evento <strong>Abrir documento</strong>.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom20 marco" src="../img/UT4/bbdd-74.png" /></li>
+</ul>
+<h3 id="67-entrega-de-la-tarea">6.7 - Entrega de la tarea</h3>
+<div class="admonition warning">
+<p class="admonition-title">Condiciones de entrega de la tarea</p>
+<ul>
+<li>Guardar el documento con RA4-CEh-NombreApellidos en formato <strong>odb</strong>, <strong>formato nativo</strong> de LibreOffice Base.</li>
+<li><strong>No se aceptará ningun formato que no sea odb</strong>.  </li>
+<li>Subir la base de datos, a la tarea RA4-CEf de <strong>Aules</strong>.</li>
+<li>A partir de momento de apertura de la tarea, dispondréis de <strong>14 días</strong> para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestros ejercicios.</li>
+</ul>
+</div>
+<h2 id="7-tarea-ra4-ceb-base-de-datos-completa">7 - Tarea RA4-CEb Base de datos completa</h2>
+<p>En esta tarea usaremos los conocimientos adquiridos para crear una base de datos desde cero.
+Deberéis importar las tablas, decidir el tipo de datos de los campos de las diversas tablas, crear las relaciones entre tablas así como los formularios y las consultas.</p>
+<p>Para el ejemplo, la base de datos recrea una empresa que se dedica a la venta de productos alimentarios.
+La base de datos de la tarea controla los siguientes datos:</p>
+<ol>
+<li>Datos personales del equipo de vendedores.</li>
+<li>Listado de todos los productos a la venta así como el precio por kg.</li>
+<li>Grupo o categoría dentro de la que entran los diferentes productos a la venta.</li>
+<li>Ventas desglosadas por vendedores, día, producto y cantidad de producto vendido.</li>
+</ol>
+<h3 id="71-importar-las-tablas">7.1 - Importar las tablas</h3>
+<div class="admonition task">
+<p class="admonition-title">Trabajo a realizar</p>
+<ul>
+<li>Descargar los datos desde el siguiente <a href="../04_bases%20de%20datos/Tareas/RA4-CEb/tablas_calc.ods">enlace</a></li>
+<li>En este punto de la tarea, deberéis importar las 4 hojas, decidir el tipo de datos para cada campo, la clave primaria de cada tabla y las relaciones entre tablas.</li>
+</ul>
+</div>
+<h3 id="72-formularios">7.2 - Formularios</h3>
+<p>En este apartado se os pedirá, definir un formulario basado sobre la tabla <strong>Ventas</strong> que permita introducir nuevos registros de las ventas del equipo de comerciales.  </p>
+<div class="admonition task">
+<p class="admonition-title">Trabajo a realizar, parte 1</p>
+<ul>
+<li>Crear un formulario basado sobre la tabla <strong>Ventas</strong>.<br />
+Aspecto del formulario, antes de aplicar estilos y modificar los campos <strong>Producto</strong> y <strong>Vendedor</strong>.<br />
+<img alt="Descripción de la imagen" class="margintop10 marginbottom20 leftseiscinco" src="../img/UT4/bbdd-85.png" /></li>
+<li>Como podemos ver en la tabla <strong>Ventas</strong>, no tenemos acceso a los valores esplicitos de los <strong>vendedores</strong>, ni de los <strong>productos</strong>, sino a los identificadores <strong>id_vendedor</strong> e <strong>id_producto</strong>.<br />
+Por lo tanto, el formulario mostrará los valores <strong>id de vendedor</strong> y <strong>id de producto</strong> en vez de los valores esperados.</li>
+<li>Para solucionar ese problema usaremos <strong>cuadros de lista</strong> que se encargarán de mostrar los valores de las tablas relacionadas <strong>Vendedores</strong> y <strong>Productos</strong>.</li>
+</ul>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Ejemplo de cuadro de lista para el campo producto</p>
+<ol>
+<li>Elegimos la tabla <strong>Productos</strong> ya que esa tabla contiene los valores del campo <strong>Producto</strong>.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom20 leftseiscinco" src="../img/UT4/bbdd-78.png" /></li>
+<li>Elegimos el campo de visualización.<br />
+<img alt="Descripción de la imagen" class="margintop10 marginbottom20 leftseiscinco" src="../img/UT4/bbdd-79.png" /></li>
+<li>Elegimos la correspondencia entre el campo de la tabla relacionada y el campo de la tabla sobre la que se basa el formulario.<br />
+<img alt="Descripción de la imagen" class="margintop10 marginbottom20 leftseiscinco" src="../img/UT4/bbdd-80.png" /></li>
+<li>Si todo ha ido bien, el campo id_producto se mostrará como un cuadro de lista con los valores de la tabla productos.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom20 leftcincocero" src="../img/UT4/bbdd-84.png" /></li>
+</ol>
+</div>
+<div class="admonition task">
+<p class="admonition-title">Trabajo a realizar, parte 2</p>
+<ul>
+<li>Modificar los 2 campos <strong>id_vendedor</strong> e <strong>id_producto</strong> con cuadros de lista para que el usuario pueda elegir el vendedor y el producto por su nombre y no por su identificación</li>
+<li>Mejorar el aspecto visual del formulario (opcional).</li>
+<li>Añadir un botón de guardar y otro de crear un registro nuevo.</li>
+<li>Aspecto del formulario, después de aplicar estilos, añadir los cuadros de lista para los campos <strong>Producto</strong> y <strong>Vendedor</strong> y añadir los botones.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom20 leftseiscinco" src="../img/UT4/bbdd-86.png" /></li>
+</ul>
+</div>
+<h3 id="73-consultas">7.3 - Consultas</h3>
+<p>Realizar las siguientes consultas:</p>
+<div class="admonition exercise">
+<p class="admonition-title">Consulta 1</p>
+<ul>
+<li>Realizar una consulta que devuelva <strong>las ventas de cada vendedor</strong>.  </li>
+<li><strong>Ejemplo de resultado</strong><br />
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10 leftseiscinco" src="../img/UT4/bbdd-87.png" />  </li>
+<li><strong class="yellowhighlight">Guardar el informe como Consulta1</strong>.</li>
+</ul>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Consulta 2</p>
+<ul>
+<li>Realizar una consulta que devuelva <strong>las ventas de cada producto desde el 05/3/26</strong>.  </li>
+<li><strong>Ejemplo de resultado</strong><br />
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10 leftseiscinco" src="../img/UT4/bbdd-88.png" /></li>
+<li><strong class="yellowhighlight">Guardar el informe como Consulta2</strong>.</li>
+</ul>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Consulta 3</p>
+<ul>
+<li>Realizar una consulta que devuelva <strong>las ventas totales de cada producto</strong>.  </li>
+<li><strong>Ejemplo de resultado</strong><br />
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10 leftseiscinco" src="../img/UT4/bbdd-89.png" /></li>
+<li><strong class="yellowhighlight">Guardar el informe como Consulta3</strong>.</li>
+</ul>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Consulta 4</p>
+<ul>
+<li>Realizar una consulta que devuelva <strong>el importe total de las ventas de cada producto</strong>.  </li>
+<li><strong>Ejemplo de resultado</strong><br />
+<img alt="Descripción de la imagen" class="margintop10 marginbottom20 leftseiscinco" src="../img/UT4/bbdd-90.png" /></li>
+<li><strong class="yellowhighlight">Guardar el informe como Consulta4</strong>.</li>
+</ul>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Consulta 5</p>
+<ul>
+<li>Realizar una consulta que devuelva el <strong>importe total de las ventas</strong>.  </li>
+<li><strong>Ejemplo de resultado</strong><br />
+<img alt="Descripción de la imagen" class="margintop10 marginbottom20 leftseiscinco" src="../img/UT4/bbdd-91.png" /></li>
+<li><strong class="yellowhighlight">Guardar el informe como Consulta5</strong>.</li>
+</ul>
+</div>
+<!-- ![Descripción de la imagen](../../../DAW/DAW_2/AWS/ut7/cloudformation/WIP.avif){ .trescinco } -->
+<!-- https://www.iesandresbojollo.es/tiyc/base/2-Interfaz_de_usuario.html -->
+<!-- https://www.tuinstitutoonline.com/aula/course/view.php?id=10 -->
+<!-- https://oficinalibre.net/mod/scorm/player.php -->
+
+<!-- https://www.iesandresbojollo.es/tiyc/base/2-Interfaz_de_usuario.html -->
+
+<h3 id="74-entrega-de-la-tarea">7.4 - Entrega de la tarea</h3>
+<div class="admonition warning">
+<p class="admonition-title">Condiciones de entrega de la tarea</p>
+<ul>
+<li>Guardar el documento con RA4-CEb-NombreApellidos en formato <strong>odb</strong>, <strong>formato nativo</strong> de LibreOffice Base.</li>
+<li><strong>No se aceptará ningun formato que no sea odb</strong>.  </li>
+<li>Subir la base de datos, a la tarea RA4-CEb de <strong>Aules</strong>.</li>
+<li>A partir de momento de apertura de la tarea, dispondréis de <strong>14 días</strong> para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestros ejercicios.</li>
+</ul>
+</div>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Licencia Creative Commons:</strong></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><img alt="alt text" src="../../../../assets/by-nc-nd-eu_.png" /></td>
+<td style="text-align: left;"><strong>Reconocimiento-NoComercial-CompartirIgual CC BY-NC-SA:</strong>  No se permite un uso comercial de la obra original ni de las posibles obras derivadas, la distribución de la cuales se debe hace con una licencia igual a la que regula la obra original.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pie" >
+        
+          
+          <a href="../07_Presentaciones/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: UT 4 - Presentaciones">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                UT 4 - Presentaciones
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../05_Imagenes/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: UT 6 - Edición de imágenes">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              <div class="md-ellipsis">
+                UT 6 - Edición de imágenes
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 - Javier Egea Blasco
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress - navigation.expand - navigation.path", "navigation.instant.progress", "navigation.instant.preview", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "toc.follow", "navigation.footer", "navigation.top", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.tabs.link"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

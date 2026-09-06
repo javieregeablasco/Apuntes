@@ -1,0 +1,3127 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Javier Egea Blasco">
+      
+      
+        <link rel="canonical" href="https://javieregeablasco.github.io/Apuntes/SMX/SMX_2/SX/apuntes/03_Conexiones-remotas/">
+      
+      
+        <link rel="prev" href="../02_TCP-IP/">
+      
+      
+        <link rel="next" href="../04_DHCP/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Servicios en red - Javier Egea Blasco</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-introduccion" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../../../../.." title="Javier Egea Blasco" class="md-header__button md-logo" aria-label="Javier Egea Blasco" data-md-component="logo">
+      
+  <img src="../../../../../assets/mre.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Javier Egea Blasco
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Servicios en red
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Compartir" aria-label="Compartir" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../SMX_1/AO/00_Temario/" class="md-tabs__link">
+          
+  
+  
+  Aplicaciones Ofimáticas
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../00_Temario/" class="md-tabs__link">
+          
+  
+  
+  Servicios en redes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../DAW/DAW_2/PWES/UT.%200-Temario/" class="md-tabs__link">
+          
+  
+  
+  Under development
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="Javier Egea Blasco" class="md-nav__button md-logo" aria-label="Javier Egea Blasco" data-md-component="logo">
+      
+  <img src="../../../../../assets/mre.png" alt="logo">
+
+    </a>
+    Javier Egea Blasco
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aplicaciones Ofimáticas
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Aplicaciones Ofimáticas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX_1/AO/00_Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Presentación módulo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX_1/AO/01_Instalacion%20de%20aplicaciones%20ofimaticas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 1 - Instalación de aplicaciones Ofimáticas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 2 - Procesadores de texto
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UT 2 - Procesadores de texto
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX_1/AO/02_Procesadores_de_texto/021_Procesadores_de_texto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 21 - Características de los procesadores de texto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX_1/AO/02_Procesadores_de_texto/022_LibreOffice_Writer_Instalacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 22 - Instalación de LibreOffice Writer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX_1/AO/02_Procesadores_de_texto/023_LibreOffice_Writer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 23 - LibreOffice Writer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX_1/AO/03_Hojas%20de%20calculo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 3 - Hojas de cálculo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX_1/AO/07_Presentaciones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 4 - Presentaciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX_1/AO/04_Bases%20de%20datos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 5 - Bases de datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX_1/AO/05_Imagenes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 6 - Edición de imágenes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX_1/AO/06_Captura%20e%20edicion%20de%20video/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 7 - Edición de vídeos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX_1/AO/08_Correo%20electronico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 8 - Agenda electrónica y comunicación
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX_1/AO/09_Resolucion%20de%20incidencias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 9 - Gestión de incidencias
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Servicios en redes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Servicios en redes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00_Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Presentación módulo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_Redes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Redes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_TCP-IP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocolo TCP/IP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Acceso y control remoto
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Acceso y control remoto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 - Introducción
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-conceptos-y-definicion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 - Conceptos y definición
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 - Conceptos y definición">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-tipos-de-recursos-accesibles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Tipos de recursos accesibles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-tipos-de-accesos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Tipos de accesos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-software-de-administracion-remota" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Software de administración remota
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-riesgos-e-inconvenientes-asociados-al-control-externo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 - Riesgos e inconvenientes asociados al control externo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 - Riesgos e inconvenientes asociados al control externo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-riesgos-de-seguridad-y-malware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Riesgos de seguridad y malware
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-latencia-en-la-comunicacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Latencia en la comunicación
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-complejidad-en-la-gestion-y-mantenimiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Complejidad en la gestión y mantenimiento
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-buenas-practicas-y-medidas-de-seguridad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 - Buenas prácticas y medidas de seguridad
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-tarea-ra6-cea-metodos-de-acceso-y-administracion-remota" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 - Tarea RA6-CEa - Métodos de acceso y administración remota
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5 - Tarea RA6-CEa - Métodos de acceso y administración remota">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-preguntas-tipo-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Preguntas tipo test
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-entrega-de-la-tarea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Entrega de la tarea
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-tarea-ra6-cebcd-1-instalacion-y-conexion-remota-a-windows-server-2025-en-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6 Tarea RA6-CEbcd-1 - Instalación y conexión remota a Windows Server 2025 en AWS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6 Tarea RA6-CEbcd-1 - Instalación y conexión remota a Windows Server 2025 en AWS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-instalacion-de-windows-server-2025-en-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 Instalación de Windows Server 2025 en AWS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.1 Instalación de Windows Server 2025 en AWS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#611-primer-acceso-a-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1.1 Primer acceso a AWS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#612-acceder-al-curso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1.2 Acceder al curso
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#613-acceder-al-laboratorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1.3 Acceder al laboratorio
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#614-lanzar-el-laboratorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1.4 Lanzar el laboratorio
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#615-acceder-al-panel-del-laboratorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1.5 Acceder al panel del laboratorio
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#616-creacion-de-una-instancia-ec2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1.6 Creación de una instancia EC2
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-conexion-remota-a-la-instancia-de-windows-server-2025-desde-windows-10-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 Conexión remota a la instancia de Windows Server 2025 desde windows 10-11
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-configuraciones-preliminares-de-windows-server-2025" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 Configuraciones preliminares de Windows Server 2025
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-desconexion-de-la-instancia-a-windows-server-2025" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 Desconexión de la instancia a Windows Server 2025
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65-cerrar-el-laboratorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5 Cerrar el laboratorio
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-tarea-ra6-cebcd-2-instalacion-y-conexion-remota-a-ubuntu-server-2404-lts-en-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7 Tarea RA6-CEbcd-2 - Instalación y conexión remota a Ubuntu Server 24.04 LTS en AWS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7 Tarea RA6-CEbcd-2 - Instalación y conexión remota a Ubuntu Server 24.04 LTS en AWS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-instalacion-de-ubuntu-server-2404-lts-en-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 Instalación de Ubuntu Server 24.04 LTS en AWS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-conexion-remota-cli-a-traves-del-panel-de-control-de-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 Conexión remota CLI a través del panel de control de AWS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-conexion-remota-desde-so-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 Conexión remota desde SO Windows
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.3 Conexión remota desde SO Windows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#731-apertura-de-puertos-en-la-instancia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3.1 Apertura de puertos en la instancia
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#732-preparacion-de-la-instancia-de-ubuntu-server-2404-lts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3.2 Preparación de la instancia de Ubuntu Server 24.04 LTS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#733-conexion-remota-desde-so-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3.3 Conexión remota desde SO windows
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-tarea-ra6-cef-1-conexion-remota-desde-ubuntu-server-2404-lts-a-so-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8 - Tarea RA6-CEf-1 - Conexión remota desde Ubuntu Server 24.04 LTS a SO Windows
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8 - Tarea RA6-CEf-1 - Conexión remota desde Ubuntu Server 24.04 LTS a SO Windows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-comprobacion-e-instalacion-de-remmina" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 Comprobación e instalación de Remmina
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-conexion-a-la-instancia-de-windows-server-2025" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 Conexión a la instancia de Windows Server 2025
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-posibles-problemas-de-conexion-a-la-instancia-de-windows-server-2025" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 Posibles problemas de conexión a la instancia de Windows Server 2025
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-administracion-remota-segura-con-ssh-secure-shell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9 - Administración remota segura con SSH (Secure Shell)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9 - Administración remota segura con SSH (Secure Shell)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-uso-basico-de-ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1 Uso básico de SSH
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-mecanismos-de-cifrado-en-ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2 Mecanismos de cifrado en SSH
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93-establecimiento-de-una-conexion-ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.3 Establecimiento de una conexión SSH
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#95-tarea-ra6-cef-1-conexion-ssh-desde-so-windows-con-putty" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.5 Tarea RA6-CEf-1 - Conexión SSH desde SO windows con PuTTy
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.5 Tarea RA6-CEf-1 - Conexión SSH desde SO windows con PuTTy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#951-convertir-la-clave-privada-con-puttygen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.5.1 Convertir la clave privada con PuTTYgen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#952-conexion-con-la-instancia-de-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.5.2 Conexión con la instancia de Linux
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#943-migracion-del-archivo-de-claves" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.4.3 Migración del archivo de claves
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#94-tarea-ra6-cef-2-conexion-ssh-desde-linux-con-cliente-ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.4 Tarea RA6-CEf-2 - Conexión SSH desde Linux con cliente SSH
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.4 Tarea RA6-CEf-2 - Conexión SSH desde Linux con cliente SSH">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#941-preparacion-del-entorno" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.4.1 Preparación del entorno
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#942-primera-conexion-ssh-entre-maquinas-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.4.2 Primera conexión SSH entre máquinas Linux
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-administracion-remota-con-remmina" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10 - Administración remota con Remmina
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_DHCP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocolo DHCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_DNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocolo DNS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Under development
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Under development
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../DAW/DAW_2/PWES/UT.%200-Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Presentación módulo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 - Introducción
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-conceptos-y-definicion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 - Conceptos y definición
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 - Conceptos y definición">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-tipos-de-recursos-accesibles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Tipos de recursos accesibles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-tipos-de-accesos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Tipos de accesos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-software-de-administracion-remota" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Software de administración remota
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-riesgos-e-inconvenientes-asociados-al-control-externo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 - Riesgos e inconvenientes asociados al control externo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 - Riesgos e inconvenientes asociados al control externo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-riesgos-de-seguridad-y-malware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Riesgos de seguridad y malware
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-latencia-en-la-comunicacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Latencia en la comunicación
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-complejidad-en-la-gestion-y-mantenimiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Complejidad en la gestión y mantenimiento
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-buenas-practicas-y-medidas-de-seguridad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 - Buenas prácticas y medidas de seguridad
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-tarea-ra6-cea-metodos-de-acceso-y-administracion-remota" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 - Tarea RA6-CEa - Métodos de acceso y administración remota
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5 - Tarea RA6-CEa - Métodos de acceso y administración remota">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-preguntas-tipo-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Preguntas tipo test
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-entrega-de-la-tarea" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Entrega de la tarea
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-tarea-ra6-cebcd-1-instalacion-y-conexion-remota-a-windows-server-2025-en-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6 Tarea RA6-CEbcd-1 - Instalación y conexión remota a Windows Server 2025 en AWS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6 Tarea RA6-CEbcd-1 - Instalación y conexión remota a Windows Server 2025 en AWS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-instalacion-de-windows-server-2025-en-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 Instalación de Windows Server 2025 en AWS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.1 Instalación de Windows Server 2025 en AWS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#611-primer-acceso-a-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1.1 Primer acceso a AWS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#612-acceder-al-curso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1.2 Acceder al curso
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#613-acceder-al-laboratorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1.3 Acceder al laboratorio
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#614-lanzar-el-laboratorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1.4 Lanzar el laboratorio
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#615-acceder-al-panel-del-laboratorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1.5 Acceder al panel del laboratorio
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#616-creacion-de-una-instancia-ec2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1.6 Creación de una instancia EC2
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-conexion-remota-a-la-instancia-de-windows-server-2025-desde-windows-10-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 Conexión remota a la instancia de Windows Server 2025 desde windows 10-11
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-configuraciones-preliminares-de-windows-server-2025" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 Configuraciones preliminares de Windows Server 2025
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-desconexion-de-la-instancia-a-windows-server-2025" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 Desconexión de la instancia a Windows Server 2025
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65-cerrar-el-laboratorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5 Cerrar el laboratorio
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-tarea-ra6-cebcd-2-instalacion-y-conexion-remota-a-ubuntu-server-2404-lts-en-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7 Tarea RA6-CEbcd-2 - Instalación y conexión remota a Ubuntu Server 24.04 LTS en AWS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7 Tarea RA6-CEbcd-2 - Instalación y conexión remota a Ubuntu Server 24.04 LTS en AWS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-instalacion-de-ubuntu-server-2404-lts-en-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 Instalación de Ubuntu Server 24.04 LTS en AWS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-conexion-remota-cli-a-traves-del-panel-de-control-de-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 Conexión remota CLI a través del panel de control de AWS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-conexion-remota-desde-so-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 Conexión remota desde SO Windows
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.3 Conexión remota desde SO Windows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#731-apertura-de-puertos-en-la-instancia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3.1 Apertura de puertos en la instancia
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#732-preparacion-de-la-instancia-de-ubuntu-server-2404-lts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3.2 Preparación de la instancia de Ubuntu Server 24.04 LTS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#733-conexion-remota-desde-so-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3.3 Conexión remota desde SO windows
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-tarea-ra6-cef-1-conexion-remota-desde-ubuntu-server-2404-lts-a-so-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8 - Tarea RA6-CEf-1 - Conexión remota desde Ubuntu Server 24.04 LTS a SO Windows
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8 - Tarea RA6-CEf-1 - Conexión remota desde Ubuntu Server 24.04 LTS a SO Windows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-comprobacion-e-instalacion-de-remmina" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 Comprobación e instalación de Remmina
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-conexion-a-la-instancia-de-windows-server-2025" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 Conexión a la instancia de Windows Server 2025
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-posibles-problemas-de-conexion-a-la-instancia-de-windows-server-2025" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 Posibles problemas de conexión a la instancia de Windows Server 2025
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-administracion-remota-segura-con-ssh-secure-shell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9 - Administración remota segura con SSH (Secure Shell)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9 - Administración remota segura con SSH (Secure Shell)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-uso-basico-de-ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1 Uso básico de SSH
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-mecanismos-de-cifrado-en-ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2 Mecanismos de cifrado en SSH
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#93-establecimiento-de-una-conexion-ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.3 Establecimiento de una conexión SSH
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#95-tarea-ra6-cef-1-conexion-ssh-desde-so-windows-con-putty" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.5 Tarea RA6-CEf-1 - Conexión SSH desde SO windows con PuTTy
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.5 Tarea RA6-CEf-1 - Conexión SSH desde SO windows con PuTTy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#951-convertir-la-clave-privada-con-puttygen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.5.1 Convertir la clave privada con PuTTYgen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#952-conexion-con-la-instancia-de-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.5.2 Conexión con la instancia de Linux
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#943-migracion-del-archivo-de-claves" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.4.3 Migración del archivo de claves
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#94-tarea-ra6-cef-2-conexion-ssh-desde-linux-con-cliente-ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.4 Tarea RA6-CEf-2 - Conexión SSH desde Linux con cliente SSH
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.4 Tarea RA6-CEf-2 - Conexión SSH desde Linux con cliente SSH">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#941-preparacion-del-entorno" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.4.1 Preparación del entorno
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#942-primera-conexion-ssh-entre-maquinas-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.4.2 Primera conexión SSH entre máquinas Linux
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-administracion-remota-con-remmina" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10 - Administración remota con Remmina
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Acceso y control remoto</h1>
+
+<p><img alt="Descripción de la imagen" class="img2 marginbottom40" src="../img_3/img_3_1.png" /></p>
+<p><strong>Resultados de aprendizaje y criterios de evaluacion que se evaluarán en esta unidad.</strong>  </p>
+<table>
+<thead>
+<tr>
+<th><strong>Resultados de aprendizaje de la unidad didáctica:</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RA6. Gestiona métodos de acceso remoto describiendo sus características e instalando los servicios correspondientes</strong></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><strong>Criterios de evaluación de la unidad didáctica:</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>a)</strong> Se han descrito métodos de acceso y administración remota de sistemas.</td>
+</tr>
+<tr>
+<td><strong>b)</strong> Se ha instalado un servicio de acceso remoto en línea de comandos.</td>
+</tr>
+<tr>
+<td><strong>c)</strong> Se ha instalado un servicio de acceso remoto en modo gráfico.</td>
+</tr>
+<tr>
+<td><strong>d)</strong> Se ha comprobado el funcionamiento de ambos métodos.</td>
+</tr>
+<tr>
+<td><em>e) Se han identificado las principales ventajas y deficiencias de cada uno.</em></td>
+</tr>
+<tr>
+<td><strong>f)</strong> Se han realizado pruebas de acceso remoto entre sistemas de distinta naturaleza.</td>
+</tr>
+<tr>
+<td><em>g) Se han realizado pruebas de administración remota entre sistemas de distinta naturaleza.</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="1-introduccion">1 - Introducción</h2>
+<p><strong>El acceso y administración remota</strong> de servicios en red es <strong>la capacidad de conectar, controlar y configurar ordenadores, servidores y dispositivos de red desde un lugar distinto</strong> sin estar cerca de ellos de forma física. Esto ayuda a solucionar problemas y actualizar sistemas de manera rápida a través de internet o redes locales.</p>
+<h2 id="2-conceptos-y-definicion">2 - Conceptos y definición</h2>
+<h3 id="21-tipos-de-recursos-accesibles">2.1 Tipos de recursos accesibles</h3>
+<p><strong>Los recursos</strong> a los que se accede de forma remota abarca todo tipo de servicios:</p>
+<ul>
+<li><strong>Infraestructura de Red:</strong><br />
+Gestión y configuración de servidores, enrutadores y conmutadores por parte de administradores de TI.</li>
+<li><strong>Escritorios:</strong><br />
+Acceso completo al sistema operativo de una máquina física o virtual para trabajar de forma íntegra.</li>
+<li><strong>Archivos y Datos:</strong><br />
+Permite recuperar, cargar y administrar documentos almacenados en servidores o dispositivos remotos sin necesidad de enviarlos por correo electrónico.</li>
+<li><strong>Aplicaciones:</strong><br />
+Ejecución de software específico (virtual o físico) alojado en un servidor central, lo cual es útil cuando el programa requiere mucha potencia de cálculo o licencias específicas.</li>
+</ul>
+<h3 id="22-tipos-de-accesos">2.2 Tipos de accesos</h3>
+<p>Los tipos de acceso remoto se pueden clasificar según el nivel de control y la finalidad del acceso:</p>
+<ul>
+<li><strong>Acceso vs. Control remoto:</strong><br />
+Mientras que el <strong>acceso remoto</strong> significa conectarse a un sistema o red, el <strong>control remoto</strong> es un tipo específico de acceso donde el usuario toma el control total del dispositivo objetivo.</li>
+<li><strong>Administración remota:</strong> Se define específicamente como la gestión de servidores y servicios desde un equipo de escritorio remoto, configurando ajustes e instalando actualizaciones sin acceso físico a la sala de servidores.</li>
+<li><strong>Componentes del acceso:</strong> Para que este concepto se materialice, se requiere una combinación de <strong>software</strong> (que implementa protocolos), <strong>hardware</strong> (dispositivos físicos o virtuales) y una <strong>red</strong> de comunicación.</li>
+</ul>
+<h3 id="23-software-de-administracion-remota">2.3 Software de administración remota</h3>
+<p>El control de sistemas externos se materializa mediante software (y protocolos) que rigen la interacción entre el dispositivo del usuario y el sistema objetivo.</p>
+<p>En este caso se hará una distinción entre <strong>acceso remoto en línea de comandos</strong> y <strong>acceso remoto en modo gráfico</strong>:</p>
+<ol>
+<li>
+<p><strong>Acceso remoto en línea de comandos:</strong>  </p>
+<ul>
+<li><strong>SSH (Secure Shell)</strong> es un protocolo de red que permite a los usuarios conectarse de manera segura a un sistema remoto mediante una interfaz de línea de comandos.  </li>
+<li><strong>Telnet</strong> es otro protocolo que permite la comunicación remota, pero carece de cifrado, lo que lo hace menos seguro que SSH.</li>
+</ul>
+</li>
+<li>
+<p><strong>Acceso remoto en modo gráfico:</strong></p>
+<ul>
+<li><strong>RDP (Remote Desktop Protocol)</strong> es un protocolo desarrollado por Microsoft que permite a los usuarios conectarse a otro ordenador a través de una interfaz gráfica, proporcionando acceso completo al escritorio del sistema remoto.</li>
+<li><strong>Remmina</strong> es un cliente de escritorio remoto que soporta múltiples protocolos, incluyendo RDP, VNC y SSH, facilitando la conexión a diferentes sistemas desde una única aplicación.</li>
+<li><strong>VNC (Virtual Network Computing)</strong> permite controlar un ordenador remoto a través de una interfaz gráfica, transmitiendo la pantalla del sistema remoto al local y permitiendo la interacción con el mismo.</li>
+</ul>
+</li>
+</ol>
+<h2 id="3-riesgos-e-inconvenientes-asociados-al-control-externo">3 - <strong>Riesgos e inconvenientes asociados al control externo</strong></h2>
+<h3 id="31-riesgos-de-seguridad-y-malware">3.1 Riesgos de seguridad y malware</h3>
+<p>El acceso remoto a los recursos de red expone a las organizaciones a interceptación de datos, robo de credenciales, ataques de fuerza bruta en protocolos como RDP, infección por malware (troyano de acceso remoto, RAT) a través de redes domésticas no seguras y movimientos laterales de atacantes si una sesión queda abierta o mal configurada.</p>
+<h3 id="32-latencia-en-la-comunicacion">3.2 Latencia en la comunicación</h3>
+<p>La latencia puede afectar el rendimiento y la experiencia del usuario al acceder a recursos remotos, lo que subraya la importancia de implementar soluciones de red optimizadas.
+En el caso de la administración remota de servidores, la latencia y estabilidad de la red (internet) puede ser crítica, especialmente en entornos donde se requiere una respuesta rápida para la resolución de problemas.</p>
+<h3 id="33-complejidad-en-la-gestion-y-mantenimiento">3.3 Complejidad en la gestión y mantenimiento</h3>
+<p>La gestión y el mantenimiento de sistemas remotos pueden ser más complejos que los sistemas locales, requiriendo conocimientos especializados y herramientas adicionales para su administración eficaz.</p>
+<h2 id="4-buenas-practicas-y-medidas-de-seguridad">4 - Buenas prácticas y medidas de seguridad</h2>
+<ul>
+<li>
+<p><strong>Autenticación multifactor (MFA)</strong><br />
+Implementarla siempre que sea posible.</p>
+</li>
+<li>
+<p><strong>No exponer el puerto de administración (RDP) a internet</strong><br />
+Los atacantes escanean el puerto RDP (UDP 3389) constantemente. Una práctica recomendada es utilizar una VPN para acceder a la red interna de manera segura.</p>
+</li>
+<li>
+<p><strong>USar firewalls y listas de control de acceso (ACL)</strong>
+Implementar firewalls y listas de control de acceso (ACL) para restringir el acceso a los recursos remotos.</p>
+</li>
+<li>
+<p><strong>Configurar políticas de acceso y permisos</strong>
+Configurar políticas de acceso y permisos adecuadas para limitar el acceso a los recursos remotos.
+Configurar políticas de bloqueo de cuentas después de varios intentos fallidos de inicio de sesión para prevenir ataques de fuerza bruta.
+Establecer tiempos de sesión y desconexión automática para minimizar el riesgo de acceso no autorizado.</p>
+</li>
+<li>
+<p><strong>Políticas de seguridad claras</strong>
+Asegúrarse de que todo el mundo entiende las políticas de seguridad y de que se aplican correctamente.
+Un ejemplo sería la política de no compartir credenciales de acceso remoto con otros usuarios.</p>
+</li>
+<li>
+<p><strong>Política de contraseñas seguras</strong>
+Asegúrarse de que todo el mundo utiliza contraseñas seguras y que se cambian regularmente.</p>
+</li>
+<li>
+<p><strong>Mantener los dispositivos actualizados</strong>
+Es fundamental mantener los dispositivos y sistemas operativos actualizados con las últimas correcciones de seguridad.</p>
+</li>
+</ul>
+<h2 id="5-tarea-ra6-cea-metodos-de-acceso-y-administracion-remota">5 - Tarea RA6-CEa - Métodos de acceso y administración remota</h2>
+<h3 id="51-preguntas-tipo-test">5.1 Preguntas tipo test</h3>
+<div class="admonition warning">
+<p class="admonition-title">Trabajo a realizar</p>
+<ul>
+<li>Para esta evaluación, deberéis responder a preguntas tipo test.</li>
+<li>Podéis descargar el archivo de texto desde la correspondiente tarea de aules (RA6CEa Nombre Apellidos).</li>
+<li>Subrayar la respuesta que consideráis correcta.</li>
+</ul>
+</div>
+<h3 id="52-entrega-de-la-tarea">5.2 Entrega de la tarea</h3>
+<div class="admonition warning">
+<p class="admonition-title">Condiciones de entrega de la tarea</p>
+<ul>
+<li>Guardar el documento con RA6-CEa-NombreApellidos en formato <strong>odt</strong>, <strong>formato nativo</strong> de LibreOffice writer.</li>
+<li><strong>No se aceptará ningun formato que no sea odt</strong>.  </li>
+<li>A partir de momento de apertura de la tarea, dispondréis de <strong>20 minutos</strong> para subir vuestros trabajos. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.</li>
+</ul>
+</div>
+<h2 id="6-tarea-ra6-cebcd-1-instalacion-y-conexion-remota-a-windows-server-2025-en-aws">6 Tarea RA6-CEbcd-1 - Instalación y conexión remota a Windows Server 2025 en AWS</h2>
+<h3 id="61-instalacion-de-windows-server-2025-en-aws">6.1 Instalación de Windows Server 2025 en AWS</h3>
+<p>AWS (Amazon Web Services) es una plataforma de servicios en la nube que permite a los usuarios crear y gestionar servidores virtuales, conocidos como instancias EC2 (Elastic Compute Cloud). Para instalar Windows Server 2025 en AWS, se deben seguir los siguientes pasos:</p>
+<h4 id="611-primer-acceso-a-aws">6.1.1 Primer acceso a AWS</h4>
+<ul>
+<li>Revisad vuestros correos electrónicos, ya que habréis recibido un correo de AWS con un enlace para crear vuestra cuenta.</li>
+<li>Para la creación de la cuenta, debéis seguir los pasos indicados en el siguiente <a href="https://javieregeablasco.github.io/Apuntes/DAW/DAW_2/AWS/UT.%203-AWS%20Academy/#2-learner-lab">enlace</a></li>
+<li>Una vez creada la cuenta accederemos al laboratorio de AWS (learner lab).</li>
+</ul>
+<h4 id="612-acceder-al-curso">6.1.2 Acceder al curso</h4>
+<ul>
+<li>Para acceder al curso, debéis seguir los pasos indicados en el siguiente <a href="https://javieregeablasco.github.io/Apuntes/DAW/DAW_2/AWS/UT.%203-AWS%20Academy/#23-acceso-al-curso">enlace</a></li>
+</ul>
+<h4 id="613-acceder-al-laboratorio">6.1.3 Acceder al laboratorio</h4>
+<ul>
+<li>Para acceder al laboratorio, debéis seguir los pasos indicados en el siguiente <a href="https://javieregeablasco.github.io/Apuntes/DAW/DAW_2/AWS/UT.%203-AWS%20Academy/#24-acceder-al-laboratorio">enlace</a></li>
+</ul>
+<h4 id="614-lanzar-el-laboratorio">6.1.4 Lanzar el laboratorio</h4>
+<ul>
+<li>Para lanzar el laboratorio, debéis seguir los pasos indicados en el siguiente <a href="https://javieregeablasco.github.io/Apuntes/DAW/DAW_2/AWS/UT.%203-AWS%20Academy/#25-lanzar-el-laboratorio">enlace</a></li>
+</ul>
+<h4 id="615-acceder-al-panel-del-laboratorio">6.1.5 Acceder al panel del laboratorio</h4>
+<ul>
+<li>Para acceder al panel del laboratorio, debéis seguir los pasos indicados en el siguiente <a href="https://javieregeablasco.github.io/Apuntes/DAW/DAW_2/AWS/UT.%203-AWS%20Academy/#26-panel-de-aws">enlace</a></li>
+</ul>
+<h4 id="616-creacion-de-una-instancia-ec2">6.1.6 Creación de una instancia EC2</h4>
+<p>Una instancia EC2 es un servidor virtual que se ejecuta en la infraestructura de AWS.</p>
+<p>Para crear una instancia EC2 con Windows Server 2025, se deben seguir los siguientes pasos:</p>
+<ul>
+<li>Ir al panel de control de AWS y seleccionar el servicio EC2.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_3/img_3_2.png" /></li>
+<li>Una vez en el menú de EC2, seleccionar "Lanzar instancia".
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10 marco" src="../img_3/img_3_4.png" /></li>
+<li>Seleccionar la imagen de Windows Server 2025.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10 marco" src="../img_3/img_3_3.png" /></li>
+<li>Configurar las opciones de la instancia (tipo, par de claves).
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10 marco" src="../img_3/img_3_5.png" /></li>
+<li>Configurar las opciones de red.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10 marco" src="../img_3/img_3_6.png" /></li>
+<li>Configurar el almacenamiento.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10 marco" src="../img_3/img_3_7.png" /></li>
+<li>Buscamos el botón de lanzar y lo pulsamos.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10 marco" src="../img_3/img_3_8.png" /></li>
+<li>Volvemos a la página de EC2 y supervisamos el estado de creación de nuestra instancia.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10 marco" src="../img_3/img_3_9.png" /></li>
+</ul>
+<h3 id="62-conexion-remota-a-la-instancia-de-windows-server-2025-desde-windows-10-11">6.2 Conexión remota a la instancia de Windows Server 2025 desde windows 10-11</h3>
+<p>En este caso usaremos el protocolo RDP (Remote Desktop Protocol) para conectarnos a la instancia de Windows Server 2025. ese protocolo permite a los usuarios conectarse a otro ordenador a través de una interfaz gráfica, proporcionando acceso completo al escritorio del sistema remoto.</p>
+<p>AWS facilita la conexión remota a través de RDP proporcionando un archivo de conexión que contiene la dirección IP pública de la instancia y las credenciales necesarias para acceder.</p>
+<ul>
+<li>Seleccionamos la instancia a la que queremos acceder y accedemos al servicio de conexión remota en AWS.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10 marco" src="../img_3/img_3_10.png" /></li>
+<li>Seleccionamos RDP. Descargamos el archivo de conexión. De momento no lo abrimos ya que aún no tenemos las credenciales.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10 marco" src="../img_3/img_3_11.png" /></li>
+<li>Volvemos al learner lab pinchamos en AWS details y descargamos el archivo de la clave privada <strong>labuser.pem</strong> y lo guardamos en nuestro equipo.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10 marco" src="../img_3/img_3_12.png" /></li>
+<li>Volvemos a la página de EC2 y seleccionamos la instancia a la que queremos acceder. Pinchamos en <strong>Conectar</strong> y luego en <strong>Obtener contraseña</strong>. Subimos el archivo <strong>labuser.pem</strong> y obtenemos la contraseña de acceso.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10 marco" src="../img_3/img_3_13.png" />
+Contraseña de acceso: <strong>[Contraseña generada por AWS]</strong>
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10 marco" src="../img_3/img_3_14.png" /></li>
+<li>Abrimos el archivo de conexión RDP que hemos descargado anteriormente y pegamos la contraseña generada por AWS.<br />
+Acceso al escritorio remoto de Windows Server 2025.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_3/img_3_15.png" /><br />
+Pegamos la contraseña generada por AWS.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_3/img_3_16.png" /></li>
+<li>Aceptamos los riesgos de seguridad y nos conectamos al escritorio remoto de Windows Server 2025.<br />
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_3/img_3_17.png" /></li>
+<li>Una vez conectdos, podemos trabajar con el escritorio remoto de Windows Server 2025 como si estuviéramos físicamente frente a él.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_3/img_3_18.png" /></li>
+</ul>
+<h3 id="63-configuraciones-preliminares-de-windows-server-2025">6.3 Configuraciones preliminares de Windows Server 2025</h3>
+<div class="admonition warning">
+<p class="admonition-title">Optional</p>
+</div>
+<p>Una vez conectados al escritorio remoto de Windows Server 2025, es recomendable realizar algunas configuraciones preliminares para asegurar el correcto funcionamiento del servidor y la seguridad del mismo.</p>
+<ul>
+<li>Cambiar el nombre del equipo.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_3/img_3_19.png" />
+Si cambiamos el nombre del equipo, debemos reiniciar el servidor para que los cambios tengan efecto.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_3/img_3_20.png" /></li>
+<li>Edición y versión del sistema operativo.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_3/img_3_21.png" /></li>
+<li>Configurar el widget.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_3/img_3_22.png" />
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_3/img_3_23.png" /></li>
+</ul>
+<h3 id="64-desconexion-de-la-instancia-a-windows-server-2025">6.4 Desconexión de la instancia a Windows Server 2025</h3>
+<p>Podemos hacerlo de varias formas:</p>
+<ul>
+<li>Cerrar la ventana de conexión remota.</li>
+<li>Cerrar sesión desde el menú de inicio de Windows Server 2025.</li>
+<li>Ejecutar la aplicación <strong>Run</strong> y escribir el comando <strong>logoff</strong> para cerrar la sesión de forma inmediata.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_3/img_3_24.png" />
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_3/img_3_25.png" /></li>
+</ul>
+<h3 id="65-cerrar-el-laboratorio">6.5 Cerrar el laboratorio</h3>
+<p>Tenemos que cerrar el laboratorio de AWS para liberar los recursos y evitar cargos innecesarios. Para ello, simplemente finalizaremos el laboratorio, pinchando en <strong>End Lab</strong> en la consola del laboratory y esperaremos a que el testigo de AWS pase a <strong>rojo</strong>.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_3/img_3_26.png" /></p>
+<h2 id="7-tarea-ra6-cebcd-2-instalacion-y-conexion-remota-a-ubuntu-server-2404-lts-en-aws">7 Tarea RA6-CEbcd-2 - Instalación y conexión remota a Ubuntu Server 24.04 LTS en AWS</h2>
+<h3 id="71-instalacion-de-ubuntu-server-2404-lts-en-aws">7.1 Instalación de Ubuntu Server 24.04 LTS en AWS</h3>
+<p>Repetiremos los pasos anteriores para crear una instancia EC2, pero esta vez seleccionaremos la imagen de Ubuntu Server 24.04 LTS.</p>
+<ul>
+<li>Seleccionamos la imagen de Ubuntu Server 24.04 LTS.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10 marco" src="../img_3/img_3_27.png" /></li>
+<li>Seleccionamos el tipo de instancia y el par de claves.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10 marco" src="../img_3/img_3_28.png" /></li>
+<li>Configuramos la red donde se desplegará la instancia.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10 marco" src="../img_3/img_3_29.png" /></li>
+<li>Configuramos el almacenamiento de la instancia.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10 marco" src="../img_3/img_3_30.png" /></li>
+</ul>
+<h3 id="72-conexion-remota-cli-a-traves-del-panel-de-control-de-aws">7.2 Conexión remota CLI a través del panel de control de AWS</h3>
+<ul>
+<li>Al igual que en el caso de Windows Server 2025, seleccionaremos la instancia en la consola de AWS y pulsaremos conectar.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10 marco" src="../img_3/img_3_31.png" /></li>
+<li>AWS facilita la conexión remota a través de SSH de manera fácil e intuitiva.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10 marco" src="../img_3/img_3_32.png" /></li>
+<li>Una vez establecida la conexión, se nos abrirá una ventana de terminal con la conexión SSH a la instancia de Ubuntu Server 24.04 LTS.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_3/img_3_33.png" /></li>
+</ul>
+<h3 id="73-conexion-remota-desde-so-windows">7.3 Conexión remota desde SO Windows</h3>
+<ul>
+<li>Para conectarnos a la instancia de Ubuntu Server 24.04 LTS desde un sistema operativo Windows, podemos utilizar la aplicación de conexión a escritorio remoto <strong>MSTSC</strong>.</li>
+<li>No obstante, tendremos que preparar la instancia para permitir conexiones así como instalar un cliente RDP y un entorno gráfico ligero en la instancia de Ubuntu Server 24.04 LTS.</li>
+</ul>
+<h4 id="731-apertura-de-puertos-en-la-instancia">7.3.1 Apertura de puertos en la instancia</h4>
+<p>Con abrir los puertos necesarios en el firewall de la instancia de Ubuntu Server 24.04 LTS, podremos permitir conexiones remotas a través de RDP.</p>
+<p>Aunque no sea una buena práctica, para fines educativos, no solo abriremos el puerto 3389 para los protocolos <strong>TCP</strong> y <strong>UDP</strong> sino que abriremos todos los puertos.</p>
+<ul>
+<li>Vamos a la consola de AWS y seleccionamos la instancia de Ubuntu Server 24.04 LTS.</li>
+<li>En la sección de <strong>Seguridad</strong>, seleccionamos el grupo de seguridad asociado a la instancia.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10 marco" src="../img_3/img_3_34.png" /></li>
+<li>Editamos las reglas de entrada.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10 marco" src="../img_3/img_3_35.png" />
+Agregamos una regla de entrada para permitir <strong>el tráfico entrante desde internet sobre cualquier puerto</strong>.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10 marco" src="../img_3/img_3_36.png" /><br />
+Al final, obtendremos el siguiente resultado:
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10 marco" src="../img_3/img_3_37.png" /></li>
+</ul>
+<h4 id="732-preparacion-de-la-instancia-de-ubuntu-server-2404-lts">7.3.2 Preparación de la instancia de Ubuntu Server 24.04 LTS</h4>
+<p>En la instancia de Ubuntu Server 24.04 LTS, instalaremos un servidor RDP para permitir conexiones remotas desde sistemas Windows. Para ello, primero nos conectaremos a la instancia a través de SSH y luego instalaremos el servidor RDP.</p>
+<ul>
+<li>Actualizamos los repositorios y actualizamos el sistema operativo.</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>upgrade<span class="w"> </span>-y
+</span></code></pre></div>
+<ul>
+<li>De momento no disponemos de interfaz gráfica en la instancia de Ubuntu Server 24.04 LTS, por lo que instalaremos un entorno de escritorio ligero como <strong>XFCE</strong>.</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>xfce4<span class="w"> </span>xfce4-goodies<span class="w"> </span>-y
+</span></code></pre></div>
+<ul>
+<li>Instalamos el servidor RDP <strong>XRDP</strong>.</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>xrdp<span class="w"> </span>-y
+</span></code></pre></div>
+<ul>
+<li>Habilitamos el servicio xrdp para que se inicie automáticamente al arrancar el sistema.</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>xrdp
+</span></code></pre></div>
+<ul>
+<li>Iniciamos el servicio xrdp.</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>xrdp
+</span></code></pre></div>
+<ul>
+<li>Verificamos que el servicio xrdp esté activo y en ejecución.</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>xrdp
+</span></code></pre></div>
+<p>Obtendremos un resultado similar al siguiente.<br />
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_3/img_3_38.png" /></p>
+<ul>
+<li>Cambiamos la contraseña del usuario para que pueda iniciar sesión a través de RDP.</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sudo<span class="w"> </span>passwd<span class="w"> </span>&lt;nombre_de_usuario&gt;
+</span></code></pre></div>
+<p><img alt="Descripción de la imagen" class="marginbottom10" src="../img_3/img_3_39.png" /></p>
+<ul>
+<li>Para evitar conflictos con la elección de la interfaz gráfica por parte de XFCE, figuramos el archivo de sesion.</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"startxfce4"</span><span class="w"> </span>&gt;<span class="w"> </span>~/.xsession
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>chmod<span class="w"> </span>+x<span class="w"> </span>~/.xsession
+</span></code></pre></div>
+<ul>
+<li>Nos aseguramos que la interfaz se aplica globalmente al servicio.</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>sudo<span class="w"> </span>sed<span class="w"> </span>-i.bak<span class="w"> </span><span class="s1">'s/exec \/etc\/X11\/Xsession/exec startxfce4/'</span><span class="w"> </span>/etc/xrdp/startwm.sh
+</span></code></pre></div>
+<ul>
+<li>Reiniciamos el servicio XFCE</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>xrdp
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>xrdp
+</span></code></pre></div>
+<h4 id="733-conexion-remota-desde-so-windows">7.3.3 Conexión remota desde SO windows</h4>
+<ul>
+<li>
+<p>Lanzamos la aplicación de conexión a escritorio remoto <strong>MSTSC</strong> en nuestro sistema operativo Windows.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_3/img_3_40.png" /></p>
+</li>
+<li>
+<p>Escribimos la <strong>IP pública</strong> de la instancia a la que no vamos a conectar.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10 marco" src="../img_3/img_3_44.png" /></p>
+</li>
+<li>
+<p>Obviamos las advertencias de seguridad.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_3/img_3_41.png" /></p>
+</li>
+<li>
+<p>Una vez conectados introducimos las credenciales.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_3/img_3_42.png" /></p>
+</li>
+<li>
+<p>Si todo ha ido bien obtendremos una interfaz similar a la siguiente imagen.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_3/img_3_43.png" /></p>
+</li>
+</ul>
+<h2 id="8-tarea-ra6-cef-1-conexion-remota-desde-ubuntu-server-2404-lts-a-so-windows">8 - Tarea RA6-CEf-1 - Conexión remota desde Ubuntu Server 24.04 LTS a SO Windows</h2>
+<p>Para poder conectarnos desde una distribución de Linux a Windows necesitaremos una aplicación de acceso a escritorio como <strong>Remmina</strong>.</p>
+<h3 id="81-comprobacion-e-instalacion-de-remmina">8.1 Comprobación e instalación de Remmina</h3>
+<ul>
+<li>Remmina no viene instalada en todas las distribuciones de Linux así que comprobaremos si la tenemos instalada.</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>remmina<span class="w"> </span>--version
+</span></code></pre></div>
+<ul>
+<li>Si nos devuelve un mensaje de error, instalaremos la aplicación.</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>remmina<span class="w"> </span>-y
+</span></code></pre></div>
+<h3 id="82-conexion-a-la-instancia-de-windows-server-2025">8.2 Conexión a la instancia de Windows Server 2025</h3>
+<ul>
+<li>Ejecutamos la aplicación</li>
+</ul>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>remmina
+</span></code></pre></div>
+<p><img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_3/img_3_45.png" /></p>
+<ul>
+<li>
+<p>Introducimos los parámetros de la conexión
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_3/img_3_46.png" /></p>
+</li>
+<li>
+<p>Guardamos los parametros de la conexión y lanzamos la conexión
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_3/img_3_49.png" /></p>
+</li>
+<li>
+<p>Aceptamos el certificado.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_3/img_3_47.png" /></p>
+</li>
+<li>
+<p>Si todo ha ido bien, estaremos en el escritorio de nuestra máquina Windows Server.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_3/img_3_48.png" /></p>
+</li>
+</ul>
+<h3 id="83-posibles-problemas-de-conexion-a-la-instancia-de-windows-server-2025">8.3 Posibles problemas de conexión a la instancia de Windows Server 2025</h3>
+<p>Como ya hemos visto ambas máquinas deben estar en condiciones de acceptar conexiones remotas por RDP.</p>
+<p>Así pues, verificaremos si Windows Server está configurado para aceptar conexiones remotas.</p>
+<ul>
+<li>
+<p>Vamos a <strong>Settings</strong>.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_3/img_3_50.png" /></p>
+</li>
+<li>
+<p>Abajo del todo seleccionamos <strong>About</strong>.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_3/img_3_51.png" /></p>
+</li>
+<li>
+<p>Buscamos Remote desktop.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_3/img_3_52.png" /></p>
+</li>
+<li>
+<p>Comprobamos la configuración del <strong>Remote Desktop</strong>
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_3/img_3_53.png" /></p>
+</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Como podemos ver, Windows Server acepta por defecto las conexiones RDP. De no ser así no podriamos habernos conectado a la instancia en una práctica anterior.</p>
+</div>
+<h2 id="9-administracion-remota-segura-con-ssh-secure-shell">9 - Administración remota segura con SSH (Secure Shell)</h2>
+<p>El protocolo SSH (Secure Shell) es <strong>un protocolo de red</strong> diseñado para acceder, administrar y controlar dispositivos de forma remota a través de una conexión totalmente cifrada. Surgió como un reemplazo seguro para protocolos tradicionales como <strong>Telnet</strong> o <strong>FTP</strong>, que transmitían la información y las contraseñas en texto plano.</p>
+<h3 id="91-uso-basico-de-ssh">9.1 Uso básico de SSH</h3>
+<p>Para conectar dos equipos mediante SSH se utiliza un modelo <strong>cliente-servidor</strong>:</p>
+<ul>
+<li><strong>Cliente:</strong> La máquina local desde la que nos conectamos (CLI en Linux/macOS o GUI's como PuTTY/OpenSSH en Windows).</li>
+<li><strong>Servidor:</strong> Equipo o servidor remoto que escucha peticiones de conexión (normalmente en el puerto TCP 22).</li>
+</ul>
+<p>El comando básico en la terminal se compone de:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>ssh<span class="w"> </span>usuario@direccion_ip_o_dominio
+</span></code></pre></div>
+<ul>
+<li><strong>ssh:</strong> Indica al sistema que inicie una sesión cifrada Secure Shell.</li>
+<li><strong>usuario:</strong> Cuenta a la que deseamos acceder (p.e. root).</li>
+<li><strong>direccion_ip_o_dominio:</strong> Dirección del servidor al que nos conectamos (p.e. 192.168.1.1 o servidor.com).</li>
+</ul>
+<h3 id="92-mecanismos-de-cifrado-en-ssh">9.2 Mecanismos de cifrado en SSH</h3>
+<p>SSH combina <strong>3 métodos criptográficos distintos</strong> para garantizar la privacidad, la autenticación y la integridad de los datos.</p>
+<pre class="mermaid"><code>flowchart TB
+    A["&lt;b&gt;Protocolo SSH&lt;/b&gt;&lt;hr&gt;&lt;br/&gt;Puerto 22"] --&gt; C["&lt;b&gt;Cifrado simétrico&lt;/b&gt;&lt;hr&gt;&lt;br/&gt;&lt;div style='text-align: left;'&gt;• 1 clave compartida&lt;/div&gt;&lt;div style='text-align: left;'&gt;• Cifra toda la sesión&lt;/div&gt;&lt;div style='text-align: left;'&gt;• Algoritmos de cifrado: AES, Blowfish&lt;/div&gt;"]
+    A --&gt; D["&lt;b&gt;Cifrado asimétrico&lt;/b&gt;&lt;hr&gt;&lt;br/&gt;&lt;div style='text-align: left;'&gt;• Par de claves (pública y privada)&lt;/div&gt;&lt;div style='text-align: left;'&gt;• Intercambio de clave y autenticación&lt;/div&gt;&lt;div style='text-align: left;'&gt;• Algoritmos de cifrado: RSA, ECC o Diffie-Hellman&lt;/div&gt;"]
+    A --&gt; E["&lt;b&gt;Hashing&lt;/b&gt;&lt;hr&gt;&lt;br/&gt;&lt;div style='text-align: left;'&gt;• Función unidireccional&lt;/div&gt;&lt;div style='text-align: left;'&gt;• Verifica la integridad de los datos&lt;/div&gt;&lt;div style='text-align: left;'&gt;• Detecta alteraciones&lt;/div&gt;&lt;div style='text-align: left;'&gt;• Algoritmos de hash: SHA-3, KDF&lt;/div&gt;"]</code></pre>
+<ol>
+<li>
+<p><strong>Cifrado simétrico</strong>  </p>
+<ul>
+<li>El cifrado simétrico utiliza <strong>una única clave secreta</strong> tanto para <strong>cifrar como para descifrar</strong> la información en ambos lados.  </li>
+<li><strong>Uso en SSH:</strong> Cifra la totalidad del tráfico y los comandos enviados durante la sesión activa.</li>
+<li><strong>Seguridad:</strong> La clave no se transmite por la red. El cliente y el servidor la generan de manera independiente durante el saludo inicial mediante un algoritmo de intercambio de claves.</li>
+</ul>
+</li>
+<li>
+<p><strong>Cifrado Asimétrico</strong>  </p>
+<ul>
+<li>El cifrado asimétrico emplea <strong>un par de claves matemáticamente enlazadas</strong>.<ul>
+<li><strong>Una clave pública</strong> que se puede compartir libremente.</li>
+<li><strong>Una clave privada</strong> que debe mantenerse secreta.  </li>
+</ul>
+</li>
+<li>Lo que se cifra con la clave pública solo puede descifrarse con la clave privada correspondiente.  </li>
+<li><strong>Uso en SSH:</strong> No se utiliza para cifrar toda la sesión (por ser computacionalmente más lento), sino para:<ul>
+<li><strong>Autenticar</strong> la identidad del cliente y del servidor.</li>
+<li><strong>Negociar</strong> de forma segura la clave simétrica que se usará en la sesión.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Hashing (Verificación de Integridad)</strong>  </p>
+<ul>
+<li>El hashing transforma cualquier entrada de datos en un valor único de longitud fija de forma unidireccional. No es posible de revertir es decir, con el hash no es posible obtener la información original.  </li>
+<li><strong>Uso en SSH:</strong> SSH utiliza HMAC (Hash-based Message Authentication Codes) para asegurar que los comandos e información transmitidos no hayan sido interceptados o alterados por terceros en tránsito.</li>
+</ul>
+</li>
+</ol>
+<h3 id="93-establecimiento-de-una-conexion-ssh">9.3 Establecimiento de una conexión SSH</h3>
+<p>En la siguiente imagen se muestran, de forma simplificada, las principales etapas que intervienen en el establecimiento de una conexión SSH.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_3/img_3_54.png" /></p>
+<p><strong>1 - Inicio de la conexión TCP:</strong> El cliente establece una conexión TCP con el servidor, normalmente a través del puerto (de escucha) 22.<br />
+<strong>2 - Intercambio de versiones:</strong> Cliente y servidor intercambian información sobre las versiones del protocolo SSH que admiten.
+Negociación de algoritmos: Ambas partes acuerdan los algoritmos criptográficos que utilizarán para el intercambio de claves, el cifrado, la integridad (MAC) y, opcionalmente, la compresión de los datos.<br />
+<strong>3-4-5 - Intercambio de claves y generación del secreto compartido:</strong> Mediante un protocolo de intercambio de claves, como Diffie-Hellman o ECDH, cliente y servidor generan un secreto compartido que permitirá establecer las claves de sesión utilizadas para cifrar la comunicación.<br />
+<strong>6 - Verificación de la identidad del servidor:</strong> El cliente verifica la identidad del servidor mediante su clave pública, que se compara con una clave previamente conocida o almacenada en el archivo known_hosts.<br />
+<strong>7-8 - Configuración del cifrado:</strong> Una vez establecido el secreto compartido, se activan los mecanismos de cifrado e integridad para proteger las comunicaciones posteriores.<br />
+<strong>9 - Autenticación del usuario:</strong> El cliente demuestra su identidad ante el servidor, normalmente mediante contraseña, clave pública/privada SSH u otros mecanismos de autenticación configurados en el servidor.<br />
+<strong>10 - Establecimiento de la sesión:</strong> Una vez autenticado el usuario, se establece una sesión SSH y el cliente puede solicitar un shell remoto, ejecutar comandos o utilizar otros servicios proporcionados por SSH.  </p>
+<h3 id="95-tarea-ra6-cef-1-conexion-ssh-desde-so-windows-con-putty">9.5 Tarea RA6-CEf-1 - Conexión SSH desde SO windows con PuTTy</h3>
+<p><img alt="Descripción de la imagen" class="margintop10 marginbottom10 trescinco" src="../img_3/img_3_70.png" /></p>
+<p>En esta tarea instalaremos PuTTY en nuestra <strong>instancia de Windows Server</strong> y no conectaremos por <strong>SSH</strong> a la instancia de <strong>Unbuntu Server</strong>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Antes de nada nos conectaremos a nuestra instancia de Windows Server</p>
+</div>
+<p>Descargamos la aplicación desde <a href="https://www.putty.org/index.html">la página oficial</a> y la instalaremos <strong>en nuestra instancia de Windows Server</strong>.</p>
+<p><img alt="Descripción de la imagen" class="margintop10 marginbottom10 seiscinco" src="../img_3/img_3_55.png" /></p>
+<p>Una vez instalado <strong>PuTTy</strong> consultaremos <a href="https://docs.aws.amazon.com/es_es/AWSEC2/latest/UserGuide/connect-linux-inst-from-windows.html">la documentación de AWS</a> y la seguiremos paso a paso.</p>
+<h4 id="951-convertir-la-clave-privada-con-puttygen">9.5.1 Convertir la clave privada con PuTTYgen</h4>
+<ul>
+<li>
+<p>Ejecutamos PuTTYgen (instalado al mismo tiempo que PuTTy). En <strong>Type of key to generate</strong>, elegimos RSA. Si la versión de PuTTYGen no incluye esta opción, eligiremos SSH-2 RSA.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_3/img_3_59.png" /></p>
+</li>
+<li>
+<p>Elegimos Load.<br />
+De forma predeterminada, PuTTYgen muestra solo archivos con <strong>la extensión .ppk</strong>. Para localizar el archivo .pem, seleccionamos la opción de mostrar todos los tipos de archivo.<br />
+Seleccionamos <strong>el archivo .pem</strong> para el par de claves que se especificó cuando se lanzó la instancia y, a continuación, eligimos <strong>Open (Abrir)</strong>.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_3/img_3_60.png" /></p>
+</li>
+<li>
+<p>Si la importación se ha hecho correctamente, no aparecerá un aviso similar a la siguiente imagen.<br />
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_3/img_3_61.png" />  </p>
+</li>
+<li>
+<p>Luego elegimos <strong>Save private key</strong> para guardar la clave en un formato que PuTTY pueda utilizar. Si no ponemos ninguna contraseña para el archivo de claves, PuTTYgen mostrará una advertencia (eligimos Yes si no queremos poner contraseña).<br />
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_3/img_3_62.png" /></p>
+</li>
+<li>
+<p>Especificaremos un nombre para el archivo de claves. PuTTY añadirá la extensión de archivo .ppk automáticamente.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10 leftseiscero" src="../img_3/img_3_63.png" /></p>
+</li>
+</ul>
+<h4 id="952-conexion-con-la-instancia-de-linux">9.5.2 Conexión con la instancia de Linux</h4>
+<ul>
+<li>
+<p>Ejecutamos PuTTY a vamos a <strong>Connection</strong> → <strong>SSH</strong> → <strong>Auth</strong> y en <strong>Private key file</strong> cargamos el archivo de claves que acabamos de crear.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_3/img_3_64.png" /></p>
+</li>
+<li>
+<p>En la pantalla principal, introducimos la IP de nuestra instancia de <strong>Ubuntu Server</strong> y lanzamos la conexión.<br />
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_3/img_3_56.png" /></p>
+</li>
+<li>
+<p>Si hemos puesto contraseña a nuestro archivo de claves, lo introducimos.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_3/img_3_65.png" /></p>
+</li>
+<li>
+<p>Obviamos las advertencias de seguridad.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_3/img_3_57.png" /></p>
+</li>
+<li>
+<p>Si todo ha ido bien, tendremos acceso a la terminal de nuestra instancia.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_3/img_3_66.png" /></p>
+</li>
+</ul>
+<h4 id="943-migracion-del-archivo-de-claves">9.4.3 Migración del archivo de claves</h4>
+<div class="admonition warning">
+<p class="admonition-title">Preparación de la siguiente tarea</p>
+</div>
+<p>Para poder realizar la siguiente práctica, necesitaremos enviar el archivo con el par de claves de nuestras instancias (LabUser) a la intancia que usaremos de cliente para la conexión SSH.  </p>
+<p>Ese tipo de proceder no es <strong>una buena práctica, desde el punto de vista de la seguridad informática</strong> pero, lo haremos para facilitar la conexión SSH entre instancias con distribuciones Linux en AWS.</p>
+<ul>
+<li>
+<p>Primero recuperaremos la IP pública de la instancia a la que enviaremos el archivo de claves.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_3/img_3_71.png" /></p>
+</li>
+<li>
+<p>Luego enviaremos el archivo de claves <strong>archivo.pem</strong> a la instancia cliente con la aplicación <strong>pscp</strong> del ecosistema PuTTy.<br />
+Para ello, usaremos la siguiente sintaxis.  </p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>pscp<span class="w"> </span>-i<span class="w"> </span>archivo.ppk<span class="w"> </span>archivo.pem<span class="w"> </span>ubuntu@IP-publica<span class="w"> </span>directorio
+</span></code></pre></div>
+<p><img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_3/img_3_72.png" /></p>
+</li>
+<li>
+<p>Si nos conectamos por consola de AWS a la instancia cliente, podremos comprobar que el archivo se ha enviado correctamente.
+<img alt="Descripción de la imagen" class="margintop10 marginbottom10" src="../img_3/img_3_73.png" /></p>
+</li>
+</ul>
+<h3 id="94-tarea-ra6-cef-2-conexion-ssh-desde-linux-con-cliente-ssh">9.4 Tarea RA6-CEf-2 - Conexión SSH desde Linux con cliente SSH</h3>
+<h4 id="941-preparacion-del-entorno">9.4.1 Preparación del entorno</h4>
+<ul>
+<li>
+<p>Antes de nada, crearemos otra instancia de Ubuntu-server, dejando la configuración del tipo de instancia así como de la capacidad de almacenaje con los valores por defecto (t3.micro, 8GB).</p>
+</li>
+<li>
+<p>Nos conectamos a la instancia de Ubuntu-Server <strong>dónde hemos enviado el archivo con el par de claves</strong> y comprobaremos que el cliente SSH está instalado.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>ssh<span class="w"> </span>-V
+</span></code></pre></div>
+<p><img alt="Descripción de la imagen" class="marginbottom10" src="../img_3/img_3_68.png" /></p>
+</li>
+<li>
+<p>También haremos lo mismo con el servidor SSH y comprobaremos que está funcionando.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>sshd<span class="w"> </span>-V<span class="w"> </span><span class="m">2</span>&lt;<span class="p">&amp;</span><span class="m">1</span>
+</span></code></pre></div>
+<p><img alt="Descripción de la imagen" class="marginbottom10" src="../img_3/img_3_74.png" /></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>systemctl<span class="w"> </span>status<span class="w"> </span>ssh
+</span></code></pre></div>
+<p><img alt="Descripción de la imagen" class="marginbottom10" src="../img_3/img_3_75.png" /></p>
+</li>
+</ul>
+<h4 id="942-primera-conexion-ssh-entre-maquinas-linux">9.4.2 Primera conexión SSH entre máquinas Linux</h4>
+<ul>
+<li>
+<p>Usaremos la sintáxis vista anteriormente pero, le añadiremos el archivo de claves:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>ssh<span class="w"> </span>-i<span class="w"> </span>archivo.pem<span class="w"> </span>usuario@direccion_ip_o_dominio
+</span></code></pre></div>
+<p>Es probable que no salte un error al tener permisos de lectura del archivo demasiado permisivos.
+<img alt="Descripción de la imagen" class="marginbottom10" src="../img_3/img_3_76.png" /></p>
+</li>
+<li>
+<p>Cambiamos los permisos a solo lectura por el propietario con:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>chmod<span class="w"> </span><span class="m">400</span><span class="w"> </span>labsuser.pem
+</span></code></pre></div>
+<p>Dónde:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="w">     </span><span class="m">4</span><span class="w">         </span><span class="m">0</span><span class="w">      </span><span class="m">0</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="w">     </span>│<span class="w">         </span>│<span class="w">      </span>│
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="w">     </span>▼<span class="w">         </span>▼<span class="w">      </span>▼
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>propietario<span class="w">  </span>grupo<span class="w">  </span>otros
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="w">     </span>│<span class="w">         </span>│<span class="w">      </span>│
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="w">     </span>▼<span class="w">         </span>▼<span class="w">      </span>▼
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="w">    </span>leer<span class="w">      </span>nada<span class="w">   </span>nada
+</span></code></pre></div>
+</li>
+<li>
+<p>Comprobamos los nuevos permisos del archivo de clave.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>ls<span class="w"> </span>-l<span class="w"> </span>labsuser.pem
+</span></code></pre></div>
+<p><img alt="Descripción de la imagen" class="marginbottom10" src="../img_3/img_3_77.png" /></p>
+</li>
+<li>
+<p>Nos volvemos a conectar a la máquina Ubuntu-Server servidor y esta vez, accedemos sin problemas.</p>
+<p><img alt="Descripción de la imagen" class="marginbottom10" src="../img_3/img_3_78.png" /></p>
+</li>
+</ul>
+<h2 id="10-administracion-remota-con-remmina">10 - Administración remota con Remmina</h2>
+<p><img alt="Descripción de la imagen" class="marginbottom10 cincozero" src="../img_3/img_3_79.png" /></p>
+<!-- https://marcosruiz.github.io/posts/servicio-ssh/ -->
+<!-- https://www.hostinger.com/es/tutoriales/que-es-ssh/ -->
+<!-- https://gatlenculp.medium.com/a-practical-guide-to-ssh-7dece875a41a -->
+
+<!-- revisar -->
+
+<!-- https://docs.google.com/presentation/d/1eJTYUdgqbQTfzIJDM4FhhvqMX3ICfIG85OaFwnReU3A/edit?slide=id.g1142a802_1_0#slide=id.g1142a802_1_0 -->
+<!-- https://acastan.gitbook.io/servicios -->
+<!-- https://www.educatica.es/informatica/sistemas-operativos-en-red/casos-practicos/2408-administracion-remota/administracion-remota/ -->
+<!-- https://raul-profesor.github.io/SXI/section/P3.1/ -->
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pie" >
+        
+          
+          <a href="../02_TCP-IP/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Protocolo TCP/IP">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Protocolo TCP/IP
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../04_DHCP/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Protocolo DHCP">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              <div class="md-ellipsis">
+                Protocolo DHCP
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 - Javier Egea Blasco
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress - navigation.expand - navigation.path", "navigation.instant.progress", "navigation.instant.preview", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "toc.follow", "navigation.footer", "navigation.top", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.tabs.link"], "search": "../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

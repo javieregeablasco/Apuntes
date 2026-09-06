@@ -1,0 +1,2329 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Javier Egea Blasco">
+      
+      
+        <link rel="canonical" href="https://javieregeablasco.github.io/Apuntes/SMX/SMX_2/SX/apuntes/01_Redes/">
+      
+      
+        <link rel="prev" href="../00_Temario/">
+      
+      
+        <link rel="next" href="../02_TCP-IP/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Servicios en red - Javier Egea Blasco</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-introduccion" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../../../../.." title="Javier Egea Blasco" class="md-header__button md-logo" aria-label="Javier Egea Blasco" data-md-component="logo">
+      
+  <img src="../../../../../assets/mre.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Javier Egea Blasco
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Servicios en red
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Compartir" aria-label="Compartir" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../SMX_1/AO/00_Temario/" class="md-tabs__link">
+          
+  
+  
+  Aplicaciones Ofimáticas
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../00_Temario/" class="md-tabs__link">
+          
+  
+  
+  Servicios en redes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../DAW/DAW_2/PWES/UT.%200-Temario/" class="md-tabs__link">
+          
+  
+  
+  Under development
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="Javier Egea Blasco" class="md-nav__button md-logo" aria-label="Javier Egea Blasco" data-md-component="logo">
+      
+  <img src="../../../../../assets/mre.png" alt="logo">
+
+    </a>
+    Javier Egea Blasco
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aplicaciones Ofimáticas
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Aplicaciones Ofimáticas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX_1/AO/00_Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Presentación módulo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX_1/AO/01_Instalacion%20de%20aplicaciones%20ofimaticas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 1 - Instalación de aplicaciones Ofimáticas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 2 - Procesadores de texto
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UT 2 - Procesadores de texto
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX_1/AO/02_Procesadores_de_texto/021_Procesadores_de_texto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 21 - Características de los procesadores de texto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX_1/AO/02_Procesadores_de_texto/022_LibreOffice_Writer_Instalacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 22 - Instalación de LibreOffice Writer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX_1/AO/02_Procesadores_de_texto/023_LibreOffice_Writer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 23 - LibreOffice Writer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX_1/AO/03_Hojas%20de%20calculo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 3 - Hojas de cálculo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX_1/AO/07_Presentaciones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 4 - Presentaciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX_1/AO/04_Bases%20de%20datos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 5 - Bases de datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX_1/AO/05_Imagenes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 6 - Edición de imágenes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX_1/AO/06_Captura%20e%20edicion%20de%20video/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 7 - Edición de vídeos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX_1/AO/08_Correo%20electronico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 8 - Agenda electrónica y comunicación
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX_1/AO/09_Resolucion%20de%20incidencias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 9 - Gestión de incidencias
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Servicios en redes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Servicios en redes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00_Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Presentación módulo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Redes
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Redes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 - Introducción
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-definiciones-de-redes-de-ordenadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 - Definiciones de redes de ordenadores
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 - Definiciones de redes de ordenadores">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-red-informatica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Red informática
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-clasificacion-de-las-redes-informaticas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Clasificación de las redes informáticas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 Clasificación de las redes informáticas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221-red-de-area-personal-pan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.1 Red de Área Personal (PAN)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222-red-de-area-local-lan-y-wlan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.2 Red de Área Local (LAN y WLAN)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#223-red-de-area-de-campus-can" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.3 Red de Área de Campus (CAN)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#224-red-de-area-metropolitana-man" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.4 Red de Área Metropolitana (MAN)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#225-red-de-area-amplia-wan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.5 Red de Área Amplia (WAN)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#226-red-de-area-global-gan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.6 Red de Área Global (GAN)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#227-redes-locales-virtuales-vlan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.7 Redes locales virtuales (VLAN)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#228-redes-privadas-virtuales-vpn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.8 Redes privadas virtuales (VPN)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#229-actividades" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.9 Actividades
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-elementos-de-una-red-informatica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Elementos de una red informática
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-tipos-de-conexion-entre-nodos-en-una-red-informatica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Tipos de conexión entre nodos en una red informática
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-funcionamiento-de-una-red-informatica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 Funcionamiento de una red informática
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-modelos-de-comunicacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6 Modelos de comunicación
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.6 Modelos de comunicación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#261-modelo-osi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6.1 Modelo OSI
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.6.1 Modelo OSI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2611-ejemplo-de-flujo-de-datos-por-las-capas-del-modelo-osi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6.1.1 Ejemplo de flujo de datos por las capas del modelo OSI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2612-encapsulacion-de-los-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6.1.2 Encapsulación de los datos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2613-tabla-resumen-de-los-protocolos-por-capas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6.1.3 Tabla resumen de los protocolos por capas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#262-modelo-tcpip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6.2 Modelo TCP/IP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.6.2 Modelo TCP/IP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2521-capas-del-modelo-tcpip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5.2.1 Capas del modelo TCP/IP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2622-pila-de-protocolos-del-modelo-tcpip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6.2.2 Pila de protocolos del modelo TCP/IP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2523-protocolos-de-comunicacion-del-modelo-tcpip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5.2.3 Protocolos de comunicación del modelo TCP/IP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2624-encapsulacion-de-los-datos-con-el-modelo-tcpip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6.2.4 Encapsulación de los datos con el modelo TCP/IP
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_TCP-IP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocolo TCP/IP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_Conexiones-remotas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Acceso y control remoto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_DHCP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocolo DHCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_DNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocolo DNS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Under development
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Under development
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../DAW/DAW_2/PWES/UT.%200-Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Presentación módulo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 - Introducción
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-definiciones-de-redes-de-ordenadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 - Definiciones de redes de ordenadores
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 - Definiciones de redes de ordenadores">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-red-informatica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Red informática
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-clasificacion-de-las-redes-informaticas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Clasificación de las redes informáticas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 Clasificación de las redes informáticas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221-red-de-area-personal-pan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.1 Red de Área Personal (PAN)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222-red-de-area-local-lan-y-wlan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.2 Red de Área Local (LAN y WLAN)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#223-red-de-area-de-campus-can" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.3 Red de Área de Campus (CAN)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#224-red-de-area-metropolitana-man" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.4 Red de Área Metropolitana (MAN)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#225-red-de-area-amplia-wan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.5 Red de Área Amplia (WAN)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#226-red-de-area-global-gan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.6 Red de Área Global (GAN)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#227-redes-locales-virtuales-vlan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.7 Redes locales virtuales (VLAN)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#228-redes-privadas-virtuales-vpn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.8 Redes privadas virtuales (VPN)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#229-actividades" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.9 Actividades
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-elementos-de-una-red-informatica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Elementos de una red informática
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-tipos-de-conexion-entre-nodos-en-una-red-informatica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Tipos de conexión entre nodos en una red informática
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-funcionamiento-de-una-red-informatica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 Funcionamiento de una red informática
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-modelos-de-comunicacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6 Modelos de comunicación
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.6 Modelos de comunicación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#261-modelo-osi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6.1 Modelo OSI
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.6.1 Modelo OSI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2611-ejemplo-de-flujo-de-datos-por-las-capas-del-modelo-osi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6.1.1 Ejemplo de flujo de datos por las capas del modelo OSI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2612-encapsulacion-de-los-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6.1.2 Encapsulación de los datos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2613-tabla-resumen-de-los-protocolos-por-capas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6.1.3 Tabla resumen de los protocolos por capas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#262-modelo-tcpip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6.2 Modelo TCP/IP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.6.2 Modelo TCP/IP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2521-capas-del-modelo-tcpip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5.2.1 Capas del modelo TCP/IP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2622-pila-de-protocolos-del-modelo-tcpip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6.2.2 Pila de protocolos del modelo TCP/IP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2523-protocolos-de-comunicacion-del-modelo-tcpip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5.2.3 Protocolos de comunicación del modelo TCP/IP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2624-encapsulacion-de-los-datos-con-el-modelo-tcpip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6.2.4 Encapsulación de los datos con el modelo TCP/IP
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Redes</h1>
+
+<p><img alt="Descripción de la imagen" class="img1 marginbottom40" src="../img_2/img_2_1.jpg" /></p>
+<p><strong>Resultados de aprendizaje y criterios de evaluacion que se evaluarán en esta unidad.</strong>  </p>
+<table>
+<thead>
+<tr>
+<th><strong>Resultados de aprendizaje de la unidad didáctica:</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RA. 1:</strong> Instala servicios de configuración dinámica, describiendo sus características y aplicaciones.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><strong>Criterios de evaluación de la unidad didáctica:</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>a)</strong> Se ha reconocido el funcionamiento de los mecanismos automatizados de configuración de los parámetros de red.</td>
+</tr>
+<tr>
+<td><strong>b)</strong> Se han identificado las ventajas que proporcionan.</td>
+</tr>
+<tr>
+<td><strong>c)</strong> Se han ilustrado los procedimientos y pautas que intervienen en una solicitud de configuración de los parámetros de red.</td>
+</tr>
+<tr>
+<td><strong>d)</strong> Se ha instalado un servicio de configuración dinámica de los parámetros de red.</td>
+</tr>
+<tr>
+<td><strong>e)</strong> Se ha preparado el servicio para asignar la configuración básica a los sistemas de una red local.</td>
+</tr>
+<tr>
+<td><strong>f)</strong> Se han realizado asignaciones dinámicas y estáticas.</td>
+</tr>
+<tr>
+<td><strong>g)</strong> Se han integrado en el servicio opciones adicionales de configuración.</td>
+</tr>
+<tr>
+<td><strong>h)</strong> Se ha verificando la correcta asignación de los parámetros.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="1-introduccion">1 - Introducción</h2>
+<h2 id="2-definiciones-de-redes-de-ordenadores">2 - Definiciones de redes de ordenadores</h2>
+<h3 id="21-red-informatica">2.1 Red informática</h3>
+<p><strong>Una red informática</strong> es un conjunto de equipos interconectados entre sí, que comparten información y recursos.<br />
+Una red informática se compone de tres elementos fundamentales <strong>medios de transmisión</strong>, <strong>nodos</strong> y <strong>protocolos</strong>.</p>
+<ul>
+<li><strong>Medios de transmisión:</strong> Pueden ser tanto físicos como inalámbricos y son los canales que permiten la comunicación entre los equipos de una red.</li>
+<li><strong>Nodos:</strong> Dispositivos que pueden enviar, recibir o retransmitir datos en una red.</li>
+<li><strong>Protocolos:</strong> Reglas y convenciones que rigen la comunicación entre los equipos de una red.</li>
+</ul>
+<h3 id="22-clasificacion-de-las-redes-informaticas">2.2 Clasificación de las redes informáticas</h3>
+<p><img alt="Descripción de la imagen" class="marginbottom20 margintop20" src="../img_2/img_2_2.png" /></p>
+<h4 id="221-red-de-area-personal-pan">2.2.1 Red de Área Personal (PAN)</h4>
+<p>Es el tipo de red más básico (y pequeño). Su alcance se limita a unos pocos metros y está diseñada para conectar dispositivos de uso personal como smartphones, tabletas, ordenadores y periféricos (auriculares, impresoras). La tecnología más común para su funcionamiento inalámbrico (WPAN) es el Bluetooth.</p>
+<h4 id="222-red-de-area-local-lan-y-wlan">2.2.2 Red de Área Local (LAN y WLAN)</h4>
+<p>Se puede definir como una red que conecta dispositivos dentro de un área geográfica limitada, como un hogar, oficina o edificio. Dentro de esta categoría se incluyen dos tipos de redes:</p>
+<ul>
+<li><strong>LAN (Local Area Network):</strong> Conecta dispositivos en un espacio físico limitado (casa, oficina, edificio, ...). Permite el intercambio rápido de grandes cantidades de datos y el uso de recursos comunes como servidores e impresoras.  </li>
+<li><strong>WLAN (Wireless LAN):</strong> Es la versión inalámbrica de la LAN, comúnmente conocida como Wi-Fi, que ofrece la misma conectividad local sin necesidad de cables físico.</li>
+</ul>
+<h4 id="223-red-de-area-de-campus-can">2.2.3 Red de Área de Campus (CAN)</h4>
+<p>Esta red interconecta varias redes locales (LAN) dentro de un recinto geográfico específico, como un campus universitario, un hospital o un complejo industrial. Es más grande que una LAN pero más pequeña que una red metropolitana.</p>
+<h4 id="224-red-de-area-metropolitana-man">2.2.4 Red de Área Metropolitana (MAN)</h4>
+<p>La red MAN da cobertura a un área geográfica más amplia, como un municipio o una ciudad. Suele estar compuesta por varias redes LAN interconectadas a través de infraestructura de alta velocidad, como la fibra óptica, y es utilizada frecuentemente por empresas con varias sedes en la misma ciudad o por ayuntamientos.</p>
+<h4 id="225-red-de-area-amplia-wan">2.2.5 Red de Área Amplia (WAN)</h4>
+<p>Las redes WAN cubren distancias considerables, extendiéndose por países o continentes. Utilizan medios como satélites o cables submarinos para conectar dispositivos que están a kilómetros de distancia. El ejemplo más representativo y conocido de una red WAN es <strong>Internet</strong>.</p>
+<h4 id="226-red-de-area-global-gan">2.2.6 Red de Área Global (GAN)</h4>
+<p>Representa la red de mayor escala, con una cobertura global. Da soporte a las comunicaciones móviles a nivel mundial y permite que dispositivos en cualquier punto del planeta se conecten entre sí utilizando infraestructuras de redes de área amplia.</p>
+<h4 id="227-redes-locales-virtuales-vlan">2.2.7 Redes locales virtuales (VLAN)</h4>
+<p>Además de estas, existen configuraciones específicas como las redes locales virtuales (VLAN), que permiten segmentar el tráfico de forma lógica dentro de una infraestructura física ya existente para mejorar la seguridad y el rendimiento.</p>
+<h4 id="228-redes-privadas-virtuales-vpn">2.2.8 Redes privadas virtuales (VPN)</h4>
+<p>Las redes privadas virtuales (VPN) permiten a los usuarios conectarse de manera segura a una red privada a través de de cualquier in­frae­s­tru­c­tu­ra de red para asociar sistemas in­fo­r­má­ti­cos de manera lógica.<br />
+   Lo más común es utilizar <strong>Internet como medio de tra­n­s­po­r­te</strong>, ya que este permite es­ta­ble­cer la conexión entre todos los or­de­na­do­res a nivel mundial. La tra­n­s­fe­re­n­cia de datos tiene lugar dentro de <strong>un túnel virtual</strong> entre cliente y servidor.  </p>
+<h4 id="229-actividades">2.2.9 Actividades</h4>
+<div class="admonition exercise">
+<p class="admonition-title">Identificar el tipo de red de las siguientes imágenes y explicar sus características y aplicaciones.</p>
+<p><img alt="Descripción de la imagen" class="margintop20" src="../img_2/img_2_3.png" />
+<img alt="Descripción de la imagen" class="marginbottom20" src="../img_2/img_2_4.png" />
+<img alt="Descripción de la imagen" src="../img_2/img_2_5.png" /></p>
+</div>
+<h3 id="23-elementos-de-una-red-informatica">2.3 Elementos de una red informática</h3>
+<p><img alt="Descripción de la imagen" src="../img_2/img_2_6.png" /></p>
+<p>Para que una red informática funcione correctamente, necesita una serie de elementos físicos, lógicos y de conectividad que trabajan de forma coordinada. Los principales son:</p>
+<ol>
+<li><strong>Nodos:</strong><br />
+<strong>Un nodo es cualquier dispositivo conectado a la red</strong>, es decir, ordenadores, impresoras, módems o servidores capaces de enviar, recibir, crear o almacenar datos. Cada nodo necesita una forma de identificación, habitualmente una dirección IP o una dirección MAC, para poder comunicarse con el resto.</li>
+<li><strong>Dirección IP:</strong><br />
+<strong>Es el identificador numérico único asignado a cada dispositivo dentro de la red.</strong> Cuando un dispositivo envía datos a otro, los paquetes incluyen las direcciones IP de origen y destino, lo que permite que la información llegue al lugar correcto.</li>
+<li><strong>Enrutadores (routers):</strong><br />
+<strong>Analizan los paquetes de datos y determinan la ruta óptima para que lleguen a su destino.</strong> Se encargan de dirigir el tráfico <strong>entre redes distintas</strong> de forma eficiente.</li>
+<li><strong>Conmutadores (switches):</strong><br />
+<strong>Conectan entre sí los dispositivos de una misma red local</strong>, gestionando el tráfico de datos con mayor precisión que un enrutador en entornos de área reducida.</li>
+<li><strong>Medios de transmisión:</strong><br />
+El canal por el que viajan los datos puede ser <strong>físico</strong> (cables de cobre, Ethernet o fibra óptica) o <strong>inalámbrico</strong>, mediante ondas electromagnéticas o de radio. La elección del medio condiciona la velocidad, el alcance y la seguridad de la red.</li>
+<li><strong>Protocolos de comunicación:</strong><br />
+Son las reglas que permiten que dispositivos distintos se entiendan entre sí. El <strong>TCP/IP es el más utilizado</strong>, pero existen otros como HTTP, FTP o DNS, cada uno con funciones específicas dentro del ecosistema de la red.</li>
+<li><strong>Cortafuegos (firewalls) y sistemas de seguridad:</strong><br />
+Protegen la red controlando el tráfico entrante y saliente, bloqueando accesos no autorizados y filtrando contenido potencialmente dañino.</li>
+</ol>
+<p><strong>Entender la relación entre los componentes físicos de una red</strong> requiere también conocer bien el <strong>hardware de un ordenador y la diferencia entre hardware y software</strong>, ya que ambas dimensiones se integran en cualquier infraestructura de red.</p>
+<h3 id="24-tipos-de-conexion-entre-nodos-en-una-red-informatica">2.4 Tipos de conexión entre nodos en una red informática</h3>
+<ul>
+<li><strong>Cliente-servidor:</strong><br />
+Un servidor centralizado gestiona los recursos y da servicio a varios dispositivos clientes. Es el modelo dominante en empresas, plataformas web y servicios en la nube.</li>
+<li><strong>P2P (Peer-to-Peer o red entre iguales):</strong><br />
+Todos los nodos actúan simultáneamente como clientes y servidores, compartiendo recursos de forma directa sin necesidad de un servidor central. Es el modelo que usan, por ejemplo, algunas plataformas de intercambio de archivos.</li>
+</ul>
+<h3 id="25-funcionamiento-de-una-red-informatica">2.5 Funcionamiento de una red informática</h3>
+<p>El funcionamiento de una red informática se basa en un proceso ordenado de transmisión de datos donde cada componente cumple un rol específico:</p>
+<ol>
+<li>
+<p><strong>Emisor:</strong> Dispositivo o usuario que genera el mensaje o conjunto de datos que se desea transmitir.</p>
+</li>
+<li>
+<p><strong>Codificación:</strong> La tarjeta de red del emisor convierte la información en cadenas de bits (lenguaje binario) para que pueda viajar por la red.</p>
+</li>
+<li>
+<p><strong>Empaquetado y enrutamiento:</strong> Los datos se dividen en pequeños paquetes independientes. Siguiendo el <strong>protocolo TCP/IP</strong>, los enrutadores analizan cada paquete y determinan la ruta más eficiente hacia su destino.</p>
+</li>
+<li>
+<p><strong>Medio de transmisión:</strong> Canal físico o inalámbrico (cable de red, fibra óptica o Wi-Fi) por el que se desplazan los paquetes.</p>
+</li>
+<li>
+<p><strong>Decodificación y reensamblado:</strong> El dispositivo receptor captura los bits, organiza los paquetes en el orden correcto y reconstruye el mensaje original.</p>
+</li>
+<li>
+<p><strong>Receptor:</strong> Dispositivo o usuario final que recibe la información procesada y lista para su uso.</p>
+</li>
+</ol>
+<p>Todo este flujo se completa en fracciones de segundo gracias a la velocidad de la infraestructura actual y la eficiencia de los protocolos de red. La calidad final de la transmisión dependerá de factores como el ancho de banda, la estabilidad del medio y la correcta configuración de los equipos.</p>
+<!-- subnetting ampliado -->
+<!-- https://www.redeszone.net/tutoriales/redes-cable/calcular-subnetting-ip-red-mascara-subred-ipv4/#449694-que-es-el-subnetting-tipos-y-clases-de-direcciones -->
+<!-- https://itadmins.es/networking-ii-dispositivos-de-red-y-tipos-de-trafico/ -->
+<!-- https://openwebinars.net/blog/nat-que-es-y-para-que-sirve/ -->
+<!-- https://www.tutorialesprogramacionya.com/protocolosredes/conceptoredes/ -->
+<!-- falta nat -->
+
+<!-- ejercicios -->
+<!-- https://acastan.gitbook.io/servicios -->
+
+<!-- poner esto en siguiente apartado -->
+<h3 id="26-modelos-de-comunicacion">2.6 Modelos de comunicación</h3>
+<ul>
+<li>Un protocolo de comunicación es un conjunto de reglas que define cómo deben intercambiar información dos o más dispositivos de una red. Utilizando una analogía, un protocolo es para una red lo que un idioma es para las personas: si ambos interlocutores utilizan el mismo idioma, pueden entenderse y comunicarse.</li>
+<li>Los equipos de una red pueden utilizar sistemas operativos, programas y hardware muy diferentes. Sin embargo, si emplean protocolos compatibles, podrán intercambiar información sin problemas.</li>
+<li>Para que dos dispositivos puedan comunicarse, ambos deben utilizar los mismos protocolos o protocolos compatibles. Por ejemplo, el protocolo IP permite identificar y direccionar los dispositivos dentro de una red para que los paquetes lleguen a su destino.</li>
+<li>En las redes informáticas existen numerosos protocolos, cada uno diseñado para realizar una función específica. Habitualmente se estudian y clasifican según la capa del modelo OSI en la que desempeñan su función.</li>
+</ul>
+<h4 id="261-modelo-osi">2.6.1 Modelo OSI</h4>
+<p><img alt="Descripción de la imagen" class="marco marginbottom20" src="../img_2/img_2_7.png" /></p>
+<p><strong>El modelo de interconexión de sistemas abiertos (OSI)</strong> es una representación <strong>abstracta</strong> del funcionamiento de Internet.  </p>
+<p><strong>Contiene 7 capas:</strong></p>
+<ul>
+<li>Cada capa representa una categoría diferente de funciones de red.</li>
+<li>Cada capa dispone de un conjunto de protocolos que permiten que los dispositivos de una red puedan comunicarse entre sí.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">7. Capa de aplicación:</p>
+<p><img alt="Descripción de la imagen" class="marco marginbottom20 margintop20" src="../img_2/img_2_8.png" /></p>
+<ul>
+<li>Es la capa más cercana al usuario y la única que interactúa directamente con las aplicaciones.</li>
+<li>Proporciona servicios de red a los programas utilizados por el usuario, como navegadores web, clientes de correo electrónico o aplicaciones de mensajería.</li>
+<li>Las aplicaciones (Firefox, Chrome, Thunderbird, Outlook, etc.) no forman parte de la capa de aplicación; utilizan los servicios y protocolos que esta proporciona.</li>
+<li>Se encarga de definir los protocolos y las reglas necesarias para el intercambio de información entre aplicaciones que se ejecutan en diferentes equipos.</li>
+<li>Algunos protocolos de esta capa son <strong>HTTP</strong> (páginas web), <strong>HTTPS</strong>, <strong>FTP</strong> (transferencia de archivos), <strong>DNS</strong> (resolución de nombres), <strong>SMTP</strong> (envío de correo electrónico), <strong>POP3</strong> e <strong>IMAP</strong> (recepción de correo electrónico).</li>
+</ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">6. Capa de presentación:</p>
+<p><img alt="Descripción de la imagen" class="marco marginbottom20 margintop20 ochozero" src="../img_2/img_2_9.png" /></p>
+<ul>
+<li>Se encarga de representar los datos en un formato común para que puedan ser interpretados por la capa de aplicación del equipo receptor.</li>
+<li>Sus principales funciones son la traducción de formatos, el cifrado y el descifrado de la información, así como la compresión y descompresión de los datos.</li>
+<li>Si dos dispositivos utilizan representaciones diferentes de los datos (por ejemplo, distintas codificaciones de caracteres), esta capa realiza la traducción necesaria para que ambos puedan entender la información intercambiada.</li>
+<li>En el modelo OSI, también es la encargada de cifrar los datos antes de su transmisión y de descifrarlos cuando llegan al equipo receptor, garantizando que solo los destinatarios autorizados puedan interpretarlos.</li>
+<li>Además, puede comprimir los datos antes de enviarlos para reducir el volumen de información transmitida y mejorar la eficiencia de la comunicación. En el receptor, realiza la operación inversa, descomprimiendo los datos antes de entregarlos a la capa de aplicación.   </li>
+</ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">5. Capa de sesión:</p>
+<p><img alt="Descripción de la imagen" class="marco marginbottom20 margintop20 ochozero" src="../img_2/img_2_10.png" /></p>
+<ul>
+<li>Es la encargada de establecer, mantener y finalizar las sesiones de comunicación entre aplicaciones que se ejecutan en diferentes dispositivos.</li>
+<li>Una sesión es el intercambio de información que mantienen dos aplicaciones desde que comienza la comunicación hasta que finaliza.</li>
+<li>La capa de sesión garantiza que la sesión permanezca activa mientras sea necesaria y, una vez finalizada la comunicación, la cierra para liberar los recursos utilizados.</li>
+<li>Además, puede sincronizar la transferencia de datos mediante puntos de control (<em>checkpoints</em>). Si la comunicación se interrumpe, estos puntos permiten reanudar la transferencia desde el último punto de control en lugar de comenzar de nuevo desde el principio.</li>
+</ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">4. Capa de transporte:</p>
+<p><img alt="Descripción de la imagen" class="marco marginbottom20 margintop20" src="../img_2/img_2_11.png" /></p>
+<ul>
+<li>Es la encargada de proporcionar una comunicación extremo a extremo entre las aplicaciones que se ejecutan en los dispositivos de origen y destino.</li>
+<li>En el equipo emisor, recibe los datos de la capa de sesión y los divide en unidades más pequeñas denominadas <strong>segmentos</strong>, que posteriormente entrega a la capa de red para su transmisión.</li>
+<li>En el equipo receptor, realiza el proceso inverso, reensamblando los segmentos recibidos para reconstruir los datos originales antes de entregarlos a la capa de sesión.</li>
+<li>También se encarga del <strong>control de flujo</strong>, regulando la velocidad de transmisión para evitar que un emisor rápido envíe datos más deprisa de lo que el receptor puede procesarlos.</li>
+<li>Además, realiza el <strong>control de errores</strong>, comprobando que los datos lleguen completos y en el orden correcto. Si detecta pérdidas o errores, puede solicitar la retransmisión de los segmentos afectados.</li>
+<li>Los protocolos más conocidos de esta capa son <strong>TCP (Transmission Control Protocol)</strong>, que ofrece una comunicación fiable y orientada a conexión, y <strong>UDP (User Datagram Protocol)</strong>, que prioriza la velocidad sobre la fiabilidad.</li>
+</ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">3. Capa de red:</p>
+<p><img alt="Descripción de la imagen" class="marco marginbottom20 margintop20" src="../img_2/img_2_12.png" /></p>
+<ul>
+<li>Es la encargada de permitir la comunicación entre dispositivos que pertenecen a redes diferentes.</li>
+<li>En el equipo emisor, recibe los segmentos de la capa de transporte y los divide en unidades de datos denominadas <strong>paquetes</strong>, que serán enviados a través de la red.</li>
+<li>En el equipo receptor, realiza el proceso inverso, reensamblando los paquetes recibidos antes de entregarlos a la capa de transporte.</li>
+<li>También se encarga del <strong>direccionamiento lógico</strong>, identificando el origen y el destino de cada paquete mediante direcciones IP.</li>
+<li>Además, determina la mejor ruta que deben seguir los paquetes para llegar a su destino. Este proceso se conoce como <strong>enrutamiento</strong> (<em>routing</em>).</li>
+<li>Entre los protocolos más importantes de esta capa se encuentran <strong>IP (Internet Protocol)</strong>, responsable del direccionamiento y el encaminamiento de los paquetes, <strong>ICMP (Internet Control Message Protocol)</strong>, utilizado para el envío de mensajes de control y diagnóstico, <strong>IGMP (Internet Group Management Protocol)</strong>, empleado para la gestión de grupos multicast, e <strong>IPsec (Internet Protocol Security)</strong>, un conjunto de protocolos que proporciona autenticación y cifrado a las comunicaciones IP.</li>
+</ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">2. Capa de enlace de datos:</p>
+<p><img alt="Descripción de la imagen" class="marco marginbottom20 margintop20" src="../img_2/img_2_13.png" /></p>
+<ul>
+<li>Es la encargada de permitir la comunicación entre dispositivos que pertenecen a la misma red local.</li>
+<li>En el equipo emisor, recibe los paquetes de la capa de red y los encapsula en unidades de datos denominadas <strong>tramas</strong> (<em>frames</em>), que serán transmitidas a través del medio físico.</li>
+<li>En el equipo receptor, realiza el proceso inverso, extrayendo los paquetes de las tramas antes de entregarlos a la capa de red.</li>
+<li>También se encarga del <strong>control de flujo</strong> y del <strong>control de errores</strong> durante la comunicación dentro de una misma red, garantizando que las tramas lleguen correctamente al dispositivo de destino.</li>
+<li>Además, utiliza las <strong>direcciones físicas o direcciones MAC</strong> para identificar de forma única los dispositivos dentro de la red local.</li>
+<li>Entre las tecnologías y protocolos más utilizados en esta capa se encuentran <strong>Ethernet (IEEE 802.3)</strong>, <strong>Wi-Fi (IEEE 802.11)</strong> y <strong>PPP (Point-to-Point Protocol)</strong>.</li>
+</ul>
+</div>
+<div class="admonition info">
+<p class="admonition-title">1. Capa física:</p>
+<p><img alt="Descripción de la imagen" class="marginbottom20 margintop20" src="../img_2/img_2_14.png" /></p>
+<ul>
+<li>Es la capa encargada de transmitir los datos a través del medio físico que conecta los dispositivos de la red.</li>
+<li>Incluye los elementos físicos necesarios para la comunicación, como los <strong>cables</strong>, <strong>conectores</strong>, <strong>repetidores</strong>, <strong>hubs</strong>, así como las características eléctricas, ópticas o de radio que permiten la transmisión de la información.</li>
+<li>En el equipo emisor, convierte los datos en una secuencia de <strong>bits</strong> (0 y 1) que puede transmitirse por el medio físico. En el equipo receptor, realiza el proceso inverso, transformando la señal recibida nuevamente en bits.</li>
+<li>Para que la comunicación sea posible, ambos dispositivos deben utilizar el mismo método de codificación de las señales, de forma que puedan distinguir correctamente los bits <strong>0</strong> y <strong>1</strong> durante la transmisión.</li>
+<li>Entre las tecnologías asociadas a esta capa se encuentran los diferentes medios de transmisión, como el <strong>cable de par trenzado</strong>, la <strong>fibra óptica</strong>, los <strong>enlaces inalámbricos (Wi-Fi)</strong> y los estándares que definen sus características físicas.</li>
+</ul>
+</div>
+<h5 id="2611-ejemplo-de-flujo-de-datos-por-las-capas-del-modelo-osi">2.6.1.1 Ejemplo de flujo de datos por las capas del modelo OSI</h5>
+<p><img alt="Descripción de la imagen" class="marco marginbottom20" src="../img_2/img_2_15.png" /></p>
+<p>Para que una información pueda viajar desde un dispositivo hasta otro a través de una red, debe atravesar las <strong>siete capas del modelo OSI</strong>.</p>
+<p>En el <strong>equipo emisor</strong>, los datos descienden desde la <strong>capa de aplicación</strong> hasta la <strong>capa física</strong>, donde se transmiten por el medio de comunicación. En el <strong>equipo receptor</strong>, ocurre el proceso contrario: los datos ascienden desde la <strong>capa física</strong> hasta la <strong>capa de aplicación</strong>, donde finalmente son interpretados por el programa que los utiliza.</p>
+<p>Supongamos que <strong>Ana</strong> quiere enviar un correo electrónico a <strong>Luis</strong>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Transmisión</p>
+<ol>
+<li>Ana escribe el mensaje en su cliente de correo electrónico y pulsa el botón <strong>Enviar</strong>.</li>
+<li>El cliente de correo entrega el mensaje a la <strong>capa de aplicación</strong>, que utiliza el protocolo <strong>SMTP</strong> para  preparar el envío.</li>
+<li>La <strong>capa de presentación</strong> adapta los datos al formato adecuado y, si es necesario, los comprime o cifra.</li>
+<li>La <strong>capa de sesión</strong> establece la comunicación entre ambos dispositivos y mantiene la sesión mientras dura el   intercambio de información.</li>
+<li>La <strong>capa de transporte</strong> divide el mensaje en <strong>segmentos</strong> para facilitar su transmisión.</li>
+<li>La <strong>capa de red</strong> encapsula los segmentos en <strong>paquetes</strong>, les asigna las direcciones IP de origen y destino y  determina la ruta que seguirán hasta el equipo receptor.</li>
+<li>La <strong>capa de enlace de datos</strong> convierte los paquetes en <strong>tramas</strong>, añadiendo la información necesaria para la  comunicación dentro de la red local.</li>
+<li>Finalmente, la <strong>capa física</strong> transforma las tramas en señales eléctricas, ópticas o de radio, que se transmiten por el medio físico (por ejemplo, un cable de red o una conexión Wi-Fi).</li>
+</ol>
+</div>
+<p>Cuando las señales llegan al equipo de Luis, se realiza el proceso inverso:</p>
+<div class="admonition tip">
+<p class="admonition-title">recepción</p>
+<ol>
+<li>La <strong>capa física</strong> recibe las señales y las convierte nuevamente en una secuencia de bits.</li>
+<li>La <strong>capa de enlace de datos</strong> reconstruye las <strong>tramas</strong> y extrae de ellas los <strong>paquetes</strong>.</li>
+<li>La <strong>capa de red</strong> verifica el direccionamiento y entrega los paquetes a la <strong>capa de transporte</strong>.</li>
+<li>La <strong>capa de transporte</strong> reordena los <strong>segmentos</strong> y reconstruye el mensaje original.</li>
+<li>La <strong>capa de sesión</strong> mantiene la comunicación hasta que finaliza el intercambio de información y,   posteriormente, la cierra.</li>
+<li>La <strong>capa de presentación</strong> descifra o descomprime los datos si es necesario.</li>
+<li>Finalmente, la <strong>capa de aplicación</strong> entrega el mensaje al cliente de correo electrónico, que lo muestra en la pantalla para que Luis pueda leerlo.</li>
+</ol>
+</div>
+<h5 id="2612-encapsulacion-de-los-datos">2.6.1.2 Encapsulación de los datos</h5>
+<p>Cuando una aplicación envía información a través de una red, los datos deben atravesar todas las capas del modelo OSI hasta llegar al medio físico. Durante este recorrido, cada capa añade su propia información de control, proceso que recibe el nombre de encapsulación.</p>
+<p>Normalmente, esta información de control se incorpora mediante una cabecera (header) y, en algunos protocolos, también mediante una cola (trailer o footer). Estos datos adicionales permiten que la capa equivalente del equipo receptor pueda interpretar correctamente la información recibida.</p>
+<p>El resultado de este proceso es una Unidad de Datos de Protocolo o PDU (Protocol Data Unit). Cada vez que los datos descienden una capa, la PDU incorpora nueva información de control y aumenta ligeramente su tamaño. Este proceso continúa hasta la capa de enlace de datos, que genera la trama completa antes de que la capa física la convierta en señales para transmitirla por el medio de comunicación.</p>
+<p>En el equipo receptor se realiza el proceso contrario, denominado desencapsulación. Cada capa elimina la información de control que añadió su homóloga en el equipo emisor y entrega los datos a la capa superior. Finalmente, la información llega a la capa de aplicación en el mismo formato en que fue generada por la aplicación del usuario.</p>
+<p>Dependiendo de la capa en la que se encuentre, la PDU recibe un nombre diferente:</p>
+<ul>
+<li>Capas de Aplicación, Presentación y Sesión: Datos.</li>
+<li>Capa de Transporte: Segmentos (TCP) o Datagramas (UDP).</li>
+<li>Capa de Red: Paquetes.</li>
+<li>Capa de Enlace de datos: Tramas (Frames).</li>
+<li>Capa Física: Bits.</li>
+</ul>
+<p>Aunque en el lenguaje cotidiano suele hablarse de "paquetes" para referirse a cualquier información transmitida por una red, técnicamente cada capa utiliza una denominación distinta para su PDU.</p>
+<p>En la mayoría de los protocolos, la información de control se añade al principio de los datos mediante una cabecera. Sin embargo, algunos protocolos de la capa de enlace de datos, como Ethernet, también incorporan un trailer que contiene un CRC (Cyclic Redundancy Check), utilizado para detectar errores durante la transmisión.</p>
+<p><strong>Ejemplo de encapsulación.</strong>
+<img alt="Descripción de la imagen" class="marco marginbottom20 margintop20" src="../img_2/img_2_16.png" /></p>
+<h5 id="2613-tabla-resumen-de-los-protocolos-por-capas">2.6.1.3 Tabla resumen de los protocolos por capas</h5>
+<p><img alt="Descripción de la imagen" class="marco marginbottom20" src="../img_2/img_2_17.png" /></p>
+<h4 id="262-modelo-tcpip">2.6.2 Modelo TCP/IP</h4>
+<p>El <strong>modelo OSI</strong>, un modelo de referencia que describe cómo se comunican los dispositivos de una red mediante siete capas. El modelo OSI aunque ampliamente utilizado con fines didácticos, <strong>no es el modelo que se emplea en Internet</strong>.</p>
+<p><strong>Internet es una red pública y global</strong> de ordenadores que están interconectados mediante el protocolo de Internet (Internet Protocol) y que se comunican mediante la conmutación de paquetes.  </p>
+<p><strong>Internet es la unión de millones de subredes</strong> domésticas, académicas, comerciales y gubernamentales, por eso a veces se la denomina «la red de redes».</p>
+<p>Aunque existe una gran diversidad de arquitecturas de red, <strong>la familia/suite de protocolos TCP/IP</strong> (desarrollado por el Departamento de Defensa de los Estados Unidos) se utiliza en <strong>la mayoría de las redes que conforman Internet</strong>, así como en las intranets de empresas, centros educativos, zonas wifi, oficinas y hogares.</p>
+<p>La denominación TCP/IP hace referencia a sus dos protocolos más importantes: el <strong>Protocolo de Internet (IP)</strong> y el <strong>Protocolo de Control de Transmisión (TCP)</strong>.</p>
+<p>Al igual que en el modelo <strong>OSI</strong>, el modelo <strong>TCP/IP</strong> divide el proceso de comunicación en diferentes capas. No obstante, lo hace de una forma <strong>más sencilla</strong>, <strong>agrupando algunas de las funciones del modelo OSI</strong>.</p>
+<h5 id="2521-capas-del-modelo-tcpip">2.5.2.1 Capas del modelo TCP/IP</h5>
+<p>Como acabamos de ver, <strong>el modelo TCP/IP es la arquitectura de red en la que se basa Internet</strong>. Se organiza de forma jerárquica en 4 capas que gestionan cómo se empaqueta, envía y recibe la información: <strong>Aplicación, Transporte, Internet (o Red) y Acceso a la red</strong>.</p>
+<ul>
+<li>
+<p><strong>Capa de aplicación</strong><br />
+Es la más cercana al usuario y donde operan las aplicaciones y servicios de red (como navegadores web o gestores de correo). Utiliza protocolos principales como HTTP, FTP, SMTP y DNS.</p>
+</li>
+<li>
+<p><strong>Capa de transporte</strong><br />
+ Garantiza que los datos lleguen de forma íntegra y ordenada entre el emisor y el receptor. Sus protocolos clave son TCP (orientado a conexión y fiable) y UDP (rápido, sin conexión).</p>
+</li>
+<li>
+<p><strong>Capa de Internet</strong><br />
+Se encarga del direccionamiento lógico y del enrutamiento de los paquetes de datos a través de distintas redes hasta llegar a su destino. Su protocolo principal es IP (Internet Protocol).</p>
+</li>
+<li>
+<p><strong>Capa de acceso a la red</strong><br />
+Controla el hardware físico y los medios de transmisión (cables de cobre, fibra óptica, redes inalámbricas). Define cómo los datos se convierten en señales eléctricas o de radio.</p>
+</li>
+</ul>
+<p>Estas cuatro capas equivalen a las siete capas del modelo OSI, tal y como se muestra en la siguiente tabla:</p>
+<table>
+<thead>
+<tr>
+<th>Modelo OSI</th>
+<th>Modelo TCP/IP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Aplicación</td>
+<td>Aplicación</td>
+</tr>
+<tr>
+<td>Presentación</td>
+<td>Aplicación</td>
+</tr>
+<tr>
+<td>Sesión</td>
+<td>Aplicación</td>
+</tr>
+<tr>
+<td>Transporte</td>
+<td>Transporte</td>
+</tr>
+<tr>
+<td>Red</td>
+<td>Internet</td>
+</tr>
+<tr>
+<td>Enlace de datos</td>
+<td>Acceso a la red</td>
+</tr>
+<tr>
+<td>Física</td>
+<td>Acceso a la red</td>
+</tr>
+</tbody>
+</table>
+<p>Como puede observarse, el modelo TCP/IP integra las funciones de las capas de <strong>Aplicación, Presentación y Sesión</strong> del modelo OSI en una única <strong>capa de aplicación</strong>, mientras que las capas <strong>Física</strong> y <strong>Enlace de datos</strong> se agrupan en la <strong>capa de acceso a la red</strong>.</p>
+<p>A partir de este momento estudiaremos los protocolos más importantes de cada una de estas cuatro capas, ya que son los que utilizan los dispositivos para comunicarse en las redes actuales e Internet.</p>
+<h5 id="2622-pila-de-protocolos-del-modelo-tcpip">2.6.2.2 Pila de protocolos del modelo TCP/IP</h5>
+<p><strong>TCP/IP</strong> es el nombre genérico que se le da a todo el conjunto de protocolos de comunicación que usa Internet.  </p>
+<p>Como hemos visto, no es un único protocolo, sino un modelo de referencia con varias capas, y TCP/IP engloba a muchísimos protocolos (no solo TCP e IP): también incluye HTTP, FTP, DNS, UDP, SMTP, etc.</p>
+<ol>
+<li>
+<p><strong>El protocolo IP (Internet Protocol)</strong><br />
+Pertenece a la capa de red (o capa de Internet). Su función es la de direccionamiento y encaminamiento: asigna las direcciones IP a los dispositivos y se encarga de que los paquetes de datos viajen desde el origen hasta el destino correcto, aunque tengan que pasar por varias redes intermedias.</p>
+</li>
+<li>
+<p><strong>El protocolo TCP (Transmission Control Protocol)</strong><br />
+Pertenece a la capa de transporte. Su función es garantizar que los datos lleguen de forma fiable y ordenada: divide la información en paquetes, comprueba que todos lleguen, los reordena si es necesario y pide el reenvío de los que se hayan perdido.</p>
+</li>
+</ol>
+<h5 id="2523-protocolos-de-comunicacion-del-modelo-tcpip">2.5.2.3 Protocolos de comunicación del modelo TCP/IP</h5>
+<p>En la siguiente imagen podemos ver cómo se distribuyen los protocolos más habituales del modelo TCP/IP y cómo se mapearían dentro del marco conceptual del modelo OSI.</p>
+<p><img alt="Descripción de la imagen" class="marginbottom20" src="../img_2/img_2_18.png" /></p>
+<h5 id="2624-encapsulacion-de-los-datos-con-el-modelo-tcpip">2.6.2.4 Encapsulación de los datos con el modelo TCP/IP</h5>
+<p>Al igual que en el modelo OSI, TCP/IP también encapsula los datos mientras van descendiendo por las capas en el emisor y ascendiendo en el receptor.</p>
+<p>En el siguiente ejemplo mostraremos <strong>una solicitud HTTP</strong> entre cliente y servidor a la hora de acceder a una página web.</p>
+<p><img alt="Descripción de la imagen" class="marginbottom20" src="../img_2/img_2_19.png" /></p>
+<hr />
+<table>
+<thead>
+<tr>
+<th><strong>Licencia Creative Commons:</strong></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="by-nc-nd-eu_"><img alt="alt text" src="../../../../../assets/by-nc-nd-eu_.png" /></td>
+<td><strong>Reconocimiento-NoComercial-CompartirIgual CC BY-NC-SA:</strong> No se permite un uso comercial de la obra original ni de las posibles obras derivadas, la distribución de la cuales se debe hace con una licencia igual a la que regula la obra original.</td>
+</tr>
+</tbody>
+</table>
+<!-- 
+muy bien escrito revisar para ver si el texto sigue la misma esstructura.
+https://itadmins.es/networking-i-el-modelo-osi/ -->
+
+<!-- 
+falta poner imagen de hardware de red + serviciois en red para introducir el modulo -->
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pie" >
+        
+          
+          <a href="../00_Temario/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Presentación módulo">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Presentación módulo
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../02_TCP-IP/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Protocolo TCP/IP">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              <div class="md-ellipsis">
+                Protocolo TCP/IP
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 - Javier Egea Blasco
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress - navigation.expand - navigation.path", "navigation.instant.progress", "navigation.instant.preview", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "toc.follow", "navigation.footer", "navigation.top", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.tabs.link"], "search": "../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

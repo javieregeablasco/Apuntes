@@ -1,0 +1,2229 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Javier Egea Blasco">
+      
+      
+        <link rel="canonical" href="https://javieregeablasco.github.io/Apuntes/DAW/DAW_2/AWS/UT.%206-ElasticLoadBalancing/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Introducción a la nube pública - Javier Egea Blasco</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ut-6-interconexion-balanceo-y-escalado-de-infraestructuras" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../../../.." title="Javier Egea Blasco" class="md-header__button md-logo" aria-label="Javier Egea Blasco" data-md-component="logo">
+      
+  <img src="../../../../assets/mre.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Javier Egea Blasco
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Introducción a la nube pública
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Compartir" aria-label="Compartir" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../SMX/SMX_1/AO/00_Temario/" class="md-tabs__link">
+          
+  
+  
+  Aplicaciones Ofimáticas
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../SMX/SMX_2/SX/apuntes/00_Temario/" class="md-tabs__link">
+          
+  
+  
+  Servicios en redes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../PWES/UT.%200-Temario/" class="md-tabs__link">
+          
+  
+  
+  Under development
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Javier Egea Blasco" class="md-nav__button md-logo" aria-label="Javier Egea Blasco" data-md-component="logo">
+      
+  <img src="../../../../assets/mre.png" alt="logo">
+
+    </a>
+    Javier Egea Blasco
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aplicaciones Ofimáticas
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Aplicaciones Ofimáticas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_1/AO/00_Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Presentación módulo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_1/AO/01_Instalacion%20de%20aplicaciones%20ofimaticas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 1 - Instalación de aplicaciones Ofimáticas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 2 - Procesadores de texto
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UT 2 - Procesadores de texto
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_1/AO/02_Procesadores_de_texto/021_Procesadores_de_texto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 21 - Características de los procesadores de texto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_1/AO/02_Procesadores_de_texto/022_LibreOffice_Writer_Instalacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 22 - Instalación de LibreOffice Writer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_1/AO/02_Procesadores_de_texto/023_LibreOffice_Writer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 23 - LibreOffice Writer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_1/AO/03_Hojas%20de%20calculo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 3 - Hojas de cálculo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_1/AO/07_Presentaciones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 4 - Presentaciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_1/AO/04_Bases%20de%20datos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 5 - Bases de datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_1/AO/05_Imagenes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 6 - Edición de imágenes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_1/AO/06_Captura%20e%20edicion%20de%20video/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 7 - Edición de vídeos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_1/AO/08_Correo%20electronico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 8 - Agenda electrónica y comunicación
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_1/AO/09_Resolucion%20de%20incidencias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 9 - Gestión de incidencias
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Servicios en redes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Servicios en redes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_2/SX/apuntes/00_Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Presentación módulo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_2/SX/apuntes/01_Redes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Redes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_2/SX/apuntes/02_TCP-IP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocolo TCP/IP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_2/SX/apuntes/03_Conexiones-remotas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Acceso y control remoto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_2/SX/apuntes/04_DHCP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocolo DHCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX/SMX_2/SX/apuntes/05_DNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocolo DNS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Under development
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Under development
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PWES/UT.%200-Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Presentación módulo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-interconexiones-de-redes-peer-connection-peering-y-transit-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 - Interconexiones de redes, peer connection (peering) y transit gateway
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 - Interconexiones de redes, peer connection (peering) y transit gateway">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 - Introducción
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-peer-connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 - Peer connection
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2 - Peer connection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121-crear-los-elementos-basicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2.1 - Crear los elementos básicos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122-realizar-el-peering-entre-vpcs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2.2 - Realizar el peering entre VPC's
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#123-configuracion-de-la-interconexion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2.3 - Configuración de la interconexión
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#124-configuracion-de-la-tablas-de-enrutamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2.4 - Configuración de la tablas de enrutamiento
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#125-configuracion-de-los-grupos-de-seguridad-de-las-instancias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2.5 - Configuración de los grupos de seguridad de las instancias
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#126-pruebas-de-conexion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2.6 - Pruebas de conexión
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-transit-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 - Transit Gateway
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.3 - Transit Gateway">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#131-escenario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3.1 - Escenario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#132-creacion-del-transit-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3.2 - Creación del transit gateway
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#133-conexiones-del-transit-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3.3 - Conexiones del transit gateway
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#134-modificar-las-tablas-de-enrutamiento-de-las-vpcs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3.4 - Modificar las tablas de enrutamiento de las VPC's
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#135-pruebas-de-conexion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3.5 - Pruebas de conexión
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#136-pruebas-adicionales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3.6 - Pruebas adicionales
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-tarea-ra3-ced" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 - Tarea RA3-CEd
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-equilibrado-y-escalado-de-infraestructuras" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 - Equilibrado y escalado de infraestructuras
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 - Equilibrado y escalado de infraestructuras">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 - Introducción
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-elastic-load-balancing-elb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 - Elastic Load Balancing (ELB)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 - Elastic Load Balancing (ELB)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221-escenario-propuesto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.1 - Escenario propuesto
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222-instancias-ec2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.2 - Instancias EC2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#223-creacion-del-balanceador-de-carga" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.3 - Creación del balanceador de carga
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#224-editar-los-atributos-del-equilibrador-de-carga" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.4 - Editar los atributos del equilibrador de carga
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#225-comprobacion-del-funcionamiento-del-equilibrador-de-carga" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.5 - Comprobación del funcionamiento del equilibrador de carga
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-tarea-ra3-cee" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 - Tarea RA3-CEe
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-auto-scaling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 - Auto Scaling
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4 - Auto Scaling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#241-escalado-automatico-de-instancias-ec2-asg-ec2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.1 - Escalado automático de instancias (EC2 ASG) EC2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#242-estrategias-de-auto-escalado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.2 - Estrategias de auto escalado
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#243-escenario-propuesto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.3 - Escenario propuesto
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#244-creacion-de-la-plantilla-de-lanzamiento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.4 - Creación de la plantilla de lanzamiento
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#245-creacion-del-grupo-de-escalado-automatico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.5 - Creación del grupo de escalado automático
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#246-explorando-el-grupo-de-escalado-automatico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.6 - Explorando el grupo de escalado automático
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#247-creacion-de-una-ami-a-partir-de-una-instancia-existente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.7 - Creación de una AMI a partir de una instancia existente
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-route-53" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 - Route 53
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enlaces-de-interes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enlaces de interés
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="ut-6-interconexion-balanceo-y-escalado-de-infraestructuras"><strong>UT. 6 - Interconexión, balanceo y escalado de infraestructuras</strong></h1>
+<p><img alt="Descripción de la imagen" class="trescinco" src="../ut6/elb.png" />
+<br></p>
+<p><strong>Resultados de aprendizaje y criterios de evaluacion que se evaluarán en esta unidad.</strong>  </p>
+<table>
+<thead>
+<tr>
+<th><strong>Resultados de aprendizaje de la unidad didáctica:</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RA. 3:</strong> Diseña y configura redes virtuales y servicios de cómputo en la nube, aplicando buenas prácticas de seguridad, estrategias de balanceo de carga, escalado automático y aprovechando tecnologías serverless, contenedores y máquinas virtuales según casos de uso específicos.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><strong>Criterios de evaluación de la unidad didáctica:</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>d)</strong> Se ha realizado la selección de servicios de computación adecuados según casos de uso.</td>
+</tr>
+<tr>
+<td><strong>e)</strong> Se ha llevado a cabo la configuración y gestión de balanceo de carga y escalado automático.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="1-interconexiones-de-redes-peer-connection-peering-y-transit-gateway"><strong>1 - Interconexiones de redes, peer connection (peering) y transit gateway</strong></h2>
+<h3 id="11-introduccion"><strong>1.1 - Introducción</strong></h3>
+<p>En los entornos de computación en la nube, resulta habitual la necesidad de conectar distintas nubes privadas virtuales (VPC) entre sí o con redes locales. AWS ofrece varios mecanismos para lograr esta interconexión, entre los cuales destacan <strong>VPC Peering y Transit Gateway</strong>.
+Ambos servicios cumplen el mismo propósito general (permitir la comunicación entre redes), pero lo hacen a través de enfoques distintos, lo que determina su conveniencia según el tamaño y la complejidad de la infraestructura.</p>
+<ul>
+<li>
+<p><strong>VPC Peering</strong>: Establece una <strong>conexión directa punto a punto</strong> entre dos VPC, permitiendo que los recursos de ambas se comuniquen mediante direcciones IP privadas. Este método es especialmente útil en entornos pequeños o cuando se requiere una integración sencilla entre dos VPC.  </p>
+</li>
+<li>
+<p><strong>Transit Gateway</strong>: Actúa como un concentrador central (hub) que interconecta varias VPC y redes locales (on-premises) a través de un único punto de enlace. Esta arquitectura simplifica enormemente la gestión de redes complejas, ya que permite establecer una topología de tipo hub-and-spoke, donde todas las conexiones pasan por el mismo punto central.
+Gracias a ello, Transit Gateway ofrece mayor escalabilidad, flexibilidad y control administrativo, siendo la opción más adecuada para organizaciones que gestionan múltiples entornos en AWS.</p>
+</li>
+</ul>
+<p><strong>Resumen</strong></p>
+<table>
+<thead>
+<tr>
+<th>¿Cuándo utilizar VPC Peering?</th>
+<th><strong>¿Cuándo utilizar VPC Peering?</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>- Se requiere comunicación directa entre dos VPC.</td>
+<td>Se gestiona una red extensa y compleja con múltiples VPC.</td>
+</tr>
+<tr>
+<td>- La topología de red es pequeña y sencilla.</td>
+<td>Es necesario conectar redes locales y otros servicios de AWS.</td>
+</tr>
+<tr>
+<td>- El coste es un factor determinante.</td>
+<td>Se desea centralizar la administración de la red.</td>
+</tr>
+<tr>
+<td></td>
+<td>Se priorizan la escalabilidad y la flexibilidad en la arquitectura.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="12-peer-connection"><strong>1.2 - Peer connection</strong></h3>
+<p>Para familiarizarnos con el peering en AWS, usaremos el siguiente escenario:</p>
+<p><img alt="" class="seiscinco" src="../ut6/peering2.png" /></p>
+<h4 id="121-crear-los-elementos-basicos"><strong>1.2.1 - Crear los elementos básicos</strong></h4>
+<p>En un primer momento crearemos:</p>
+<ol>
+<li>Las 2 VPC (us-east-1 (N. Virginia) y us.east-2 (Oregon)). </li>
+<li>Las subredes (públicas) y sus respectivas tablas de enrutamiento.</li>
+<li>Las instancias EC2 y sus grupos de seguridad para posibilitar pings y conexiones SSH.</li>
+</ol>
+<h4 id="122-realizar-el-peering-entre-vpcs"><strong>1.2.2 - Realizar el peering entre VPC's</strong></h4>
+<p>Una vez creada la infraestructura (VPC + subred + EC2 + IGW) iniciaremos las interconección desde la región us-east-1 (N. Virginia).</p>
+<ul>
+<li>
+<p>Desde el menú VPC buscamos <strong>Interconexiones</strong>. 
+  <img alt="" class="lefttrescero marco margin2020" src="../ut6/peering3.png" /> <br></p>
+</li>
+<li>
+<p>En este caso, crearemos la conexión desde la región <strong>us-east-1 / Norte de Virginia</strong>. 
+  <img alt="" class="sietecinco marco margin2020" src="../ut6/peering4.png" /> <br></p>
+</li>
+<li>
+<p>Para completar <strong>la solicitud de conexión</strong> necesitaremos la id de la VPC de la región <strong>us-west-2 / Oregón</strong>
+  <img alt="" class="sietecinco marco margin2020" src="../ut6/peering6.png" /> <br></p>
+</li>
+<li>
+<p>Petición de conexión creada, pendiente de aceptación.<br />
+<img alt="" class="sietecinco marco margin2020" src="../ut6/peering5.png" /> <br></p>
+</li>
+<li>
+<p>Hasta que la otra VPC no acepte la conexión, el estado de la misma será "pendiente". 
+  <img alt="" class="sietecinco marco margin2020" src="../ut6/peering7.png" /> <br></p>
+</li>
+<li>
+<p>En la otra región aceptamos (o rechazamos la petición). 
+  <img alt="" class="sietecinco marco margin2020" src="../ut6/peering8.png" />
+  <img alt="" class="cincozero marco margin2020" src="../ut6/peering9.png" /> <br></p>
+</li>
+<li>
+<p>En la otra región aceptamos (o rechazamos la petición). </p>
+</li>
+</ul>
+<h4 id="123-configuracion-de-la-interconexion"><strong>1.2.3 - Configuración de la interconexión</strong></h4>
+<ul>
+<li>
+<p>Para evitar problemas con la resolución de nombres en el servicio de interconexión, en Interconexiones → DNS, habilitaremos la opción de resolver el dns.
+  <img alt="" class="original marco margin2020" src="../ut6/peering11.png" /> 
+  <img alt="" class="original marco margin2020" src="../ut6/peering12.png" /> <br></p>
+</li>
+<li>
+<p>Si no deja hacerlo, iremos a la VPC receptora y comprobaremos la configuración de DNS. 
+  <img alt="" class="sietecinco marco margin2020" src="../ut6/peering13.png" /> <br></p>
+</li>
+</ul>
+<h4 id="124-configuracion-de-la-tablas-de-enrutamiento"><strong>1.2.4 - Configuración de la tablas de enrutamiento</strong></h4>
+<ul>
+<li>De la misma manera que para una puerta de enlace de internet (IGW) añadiremos una ruta a las IP's de las VPC's, tanto en la VPC Norte de Virginia como en la VPC Oregón (acordaros de asociar explícitamente la subred a la tabla de enrutamiento).
+<br><br></li>
+<li>
+<p><strong>VPC Oregón</strong>
+  <img alt="" class="cien marco margin2020" src="../ut6/peering14.png" /> <br></p>
+</li>
+<li>
+<p><strong>VPC Norte de Virginia</strong>
+  <img alt="" class="cien marco margin2020" src="../ut6/peering15.png" /> <br></p>
+</li>
+</ul>
+<h4 id="125-configuracion-de-los-grupos-de-seguridad-de-las-instancias"><strong>1.2.5 - Configuración de los grupos de seguridad de las instancias</strong></h4>
+<ul>
+<li>
+<p><strong>EC2 Oregón</strong>
+  <img alt="" class="cien marco margin2020" src="../ut6/peering16.png" /> <br></p>
+</li>
+<li>
+<p><strong>EC2 Norte de Virginia</strong>
+  <img alt="" class="cien marco margin2020" src="../ut6/peering17.png" /> <br></p>
+</li>
+</ul>
+<h4 id="126-pruebas-de-conexion"><strong>1.2.6 - Pruebas de conexión</strong></h4>
+<ul>
+<li>
+<p>ping de EC2 Norte de Virginia hacia Oregon<br />
+<img alt="" class="leftcincocero margin2020" src="../ut6/peering18.png" /> <br></p>
+</li>
+<li>
+<p>ping de EC2 Oregon hacia Norte de Virginia<br />
+<img alt="" class="leftcincocero margin2020" src="../ut6/peering19.png" /> <br></p>
+</li>
+</ul>
+<h3 id="13-transit-gateway"><strong>1.3 - Transit Gateway</strong></h3>
+<p>Un AWS Transit Gateway (TGW) es un servicio de red de Amazon Web Services diseñado para interconectar de forma centralizada múltiples VPC, conexiones VPN, Direct Connect y redes on-premise dentro de <strong>una misma región</strong>. Actúa como <strong>un router regional</strong> de alto rendimiento, simplificando arquitecturas complejas y reduciendo la necesidad de crear múltiples VPC Peering.</p>
+<h4 id="131-escenario"><strong>1.3.1 - Escenario</strong></h4>
+<p>Para familiarizarnos con el Transit gateway de AWS, usaremos el siguiente escenario:</p>
+<p><img alt="" class="cincozero" src="../ut6/TGW1.png" /></p>
+<h4 id="132-creacion-del-transit-gateway"><strong>1.3.2 - Creación del transit gateway</strong></h4>
+<p>Una vez implementada la arquitectura de red, pasaremos a crear y configurar el Transit gateway.</p>
+<p><img alt="" class="marco ochocinco" src="../ut6/TGW2.png" /><br>
+<img alt="" class="marco ochocinco" src="../ut6/TGW3.png" /><br><br />
+Nos esperamos  a que su estado pase de <strong>pending</strong> a <strong>available</strong>.</p>
+<p><img alt="" class="marco ochocinco" src="../ut6/TGW4.png" /><br>  </p>
+<h4 id="133-conexiones-del-transit-gateway"><strong>1.3.3 - Conexiones del transit gateway</strong></h4>
+<p>Como tenemos 3 VPC's necesitaremos crear 3 conexiones.</p>
+<p><img alt="" class="marco ochocinco" src="../ut6/TGW5.png" /><br>
+Repetiremos este paso para las otras 2 VPC's.  </p>
+<p><img alt="" class="marco sietecinco" src="../ut6/TGW6.png" /><br>
+Resultado final con las 3 conexiones creadas.  </p>
+<p><img alt="" class="marco sietecinco" src="../ut6/TGW7.png" /><br></p>
+<h4 id="134-modificar-las-tablas-de-enrutamiento-de-las-vpcs"><strong>1.3.4 - Modificar las tablas de enrutamiento de las VPC's</strong></h4>
+<p>Podemos ver que AWS ha creado una tabla de enrutamiento para el TGW pero, no es aquí donde configuraremos las nuevas rutas sino en la tabla de enrutamiento de cada VPC.</p>
+<p><img alt="" class="marco ochocinco" src="../ut6/TGW8.png" /><br></p>
+<p>Tabla de enrutamiento de la VPC-1 (no es necesario ser tan restrictivo con las rutas ya que la propia conexión del TGW se ha creado para una VPC y una subred concreta).</p>
+<p><img alt="" class="marco ochocinco" src="../ut6/TGW9.png" /><br></p>
+<h4 id="135-pruebas-de-conexion"><strong>1.3.5 - Pruebas de conexión</strong></h4>
+<p>No conectamos a la instancia 1 (por consola o por SSH) y vemos al hacer ping, que hay comunicacion entre instancias a pesar de encontrarse en VPC's distintas (dentro de una misma región).</p>
+<p><img alt="" class="cincozero" src="../ut6/TGW10.png" /><br></p>
+<h4 id="136-pruebas-adicionales"><strong>1.3.6 - Pruebas adicionales</strong></h4>
+<div class="admonition exercise">
+<p class="admonition-title">Propargarse a otra instancia y comprobar si esa instancia tiene conexión a internet</p>
+<p>¿Qué soluciones podemos aplicar para que las instancias de la VPC-2 y VPC-3 tengan conexión a internet?</p>
+</div>
+<h3 id="14-tarea-ra3-ced"><strong>1.4 - Tarea RA3-CEd</strong></h3>
+<p>Monta el siguiente escenario:</p>
+<p><img alt="" class="sietecinco" src="../ut6/RA3-CEd.png" /><br></p>
+<ul>
+<li>Se trabajará en 2 regiones distintas (us-east-1 / N-Virginia y us-west-2 / Oregón). </li>
+<li>En cada región estarán ubicadas dos VPCs con sus correspondientes subredes interconectadas por un Transit Gateway. </li>
+<li>
+<p>Para interconectar las regiones usaremos un peer connection pero no desde <strong>Interconexiones</strong> sino desde <strong>Conexiones de gateway de tránsito</strong>. </p>
+<p><img alt="" class="marco leftdoscero" src="../ut6/TGW11.png" /><br></p>
+</li>
+<li>
+<p>Rellenaremos los campos con los datos de nuestros <strong>transit gateways</strong>.</p>
+<p><img alt="" class="marco leftsietecinco" src="../ut6/TGW12.png" /><br></p>
+</li>
+<li>
+<p>Conectarse a la instancia 1 y realizar capturas de pings al resto de instancias (1 captura + 3 pings). </p>
+</li>
+<li>Realizar capturas de la propagación y pings con éxito a todas las instancias del escenario (3 capturas de 3 pings cada una).</li>
+</ul>
+<h2 id="2-equilibrado-y-escalado-de-infraestructuras"><strong>2 - Equilibrado y escalado de infraestructuras</strong></h2>
+<h3 id="21-introduccion"><strong>2.1 - Introducción</strong></h3>
+<p>En entornos de computación en la nube, el equilibrio de carga y el escalado automático son dos componentes esenciales para garantizar la disponibilidad, el rendimiento y la eficiencia de las aplicaciones y servicios. .</p>
+<ul>
+<li>
+<p><strong>Elastic Load Balancing (ELB)</strong>: Distribuye automáticamente el tráfico entrante entre múltiples instancias de Amazon EC2, contenedores y direcciones IP en una o más zonas de disponibilidad. Esto asegura que ninguna instancia se sobrecargue y que las aplicaciones permanezcan disponibles incluso si una o más instancias fallan.</p>
+</li>
+<li>
+<p><strong>Auto Scaling</strong>: Permite ajustar automáticamente la capacidad de las instancias EC2 en función de las condiciones definidas por el usuario. Esto significa que se pueden añadir o eliminar instancias según la demanda del tráfico, lo que ayuda a mantener el rendimiento óptimo y a controlar los costos operativos.</p>
+</li>
+</ul>
+<p>La combinación de ambos permite crear arquitecturas altamente disponibles, resilientes, rentables y tolerantes a fallos, asegurando que la infraestructura responda adecuadamente a fluctuaciones del tráfico sin intervención manual.</p>
+<h3 id="22-elastic-load-balancing-elb"><strong>2.2 - Elastic Load Balancing (ELB)</strong></h3>
+<p>Elastic Load Balancing (ELB) es un servicio de AWS que distribuye automáticamente el tráfico entrante entre múltiples instancias de Amazon EC2, contenedores y direcciones IP en una o más zonas de disponibilidad. ELB ayuda a mejorar la disponibilidad y la tolerancia a fallos de las aplicaciones al garantizar que el tráfico se dirija solo a las instancias saludables. </p>
+<p>Dentro de ELB existen cuatro tipos de balanceadores, cada uno orientado a distintos casos de uso:</p>
+<table>
+<thead>
+<tr>
+<th>Tipo de balanceador</th>
+<th>Capa OSI</th>
+<th>Casos de uso principales</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Application Load Balancer (ALB)</strong></td>
+<td>Capa 7</td>
+<td>Aplicaciones web HTTP/HTTPS, microservicios, routing basado en URLs o cabeceras</td>
+</tr>
+<tr>
+<td><strong>Network Load Balancer (NLB)</strong></td>
+<td>Capa 4</td>
+<td>Tráfico TCP/UDP de alto rendimiento, baja latencia, millones de conexiones por segundo</td>
+</tr>
+<tr>
+<td><strong>Gateway Load Balancer (GWLB)</strong></td>
+<td>Capa 3</td>
+<td>Integración con firewalls, IDS/IPS y appliances de red</td>
+</tr>
+<tr>
+<td><strong>Classic Load Balancer (CLB)</strong></td>
+<td>Capa 4/7</td>
+<td>Versión heredada; solo recomendado para aplicaciones antiguas</td>
+</tr>
+</tbody>
+</table>
+<h4 id="221-escenario-propuesto"><strong>2.2.1 - Escenario propuesto</strong></h4>
+<p><img alt="" class="cincozero" src="../ut6/elb0.png" /><br></p>
+<p>Antes de implementar el balanceador de carga, implementaremos la infraestructura base. Para ello contamos con los siguientes elementos:</p>
+<ol>
+<li>
+<p>VPC denominada VPC-ELB</p>
+<ul>
+<li>Rango de direcciones (CIDR): 172.31.0.0/16</li>
+</ul>
+</li>
+<li>
+<p>Subred pública en la zona de disponibilidad “a”</p>
+<ul>
+<li>Nombre: SubRed-ELB-AZ-a</li>
+<li>Rango de direcciones (CIDR): 172.31.1.0/24</li>
+</ul>
+</li>
+<li>Subred pública en la zona de disponibilidad “c”<ul>
+<li>Nombre: SubRed-ELB-AZ-c</li>
+<li>Rango de direcciones (CIDR): 172.31.2.0/24</li>
+</ul>
+</li>
+<li>Instancias EC2 disponibles para el balanceo<ul>
+<li>HelloWorld</li>
+<li>HelloParadise</li>
+<li>Ambas instancias:<ul>
+<li>Se encuentran en zonas de disponibilidad distintas (una en a y otra en c)</li>
+<li>Disponen de IP pública para permitir el acceso externo </li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="222-instancias-ec2"><strong>2.2.2 - Instancias EC2</strong></h4>
+<p>A diferencia de las otras prácticas donde solo lanzabamos las instancias sin hacer nada con ellas, en esta instalaremos un servidor web y un archivo indiex.html para comprobar el correcto funcionamiento del equilibrador de carga.</p>
+<div class="admonition tip">
+<p class="admonition-title">Paso 1 - Detalles avanzados</p>
+</div>
+<p>Durante el lanzado de la instancia EC2 buscar el apartado <strong>Detalles avanzados</strong>.</p>
+<p><img alt="" class="ochocinco marco" src="../ut6/elb1.png" /><br></p>
+<div class="admonition tip">
+<p class="admonition-title">Paso 2 - Datos de usuario</p>
+</div>
+<p><img alt="" class="ochocinco marco" src="../ut6/elb2.png" /><br></p>
+<p>Dentro del campo <strong>Datos de usuario</strong> pondremos un script que se ejecutará al lanzar la instancia.</p>
+<p>Adaptar el script para cada instancia, cambiando <strong>Instancia 1</strong> por <strong>Instancia 2</strong> y <strong>Hola mundo</strong> por <strong>Hola paraíso</strong>. 
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="ch">#!/bin/bash</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>yum<span class="w"> </span>update<span class="w"> </span>-y
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>yum<span class="w"> </span>install<span class="w"> </span>httpd<span class="w"> </span>-y
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>httpd
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>sudo<span class="w"> </span>tee<span class="w"> </span>/var/www/html/index.html<span class="w"> </span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="s">&lt;!DOCTYPE html&gt;</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="s">&lt;html lang="es"&gt;</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="s">&lt;head&gt;</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="s">&lt;meta charset="UTF-8"&gt;</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="s">&lt;title&gt;Instancia 1&lt;/title&gt;</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="s">&lt;style&gt;</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="s">body {</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="s">    font-family: Arial;</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="s">    background: #283048;</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="s">    background: linear-gradient(135deg,#283048,#859398);</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="s">    color: white;</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="s">    text-align: center;</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="s">    padding-top: 80px;</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="s">}</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="s">.card {</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="s">    background: rgba(255,255,255,0.12);</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="s">    border-radius: 16px;</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="s">    padding: 30px;</span>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="s">    display: inline-block;</span>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="s">}</span>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="s">&lt;/style&gt;</span>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="s">&lt;/head&gt;</span>
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="s">&lt;body&gt;</span>
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="s">&lt;div class="card"&gt;</span>
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="s">    &lt;h1&gt;¡Hola mundo!&lt;/h1&gt;</span>
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="s">    &lt;p&gt;Instancia 1&lt;/p&gt;</span>
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="s">    &lt;p&gt;Hora: &lt;b id="hora"&gt;&lt;/b&gt;&lt;/p&gt;</span>
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="s">&lt;/div&gt;</span>
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>
+</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="s">&lt;script&gt;</span>
+</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a><span class="s">const ahora = new Date();</span>
+</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a><span class="s">const hora = String(ahora.getHours()).padStart(2,'0') + ':' +</span>
+</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a><span class="s">             String(ahora.getMinutes()).padStart(2,'0') + ':' +</span>
+</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a><span class="s">             String(ahora.getSeconds()).padStart(2,'0');</span>
+</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a>
+</span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a><span class="s">document.getElementById("hora").innerHTML = "&lt;b&gt;" + hora + "&lt;/b&gt;";</span>
+</span><span id="__span-0-43"><a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a><span class="s">&lt;/script&gt;</span>
+</span><span id="__span-0-44"><a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>
+</span><span id="__span-0-45"><a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a><span class="s">&lt;/body&gt;</span>
+</span><span id="__span-0-46"><a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a><span class="s">&lt;/html&gt;</span>
+</span><span id="__span-0-47"><a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a><span class="s">EOF</span>
+</span></code></pre></div>
+<br></p>
+<h4 id="223-creacion-del-balanceador-de-carga"><strong>2.2.3 - Creación del balanceador de carga</strong></h4>
+<div class="admonition tip">
+<p class="admonition-title">1. Desde EC2 accedemos a <strong>Balanceadores de carga</strong></p>
+</div>
+<p><img alt="" class="ochocinco marco margintop20" src="../ut6/elb3.png" /><br>
+<strong>Configuramos los parámetros principales:</strong></p>
+<ul>
+<li>Nombre LB-Instancias</li>
+<li>Expuesto a internet</li>
+<li>
+<p>IP tipo: IPv4</p>
+<p><img alt="" class="ochocinco marco margintop20" src="../ut6/elb4.png" /><br></p>
+</li>
+</ul>
+<p><strong>Mapeo de red.</strong></p>
+<ul>
+<li>VPC: VPC-ELB</li>
+<li>
+<p>Seleccionamos SubRed-ELB-AZ-a y SubRed-ELB-AZ-c</p>
+<p><img alt="" class="ochocinco marco" src="../ut6/elb5.png" /><br></p>
+</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">2. Grupos de seguridad</p>
+</div>
+<p>Creamos un grupo de seguridad para el balanceador de carga , asociamos un SG que permita HTTP (80) desde cualquier origen.
+  <img alt="" class="ochocinco marco margintop20" src="../ut6/elb6.png" /><br>
+  <img alt="" class="ochocinco marco" src="../ut6/elb7.png" /><br>
+  <img alt="" class="ochocinco marco" src="../ut6/elb8.png" /><br></p>
+<div class="admonition tip">
+<p class="admonition-title">3. Agentes de escucha y direccionamiento</p>
+</div>
+<p>En este apartado configuraremos los puertos sobre los cuales el equilibrador de carga aceptará las conexiones entrantes y determinará a qué instancias se redirigirán.</p>
+<ul>
+<li>Protocolo: HTTP / 80</li>
+<li>
+<p>Acción predeterminada: Reenviar el tráfico al grupo de destino (conjunto de instancias que recibirán las peticiones).<br />
+Si todavía no disponemos de ningún grupo de destino creado, seleccionamos la opción “Agregar grupo de destino” y luego <strong>Cree un grupo de destino</strong> y lo configuramos antes de continuar.
+    <img alt="" class="cien marco margintop20" src="../ut6/elb9.png" /><br>
+    <img alt="" class="cien marco" src="../ut6/elb10.png" /><br></p>
+</li>
+<li>
+<p>Crear grupo de destino
+    <img alt="" class="cien marco margintop20" src="../ut6/elb11.png" /><br>
+    <img alt="" class="cien marco" src="../ut6/elb12.png" /><br></p>
+</li>
+<li>
+<p>Revisamos los datos y creamos el grupo de destino
+    <img alt="" class="cien marco margintop20" src="../ut6/elb13.png" /><br></p>
+</li>
+<li>
+<p>Finalizamos la creación del equilibrador de carga
+<img alt="" class="cien marco margintop20" src="../ut6/elb14.png" /><br>
+    <img alt="" class="cien marco" src="../ut6/elb15.png" /><br></p>
+</li>
+</ul>
+<h4 id="224-editar-los-atributos-del-equilibrador-de-carga"><strong>2.2.4 - Editar los atributos del equilibrador de carga</strong></h4>
+<p>Una vez creado el equilibrador de carga, revisaremos y ajustaremos sus atributos para optimizar su funcionamiento. Estos atributos determinan el comportamiento del equilibrador de carga y la forma en que gestiona las peticiones de los usuarios.</p>
+<p><img alt="" class="cien marco" src="../ut6/elb16.png" /><br></p>
+<p>Dentro de este apartado se pueden ajustar, entre otros, los siguientes parámetros:</p>
+<ul>
+<li>
+<p><strong>Tiempo de inactividad de conexión</strong><br />
+El tiempo de espera de la conexión inactiva es el período de tiempo que una conexión de cliente o de destino existente puede permanecer inactiva, sin que se envíen ni reciban datos, antes de que el equilibrador de carga cierre la conexión.</p>
+</li>
+<li>
+<p><strong>Duración del valor keepalive del cliente HTTP</strong><br />
+La duración del valor keepalive del cliente HTTP es el tiempo máximo durante el que un Equilibrador de carga de aplicación mantiene una conexión HTTP persistente con un cliente. Una vez transcurrido el tiempo del valor keepalive del cliente HTTP configurado, el Equilibrador de carga de aplicación acepta una solicitud más y, a continuación, devuelve una respuesta que cierra la conexión sin problemas.</p>
+</li>
+<li>
+<p><strong>Protección contra eliminación</strong><br />
+Para evitar que el equilibrador de carga se elimine por error, puede habilitar la protección contra eliminación. De forma predeterminada, la protección contra eliminación del equilibrador de carga está deshabilitada.</p>
+</li>
+<li>
+<p><strong>Modo de mitigación de desincronización</strong><br />
+El modo de mitigación de desincronización protege a la aplicación de problemas causados por desincronización HTTP. El equilibrador de carga clasifica cada solicitud en función de su nivel de amenaza, permite solicitudes seguras y, además, mitiga el riesgo según lo especificado en el modo de mitigación que determine.</p>
+</li>
+<li>
+<p><strong>Conservación del encabezado del host</strong><br />
+Cuando habilita el atributo Conservar encabezado de host, el Equilibrador de carga de aplicación conserva el encabezado Host de la solicitud HTTP y la envía a los destinos sin ninguna modificación. Si el Equilibrador de carga de aplicación recibe varios encabezados Host, los conserva todos. Las reglas de oyente se aplican solo al primer encabezado Host recibido.</p>
+</li>
+</ul>
+<h4 id="225-comprobacion-del-funcionamiento-del-equilibrador-de-carga"><strong>2.2.5 - Comprobación del funcionamiento del equilibrador de carga</strong></h4>
+<div class="admonition tip">
+<p class="admonition-title">Acceso al equilibrador de carga</p>
+</div>
+<p>A diferencia de las instancias, el acceso al equilibrador de carga solo se puede realizar a través de su DNS.<br />
+<strong>Nota:</strong><br />
+Aunque las instancias tienen IP pública, también es posible acceder a ellas tanto por IP como por DNS, pero este acceso se realiza directamente a la instancia, no a través del balanceador.</p>
+<p><img alt="" class="cien marco" src="../ut6/elb17.png" /><br></p>
+<p>Si actualizamos repetidamente el navegador para acceder al recurso, observaremos que, en función del balanceo y de la latencia, la respuesta irá alternando entre una instancia y la otra. </p>
+<p><img alt="" class="cincozero" src="../ut6/elb18.png" /><br>
+<img alt="" class="cincozero" src="../ut6/elb19.png" /><br></p>
+<h3 id="23-tarea-ra3-cee"><strong>2.3 - Tarea RA3-CEe</strong></h3>
+<div class="admonition exercise">
+<p class="admonition-title">Tarea RA3-CEe</p>
+<p>Realizar capturas de cada instancia entrando por el ELB.<br />
+Adjuntar las capturas a un documento, comentando cada captura.<br />
+Subir el documento a AULES en la tarea correspondiente.  </p>
+</div>
+<h3 id="24-auto-scaling"><strong>2.4 - Auto Scaling</strong></h3>
+<p>Auto Scaling permite adaptar la capacidad de cómputo de la infraestructura a la demanda real del sistema.<br />
+AWS ofrece dos enfoques principales:</p>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>EC2 Auto Scaling</strong></td>
+<td>Escalado automático exclusivo de instancias EC2 mediante Auto Scaling Groups (ASG)</td>
+</tr>
+<tr>
+<td><strong>AWS Auto Scaling</strong></td>
+<td>Escalado automático de múltiples recursos además de EC2, como DynamoDB, Aurora, ECS, etc. (Recursos no disponibles con LabRole).**</td>
+</tr>
+</tbody>
+</table>
+<h4 id="241-escalado-automatico-de-instancias-ec2-asg-ec2"><strong>2.4.1 - Escalado automático de instancias (EC2 ASG) EC2</strong></h4>
+<ul>
+<li>El escalado automático de instancias EC2 se gestiona a través de los <strong>Auto Scaling Groups (ASG)</strong>, que permiten definir políticas para añadir o eliminar instancias en función de métricas como la utilización de CPU, el tráfico de red o cualquier otra métrica personalizada.  </li>
+<li>El escalado automático no es exclusivo de las instancias EC2. También se puede aplicar a otros servicios como ECS (Elastic Container Services) y EKS (Elastic Kubernete Service).</li>
+<li>ASG integra diversos servicios como CloudWatch (servivio de monitorización) y también el ELB (Elastic Load Balancing) que acabamos de ver. CloudWatch monitoriza las métricas y, cuando se cumplen las condiciones definidas en las políticas de escalado, ASG ajusta automáticamente el número de instancias EC2 en el grupo. En el caso de que el ASG esté asociado a un ELB, las nuevas instancias se registran automáticamente en el balanceador de carga, asegurando que el tráfico se distribuya adecuadamente entre todas las instancias disponibles.</li>
+<li>En el caso de que una instancia EC2 falle o se vuelva inactiva, ASG puede detectar este estado a través de las comprobaciones de estado (status checks) y reemplazar automáticamente la instancia defectuosa, manteniendo así la capacidad y disponibilidad del grupo según lo definido en la configuración del ASG. </li>
+</ul>
+<h4 id="242-estrategias-de-auto-escalado"><strong>2.4.2 - Estrategias de auto escalado</strong></h4>
+<p>Las estrategias de auto escalado permiten ajustar automáticamente la cantidad de instancias para mantener la disponibilidad y gestionar la demanda de manera eficiente. El escalado siempre será <strong>horizontal</strong>, lo que significa que el ASG <strong>añade o elimina instancias</strong> en lugar de cambiar el <strong>tamaño de una sola</strong>.</p>
+<p>Dentro del tipo de estrategias encontramos:</p>
+<ol>
+<li>
+<p><strong>Escalado Dinámico (Dynamic Scaling):</strong><br />
+Es la estrategia más común y se basa en la respuesta automática a la demanda real mediante métricas de CloudWatch.  </p>
+</li>
+<li>
+<p><strong>Escalado Programado (Scheduled Scaling):</strong><br />
+Esta estrategia permite aumentar o disminuir la capacidad basándose en horarios específicos.  </p>
+</li>
+<li>
+<p><strong>Escalado Predictivo (Predictive Scaling):</strong><br />
+Utiliza modelos de <strong>Machine Learning</strong> para analizar datos históricos y predecir cuándo ocurrirán cambios futuros en la demanda.  </p>
+</li>
+<li>
+<p><strong>Escalado Manual:</strong><br />
+Consiste en ajustar manualmente el tamaño deseado del grupo de Auto Scaling. </p>
+</li>
+</ol>
+<p>Para que estas estrategias funcionen, Auto Scaling utiliza los siguientes elementos:</p>
+<ul>
+<li>Launch Template (Plantilla de Lanzamiento): Es el "plano" que define cómo debe ser cada nueva instancia (AMI, tipo de instancia, volúmenes EBS, roles de IAM y scripts de User Data).</li>
+<li>Capacidad Mínima, Máxima y Deseada: Se definen límites para asegurar que siempre haya un número base de servidores funcionando (mínimo) y que el sistema no exceda un presupuesto determinado (máximo).</li>
+<li>Elasticidad: Es la capacidad no solo de escalar hacia afuera (scaling out) para añadir recursos, sino también de escalar hacia adentro (scaling in) para eliminar instancias cuando ya no son necesarias y así optimizar costos.</li>
+<li>Health Checks: Auto Scaling monitorea constantemente el estado de las instancias a través de verificaciones de EC2 (health checks) o del equilibrador de carga (ELB.)</li>
+</ul>
+<h4 id="243-escenario-propuesto"><strong>2.4.3 - Escenario propuesto</strong></h4>
+<p>En este caso solo deberemos definir la VPC, las zonas de disponibilidad y el grupo de seguridad de las EC2. El lanzamiento de las instancias se hará con una plantilla que cargaremos en el ASG. </p>
+<p><img alt="" class="cuatrozero" src="../ut6/ASG/ASG-1.png" /><br></p>
+<h4 id="244-creacion-de-la-plantilla-de-lanzamiento"><strong>2.4.4 - Creación de la plantilla de lanzamiento</strong></h4>
+<p>Vamos a EC2 → Plantillas de lanzamiento → Crear plantilla de lanzamiento.</p>
+<p><img alt="" class="sietecinco marco" src="../ut6/ASG/ASG-3.png" /><br></p>
+<p>Definimos el nombre y la descripción de la plantilla de lanzamiento.   </p>
+<p><img alt="" class="sietecinco marco" src="../ut6/ASG/ASG-4.png" /><br></p>
+<p>Seleccionamos la AMI que usaremos.   </p>
+<p><img alt="" class="sietecinco marco" src="../ut6/ASG/ASG-5.png" /><br></p>
+<p>Seleccionamos el tipo de instancia y el par de claves.</p>
+<p><img alt="" class="sietecinco marco" src="../ut6/ASG/ASG-6.png" /><br></p>
+<p>Seleccionamos el grupo de seguridad de las instancias que se crearán con el ASG.</p>
+<p><img alt="" class="sietecinco marco" src="../ut6/ASG/ASG-7.png" /><br>
+<img alt="" class="sietecinco marco" src="../ut6/ASG/ASG-8.png" /><br></p>
+<p>En detalles avanzados ponemos un script que instalará un servidor web (similar al utilizado en el ELB).</p>
+<p><img alt="" class="sietecinco marco" src="../ut6/ASG/ASG-9.png" /><br></p>
+<p>Si todo ha ido bien, tendremos creada nuestra plantilla de lanzamiento.</p>
+<p><img alt="" class="sietecinco marco" src="../ut6/ASG/ASG-10.png" /><br></p>
+<h4 id="245-creacion-del-grupo-de-escalado-automatico"><strong>2.4.5 - Creación del grupo de escalado automático</strong></h4>
+<p>Vamos a grupos de auto scaling.</p>
+<p><img alt="" class="sietecinco marco" src="../ut6/ASG/ASG-11.png" /><br></p>
+<p>Damos un nombre a nuestro ASG y seleccionamos la plantilla de lanzamiento.</p>
+<p><img alt="" class="sietecinco marco" src="../ut6/ASG/ASG-12.png" /><br></p>
+<p>Elegimos las opciones de lanzamiento.</p>
+<p><img alt="" class="sietecinco marco" src="../ut6/ASG/ASG-13.png" /><br></p>
+<p>Integrar en otros servicios: Dejamos todas las opciones por defecto.</p>
+<p><img alt="" class="sietecinco marco" src="../ut6/ASG/ASG-14.png" /><br></p>
+<p>Configurar escalamiento y tamaño de grupo:<br />
+Elegimos una capacidad deseada, mínima y máxima de 2, <strong>sin escalamiento automático</strong>. En un caso real, será conveniente definir la política de escalamiento. </p>
+<p><img alt="" class="sietecinco marco" src="../ut6/ASG/ASG-15.png" /><br></p>
+<p>Añadir notificación: Dejamos en blanco.</p>
+<p><img alt="" class="sietecinco marco" src="../ut6/ASG/ASG-16.png" /><br></p>
+<p>Añadir etiquetas: Dejamos en blanco.</p>
+<p><img alt="" class="sietecinco marco" src="../ut6/ASG/ASG-17.png" /><br></p>
+<p>Revisar: Revisamos y creamos el grupo de autoescalado.<br />
+Si todo ha ido bien, tendremos nuestro primer grupo de autoescalado creado.</p>
+<p><img alt="" class="sietecinco marco" src="../ut6/ASG/ASG-18.png" /><br></p>
+<h4 id="246-explorando-el-grupo-de-escalado-automatico"><strong>2.4.6 - Explorando el grupo de escalado automático</strong></h4>
+<p>Si vamos a ASG → Administración de instancias veremos que el ASG ha creado 2 instancias. Una en cada zona de disponibilidad.</p>
+<p><img alt="" class="sietecinco marco" src="../ut6/ASG/ASG-19.png" /><br></p>
+<p>En EC2, veremos las 2 instancias creadas por el ASG.</p>
+<p><img alt="" class="sietecinco marco" src="../ut6/ASG/ASG-20.png" /><br></p>
+<p>También podemos acceder a ellas.</p>
+<p><img alt="" class="sietecinco marco" src="../ut6/ASG/ASG-21.png" /><br></p>
+<p>Si eliminamos una instancia:</p>
+<p><img alt="" class="sietecinco marco" src="../ut6/ASG/ASG-22.png" /><br></p>
+<p>Pasado el periodo de carencia, el ASG lanzará un nueva instancia.</p>
+<p><img alt="" class="sietecinco marco" src="../ut6/ASG/ASG-23.png" /><br>
+<img alt="" class="sietecinco marco" src="../ut6/ASG/ASG-25.png" /><br>
+<img alt="" class="sietecinco marco" src="../ut6/ASG/ASG-24.png" /><br></p>
+<h4 id="247-creacion-de-una-ami-a-partir-de-una-instancia-existente"><strong>2.4.7 - Creación de una AMI a partir de una instancia existente</strong></h4>
+<p>Este apartado no tiene que ver directamente con el ASG pero es importante saber cómo crear una <strong>AMI personalizada</strong> a partir de una instancia <strong>EC2 existente</strong>, ya que en muchos casos necesitaremos lanzar instancias con configuraciones específicas.</p>
+<ul>
+<li>Seleccionamos la instancia EC2 que queremos convertir en AMI.</li>
+</ul>
+<p><img alt="" class="sietecinco marco" src="../ut6/ASG/ASG-26.png" /><br></p>
+<ul>
+<li>Rellenamos los campos necesarios para la creación de la AMI.</li>
+</ul>
+<p><img alt="" class="sietecinco marco" src="../ut6/ASG/ASG-27.png" /><br></p>
+<ul>
+<li>Una vez creada la AMI, podemos verla en el apartado <strong>Imágenes</strong> → <strong>AMIs</strong>.</li>
+</ul>
+<p><img alt="" class="sietecinco marco" src="../ut6/ASG/ASG-28.png" /><br></p>
+<ul>
+<li>Si decidimos lanzar una nueva instancia podremos seleccionar la AMI que acabamos de crear. </li>
+</ul>
+<p><img alt="" class="sietecinco marco" src="../ut6/ASG/ASG-29.png" /><br></p>
+<h2 id="3-route-53">3 - Route 53</h2>
+<!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/AWS/Arqui%20y%20despliegues%20en%20AWS/Tema%205/Tema%205.%20Route%2053%20Zona%20privada.pdf -->
+<!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/AWS/Arqui%20y%20despliegues%20en%20AWS/Tema%205/route53.pdf -->
+<!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/AWS/Arqui%20y%20despliegues%20en%20AWS/Tema%205/Tema%205.%20Weighted.pdf -->
+<!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/AWS/Arqui%20y%20despliegues%20en%20AWS/Tema%205/Tema%205.%20Policy%20Weight.pdf -->
+
+<h2 id="enlaces-de-interes"><strong>Enlaces de interés</strong></h2>
+<p>Documentación de <a href="https://docs.aws.amazon.com">AWS</a><br />
+<a href="https://docs.aws.amazon.com/es_es/elasticloadbalancing/latest/userguide/what-is-load-balancing.html">Elastic Load Balancing</a><br />
+<a href="https://docs.aws.amazon.com/es_es/elasticloadbalancing/latest/application/edit-load-balancer-attributes.html">Atributos del Elastic Load Balancing</a><br />
+<a href="https://docs.aws.amazon.com/es_es/vpc/latest/peering/what-is-vpc-peering.html">VPC peering</a><br />
+<a href="https://aws.amazon.com/es/transit-gateway/">Transit Gateway</a><br />
+Grupos de <a href="https://docs.aws.amazon.com/es_es/autoscaling/ec2/userguide/auto-scaling-groups.html">EC2 autoescalado</a><br />
+Tutorial de <a href="https://docs.aws.amazon.com/es_es/autoscaling/ec2/userguide/tutorial-ec2-auto-scaling-load-balancer.html">ASG+ELB</a><br />
+Documentacion de <a href="https://docs.aws.amazon.com/es_es/autoscaling/">AWS autoscaling</a>  </p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 - Javier Egea Blasco
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress - navigation.expand - navigation.path", "navigation.instant.progress", "navigation.instant.preview", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "toc.follow", "navigation.footer", "navigation.top", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.tabs.link"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

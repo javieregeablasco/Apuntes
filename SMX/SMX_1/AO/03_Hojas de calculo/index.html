@@ -1,0 +1,3444 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Javier Egea Blasco">
+      
+      
+        <link rel="canonical" href="https://javieregeablasco.github.io/Apuntes/SMX/SMX_1/AO/03_Hojas%20de%20calculo/">
+      
+      
+        <link rel="prev" href="../02_Procesadores_de_texto/023_LibreOffice_Writer/">
+      
+      
+        <link rel="next" href="../07_Presentaciones/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Aplicaciones ofimáticas - Javier Egea Blasco</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ud-3-libreoffice-calc" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../../../.." title="Javier Egea Blasco" class="md-header__button md-logo" aria-label="Javier Egea Blasco" data-md-component="logo">
+      
+  <img src="../../../../assets/mre.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Javier Egea Blasco
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Aplicaciones ofimáticas
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Compartir" aria-label="Compartir" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../00_Temario/" class="md-tabs__link">
+          
+  
+  
+  Aplicaciones Ofimáticas
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../SMX_2/SX/apuntes/00_Temario/" class="md-tabs__link">
+          
+  
+  
+  Servicios en redes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../DAW/DAW_2/PWES/UT.%200-Temario/" class="md-tabs__link">
+          
+  
+  
+  Under development
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Javier Egea Blasco" class="md-nav__button md-logo" aria-label="Javier Egea Blasco" data-md-component="logo">
+      
+  <img src="../../../../assets/mre.png" alt="logo">
+
+    </a>
+    Javier Egea Blasco
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aplicaciones Ofimáticas
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Aplicaciones Ofimáticas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00_Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Presentación módulo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_Instalacion%20de%20aplicaciones%20ofimaticas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 1 - Instalación de aplicaciones Ofimáticas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 2 - Procesadores de texto
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UT 2 - Procesadores de texto
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_Procesadores_de_texto/021_Procesadores_de_texto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 21 - Características de los procesadores de texto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_Procesadores_de_texto/022_LibreOffice_Writer_Instalacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 22 - Instalación de LibreOffice Writer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_Procesadores_de_texto/023_LibreOffice_Writer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 23 - LibreOffice Writer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 3 - Hojas de cálculo
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 3 - Hojas de cálculo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-interfaz-de-trabajo-en-calc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 - Interfaz de trabajo en Calc
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 - Interfaz de trabajo en Calc">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-menu-archivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 - Menú: Archivo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-menu-editar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 - Menú: Editar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-menu-ver" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 - Menú: Ver
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-menu-insertar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 - Menú: Insertar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-menu-formato" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.5 - Menú: Formato
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-menu-estilos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.6 - Menú: Estilos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17-menu-hoja" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.7 - Menú: Hoja
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#18-menu-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.8 - Menú: Datos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#19-menu-herramientas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.9 - Menú: Herramientas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#110-menu-ventana" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.10 - Menú: Ventana
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#111-menu-ayuda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.11 - Menú: Ayuda
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tarea-ra3-cea-personalizacion-de-la-interfaz-de-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tarea RA3-CEa - Personalización de la interfaz de usuario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tarea-ra3-ceb-1-elaboracion-basica-de-hojas-de-calculo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tarea RA3-CEb-1 - Elaboración básica de hojas de cálculo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tarea-ra3-ceb-2-elaboracion-basica-de-hojas-de-calculo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tarea RA3-CEb-2 - Elaboración básica de hojas de cálculo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tarea-ra3-cec-1-datos-columnas-y-referencias-de-celdas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tarea RA3-CEc-1 - Datos, columnas y referencias de celdas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tarea-ra3-cec-2-formulas-basicas-referencias-de-celdas-relativas-absolutas-y-mixtas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tarea RA3-CEc-2 - Formúlas básicas, referencias de celdas, relativas, absolutas y mixtas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tarea-ra3-cec-3-formulas-y-funciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tarea RA3-CEc-3 - Formúlas y funciones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tarea-ra3-cec-4-formulas-y-funciones-avanzadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tarea RA3-CEc-4 - Formúlas y funciones avanzadas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tarea-ra3-ced-1-graficos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tarea RA3-CEd-1 - Gráficos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tarea-ra3-ced-2-graficos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tarea RA3-CEd-2 - Gráficos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tarea-ra3-cee-introduccion-a-las-macros" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tarea RA3-CEe - Introducción a las macros
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tarea-ra3-ceg-1-filtros-agrupacion-validacion-proteccion-de-datos-y-plantillas-de-documentos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tarea RA3-CEg-1 - Filtros, agrupación, validación, protección de datos y plantillas de documentos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tarea-ra3-ceg-2-creacion-de-un-cuadro-de-dialogo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tarea RA3-CEg-2 - Creación de un cuadro de diálogo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tarea-ra3-ceh-navegacion-y-controles-de-formulario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tarea RA3-CEh - Navegación y controles de formulario
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_Presentaciones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 4 - Presentaciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_Bases%20de%20datos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 5 - Bases de datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_Imagenes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 6 - Edición de imágenes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_Captura%20e%20edicion%20de%20video/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 7 - Edición de vídeos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_Correo%20electronico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 8 - Agenda electrónica y comunicación
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_Resolucion%20de%20incidencias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 9 - Gestión de incidencias
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Servicios en redes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Servicios en redes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SMX_2/SX/apuntes/00_Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Presentación módulo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SMX_2/SX/apuntes/01_Redes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Redes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SMX_2/SX/apuntes/02_TCP-IP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocolo TCP/IP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SMX_2/SX/apuntes/03_Conexiones-remotas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Acceso y control remoto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SMX_2/SX/apuntes/04_DHCP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocolo DHCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SMX_2/SX/apuntes/05_DNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocolo DNS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Under development
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Under development
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../DAW/DAW_2/PWES/UT.%200-Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Presentación módulo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-interfaz-de-trabajo-en-calc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 - Interfaz de trabajo en Calc
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 - Interfaz de trabajo en Calc">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-menu-archivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 - Menú: Archivo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-menu-editar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 - Menú: Editar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-menu-ver" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 - Menú: Ver
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-menu-insertar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 - Menú: Insertar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-menu-formato" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.5 - Menú: Formato
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-menu-estilos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.6 - Menú: Estilos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17-menu-hoja" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.7 - Menú: Hoja
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#18-menu-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.8 - Menú: Datos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#19-menu-herramientas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.9 - Menú: Herramientas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#110-menu-ventana" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.10 - Menú: Ventana
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#111-menu-ayuda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.11 - Menú: Ayuda
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tarea-ra3-cea-personalizacion-de-la-interfaz-de-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tarea RA3-CEa - Personalización de la interfaz de usuario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tarea-ra3-ceb-1-elaboracion-basica-de-hojas-de-calculo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tarea RA3-CEb-1 - Elaboración básica de hojas de cálculo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tarea-ra3-ceb-2-elaboracion-basica-de-hojas-de-calculo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tarea RA3-CEb-2 - Elaboración básica de hojas de cálculo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tarea-ra3-cec-1-datos-columnas-y-referencias-de-celdas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tarea RA3-CEc-1 - Datos, columnas y referencias de celdas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tarea-ra3-cec-2-formulas-basicas-referencias-de-celdas-relativas-absolutas-y-mixtas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tarea RA3-CEc-2 - Formúlas básicas, referencias de celdas, relativas, absolutas y mixtas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tarea-ra3-cec-3-formulas-y-funciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tarea RA3-CEc-3 - Formúlas y funciones
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tarea-ra3-cec-4-formulas-y-funciones-avanzadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tarea RA3-CEc-4 - Formúlas y funciones avanzadas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tarea-ra3-ced-1-graficos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tarea RA3-CEd-1 - Gráficos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tarea-ra3-ced-2-graficos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tarea RA3-CEd-2 - Gráficos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tarea-ra3-cee-introduccion-a-las-macros" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tarea RA3-CEe - Introducción a las macros
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tarea-ra3-ceg-1-filtros-agrupacion-validacion-proteccion-de-datos-y-plantillas-de-documentos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tarea RA3-CEg-1 - Filtros, agrupación, validación, protección de datos y plantillas de documentos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tarea-ra3-ceg-2-creacion-de-un-cuadro-de-dialogo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tarea RA3-CEg-2 - Creación de un cuadro de diálogo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tarea-ra3-ceh-navegacion-y-controles-de-formulario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tarea RA3-CEh - Navegación y controles de formulario
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="ud-3-libreoffice-calc"><strong>UD. 3 - LibreOffice Calc</strong></h1>
+<p><img alt="Descripción de la imagen" class="sietecinco" src="../03_hojas_de_calculo/img/loc.avif" />
+<br></p>
+<p><strong>Resultados de aprendizaje y criterios de evaluacion que se evaluarán en esta unidad.</strong>  </p>
+<table>
+<thead>
+<tr>
+<th><strong>Resultados de aprendizaje de la unidad didáctica:</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RA3. Elabora documentos y plantillas de cálculo, describiendo y aplicando opciones avanzadas de hojas de cálculo.</strong></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><strong>Criterios de evaluación de la unidad didáctica:</strong></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>a)</strong> Se ha personalizado las opciones de software y barra de herramientas.</td>
+<td>5%</td>
+</tr>
+<tr>
+<td><strong>b)</strong> Se han utilizado los diversos tipos de datos y referencia para celdas, rangos, hojas y libros.</td>
+<td>15%</td>
+</tr>
+<tr>
+<td><strong>c)</strong> Se han aplicado fórmulas y funciones.</td>
+<td>30%</td>
+</tr>
+<tr>
+<td><strong>d)</strong> Se han generado y modificado gráficos de diferentes tipos.</td>
+<td>10%</td>
+</tr>
+<tr>
+<td><strong>e)</strong> Se han empleado macros para la realización de documentos y plantillas.</td>
+<td>5%</td>
+</tr>
+<tr>
+<td><strong>f)</strong> <strong>Se han importado y exportado hojas de cálculo creadas con otras aplicaciones y en otros formatos.</strong></td>
+<td>5%</td>
+</tr>
+<tr>
+<td><strong>g)</strong> Se ha utilizado la hoja de cálculo como base de datos: formularios, creación de listas, filtrado, protección y ordenación de datos.</td>
+<td>25%</td>
+</tr>
+<tr>
+<td><strong>h)</strong> Se han utilizado aplicaciones y periféricos para introducir textos, números, códigos e imágenes.</td>
+<td>5%</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Nota:</p>
+<p>El criterio de evaluación <strong>f) Se han importado y exportado hojas de cálculo creadas con otras aplicaciones y en otros formatos</strong> será evaluado durante la FCT.</p>
+</div>
+<h2 id="1-interfaz-de-trabajo-en-calc"><strong>1 - Interfaz de trabajo en Calc</strong></h2>
+<p>Después de hacer doble clic sobre el icono de <strong>LibreOffice</strong> seleccionamos <strong>Nuevo &rarr; Hoja de cálculo</strong> y nos encontraremos con la siguiente interfaz.</p>
+<p><img alt="Descripción de la imagen" src="../03_hojas_de_calculo/img/calc1.png" /></p>
+<div class="admonition question">
+<p class="admonition-title">Pregunta</p>
+<p>¿Qué es lo primero que debemos hacer cuando creamos un nuevo documento?</p>
+</div>
+<h3 id="11-menu-archivo"><strong>1.1 - Menú: Archivo</strong></h3>
+<p>Permite la creación de un archivo de hoja de cálculo y su posterior guardado, firmado digital o impresión, etc.
+<br><br />
+<strong>Idéntico al de LibreOffice writer.</strong></p>
+<h3 id="12-menu-editar"><strong>1.2 - Menú: Editar</strong></h3>
+<p>Aparte del conocido “copiar pegar” también permite buscar, editar celdas...<br />
+<br>
+<strong>Muy parecido al de LibreOffice writer.</strong></p>
+<h3 id="13-menu-ver"><strong>1.3 - Menú: Ver</strong></h3>
+<p>El menú "Ver" sirve para controlar cómo se muestra el documento en pantalla y qué elementos visuales de la interfaz deseamos ver u ocultar. 
+<strong>No modifica el contenido del documento</strong>, solo la forma en que se visualiza mientras trabajamos.<br />
+<br>
+<strong>Muy parecido al de LibreOffice writer.</strong></p>
+<h3 id="14-menu-insertar"><strong>1.4 - Menú: Insertar</strong></h3>
+<p>Ofrece opciones para incluir objetos en nuestro documento: fotografías, dibujos, tablas, ecuaciones matemáticas o incluso otros archivos.<br />
+<br>
+<strong>Muy parecido al de LibreOffice writer.</strong></p>
+<h3 id="15-menu-formato"><strong>1.5 - Menú: Formato</strong></h3>
+<p>Es, la ventana que más se utilizará ya que, permite dar formato y propiedades a las celdas de nuestras hojas de cálculo.</p>
+<p><img alt="Descripción de la imagen" class="m_ver" src="../03_hojas_de_calculo/img/calc2.png" />
+<br></p>
+<h3 id="16-menu-estilos"><strong>1.6 - Menú: Estilos</strong></h3>
+<p>Casi tan importante como el menú formato, es sin duda el gran olvidado de la mayoría de usuarios.</p>
+<p><img alt="Descripción de la imagen" class="m_ver" src="../03_hojas_de_calculo/img/calc3.png" />
+<br></p>
+<h3 id="17-menu-hoja"><strong>1.7 - Menú: Hoja</strong></h3>
+<p>Contiene todo lo relacionado con la gestión de las filas y columnas de las hojas de cálculo así como la gestión de las propias hojas.</p>
+<p><img alt="Descripción de la imagen" class="m_ver" src="../03_hojas_de_calculo/img/calc4.png" />
+<br></p>
+<h3 id="18-menu-datos"><strong>1.8 - Menú: Datos</strong></h3>
+<p>Sirve para para gestionar, manipular y analizar la información de las hojas de cálculo.</p>
+<p><img alt="Descripción de la imagen" class="m_ver" src="../03_hojas_de_calculo/img/calc5.png" />
+<br></p>
+<h3 id="19-menu-herramientas"><strong>1.9 - Menú: Herramientas</strong></h3>
+<p>Es el menú de la mayoría de herramientas de validación de un documento: En ese menú se encuentran las funciones de ortografía, autocorrección, macros, configuración de idioma, complementos, etc. 
+<br>
+<strong>Muy parecido al de LibreOffice writer.</strong></p>
+<h3 id="110-menu-ventana"><strong>1.10 - Menú: Ventana</strong></h3>
+<p>El menú "Ventana" está pensado para gestionar las distintas ventanas o instancias del programa abiertas en ese momento.
+No afecta al contenido del documento, sino a cómo se interactúa con varios documentos o vistas al mismo tiempo.
+<br>
+<strong>Idéntico al de LibreOffice writer.</strong></p>
+<h3 id="111-menu-ayuda"><strong>1.11 - Menú: Ayuda</strong></h3>
+<p>Reúne todas las opciones para obtener asistencia, acceder a la documentación oficial y consultar información sobre la instalación de LibreOffice
+<br>
+<strong>Idéntico al de LibreOffice writer.</strong></p>
+<h3 id="tarea-ra3-cea-personalizacion-de-la-interfaz-de-usuario"><strong>Tarea RA3-CEa - Personalización de la interfaz de usuario</strong></h3>
+<div class="admonition exercice">
+<p class="admonition-title">Tarea RA3-CEa - Configuración del software utilizado</p>
+<ol>
+<li>Crear un documento y guardarlo con el nombre <strong>Tarea-RA3CEa-NombreApellidosDelAlumno.ods</strong>.</li>
+<li>Cambiar el tipo de letra básico de Liberation Sans a <strong>Arial</strong>.</li>
+<li>Cambiar el idioma del documento a español</li>
+<li>Configurar la hoja de cálculo para que realice una copia de resplado cada 5 minutos.</li>
+<li>En Opciones → LibreOffice → Datos de identidad → Introducir vuestros nombres apellidos e iniciales.</li>
+<li>Modificar la interfaz de usuario para que, aparte de los menús que salen por defecto, también se vean:<ul>
+<li>Insertar celda.</li>
+<li>Controles de formulario.</li>
+<li>Navegación de formulario.</li>
+</ul>
+</li>
+<li>Condiciones de entrega de la práctica: Subir el archivo en <strong>formato ods, nativo de LibreOffice</strong> a la tarea RA3-CEa. No se admitirá ningún otro tipo de formato. </li>
+</ol>
+</div>
+<h3 id="tarea-ra3-ceb-1-elaboracion-basica-de-hojas-de-calculo"><strong>Tarea RA3-CEb-1 - Elaboración básica de hojas de cálculo</strong></h3>
+<div class="admonition exercice">
+<p class="admonition-title">Tarea RA3-CEb-1 - Elaboración de una tabla en un hoja de cálculo</p>
+<p><strong>Ejercicio parte 1</strong>
+<u>Creación de estilos</u><br />
+Crear los estilos <strong>Valores, Columnas, Indices</strong> según se vea a continuación.  </p>
+<p><img alt="Descripción de la imagen" class="leftdoscinco" src="../03_hojas_de_calculo/img/calc6.png" /></p>
+<p><u><strong>Configuración de los estilos</strong></u><br />
+<strong>1. Predeterminado:</strong><br />
+&emsp;Tipo de letra: Arial 12 normal, alineación izquierda.   </p>
+<p><strong>2. Estilo Valores</strong><br />
+&emsp;Tipo de letra: Arial 12 normal Añil oscuro, centrado horizontalmente.<br />
+&emsp;Bordes: Grosor 0.5pt, Añil oscuro 2.<br />
+&emsp;Fondo: Gris claro 5.  </p>
+<p><strong>3. Estilo Columnas</strong><br />
+&emsp;Tipo de letra: Arial 12 cursiva verde, centrado horizontalmente. <br />
+&emsp;Bordes: Grosor 0.05pt, oro.<br />
+&emsp;Fondo: Oro claro 4.</p>
+<p><strong>4. Estilo Índices</strong><br />
+&emsp;Tipo de letra: Arial 12 cursiva, azul oscuro 1, alineación izquierda. <br />
+&emsp;Bordes: Grosor 0.5pt, oro claro 1.<br />
+&emsp;Fondo: Rojo claro 4.  </p>
+<p><strong>3. Estilo Título 1</strong><br />
+&emsp;Tipo de letra: Arial 16 negrita blanco, centrado horizontalmente y verticalmente. <br />
+&emsp;Fondo: Negro.  </p>
+<p><strong>4. Estilo Título 2</strong><br />
+&emsp;Tipo de letra: Arial 12 negrita, rojo, centrado horizontalmente. <br />
+&emsp;Bordes: Grosor 0.5pt, lima.<br />
+&emsp;Fondo: Magenta claro 4.  </p>
+<p><u><strong>Tamaño de celdas</strong></u> <br />
+&emsp;Anchura columna 1: 2cm<br />
+&emsp;Anchura columnas 2, 3, 4 y 5,: 3cm<br />
+&emsp;Altura fila 1: 1cm<br />
+&emsp;Altura fila 2: 0.75cm<br />
+&emsp;Altura fila 3: 0.6cm<br />
+&emsp;Altura fila 4, 5, 6, 7, y 8: 0.5cm</p>
+<p><u><strong>Datos a introducir dentro de las celdas</strong></u><br />
+&emsp;Introducir los datos a mano para que quede de la siguiente manera.</p>
+<p><img alt="Descripción de la imagen" class="leftsietecinco" src="../03_hojas_de_calculo/img/calc16.png" /></p>
+<p><u><strong>Trabajo adicional</strong></u><br />
+&emsp;Aplicar los estilos de la siguiente manera.
+<img alt="Descripción de la imagen" class="leftsietecinco" src="../03_hojas_de_calculo/img/calc9.png" /></p>
+<p><u><strong>Trabajo adicional</strong></u><br />
+&emsp;Combinar las celdas A1, B1, C1, D1 y E1 <br />
+&emsp;Combinar las celdas B3 con C3 y D3 con E3 <br />
+&emsp;Insertar una fila en la posición 1 y una columna en la posición A.<br />
+&emsp;Redimensionar la columna A al gusto.     <br />
+&emsp;El resultado final deberá ser similar al de la imagen.       </p>
+<p><img alt="Descripción de la imagen" class="leftsietecinco" src="../03_hojas_de_calculo/img/calc7.png" /></p>
+<p><strong>Ejercicio parte 2</strong><br />
+Dentro del mismo documento crear una hoja nueva.<br />
+Renombrar las hojas a:<br />
+&emsp;&emsp;Hoja 1 → Ejercicio 1<br />
+&emsp;&emsp;Hoja 2 → Ejercicio 2<br />
+En la hoja 2, copiar y pegar todos los datos de la hoja 1.<br />
+En la hoja 2, ampliar las filas de los meses y modificar los datos hasta completar todos los meses del año.  </p>
+<p><u><strong>Trabajo adicional</strong></u><br />
+&emsp;Arreglar el ancho de la columna de los meses para que el texto no quede cortado.<br />
+&emsp;Para evitar que los datos se repitan, poner la formula <strong>=ALEATORIO.ENTRE(-10;35) como valor de las celdas de las temperaturas</strong>.  </p>
+<p><img alt="Descripción de la imagen" class="leftsietecinco" src="../03_hojas_de_calculo/img/calc17.png" /></p>
+<p>&emsp;Al final la tabla quedará de la siguiente manera.  </p>
+<p><img alt="Descripción de la imagen" class="leftsietecinco" src="../03_hojas_de_calculo/img/calc8.png" /></p>
+<p><u><strong>Condiciones de entrega</strong></u><br />
+&emsp;Guardar el documento con NombreApellidos-Tarea-RA3-CEb-1 <br />
+&emsp;Subir la hoja de cálculo en <strong>formato ods, nativo de LibreOffice</strong> a la tarea RA3-CEb-1<br />
+&emsp;<strong>No se aceptará ningun formato que no sea ods</strong>.</p>
+</div>
+<h3 id="tarea-ra3-ceb-2-elaboracion-basica-de-hojas-de-calculo"><strong>Tarea RA3-CEb-2 - Elaboración básica de hojas de cálculo</strong></h3>
+<div class="admonition exercice">
+<p class="admonition-title">Tarea RA3-CEb-2 - Trabajando con series</p>
+<p><strong>Ejercicio parte 1</strong><br />
+Realizar un diseño similar al del ejemplo. 
+Teneis <strong>libertad total</strong> en cuanto a anchos, altos, bordes, colores y ancho del bordes columnas así como tamaño color tipo de letra y fondo de celdas.</p>
+<p><img alt="Descripción de la imagen" class="original" src="../03_hojas_de_calculo/img/calc18.png" /><br></p>
+<p><strong>Ejercicio parte 2</strong><br />
+Insertar series para obtener <strong>el mismo resultado</strong> que a continuación.<br />
+<strong>Se dará la explicación en clase de como hacer series</strong>. <br>  </p>
+<p><u><strong>Series aritméticas</strong></u>  </p>
+<p><img alt="Descripción de la imagen" class="lefttrescero" src="../03_hojas_de_calculo/img/calc11.png" /><br></p>
+<p><u><strong>Series geométricas</strong></u>  </p>
+<p><img alt="Descripción de la imagen" class="leftdoscero" src="../03_hojas_de_calculo/img/calc12.png" /><br>  </p>
+<p><u><strong>Fechas</strong></u>  </p>
+<p><img alt="Descripción de la imagen" class="leftdoscero" src="../03_hojas_de_calculo/img/calc13.png" /><br>  </p>
+<p><u><strong>Personalizadas</strong></u>  </p>
+<p><img alt="Descripción de la imagen" class="leftcuatrocero" src="../03_hojas_de_calculo/img/calc14.png" /><br>  </p>
+<p><u><strong>Resultado final</strong></u></p>
+<p><img alt="Descripción de la imagen" class="leftoriginal" src="../03_hojas_de_calculo/img/calc10.png" /><br>  </p>
+<p><u><strong>Trabajo adicional</strong></u><br />
+&emsp;Inmobilizar la <strong>columna adecuada</strong> y actuar sobre la barra de desplazamiento para obtener el siguiente resultado.<br />
+&emsp;<strong>No debeis copiar / pegar las columnas</strong>.  </p>
+<p>&emsp;Resultado esperado.</p>
+<p><img alt="Descripción de la imagen" class="lefttrescero" src="../03_hojas_de_calculo/img/calc15.png" /><br>  </p>
+<p><u><strong>Condiciones de entrega</strong></u><br />
+&emsp;Guardar el documento con NombreApellidos-Tarea-RA3-CEb-2 <br />
+&emsp;Subir la hoja de cálculo en <strong>formato ods, nativo de LibreOffice</strong> a la tarea RA3-CEb-2<br />
+&emsp;<strong>No se aceptará ningun formato que no sea ods</strong>.  </p>
+</div>
+<h3 id="tarea-ra3-cec-1-datos-columnas-y-referencias-de-celdas"><strong>Tarea RA3-CEc-1 - Datos, columnas y referencias de celdas</strong></h3>
+<div class="admonition exercice">
+<p class="admonition-title">Tarea RA3-CEc-1 - Trabajando con formatos celdas</p>
+<div class="admonition tip">
+<p class="admonition-title">1. Descargar el archivo</p>
+</div>
+<p>Descargar y abrir el archivo 'RA3-CEc-1' pinchando en el enlace siguiente: <a href="../03_hojas_de_calculo/tareas/RA3-CEc-1%20alumno.ods">Descargar archivo</a>  </p>
+<div class="admonition tip">
+<p class="admonition-title">2. Realizar un diseño similar al del ejemplo</p>
+</div>
+<p>Teneis <strong>libertad total</strong> en cuanto a anchos, altos, bordes, colores y ancho del bordes columnas así como tamaño color tipo de letra y fondo de celdas.  </p>
+<p><strong>Nota importante:</strong> Cosas a tener en cuenta para realizar el diseño.<br />
+&emsp; Fila 1: Datos centrados tanto verticalmente como horizontalmente.<br />
+&emsp;&emsp;&emsp;&emsp; Bordes personalizados.  <br />
+<img alt="Descripción de la imagen" class="leftsietecinco marginseiszero" src="../03_hojas_de_calculo/img/calc19.png" /><br>   </p>
+<p>&emsp; Filas datos: Sangrías (o márgenes) a la izquierda o a la derecha.
+<img alt="Descripción de la imagen" class="leftsietecinco marginseiszero" src="../03_hojas_de_calculo/img/calc20.png" /><br>   </p>
+<p>&emsp; Formato de datos: Fechas, moneda, hora...
+<img alt="Descripción de la imagen" class="leftsietecinco marginseiszero" src="../03_hojas_de_calculo/img/calc22.png" /><br>   </p>
+<p>&emsp; Resultado final.
+<img alt="Descripción de la imagen" class="leftsietecinco marginseiszero" src="../03_hojas_de_calculo/img/calc21.png" /><br>   </p>
+<div class="admonition tip">
+<p class="admonition-title">3. Insertar una columna de segundo apellido</p>
+</div>
+<p>Insertar una columna de segundo apellido para que quede de la siguiente manera (ojo con la cabecera de la columna).
+<img alt="Descripción de la imagen" class="leftcuatrocero marginseiszero" src="../03_hojas_de_calculo/img/calc23.png" /><br> <br />
+&emsp;&emsp;&emsp;&emsp;Apellidos a añadir:<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;García<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;Fernández<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;González<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;Rodríguez<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;López<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;Martínez<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;Sánchez<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;Pérez<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;Gómez<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;Martín  <br></p>
+<div class="admonition tip">
+<p class="admonition-title">4. Insertar una columna Salario actual</p>
+</div>
+<p>Insertar una columna <strong>Salario actual</strong> con los datos que aparecen en la imagen.<br />
+<img alt="Descripción de la imagen" class="leftcuatrocero marginseiszero" src="../03_hojas_de_calculo/img/calc25.png" /><br>   </p>
+<p>&emsp;&emsp;&emsp;&emsp;Datos a introducir:<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;2269<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;2500<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;2159<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;2800<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;1750<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;1898<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;2215<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;2352<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;2075<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;2624  </p>
+<div class="admonition tip">
+<p class="admonition-title">5. Insertar la columna "Diferencia actual-inicial"</p>
+</div>
+<p>Insertar la columna <strong>Diferencia actual-inicial</strong> que será la diferencia entre las 2 columnas anteriores. <br />
+Os dejo la fórmula para calcular esa diferencia.
+<img alt="Descripción de la imagen" class="leftcuatrocero marginseiszero" src="../03_hojas_de_calculo/img/calc26.png" /><br>   </p>
+<div class="admonition tip">
+<p class="admonition-title">6. Aplicar un formato condicional a la columna "Diferencia actual-inicial"</p>
+</div>
+<p>Para diferencias superiores a 200 se aplicará el estilo Alerta (o cualquier otro, incluso podreís crear uno).<br />
+Para diferencias entre 0 y 200 se aplicará el estilo Neutro (...).<br />
+Para diferencias inferiores a 0 se aplicará el estilo Bueno (...). <br />
+Resultado final (cuidado con los estilos propios de los datos).<br />
+<img alt="Descripción de la imagen" class="lefttrescero marginseiszero" src="../03_hojas_de_calculo/img/calc27.png" /><br>   </p>
+<div class="admonition tip">
+<p class="admonition-title">7. Insertar una columna "Horas trabajadas diarias"</p>
+</div>
+<p>Insertar una columna <strong>Horas trabajadas diarias</strong> cuyos valores seran la diferencia entre las columnas <strong>Hora salida</strong> y <strong>Hora entrada</strong>.<br />
+<img alt="Descripción de la imagen" class="leftcuatrocero marginseiszero" src="../03_hojas_de_calculo/img/calc24.png" /><br>   </p>
+<div class="admonition tip">
+<p class="admonition-title">8. Aplicar un formato condicional a la columna "Horas trabajadas diarias"</p>
+</div>
+<p>Para valores superiores a 8 horas 200 se aplicará el estilo Bueno (o cualquier otro, incluso podreís crear uno).<br />
+Para valores iguales a 8 horas se aplicará el estilo Neutro (...).<br />
+Para valores inferiores a 8 horas se aplicará el estilo Alerta (...).  <br />
+<img alt="Descripción de la imagen" class="lefttrescero marginseiszero" src="../03_hojas_de_calculo/img/calc28.png" /><br>   </p>
+<div class="admonition tip">
+<p class="admonition-title">9. Aspecto final de la práctica"</p>
+</div>
+<p><img alt="Descripción de la imagen" class="leftoriginal" src="../03_hojas_de_calculo/img/calc29.png" /><br>   </p>
+</div>
+<h3 id="tarea-ra3-cec-2-formulas-basicas-referencias-de-celdas-relativas-absolutas-y-mixtas"><strong>Tarea RA3-CEc-2 - Formúlas básicas, referencias de celdas, relativas, absolutas y mixtas</strong></h3>
+<div class="admonition exercice">
+<p class="admonition-title">Tarea RA3-CEc-2 - Trabajando con celdas</p>
+<div class="admonition tip">
+<p class="admonition-title">Un poco de teoría sobre referencias y rangos de celdas.</p>
+</div>
+<p>Todas las celdas de una hoja de cálculo tienen referencias (coordenadas). Por convención, las columnas se identifican por <strong>letras</strong> y las filas por <strong>números</strong>.<br />
+<img alt="Descripción de la imagen" class="lefdoscinco" src="../03_hojas_de_calculo/img/calc30.png" /><br>   </p>
+<p><strong>Un rango de celdas</strong> es un conjunto de celdas adyacentes.
+Para hacer referencia a un rango de celdas, introduciremos la referencia de la celda en la <strong>esquina superior izquierda</strong>, seguida de dos puntos (:) y, a continuación, la referencia a la celda en la esquina inferior derecha del rango.  </p>
+<div class="admonition tip">
+<p class="admonition-title">Ejemplo de rangos.</p>
+</div>
+<p><img alt="Descripción de la imagen" class="leftdoscinco" src="../03_hojas_de_calculo/img/calc31.png" /><br> <br />
+<img alt="Descripción de la imagen" class="leftdoscinco" src="../03_hojas_de_calculo/img/calc32.png" /><br> <br />
+<img alt="Descripción de la imagen" class="leftdoscinco" src="../03_hojas_de_calculo/img/calc33.png" /><br>   </p>
+<div class="admonition exercice">
+<p class="admonition-title">Tarea parte 1. Descargar el archivo</p>
+</div>
+<p>Descargar y abrir el archivo 'RA3-CEc-2' pinchando en el enlace siguiente: <a href="../03_hojas_de_calculo/tareas/RA3-CEc-2%20nombreapellidos.ods">Descargar archivo</a>  </p>
+<div class="admonition exercice">
+<p class="admonition-title">Tarea parte 2. Aplicar fórmulas básicas a las celdas</p>
+</div>
+<p>En la hoja 1 encontrareís unas tablas con valores.</p>
+<p>Trabajos a realizar: </p>
+<ol>
+<li>Conjunto de la hoja de cálculo: Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. <strong>Tenéis libertad total en este apartado</strong>.       </li>
+<li>Columna <strong>Prima</strong>: Asignar a mano la prima del empleado haciendo uso de la tabla. (Esta operación se puede automatizar, como lo veremos en otra tarea).      </li>
+<li>Columna <strong>Sueldo + prima</strong>: Calcular el resultado de la suma de las columnas <strong>Prima</strong> y <strong>Sueldo</strong>.</li>
+<li>Columna <strong>Porcentaje sobre el sueldo</strong>: Calcular el porcentaje que representa la prima sobre el sueldo (sin prima) para cada empleado.</li>
+<li>Celdas <strong>Suma primas</strong> y <strong>Suma Sueldos + primas</strong>: Justo debajo de esas celdas poner el resultado de la suma de los valores de la columna <strong>Prima</strong> y de la columna <strong>Sueldos + primas</strong>.</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Un poco de teoría sobre referencias relativas, absolutas y mixtas.</p>
+<div class="admonition info">
+<p class="admonition-title">Referencias relativas</p>
+</div>
+<p>Las referencias relativas se basan en la posición relativa de la celda que contiene la fórmula y de la celda a la que hace referencia. Si se copia una fórmula en filas o columnas, la referencia se ajusta automáticamente es decir:  </p>
+<ul>
+<li>Si cambia la posición de la celda que contiene la fórmula, se cambia la referencia. </li>
+<li>Si se copia la fórmula en filas o columnas, la referencia se ajusta automáticamente.  </li>
+</ul>
+<p><strong>Nota:</strong> De forma predeterminada todos los editores de hojas de cálculo utilizan referencias relativas.</p>
+<p><img alt="Descripción de la imagen" class="leftdoscinco" src="../03_hojas_de_calculo/img/calc34.png" /><br>   </p>
+</div>
+<div class="admonition exercice">
+<p class="admonition-title">Tarea parte 3. Aplicar una fórmula usando referencias relativas.</p>
+<p>Ir a la hoja 2 del documento RA3-CEc-2   </p>
+<ol>
+<li>Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. <strong>Tenéis libertad total en este apartado</strong>.   </li>
+<li>Completar la tabla de multiplicar por 5.</li>
+</ol>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Un poco de teoría sobre referencias relativas, absolutas y mixtas.</p>
+<div class="admonition info">
+<p class="admonition-title">Referencias absolutas</p>
+</div>
+<p>Una referencia absoluta hace referencia a una <strong>celda en una ubicación específica</strong>. Se caracteriza por incluir el carácter $.<br />
+Si cambia la posición de la celda que contiene la fórmula, la referencia absoluta <strong>permanecerá invariable</strong>. A diferencia de las referencias relativas, si se copia / pega la fórmula en filas o columnas, la referencia absoluta no se ajustará.</p>
+<p><img alt="Descripción de la imagen" class="lefttrescero" src="../03_hojas_de_calculo/img/calc35.png" /><br>   </p>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Tarea parte 4. Aplicar una fórmula usando referencias absolutas.</p>
+<p>Ir a la hoja 3 del documento RA3-CEc-2</p>
+<ol>
+<li>Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. <strong>Tenéis libertad total en este apartado</strong>.   </li>
+<li>Completar la columna <strong>Préstamo en Euros</strong> usando referencias absolutas.</li>
+</ol>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Un poco de teoría sobre referencias relativas, absolutas y mixtas.</p>
+<div class="admonition info">
+<p class="admonition-title">Referencias mixtas</p>
+</div>
+<p>Una referencia mixta se compone de <strong>una columna (fila) absoluta y una fila (columna) relativa</strong>. <br />
+Una referencia de <strong>columna absoluta</strong> adopta la forma <strong>$A1, $B1, etc</strong> y una referencia de fila absoluta la forma <strong>A$1, B$1, etc</strong>.<br />
+Si cambia la posición de la celda que contiene la fórmula, se cambia la referencia relativa y la referencia absoluta permanece invariable. Si se copia y pega la fórmula en filas o columnas, la referencia relativa se ajusta automáticamente y la referencia absoluta no se ajusta.
+<br></p>
+<p><strong>Ejemplo</strong>
+<img alt="Descripción de la imagen" class="leftcuatrocero" src="../03_hojas_de_calculo/img/calc36.png" /><br> <br />
+En la celda D7 introducimos la fórmula = <code>$C7*D$4</code>.<br />
+Al incluir el símbolo de $ delante del 4 <strong>fijamos la fila</strong> pero no la columna.<br />
+Igualmente fijamos la columna C, de forma que al arrastrar la fórmula se mantiene fija la columna.</p>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Tarea parte 5. Aplicar una fórmula usando referencias mixtas.</p>
+<p>Ir a la hoja 4 del documento RA3-CEc-2  </p>
+<ol>
+<li>Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. <strong>Tenéis libertad total en este apartado</strong>.   </li>
+<li>Completar la tabla <strong>Tabla de multiplicar</strong> usando referencias mixtas.</li>
+</ol>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Tarea parte 6.</p>
+<p>Ir a la hoja 5 del documento RA3-CEc-2  </p>
+<ol>
+<li>Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. <strong>Tenéis libertad total en este apartado</strong>.   </li>
+<li>Para este ejercicio se deberá hacer uso de referencias relativas, absolutas o mixtas.    </li>
+<li>Añadir una columna, llamada <strong>Total de ventas</strong> y utilizar una fórmula básica para calcular el total por producto.</li>
+<li><strong>Ir a la hoja 6 del documento</strong> y crear una tabla <strong>Comisión sobre ventas</strong> con los valores: 10%, 15%, 20%, 25%.  </li>
+<li>A la tabla de la hoja 5, añadir 4 columnas C10, C15, C20 y C25.</li>
+<li>Rellenar los valores de la celdas de las columnas C10, C15, C20 y C25 <strong>aplicando los porcentajes de la hoja 6</strong>. </li>
+</ol>
+<p>Aspecto final sin aplicar estilos:</p>
+<p><img alt="Descripción de la imagen" class="leftsietecero" src="../03_hojas_de_calculo/img/calc37.png" /><br>   </p>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Tarea parte 7.</p>
+<p>Ir a la hoja 7 del documento RA3-CEc-2  </p>
+<ol>
+<li>Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. <strong>Tenéis libertad total en este apartado</strong>.</li>
+<li>Para este ejercicio se deberá hacer uso de referencias relativas, absolutas o mixtas.    </li>
+<li>Aplicar las formulas necesarias para realizar los siguientes calculos:<ul>
+<li>Calcular el porcentaje de los resultados obtenidos sobre el total de los electores.</li>
+<li>Calcular el porcentaje de los resultados obtenidos sobre el  número de los votantes.</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Tarea parte 8.</p>
+<p>Ir a la hoja 8 del documento RA3-CEc-2  </p>
+<ol>
+<li>Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. <strong>Tenéis libertad total en este apartado</strong>.</li>
+<li>Para este ejercicio se deberá hacer uso de referencias relativas, absolutas o mixtas.    </li>
+<li>Aplicar las formulas necesarias para realizar una tabla de calcular básica.</li>
+</ol>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Tarea parte 9.</p>
+<p>Ir a la hoja 9 del documento RA3-CEc-2  </p>
+<ol>
+<li>Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. <strong>Tenéis libertad total en este apartado</strong>.</li>
+<li>Para este ejercicio se deberá hacer uso de referencias relativas, absolutas o mixtas.    </li>
+<li>Aplicar las formulas necesarias para realizar los cálculos necesarios para completar la tabla.</li>
+</ol>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Tarea parte 10.</p>
+<p>Ir a la hoja 10 del documento RA3-CEc-2  </p>
+<ol>
+<li>Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. <strong>Tenéis libertad total en este apartado</strong>.</li>
+<li>Para este ejercicio se deberá hacer uso de referencias relativas, absolutas o mixtas.    </li>
+<li>Aplicar las formulas necesarias para realizar los cálculos necesarios para completar la tabla.</li>
+</ol>
+</div>
+</div>
+<h3 id="tarea-ra3-cec-3-formulas-y-funciones"><strong>Tarea RA3-CEc-3 - Formúlas y funciones</strong></h3>
+<p>Las fórmulas son uno de los elementos fundamentales de cualquier hoja de cálculo.<br />
+Permiten automatizar cálculos, analizar datos y obtener resultados dinámicos a partir de la información introducida en las celdas. </p>
+<div class="admonition exercice">
+<p class="admonition-title">Tarea RA3-CEc-3 - Trabajando con fórmulas y funciones</p>
+<div class="admonition exercice">
+<p class="admonition-title">Tarea parte 1. Descargar el archivo</p>
+<p>Descargar y abrir el archivo 'RA3-CEc-3' pinchando en el enlace siguiente: <a href="../03_hojas_de_calculo/tareas/RA3-CEc-3%20nombreapellidos.ods">Descargar archivo</a>  </p>
+</div>
+<div class="admonition exercice">
+<p class="admonition-title">Tarea parte 2. Aplicar fórmulas a las celdas</p>
+<p>En la hoja 1 encontrareís unas tablas con valores.</p>
+<p>Trabajos a realizar: </p>
+<ol>
+<li>Conjunto de la hoja de cálculo: Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. <strong>Tenéis libertad total en este apartado</strong>.</li>
+<li>Fila <strong>Total producto</strong> → Rellenar las celdas con la fórmula que suma el total de las celdas <strong>Producto ##</strong> y <strong>Total vendedor</strong>.</li>
+<li>Fila <strong>Promedio venta</strong> → Rellenar las celdas con la fórmula que cálcula la media de las celdas <strong>Producto ##</strong> y <strong>Total vendedor</strong>.</li>
+<li>Fila <strong>Total producto</strong> → Rellenar las celdas con la fórmula que saca el valor máximo de las celdas <strong>Producto ##</strong> y <strong>Total vendedor</strong> .</li>
+<li>Fila <strong>Total producto</strong> → Rellenar las celdas con la fórmula que saca el valor mínimo de las celdas <strong>Producto ##</strong> y <strong>Total vendedor</strong>.</li>
+<li>Columna <strong>Proporción del total</strong> → Rellenar las celdas con la fórmula que permita sacar la división entre el <strong>total por cada vendedor</strong> y el valor de la celda <strong>Total producto</strong>.
+<img alt="Descripción de la imagen" class="leftdoscero" src="../03_hojas_de_calculo/img/calc38.png" /><br>   </li>
+</ol>
+<p><strong>Aspecto final de la hoja</strong> (debéis aplicar vuestros estilos).</p>
+<p><img alt="Descripción de la imagen" class="leftsietecero" src="../03_hojas_de_calculo/img/calc40.png" /> <br>   </p>
+</div>
+<div class="admonition exercice">
+<p class="admonition-title">Tarea parte 3. Aplicar fórmulas a las celdas</p>
+<p>En la hoja 2 encontrareís unas tablas con valores.</p>
+<ol>
+<li>Conjunto de la hoja de cálculo: Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. <strong>Tenéis libertad total en este apartado</strong>.</li>
+<li>Campos "Hoja, documento y fecha": En la celda contigua insertar el campo <strong>nombre de la hoja</strong>, <strong>nombre del documento</strong> y <strong>fecha</strong>.</li>
+<li>Usar la fórmula necesaria para rellenar la columna <strong>Total precio sin IVA</strong>.</li>
+<li>Rellenar a mano la columna <strong>Porcentaje IVA</strong> consultando la columna <strong>Código IVA</strong> y la tabla <strong>Porcentaje IVA</strong>.</li>
+<li>Calcular la columna <strong>Monto IVA</strong> usando los datos de las columnas <strong>Total precio sin IVA</strong> y <strong>Porcentaje IVA</strong>   </li>
+<li>Calcular la columna <strong>Total precio con IVA</strong> usando los datos de las columnas <strong>Total precio sin IVA</strong> y <strong>Monto IVA</strong>.</li>
+<li>Usar las fórmulas necesarias para rellenar la tabla <strong>Total factura sin IVA</strong>.</li>
+</ol>
+<p><strong>Aspecto final de la hoja</strong> (debéis aplicar vuestros estilos).</p>
+<p><img alt="Descripción de la imagen" class="leftsietecero" src="../03_hojas_de_calculo/img/calc41.png" /> <br>   </p>
+</div>
+<div class="admonition exercice">
+<p class="admonition-title">Tarea parte 4. Aplicar fórmulas a las celdas</p>
+<ol>
+<li>Conjunto de la hoja de cálculo: Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. <strong>Tenéis libertad total en este apartado</strong>.</li>
+<li>Dentro del mismo documento, crear una hoja nueva (Hoja3).</li>
+<li><strong>Columna A</strong>: Crear una serie de rango 0 → 2 con incrementos de 0.1.</li>
+<li><strong>Columna B</strong>: Buscar la fórmula que permita insertar <strong>un número aleatorio entre 0 y 2</strong>. Pista: <strong>Asistente para funciones</strong> → categoría <strong>matemáticas</strong> → <strong>aleatorio</strong>... </li>
+<li><strong>Columna C</strong>: Buscar la fórmula que permita redondear los valores de la columna 2 a 3 decimales. Pista: <strong>Asistente para funciones</strong> → categoría <strong>matemáticas</strong> → <strong>redondear</strong>...</li>
+<li><strong>Columna D</strong>: Buscar la fórmula que devuelva verdadero o falso si comparamos los valores de las columnas <strong>Series</strong> y <strong>Redondear</strong>.</li>
+<li><strong>Columna E</strong>: Generar unas fechas aleatorias.<br />
+&emsp;<strong>Pista:</strong> Internamente, las fechas se almacenan como cifras. La parte entera se corresponde a la fecha y la parte decimal a la hora. <br />
+&emsp;&emsp;&emsp;La fecha 30/12/1899 se almacena como el número 0.<br />
+&emsp;&emsp;&emsp;La fecha 01/01/1900 se almacena como el número 2.<br />
+&emsp;&emsp;&emsp;...<br />
+&emsp;&emsp;&emsp;La fecha 6/11/25 se almacena como el número 45963.  </li>
+<li>
+<p><strong>Columna F, G y H</strong>: Introducir unos nombres y apellidos a mano y concaternarlos insertando un espacio o cualquier otro carácter entre nombre y appelidos.<br />
+<br>
+<strong>Aspecto final de la hoja</strong> (sin aplicar estilos).</p>
+<p><img alt="Descripción de la imagen" class="leftsietecero" src="../03_hojas_de_calculo/img/calc39.png" /><br>   </p>
+</li>
+</ol>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Entrega de la tarea</p>
+<p>Subir la tarea a AULES en el apartado correspondiente.<br />
+El archivo a subir deberá ser de tipo <strong>.ods</strong> (formato nativo de LibreOffice Calc).<br />
+<strong>No se aceptará ningún otro formato de archivo</strong>.  </p>
+</div>
+</div>
+<h3 id="tarea-ra3-cec-4-formulas-y-funciones-avanzadas"><strong>Tarea RA3-CEc-4 - Formúlas y funciones avanzadas</strong></h3>
+<p>En este ejercicio desarrollaremos un calificador de notas aplicado a la nueva ley de FP, es decir:  </p>
+<ul>
+<li>Los alumnos deberan obtener <strong>una nota superior a 5</strong> en todos los RA's para superar el módulo.</li>
+<li>En cada RA, <strong>la nota mínima</strong> de cada <strong>criterio de evaluación</strong> deberá ser <strong>superior a 3</strong>.</li>
+<li>En <strong>cada criterio de evaluación</strong> la nota de <strong>cada tarea</strong> deberá ser <strong>superior a 3</strong>.</li>
+<li>Para el cálculo de la nota final de cada alumno se aplicará <strong>una ponderación entre RA's</strong>.</li>
+<li>Para el cálculo de <strong>la nota de cada RA</strong> se aplicará <strong>una ponderación entre CE's</strong>.</li>
+</ul>
+<div class="admonition exercice">
+<p class="admonition-title">Tarea RA3-CEc-4 - Trabajando con fórmulas y funciones avanzadas</p>
+<p>En este ejercicio, haremos una calificador similar al que se usa para evaluar los alumnos en los ciclos formativos de formacion profesional. Para ello haremos uso de todo lo aprendido hasta ahora y empezaremos a usar <strong>el asistente para funciones LibreOffice Calc para elaborar fórmulas avanzadas</strong>.   </p>
+<p><strong>Condiciones para la evaluación del alumnado</strong>  </p>
+<ul>
+<li><strong>El alumno será evaluado por resultados de aprendizaje (RA) que a la vez se componen de criterios de evaluación (CE)</strong>. Para aprobar el módulo, el alumno deberá sacar <strong>una nota superior o igual a 5 en todos los RA's</strong>.  </li>
+<li><strong>La nota final</strong> que abtendrá el alumno en <strong>el módulo</strong> será <strong>la media ponderada de todos los RA's</strong>. <strong>Ejemplo:</strong> <code>Nota final módulo = 0.25*RA1 + 0.40*RA2 + 0.35*RA3</code>.    </li>
+<li>Cada RA se compone de <strong>una serie de criterios de evaluación</strong>. Para aprobar el RA el alumno deberá sacar <strong>una nota superior a 5 en el RA y además una nota superior a 3 en cada criterio de evaluación (CE)</strong>.  </li>
+<li><strong>La nota final de cada RA</strong> será <strong>la media ponderada de todos los criterios de evaluación</strong>. <strong>Ejemplo:</strong> <code>Nota final RA2 = 0.25*CEa + 0.50*CEb + 0.25*CEc</code>.  </li>
+<li><strong>Cada criterio de evaluación</strong> se compone de <strong>una serie de métodos de evaluación</strong> (tareas, exámenes, exposiciones orales...).  </li>
+<li><strong>Para poder mediar</strong>, el alumno deberá obtener <strong>una nota no inferior a 3 en cada método de evaluación</strong>.</li>
+<li><strong>La nota final del criterio de evaluación</strong> será <strong>la media ponderada</strong> de todos <strong>los métodos de evaluación</strong>. <strong>Ejemplo:</strong> <code>Nota CEa = 0.50*CEa1 + 0.25*CEa2 + 0.25*CEa3</code>.     </li>
+</ul>
+<p><strong>Ejemplo real:</strong>  </p>
+<p><strong>RA3. Elabora documentos y plantillas de cálculo, describiendo y aplicando opciones avanzadas de hojas de cálculo.</strong>  </p>
+<table>
+<thead>
+<tr>
+<th><strong>Criterios de evaluación de la unidad didáctica:</strong></th>
+<th style="text-align: center;">Ponderación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>a)</strong> Se ha personalizado las opciones de software y barra de herramientas.</td>
+<td style="text-align: center;">5%</td>
+</tr>
+<tr>
+<td><strong>CEa</strong> = RA3-CEa</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td><strong>b)</strong> Se han utilizado los diversos tipos de datos y referencia para celdas, rangos, hojas y libros.</td>
+<td style="text-align: center;">15%</td>
+</tr>
+<tr>
+<td><strong>CEb</strong> = 0.5xRA3-CEb-1 + 0.5xRA3-CEb-2</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td><strong>c)</strong> Se han aplicado fórmulas y funciones.</td>
+<td style="text-align: center;">30%</td>
+</tr>
+<tr>
+<td>CEc = 0.15xRA3-CEc-1 + 0.15xRA3-CEc-2 + 0.15xRA3-CEc-3 + 0.15xRA3-CEc-4 + 0.40xRA3-CEc-5</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td><strong>d)</strong> Se han generado y modificado gráficos de diferentes tipos.</td>
+<td style="text-align: center;">10%</td>
+</tr>
+<tr>
+<td><strong>CEd</strong> = 0.4xRA3-CEd-1 + 0.6xRA3-CEd-2.</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td><strong>e)</strong> Se han empleado macros para la realización de documentos y plantillas.</td>
+<td style="text-align: center;">5%</td>
+</tr>
+<tr>
+<td><strong>CEe</strong> = RA3-CEe.</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td><strong>f)</strong> Se han importado y exportado hojas de cálculo creadas con otras aplicaciones y en otros formatos.</td>
+<td style="text-align: center;">5%</td>
+</tr>
+<tr>
+<td><strong>CEf</strong> = Evaluado en empresa.</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td><strong>g)</strong> = Se ha utilizado la hoja de cálculo como base de datos: formularios, creación de listas, filtrado, protección y ordenación de datos.</td>
+<td style="text-align: center;">25%</td>
+</tr>
+<tr>
+<td><strong>CEg</strong> = 0.5xRA3-CEg-1 + 0.5xRA3-CEg-2.</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td><strong>h)</strong> Se han utilizado aplicaciones y periféricos para introducir textos, números, códigos e imágenes.</td>
+<td style="text-align: center;">5%</td>
+</tr>
+<tr>
+<td><strong>CEh</strong> = RA3-CEh</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition exercise">
+<p class="admonition-title">Tarea parte 1. Descargar el archivo</p>
+</div>
+<p>Descargar y abrir el archivo 'RA3-CEc-4' pinchando en el enlace siguiente: <a href="../03_hojas_de_calculo/tareas/RA3-CEc-4%20nombreapellidos.ods">Descargar archivo</a>.<br />
+La hoja de cálculo se compone de 7 hojas.</p>
+<ul>
+<li>En la hoja <strong>Módulo</strong> encontraréis las notas de cada RA y más elementos de control estadístico.</li>
+<li>En la hojas <strong>RA1, RA2 y RA3</strong> encontraréis las notas de cada criterio de evaluación.</li>
+<li>En la hojas <strong>RA1 Ponderaciones, RA2 Ponderaciones y RA3 Ponderaciones</strong> encontraréis todas las ponderaciones que se usarán para <strong>el cálculo de los RA's, CE's y nota final del módulo</strong>.</li>
+</ul>
+<div class="admonition exercise">
+<p class="admonition-title">Tarea parte 2</p>
+</div>
+<ul>
+<li>Conjunto de la hoja de cálculo: Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. <strong>Tenéis libertad total en este apartado</strong>.</li>
+<li>Aunque se ponga como primer elemento de la tarea, <strong>no se recomienda empezar por aplicar estilos</strong>, esperar a tener la tarea completada para hacerlo.</li>
+</ul>
+<div class="admonition exercise">
+<p class="admonition-title">Tarea parte 3</p>
+</div>
+<p><strong>Hojas RA1 Ponderaciones, RA2 Ponderaciones y RA3 Ponderaciones</strong>.</p>
+<ul>
+<li>Poner una fórmula que sume el total de los porcentajes de las hojas, RA1 Ponderaciones, RA2 Ponderaciones y RA3 Ponderaciones.</li>
+<li>
+<p>Poner un formato condicional que aplique el estilo <strong>bueno</strong> si el resultado es igual a 100% y <strong>error</strong> si no lo es. 
+<br>
+<img alt="Descripción de la imagen" class="leftsietecero margintopbottom10" src="../03_hojas_de_calculo/img/ra3cec4-1.png" /><br>   </p>
+</li>
+<li>
+<p>Poner una fórmula que sume el total de las ponderaciones de los CE dentro del RA.</p>
+</li>
+<li>
+<p>Poner un formato condicional que aplique el estilo <strong>bueno</strong> si el resultado es igual a 100% y <strong>error</strong> si no lo es. 
+<br>
+<img alt="Descripción de la imagen" class="leftsietecero margintopbottom10" src="../03_hojas_de_calculo/img/ra3cec4-2.png" /><br>   </p>
+</li>
+<li>
+<p>Poner una fórmula que sume el total de las ponderaciones dentro de cada CE.</p>
+</li>
+<li>Poner un formato condicional que aplique el estilo <strong>bueno</strong> si el resultado es igual a 100% y <strong>error</strong> si no lo es. 
+<br>
+<img alt="Descripción de la imagen" class="leftsietecero margintopbottom10" src="../03_hojas_de_calculo/img/ra3cec4-3.png" /><br>   </li>
+</ul>
+<div class="admonition exercise">
+<p class="admonition-title">Tarea parte 4</p>
+</div>
+<p><strong>Hojas RA1, RA2 y RA3</strong>.</p>
+<ul>
+<li>Insertar la columna <strong>Todas entregadas</strong> y aplicar <strong>la fórmula lógica Y(condición_1;condición_2;...)</strong> que <strong>devolverá verdadero si todas las tareas se han entregado</strong> es decir tienen una nota superior (o diferente) a 0.   </li>
+<li>Insertar la columna <strong>Todas superiores a 3</strong> y aplicar <strong>una fórmula lógica Y()</strong> que <strong>devolverá verdadero si todas las tareas tienen una nota superior a 3</strong>.  </li>
+<li>Insertar la columna <strong>Válido</strong> y aplicar <strong>una fórmula lógica Y()</strong> que <strong>devolverá verdadero si las 2 columnas anteriores son verdaderas</strong>. De lo contrario devolverá <strong>falso</strong>.</li>
+<li>Poner un formato condicional y aplicar el estilo <strong>bueno</strong> si el resultado verdadero y <strong>alerta</strong> si no lo es.<br />
+<br>
+<strong>Resultado esperado hasta ahora (sin aplicar estilos)</strong>.<br />
+<img alt="Descripción de la imagen" class="leftsietecero margintopbottom10" src="../03_hojas_de_calculo/img/ra3cec4-4.png" /><br> <br />
+<br></li>
+<li>Insertar la columna <strong>Nota CEa</strong> y aplicar <strong>la fórmula matricial SUMA.PRODUCTO(intervalo de valores;intervalo de ponderadores)</strong> que <strong>calcule la nota ponderada del CEa</strong> con la ayuda de los valores de la hoja <strong>RA1 Ponderaciones</strong> (también se puede hacer sumando y ponderado las notas de los CEa).  </li>
+<li>Insertar la columna <strong>Primer crivado</strong> y aplicar <strong>la fórmula lógica SI(condición; Resultado si condición es verdadero; Resultado si condición es falso)</strong> que <strong>devolverá el valor de la columna anterior si la columna Válido es verdadero</strong> y <strong>Recuperar</strong> si <strong>la columna Válido es falsa</strong>.   </li>
+<li>Insertar la columna <strong>Nota final CE</strong> y aplicar <strong>la fórmula lógica SI()</strong> que <strong>devolverá el valor de la columna anterior con las siguientes condiciones</strong>:<br />
+&emsp; Si la nota es <strong>superior a 3</strong>, la fórmula devolverá el valor de la columna <strong>Primer crivado</strong>. <br />
+&emsp; Si la nota es <strong>inferior o igual a 3</strong> o el valor de la celda es <strong>Recuperar</strong>, la fórmula devolverá
+ <strong>Recuperar</strong>.   </li>
+<li>Poner un formato condicional a la columna Nota CEa de la siguiente manera:<br />
+&emsp; Si la nota es superior a 5 aplicar el estilo <strong>bueno</strong>.<br />
+&emsp; Si la nota es igual a 5 aplicar el estilo <strong>neutro</strong>.<br />
+&emsp; Si la nota está entre 4.99 y 3.01 aplicar el estilo <strong>malo</strong>.<br />
+&emsp; Si la nota es inferior o igual a 3 aplicar el estilo <strong>error</strong>.  </li>
+<li>
+<p>Poner un formato condicional a <strong>las columna Primer crivado y Nota final CE</strong> de la siguiente manera:<br />
+&emsp; Si la celda contiene "Recuperar", aplicar el estilo <strong>malo</strong>.<br />
+&emsp; Si la celda <strong>no contiene</strong> "Recuperar", aplicar el estilo <strong>neutro</strong>.<br />
+<br><br />
+<strong>Resultado esperado hasta ahora (sin aplicar estilos e inmovilizando una columna)</strong>.<br />
+<img alt="Descripción de la imagen" class="leftsietecero margintopbottom10" src="../03_hojas_de_calculo/img/ra3cec4-5.png" /><br>   </p>
+</li>
+<li>
+<p>Repetir los pasos anteriores con los criterios de evaluación CEb y CEc.
+<br>
+<strong>Resultado esperado hasta ahora (sin aplicar estilos)</strong>.<br />
+<img alt="Descripción de la imagen" class="left margintopbottom10" src="../03_hojas_de_calculo/img/ra3cec4-6.png" /><br></p>
+</li>
+<li>
+<p>La columna <strong>Nota final RA</strong> ya tiene la fórmula que calcula la nota final del RA que devuelve la nota del alumno o Ordinaria si el alumno debe recuperar algún RA. Aplicarle un formato condicional que aplique el estilo <strong>Malo</strong> si el contenido de la celda es igual a "Ordinaria" y "Bueno" si es diferente. </p>
+</li>
+<li>Las columnas <strong>CEa, CEb, CEc</strong> ya tienen la fórmula que decide si el alumno ha de recuperar el CE correspondiente. Aplicarle un formato condicional que aplique el estilo <strong>Error</strong> si el contenido de la celda es igual a "X" y "Neutro" si es diferente a "X".  <br />
+<br>
+<strong>Resultado esperado hasta ahora (sin aplicar estilos)</strong>.<br />
+<img alt="Descripción de la imagen" class="left margintopbottom10" src="../03_hojas_de_calculo/img/ra3cec4-7.png" /><br> <br />
+<strong>Resultado final de la hoja RA1</strong>.<br />
+<img alt="Descripción de la imagen" class="left margintopbottom10" src="../03_hojas_de_calculo/img/ra3cec4-8.png" /><br> <br />
+<strong>Repetir las instrucciones anteriores con las hojas RA2 y RA3 y también con las hojas RA1 Ponderaciones, RA2 Ponderaciones y RA3 Ponderaciones</strong>.<br />
+<strong>Resultado esperado para RA2</strong>
+<img alt="Descripción de la imagen" class="left margintopbottom10" src="../03_hojas_de_calculo/img/ra3cec4-9.png" /><br> <br />
+<strong>Resultado esperado para RA3</strong>
+<img alt="Descripción de la imagen" class="left margintopbottom10" src="../03_hojas_de_calculo/img/ra3cec4-10.png" /><br>   </li>
+</ul>
+<div class="admonition exercise">
+<p class="admonition-title">Tarea parte 5</p>
+</div>
+<p><strong>Hoja: Módulo</strong>.  </p>
+<p>Podéis descargar la hoja de cálculo con las hojas RA1, RA2 y RA3 ya completadas desde el siguiente enlace: <a href="../03_hojas_de_calculo/tareas/RA3-CEc-4%20nombreapellidos%20con%20RA%20completos.ods">Descargar archivo con RA's completados</a></p>
+<p><strong>Columnas RA1, RA2 y RA3</strong>.  </p>
+<ul>
+<li>Recuperar los valores de la columna "Nota final RA" (columna AC) de las hojas RA1, RA2 y RA3.</li>
+<li>Aplicar un formato condicional <strong>Malo</strong> si el valor de la celda contiene "Ordinaria" y <strong>Neutro</strong> si no lo contiene. </li>
+</ul>
+<p><strong>Columna Nota final módulo</strong>  </p>
+<ul>
+<li>Aplicar la fórmula: SI(ESNUMERICO(suma ponderada de RA1, RA2 y RA3); (suma ponderada de RA1, RA2 y RA3); "Ordinaria") (no hacer, la fórmula ya está puesta).  </li>
+<li>Aplicar un formato condicional <strong>Malo</strong> si el valor de la celda contiene "Ordinaria" y <strong>Bueno</strong> si no lo contiene.</li>
+</ul>
+<p><strong>Celda aprobados</strong>  </p>
+<ul>
+<li>En esta celda aparecerá la cantidad de alumnos que han aprobado el módulo es decir, solo contaremos las celdas que contienen valores numéricos. </li>
+<li>Para ello usar la fórmula CONTAR(intervalo de celdas a contar)</li>
+</ul>
+<p><strong>Celda suspensos</strong></p>
+<ul>
+<li>En esta celda aparecerá la cantidad de alumnos que no han aprobado el módulo es decir, solo contaremos las celdas que contienen la palabra "Ordinaria". </li>
+<li>Para ello usar la fórmula CONTAR.SI(intervalo de celdas a contar; criterio de selección).</li>
+</ul>
+<p><strong>Resultado esperado para la hoja 'Módulo'</strong><br />
+<img alt="Descripción de la imagen" class="left margintopbottom10" src="../03_hojas_de_calculo/img/ra3cec4-11.png" /><br>   </p>
+<p><strong>Celdas 'Notas entre 5 y 7' y 'Notas entre 7 y 10'</strong></p>
+<ul>
+<li>En estas celdas apareceran la cantidad de alumnos que han obtenido una nota entre 5 y 7 y entre 7 y 10 respectivamente. </li>
+<li>Para ello usar la fórmula CONTAR.SI.CONJUNTO(intervalo_1 de celdas a contar; criterio_1 de selección; intervalo_2 de celdas a contar; criterio_2 de selección; ...).</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Entrega de la tarea</p>
+<p>Subir la tarea a AULES en el apartado correspondiente.<br />
+El archivo a subir deberá ser de tipo <strong>.ods</strong> (formato nativo de LibreOffice Calc).<br />
+<strong>No se aceptará ningún otro formato de archivo</strong>.  </p>
+</div>
+</div>
+<h3 id="tarea-ra3-ced-1-graficos"><strong>Tarea RA3-CEd-1 - Gráficos</strong></h3>
+<p>Los gráficos son representaciones visuales de datos que facilitan la comprensión y el análisis de la información.<br />
+Permiten identificar patrones, tendencias y relaciones entre diferentes conjuntos de datos de manera más intuitiva que con tablas de datos.  </p>
+<div class="admonition exercice">
+<p class="admonition-title">Tarea RA3-CEd-1 - Trabajando con gráficos</p>
+<div class="admonition exercise">
+<p class="admonition-title">Tarea parte 1. Descargar el archivo</p>
+</div>
+<p>Descargar y abrir el archivo 'RA3-CEd-1' pinchando en el enlace siguiente: <a href="../03_hojas_de_calculo/tareas/RA3-CEd-1%20nombreapellidos.ods">Descargar archivo</a>.<br />
+La hoja de cálculo se compone de <strong>6 hojas</strong>.</p>
+<ul>
+<li>En cada hoja encontraréis unas tablas con datos de los cuales deberéis realizar una representación gráfica.</li>
+</ul>
+<div class="admonition exercise">
+<p class="admonition-title">Tarea parte 2</p>
+</div>
+<p><strong>Hoja 1: Instituto nacional de estadística - Gráficos de columnas</strong></p>
+<ul>
+<li>Conjunto de la hoja de cálculo: Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. <strong>Tenéis libertad total en este apartado</strong>.</li>
+<li>Rellenar las celdas vacías de la tabla (Total, Media, Mínimo, Máximo) con la fórmula correspondiente.</li>
+<li>Crea un gráfico de columna (tipo Normal, vista 3D).<ul>
+<li>Selecciona el rango de celdas A2:C14.</li>
+<li>Ir a <strong>Insertar</strong> → <strong>Gráfico</strong> → Seleccionar <strong>Columna</strong>.</li>
+<li>Pulsar <strong>Siguiente</strong> y comprobar que el <strong>intervalo de datos es correcto</strong>, así como el resto de opciones.</li>
+<li>Pulsar <strong>Siguiente</strong> y comprobar que la <strong>serie de datos es correcta</strong>, así como el resto de opciones.</li>
+<li>Pulsar <strong>Siguiente</strong> y poner los títulos:<ul>
+<li>Título: Población de España (2010-2022)</li>
+<li>Eje X: Meses</li>
+<li>Eje Y: Años  </li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Aspecto final sin aplicar estilos:</strong>
+<img alt="Descripción de la imagen" class="left margintopbottom10" src="../03_hojas_de_calculo/img/ra3ced1-1.png" /><br>   </li>
+</ul>
+<div class="admonition exercise">
+<p class="admonition-title">Tarea parte 3</p>
+</div>
+<p><strong>Hoja 2: Instituto nacional de estadística parte 2 - Mejorando la representación de los gráficos de columnas, parte 1</strong><br />
+Repetir los pasos de la hoja 1 pero mejorando la representación del gráfico con los siguientes elementos:  </p>
+<ul>
+<li>En series de datos → Hombre → Color de relleno → Seleccionar el intervalo de datos de la hoja 3.</li>
+<li>En series de datos → Mujer → Color de relleno → Seleccionar el intervalo de datos de la hoja 3.</li>
+<li><strong>Aspecto final sin aplicar estilos:</strong><br />
+<img alt="Descripción de la imagen" class="left margintopbottom10" src="../03_hojas_de_calculo/img/ra3ced1-2.png" /><br></li>
+</ul>
+<div class="admonition exercise">
+<p class="admonition-title">Tarea parte 4</p>
+</div>
+<p><strong>Hoja 4: Instituto nacional de estadística parte 3 - Mejorando la representación de los gráficos de columnas, parte 2</strong></p>
+<p>Repetir los pasos de la hoja 2 pero esta vez seleccionar una reprensentación 3D. Además deberéis personalizar los colores y los efectos del gráfico.</p>
+<ul>
+<li>Estirar el gráfico para ampliar el efecto 3D. </li>
+<li>Personalizar la leyenda del gráfico: Tipo color y tamaño de letra, tipo y color de fondo, ancho color de los bordes...   </li>
+<li>Personalizar las leyendas de los ejes X, Y: Tipo color y tamaño de letra, tipo y color de fondo, ancho color de los bordes...   </li>
+<li>Personalizar los índices de los ejes X, Y: Tipo color y tamaño de letra, tipo y color de fondo, ancho color de los bordes...</li>
+<li>Personalizar el título del gráfico: Tipo color y tamaño de letra, tipo y color de fondo, ancho color de los bordes...   </li>
+<li>Personalizar la base del gráfico: Tipo y color...</li>
+<li>Personalizar las cuadrículas del gráfico: Tipo y color...</li>
+<li>Personalizar el gráfico: Tipo y color...</li>
+<li>Personalizar la área del gráfico: Tipo y color...</li>
+<li><strong>Aspecto final:</strong><br />
+<img alt="Descripción de la imagen" class="left margintopbottom10" src="../03_hojas_de_calculo/img/ra3ced1-3.png" /><br></li>
+</ul>
+<div class="admonition exercise">
+<p class="admonition-title">Tarea parte 5</p>
+</div>
+<p><strong>Hoja 5: Instituto nacional de estadística parte 4 - Estilo de líneas.</strong>
+Realizar <strong>un gráfico de líneas</strong> con los datos proporcionados en la hoja 5, pero esta vez en líneas suavizadas.</p>
+<ul>
+<li>Modificar los intervalos del eje Y para que vayan desde 0 hasta 100 (pista → Escala Eje Y).</li>
+<li>Cambiar la posición de la leyenda del eje Y a <strong>Fin</strong> (pista → Posición Eje Y).</li>
+<li>Cambiar la posición de la leyenda del eje Y a <strong>Fin</strong> (pista → Posición Eje Y).   </li>
+<li>
+<p>Aplicar unos estilos al resto de elementos del gráfico (título, leyenda, ejes, fondo, gráfico...) similares a los del punto anterior.</p>
+</li>
+<li>
+<p><strong>Aspecto final (sin aplicar estilos):</strong><br />
+<img alt="Descripción de la imagen" class="left margintopbottom10" src="../03_hojas_de_calculo/img/ra3ced1-4.png" /><br></p>
+</li>
+</ul>
+<div class="admonition exercise">
+<p class="admonition-title">Tarea parte 6</p>
+</div>
+<p><strong>Hoja 6: Representación de funciones y ajuste de ejes.</strong><br />
+A diferencia de las representaciones anteriores, la representación de funciones matemáticas no se basa en datos tabulados para el eje X, sino en datos contínuos.<br />
+Por ese motivo deberemos usar el tipo XY (dispersión) para representar funciones matemáticas.</p>
+<ul>
+<li>
+<p><strong>Aspecto antes de seguir con la personalización del gráfico.</strong><br />
+<img alt="Descripción de la imagen" class="left margintopbottom10" src="../03_hojas_de_calculo/img/ra3ced1-5.png" /><br></p>
+</li>
+<li>
+<p><strong>EJE Y</strong><br />
+<strong>Escala</strong></p>
+<ul>
+<li>Cambiar el mínimo y máximo del eje Y para que vaya desde -1.1 hasta 1.1 y el intervalo principal sea de 0.1.</li>
+<li>Cambiar el intervalo principal del eje Y a 0.1.  </li>
+</ul>
+<p><strong>Posición</strong>  </p>
+<ul>
+<li>Cambiar la posición del eje Y para que cruce el eje X en el valor 180 (pista → Posición Eje Y).  </li>
+<li>Colocar las etiquetas en <strong>Cerca de eje (el otro lado)</strong>.</li>
+<li>Poner las marcas de intervalo del eje Y a <strong>exterior e interior</strong> para las principales y secundarias.  </li>
+</ul>
+<p><strong>Línea</strong>  </p>
+<ul>
+<li>Color verde.  </li>
+</ul>
+<p><strong>Etiqueta</strong></p>
+<ul>
+<li>Girada 40 grados.  </li>
+</ul>
+<p><strong>Tipo de letra</strong></p>
+<ul>
+<li>Arial, tamaño 8.  </li>
+</ul>
+<p><strong>Efectos tipográficos</strong></p>
+<ul>
+<li>Color de letra azul.  </li>
+</ul>
+</li>
+<li>
+<p><strong>EJE X</strong></p>
+<ul>
+<li>Cambiar la escala del eje X para que vaya desde 0 hasta 360, con un intervalo principal de 30 y un secundario de 10.</li>
+<li>Cambiar la posición del eje X para que cruce el eje Y en el valor -1.1.</li>
+<li>Cambiar las marcas de intervalo del eje X a <strong>exterior e interior</strong> para las principales y <strong>interior</strong> para las secundarias.</li>
+<li>Línea de eje de color naranja.</li>
+<li>Tipo de letra, arial, 8, azul.  </li>
+<li>Aplicar una cuadricula vertical al gráfico (pista → Cuadrícula Eje X).</li>
+</ul>
+</li>
+<li>
+<p><strong>Gráficos</strong></p>
+<ul>
+<li>Cambiar el color de la línea de la función Seno a rojo y el grosor a 0.02 puntos.</li>
+<li>Cambiar el color de la línea de la función Coseno a azul y el grosor a 0.02 puntos.</li>
+</ul>
+</li>
+<li>
+<p>Aplicar unos estilos al resto de elementos del gráfico (título, leyenda, ejes, fondo, gráfico...) similares a los del punto anterior. </p>
+</li>
+<li>
+<p><strong>Aspecto final (sin aplicar estilos):</strong><br />
+<img alt="Descripción de la imagen" class="left margintopbottom10" src="../03_hojas_de_calculo/img/ra3ced1-6.png" /><br></p>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Entrega de la tarea</p>
+<p>Subir la tarea a AULES en el apartado correspondiente.<br />
+El archivo a subir deberá ser de tipo <strong>.ods</strong> (formato nativo de LibreOffice Calc).<br />
+<strong>No se aceptará ningún otro formato de archivo</strong>.  </p>
+</div>
+</div>
+<h3 id="tarea-ra3-ced-2-graficos"><strong>Tarea RA3-CEd-2 - Gráficos</strong></h3>
+<div class="admonition exercice">
+<p class="admonition-title">Tarea RA3-CEd-2 - Gráficos avanzados</p>
+<div class="admonition exercise">
+<p class="admonition-title">Descargar el archivo</p>
+</div>
+<p>Descargar y abrir el archivo 'RA3-CEd-2' pinchando en el enlace siguiente: <a href="../03_hojas_de_calculo/tareas/RA3-CEd-2%20nombreapellidos.ods">Descargar archivo</a>.  </p>
+<div class="admonition exercise">
+<p class="admonition-title">Hoja 1 - Diagrama de Gantt 1/9</p>
+</div>
+<p>Un diagrama de Gantt es una herramienta gráfica utilizada para planificar, programar y controlar proyectos. Es muy común en gestión de proyectos, ingeniería, desarrollo de software, educación y cualquier ámbito donde sea necesario organizar actividades en el tiempo.</p>
+<ul>
+<li>Partimos de la tabla de la hoja 1.</li>
+<li>El proyecto consta de 4 fases, y cada una de ellas consta de 4 procesos que deben realizarse con una Fecha de inicio y durante un número de días determinado. <strong>La Fecha de finalización prevista deberá ser calculada</strong>: Es el resultado de sumar a la fecha de inicio con los días de duración del proceso.</li>
+<li>La columna <strong>Completado</strong> permite controlar qué parte del trabajo ya está realizado y qué parte queda pendiente.</li>
+<li>Las  columnas  <strong>Pendiente</strong>  y  <strong>Realizado se  calcularán</strong>  en  función  de  la  Duración  y  el  porcentaje  de Completado.</li>
+<li>Aspecto final de la hoja de cálculo.
+<img alt="Descripción de la imagen" class="left margintopbottom10" src="../03_hojas_de_calculo/img/ra3ced-2-4.png" /><br></li>
+</ul>
+<div class="admonition exercise">
+<p class="admonition-title">Hoja 1 - Diagrama de Gantt 2/9</p>
+</div>
+<p><strong>Gráfico</strong>  </p>
+<ul>
+<li>Seleccionamos cualquier celda de la tabla y creamos un gráfico de barras <strong>en pilas</strong>.</li>
+<li>En <strong>rango de datos</strong> no tocamos nada.</li>
+<li>En <strong>serie de datos</strong> solo dejamos <strong>Fecha inicio</strong>, <strong>Realizado</strong> y <strong>Pendiente</strong>. </li>
+<li>En <strong>elementos del gráfico</strong> dejamos todos los campos en blanco.</li>
+<li>Aspecto de la gráfica.
+<img alt="Descripción de la imagen" class="left margintopbottom10" src="../03_hojas_de_calculo/img/ra3ced-2-1.png" /><br></li>
+</ul>
+<div class="admonition exercise">
+<p class="admonition-title">Hoja 1 - Diagrama de Gantt 3/9</p>
+</div>
+<p><strong>Personalización gráfico</strong><br />
+Para poder acceder a los menús del gráfico, haremos doble click sobre el gráfico hasta que aparezcan cuadrados rellenos como delimitadores de la gráfica. Entonces nos aparecerá una barra de herramientas para seleccionar las partes del gráfico a personalizar.<br />
+<img alt="Descripción de la imagen" class="leftsietecinco margintopbottom10" src="../03_hojas_de_calculo/img/ra3ced-2-2.png" /><br></p>
+<div class="admonition exercise">
+<p class="admonition-title">Hoja 1 - Diagrama de Gantt 4/9</p>
+</div>
+<p><strong>Eje X</strong> </p>
+<ul>
+<li>Pestaña escala → Cambiar el orden en que se presentan los elementos del eje X (marcar Dirección inversa). </li>
+</ul>
+<div class="admonition exercise">
+<p class="admonition-title">Hoja 1 - Diagrama de Gantt 5/9</p>
+</div>
+<p><strong>Eje Y</strong>  </p>
+<ul>
+<li>Pestaña números → Desmarcar <strong>Formato de origen</strong>, en <strong>Categoria</strong> seleccionar <strong>Fecha</strong> y en <strong>Formato</strong>, <strong>01/12/99</strong>.</li>
+<li>Pestaña escala, ponemos <strong>Mínimo</strong> a 15/01/2025, <strong>Máximo</strong> a 24/04/2025 e <strong>Intervalo principal</strong> a 10.  </li>
+</ul>
+<div class="admonition exercise">
+<p class="admonition-title">Hoja 1 - Diagrama de Gantt 6/9</p>
+</div>
+<p><strong>Serie de datos Fecha inicio</strong></p>
+<ul>
+<li>Haremos invisible esta serie seleccionando <strong>Ninguno</strong> en la pestaña <strong>Area</strong>.   </li>
+<li>En la pestaña <strong>Opciones</strong> dejamos el espaciado en 50% (permite ajustar la altura de las barras).   </li>
+</ul>
+<div class="admonition exercise">
+<p class="admonition-title">Hoja 1 - Diagrama de Gantt 7/9</p>
+</div>
+<p>Serie de datos <strong>Pendiente</strong> y <strong>Realizado</strong></p>
+<ul>
+<li>Cambiar los colores de las series al gusto de cada uno.</li>
+</ul>
+<div class="admonition exercise">
+<p class="admonition-title">Hoja 1 - Diagrama de Gantt 8/9</p>
+</div>
+<p>Para evitar que se vea en la leyenda la serie <strong>Fecha de inicio</strong> heremos:</p>
+<ul>
+<li>Ocultar <strong>la entrada de leyenda</strong> para la serie <strong>Fecha de inicio</strong> (pista → opciones).  </li>
+</ul>
+<div class="admonition exercise">
+<p class="admonition-title">Hoja 1 - Diagrama de Gantt 9/9</p>
+</div>
+<ul>
+<li>Personalizar todos los elementos del gráfico al gusto de cada uno.</li>
+</ul>
+<p><strong>Ejemplo de gráfico de Gantt después de configurar estilos</strong>
+<img alt="Descripción de la imagen" class="leftsietecinco margintopbottom10" src="../03_hojas_de_calculo/img/ra3ced-2-3.png" /><br></p>
+<div class="admonition exercise">
+<p class="admonition-title">Hoja 2 - Pruebas de acceso a la universidad 1/3</p>
+</div>
+<p>En la hoja 2 encontrareís una tabla con los resultados de las pruebas de acceso a la universidad de una serie de alumnos.<br />
+<strong>Trabajos previos a realizar</strong></p>
+<ul>
+<li>Calcular la media de la parte 1 de las pruebas.</li>
+<li>Calcular la media de la parte 2 de las pruebas.</li>
+<li>Calcular la nota PAU que será la media de las partes 1 y 2.</li>
+<li>El cáculo de la nota final se hará de la siguiente manera: SI (Y(Media PAU &gt; 3; Expediente &gt; 3); Entonces, Media PAU * 0.4 + Expediente * 0.6; de lo contrario, "-")</li>
+<li>Las fórmulas para las celdas de las columnas <strong>Nota final</strong> y <strong>Calificación</strong> ya están puestas pero debereís poner <strong>un formato condicional</strong> que marque en <strong>rojo</strong> las celdas con <strong>Insufiente</strong> y <strong>No apto</strong>.</li>
+</ul>
+<p><strong>Resultado final hoja de notas</strong>
+<img alt="Descripción de la imagen" class="leftsietecinco margintopbottom10" src="../03_hojas_de_calculo/img/ra3ced-2-5.png" /><br></p>
+<hr />
+<div class="admonition exercise">
+<p class="admonition-title">Hoja 2 - Pruebas de acceso a la universidad 2/3</p>
+</div>
+<p><strong>Trabajos a realizar</strong></p>
+<ul>
+<li>Calcular la media de las notas de la columna (formula → PROMEDIO())</li>
+<li>Calcular la cantidad de alumnos que han sacado una nota inferior o igual a 3 (formula → CONTAR.SI(Intervalo(); condición)).</li>
+<li>Calcular la cantidad de alumnos que han sacado la calificación de <strong>NO APTO</strong>. (fórmula → CONTAR.SI(Intervalo(); condición)).</li>
+<li>Calcular la cantidad de alumnos que han sacado la calificación de "Insuficiente", "Sobresaliente", "Notable", "Bien", "Suficiente" e, "Insuficiente". (fórmula → CONTAR.SI(Intervalo(); condición)).</li>
+</ul>
+<p><strong>Resultado final</strong>
+<img alt="Descripción de la imagen" class="leftsietecinco margintopbottom10" src="../03_hojas_de_calculo/img/ra3ced-2-6.png" /><br></p>
+<div class="admonition exercise">
+<p class="admonition-title">Hoja 2 - Pruebas de acceso a la universidad 3/3</p>
+</div>
+<p><strong>Trabajos a realizar</strong><br />
+Insertar una gráfica con un resultado similar al de la siguiente imagen.  <br />
+Sois libres de personalizar la imagen añadiendo, titulo, color de fondo, color de líneas, etc...
+<img alt="Descripción de la imagen" class="leftsietecinco margintopbottom10" src="../03_hojas_de_calculo/img/ra3ced-2-7.png" /><br></p>
+<div class="admonition warning">
+<p class="admonition-title">Entrega de la tarea</p>
+<p>Subir la tarea a AULES en el apartado correspondiente.<br />
+El archivo a subir deberá ser de tipo <strong>.ods</strong> (formato nativo de LibreOffice Calc).<br />
+<strong>No se aceptará ningún otro formato de archivo</strong>.  </p>
+</div>
+</div>
+<h3 id="tarea-ra3-cee-introduccion-a-las-macros"><strong>Tarea RA3-CEe - Introducción a las macros</strong></h3>
+<p>Commo ya hemos visto en el tema sobre libreOffice writer, una macro es una secuencia de instrucciones que permite automatizar tareas repetitivas dentro de LibreOffice.</p>
+<p><strong>¿Para qué sirven?</strong></p>
+<ul>
+<li>Rellenar o modificar datos automáticamente.</li>
+<li>Hacer cálculos complejos sin usar fórmulas en la hoja.</li>
+<li>Importar información de otros archivos o de internet.</li>
+<li>Crear informes o exportar datos.</li>
+<li>Controlar formularios y botones interactivos.</li>
+<li>Ejecutar una acción cada vez que se abra el archivo.</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Para habilitar la grabación de macros en LibreOffice Calc, consultar el tema sobre procesadores de textos.</p>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Tarea RA3-CEe</p>
+<div class="admonition exercise">
+<p class="admonition-title">Parte 1 - Grabación de una macro</p>
+<ul>
+<li>Ir a <strong>Herramientas</strong> → <strong>Macros</strong> → <strong>Grabar macros</strong>    </li>
+<li>Grabar una macro que crea una tabla con unos valores y aplique unos cuantos estilos. </li>
+<li><strong>Nota importante</strong>. Con la versión actual de LibreOffice (25.8.1.1), la grabación de macro sigue siendo experimental. Por ese motivo es importante secuenciar las opraciones durante la grabación. Por ejemplo, primero, definir los datos, luego, la altura y anchura, luego, los colores. De lo contrario es probable que algunos procesos no se ejecuten durante la ejecución posterior de la macro.<br />
+<strong>Ejemplo de tabla:</strong>
+<img alt="Descripción de la imagen" class="leftdoscinco margintopbottom10" src="../03_hojas_de_calculo/img/ra3cee-1.png" /><br></li>
+<li>Guardar la macro <strong>dentro del documento</strong>, no dentro de LibreOffice ya que de hacerlo así no viajará con el documento. <br>
+<img alt="Descripción de la imagen" class="lefttrescinco margintopbottom10" src="../03_hojas_de_calculo/img/ra3cee-2.png" /><br></li>
+</ul>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Parte 2 - Creación de un botón para ejecutar la macro</p>
+<p>A diferencia del <strong>writer</strong> donde el uso de una macro suele resultar puntual, en calc su uso puede llegar a ser <strong>intensivo</strong>. Del mismo modo, es bastante habitual necesitar varias macros en un mismo documento lo que hace que usar atajos de teclado para llamarlas pueda resultar en errores de ejecución.<br />
+Por esos motivos es recomendable usar controles por botones. </p>
+<ol>
+<li>Hacer visibles los controles de formulario.
+<img alt="Descripción de la imagen" class="leftdoscinco margintopbottom10" src="../03_hojas_de_calculo/img/ra3cee-3.png" /><br></li>
+<li>Seleccionar un botón y colocarlo sobre la hoja de cálculo. Ajutar al gusto el tamaño.<br />
+<img alt="Descripción de la imagen" class="leftdoscinco margintopbottom10" src="../03_hojas_de_calculo/img/ra3cee-4.png" /><br></li>
+<li>Hacer <strong>click derecho</strong> sobre el botón y seleccionar <strong>Propiedades del control</strong>.</li>
+<li>Dentro de la pestaña <strong>General</strong>, ir al campo <strong>Etiqueta</strong> y cambiar el nombre del botón a <strong>Crear tabla</strong>.</li>
+<li>Dentro de la pestaña <strong>Eventos</strong>, buscar el campo <strong>Botón del ratón pulsado</strong> y pinchar en el botón de la derecha. </li>
+<li>Una vez abierta la ventana <strong>Asignar acción</strong>, pulsar el botón <strong>Macro</strong>. </li>
+<li>Una vez abierta la ventana <strong>Selector de macros</strong>, seleccionar la macro a asignar al botón. 
+<img alt="Descripción de la imagen" class="leftoriginal margintopbottom10" src="../03_hojas_de_calculo/img/ra3cee-5.png" /><br></li>
+<li>Aceptar y cerrar la ventana de <strong>Propiedades: Botón</strong>.</li>
+<li>para poder empezar a usar el botón <strong>deseleccionar el modo de diseño</strong> del menú <strong>Controles de formulario</strong>. 
+<img alt="Descripción de la imagen" class="leftcuatrocinco margintopbottom10" src="../03_hojas_de_calculo/img/ra3cee-6.png" /><br></li>
+</ol>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Parte 3 - Primeros pasos en la edición de macros</p>
+<p>Disponemos de una macro pero, puede que no se adecúe a nuestras necesidades. La primera opción sería grabar una nueva macro pero puede resultar más simple modificar nuestra macro.</p>
+<ol>
+<li>Para editar una macro ir a <strong>Herramientas</strong> → <strong>Macro</strong> → <strong>Editar macro</strong>.
+Aparecerá una ventana similar a la siguiente imagen y seleccionamos la macro a editar.
+<img alt="Descripción de la imagen" class="leftsietecinco margintopbottom10" src="../03_hojas_de_calculo/img/ra3cee-11.png" /><br></li>
+<li>Buscamos las líneas de código dónde se escribe el texto y lo modificamos segun nuestras necesidades.<br />
+<img alt="Descripción de la imagen" class="leftseiscinco margintopbottom10" src="../03_hojas_de_calculo/img/ra3cee-12.png" /><br></li>
+<li>Guardamos las modificaciones y ejecutamos la macro de nuevo para ver los resultados.<br />
+<img alt="Descripción de la imagen" class="leftdoscinco margintopbottom10" src="../03_hojas_de_calculo/img/ra3cee-13.png" /><br></li>
+</ol>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Parte 4 - Automatizar la importación de datos externos</p>
+<p>En este ejercicio automatizaremos la recuperación de la temperatura de la localidad de Catadau desde una página web.<br />
+Enlace de la página web: https://www.tiempoyradar.es/tiempo/catadau/2025569  </p>
+<ol>
+<li>Añadir una hoja a vuestro documento. </li>
+<li>En esa hoja nueva, iniciar la grabación de una macro.</li>
+<li>Ir a <strong>Hoja</strong> → <strong>Enlaces externos</strong></li>
+<li>Dentro de la ventana <strong>Datos externos</strong> pegar la url de la página web y <strong>pulsar intro</strong>.</li>
+<li>Dentro de opciones de importación pulsar <strong>Aceptar</strong>.<br />
+<img alt="Descripción de la imagen" class="leftcincocero margintopbottom10" src="../03_hojas_de_calculo/img/ra3cee-7.png" /><br></li>
+<li>Dentro de <strong>Tablas e intervalos disponibles</strong> seleccionar <strong>HTML_all</strong>.<br />
+<img alt="Descripción de la imagen" class="lefttrescero margintopbottom10" src="../03_hojas_de_calculo/img/ra3cee-8.png" /><br></li>
+<li>Resultado de la importación.
+<img alt="Descripción de la imagen" class="leftcincocero margintopbottom10" src="../03_hojas_de_calculo/img/ra3cee-9.png" /><br></li>
+<li>Crear un botón y asignarle la macro que acabais de crear.</li>
+<li><strong>Resultado final</strong>.
+<img alt="Descripción de la imagen" class="leftsietecinco margintopbottom10" src="../03_hojas_de_calculo/img/ra3cee-14.png" /><br></li>
+</ol>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Entrega de la tarea</p>
+<p>Subir la tarea a AULES en el apartado correspondiente.<br />
+El archivo a subir deberá ser de tipo <strong>.ods</strong> (formato nativo de LibreOffice Calc).<br />
+<strong>No se aceptará ningún otro formato de archivo</strong>.</p>
+</div>
+</div>
+<h3 id="tarea-ra3-ceg-1-filtros-agrupacion-validacion-proteccion-de-datos-y-plantillas-de-documentos"><strong>Tarea RA3-CEg-1 - Filtros, agrupación, validación, protección de datos y plantillas de documentos</strong></h3>
+<div class="admonition exercise">
+<p class="admonition-title">Descargar el archivo</p>
+<p>Descargar y abrir el archivo 'RA3-CEg-1' pinchando en el enlace siguiente: <a href="../03_hojas_de_calculo/tareas/RA3-CEg-1%20nombreapellidos.ods">Descargar archivo</a>.  </p>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Hoja 1 - Estilos / Formatos</p>
+<p>Como se puede ver la hoja de cálculo contiene unos supuestos datos personales de un gran número de personas.<br />
+También podemos ver que algunos datos están <strong>justificados a la izquierda</strong> y otros <strong>a la derecha</strong>.  <br />
+Por convención, en la mayoria de las hojas de cálculo, el justificado de los datos sigue la siguiente regla: </p>
+<ul>
+<li><strong>Texto</strong>: Los campos que contienen texto (o una mezcla de texto y números) se justifican por defecto a la izquierda.  </li>
+<li><strong>Números</strong>: Los campos que contienen valores numéricos puros (incluyendo fechas y horas, que son manejados internamente como números) se justifican por defecto a la derecha. </li>
+</ul>
+<p><img alt="1⃣" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/31-20e3.svg" title=":one:" /> Encontrar los datos aparentemente numéricos que han sido tratados como texto ¿Cómo se distinguen?<br />
+<img alt="2⃣" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/32-20e3.svg" title=":two:" /> Para poder ver <strong>todo el contenido</strong> de las celdas usaremos la opción <strong>anchura óptima</strong> que pondrá el ancho de la columna <strong>al ancho de su contenido + un márgen</strong> que podremos ajustar.    <br />
+<img alt="3⃣" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/33-20e3.svg" title=":three:" /> Aplicar estilos a los títulos de las columnas para que se distingan de su contenido.<br />
+<img alt="4⃣" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/34-20e3.svg" title=":four:" /> Aplicar estilos para facilitar la lectura de los contenidos.  </p>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Filtro automático</p>
+<p><strong>Filtro automático 1/2</strong></p>
+<ol>
+<li>Copiar y pegar (o duplicar hoja) los datos de la hoja 1 en la hoja 2. </li>
+<li>Para activar el filtro automático haremos un clic <strong>en cualquier celda con contenido</strong>, y seleccionaremos en <strong>Datos</strong> → <strong>Filtro automático</strong>.<br />
+<strong>Calc</strong> reconocerá de forma inmediata todas las celdas contiguas a la seleccionada, y considerará que la primera celda de cada columna del rango considerado es la etiqueta o encabezado de columna.<br />
+Presentará en todas las etiquetas de columna un botón desplegable que nos permitirá elaborar filtros seleccionando o no algunos valores.<br />
+<img alt="Descripción de la imagen" class="leftcuatrocinco margintopbottom10" src="../03_hojas_de_calculo/img/ra3-ceg-1-1.png" /><br></li>
+<li>Elaborar un filtro que extraiga los datos de personas con las siguientes características:<br />
+<strong>Sexo → Mujer<br />
+Población → Barcelona<br />
+Nivel académico → EGB</strong><br />
+<strong>Solución</strong> <br />
+<img alt="Descripción de la imagen" class="leftcincocinco margintopbottom10" src="../03_hojas_de_calculo/img/ra3-ceg-1-2.png" /><br></li>
+</ol>
+<p><strong>Filtro automático 2/2</strong></p>
+<ol>
+<li>Copiar y pegar (o duplicar hoja) los datos de la hoja 1 en la hoja 3.</li>
+<li>Elaborar un filtro que extraiga los datos de personas con las siguientes características:<br />
+Altura → Entre 1.55 y 1.59 <strong>O</strong> entre 1.68 y 1.72 <strong>O</strong> entre 1.77 y 1.81 <strong>O</strong> entre 1.86 y 1.9<br />
+Salud → Buena O excelente<br />
+Característica 2 → Alegría O Inteligencia O Sencillez o Sinceridad  </li>
+</ol>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Filtro estándar</p>
+<ol>
+<li>Como hemos visto en <strong>el ejercicio 2</strong> de filtro automático, algunas consultas pueden resultar tiedosas. Para ese tipo de consultas es recomendable usar filtros estándar.      </li>
+<li>Para activar la opción de filtro estándar, seleccionar una celda con contenido y luego ir a <strong>Datos</strong> → <strong>Más filtros</strong> → <strong>Filtro estándar</strong>.<br />
+Se mostrará el siguiente diálogo, desde el cual, podremos establecer para cada columna una o más condiciones asociadas a un valor. </li>
+<li>Además, también podremos:<ul>
+<li>Establecer condiciones Y entre los campos; se deben cumplir todas las condiciones.  </li>
+<li>Establecer condiciones O entre los campos; se debe cumplir al menos una de las condiciones.<br />
+<img alt="Descripción de la imagen" class="leftcincocinco margintopbottom10" src="../03_hojas_de_calculo/img/ra3-ceg-1-3.png" /><br></li>
+</ul>
+</li>
+</ol>
+<p><strong>Filtro estándar 1/3</strong>  </p>
+<ol>
+<li>Copiar y pegar (o duplicar hoja) los datos de la hoja 1 en la hoja 4.</li>
+<li>Elaborar un filtro que extraiga los datos de personas con las siguientes características:<br />
+Población → Barcelona <br />
+Y<br />
+Sexo → Hombre<br />
+Y<br />
+Móvil → Vacío  <br />
+<strong>Solución</strong> <br />
+<img alt="Descripción de la imagen" class="leftcincocinco margintopbottom10" src="../03_hojas_de_calculo/img/ra3-ceg-1-4.png" /><br></li>
+</ol>
+<p><strong>Filtro estándar 2/3</strong> </p>
+<ol>
+<li>Copiar y pegar (o duplicar hoja) los datos de la hoja 1 en la hoja 5.</li>
+<li>Elaborar un filtro que extraiga los datos de personas con las siguientes características:<br />
+Población → Valencia<br />
+Y<br />
+Fecha de nacimiento → &lt;= 1960<br />
+O<br />
+Hijos → &gt;=3</li>
+</ol>
+<p><strong>Filtro estándar 3/3</strong>  </p>
+<ol>
+<li>Copiar y pegar (o duplicar hoja) los datos de la hoja 1 en la hoja 6 y <strong>crear una hoja 7 vacia</strong>.</li>
+<li>Elaborar un filtro que extraiga los datos de personas con las siguientes características:  <br />
+Población → Girona<br />
+Y<br />
+Sexo → Hombre<br />
+O<br />
+Población → Valencia<br />
+Y<br />
+Ahorros → &gt;= 60000<br />
+Y que además guarde el resultado de la consulta en la hoja 7 </li>
+</ol>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Filtro avanzado</p>
+<p>A diferencia de los filtros automático y estándar, el filtro avanzado requiere realizar <strong>algunas adaptaciones a la hoja de cálculo</strong>.</p>
+<p><strong>Filtro avanzado 1/2</strong> </p>
+<ol>
+<li>Copiar y pegar (o duplicar hoja) los datos de la hoja 1 en la hoja 8.</li>
+<li>Insertar algunas filas encima de los datos.</li>
+<li>En la parte libre encima de los datos <strong>definiremos las condiciones del filtro avanzado</strong>.
+<img alt="Descripción de la imagen" class="leftcincocinco margintopbottom10" src="../03_hojas_de_calculo/img/ra3-ceg-1-5.png" /><br></li>
+<li>Vamos a <strong>Filtro avanzado</strong> y en la nueva ventana pinchamos en el botón que nos permitirá seleccionar la tabla de condiciones.
+<img alt="Descripción de la imagen" class="leftcincocinco margintopbottom10" src="../03_hojas_de_calculo/img/ra3-ceg-1-6.png" /><br></li>
+<li><strong>Resultado</strong><br />
+<img alt="Descripción de la imagen" class="leftcincocinco margintopbottom10" src="../03_hojas_de_calculo/img/ra3-ceg-1-7.png" /><br></li>
+</ol>
+<p><strong>Filtro avanzado 2/2</strong></p>
+<ol>
+<li>Copiar y pegar (o duplicar hoja) los datos de la hoja 1 en la hoja 9.</li>
+<li>Elaborar un filtro que extraiga los datos de personas con las siguientes características:<br />
+Población → Zaragoza<br />
+Sexo → Hombre<br />
+Ingresos mensuales → &gt; 1500   <br />
+O<br />
+Sexo → Mujer<br />
+Ingresos mensuales → <strong>Entre 400 y 1000</strong><br />
+Nivel académico → Elementales <br />
+<strong>Resultado</strong> <br />
+<img alt="Descripción de la imagen" class="leftcincocinco margintopbottom10" src="../03_hojas_de_calculo/img/ra3-ceg-1-8.png" /><br></li>
+</ol>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Ordenación rápida de datos</p>
+<ol>
+<li>Copiar y pegar (o duplicar hoja) los datos de la hoja 1 en la hoja 10.</li>
+<li><strong>Resultado</strong> <br />
+<img alt="Descripción de la imagen" class="leftcincocinco margintopbottom10" src="../03_hojas_de_calculo/img/ra3-ceg-1-9.png" /><br></li>
+</ol>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Ordenación de datos por criterios (agrupación)</p>
+<ol>
+<li>Copiar y pegar (o duplicar hoja) los datos de la hoja 1 en la hoja 11.  </li>
+<li>Posicionarse en la zona de datos y seleccionar <strong>Ordenar</strong>  </li>
+<li>Realizar una agrupación con las condiciones siguientes:<br />
+Clave de ordenacion 1 → Población<br />
+Clave de ordenacion 2 → Hijos<br />
+Clave de ordenacion 3 → Sexo  </li>
+</ol>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Validación de datos</p>
+<p>La validación de datos permite definir las reglas sobre qué tipo de información o valores se pueden introducir en una o más celdas.<br />
+Su principal objetivo es mantener la coherencia y exactitud de los datos en la hoja de cálculo, <strong>evitando errores de entrada</strong>.</p>
+<p><strong>Validación de datos 1/2</strong>  </p>
+<ol>
+<li>Copiar y pegar (o duplicar hoja) los datos de la hoja 1 en la hoja 12.</li>
+<li>Seleccionar la columna con los datos de <strong>Sexo</strong></li>
+<li>Ir a <strong>Validez</strong> y rellenar los campos.<ul>
+<li>Permitir → Lista</li>
+<li>Mostrar lista de selección </li>
+</ul>
+</li>
+</ol>
+<p><strong>Validación de datos 2/2</strong>  </p>
+<ol>
+<li>Copiar y pegar (o duplicar hoja) los datos de la hoja 1 en la hoja 13.</li>
+<li>Seleccionar la columna con los datos de <strong>Hijos</strong></li>
+<li>Configurar el validador con las siguientes condiciones:  <ul>
+<li>Entero, no permitir celdas vacías, mayor que o igual a 0, mínimo 0.  </li>
+<li>Ayuda de entrada, mostrar ayuda de entrada, título "Ayuda de entrada", Texto de la ayuda de entrada "Introducir un valor entero superior o igual a 0.".      </li>
+<li>Aviso de error, título "Error de entrada", Texto del mensaje de error "Debe introducir un valor entero superior o  igual a 0.".      </li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Protección de datos</p>
+<p>La protección de datos permite restringir y controlar quién puede ver o modificar el contenido, el formato o la estructura de una hoja de cálculo, evitando así cambios accidentales o no autorizados.</p>
+<p><strong>Protección de datos 1/2</strong>  </p>
+<ol>
+<li>Copiar y pegar (o duplicar hoja) los datos de la hoja 1 en la hoja 14.</li>
+<li>Ir a <strong>Herramientas</strong> → <strong>Proteger hoja</strong>.</li>
+<li>En la ventana poner como contraseña 1234.  </li>
+</ol>
+<p><strong>Protección de datos 2/2</strong>  </p>
+<ol>
+<li>Crear una hoja nueva y llamarla hoja 15.</li>
+<li>Implementar un calculador básico como el del siguiente ejemplo:<br />
+<img alt="Descripción de la imagen" class="leftcincocinco margintopbottom10" src="../03_hojas_de_calculo/img/ra3-ceg-1-10.png" /><br></li>
+<li>En este caso solo dejaremos desprotegidas algunas celdas:<ul>
+<li>Seleccionar la celda <strong>B1</strong> es decir la celda que contiene en el ejemplo el valor 5.</li>
+<li>Ir a <strong>Formato de celdas</strong> y en la pestaña <strong>Protección de celdas</strong> no marcar la opción <strong>Protegida</strong>.  </li>
+<li>Proteger la hoja (con o sin contraseña) y comprobar que la única celda que se puede modificar es la celda <strong>B2</strong>.</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Plantillas</p>
+<p>Las plantillas son archivos modelo que sirven como patrón de inicio para crear nuevos documentos de hoja de cálculo. <br />
+El objetivo principal es ahorrar tiempo, estandarizar el diseño, asegurar la coherencia y evitar que se sobrescriba el documento original.
+Una de las características de las plantillas es que al abrirlas, generan un documento nuevo que deberá ser guardado con un nombre nuevo.</p>
+<ol>
+<li>Guardar el documento como plantilla es decir con extensión .ots (t= template) y no .ods (d= data) . </li>
+</ol>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Entrega de la tarea</p>
+<p>Subir la tarea a AULES en el apartado correspondiente.<br />
+El archivo a subir deberá ser de tipo <strong>.ots</strong> (plantilla de LibreOffice Calc).<br />
+<strong>No se aceptará ningún otro formato de archivo</strong>.  </p>
+</div>
+<h3 id="tarea-ra3-ceg-2-creacion-de-un-cuadro-de-dialogo"><strong>Tarea RA3-CEg-2 - Creación de un cuadro de diálogo</strong></h3>
+<p>En esta tarea, haremos un cuadro de dialogo (parecido al de la siguiente imagen), que nos permitirá mediante una macro, introducir datos en una tabla.</p>
+<p><img alt="Descripción de la imagen" class="treszero" src="../03_hojas_de_calculo/img/ra3-ceg-2-0.png" />
+<br></p>
+<div class="admonition task">
+<p class="admonition-title">Macro</p>
+<ol>
+<li>Abrir el cuadro de diálogo y pulsar sobre el icono de la derecha para copiar el contenido de la macro.  </li>
+</ol>
+<details class="info">
+<summary>Macro: InsertarDatosDesdeDialogo</summary>
+<div class="language-basic highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">REM  *****  BASIC  *****</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="vg">Sub</span><span class="w"> </span><span class="vg">InsertarDatosDesdeDialogo</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="vg">Dim</span><span class="w"> </span><span class="vg">oDialog</span><span class="w"> </span><span class="vg">As</span><span class="w"> </span><span class="vg">Object</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="vg">Dim</span><span class="w"> </span><span class="vg">oCampo1</span><span class="w"> </span><span class="vg">As</span><span class="w"> </span><span class="vg">Object</span><span class="p">,</span><span class="w"> </span><span class="vg">oCampo2</span><span class="w"> </span><span class="vg">As</span><span class="w"> </span><span class="vg">Object</span><span class="p">,</span><span class="w"> </span><span class="vg">oCampo3</span><span class="w"> </span><span class="vg">As</span><span class="w"> </span><span class="vg">Object</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="vg">Dim</span><span class="w"> </span><span class="vg">valor1</span><span class="w"> </span><span class="vg">As</span><span class="w"> </span><span class="vg">String</span><span class="p">,</span><span class="w"> </span><span class="vg">valor2</span><span class="w"> </span><span class="vg">As</span><span class="w"> </span><span class="vg">String</span><span class="p">,</span><span class="w"> </span><span class="vg">valor3</span><span class="w"> </span><span class="vg">As</span><span class="w"> </span><span class="vg">String</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="vg">Dim</span><span class="w"> </span><span class="vg">oDoc</span><span class="w"> </span><span class="vg">As</span><span class="w"> </span><span class="vg">Object</span><span class="p">,</span><span class="w"> </span><span class="vg">oHoja</span><span class="w"> </span><span class="vg">As</span><span class="w"> </span><span class="vg">Object</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="vg">Dim</span><span class="w"> </span><span class="vg">filaLibre</span><span class="w"> </span><span class="vg">As</span><span class="w"> </span><span class="vg">Long</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="vg">Dim</span><span class="w"> </span><span class="vg">cursor</span><span class="w"> </span><span class="vg">As</span><span class="w"> </span><span class="vg">Object</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="c1">' Cargar el cuadro de dialogo</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="vg">oDialog</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vg">CreateUnoDialog</span><span class="p">(</span><span class="vg">ThisComponent</span><span class="o">.</span><span class="vg">DialogLibraries</span><span class="o">.</span><span class="vg">Standard</span><span class="o">.</span><span class="vg">Dialogos</span><span class="p">)</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="c1">' Cargar controles </span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="vg">oCampo1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vg">oDialog</span><span class="o">.</span><span class="vg">getControl</span><span class="p">(</span><span class="s2">"Texto1"</span><span class="p">)</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="vg">oCampo2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vg">oDialog</span><span class="o">.</span><span class="vg">getControl</span><span class="p">(</span><span class="s2">"Texto2"</span><span class="p">)</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="vg">oCampo3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vg">oDialog</span><span class="o">.</span><span class="vg">getControl</span><span class="p">(</span><span class="s2">"Texto3"</span><span class="p">)</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span><span class="c1">' Mostrar el diálogo y procesar si se pulsa Aceptar (Execute = 1)</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">    </span><span class="vg">If</span><span class="w"> </span><span class="vg">oDialog</span><span class="o">.</span><span class="vg">Execute</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="il">1</span><span class="w"> </span><span class="vg">Then</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">        </span><span class="c1">' poner valores introducidos en variablas</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">        </span><span class="vg">valor1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vg">oCampo1</span><span class="o">.</span><span class="vg">Text</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">        </span><span class="vg">valor2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vg">oCampo2</span><span class="o">.</span><span class="vg">Text</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">        </span><span class="vg">valor3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vg">oCampo3</span><span class="o">.</span><span class="vg">Text</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">        </span><span class="c1">' Cargamos el documento</span>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">        </span><span class="vg">oDoc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vg">ThisComponent</span>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="w">        </span><span class="c1">' Vamos a la hoja 2</span>
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="w">        </span><span class="vg">oHoja</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vg">oDoc</span><span class="o">.</span><span class="vg">Sheets</span><span class="o">.</span><span class="vg">getByName</span><span class="p">(</span><span class="s2">"Hoja2"</span><span class="p">)</span>
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="w">        </span><span class="c1">' Buscar primera fila vacía (si la hoja está vacía, EndDown se queda en A1, por eso +0/1)</span>
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="w">        </span><span class="vg">cursor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vg">oHoja</span><span class="o">.</span><span class="vg">createCursorByRange</span><span class="p">(</span><span class="vg">oHoja</span><span class="o">.</span><span class="vg">getCellRangeByName</span><span class="p">(</span><span class="s2">"A1"</span><span class="p">))</span>
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="w">        </span><span class="vg">cursor</span><span class="o">.</span><span class="vg">gotoEndOfUsedArea</span><span class="p">(</span><span class="vg">True</span><span class="p">)</span>
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="w">        </span><span class="vg">if</span><span class="w"> </span><span class="vg">cursor</span><span class="o">.</span><span class="vg">RangeAddress</span><span class="o">.</span><span class="vg">EndRow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="il">0</span><span class="w"> </span><span class="ow">AND</span><span class="w"> </span><span class="vg">oHoja</span><span class="o">.</span><span class="vg">getCellByPosition</span><span class="p">(</span><span class="il">0</span><span class="p">,</span><span class="il">0</span><span class="p">)</span><span class="o">.</span><span class="vg">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">""</span><span class="w"> </span><span class="vg">Then</span>
+</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="w">            </span><span class="vg">filaLibre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="il">0</span><span class="w">   </span><span class="c1">' La hoja está completamente vacía</span>
+</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a><span class="w">        </span><span class="vg">Else</span>
+</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a><span class="w">            </span><span class="vg">filaLibre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vg">cursor</span><span class="o">.</span><span class="vg">RangeAddress</span><span class="o">.</span><span class="vg">EndRow</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="il">1</span>
+</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a><span class="w">        </span><span class="vg">End</span><span class="w"> </span><span class="vg">If</span>
+</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>
+</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a><span class="w">        </span><span class="c1">'Escribir valores</span>
+</span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a><span class="w">        </span><span class="vg">oHoja</span><span class="o">.</span><span class="vg">getCellByPosition</span><span class="p">(</span><span class="il">0</span><span class="p">,</span><span class="w"> </span><span class="vg">filaLibre</span><span class="p">)</span><span class="o">.</span><span class="vg">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vg">valor1</span>
+</span><span id="__span-0-43"><a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a><span class="w">        </span><span class="vg">oHoja</span><span class="o">.</span><span class="vg">getCellByPosition</span><span class="p">(</span><span class="il">1</span><span class="p">,</span><span class="w"> </span><span class="vg">filaLibre</span><span class="p">)</span><span class="o">.</span><span class="vg">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vg">valor2</span>
+</span><span id="__span-0-44"><a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a><span class="w">        </span><span class="vg">oHoja</span><span class="o">.</span><span class="vg">getCellByPosition</span><span class="p">(</span><span class="il">2</span><span class="p">,</span><span class="w"> </span><span class="vg">filaLibre</span><span class="p">)</span><span class="o">.</span><span class="vg">String</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vg">valor3</span>
+</span><span id="__span-0-45"><a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a><span class="w">    </span><span class="vg">End</span><span class="w"> </span><span class="vg">If</span>
+</span><span id="__span-0-46"><a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a>
+</span><span id="__span-0-47"><a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a><span class="w">    </span><span class="vg">Exit</span><span class="w"> </span><span class="vg">Sub</span>
+</span><span id="__span-0-48"><a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a>
+</span><span id="__span-0-49"><a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a><span class="vg">End</span><span class="w"> </span><span class="vg">Sub</span>
+</span></code></pre></div>
+</details>
+<ol>
+<li>
+<p>Ir a <strong>Macros</strong> → <strong>Editar macros</strong>.<br />
+Una vez abierta la ventana ir a <strong>Mis macros y diálogos</strong> → <strong>Standard</strong> → <strong>macro</strong>.<br />
+<img alt="Descripción de la imagen" class="leftsietecero margintopbottom10" src="../03_hojas_de_calculo/img/ra3-ceg-2-1.png" /><br></p>
+</li>
+<li>
+<p>Una vez la ruta seleccionada, <strong>pegar la macro en el campo de la derecha</strong>. Si todo ha ido bien, veréis que la macro "InsertarDatosDesdeDialogo" ya está disponible para su uso. <br />
+<img alt="Descripción de la imagen" class="leftsietecero margintopbottom10" src="../03_hojas_de_calculo/img/ra3-ceg-2-2.png" /><br>
+<strong>Nota:</strong> Como se puede ver la macro se ha guardado en los directorios de <strong>LibreOffice</strong>, no de vuestro documento.</p>
+</li>
+<li>
+<p>Guardamos cerramos la ventana y volvemos al documento que tenemos abierto.</p>
+</li>
+</ol>
+</div>
+<div class="admonition task">
+<p class="admonition-title">Creación del Cuadro de diálogo 1/2</p>
+<ol>
+<li>Asegurarse de tener 2 hojas creadas (Hoja1 y Hoja2) en eñ documento que tenéis abierto.</li>
+<li>Ir a <strong>Macros</strong> → <strong>organizar diálogos...</strong> </li>
+<li><strong>Seleccionar vuestro documento</strong>, pulsar <strong>Nuevo...</strong> y poner como nombre <strong>Dialogos</strong>.</li>
+<li>Si todo ha ido bien os deberá aparecer de la siguiente manera.<br />
+<img alt="Descripción de la imagen" class="leftcuatrocero margintopbottom10" src="../03_hojas_de_calculo/img/ra3-ceg-2-3.png" /><br></li>
+</ol>
+</div>
+<div class="admonition task">
+<p class="admonition-title">Creación del Cuadro de diálogo 2/2</p>
+<ol>
+<li>Vamos a <strong>Macros</strong> → <strong>organizar diálogos...</strong> seleccionamos nuestro cuadro de diálogo y esta vez pulsamos <strong>Editar</strong>.</li>
+<li>Nos aparecerá una ventana similar a la siguiente.
+<img alt="Descripción de la imagen" class="leftsietecero margintopbottom10" src="../03_hojas_de_calculo/img/ra3-ceg-2-4.png" /><br></li>
+<li>En la parte de la derecha tenemos nuestro cuadro de diálogo, dentro del cual iremos poniendo los elementos necesarios a la práctica.</li>
+</ol>
+</div>
+<div class="admonition task">
+<p class="admonition-title">Poner las etiquetas</p>
+<ol>
+<li>Lo primero que haremos es poner las etiquetas que guiaran al usuario sobre los datos que debe introducir.</li>
+<li>En la parte de abajo de la pantalla. Seleccionamos <strong>Etiqueta</strong>. Posicionamos la etiqueta dentro de nuestro cuadro de diálogo, definimos aproximadamente el tamaño y posición.</li>
+<li>Una vez creada la etiqueta, vamos al cuadro <strong>General</strong> de la izquierda y aplicamos estilos y afinamos la posición y el tamaño de la etiqueta modificando los valores de los campos correspondientes.
+<img alt="Descripción de la imagen" class="leftsietecero margintopbottom10" src="../03_hojas_de_calculo/img/ra3-ceg-2-5.png" /><br></li>
+<li>Al final deberemos tener un resultado similar al siguiente.<br />
+<img alt="Descripción de la imagen" class="leftsietecero margintopbottom10" src="../03_hojas_de_calculo/img/ra3-ceg-2-6.png" /><br></li>
+</ol>
+</div>
+<div class="admonition task">
+<p class="admonition-title">Poner los cuadros de texto</p>
+<ol>
+<li>Ahora  pondremos los  cuadros de texto donde, el usuario irá introduciendo los datos. </li>
+<li>Esta vez seleccionamos <strong>Cuadro de texto</strong>. Posicionamos la etiqueta dentro de nuestro cuadro de diálogo, definimos aproximadamente el tamaño y posición.</li>
+<li>Prestaremos especial atención a que <strong>Texto1</strong> esté al lado de <strong>Nombre</strong> y así, sucesivamente. </li>
+<li>Ajustamos tamaños y posición y nos aseguramos que la opción <strong>Solo lectura</strong> esté en <strong>No</strong>.
+<img alt="Descripción de la imagen" class="leftsietecero margintopbottom10" src="../03_hojas_de_calculo/img/ra3-ceg-2-7.png" /><br></li>
+<li>Al final deberemos tener un resultado similar al siguiente.<br />
+<img alt="Descripción de la imagen" class="leftsietecero margintopbottom10" src="../03_hojas_de_calculo/img/ra3-ceg-2-8.png" /><br></li>
+</ol>
+</div>
+<div class="admonition task">
+<p class="admonition-title">Poner los botones</p>
+<ol>
+<li>Para finalizar el cuadro de diálogo, pondremos los botones de <strong>Introducir</strong> y <strong>Aceptar</strong>.</li>
+<li><strong>Boton introducir:</strong> Seleccionamos <strong>Botón</strong>, lo posicionamos en el cuadro y nos aseguramos de tener la opción <strong>Tipo de botón</strong> en <strong>Aceptar</strong>.
+<img alt="Descripción de la imagen" class="leftsietecero margintopbottom10" src="../03_hojas_de_calculo/img/ra3-ceg-2-9.png" /><br></li>
+<li><strong>Boton Cancelar:</strong> Repetimos los pasos anteiores pero esta vez pasamos la opción <strong>Tipo de botón</strong> a <strong>Cancelar</strong>.</li>
+</ol>
+</div>
+<div class="admonition task">
+<p class="admonition-title">Botón para llamar al cuadro de diálogo</p>
+<ol>
+<li>Está vez, en lugar de asignar la macro a un botón de <strong>control de formulario</strong>, la asignaremos a <strong>una forma</strong> (también lo podemos hacer con una imagen, etc...). </li>
+<li>Vamos a <strong>Insertar</strong> → <strong>Forma básica</strong> y seleccionamos una forma al gusto.</li>
+<li>Le aplicamos estilos para obtener un resultado similar al siguiente.   <br />
+<img alt="Descripción de la imagen" class="leftcuatrocero margintopbottom10" src="../03_hojas_de_calculo/img/ra3-ceg-2-10.png" /><br></li>
+<li>Para finalizar seleccionamos la imagen, hacemos <strong>clic derecho</strong>, seleccionamos <strong>Asignar macro...</strong> y le asignamos la macro <strong>InsertarDatosDesdeDialogo</strong>.   <br />
+<img alt="Descripción de la imagen" class="leftseiscero margintopbottom10" src="../03_hojas_de_calculo/img/ra3-ceg-2-11.png" /><br></li>
+</ol>
+</div>
+<div class="admonition task">
+<p class="admonition-title">Comprobación del funcionamiento</p>
+<ol>
+<li>La primera vez que pulsaremos el botón de introducir datos la macro <strong>se colgará</strong> al no encontrar el cuadro de diálogo.</li>
+<li>Cerramos la ventana emergente y seleccionamos la ubicación donde se encuentra nuestro cuadro de diálogo y simplemente pinchamos encima. 
+<img alt="Descripción de la imagen" class="leftsietecero margintopbottom10" src="../03_hojas_de_calculo/img/ra3-ceg-2-12.png" /><br></li>
+<li>Cerramos la ventana de macro y esta vez al pinchar el botón, sí que nos aparecerá el cuadro de diálogo.
+<img alt="Descripción de la imagen" class="leftcincocero margintopbottom10" src="../03_hojas_de_calculo/img/ra3-ceg-2-14.png" /><br></li>
+<li>Introducimos datos, pulsamos <strong>Introducir</strong> y comprobamos si los datos se han guardado en la <strong>Hoja2</strong>
+<img alt="Descripción de la imagen" class="leftcincocero margintopbottom10" src="../03_hojas_de_calculo/img/ra3-ceg-2-13.png" /><br></li>
+</ol>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Entrega de la tarea</p>
+<p>Subir la tarea a AULES en el apartado correspondiente.<br />
+El archivo a subir deberá ser de tipo <strong>.ods</strong> (formato predeterminado de LibreOffice Calc).<br />
+<strong>No se aceptará ningún otro formato de archivo</strong>.</p>
+</div>
+<h3 id="tarea-ra3-ceh-navegacion-y-controles-de-formulario"><strong>Tarea RA3-CEh - Navegación y controles de formulario</strong></h3>
+<div class="admonition exercise">
+<p class="admonition-title">Hoja1, hoja2 y hoja3 - Navegación entre hojas 1, 2 y 3</p>
+<p>Realizar un diseño similar al del ejemplo y configurar los botones para que enlazen con las hojas 1, 2 y 3.
+<img alt="Descripción de la imagen" class="leftcincocero margintopbottom10" src="../03_hojas_de_calculo/img/ra3-ceh-2.png" /><br></p>
+<p><strong>Nota:</strong> 
+- Para que el menú de botones queda fijo dentro de la hoja elegir la opción anclar a la hoja. 
+- La navegación al pulsar los botones se hará asignando un hiperenlace a los botones.</p>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Hoja 1 - Casilla de 'tic' y formatos condicionales</p>
+<ol>
+<li>
+<p>Realizar un diseño similar al del ejemplo.
+<img alt="Descripción de la imagen" class="leftsietecinco margintopbottom10" src="../03_hojas_de_calculo/img/ra3-ceh-1.png" /><br></p>
+</li>
+<li>
+<p>Insertar las casillas de tic y enlazar los datos (estado ticado o no ticado) a la columna I</p>
+</li>
+<li>Poner un formato condicional a los nombres y apellidos para que apliquen el estilo <strong>Error</strong> si la casilla está ticada.</li>
+<li>Insertar las casillas de tic y enlazar los datos (estado mañana o tarde) a la columna I</li>
+<li>Ocultar la columna donde se han puesto los valores de las casillas de ticar.</li>
+</ol>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Hoja 2 - Campo combinado</p>
+<ol>
+<li>Realizar un diseño similar al del ejemplo.</li>
+<li>Hacer un copiar pegar de la tabla de la primera hoja. De esa manera los estilos condicionales de las celdas se mantendrán enlazados con la elección de los tics de las casillas de la primera hoja. </li>
+<li>Insertar un cuadro combinado que permitirá seleccionar un día de la semana.
+<img alt="Descripción de la imagen" class="leftsietecinco margintopbottom10" src="../03_hojas_de_calculo/img/ra3-ceh-3.png" /><br></li>
+<li>Ocultar la columna donde se han puesto los valores del cuador combinado.</li>
+</ol>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Hoja 3 - Control de número y barra de desplazamiento</p>
+<ol>
+<li>Realizar un diseño similar al del ejemplo.</li>
+<li>Hacer un copiar pegar de la tabla de la primera hoja. De esa manera los estilos condicionales de las celdas se mantendrán enlazados con la elección de los tics de las casillas de la primera hoja. </li>
+<li>Eliminar las columnas sobrantes y poner en su lugar la columna <strong>Nota</strong> y los campos de control de número y las barras de desplazamiento.
+<img alt="Descripción de la imagen" class="leftsietecinco margintopbottom10" src="../03_hojas_de_calculo/img/ra3-ceh-4.png" /><br></li>
+</ol>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Entrega de la tarea</p>
+<p>Subir la tarea a AULES en el apartado correspondiente.<br />
+El archivo a subir deberá ser de tipo <strong>.ods</strong> (formato predeterminado de LibreOffice Calc).<br />
+<strong>No se aceptará ningún otro formato de archivo</strong>.</p>
+</div>
+<!-- 
+falta boton de opcion
+falta ocultar
+falta ocultar
+
+ -->
+
+<!-- 
+  |RA3. Elabora documentos y plantillas de cálculo, describiendo y aplicando opciones avanzadas de hojas de cálculo.||
+    |-|-|
+    *|**a)** Se ha personalizado las opciones de software y barra de herramientas. |10%|
+    *|**b)** Se han utilizado los diversos tipos de datos y referencia para celdas, rangos, hojas y libros. |    10%|
+    *|**c)** Se han aplicado fórmulas y funciones. |15%|
+    *|**d)** Se han generado y modificado gráficos de diferentes tipos. |10%|
+    *|**e)** Se han empleado macros para la realización de documentos y plantillas.|10%|
+    *|**f)** `Se han importado y exportado hojas de cálculo creadas con otras aplicaciones y en otros formatos.`|10%|
+    |**g)** Se ha utilizado la hoja de cálculo como base de datos: formularios, creación de listas, filtrado, protección y ordenación de datos. |10%|
+    |**h)** Se han utilizado aplicaciones y periféricos para introducir textos, números, códigos e imágenes.|    10%|
+ -->
+
+<!-- https://help.libreoffice.org/latest/es/text/scalc/04/01020000.html?DbPAR=CALC -->
+
+<table>
+<thead>
+<tr>
+<th><strong>Licencia Creative Commons:</strong></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="alt text" src="../../../../assets/by-nc-nd-eu_.png" /></td>
+<td><strong>Reconocimiento-NoComercial-CompartirIgual CC BY-NC-SA:</strong>  No se permite un uso comercial de la obra original ni de las posibles obras derivadas, la distribución de la cuales se debe hace con una licencia igual a la que regula la obra original.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pie" >
+        
+          
+          <a href="../02_Procesadores_de_texto/023_LibreOffice_Writer/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: UT 23 - LibreOffice Writer">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                UT 23 - LibreOffice Writer
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../07_Presentaciones/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: UT 4 - Presentaciones">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              <div class="md-ellipsis">
+                UT 4 - Presentaciones
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 - Javier Egea Blasco
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress - navigation.expand - navigation.path", "navigation.instant.progress", "navigation.instant.preview", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "toc.follow", "navigation.footer", "navigation.top", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.tabs.link"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

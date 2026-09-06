@@ -1,0 +1,2845 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Javier Egea Blasco">
+      
+      
+        <link rel="canonical" href="https://javieregeablasco.github.io/Apuntes/SMX/SMX_1/AO/07_Presentaciones/">
+      
+      
+        <link rel="prev" href="../03_Hojas%20de%20calculo/">
+      
+      
+        <link rel="next" href="../04_Bases%20de%20datos/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Aplicaciones ofimáticas - Javier Egea Blasco</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#presentacion" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../../../.." title="Javier Egea Blasco" class="md-header__button md-logo" aria-label="Javier Egea Blasco" data-md-component="logo">
+      
+  <img src="../../../../assets/mre.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Javier Egea Blasco
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Aplicaciones ofimáticas
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Compartir" aria-label="Compartir" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../00_Temario/" class="md-tabs__link">
+          
+  
+  
+  Aplicaciones Ofimáticas
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../SMX_2/SX/apuntes/00_Temario/" class="md-tabs__link">
+          
+  
+  
+  Servicios en redes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../DAW/DAW_2/PWES/UT.%200-Temario/" class="md-tabs__link">
+          
+  
+  
+  Under development
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Javier Egea Blasco" class="md-nav__button md-logo" aria-label="Javier Egea Blasco" data-md-component="logo">
+      
+  <img src="../../../../assets/mre.png" alt="logo">
+
+    </a>
+    Javier Egea Blasco
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aplicaciones Ofimáticas
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Aplicaciones Ofimáticas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00_Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Presentación módulo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_Instalacion%20de%20aplicaciones%20ofimaticas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 1 - Instalación de aplicaciones Ofimáticas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 2 - Procesadores de texto
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UT 2 - Procesadores de texto
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_Procesadores_de_texto/021_Procesadores_de_texto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 21 - Características de los procesadores de texto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_Procesadores_de_texto/022_LibreOffice_Writer_Instalacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 22 - Instalación de LibreOffice Writer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_Procesadores_de_texto/023_LibreOffice_Writer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 23 - LibreOffice Writer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_Hojas%20de%20calculo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 3 - Hojas de cálculo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 4 - Presentaciones
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 4 - Presentaciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#presentacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Presentación
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-interfaz-de-trabajo-en-impress" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 - Interfaz de trabajo en impress
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 - Interfaz de trabajo en impress">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-menu-archivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 - Menú: Archivo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-menu-editar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 - Menú: Editar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-menu-ver" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 - Menú: Ver
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-menu-insertar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 - Menú: Insertar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-menu-formato" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.5 - Menú: Formato
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-menu-diapositiva" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.6 - Menú: Diapositiva
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17-menu-pase-de-diapositivas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.7 - Menú: Pase de diapositivas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#18-menu-herramientas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.8 - Menú: Herramientas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#19-menu-ventana" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.9 - Menú: Ventana
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#110-menu-ayuda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.10 - Menú: Ayuda
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tarea-ra7-cea-manejo-basico-de-impress" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tarea RA7-CEa - Manejo básico de Impress
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-vistas-de-una-presentacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 - Vistas de una presentación
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 - Vistas de una presentación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-vista-normal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 - Vista normal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-vista-esquema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 - Vista esquema
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-vista-notas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 - Vista notas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-vista-clasificador-de-diapositivas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 - Vista clasificador de diapositivas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-vista-patron-de-diapositivas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 - Vista patrón de diapositivas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-vista-patron-de-notas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6 - Vista patrón de notas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27-vista-patron-de-diapositivas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.7 - Vista patrón de diapositivas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#28-tarea-ra7-ceb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.8 - Tarea RA7-CEb
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#29-tarea-ra7-ced" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.9 - Tarea RA7-CEd
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-diseno-amigable-de-una-presentacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 - Diseño amigable de una presentación
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 - Diseño amigable de una presentación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-esquema-de-color" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 - Esquema de color
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 - Esquema de color">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#311-rueda-cromatica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1.1 - Rueda cromática
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#312-paleta-de-colores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1.2 - Paleta de colores
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#313-generadores-de-paletas-de-colores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1.3 - Generadores de paletas de colores
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#314-colores-a-elegir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1.4 - Colores a elegir
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-tipografia-y-legibilidad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 - Tipografía y legibilidad
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-organizacion-de-los-contenidos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 - Organización de los contenidos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-tarea-ra7-cec" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 - Tarea RA7-CEc
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-creacion-de-una-presentacion-tarea-ra7-cee" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 - Creación de una presentación - Tarea RA7-CEe
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_Bases%20de%20datos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 5 - Bases de datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_Imagenes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 6 - Edición de imágenes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_Captura%20e%20edicion%20de%20video/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 7 - Edición de vídeos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_Correo%20electronico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 8 - Agenda electrónica y comunicación
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_Resolucion%20de%20incidencias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 9 - Gestión de incidencias
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Servicios en redes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Servicios en redes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SMX_2/SX/apuntes/00_Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Presentación módulo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SMX_2/SX/apuntes/01_Redes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Redes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SMX_2/SX/apuntes/02_TCP-IP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocolo TCP/IP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SMX_2/SX/apuntes/03_Conexiones-remotas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Acceso y control remoto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SMX_2/SX/apuntes/04_DHCP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocolo DHCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SMX_2/SX/apuntes/05_DNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocolo DNS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Under development
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Under development
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../DAW/DAW_2/PWES/UT.%200-Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Presentación módulo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#presentacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Presentación
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-interfaz-de-trabajo-en-impress" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 - Interfaz de trabajo en impress
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 - Interfaz de trabajo en impress">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-menu-archivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 - Menú: Archivo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-menu-editar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 - Menú: Editar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-menu-ver" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 - Menú: Ver
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-menu-insertar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 - Menú: Insertar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-menu-formato" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.5 - Menú: Formato
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-menu-diapositiva" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.6 - Menú: Diapositiva
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17-menu-pase-de-diapositivas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.7 - Menú: Pase de diapositivas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#18-menu-herramientas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.8 - Menú: Herramientas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#19-menu-ventana" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.9 - Menú: Ventana
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#110-menu-ayuda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.10 - Menú: Ayuda
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tarea-ra7-cea-manejo-basico-de-impress" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tarea RA7-CEa - Manejo básico de Impress
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-vistas-de-una-presentacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 - Vistas de una presentación
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 - Vistas de una presentación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-vista-normal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 - Vista normal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-vista-esquema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 - Vista esquema
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-vista-notas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 - Vista notas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-vista-clasificador-de-diapositivas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 - Vista clasificador de diapositivas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-vista-patron-de-diapositivas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 - Vista patrón de diapositivas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-vista-patron-de-notas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6 - Vista patrón de notas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27-vista-patron-de-diapositivas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.7 - Vista patrón de diapositivas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#28-tarea-ra7-ceb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.8 - Tarea RA7-CEb
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#29-tarea-ra7-ced" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.9 - Tarea RA7-CEd
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-diseno-amigable-de-una-presentacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 - Diseño amigable de una presentación
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 - Diseño amigable de una presentación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-esquema-de-color" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 - Esquema de color
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 - Esquema de color">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#311-rueda-cromatica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1.1 - Rueda cromática
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#312-paleta-de-colores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1.2 - Paleta de colores
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#313-generadores-de-paletas-de-colores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1.3 - Generadores de paletas de colores
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#314-colores-a-elegir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1.4 - Colores a elegir
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-tipografia-y-legibilidad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 - Tipografía y legibilidad
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-organizacion-de-los-contenidos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 - Organización de los contenidos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-tarea-ra7-cec" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 - Tarea RA7-CEc
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-creacion-de-una-presentacion-tarea-ra7-cee" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 - Creación de una presentación - Tarea RA7-CEe
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>UT 4 - Presentaciones</h1>
+
+<p><img alt="Descripción de la imagen" class="doscinco marginbottom40" src="img/imp-1.png" /></p>
+<p><strong>Resultados de aprendizaje y criterios de evaluacion que se evaluarán en esta unidad.</strong>  </p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Resultados de aprendizaje de la unidad didáctica:</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>RA7. Elabora presentaciones multimedia describiendo y aplicando normas básicas de composición y diseño.</strong></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><strong>Criterios de evaluación de la unidad didáctica:</strong></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>a)</strong> Se han identificado las opciones básicas de las aplicaciones de presentaciones.</td>
+<td>20%</td>
+</tr>
+<tr>
+<td><strong>b)</strong> Se han reconocido los distintos tipos de vista asociados a una presentación.</td>
+<td>5%</td>
+</tr>
+<tr>
+<td><strong>c)</strong> Se han aplicado y reconocido las distintas tipografías y normas básicas de composición, diseño y utilización del color.</td>
+<td>20%</td>
+</tr>
+<tr>
+<td><strong>d)</strong> Se han diseñado plantillas de presentaciones.</td>
+<td>20%</td>
+</tr>
+<tr>
+<td><strong>e)</strong> Se han creado presentaciones.</td>
+<td>30%</td>
+</tr>
+<tr>
+<td><strong>f)</strong> Se han utilizado periféricos para ejecutar presentaciones.</td>
+<td>5%</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Nota:</p>
+<p>El criterio de evaluación <strong>f) Se han utilizado periféricos para ejecutar presentaciones</strong> será evaluado durante la FCT.</p>
+</div>
+<h2 id="presentacion">Presentación</h2>
+<p>LibreOffice Impress es el componente del paquete ofimático LibreOffice que sirve para crear <strong>presentaciones multimedia</strong>.</p>
+<p>Su función principal es ofrecer una herramienta completa para diseñar y organizar información visualmente atractiva, ideal para comunicarla a una audiencia.</p>
+<p><strong>Usos típicos de LibreOffice Impress</strong>  </p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Función</th>
+<th style="text-align: left;">Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Creación de Diapositivas</strong></td>
+<td style="text-align: left;">Permite diseñar páginas individuales (diapositivas) utilizando plantillas, diseños predefinidos o desde cero.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Integración Multimedia</strong></td>
+<td style="text-align: left;">Permite insertar y manipular diversos tipos de contenido: <strong>texto</strong>, <strong>imágenes</strong>, <strong>gráficos</strong>, <strong>audio</strong>, <strong>vídeo</strong> y <strong>objetos OLE</strong> (como hojas de cálculo o gráficos de otras aplicaciones).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Efectos Visuales</strong></td>
+<td style="text-align: left;">Ofrece herramientas para aplicar <strong>transiciones</strong> entre diapositivas y <strong>animaciones</strong> a objetos individuales (cómo aparece un texto o una imagen dentro de una diapositiva).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Estructuración del Contenido</strong></td>
+<td style="text-align: left;">Herramientas de vista (Clasificador de Diapositivas, Esquema) que facilitan organizar y ordenar el flujo de la información.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Presentación en Vivo</strong></td>
+<td style="text-align: left;">Permite proyectar la presentación en pantalla completa pero también con una <strong>Vista del Presentador</strong> que muestra las notas privadas y el tiempo transcurrido en un monitor separado.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Exportación a multiples formatos</strong></td>
+<td style="text-align: left;">Puede guardar presentaciones en formato nativo (<strong>.odp</strong>), en el formato de Microsoft PowerPoint (<code>.pptx</code> o <code>.ppt</code>), y también exportar a formatos como <strong>PDF</strong> y <strong>HTML</strong> o <strong>vídeo</strong>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="1-interfaz-de-trabajo-en-impress"><strong>1 - Interfaz de trabajo en impress</strong></h2>
+<p>Después de hacer doble clic sobre el icono de <strong>LibreOffice</strong> seleccionamos <strong>Nuevo &rarr; presentación</strong> y nos encontraremos con la siguiente interfaz.</p>
+<p><img alt="Descripción de la imagen" class="m_ver" src="img/imp-2.png" /></p>
+<h3 id="11-menu-archivo"><strong>1.1 - Menú: Archivo</strong></h3>
+<p>Permite la creación de archivos de presentaciones y su posterior guardado, firmado digital o impresión, etc.</p>
+<h3 id="12-menu-editar"><strong>1.2 - Menú: Editar</strong></h3>
+<p>Aparte del conocido “copiar pegar” también permite buscar, editar dispositivas...  </p>
+<h3 id="13-menu-ver"><strong>1.3 - Menú: Ver</strong></h3>
+<p>El menú "Ver" sirve para controlar cómo se muestra el documento en pantalla y qué elementos visuales de la interfaz deseamos ver u ocultar. </p>
+<h3 id="14-menu-insertar"><strong>1.4 - Menú: Insertar</strong></h3>
+<p>Ofrece opciones para incluir objetos en nuestro documento: fotografías, dibujos, tablas, ecuaciones matemáticas o incluso otros archivos.  </p>
+<h3 id="15-menu-formato"><strong>1.5 - Menú: Formato</strong></h3>
+<p>Es, una de las ventanas que más se utilizará ya que, permite dar formato a los elementos que incorporaremos a las diapositivas.</p>
+<h3 id="16-menu-diapositiva"><strong>1.6 - Menú: Diapositiva</strong></h3>
+<p>Se puede considerar como el centro de control para administrar y estructurar una presentación, enfocándose en la creación, orden y propiedades de las diapositivas individuales.</p>
+<h3 id="17-menu-pase-de-diapositivas"><strong>1.7 - Menú: Pase de diapositivas</strong></h3>
+<p>Probablemente el menú más importante de LibreOffice Impress, sirve para ejecutar y configurar la presentación. Su objetivo principal es controlar cómo se ve y se comporta la presentación durante la exposición.</p>
+<h3 id="18-menu-herramientas"><strong>1.8 - Menú: Herramientas</strong></h3>
+<p>Es el menú <code>Herramientas</code> se encuentran las funciones de utilidad, la configuración avanzada, las opciones de corrección de texto y las herramientas de automatización.  </p>
+<h3 id="19-menu-ventana"><strong>1.9 - Menú: Ventana</strong></h3>
+<p>El menú "Ventana" está pensado para gestionar las distintas ventanas o instancias del programa abiertas en ese momento.
+No afecta al contenido del documento, sino a cómo se interactúa con varios documentos o vistas al mismo tiempo.</p>
+<h3 id="110-menu-ayuda"><strong>1.10 - Menú: Ayuda</strong></h3>
+<p>Reúne todas las opciones para obtener asistencia, acceder a la documentación oficial y consultar información sobre la instalación de LibreOffice.</p>
+<h3 id="tarea-ra7-cea-manejo-basico-de-impress"><strong>Tarea RA7-CEa - Manejo básico de Impress</strong></h3>
+<div class="admonition exercise">
+<p class="admonition-title">Tarea RA3-CEa</p>
+<div class="admonition exercise">
+<p class="admonition-title">PARTE 1 - Creación de diapositivas</p>
+<ol>
+<li>A través de una presentación con diapositivas se desea exponer las principales características de Impress.</li>
+<li>Abrir una nueva presentación en blanco, y desde la <strong>barra lateral</strong>, elegir un patrón para elaborar las siguientes diapositivas.  </li>
+<li>También podeís hacer uso de la función <strong>disposición de diapositiva</strong> para que el asistente proponga varias disposiciones posibles.</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Contenidos diapositiva 1</p>
+</div>
+<p>1 - Presentaciones en LibreOffice Impress  </p>
+<ul>
+<li>Introducción  </li>
+<li>Características generales de la aplicación.</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Contenidos diapositiva 2</p>
+</div>
+<p>2 - Instalación de la Aplicación  </p>
+<ul>
+<li>Requerimientos</li>
+<li>Componentes</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Contenidos diapositiva 3</p>
+</div>
+<p>3 - Diseño de Presentaciones Electrónicas</p>
+<ul>
+<li>Diapositivas animadas.</li>
+<li>Presentaciones interactivas.</li>
+<li>Intervalos y transiciones.</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Contenidos diapositiva 4</p>
+</div>
+<p>4 - Ejecución de una presentación electrónica</p>
+<ul>
+<li>Formas de ejecutar una presentación con diapositivas.  </li>
+<li>Realizada por un orador (pantalla completa).</li>
+<li>Examinada de forma individual (ventana).</li>
+<li>Examinada en exposición (pantalla completa).</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Contenidos diapositiva 5</p>
+</div>
+<p>5 - Presentaciones automáticas</p>
+<ul>
+<li>Intervalos automáticos o manuales.</li>
+<li>Hipervínculos.</li>
+</ul>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">PARTE 2 - Fondos y fuentes</p>
+<ol>
+<li>Consejo → Mostrar reglas.</li>
+<li>Consejo → Mostrar retículas.</li>
+<li>Consejo → Propiedades → Formato diapositiva.</li>
+<li>Consejo → Propiedades → Disposiciones.</li>
+<li><strong>Tarea</strong> → Patrones de diapositivas → <strong>Elegir un patrón para diapositivas 1, 2 y 3</strong>.</li>
+<li><strong>Tarea</strong> → Patrones de diapositivas → <strong>Elegir un fondo (color, degradado...) para diapositiva 4</strong>.</li>
+<li><strong>Tarea</strong> → Patrones de diapositivas → <strong>Elegir una imagen (www.pixabay.com , ...) para el fondo de la diapositiva 5</strong>.</li>
+<li><strong>Tarea</strong> → <strong>Ajustar posición, tamaños, colores de fuentes para cada diapositiva</strong>.</li>
+</ol>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">PARTE 3 - Insertar y retocar imágenes</p>
+<ol>
+<li>Descargar la siguiente imagen: <a href="img/imatges/ErasmusPlus.png">Descargar archivo</a>  </li>
+<li>Descargar la siguiente imagen: <a href="img/imatges/LogoInstitut.png">Descargar archivo</a>  </li>
+<li><strong>Tarea</strong> → <strong>Insertar imagenes en todas las diapositivas</strong>. Ajustar tamaño, rotación, modo de color, brillo, contraste y transparencia al gusto.</li>
+<li><strong>Tarea</strong> → <strong>Insertar imagenes en todas las diapositivas</strong>. Ubicarlas de tal manera que no haya sensación de movimiento al pasar las diapositivas.</li>
+<li>Descargar la siguiente imagen: <a href="img/imatges/institut.jpg">Descargar archivo</a>  </li>
+<li><strong>Tarea</strong> → <strong>Duplicar la diapositiva 2 y dejarla en la posición 3</strong>. Insertar la imagen descargada, <strong>aplicarle un borde y recortarla al gusto</strong>.</li>
+</ol>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">PARTE 4 - Insertar tabla</p>
+<ol>
+<li><strong>Tarea</strong> → <strong>Añadir una diapositiva a la presentación</strong>. Poner un fondo, título con los datos que se dan a continuación.  </li>
+<li>
+<p><strong>Tarea</strong> → <strong>Insertar una tabla con los siguientes datos:</strong></p>
+<p>Consumo eléctrico anual (GWh) por sector y fuente de energía.  </p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Electricidad</th>
+<th>Gas natural</th>
+<th>Renovables</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Residencial</td>
+<td>120</td>
+<td>95</td>
+<td>60</td>
+</tr>
+<tr>
+<td>Industrial</td>
+<td>210</td>
+<td>180</td>
+<td>90</td>
+</tr>
+<tr>
+<td>Servicios</td>
+<td>160</td>
+<td>110</td>
+<td>75</td>
+</tr>
+<tr>
+<td>Transporte</td>
+<td>90</td>
+<td>140</td>
+<td>45</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">PARTE 5 - Insertar gráfico</p>
+<ol>
+<li><strong>Tarea</strong> → <strong>Añadir una diapositiva a la presentación</strong>. Poner un fondo, título con los datos que se dan a continuación.  </li>
+<li><strong>Tarea</strong> → Insertar un gráfico → Columna en pilas, 3D, realista, forma: cilindro.</li>
+<li><strong>Tarea</strong> → <strong>Modificar la gráfica utilizando los datos de la tabla anterior</strong>.  </li>
+<li><strong>Ejemplo de resultado:</strong>  </li>
+</ol>
+<p><img alt="" class="original" src="img/RA7-CEa-1.png" /></p>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">PARTE 6 - Insertar formas</p>
+<ol>
+<li><strong>Tarea</strong> → <strong>Añadir una diapositiva a la presentación</strong>. Poner un fondo y un título.  </li>
+<li><strong>Tarea</strong> → <strong>Insertar formas para obtener un resultado similar al de la imagen</strong>.  </li>
+</ol>
+<p><img alt="" class="sietecinco" src="img/RA7-CEa-2.png" /></p>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">PARTE 7 - Fontwork</p>
+<ol>
+<li><strong>Tarea</strong> → <strong>Añadir una diapositiva a la presentación</strong>. Poner un fondo y un título.  </li>
+<li><strong>Tarea</strong> → <strong>Insertar texto usando fontwork</strong>. </li>
+<li><strong>Ejemplo de resultado:</strong> </li>
+</ol>
+<p><img alt="" class="sietecinco" src="img/RA7-CEa-3.png" /></p>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">PARTE 8 - Alinear objetos</p>
+<ol>
+<li><strong>Tarea</strong> → <strong>Añadir una diapositiva a la presentación</strong>. Poner un fondo y un título.  </li>
+<li><strong>Replicar la imagen de aquí abajo</strong>. No se trata de calcar el ejemplo sino de prestar atención a <strong>la alineación y la separación entre objetos</strong>.  </li>
+</ol>
+<p><img alt="" class="sietecinco" src="img/RA7-CEa-4.png" /></p>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">PARTE 9 - Transiciones entre diapositivas</p>
+<ol>
+<li>Las transiciones son los efectos visuales que se aplican al pasar de una diapositiva a otra durante una presentación. Sirven para hacer que el cambio sea más atractivo y dinámico.</li>
+<li><strong>Tarea:</strong> Ir a <strong>Diapositiva</strong> → <strong>Transición entre diapositivas</strong> y aplicar un efecto durante la transición a <strong>todas las diapositivas del documento</strong> (observar como también se pueden personalizar esos efectos). </li>
+</ol>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">PARTE 10 - Animaciones</p>
+<p>Los efectos de animación pueden clasificarse en 4 categorias:</p>
+<ul>
+<li><strong>Entrada:</strong> cuando el elemento aparece por pantalla. Agrega un efecto que introduce el texto o el objeto en la presentación con diapositivas.</li>
+<li><strong>Salida:</strong> cuando el elemento desaparece de la pantalla. Agrega un efecto que saca el texto o el objeto de la diapositiva en algún momento.</li>
+<li><strong>Énfasis:</strong> cambio de un elemento para resaltarlo. Agrega un efecto al texto o al objeto para lograr que resalte mucho más.</li>
+<li><strong>Rutas de movimiento:</strong> cambio de posición de un elemento para resaltarlo. Agregar un efecto que mueve un objeto en la trama especificada.</li>
+</ul>
+<div class="admonition task">
+<p class="admonition-title">Tarea</p>
+</div>
+<ol>
+<li><strong>Añadir una diapositiva a la presentación</strong>.   </li>
+<li>
+<p>Realizar un diseño <strong>similar</strong> al de la imagen.<br><br />
+<img alt="" class="sietecinco" src="img/RA7-CEa-6.png" /><br>  </p>
+</li>
+<li>
+<p><strong>Animar los elementos</strong> de la diapositiva para obtener un resultado similar al siguiente ejemplo. <br />
+<a href="img/RA7-CEa-5.mp4">Visualizar ejemplo.</a><br />
+<!-- <video class="sietecinco" controls>
+    <source src="./07_Presentaciones/img/RA7-CEa-5.mp4" type="video/mp4">
+    Tu navegador no soporta la reproducción de vídeo.
+</video> --></p>
+</li>
+</ol>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">PARTE 11 - Navegación, enlaces, cabeceras y pie de página</p>
+<ol>
+<li>Añadir en todas las hojas 2 campos donde aparecerá vuestro nombre, la diapositiva actual y el recuento de diapositivas.  </li>
+<li>Añadir un botón que permitirá volver al inicio de la presentación.</li>
+</ol>
+<p><img alt="" class="sietecinco" src="img/RA7-CEa-7.png" /><br>  </p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Entrega de la tarea</p>
+<p>Subir la tarea a AULES en el apartado correspondiente.<br />
+El archivo a subir deberá ser de tipo <strong>.odp</strong> (formato predeterminado de LibreOffice Impress).<br />
+<strong>No se aceptará ningún otro formato de archivo</strong>.</p>
+</div>
+</div>
+<h2 id="2-vistas-de-una-presentacion"><strong>2 - Vistas de una presentación</strong></h2>
+<p>Saber manejar los distintos tipos de vista de una presentación es importante, ya que permiten obtener tanto una visión detallada de una diapositiva como una visión global del conjunto.
+LibreOffice impress ofrece 7 tipos de vistas diferentes:</p>
+<ul>
+<li><strong>Vista normal</strong></li>
+<li><strong>Vista esquema</strong></li>
+<li><strong>Vista notas</strong></li>
+<li><strong>Vista clasificador de diapositivas</strong></li>
+<li><strong>Vista patrón de diapositivas</strong> </li>
+<li><strong>Vista patrón de notas</strong></li>
+<li><strong>Vista patrón de folleto</strong></li>
+</ul>
+<p>Se puede acceder a esas vistas desde el menú <strong>ver</strong>.</p>
+<p><img alt="" class="cuatrocinco" src="img/RA7-CEb-1.png" /><br>  </p>
+<h3 id="21-vista-normal"><strong>2.1 - Vista normal</strong></h3>
+<p>La <strong>vista normal</strong> es la que se utiliza habitualmente. En ella se diseña y modifica la diapositiva sobre la que se está trabajando. </p>
+<hr />
+<h3 id="22-vista-esquema"><strong>2.2 - Vista esquema</strong></h3>
+<p>La <strong>vista esquema</strong> se centra en los contenidos de la diapositiva, sin tener en cuenta los aspectos visuales. Muestra un listado de las diapositivas con el esquema de sus textos.
+Desde esta vista se obtiene una visión rápida de los contenidos de toda la presentación, lo que permite revisarlos y actualizarlos si resulta necesario.</p>
+<hr />
+<h3 id="23-vista-notas"><strong>2.3 - Vista notas</strong></h3>
+<p>En la <strong>vista notas</strong>, la pantalla se divide en dos partes: la parte superior, donde se visualiza la diapositiva, y la parte inferior, que contiene un cuadro de texto para añadir notas y comentarios asociados a dicha diapositiva.</p>
+<hr />
+<h3 id="24-vista-clasificador-de-diapositivas"><strong>2.4 - Vista clasificador de diapositivas</strong></h3>
+<p>La vista <strong>clasificador de diapositivas</strong> permite visualizar rápidamente el conjunto de todas las diapositivas y comprobar la coherencia entre ellas. Además, permite cambiar el orden de la presentación arrastrando las diapositivas con el ratón.</p>
+<hr />
+<h3 id="25-vista-patron-de-diapositivas"><strong>2.5 - Vista patrón de diapositivas</strong></h3>
+<p>La vista <strong>patrón de diapositivas</strong> permite definir el diseño general que se aplicará a todas las diapositivas de la presentación. Desde esta vista se pueden modificar elementos comunes como el fondo, las fuentes, los colores, los logotipos o la posición de los distintos objetos, asegurando así una apariencia uniforme en toda la presentación.</p>
+<hr />
+<h3 id="26-vista-patron-de-notas"><strong>2.6 - Vista patrón de notas</strong></h3>
+<p>La vista <strong>patrón de notas</strong> permite personalizar el formato de las páginas de notas que acompañan a las diapositivas. En esta vista se pueden ajustar elementos como encabezados, pies de página, fuentes y disposición de los contenidos, de forma que las notas impresas o visualizadas mantengan un diseño coherente.</p>
+<hr />
+<h3 id="27-vista-patron-de-diapositivas"><strong>2.7 - Vista patrón de diapositivas</strong></h3>
+<p>La vista <strong>patrón de folleto</strong> se utiliza para configurar el diseño de los folletos que se generan al imprimir la presentación. Desde esta vista se puede establecer la distribución de las diapositivas en cada página, así como definir elementos comunes como encabezados, pies de página, numeración o textos adicionales, facilitando la creación de material impreso para los asistentes.</p>
+<hr />
+<h3 id="28-tarea-ra7-ceb"><strong>2.8 - Tarea RA7-CEb</strong></h3>
+<p>Creación de patrones de diapositivas.</p>
+<div class="admonition exercise">
+<p class="admonition-title">Parte 1</p>
+<p>Crear una presentación en blanco y guardarla con el formato: tarea RA7-CEb nombre apellidos. 
+Descargar el archivo de imágenes pinchando en este <a href="img/RA7-CEb/RA7-CEb.rar">enlace</a> </p>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Parte 2</p>
+<p>Ir a → <strong>patrón de dispositivas</strong> y crear 4 patrones de diapositivas.<br />
+Cambiar el nombre de los patrones a <strong>Portada, Castellón, Valencia y Alicante</strong>.</p>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Parte 3 - Patrón Portada</p>
+<p>Editar el patrón para dejarlo como en la siguiente imagen.<br />
+<strong>Trabajos a realizar:</strong>  </p>
+<ol>
+<li>Insertar imagen de fondo, poner a escala de la diapositiva, pasar a escala de grises, aplicar una transparencia (para no afectar a la legibilidad del texto) y enviar al fondo.</li>
+<li>Redistribuir los esquemas de texto (no se pueden suprimir).  </li>
+</ol>
+<p><img alt="" class="cuatrocinco" src="img/RA7-CEb-2.png" /><br>  </p>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Parte 4 - Patrón Valencia</p>
+<p>Editar el patrón para dejarlo como en la siguiente imagen.
+<strong>Trabajos a realizar:</strong></p>
+<ol>
+<li>Poner un rectángulo en la parte superior con el color típico de la provincia.</li>
+<li>Editar el esquema de numeración para sustituir el simbolo del bolo por la bandera de la provincia.  </li>
+</ol>
+<p><img alt="" class="cuatrocinco" src="img/RA7-CEb-3.png" /><br>  </p>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Parte 5 - Patrón Castellón</p>
+<p>Repetir los pasos de la parte 4 cambiando la imagen de fondo, la bandera de la provincia, etc.</p>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Parte 6 - Patrón Alicante</p>
+<p>Repetir los pasos de la parte 4 cambiando la imagen de fondo, la bandera de la provincia, etc.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Entrega de la tarea</p>
+<p>Subir la tarea a AULES en el apartado correspondiente.<br />
+El archivo a subir deberá ser de tipo <strong>.odp</strong> (formato predeterminado de LibreOffice Impress).<br />
+<strong>No se aceptará ningún otro formato de archivo</strong>.</p>
+</div>
+<h3 id="29-tarea-ra7-ced"><strong>2.9 - Tarea RA7-CEd</strong></h3>
+<p>Creación de plantillas de presentaciones.</p>
+<div class="admonition exercise">
+<p class="admonition-title">Creación de una plantilla de presentaciones</p>
+<p>Guardar la presentación de la tarea RA7-CEb en <strong>formato plantilla (*.otp)</strong>.<br />
+El nombre de la plantilla será: <strong>tarea RA7-CEd nombre apellidos</strong>. </p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Entrega de la tarea</p>
+<p>Subir la tarea a AULES en el apartado correspondiente.<br />
+El archivo a subir deberá ser de tipo <strong>.otp</strong> (formato predeterminado de LibreOffice Impress).<br />
+<strong>No se aceptará ningún otro formato de archivo</strong>.</p>
+</div>
+<h2 id="3-diseno-amigable-de-una-presentacion"><strong>3 - Diseño amigable de una presentación</strong></h2>
+<p>El diseño amigable de una presentación es aquel que se enfoca en la experiencia de la audiencia, priorizando la claridad, la legibilidad y la facilidad de comprensión. </p>
+<p><img alt="" class="cuatrocinco" src="img/contenidos/impress-1.png" /><br>  </p>
+<ol>
+<li>
+<p><strong>Unidad</strong>: Elementos relacionados que crean un todo armonioso.</p>
+</li>
+<li>
+<p><strong>Equilibrio</strong>: Distribución visual para dar estabilidad.</p>
+</li>
+<li>
+<p><strong>Contraste</strong>: Diferencias visuales (color, letra) para resaltar elementos.</p>
+</li>
+<li>
+<p><strong>Jerarquía</strong>: Organización para guiar la mirada según la importancia.</p>
+</li>
+<li>
+<p><strong>Proporción</strong>: Relación adecuada entre los tamaños de cada parte.</p>
+</li>
+<li>
+<p><strong>Simetría</strong>: Equilibrio mediante formas y líneas simétricas.</p>
+</li>
+<li>
+<p><strong>Movimiento</strong>: Sensación de dirección y flujo visual.</p>
+</li>
+</ol>
+<h3 id="31-esquema-de-color"><strong>3.1 - Esquema de color</strong></h3>
+<h4 id="311-rueda-cromatica"><strong>3.1.1 - Rueda cromática</strong></h4>
+<p>Para realizar una presentación amigable, deberemos definir un esquema de color coherente con el tema y la audiencia usando <strong>la rueda cromática</strong> de Johann Wolfgang.  </p>
+<p><img alt="" class="cuatrocinco" src="img/contenidos/impress-5.avif" /><br>  </p>
+<p>En esa rueda, los colores tienen tres niveles de parentesco:</p>
+<ol>
+<li>
+<p><strong>Colores primarios:</strong> <br />
+<img alt="" class="cuatrocinco" src="img/contenidos/impress-6.avif" /><br />
+Son los colores puros, no se pueden crear mezclando otros. </p>
+<ul>
+<li>En la teoría clásica: Rojo, Amarillo y Azul.</li>
+<li>En el mundo real (imprentas y pintura): Cian, Magenta y Amarillo.</li>
+</ul>
+<hr />
+</li>
+<li>
+<p><strong>Colores secundarios:</strong>  <br />
+<img alt="" class="cuatrocinco" src="img/contenidos/impress-7.avif" />  <br />
+Nacen cuando se mezclan dos primarios en partes iguales.</p>
+<ul>
+<li>Naranja: Amarillo + Rojo.</li>
+<li>Verde: Azul + Amarillo.</li>
+<li>Violeta: Azul + Rojo.</li>
+</ul>
+<hr />
+</li>
+<li>
+<p><strong>Colores terciarios:</strong>  <br />
+<img alt="" class="cuatrocinco" src="img/contenidos/impress-8.avif" />  <br />
+Son los colores más detallados. Aparecen cuando se mezclan un primario con su vecino secundario.</p>
+<ul>
+<li>Ejemplo: Amarillo (primario) con verde (secundario) = Amarillo-Verdoso.</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h4 id="312-paleta-de-colores"><strong>3.1.2 - Paleta de colores</strong></h4>
+<p><img alt="" class="cien" src="img/contenidos/impress-5.png" />  </p>
+<p><strong>¿Qué es una paleta de colores?</strong>  </p>
+<ul>
+<li>Una paleta de colores es un conjunto específico de colores eligido para un proyecto.  </li>
+<li>Generalmente, una paleta de colores lleva entre de 3 y 5 tonos, que ayudan a crear una identidad visual.</li>
+<li>Esos tonos se generan usando <strong>la rueda cromática</strong> y siguiendo ciertas <strong>reglas de combinación</strong> entre ellos.  </li>
+</ul>
+<hr />
+<p><strong>Reglas de combinación para crear una paleta de colores</strong>  </p>
+<p>A continuación, las 7 reglas más comunes de combinación de colores: </p>
+<p><strong>1. Relación Complementaria (Impacto):</strong><br />
+Elegir colores que están justo enfrente en la rueda (por ejemplo: verde y rojo). Se usa para resaltar elementos importantes porque generan el máximo contraste.
+<img alt="" class="cuatrocinco margintopbottom20" src="img/contenidos/impress-18.png" />  </p>
+<hr />
+<p><strong>2. Relación complementaria dividida (Contraste suave):</strong><br />
+Elegir un color base y los dos colores terciarios adyacentes a su complementario.
+<img alt="" class="cuatrocinco margintopbottom20" src="img/contenidos/impress-19.png" />    </p>
+<hr />
+<p><strong>3. Relación Monocromática (Elegancia):</strong><br />
+Elegir un solo color de la rueda y usar diferentes tonos o claridades de ese mismo color. Es la opción más segura y profesional.
+<img alt="" class="cuatrocinco margintopbottom20" src="img/contenidos/impress-16.png" />    </p>
+<hr />
+<p><strong>4. Relación Análoga (Armonía):</strong><br />
+Elegir colores que están uno al lado del otro en la rueda (por ejemplo: azul, azul-verdoso, verde y verde amarillo). Transmiten calma y fluidez.<br />
+<img alt="" class="cuatrocinco margintopbottom20" src="img/contenidos/impress-17.png" />    </p>
+<hr />
+<p><strong>5. Relación Triádica (Equilibrio):</strong> Elegir tres colores que están equidistantes en la rueda (por ejemplo: naranja, verde y violeta). Ofrecen un contraste vibrante pero equilibrado.
+<img alt="" class="cuatrocinco margintopbottom20" src="img/contenidos/impress-20.png" />    </p>
+<hr />
+<p><strong>6. Relación Tetrádica (Variedad):</strong> Elegir dos pares de colores complementarios. Proporcionan una paleta rica y diversa, pero hay que usarlos con cuidado para evitar saturación visual.
+<img alt="" class="cuatrocinco margintopbottom20" src="img/contenidos/impress-21.png" />    </p>
+<hr />
+<p><strong>7. Relación Cuadrada (Diversidad equilibrada):</strong> Elegir cuatro colores equidistantes en la rueda. Proporcionan una paleta equilibrada y diversa, ideal para diseños dinámicos.
+<img alt="" class="cuatrocinco" src="img/contenidos/impress-14.avif" />    </p>
+<hr />
+<p><strong>Es importante probar la paleta en diferentes contextos (fondo claro, oscuro, impresiones) para asegurarse de que funciona bien en todas las situaciones.</strong></p>
+<p><br></p>
+<h4 id="313-generadores-de-paletas-de-colores"><strong>3.1.3 - Generadores de paletas de colores</strong></h4>
+<ul>
+<li><a href="https://coolors.co/?home">colors.co</a></li>
+<li><strong>Microsoft Office</strong> dentro de su suite ofimática también incluye un generador de paletas de colores.</li>
+<li><strong>LibreOffice</strong> no incluye un generador de paletas, pero existen extensiones que se pueden instalar para añadir esa funcionalidad.</li>
+</ul>
+<h4 id="314-colores-a-elegir"><strong>3.1.4 - Colores a elegir</strong></h4>
+<p>Los colores que elijamos para una presentación dependerán del impacto que queramos ejercer sobre la audiencia:</p>
+<p><img alt="" class="cincozero" src="img/contenidos/impress-26.png" />   </p>
+<ul>
+<li><strong>Colores cálidos</strong> (rojo, naranja, amarillo): Transmiten energía, entusiasmo y urgencia. Son ideales para presentaciones motivacionales o de ventas.</li>
+<li><strong>Colores fríos</strong> (azul, verde, morado): Transmiten calma, confianza y profesionalismo. Son adecuados para presentaciones corporativas o educativas.</li>
+<li><strong>Colores neutros</strong> (blanco): Transmiten simplicidad, limpieza y modernidad. Son versátiles y se pueden combinar con cualquier paleta.</li>
+</ul>
+<h3 id="32-tipografia-y-legibilidad"><strong>3.2 - Tipografía y legibilidad</strong></h3>
+<p>También eligiremos fuentes simples y profesionales, manteniendo la consistencia en todas las diapositivas. </p>
+<p>Para lograrlo, debemos seguir tres reglas fundamentales:</p>
+<p><strong>1. Estilo:</strong>   </p>
+<p><img alt="" class="cuatrocinco" src="img/contenidos/impress-22.png" />    </p>
+<ul>
+<li>Debe ser simple y profesional. Existen muchas fuentes, pero lo ideal es usar familias "Sans Serif" (sin remates o "patitas"). Son más limpias y descansadas para la vista en pantallas.</li>
+<li>Recomendadas: Arial, Helvetica, Calibri o Roboto.</li>
+<li>A evitar: Fuentes muy decorativas o informales (como Comic Sans o cursivas extremas).  </li>
+</ul>
+<p><br>  </p>
+<p><strong>2. Tamaño:</strong>    </p>
+<p><img alt="" class="cuatrocinco" src="img/contenidos/impress-23.png" />    </p>
+<ul>
+<li>El texto debe ser legible incluso para quien esté en la última fila. </li>
+<li>Títulos: Entre 36 y 44 puntos.</li>
+<li>Cuerpo de texto: Mínimo 24 puntos.</li>
+<li>Consejo: Si no cabe el texto, es señal de que hay demasiada información en la diapositiva.</li>
+</ul>
+<p><br>  </p>
+<p><strong>3. Consistencia Visual:</strong>    </p>
+<p><img alt="" class="cuatrocinco" src="img/contenidos/impress-24.png" />    </p>
+<ul>
+<li>Para una buena aceptación de una presentación, hay que limitar el uso de fuentes.</li>
+<li>Máximo 2 tipos de letra diferentes (una para títulos y otra para contenido).</li>
+<li>Mantener los mismos tamaños y colores en todas las diapositivas.</li>
+<li>Usar la jerarquía tipográfica. Se puede usar negritas para resaltar palabras clave, pero hay que evitar escribir párrafos enteros en mayúsculas.</li>
+</ul>
+<h3 id="33-organizacion-de-los-contenidos"><strong>3.3 - Organización de los contenidos</strong></h3>
+<p><img alt="" class="cuatrocinco" src="img/contenidos/impress-25.png" /></p>
+<ul>
+<li>Organizaremos los contenidos de forma equilibrada y alineada, evitando el desorden o el exceso de elementos. </li>
+<li>Por ejemplo, usaremos un espaciado consistente que dé aire a la diapositiva, asegurando que no se vea saturada ni demasiado vacía.</li>
+</ul>
+<h3 id="34-tarea-ra7-cec"><strong>3.4 - Tarea RA7-CEc</strong></h3>
+<div class="admonition exercise">
+<p class="admonition-title">Tarea RA7-CEc</p>
+<p>Crear una presentación en blanco y guardarla con el formato: tarea RA7-CEc nombre apellidos. 
+Realizar una presentación de 6 diapositivas siguiendo las indicaciones que se dan a continuación:</p>
+<ol>
+<li>
+<p><strong>Generar una paleta de colores</strong>  </p>
+<ul>
+<li>La paleta de colores deberá transmitar <strong>frescura o confianza</strong>.</li>
+<li>Añadir esa paleta de colores a <strong>Colores personalizados</strong> de LibreOffice Impress.</li>
+</ul>
+<p><img alt="" class="cuatrocinco" src="img/RA7-CEc/RA7-CEc-1.png" /></p>
+</li>
+<li>
+<p><strong>Diapositiva 1 - Portada</strong>  </p>
+<ul>
+<li>Usar el patrón de diapositivas creado en la tarea RA7-CEb (Portada).</li>
+<li>Título: "Diseño de presentaciones atractivas".</li>
+<li>Subtítulo: "Nombre Apellidos".</li>
+<li>Insertar <strong>una imagen</strong> de la paleta de colores elegida.</li>
+</ul>
+</li>
+<li>
+<p><strong>Diapositiva 2 - Introducción</strong> </p>
+<ul>
+<li>Usar el patrón de diapositivas creado en la tarea RA7-CEb (Castellón).</li>
+<li>Título: "Introducción".</li>
+<li>Contenido: Breve descripción de la importancia del diseño en presentaciones.  </li>
+<li>Acordaros de usar la fuente, tamaño y espaciado adecuado.     </li>
+</ul>
+</li>
+<li>
+<p><strong>Diapositiva 3 - Principios básicos de diseño</strong></p>
+<ul>
+<li>Usar el patrón de diapositivas creado en la tarea RA7-CEb (Valencia).</li>
+<li>Título: "Principios básicos de diseño".</li>
+<li>Contenido: <strong>Lista</strong> de los 7 principios básicos de diseño (Unidad, Equilibrio, Contraste, Jerarquía, Proporción, Simetría, Movimiento).</li>
+</ul>
+</li>
+<li>
+<p><strong>Diapositiva 4 - Esquema de color</strong></p>
+<ul>
+<li>Usar el patrón de diapositivas creado en la tarea RA7-CEb (Alicante).</li>
+<li>Título: "Esquema de color".</li>
+<li>Contenido: Explicación breve sobre la importancia de elegir una paleta de colores adecuada.   </li>
+</ul>
+</li>
+<li>
+<p><strong>Diapositiva 5 - Tipografía y legibilidad</strong></p>
+<ul>
+<li>Usar el patrón de diapositivas creado en la tarea RA7-CEb (Castellón).</li>
+<li>Título: "Tipografía y legibilidad".</li>
+<li>Contenido: Consejos sobre la elección de fuentes, tamaños y consistencia visual.</li>
+</ul>
+</li>
+<li>
+<p><strong>Diapositiva 6 - Organización de los contenidos</strong></p>
+<ul>
+<li>Usar el patrón de diapositivas creado en la tarea RA7-CEb (Valencia).</li>
+<li>Título: "Organización de los contenidos". </li>
+<li>Contenido: Importancia de la organización visual y el espaciado adecuado. </li>
+</ul>
+</li>
+<li>
+<p><strong>Revisión final</strong></p>
+<ul>
+<li>Asegurarse de que todas las diapositivas siguen un diseño coherente.</li>
+<li>Verificar la legibilidad del texto y la armonía de los colores.</li>
+<li>Añadir transiciones suaves entre diapositivas para mejorar la fluidez de la presentación.     </li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Entrega de la tarea</p>
+<p>Subir la tarea a AULES en el apartado correspondiente.<br />
+El archivo a subir deberá ser de tipo <strong>.odp</strong> (formato predeterminado de LibreOffice Impress).<br />
+<strong>No se aceptará ningún otro formato de archivo</strong>.</p>
+</div>
+<h2 id="4-creacion-de-una-presentacion-tarea-ra7-cee"><strong>4 - Creación de una presentación - Tarea RA7-CEe</strong></h2>
+<div class="admonition exercise">
+<p class="admonition-title">Explicación de la tarea</p>
+<ul>
+<li>Sois los encargados de presentar las nuevas pantallas Newline ELARA Pro rescientemente estrenadas en los centros educativos de la Comunidad Valenciana. </li>
+<li>Teneís a vuestra disposición toda la información técnica y comercial necesaria para elaborar una presentación atractiva y profesional que destaque las características y beneficios de estas pantallas interactivas. Podeís descargar los archivos necesarios desde este <a href="img/RA7-CEe/2025%20GUIA%20R%C3%81PIDA%20ADI%20VAL.pdf">enlace</a>.</li>
+<li>Disponeís de total libertad para crear una presentación atractiva y profesional que destaque las características y beneficios de estas pantallas interactivas.</li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Instrucciones</p>
+<ul>
+<li>La presentación deberá constar de un mínimo de 8 diapositivas.</li>
+<li>Se deberá utilizar una plantilla o <strong>patrón de diapositivas</strong> adecuado para el tema.</li>
+<li>Se deberán incluir imágenes relevantes y de alta calidad relacionadas con las pantallas Newline ELARA Pro.</li>
+<li>Se deberá aplicar un esquema de colores coherente y profesional.</li>
+<li>Se deberá utilizar una tipografía legible y profesional.</li>
+<li>Se deberán incluir transiciones suaves entre diapositivas.</li>
+</ul>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">contenidos mínimos</p>
+<div class="admonition tip">
+<p class="admonition-title">Diapositiva 1 - Portada</p>
+<ul>
+<li>Título: "Newline ELARA Pro".</li>
+<li>Subtítulo: "Presentación de pantallas interactivas".</li>
+<li>Insertar <strong>una imagen</strong> representativa de las pantallas Newline ELARA Pro.</li>
+<li>Poner vuestro nombre en la parte inferior de la diapositiva.</li>
+</ul>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Diapositiva 2 - Introducción</p>
+<ul>
+<li>Título: "Guía rápida".</li>
+<li>Contenidos: <ul>
+<li>Gestió del panell</li>
+<li>Pissarra</li>
+<li>Aplicacions Android</li>
+<li>Font externa</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Diapositiva 3 - Gestió del panell</p>
+<ul>
+<li>Título: "Gestió del panell".</li>
+<li>Contenidos:<ul>
+<li>Connexions i ports</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Diapositiva 4 - Pissarra</p>
+<ul>
+<li>Título: "Pissarra".</li>
+<li>Contenidos:<ul>
+<li>Barra d'eines</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Diapositiva 5 - Pissarra</p>
+<ul>
+<li>Título: "Pissarra".</li>
+<li>Contenidos:<ul>
+<li>Ús habitual de la pissarra</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Diapositiva 6 - Aplicacions Android</p>
+<ul>
+<li>Título: "Aplicacions Android".</li>
+<li>Contenidos:<ul>
+<li>Aplicacions instalades</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Diapositiva 7 - Aplicacions Android</p>
+<ul>
+<li>Título: "Aplicacions Android".</li>
+<li>Contenidos:<ul>
+<li>Afegir/eliminar aplicacions</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Diapositiva 8 - Despedida</p>
+<ul>
+<li>Título: "Gràcies per la vostra atenció".</li>
+<li>Contenidos:<ul>
+<li>Espai per a preguntes i respostes.            </li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Entrega de la tarea</p>
+<p>Subir la tarea a AULES en el apartado correspondiente.<br />
+El archivo a subir deberá ser de tipo <strong>.odp</strong> (formato predeterminado de LibreOffice Impress).<br />
+<strong>No se aceptará ningún otro formato de archivo</strong>.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th><strong>Licencia Creative Commons:</strong></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="alt text" src="../../../../assets/by-nc-nd-eu_.png" /></td>
+<td><strong>Reconocimiento-NoComercial-CompartirIgual CC BY-NC-SA:</strong>  No se permite un uso comercial de la obra original ni de las posibles obras derivadas, la distribución de la cuales se debe hace con una licencia igual a la que regula la obra original.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pie" >
+        
+          
+          <a href="../03_Hojas%20de%20calculo/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: UT 3 - Hojas de cálculo">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                UT 3 - Hojas de cálculo
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../04_Bases%20de%20datos/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: UT 5 - Bases de datos">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              <div class="md-ellipsis">
+                UT 5 - Bases de datos
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 - Javier Egea Blasco
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress - navigation.expand - navigation.path", "navigation.instant.progress", "navigation.instant.preview", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "toc.follow", "navigation.footer", "navigation.top", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.tabs.link"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
