@@ -1177,15 +1177,15 @@ Entre ellas se encuentran `Administrator` y `Guest`.
 
 - La cuenta integrada `Administrator` debe conservarse adecuadamente protegida y puede reservarse para situaciones excepcionales de administración o recuperación. No es recomendable utilizarla como cuenta habitual de administración.
 
-!!! tip "Creamos una cuenta administrativa propia"
-    Para evitar utilizar habitualmente la cuenta integrada `Administrator`, crearemos una cuenta administrativa individual para realizar las tareas de administración del dominio.
-    ![Descripción de la imagen](./img_5/img_5_65.png){ .margintop10 .marginbottom10}
+    !!! tip "Creamos una cuenta administrativa propia"
+        Para evitar utilizar habitualmente la cuenta integrada `Administrator`, crearemos una cuenta administrativa individual para realizar las tareas de administración del dominio.
+        ![Descripción de la imagen](./img_5/img_5_65.png){ .margintop10 .marginbottom10}
 
-!!! warning "¡No reutilices la contraseña de Administrator!"
-    ![Descripción de la imagen](./img_5/img_5_66.png){ .margintop10 .marginbottom10}
+    !!! warning "¡No reutilices la contraseña de Administrator!"
+        ![Descripción de la imagen](./img_5/img_5_66.png){ .margintop10 .marginbottom10}
 
-!!! warning "Importante" 
-    La nueva cuenta debe utilizar una contraseña diferente y robusta. Nunca debemos reutilizar la contraseña de una cuenta administrativa en otra cuenta.
+    !!! warning "Importante"
+        La nueva cuenta debe utilizar una contraseña diferente y robusta. Nunca debemos reutilizar la contraseña de una cuenta administrativa en otra cuenta.
 
 - Comprobaremos el estado de nuestro controlador de dominio mediante `dcdiag`. Esta herramienta realiza diferentes pruebas sobre los servicios y componentes de Active Directory.
 Un resultado sin errores relevantes indica que el controlador de dominio funciona correctamente.
