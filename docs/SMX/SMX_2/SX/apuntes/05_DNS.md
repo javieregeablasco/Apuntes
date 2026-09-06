@@ -1144,7 +1144,7 @@ Para la instalación del rol AD DS en un servidor Windows Server 2025 en AWS, po
 - A fines didácticos cambiaremos la IP del DNS preferido a la IP real de nuestra máquina (en el ejemplo 172.31.39.99).  
     ![Descripción de la imagen](./img_5/img_5_58.png){.leftsietecinco .margintop10 .marginbottom10 .marco}
 
-- Si abrimos las propiedades del servidor DNS veremos que en `interfaces` tenemos la IP de nuestro servidor DNS y una IPv6 de tipo link-local que Windows ha asignado automáticamente a la interfaz de red.
+- Si abrimos las propiedades del servidor DNS veremos que en `interfaces` tenemos la IP de nuestro servidor DNS y una IPv6 de tipo link-local que Windows ha asignado automáticamente a la interfaz de red.  
     ![Descripción de la imagen](./img_5/img_5_59.png){ .margintop10 .marginbottom10}
 
 - Si ejecutamos el comando `ipconfig /all` veremos que la configuración DNS de la interfaz apunta a la IPv4 `172.31.39.99` y a la IPv6 `::1` (localhost mediante IPv6).
@@ -1156,11 +1156,13 @@ Para la instalación del rol AD DS en un servidor Windows Server 2025 en AWS, po
 - Aunque no sea absolutamente necesario en AWS añadiremos un par de servidores externos a AWS como google (8.8.8.8) y cloudfare (1.1.1.1).  
     ![Descripción de la imagen](./img_5/img_5_62.png){ .margintop10 .marginbottom10}
 
+- En la pestaña `Monitoring` podremos realizar un test contra nuestro servidor DNS así como una consulta recursiva a otros servidores. Un resultado favorable en ambas pruebas significará que nuestro servidor DNS funciona correctamente.  
+    ![Descripción de la imagen](./img_5/img_5_63.png){ .margintop10 .marginbottom10}
+
 
 ---    
 
 
-![Descripción de la imagen](./img_5/img_5_63.png){ .margintop10 .marginbottom10}
 ![Descripción de la imagen](./img_5/img_5_64.png){ .margintop10 .marginbottom10}
 ![Descripción de la imagen](./img_5/img_5_65.png){ .margintop10 .marginbottom10}
 ![Descripción de la imagen](./img_5/img_5_66.png){ .margintop10 .marginbottom10}
