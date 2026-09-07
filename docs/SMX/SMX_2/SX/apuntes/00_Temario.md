@@ -10,15 +10,15 @@ keywords: SMX, SMR, SX, SR
 schedule: 233h - 7h/w
 ---
 
-![Descripción de la imagen](./img_1/apunt_1.jpg){ .img1 }
+![Descripción de la imagen](./img_0/apunt_1.jpg){ .img1 }
 
 ## 1 - Calendario escolar
 
-![insertar imagen](./img_1/apunt_2.jpg){.marco}
+![insertar imagen](./img_0/26-27_FP_CALENDARI.png){.marco}
 
 ## 2 - Horario de sesiones
 
-![insertar imagen](../Opt_Python/img/UT0/horario.png){.sietecinco}
+![insertar imagen](./img_0/Horario-SMX-2-SX.png){.sietecinco}
 
 ## 3 - Contenidos del módulo
 
