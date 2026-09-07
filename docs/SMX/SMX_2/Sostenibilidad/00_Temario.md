@@ -22,7 +22,7 @@ schedule: 233h - 7h/w
 
 ## 3 - Contenidos del módulo
 
-Contenidos disponibles [aquí](href=https://www.boe.es/eli/es/rd/2007/12/14/1691/dof/spa/pdf).
+Contenidos disponibles [aquí](https://ceice.gva.es/documents/388109149/390333672/Sostenibilidad.pdf).
 
 !!! info "Instalación de servicios de configuración dinámica de sistemas"
     - Dirección IP, máscara de red, puerta de enlace.
@@ -59,6 +59,164 @@ Contenidos disponibles [aquí](href=https://www.boe.es/eli/es/rd/2007/12/14/1691
 !!! info "Interconexión de redes privadas con redes públicas"
     - Pasarelas a nivel de aplicación. Almacenamiento en memoria caché.
     - Enrutamiento de tráfico entre interfaces de red.
+
+
+Análisis de la situación actual: problemas, impactos y medida de impactos.
+1. Identificación de los principales retos ambientales y sociales:
+- Cambio climático.
+4
+- Contaminación del aire, agua y suelo.
+- Pérdida de biodiversidad.
+- Agotamiento de recursos naturales.
+- Desigualdad social y económica.
+- Pobreza.
+- Desplazamiento forzado y migración.
+- Discriminación y exclusión social.
+2. Relación entre los retos ambientales y sociales y el desarrollo de la actividad económica:
+- Impacto de la actividad industrial, agrícola, energética, etc., en los retos ambientales y sociales.
+- Influencia de las políticas económicas y comerciales en la exacerbación o mitigación de los retos.
+3. La medida de los impactos sobre el medio ambiente:
+- Evaluación del impacto ambiental.
+- La huella de carbono.
+4. Análisis del efecto de los impactos ambientales y sociales sobre las personas y los sectores
+productivos:
+- Impacto en la salud humana.
+- Riesgos para la seguridad alimentaria.
+- Interrupción de cadenas de suministro y producción.
+- Aumento de costos y pérdida de productividad.
+5. Identificación de medidas y acciones para minimizar los impactos ambientales:
+- Fomento de la economía circular y el consumo sostenible.
+- Medidas de descarbonización de la economía:
+- Implementación de tecnologías limpias y prácticas sostenibles.
+- Promoción de la eficiencia energética y el uso de energías renovables.
+- Electrificación de la demanda.
+- Cambios en procesos industriales y agrícolas.
+- Medidas de adaptación al cambio climático.
+- Medidas de compensación de emisiones de GEI.
+6. Importancia de establecer alianzas y trabajar de manera transversal y coordinada:
+- Colaboración entre empresas, gobierno, ONGs y la sociedad civil.
+- Necesidad de compartir recursos, conocimientos y buenas prácticas.
+- Importancia de la cooperación internacional para abordar problemas globales.
+5
+Iniciativas internacionales, europeas y nacionales para afrontar esos problemas.
+1. Introducción a la sostenibilidad y desarrollo sostenible:
+- Definición del concepto de sostenibilidad.
+- Explicación del desarrollo sostenible y su importancia.
+2. Acciones encaminadas a lograr un desarrollo sostenible:
+- Marco internacional de referencia: Agenda 2030, los Objetivos de Desarrollo Sostenible (ODS),
+Acuerdo de París, el marco de Sendai y la agenda de Addis Abeba.
+3. La lucha contra el cambio climático:
+- Acciones a nivel internacional.
+- Acciones a nivel europeo.
+- Acciones a nivel nacional.
+4. La protección de la biodiversidad:
+- Acciones a nivel internacional.
+- Acciones a nivel europeo.
+- Acciones a nivel nacional.
+Productos y actividades sostenibles
+1.Aplicación de criterios de sostenibilidad en el desempeño profesional y personal:
+- Descripción de la actividad profesional y su impacto en la sociedad, la economía y el medio am-
+biente.
+- Análisis de cómo los ODS se relacionan con esa actividad profesional.
+- Identificación de los riesgos y las oportunidades, ambientales y sociales, asociados con el incumpli-
+miento o la contribución a los ODS (Sinergias y Trade-offs o compensaciones).
+- Integración de los ODS en la estrategia profesional y/o en la planificación de la intervención:
+- Definición de objetivos y acciones específicas para contribuir al logro de esos ODS en el
+área de trabajo, una vez identificados los ODS pertinentes.
+- Identificación de acciones necesarias para abordar retos ambientales y sociales desde la ac-
+tividad profesional y personal:
+- Desarrollo de estrategias para integrar los ODS en la práctica profesional y en la vida
+cotidiana.
+- Identificación de acciones concretas que pueden implementarse para contribuir a los
+ODS.
+6
+- Exploración de cómo estas acciones pueden tener un impacto positivo tanto a nivel
+individual como en la comunidad y el entorno laboral.
+- Evaluación continua para ajustar las acciones según sea necesario y maximizar el impacto
+de la empresa en el desarrollo sostenible.
+2. Caracterización del modelo de producción y consumo actual:
+- Modelo macroeconómico actual.
+- Descripción de los principales aspectos del modelo lineal de producción y consumo.
+- Identificación de sus impactos ambientales y sociales.
+3. Identificación de los principios de la economía verde y circular:
+- Explicación de los principios fundamentales de la economía verde.
+- Explicación de los principios fundamentales de la economía circular (la minimización de residuos,
+la reutilización, el reciclaje y la renovabilidad de recursos).
+- Tipos de reciclaje.
+- Los distintos metabolismos de la economía circular.
+4. Contraste de los beneficios de la economía verde y circular frente al modelo clásico de producción:
+- Análisis y comparación de los beneficios ambientales, sociales y económicos de la economía verde
+y circular.
+- Exploración de casos de estudio que demuestren los efectos positivos de la transición hacia la eco-
+nomía circular.
+- Concepto de desacoplamiento entre crecimiento económico y consumo de recursos.
+- Estrategias europeas y españolas de economía circular: planes y proyectos.
+5. Aplicación de los principios de ecodiseño y diseño sostenible:
+- Concepto de ecodiseño y diseño sostenible. Aplicación en el desarrollo de productos y servicios.
+- Identificación de estrategias de diseño que minimicen el impacto ambiental a lo largo del ciclo de
+vida del producto.
+6. Análisis del ciclo de vida del producto y su proceso de producción:
+- Concepto de ciclo de vida del producto.
+- Impactos ambientales, sociales y económicos asociados con todas las etapas del ciclo de vida del
+producto (diseño, extracción de materias primas, fabricación, acondicionamiento, embalaje, distribu-
+ción, consumo final y desecho).
+- Perspectiva de sostenibilidad a lo largo del ciclo de vida del producto.
+7. Certificación y etiquetado de productos:
+- Certificaciones públicas.
+7
+- Certificaciones privadas.
+Sostenibilidad Empresarial
+1. Conceptos empresariales básicos previos:
+- Definición de cadena de valor de una empresa.
+- Definición de grupos de interés, internos y externos, y sus expectativas.
+- Definición de impactos de nivel 1, 2 y 3 aplicados a toda la cadena de suministro.
+2. Concepto de ASG o ESG:
+- Definición e importancia de ASG o ESG.
+- Análisis de los riesgos y oportunidades que presentan para las empresas.
+- Los aspectos sociales. Acciones relacionadas con:
+- Condiciones laborales y derechos humanos.
+- Diversidad, igualdad e inclusión.
+- Participación en la comunidad, en su bienestar y su desarrollo.
+- Seguridad del producto y protección de los consumidores.
+- Compromisos con los proveedores.
+- Los aspectos ambientales. Acciones relacionadas con:
+- Protección de la biodiversidad.
+- Emisiones de gases de efecto invernadero y cambio climático. Medición de alcance 1, 2 y 3.
+- Gestión del agua.
+- Control de la contaminación.
+- Energías renovables y eficiencia energética.
+- Gestión de residuos y programas de reciclaje.
+- Los aspectos de gobernanza. Medidas relacionadas con:
+- Gobierno corporativo.
+- Transparencia y comunicación responsable. Greenwashing, lavado verde o ecolavado. Social
+washing o lavado social.
+- Políticas de anticorrupción y antisoborno.
+- Respeto a la normativa y contribución a los impuestos.
+- Evitar la participación en grupos de presión (lobbies).
+3. Medida de las estrategias ASG:
+- Indicadores ASG. Necesidad y ejemplos más relevantes.
+- Informes de sostenibilidad:
+8
+- Normativa europea sobre informes de sostenibilidad.
+- Normativa española sobre informes de sostenibilidad.
+4. Certificación ASG.
+5. El papel de los inversores en la sostenibilidad:
+- Concepto de Inversión y capital socialmente responsable.
+- Fondos ISR (Inversión Socialmente Responsable).
+- Índices bursátiles relacionados con el AGS y otros indicadores de sostenibilidad.
+6. Los planes de sostenibilidad:
+- Concepto de plan de sostenibilidad.
+- Fases para su elaboración:
+- Compromiso de la alta dirección.
+- Diagnóstico.
+- Recopilación de datos. Digitalización.
+- Análisis de doble materialidad.
+- Plan director.
+- Plan de comunicación.
+- Estrategias de seguimiento y mejora continua.
+- Indicadores de desempeño.
+- Análisis de planes de sostenibilidad, especialmente de empresas del sector profesional.
+
 
 ## 4 - Metodología de aprendizaje
 
