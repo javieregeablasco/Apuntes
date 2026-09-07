@@ -111,57 +111,55 @@ Contenidos disponibles [aquí](https://ceice.gva.es/documents/388109149/39033367
         - Certificaciones públicas.
         - Certificaciones privadas.
 
-
-Sostenibilidad Empresarial
-1. Conceptos empresariales básicos previos:
-- Definición de cadena de valor de una empresa.
-- Definición de grupos de interés, internos y externos, y sus expectativas.
-- Definición de impactos de nivel 1, 2 y 3 aplicados a toda la cadena de suministro.
-2. Concepto de ASG o ESG:
-- Definición e importancia de ASG o ESG.
-- Análisis de los riesgos y oportunidades que presentan para las empresas.
-- Los aspectos sociales. Acciones relacionadas con:
-- Condiciones laborales y derechos humanos.
-- Diversidad, igualdad e inclusión.
-- Participación en la comunidad, en su bienestar y su desarrollo.
-- Seguridad del producto y protección de los consumidores.
-- Compromisos con los proveedores.
-- Los aspectos ambientales. Acciones relacionadas con:
-- Protección de la biodiversidad.
-- Emisiones de gases de efecto invernadero y cambio climático. Medición de alcance 1, 2 y 3.
-- Gestión del agua.
-- Control de la contaminación.
-- Energías renovables y eficiencia energética.
-- Gestión de residuos y programas de reciclaje.
-- Los aspectos de gobernanza. Medidas relacionadas con:
-- Gobierno corporativo.
-- Transparencia y comunicación responsable. Greenwashing, lavado verde o ecolavado. Social
-washing o lavado social.
-- Políticas de anticorrupción y antisoborno.
-- Respeto a la normativa y contribución a los impuestos.
-- Evitar la participación en grupos de presión (lobbies).
-3. Medida de las estrategias ASG:
-- Indicadores ASG. Necesidad y ejemplos más relevantes.
-- Informes de sostenibilidad:
-- Normativa europea sobre informes de sostenibilidad.
-- Normativa española sobre informes de sostenibilidad.
-4. Certificación ASG.
-5. El papel de los inversores en la sostenibilidad:
-- Concepto de Inversión y capital socialmente responsable.
-- Fondos ISR (Inversión Socialmente Responsable).
-- Índices bursátiles relacionados con el AGS y otros indicadores de sostenibilidad.
-6. Los planes de sostenibilidad:
-- Concepto de plan de sostenibilidad.
-- Fases para su elaboración:
-- Compromiso de la alta dirección.
-- Diagnóstico.
-- Recopilación de datos. Digitalización.
-- Análisis de doble materialidad.
-- Plan director.
-- Plan de comunicación.
-- Estrategias de seguimiento y mejora continua.
-- Indicadores de desempeño.
-- Análisis de planes de sostenibilidad, especialmente de empresas del sector profesional
+!!! info "Sostenibilidad Empresarial"
+    1. Conceptos empresariales básicos previos:
+        - Definición de cadena de valor de una empresa.
+        - Definición de grupos de interés, internos y externos, y sus expectativas.
+        - Definición de impactos de nivel 1, 2 y 3 aplicados a toda la cadena de suministro.
+    1. Concepto de ASG o ESG:
+        - Definición e importancia de ASG o ESG.
+        - Análisis de los riesgos y oportunidades que presentan para las empresas.
+        - Los aspectos sociales. Acciones relacionadas con:
+            - Condiciones laborales y derechos humanos.
+            - Diversidad, igualdad e inclusión.
+            - Participación en la comunidad, en su bienestar y su desarrollo.
+            - Seguridad del producto y protección de los consumidores.
+            - Compromisos con los proveedores.
+        - Los aspectos ambientales. Acciones relacionadas con:
+            - Protección de la biodiversidad.
+            - Emisiones de gases de efecto invernadero y cambio climático. Medición de alcance 1, 2 y 3.
+            - Gestión del agua.
+            - Control de la contaminación.
+            - Energías renovables y eficiencia energética.
+            - Gestión de residuos y programas de reciclaje.
+        - Los aspectos de gobernanza. Medidas relacionadas con:
+            - Gobierno corporativo.
+            - Transparencia y comunicación responsable. Greenwashing, lavado verde o ecolavado. Social washing o lavado social.
+            - Políticas de anticorrupción y antisoborno.
+            - Respeto a la normativa y contribución a los impuestos.
+            - Evitar la participación en grupos de presión (lobbies).
+    1. Medida de las estrategias ASG:
+        - Indicadores ASG. Necesidad y ejemplos más relevantes.
+        - Informes de sostenibilidad:
+            - Normativa europea sobre informes de sostenibilidad.
+            - Normativa española sobre informes de sostenibilidad.
+    1. Certificación ASG.
+    1. El papel de los inversores en la sostenibilidad:
+        - Concepto de Inversión y capital socialmente responsable.
+            - Fondos ISR (Inversión Socialmente Responsable).
+            - Índices bursátiles relacionados con el AGS y otros indicadores de sostenibilidad.
+    1. Los planes de sostenibilidad:
+        - Concepto de plan de sostenibilidad.
+        - Fases para su elaboración:
+            - Compromiso de la alta dirección.
+            - Diagnóstico.
+            - Recopilación de datos. Digitalización.
+            - Análisis de doble materialidad.
+            - Plan director.
+            - Plan de comunicación.
+        - Estrategias de seguimiento y mejora continua.
+        - Indicadores de desempeño.
+        - Análisis de planes de sostenibilidad, especialmente de empresas del sector profesional
 
 ## 4 - Metodología de aprendizaje
 
@@ -197,15 +195,15 @@ washing o lavado social.
     |**a)** Se han identificado los principales retos ambientales y sociales.|20%|
     |**b)** Se han relacionado los retos ambientales y sociales con el desarrollo de la actividad económica.|20%|
     |**c)** Se ha analizado el efecto de los impactos ambientales y sociales sobre las personas y los sectores productivos.|20%|
-    |**d)**  Se han identificado las medidas y acciones encaminadas a minimizar los impactos ambientales y sociales.|20%|
-    |**e)** Se ha analizado la importancia de establecer alianzas y trabajar de manera transversal y coordinada para abordar con éxito los retos ambientales y sociales.|20%|
+    |**d)** Se han identificado las medidas y acciones encaminadas a minimizar los impactos ambientales y sociales.|20%|
+    |**e)** `Se ha analizado la importancia de establecer alianzas y trabajar de manera transversal y coordinada para abordar con éxito los retos ambientales y sociales.`|20%|
 
 === "RA 3"
     |RA3. Establece la aplicación de criterios de sostenibilidad en el desempeño profesional y personal, identificando los elementos necesarios.|Peso|
     |-|-|
     |**a)** Se han identificado los ODS más relevantes para la actividad profesional que realiza.|40%|
     |**b)** Se han analizado los riesgos y oportunidades que representan los ODS.|30%|
-    |**c)** Se han identificado las acciones necesarias para atender algunos de los retos ambientales y sociales desde la actividad profesional y elentorno personal.|30%|
+    |**c)** `Se han identificado las acciones necesarias para atender algunos de los retos ambientales y sociales desde la actividad profesional y elentorno personal.`|30%|
 
 === "RA 4"
     |RA4. Propón productos y servicios responsables teniendo en cuenta los principios de la economía circular.|Peso|
@@ -225,7 +223,7 @@ washing o lavado social.
     |**c)** Se han contrastado los beneficios de la economía verde y circular frente al modelo clásico de producción.|10%|
     |**d)** Se ha evaluado el impacto de las actividades personales y profesionales.|10%|
     |**e)** Se han aplicado principios de ecodiseño.|10%|
-    |**f)** Se han aplicado estrategias sostenibles.|10%|
+    |**f)** `Se han aplicado estrategias sostenibles.`|10%|
     |**g)** Se ha analizado el ciclo de vida del producto.|10%|
     |**h)** Se han identificado los procesos de producción y los criterios de sostenibilidad aplicados.|15%|
     |**i)** Se ha aplicado la normativa ambiental.|15%|
@@ -261,49 +259,19 @@ washing o lavado social.
 
 1. Evaluación por tutor empresa (dualización de los RA y CE):  
 
-=== "RA 1"
-    |Criterios de evaluación.|
-    |-|
-    |**e)** Se ha preparado el servicio para asignar la configuración básica a los sistemas de una red local.|
-
 === "RA 2"
     |Criterios de evaluación.|
     |-|
-    |**a)** Se han identificado y descrito escenarios en los que surge la necesidad de un servicio de resolución de nombres.|
-    |**c)** Se ha descrito la estructura, nomenclatura y funcionalidad de los sistemas de nombres jerárquicos.|
+    |**e)** Se ha analizado la importancia de establecer alianzas y trabajar de manera transversal y coordinada para abordar con éxito los retos ambientales y sociales.|20%|
 
 === "RA 3"
     |Criterios de evaluación.|
     |-|
-    |**a)** Se ha establecido la utilidad y modo de operación del servicio de transferencia de ficheros.|
-
-=== "RA 4"
-    |Criterios de evaluación.|
-    |-|
-    |**b)** Se ha instalado un servidor de correo electrónico.|
-    |**c)** Se han creado cuentas de usuario y verificado el acceso de las mismas.|
-    |**d)** Se han definido alias para las cuentas de correo.|
+    |**c)** Se han identificado las acciones necesarias para atender algunos de los retos ambientales y sociales desde la actividad profesional y elentorno personal.
 
 === "RA 5"
     |Criterios de evaluación.|
-    |-|
-    |**c)** Se han creado sitios virtuales.|  
-    |**f)** Se ha comprobando el acceso de los usuarios al servidor.|
-
-=== "RA 6"
-    |Criterios de evaluación.|
-    |-|
-    |**c)** Se ha instalado un servicio de acceso remoto en modo gráfico.|
-
-=== "RA 7"
-    |Criterios de evaluación.|
-    |-|
-    |**b)** Se han reconocido los protocolos, modos de funcionamiento y principales parámetros de configuración del punto de acceso.|
-
-=== "RA 8"
-    |Criterios de evaluación.|
-    |-|
-    |**b)** Se ha instalado una aplicación que actúe de pasarela entre la red privada local y la red pública.|
+    |**f)** Se han aplicado estrategias sostenibles.|
 
 ## 6 - Criterio de superación del módulo
 
