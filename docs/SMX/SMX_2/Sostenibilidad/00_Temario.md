@@ -338,44 +338,34 @@ flowchart TB
     EEE["5h."]
     DDD["4h."]
     
-    subgraph "`**UT8**`"
-      direction LR
-      E --> EEE 
-    end
-
-    subgraph "`**UT7**`"  
-      direction LR
-      H --> HHH 
-    end
-
     subgraph "`**UT6**`" 
       direction LR
-      G --> GGG 
+      D --> DDD 
     end
 
     subgraph "`**UT5**`" 
       direction LR
-      J --> JJJ 
+      E --> EEE 
     end
 
     subgraph "`**UT4**`" 
       direction LR
-      I --> III 
+      H --> HHH 
     end 
   
     subgraph "`**UT3**`" 
       direction LR
-      C --> CCC 
+      G --> GGG 
     end
     
     subgraph "`**UT2**`" 
       direction LR
-      A --> AAA 
+      C --> CCC 
     end
 
     subgraph "`**UT1**`"
       direction LR
-      D --> DDD 
+      A --> AAA 
     end
   
 
