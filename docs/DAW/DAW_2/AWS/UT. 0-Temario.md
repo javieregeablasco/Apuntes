@@ -166,19 +166,19 @@ A continuación, se presentan los contenidos de este módulo tal y como aparecen
 
 1. Evaluación por tutor empresa:
 === "RA 1"
-    e) Se ha hecho uso correcto de herramientas para estimar y gestionar presupuestos.  
+    **e)** Se ha hecho uso correcto de herramientas para estimar y gestionar presupuestos.  
     **f)** Se ha participado en actividades prácticas sobre gestión de costos.
 
 === "RA 2"
-    **d)** Se ha comprendido el modelo de responsabilidad compartida en la nube.
+    **d)** Se ha comprendido el modelo de responsabilidad compartida en la nube.  
     **f)** Se han realizado ejercicios sobre gestión de usuarios y políticas de seguridad.
 
 === "RA 3"
-    **d)** Se ha realizado la selección de servicios de computación adecuados según casos de uso.
+    **d)** Se ha realizado la selección de servicios de computación adecuados según casos de uso.  
     **f)** Se han desarrollado prácticas relacionadas con la optimización de recursos computacionales.
 
 === "RA 4"
-    **a)** Se ha realizado la diferenciación entre tecnologías de almacenamiento en la nube.
+    **a)** Se ha realizado la diferenciación entre tecnologías de almacenamiento en la nube.  
     **f)** `Se ha participado en actividades que simulen el análisis y mejora de arquitecturas existentes.
 
 ## 6. - Criterio de superación del módulo
