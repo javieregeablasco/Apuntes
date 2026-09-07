@@ -17,7 +17,7 @@ schedule: 96h - 3h/s
 
 ## 2. - Horario de sesiones
 
-![imagen](./img/opt.png){.cincozero}
+![imagen](./ut0/Horario2627.png){.marco}
 
 ## 3. - Contenidos del módulo
 
