@@ -271,6 +271,7 @@ Contenidos disponibles [aquí](https://ceice.gva.es/documents/388109149/39033367
 
 === "RA 5"
     |Criterios de evaluación.|
+    |-|
     |**f)** Se han aplicado estrategias sostenibles.|
 
 ## 6 - Criterio de superación del módulo
