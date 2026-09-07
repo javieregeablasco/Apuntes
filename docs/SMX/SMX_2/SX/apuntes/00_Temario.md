@@ -81,84 +81,84 @@ Contenidos disponibles [aquí](href=https://www.boe.es/eli/es/rd/2007/12/14/1691
 === "RA 1"
     |RA1. Instala servicios de configuración dinámica, describiendo sus características y aplicaciones.|Peso|
     |-|-|
-    |**a)** Se ha reconocido el funcionamiento de los mecanismos automatizados de configuración de los parámetros de red. |12%|
-    |**b)** Se han identificado las ventajas que proporcionan. |11%|
-    |**c)** Se han ilustrado los procedimientos y pautas que intervienen en una solicitud de configuración de los parámetros de red. |11%|
-    |**d)** Se ha instalado un servicio de configuración dinámica de los parámetros de red. |11%|
-    |**e)** Se ha preparado el servicio para asignar la configuración básica a los sistemas de una red local. |11%|
-    |**f)** Se han realizado asignaciones dinámicas y estáticas. |11%|
-    |**g)** Se han integrado en el servicio opciones adicionales de configuración. |11%|
-    |**h)** Se ha verificando la correcta asignación de los parámetros. |11%|
+    |**a)** Se ha reconocido el funcionamiento de los mecanismos automatizados de configuración de los parámetros de red. |10%|
+    |**b)** Se han identificado las ventajas que proporcionan. |10%|
+    |**c)** Se han ilustrado los procedimientos y pautas que intervienen en una solicitud de configuración de los parámetros de red. |15%|
+    |**d)** Se ha instalado un servicio de configuración dinámica de los parámetros de red. |15%|
+    |**e)** Se ha preparado el servicio para asignar la configuración básica a los sistemas de una red local. |10%|
+    |**f)** Se han realizado asignaciones dinámicas y estáticas. |10%|
+    |**g)** Se han integrado en el servicio opciones adicionales de configuración. |15%|
+    |**h)** Se ha verificando la correcta asignación de los parámetros. |15%|
 
 === "RA 2"
     |RA2. Instala servicios de resolución de nombres, describiendo sus características y aplicaciones.|Peso|
     |-|-|
-    |**a)** Se han identificado y descrito escenarios en los que surge la necesidad de un servicio de resolución de nombres.|12%|
-    |**b)** Se han clasificado los principales mecanismos de resolución de nombres.|11%|
-    |**c)** Se ha descrito la estructura, nomenclatura y funcionalidad de los sistemas de nombres jerárquicos.|11%|
-    |**d)** Se ha instalado un servicio jerárquico de resolución de nombres.|11%|
-    |**e)** Se ha preparado el servicio para almacenar las respuestas procedentes de servidores de redes públicas y servirlas a los equipos de la red local.|11%|
-    |**f)** Se han añadido registros de nombres correspondientes a una zona nueva, con opciones relativas a servidores de correo y alias.|11%|
-    |**g)** Se ha trabajado en grupo para realizar transferencias de zona entre dos o más servidores.|11%|
-    |**h)** Se ha comprobado el funcionamiento correcto del servidor.|11%|
+    |**a)** Se han identificado y descrito escenarios en los que surge la necesidad de un servicio de resolución de nombres.|10%|
+    |**b)** Se han clasificado los principales mecanismos de resolución de nombres.|10%|
+    |**c)** Se ha descrito la estructura, nomenclatura y funcionalidad de los sistemas de nombres jerárquicos.|15%|
+    |**d)** Se ha instalado un servicio jerárquico de resolución de nombres.|15%|
+    |**e)** Se ha preparado el servicio para almacenar las respuestas procedentes de servidores de redes públicas y servirlas a los equipos de la red local.|10%|
+    |**f)** Se han añadido registros de nombres correspondientes a una zona nueva, con opciones relativas a servidores de correo y alias.|10%|
+    |**g)** Se ha trabajado en grupo para realizar transferencias de zona entre dos o más servidores.|15%|
+    |**h)** Se ha comprobado el funcionamiento correcto del servidor.|15%|
 
 === "RA 3"
     |RA3. Instala servicios de transferencia de ficheros, describiendo sus características y aplicaciones.|Peso|
     |-|-|
-    |**a)** Se ha establecido la utilidad y modo de operación del servicio de transferencia de ficheros.|12%|
-    |**b)** Se ha instalado un servicio de transferencia de ficheros.|11%|
-    |**c)** Se han creado usuarios y grupos para acceso remoto al servidor.|11%|
-    |**d)** Se ha configurado el acceso anónimo.|11%|
-    |**e)** Se han establecido límites en los distintos modos de acceso.|11%|
-    |**f)** Se ha comprobado el acceso al servidor, tanto en modo activo como en modo pasivo.|11%|
-    |**g)** Se han realizado pruebas con clientes en línea de comandos y en modo gráfico.|11%|
+    |**a)** Se ha establecido la utilidad y modo de operación del servicio de transferencia de ficheros.|10%|
+    |**b)** Se ha instalado un servicio de transferencia de ficheros.|15%|
+    |**c)** Se han creado usuarios y grupos para acceso remoto al servidor.|15%|
+    |**d)** Se ha configurado el acceso anónimo.|15%|
+    |**e)** Se han establecido límites en los distintos modos de acceso.|15%|
+    |**f)** Se ha comprobado el acceso al servidor, tanto en modo activo como en modo pasivo.|15%|
+    |**g)** Se han realizado pruebas con clientes en línea de comandos y en modo gráfico.|15%|
 
 === "RA 4"
     |RA4. Gestiona servidores de correo electrónico identificando requerimientos de utilización y aplicando criterios de configuración.|Peso|
     |-|-|
-    |**a)** Se han descrito los diferentes protocolos que intervienen en el envío y recogida del correo electrónico.|12%|
-    |**b)** Se ha instalado un servidor de correo electrónico.|11%|
-    |**c)** Se han creado cuentas de usuario y verificado el acceso de las mismas.|11%|
-    |**d)** Se han definido alias para las cuentas de correo.|11%|
-    |**e)** Se han aplicado métodos para impedir usos indebidos del servidor de correo electrónico.|11%|
-    |**f)** Se han instalado servicios para permitir la recogida remota del correo existente en los buzones de usuario.|11%|
-    |**g)** Se han usado clientes de correo electrónico para enviar y recibir correo.|11%|
-    |**g)** Se han definido y utilizado clases heredadas.|11%|
+    |**a)** Se han descrito los diferentes protocolos que intervienen en el envío y recogida del correo electrónico.|10%|
+    |**b)** Se ha instalado un servidor de correo electrónico.|15%|
+    |**c)** Se han creado cuentas de usuario y verificado el acceso de las mismas.|15%|
+    |**d)** Se han definido alias para las cuentas de correo.|15%|
+    |**e)** Se han aplicado métodos para impedir usos indebidos del servidor de correo electrónico.|15%|
+    |**f)** Se han instalado servicios para permitir la recogida remota del correo existente en los buzones de usuario.|15%|
+    |**g)** Se han usado clientes de correo electrónico para enviar y recibir correo.|15%|
+    |**g)** Se han definido y utilizado clases heredadas.|15%|
 
 === "RA 5"
     |RA5. Gestiona servidores web identificando requerimientos de utilización y aplicando criterios de configuración.|Peso|
     |-|-|
-    |**a)** Se han descrito los fundamentos y protocolos en los que se basa el funcionamiento de un servidor web.|16%|
-    |**b)** Se ha instalado un servidor web.|12%|
-    |**c)** Se han creado sitios virtuales.|12%|
-    |**d)** Se han verificado las posibilidades existentes para discriminar el sitio destino del tráfico entrante al servidor.|12%|
-    |**e)** Se ha configurado la seguridad del servidor.|12%|
-    |**f)** Se ha comprobando el acceso de los usuarios al servidor.|12%|
-    |**g)** Se ha diferenciado y probado la ejecución de código en el servidor y en el cliente.|12%|
-    |**h)** Se han instalado módulos sobre el servidor.|12%|
-    |**i)** Se han establecido mecanismos para asegurar las comunicaciones entre el cliente y el servidor.|12%|
+    |**a)** Se han descrito los fundamentos y protocolos en los que se basa el funcionamiento de un servidor web.|10%|
+    |**b)** Se ha instalado un servidor web.|10%|
+    |**c)** Se han creado sitios virtuales.|10%|
+    |**d)** Se han verificado las posibilidades existentes para discriminar el sitio destino del tráfico entrante al servidor.|10%|
+    |**e)** Se ha configurado la seguridad del servidor.|10%|
+    |**f)** Se ha comprobando el acceso de los usuarios al servidor.|10%|
+    |**g)** Se ha diferenciado y probado la ejecución de código en el servidor y en el cliente.|10%|
+    |**h)** Se han instalado módulos sobre el servidor.|15%|
+    |**i)** Se han establecido mecanismos para asegurar las comunicaciones entre el cliente y el servidor.|15%|
 
 === "RA 6"
     |RA6. Gestiona métodos de acceso remoto describiendo sus características e instalando los servicios correspondientes.|Peso|
     |-|-|
     |**a)** Se han descrito métodos de acceso y administración remota de sistemas.|10%|
-    |**b)** Se ha instalado un servicio de acceso remoto en línea de comandos.|10%|
-    |**c)** Se ha instalado un servicio de acceso remoto en modo gráfico.|10%|
-    |**d)** Se ha comprobado el funcionamiento de ambos métodos.|10%|
-    |**e)** Se han identificado las principales ventajas y deficiencias de cada uno.|10%|
-    |**f)** Se han realizado pruebas de acceso remoto entre sistemas de distinta naturaleza.|10%|
-    |**g)** Se han realizado pruebas de administración remota entre sistemas de distinta naturaleza.|10%|
+    |**b)** Se ha instalado un servicio de acceso remoto en línea de comandos.|15%|
+    |**c)** Se ha instalado un servicio de acceso remoto en modo gráfico.|15%|
+    |**d)** Se ha comprobado el funcionamiento de ambos métodos.|15%|
+    |**e)** Se han identificado las principales ventajas y deficiencias de cada uno.|15%|
+    |**f)** Se han realizado pruebas de acceso remoto entre sistemas de distinta naturaleza.|15%|
+    |**g)** Se han realizado pruebas de administración remota entre sistemas de distinta naturaleza.|15%|
 
 === "RA 7"
     |RA7. Despliega redes inalámbricas seguras justificando la configuración elegida y describiendo los procedimientos de implantación.|Peso|
     |-|-|
     |**a)** Se ha instalado un punto de acceso inalámbrico dentro de una red local.|10%|
-    |**b)** Se han reconocido los protocolos, modos de funcionamiento y principales parámetros de configuración del punto de acceso.|10%|
-    |**c)** Se ha seleccionado la configuración más idónea sobre distintos escenarios de prueba.|10%|
-    |**d)** Se ha establecido un mecanismo adecuado de seguridad para las comunicaciones inalámbricas.|10%|
-    |**e)** Se han usado diversos tipos de dispositivos y adaptadores inalámbricos para comprobar la cobertura.|10%|
-    |**f)** Se ha instalado un encaminador inalámbrico con conexión a red pública y servicios inalámbricos de red local.|10%|
-    |**g)** Se ha configurado y probado el encaminador desde los ordenadores de la red local.|10%|
+    |**b)** Se han reconocido los protocolos, modos de funcionamiento y principales parámetros de configuración del punto de acceso.|15%|
+    |**c)** Se ha seleccionado la configuración más idónea sobre distintos escenarios de prueba.|15%|
+    |**d)** Se ha establecido un mecanismo adecuado de seguridad para las comunicaciones inalámbricas.|15%|
+    |**e)** Se han usado diversos tipos de dispositivos y adaptadores inalámbricos para comprobar la cobertura.|15%|
+    |**f)** Se ha instalado un encaminador inalámbrico con conexión a red pública y servicios inalámbricos de red local.|15%|
+    |**g)** Se ha configurado y probado el encaminador desde los ordenadores de la red local.|15%|
 
 === "RA 8"
     |RA8. Establece el acceso desde redes locales a redes públicas identificando posibles escenarios y aplicando software específico.|Peso|
@@ -169,7 +169,7 @@ Contenidos disponibles [aquí](href=https://www.boe.es/eli/es/rd/2007/12/14/1691
     |**d)** Se han configurado los sistemas de la red privada local para acceder a la red pública a través de la pasarela.|10%|
     |**e)** Se han establecido los procedimientos de control de acceso para asegurar el tráfico que se transmite a través de la pasarela.|10%|
     |**f)** Se han implementado mecanismos para acelerar las comunicaciones entre la red privada local y la pública.|10%|
-    |**g)** Se han identificado los posibles escenarios de aplicación de este tipo de mecanismos.||10%|
+    |**g)** Se han identificado los posibles escenarios de aplicación de este tipo de mecanismos.|10%|
     |**h)** Se ha establecido un mecanismo que permita reenviar tráfico de red entre dos o más interfaces de un mismo sistema.|10%|
     |**i)** Se ha comprobado el acceso a una red determinada desde los sistemas conectados a otra red distinta.|10%|
     |**j)** Se ha implantado y verificado la configuración para acceder desde una red pública a un servicio localizado en una máquina de una red privada local.|10%|
@@ -223,7 +223,7 @@ Contenidos disponibles [aquí](href=https://www.boe.es/eli/es/rd/2007/12/14/1691
     |Criterios de evaluación.|
     |-|
     |**c)** Se han creado sitios virtuales.|  
-    **f)** Se ha comprobando el acceso de los usuarios al servidor.|
+    |**f)** Se ha comprobando el acceso de los usuarios al servidor.|
 
 === "RA 6"
     |Criterios de evaluación.|
