@@ -179,7 +179,7 @@ A continuación, se presentan los contenidos de este módulo tal y como aparecen
 
 === "RA 4"
     **a)** Se ha realizado la diferenciación entre tecnologías de almacenamiento en la nube.  
-    **f)** `Se ha participado en actividades que simulen el análisis y mejora de arquitecturas existentes.
+    **f)** Se ha participado en actividades que simulen el análisis y mejora de arquitecturas existentes.
 
 ## 6. - Criterio de superación del módulo
 
@@ -208,13 +208,13 @@ En caso de no superar el módulo, el alumna/o dispondrá de un proceso de recupe
 
 ### 6.3. - Calendario de evaluaciones
 
-- Evaluación inicial (primer mes).
-- **Una evaluación parcial por cada trimestre**.
+1. Evaluación inicial (primer mes).
+1. **Una evaluación parcial por cada trimestre**.
 
     - Se daran las notas de los **RA** completados y también la nota **parcial** de los **RA** incompletos.
     - Para tener el aprobado será necesario haber alcanzado una puntuación superior o igual a 5 en los **Resultados de Aprendizaje RA** completados.
 
-- **Evaluación ordinaria** y **extraordinaria**: Permitiran recuperar los **RA no superados**.
+1. **Evaluación ordinaria** y **extraordinaria**: Permitiran recuperar los **RA no superados**.
 
 ## 7. - Secuenciación y duración de cada Unidad de Trabajo
 
@@ -222,16 +222,60 @@ Por motivos de simplicidad **se asocia un RA a cada tema. Los temas se dividirá
 
 ```mermaid
 flowchart TB 
-  A["Comprende los fundamentos de la computación en la nube, sus ventajas frente a sistemas tradicionales, el marco de adopción, los principios de migración y los aspectos clave de facturación, como estimación y optimización de costos."]
-  B["Identifica los componentes clave de la infraestructura global de la nube, diferenciando servicios principales, regiones, zonas de disponibilidad y aplicando medidas básicas de seguridad como el modelo de responsabilidad compartida, gestión de accesos y protección de datos."]
-  C["Diseña y configura redes virtuales y servicios de cómputo en la nube, aplicando buenas prácticas de seguridad, estrategias de balanceo de carga, escalado automático y aprovechando tecnologías serverless, contenedores y máquinas virtuales según casos de uso específicos."]
-  D["Gestiona servicios de almacenamiento y bases de datos en la nube, seleccionando tecnologías adecuadas para casos específicos, y diseña arquitecturas escalables y resilientes utilizando herramientas de monitoreo y optimización para mejorar el rendimiento."]
-  AA["9h -xx"]
-  BB["xx"]
-  CC["xx"]
-  DD["xx"]
+  A["Introducción al cloud computing"]
+  B["AWS - Amazon Web Services"]
+  C["AWS Academy / Control de costos"]
+  D["Infraestructuras en AWS"]
+  E["Instancias y grupos de seguridad en AWS"]
+  F["Despliegue de una infraestrucutra completa"]
+  G["Escalado y balanceo de una infraestructura completa"]
+  H["Sistemas de almacenamiento en AWS"]
+  I["Bases de datos en AWS"]
+  J["Despliegue y optimización de una infraestructura de BBDD en AWS"]
+  AA["3h"]
+  BB["3h"]
+  CC["6h"]
+  DD["3h"]
+  DD["12h"]
+  DD["12h"]
+  DD["6h"]
+  DD["3h"]
+  DD["6h"]
+  DD["12h"]
     
   subgraph Orden y duración de las UT
+
+    subgraph UT10  
+      direction LR
+      J --> JJ
+    end
+
+
+    subgraph UT9  
+      direction LR
+      I --> II
+    end
+    
+
+    subgraph UT8  
+      direction LR
+      H --> HH
+    end
+
+    subgraph UT7  
+      direction LR
+      G --> GG
+    end
+ 
+    subgraph UT6  
+      direction LR
+      F --> FF
+    end
+    
+    subgraph UT5  
+      direction LR
+      E --> EE
+    end
 
     subgraph UT4  
       direction LR
