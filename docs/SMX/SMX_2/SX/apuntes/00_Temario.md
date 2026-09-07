@@ -309,8 +309,6 @@ flowchart TB
     a,b,c,d,e,g`"]
     EEE["`**CE:**
     a,b,d,e,g,h,i`"]
-    FFF["`**CE:**
-    a,b,c`"]
     GGG["`**CE:**
     b,c,d,e,f,g`"]
     HHH["`**CE:**
