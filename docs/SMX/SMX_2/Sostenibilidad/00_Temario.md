@@ -285,14 +285,12 @@ En caso de no superar el módulo, el alumna/o dispondrá de un proceso de recupe
 
 |Resultado de aprendizaje|Porcentage|
 |-|-|
-|**RA1.** Instala servicios de configuración dinámica, describiendo sus características y aplicaciones.|25%|
-|**RA2.** Instala servicios de resolución de nombres, describiendo sus características y aplicaciones.|20%|
-|**RA3.** Instala servicios de transferencia de ficheros, describiendo sus características y aplicaciones.|10%|
-|**RA4.** Gestiona servidores de correo electrónico identificando requerimientos de utilización y aplicando criterios de configuración.|10%|
-|**RA5.** Gestiona servidores web identificando requerimientos de utilización y aplicando criterios de configuración.|15%|
-|**RA6.** Gestiona métodos de acceso remoto describiendo sus características e instalando los servicios correspondientes.|12.5%|
-|**RA7.** Despliega redes inalámbricas seguras justificando la configuración elegida y describiendo los procedimientos de implantación.|2.5%|
-|**RA8.** Establece el acceso desde redes locales a redes públicas identificando posibles escenarios y aplicando software específico.|5%|
+|**RA1.** Identifica los aspectos ambientales, sociales y de gobernanza (ASG) relativos a la sostenibilidad teniendo en cuenta el concepto de desarrollo sostenible y los marcos internacionales que contribuyen a su consecución.|18%|
+|**RA2.** Caracteriza los retos ambientales y sociales a los que se enfrenta la sociedad, describiendo los impactos sobre las personas y los sectores productivos y proponiendo acciones para minimizarlos.|17%|
+|**RA3.** Establece la aplicación de criterios de sostenibilidad en el desempeño profesional y personal, identificando los elementos necesarios.|15%|
+|**RA4.** Propón productos y servicios responsables teniendo en cuenta los principios de la economía circular.|17%|
+|**RA5.** Realiza actividades sostenibles minimizando el impacto de las mismas en el medio ambiente.|17%|
+|**RA6.** Analiza un plan de sostenibilidad de una empresa del sector, identificando sus grupos de interés, los aspectos ASG materiales y justificando acciones para su gestión y medición.|16%|
 
 ### 6.2 - Instrumentos de recuperación
 
