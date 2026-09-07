@@ -140,8 +140,8 @@ nav:
     - Protocolo DHCP: SMX/SMX_2/SX/apuntes/04_DHCP.md
     - Protocolo DNS: SMX/SMX_2/SX/apuntes/05_DNS.md
 
-  - Under development:
-    - Presentación módulo: DAW/DAW_2/PWES/UT. 0-Temario.md
+  - Sostenibilidad:
+    - Presentación módulo: SMX/SMX_2/Sostenibilidad/00_Temario.md
     
 extra: 
     generator: false #eliminar el made with""
