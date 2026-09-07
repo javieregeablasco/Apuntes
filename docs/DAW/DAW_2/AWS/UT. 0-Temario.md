@@ -13,7 +13,7 @@ schedule: 96h - 3h/s
 
 ## 1. - Calendario escolar
 
-![imagen](./img/CAL_2025-2026.png){.sietecinco}
+![imagen](../../../2627/26-27_FP_CALENDARI.png){.sietecinco}
 
 ## 2. - Horario de sesiones
 
