@@ -310,8 +310,8 @@ En caso de no superar el módulo, el alumna/o dispondrá de un proceso de recupe
 
 ```mermaid
 flowchart TB 
-  A["`**RA1**
-  Instala servicios de configuración dinámica, describiendo sus características y aplicaciones.`"]
+  A["`**UT 1 / RA1**
+  Identifica los aspectos ambientales, sociales y de gobernanza (ASG) relativos a la sostenibilidad teniendo en cuenta el concepto de desarrollo sostenible y los marcos internacionales que contribuyen a su consecución.`"]
   C["`**RA2**
   Instala servicios de resolución de nombres, describiendo sus características y aplicaciones.`"]
   G["`**RA3**
@@ -322,10 +322,7 @@ flowchart TB
   Gestiona servidores web identificando requerimientos de utilización y aplicando criterios de configuración.`"]
   D["`**RA6**
   Gestiona métodos de acceso remoto describiendo sus características e instalando los servicios correspondientes.`"]
-  J["`**RA7**
-  Despliega redes inalámbricas seguras justificando la configuración elegida y describiendo los procedimientos de implantación.`"]
-  I["`**RA8**
-  Establece el acceso desde redes locales a redes públicas identificando posibles escenarios y aplicando software específico.`"]
+ 
 
   classDef texto font-size:1.1em;
   classDef principal font-size:1.4em;
