@@ -24,147 +24,94 @@ schedule: 233h - 7h/w
 
 Contenidos disponibles [aquí](https://ceice.gva.es/documents/388109149/390333672/Sostenibilidad.pdf).
 
-!!! info "Instalación de servicios de configuración dinámica de sistemas"
-    - Dirección IP, máscara de red, puerta de enlace.
-    - DHCP. Rangos, exclusiones, concesiones y reservas.
+!!! info "Análisis de la situación actual: problemas, impactos y medida de impactos"
+    1. Identificación de los principales retos ambientales y sociales:
+        - Cambio climático.
+        - Contaminación del aire, agua y suelo.
+        - Pérdida de biodiversidad.
+        - Agotamiento de recursos naturales.
+        - Desigualdad social y económica.
+        - Pobreza.
+        - Desplazamiento forzado y migración.
+        - Discriminación y exclusión social.
+    1. Relación entre los retos ambientales y sociales y el desarrollo de la actividad económica:
+        - Impacto de la actividad industrial, agrícola, energética, etc., en los retos ambientales y sociales.
+        - Influencia de las políticas económicas y comerciales en la exacerbación o mitigación de los retos.
+    1. La medida de los impactos sobre el medio ambiente:
+        - Evaluación del impacto ambiental.
+        - La huella de carbono.
+    1. Análisis del efecto de los impactos ambientales y sociales sobre las personas y los sectores
+        - Impacto en la salud humana.
+        - Riesgos para la seguridad alimentaria.
+        - Interrupción de cadenas de suministro y producción.
+        - Aumento de costos y pérdida de productividad.
+    1. Identificación de medidas y acciones para minimizar los impactos ambientales:
+        - Fomento de la economía circular y el consumo sostenible.
+        - Medidas de descarbonización de la economía:
+            - Implementación de tecnologías limpias y prácticas sostenibles.
+            - Promoción de la eficiencia energética y el uso de energías renovables.
+            - Electrificación de la demanda.
+            - Cambios en procesos industriales y agrícolas.
+        - Medidas de adaptación al cambio climático.
+        - Medidas de compensación de emisiones de GEI.
+    1. Importancia de establecer alianzas y trabajar de manera transversal y coordinada:
+        - Colaboración entre empresas, gobierno, ONGs y la sociedad civil.
+        - Necesidad de compartir recursos, conocimientos y buenas prácticas.
+        - Importancia de la cooperación internacional para abordar problemas globales.
 
-!!! info "Instalación de servicios de resolución de nombres"
-    - Sistemas de nombres planos y jerárquicos.
-    - Zonas primarias y secundarias. Transferencias de zona.
-    - Tipos de registros.
+!!! info "Iniciativas internacionales, europeas y nacionales para afrontar esos problemas"
+    1. Introducción a la sostenibilidad y desarrollo sostenible:
+        - Definición del concepto de sostenibilidad.
+        - Explicación del desarrollo sostenible y su importancia.
+    1. Acciones encaminadas a lograr un desarrollo sostenible:
+        - Marco internacional de referencia: Agenda 2030, los Objetivos de Desarrollo Sostenible (ODS), Acuerdo de París, el marco de Sendai y la agenda de Addis Abeba.
+    1. La lucha contra el cambio climático:
+        - Acciones a nivel internacional.
+        - Acciones a nivel europeo.
+        - Acciones a nivel nacional.
+    1. La protección de la biodiversidad:
+        - Acciones a nivel internacional.
+        - Acciones a nivel europeo.
+        - Acciones a nivel nacional.
 
-!!! info "Instalación de servicios de transferencia de ficheros"
-    - Usuarios y grupos. Acceso anónimo.
-    - Permisos. Cuotas. Límite de ancho de banda.
-    - Comandos de control, autenticación, gestión y transferencia de ficheros.
-    - Transferencia en modo texto y binario.
+!!! info "Productos y actividades sostenibles"
+    1. Aplicación de criterios de sostenibilidad en el desempeño profesional y personal:
+        - Descripción de la actividad profesional y su impacto en la sociedad, la economía y el medio ambiente.
+        - Análisis de cómo los ODS se relacionan con esa actividad profesional.
+        - Identificación de los riesgos y las oportunidades, ambientales y sociales, asociados con el incumplimiento o la contribución a los ODS (Sinergias y Trade-offs o compensaciones).
+        - Integración de los ODS en la estrategia profesional y/o en la planificación de la intervención:
+            - Definición de objetivos y acciones específicas para contribuir al logro de esos ODS en el área de trabajo, una vez identificados los ODS pertinentes.
+            - Identificación de acciones necesarias para abordar retos ambientales y sociales desde la actividad profesional y personal:
+                - Desarrollo de estrategias para integrar los ODS en la práctica profesional y en la vida cotidiana.
+                - Identificación de acciones concretas que pueden implementarse para contribuir a los ODS.
+                - Exploración de cómo estas acciones pueden tener un impacto positivo tanto a nivel individual como en la comunidad y el entorno laboral.
+            - Evaluación continua para ajustar las acciones según sea necesario y maximizar el impacto de la empresa en el desarrollo sostenible.
+    1. Caracterización del modelo de producción y consumo actual:
+        - Modelo macroeconómico actual.
+        - Descripción de los principales aspectos del modelo lineal de producción y consumo.
+        - Identificación de sus impactos ambientales y sociales.
+    1. Identificación de los principios de la economía verde y circular:
+        - Explicación de los principios fundamentales de la economía verde.
+        - Explicación de los principios fundamentales de la economía circular (la minimización de residuos, la reutilización, el reciclaje y la renovabilidad de recursos).
+        - Tipos de reciclaje.
+        - Los distintos metabolismos de la economía circular.
+    1. Contraste de los beneficios de la economía verde y circular frente al modelo clásico de producción:
+        - Análisis y comparación de los beneficios ambientales, sociales y económicos de la economía verde y circular.
+        - Exploración de casos de estudio que demuestren los efectos positivos de la transición hacia la economía circular.
+        - Concepto de desacoplamiento entre crecimiento económico y consumo de recursos.
+        - Estrategias europeas y españolas de economía circular: planes y proyectos.
+    1. Aplicación de los principios de ecodiseño y diseño sostenible:
+        - Concepto de ecodiseño y diseño sostenible. Aplicación en el desarrollo de productos y servicios.
+        - Identificación de estrategias de diseño que minimicen el impacto ambiental a lo largo del ciclo de vida del producto.
+    1. Análisis del ciclo de vida del producto y su proceso de producción:
+        - Concepto de ciclo de vida del producto.
+        - Impactos ambientales, sociales y económicos asociados con todas las etapas del ciclo de vida del producto (diseño, extracción de materias primas, fabricación, acondicionamiento, embalaje, distribución, consumo final y desecho).
+        - Perspectiva de sostenibilidad a lo largo del ciclo de vida del producto.
+    1. Certificación y etiquetado de productos:
+        - Certificaciones públicas.
+        - Certificaciones privadas.
 
-!!! info "Gestión de servicios de correo electrónico"
-    - Cuentas de correo, alias y buzones de user.
-    - Protocolos y servicios de descarga de correo.
 
-!!! info "Gestión de servidores web"
-    - Servidores virtuales. Nombre de encabezado de host. Identificación de un servidor virtual.
-    - Acceso anónimo y autentificado. Métodos de autentificación.
-
-!!! info "Gestión de acceso remoto"
-    - Terminales en modo texto.
-    - Terminales en modo gráfico.
-
-!!! info "Despliegue de redes inalámbricas"
-    - Puntos de acceso.
-    - Encaminadores inalámbricos.
-    - Seguridad en redes inalámbricas.
-
-!!! info "Interconexión de redes privadas con redes públicas"
-    - Pasarelas a nivel de aplicación. Almacenamiento en memoria caché.
-    - Enrutamiento de tráfico entre interfaces de red.
-
-
-Análisis de la situación actual: problemas, impactos y medida de impactos.
-1. Identificación de los principales retos ambientales y sociales:
-- Cambio climático.
-4
-- Contaminación del aire, agua y suelo.
-- Pérdida de biodiversidad.
-- Agotamiento de recursos naturales.
-- Desigualdad social y económica.
-- Pobreza.
-- Desplazamiento forzado y migración.
-- Discriminación y exclusión social.
-2. Relación entre los retos ambientales y sociales y el desarrollo de la actividad económica:
-- Impacto de la actividad industrial, agrícola, energética, etc., en los retos ambientales y sociales.
-- Influencia de las políticas económicas y comerciales en la exacerbación o mitigación de los retos.
-3. La medida de los impactos sobre el medio ambiente:
-- Evaluación del impacto ambiental.
-- La huella de carbono.
-4. Análisis del efecto de los impactos ambientales y sociales sobre las personas y los sectores
-productivos:
-- Impacto en la salud humana.
-- Riesgos para la seguridad alimentaria.
-- Interrupción de cadenas de suministro y producción.
-- Aumento de costos y pérdida de productividad.
-5. Identificación de medidas y acciones para minimizar los impactos ambientales:
-- Fomento de la economía circular y el consumo sostenible.
-- Medidas de descarbonización de la economía:
-- Implementación de tecnologías limpias y prácticas sostenibles.
-- Promoción de la eficiencia energética y el uso de energías renovables.
-- Electrificación de la demanda.
-- Cambios en procesos industriales y agrícolas.
-- Medidas de adaptación al cambio climático.
-- Medidas de compensación de emisiones de GEI.
-6. Importancia de establecer alianzas y trabajar de manera transversal y coordinada:
-- Colaboración entre empresas, gobierno, ONGs y la sociedad civil.
-- Necesidad de compartir recursos, conocimientos y buenas prácticas.
-- Importancia de la cooperación internacional para abordar problemas globales.
-5
-Iniciativas internacionales, europeas y nacionales para afrontar esos problemas.
-1. Introducción a la sostenibilidad y desarrollo sostenible:
-- Definición del concepto de sostenibilidad.
-- Explicación del desarrollo sostenible y su importancia.
-2. Acciones encaminadas a lograr un desarrollo sostenible:
-- Marco internacional de referencia: Agenda 2030, los Objetivos de Desarrollo Sostenible (ODS),
-Acuerdo de París, el marco de Sendai y la agenda de Addis Abeba.
-3. La lucha contra el cambio climático:
-- Acciones a nivel internacional.
-- Acciones a nivel europeo.
-- Acciones a nivel nacional.
-4. La protección de la biodiversidad:
-- Acciones a nivel internacional.
-- Acciones a nivel europeo.
-- Acciones a nivel nacional.
-Productos y actividades sostenibles
-1.Aplicación de criterios de sostenibilidad en el desempeño profesional y personal:
-- Descripción de la actividad profesional y su impacto en la sociedad, la economía y el medio am-
-biente.
-- Análisis de cómo los ODS se relacionan con esa actividad profesional.
-- Identificación de los riesgos y las oportunidades, ambientales y sociales, asociados con el incumpli-
-miento o la contribución a los ODS (Sinergias y Trade-offs o compensaciones).
-- Integración de los ODS en la estrategia profesional y/o en la planificación de la intervención:
-- Definición de objetivos y acciones específicas para contribuir al logro de esos ODS en el
-área de trabajo, una vez identificados los ODS pertinentes.
-- Identificación de acciones necesarias para abordar retos ambientales y sociales desde la ac-
-tividad profesional y personal:
-- Desarrollo de estrategias para integrar los ODS en la práctica profesional y en la vida
-cotidiana.
-- Identificación de acciones concretas que pueden implementarse para contribuir a los
-ODS.
-6
-- Exploración de cómo estas acciones pueden tener un impacto positivo tanto a nivel
-individual como en la comunidad y el entorno laboral.
-- Evaluación continua para ajustar las acciones según sea necesario y maximizar el impacto
-de la empresa en el desarrollo sostenible.
-2. Caracterización del modelo de producción y consumo actual:
-- Modelo macroeconómico actual.
-- Descripción de los principales aspectos del modelo lineal de producción y consumo.
-- Identificación de sus impactos ambientales y sociales.
-3. Identificación de los principios de la economía verde y circular:
-- Explicación de los principios fundamentales de la economía verde.
-- Explicación de los principios fundamentales de la economía circular (la minimización de residuos,
-la reutilización, el reciclaje y la renovabilidad de recursos).
-- Tipos de reciclaje.
-- Los distintos metabolismos de la economía circular.
-4. Contraste de los beneficios de la economía verde y circular frente al modelo clásico de producción:
-- Análisis y comparación de los beneficios ambientales, sociales y económicos de la economía verde
-y circular.
-- Exploración de casos de estudio que demuestren los efectos positivos de la transición hacia la eco-
-nomía circular.
-- Concepto de desacoplamiento entre crecimiento económico y consumo de recursos.
-- Estrategias europeas y españolas de economía circular: planes y proyectos.
-5. Aplicación de los principios de ecodiseño y diseño sostenible:
-- Concepto de ecodiseño y diseño sostenible. Aplicación en el desarrollo de productos y servicios.
-- Identificación de estrategias de diseño que minimicen el impacto ambiental a lo largo del ciclo de
-vida del producto.
-6. Análisis del ciclo de vida del producto y su proceso de producción:
-- Concepto de ciclo de vida del producto.
-- Impactos ambientales, sociales y económicos asociados con todas las etapas del ciclo de vida del
-producto (diseño, extracción de materias primas, fabricación, acondicionamiento, embalaje, distribu-
-ción, consumo final y desecho).
-- Perspectiva de sostenibilidad a lo largo del ciclo de vida del producto.
-7. Certificación y etiquetado de productos:
-- Certificaciones públicas.
-7
-- Certificaciones privadas.
 Sostenibilidad Empresarial
 1. Conceptos empresariales básicos previos:
 - Definición de cadena de valor de una empresa.
@@ -196,7 +143,6 @@ washing o lavado social.
 3. Medida de las estrategias ASG:
 - Indicadores ASG. Necesidad y ejemplos más relevantes.
 - Informes de sostenibilidad:
-8
 - Normativa europea sobre informes de sostenibilidad.
 - Normativa española sobre informes de sostenibilidad.
 4. Certificación ASG.
@@ -215,8 +161,7 @@ washing o lavado social.
 - Plan de comunicación.
 - Estrategias de seguimiento y mejora continua.
 - Indicadores de desempeño.
-- Análisis de planes de sostenibilidad, especialmente de empresas del sector profesional.
-
+- Análisis de planes de sostenibilidad, especialmente de empresas del sector profesional
 
 ## 4 - Metodología de aprendizaje
 
@@ -237,99 +182,62 @@ washing o lavado social.
 **Los criterios de evaluación** asociados a los **resultados de aprendizaje** del módulo **Servicios en red** son los siguientes:
 
 === "RA 1"
-    |RA1. Instala servicios de configuración dinámica, describiendo sus características y aplicaciones.|Peso|
+    |RA1. Identifica los aspectos ambientales, sociales y de gobernanza (ASG) relativos a la sostenibilidad teniendo en cuenta el concepto de desarrollo sostenible y los marcos internacionales que contribuyen a su consecución.|Peso|
     |-|-|
-    |**a)** Se ha reconocido el funcionamiento de los mecanismos automatizados de configuración de los parámetros de red. |10%|
-    |**b)** Se han identificado las ventajas que proporcionan. |10%|
-    |**c)** Se han ilustrado los procedimientos y pautas que intervienen en una solicitud de configuración de los parámetros de red. |15%|
-    |**d)** Se ha instalado un servicio de configuración dinámica de los parámetros de red. |15%|
-    |**e)** `Se ha preparado el servicio para asignar la configuración básica a los sistemas de una red local.` |10%|
-    |**f)** Se han realizado asignaciones dinámicas y estáticas. |10%|
-    |**g)** Se han integrado en el servicio opciones adicionales de configuración. |15%|
-    |**h)** Se ha verificando la correcta asignación de los parámetros. |15%|
+    |**a)** Se ha descrito el concepto de sostenibilidad, estableciendo los marcos internacionales asociados al desarrollo sostenible. |15%|
+    |**b)** Se han identificado los asuntos ambientales, sociales y de gobernanza que influyen en el desarrollo sostenible de las organizaciones empresariales. |15%|
+    |**c)** Se han relacionado los Objetivos de Desarrollo Sostenible (ODS) con su importancia para la consecución de la Agenda 2030.|15%|
+    |**d)** Se ha analizado la importancia de identificar los aspectos ASG más relevantes para los grupos de interés de las organizaciones relacionándolos con los riesgos y oportunidades que suponen para la propia organización.|15%|
+    |**e)** Se han identificado los principales estándares de métricas para la evaluación del desempeño en sostenibilidad y su papel en la rendición de cuentas que marca la legislación vigente y las futuras regulaciones en desarrollo. |20%|
+    |**f)** Se ha descrito la inversión socialmente responsable y el papel de los analistas, inversores, agencias e índices de sostenibilidad en elfomento de la sostenibilidad. |20%|
 
 === "RA 2"
-    |RA2. Instala servicios de resolución de nombres, describiendo sus características y aplicaciones.|Peso|
+    |RA2. Caracteriza los retos ambientales y sociales a los que se enfrenta la sociedad, describiendo los impactos sobre las personas y los sectores productivos y proponiendo acciones para minimizarlos.|Peso|
     |-|-|
-    |**a)** `Se han identificado y descrito escenarios en los que surge la necesidad de un servicio de resolución de nombres.`|10%|
-    |**b)** Se han clasificado los principales mecanismos de resolución de nombres.|10%|
-    |**c)** `Se ha descrito la estructura, nomenclatura y funcionalidad de los sistemas de nombres jerárquicos.`|15%|
-    |**d)** Se ha instalado un servicio jerárquico de resolución de nombres.|15%|
-    |**e)** Se ha preparado el servicio para almacenar las respuestas procedentes de servidores de redes públicas y servirlas a los equipos de la red local.|10%|
-    |**f)** Se han añadido registros de nombres correspondientes a una zona nueva, con opciones relativas a servidores de correo y alias.|10%|
-    |**g)** Se ha trabajado en grupo para realizar transferencias de zona entre dos o más servidores.|15%|
-    |**h)** Se ha comprobado el funcionamiento correcto del servidor.|15%|
+    |**a)** Se han identificado los principales retos ambientales y sociales.|20%|
+    |**b)** Se han relacionado los retos ambientales y sociales con el desarrollo de la actividad económica.|20%|
+    |**c)** Se ha analizado el efecto de los impactos ambientales y sociales sobre las personas y los sectores productivos.|20%|
+    |**d)**  Se han identificado las medidas y acciones encaminadas a minimizar los impactos ambientales y sociales.|20%|
+    |**e)** Se ha analizado la importancia de establecer alianzas y trabajar de manera transversal y coordinada para abordar con éxito los retos ambientales y sociales.|20%|
 
 === "RA 3"
-    |RA3. Instala servicios de transferencia de ficheros, describiendo sus características y aplicaciones.|Peso|
+    |RA3. Establece la aplicación de criterios de sostenibilidad en el desempeño profesional y personal, identificando los elementos necesarios.|Peso|
     |-|-|
-    |**a)** `Se ha establecido la utilidad y modo de operación del servicio de transferencia de ficheros.`|10%|
-    |**b)** Se ha instalado un servicio de transferencia de ficheros.|15%|
-    |**c)** Se han creado usuarios y grupos para acceso remoto al servidor.|15%|
-    |**d)** Se ha configurado el acceso anónimo.|15%|
-    |**e)** Se han establecido límites en los distintos modos de acceso.|15%|
-    |**f)** Se ha comprobado el acceso al servidor, tanto en modo activo como en modo pasivo.|15%|
-    |**g)** Se han realizado pruebas con clientes en línea de comandos y en modo gráfico.|15%|
+    |**a)** Se han identificado los ODS más relevantes para la actividad profesional que realiza.|40%|
+    |**b)** Se han analizado los riesgos y oportunidades que representan los ODS.|30%|
+    |**c)** Se han identificado las acciones necesarias para atender algunos de los retos ambientales y sociales desde la actividad profesional y elentorno personal.|30%|
 
 === "RA 4"
-    |RA4. Gestiona servidores de correo electrónico identificando requerimientos de utilización y aplicando criterios de configuración.|Peso|
+    |RA4. Propón productos y servicios responsables teniendo en cuenta los principios de la economía circular.|Peso|
     |-|-|
-    |**a)** Se han descrito los diferentes protocolos que intervienen en el envío y recogida del correo electrónico.|10%|
-    |**b)** `Se ha instalado un servidor de correo electrónico.`|15%|
-    |**c)** `Se han creado cuentas de usuario y verificado el acceso de las mismas.`|15%|
-    |**d)** `Se han definido alias para las cuentas de correo.`|15%|
-    |**e)** Se han aplicado métodos para impedir usos indebidos del servidor de correo electrónico.|15%|
-    |**f)** Se han instalado servicios para permitir la recogida remota del correo existente en los buzones de usuario.|15%|
-    |**g)** Se han usado clientes de correo electrónico para enviar y recibir correo.|15%|
+    |**a)** Se ha caracterizado el modelo de producción y consumo actual.|20%|
+    |**b)** Se han identificado los principios de la economía verde y circular.|20%|
+    |**c)** Se han contrastado los beneficios de la economía verde y circular frente al modelo clásico de producción.|15%|
+    |**d)** Se han aplicado principios de ecodiseño.|15%|
+    |**e)** Se ha analizado el ciclo de vida del producto.|15%|
+    |**f)** Se han identificado los procesos de producción y los criterios de sostenibilidad aplicados.|15%|
 
 === "RA 5"
-    |RA5. Gestiona servidores web identificando requerimientos de utilización y aplicando criterios de configuración.|Peso|
+    |RA5. Realiza actividades sostenibles minimizando el impacto de las mismas en el medio ambiente.|Peso|
     |-|-|
-    |**a)** Se han descrito los fundamentos y protocolos en los que se basa el funcionamiento de un servidor web.|10%|
-    |**b)** Se ha instalado un servidor web.|10%|
-    |**c)** `Se han creado sitios virtuales.`|10%|
-    |**d)** Se han verificado las posibilidades existentes para discriminar el sitio destino del tráfico entrante al servidor.|10%|
-    |**e)** Se ha configurado la seguridad del servidor.|10%|
-    |**f)** `Se ha comprobando el acceso de los usuarios al servidor.`|10%|
-    |**g)** Se ha diferenciado y probado la ejecución de código en el servidor y en el cliente.|10%|
-    |**h)** Se han instalado módulos sobre el servidor.|15%|
-    |**i)** Se han establecido mecanismos para asegurar las comunicaciones entre el cliente y el servidor.|15%|
+    |**a)** Se ha caracterizado el modelo de producción y consumo actual.|10%|
+    |**b)** Se han identificado los principios de la economía verde y circular.|10%|
+    |**c)** Se han contrastado los beneficios de la economía verde y circular frente al modelo clásico de producción.|10%|
+    |**d)** Se ha evaluado el impacto de las actividades personales y profesionales.|10%|
+    |**e)** Se han aplicado principios de ecodiseño.|10%|
+    |**f)** Se han aplicado estrategias sostenibles.|10%|
+    |**g)** Se ha analizado el ciclo de vida del producto.|10%|
+    |**h)** Se han identificado los procesos de producción y los criterios de sostenibilidad aplicados.|15%|
+    |**i)** Se ha aplicado la normativa ambiental.|15%|
 
 === "RA 6"
-    |RA6. Gestiona métodos de acceso remoto describiendo sus características e instalando los servicios correspondientes.|Peso|
+    |RA6. Analiza un plan de sostenibilidad de una empresa del sector, identificando sus grupos de interés, los aspectos ASG materiales y justificando acciones para su gestión y medición.|Peso|
     |-|-|
-    |**a)** Se han descrito métodos de acceso y administración remota de sistemas.|10%|
-    |**b)** Se ha instalado un servicio de acceso remoto en línea de comandos.|15%|
-    |**c)** Se ha instalado un servicio de acceso remoto en modo gráfico.|15%|
-    |**d)** Se ha comprobado el funcionamiento de ambos métodos.|15%|
-    |**e)** Se han identificado las principales ventajas y deficiencias de cada uno.|15%|
-    |**f)** `Se han realizado pruebas de acceso remoto entre sistemas de distinta naturaleza.`|15%|
-    |**g)** Se han realizado pruebas de administración remota entre sistemas de distinta naturaleza.|15%|
-
-=== "RA 7"
-    |RA7. Despliega redes inalámbricas seguras justificando la configuración elegida y describiendo los procedimientos de implantación.|Peso|
-    |-|-|
-    |**a)** Se ha instalado un punto de acceso inalámbrico dentro de una red local.|10%|
-    |**b)** `Se han reconocido los protocolos, modos de funcionamiento y principales parámetros de configuración del punto de acceso.`|15%|
-    |**c)** Se ha seleccionado la configuración más idónea sobre distintos escenarios de prueba.|15%|
-    |**d)** Se ha establecido un mecanismo adecuado de seguridad para las comunicaciones inalámbricas.|15%|
-    |**e)** Se han usado diversos tipos de dispositivos y adaptadores inalámbricos para comprobar la cobertura.|15%|
-    |**f)** Se ha instalado un encaminador inalámbrico con conexión a red pública y servicios inalámbricos de red local.|15%|
-    |**g)** Se ha configurado y probado el encaminador desde los ordenadores de la red local.|15%|
-
-=== "RA 8"
-    |RA8. Establece el acceso desde redes locales a redes públicas identificando posibles escenarios y aplicando software específico.|Peso|
-    |-|-|
-    |**a)** Se ha instalado y configurado el hardware de un sistema con acceso a una red privada local y a una red pública.|10%|
-    |**b)** `Se ha instalado una aplicación que actúe de pasarela entre la red privada local y la red pública.`|10%|
-    |**c)** Se han reconocido y diferenciado las principales características y posibilidades de la aplicación seleccionada.|10%|
-    |**d)** Se han configurado los sistemas de la red privada local para acceder a la red pública a través de la pasarela.|10%|
-    |**e)** Se han establecido los procedimientos de control de acceso para asegurar el tráfico que se transmite a través de la pasarela.|10%|
-    |**f)** Se han implementado mecanismos para acelerar las comunicaciones entre la red privada local y la pública.|10%|
-    |**g)** Se han identificado los posibles escenarios de aplicación de este tipo de mecanismos.|10%|
-    |**h)** Se ha establecido un mecanismo que permita reenviar tráfico de red entre dos o más interfaces de un mismo sistema.|10%|
-    |**i)** Se ha comprobado el acceso a una red determinada desde los sistemas conectados a otra red distinta.|10%|
-    |**j)** Se ha implantado y verificado la configuración para acceder desde una red pública a un servicio localizado en una máquina de una red privada local.|10%|
+    |**a)** Se han identificado los principales grupos de interés de la empresa.|20%|
+    |**b)** Se han analizado los aspectos ASG materiales, las expectativas de los grupos de interés y la importancia de los aspectos ASG en relación con los objetivos empresariales.|20%|
+    |**c)** Se han definido acciones encaminadas a minimizar los impactos negativos y aprovechar las oportunidades que plantean los principales aspectos ASG identificados.|20%|
+    |**d)** Se han determinado las métricas de evaluación del desempeño de la empresa de acuerdo con los estándares de sostenibilidad más ampliamente utilizados.|20%|
+    |**e)** Se ha elaborado un informe de sostenibilidad con el plan y los indicadores propuestos.|20%|
 
 ### 5.2 - Metodología de evaluación
 
