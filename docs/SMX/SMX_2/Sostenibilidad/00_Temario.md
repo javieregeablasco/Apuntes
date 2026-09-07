@@ -1,16 +1,16 @@
 ---
 ciclo: CFGM - Técnico en Sistemas Microinformáticos y Redes
-title: Servicios en red
-module number: 0227
+title: Sostenibilidad aplicada al sistema productivo
+module number: 
 lesson: UD. 0.0 - Temario y métodos de evaluación  
 author: Javier Egea Blasco  
 layout: default  
 year: 26-27  
-keywords: SMX, SMR, SX, SR
+keywords: SMX, SMR, SOST
 schedule: 233h - 7h/w
 ---
 
-![Descripción de la imagen](./img_0/apunt_1.jpg){ .img1 }
+![Descripción de la imagen](./img_0/img_0_1.jpg){ .img1 }
 
 ## 1 - Calendario escolar
 
@@ -18,7 +18,7 @@ schedule: 233h - 7h/w
 
 ## 2 - Horario de sesiones
 
-![insertar imagen](./img_0/Horario-SMX-2-SX.png){.marco}
+![insertar imagen](./img_0/Horario-SMX-2-SOS.png){.marco}
 
 ## 3 - Contenidos del módulo
 
