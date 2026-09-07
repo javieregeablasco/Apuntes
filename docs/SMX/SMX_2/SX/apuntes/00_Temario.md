@@ -123,7 +123,6 @@ Contenidos disponibles [aquí](href=https://www.boe.es/eli/es/rd/2007/12/14/1691
     |**e)** Se han aplicado métodos para impedir usos indebidos del servidor de correo electrónico.|15%|
     |**f)** Se han instalado servicios para permitir la recogida remota del correo existente en los buzones de usuario.|15%|
     |**g)** Se han usado clientes de correo electrónico para enviar y recibir correo.|15%|
-    |**g)** Se han definido y utilizado clases heredadas.|15%|
 
 === "RA 5"
     |RA5. Gestiona servidores web identificando requerimientos de utilización y aplicando criterios de configuración.|Peso|
@@ -303,27 +302,24 @@ flowchart TB
   subgraph "`**Orden y duración de las UT**`"
 
     AAA["`**CE**
-    a,b,c`"]
-    BBB["`**CE:**
-    d,e,f,g,h`"]
+    a,b,c,d,f,g,h`"]
     CCC["`**CE:**
-    a,b,c,d,e,f,g,h`"]
+    b,d,e,f,g,h`"]
     DDD["`**CE:**
-    a,b,d,e`"]
+    a,b,c,d,e,g`"]
     EEE["`**CE:**
-    a,b,c,d,e,f,g,h`"]
+    a,b,d,e,g,h,i`"]
     FFF["`**CE:**
     a,b,c`"]
     GGG["`**CE:**
-    a,b,c,d,e,f,g`"]
+    b,c,d,e,f,g`"]
     HHH["`**CE:**
-    a,b,c,d,e,f,g`"]
+    a,e,f,g`"]
     III["`**CE:**
-    d,e,f`"]
+    a,c,d,e,f,g,h,i,j`"]
     JJJ["`**CE:**
-    a,b,c,d,e,f,g`"]
-    KKK["`**CE:**
-    f,g`"]
+    a,c,d,e,f,g`"]
+    
 
     subgraph "`**UT8**`"
       direction LR
