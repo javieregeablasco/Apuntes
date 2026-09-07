@@ -166,7 +166,7 @@ A continuación, se presentan los contenidos de este módulo tal y como aparecen
 
 1. Evaluación por tutor empresa:
 === "RA 1"
-    **e)** Se ha hecho uso correcto de herramientas para estimar y gestionar presupuestos.
+    e) Se ha hecho uso correcto de herramientas para estimar y gestionar presupuestos.  
     **f)** Se ha participado en actividades prácticas sobre gestión de costos.
 
 === "RA 2"
