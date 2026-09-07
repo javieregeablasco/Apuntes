@@ -252,14 +252,14 @@ En caso de no superar el módulo, el alumna/o dispondrá de un proceso de recupe
 
 |Resultado de aprendizaje|Porcentage|
 |-|-|
-|**RA1.** Instala servicios de configuración dinámica, describiendo sus características y aplicaciones.|5%|
-|**RA2.** Instala servicios de resolución de nombres, describiendo sus características y aplicaciones.|15%|
-|**RA3.** Instala servicios de transferencia de ficheros, describiendo sus características y aplicaciones.|20%|
-|**RA4.** Gestiona servidores de correo electrónico identificando requerimientos de utilización y aplicando criterios de configuración.|15%|
-|**RA5.** Gestiona servidores web identificando requerimientos de utilización y aplicando criterios de configuración.|25%|
-|**RA6.** Gestiona métodos de acceso remoto describiendo sus características e instalando los servicios correspondientes.|20%|
-|**RA7.** Despliega redes inalámbricas seguras justificando la configuración elegida y describiendo los procedimientos de implantación.|20%|
-|**RA8.** Establece el acceso desde redes locales a redes públicas identificando posibles escenarios y aplicando software específico.|20%|
+|**RA1.** Instala servicios de configuración dinámica, describiendo sus características y aplicaciones.|25%|
+|**RA2.** Instala servicios de resolución de nombres, describiendo sus características y aplicaciones.|20%|
+|**RA3.** Instala servicios de transferencia de ficheros, describiendo sus características y aplicaciones.|10%|
+|**RA4.** Gestiona servidores de correo electrónico identificando requerimientos de utilización y aplicando criterios de configuración.|10%|
+|**RA5.** Gestiona servidores web identificando requerimientos de utilización y aplicando criterios de configuración.|15%|
+|**RA6.** Gestiona métodos de acceso remoto describiendo sus características e instalando los servicios correspondientes.|12.5%|
+|**RA7.** Despliega redes inalámbricas seguras justificando la configuración elegida y describiendo los procedimientos de implantación.|2.5%|
+|**RA8.** Establece el acceso desde redes locales a redes públicas identificando posibles escenarios y aplicando software específico.|5%|
 
 ### 6.2 - Instrumentos de recuperación
 
