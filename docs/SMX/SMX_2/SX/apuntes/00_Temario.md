@@ -18,7 +18,7 @@ schedule: 233h - 7h/w
 
 ## 2 - Horario de sesiones
 
-![insertar imagen](./img_0/Horario-SMX-2-SX.png){.sietecinco}
+![insertar imagen](./img_0/Horario-SMX-2-SX.png){.marco}
 
 ## 3 - Contenidos del módulo
 
@@ -280,26 +280,20 @@ En caso de no superar el módulo, el alumna/o dispondrá de un proceso de recupe
 flowchart TB 
   A["`**RA1**
   Instala servicios de configuración dinámica, describiendo sus características y aplicaciones.`"]
-  B["`**RA1**
-  Instala servicios de configuración dinámica, describiendo sus características y aplicaciones.`"]
   C["`**RA2**
   Instala servicios de resolución de nombres, describiendo sus características y aplicaciones.`"]
-  D["`**RA6**
-  Gestiona métodos de acceso remoto describiendo sus características e instalando los servicios correspondientes.`"]
-  E["`**RA5**
-  Gestiona servidores web identificando requerimientos de utilización y aplicando criterios de configuración.`"]
-  F["`**RA8**
-  Establece el acceso desde redes locales a redes públicas identificando posibles escenarios y aplicando software específico.`"]
   G["`**RA3**
   Instala servicios de transferencia de ficheros, describiendo sus características y aplicaciones.`"]
   H["`**RA4**
   Gestiona servidores de correo electrónico identificando requerimientos de utilización y aplicando criterios de configuración.`"]
-  I["`**RA8**
-  Establece el acceso desde redes locales a redes públicas identificando posibles escenarios y aplicando software específico.`"]
+  E["`**RA5**
+  Gestiona servidores web identificando requerimientos de utilización y aplicando criterios de configuración.`"]
+  D["`**RA6**
+  Gestiona métodos de acceso remoto describiendo sus características e instalando los servicios correspondientes.`"]
   J["`**RA7**
   Despliega redes inalámbricas seguras justificando la configuración elegida y describiendo los procedimientos de implantación.`"]
-  K["`**RA6**
-  Gestiona métodos de acceso remoto describiendo sus características e instalando los servicios correspondientes.`"]
+  I["`**RA8**
+  Establece el acceso desde redes locales a redes públicas identificando posibles escenarios y aplicando software específico.`"]
 
   classDef texto font-size:1.1em;
   classDef principal font-size:1.4em;
@@ -307,28 +301,6 @@ flowchart TB
   class A,B,C,D,E,F,G,H,I,J,K texto;
 
   subgraph "`**Orden y duración de las UT**`"
-    AA["`**Horas**
-    14h`"]
-    BB["`**Horas**
-    20h`"]
-    CC["`**Horas**
-    25h`"]
-    DD["`**Horas**
-    20h`"]
-    EE["`**Horas**
-    22h`"]
-    FF["`**Horas**
-    10h`"]
-    GG["`**Horas**
-    20h`"]
-    HH["`**Horas**
-    18h`"]
-    II["`**Horas**
-    14h`"]
-    JJ["`**Horas**
-    14h`"]
-    KK["`**Horas**
-    14h`"]
 
     AAA["`**CE**
     a,b,c`"]
@@ -353,59 +325,44 @@ flowchart TB
     KKK["`**CE:**
     f,g`"]
 
-    subgraph "`**UT11**`"
-      direction LR
-      K --> KKK --> KK
-    end
-    
-    subgraph "`**UT10**`"   
-      direction LR
-      J --> JJJ --> JJ
-    end
-
-    subgraph "`**UT9**`"
-      direction LR
-      I --> III --> II
-    end
-
     subgraph "`**UT8**`"
       direction LR
-      H --> HHH --> HH
+      E --> EEE 
     end
 
     subgraph "`**UT7**`"  
       direction LR
-      G --> GGG --> GG
+      H --> HHH 
     end
 
     subgraph "`**UT6**`" 
       direction LR
-      F --> FFF --> FF
+      G --> GGG 
     end
 
     subgraph "`**UT5**`" 
       direction LR
-      E --> EEE --> EE
+      J --> JJJ 
     end
 
     subgraph "`**UT4**`" 
       direction LR
-      D --> DDD --> DD
-    end
+      I --> III 
+    end 
   
     subgraph "`**UT3**`" 
       direction LR
-      C --> CCC --> CC
+      C --> CCC 
     end
     
     subgraph "`**UT2**`" 
       direction LR
-      B --> BBB --> BB
+      A --> AAA 
     end
 
     subgraph "`**UT1**`"
       direction LR
-      A --> AAA --> AA
+      D --> DDD 
     end
   
 
