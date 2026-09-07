@@ -236,12 +236,12 @@ flowchart TB
   BB["3h"]
   CC["6h"]
   DD["3h"]
-  DD["12h"]
-  DD["12h"]
-  DD["6h"]
-  DD["3h"]
-  DD["6h"]
-  DD["12h"]
+  EE["12h"]
+  FF["12h"]
+  GG["6h"]
+  HH["3h"]
+  II["6h"]
+  JJ["12h"]
     
   subgraph Orden y duración de las UT
 
