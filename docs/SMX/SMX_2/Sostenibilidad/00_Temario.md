@@ -312,16 +312,16 @@ En caso de no superar el módulo, el alumna/o dispondrá de un proceso de recupe
 flowchart TB 
   A["`**UT 1 / RA1**
   Identifica los aspectos ambientales, sociales y de gobernanza (ASG) relativos a la sostenibilidad teniendo en cuenta el concepto de desarrollo sostenible y los marcos internacionales que contribuyen a su consecución.`"]
-  C["`**RA2**
-  Instala servicios de resolución de nombres, describiendo sus características y aplicaciones.`"]
+  C["`**UT 2 / RA2**
+  Caracteriza los retos ambientales y sociales a los que se enfrenta la sociedad, describiendo los impactos sobre las personas y los sectores productivos y proponiendo acciones para minimizarlos.`"]
   G["`**RA3**
-  Instala servicios de transferencia de ficheros, describiendo sus características y aplicaciones.`"]
+  Establece la aplicación de criterios de sostenibilidad en el desempeño profesional y personal, identificando los elementos necesarios.`"]
   H["`**RA4**
-  Gestiona servidores de correo electrónico identificando requerimientos de utilización y aplicando criterios de configuración.`"]
+  Propón productos y servicios responsables teniendo en cuenta los principios de la economía circular.`"]
   E["`**RA5**
-  Gestiona servidores web identificando requerimientos de utilización y aplicando criterios de configuración.`"]
+  Realiza actividades sostenibles minimizando el impacto de las mismas en el medio ambiente.`"]
   D["`**RA6**
-  Gestiona métodos de acceso remoto describiendo sus características e instalando los servicios correspondientes.`"]
+  Analiza un plan de sostenibilidad de una empresa del sector, identificando sus grupos de interés, los aspectos ASG materiales y justificando acciones para su gestión y medición.`"]
  
 
   classDef texto font-size:1.1em;
@@ -331,24 +331,13 @@ flowchart TB
 
   subgraph "`**Orden y duración de las UT**`"
 
-    AAA["`**CE**
-    a,b,c,d,f,g,h`"]
-    CCC["`**CE:**
-    b,d,e,f,g,h`"]
-    DDD["`**CE:**
-    a,b,c,d,e,g`"]
-    EEE["`**CE:**
-    a,b,d,e,g,h,i`"]
-    GGG["`**CE:**
-    b,c,d,e,f,g`"]
-    HHH["`**CE:**
-    a,e,f,g`"]
-    III["`**CE:**
-    a,c,d,e,f,g,h,i,j`"]
-    JJJ["`**CE:**
-    a,c,d,e,f,g`"]
+    AAA["6h."]
+    CCC["5h."]
+    GGG["4h."]
+    HHH["5h."]
+    EEE["5h."]
+    DDD["4h."]
     
-
     subgraph "`**UT8**`"
       direction LR
       E --> EEE 
