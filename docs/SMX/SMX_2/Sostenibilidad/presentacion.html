@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sostenibilidad Aplicada al Sistema Productivo - 1º SMR</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            padding: 40px 0;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, #4CAF50, #2196F3, #9C27B0);
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        .header h1 {
+            font-size: 3.2em;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+        }
+
+        .professor-info {
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            padding: 25px;
+            border-radius: 20px;
+            margin: 30px 0;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transform: translateY(-10px);
+        }
+
+        .professor-info h2 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .professor-info h2::before {
+            content: '🌱';
+            margin-right: 15px;
+            font-size: 1.2em;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .info-item {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+
+        .info-item strong {
+            color: #fff;
+            font-size: 1.1em;
+        }
+
+        /* Cards */
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 24px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #4CAF50, #2196F3, #9C27B0, #FF5722);
+            border-radius: 24px 24px 0 0;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
+        }
+
+        .card h2 {
+            font-size: 2.2em;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .card h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 4px;
+        }
+
+        /* Interactive sections */
+        .interactive-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 24px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .interactive-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #4CAF50, #2196F3);
+            border-radius: 24px 24px 0 0;
+        }
+
+        .interactive-title {
+            font-size: 2.2em;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .interactive-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 4px;
+        }
+
+        /* RA Cards with dual styling */
+        .ra-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .ra-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+            border-radius: 20px;
+            padding: 30px;
+            border-left: 6px solid;
+            backdrop-filter: blur(15px);
+            transition: all 0.3s ease;
+        }
+
+        .ra-card:nth-child(1) { border-left-color: #FF5722; }
+        .ra-card:nth-child(2) { border-left-color: #2196F3; }
+        .ra-card:nth-child(3) { border-left-color: #4CAF50; }
+        .ra-card:nth-child(4) { border-left-color: #9C27B0; }
+        .ra-card:nth-child(5) { border-left-color: #607D8B; }
+        .ra-card:nth-child(6) { border-left-color: #FF9800; }
+
+        .ra-card:hover {
+            transform: translateX(10px);
+            box-shadow: -10px 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .ra-card.dual {
+            background: linear-gradient(135deg, rgba(255, 152, 0, 0.15), rgba(255, 152, 0, 0.05));
+            border-left-color: #FF9800 !important;
+        }
+
+        .ra-title {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .ra-description {
+            color: #555;
+            font-size: 1.05em;
+            margin-bottom: 15px;
+        }
+
+        .ra-example {
+            background: rgba(0, 0, 0, 0.05);
+            padding: 12px 16px;
+            border-radius: 10px;
+            font-style: italic;
+            color: #666;
+            border-left: 4px solid #667eea;
+        }
+
+        .dual-badge {
+            background: linear-gradient(45deg, #FF9800, #FFB74D);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        /* Dual info box */
+        .dual-info {
+            background: rgba(255, 152, 0, 0.1);
+            border-left: 4px solid #FF9800;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 25px 0;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 16px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: 700;
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 1em;
+            font-weight: 500;
+        }
+
+        /* Table with dual row styling */
+        .modern-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .modern-table th {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        .modern-table td {
+            padding: 18px 20px;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 1.05em;
+        }
+
+        .modern-table tr:hover {
+            background: rgba(102, 126, 234, 0.05);
+        }
+
+        .modern-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .dual-row {
+            background: rgba(255, 152, 0, 0.1) !important;
+        }
+
+        /* Progress bars for evaluation */
+        .evaluation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .evaluation-item {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 25px;
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+        }
+
+        .evaluation-item.dual {
+            background: rgba(255, 152, 0, 0.1);
+            border: 2px solid rgba(255, 152, 0, 0.3);
+        }
+
+        .eval-title {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .progress-bar {
+            background: #e0e0e0;
+            border-radius: 20px;
+            height: 12px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            border-radius: 20px;
+            transition: width 0.8s ease;
+            background: linear-gradient(90deg, #4CAF50, #45a049);
+        }
+
+        .progress-fill.ra1 { width: 20%; background: linear-gradient(90deg, #FF5722, #FF7043); }
+        .progress-fill.ra2 { width: 20%; background: linear-gradient(90deg, #2196F3, #42A5F5); }
+        .progress-fill.ra3 { width: 20%; background: linear-gradient(90deg, #4CAF50, #66BB6A); }
+        .progress-fill.ra4 { width: 15%; background: linear-gradient(90deg, #9C27B0, #BA68C8); }
+        .progress-fill.ra5 { width: 15%; background: linear-gradient(90deg, #607D8B, #78909C); }
+        .progress-fill.ra6 { width: 10%; background: linear-gradient(90deg, #FF9800, #FFB74D); }
+
+        .percentage {
+            font-weight: 700;
+            color: #2c3e50;
+            font-size: 1.2em;
+        }
+
+        /* Quiz and poll styling */
+        .poll-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .poll-option {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 25px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            border: 2px solid transparent;
+        }
+
+        .poll-option:hover {
+            background: rgba(102, 126, 234, 0.1);
+            border-color: #667eea;
+            transform: translateY(-3px);
+        }
+
+        .poll-option.selected {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .quiz-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .quiz-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 25px;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .quiz-card:hover {
+            border-color: #667eea;
+            transform: translateY(-2px);
+        }
+
+        .quiz-question {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .quiz-answer {
+            color: #666;
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            background: rgba(76, 175, 80, 0.1);
+            border-radius: 10px;
+            border-left: 4px solid #4CAF50;
+        }
+
+        /* Lists */
+        .modern-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .modern-list li {
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .modern-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 15px;
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(44, 62, 80, 0.95);
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 60px;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.2em;
+            }
+            .card {
+                padding: 25px;
+                margin-bottom: 25px;
+            }
+            .ra-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .info-grid, .stats-grid, .poll-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card, .interactive-card {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .card:nth-child(2) { animation-delay: 0.1s; }
+        .card:nth-child(3) { animation-delay: 0.2s; }
+        .card:nth-child(4) { animation-delay: 0.3s; }
+        .card:nth-child(5) { animation-delay: 0.4s; }
+        .card:nth-child(6) { animation-delay: 0.5s; }
+
+        /* Special highlights */
+        .highlight-box {
+            background: rgba(255, 193, 7, 0.1);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #FFC107;
+            margin-top: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <h1>🌍 Sostenibilidad Aplicada al Sistema Productivo</h1>
+            <div class="professor-info">
+                <h2>Información del Módulo</h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <strong>👨‍🏫 Profesor:</strong><br>
+                        Javier Egea Blasco
+                    </div>
+                    <div class="info-item">
+                        <strong>🎓 Ciclo:</strong><br>
+                        2º SMR - Sistemas Microinformáticos y Redes
+                    </div>
+                    <div class="info-item">
+                        <strong>🏫 Centro:</strong><br>
+                        IES Mestre Ramón Esteve (Catadau)
+                    </div>
+                    <div class="info-item">
+                        <strong>📅 Curso:</strong><br>
+                        2026-2027 | Segundo Curso
+                    </div>
+                    <div class="info-item">
+                        <strong>⏱️ Duración:</strong><br>
+                        32 horas | 1h semanal
+                    </div>
+                    <div class="info-item">
+                        <strong>🏭 Modalidad:</strong><br>
+                        Formación Profesional Dual
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Introducción -->
+        <div class="card">
+            <h2>🎯 Introducción</h2>
+            <p>El módulo <strong>Sostenibilidad Aplicada al Sistema Productivo</strong> forma parte del primer curso del Ciclo Formativo de Grado Medio en Sistemas Microinformáticos y Redes, como módulo transversal de la nueva FP.</p>
+            <br>
+            <p>Su principal objetivo es capacitar al alumnado con competencias en sostenibilidad aplicadas específicamente al sector tecnológico, preparándolos para ser profesionales conscientes del impacto ambiental y social de la tecnología.</p>
+        </div>
+
+        <!-- Formación Dual -->
+        <!-- <div class="card">
+            <h2>🏢 Formación Profesional Dual</h2>
+            <p>Este módulo participa en la <strong>modalidad dual</strong>, combinando formación en el centro educativo con experiencia práctica en empresas del sector tecnológico durante el período marzo-mayo.</p>
+            <div class="dual-info">
+                <strong>🌟 RA6 - Plan de Sostenibilidad Empresarial:</strong> Este resultado de aprendizaje es especialmente recomendado para desarrollar en modalidad dual, ya que permite al alumnado aplicar directamente en empresas reales el análisis de planes de sostenibilidad, identificación de grupos de interés y elaboración de propuestas de mejora específicas del sector TIC.
+            </div>
+        </div>  -->
+
+        <!-- Estadísticas motivadoras -->
+        <!-- <div class="card">
+            <h2>📊 Datos que Te Harán Reflexionar</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">4%</span>
+                    <p class="stat-label">de las emisiones globales provienen del sector TIC</p>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">54M</span>
+                    <p class="stat-label">toneladas de residuos electrónicos en 2023</p>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">32h</span>
+                    <p class="stat-label">para transformar tu perspectiva profesional</p>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">85%</span>
+                    <p class="stat-label">de empresas tech españolas con planes de sostenibilidad</p>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">2030</span>
+                    <p class="stat-label">objetivo global para la neutralidad de carbono</p>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">78%</span>
+                    <p class="stat-label">de ofertas TIC incluyen criterios de sostenibilidad</p>
+                </div>
+            </div>
+        </div> -->
+
+        <!-- Quiz inicial -->
+        <!-- <div class="interactive-card">
+            <h2 class="interactive-title">🧠 Evaluación Inicial Grupal</h2>
+            <p style="margin-bottom: 25px; color: #666; text-align: center;">Vamos a debatir entre todos estas afirmaciones - Participación libre</p>
+            <div class="quiz-grid">
+                <div class="quiz-card" onclick="toggleQuiz(this, false)">
+                    <div class="quiz-question">🔋 Los equipos en standby no consumen energía significativa</div>
+                    <div class="quiz-answer">❌ <strong>Falso.</strong> Un ordenador en standby consume 2-8W continuamente. En una oficina de 20 equipos, esto supone 350€ anuales innecesarios.</div>
+                </div>
+                <div class="quiz-card" onclick="toggleQuiz(this, true)">
+                    <div class="quiz-question">🌱 Un técnico SMR puede impactar significativamente en la sostenibilidad</div>
+                    <div class="quiz-answer">✅ <strong>Verdadero.</strong> Desde elegir proveedores hasta configurar sistemas eficientemente, cada decisión técnica tiene impacto ambiental y económico.</div>
+                </div>
+                <div class="quiz-card" onclick="toggleQuiz(this, false)">
+                    <div class="quiz-question">☁️ La nube no contamina porque es "virtual"</div>
+                    <div class="quiz-answer">❌ <strong>Falso.</strong> Los centros de datos consumen 1% de la electricidad mundial. Cada email con adjunto genera 50g de CO₂.</div>
+                </div>
+            </div>
+        </div> -->
+
+        <!-- Resultados de aprendizaje con dual destacado -->
+        <div class="card">
+            <h2>🔧 Resultados de Aprendizaje (RA)</h2>
+            <p>El módulo está estructurado en torno a 6 Resultados de Aprendizaje fundamentales:</p>
+            <div class="ra-grid">
+                <div class="ra-card">
+                    <div class="ra-title">RA1 - Marco ASG y Sostenibilidad</div>
+                    <div class="ra-description">Conocer los aspectos Ambientales, Sociales y de Gobernanza aplicados al sector TIC y los marcos internacionales de sostenibilidad.</div>
+                    <div class="ra-example">💡 Ejemplo: Analizar la política de sostenibilidad de una empresa tecnológica</div>
+                </div>
+                <div class="ra-card">
+                    <div class="ra-title">RA2 - Retos Ambientales TIC</div>
+                    <div class="ra-description">Identificar los principales impactos ambientales del sector tecnológico y estrategias para minimizarlos.</div>
+                    <div class="ra-example">💡 Ejemplo: Calcular huella de carbono de dispositivos tecnológicos</div>
+                </div>
+                <div class="ra-card">
+                    <div class="ra-title">RA3 - Desempeño Profesional Sostenible</div>
+                    <div class="ra-description">Aplicar criterios de sostenibilidad en el trabajo diario como técnico SMR.</div>
+                    <div class="ra-example">💡 Ejemplo: Protocolo de configuración eficiente para equipos</div>
+                </div>
+                <div class="ra-card">
+                    <div class="ra-title">RA4 - Economía Circular</div>
+                    <div class="ra-description">Proponer soluciones basadas en reducir, reutilizar y reciclar equipos tecnológicos.</div>
+                    <div class="ra-example">💡 Ejemplo: Programa de reacondicionamiento de equipos</div>
+                </div>
+                <div class="ra-card">
+                    <div class="ra-title">RA5 - Actividades Sostenibles</div>
+                    <div class="ra-description">Realizar instalaciones y mantenimientos aplicando criterios de eficiencia energética y ambiental.</div>
+                    <div class="ra-example">💡 Ejemplo: Configurar gestión de energía en equipos</div>
+                </div>
+                <div class="ra-card dual">
+                    <div class="ra-title">RA6 - Plan de Sostenibilidad Empresarial <span class="dual-badge">★ DUAL</span></div>
+                    <div class="ra-description">Analizar planes de sostenibilidad empresariales identificando grupos de interés, aspectos ASG materiales y elaborando propuestas de mejora.</div>
+                    <div class="ra-example">💡 Ejemplo: Crear plan de sostenibilidad para departamento IT de empresa real</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Formación Dual -->
+        <div class="card">
+            <h2>🏢 Formación Profesional Dual</h2>
+            <p>Este módulo participa en la <strong>modalidad dual</strong>, combinando formación en el centro educativo con experiencia práctica en empresas del sector tecnológico durante el período marzo-mayo.</p>
+            <div class="dual-info">
+                <strong>🌟 RA6 - Plan de Sostenibilidad Empresarial:</strong> Este resultado de aprendizaje es especialmente recomendado para desarrollar en modalidad dual, ya que permite al alumnado aplicar directamente en empresas reales el análisis de planes de sostenibilidad, identificación de grupos de interés y elaboración de propuestas de mejora específicas del sector TIC.
+            </div>
+        </div>
+
+        <!-- Temporalización -->
+        <div class="card">
+            <h2>📊 Temporalización del Curso</h2>
+            <table class="modern-table">
+                <thead>
+                    <tr>
+                        <th>Unidad Didáctica</th>
+                        <th>Horas</th>
+                        <th>RA</th>
+                        <th>Trimestre</th>
+                        <th>Modalidad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Marco ASG y desarrollo sostenible</td>
+                        <td>6h</td>
+                        <td>RA1</td>
+                        <td>1º Trimestre</td>
+                        <td>Centro</td>
+                    </tr>
+                    <tr>
+                        <td>Retos ambientales y sociales del sector TIC</td>
+                        <td>6h</td>
+                        <td>RA2</td>
+                        <td>1º Trimestre</td>
+                        <td>Centro</td>
+                    </tr>
+                    <tr>
+                        <td>Criterios de sostenibilidad profesional</td>
+                        <td>6h</td>
+                        <td>RA3</td>
+                        <td>2º Trimestre</td>
+                        <td>Centro</td>
+                    </tr>
+                    <tr>
+                        <td>Economía circular en TIC</td>
+                        <td>5h</td>
+                        <td>RA4</td>
+                        <td>2º Trimestre</td>
+                        <td>Centro</td>
+                    </tr>
+                    <tr>
+                        <td>Actividades y operaciones sostenibles</td>
+                        <td>5h</td>
+                        <td>RA5</td>
+                        <td>2º Trimestre</td>
+                        <td>Centro</td>
+                    </tr>
+                    <tr class="dual-row">
+                        <td><strong>Plan de sostenibilidad empresarial</strong></td>
+                        <td>4h</td>
+                        <td>RA6</td>
+                        <td>3º Trimestre</td>
+                        <td><strong>🏢 Dual/Empresa</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Evaluación -->
+        <div class="card">
+            <h2>📈 Sistema de Evaluación</h2>
+            <p>La evaluación se basa en competencias y es <strong>continua, integradora y orientadora</strong>. Cada RA tiene un peso específico en la calificación final:</p>
+            <div class="evaluation-grid">
+                <div class="evaluation-item">
+                    <div class="eval-title">RA1 - Marco ASG</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill ra1"></div>
+                    </div>
+                    <div class="percentage">20%</div>
+                </div>
+                <div class="evaluation-item">
+                    <div class="eval-title">RA2 - Retos Ambientales</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill ra2"></div>
+                    </div>
+                    <div class="percentage">20%</div>
+                </div>
+                <div class="evaluation-item">
+                    <div class="eval-title">RA3 - Desempeño Profesional</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill ra3"></div>
+                    </div>
+                    <div class="percentage">20%</div>
+                </div>
+                <div class="evaluation-item">
+                    <div class="eval-title">RA4 - Economía Circular</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill ra4"></div>
+                    </div>
+                    <div class="percentage">15%</div>
+                </div>
+                <div class="evaluation-item">
+                    <div class="eval-title">RA5 - Actividades Sostenibles</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill ra5"></div>
+                    </div>
+                    <div class="percentage">15%</div>
+                </div>
+                <div class="evaluation-item dual">
+                    <div class="eval-title">RA6 - Plan Sostenibilidad ★ DUAL</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill ra6"></div>
+                    </div>
+                    <div class="percentage">10%</div>
+                </div>
+            </div>
+            <div class="highlight-box">
+                <strong>⚠️ Requisito importante:</strong> Es necesario superar TODOS los RA con una puntuación mínima del 50% para aprobar el módulo.
+            </div>
+        </div>
+
+        <!-- Metodología -->
+        <div class="card">
+            <h2>🎓 Metodología Participativa</h2>
+            <ul class="modern-list">
+                <li><strong>Debates grupales</strong> sobre dilemas sostenibles del sector TIC</li>
+                <li><strong>Análisis colaborativo</strong> de casos reales de empresas tecnológicas</li>
+                <li><strong>Calculadoras de impacto</strong> para medir huella de carbono digital</li>
+                <li><strong>Formación dual</strong> con experiencia práctica en empresas</li>
+                <li><strong>Presentaciones participativas</strong> de proyectos sostenibles</li>
+                <li><strong>Lluvia de ideas</strong> para soluciones innovadoras</li>
+                <li><strong>Evaluación por competencias</strong> mediante rúbricas prácticas</li>
+            </ul>
+        </div>
+
+        <!-- Reflexión final -->
+        <!-- <div class="interactive-card">
+            <h2 class="interactive-title">💭 Reflexión Grupal Final</h2>
+            <div style="background: rgba(33, 150, 243, 0.1); padding: 25px; border-radius: 16px; border-left: 4px solid #2196F3; margin: 25px 0;">
+                <strong>🌱 Pregunta abierta para toda la clase:</strong><br>
+                "Como futuros técnicos SMR, ¿cuál creéis que será nuestro papel en la transición hacia un sector tecnológico más sostenible? ¿Qué podemos aportar desde nuestra formación?"
+            </div>
+            <p style="text-align: center; margin: 20px 0; color: #666;">Debate libre - Cualquiera puede intervenir cuando quiera</p>
+            <div class="poll-grid">
+                <div class="poll-option" onclick="selectReflection(this)">
+                    <strong>🌟 Liderazgo</strong>
+                    <p>Impulsar cambios desde dentro de las empresas</p>
+                </div>
+                <div class="poll-option" onclick="selectReflection(this)">
+                    <strong>🎓 Formación</strong>
+                    <p>Educar a otros profesionales del sector</p>
+                </div>
+                <div class="poll-option" onclick="selectReflection(this)">
+                    <strong>💡 Innovación</strong>
+                    <p>Desarrollar soluciones tecnológicas sostenibles</p>
+                </div>
+                <div class="poll-option" onclick="selectReflection(this)">
+                    <strong>🤝 Colaboración</strong>
+                    <p>Trabajar en equipo para maximizar el impacto</p>
+                </div>
+            </div>
+        </div> -->
+
+        <!-- Competencias y salidas profesionales -->
+        <div class="card">
+            <h2>🎯 Competencias y Salidas Profesionales</h2>
+            <p>Al finalizar este módulo, el alumnado será capaz de:</p>
+            <br>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px;">
+                <div style="background: rgba(76, 175, 80, 0.1); padding: 20px; border-radius: 12px;">
+                    <h4 style="color: #2c3e50; margin-bottom: 10px;">🔧 Competencias Técnicas</h4>
+                    <ul style="margin-left: 20px; color: #555;">
+                        <li>Análisis de aspectos ASG en proyectos TIC</li>
+                        <li>Aplicación de criterios de sostenibilidad</li>
+                        <li>Gestión de economía circular en tecnología</li>
+                        <li>Desarrollo de planes de sostenibilidad</li>
+                    </ul>
+                </div>
+                <div style="background: rgba(33, 150, 243, 0.1); padding: 20px; border-radius: 12px;">
+                    <h4 style="color: #2c3e50; margin-bottom: 10px;">💼 Salidas Laborales</h4>
+                    <ul style="margin-left: 20px; color: #555;">
+                        <li>Técnico SMR especializado en sostenibilidad</li>
+                        <li>Consultor TIC verde para PYMES</li>
+                        <li>Especialista en eficiencia energética IT</li>
+                        <li>Auditor de sostenibilidad digital</li>
+                        <li><strong>Experiencia práctica en empresas del sector</strong></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <p>👨‍🏫 <strong>Ángel Ferrer Camarasa</strong> | 🏫 IES Mestre Ramón Esteve - Catadau</p>
+            <p style="margin-top: 10px; opacity: 0.8;">📅 Curso 2025-2026 | 🌍 Sostenibilidad Aplicada al Sistema Productivo</p>
+            <p style="margin-top: 15px; font-size: 0.9em; opacity: 0.7;">Módulo: Sostenibilidad Aplicada al Sistema Productivo - Sistemas Microinformáticos y Redes</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleQuiz(element, isCorrect) {
+            const answer = element.querySelector('.quiz-answer');
+            const allAnswers = document.querySelectorAll('.quiz-answer');
+            
+            // Cerrar todas las respuestas
+            allAnswers.forEach(a => a.style.display = 'none');
+            document.querySelectorAll('.quiz-card').forEach(card => {
+                card.style.border = '2px solid transparent';
+            });
+            
+            // Mostrar la respuesta actual
+            answer.style.display = 'block';
+            element.style.border = isCorrect ? '2px solid #4CAF50' : '2px solid #FF5722';
+        }
+
+        function selectReflection(element) {
+            // Reset all options
+            document.querySelectorAll('.poll-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            
+            // Highlight selected
+            element.classList.add('selected');
+        }
+
+        // Smooth scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '50px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animatable elements
+        document.querySelectorAll('.card, .interactive-card, .ra-card, .stat-card').forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>

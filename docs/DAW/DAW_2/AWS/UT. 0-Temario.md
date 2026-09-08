@@ -117,10 +117,10 @@ A continuación, se presentan los contenidos de este módulo tal y como aparecen
 === "RA 2"
     |RA2. Identifica los componentes clave de la infraestructura global de la nube, diferenciando servicios principales, regiones, zonas de disponibilidad y aplicando medidas básicas de seguridad como el modelo de responsabilidad compartida, gestión de accesos y protección de datos.||
     |-|-|
-    |**a)** Se ha adquirido conocimiento de los componentes de una infraestructura global en la nube. |15%|
-    |**b)** Se ha demostrado la capacidad para explorar y describir las principales categorías de servicios disponibles.|15%|
+    |**a)** Se ha adquirido conocimiento de los componentes de una infraestructura global en la nube. |20%|
+    |**b)** Se ha demostrado la capacidad para explorar y describir las principales categorías de servicios disponibles.|20%|
     |**c)** Se ha realizado una evaluación del uso adecuado de servicios básicos en ejercicios prácticos.|15%|
-    |**d)** `Se ha comprendido el modelo de responsabilidad compartida en la nube.`|20%|
+    |**d)** `Se ha comprendido el modelo de responsabilidad compartida en la nube.`|15%|
     |**e)** Se ha aplicado medidas de seguridad básicas mediante herramientas de gestión de acceso.|15%|
     |**f)** `Se han realizado ejercicios sobre gestión de usuarios y políticas de seguridad.`|15%|
 
@@ -193,10 +193,10 @@ En caso de no superar el módulo, el alumna/o dispondrá de un proceso de recupe
 
 |Resultado de aprendizaje|Porcentage|
 |-|-|
-|**RA1.** Comprende los fundamentos de la computación en la nube, sus ventajas frente a sistemas tradicionales, el marco de adopción, los principios de migración y los aspectos clave de facturación, como estimación y optimización de costos.|25%|
+|**RA1.** Comprende los fundamentos de la computación en la nube, sus ventajas frente a sistemas tradicionales, el marco de adopción, los principios de migración y los aspectos clave de facturación, como estimación y optimización de costos.|15%|
 |**RA2.** dentifica los componentes clave de la infraestructura global de la nube, diferenciando servicios principales, regiones, zonas de disponibilidad y aplicando medidas básicas de seguridad como el modelo de responsabilidad compartida, gestión de accesos y protección de datos.|25%|
-|**RA3.** Diseña y configura redes virtuales y servicios de cómputo en la nube, aplicando buenas prácticas de seguridad, estrategias de balanceo de carga, escalado automático y aprovechando tecnologías serverless, contenedores y máquinas virtuales según casos de uso específicos.|25%|
-|**RA4.** Gestiona servicios de almacenamiento y bases de datos en la nube, seleccionando tecnologías adecuadas para casos específicos, y diseña arquitecturas escalables y resilientes utilizando herramientas de monitoreo y optimización para mejorar el rendimiento.|25%|
+|**RA3.** Diseña y configura redes virtuales y servicios de cómputo en la nube, aplicando buenas prácticas de seguridad, estrategias de balanceo de carga, escalado automático y aprovechando tecnologías serverless, contenedores y máquinas virtuales según casos de uso específicos.|30%|
+|**RA4.** Gestiona servicios de almacenamiento y bases de datos en la nube, seleccionando tecnologías adecuadas para casos específicos, y diseña arquitecturas escalables y resilientes utilizando herramientas de monitoreo y optimización para mejorar el rendimiento.|30%|
 
 ### 6.2. - Instrumentos de recuperación
 

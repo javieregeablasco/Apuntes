@@ -375,3 +375,12 @@ https://itadmins.es/networking-i-el-modelo-osi/ -->
 
 <!-- 
 falta poner imagen de hardware de red + serviciois en red para introducir el modulo -->
+
+
+<!-- revisar coherencia con estos apuntes -->
+<!-- https://aules.edu.gva.es/fp/pluginfile.php/13446079/mod_resource/content/1/Unidad%201.%20Introducci%C3%B3n%20a%20los%20servicios%20en%20red.pdf -->
+<!-- https://aules.edu.gva.es/fp/pluginfile.php/13446083/mod_resource/content/1/Actividad3.U01_Soluci%C3%B3n.docx.pdf -->
+<!-- https://aules.edu.gva.es/fp/pluginfile.php/13446085/mod_resource/content/1/Introduccion_3_casos_practicos.pdf -->
+
+<!-- OSI -->
+<!-- https://itadmins.es/networking-i-el-modelo-osi/ -->
