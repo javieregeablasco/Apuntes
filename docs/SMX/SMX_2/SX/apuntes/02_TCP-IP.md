@@ -300,6 +300,22 @@ Los puertos se dividen en tres rangos principales:
 - **Puertos registrados (Registered ports):** del 1024 al 49151. Son asignados a aplicaciones y servicios específicos por la IANA (Internet Assigned Numbers Authority).
 - **Puertos dinámicos o privados (Dynamic or Private ports):** del 49152 al 65535. Son utilizados por aplicaciones y servicios temporales o personalizados, y no están asignados oficialmente; suelen emplearse como puertos de origen en conexiones salientes de los clientes.
 
+<!-- 
+muy bien escrito revisar para ver si el texto sigue la misma esstructura.
+https://itadmins.es/networking-i-el-modelo-osi/ -->
+
+<!-- 
+falta poner imagen de hardware de red + serviciois en red para introducir el modulo -->
+
+<!-- revisar coherencia con estos apuntes -->
+<!-- https://aules.edu.gva.es/fp/pluginfile.php/13446079/mod_resource/content/1/Unidad%201.%20Introducci%C3%B3n%20a%20los%20servicios%20en%20red.pdf -->
+<!-- https://aules.edu.gva.es/fp/pluginfile.php/13446083/mod_resource/content/1/Actividad3.U01_Soluci%C3%B3n.docx.pdf -->
+<!-- https://aules.edu.gva.es/fp/pluginfile.php/13446085/mod_resource/content/1/Introduccion_3_casos_practicos.pdf -->
+
+<!-- OSI -->
+<!-- https://itadmins.es/networking-i-el-modelo-osi/ -->
+<!-- https://learn.microsoft.com/es-es/shows/networking-fundamentals/ -->
+
 <!-- https://www.manageengine.com/latam/oputils/direcciones-ip-fundamentos.html -->
 <!-- https://itadmins.es/networking-ii-dispositivos-de-red-y-tipos-de-trafico/ -->
 

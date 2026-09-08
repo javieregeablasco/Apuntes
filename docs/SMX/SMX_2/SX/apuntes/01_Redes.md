@@ -10,7 +10,7 @@ keywords: SMX, SMR, SX, SR
 schedule: 233h - 7h/w
 ---
 
-![Descripción de la imagen](./img_2/img_2_1.jpg){ .img1 .marginbottom40}
+![Descripción de la imagen](./img_2/img_3_1.png){ .img1 .marginbottom40}
 
 **Resultados de aprendizaje y criterios de evaluacion que se evaluarán en esta unidad.**  
 
@@ -42,17 +42,33 @@ Una red informática se compone de tres elementos fundamentales **medios de tran
 - **Nodos:** Dispositivos que pueden enviar, recibir o retransmitir datos en una red.
 - **Protocolos:** Reglas y convenciones que rigen la comunicación entre los equipos de una red.
 
+!!! question "Dar ejemplos de nodos"
+
+<!-- 
+- Ordenadores (de escritorio, portátiles)
+- Servidores
+- Switches (retransmiten datos entre dispositivos de una misma red local)
+- Routers (interconectan redes distintas y encaminan el tráfico)
+- Puntos de acceso Wi-Fi
+- Impresoras en red
+- Smartphones y tablets conectados a la red
+- Cámaras IP
+- Dispositivos IoT (bombillas inteligentes, termostatos, etc.) 
+-->
+
 ### 2.2 Clasificación de las redes informáticas
 
 ![Descripción de la imagen](./img_2/img_2_2.png){ .marginbottom20 .margintop20}
 
 #### 2.2.1 Red de Área Personal (PAN)
 
-Es el tipo de red más básico (y pequeño). Su alcance se limita a unos pocos metros y está diseñada para conectar dispositivos de uso personal como smartphones, tabletas, ordenadores y periféricos (auriculares, impresoras). La tecnología más común para su funcionamiento inalámbrico (WPAN) es el Bluetooth.
+- Es el tipo de red más básico (y pequeño).
+- Su alcance se limita a unos pocos metros y está diseñada para conectar dispositivos de uso personal como smartphones, tabletas, ordenadores y periféricos (auriculares, impresoras).
+- La tecnología más común para su funcionamiento inalámbrico (WPAN) es el Bluetooth.
 
 #### 2.2.2 Red de Área Local (LAN y WLAN)
 
-Se puede definir como una red que conecta dispositivos dentro de un área geográfica limitada, como un hogar, oficina o edificio. Dentro de esta categoría se incluyen dos tipos de redes:
+Una red de área local (LAN / WLAN) conecta dispositivos dentro de un área geográfica limitada, como un hogar, oficina o edificio. Dentro de esta categoría se incluyen dos tipos de redes:
 
 - **LAN (Local Area Network):** Conecta dispositivos en un espacio físico limitado (casa, oficina, edificio, ...). Permite el intercambio rápido de grandes cantidades de datos y el uso de recursos comunes como servidores e impresoras.  
 - **WLAN (Wireless LAN):** Es la versión inalámbrica de la LAN, comúnmente conocida como Wi-Fi, que ofrece la misma conectividad local sin necesidad de cables físico.
@@ -63,11 +79,13 @@ Esta red interconecta varias redes locales (LAN) dentro de un recinto geográfic
 
 #### 2.2.4 Red de Área Metropolitana (MAN)
 
-La red MAN da cobertura a un área geográfica más amplia, como un municipio o una ciudad. Suele estar compuesta por varias redes LAN interconectadas a través de infraestructura de alta velocidad, como la fibra óptica, y es utilizada frecuentemente por empresas con varias sedes en la misma ciudad o por ayuntamientos.
+- La red MAN da cobertura a un área geográfica más amplia, como un municipio o una ciudad.
+- **Suele estar compuesta por varias redes LAN interconectadas** a través de infraestructura de alta velocidad, como la fibra óptica, y es utilizada frecuentemente por empresas con varias sedes en la misma ciudad o por ayuntamientos.
 
 #### 2.2.5 Red de Área Amplia (WAN)
 
-Las redes WAN cubren distancias considerables, extendiéndose por países o continentes. Utilizan medios como satélites o cables submarinos para conectar dispositivos que están a kilómetros de distancia. El ejemplo más representativo y conocido de una red WAN es **Internet**.
+- Las redes WAN cubren distancias considerables, extendiéndose por países o continentes. Utilizan medios como satélites o cables submarinos para conectar dispositivos que están a kilómetros de distancia.
+- El ejemplo más representativo y conocido de una red WAN es **Internet**.
 
 #### 2.2.6 Red de Área Global (GAN)
 
@@ -75,17 +93,56 @@ Representa la red de mayor escala, con una cobertura global. Da soporte a las co
 
 #### 2.2.7 Redes locales virtuales (VLAN)
 
-Además de estas, existen configuraciones específicas como las redes locales virtuales (VLAN), que permiten segmentar el tráfico de forma lógica dentro de una infraestructura física ya existente para mejorar la seguridad y el rendimiento.
+Las redes locales virtuales (VLAN) permiten segmentar el tráfico de forma lógica dentro de una infraestructura física ya existente para mejorar la seguridad y el rendimiento.
+
+!!! question "¿Qué dispositivo permite segmentar una red, es decir crear y administrar VLAN's?"
+
+<!-- 
+- Capa 2
+- Capa 3 (características específicas de cada fabricante)
+-->
+
+!!! question "Dar un ejemplo real de segmentación."
+
+!!! question "Enumerar ventajas de tener una red segmentada."
+
+<!-- 
+- No exclusivamente el aislamiento de los dispositivos conectados a las distintas redes, sino también:
+- Aumento de rendimiento.
+- Simplificación de la seguridad.
+- Facilidad de gestión.
+- Rapidez de diagnóstico.
+- Reducción de la superficie de ataque.
+- Mejor identificación de dispositivos.
+- etc... 
+-->
+
+!!! question "¿Un switch gestiona direcciones IP o direcciones físicas (MAC address)?"
+
+<!-- 
+- Capa 2 MAC
+- Capa 3 MAC + IP
+-->
 
 #### 2.2.8 Redes privadas virtuales (VPN)
 
-Las redes privadas virtuales (VPN) permiten a los usuarios conectarse de manera segura a una red privada a través de de cualquier in­frae­s­tru­c­tu­ra de red para asociar sistemas in­fo­r­má­ti­cos de manera lógica.  
-   Lo más común es utilizar **Internet como medio de tra­n­s­po­r­te**, ya que este permite es­ta­ble­cer la conexión entre todos los or­de­na­do­res a nivel mundial. La tra­n­s­fe­re­n­cia de datos tiene lugar dentro de **un túnel virtual** entre cliente y servidor.  
+![Descripción de la imagen](./img_1/img_1_1.png){.marco .sietecinco}
+
+- Las VPN permiten a los usuarios conectarse de manera segura a una red privada a través de cualquier infraestructura de red (normalmente Internet), haciendo que los sistemas conectados se comporten como si estuvieran en la misma red local, aunque estén separados físicamente.
+- La seguridad se consigue mediante el cifrado de los datos, que viajan encapsulados dentro de un túnel virtual entre cliente y servidor.
+
+!!! question "¿Por qué se ha popularizado tanto las VPN's dentro del ámbito empresarial"
+
+!!! tip "Túneles de datos"
+    ![Descripción de la imagen](./img_1/img_1_2.png){.marco .sietecinco}
+
+    - Un túnel VPN es el mecanismo por el cual los datos originales se encapsulan dentro de otros paquetes para poder viajar de forma segura a través de una red pública (normalmente Internet), de manera que en el otro extremo se puedan "desempaquetar" y recuperar los datos originales.
+    - Es particularme útil para mantener la privacidad durante la navegación o saltarse restricciones regionales.
 
 #### 2.2.9 Actividades
 
 !!! exercise "Identificar el tipo de red de las siguientes imágenes y explicar sus características y aplicaciones."
-    ![Descripción de la imagen](./img_2/img_2_3.png){ .margintop20}
+    ![Descripción de la imagen](./img_2/img_2_3.png){ .margintop20 .cien }
     ![Descripción de la imagen](./img_2/img_2_4.png){ .marginbottom20 }
     ![Descripción de la imagen](./img_2/img_2_5.png)
 
@@ -135,7 +192,7 @@ El funcionamiento de una red informática se basa en un proceso ordenado de tran
 
 1. **Receptor:** Dispositivo o usuario final que recibe la información procesada y lista para su uso.
 
-Todo este flujo se completa en fracciones de segundo gracias a la velocidad de la infraestructura actual y la eficiencia de los protocolos de red. La calidad final de la transmisión dependerá de factores como el ancho de banda, la estabilidad del medio y la correcta configuración de los equipos.
+Todo este flujo se completa en fracciones de segundo gracias a la velocidad de la infraestructura actual y la eficiencia de **los protocolos de red**. La calidad final de la transmisión dependerá de factores como el ancho de banda, la estabilidad del medio y la correcta configuración de los equipos.
 
 <!-- subnetting ampliado -->
 <!-- https://www.redeszone.net/tutoriales/redes-cable/calcular-subnetting-ip-red-mascara-subred-ipv4/#449694-que-es-el-subnetting-tipos-y-clases-de-direcciones -->
@@ -148,14 +205,14 @@ Todo este flujo se completa en fracciones de segundo gracias a la velocidad de l
 <!-- https://acastan.gitbook.io/servicios -->
 
 <!-- poner esto en siguiente apartado -->
-### 2.6 Modelos de comunicación
+### 2.6 Protocolos de red / comunicación
 
 - Un protocolo de comunicación es un conjunto de reglas que define cómo deben intercambiar información dos o más dispositivos de una red. Utilizando una analogía, un protocolo es para una red lo que un idioma es para las personas: si ambos interlocutores utilizan el mismo idioma, pueden entenderse y comunicarse.
 - Los equipos de una red pueden utilizar sistemas operativos, programas y hardware muy diferentes. Sin embargo, si emplean protocolos compatibles, podrán intercambiar información sin problemas.
 - Para que dos dispositivos puedan comunicarse, ambos deben utilizar los mismos protocolos o protocolos compatibles. Por ejemplo, el protocolo IP permite identificar y direccionar los dispositivos dentro de una red para que los paquetes lleguen a su destino.
 - En las redes informáticas existen numerosos protocolos, cada uno diseñado para realizar una función específica. Habitualmente se estudian y clasifican según la capa del modelo OSI en la que desempeñan su función.
 
-#### 2.6.1 Modelo OSI
+#### 2.6.1 Modelo OSI (Open Systems Interconnection)
 
 ![Descripción de la imagen](./img_2/img_2_7.png){.marco .marginbottom20 }
 
@@ -264,46 +321,48 @@ Cuando las señales llegan al equipo de Luis, se realiza el proceso inverso:
 
 ##### 2.6.1.2 Encapsulación de los datos
 
-Cuando una aplicación envía información a través de una red, los datos deben atravesar todas las capas del modelo OSI hasta llegar al medio físico. Durante este recorrido, cada capa añade su propia información de control, proceso que recibe el nombre de encapsulación.
+1. Cuando una aplicación envía información a través de una red, los datos deben atravesar todas las capas del modelo OSI hasta llegar al medio físico. Durante este recorrido, cada capa añade su propia información de control, proceso que recibe el nombre de encapsulación.
 
-Normalmente, esta información de control se incorpora mediante una cabecera (header) y, en algunos protocolos, también mediante una cola (trailer o footer). Estos datos adicionales permiten que la capa equivalente del equipo receptor pueda interpretar correctamente la información recibida.
+1. Normalmente, esta información de control se incorpora mediante una cabecera (header) y, en algunos protocolos, también mediante una cola (trailer o footer). Estos datos adicionales permiten que la capa equivalente del equipo receptor pueda interpretar correctamente la información recibida.
 
-El resultado de este proceso es una Unidad de Datos de Protocolo o PDU (Protocol Data Unit). Cada vez que los datos descienden una capa, la PDU incorpora nueva información de control y aumenta ligeramente su tamaño. Este proceso continúa hasta la capa de enlace de datos, que genera la trama completa antes de que la capa física la convierta en señales para transmitirla por el medio de comunicación.
+1. El resultado de este proceso es una Unidad de Datos de Protocolo o PDU (Protocol Data Unit). Cada vez que los datos descienden una capa, la PDU incorpora nueva información de control y aumenta ligeramente su tamaño. Este proceso continúa hasta la capa de enlace de datos, que genera la trama completa antes de que la capa física la convierta en señales para transmitirla por el medio de comunicación.
 
-En el equipo receptor se realiza el proceso contrario, denominado desencapsulación. Cada capa elimina la información de control que añadió su homóloga en el equipo emisor y entrega los datos a la capa superior. Finalmente, la información llega a la capa de aplicación en el mismo formato en que fue generada por la aplicación del usuario.
+1. En el equipo receptor se realiza el proceso contrario, denominado desencapsulación. Cada capa elimina la información de control que añadió su homóloga en el equipo emisor y entrega los datos a la capa superior. Finalmente, la información llega a la capa de aplicación en el mismo formato en que fue generada por la aplicación del usuario.
 
-Dependiendo de la capa en la que se encuentre, la PDU recibe un nombre diferente:
+1. Dependiendo de la capa en la que se encuentre, la PDU recibe un nombre diferente:
 
-- Capas de Aplicación, Presentación y Sesión: Datos.
-- Capa de Transporte: Segmentos (TCP) o Datagramas (UDP).
-- Capa de Red: Paquetes.
-- Capa de Enlace de datos: Tramas (Frames).
-- Capa Física: Bits.
+    - Capas de Aplicación, Presentación y Sesión: Datos.
+    - Capa de Transporte: Segmentos (TCP) o Datagramas (UDP).
+    - Capa de Red: Paquetes.
+    - Capa de Enlace de datos: Tramas (Frames).
+    - Capa Física: Bits.
 
-Aunque en el lenguaje cotidiano suele hablarse de "paquetes" para referirse a cualquier información transmitida por una red, técnicamente cada capa utiliza una denominación distinta para su PDU.
+1. Aunque en el lenguaje cotidiano suele hablarse de "paquetes" para referirse a cualquier información transmitida por una red, técnicamente cada capa utiliza una denominación distinta para su PDU.
 
-En la mayoría de los protocolos, la información de control se añade al principio de los datos mediante una cabecera. Sin embargo, algunos protocolos de la capa de enlace de datos, como Ethernet, también incorporan un trailer que contiene un CRC (Cyclic Redundancy Check), utilizado para detectar errores durante la transmisión.
+1. En la mayoría de los protocolos, la información de control se añade al principio de los datos mediante una cabecera. Sin embargo, algunos protocolos de la capa de enlace de datos, como Ethernet, también incorporan un trailer que contiene un CRC (Cyclic Redundancy Check), utilizado para detectar errores durante la transmisión.
 
 **Ejemplo de encapsulación.**
 ![Descripción de la imagen](./img_2/img_2_16.png){.marco .marginbottom20 .margintop20}
 
-##### 2.6.1.3 Tabla resumen de los protocolos por capas
+##### 2.6.1.3 Tabla resumen de los protocolos por capa del modelo OSI
 
 ![Descripción de la imagen](./img_2/img_2_17.png){.marco .marginbottom20}
 
+!!! question "¿En qué capa trabaja un switch de capa 2?"
+
+!!! question "¿En qué capa trabaja un switch de capa 3?"
+
 #### 2.6.2 Modelo TCP/IP
 
-El **modelo OSI**, un modelo de referencia que describe cómo se comunican los dispositivos de una red mediante siete capas. El modelo OSI aunque ampliamente utilizado con fines didácticos, **no es el modelo que se emplea en Internet**.
+- El **modelo OSI**, un modelo de referencia que describe cómo se comunican los dispositivos de una red mediante siete capas. El modelo OSI aunque ampliamente utilizado con fines didácticos, **no es el modelo que se emplea en Internet**.
 
-**Internet es una red pública y global** de ordenadores que están interconectados mediante el protocolo de Internet (Internet Protocol) y que se comunican mediante la conmutación de paquetes.  
+- **Internet es una red pública y global** de ordenadores que están interconectados mediante el **protocolo de Internet** ( IP / Internet Protocol) y que se comunican mediante la conmutación de paquetes.  
 
-**Internet es la unión de millones de subredes** domésticas, académicas, comerciales y gubernamentales, por eso a veces se la denomina «la red de redes».
+- Aunque existe una gran diversidad de arquitecturas de red, **la familia/suite de protocolos TCP/IP** (desarrollado por el Departamento de Defensa de los Estados Unidos) se utiliza en **la mayoría de las redes que conforman Internet**, así como en las intranets de empresas, centros educativos, zonas wifi, oficinas y hogares.
 
-Aunque existe una gran diversidad de arquitecturas de red, **la familia/suite de protocolos TCP/IP** (desarrollado por el Departamento de Defensa de los Estados Unidos) se utiliza en **la mayoría de las redes que conforman Internet**, así como en las intranets de empresas, centros educativos, zonas wifi, oficinas y hogares.
+- La denominación TCP/IP hace referencia a sus dos protocolos más importantes: el **Protocolo de Internet (IP)** y el **Protocolo de Control de Transmisión (TCP)**.
 
-La denominación TCP/IP hace referencia a sus dos protocolos más importantes: el **Protocolo de Internet (IP)** y el **Protocolo de Control de Transmisión (TCP)**.
-
-Al igual que en el modelo **OSI**, el modelo **TCP/IP** divide el proceso de comunicación en diferentes capas. No obstante, lo hace de una forma **más sencilla**, **agrupando algunas de las funciones del modelo OSI**.
+- Al igual que en el modelo **OSI**, el modelo **TCP/IP** divide el proceso de comunicación en diferentes capas. No obstante, lo hace de una forma **más sencilla**, **agrupando algunas de las funciones del modelo OSI**.
 
 ##### 2.5.2.1 Capas del modelo TCP/IP
 
@@ -323,15 +382,15 @@ Controla el hardware físico y los medios de transmisión (cables de cobre, fibr
 
 Estas cuatro capas equivalen a las siete capas del modelo OSI, tal y como se muestra en la siguiente tabla:
 
-| Modelo OSI      | Modelo TCP/IP   |
-| --------------- | --------------- |
-| Aplicación      | Aplicación      |
-| Presentación    | Aplicación      |
-| Sesión          | Aplicación      |
-| Transporte      | Transporte      |
-| Red             | Internet        |
-| Enlace de datos | Acceso a la red |
-| Física          | Acceso a la red |
+| Modelo OSI      | Nº capa del modelo OSI | Modelo TCP/IP   | Nº capa del modelo TCP/IP |
+| --------------- | :--------------------: | --------------- | :-----------------------: |
+| Aplicación      | 7                      | Aplicación      | 4                         |
+| Presentación    | 6                      | Aplicación      | 4                         |
+| Sesión          | 5                      | Aplicación      | 4                         |
+| Transporte      | 4                      | Transporte      | 3                         |
+| Red             | 3                      | Internet        | 2                         |
+| Enlace de datos | 2                      | Acceso a la red | 1                         |
+| Física          | 1                      | Acceso a la red | 1                         |
 
 Como puede observarse, el modelo TCP/IP integra las funciones de las capas de **Aplicación, Presentación y Sesión** del modelo OSI en una única **capa de aplicación**, mientras que las capas **Física** y **Enlace de datos** se agrupan en la **capa de acceso a la red**.
 
@@ -368,19 +427,3 @@ En el siguiente ejemplo mostraremos **una solicitud HTTP** entre cliente y servi
 | **Licencia Creative Commons:** | |
 | - | - |
 | ![alt text](../../../../assets/by-nc-nd-eu_.png) { .by-nc-nd-eu_ } | **Reconocimiento-NoComercial-CompartirIgual CC BY-NC-SA:** No se permite un uso comercial de la obra original ni de las posibles obras derivadas, la distribución de la cuales se debe hace con una licencia igual a la que regula la obra original. |
-
-<!-- 
-muy bien escrito revisar para ver si el texto sigue la misma esstructura.
-https://itadmins.es/networking-i-el-modelo-osi/ -->
-
-<!-- 
-falta poner imagen de hardware de red + serviciois en red para introducir el modulo -->
-
-
-<!-- revisar coherencia con estos apuntes -->
-<!-- https://aules.edu.gva.es/fp/pluginfile.php/13446079/mod_resource/content/1/Unidad%201.%20Introducci%C3%B3n%20a%20los%20servicios%20en%20red.pdf -->
-<!-- https://aules.edu.gva.es/fp/pluginfile.php/13446083/mod_resource/content/1/Actividad3.U01_Soluci%C3%B3n.docx.pdf -->
-<!-- https://aules.edu.gva.es/fp/pluginfile.php/13446085/mod_resource/content/1/Introduccion_3_casos_practicos.pdf -->
-
-<!-- OSI -->
-<!-- https://itadmins.es/networking-i-el-modelo-osi/ -->
