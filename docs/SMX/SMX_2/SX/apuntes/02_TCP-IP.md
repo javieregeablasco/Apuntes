@@ -307,7 +307,7 @@ Las direcciones primera y última de cada subred se reservan para identificar la
 
 #### 2.1.7 Ejercicios de redes y de subnetting
 
-!!! exercise "Ejercico 1"
+!!! exercise "Ejercicio 1"
     Definir la clase de red de las sigientes IP's.
 
     |Dirección IP|Clase|
@@ -366,7 +366,7 @@ Para determinar la clase de una dirección IP (según el sistema clásico de cla
 | **219.21.56.0** | **C** | 219 está en el rango 192 - 223 |
 -->
 
-!!! exercise "Ejercico 2"
+!!! exercise "Ejercicio 2"
     Escribe la máscara de subred por defecto correspondiente a cada una de estas direcciones IP's.
     !!! tip "Identificar primero la clase de red a la que pertenece la IP"
     |Dirección IP|Clase|Máscara|
@@ -419,6 +419,34 @@ Las máscaras de subred por defecto según la clase de IP son:
 | **95.250.91.99** | **A** | `255.0.0.0` |
  -->
 
+!!! exercise "Ejercicio 3"
+    1. Disponemos de la dirección de red: `172.16.0.0/16`
+    1. Determinar:
+        - Clase:
+        - Máscara de Subred (por defecto):
+        - Nº total de direcciones de host:
+        - Nº de direcciones útiles:
+
+!!! exercise "Ejercicio 3"
+    1. Disponemos de la dirección de red: `116.0.0.0`
+    1. Se desea montar unas subredes que contengan 126 subredes útiles cada una de
+ellas:
+Se desea saber:
+        1. Clase: A
+        1. Máscara de Subred (por defecto) : 255.0.0.0
+3. Máscara de Subred (adaptada): 255.11111110.00000000.00000000
+255.224.0.0
+4. Nº total de subredes: 2⁷=128
+5. Nº de subredes útiles: 2⁷-2=126
+6. Nº total de direcciones de host: 2¹⁷=131072
+7. Nº de direcciones útiles 2¹⁷-2=131070
+8. Nº de bits cogidos: 7
+9. ¿Cuál es el 3º rango de subred útil? 116.6.0.0 - 116.7.255.255
+10. ¿Nº de subred de la 2ª subred útil? 116.4.0.0
+
+
+
+        
 ## 3 - Protocolo TCP
 
 El protocolo TCP (Transmission Control Protocol o Protocolo de Control de Transmisión) es uno de los pilares fundamentales de las redes informáticas e internet. Junto con IP, forma la base de la suite de protocolos TCP/IP sobre la que funciona la comunicación en internet.
