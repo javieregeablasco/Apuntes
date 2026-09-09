@@ -154,7 +154,30 @@ Además, existen dos clases especiales:
     1. Calcular la cantidad de IP's (hosts) disponibles para cada clase.  
 
 <!--
+Pregunta 1
+- Clase A: 1.0.0.0 a 126.255.255.255
+- Clase B: 128.0.0.0 a 191.255.255.255
+- Clase C: 192.0.0.0 a 223.255.255.255
+- Clase D (Multicast): 224.0.0.0 a 239.255.255.255
+- Clase E (Reserva/Investigación): 240.0.0.0 a 255.255.255.255
 
+Pregunta 2
+- Clase A (8 bits de red): El primer bit siempre es 0 (quedan 7 bits variables). Redes = 2^7 = 128
+- Clase B (16 bits de red): Los primeros dos bits siempre son 10 (quedan 14 bits variables). Redes = 2^14 = 16.384 
+- Clase C (24 bits de red): Los primeros tres bits siempre son 110 (quedan 21 bits variables). Redes = 2^21 = 2.097.152 
+- Clase D y Clase E: No aplica (no tienen división para direccionamiento de redes locales).
+
+Pregunta 3
+- Clase A (24 bits de host): 
+    - IPs totales por red: 2^24 = 16.777.216 
+    - IPs útiles para hosts: 16.777.216 - 2 = 16.777.214
+- Clase B (16 bits de host):
+    - IPs totales por red: 2^16 = 65.536 
+    - IPs útiles para hosts: 65.536 - 2 = 65.534 
+- Clase C (8 bits de host):
+    - IPs totales por red: 2^8 = 256 
+    - IPs útiles para hosts: 256 - 2 = 254 
+- Clase D y Clase E: No aplica.
 -->
 
 #### 2.1.3 Direcciones reservadas y especiales
@@ -169,6 +192,7 @@ Además, existen dos clases especiales:
 
 !!! exercise "Redes y direcciones IP"
     Con la ayuda de las definiciones anteriores, responder a las siguientes preguntas.  
+    
     1. Proponer una IP de una red de clase C.
     2. Calcular la dirección de red.  
     3. Calcular la dirección de broadcast.
