@@ -537,9 +537,6 @@ Solución del ejercicio
 
 ## 3 - Protocolo TCP
 
-## hasta aqui
-<!-- pdf 31/33 -->
-
 El protocolo TCP (Transmission Control Protocol o Protocolo de Control de Transmisión) es uno de los pilares fundamentales de las redes informáticas e internet. Junto con IP, forma la base de la suite de protocolos TCP/IP sobre la que funciona la comunicación en internet.
 
 TCP es el mecanismo que controla las transmisiones de datos y se asegura de que los paquetes enviados entre dispositivos lleguen completos, en orden y sin cambios. A diferencia de otros protocolos de transporte como UDP, TCP prioriza la fiabilidad sobre la velocidad.
@@ -618,18 +615,63 @@ TCP es un protocolo robusto y flexible, capaz de servir de base a muchos otros p
     - **Acceso remoto y administración de sistemas**  
     TCP es fundamental para el acceso remoto a sistemas y la administración de servidores. Herramientas como RDP (Remote Desktop Protocol) y VNC (Virtual Network Computing) dependen de TCP para garantizar que los comandos y datos enviados desde el cliente lleguen correctamente al servidor, permitiendo una gestión eficiente y segura de los recursos informáticos.
 
-### 3.7.6 Puertos en TCP
+### 3.8 Puertos en TCP
 
 1. Un equipo conectado a una red TCP/IP ejecuta múltiples procesos a la vez.
-1. Esto implica que cada un de ellos genere datos que se envían a través de un protocolo (TCP o UDP) de la capa de transporte que los pasa al protocolo IP (capa de internet) para su transmisión a través de la dirección IP de la interfaz de red.
-1. Para saber a qué proceso pertenece cada envío es necesario una dirección adicional que lo identifique dentro de una dirección IP concreta.
+1. Esto implica que cada uno de ellos genere datos que se envían a través de un protocolo (TCP o UDP) de la capa de transporte que los pasa al protocolo IP (capa de internet) para su transmisión a través de la dirección IP de la interfaz de red.
+1. Para saber a qué proceso pertenece cada envío es necesaria una dirección adicional que lo identifique dentro de una dirección IP concreta.
 1. En el protocolo TCP/IP, esa dirección se llama puerto.
-1. Los puertos son números que identifican de manera única a cada servicio o aplicación que se ejecuta en un equipo. TCP utiliza estos puertos, junto con la dirección IP, para dirigir los datos al proceso correcto dentro del sistema operativo (esta combinación de IP y puerto se conoce como socket).
+1. Los puertos son números que identifican de manera única a cada servicio o aplicación que se ejecuta en un equipo. Tanto TCP como UDP utilizan estos puertos, junto con la dirección IP, para dirigir los datos al proceso correcto dentro del sistema operativo (esta combinación de IP y puerto se conoce como socket).
 1. Los puertos se dividen en tres rangos principales:
- 
+
     - **Puertos bien conocidos (Well-known ports):** del 0 al 1023. Son utilizados por servicios y aplicaciones estándar, como HTTP (puerto 80), HTTPS (puerto 443), FTP (puertos 20 y 21) y SMTP (puerto 25).
     - **Puertos registrados (Registered ports):** del 1024 al 49151. Son asignados a aplicaciones y servicios específicos por la IANA (Internet Assigned Numbers Authority).
     - **Puertos dinámicos o privados (Dynamic or Private ports):** del 49152 al 65535. Son utilizados por aplicaciones y servicios temporales o personalizados, y no están asignados oficialmente; suelen emplearse como puertos de origen en conexiones salientes de los clientes.
+
+### 3.9 Ejercicios sobre puertos del protocolo TCP/IP
+<!-- 
+# Soluciones al ejercicio de investigación
+
+## Tabla completada
+
+| Puerto | Protocolo/Servicio | TCP/UDP/Ambos | Función principal | Rango |
+|--------|--------------------|---------------|--------------------|-------|
+| 20/21  | FTP (File Transfer Protocol) | TCP | Puerto 21: control de la conexión FTP. Puerto 20: transferencia de datos. Permite subir/descargar archivos entre cliente y servidor. | Bien conocido |
+| 22     | SSH (Secure Shell) | TCP | Acceso remoto seguro y cifrado a otro equipo (línea de comandos), también usado para SFTP y SCP. | Bien conocido |
+| 23     | Telnet | TCP | Acceso remoto a otro equipo, sin cifrado (texto plano). Considerado inseguro. | Bien conocido |
+| 25     | SMTP (Simple Mail Transfer Protocol) | TCP | Envío de correos electrónicos entre servidores de correo. | Bien conocido |
+| 53     | DNS (Domain Name System) | TCP y UDP | Resolución de nombres de dominio a direcciones IP. UDP para consultas normales, TCP para transferencias de zona o respuestas grandes. | Bien conocido |
+| 67/68  | DHCP (Dynamic Host Configuration Protocol) | UDP | Asignación automática de direcciones IP y configuración de red a los dispositivos (67: servidor, 68: cliente). | Bien conocido |
+| 80     | HTTP (Hypertext Transfer Protocol) | TCP | Transferencia de páginas web sin cifrar. | Bien conocido |
+| 110    | POP3 (Post Office Protocol v3) | TCP | Descarga de correos electrónicos desde un servidor al cliente (normalmente eliminándolos del servidor). | Bien conocido |
+| 143    | IMAP (Internet Message Access Protocol) | TCP | Gestión de correo electrónico manteniendo los mensajes sincronizados en el servidor. | Bien conocido |
+| 161    | SNMP (Simple Network Management Protocol) | UDP | Monitorización y gestión de dispositivos de red (routers, switches, servidores). | Bien conocido |
+| 443    | HTTPS (HTTP Secure) | TCP | Transferencia de páginas web cifradas mediante SSL/TLS. | Bien conocido |
+| 3306   | MySQL | TCP | Conexión a bases de datos MySQL/MariaDB. | Registrado |
+| 3389   | RDP (Remote Desktop Protocol) | TCP | Acceso remoto al escritorio de equipos Windows. | Registrado |
+
+## Respuestas a las preguntas de reflexión
+
+**1. ¿Por qué DNS o DHCP usan UDP en lugar de TCP?**
+
+UDP es más rápido porque no establece conexión previa ni verifica la entrega (no hay *handshake* ni confirmaciones), lo cual es ideal para consultas breves y frecuentes como resolver un nombre de dominio o solicitar una IP al conectarse a una red. DNS usa UDP para consultas normales (por velocidad), pero recurre a TCP cuando la respuesta es demasiado grande para un solo paquete UDP o para transferencias de zona entre servidores DNS, donde sí es necesaria la fiabilidad de TCP.
+
+**2. Diferencia entre el puerto 80 y el 443**
+
+El puerto 80 (HTTP) transmite los datos en texto plano, sin cifrar, por lo que cualquier persona que intercepte el tráfico podría leer la información (contraseñas, datos personales, etc.). El puerto 443 (HTTPS) añade una capa de cifrado mediante TLS/SSL, protegiendo la confidencialidad e integridad de los datos, además de autenticar la identidad del servidor mediante certificados digitales.
+
+**3. Por qué Telnet (23) es inseguro frente a SSH (22)**
+
+Telnet transmite toda la información, incluidas las credenciales de acceso, en texto plano, por lo que es vulnerable a ataques de interceptación (*sniffing*). SSH, en cambio, cifra toda la comunicación de extremo a extremo, incluye mecanismos de autenticación más robustos (contraseñas cifradas o claves públicas/privadas) y protege contra ataques de intermediario (*man-in-the-middle*). Por eso SSH ha sustituido prácticamente por completo a Telnet en la administración remota de sistemas.
+
+**4. Ejemplo de puerto registrado**
+
+El puerto 3306 (MySQL) es un buen ejemplo: no es un servicio "básico" de Internet como HTTP o DNS, sino una aplicación específica (el motor de bases de datos MySQL/MariaDB) que la IANA ha registrado oficialmente para evitar conflictos con otras aplicaciones.
+
+**5. Riesgos de tener puertos abiertos innecesariamente**
+
+Cada puerto abierto es una posible puerta de entrada para un atacante: si el servicio asociado tiene una vulnerabilidad, puede ser explotada para acceder al sistema, robar datos o instalar malware. El **escaneo de puertos** (*port scanning*) es una técnica (usada tanto por atacantes como por administradores de seguridad) que consiste en analizar un equipo o red para detectar qué puertos están abiertos y qué servicios están escuchando en ellos, con el fin de identificar posibles vulnerabilidades explotables. Por eso una buena práctica de seguridad es cerrar o filtrar (mediante firewall) todos los puertos que no sean estrictamente necesarios. -->
+
 
 <!-- 
 muy bien escrito revisar para ver si el texto sigue la misma esstructura.
