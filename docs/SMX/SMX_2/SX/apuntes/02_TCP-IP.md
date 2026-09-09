@@ -434,13 +434,28 @@ Las máscaras de subred por defecto según la clase de IP son:
         1. Clase:
         1. Máscara de subred por defecto:
         1. Máscara de subred adaptada:
-        1. Nº total de subredes:  
         1. Nº total de subredes:
         1. Nº de subredes útiles:  
         1. Nº total de direcciones de host:
         1. Nº de direcciones útiles  
-        1. ¿Nº de subred de la 2ª subred útil?  
-        1. ¿Cuál es el 3º rango de subred útil?
+        1. Nº de subred de la 2ª subred útil  
+
+<!--
+Red original: 172.16.0.0/16 (Clase B).
+Bits robados estándar actual (RFC 1878 / CIDR): Para obtener al menos 2 subredes útiles mediante 2^s >=2 basta tomar 1 bit
+
+Solución según el estándar actual (RFC 1878)
+    a. Clase: B
+    b. Máscara de subred por defecto: 255.255.0.0 
+    c. Máscara de subred adaptada: 255.255.128.0 (Prefijo /17, robando 1 bit)
+    d. Nº total de subredes: 2 
+    e. Nº de subredes útiles: 2 
+    f. Nº total de direcciones de host por subred: 32.768 2^15, donde 15 son los bits de host restantes)
+    h. Nº de direcciones útiles por subred: 32.766 (2^15 - 2)
+    i. Nº de subred (IP de red) de la 2ª subred útil 
+        1ª subred: 172.16.0.0/17, 
+        2ª subred: 172.16.128.0/17)
+-->
 
 !!! exercise "Ejercicio 5"
     1. Disponemos de la dirección de red: `116.0.0.0`
@@ -462,9 +477,8 @@ Las máscaras de subred por defecto según la clase de IP son:
 - Su máscara por defecto es 255.0.0.0 (prefijo /8)
 - Mascara de subred:
     Necesitamos al menos 126 subredes útiles. 
-    Aplicando la fórmula 2^s - 2 >= 126, descubrimos que con 7 bits robados a la porción de host obtenemos 2^7 = 128 subredes totales.
+    Aplicando la fórmula 2^s >= 126, descubrimos que con 7 bits robados a la porción de host obtenemos 2^7 = 128 subredes totales.
     resultado 255.254.0.0, CIDR /8 + /7 = /15     
-        
     1. Nº de bits cogidos: 7 
     1. Nº total de subredes: 128
     1. Nº de subredes útiles: 126  
@@ -480,11 +494,46 @@ Las máscaras de subred por defecto según la clase de IP son:
     2ª subred útil: 116.4.0.0
     3ª subred útil: 116.6.0.0  
     4ª subred útil: 116.8.0.0  
-
     3ª subred útil: 116.6.0.0 a 116.7.255.255 (IPs útiles de host: 116.6.0.1 a 116.7.255.254)
 -->
-.Paso 2 (Bits robados/cogidos): Paso 3 (Nueva máscara adaptada):Prefijo CIDR: $/8 + 7 = \mathbf{/15}$Formato binario: 11111111.11111110.00000000.00000000Formato decimal: 255.254.0.0Paso 4 (Bits de host restantes): $32 - 15 = \mathbf{17\text{ bits de host}}$.Paso 5 (Salto de subred / Bloque): En el segundo octeto, el valor del salto es $256 - 254 = \mathbf{2}$.Solución del ejercicioa. Clase: Ab. Máscara de Subred por defecto: 255.0.0.0c. Máscara de Subred (adaptada): 255.254.0.0 (Prefijo /15)d. Nº total de subredes: 128 ($2^7$)e. Nº de subredes útiles: 126 ($2^7 - 2$, si descartamos la subred cero y la última según el estándar clásico RFC 950)f. Nº total de direcciones de host por subred: 131.072 ($2^{17}$)g. Nº de direcciones útiles por subred: 131.070 ($2^{17} - 2$, restando red y broadcast)h. Nº de bits cogidos: 7 bitsi. ¿Cuál es el 3º rango de subred útil?Subred 0 (no útil en estándar clásico): 116.0.0.01ª subred útil: 116.2.0.02ª subred útil: 116.4.0.03ª subred útil: 116.6.0.0 a 116.7.255.255 (IPs útiles de host: 116.6.0.1 a 116.7.255.254)j. ¿Nº de subred (IP de red) de la 2ª subred útil? 116.4.0.0
 
+!!! exercise "Ejercicio 6"
+    1. Disponemos de la dirección de red: `199.95.30.0`
+    1. Se desea montar 62 subredes útiles sobre esa red.
+    1. Se desea saber:
+        1. Clase:
+        1. Máscara de subred por defecto:
+        1. Máscara de subred adaptada a las 126 subredes:
+        1. Nº de bits cogidos:  
+        1. Nº total de subredes:
+        1. Nº de subredes útiles:  
+        1. Nº total de direcciones de host:
+        1. Nº de direcciones útiles  
+        1. ¿Nº de subred de la 2ª subred útil?  
+        1. ¿Cuál es el 3º rango de subred útil?
+
+<!--
+Clase C, máscara /24).
+Cálculo de bits prestados:Buscamos cubrir 62 subredes con la fórmula 2^s >=62. Con 6 bits obtenemos $2^6 = 64 subredes (cubre perfectamente las 62 requeridas).
+Nueva máscara (CIDR)= 24 + 6 /30. En binario: 11111111.11111111.11111111.11111100 → 255.255.255.252
+Bits de host restantes 32 - 30 = 2 bits
+Salto de subred / Bloque: En el cuarto octeto: $256 - 252 
+Solución del ejercicio
+    a. Clase: C
+    b. Máscara de subred por defecto: 255.255.255.0
+    c. Máscara de subred adaptada: 255.255.255.252 (Prefijo /30)
+    d. Nº de bits cogidos: 6 bits
+    e. Nº total de subredes: 64 ($2^6$)f. Nº de subredes útiles: 64 (Bajo la norma RFC 1878 son todas utilizables; bajo el estándar antiguo RFC 950 serían 64 - 2 = 62$)
+    g. Nº total de direcciones de host por subred: 4 2^2
+    h. Nº de direcciones útiles por subred: 2 ( 2 para enlaces punto a punto entre routers)
+    i. Nº de subred de la 2ª subred útil?  
+        1ª subred: 199.95.30.0/30, 
+        2ª subred: 199.95.30.4/30)
+    j. ¿Cuál es el 3º rango de subred útil?
+        3ª subred: 199.95.30.8/30 
+        Rango útil de hosts: 199.95.30.9 a 199.95.30.10 IP de Broadcast: 199.95.30.11 
+        Rango completo de la subred: 199.95.30.8 a 199.95.30.11
+-->
 
 ## 3 - Protocolo TCP
 
