@@ -308,7 +308,8 @@ Las direcciones primera y última de cada subred se reservan para identificar la
 #### 2.1.7 Ejercicios de redes y de subnetting
 
 !!! exercise "Ejercico 1"
-    Definir la clase de red de las sigientes IP's
+    Definir la clase de red de las sigientes IP's.
+
     |Dirección|Clase|
     ||:-:|
     |10.250.1.1|A|
