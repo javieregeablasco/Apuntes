@@ -191,8 +191,8 @@ Pregunta 3
 1. **Direcciones privadas:** rangos reservados para uso interno en redes locales, no enrutables en Internet:
 
 !!! exercise "Redes y direcciones IP"
-    Con la ayuda de las definiciones anteriores, responder a las siguientes preguntas.  
-    
+    Con la ayuda de las definiciones de los apartados anteriores, responder a las siguientes preguntas.  
+
     1. Proponer una IP de una red de clase C.
     2. Calcular la dirección de red.  
     3. Calcular la dirección de broadcast.
