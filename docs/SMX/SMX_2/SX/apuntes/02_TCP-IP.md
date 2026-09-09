@@ -223,6 +223,10 @@ Pregunta 3
     1. ¿Cuantos hosts quedarían en las redes anteriores si la red tiene acceso a internet?
     1. ¿Como se llama la IP reservada para salir de la red?
 
+<!-- 
+https://aules.edu.gva.es/docent/pluginfile.php/5719248/mod_resource/content/1/XL_UT03_Interconnexio%CC%81%20d%E2%80%99equips%20en%20xarxes%20locals%20i%20muntatge%20de%20connectors-IP.pdf 
+-->
+
 <!--
 Ejercicio 1
 El número /8 indica que los primeros 8 bits están reservados para la red
@@ -271,7 +275,7 @@ La información se envía desde un origen a un grupo específico de dispositivos
 La información se envía a todos los dispositivos de la subred. Como se explicó en un apartado anterior, esto se logra utilizando la dirección de broadcast de la red (ej.: 10.255.255.255). A nivel de enlace, la trama Ethernet usa la MAC de destino FF:FF:FF:FF:FF:FF, lo que obliga al switch a reenviarla (flood) por todos sus puertos.  
 
     !!! tip "Ejemplos de uso del broadcast"
-        - solicitudes DHCP (el cliente no conoce aún la IP del servidor), resolución de direcciones con ARP (para averiguar qué MAC corresponde a una IP).
+        - Solicitudes **DHCP (el cliente no conoce aún la IP del servidor)**, resolución de direcciones con ARP (para averiguar qué MAC corresponde a una IP).
         - Desventaja: genera tráfico innecesario en dispositivos que no están interesados en el paquete, y en redes grandes puede provocar problemas de rendimiento (broadcast storms).
 
 #### 2.1.6 Subnetting
@@ -300,6 +304,9 @@ Las direcciones primera y última de cada subred se reservan para identificar la
 - **Más seguridad:** permite separar departamentos (como administración o ventas) y limitar el acceso entre ellos.- **Ahorro de IP:** ayuda a aprovechar mejor los recursos de direcciones disponibles.
 
 [**Calculadora IP**](https://www.aprendaredes.com/cgi-bin/ipcalc/ipcalc_cgi1)
+
+#### 2.1.7 Ejercicios de subnetting
+
 
 ## 3 - Protocolo TCP
 
