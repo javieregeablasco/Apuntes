@@ -7,7 +7,7 @@ author: Javier Egea Blasco
 layout: default  
 year: 26-27  
 keywords: SMX, SMR, SOST
-schedule: 233h - 7h/w
+schedule: 1h/w
 ---
 
 ![Descripción de la imagen](./img_0/img_0_1.jpg){ .img1 }
