@@ -429,9 +429,9 @@ Las máscaras de subred por defecto según la clase de IP son:
 
 !!! exercise "Ejercicio 3"
     1. Disponemos de la dirección de red: `116.0.0.0`
-    1. Se desea montar unas subredes que contengan 126 subredes útiles cada una de
-ellas:
-Se desea saber:
+    1. Se desea montar unas subredes que contengan 126 subredes útiles cada una de ellas:
+
+    1. Se desea saber:
         1. Clase: A
         1. Máscara de Subred (por defecto) : 255.0.0.0
 3. Máscara de Subred (adaptada): 255.11111110.00000000.00000000
