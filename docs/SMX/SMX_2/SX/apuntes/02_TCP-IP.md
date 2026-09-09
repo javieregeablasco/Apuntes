@@ -537,6 +537,9 @@ Solución del ejercicio
 
 ## 3 - Protocolo TCP
 
+## hasta aqui
+<!-- pdf 31/33 -->
+
 El protocolo TCP (Transmission Control Protocol o Protocolo de Control de Transmisión) es uno de los pilares fundamentales de las redes informáticas e internet. Junto con IP, forma la base de la suite de protocolos TCP/IP sobre la que funciona la comunicación en internet.
 
 TCP es el mecanismo que controla las transmisiones de datos y se asegura de que los paquetes enviados entre dispositivos lleguen completos, en orden y sin cambios. A diferencia de otros protocolos de transporte como UDP, TCP prioriza la fiabilidad sobre la velocidad.
@@ -617,13 +620,16 @@ TCP es un protocolo robusto y flexible, capaz de servir de base a muchos otros p
 
 ### 3.7.6 Puertos en TCP
 
-Los puertos son números que identifican de manera única a cada servicio o aplicación que se ejecuta en un equipo. TCP utiliza estos puertos, junto con la dirección IP, para dirigir los datos al proceso correcto dentro del sistema operativo (esta combinación de IP y puerto se conoce como socket).
-
-Los puertos se dividen en tres rangos principales:
-
-- **Puertos bien conocidos (Well-known ports):** del 0 al 1023. Son utilizados por servicios y aplicaciones estándar, como HTTP (puerto 80), HTTPS (puerto 443), FTP (puertos 20 y 21) y SMTP (puerto 25).
-- **Puertos registrados (Registered ports):** del 1024 al 49151. Son asignados a aplicaciones y servicios específicos por la IANA (Internet Assigned Numbers Authority).
-- **Puertos dinámicos o privados (Dynamic or Private ports):** del 49152 al 65535. Son utilizados por aplicaciones y servicios temporales o personalizados, y no están asignados oficialmente; suelen emplearse como puertos de origen en conexiones salientes de los clientes.
+1. Un equipo conectado a una red TCP/IP ejecuta múltiples procesos a la vez.
+1. Esto implica que cada un de ellos genere datos que se envían a través de un protocolo (TCP o UDP) de la capa de transporte que los pasa al protocolo IP (capa de internet) para su transmisión a través de la dirección IP de la interfaz de red.
+1. Para saber a qué proceso pertenece cada envío es necesario una dirección adicional que lo identifique dentro de una dirección IP concreta.
+1. En el protocolo TCP/IP, esa dirección se llama puerto.
+1. Los puertos son números que identifican de manera única a cada servicio o aplicación que se ejecuta en un equipo. TCP utiliza estos puertos, junto con la dirección IP, para dirigir los datos al proceso correcto dentro del sistema operativo (esta combinación de IP y puerto se conoce como socket).
+1. Los puertos se dividen en tres rangos principales:
+ 
+    - **Puertos bien conocidos (Well-known ports):** del 0 al 1023. Son utilizados por servicios y aplicaciones estándar, como HTTP (puerto 80), HTTPS (puerto 443), FTP (puertos 20 y 21) y SMTP (puerto 25).
+    - **Puertos registrados (Registered ports):** del 1024 al 49151. Son asignados a aplicaciones y servicios específicos por la IANA (Internet Assigned Numbers Authority).
+    - **Puertos dinámicos o privados (Dynamic or Private ports):** del 49152 al 65535. Son utilizados por aplicaciones y servicios temporales o personalizados, y no están asignados oficialmente; suelen emplearse como puertos de origen en conexiones salientes de los clientes.
 
 <!-- 
 muy bien escrito revisar para ver si el texto sigue la misma esstructura.
