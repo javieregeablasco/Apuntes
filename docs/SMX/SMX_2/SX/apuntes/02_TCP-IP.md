@@ -31,26 +31,43 @@ schedule: 233h - 7h/w
 
 ## 1 - Introducción
 
-**Internet es una red pública y global** de ordenadores que están interconectados mediante el protocolo de Internet (Internet Protocol) y que se comunican mediante la conmutación de paquetes.  
+1. **Internet es una red pública y global** de ordenadores que están interconectados mediante el protocolo de Internet (Internet Protocol) y que se comunican mediante la conmutación de paquetes.  
 
-La denominación TCP/IP hace referencia a sus **dos protocolos más importantes:
+1. La denominación TCP/IP hace referencia a sus **dos protocolos más importantes**:
 
-- **Protocolo de Internet (IP)**.
-Conjunto de reglas que asigna direcciones únicas a los dispositivos y permite enviar (enrutar) paquetes de datos a través de las redes y llegar al destino correcto.
-- **Protocolo de Control de Transmisión (TCP)**.
- Es un estándar de comunicación de la capa de transporte que garantiza el envío seguro, ordenado y sin errores de paquetes de datos entre dispositivos conectados a una red.
+    - **Protocolo de Internet (IP)**.  
+    Conjunto de reglas que asigna direcciones únicas a los dispositivos y permite enviar (enrutar) paquetes de datos a través de las redes y llegar al destino correcto.
+    - **Protocolo de Control de Transmisión (TCP)**.
+    Es un estándar de comunicación de la capa de transporte que garantiza el envío seguro, ordenado y sin errores de paquetes de datos entre dispositivos conectados a una red.
+
+!!! question "Citar otros protocolos de comunicación de redes"
+
+<!--
+- Bluetooth
+- Redes industriales (CAN bus, Modbus...)
+- Zigbee, z-wave, knx ()
+- Redes a almacenamiento SAN (no confundir con NAS)
+-->
 
 ## 2 - Protocolo de Internet (IP)
 
 ### 2.1 Introducción
 
-La versión más utilizada actualmente del protocolo IP es **IPv4**, definida en el RFC 791 de 1981. Permite **un total teórico de 2³² direcciones**, aunque algunas están reservadas para usos especiales. Esto limita el número de direcciones IP disponibles, lo que ha provocado que se agoten en muchas regiones del mundo.
+- La versión más utilizada actualmente del protocolo IP es **IPv4**, definida en el RFC 791 de 1981. Permite **un total teórico de 2³² direcciones**, aunque algunas están reservadas para usos especiales. Esto limita el número de direcciones IP disponibles, lo que ha provocado que se agoten en muchas regiones del mundo.
 
-Hoy en día ya dispone de un sucesor, **IPv6**, cuyo uso se está extendiendo progresivamente. Ofrece un espacio de direcciones mucho más amplio de 2¹²⁸ direcciones y otras mejoras, como la simplificación del encabezado y la eliminación de la necesidad de traducción de direcciones de red (NAT).
+- Hoy en día ya dispone de un sucesor, **IPv6**, cuyo uso se está extendiendo progresivamente. Ofrece un espacio de direcciones mucho más amplio de 2¹²⁸ direcciones y otras mejoras, como la simplificación del encabezado y la eliminación de la necesidad de **traducción de direcciones de red (NAT)**.
 
-Todas las versiones del protocolo IP permiten el envío de paquetes entre equipos sin establecer **ningún tipo de conexión** (*connectionless*). Esto significa que el equipo de origen envía datos al destinatario sin esperar ninguna confirmación de que la información se haya recibido correctamente.
+!!! question "¿Qué es la traducción de direcciones de red (NAT)?"
 
-Aunque para **enviar datos entre dos hosts basta con el protocolo IP**, este no ofrece ninguna garantía de que se envíen correctamente ni de que lleguen a su destino. Tampoco garantiza que los datos lleguen intactos, ya que el control de errores solo se realiza sobre las cabeceras y no sobre la carga útil (los datos transmitidos). Por ello, las aplicaciones que requieren fiabilidad recurren al **protocolo TCP** en la capa de transporte.
+<!-- 
+- La Traducción de Direcciones de Red (NAT) es un método que modifica las direcciones IP en los paquetes de datos mientras transitan por un router, permitiendo que múltiples dispositivos de una red privada compartan una sola dirección IP pública para conectarse a Internet. 
+-->
+
+- Todas las versiones del protocolo IP permiten el envío de paquetes entre equipos sin establecer **ningún tipo de conexión** (*connectionless*).
+
+- Esto significa que el equipo de origen envía datos al destinatario sin esperar ninguna confirmación de que la información se haya recibido correctamente.
+
+- Aunque para **enviar datos entre dos hosts basta con el protocolo IP**, este no ofrece ninguna garantía de que se envíen correctamente ni de que lleguen a su destino. Tampoco garantiza que los datos lleguen intactos, ya que el control de errores solo se realiza sobre las cabeceras y no sobre la carga útil (los datos transmitidos). Por ello, las aplicaciones que requieren fiabilidad recurren al **protocolo TCP** en la capa de transporte.
 
 ### 2.1. Configuración de un nodo IP
 
@@ -314,8 +331,7 @@ falta poner imagen de hardware de red + serviciois en red para introducir el mod
 
 <!-- OSI -->
 <!-- https://itadmins.es/networking-i-el-modelo-osi/ -->
-<!-- https://learn.microsoft.com/es-es/shows/networking-fundamentals/ -->
-
+ 
 <!-- https://www.manageengine.com/latam/oputils/direcciones-ip-fundamentos.html -->
 <!-- https://itadmins.es/networking-ii-dispositivos-de-red-y-tipos-de-trafico/ -->
 
