@@ -202,11 +202,11 @@ Pregunta 3
 
 #### 2.1.4 Direccionamiento sin clase (CIDR)
 
-Con el rápido crecimiento de Internet, el direccionamiento basado en clases quedó obsoleto. En 1993 se introdujo CIDR (*Classless Inter-Domain Routing*), un sistema que elimina la rigidez de las clases y optimiza la forma en que se interpretan y enrutan las direcciones IP.
+- Con el rápido crecimiento de Internet, el direccionamiento basado en clases quedó obsoleto. En 1993 se introdujo CIDR (*Classless Inter-Domain Routing*), un sistema que elimina la rigidez de las clases y optimiza la forma en que se interpretan y enrutan las direcciones IP.
 
-En lugar de clases, se utiliza **una notación con prefijo** para indicar el número de bits a 1 en la máscara de red. Las antiguas clases A, B y C equivalen a máscaras /8, /16 y /24, respectivamente. Por ejemplo, la notación 192.168.0.0/16 indica que los primeros 16 bits corresponden a la red.
+- En lugar de clases, se utiliza **una notación con prefijo** para indicar el número de bits a 1 en la máscara de red. Las antiguas clases A, B y C equivalen a máscaras /8, /16 y /24, respectivamente. Por ejemplo, la notación 192.168.0.0/16 indica que los primeros 16 bits corresponden a la red.
 
-Para utilizar CIDR, los routers deben ser capaces de procesar direcciones IP independientemente de las clases convencionales.
+- Para utilizar CIDR, los routers deben ser capaces de procesar direcciones IP independientemente de las clases convencionales.
 
 **Ejemplos**  
 
@@ -214,13 +214,37 @@ Para utilizar CIDR, los routers deben ser capaces de procesar direcciones IP ind
 - 192.168.0.0/16: permite direcciones desde 192.168.0.1 hasta 192.168.1.253.
 
 !!! exercise "Redes CIDR"
+
     1. Calcular la máscara de la red 10.0.0.0/8.
-    2. Calcular la máscara de la red 192.168.0.0/16.
-    3. Calcular la máscara de la red 172.16.0.0/12.
-    4. Calcular el rango de direcciones de la red: 172.16.0.0/12.
-    4. Calcular la IP de broadcast de la red 172.16.0.0/12.
-    5. ¿Cuantos hosts quedarían en las redes anteriores si la red tiene acceso a internet?
-    6. ¿Como se llama la IP reservada para salir de la red?
+    1. Calcular la máscara de la red 192.168.0.0/16.
+    1. Calcular la máscara de la red 172.16.0.0/12.
+    1. Calcular el rango de direcciones de la red: 172.16.0.0/12.
+    1. Calcular la IP de broadcast de la red 172.16.0.0/12.
+    1. ¿Cuantos hosts quedarían en las redes anteriores si la red tiene acceso a internet?
+    1. ¿Como se llama la IP reservada para salir de la red?
+
+<!--
+Ejercicio 1
+El número /8 indica que los primeros 8 bits están reservados para la red
+    - Máscara decimal: 255.0.0.02. 
+
+Ejercicio 2
+El número /16 indica que los primeros 16 bits están reservados para la red
+    - Máscara decimal: 255.255.0.0
+    
+Ejercicio 3
+El número /12 indica que los primeros 12 bits están encendidos 
+    - Máscara decimal: 255.240.0.0 
+    
+Ejercicio 4
+El bloque abarca desde el segundo octeto 16 (0001 0000) hasta 31 (0001 1111):
+    - Primera IP del rango (IP de Red): 172.16.0.0
+    - Primera IP asignable a host: 172.16.0.1
+    - Última IP asignable a host: 172.31.255.254
+    - Última IP del rango (Broadcast): 172.31.255.255
+    Rango completo de la red: 172.16.0.0 a 172.31.255.2554 (b). IP de broadcast de la red 172.16.0.0/12Poniendo a 1 todos los 20 bits correspondientes a los hosts:IP de broadcast: 172.31.255.2555. Hosts asignables en cada red (con acceso a internet)Para calcular los hosts útiles se utiliza la fórmula $2^h - 2$, donde $h$ es la cantidad de bits de host ($32 - \text{prefijo CIDR}$). La resta de $2$ descuenta la dirección de Red y la dirección de Broadcast.Nota sobre la puerta de enlace / router: Si la red necesita salir a Internet, obligatoriamente se debe asignar una de las IPs útiles al router. Por tanto, el número total de hosts disponibles para clientes/equipos se reduce en 1 respecto al cálculo estándar ($2^h - 3$).Red 10.0.0.0/8 ($h = 24$ bits de host):IPs útiles estándar: $2^{24} - 2 = 16.777.214$ hosts.Si 1 IP la usa el Gateway/Router: Quedan 16.777.213 hosts para dispositivos.Red 192.168.0.0/16 ($h = 16$ bits de host):IPs útiles estándar: $2^{16} - 2 = 65.534$ hosts.Si 1 IP la usa el Gateway/Router: Quedan 65.533 hosts para dispositivos.Red 172.16.0.0/12 ($h = 20$ bits de host):IPs útiles estándar: $2^{20} - 2 = 1.048.574$ hosts.Si 1 IP la usa el Gateway/Router: Quedan 1.048.573 hosts para dispositivos.6. Nombre de la IP reservada para salir de la redLa dirección IP reservada dentro de la red local para comunicarse con el exterior o salir a Internet se denomina Puerta de Enlace o Gateway (formalmente, Default Gateway o Puerta de enlace predeterminada).
+
+-->
 
 #### 2.1.5 Métodos de transmisión
 
