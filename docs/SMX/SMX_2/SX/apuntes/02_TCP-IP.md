@@ -268,9 +268,10 @@ La información se envía desde un único origen a un único destinatario. Es el
 La información se envía desde un origen a un grupo específico de dispositivos suscritos.  
 **Utiliza direcciones reservadas de la Clase D** (rango 224.0.0.0 – 239.255.255.255). Los dispositivos se suscriben o abandonan un grupo multicast mediante **el protocolo IGMP** (Internet Group Management Protocol), y **los routers usan protocolos como PIM** (Protocol Independent Multicast) para reenviar el tráfico únicamente hacia las ramas de red donde existen receptores interesados.  
 - **Difusión (Broadcast):**  
-La información se envía a todos los dispositivos de la subred. Como se explicó en un apartado anterior, esto se logra utilizando la dirección de broadcast de la red (ej.: 10.255.255.255). A nivel de enlace, la trama Ethernet usa la MAC de destino FF:FF:FF:FF:FF:FF, lo que obliga al switch a reenviarla (flood) por todos sus puertos.
-Ejemplos de uso: solicitudes DHCP (el cliente no conoce aún la IP del servidor), resolución de direcciones con ARP (para averiguar qué MAC corresponde a una IP).
-Desventaja: genera tráfico innecesario en dispositivos que no están interesados en el paquete, y en redes grandes puede provocar problemas de rendimiento (broadcast storms).
+La información se envía a todos los dispositivos de la subred. Como se explicó en un apartado anterior, esto se logra utilizando la dirección de broadcast de la red (ej.: 10.255.255.255). A nivel de enlace, la trama Ethernet usa la MAC de destino FF:FF:FF:FF:FF:FF, lo que obliga al switch a reenviarla (flood) por todos sus puertos.  
+    !!! tip "Ejemplos de uso"
+        - solicitudes DHCP (el cliente no conoce aún la IP del servidor), resolución de direcciones con ARP (para averiguar qué MAC corresponde a una IP).
+        - Desventaja: genera tráfico innecesario en dispositivos que no están interesados en el paquete, y en redes grandes puede provocar problemas de rendimiento (broadcast storms).
 
 #### 2.1.6 Subnetting
 
