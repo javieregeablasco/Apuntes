@@ -10,7 +10,7 @@ keywords: SMX, SMR, SX, SR
 schedule: 233h - 7h/w
 ---
 
-![Descripción de la imagen](./img_4/img_4_1.jpg){ .img2 .marginbottom40}
+![Descripción de la imagen](./img_2/img_2_21.png){ .img2 .marginbottom40}
 
 **Resultados de aprendizaje y criterios de evaluacion que se evaluarán en esta unidad.**  
 
@@ -69,7 +69,7 @@ schedule: 233h - 7h/w
 
 - Aunque para **enviar datos entre dos hosts basta con el protocolo IP**, este no ofrece ninguna garantía de que se envíen correctamente ni de que lleguen a su destino. Tampoco garantiza que los datos lleguen intactos, ya que el control de errores solo se realiza sobre las cabeceras y no sobre la carga útil (los datos transmitidos). Por ello, las aplicaciones que requieren fiabilidad recurren al **protocolo TCP** en la capa de transporte.
 
-### 2.1. Configuración de un nodo IP
+### 2.2 Configuración de un nodo IP
 
 En primer lugar, es necesario **configurar los protocolos TCP/IP locales**, incluidos por defecto en el núcleo de cualquier sistema operativo moderno. Para configurar un equipo se requiere la siguiente información:
 
@@ -90,7 +90,7 @@ Si la comunicación se realiza con equipos de otras subredes o con Internet, se 
 
 #### 2.1.1 Estructura de una dirección IP (IPv4)
 
-![Descripción de la imagen](./img_3/img_3_2.png){ .img1 .marginbottom40}
+![Descripción de la imagen](./img_2/img_2_21.png){ .img1 .marginbottom40}
 
 Una dirección IPv4 es un número de 32 bits que identifica a cada uno de los dispositivos conectados a una red IP, así como a la propia red.
 
