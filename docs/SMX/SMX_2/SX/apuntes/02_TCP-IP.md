@@ -249,9 +249,13 @@ IP de broadcast de la red 172.16.0.0/12 se calcula poniendo a 1 todos los 20 bit
     - IP de broadcast: 172.31.255.255
     
 Ejercicio 6
-    
-    5. Hosts asignables en cada red (con acceso a internet)Para calcular los hosts útiles se utiliza la fórmula $2^h - 2$, donde $h$ es la cantidad de bits de host ($32 - \text{prefijo CIDR}$). La resta de $2$ descuenta la dirección de Red y la dirección de Broadcast.Nota sobre la puerta de enlace / router: Si la red necesita salir a Internet, obligatoriamente se debe asignar una de las IPs útiles al router. Por tanto, el número total de hosts disponibles para clientes/equipos se reduce en 1 respecto al cálculo estándar ($2^h - 3$).Red 10.0.0.0/8 ($h = 24$ bits de host):IPs útiles estándar: $2^{24} - 2 = 16.777.214$ hosts.Si 1 IP la usa el Gateway/Router: Quedan 16.777.213 hosts para dispositivos.Red 192.168.0.0/16 ($h = 16$ bits de host):IPs útiles estándar: $2^{16} - 2 = 65.534$ hosts.Si 1 IP la usa el Gateway/Router: Quedan 65.533 hosts para dispositivos.Red 172.16.0.0/12 ($h = 20$ bits de host):IPs útiles estándar: $2^{20} - 2 = 1.048.574$ hosts.Si 1 IP la usa el Gateway/Router: Quedan 1.048.573 hosts para dispositivos.6. Nombre de la IP reservada para salir de la redLa dirección IP reservada dentro de la red local para comunicarse con el exterior o salir a Internet se denomina Puerta de Enlace o Gateway (formalmente, Default Gateway o Puerta de enlace predeterminada).
+Para calcular los hosts útiles se utiliza la fórmula 2^h - 2, donde h es la cantidad de bits de host 
+ - Red 10.0.0.0/8:  2^24 - 2 = 16.777.214 
+ - Red 192.168.0.0/16 2^16 - 2 = 65.534
+ - Red 172.16.0.0/12 2^20 - 2 = 1.048.574
 
+Ejercicio 7
+Puerta de enlace (IGW)
 -->
 
 #### 2.1.5 Métodos de transmisión
