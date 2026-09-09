@@ -148,9 +148,14 @@ Además, existen dos clases especiales:
 
 !!! exercise "Identificación de direcciones IP"
     Con la ayuda de la tabla anterior responder a las siguientes preguntas.  
+
     1. Calcular el rango de direcciones IP de cada clase.  
-    2. Calcular la cantidad de redes disponibles para cada clase.  
-    3. Calcular la cantidad de IP's (hosts) disponibles para cada clase.  
+    1. Calcular la cantidad de redes disponibles para cada clase.  
+    1. Calcular la cantidad de IP's (hosts) disponibles para cada clase.  
+
+<!--
+
+-->
 
 #### 2.1.3 Direcciones reservadas y especiales
 
@@ -336,9 +341,6 @@ falta poner imagen de hardware de red + serviciois en red para introducir el mod
 <!-- https://aules.edu.gva.es/fp/pluginfile.php/13446083/mod_resource/content/1/Actividad3.U01_Soluci%C3%B3n.docx.pdf -->
 <!-- https://aules.edu.gva.es/fp/pluginfile.php/13446085/mod_resource/content/1/Introduccion_3_casos_practicos.pdf -->
 
-<!-- OSI -->
-<!-- https://itadmins.es/networking-i-el-modelo-osi/ -->
- 
 <!-- https://www.manageengine.com/latam/oputils/direcciones-ip-fundamentos.html -->
 <!-- https://itadmins.es/networking-ii-dispositivos-de-red-y-tipos-de-trafico/ -->
 
@@ -363,7 +365,5 @@ https://itadmins.es/networking-ii-dispositivos-de-red-y-tipos-de-trafico/
 http://127.0.0.1:5500/docs/SMX/SMX_2/SX/sxe/UD01/1_arquitectura_de_xarxa_tcpip.html
 
 https://aules.edu.gva.es/docent/pluginfile.php/5719248/mod_resource/content/1/XL_UT03_Interconnexio%CC%81%20d%E2%80%99equips%20en%20xarxes%20locals%20i%20muntatge%20de%20connectors-IP.pdf
-
-https://www.redeszone.net/tutoriales/internet/protocolos-basicos-redes/#286115-protocolos-basicos-en-redes 
 
 -->
