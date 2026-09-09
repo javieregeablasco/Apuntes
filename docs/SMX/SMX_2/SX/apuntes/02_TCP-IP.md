@@ -117,7 +117,7 @@ Para separar el identificador de red del identificador de dispositivo se aplica 
     - 2607:f8b0:4004:809::200e
 
 <!-- 
-- 2001:db8::8a2e:370:7334$ → 2001:0db8:0000:0000:0000:8a2e:0370:7334
+- 2001:db8::8a2e:370:7334 → 2001:0db8:0000:0000:0000:8a2e:0370:7334
 - ff02::1 → ff02:0000:0000:0000:0000:0000:0000:0001
 - 2001:4860:4860::8888 → 2001:4860:4860:0000:0000:0000:0000:8888
 - 2607:f8b0:4004:809::200e → 2607:f8b0:4004:0809:0000:0000:0000:200e
@@ -310,7 +310,7 @@ Las direcciones primera y última de cada subred se reservan para identificar la
 !!! exercise "Ejercico 1"
     Definir la clase de red de las sigientes IP's.
 
-    |Dirección|Clase|
+    |Dirección IP|Clase|
     ||:-:|
     |10.250.1.1|A|
     |150.10.15.0|B|
@@ -331,6 +331,65 @@ Las direcciones primera y última de cada subred se reservan para identificar la
     |33.0.0.0||
     |158.98.80.0||
     |219.21.56.0||
+
+<!-- 
+Para determinar la clase de una dirección IP (según el sistema clásico de clases *Classful*), basta con observar el valor del **primer octeto** de la dirección:
+
+* **Clase A:** 1 a 126 (bits de inicio `0`)
+* **Clase B:** 128 a 191 (bits de inicio `10`)
+* **Clase C:** 192 a 223 (bits de inicio `110`)
+* **Clase D (Multicast):** 224 a 239 (bits de inicio `1110`)
+* **Clase E (Investigación):** 240 a 255 (bits de inicio `1111`)
+
+### Tabla resuelta
+
+| Dirección IP | Clase | Justificación (Primer Octeto) |
+| --- | --- | --- |
+| **10.250.1.1** | **A** | 10 está en el rango 1 - 126 |
+| **150.10.15.0** | **B** | 150 está en el rango 128 - 191 |
+| **192.14.2.0** | **C** | 192 está en el rango 192 - 223 |
+| **148.17.9.1** | **B** | 148 está en el rango 128 - 191 |
+| **193.42.1.1** | **C** | 193 está en el rango 192 - 223 |
+| **126.8.156.0** | **A** | 126 está en el rango 1 - 126 |
+| **220.200.23.1** | **C** | 220 está en el rango 192 - 223 |
+| **230.230.45.58** | **D** | 230 está en el rango 224 - 239 (Multicast) |
+| **177.100.18.4** | **B** | 177 está en el rango 128 - 191 |
+| **119.18.45.0** | **A** | 119 está en el rango 1 - 126 |
+| **249.240.80.78** | **E** | 249 está en el rango 240 - 255 (Investigación) |
+| **199.155.77.56** | **C** | 199 está en el rango 192 - 223 |
+| **117.89.56.45** | **A** | 117 está en el rango 1 - 126 |
+| **215.45.45.0** | **C** | 215 está en el rango 192 - 223 |
+| **199.200.15.0** | **C** | 199 está en el rango 192 - 223 |
+| **95.0.21.90** | **A** | 95 está en el rango 1 - 126 |
+| **33.0.0.0** | **A** | 33 está en el rango 1 - 126 |
+| **158.98.80.0** | **B** | 158 está en el rango 128 - 191 |
+| **219.21.56.0** | **C** | 219 está en el rango 192 - 223 |
+-->
+
+!!! exercise "Ejercico 2"
+    Escribe la máscara de subred por defecto correspondiente a cada una de estas direcciones IP's.
+    !!! tip "Identificar primero la clase de red a la que pertenece la IP"
+    |Dirección IP|Clase|Máscara|
+    ||||
+    |177.100.18.4|B|255.255.0.0|
+    |119.18.45.0|A|255.0.0.0|
+    ||||
+    ||||
+    ||||
+    ||||
+    ||||
+    ||||
+    ||||
+    ||||
+    ||||
+    ||||
+    ||||
+    ||||
+    ||||
+    ||||
+    ||||
+    ||||
+
 
 ## 3 - Protocolo TCP
 
