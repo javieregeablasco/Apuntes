@@ -88,7 +88,7 @@ Si la comunicación se realiza con equipos de otras subredes o con Internet, se 
     - **No fiable:** los paquetes se pueden perder, dañar o sufrir retardos.
     - **Direccionamiento lógico:** proporciona un esquema de direccionamiento lógico mediante direcciones IP.
 
-#### 2.1.1 Estructura de una dirección IP (IPv4)
+#### 2.2.1 Estructura de una dirección IP (IPv4)
 
 ![Descripción de la imagen](./img_2/img_2_22.png){ .img1 .marginbottom40}
 
