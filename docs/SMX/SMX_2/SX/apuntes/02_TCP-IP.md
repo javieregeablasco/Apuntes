@@ -123,7 +123,7 @@ Para separar el identificador de red del identificador de dispositivo se aplica 
 - 2607:f8b0:4004:809::200e → 2607:f8b0:4004:0809:0000:0000:0000:200e
 -->
 
-#### 2.1.2 Clases de direcciones IPv4
+#### 2.2.2 Clases de direcciones IPv4
 
 Históricamente, las direcciones se dividían en tres clases principales según los octetos destinados a la red:
 
