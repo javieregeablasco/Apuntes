@@ -305,7 +305,19 @@ Las direcciones primera y última de cada subred se reservan para identificar la
 
 [**Calculadora IP**](https://www.aprendaredes.com/cgi-bin/ipcalc/ipcalc_cgi1)
 
-#### 2.1.7 Ejercicios de subnetting
+#### 2.1.7 Ejercicios de redes y de subnetting
+
+!!! exercise "Ejercico 1"
+    Definir la clase de red de las sigientes IP's
+    |Dirección|Clase|
+    ||:-:|
+    |10.250.1.1|A|
+    |150.10.15.0|B|
+    |||
+    |||
+    |||
+    |||
+    |||
 
 
 ## 3 - Protocolo TCP
