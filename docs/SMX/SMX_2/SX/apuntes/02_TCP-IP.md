@@ -427,22 +427,63 @@ Las máscaras de subred por defecto según la clase de IP son:
         - Nº total de direcciones de host:
         - Nº de direcciones útiles:
 
-!!! exercise "Ejercicio 3"
-    1. Disponemos de la dirección de red: `116.0.0.0`
-    1. Se desea montar unas subredes que contengan 126 subredes útiles cada una de ellas:
-
+!!! exercise "Ejercicio 4"
+    1. Disponemos de la dirección de red: `172.16.0.0/16`
+    1. Se desea montar 2 subredes útiles sobre esa red.
     1. Se desea saber:
-        1. Clase: 
-        1. Máscara de Subred por defecto : 
-        1. Máscara de Subred (adaptada): 255.11111110.00000000.00000000 
-        255.224.0.0
-4. Nº total de subredes: 
-5. Nº de subredes útiles:  
-6. Nº total de direcciones de host:
-7. Nº de direcciones útiles  
-8. Nº de bits cogidos:  
-9. ¿Cuál es el 3º rango de subred útil? 
-10. ¿Nº de subred de la 2ª subred útil?  
+        1. Clase:
+        1. Máscara de subred por defecto:
+        1. Máscara de subred adaptada:
+        1. Nº total de subredes:  
+        1. Nº total de subredes:
+        1. Nº de subredes útiles:  
+        1. Nº total de direcciones de host:
+        1. Nº de direcciones útiles  
+        1. ¿Nº de subred de la 2ª subred útil?  
+        1. ¿Cuál es el 3º rango de subred útil?
+
+!!! exercise "Ejercicio 5"
+    1. Disponemos de la dirección de red: `116.0.0.0`
+    1. Se desea montar 126 subredes útiles sobre esa red.
+    1. Se desea saber:
+        1. Clase:
+        1. Máscara de subred por defecto:
+        1. Máscara de subred adaptada a las 126 subredes:
+        1. Nº de bits cogidos:  
+        1. Nº total de subredes:
+        1. Nº de subredes útiles:  
+        1. Nº total de direcciones de host:
+        1. Nº de direcciones útiles  
+        1. ¿Nº de subred de la 2ª subred útil?  
+        1. ¿Cuál es el 3º rango de subred útil?
+
+<!--
+- La IP 116.0.0.0 pertenece a la Clase A
+- Su máscara por defecto es 255.0.0.0 (prefijo /8)
+- Mascara de subred:
+    Necesitamos al menos 126 subredes útiles. 
+    Aplicando la fórmula 2^s - 2 >= 126, descubrimos que con 7 bits robados a la porción de host obtenemos 2^7 = 128 subredes totales.
+    resultado 255.254.0.0, CIDR /8 + /7 = /15     
+        
+    1. Nº de bits cogidos: 7 
+    1. Nº total de subredes: 128
+    1. Nº de subredes útiles: 126  
+- Nº total de direcciones de host: 32-17 = 17 bits de hosts 2^17 131072
+- Nº de direcciones útiles: 2^17 -2  
+- Nº de subred de la 2ª subred útil 
+    Subred 0 (no útil en estándar clásico): 116.0.0.0
+    1ª subred útil: 116.2.0.0
+    2ª subred útil: 116.4.0.0
+    3ª subred útil: 116.6.0.0  
+- ¿Cuál es el 3º rango de subred útil?
+    1ª subred útil: 116.2.0.0
+    2ª subred útil: 116.4.0.0
+    3ª subred útil: 116.6.0.0  
+    4ª subred útil: 116.8.0.0  
+
+    3ª subred útil: 116.6.0.0 a 116.7.255.255 (IPs útiles de host: 116.6.0.1 a 116.7.255.254)
+-->
+.Paso 2 (Bits robados/cogidos): Paso 3 (Nueva máscara adaptada):Prefijo CIDR: $/8 + 7 = \mathbf{/15}$Formato binario: 11111111.11111110.00000000.00000000Formato decimal: 255.254.0.0Paso 4 (Bits de host restantes): $32 - 15 = \mathbf{17\text{ bits de host}}$.Paso 5 (Salto de subred / Bloque): En el segundo octeto, el valor del salto es $256 - 254 = \mathbf{2}$.Solución del ejercicioa. Clase: Ab. Máscara de Subred por defecto: 255.0.0.0c. Máscara de Subred (adaptada): 255.254.0.0 (Prefijo /15)d. Nº total de subredes: 128 ($2^7$)e. Nº de subredes útiles: 126 ($2^7 - 2$, si descartamos la subred cero y la última según el estándar clásico RFC 950)f. Nº total de direcciones de host por subred: 131.072 ($2^{17}$)g. Nº de direcciones útiles por subred: 131.070 ($2^{17} - 2$, restando red y broadcast)h. Nº de bits cogidos: 7 bitsi. ¿Cuál es el 3º rango de subred útil?Subred 0 (no útil en estándar clásico): 116.0.0.01ª subred útil: 116.2.0.02ª subred útil: 116.4.0.03ª subred útil: 116.6.0.0 a 116.7.255.255 (IPs útiles de host: 116.6.0.1 a 116.7.255.254)j. ¿Nº de subred (IP de red) de la 2ª subred útil? 116.4.0.0
 
 
 ## 3 - Protocolo TCP
