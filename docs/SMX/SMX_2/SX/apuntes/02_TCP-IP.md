@@ -90,7 +90,7 @@ Si la comunicación se realiza con equipos de otras subredes o con Internet, se 
 
 #### 2.1.1 Estructura de una dirección IP (IPv4)
 
-![Descripción de la imagen](./img_2/img_2_21.png){ .img1 .marginbottom40}
+![Descripción de la imagen](./img_2/img_2_22.png){ .img1 .marginbottom40}
 
 Una dirección IPv4 es un número de 32 bits que identifica a cada uno de los dispositivos conectados a una red IP, así como a la propia red.
 
