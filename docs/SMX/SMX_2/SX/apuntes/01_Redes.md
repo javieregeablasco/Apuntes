@@ -10,6 +10,9 @@ keywords: SMX, SMR, SX, SR
 schedule: 233h - 7h/w
 ---
 
+<!-- https://gamma.app/docs/Redes-ztew92exjtthrek?mode=doc -->
+<!-- https://app.presentations.ai/#/docs/edit/31147199 -->
+
 ![Descripción de la imagen](./img_2/img_3_1.png){ .img1 .marginbottom40}
 
 **Resultados de aprendizaje y criterios de evaluacion que se evaluarán en esta unidad.**  
