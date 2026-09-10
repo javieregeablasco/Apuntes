@@ -433,6 +433,7 @@ En el siguiente ejemplo mostraremos **una solicitud HTTP** entre cliente y servi
 
 1. En una red doméstica o pequeña (modelo Grupo de trabajo o Peer-to-Peer), los equipos son independientes. Cada ordenador gestiona sus propios usuarios, obtiene su IP de forma estática o mediante un router básico, y resuelve nombres localmente.
 1. Sin embargo, a medida que una red corporativa crece, gestionar cada equipo de forma individual se vuelve ineficiente, inseguro e inasumible. Para solucionar esto, la arquitectura de red evoluciona hacia **un modelo cliente-servidor soportado por tres pilares fundamentales**:
+
 |Servicio|Necesidad que resuelve|¿Qué ocurre si no existe?|
 |--------|----------------------|-------------------------|
 |DHCP (Dynamic Host Configuration Protocol)|Automatización y gestión IP: Asigna direcciones IP, máscaras, puertas de enlace y DNS automáticamente a cada cliente que se conecta.|Habría que configurar manualmente cada equipo. Riesgo constante de conflictos de IP duplicadas y errores de configuración.|
