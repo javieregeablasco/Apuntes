@@ -142,7 +142,8 @@ nav:
 
   - Sostenibilidad:
     - Presentación módulo: SMX/SMX_2/Sostenibilidad/00_Temario.md
-    
+    - ASG: SMX/SMX_2/Sostenibilidad/01_ASG.md
+
 extra: 
     generator: false #eliminar el made with""
 #   social: #sirve para añadir enlaces a RRSS
