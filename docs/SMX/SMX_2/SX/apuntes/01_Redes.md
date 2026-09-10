@@ -429,20 +429,24 @@ En el siguiente ejemplo mostraremos **una solicitud HTTP** entre cliente y servi
 
 ### 3.1 Redes centralizadas vs. Redes descentralizadas
 
-![imagen](./img_1/img_1_3.jpeg){.sietecinco .marginbottom10}
+![imagen](./img_1/img_1_3.jpeg){.sietecinco .marginbottom20}
 
 1. En una red doméstica o pequeña (modelo Grupo de trabajo o Peer-to-Peer), los equipos son independientes. Cada ordenador gestiona sus propios usuarios, obtiene su IP de forma estática o mediante un router básico, y resuelve nombres localmente.
 1. Sin embargo, a medida que una red corporativa crece, gestionar cada equipo de forma individual se vuelve ineficiente, inseguro e inasumible. Para solucionar esto, la arquitectura de red evoluciona hacia **un modelo cliente-servidor soportado por tres pilares fundamentales**: **DHCP, DNS y un Controlador de Dominio (DC)**.
 
-    |Servicio|Necesidad que resuelve|¿Qué ocurre si no existe?|
-    |--------|----------------------|-------------------------|
-    |DHCP (Dynamic Host Configuration Protocol)|Automatización y gestión IP: Asigna direcciones IP, máscaras, puertas de enlace y DNS automáticamente a cada cliente que se conecta.|Habría que configurar manualmente cada equipo. Riesgo constante de conflictos de IP duplicadas y errores de configuración.|
-    |DNS (Domain Name System)|Resolución de nombres e localización de servicios: Traduce nombres de dominio legibles (servidor.empresa.local) a direcciones IP numéricas (192.168.1.50).|Habría que memorizar la IP de cada servidor, equipo o página web para acceder a ellos, o mantener archivos hosts manuales en cada cliente.|
-    |Controlador de Dominio (DC)|Centralización de identidad y seguridad: Gestiona una base de datos única de usuarios, equipos, permisos y directivas de seguridad (como Active Directory u OpenLDAP).|Cada usuario tendría que ser creado localmente en cada ordenador que necesite usar. No habría control centralizado sobre contraseñas ni directivas de seguridad.|
+### 3.2 DHCP, DNS y Controlador de Dominio
 
-### 3.2 Sinergia entre DHCP, DNS y Controlador de Dominio
+![imagen](./img_1/img_1_4.jpeg){.sietecinco .marginbottom20}
 
-![imagen](./img_1/img_1_4.jpeg){.marco .marginbottom20}
+En la siguiente tabla se resumen las funciones de cada uno de estos servicios y la necesidad que resuelven dentro de una red corporativa:
+
+|Servicio|Necesidad que resuelve|¿Qué ocurre si no existe?|
+|--------|----------------------|-------------------------|
+|DHCP (Dynamic Host Configuration Protocol)|Automatización y gestión IP: Asigna direcciones IP, máscaras, puertas de enlace y DNS automáticamente a cada cliente que se conecta.|Habría que configurar manualmente cada equipo. Riesgo constante de conflictos de IP duplicadas y errores de configuración.|
+|DNS (Domain Name System)|Resolución de nombres e localización de servicios: Traduce nombres de dominio legibles (servidor.empresa.local) a direcciones IP numéricas (192.168.1.50).|Habría que memorizar la IP de cada servidor, equipo o página web para acceder a ellos, o mantener archivos hosts manuales en cada cliente.|
+|Controlador de Dominio (DC)|Centralización de identidad y seguridad: Gestiona una base de datos única de usuarios, equipos, permisos y directivas de seguridad (como Active Directory u OpenLDAP).|Cada usuario tendría que ser creado localmente en cada ordenador que necesite usar. No habría control centralizado sobre contraseñas ni directivas de seguridad.|
+
+### 3.3 Sinergia entre DHCP, DNS y Controlador de Dominio
 
 Estos tres servicios no trabajan de forma aislada, sino interconectada dentro de la infraestructura:
 
