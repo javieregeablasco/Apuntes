@@ -314,13 +314,13 @@ flowchart TB
   Identifica los aspectos ambientales, sociales y de gobernanza (ASG) relativos a la sostenibilidad teniendo en cuenta el concepto de desarrollo sostenible y los marcos internacionales que contribuyen a su consecución.`"]
   C["`**UT 2 / RA2**
   Caracteriza los retos ambientales y sociales a los que se enfrenta la sociedad, describiendo los impactos sobre las personas y los sectores productivos y proponiendo acciones para minimizarlos.`"]
-  G["`**RA3**
+  G["`**UT 3 / RA3**
   Establece la aplicación de criterios de sostenibilidad en el desempeño profesional y personal, identificando los elementos necesarios.`"]
-  H["`**RA4**
+  H["`**UT 4 / RA4**
   Propón productos y servicios responsables teniendo en cuenta los principios de la economía circular.`"]
-  E["`**RA5**
+  E["`**UT 5 / RA5**
   Realiza actividades sostenibles minimizando el impacto de las mismas en el medio ambiente.`"]
-  D["`**RA6**
+  D["`**UT 6 / RA6**
   Analiza un plan de sostenibilidad de una empresa del sector, identificando sus grupos de interés, los aspectos ASG materiales y justificando acciones para su gestión y medición.`"]
  
 
