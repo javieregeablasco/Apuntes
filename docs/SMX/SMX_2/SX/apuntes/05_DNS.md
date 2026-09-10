@@ -1214,6 +1214,10 @@ En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.
 - Esperaremos a que la instancia esté disponible. A partir de entonces, sí lo deseamos, nos podremos conectar via `SSH` a la instancia.
 ![Descripción de la imagen](./img_5/img_5_72.png){ .margintop10 .marginbottom10 }
 
+#### 16.4.2 comprobación de resolución DNS antes de añadir el equipo al dominio
+
+<!-- https://youtu.be/TwMAS7Iha30?si=dp_wFWM0RjvcSQLw&t=251 -->
+
 ### 16.4 Zona directa e inversa
 
 ### 16.5 Trusted points y reenviadores
