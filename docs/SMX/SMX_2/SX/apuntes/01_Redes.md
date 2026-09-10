@@ -440,7 +440,9 @@ En el siguiente ejemplo mostraremos **una solicitud HTTP** entre cliente y servi
     |DNS (Domain Name System)|Resolución de nombres e localización de servicios: Traduce nombres de dominio legibles (servidor.empresa.local) a direcciones IP numéricas (192.168.1.50).|Habría que memorizar la IP de cada servidor, equipo o página web para acceder a ellos, o mantener archivos hosts manuales en cada cliente.|
     |Controlador de Dominio (DC)|Centralización de identidad y seguridad: Gestiona una base de datos única de usuarios, equipos, permisos y directivas de seguridad (como Active Directory u OpenLDAP).|Cada usuario tendría que ser creado localmente en cada ordenador que necesite usar. No habría control centralizado sobre contraseñas ni directivas de seguridad.|
 
-### 3.1 Sinergia entre DHCP, DNS y Controlador de Dominio
+### 3.2 Sinergia entre DHCP, DNS y Controlador de Dominio
+
+[imagen](./img_1/img_1_4.jpeg){.marco .marginbottom20}
 
 Estos tres servicios no trabajan de forma aislada, sino interconectada dentro de la infraestructura:
 
