@@ -1216,6 +1216,8 @@ En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.
 
 #### 16.4.2 comprobación de resolución DNS antes de añadir el equipo al dominio
 
+## hasta aqui
+
 <!-- https://youtu.be/TwMAS7Iha30?si=dp_wFWM0RjvcSQLw&t=251 -->
 
 ### 16.4 Zona directa e inversa
