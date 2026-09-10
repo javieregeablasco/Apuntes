@@ -429,7 +429,7 @@ En el siguiente ejemplo mostraremos **una solicitud HTTP** entre cliente y servi
 
 ### 3.1 Redes centralizadas vs. Redes descentralizadas
 
-[imagen](./img_1/img_1_3.jpeg){.marco .marginbottom20}
+![imagen](./img_1/img_1_3.jpeg){.marco .marginbottom20}
 
 1. En una red doméstica o pequeña (modelo Grupo de trabajo o Peer-to-Peer), los equipos son independientes. Cada ordenador gestiona sus propios usuarios, obtiene su IP de forma estática o mediante un router básico, y resuelve nombres localmente.
 1. Sin embargo, a medida que una red corporativa crece, gestionar cada equipo de forma individual se vuelve ineficiente, inseguro e inasumible. Para solucionar esto, la arquitectura de red evoluciona hacia **un modelo cliente-servidor soportado por tres pilares fundamentales**: **DHCP, DNS y un Controlador de Dominio (DC)**.
@@ -442,7 +442,7 @@ En el siguiente ejemplo mostraremos **una solicitud HTTP** entre cliente y servi
 
 ### 3.2 Sinergia entre DHCP, DNS y Controlador de Dominio
 
-[imagen](./img_1/img_1_4.jpeg){.marco .marginbottom20}
+![imagen](./img_1/img_1_4.jpeg){.marco .marginbottom20}
 
 Estos tres servicios no trabajan de forma aislada, sino interconectada dentro de la infraestructura:
 
