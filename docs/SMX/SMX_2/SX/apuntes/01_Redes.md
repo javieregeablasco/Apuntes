@@ -15,7 +15,7 @@ schedule: 233h - 7h/w
 
 ![Descripción de la imagen](./img_2/img_3_1.png){ .img1 .marginbottom40}
 
-**Resultados de aprendizaje y criterios de evaluacion que se evaluarán en esta unidad.**  
+<!-- **Resultados de aprendizaje y criterios de evaluacion que se evaluarán en esta unidad.**  
 
 | **Resultados de aprendizaje de la unidad didáctica:**|
 ||
@@ -30,9 +30,13 @@ schedule: 233h - 7h/w
 |**e)** Se ha preparado el servicio para asignar la configuración básica a los sistemas de una red local.|
 |**f)** Se han realizado asignaciones dinámicas y estáticas.|
 |**g)** Se han integrado en el servicio opciones adicionales de configuración.|
-|**h)** Se ha verificando la correcta asignación de los parámetros.|
+|**h)** Se ha verificando la correcta asignación de los parámetros.| -->
 
 ## 1 - Introducción
+
+Antes de comenzar a ver los diferentes servicios de red, es importante repasar algunos conceptos fundamentales sobre redes de ordenadores y protocolos de comunicación.
+
+En esta unidad nos repaseremos brevemente las arquitecturas de redes así como los principios básicos de funcionamiento de los protocolos de comunicación.
 
 ## 2 - Definiciones de redes de ordenadores
 
