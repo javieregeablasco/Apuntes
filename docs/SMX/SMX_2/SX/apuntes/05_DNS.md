@@ -1205,12 +1205,14 @@ Un resultado sin errores relevantes indica que el controlador de dominio funcion
 
 En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.  
 
+- Captura del apartado de configuración de red dónde veremos en qué subred se encuentra nuestro servidor DNS.
+![Descripción de la imagen](./img_5/img_5_70.png){ .margintop10 .marginbottom10 .marco}
+- Captura del apartado de configuración de red dónde elegimos la subred a la hora de lanazar la instancia.
+![Descripción de la imagen](./img_5/img_5_71.png){ .margintop10 .marginbottom10 .marco}
 - Resumen de la configuración de la instancia (acordarse de seleccionar el par de clave `vockey` para el inicio de sesión y de seleccionar la misma subred que el controlador de dominio).  
-    ![Descripción de la imagen](./img_5/img_5_69.png){ .margintop10 .marginbottom10}
-    - Captura del apartado de configuración de red dónde elegiremos la Subred en la cual desplegaremos nuestra instancia.
-    ![Descripción de la imagen](./img_5/img_5_70.png){ .margintop10 .marginbottom10 .marco}
-    - Esperaremos a que la instancia esté disponible. A partir de entonces, sí lo deseamos, nos podremos conectar via `SSH` a la instancia.
-    ![Descripción de la imagen](./img_5/img_5_71.png){ .margintop10 .marginbottom10 .marco}
+![Descripción de la imagen](./img_5/img_5_69.png){ .margintop10 .marginbottom10}
+- Esperaremos a que la instancia esté disponible. A partir de entonces, sí lo deseamos, nos podremos conectar via `SSH` a la instancia.
+![Descripción de la imagen](./img_5/img_5_72.png){ .margintop10 .marginbottom10 .marco}
 
 
 ### 16.4 Zona directa e inversa
