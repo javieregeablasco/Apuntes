@@ -204,14 +204,10 @@ Todo este flujo se completa en fracciones de segundo gracias a la velocidad de l
 <!-- subnetting ampliado -->
 <!-- https://www.redeszone.net/tutoriales/redes-cable/calcular-subnetting-ip-red-mascara-subred-ipv4/#449694-que-es-el-subnetting-tipos-y-clases-de-direcciones -->
 <!-- https://itadmins.es/networking-ii-dispositivos-de-red-y-tipos-de-trafico/ -->
-<!-- https://openwebinars.net/blog/nat-que-es-y-para-que-sirve/ -->
 <!-- https://www.tutorialesprogramacionya.com/protocolosredes/conceptoredes/ -->
-<!-- falta nat -->
-
 <!-- ejercicios -->
 <!-- https://acastan.gitbook.io/servicios -->
 
-<!-- poner esto en siguiente apartado -->
 ### 2.6 Protocolos de red / comunicación
 
 - Un protocolo de comunicación es un conjunto de reglas que define cómo deben intercambiar información dos o más dispositivos de una red. Utilizando una analogía, un protocolo es para una red lo que un idioma es para las personas: si ambos interlocutores utilizan el mismo idioma, pueden entenderse y comunicarse.
@@ -309,7 +305,7 @@ Supongamos que **Ana** quiere enviar un correo electrónico a **Luis**.
     1. Ana escribe el mensaje en su cliente de correo electrónico y pulsa el botón **Enviar**.
     2. El cliente de correo entrega el mensaje a la **capa de aplicación**, que utiliza el protocolo **SMTP** para  preparar el envío.
     3. La **capa de presentación** adapta los datos al formato adecuado y, si es necesario, los comprime o cifra.
-    4. La **capa de sesión** establece la comunicación entre ambos dispositivos y mantiene la sesión mientras dura el   intercambio de información.
+    4. La **capa de sesión** establece la comunicación entre ambos dispositivos y mantiene la sesión mientras dura el intercambio de información.
     5. La **capa de transporte** divide el mensaje en **segmentos** para facilitar su transmisión.
     6. La **capa de red** encapsula los segmentos en **paquetes**, les asigna las direcciones IP de origen y destino y  determina la ruta que seguirán hasta el equipo receptor.
     7. La **capa de enlace de datos** convierte los paquetes en **tramas**, añadiendo la información necesaria para la  comunicación dentro de la red local.
@@ -355,9 +351,9 @@ Cuando las señales llegan al equipo de Luis, se realiza el proceso inverso:
 
 ![Descripción de la imagen](./img_2/img_2_17.png){.marco .marginbottom20}
 
-!!! question "¿En qué capa trabaja un switch de capa 2?"
+!!! question "¿Qué tipo de direcciones maneja un switch de capa 2?"
 
-!!! question "¿En qué capa trabaja un switch de capa 3?"
+!!! question "¿Qué tipo de direcciones maneja un switch de capa 3?"
 
 #### 2.6.2 Modelo TCP/IP
 
