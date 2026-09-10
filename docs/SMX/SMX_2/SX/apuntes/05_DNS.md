@@ -1209,6 +1209,17 @@ Un resultado sin errores relevantes indica que el controlador de dominio funcion
 ---
 
 ![Descripción de la imagen](./img_5/img_5_69.png){ .margintop10 .marginbottom10}
+![Descripción de la imagen](./img_5/img_5_70.png){ .margintop10 .marginbottom10}
+![Descripción de la imagen](./img_5/img_5_71.png){ .margintop10 .marginbottom10}
+![Descripción de la imagen](./img_5/img_5_72.png){ .margintop10 .marginbottom10}
+![Descripción de la imagen](./img_5/img_5_73.png){ .margintop10 .marginbottom10}
+![Descripción de la imagen](./img_5/img_5_74.png){ .margintop10 .marginbottom10}
+![Descripción de la imagen](./img_5/img_5_75.png){ .margintop10 .marginbottom10}
+![Descripción de la imagen](./img_5/img_5_76.png){ .margintop10 .marginbottom10}
+![Descripción de la imagen](./img_5/img_5_77.png){ .margintop10 .marginbottom10}
+![Descripción de la imagen](./img_5/img_5_78.png){ .margintop10 .marginbottom10}
+![Descripción de la imagen](./img_5/img_5_79.png){ .margintop10 .marginbottom10}
+![Descripción de la imagen](./img_5/img_5_80.png){ .margintop10 .marginbottom10}
 
 <!-- https://youtu.be/TwMAS7Iha30?si=bCpxwL09UBLY9Oi_ -->
 
