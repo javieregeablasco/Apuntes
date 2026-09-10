@@ -355,7 +355,7 @@ Cuando las señales llegan al equipo de Luis, se realiza el proceso inverso:
 
 !!! question "¿Qué tipo de direcciones maneja un switch de capa 3?"
 
-#### 2.6.2 Modelo TCP/IP
+#### 2.6.2 Protocolo TCP/IP
 
 - El **modelo OSI**, un modelo de referencia que describe cómo se comunican los dispositivos de una red mediante siete capas. El modelo OSI aunque ampliamente utilizado con fines didácticos, **no es el modelo que se emplea en Internet**.
 
