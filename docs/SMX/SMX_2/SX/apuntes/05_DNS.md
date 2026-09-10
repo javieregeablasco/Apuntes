@@ -1201,11 +1201,11 @@ Un resultado sin errores relevantes indica que el controlador de dominio funcion
 - No obstante, si queremos agregar un equipo al dominio sin que se cree automáticamente el registro en la zona DNS, podemos crear de forma manual un registro A y un registro PTR para ese equipo.
 - Para simular esta situación, en nuestra práctica, lanzaremos una instancia EC2 adicional que actuará como cliente del dominio (p.e. Servidor-NAS). Esta instancia tendrá un sistema operativo ubuntu 22.04 y se conectará a **la misma VPC y subred que el controlador de dominio**.
 
-### 16.4.1 Lanzar instancia EC2
+#### 16.4.1 Lanzar instancia EC2
 
 En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.  
 
-    - Resumen de la configuración de la instancia (acordarse de seleccionar el par de clave `vockey` para el inicio de sesión y seleccionar `50GiB` de capacidad para el volumen de la instancia).  
+- Resumen de la configuración de la instancia (acordarse de seleccionar el par de clave `vockey` para el inicio de sesión y de seleccionar la misma subred que el controlador de dominio).  
     ![Descripción de la imagen](./img_5/img_5_69.png){ .margintop10 .marginbottom10}
     - Captura del apartado de configuración de red dónde elegiremos la Subred en la cual desplegaremos nuestra instancia.
     ![Descripción de la imagen](./img_5/img_5_70.png){ .margintop10 .marginbottom10 .marco}
