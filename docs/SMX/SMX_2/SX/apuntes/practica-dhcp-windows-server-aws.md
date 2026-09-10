@@ -3,41 +3,6 @@
 ## Objetivo pedagógico
 Que el alumnado instale y configure el rol **DHCP Server** en Windows Server, y observe en tiempo real cómo varios equipos cliente obtienen su configuración IP (DHCPDISCOVER → OFFER → REQUEST → ACK), reservas, exclusiones, ámbitos (scopes), opciones de ámbito (DNS, puerta de enlace, etc.).
 
-## Por qué no se puede hacer con instancias EC2 "sueltas"
-Dentro de una VPC de AWS, **el tráfico broadcast/multicast no se propaga entre instancias**. DHCP depende de broadcasts (`255.255.255.255`), así que un cliente en una instancia EC2 nunca "verá" un DHCPOFFER de otra instancia EC2 en la misma subred, aunque el servidor esté bien configurado. Cada tarjeta de red (ENI) recibe su IP exclusivamente del DHCP interno de AWS, que no se puede sustituir.
-
-**Solución:** montar todo el laboratorio *dentro* de una sola instancia EC2, usando un hipervisor anidado (Hyper-V) donde sí existe broadcast real entre las VMs virtuales que creéis dentro.
-
-## Novedad clave (Feb 2026)
-Hasta hace poco esto solo era posible en instancias `.metal` (caras). Desde el **16 de febrero de 2026**, AWS soporta oficialmente virtualización anidada en instancias EC2 **normales** (no metal), lo que abarata mucho la práctica. Familias soportadas actualmente: `C8i`, `M8i`, `R8i`, `C8id`, `R8id`, `M8id`, `C8i-flex`, `R8i-flex`, `M8i-flex`, `X8i`, `C7i`, `R7i`, `M7i`, `C7id`, `R7id`, `M7id`, `C7i-flex`, `R7i-flex`, `M7i-flex`, `I7i`. Solo procesadores Intel (no Graviton). Hipervisores L1 soportados: **Hyper-V** y **KVM**.
-
----
-
-## Arquitectura del laboratorio (por alumno o por grupo)
-
-```
-Instancia EC2 (p. ej. m7i.2xlarge, Windows Server 2022, nested virt ON)
-│
-├── Hyper-V (L1, dentro de la instancia)
-│   ├── Switch virtual "Interno" (Internal / Private) — SIN salida a la VPC
-│   │
-│   ├── VM1: Windows Server 2022 → Rol DHCP Server
-│   ├── VM2: Windows 10/11 (cliente) → IP por DHCP
-│   ├── VM3: Windows 10/11 (cliente) → IP por DHCP
-│   └── (opcional) VM4: Linux ligero (cliente) → dhclient
-```
-
-Con el switch en modo **Interno/Privado** (no "Externo"), el broadcast DHCP se queda encerrado dentro del propio hipervisor Hyper-V — exactamente igual que en un laboratorio físico o en VirtualBox local.
-
----
-
-## Paso 1 — Elegir tipo de instancia y región
-
-- Recomendado para uso educativo: **`m7i.xlarge`** o **`m7i.2xlarge`** (4/8 vCPU, 16/32 GB RAM) — suficiente para 1 servidor + 2-3 clientes ligeros (2 GB RAM cada VM cliente, 4 GB el servidor).
-- Si el grupo va a correr VMs más pesadas o con GUI completa, sube a `m7i.4xlarge`.
-- Comprueba que la **región** que vais a usar ya tiene la característica activa (el despliegue empezó por `us-west-2` y se fue extendiendo; confirmadlo en la consola al configurar la instancia — si no aparece la opción, probad otra región o usad el CLI).
-
-## Paso 2 — Lanzar la instancia con virtualización anidada activada
 
 ### Opción A: Consola (si ya está disponible en tu región)
 1. EC2 → **Launch instance**.
@@ -61,20 +26,7 @@ aws ec2 run-instances \
 ```
 > Importante: usa una versión reciente del AWS CLI v2 (≥ 2.33.21). Versiones más antiguas no reconocen el parámetro `NestedVirtualization` dentro de `--cpu-options`.
 
-Verifica que quedó activado:
-```bash
-aws ec2 describe-instances --instance-ids i-xxxxxxxxxxxxxxxxx \
-  --query "Reservations[].Instances[].CpuOptions"
-```
-
-## Paso 3 — Conectarse a la instancia y activar Hyper-V
-
-1. Conéctate por **RDP** (obtén la contraseña con "Get Windows password" en la consola EC2).
-2. Abre PowerShell como administrador e instala el rol Hyper-V:
-```powershell
-Install-WindowsFeature -Name Hyper-V -IncludeManagementTools -Restart
-```
-3. Tras el reinicio, abre **Hyper-V Manager**.
+ 
 
 ## Paso 4 — Crear el switch virtual interno
 
