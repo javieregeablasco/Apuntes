@@ -1132,9 +1132,9 @@ Para la instalación del rol AD DS en un servidor Windows Server 2025 en AWS, po
     - Ejecutar `nslookup <nombre-del-dominio>` para comprobar que el propio servidor resuelve correctamente los registros de su dominio.
     - Abrir la consola "Usuarios y equipos de Active Directory" para confirmar que el dominio se ha creado correctamente. -->
 
-### 16 - Tarea RA2-CEf - Configuración del servidor DNS
+## 16 - Tarea RA2-CEf - Configuración del servidor DNS
 
-#### 16.1 Configuración del adaptador de red
+### 16.1 Configuración del adaptador de red
 
 - Como ya hemos comentado, en AWS la instancia dispone de una dirección IPv4 privada asociada a su interfaz de red (ENI). Para un controlador de dominio es importante que esta dirección sea estable, ya que será utilizada por los clientes para localizar los servicios de Active Directory y DNS.
 
@@ -1144,7 +1144,7 @@ Para la instalación del rol AD DS en un servidor Windows Server 2025 en AWS, po
 - A efectos didácticos cambiaremos la dirección del DNS preferido a la dirección IPv4 privada de nuestra máquina (en el ejemplo, `172.31.39.99`). De esta forma podremos identificar claramente cuál es la dirección del servidor DNS que utilizarán los equipos de nuestra red.
     ![Descripción de la imagen](./img_5/img_5_58.png){.leftsietecinco .margintop10 .marginbottom10 .marco}
 
-#### 16.2 Configuración del DNS
+### 16.2 Configuración del DNS
 
 - Si abrimos las propiedades del servidor DNS veremos que en `Interfaces` aparece la dirección IPv4 de nuestro servidor y, si IPv6 está habilitado, también puede aparecer una dirección IPv6. Windows puede asignar automáticamente a la interfaz una dirección IPv6 de tipo *link-local* (`fe80::/10`).  
     ![Descripción de la imagen](./img_5/img_5_59.png){ .margintop10 .marginbottom10}
@@ -1167,7 +1167,7 @@ Para la instalación del rol AD DS en un servidor Windows Server 2025 en AWS, po
 Un resultado correcto en estas pruebas nos permitirá comprobar que nuestro servidor DNS puede resolver tanto los nombres pertenecientes a sus propias zonas como nombres externos mediante el mecanismo de resolución configurado.
     ![Descripción de la imagen](./img_5/img_5_63.png){ .margintop10 .marginbottom10}
 
-#### 16.3 Configuración del AD DS
+### 16.3 Configuración del AD DS
 
 - Si abrimos `Active Directory Users and Computers` veremos las cuentas integradas que se han creado al instalar Active Directory.  
 Entre ellas se encuentran `Administrator` y `Guest`.
@@ -1194,23 +1194,40 @@ Un resultado sin errores relevantes indica que el controlador de dominio funcion
 - También podemos realizar una comprobación específica del servicio DNS mediante `dcdiag /test:dns`
     ![Descripción de la imagen](./img_5/img_5_68.png){ .margintop10 .marginbottom10}
 
-#### 16.4 Zona directa e inversa
+### 16.4 Agregar de forma manual dispositivos al dominio
 
-#### 16.5 Trusted points y reenviadores
+- Todos los equipos que agragaremos al dominio deben tener como servidor DNS preferido la dirección IP del controlador de dominio. De esta forma, los equipos podrán localizar los servicios de Active Directory y autenticarse correctamente en el dominio.
+- Esos equipos serána gragados automáticamente a la zona DNS del dominio, y se crearán los registros correspondientes en la zona directa e inversa.
+- No obstante, si queremos agregar un equipo al dominio sin que se cree automáticamente el registro en la zona DNS, podemos crear de forma manual un registro A y un registro PTR para ese equipo.
+- Para simular esta situación, en nuestra práctica, lanzaremos una instancia EC2 adicional que actuará como cliente del dominio (p.e. Servidor-NAS). Esta instancia tendrá un sistema operativo ubuntu 22.04 y se conectará a **la misma VPC y subred que el controlador de dominio**.
 
-#### 16.6 Otras opciones
+### 16.4.1 Lanzar instancia EC2
 
-#### 16.7 Aging y scavenging
+En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.  
 
-#### 16.8 Best practices analyzer (BPA)
+    - Resumen de la configuración de la instancia (acordarse de seleccionar el par de clave `vockey` para el inicio de sesión y seleccionar `50GiB` de capacidad para el volumen de la instancia).  
+    ![Descripción de la imagen](./img_5/img_5_69.png){ .margintop10 .marginbottom10}
+    - Captura del apartado de configuración de red dónde elegiremos la Subred en la cual desplegaremos nuestra instancia.
+    ![Descripción de la imagen](./img_5/img_5_70.png){ .margintop10 .marginbottom10 .marco}
+    - Esperaremos a que la instancia esté disponible. A partir de entonces, sí lo deseamos, nos podremos conectar via `SSH` a la instancia.
+    ![Descripción de la imagen](./img_5/img_5_71.png){ .margintop10 .marginbottom10 .marco}
 
-#### 16.9 Best practices analyzer (BPA)
+
+### 16.4 Zona directa e inversa
+
+### 16.5 Trusted points y reenviadores
+
+### 16.6 Otras opciones
+
+### 16.7 Aging y scavenging
+
+### 16.8 Best practices analyzer (BPA)
+
+### 16.9 Best practices analyzer (BPA)
 
 ---
 
-![Descripción de la imagen](./img_5/img_5_69.png){ .margintop10 .marginbottom10}
-![Descripción de la imagen](./img_5/img_5_70.png){ .margintop10 .marginbottom10}
-![Descripción de la imagen](./img_5/img_5_71.png){ .margintop10 .marginbottom10}
+
 ![Descripción de la imagen](./img_5/img_5_72.png){ .margintop10 .marginbottom10}
 ![Descripción de la imagen](./img_5/img_5_73.png){ .margintop10 .marginbottom10}
 ![Descripción de la imagen](./img_5/img_5_74.png){ .margintop10 .marginbottom10}
