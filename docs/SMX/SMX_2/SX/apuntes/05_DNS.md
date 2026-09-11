@@ -1216,6 +1216,17 @@ En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.
 
 #### 16.4.2 comprobación de resolución DNS antes de añadir el equipo al dominio
 
+- Antes de agregar la dirección IP del nuevo equipo al DNS del dominio, comprobaremos que el servidor DNS no puede resolver el nombre del equipo.
+- Para ello, desde el propio servidor DNS, abriremos una consola y ejecutaremos el comando:
+
+```bash
+nslookup Servidor-NAS
+```
+
+
+
+![Descripción de la imagen](./img_5/img_5_73.png){ .margintop10 .marginbottom10}
+
 ## hasta aqui
 
 <!-- https://youtu.be/TwMAS7Iha30?si=dp_wFWM0RjvcSQLw&t=251 -->
@@ -1235,8 +1246,7 @@ En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.
 ---
 
 
-![Descripción de la imagen](./img_5/img_5_72.png){ .margintop10 .marginbottom10}
-![Descripción de la imagen](./img_5/img_5_73.png){ .margintop10 .marginbottom10}
+
 ![Descripción de la imagen](./img_5/img_5_74.png){ .margintop10 .marginbottom10}
 ![Descripción de la imagen](./img_5/img_5_75.png){ .margintop10 .marginbottom10}
 ![Descripción de la imagen](./img_5/img_5_76.png){ .margintop10 .marginbottom10}
