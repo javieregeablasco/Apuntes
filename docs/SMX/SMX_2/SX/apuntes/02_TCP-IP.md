@@ -101,6 +101,29 @@ Se divide en dos partes:
 
 Para separar el identificador de red del identificador de dispositivo se aplica la máscara de red. Al realizar la operación lógica AND entre la dirección IP y la máscara de red, se obtiene la dirección de red.
 
+#### 2.2.2 Estructura de una dirección IP (IPv6)
+
+- **IPv6 (Internet Protocol version 6)** es la versión más reciente del protocolo IP y fue desarrollada para solucionar principalmente el problema de agotamiento de las direcciones IPv4.
+
+- Mientras que IPv4 utiliza direcciones de 32 bits, **IPv6 utiliza 128 bits**, lo que proporciona una cantidad enorme de direcciones disponibles.
+
+- Una dirección IPv6 se representa mediante ocho grupos de cuatro dígitos hexadecimales, separados por dos puntos.
+Para simplificar su escritura se pueden eliminar ceros y utilizar :: para representar uno o varios grupos consecutivos de ceros:
+![Dirección IPv6](./img_2/img_2_25.svg){.marco .marginbottom20 .margintop20 .sietecinco}
+
+#### 2.2.3 Direcciones IPv6 versus IPv4
+
+![IPv4IPv6](./img_2/img_2_24.webp){.marco .marginbottom20 .margintop20 .sietecinco}
+
+Las principales diferencias entre IPv4 y IPv6 son:
+
+- 128 bits de direccionamiento, frente a los 32 bits de IPv4.
+- Un espacio de direcciones enormemente mayor.
+- Autoconfiguración de las direcciones, facilitando la configuración de los dispositivos.
+- Incorporación de mecanismos como Neighbor Discovery, que sustituye y amplía algunas funciones que en IPv4 realizaban ARP.
+- No utiliza broadcast de la misma forma que IPv4; utiliza principalmente multicast y anycast.
+- Incluye soporte para IPsec como parte de las especificaciones del protocolo, aunque su uso no implica que todas las comunicaciones IPv6 estén cifradas.
+
 !!! exercise "Identificación de direcciones IP"
     1. Tenéis un serie de direcciones IP, identificar cuales son IPv4 y cuales IPv6.
     1. Identificar las IPv6 que estan en formato reducido y escribirlas en formato no reducido.
@@ -123,7 +146,7 @@ Para separar el identificador de red del identificador de dispositivo se aplica 
 - 2607:f8b0:4004:809::200e → 2607:f8b0:4004:0809:0000:0000:0000:200e
 -->
 
-#### 2.2.2 Clases de direcciones IPv4
+#### 2.2.4 Clases de direcciones IPv4
 
 Históricamente, las direcciones se dividían en tres clases principales según los octetos destinados a la red:
 
@@ -180,7 +203,7 @@ Pregunta 3
 - Clase D y Clase E: No aplica.
 -->
 
-#### 2.1.3 Direcciones reservadas y especiales
+#### 2.2.5 Direcciones reservadas y especiales
 
 1. **Dirección de red:** identifica a la red en su conjunto, no a un host concreto. Se obtiene cuando todos los bits del identificador de host son 0 (ej.: 10.0.0.0/8).
 1. **Dirección de difusión (broadcast):** permite enviar un paquete a todos los hosts de una red simultáneamente. Se obtiene cuando todos los bits del identificador de host son 1 (ej.: 10.255.255.255).
@@ -200,7 +223,7 @@ Pregunta 3
     5. ¿Qué ocurre si, desde cualquier IP de la red, envío un paquete a la dirección de broadcast?
     6. ¿Pueden, teorícamente, ser enrutados hacia internet los paquetes emitidos por la IP de tipo 127.0.0.80?
 
-#### 2.1.4 Direccionamiento sin clase (CIDR)
+#### 2.2.6 Direccionamiento sin clase (CIDR)
 
 - Con el rápido crecimiento de Internet, el direccionamiento basado en clases quedó obsoleto. En 1993 se introdujo CIDR (*Classless Inter-Domain Routing*), un sistema que elimina la rigidez de las clases y optimiza la forma en que se interpretan y enrutan las direcciones IP.
 
@@ -262,7 +285,7 @@ Ejercicio 7
 Puerta de enlace (IGW)
 -->
 
-#### 2.1.5 Métodos de transmisión
+#### 2.2.7 Métodos de transmisión
 
 En una red IP, un paquete puede enviarse siguiendo distintos métodos de transmisión según cuántos destinatarios deban recibirlo. La elección del método influye directamente en el uso del ancho de banda y en el diseño de aplicaciones como streaming, videoconferencias o descubrimiento de dispositivos.
 
@@ -278,7 +301,7 @@ La información se envía a todos los dispositivos de la subred. Como se explic�
         - Solicitudes **DHCP (el cliente no conoce aún la IP del servidor)**, resolución de direcciones con ARP (para averiguar qué MAC corresponde a una IP).
         - Desventaja: genera tráfico innecesario en dispositivos que no están interesados en el paquete, y en redes grandes puede provocar problemas de rendimiento (broadcast storms).
 
-#### 2.1.6 Subnetting
+#### 2.2.8 Subnetting
 
 - El subnetting es un proceso fundamental en la administración de redes que permite dividir una red grande en varias subredes más pequeñas.
 - Este proceso optimiza el uso de direcciones IP, mejora la seguridad y facilita la gestión de redes complejas.
@@ -305,7 +328,7 @@ Las direcciones primera y última de cada subred se reservan para identificar la
 
 [**Calculadora IP**](https://www.aprendaredes.com/cgi-bin/ipcalc/ipcalc_cgi1)
 
-#### 2.1.7 Ejercicios de redes y de subnetting
+#### 2.2.9 Ejercicios de redes y de subnetting
 
 !!! exercise "Ejercicio 1"
     Definir la clase de red de las sigientes IP's.

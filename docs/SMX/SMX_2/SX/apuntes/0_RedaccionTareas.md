@@ -10,9 +10,9 @@ keywords: SMX, SMR, SX, SR
 schedule: 233h - 7h/w
 ---
 
-# Recomendaciones para la Presentación de Trabajos Escritos
+<!-- # Recomendaciones para la Presentación de Trabajos Escritos -->
 
-## 1 - Inroducción
+## 1 - Introducción
 
 - Este documento tiene por objeto homogeneizar la entrega de los diferentes trabajos escritos que deberéis presentar a lo largo del curso a fin de que comencéis a acostumbraros a realizar presentaciones adecuadas de manuales técnicos y otros textos, lo que no solo os servirá para mejorar la calidad de vuestras creaciones, sino que os ayudará a ofrecer una imagen profesional cuando debáis redactar algún tipo de escrito en vuestro futuro trabajo.
 - No es éste, un estándar universal para la presentación de trabajos, sino una pequeña guía orientativa de qué aspectos se deben tener en cuenta para ofrecer una buena imagen de cara a nuestros posibles lectores.
@@ -22,13 +22,18 @@ schedule: 233h - 7h/w
 
 Un documento técnico, debería contener al menos las siguientes partes:
 
-:one: Portada: incluiría el título del documento, el nombre del autor, la fecha de creación y otra información que se pueda considerar elevante.  
-Pueden emplearse imágenes representativas del tema que vamos a analizar a fin de hacerlo más atractivo.
-:two: Tabla de contenido: es un índice que nos permite navegar por las diferentes secciones del documento con facilidad.
-:three: Introducción: donde explicaremos qué veremos a lo largo del documento y qué misión tiene el mismo.
-:four: Desarrollo de los contenidos del trabajo: donde expondremos punto por punto, las diferentes partes que iremos analizando en detalle. Se aconseja usar imágenes aclarativas de lo explicado siempre que sea posible, añadiendo un pie de página a cada una de ellas y explicando con detalle las mismas.
-:five: Conclusión: un resumen con las ideas fundamentales analizadas a lo largo del documento.
-:six: Bibliografía y otras fuentes consultadas
+:one: **Portada**: incluiría el título del documento, el nombre del autor, la fecha de creación y otra información que se pueda considerar elevante.  
+Pueden emplearse imágenes representativas del tema que vamos a analizar a fin de hacerlo más atractivo.  
+
+:two: **Tabla de contenidos**: es un índice que nos permite navegar por las diferentes secciones del documento con facilidad.
+
+:three: **Introducción**: donde explicaremos qué veremos a lo largo del documento y qué misión tiene el mismo.  
+
+:four: **Desarrollo de los contenidos del trabajo**: donde expondremos punto por punto, las diferentes partes que iremos analizando en detalle. Se aconseja usar imágenes aclarativas de lo explicado siempre que sea posible, añadiendo un pie de página a cada una de ellas y explicando con detalle las mismas.
+
+:five: **Conclusión**: un resumen con las ideas fundamentales analizadas a lo largo del documento.
+
+:six: **Bibliografía** y otras fuentes consultadas.  
 
 ## 3 - Formato del documento
 

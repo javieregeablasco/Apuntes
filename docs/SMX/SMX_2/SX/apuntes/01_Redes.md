@@ -13,7 +13,7 @@ schedule: 233h - 7h/w
 <!-- https://gamma.app/docs/Redes-ztew92exjtthrek?mode=doc -->
 <!-- https://app.presentations.ai/#/docs/edit/31147199 -->
 
-![Descripción de la imagen](./img_2/img_3_1.png){ .img1 .marginbottom40}
+![Descripción de la imagen](./img_1/img_1_5.jpg){ .img1 .marginbottom40}
 
 <!-- **Resultados de aprendizaje y criterios de evaluacion que se evaluarán en esta unidad.**  
 
@@ -67,6 +67,10 @@ Una red informática se compone de tres elementos fundamentales **medios de tran
 
 ![Descripción de la imagen](./img_2/img_2_2.png){ .marginbottom20 .margintop20}
 
+- Las redes informáticas pueden clasificarse atendiendo a diferentes criterios, como su área geográfica, el medio de transmisión, la topología o la tecnología utilizada.
+
+- Una de las clasificaciones más habituales es la que tiene en cuenta el área geográfica que abarca la red.
+
 #### 2.2.1 Red de Área Personal (PAN)
 
 - Es el tipo de red más básico (y pequeño).
@@ -82,7 +86,8 @@ Una red de área local (LAN / WLAN) conecta dispositivos dentro de un área geog
 
 #### 2.2.3 Red de Área de Campus (CAN)
 
-Esta red interconecta varias redes locales (LAN) dentro de un recinto geográfico específico, como un campus universitario, un hospital o un complejo industrial. Es más grande que una LAN pero más pequeña que una red metropolitana.
+- Esta red interconecta varias redes locales (LAN) dentro de un recinto geográfico específico, como un campus universitario, un hospital o un complejo industrial.
+- Es más grande que una LAN pero más pequeña que una red metropolitana.
 
 #### 2.2.4 Red de Área Metropolitana (MAN)
 
@@ -96,11 +101,12 @@ Esta red interconecta varias redes locales (LAN) dentro de un recinto geográfic
 
 #### 2.2.6 Red de Área Global (GAN)
 
-Representa la red de mayor escala, con una cobertura global. Da soporte a las comunicaciones móviles a nivel mundial y permite que dispositivos en cualquier punto del planeta se conecten entre sí utilizando infraestructuras de redes de área amplia.
+- Representa la red de mayor escala, con una cobertura global.
+- Da soporte a las comunicaciones móviles a nivel mundial y permite que dispositivos en cualquier punto del planeta se conecten entre sí utilizando infraestructuras de redes de área amplia.
 
 #### 2.2.7 Redes locales virtuales (VLAN)
 
-Las redes locales virtuales (VLAN) permiten segmentar el tráfico de forma lógica dentro de una infraestructura física ya existente para mejorar la seguridad y el rendimiento.
+- Las redes locales virtuales (VLAN) permiten segmentar el tráfico de forma lógica dentro de una infraestructura física ya existente para mejorar la seguridad y el rendimiento.
 
 !!! question "¿Qué dispositivo permite segmentar una red, es decir crear y administrar VLAN's?"
 
@@ -138,13 +144,23 @@ Las redes locales virtuales (VLAN) permiten segmentar el tráfico de forma lógi
 - Las VPN permiten a los usuarios conectarse de manera segura a una red privada a través de cualquier infraestructura de red (normalmente Internet), haciendo que los sistemas conectados se comporten como si estuvieran en la misma red local, aunque estén separados físicamente.
 - La seguridad se consigue mediante el cifrado de los datos, que viajan encapsulados dentro de un túnel virtual entre cliente y servidor.
 
-!!! question "¿Por qué se ha popularizado tanto las VPN's dentro del ámbito empresarial"
+!!! question "¿Por qué se ha popularizado tanto las VPN's dentro del ámbito empresarial?"
 
 !!! tip "Túneles de datos"
     ![Descripción de la imagen](./img_1/img_1_2.png){.marco .sietecinco}
 
     - Un túnel VPN es el mecanismo por el cual los datos originales se encapsulan dentro de otros paquetes para poder viajar de forma segura a través de una red pública (normalmente Internet), de manera que en el otro extremo se puedan "desempaquetar" y recuperar los datos originales.
     - Es particularme útil para mantener la privacidad durante la navegación o saltarse restricciones regionales.
+
+!!! question "Enumerar casos de uso de los túneles de datos (no necesariamente dentro del ámbito empresarial)."
+
+<!-- 
+- Privacidad, Seguridad y Anonimato
+- Entretenimiento y Gaming
+- Domótica y Proyectos Personales
+- Optimización y Conectividad
+- etc... 
+-->
 
 #### 2.2.9 Actividades
 
@@ -185,22 +201,29 @@ Todos los nodos actúan simultáneamente como clientes y servidores, compartiend
 
 ### 2.5 Funcionamiento de una red informática
 
-El funcionamiento de una red informática se basa en un proceso ordenado de transmisión de datos donde cada componente cumple un rol específico:
+El funcionamiento de una red informática se basa en un proceso ordenado de **encapsulación y transmisión de datos**, en el que intervienen diferentes dispositivos y protocolos.
 
-1. **Emisor:** Dispositivo o usuario que genera el mensaje o conjunto de datos que se desea transmitir.
+De forma simplificada, el proceso puede describirse de la siguiente manera:
 
-1. **Codificación:** La tarjeta de red del emisor convierte la información en cadenas de bits (lenguaje binario) para que pueda viajar por la red.
+1. **Emisor:** Dispositivo o usuario que genera el mensaje o los datos que se desean transmitir.
 
-1. **Empaquetado y enrutamiento:** Los datos se dividen en pequeños paquetes independientes. Siguiendo el **protocolo TCP/IP**, los enrutadores analizan cada paquete y determinan la ruta más eficiente hacia su destino.
+2. **Segmentación:** Los datos pueden dividirse en unidades más pequeñas en la **capa de transporte**. Por ejemplo, TCP puede dividir los datos en segmentos y añadir información de control, como los números de secuencia.
 
-1. **Medio de transmisión:** Canal físico o inalámbrico (cable de red, fibra óptica o Wi-Fi) por el que se desplazan los paquetes.
+3. **Paquetización:** En la **capa de Internet**, los segmentos se encapsulan en **paquetes IP**. Estos paquetes contienen, entre otra información, las direcciones IP de origen y destino.
 
-1. **Decodificación y reensamblado:** El dispositivo receptor captura los bits, organiza los paquetes en el orden correcto y reconstruye el mensaje original.
+4. **Encapsulación en tramas:** Antes de transmitir los datos por el medio físico, el paquete IP se encapsula dentro de una **trama** correspondiente a la tecnología utilizada en la red, como Ethernet o Wi-Fi. La trama incluye información necesaria para realizar la comunicación dentro de la red local, como las direcciones MAC.
 
-1. **Receptor:** Dispositivo o usuario final que recibe la información procesada y lista para su uso.
+5. **Transmisión:** La trama se convierte en señales eléctricas, ópticas o de radio y se transmite a través del **medio de transmisión**, como un cable de cobre, fibra óptica o una conexión Wi-Fi.
 
-Todo este flujo se completa en fracciones de segundo gracias a la velocidad de la infraestructura actual y la eficiencia de **los protocolos de red**. La calidad final de la transmisión dependerá de factores como el ancho de banda, la estabilidad del medio y la correcta configuración de los equipos.
+6. **Enrutamiento:** Los **routers** reciben las tramas destinadas a ellos, extraen el paquete IP y consultan su tabla de enrutamiento para determinar hacia dónde debe enviarse. El paquete puede atravesar varias redes y routers antes de llegar a su destino.
 
+7. **Recepción y desencapsulación:** El dispositivo receptor recibe las tramas, extrae los paquetes IP y, posteriormente, los datos de las capas superiores. En el caso de TCP, también se comprueba la información necesaria y se reconstruyen los datos originales.
+
+8. **Receptor:** Finalmente, los datos reconstruidos llegan a la aplicación correspondiente del dispositivo receptor y quedan disponibles para su utilización.
+
+Este proceso se produce en fracciones de segundo y está basado en la colaboración de diferentes **protocolos de red**. Cada capa añade y posteriormente elimina la información necesaria para que los datos puedan llegar correctamente desde el emisor hasta el receptor.
+
+![Descripción de la imagen](./img_2/img_2_23.jpeg)
 <!-- subnetting ampliado -->
 <!-- https://www.redeszone.net/tutoriales/redes-cable/calcular-subnetting-ip-red-mascara-subred-ipv4/#449694-que-es-el-subnetting-tipos-y-clases-de-direcciones -->
 <!-- https://itadmins.es/networking-ii-dispositivos-de-red-y-tipos-de-trafico/ -->
@@ -210,6 +233,7 @@ Todo este flujo se completa en fracciones de segundo gracias a la velocidad de l
 
 ### 2.6 Protocolos de red / comunicación
 
+- Acabamos de ver cómo los datos viajan desde un dispositivo emisor hasta un dispositivo receptor a través de una red. Para que este proceso sea posible, los dispositivos deben **hablar el mismo idioma**, es decir, utilizar **protocolos de comunicación** compatibles.
 - Un protocolo de comunicación es un conjunto de reglas que define cómo deben intercambiar información dos o más dispositivos de una red. Utilizando una analogía, un protocolo es para una red lo que un idioma es para las personas: si ambos interlocutores utilizan el mismo idioma, pueden entenderse y comunicarse.
 - Los equipos de una red pueden utilizar sistemas operativos, programas y hardware muy diferentes. Sin embargo, si emplean protocolos compatibles, podrán intercambiar información sin problemas.
 - Para que dos dispositivos puedan comunicarse, ambos deben utilizar los mismos protocolos o protocolos compatibles. Por ejemplo, el protocolo IP permite identificar y direccionar los dispositivos dentro de una red para que los paquetes lleguen a su destino.
@@ -293,7 +317,7 @@ Todo este flujo se completa en fracciones de segundo gracias a la velocidad de l
 
 ##### 2.6.1.1 Ejemplo de flujo de datos por las capas del modelo OSI
 
-![Descripción de la imagen](./img_2/img_2_15.png){.marco .marginbottom20}
+![Descripción de la imagen](./img_2/img_2_15.png){.marginbottom20}
 
 Para que una información pueda viajar desde un dispositivo hasta otro a través de una red, debe atravesar las **siete capas del modelo OSI**.
 
@@ -321,6 +345,15 @@ Cuando las señales llegan al equipo de Luis, se realiza el proceso inverso:
     5. La **capa de sesión** mantiene la comunicación hasta que finaliza el intercambio de información y,   posteriormente, la cierra.
     6. La **capa de presentación** descifra o descomprime los datos si es necesario.
     7. Finalmente, la **capa de aplicación** entrega el mensaje al cliente de correo electrónico, que lo muestra en la pantalla para que Luis pueda leerlo.
+
+!!! question "¿Qué error conceptual se comete al decir que los datos viajan por las capas del modelo OSI?"
+
+<!--
+- Los datos no viajan por las capas del modelo OSI, sino que cada capa añade o elimina información de control a los datos a medida que estos descienden o ascienden por el modelo. Las capas son una abstracción conceptual que ayuda a entender cómo se procesan los datos, pero no representan un camino físico por el que los datos se mueven.
+- Los datos se transformarán en diferentes unidades de datos (PDU) a medida que pasan por las capas, y cada capa tiene su propia función y responsabilidad en el proceso de comunicación. Por lo tanto, es más preciso decir que los datos son procesados por las capas del modelo OSI, en lugar de viajar a través de ellas.
+-->
+
+!!! question "¿Qué error conceptual contiene la imagen anterior?"
 
 ##### 2.6.1.2 Encapsulación de los datos
 

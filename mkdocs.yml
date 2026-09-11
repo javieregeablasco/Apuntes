@@ -8,10 +8,7 @@ theme:
   
   features:
     - navigation.instant
-    - navigation.instant.prefetch
-    
-    
-    
+    - navigation.instant.prefetch    
     - navigation.instant.progress
       - navigation.expand
       - navigation.path
