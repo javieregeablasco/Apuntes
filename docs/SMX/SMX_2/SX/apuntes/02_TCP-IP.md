@@ -695,7 +695,6 @@ El puerto 3306 (MySQL) es un buen ejemplo: no es un servicio "básico" de Intern
 
 Cada puerto abierto es una posible puerta de entrada para un atacante: si el servicio asociado tiene una vulnerabilidad, puede ser explotada para acceder al sistema, robar datos o instalar malware. El **escaneo de puertos** (*port scanning*) es una técnica (usada tanto por atacantes como por administradores de seguridad) que consiste en analizar un equipo o red para detectar qué puertos están abiertos y qué servicios están escuchando en ellos, con el fin de identificar posibles vulnerabilidades explotables. Por eso una buena práctica de seguridad es cerrar o filtrar (mediante firewall) todos los puertos que no sean estrictamente necesarios. -->
 
-
 <!-- 
 muy bien escrito revisar para ver si el texto sigue la misma esstructura.
 https://itadmins.es/networking-i-el-modelo-osi/ -->

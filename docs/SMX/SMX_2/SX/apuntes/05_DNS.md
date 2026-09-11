@@ -1214,26 +1214,43 @@ En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.
 - Esperaremos a que la instancia esté disponible. A partir de entonces, sí lo deseamos, nos podremos conectar via `SSH` a la instancia.
 ![Descripción de la imagen](./img_5/img_5_72.png){ .margintop10 .marginbottom10 }
 
-#### 16.4.2 comprobación de resolución DNS antes de añadir el equipo al dominio
+#### 16.4.2 Comprobación de resolución DNS antes de añadir el equipo al dominio
+
 
 - Antes de agregar la dirección IP del nuevo equipo al DNS del dominio, comprobaremos que el servidor DNS no puede resolver el nombre del equipo.
 - Para ello, desde el propio servidor DNS, abriremos una consola y ejecutaremos el comando:
 
-```bash
-nslookup Servidor-NAS
-```
+      ```bash
+      nslookup Servidor-NAS
+      ```
+    ![Descripción de la imagen](./img_5/img_5_73.png){ .marginbottom10 .sietecinco}
 
+#### 16.4.3 Añadir registro de tipo A al DNS
 
+- Para añadir de forma manual un registro A y un registro PTR para el equipo Servidor-NAS, abriremos la consola de administración del servidor DNS y crearemos un nuevo registro A en la zona directa del dominio.
+- En el ejemplo, añadiremos un registro A para el equipo Servidor-NAS con la dirección IP `172.31.38.70` (la IP privada de la instancia EC2 que hemos lanzado previamente).
+![Descripción de la imagen](./img_5/img_5_74.png){ .margintop10 .marginbottom10   .marco}
+![Descripción de la imagen](./img_5/img_5_75.png){ .margintop10 .marginbottom10 .cincozero}
+- Una vez creado el registro A, se creará automáticamente un registro PTR correspondiente en la zona inversa del dominio. En este caso fallerá la creación del registro PTR, ya que no existe una zona inversa para la subred de nuestra VPC. Por ello, el registro PTR no se creará automáticamente y tendremos que crearlo de forma manual.
+- Repetiremos el lookup para comprobar que ahora el servidor DNS puede resolver correctamente el nombre del equipo Servidor-NAS.
+![Descripción de la imagen](./img_5/img_5_76.png){ .margintop10 .marginbottom10 .sietecinco }
 
-![Descripción de la imagen](./img_5/img_5_73.png){ .margintop10 .marginbottom10}
+### 16.4 Zona inversa
 
-## hasta aqui
-
-<!-- https://youtu.be/TwMAS7Iha30?si=dp_wFWM0RjvcSQLw&t=251 -->
-
-### 16.4 Zona directa e inversa
+- Como hemos visto al añadir un registro A para el equipo Servidor-NAS, no se ha creado automáticamente un registro PTR al no existir  ninguna zona inversa. Si hacemos un lookup de la IP del equipo Servidor-NAS, el servidor DNS no puede resolver la dirección IP a un nombre de dominio.
+![Descripción de la imagen](./img_5/img_5_78.png){ .margintop10 .marginbottom10 .sietecinco}
+- Creamos la zona inversa correspondiente a la subred de nuestra VPC.
+![Descripción de la imagen](./img_5/img_5_77.png){ .margintop10 .marginbottom10 .sietecinco}
+- Creamos el registro PTR correspondiente al registro A del equipo Servidor-NAS. En este caso se le dará un nombre diferente al del registro A, ya que el nombre del equipo Servidor-NAS ya está registrado en la zona directa. En este caso, se le dará el nombre `MiServidorNAS`.
+![Descripción de la imagen](./img_5/img_5_79.png){ .margintop10 .marginbottom10 .sietecinco}
+- Repetiremos el lookup para comprobar que ahora el servidor DNS puede resolver correctamente el nombre desde la IP. 
+![Descripción de la imagen](./img_5/img_5_80.png){ .margintop10 .marginbottom10 .seiszero}
 
 ### 16.5 Trusted points y reenviadores
+<!-- https://youtu.be/TwMAS7Iha30?si=OSfwWAilvhFkGNdD&t=330 -->
+
+
+## hasta aqui
 
 ### 16.6 Otras opciones
 
@@ -1244,16 +1261,6 @@ nslookup Servidor-NAS
 ### 16.9 Best practices analyzer (BPA)
 
 ---
-
-
-
-![Descripción de la imagen](./img_5/img_5_74.png){ .margintop10 .marginbottom10}
-![Descripción de la imagen](./img_5/img_5_75.png){ .margintop10 .marginbottom10}
-![Descripción de la imagen](./img_5/img_5_76.png){ .margintop10 .marginbottom10}
-![Descripción de la imagen](./img_5/img_5_77.png){ .margintop10 .marginbottom10}
-![Descripción de la imagen](./img_5/img_5_78.png){ .margintop10 .marginbottom10}
-![Descripción de la imagen](./img_5/img_5_79.png){ .margintop10 .marginbottom10}
-![Descripción de la imagen](./img_5/img_5_80.png){ .margintop10 .marginbottom10}
 
 <!-- https://youtu.be/TwMAS7Iha30?si=bCpxwL09UBLY9Oi_ -->
 
