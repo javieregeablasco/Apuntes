@@ -1,0 +1,466 @@
+.img1 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
+}
+
+.img2 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+}
+
+.by-nc-nd-eu_ {
+  width:10rem
+}
+
+.symbols {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.potencias {
+  width: 35%;
+}
+
+.operadores {
+  text-align: center !important;
+}
+
+.m_archivo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.m_ver {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  /*width: 50%;*/
+}
+
+.unocinco {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15%;
+}
+
+.doszero {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+}
+
+.doscinco {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 25%;
+}
+
+.treszero {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+}
+
+.trescinco {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 35%;
+}
+
+.cuatrozero {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+}
+
+.cuatrocinco {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 45%;
+}
+
+.cincozero {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.seiszero {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+}
+.seiscinco {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 65%;
+}
+.sietezero {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+}
+
+.sietecinco {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
+}
+
+.ochozero {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+.ochocinco {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 85%;
+}
+
+.nuevezero {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
+
+.cien {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.original {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;   
+}
+
+.marco {
+  padding: 0.5rem;
+  border: 0.1rem solid rgb(233, 206, 206);
+  border-radius: 0.25rem;
+  box-shadow: 0.2rem 0.2rem 0.5rem rgb(182, 172, 172);
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.leftoriginal {
+  justify-content: left;
+  display: block;
+  width: 100%;
+}
+
+
+.leftochocinco {
+  justify-content: left;
+  display: block;
+  width: 85%;
+}
+
+.leftsietecinco {
+  justify-content: left;
+  display: block;
+  width: 75%;
+}
+
+.leftsietecero {
+  justify-content: left;
+  display: block;
+  width: 70%;
+}
+
+.leftseiscero {
+  justify-content: left;
+  display: block;
+  width: 60%;
+}
+
+.leftcincocero {
+  justify-content: left;
+  display: block;
+  width: 50%;
+}
+
+
+.leftcuatrocinco {
+  justify-content: left;
+  display: block;
+  width: 45%;
+}
+
+.leftcuatrocero {
+  justify-content: left;
+  display: block;
+  width: 40%;
+}
+
+.lefttrescinco {
+  justify-content: left;
+  display: block;
+  width: 35%;
+}
+.lefttrescero {
+  justify-content: left;
+  display: block;
+  width: 30%;
+}
+
+.leftdoscinco {
+  justify-content: left;
+  display: block;
+  width: 25%;
+}
+
+.leftdoscero {
+  justify-content: left;
+  display: block;
+  width: 20%;
+}
+
+.leftunocinco {
+  justify-content: left;
+  display: block;
+  width: 15%;
+}
+
+.leftunodos {
+  justify-content: left;
+  display: block;
+  width: 12%;
+}
+.leftunocero {
+  justify-content: left;
+  display: block;
+  width: 10%;
+}
+
+.marginseiszero {
+  margin-top: 10px;
+  margin-left: 60px;
+}
+
+.margintopbottom10 {
+  margin-top: 10px;
+  margin-bottom: 10px; 
+}
+.margintopbottom20 {
+  margin-top: 20px;
+  margin-bottom: 20px; 
+}
+
+.margintop10 {
+  margin-top: 10px;
+}
+
+.margintop20 {
+  margin-top: 20px;
+}
+.warning-indent {
+  margin-left: 20px;
+}
+
+.marginbottom40 {
+  margin-bottom: 40px;
+}
+.marginbottom20 {
+  margin-bottom: 20px;
+}
+.marginbottom10 {
+  margin-bottom: 10px;
+}
+
+.margin2020 {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+
+/*tabla built-in apuntes de python*/
+.table-funciones {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: small;
+}
+.table-funciones th {
+  text-align: left;
+  background-color: #222;
+  color: white;
+  padding: 8px;
+  font-size: 1.1em;
+}
+.table-funciones td {
+  vertical-align: top;
+  width: 14%;
+  padding: 6px;
+  background-color: #1e1e1e;
+  color: #ddd;
+}
+.table-funciones a {
+  color: #4da3ff;
+  text-decoration: none;
+}
+.table-funciones a:hover {
+  text-decoration: underline;
+}
+/*tabla built-in apuntes de python*/
+
+/* hacer más grande los titulos con h1 2 3 4 5*/
+.md-typeset h1 {
+  text-align: center;
+  font-size: 3.5em;
+  font-weight: bold;
+  color:brown;
+  background-color: #4da3ff18;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  border-radius: 2rem;
+  padding-left: 1.05rem;
+  padding-right: 1.05rem;
+}
+.md-typeset h2 {
+  border-bottom: 2px solid #4da3ff;
+  border: 2px solid #4da3ff;
+  padding: 0.2em;    
+  padding-left: 0.5em;
+  font-weight: bold;
+  /* font-size: 1.8em; */
+  font-size: 2.2em;
+  color:#4da3ff;
+  background-color: #c7c1c12c;
+  border-radius: 0.2em;  
+  /* box-shadow: 0px 8px 24px  rgb(233, 206, 206) */
+  /* box-shadow: 6px 6px 12px  rgba(233, 206, 206, 0.5) */
+  
+}
+.md-typeset h3 {
+  /* text-decoration: underline; */
+  background-color: #c7c1c12c;
+  border-radius: 0.2em;  
+  border: 2px solid cadetblue;
+  /* border-bottom: 2px solid cadetblue; */
+  padding-bottom: 0.1em;     
+  padding-left: 0.5em;     
+  padding-right: 0.5em;     
+  font-weight: bold;
+  font-size: 1.6em;
+  color:cadetblue;
+}
+.md-typeset h4 {
+  font-weight: bold;
+  font-size: 1.4em;
+  text-decoration: underline;
+  color:chocolate;
+}
+.md-typeset h5 {
+  font-weight: bold;
+  font-size: 1.2em;
+  color:cornflowerblue;
+  text-transform: none;
+   
+}
+
+
+/* Añade margen extra después de cualquier bloque de código */
+.highlight {
+    margin-bottom: 2rem !important;
+}
+.highlight-sin-margin-bottom {
+    margin-bottom: 0rem !important;
+}
+
+.yellowhighlight {
+  background-color: yellow;
+
+}
+
+
+.tabbed-set {
+  font-weight: bold;
+  border: 0.5px solid #b6b6bb;
+}
+
+.tabbed-header {
+  border: 0.5px solid #b6b6bb;
+  font-weight: bold;
+  padding: 0.2em;    
+  padding-left: 0.5em;
+} 
+  
+.tabbed-content {
+  /* border: 0.5px solid #b6b6bb; */
+  padding: 8px 16px 0 16px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.mermaid {
+  margin: 0 auto;
+  max-width: 100%;
+  overflow-x: auto;
+  
+  padding: 8px;
+} 
+ 
+
+/* Estilo general de tablas */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1em 0;
+}
+
+th, td {
+    border: 1px solid #8a878371;
+    padding: 8px 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #dbc4c4b0;
+    font-weight: 600;
+}
+
+td {
+    background-color: #c0baba57;
+}
+
+
+/* [data-md-color-scheme="youtube"] {
+  --md-primary-fg-color:        #EE0F0F;
+  --md-primary-fg-color--light: #ECB7B7;
+  --md-primary-fg-color--dark:  #90030C;
+}
+
+:root  > * {
+  --md-primary-fg-color:        #EE0F0F;
+  --md-primary-fg-color--light: #ECB7B7;
+  --md-primary-fg-color--dark:  #90030C;
+} */

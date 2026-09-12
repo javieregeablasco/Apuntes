@@ -1,0 +1,3172 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Javier Egea Blasco">
+      
+      
+        <link rel="canonical" href="https://javieregeablasco.github.io/Apuntes/SMX/SMX_2/SX/apuntes/02_TCP-IP/">
+      
+      
+        <link rel="prev" href="../01_Redes/">
+      
+      
+        <link rel="next" href="../03_Conexiones-remotas/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Servicios en red - Javier Egea Blasco</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-introduccion" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../../../../.." title="Javier Egea Blasco" class="md-header__button md-logo" aria-label="Javier Egea Blasco" data-md-component="logo">
+      
+  <img src="../../../../../assets/mre.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Javier Egea Blasco
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Servicios en red
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Compartir" aria-label="Compartir" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../SMX_1/AO/00_Temario/" class="md-tabs__link">
+          
+  
+  
+  Aplicaciones Ofimáticas
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../DAW/DAW_2/AWS/UT.%200-Temario/" class="md-tabs__link">
+          
+  
+  
+  Cloud Computing
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../00_Temario/" class="md-tabs__link">
+          
+  
+  
+  Servicios en redes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Sostenibilidad/00_Temario/" class="md-tabs__link">
+          
+  
+  
+  Sostenibilidad
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="Javier Egea Blasco" class="md-nav__button md-logo" aria-label="Javier Egea Blasco" data-md-component="logo">
+      
+  <img src="../../../../../assets/mre.png" alt="logo">
+
+    </a>
+    Javier Egea Blasco
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aplicaciones Ofimáticas
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Aplicaciones Ofimáticas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX_1/AO/00_Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Presentación módulo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX_1/AO/01_Instalacion%20de%20aplicaciones%20ofimaticas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 1 - Instalación de aplicaciones Ofimáticas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 2 - Procesadores de texto
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    UT 2 - Procesadores de texto
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX_1/AO/02_Procesadores_de_texto/021_Procesadores_de_texto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 21 - Características de los procesadores de texto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX_1/AO/02_Procesadores_de_texto/022_LibreOffice_Writer_Instalacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 22 - Instalación de LibreOffice Writer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX_1/AO/02_Procesadores_de_texto/023_LibreOffice_Writer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 23 - LibreOffice Writer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX_1/AO/03_Hojas%20de%20calculo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 3 - Hojas de cálculo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX_1/AO/07_Presentaciones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 4 - Presentaciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX_1/AO/04_Bases%20de%20datos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 5 - Bases de datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX_1/AO/05_Imagenes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 6 - Edición de imágenes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX_1/AO/06_Captura%20e%20edicion%20de%20video/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 7 - Edición de vídeos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX_1/AO/08_Correo%20electronico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 8 - Agenda electrónica y comunicación
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SMX_1/AO/09_Resolucion%20de%20incidencias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 9 - Gestión de incidencias
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud Computing
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cloud Computing
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../DAW/DAW_2/AWS/UT.%200-Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Presentación módulo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../DAW/DAW_2/AWS/UT.%201-Introduccion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 1 Introducción al Cloud Computing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../DAW/DAW_2/AWS/UT.%202-AWS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 2 AWS - Amazon Web Services
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../DAW/DAW_2/AWS/UT.%203-AWS%20Academy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 3 AWS Academy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../DAW/DAW_2/AWS/UT.%204-Infraestructura/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 4 Infraestruturas en AWS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../DAW/DAW_2/AWS/UT.%205-Instancias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 5 Instancias y grupos de seguridad
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../DAW/DAW_2/AWS/UT.%206-ElasticLoadBalancing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 6 Interconexión y balanceo de infraestruturas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../DAW/DAW_2/AWS/UT.%207-Dockers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 7 Dockers y Cloud Formation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../DAW/DAW_2/AWS/UT.%208-Buckets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UT 8 Sistemas de almacenamiento y BBDD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Servicios en redes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Servicios en redes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00_Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Presentación módulo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../0_RedaccionTareas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Normas para la Presentación de Trabajos Escritos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_Redes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Redes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocolo TCP/IP
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocolo TCP/IP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 - Introducción
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-protocolo-de-internet-ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 - Protocolo de Internet (IP)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 - Protocolo de Internet (IP)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Introducción
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-configuracion-de-un-nodo-ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Configuración de un nodo IP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 Configuración de un nodo IP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221-estructura-de-una-direccion-ip-ipv4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.1 Estructura de una dirección IP (IPv4)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222-estructura-de-una-direccion-ip-ipv6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.2 Estructura de una dirección IP (IPv6)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#223-direcciones-ipv6-versus-ipv4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.3 Direcciones IPv6 versus IPv4
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#224-clases-de-direcciones-ipv4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.4 Clases de direcciones IPv4
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#225-direcciones-reservadas-y-especiales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.5 Direcciones reservadas y especiales
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#226-direccionamiento-sin-clase-cidr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.6 Direccionamiento sin clase (CIDR)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#227-metodos-de-transmision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.7 Métodos de transmisión
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#228-subnetting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.8 Subnetting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#229-ejercicios-de-redes-y-de-subnetting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.9 Ejercicios de redes y de subnetting
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-protocolo-tcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 - Protocolo TCP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 - Protocolo TCP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-modelo-cliente-servidor-en-tcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Modelo cliente-servidor en TCP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-modelo-p2p-en-tcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Modelo P2P en TCP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-segmentacion-y-reensamblaje-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Segmentación y reensamblaje de datos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-establecimiento-de-la-conexion-three-way-handshake" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Establecimiento de la conexión (three-way handshake)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-control-de-flujo-y-gestion-de-errores-en-tcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 Control de flujo y gestión de errores en TCP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-finalizacion-de-la-conexion-tcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6 Finalización de la conexión TCP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#37-principales-caracteristicas-del-protocolo-tcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.7 Principales características del protocolo TCP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#38-puertos-en-tcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.8 Puertos en TCP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#39-ejercicios-sobre-puertos-del-protocolo-tcpip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.9 Ejercicios sobre puertos del protocolo TCP/IP
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_Conexiones-remotas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Acceso y control remoto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_DHCP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocolo DHCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_DNS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocolo DNS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sostenibilidad
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Sostenibilidad
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Sostenibilidad/00_Temario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Presentación módulo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Sostenibilidad/01_RA1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ASG
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 - Introducción
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-protocolo-de-internet-ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 - Protocolo de Internet (IP)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 - Protocolo de Internet (IP)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-introduccion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Introducción
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-configuracion-de-un-nodo-ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Configuración de un nodo IP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 Configuración de un nodo IP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221-estructura-de-una-direccion-ip-ipv4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.1 Estructura de una dirección IP (IPv4)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222-estructura-de-una-direccion-ip-ipv6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.2 Estructura de una dirección IP (IPv6)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#223-direcciones-ipv6-versus-ipv4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.3 Direcciones IPv6 versus IPv4
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#224-clases-de-direcciones-ipv4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.4 Clases de direcciones IPv4
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#225-direcciones-reservadas-y-especiales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.5 Direcciones reservadas y especiales
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#226-direccionamiento-sin-clase-cidr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.6 Direccionamiento sin clase (CIDR)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#227-metodos-de-transmision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.7 Métodos de transmisión
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#228-subnetting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.8 Subnetting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#229-ejercicios-de-redes-y-de-subnetting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.9 Ejercicios de redes y de subnetting
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-protocolo-tcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 - Protocolo TCP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 - Protocolo TCP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-modelo-cliente-servidor-en-tcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Modelo cliente-servidor en TCP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-modelo-p2p-en-tcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Modelo P2P en TCP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-segmentacion-y-reensamblaje-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Segmentación y reensamblaje de datos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-establecimiento-de-la-conexion-three-way-handshake" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Establecimiento de la conexión (three-way handshake)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-control-de-flujo-y-gestion-de-errores-en-tcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 Control de flujo y gestión de errores en TCP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-finalizacion-de-la-conexion-tcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6 Finalización de la conexión TCP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#37-principales-caracteristicas-del-protocolo-tcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.7 Principales características del protocolo TCP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#38-puertos-en-tcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.8 Puertos en TCP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#39-ejercicios-sobre-puertos-del-protocolo-tcpip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.9 Ejercicios sobre puertos del protocolo TCP/IP
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Protocolo TCP/IP</h1>
+
+<!-- ![Descripción de la imagen](./img_2/img_2_21.png){ .img2 .marginbottom40}
+
+**Resultados de aprendizaje y criterios de evaluacion que se evaluarán en esta unidad.**  
+
+| **Resultados de aprendizaje de la unidad didáctica:**|
+||
+| **RA. 1:** Instala servicios de configuración dinámica, describiendo sus características y aplicaciones.|
+
+|**Criterios de evaluación de la unidad didáctica:**|
+||
+|**a)** Se ha reconocido el funcionamiento de los mecanismos automatizados de configuración de los parámetros de red.|
+|**b)** Se han identificado las ventajas que proporcionan.|
+|**c)** Se han ilustrado los procedimientos y pautas que intervienen en una solicitud de configuración de los parámetros de red.|
+|**d)** Se ha instalado un servicio de configuración dinámica de los parámetros de red.|
+|**e)** Se ha preparado el servicio para asignar la configuración básica a los sistemas de una red local.|
+|**f)** Se han realizado asignaciones dinámicas y estáticas.|
+|**g)** Se han integrado en el servicio opciones adicionales de configuración.|
+|**h)** Se ha verificando la correcta asignación de los parámetros.| -->
+
+<h2 id="1-introduccion">1 - Introducción</h2>
+<ol>
+<li>
+<p><strong>Internet es una red pública y global</strong> de ordenadores que están interconectados mediante el protocolo de Internet (Internet Protocol) y que se comunican mediante la conmutación de paquetes.  </p>
+</li>
+<li>
+<p>La denominación TCP/IP hace referencia a sus <strong>dos protocolos más importantes</strong>:</p>
+<ul>
+<li><strong>Protocolo de Internet (IP)</strong>.<br />
+Conjunto de reglas que asigna direcciones únicas a los dispositivos y permite enviar (enrutar) paquetes de datos a través de las redes y llegar al destino correcto.</li>
+<li><strong>Protocolo de Control de Transmisión (TCP)</strong>.
+Es un estándar de comunicación de la capa de transporte que garantiza el envío seguro, ordenado y sin errores de paquetes de datos entre dispositivos conectados a una red.</li>
+</ul>
+</li>
+</ol>
+<div class="admonition question">
+<p class="admonition-title">Citar otros protocolos de comunicación de redes</p>
+</div>
+<!--
+- Bluetooth
+- Redes industriales (CAN bus, Modbus...)
+- Zigbee, z-wave, knx ()
+- Redes a almacenamiento SAN (no confundir con NAS)
+-->
+
+<h2 id="2-protocolo-de-internet-ip">2 - Protocolo de Internet (IP)</h2>
+<h3 id="21-introduccion">2.1 Introducción</h3>
+<ul>
+<li>
+<p>La versión más utilizada actualmente del protocolo IP es <strong>IPv4</strong>, definida en el RFC 791 de 1981. Permite <strong>un total teórico de 2³² direcciones</strong>, aunque algunas están reservadas para usos especiales. Esto limita el número de direcciones IP disponibles, lo que ha provocado que se agoten en muchas regiones del mundo.</p>
+</li>
+<li>
+<p>Hoy en día ya dispone de un sucesor, <strong>IPv6</strong>, cuyo uso se está extendiendo progresivamente. Ofrece un espacio de direcciones mucho más amplio de 2¹²⁸ direcciones y otras mejoras, como la simplificación del encabezado y la eliminación de la necesidad de <strong>traducción de direcciones de red (NAT)</strong>.</p>
+</li>
+</ul>
+<div class="admonition question">
+<p class="admonition-title">¿Qué es la traducción de direcciones de red (NAT)?</p>
+</div>
+<!-- 
+- La Traducción de Direcciones de Red (NAT) es un método que modifica las direcciones IP en los paquetes de datos mientras transitan por un router, permitiendo que múltiples dispositivos de una red privada compartan una sola dirección IP pública para conectarse a Internet. 
+-->
+
+<ul>
+<li>
+<p>Todas las versiones del protocolo IP permiten el envío de paquetes entre equipos sin establecer <strong>ningún tipo de conexión</strong> (<em>connectionless</em>).</p>
+</li>
+<li>
+<p>Esto significa que el equipo de origen envía datos al destinatario sin esperar ninguna confirmación de que la información se haya recibido correctamente.</p>
+</li>
+<li>
+<p>Aunque para <strong>enviar datos entre dos hosts basta con el protocolo IP</strong>, este no ofrece ninguna garantía de que se envíen correctamente ni de que lleguen a su destino. Tampoco garantiza que los datos lleguen intactos, ya que el control de errores solo se realiza sobre las cabeceras y no sobre la carga útil (los datos transmitidos). Por ello, las aplicaciones que requieren fiabilidad recurren al <strong>protocolo TCP</strong> en la capa de transporte.</p>
+</li>
+</ul>
+<h3 id="22-configuracion-de-un-nodo-ip">2.2 Configuración de un nodo IP</h3>
+<p>En primer lugar, es necesario <strong>configurar los protocolos TCP/IP locales</strong>, incluidos por defecto en el núcleo de cualquier sistema operativo moderno. Para configurar un equipo se requiere la siguiente información:</p>
+<ul>
+<li>La dirección IP (ya sea IPv4 o IPv6).</li>
+<li>La máscara de subred, que sirve para identificar la red o subred a la que pertenece.</li>
+</ul>
+<p>Si la comunicación se realiza con equipos de otras subredes o con Internet, se necesitará además:</p>
+<ul>
+<li>La dirección IP de la puerta de enlace predeterminada (<em>default gateway</em>), que corresponde al router a través del cual se redirige el tráfico hacia otras redes.</li>
+<li>Las direcciones IP de los servidores DNS.</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Características principales del protocolo IP</p>
+<ul>
+<li><strong>Enrutamiento:</strong> seleccionar la ruta más adecuada para el envío de paquetes.</li>
+<li><strong>Servicio de entrega <em>Best-Effort</em> (mejor esfuerzo):</strong></li>
+<li><strong>No orientado a conexión:</strong> cada paquete puede follow una ruta distinta, por lo que pueden llegar desordenados.</li>
+<li><strong>No fiable:</strong> los paquetes se pueden perder, dañar o sufrir retardos.</li>
+<li><strong>Direccionamiento lógico:</strong> proporciona un esquema de direccionamiento lógico mediante direcciones IP.</li>
+</ul>
+</div>
+<h4 id="221-estructura-de-una-direccion-ip-ipv4">2.2.1 Estructura de una dirección IP (IPv4)</h4>
+<p><img alt="Descripción de la imagen" class="img1 marginbottom40" src="../img_2/img_2_22.png" /></p>
+<p>Una dirección IPv4 es un número de 32 bits que identifica a cada uno de los dispositivos conectados a una red IP, así como a la propia red.</p>
+<p>Se divide en dos partes:</p>
+<ul>
+<li>Una parte identifica la red (<em>Network ID</em>).</li>
+<li>La parte restante identifica al dispositivo (<em>Host ID</em>).</li>
+</ul>
+<p>Para separar el identificador de red del identificador de dispositivo se aplica la máscara de red. Al realizar la operación lógica AND entre la dirección IP y la máscara de red, se obtiene la dirección de red.</p>
+<h4 id="222-estructura-de-una-direccion-ip-ipv6">2.2.2 Estructura de una dirección IP (IPv6)</h4>
+<ul>
+<li>
+<p><strong>IPv6 (Internet Protocol version 6)</strong> es la versión más reciente del protocolo IP y fue desarrollada para solucionar principalmente el problema de agotamiento de las direcciones IPv4.</p>
+</li>
+<li>
+<p>Mientras que IPv4 utiliza direcciones de 32 bits, <strong>IPv6 utiliza 128 bits</strong>, lo que proporciona una cantidad enorme de direcciones disponibles.</p>
+</li>
+<li>
+<p>Una dirección IPv6 se representa mediante ocho grupos de cuatro dígitos hexadecimales, separados por dos puntos.
+Para simplificar su escritura se pueden eliminar ceros y utilizar :: para representar uno o varios grupos consecutivos de ceros:
+<img alt="Dirección IPv6" class="marco marginbottom20 margintop20 sietecinco" src="../img_2/img_2_25.svg" /></p>
+</li>
+</ul>
+<h4 id="223-direcciones-ipv6-versus-ipv4">2.2.3 Direcciones IPv6 versus IPv4</h4>
+<p><img alt="IPv4IPv6" class="marco marginbottom20 margintop20 sietecinco" src="../img_2/img_2_24.webp" /></p>
+<p>Las principales diferencias entre IPv4 y IPv6 son:</p>
+<ul>
+<li>128 bits de direccionamiento, frente a los 32 bits de IPv4.</li>
+<li>Un espacio de direcciones enormemente mayor.</li>
+<li>Autoconfiguración de las direcciones, facilitando la configuración de los dispositivos.</li>
+<li>Incorporación de mecanismos como Neighbor Discovery, que sustituye y amplía algunas funciones que en IPv4 realizaban ARP.</li>
+<li>No utiliza broadcast de la misma forma que IPv4; utiliza principalmente multicast y anycast.</li>
+<li>Incluye soporte para IPsec como parte de las especificaciones del protocolo, aunque su uso no implica que todas las comunicaciones IPv6 estén cifradas.</li>
+</ul>
+<div class="admonition exercise">
+<p class="admonition-title">Identificación de direcciones IP</p>
+<ol>
+<li>Tenéis un serie de direcciones IP, identificar cuales son IPv4 y cuales IPv6.</li>
+<li>Identificar las IPv6 que estan en formato reducido y escribirlas en formato no reducido.</li>
+</ol>
+<p><strong>Direcciones IP</strong></p>
+<ul>
+<li>192.168.1.1</li>
+<li>2001:db8::8a2e:370:7334</li>
+<li>8.8.8.8</li>
+<li>127.0.0.1</li>
+<li>ff02::1</li>
+<li>2001:4860:4860::8888</li>
+<li>142.250.184.206</li>
+<li>2607:f8b0:4004:809::200e</li>
+</ul>
+</div>
+<!-- 
+- 2001:db8::8a2e:370:7334 → 2001:0db8:0000:0000:0000:8a2e:0370:7334
+- ff02::1 → ff02:0000:0000:0000:0000:0000:0000:0001
+- 2001:4860:4860::8888 → 2001:4860:4860:0000:0000:0000:0000:8888
+- 2607:f8b0:4004:809::200e → 2607:f8b0:4004:0809:0000:0000:0000:200e
+-->
+
+<h4 id="224-clases-de-direcciones-ipv4">2.2.4 Clases de direcciones IPv4</h4>
+<p>Históricamente, las direcciones se dividían en tres clases principales según los octetos destinados a la red:</p>
+<ul>
+<li><strong>Clase A:</strong> el primer octeto identifica la red.</li>
+<li><strong>Clase B:</strong> los dos primeros octetos identifican la red.</li>
+<li><strong>Clase C:</strong> los tres primeros octetos identifican la red.</li>
+</ul>
+<p>Además, existen dos clases especiales:</p>
+<ul>
+<li><strong>Clase D:</strong> reservada para multidifusión (<em>multicast</em>).</li>
+<li><strong>Clase E:</strong> reservada para investigación y uso futuro.</li>
+</ul>
+<p><strong>Tabla resumen de las clases de direcciones IPv4</strong>  </p>
+<table>
+<thead>
+<tr>
+<th>Clase</th>
+<th>Rango campo de red (bits de red)</th>
+<th>Rango campo de direcciones (bits de hosts)</th>
+<th>Máscara por defecto</th>
+<th>Dirección de difusión (broadcast)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>1 - 126 (8)</td>
+<td>0.0.0 - 255.255.255 (24)</td>
+<td>255.0.0.0</td>
+<td>x.255.255.255</td>
+</tr>
+<tr>
+<td>B</td>
+<td>128.0 - 191.255 (16)</td>
+<td>0.0 - 255.255 (16)</td>
+<td>x.x.255.255</td>
+<td>x.255.255.255</td>
+</tr>
+<tr>
+<td>C</td>
+<td>192.0.0 - 223.255.255 (24)</td>
+<td>0 - 255 (8)</td>
+<td>255.255.255.0</td>
+<td>x.x.x.255</td>
+</tr>
+<tr>
+<td>D</td>
+<td>224.0.0 - 239.255.255</td>
+<td>No aplica</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>E</td>
+<td>240.0.0.0 – 247.255.255.255</td>
+<td>No aplica</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition exercise">
+<p class="admonition-title">Identificación de direcciones IP</p>
+<p>Con la ayuda de la tabla anterior responder a las siguientes preguntas.  </p>
+<ol>
+<li>Calcular el rango de direcciones IP de cada clase.  </li>
+<li>Calcular la cantidad de redes disponibles para cada clase.  </li>
+<li>Calcular la cantidad de IP's (hosts) disponibles para cada clase.  </li>
+</ol>
+</div>
+<!--
+Pregunta 1
+- Clase A: 1.0.0.0 a 126.255.255.255
+- Clase B: 128.0.0.0 a 191.255.255.255
+- Clase C: 192.0.0.0 a 223.255.255.255
+- Clase D (Multicast): 224.0.0.0 a 239.255.255.255
+- Clase E (Reserva/Investigación): 240.0.0.0 a 255.255.255.255
+
+Pregunta 2
+- Clase A (8 bits de red): El primer bit siempre es 0 (quedan 7 bits variables). Redes = 2^7 = 128
+- Clase B (16 bits de red): Los primeros dos bits siempre son 10 (quedan 14 bits variables). Redes = 2^14 = 16.384 
+- Clase C (24 bits de red): Los primeros tres bits siempre son 110 (quedan 21 bits variables). Redes = 2^21 = 2.097.152 
+- Clase D y Clase E: No aplica (no tienen división para direccionamiento de redes locales).
+
+Pregunta 3
+- Clase A (24 bits de host): 
+    - IPs totales por red: 2^24 = 16.777.216 
+    - IPs útiles para hosts: 16.777.216 - 2 = 16.777.214
+- Clase B (16 bits de host):
+    - IPs totales por red: 2^16 = 65.536 
+    - IPs útiles para hosts: 65.536 - 2 = 65.534 
+- Clase C (8 bits de host):
+    - IPs totales por red: 2^8 = 256 
+    - IPs útiles para hosts: 256 - 2 = 254 
+- Clase D y Clase E: No aplica.
+-->
+
+<h4 id="225-direcciones-reservadas-y-especiales">2.2.5 Direcciones reservadas y especiales</h4>
+<ol>
+<li><strong>Dirección de red:</strong> identifica a la red en su conjunto, no a un host concreto. Se obtiene cuando todos los bits del identificador de host son 0 (ej.: 10.0.0.0/8).</li>
+<li><strong>Dirección de difusión (broadcast):</strong> permite enviar un paquete a todos los hosts de una red simultáneamente. Se obtiene cuando todos los bits del identificador de host son 1 (ej.: 10.255.255.255).</li>
+<li><strong>Dirección no especificada:</strong> representa la ausencia de una dirección IP asignada. Es 0.0.0.0, usada por un host que todavía no tiene una dirección IP (por ejemplo, durante el proceso de solicitud DHCP).</li>
+<li><strong>Ruta por defecto:</strong> entrada genérica en una tabla de enrutamiento que representa "cualquier red posible". Se escribe como 0.0.0.0/0 <strong>no es la dirección de un host</strong> y es la ruta que utiliza un router cuando no encuentra una coincidencia más específica para un paquete.</li>
+<li><strong>Dirección de bucle de retorno (loopback):</strong> permite a un equipo comunicarse consigo mismo con fines de prueba. La red 127.0.0.0/8 está reservada para ello; los paquetes no salen a la red física (127.0.0.1 hace referencia al localhost).</li>
+<li><strong>Direcciones de enlace local (Link-Local / APIPA):</strong> se autoasignan cuando un dispositivo no puede contactar con un servidor DHCP. El rango 169.254.0.0/16 se usa con este propósito y no es enrutable en Internet.</li>
+<li><strong>Direcciones privadas:</strong> rangos reservados para uso interno en redes locales, no enrutables en Internet:</li>
+</ol>
+<div class="admonition exercise">
+<p class="admonition-title">Redes y direcciones IP</p>
+<p>Con la ayuda de las definiciones de los apartados anteriores, responder a las siguientes preguntas.  </p>
+<ol>
+<li>Proponer una IP de una red de clase C.</li>
+<li>Calcular la dirección de red.  </li>
+<li>Calcular la dirección de broadcast.</li>
+<li>¿Cuántos hosts admite esa red?</li>
+<li>¿Qué ocurre si, desde cualquier IP de la red, envío un paquete a la dirección de broadcast?</li>
+<li>¿Pueden, teorícamente, ser enrutados hacia internet los paquetes emitidos por la IP de tipo 127.0.0.80?</li>
+</ol>
+</div>
+<h4 id="226-direccionamiento-sin-clase-cidr">2.2.6 Direccionamiento sin clase (CIDR)</h4>
+<ul>
+<li>
+<p>Con el rápido crecimiento de Internet, el direccionamiento basado en clases quedó obsoleto. En 1993 se introdujo CIDR (<em>Classless Inter-Domain Routing</em>), un sistema que elimina la rigidez de las clases y optimiza la forma en que se interpretan y enrutan las direcciones IP.</p>
+</li>
+<li>
+<p>En lugar de clases, se utiliza <strong>una notación con prefijo</strong> para indicar el número de bits a 1 en la máscara de red. Las antiguas clases A, B y C equivalen a máscaras /8, /16 y /24, respectivamente. Por ejemplo, la notación 192.168.0.0/16 indica que los primeros 16 bits corresponden a la red.</p>
+</li>
+<li>
+<p>Para utilizar CIDR, los routers deben ser capaces de procesar direcciones IP independientemente de las clases convencionales.</p>
+</li>
+</ul>
+<p><strong>Ejemplos</strong>  </p>
+<ul>
+<li>10.0.0.0/8: permite direcciones desde 10.0.0.1 hasta 10.255.255.254.  </li>
+<li>192.168.0.0/16: permite direcciones desde 192.168.0.1 hasta 192.168.1.253.</li>
+</ul>
+<div class="admonition exercise">
+<p class="admonition-title">Redes CIDR</p>
+<ol>
+<li>Calcular la máscara de la red 10.0.0.0/8.</li>
+<li>Calcular la máscara de la red 192.168.0.0/16.</li>
+<li>Calcular la máscara de la red 172.16.0.0/12.</li>
+<li>Calcular el rango de direcciones de la red: 172.16.0.0/12.</li>
+<li>Calcular la IP de broadcast de la red 172.16.0.0/12.</li>
+<li>¿Cuantos hosts quedarían en las redes anteriores si la red tiene acceso a internet?</li>
+<li>¿Como se llama la IP reservada para salir de la red?</li>
+</ol>
+</div>
+<!-- 
+https://aules.edu.gva.es/docent/pluginfile.php/5719248/mod_resource/content/1/XL_UT03_Interconnexio%CC%81%20d%E2%80%99equips%20en%20xarxes%20locals%20i%20muntatge%20de%20connectors-IP.pdf 
+-->
+
+<!--
+Ejercicio 1
+El número /8 indica que los primeros 8 bits están reservados para la red
+    - Máscara decimal: 255.0.0.02. 
+
+Ejercicio 2
+El número /16 indica que los primeros 16 bits están reservados para la red
+    - Máscara decimal: 255.255.0.0
+
+Ejercicio 3
+El número /12 indica que los primeros 12 bits están encendidos 
+    - Máscara decimal: 255.240.0.0 
+
+Ejercicio 4
+El bloque abarca desde el segundo octeto 16 (0001 0000) hasta 31 (0001 1111):
+    - Primera IP del rango (IP de Red): 172.16.0.0
+    - Primera IP asignable a host: 172.16.0.1
+    - Última IP asignable a host: 172.31.255.254
+    - Última IP del rango (Broadcast): 172.31.255.255
+    - Rango completo de la red: 172.16.0.0 a 172.31.255.255
+
+Ejercicio 5
+IP de broadcast de la red 172.16.0.0/12 se calcula poniendo a 1 todos los 20 bits correspondientes a los hosts
+    - IP de broadcast: 172.31.255.255
+
+Ejercicio 6
+Para calcular los hosts útiles se utiliza la fórmula 2^h - 2, donde h es la cantidad de bits de host 
+ - Red 10.0.0.0/8:  2^24 - 2 = 16.777.214 
+ - Red 192.168.0.0/16 2^16 - 2 = 65.534
+ - Red 172.16.0.0/12 2^20 - 2 = 1.048.574
+
+Ejercicio 7
+Puerta de enlace (IGW)
+-->
+
+<h4 id="227-metodos-de-transmision">2.2.7 Métodos de transmisión</h4>
+<p>En una red IP, un paquete puede enviarse siguiendo distintos métodos de transmisión según cuántos destinatarios deban recibirlo. La elección del método influye directamente en el uso del ancho de banda y en el diseño de aplicaciones como streaming, videoconferencias o descubrimiento de dispositivos.</p>
+<ul>
+<li><strong>Unidifusión (Unicast):</strong><br />
+La información se envía desde un único origen a un único destinatario. Es el método más común y el que se usa en la inmensa mayoría del tráfico de Internet (navegación web, correo electrónico, transferencias de archivos, etc.).</li>
+<li><strong>Multidifusión (Multicast):</strong><br />
+La información se envía desde un origen a un grupo específico de dispositivos suscritos.<br />
+<strong>Utiliza direcciones reservadas de la Clase D</strong> (rango 224.0.0.0 – 239.255.255.255). Los dispositivos se suscriben o abandonan un grupo multicast mediante <strong>el protocolo IGMP</strong> (Internet Group Management Protocol), y <strong>los routers usan protocolos como PIM</strong> (Protocol Independent Multicast) para reenviar el tráfico únicamente hacia las ramas de red donde existen receptores interesados.  </li>
+<li>
+<p><strong>Difusión (Broadcast):</strong><br />
+La información se envía a todos los dispositivos de la subred. Como se explicó en un apartado anterior, esto se logra utilizando la dirección de broadcast de la red (ej.: 10.255.255.255). A nivel de enlace, la trama Ethernet usa la MAC de destino FF:FF:FF:FF:FF:FF, lo que obliga al switch a reenviarla (flood) por todos sus puertos.  </p>
+<div class="admonition tip">
+<p class="admonition-title">Ejemplos de uso del broadcast</p>
+<ul>
+<li>Solicitudes <strong>DHCP (el cliente no conoce aún la IP del servidor)</strong>, resolución de direcciones con ARP (para averiguar qué MAC corresponde a una IP).</li>
+<li>Desventaja: genera tráfico innecesario en dispositivos que no están interesados en el paquete, y en redes grandes puede provocar problemas de rendimiento (broadcast storms).</li>
+</ul>
+</div>
+</li>
+</ul>
+<h4 id="228-subnetting">2.2.8 Subnetting</h4>
+<ul>
+<li>El subnetting es un proceso fundamental en la administración de redes que permite dividir una red grande en varias subredes más pequeñas.</li>
+<li>Este proceso optimiza el uso de direcciones IP, mejora la seguridad y facilita la gestión de redes complejas.</li>
+</ul>
+<p>El subnetting es la práctica de <strong>dividir una red IP grande en subredes más pequeñas</strong> y eficientes.  </p>
+<p>Sus metas principales son mejorar el rendimiento, aumentar la seguridad y organizar mejor los dispositivos.</p>
+<p>Se logra "prestando" bits de la parte de host para aumentar el número de subredes disponibles.  </p>
+<p><strong>Conceptos Clave del Subnetting</strong>  </p>
+<ul>
+<li><strong>Máscara de subred:</strong>
+Indica qué parte de la dirección IP identifica a la red y qué parte identifica a los equipos o hosts.</li>
+<li><strong>Notación CIDR:</strong><br />
+Usa un sufijo (como /24) para mostrar de forma rápida cuántos bits forman la red.</li>
+<li><strong>IP de red y de broadcast:</strong><br />
+Las direcciones primera y última de cada subred se reservan para identificar la red y para enviar mensajes generales, por lo que no se pueden dar a los equipos.</li>
+</ul>
+<p><strong>Ventajas de dividir una red:</strong>  </p>
+<ul>
+<li><strong>Menos tráfico:</strong> al haber menos equipos por sección, los datos viajan más rápido y sin choques de información.</li>
+<li><strong>Más seguridad:</strong> permite separar departamentos (como administración o ventas) y limitar el acceso entre ellos.- <strong>Ahorro de IP:</strong> ayuda a aprovechar mejor los recursos de direcciones disponibles.</li>
+</ul>
+<p><a href="https://www.aprendaredes.com/cgi-bin/ipcalc/ipcalc_cgi1"><strong>Calculadora IP</strong></a></p>
+<h4 id="229-ejercicios-de-redes-y-de-subnetting">2.2.9 Ejercicios de redes y de subnetting</h4>
+<div class="admonition exercise">
+<p class="admonition-title">Ejercicio 1</p>
+<p>Definir la clase de red de las sigientes IP's.</p>
+<table>
+<thead>
+<tr>
+<th>Dirección IP</th>
+<th style="text-align: center;">Clase</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10.250.1.1</td>
+<td style="text-align: center;">A</td>
+</tr>
+<tr>
+<td>150.10.15.0</td>
+<td style="text-align: center;">B</td>
+</tr>
+<tr>
+<td>192.14.2.0</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>148.17.9.1</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>193.42.1.1</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>126.8.156.0</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>220.200.23.1</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>230.230.45.58</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>177.100.18.4</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>119.18.45.0</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>249.240.80.78</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>199.155.77.56</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>117.89.56.45</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>215.45.45.0</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>199.200.15.0</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>95.0.21.90</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>33.0.0.0</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>158.98.80.0</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td>219.21.56.0</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- 
+Para determinar la clase de una dirección IP (según el sistema clásico de clases *Classful*), basta con observar el valor del **primer octeto** de la dirección:
+
+* **Clase A:** 1 a 126 (bits de inicio `0`)
+* **Clase B:** 128 a 191 (bits de inicio `10`)
+* **Clase C:** 192 a 223 (bits de inicio `110`)
+* **Clase D (Multicast):** 224 a 239 (bits de inicio `1110`)
+* **Clase E (Investigación):** 240 a 255 (bits de inicio `1111`)
+
+### Tabla resuelta
+
+| Dirección IP | Clase | Justificación (Primer Octeto) |
+| --- | --- | --- |
+| **10.250.1.1** | **A** | 10 está en el rango 1 - 126 |
+| **150.10.15.0** | **B** | 150 está en el rango 128 - 191 |
+| **192.14.2.0** | **C** | 192 está en el rango 192 - 223 |
+| **148.17.9.1** | **B** | 148 está en el rango 128 - 191 |
+| **193.42.1.1** | **C** | 193 está en el rango 192 - 223 |
+| **126.8.156.0** | **A** | 126 está en el rango 1 - 126 |
+| **220.200.23.1** | **C** | 220 está en el rango 192 - 223 |
+| **230.230.45.58** | **D** | 230 está en el rango 224 - 239 (Multicast) |
+| **177.100.18.4** | **B** | 177 está en el rango 128 - 191 |
+| **119.18.45.0** | **A** | 119 está en el rango 1 - 126 |
+| **249.240.80.78** | **E** | 249 está en el rango 240 - 255 (Investigación) |
+| **199.155.77.56** | **C** | 199 está en el rango 192 - 223 |
+| **117.89.56.45** | **A** | 117 está en el rango 1 - 126 |
+| **215.45.45.0** | **C** | 215 está en el rango 192 - 223 |
+| **199.200.15.0** | **C** | 199 está en el rango 192 - 223 |
+| **95.0.21.90** | **A** | 95 está en el rango 1 - 126 |
+| **33.0.0.0** | **A** | 33 está en el rango 1 - 126 |
+| **158.98.80.0** | **B** | 158 está en el rango 128 - 191 |
+| **219.21.56.0** | **C** | 219 está en el rango 192 - 223 |
+-->
+
+<div class="admonition exercise">
+<p class="admonition-title">Ejercicio 2</p>
+<p>Escribe la máscara de subred por defecto correspondiente a cada una de estas direcciones IP's.</p>
+<div class="admonition tip">
+<p class="admonition-title">Identificar primero la clase de red a la que pertenece la IP</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Dirección IP</th>
+<th>Clase</th>
+<th>Máscara</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>177.100.18.4</td>
+<td>B</td>
+<td>255.255.0.0</td>
+</tr>
+<tr>
+<td>119.18.45.0</td>
+<td>A</td>
+<td>255.0.0.0</td>
+</tr>
+<tr>
+<td>191.249.234.191</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>223.23.223.109</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>10.10.250.1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>126.123.23.1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>223.69.230.250</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>192.12.35.105</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>77.251.200.51</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>189.210.50.1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>88.45.65.35</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>128.212.250.254</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>193.100.77.83</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>125.125.250.1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>1.1.10.50</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>220.90.130.45</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>134.125.34.9</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>95.250.91.99</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- 
+Las máscaras de subred por defecto según la clase de IP son:
+
+- **Clase A:** `255.0.0.0` (primer octeto entre 1 y 126)
+- **Clase B:** `255.255.0.0` (primer octeto entre 128 y 191)
+- **Clase C:** `255.255.255.0` (primer octeto entre 192 y 223)
+
+| Dirección IP | Clase | Máscara |
+| --- | --- | --- |
+| **177.100.18.4** | **B** | `255.255.0.0` |
+| **119.18.45.0** | **A** | `255.0.0.0` |
+| **191.249.234.191** | **B** | `255.255.0.0` |
+| **223.23.223.109** | **C** | `255.255.255.0` |
+| **10.10.250.1** | **A** | `255.0.0.0` |
+| **126.123.23.1** | **A** | `255.0.0.0` |
+| **223.69.230.250** | **C** | `255.255.255.0` |
+| **192.12.35.105** | **C** | `255.255.255.0` |
+| **77.251.200.51** | **A** | `255.0.0.0` |
+| **189.210.50.1** | **B** | `255.255.0.0` |
+| **88.45.65.35** | **A** | `255.0.0.0` |
+| **128.212.250.254** | **B** | `255.255.0.0` |
+| **193.100.77.83** | **C** | `255.255.255.0` |
+| **125.125.250.1** | **A** | `255.0.0.0` |
+| **1.1.10.50** | **A** | `255.0.0.0` |
+| **220.90.130.45** | **C** | `255.255.255.0` |
+| **134.125.34.9** | **B** | `255.255.0.0` |
+| **95.250.91.99** | **A** | `255.0.0.0` |
+ -->
+
+<div class="admonition exercise">
+<p class="admonition-title">Ejercicio 3</p>
+<ol>
+<li>Disponemos de la dirección de red: <code>172.16.0.0/16</code></li>
+<li>Determinar:<ul>
+<li>Clase:</li>
+<li>Máscara de Subred (por defecto):</li>
+<li>Nº total de direcciones de host:</li>
+<li>Nº de direcciones útiles:</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Ejercicio 4</p>
+<ol>
+<li>Disponemos de la dirección de red: <code>172.16.0.0/16</code></li>
+<li>Se desea montar 2 subredes útiles sobre esa red.</li>
+<li>Se desea saber:<ol>
+<li>Clase:</li>
+<li>Máscara de subred por defecto:</li>
+<li>Máscara de subred adaptada:</li>
+<li>Nº total de subredes:</li>
+<li>Nº de subredes útiles:  </li>
+<li>Nº total de direcciones de host:</li>
+<li>Nº de direcciones útiles  </li>
+<li>Nº de subred de la 2ª subred útil  </li>
+</ol>
+</li>
+</ol>
+</div>
+<!--
+Red original: 172.16.0.0/16 (Clase B).
+Bits robados estándar actual (RFC 1878 / CIDR): Para obtener al menos 2 subredes útiles mediante 2^s >=2 basta tomar 1 bit
+
+Solución según el estándar actual (RFC 1878)
+    a. Clase: B
+    b. Máscara de subred por defecto: 255.255.0.0 
+    c. Máscara de subred adaptada: 255.255.128.0 (Prefijo /17, robando 1 bit)
+    d. Nº total de subredes: 2 
+    e. Nº de subredes útiles: 2 
+    f. Nº total de direcciones de host por subred: 32.768 2^15, donde 15 son los bits de host restantes)
+    h. Nº de direcciones útiles por subred: 32.766 (2^15 - 2)
+    i. Nº de subred (IP de red) de la 2ª subred útil 
+        1ª subred: 172.16.0.0/17, 
+        2ª subred: 172.16.128.0/17)
+-->
+
+<div class="admonition exercise">
+<p class="admonition-title">Ejercicio 5</p>
+<ol>
+<li>Disponemos de la dirección de red: <code>116.0.0.0</code></li>
+<li>Se desea montar 126 subredes útiles sobre esa red.</li>
+<li>Se desea saber:<ol>
+<li>Clase:</li>
+<li>Máscara de subred por defecto:</li>
+<li>Máscara de subred adaptada a las 126 subredes:</li>
+<li>Nº de bits cogidos:  </li>
+<li>Nº total de subredes:</li>
+<li>Nº de subredes útiles:  </li>
+<li>Nº total de direcciones de host:</li>
+<li>Nº de direcciones útiles  </li>
+<li>¿Nº de subred de la 2ª subred útil?  </li>
+<li>¿Cuál es el 3º rango de subred útil?</li>
+</ol>
+</li>
+</ol>
+</div>
+<!--
+- La IP 116.0.0.0 pertenece a la Clase A
+- Su máscara por defecto es 255.0.0.0 (prefijo /8)
+- Mascara de subred:
+    Necesitamos al menos 126 subredes útiles. 
+    Aplicando la fórmula 2^s >= 126, descubrimos que con 7 bits robados a la porción de host obtenemos 2^7 = 128 subredes totales.
+    resultado 255.254.0.0, CIDR /8 + /7 = /15     
+    1. Nº de bits cogidos: 7 
+    1. Nº total de subredes: 128
+    1. Nº de subredes útiles: 126  
+- Nº total de direcciones de host: 32-17 = 17 bits de hosts 2^17 131072
+- Nº de direcciones útiles: 2^17 -2  
+- Nº de subred de la 2ª subred útil 
+    Subred 0 (no útil en estándar clásico): 116.0.0.0
+    1ª subred útil: 116.2.0.0
+    2ª subred útil: 116.4.0.0
+    3ª subred útil: 116.6.0.0  
+- ¿Cuál es el 3º rango de subred útil?
+    1ª subred útil: 116.2.0.0
+    2ª subred útil: 116.4.0.0
+    3ª subred útil: 116.6.0.0  
+    4ª subred útil: 116.8.0.0  
+    3ª subred útil: 116.6.0.0 a 116.7.255.255 (IPs útiles de host: 116.6.0.1 a 116.7.255.254)
+-->
+
+<div class="admonition exercise">
+<p class="admonition-title">Ejercicio 6</p>
+<ol>
+<li>Disponemos de la dirección de red: <code>199.95.30.0</code></li>
+<li>Se desea montar 62 subredes útiles sobre esa red.</li>
+<li>Se desea saber:<ol>
+<li>Clase:</li>
+<li>Máscara de subred por defecto:</li>
+<li>Máscara de subred adaptada a las 126 subredes:</li>
+<li>Nº de bits cogidos:  </li>
+<li>Nº total de subredes:</li>
+<li>Nº de subredes útiles:  </li>
+<li>Nº total de direcciones de host:</li>
+<li>Nº de direcciones útiles  </li>
+<li>¿Nº de subred de la 2ª subred útil?  </li>
+<li>¿Cuál es el 3º rango de subred útil?</li>
+</ol>
+</li>
+</ol>
+</div>
+<!--
+Clase C, máscara /24).
+Cálculo de bits prestados:Buscamos cubrir 62 subredes con la fórmula 2^s >=62. Con 6 bits obtenemos $2^6 = 64 subredes (cubre perfectamente las 62 requeridas).
+Nueva máscara (CIDR)= 24 + 6 /30. En binario: 11111111.11111111.11111111.11111100 → 255.255.255.252
+Bits de host restantes 32 - 30 = 2 bits
+Salto de subred / Bloque: En el cuarto octeto: $256 - 252 
+Solución del ejercicio
+    a. Clase: C
+    b. Máscara de subred por defecto: 255.255.255.0
+    c. Máscara de subred adaptada: 255.255.255.252 (Prefijo /30)
+    d. Nº de bits cogidos: 6 bits
+    e. Nº total de subredes: 64 ($2^6$)f. Nº de subredes útiles: 64 (Bajo la norma RFC 1878 son todas utilizables; bajo el estándar antiguo RFC 950 serían 64 - 2 = 62$)
+    g. Nº total de direcciones de host por subred: 4 2^2
+    h. Nº de direcciones útiles por subred: 2 ( 2 para enlaces punto a punto entre routers)
+    i. Nº de subred de la 2ª subred útil?  
+        1ª subred: 199.95.30.0/30, 
+        2ª subred: 199.95.30.4/30)
+    j. ¿Cuál es el 3º rango de subred útil?
+        3ª subred: 199.95.30.8/30 
+        Rango útil de hosts: 199.95.30.9 a 199.95.30.10 IP de Broadcast: 199.95.30.11 
+        Rango completo de la subred: 199.95.30.8 a 199.95.30.11
+-->
+
+<h2 id="3-protocolo-tcp">3 - Protocolo TCP</h2>
+<p>El protocolo TCP (Transmission Control Protocol o Protocolo de Control de Transmisión) es uno de los pilares fundamentales de las redes informáticas e internet. Junto con IP, forma la base de la suite de protocolos TCP/IP sobre la que funciona la comunicación en internet.</p>
+<p>TCP es el mecanismo que controla las transmisiones de datos y se asegura de que los paquetes enviados entre dispositivos lleguen completos, en orden y sin cambios. A diferencia de otros protocolos de transporte como UDP, TCP prioriza la fiabilidad sobre la velocidad.</p>
+<h3 id="31-modelo-cliente-servidor-en-tcp">3.1 Modelo cliente-servidor en TCP</h3>
+<p>En este modelo la comunicación se establece entre un cliente y un servidor. El cliente es quien inicia la comunicación solicitando un servicio o recurso, mientras que el servidor es quien responde a esas solicitudes proporcionando los datos o servicios requeridos.</p>
+<p>Este modelo es el más habitual en internet: por ejemplo, cuando un navegador (cliente) solicita una página web a un servidor web.</p>
+<h3 id="32-modelo-p2p-en-tcp">3.2 Modelo P2P en TCP</h3>
+<p>En este modelo, todos los nodos de la red actúan como iguales, es decir, cada nodo puede funcionar tanto como cliente como servidor. Esto permite que los nodos compartan recursos directamente entre sí sin necesidad de un servidor centralizado.</p>
+<p>Este modelo se utiliza, por ejemplo, en redes de intercambio de archivos, donde cada usuario puede tanto descargar como distribuir fragmentos del mismo archivo.</p>
+<h3 id="33-segmentacion-y-reensamblaje-de-datos">3.3 Segmentación y reensamblaje de datos</h3>
+<p>Entre otros mecanismos, TCP se encarga de <strong>dividir</strong> las transmisiones en pequeños fragmentos llamados segmentos (comúnmente denominados también paquetes, aunque técnicamente el segmento es la unidad de TCP y el paquete la de IP), para que puedan ser transferidos de manera eficiente por la red.</p>
+<p>Cada segmento incluye un número de secuencia que permite identificar su posición dentro del flujo original de datos. Gracias a esta numeración, TCP puede reensamblar los segmentos en el orden correcto en el destino, incluso si llegan desordenados por la red.</p>
+<h3 id="34-establecimiento-de-la-conexion-three-way-handshake">3.4 Establecimiento de la conexión (three-way handshake)</h3>
+<p>El three-way handshake es un proceso que actúa como saludo inicial entre el cliente y el servidor. Consiste en el intercambio de tres mensajes que permiten a ambas partes confirmar que están preparadas para realizar una transmisión fiable.</p>
+<ul>
+<li><strong>SYN:</strong> el cliente envía un mensaje de sincronización al servidor para comprobar que está disponible y solicitar el inicio de la conexión.</li>
+<li><strong>SYN-ACK:</strong> el servidor responde confirmando que está listo para recibir datos y que ha recibido la solicitud del cliente.</li>
+<li><strong>ACK:</strong> el cliente confirma la recepción de la respuesta del servidor, y a partir de este momento ambos pueden comenzar a intercambiar datos.</li>
+</ul>
+<h3 id="35-control-de-flujo-y-gestion-de-errores-en-tcp">3.5 Control de flujo y gestión de errores en TCP</h3>
+<p>Una vez iniciada la comunicación, TCP se encarga de controlar el flujo de datos entre cliente y servidor mediante mecanismos como:</p>
+<ul>
+<li><strong>Control de flujo:</strong> regula la cantidad de datos que se envían para evitar saturar al receptor, utilizando un sistema de ventana deslizante (sliding window).</li>
+<li><strong>Detección de errores:</strong> cada segmento incluye una suma de verificación (checksum) que permite comprobar si los datos han llegado dañados.</li>
+<li><strong>Retransmisión:</strong> si un segmento se pierde o llega dañado, TCP solicita su reenvío automáticamente, garantizando la integridad de la transmisión.</li>
+<li><strong>Acuses de recibo (ACK):</strong> el receptor confirma la recepción de cada segmento, lo que permite al emisor saber qué datos han llegado correctamente.</li>
+</ul>
+<h3 id="36-finalizacion-de-la-conexion-tcp">3.6 Finalización de la conexión TCP</h3>
+<p>Cuando la transferencia de datos ha finalizado, el protocolo todavía debe cerrar la conexión de forma ordenada. En este proceso, tanto cliente como servidor intercambian mensajes de FIN (finalización) y ACK (confirmación), en un proceso que suele denominarse four-way handshake, ya que cada extremo debe cerrar su propio flujo de datos de manera independiente. Esto garantiza que ambas partes hayan terminado de enviar y recibir información antes de cerrar la comunicación por completo.</p>
+<h3 id="37-principales-caracteristicas-del-protocolo-tcp">3.7 Principales características del protocolo TCP</h3>
+<ol>
+<li><strong>Confiabilidad en la transmisión de datos</strong>
+TCP garantiza que los datos lleguen sin errores y en el orden correcto, resolviendo los posibles fallos que puedan surgir por el camino. Si un paquete se pierde y no llega al destino, TCP se encarga de reenviarlo automáticamente.</li>
+<li><strong>Orientación a conexión</strong>
+TCP gestiona todo el proceso de conexión entre los integrantes de la transmisión. Es decir, antes de transferir datos, TCP establece una conexión formal (mediante el three-way handshake) que se mantiene activa durante todo el intercambio.</li>
+<li><strong>Control de congestión en la red</strong>
+Las redes pueden llegar a congestionarse. En esos casos, TCP es capaz de ajustar la velocidad de transmisión según las condiciones de la red, evitando fallos debidos a saturaciones y adaptándose dinámicamente mediante algoritmos como el slow start o el congestion avoidance.</li>
+<li><strong>Garantía de entrega de datos en el orden correcto</strong>
+Otro aspecto que asegura el protocolo es que los datos lleguen en el orden en que fueron enviados. Gracias a ello, es posible recomponerlos correctamente una vez llegan al cliente, incluso si los segmentos han tomado rutas distintas por la red.</li>
+<li><strong>Compatibilidad con otros protocolos de la capa de transporte</strong>
+TCP es un protocolo robusto y flexible, capaz de servir de base a muchos otros protocolos más specializados. TCP se encarga del transporte de las comunicaciones de protocolos tan conocidos como HTTP, FTP, SMTP, SSH y muchos otros.</li>
+<li>
+<p><strong>Casos de uso del protocolo TCP</strong></p>
+<ul>
+<li><strong>Protocolo de mensajes de control de Internet (ICMP)</strong>
+El rol de ICMP es enviar mensajes de error e información operativa cada vez que ocurre un problema.</li>
+<li><strong>Protocolo de gestión de grupos de Internet (IGMP)</strong><br />
+IGMP permite la multidifusión, es decir, enviar los mismos datos a múltiples dispositivos al mismo tiempo.</li>
+<li><strong>Protocolo de resolución de direcciones (ARP)</strong>
+Como protocolo de comunicación, ARP ayuda a conectar la dirección de la capa de Internet a la dirección de la capa de enlace.</li>
+<li><strong>Protocolo de transferencia de archivos (FTP)</strong>
+FTP permite transferir archivos de un cliente a un servidor. Por ejemplo, este protocolo es lo que nos permite acceder a los datos almacenados en la nube, lee más sobre «lo que es un iPaaS» para obtener más información.</li>
+<li><strong>Protocolo de transferencia de hipertexto (HTTP/HTTPS)</strong><br />
+Comúnmente conocido como el ancestro de HTTPS, sólo que con menos seguridad de datos, HTTP es lo que hace posible la interacción entre el cliente y el servidor web. A menudo se le considera como la base para la comunicación de datos.</li>
+<li><strong>Protocolo simple de transferencia de correo (SMTP, IMAP y POP3)</strong>
+Los SMTP permiten que los ordenadores y los servidores intercambien datos para que los usuarios puedan enviar y recibir correo electrónico.<br />
+Los IMAP permiten que los usuarios accedan a sus correos electrónicos desde múltiples dispositivos, manteniendo los mensajes sincronizados en todos ellos. Por otro lado, los POP3 permiten que los usuarios descarguen sus correos electrónicos desde el servidor a su dispositivo local, eliminando los mensajes del servidor después de la descarga.<br />
+Los POP3 son más simples y ligeros, pero no permiten la sincronización entre dispositivos, mientras que los IMAP ofrecen una experiencia más completa y flexible para la gestión del correo electrónico.</li>
+<li><strong>Aplicaciones de streaming que requieren fiabilidad en la entrega</strong>
+Los servicios de streaming, como la transmisión de video o audio en tiempo real, requieren que los datos lleguen de manera confiable y en el orden correcto. TCP garantiza que los paquetes de datos se entreguen sin errores, lo que es crucial para mantener la calidad del contenido transmitido.</li>
+<li><strong>Conexiones seguras en redes empresariales (SSH, VPN)</strong><br />
+SSH (Secure Shell) y las VPN (Virtual Private Network) utilizan TCP para establecer conexiones seguras y cifradas entre dispositivos. Esto es esencial para proteger la información sensible durante la transmisión a través de redes públicas o no confiables.</li>
+<li><strong>Acceso remoto y administración de sistemas</strong><br />
+TCP es fundamental para el acceso remoto a sistemas y la administración de servidores. Herramientas como RDP (Remote Desktop Protocol) y VNC (Virtual Network Computing) dependen de TCP para garantizar que los comandos y datos enviados desde el cliente lleguen correctamente al servidor, permitiendo una gestión eficiente y segura de los recursos informáticos.</li>
+</ul>
+</li>
+</ol>
+<h3 id="38-puertos-en-tcp">3.8 Puertos en TCP</h3>
+<ol>
+<li>Un equipo conectado a una red TCP/IP ejecuta múltiples procesos a la vez.</li>
+<li>Esto implica que cada uno de ellos genere datos que se envían a través de un protocolo (TCP o UDP) de la capa de transporte que los pasa al protocolo IP (capa de internet) para su transmisión a través de la dirección IP de la interfaz de red.</li>
+<li>Para saber a qué proceso pertenece cada envío es necesaria una dirección adicional que lo identifique dentro de una dirección IP concreta.</li>
+<li>En el protocolo TCP/IP, esa dirección se llama puerto.</li>
+<li>Los puertos son números que identifican de manera única a cada servicio o aplicación que se ejecuta en un equipo. Tanto TCP como UDP utilizan estos puertos, junto con la dirección IP, para dirigir los datos al proceso correcto dentro del sistema operativo (esta combinación de IP y puerto se conoce como socket).</li>
+<li>
+<p>Los puertos se dividen en tres rangos principales:</p>
+<ul>
+<li><strong>Puertos bien conocidos (Well-known ports):</strong> del 0 al 1023. Son utilizados por servicios y aplicaciones estándar, como HTTP (puerto 80), HTTPS (puerto 443), FTP (puertos 20 y 21) y SMTP (puerto 25).</li>
+<li><strong>Puertos registrados (Registered ports):</strong> del 1024 al 49151. Son asignados a aplicaciones y servicios específicos por la IANA (Internet Assigned Numbers Authority).</li>
+<li><strong>Puertos dinámicos o privados (Dynamic or Private ports):</strong> del 49152 al 65535. Son utilizados por aplicaciones y servicios temporales o personalizados, y no están asignados oficialmente; suelen emplearse como puertos de origen en conexiones salientes de los clientes.</li>
+</ul>
+</li>
+</ol>
+<h3 id="39-ejercicios-sobre-puertos-del-protocolo-tcpip">3.9 Ejercicios sobre puertos del protocolo TCP/IP</h3>
+<!-- 
+# Soluciones al ejercicio de investigación
+
+## Tabla completada
+
+| Puerto | Protocolo/Servicio | TCP/UDP/Ambos | Función principal | Rango |
+|--------|--------------------|---------------|--------------------|-------|
+| 20/21  | FTP (File Transfer Protocol) | TCP | Puerto 21: control de la conexión FTP. Puerto 20: transferencia de datos. Permite subir/descargar archivos entre cliente y servidor. | Bien conocido |
+| 22     | SSH (Secure Shell) | TCP | Acceso remoto seguro y cifrado a otro equipo (línea de comandos), también usado para SFTP y SCP. | Bien conocido |
+| 23     | Telnet | TCP | Acceso remoto a otro equipo, sin cifrado (texto plano). Considerado inseguro. | Bien conocido |
+| 25     | SMTP (Simple Mail Transfer Protocol) | TCP | Envío de correos electrónicos entre servidores de correo. | Bien conocido |
+| 53     | DNS (Domain Name System) | TCP y UDP | Resolución de nombres de dominio a direcciones IP. UDP para consultas normales, TCP para transferencias de zona o respuestas grandes. | Bien conocido |
+| 67/68  | DHCP (Dynamic Host Configuration Protocol) | UDP | Asignación automática de direcciones IP y configuración de red a los dispositivos (67: servidor, 68: cliente). | Bien conocido |
+| 80     | HTTP (Hypertext Transfer Protocol) | TCP | Transferencia de páginas web sin cifrar. | Bien conocido |
+| 110    | POP3 (Post Office Protocol v3) | TCP | Descarga de correos electrónicos desde un servidor al cliente (normalmente eliminándolos del servidor). | Bien conocido |
+| 143    | IMAP (Internet Message Access Protocol) | TCP | Gestión de correo electrónico manteniendo los mensajes sincronizados en el servidor. | Bien conocido |
+| 161    | SNMP (Simple Network Management Protocol) | UDP | Monitorización y gestión de dispositivos de red (routers, switches, servidores). | Bien conocido |
+| 443    | HTTPS (HTTP Secure) | TCP | Transferencia de páginas web cifradas mediante SSL/TLS. | Bien conocido |
+| 3306   | MySQL | TCP | Conexión a bases de datos MySQL/MariaDB. | Registrado |
+| 3389   | RDP (Remote Desktop Protocol) | TCP | Acceso remoto al escritorio de equipos Windows. | Registrado |
+
+## Respuestas a las preguntas de reflexión
+
+**1. ¿Por qué DNS o DHCP usan UDP en lugar de TCP?**
+
+UDP es más rápido porque no establece conexión previa ni verifica la entrega (no hay *handshake* ni confirmaciones), lo cual es ideal para consultas breves y frecuentes como resolver un nombre de dominio o solicitar una IP al conectarse a una red. DNS usa UDP para consultas normales (por velocidad), pero recurre a TCP cuando la respuesta es demasiado grande para un solo paquete UDP o para transferencias de zona entre servidores DNS, donde sí es necesaria la fiabilidad de TCP.
+
+**2. Diferencia entre el puerto 80 y el 443**
+
+El puerto 80 (HTTP) transmite los datos en texto plano, sin cifrar, por lo que cualquier persona que intercepte el tráfico podría leer la información (contraseñas, datos personales, etc.). El puerto 443 (HTTPS) añade una capa de cifrado mediante TLS/SSL, protegiendo la confidencialidad e integridad de los datos, además de autenticar la identidad del servidor mediante certificados digitales.
+
+**3. Por qué Telnet (23) es inseguro frente a SSH (22)**
+
+Telnet transmite toda la información, incluidas las credenciales de acceso, en texto plano, por lo que es vulnerable a ataques de interceptación (*sniffing*). SSH, en cambio, cifra toda la comunicación de extremo a extremo, incluye mecanismos de autenticación más robustos (contraseñas cifradas o claves públicas/privadas) y protege contra ataques de intermediario (*man-in-the-middle*). Por eso SSH ha sustituido prácticamente por completo a Telnet en la administración remota de sistemas.
+
+**4. Ejemplo de puerto registrado**
+
+El puerto 3306 (MySQL) es un buen ejemplo: no es un servicio "básico" de Internet como HTTP o DNS, sino una aplicación específica (el motor de bases de datos MySQL/MariaDB) que la IANA ha registrado oficialmente para evitar conflictos con otras aplicaciones.
+
+**5. Riesgos de tener puertos abiertos innecesariamente**
+
+Cada puerto abierto es una posible puerta de entrada para un atacante: si el servicio asociado tiene una vulnerabilidad, puede ser explotada para acceder al sistema, robar datos o instalar malware. El **escaneo de puertos** (*port scanning*) es una técnica (usada tanto por atacantes como por administradores de seguridad) que consiste en analizar un equipo o red para detectar qué puertos están abiertos y qué servicios están escuchando en ellos, con el fin de identificar posibles vulnerabilidades explotables. Por eso una buena práctica de seguridad es cerrar o filtrar (mediante firewall) todos los puertos que no sean estrictamente necesarios. -->
+
+<!-- 
+muy bien escrito revisar para ver si el texto sigue la misma esstructura.
+https://itadmins.es/networking-i-el-modelo-osi/ -->
+
+<!-- 
+falta poner imagen de hardware de red + serviciois en red para introducir el modulo -->
+
+<!-- revisar coherencia con estos apuntes -->
+<!-- https://aules.edu.gva.es/fp/pluginfile.php/13446079/mod_resource/content/1/Unidad%201.%20Introducci%C3%B3n%20a%20los%20servicios%20en%20red.pdf -->
+<!-- https://aules.edu.gva.es/fp/pluginfile.php/13446083/mod_resource/content/1/Actividad3.U01_Soluci%C3%B3n.docx.pdf -->
+<!-- https://aules.edu.gva.es/fp/pluginfile.php/13446085/mod_resource/content/1/Introduccion_3_casos_practicos.pdf -->
+
+<!-- https://www.manageengine.com/latam/oputils/direcciones-ip-fundamentos.html -->
+<!-- https://itadmins.es/networking-ii-dispositivos-de-red-y-tipos-de-trafico/ -->
+
+<!-- 
+
+http://www.newdevices.com/tutoriales/ipv4/2.html
+
+https://www.paessler.com/es/it-explained/ip-address
+
+https://usuaris.tinet.cat/fbd/comunicaciones/tcpip/a.htm
+
+https://www.sapalomera.cat/moodlecf/RS/1/course/module10/#10.2.1.3
+
+https://www.sapalomera.cat/moodlecf/RS/1/course/module9/#9.0.1.1
+
+https://www.sapalomera.cat/moodlecf/RS/1/course/module8/#8.1.1.2
+
+https://www.sapalomera.cat/moodlecf/RS/1/course/module8/#8.0.1.1
+
+https://itadmins.es/networking-ii-dispositivos-de-red-y-tipos-de-trafico/
+
+http://127.0.0.1:5500/docs/SMX/SMX_2/SX/sxe/UD01/1_arquitectura_de_xarxa_tcpip.html
+
+https://aules.edu.gva.es/docent/pluginfile.php/5719248/mod_resource/content/1/XL_UT03_Interconnexio%CC%81%20d%E2%80%99equips%20en%20xarxes%20locals%20i%20muntatge%20de%20connectors-IP.pdf
+
+-->
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pie" >
+        
+          
+          <a href="../01_Redes/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Redes">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Redes
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../03_Conexiones-remotas/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Acceso y control remoto">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              <div class="md-ellipsis">
+                Acceso y control remoto
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 - Javier Egea Blasco
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress - navigation.expand - navigation.path", "navigation.instant.progress", "navigation.instant.preview", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "toc.follow", "navigation.footer", "navigation.top", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.tabs.link"], "search": "../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
