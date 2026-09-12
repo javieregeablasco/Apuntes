@@ -1194,14 +1194,54 @@ Un resultado sin errores relevantes indica que el controlador de dominio funcion
 - También podemos realizar una comprobación específica del servicio DNS mediante `dcdiag /test:dns`
     ![Descripción de la imagen](./img_5/img_5_68.png){ .margintop10 .marginbottom10}
 
-### 16.4 Agregar de forma manual dispositivos al dominio
+### 16.4 Opciones disponibles en la consola DNS de Windows Server 2025
+
+![Descripción de la imagen](./img_5/img_5_81.png){.marco .sietecinco .margintop10 .marginbottom10}
+
+#### 16.4.1 Forward Lookup zones
+
+1. Las zonas de resolución directa (Forward Lookup Zones) contienen la información necesaria para realizar la resolución de nombres de dominio a direcciones IP.
+
+1. Cuando un cliente DNS solicita la dirección IP asociada a un nombre, el servidor DNS consulta la zona de resolución directa correspondiente y devuelve la información disponible.
+
+1. En Windows Server podemos crear diferentes tipos de zonas de resolución directa, entre ellas:
+
+    - Primary Zone: contiene la copia principal y modificable de los registros DNS de la zona.
+    - Secondary Zone: contiene una copia de solo lectura de una zona primaria y obtiene la información mediante una transferencia de zona.
+    - Stub Zone: contiene únicamente los registros necesarios para identificar los servidores DNS autoritativos de una zona.
+
+1. Cuando el servidor DNS está integrado con Active Directory Domain Services (AD DS), también podemos crear una zona integrada en Active Directory. En este caso, la información de la zona se almacena en Active Directory y puede replicarse automáticamente entre los controladores de dominio.
+
+#### 16.4.2 Reverse Lookup zones
+
+1. Las zonas de resolución inversa (Reverse Lookup Zones) permiten realizar el proceso contrario a una zona de resolución directa: obtener un nombre DNS a partir de una dirección IP.
+
+1. Para la resolución inversa se utilizan principalmente registros PTR (Pointer).
+
+#### 16.4.3 Trust Points
+
+1. Los Trust Points o puntos de confianza están relacionados con la seguridad del servicio DNS mediante DNSSEC (Domain Name System Security Extensions) .
+
+1. Un punto de confianza permite indicar al servidor DNS qué información criptográfica debe considerar de confianza para poder validar las respuestas DNSSEC.
+
+1. De esta forma, el servidor puede comprobar que determinadas respuestas DNS no han sido modificadas y que proceden de una fuente autenticada mediante DNSSEC.
+
+1. Los Trust Points son especialmente importantes cuando el servidor DNS actúa como servidor validador DNSSEC, ya que permiten establecer el punto de partida de la cadena de confianza utilizada durante la validación.
+
+#### 16.4.4 Conditional Fowarders
+
+1. Los Conditional Forwarders o reenviadores condicionales permiten indicar al servidor DNS que, para determinadas zonas DNS, debe enviar las consultas a unos servidores DNS concretos.
+
+1. Son especialmente útiles cuando existen diferentes dominios o redes DNS que necesitan comunicarse entre sí.
+
+### 16.5 Agregar de forma manual dispositivos al dominio
 
 - Todos los equipos que agragaremos al dominio deben tener como servidor DNS preferido la dirección IP del controlador de dominio. De esta forma, los equipos podrán localizar los servicios de Active Directory y autenticarse correctamente en el dominio.
-- Esos equipos serána gragados automáticamente a la zona DNS del dominio, y se crearán los registros correspondientes en la zona directa e inversa.
+- Esos equipos serán agregados automáticamente a la zona DNS del dominio, y se crearán los registros correspondientes en la zona directa e inversa.
 - No obstante, si queremos agregar un equipo al dominio sin que se cree automáticamente el registro en la zona DNS, podemos crear de forma manual un registro A y un registro PTR para ese equipo.
 - Para simular esta situación, en nuestra práctica, lanzaremos una instancia EC2 adicional que actuará como cliente del dominio (p.e. Servidor-NAS). Esta instancia tendrá un sistema operativo ubuntu 22.04 y se conectará a **la misma VPC y subred que el controlador de dominio**.
 
-#### 16.4.1 Lanzar instancia EC2
+#### 16.5.1 Lanzar instancia EC2
 
 En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.  
 
@@ -1214,8 +1254,7 @@ En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.
 - Esperaremos a que la instancia esté disponible. A partir de entonces, sí lo deseamos, nos podremos conectar via `SSH` a la instancia.
 ![Descripción de la imagen](./img_5/img_5_72.png){ .margintop10 .marginbottom10 }
 
-#### 16.4.2 Comprobación de resolución DNS antes de añadir el equipo al dominio
-
+#### 16.5.2 Comprobación de resolución DNS antes de añadir el equipo al dominio
 
 - Antes de agregar la dirección IP del nuevo equipo al DNS del dominio, comprobaremos que el servidor DNS no puede resolver el nombre del equipo.
 - Para ello, desde el propio servidor DNS, abriremos una consola y ejecutaremos el comando:
@@ -1225,7 +1264,7 @@ En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.
       ```
     ![Descripción de la imagen](./img_5/img_5_73.png){ .marginbottom10 .sietecinco}
 
-#### 16.4.3 Añadir registro de tipo A al DNS
+#### 16.5.3 Añadir registro de tipo A al DNS
 
 - Para añadir de forma manual un registro A y un registro PTR para el equipo Servidor-NAS, abriremos la consola de administración del servidor DNS y crearemos un nuevo registro A en la zona directa del dominio.
 - En el ejemplo, añadiremos un registro A para el equipo Servidor-NAS con la dirección IP `172.31.38.70` (la IP privada de la instancia EC2 que hemos lanzado previamente).
@@ -1235,7 +1274,7 @@ En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.
 - Repetiremos el lookup para comprobar que ahora el servidor DNS puede resolver correctamente el nombre del equipo Servidor-NAS.
 ![Descripción de la imagen](./img_5/img_5_76.png){ .margintop10 .marginbottom10 .sietecinco }
 
-### 16.4 Zona inversa
+### 16.6 Zona inversa
 
 - Como hemos visto al añadir un registro A para el equipo Servidor-NAS, no se ha creado automáticamente un registro PTR al no existir  ninguna zona inversa. Si hacemos un lookup de la IP del equipo Servidor-NAS, el servidor DNS no puede resolver la dirección IP a un nombre de dominio.
 ![Descripción de la imagen](./img_5/img_5_78.png){ .margintop10 .marginbottom10 .sietecinco}
@@ -1243,26 +1282,85 @@ En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.
 ![Descripción de la imagen](./img_5/img_5_77.png){ .margintop10 .marginbottom10 .sietecinco}
 - Creamos el registro PTR correspondiente al registro A del equipo Servidor-NAS. En este caso se le dará un nombre diferente al del registro A, ya que el nombre del equipo Servidor-NAS ya está registrado en la zona directa. En este caso, se le dará el nombre `MiServidorNAS`.
 ![Descripción de la imagen](./img_5/img_5_79.png){ .margintop10 .marginbottom10 .sietecinco}
-- Repetiremos el lookup para comprobar que ahora el servidor DNS puede resolver correctamente el nombre desde la IP. 
+- Repetiremos el lookup para comprobar que ahora el servidor DNS puede resolver correctamente el nombre desde la IP.
 ![Descripción de la imagen](./img_5/img_5_80.png){ .margintop10 .marginbottom10 .seiszero}
 
-### 16.5 Trusted points y reenviadores
+### 16.7 Aging y Scavenging
+
+1. En un servidor DNS pueden existir registros que dejan de ser válidos porque los equipos cambian de dirección IP, se desconectan de la red o dejan de existir.
+
+1. Para evitar que estos registros antiguos permanezcan indefinidamente en la zona DNS, Windows Server dispone de los mecanismos **Aging** y **Scavenging**.
+
+    - **Aging (envejecimiento):** permite determinar cuánto tiempo puede permanecer un registro sin ser actualizado antes de considerarlo antiguo.
+    - **Scavenging (limpieza):** permite eliminar automáticamente los registros que han sido considerados antiguos.
+
+!!! example "Ejemplo"
+    - Si un equipo obtiene mediante DHCP la dirección:
+
+    ```text
+    PC01 → 192.168.1.25
+    ```
+
+    y posteriormente deja de utilizar esa dirección, el registro DNS:
+
+    ```text
+    PC01 → 192.168.1.25
+    ```
+
+    podría quedar almacenado aunque ya no sea válido.
+
+    !!! tip "Con Aging y Scavenging, el servidor DNS puede detectar que el registro lleva demasiado tiempo sin actualizarse y eliminarlo automáticamente."
+
+!!! important "Registros dinámicos"
+    - Aging y Scavenging son especialmente útiles para los **registros DNS dinámicos**, como los que pueden ser creados o actualizados automáticamente por los clientes DNS o por un servidor DHCP.
+    - Los registros creados manualmente pueden quedar excluidos del proceso de limpieza si no están configurados para participar en Aging y Scavenging.
+
+!!! warning "Relación con DHCP"
+    - Cuando se utiliza **DHCP junto con DNS dinámico**, es importante configurar los intervalos de Aging y Scavenging teniendo en cuenta la **duración de las concesiones DHCP**.
+    - Una regla para configurar los valores de **aging** y **scanvenging** sería:
+    ```text
+    Aging + Scavenging > duración de la concesión (lease) DHCP
+    ```
+    - Los intervalos deben ser suficientemente largos para que un equipo pueda renovar su concesión DHCP y actualizar su registro DNS antes de que este sea considerado obsoleto.
+
+!!! tip "Idea clave"
+    - **Aging determina cuándo un registro puede considerarse antiguo y Scavenging permite eliminarlo automáticamente.** 
+    - Son mecanismos especialmente útiles en redes donde las direcciones IP cambian con frecuencia, como ocurre cuando se utiliza DHCP.
+
+### 16.7.1 Determinación del lease del sercidor DHCP
+
+1. Como ya hemos comentado, en rol DHCP es asumido por AWS y no es posible modificarlo. Solo es posible añadir **conjuntos de opciones** que solo afectan  a:
+
+    - Los servidores DNS, los nombres de dominio o los servidores de protocolo de tiempo de red (NTP) utilizados por los dispositivos de la VPC.
+    - Si la resolución de DNS está habilitada en la VPC.
+
+1. Para determinar el lease del DHCP usaremos el comando:
+        ```bash
+        ipconfig /all
+        ```
+    ![Descripción de la imagen](./img_5/img_5_82.png){ .marginbottom10 }
+
+1. Activamos la opción de **Aging y scavenging** y no aseguramos de que el lease es inferior a la suma de **Aging + scavenging**.
+
+    ![Descripción de la imagen](./img_5/img_5_83.png){ .marginbottom10 .marco }
+
 <!-- https://youtu.be/TwMAS7Iha30?si=OSfwWAilvhFkGNdD&t=330 -->
-
-
-## hasta aqui
-
-### 16.6 Otras opciones
-
-### 16.7 Aging y scavenging
 
 ### 16.8 Best practices analyzer (BPA)
 
-### 16.9 Best practices analyzer (BPA)
+- Lanzamos el BPA y esperamos hasta obtener los resultados.
+    ![Descripción de la imagen](./img_5/img_5_84.png){.margintop10 .marginbottom10 .marco }
 
+- Como veremos, gran parte de las advertencias **están relacionadas con IPv6** que no están configuradas en nuestro entorno.
+- **En un entorno real, los errores deberán solucionarse** ya que afectarán al rendimiento y la capacidad de resolución de nombre de nuestro servidor DNS.
+
+!!! task "Comentar brevemente los errores encontrados así como sus posibles soluciones."
+
+## hasta aqui
+
+<!-- https://youtu.be/TwMAS7Iha30?si=aUXNNEtXNO6CMvqE&t=838 -->
 ---
 
-<!-- https://youtu.be/TwMAS7Iha30?si=bCpxwL09UBLY9Oi_ -->
 
 <!-- ad ds -->
 
