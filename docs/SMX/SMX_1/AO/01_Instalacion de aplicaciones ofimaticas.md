@@ -23,32 +23,29 @@ schedule: 224h - 7h/w
 - *Realizar informes de incidencias*.
 - *Solucionar problemas utilizando documentación, ayuda y soporte técnico*.
 
-<br>
-
 **Resultados de aprendizaje y criterios de evaluacion que se evaluarán en esta unidad.**  
 
 | **Resultados de aprendizaje de la unidad didáctica:** |
-|-|
+||
 | **RA. 1:** Se han identificado y establecido las fases del proceso de instalación.|  
 
-
-
-|**Criterios de evaluación de la unidad didáctica:**||
-|-|-|
-|a) Se han identificado y establecido las fases del proceso de instalación. 	|
-|b) Se han respetado las especificaciones técnicas del proceso de instalación. |	
-|c) Se han configurado las aplicaciones según los criterios establecidos. 	|
-|*d) Se han documentado las incidencias.* 	|Evaluado en empresa|
+|**Criterios de evaluación de la unidad didáctica:**|
+||
+|a) Se han identificado y establecido las fases del proceso de instalación.|
+|b) Se han respetado las especificaciones técnicas del proceso de instalación.|
+|c) Se han configurado las aplicaciones según los criterios establecidos.|
+|***d) Se han documentado las incidencias.***|
 |e) Se han solucionado problemas en la instalación o integración con el sistema informático.|
-|f) Se han eliminado y/o añadido componentes de la instalación en el equipo. 	|
-|g) Se han actualizado las aplicaciones. 	|
-|h) Se han respetado las licencias software.| 	
-|*i) Se han propuesto soluciones software para entornos de aplicación.*|Evaluado en empresa| 
+|f) Se han eliminado y/o añadido componentes de la instalación en el equipo.|
+|g) Se han actualizado las aplicaciones.|
+|h) Se han respetado las licencias software.|
+|***i) Se han propuesto soluciones software para entornos de aplicación.***|
 
-<br>
+!!! warning "Nota:"
+    Los criterios de evaluación en negrita será evaluados durante la FCT.
 
+## Indice
 
-## **Indice**
 1. Concepto de aplicación ofimática.
 1. Tipos de aplicaciones ofimáticas.
 1. Gestores de agenda y correo electrónico
@@ -58,33 +55,31 @@ schedule: 224h - 7h/w
 1. Configuración y actualizaciones.
 1. Documentación y soporte técnico.
 
-## **1 - Concepto de aplicación ofimática**
-Una **aplicación ofimática** es un tipo de **software** diseñado para realizar tareas comunes en una oficina o entorno laboral. Su propósito es **automatizar, simplificar y mejorar la productividad** en actividades cotidianas.
+## 1 - Concepto de aplicación ofimática
 
-Originalmente, estas herramientas se centraban en funciones básicas como:
+1. Una **aplicación ofimática** es un tipo de **software** diseñado para realizar tareas comunes en una oficina o entorno laboral. Su propósito es **automatizar, simplificar y mejorar la productividad** en actividades cotidianas.
 
-- **Procesadores de texto**: Para crear y editar documentos escritos.
-- **Hojas de cálculo**: Para realizar cálculos numéricos y análisis de datos.
-- **Programas de presentación**: Para elaborar diapositivas con textos e imágenes para exposiciones.
-- **Gestores de bases de datos**: Para organizar y gestionar grandes volúmenes de información.
+1. Originalmente, estas herramientas se centraban en funciones básicas como:
 
-Con la evolución de la tecnología, las suites ofimáticas se han expandido para incluir una variedad de herramientas, desde **clientes de correo electrónico** y **calendarios** hasta **editores de gráficos** y **software de videoconferencia**. 
+    - **Procesadores de texto**: Para crear y editar documentos escritos.
+    - **Hojas de cálculo**: Para realizar cálculos numéricos y análisis de datos.
+    - **Programas de presentación**: Para elaborar diapositivas con textos e imágenes para exposiciones.
+    - **Gestores de bases de datos**: Para organizar y gestionar grandes volúmenes de información.
 
-<br>
-Actualmente, muchas de estas aplicaciones se ofrecen como servicios en la nube (online), lo que permite a los usuarios acceder a sus documentos y trabajar de forma colaborativa desde cualquier dispositivo con conexión a internet.
+1. Con la evolución de la tecnología, las suites ofimáticas se han expandido para incluir una variedad de herramientas, desde **clientes de correo electrónico** y **calendarios** hasta **editores de gráficos** y **software de videoconferencia**.
+
+1. Actualmente, muchas de estas aplicaciones se ofrecen como servicios en la nube (online), lo que permite a los usuarios acceder a sus documentos y trabajar de forma colaborativa desde cualquier dispositivo con conexión a internet.
 
 !!! question "¿Qué servicio en la nube usamos habitualmente sin darnos cuenta?"
 
-<br>
-
-|**Resumen:**||
-|-|-|  
-|**Informática**| Tratamiento automático de la información con ordenadores.|
-|**Ofimática**| **Ofi**cina + Infor**mática**, se refiere al uso de la informática para facilitar las tareas habituales que surgen en el hogar y la empresa.|
+!!! tip "Resumen:"
+    - **Informática**: Tratamiento automático de la información con ordenadores.
+    - **Ofimática** de **Ofi**cina + Infor**mática**, se refiere al uso de la informática para facilitar las tareas habituales que surgen en el hogar y la empresa.
 
 !!! question "¿Cuáles son las diferencias entre MS Office y LibreOffice?"
 
-## **2 - Tipos de aplicaciones ofimáticas**
+## 2 - Tipos de aplicaciones ofimáticas
+
 Citaremos las más habituales para las personas no expertas.
 
 - **Procesadores de texto**
@@ -96,9 +91,9 @@ Citaremos las más habituales para las personas no expertas.
 
 !!! question "Nombrar desarrolladores de aplicaciones ofimáticas."
 !!! question "Dar ejemplos de aplicaciones ofimáticas gratuitas o de pago."
-<br>
 
-### **2.1 - Procesador de texto**
+### 2.1 - Procesador de texto
+
 **¿Qué podemos hacer con un procesador de texto?**  
 
 - Formato de caracteres: tamaño, tipo, color, etc.
@@ -108,10 +103,11 @@ Citaremos las más habituales para las personas no expertas.
 - Incorporación de gráficos, imágenes, tablas, etc.
 - Corrección ortográfica y gramatical.
 - Inclusión de hipervínculos, índices, etc.
-- Dispone de pequeños detalles que permiten una buena presentación de los textos, como la enumeración, la combinación de correspondencia, i plantillas predefinidas.
+- Dispone de pequeños detalles que permiten una buena presentación de los textos, como la enumeración, la combinación de correspondencia i plantillas predefinidas.
 - Macros
 
-### **2.2 - Hoja de cáculo**
+### 2.2 - Hoja de cáculo
+
 **¿Qué podemos hacer con una hoja de cáculo?**
 
 - Permite el tratamiento de datos en una o diversas hojas.
@@ -122,7 +118,8 @@ Citaremos las más habituales para las personas no expertas.
 - Permite copiar fórmulas de manera inteligente.
 - Corrección ortográfica, uso de macros, imágenes, vídeo y sonido
 
-### **2.3 - Gestor de base de datos**
+### 2.3 - Gestor de base de datos
+
 **¿Qué podemos hacer con un gestor de base de datos?**
 
 - Creación y mantenimiento de tablas.
@@ -131,7 +128,8 @@ Citaremos las más habituales para las personas no expertas.
 - Informes para la presentación de los datos.
 - Asistentes para facilitar el acceso a todas las funciones.
 
-### **2.4 - Editores de imagen y vídeo**
+### 2.4 - Editores de imagen y vídeo
+
 **¿Qué podemos hacer con un editor audiovisual?**
 
 - Realizar el tratamiento de material audiovisual.
@@ -139,7 +137,8 @@ Citaremos las más habituales para las personas no expertas.
 - Editar vídeos: cortar y unir fragmentos, añadir transiciones, títulos, efectos visuales y de sonido.
 - Exportar proyectos en diferentes formatos (imagen, secuencia de vídeo, GIF animado, etc.).
 
-### **2.5 - Programa de presentaciones**
+### 2.5 - Programa de presentaciones
+
 **Permiten, entre otros:**
 
 - Elaborar presentaciones basadas en diapositivas.
@@ -150,7 +149,8 @@ Citaremos las más habituales para las personas no expertas.
 - Facilitar la exposición de ideas de manera visual y estructurada.
 - Exportar la presentación en distintos formatos (PDF, vídeo, imágenes, etc.).
 
-### **2.6 - Gestores de agenda y correo electrónico**
+### 2.6 - Gestores de agenda y correo electrónico
+
 **Permiten, entre otros:**
 
 - Las cuentas de correo nos permiten comunicarnos e intercambiar documentación de
@@ -159,45 +159,47 @@ forma inmediata.
 reuniones.
 - **¡Nos recuerda si tenemos tareas por entregar!**
 
+## 3 - Clasificación del software ofimático
 
-
-## **3 - Clasificación del software ofimático**
 Las aplicaciones ofimáticas se pueden clasificar según el tipo de software en diferentes categorías, basadas en cómo se distribuyen, cómo se usan y cómo se gestionan. Las más comunes son:
 
 - **Software de escritorio**: Se instalan y ejecutan localmente en el ordenador del usuario.
-Ejemplos: Microsoft Office, LibreOffice, Apple iWork.
+
+    !!! example "Ejemplos:"
+        Microsoft Office, LibreOffice, Apple iWork.
 
 - **Software en la nube**: Se accede y utiliza directamente desde el navegador web, sin necesidad de instalación local.
-Ejemplos: Google Workspace, Microsoft 365 (versión online).
+
+    !!! example "Ejemplos:"
+        Google Workspace, Microsoft 365 (versión online).
 
 - **Software híbrido**: Combina características de escritorio y de la nube. Se instalan en el dispositivo, pero se integran con servicios online para sincronización y acceso desde cualquier lugar.
-Ejemplo: Microsoft 365 (aplicaciones de escritorio integradas con OneDrive).
+
+    !!! example "Ejemplo:"
+        Microsoft 365 (aplicaciones de escritorio integradas con OneDrive).
 
 !!! question "¿Cuales son las ventajas e inconvenientes del software de escritorio?"
 !!! question "¿Cuales son las ventajas e inconvenientes del software en la nube?"
 
-## **4 - Licencias de uso del software ofimático**
-La **licencia software es el contrato** que suscribe el desarrollador de un programa con el usuario que lo quiere utilizar.
+## 4 - Licencias de uso del software ofimático
 
-Este contrato regula:  
+1. La **licencia software es el contrato** que suscribe el desarrollador de un programa con el usuario que lo quiere utilizar.
 
-- Lo que el usuario puede hacer con el programa.
-- Lo que el usuario puede exigir al desarrollador.
+1. Este contrato regula:  
 
-Son los conocidos **términos y condiciones** para la instalación de software que aparecen cada vez que instalamos software (no solo software ofimático).
+    - Lo que el usuario puede hacer con el programa.
+    - Lo que el usuario puede exigir al desarrollador.
 
-![](./img/UT1/rh_licence.png){.original}
+1. Son los conocidos **términos y condiciones** para la instalación de software que aparecen cada vez que instalamos software (no solo software ofimático).
 
-<br>
+![imagen](./img/UT1/rh_licence.png){.original}
 
-### **4.1 - Tipos de licencias de uso, software propietario y software libre**
-![](./img/UT1/libreprivativo.webp){.cincozero}
-<br>
+### 4.1 - Tipos de licencias de uso, software propietario y software libre
+
+![imagen](./img/UT1/libreprivativo.webp){.cincozero}
 
 - **Software propietario**  
 En el software propietario, privativo o no libre, el desarrollador establece a través de la licencia sus propios términos de uso del programa. Habitualmente se prohíbe la distribución del mismo y el acceso a su código fuente, pero estas licencias pueden impedir además su uso para un determinado fin o incluso limitar el número de veces que el usuario puede instalar el programa.
-
-<br>
 
 - **Software libre**  
 El software libre es aquel que nos garantiza como usuarios la posibilidad de realizar
@@ -210,10 +212,9 @@ cuatro acciones sin restricción alguna:
 
 !!! question "¿Qué diferencia elemental existe entre el software propietario y el software libre?"
 
-<br>
+### 4.2 - Tipos de licencias de uso
 
-### **4.2 - Tipos de licencias de uso, Copyright, dominio público y copyleft**
-![](./img/UT1/copy.webp){.doscinco}
+![imagen](./img/UT1/copy.png){.sietecinco .marco}
 
 Antes de instalar cualquier programa, es importante conocer quién posee los derechos sobre él. Conceptos como copyright, dominio público y copyleft nos ayudan a entender qué podemos hacer legalmente con ese software.
 
@@ -225,14 +226,6 @@ Antes de instalar cualquier programa, es importante conocer quién posee los der
 
 ---
 
-📌 **Dominio público**
-
-- Obras que **no tienen restricciones de copyright**.
-- Puede ser porque el plazo legal de protección expiró o porque el autor renunció a sus derechos.
-- Cualquiera puede usarlas, copiarlas, modificarlas y distribuirlas sin necesidad de pedir permiso.
-
----
-
 📌 **Copyleft**
 
 - Es un modelo de licencia alternativa dentro del copyright.
@@ -241,22 +234,48 @@ Antes de instalar cualquier programa, es importante conocer quién posee los der
 
 ---
 
+📌 **Licencias CREATIVE COMMONS**
+
+- Son un conjunto de licencias flexibles que permiten al autor decidir qué derechos conserva y cuáles cede al público, situándose en un punto intermedio entre el copyright tradicional y el dominio público.
+- Se construyen combinando varias condiciones básicas, como Reconocimiento/Atribución (BY) (citar al autor original), No Comercial (NC) (prohíbe el uso con fines lucrativos), Sin Obra Derivada (ND) (no se permite modificar la obra) y Compartir Igual (SA) (las obras derivadas deben licenciarse igual que la original).
+- Permiten al creador elegir, por ejemplo, si autoriza el uso comercial de su obra o si exige que las modificaciones se compartan bajo la misma licencia, ofreciendo así distintos grados de libertad según la combinación elegida.  
+
+---
+
+📌 **Dominio público**
+
+- Obras que **no tienen restricciones de copyright**.
+- Puede ser porque el plazo legal de protección expiró o porque el autor renunció a sus derechos.
+- Cualquiera puede usarlas, copiarlas, modificarlas y distribuirlas sin necesidad de pedir permiso.
+
+---
+
 👉 **En resumen**:
 
 - **Copyright** = Todos los derechos reservados.
-- **Dominio público** = Ningún derecho exclusivo, uso totalmente libre.
 - **Copyleft** = Algunos derechos reservados, pero con obligación de mantener la libertad de derechos en las versiones derivadas.
+- **Creative Commons** = Algunos derechos reservados, con distintos grados de libertad que el autor elige combinando condiciones (atribución, uso comercial, obra derivada, compartir igual).
+- **Dominio público** = Ningún derecho exclusivo, uso totalmente libre.
 
-### **4.3 - Comprobación de conocimientos RA1 CEh**
-Ir a Aules, descargar rellenar y volver a subir el documento RA1 CEh.
+### 4.3 - Comprobación de conocimientos
 
-## **5 - Suites de aplicaciones ofimáticas**
-Las **suites de aplicaciones ofimáticas** son conjuntos de programas diseñados para facilitar las tareas habituales en entornos de oficina, estudio o trabajo colaborativo. Estas suites **integran diferentes tipos de aplicaciones** que permiten crear, editar, organizar y compartir documentos de texto, hojas de cálculo, presentaciones, bases de datos, entre otros.
+!!! exercice "Tarea RA3-CEh - Se han respetado las licencias software"
+    1. Ir a Aules, descargar rellenar el documento RA1-CEh.
+    1. Guardarlo con el nombre **RA1-CEh-NombreApellidosDelAlumno.ods**.
+    1. Ir a Aules, subir el documento a la tarea RA1-CEh.
+    !!! warning "Condiciones de entrega del ejercicio"
+        Subir el archivo en **formato ods o docx** a la tarea RA1-CEh. No se admitirá ningún otro tipo de formato.
 
-### **5.1 - Características principales**
-* **Integración:** Las aplicaciones suelen compartir un entorno común y permiten intercambio de datos entre ellas (p.e., insertar una tabla de una hoja de cálculo en un documento de texto).
-* **Colaboración:** las versiones modernas permiten la edición simultánea en línea y la sincronización en la nube.
-* **Multiplataforma:** Existen programas de instalación de suites para todos los sistemas operativos del mercado (Windows, macOS, Linux, Android, iOS).
+## 5 - Suites de aplicaciones ofimáticas
+
+- Las **suites de aplicaciones ofimáticas** son conjuntos de programas diseñados para facilitar las tareas habituales en entornos de oficina, estudio o trabajo colaborativo.
+- Estas suites **integran diferentes tipos de aplicaciones** que permiten crear, editar, organizar y compartir documentos de texto, hojas de cálculo, presentaciones, bases de datos, entre otros.
+
+### 5.1 - Características principales
+
+- **Integración:** Las aplicaciones suelen compartir un entorno común y permiten intercambio de datos entre ellas (p.e., insertar una tabla de una hoja de cálculo en un documento de texto).
+- **Colaboración:** las versiones modernas permiten la edición simultánea en línea y la sincronización en la nube.
+- **Multiplataforma:** Existen programas de instalación de suites para todos los sistemas operativos del mercado (Windows, macOS, Linux, Android, iOS).
 
 ### **5.2 - Componentes habituales**
 
@@ -275,81 +294,85 @@ Las **suites de aplicaciones ofimáticas** son conjuntos de programas diseñados
 
 ### **5.4 - Ejemplos de suites**
 
-* **Microsoft Office / Microsoft 365**
-* **LibreOffice** alternativa libre y gratuita, basada en el proyecto OpenOffice.
-* **OpenOffice**
-* **Google Workspace:** Totalmente en la nube, está claramente orientada al trabajo colaborativo.
-* **OnlyOffice y WPS Office:** opciones ligeras y compatibles con múltiples formatos.
+- **Microsoft Office / Microsoft 365**
+- **LibreOffice** alternativa libre y gratuita, basada en el proyecto OpenOffice.
+- **OpenOffice**
+- **Google Workspace:** Totalmente en la nube, está claramente orientada al trabajo colaborativo.
+- **OnlyOffice y WPS Office:** opciones ligeras y compatibles con múltiples formatos.
 
-## **6 - Instalación de suites de aplicaciones ofimáticas**
-El proceso de instalación de una suite de aplicaciones ofimáticas suele ser sencillo y guiado, pero es importante conocer las distintas posibilidades: instalación local en el equipo, instalación en red para varios usuarios o incluso el uso de versiones en la nube.  
-En nuestro caso nos limitaremos a una instalación local en un solo ordenador por lo que será importante ver si el hardware y software del ordenador es capaz de soportar dicha instalación. 
+## 6 - Instalación de suites de aplicaciones ofimáticas
 
-### **6.1 - Requisitos de las suites ofimáticas más conocidas**
+- El proceso de instalación de una suite de aplicaciones ofimáticas suele ser sencillo y guiado, pero es importante conocer las distintas posibilidades: instalación local en el equipo, instalación en red para varios usuarios o incluso el uso de versiones en la nube.  
+- En nuestro caso nos limitaremos a una instalación local en un solo ordenador por lo que será importante ver si el hardware y software del ordenador es capaz de soportar dicha instalación.
+
+### 6.1 - Requisitos de las suites ofimáticas más conocidas
+
 A continuación una tabla con los requisitos minimos de algunas suites.
 
-![](../AO/img/UT1/requisitos.png){.sietecinco}
+![imagen](../AO/img/UT1/requisitos.png){.sietecinco}
 
 Como queda evidente, esos requisitos son de hardware y software obsoletos...
 
 !!! task "Tarea RA1-CEb: Se han respetado las especificaciones técnicas del proceso de instalación."
-    - Buscar los requisitos de la última versión de OpenOffice.  
-    - Comprobar si vuestro equipo cumple con los requisitos mínimos para poder instalarlo.
-    - Realizar capturas de pantalla tanto de los requisitos de OpenOffice como de las especificaciones de vuestro equipo.
-    - Responder a la siguiente pregunta: ¿Bajo qué versión de licencia se permite el uso de OpenOffice? 
-    - Subir el documento a Aules en la tarea **Tarea RA1-CEb**.
+    1. Buscar los requisitos de la última versión de OpenOffice.  
+    1. Comprobar si vuestro equipo cumple con los requisitos mínimos para poder instalarlo.
+    1. Realizar capturas de pantalla tanto de los requisitos de OpenOffice como de las especificaciones de vuestro equipo.
+    1. Responder a la siguiente pregunta: ¿Bajo qué versión de licencia se permite el uso de OpenOffice?
+    1. Subir el documento a Aules en la tarea **Tarea RA1-CEb**.
 
-### **6.2 - Instalación típica de OpenOffice**
-Según el sistema operativo, descargar el paquete de instalación correspondiente y proceder a la instalación. 
+### 6.2 - Instalación típica de OpenOffice
+
+Según el sistema operativo, descargar el paquete de instalación correspondiente y proceder a la instalación.
 
 !!! task "Tarea RA1-CEa: Se han identificado y establecido las fases del proceso de instalación."
-    - Realizar capturas de pantalla de los momentos clave de la instalación.  
-    - Comentar brevemente lo que se realiza en cada momento.
-    - Subir el documento a Aules en la tarea **Tarea RA1-CEa**.
+    1. Realizar capturas de pantalla de los momentos clave de la instalación.  
+    1. Comentar brevemente lo que se realiza en cada momento.
+    1. Subir el documento a Aules en la tarea **Tarea RA1-CEa**.
 
-### **6.3 - Reinstalación de OpenOffice y personalización**
-Después de finalizar la instalación y de comprobar que el software instalado funciona correctamente, volver a ejecutar el instalador.  
-Al detectarse una instalación anterior el programa propondrá:
+### 6.3 - Reinstalación de OpenOffice y personalización
+
+1. Después de finalizar la instalación y de comprobar que el software instalado funciona correctamente, volver a ejecutar el instalador.  
+
+1. Al detectarse una instalación anterior el programa propondrá:
+
     - Modificar la instalación, es decir, añadir o eliminar programas de la suite (p.e., no instalar el módulo `OpenOffice Math`).
     - Reparar la instalación anterior si se han producido errores durante la instalación o si más simplemente el programa ha emprezado a dar errores durante el uso normal del mismo.
-    - Desinstalar completamente la suite. 
-
+    - Desinstalar completamente la suite.
 
 !!! task "Tarea RA1-CEcf: Se han configurado las aplicaciones según los criterios establecidos / Se han eliminado y/o añadido componentes de la instalación en el equipo"
-    - Repetir la instalación de OpenOffice y esta vez **no instalar**:
-        1. OpenOffice Impress
-        1. OpenOffice Math  
-    - Comentar brevemente lo que se realiza en cada momento.
-    - Subir el documento a Aules en la tarea **Tarea RA1-CEcf**.
+    1. Repetir la instalación de OpenOffice y esta vez **no instalar**:
+        - OpenOffice Impress
+        - OpenOffice Math  
+    1. Comentar brevemente lo que se realiza en cada momento.
+    1. Subir el documento a Aules en la tarea **Tarea RA1-CEcf**.
 
-### **6.4 - Actualizaciones de OpenOffice**
-Las actualizaciones de cualquier programa forman parte del proceso de mantenimiento normal del software. Su finalidad es garantizar **la seguridad, estabilidad y mejora continua** del software instalado.  
-A través de estas actualizaciones se corrigen errores detectados en versiones anteriores, se cierran posibles vulnerabilidades de seguridad y, en ocasiones, se incorporan nuevas funciones.
+### 6.4 - Actualizaciones de OpenOffice
 
-Es importante entender que actualizar un programa no solo significa “tener la última versión”, sino también asegurar que el software se adapta a los cambios tecnológicos y a las necesidades de los usuarios.  
+1. Las actualizaciones de cualquier programa forman parte del proceso de mantenimiento normal del software. Su finalidad es garantizar **la seguridad, estabilidad y mejora continua** del software instalado.  
+1. A través de estas actualizaciones se corrigen errores detectados en versiones anteriores, se cierran posibles vulnerabilidades de seguridad y, en ocasiones, se incorporan nuevas funciones.
+1. Es importante entender que actualizar un programa no solo significa “tener la última versión”, sino también asegurar que el software se adapta a los cambios tecnológicos y a las necesidades de los usuarios.  
 
-<br>
-En el caso de OpenOffice, estas actualizaciones pueden realizarse de dos formas principales:
+---
 
-  - Actualización automática: el propio programa puede avisar al usuario cuando existe una nueva versión disponible, simplificando el proceso.
-
-  - Actualización manual: el usuario descarga la última versión desde la página oficial y realiza la instalación de manera directa.
-
+!!! tip "En el caso de OpenOffice, estas actualizaciones pueden realizarse de dos formas principales:"
+    - **Actualización automática:** el propio programa puede avisar al usuario cuando existe una nueva versión disponible, simplificando el proceso.
+    - **Actualización manual:** el usuario descarga la última versión desde la página oficial y realiza la instalación de manera directa.
 
 !!! task "Tarea RA1-CEg: Se han actualizado las aplicaciones."
-    - Lanzar OpenOffice y familiarizarse con el entorno gráfico.
-    - Buscar la opción que permita comprobar si OpenOffice se encuentra totalmente actualizado.   
-    - Realizar una captura de pantalla donde se muestra que OpenOffice está actualizado (o no). 
-    - Subir el documento a Aules en la tarea **Tarea RA1-CEg**.
-    - Responder a la siguiente pregunta: ¿Qué se debería hacer si aparece que OpenOffice no está actualizado? 
-    - Responder a la siguiente pregunta: ¿Como se debería actualizar OpenOffice si aparece que está actualizado? 
+    1. Lanzar OpenOffice y familiarizarse con el entorno gráfico.
+    1. Buscar la opción que permita comprobar si OpenOffice se encuentra totalmente actualizado.
+    1. Realizar una captura de pantalla donde se muestra que OpenOffice está actualizado (o no).
+    1. Subir el documento a Aules en la tarea **Tarea RA1-CEg**.
+    1. Responder a la siguiente pregunta: ¿Qué se debería hacer si aparece que OpenOffice no está actualizado?
+    1. Responder a la siguiente pregunta: ¿Como se debería actualizar OpenOffice si aparece que está actualizado?
 
-### **6.5 - Resolución de problemas durante la instalación**
-Durante la instalación de un programa pueden surgir distintos problemas que afectarán a su funcionamiento o integración con el sistema informático.  
+### 6.5 - Resolución de problemas durante la instalación
 
-Estos problemas pueden estar relacionados con la compatibilidad del software, la configuración del sistema operativo, la falta de recursos disponibles o incluso con errores de permisos.
+- Durante la instalación de un programa pueden surgir distintos problemas que afectarán a su funcionamiento o integración con el sistema informático.  
 
-Comprender y resolver estas situaciones es fundamental, ya que garantiza que las aplicaciones ofimáticas funcionen correctamente. 
+- Estos problemas pueden estar relacionados con la compatibilidad del software, la configuración del sistema operativo, la falta de recursos disponibles o incluso con errores de permisos.
+
+- Comprender y resolver estas situaciones es fundamental, ya que garantiza que las aplicaciones ofimáticas funcionen correctamente.
 
 !!! task "Tarea RA1-CEe: Se han solucionado problemas en la instalación o integración con el sistema informático."
     **Actividad en grupos con exposición oral.**  
@@ -372,11 +395,6 @@ Comprender y resolver estas situaciones es fundamental, ya que garantiza que las
     **Puesta en común:**  
     - Cada grupo expone sus soluciones, las dificultades detectadas y la solución adoptada.
 
-
-
 | **Licencia Creative Commons:** | |
 | - | - |
-| ![alt text](../../../assets/by-nc-nd-eu_.png) | **Reconocimiento-NoComercial-CompartirIgual CC BY-NC-SA:**  No se permite un uso comercial de la obra original ni de las posibles obras derivadas, la distribución de la cuales se debe hace con una licencia igual a la que regula la obra original. | 
-  
- 
-
+| ![alt text](../../../assets/by-nc-nd-eu_.png) | **Reconocimiento-NoComercial-CompartirIgual CC BY-NC-SA:**  No se permite un uso comercial de la obra original ni de las posibles obras derivadas, la distribución de la cuales se debe hace con una licencia igual a la que regula la obra original. |
