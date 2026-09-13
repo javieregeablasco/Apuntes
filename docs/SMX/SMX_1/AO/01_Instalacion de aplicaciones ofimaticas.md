@@ -257,7 +257,7 @@ Antes de instalar cualquier programa, es importante conocer quién posee los der
 - **Creative Commons** = Algunos derechos reservados, con distintos grados de libertad que el autor elige combinando condiciones (atribución, uso comercial, obra derivada, compartir igual).
 - **Dominio público** = Ningún derecho exclusivo, uso totalmente libre.
 
-### 4.3 - Comprobación de conocimientos
+### 4.3 - Tarea RA3-CEh - Comprobación de conocimientos
 
 !!! exercice "Tarea RA3-CEh - Se han respetado las licencias software"
     1. Ir a Aules, descargar rellenar el documento RA1-CEh.
@@ -305,7 +305,7 @@ Antes de instalar cualquier programa, es importante conocer quién posee los der
 - El proceso de instalación de una suite de aplicaciones ofimáticas suele ser sencillo y guiado, pero es importante conocer las distintas posibilidades: instalación local en el equipo, instalación en red para varios usuarios o incluso el uso de versiones en la nube.  
 - En nuestro caso nos limitaremos a una instalación local en un solo ordenador por lo que será importante ver si el hardware y software del ordenador es capaz de soportar dicha instalación.
 
-### 6.1 - Requisitos de las suites ofimáticas más conocidas
+### 6.1 Tarea RA1-CEb - Instalación de suites ofimáticas
 
 A continuación una tabla con los requisitos minimos de algunas suites.
 
@@ -320,7 +320,7 @@ Como queda evidente, esos requisitos son de hardware y software obsoletos...
     1. Responder a la siguiente pregunta: ¿Bajo qué versión de licencia se permite el uso de OpenOffice?
     1. Subir el documento a Aules en la tarea **Tarea RA1-CEb**.
 
-### 6.2 - Instalación típica de OpenOffice
+### 6.2 - Tarea RA1-CEa - Instalación típica de OpenOffice
 
 Según el sistema operativo, descargar el paquete de instalación correspondiente y proceder a la instalación.
 
@@ -329,7 +329,7 @@ Según el sistema operativo, descargar el paquete de instalación correspondient
     1. Comentar brevemente lo que se realiza en cada momento.
     1. Subir el documento a Aules en la tarea **Tarea RA1-CEa**.
 
-### 6.3 - Reinstalación de OpenOffice y personalización
+### 6.3 - Tarea RA1-CEcf - Reinstalación de OpenOffice y personalización
 
 1. Después de finalizar la instalación y de comprobar que el software instalado funciona correctamente, volver a ejecutar el instalador.  
 
@@ -346,7 +346,7 @@ Según el sistema operativo, descargar el paquete de instalación correspondient
     1. Comentar brevemente lo que se realiza en cada momento.
     1. Subir el documento a Aules en la tarea **Tarea RA1-CEcf**.
 
-### 6.4 - Actualizaciones de OpenOffice
+### 6.4 - RA1-CEg - Actualizaciones de OpenOffice
 
 1. Las actualizaciones de cualquier programa forman parte del proceso de mantenimiento normal del software. Su finalidad es garantizar **la seguridad, estabilidad y mejora continua** del software instalado.  
 1. A través de estas actualizaciones se corrigen errores detectados en versiones anteriores, se cierran posibles vulnerabilidades de seguridad y, en ocasiones, se incorporan nuevas funciones.
@@ -366,7 +366,7 @@ Según el sistema operativo, descargar el paquete de instalación correspondient
     1. Responder a la siguiente pregunta: ¿Qué se debería hacer si aparece que OpenOffice no está actualizado?
     1. Responder a la siguiente pregunta: ¿Como se debería actualizar OpenOffice si aparece que está actualizado?
 
-### 6.5 - Resolución de problemas durante la instalación
+### 6.5 - Tarea RA1-CEe - Resolución de problemas durante la instalación
 
 - Durante la instalación de un programa pueden surgir distintos problemas que afectarán a su funcionamiento o integración con el sistema informático.  
 
