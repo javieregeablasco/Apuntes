@@ -134,9 +134,9 @@ nav:
     - Redes: SMX/SMX_2/SX/apuntes/01_Redes.md
     - Protocolo TCP/IP: SMX/SMX_2/SX/apuntes/02_TCP-IP.md
     # - Protocolo DHCP: SMX/SMX_2/SX/apuntes/03_DHCP.md
-    - Acceso y control remoto: SMX/SMX_2/SX/apuntes/03_Conexiones-remotas.md
-    - Protocolo DHCP: SMX/SMX_2/SX/apuntes/04_DHCP.md
-    - Protocolo DNS: SMX/SMX_2/SX/apuntes/05_DNS.md
+    # - Acceso y control remoto: SMX/SMX_2/SX/apuntes/03_Conexiones-remotas.md
+    # - Protocolo DHCP: SMX/SMX_2/SX/apuntes/04_DHCP.md
+    # - Protocolo DNS: SMX/SMX_2/SX/apuntes/05_DNS.md
 
   - Sostenibilidad:
     - Presentación módulo: SMX/SMX_2/Sostenibilidad/00_Temario.md

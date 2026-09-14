@@ -55,7 +55,7 @@ schedule: 233h - 7h/w
 
 - La versión más utilizada actualmente del protocolo IP es **IPv4**, definida en el RFC 791 de 1981. Permite **un total teórico de 2³² direcciones**, aunque algunas están reservadas para usos especiales. Esto limita el número de direcciones IP disponibles, lo que ha provocado que se agoten en muchas regiones del mundo.
 
-- Hoy en día ya dispone de un sucesor, **IPv6**, cuyo uso se está extendiendo progresivamente. Ofrece un espacio de direcciones mucho más amplio de 2¹²⁸ direcciones y otras mejoras, como la simplificación del encabezado y la eliminación de la necesidad de **traducción de direcciones de red (NAT)**.
+- Hoy en día ya dispone de un sucesor, **IPv6**, cuyo uso se está extendiendo progresivamente. Ofrece un espacio de direcciones mucho más amplio de **2¹²⁸ direcciones** y otras mejoras, como la simplificación del encabezado y la eliminación de la necesidad de **traducción de direcciones de red (NAT)**.
 
 !!! question "¿Qué es la traducción de direcciones de red (NAT)?"
 
@@ -146,7 +146,7 @@ Las principales diferencias entre IPv4 y IPv6 son:
 - 2607:f8b0:4004:809::200e → 2607:f8b0:4004:0809:0000:0000:0000:200e
 -->
 
-#### 2.2.4 Clases de direcciones IPv4
+#### 2.2.4 Clases de direcciones IPv4 (RFC 791)
 
 Históricamente, las direcciones se dividían en tres clases principales según los octetos destinados a la red:
 
@@ -173,7 +173,7 @@ Además, existen dos clases especiales:
     Con la ayuda de la tabla anterior responder a las siguientes preguntas.  
 
     1. Calcular el rango de direcciones IP de cada clase.  
-    1. Calcular la cantidad de redes disponibles para cada clase.  
+    1. Calcular la cantidad de subredes disponibles para cada clase.  
     1. Calcular la cantidad de IP's (hosts) disponibles para cada clase.  
 
 <!--
@@ -205,130 +205,15 @@ Pregunta 3
 
 #### 2.2.5 Direcciones reservadas y especiales
 
-1. **Dirección de red:** identifica a la red en su conjunto, no a un host concreto. Se obtiene cuando todos los bits del identificador de host son 0 (ej.: 10.0.0.0/8).
+1. **Dirección de red:** identifica a la red en su conjunto, no a un host concreto. Se obtiene cuando todos los bits del identificador de host son 0 (ej.: 10.0.0.0).
 1. **Dirección de difusión (broadcast):** permite enviar un paquete a todos los hosts de una red simultáneamente. Se obtiene cuando todos los bits del identificador de host son 1 (ej.: 10.255.255.255).
 1. **Dirección no especificada:** representa la ausencia de una dirección IP asignada. Es 0.0.0.0, usada por un host que todavía no tiene una dirección IP (por ejemplo, durante el proceso de solicitud DHCP).
-1. **Ruta por defecto:** entrada genérica en una tabla de enrutamiento que representa "cualquier red posible". Se escribe como 0.0.0.0/0 **no es la dirección de un host** y es la ruta que utiliza un router cuando no encuentra una coincidencia más específica para un paquete.
-1. **Dirección de bucle de retorno (loopback):** permite a un equipo comunicarse consigo mismo con fines de prueba. La red 127.0.0.0/8 está reservada para ello; los paquetes no salen a la red física (127.0.0.1 hace referencia al localhost).
+1. **Ruta por defecto:** entrada genérica en una tabla de enrutamiento que representa "cualquier red posible". Se escribe como 0.0.0.0 **no es la dirección de un host** y es la ruta que utiliza un router cuando no encuentra una coincidencia más específica para un paquete.
+1. **Dirección de bucle de retorno (loopback):** permite a un equipo comunicarse consigo mismo con fines de prueba. La red 127.0.0.0 está reservada para ello; los paquetes no salen a la red física (127.0.0.1 hace referencia al localhost).
 1. **Direcciones de enlace local (Link-Local / APIPA):** se autoasignan cuando un dispositivo no puede contactar con un servidor DHCP. El rango 169.254.0.0/16 se usa con este propósito y no es enrutable en Internet.
 1. **Direcciones privadas:** rangos reservados para uso interno en redes locales, no enrutables en Internet:
 
-!!! exercise "Redes y direcciones IP"
-    Con la ayuda de las definiciones de los apartados anteriores, responder a las siguientes preguntas.  
-
-    1. Proponer una IP de una red de clase C.
-    2. Calcular la dirección de red.  
-    3. Calcular la dirección de broadcast.
-    4. ¿Cuántos hosts admite esa red?
-    5. ¿Qué ocurre si, desde cualquier IP de la red, envío un paquete a la dirección de broadcast?
-    6. ¿Pueden, teorícamente, ser enrutados hacia internet los paquetes emitidos por la IP de tipo 127.0.0.80?
-
-#### 2.2.6 Direccionamiento sin clase (CIDR)
-
-- Con el rápido crecimiento de Internet, el direccionamiento basado en clases quedó obsoleto. En 1993 se introdujo CIDR (*Classless Inter-Domain Routing*), un sistema que elimina la rigidez de las clases y optimiza la forma en que se interpretan y enrutan las direcciones IP.
-
-- En lugar de clases, se utiliza **una notación con prefijo** para indicar el número de bits a 1 en la máscara de red. Las antiguas clases A, B y C equivalen a máscaras /8, /16 y /24, respectivamente. Por ejemplo, la notación 192.168.0.0/16 indica que los primeros 16 bits corresponden a la red.
-
-- Para utilizar CIDR, los routers deben ser capaces de procesar direcciones IP independientemente de las clases convencionales.
-
-**Ejemplos**  
-
-- 10.0.0.0/8: permite direcciones desde 10.0.0.1 hasta 10.255.255.254.  
-- 192.168.0.0/16: permite direcciones desde 192.168.0.1 hasta 192.168.1.253.
-
-!!! exercise "Redes CIDR"
-
-    1. Calcular la máscara de la red 10.0.0.0/8.
-    1. Calcular la máscara de la red 192.168.0.0/16.
-    1. Calcular la máscara de la red 172.16.0.0/12.
-    1. Calcular el rango de direcciones de la red: 172.16.0.0/12.
-    1. Calcular la IP de broadcast de la red 172.16.0.0/12.
-    1. ¿Cuantos hosts quedarían en las redes anteriores si la red tiene acceso a internet?
-    1. ¿Como se llama la IP reservada para salir de la red?
-
-<!-- 
-https://aules.edu.gva.es/docent/pluginfile.php/5719248/mod_resource/content/1/XL_UT03_Interconnexio%CC%81%20d%E2%80%99equips%20en%20xarxes%20locals%20i%20muntatge%20de%20connectors-IP.pdf 
--->
-
-<!--
-Ejercicio 1
-El número /8 indica que los primeros 8 bits están reservados para la red
-    - Máscara decimal: 255.0.0.02. 
-
-Ejercicio 2
-El número /16 indica que los primeros 16 bits están reservados para la red
-    - Máscara decimal: 255.255.0.0
-    
-Ejercicio 3
-El número /12 indica que los primeros 12 bits están encendidos 
-    - Máscara decimal: 255.240.0.0 
-    
-Ejercicio 4
-El bloque abarca desde el segundo octeto 16 (0001 0000) hasta 31 (0001 1111):
-    - Primera IP del rango (IP de Red): 172.16.0.0
-    - Primera IP asignable a host: 172.16.0.1
-    - Última IP asignable a host: 172.31.255.254
-    - Última IP del rango (Broadcast): 172.31.255.255
-    - Rango completo de la red: 172.16.0.0 a 172.31.255.255
-
-Ejercicio 5
-IP de broadcast de la red 172.16.0.0/12 se calcula poniendo a 1 todos los 20 bits correspondientes a los hosts
-    - IP de broadcast: 172.31.255.255
-    
-Ejercicio 6
-Para calcular los hosts útiles se utiliza la fórmula 2^h - 2, donde h es la cantidad de bits de host 
- - Red 10.0.0.0/8:  2^24 - 2 = 16.777.214 
- - Red 192.168.0.0/16 2^16 - 2 = 65.534
- - Red 172.16.0.0/12 2^20 - 2 = 1.048.574
-
-Ejercicio 7
-Puerta de enlace (IGW)
--->
-
-#### 2.2.7 Métodos de transmisión
-
-En una red IP, un paquete puede enviarse siguiendo distintos métodos de transmisión según cuántos destinatarios deban recibirlo. La elección del método influye directamente en el uso del ancho de banda y en el diseño de aplicaciones como streaming, videoconferencias o descubrimiento de dispositivos.
-
-- **Unidifusión (Unicast):**  
-La información se envía desde un único origen a un único destinatario. Es el método más común y el que se usa en la inmensa mayoría del tráfico de Internet (navegación web, correo electrónico, transferencias de archivos, etc.).
-- **Multidifusión (Multicast):**  
-La información se envía desde un origen a un grupo específico de dispositivos suscritos.  
-**Utiliza direcciones reservadas de la Clase D** (rango 224.0.0.0 – 239.255.255.255). Los dispositivos se suscriben o abandonan un grupo multicast mediante **el protocolo IGMP** (Internet Group Management Protocol), y **los routers usan protocolos como PIM** (Protocol Independent Multicast) para reenviar el tráfico únicamente hacia las ramas de red donde existen receptores interesados.  
-- **Difusión (Broadcast):**  
-La información se envía a todos los dispositivos de la subred. Como se explicó en un apartado anterior, esto se logra utilizando la dirección de broadcast de la red (ej.: 10.255.255.255). A nivel de enlace, la trama Ethernet usa la MAC de destino FF:FF:FF:FF:FF:FF, lo que obliga al switch a reenviarla (flood) por todos sus puertos.  
-
-    !!! tip "Ejemplos de uso del broadcast"
-        - Solicitudes **DHCP (el cliente no conoce aún la IP del servidor)**, resolución de direcciones con ARP (para averiguar qué MAC corresponde a una IP).
-        - Desventaja: genera tráfico innecesario en dispositivos que no están interesados en el paquete, y en redes grandes puede provocar problemas de rendimiento (broadcast storms).
-
-#### 2.2.8 Subnetting
-
-- El subnetting es un proceso fundamental en la administración de redes que permite dividir una red grande en varias subredes más pequeñas.
-- Este proceso optimiza el uso de direcciones IP, mejora la seguridad y facilita la gestión de redes complejas.
-
-El subnetting es la práctica de **dividir una red IP grande en subredes más pequeñas** y eficientes.  
-
-Sus metas principales son mejorar el rendimiento, aumentar la seguridad y organizar mejor los dispositivos.
-
-Se logra "prestando" bits de la parte de host para aumentar el número de subredes disponibles.  
-
-**Conceptos Clave del Subnetting**  
-
-- **Máscara de subred:**
-Indica qué parte de la dirección IP identifica a la red y qué parte identifica a los equipos o hosts.
-- **Notación CIDR:**  
-Usa un sufijo (como /24) para mostrar de forma rápida cuántos bits forman la red.
-- **IP de red y de broadcast:**  
-Las direcciones primera y última de cada subred se reservan para identificar la red y para enviar mensajes generales, por lo que no se pueden dar a los equipos.
-
-**Ventajas de dividir una red:**  
-
-- **Menos tráfico:** al haber menos equipos por sección, los datos viajan más rápido y sin choques de información.
-- **Más seguridad:** permite separar departamentos (como administración o ventas) y limitar el acceso entre ellos.- **Ahorro de IP:** ayuda a aprovechar mejor los recursos de direcciones disponibles.
-
-[**Calculadora IP**](https://www.aprendaredes.com/cgi-bin/ipcalc/ipcalc_cgi1)
-
-#### 2.2.9 Ejercicios de redes y de subnetting
+#### 2.2.6 Ejercicios de redes (RFC 791)
 
 !!! exercise "Ejercicio 1"
     Definir la clase de red de las sigientes IP's.
@@ -443,6 +328,244 @@ Las máscaras de subred por defecto según la clase de IP son:
  -->
 
 !!! exercise "Ejercicio 3"
+    Con la ayuda de las definiciones de los apartados anteriores, responder a las siguientes preguntas.  
+
+    1. Proponer una IP de una red de clase C.
+    2. Calcular la dirección de red.  
+    3. Calcular la dirección de broadcast.
+    4. ¿Cuántos hosts admite esa red?
+    5. ¿Qué ocurre si, desde cualquier IP de la red, envío un paquete a la dirección de broadcast?
+    6. ¿Pueden, teorícamente, ser enrutados hacia internet los paquetes emitidos por la IP de tipo 127.0.0.80?
+
+<!--
+1. 192.168.1.50
+2. 192.168.1.0
+3. Dirección de broadcast 192.168.1.255
+4. La porción de host tiene 8 bits (2^8 = 256direcciones totales). Se restan 2 direcciones obligatorias (red 192.168.1.0 broadcast 192.168.1.255).
+5. El paquete es recibido y procesado por todos los dispositivos (hosts) pertenecientes a esa misma subred.
+6. No, teóricamente es imposible que sea enrutada hacia Internet. Motivo: Todo el bloque 127.0.0.0/8 está reservado por el estándar RFC 1122 para pruebas de bucle de retorno (loopback) internas del sistema operativo. 
+-->
+
+#### 2.2.7 Direccionamiento sin clase CIDR (RFC 1519)
+
+- Con el rápido crecimiento de Internet, el direccionamiento basado en clases quedó obsoleto. En 1993 se introdujo CIDR (*Classless Inter-Domain Routing*), un sistema que elimina la rigidez de las clases y optimiza la forma en que se interpretan y enrutan las direcciones IP.
+
+- En lugar de clases, se utiliza **una notación con prefijo** para indicar el número de bits a 1 en la máscara de red. Las antiguas clases A, B y C equivalen a máscaras /8, /16 y /24, respectivamente. Por ejemplo, la notación 192.168.0.0/16 indica que los primeros 16 bits corresponden a la red.
+
+- Para utilizar CIDR, los routers deben ser capaces de procesar direcciones IP independientemente de las clases convencionales.
+
+**Ejemplos**  
+
+- 10.0.0.0/8: permite direcciones desde 10.0.0.1 hasta 10.255.255.254.  
+- 192.168.0.0/16: permite direcciones desde 192.168.0.1 hasta 192.168.1.253.
+
+!!! exercise "Redes CIDR"
+
+    1. Calcular la máscara de la red 10.0.0.0/8.
+    1. Calcular la máscara de la red 192.168.0.0/16.
+    1. Calcular la máscara de la red 172.16.0.0/12.
+    1. Calcular el rango de direcciones de la red: 172.16.0.0/12.
+    1. Calcular la IP de broadcast de la red 172.16.0.0/12.
+    1. ¿Cuantos hosts quedarían en las redes anteriores si la red tiene acceso a internet?
+    1. ¿Como se llama la IP reservada para salir de la red?
+
+<!-- 
+https://aules.edu.gva.es/docent/pluginfile.php/5719248/mod_resource/content/1/XL_UT03_Interconnexio%CC%81%20d%E2%80%99equips%20en%20xarxes%20locals%20i%20muntatge%20de%20connectors-IP.pdf 
+-->
+
+<!--
+Ejercicio 1
+El número /8 indica que los primeros 8 bits están reservados para la red
+    - Máscara decimal: 255.0.0.0. 
+
+Ejercicio 2
+El número /16 indica que los primeros 16 bits están reservados para la red
+    - Máscara decimal: 255.255.0.0
+    
+Ejercicio 3
+El número /12 indica que los primeros 12 bits están encendidos 
+    - Máscara decimal: 255.240.0.0 
+    
+Ejercicio 4
+El bloque abarca desde el segundo octeto 16 (0001 0000) hasta 31 (0001 1111):
+    - Primera IP del rango (IP de Red): 172.16.0.0
+    - Primera IP asignable a host: 172.16.0.1
+    - Última IP asignable a host: 172.31.255.254
+    - Última IP del rango (Broadcast): 172.31.255.255
+    - Rango completo de la red: 172.16.0.0 a 172.31.255.255
+
+Ejercicio 5
+IP de broadcast de la red 172.16.0.0/12 se calcula poniendo a 1 todos los 20 bits correspondientes a los hosts
+    - IP de broadcast: 172.31.255.255
+    
+Ejercicio 6
+Para calcular los hosts útiles se utiliza la fórmula 2^h - 2, donde h es la cantidad de bits de host 
+ - Red 10.0.0.0/8:  2^24 - 2 = 16.777.214 
+ - Red 192.168.0.0/16 2^16 - 2 = 65.534
+ - Red 172.16.0.0/12 2^20 - 2 = 1.048.574
+
+Ejercicio 7
+Puerta de enlace (IGW)
+-->
+
+#### 2.2.7 Métodos de transmisión
+
+En una red IP, un paquete puede enviarse siguiendo distintos métodos de transmisión según cuántos destinatarios deban recibirlo. La elección del método influye directamente en el uso del ancho de banda y en el diseño de aplicaciones como streaming, videoconferencias o descubrimiento de dispositivos.
+
+- **Unidifusión (Unicast):**  
+La información se envía desde un único origen a un único destinatario. Es el método más común y el que se usa en la inmensa mayoría del tráfico de Internet (navegación web, correo electrónico, transferencias de archivos, etc.).
+- **Multidifusión (Multicast):**  
+La información se envía desde un origen a un grupo específico de dispositivos suscritos.  
+**Utiliza direcciones reservadas de la Clase D** (rango 224.0.0.0 – 239.255.255.255). Los dispositivos se suscriben o abandonan un grupo multicast mediante **el protocolo IGMP** (Internet Group Management Protocol), y **los routers usan protocolos como PIM** (Protocol Independent Multicast) para reenviar el tráfico únicamente hacia las ramas de red donde existen receptores interesados.  
+- **Difusión (Broadcast):**  
+La información se envía a todos los dispositivos de la subred. Como se explicó en un apartado anterior, esto se logra utilizando la dirección de broadcast de la red (ej.: 10.255.255.255). A nivel de enlace, la trama Ethernet usa la MAC de destino FF:FF:FF:FF:FF:FF, lo que obliga al switch a reenviarla (flood) por todos sus puertos.  
+
+    !!! tip "Ejemplos de uso del broadcast"
+        - Solicitudes **DHCP (el cliente no conoce aún la IP del servidor)**, resolución de direcciones con ARP (para averiguar qué MAC corresponde a una IP).
+        - Desventaja: genera tráfico innecesario en dispositivos que no están interesados en el paquete, y en redes grandes puede provocar problemas de rendimiento (broadcast storms).
+
+#### 2.2.8 Subnetting
+
+- El subnetting es un proceso fundamental en la administración de redes que permite dividir una red grande en varias subredes más pequeñas.
+- Este proceso optimiza el uso de direcciones IP, mejora la seguridad y facilita la gestión de redes complejas.
+
+El subnetting es la práctica de **dividir una red IP grande en subredes más pequeñas** y eficientes.  
+
+Sus metas principales son mejorar el rendimiento, aumentar la seguridad y organizar mejor los dispositivos.
+
+Se logra "prestando" bits de la parte de host para aumentar el número de subredes disponibles.  
+
+**Conceptos Clave del Subnetting**  
+
+- **Máscara de subred:**
+Indica qué parte de la dirección IP identifica a la red y qué parte identifica a los equipos o hosts.
+- **Notación CIDR:**  
+Usa un sufijo (como /24) para mostrar de forma rápida cuántos bits forman la red.
+- **IP de red y de broadcast:**  
+Las direcciones primera y última de cada subred se reservan para identificar la red y para enviar mensajes generales, por lo que no se pueden dar a los equipos.
+
+**Ventajas de dividir una red:**  
+
+- **Menos tráfico:** al haber menos equipos por sección, los datos viajan más rápido y sin choques de información.
+- **Más seguridad:** permite separar departamentos (como administración o ventas) y limitar el acceso entre ellos.- **Ahorro de IP:** ayuda a aprovechar mejor los recursos de direcciones disponibles.
+
+[**Calculadora IP**](https://www.aprendaredes.com/cgi-bin/ipcalc/ipcalc_cgi1)
+
+#### 2.2.9 Ejercicios de redes y de subnetting
+
+<!-- !!! exercise "Ejercicio 1"
+    Definir la clase de red de las sigientes IP's.
+
+    |Dirección IP|Clase|
+    ||:-:|
+    |10.250.1.1|A|
+    |150.10.15.0|B|
+    |192.14.2.0||
+    |148.17.9.1||
+    |193.42.1.1||
+    |126.8.156.0||
+    |220.200.23.1||
+    |230.230.45.58||
+    |177.100.18.4||
+    |119.18.45.0||
+    |249.240.80.78||
+    |199.155.77.56||
+    |117.89.56.45||
+    |215.45.45.0||
+    |199.200.15.0||
+    |95.0.21.90||
+    |33.0.0.0||
+    |158.98.80.0||
+    |219.21.56.0|| -->
+
+<!-- 
+Para determinar la clase de una dirección IP (según el sistema clásico de clases *Classful*), basta con observar el valor del **primer octeto** de la dirección:
+
+* **Clase A:** 1 a 126 (bits de inicio `0`)
+* **Clase B:** 128 a 191 (bits de inicio `10`)
+* **Clase C:** 192 a 223 (bits de inicio `110`)
+* **Clase D (Multicast):** 224 a 239 (bits de inicio `1110`)
+* **Clase E (Investigación):** 240 a 255 (bits de inicio `1111`)
+
+### Tabla resuelta
+
+| Dirección IP | Clase | Justificación (Primer Octeto) |
+| --- | --- | --- |
+| **10.250.1.1** | **A** | 10 está en el rango 1 - 126 |
+| **150.10.15.0** | **B** | 150 está en el rango 128 - 191 |
+| **192.14.2.0** | **C** | 192 está en el rango 192 - 223 |
+| **148.17.9.1** | **B** | 148 está en el rango 128 - 191 |
+| **193.42.1.1** | **C** | 193 está en el rango 192 - 223 |
+| **126.8.156.0** | **A** | 126 está en el rango 1 - 126 |
+| **220.200.23.1** | **C** | 220 está en el rango 192 - 223 |
+| **230.230.45.58** | **D** | 230 está en el rango 224 - 239 (Multicast) |
+| **177.100.18.4** | **B** | 177 está en el rango 128 - 191 |
+| **119.18.45.0** | **A** | 119 está en el rango 1 - 126 |
+| **249.240.80.78** | **E** | 249 está en el rango 240 - 255 (Investigación) |
+| **199.155.77.56** | **C** | 199 está en el rango 192 - 223 |
+| **117.89.56.45** | **A** | 117 está en el rango 1 - 126 |
+| **215.45.45.0** | **C** | 215 está en el rango 192 - 223 |
+| **199.200.15.0** | **C** | 199 está en el rango 192 - 223 |
+| **95.0.21.90** | **A** | 95 está en el rango 1 - 126 |
+| **33.0.0.0** | **A** | 33 está en el rango 1 - 126 |
+| **158.98.80.0** | **B** | 158 está en el rango 128 - 191 |
+| **219.21.56.0** | **C** | 219 está en el rango 192 - 223 |
+-->
+
+<!-- !!! exercise "Ejercicio 2"
+    Escribe la máscara de subred por defecto correspondiente a cada una de estas direcciones IP's.
+    !!! tip "Identificar primero la clase de red a la que pertenece la IP"
+    |Dirección IP|Clase|Máscara|
+    ||||
+    |177.100.18.4|B|255.255.0.0|
+    |119.18.45.0|A|255.0.0.0|
+    |191.249.234.191|||
+    |223.23.223.109|||
+    |10.10.250.1|||
+    |126.123.23.1|||
+    |223.69.230.250|||
+    |192.12.35.105|||
+    |77.251.200.51|||
+    |189.210.50.1|||
+    |88.45.65.35|||
+    |128.212.250.254|||
+    |193.100.77.83|||
+    |125.125.250.1|||
+    |1.1.10.50|||
+    |220.90.130.45|||
+    |134.125.34.9|||
+    |95.250.91.99||| -->
+
+<!-- 
+Las máscaras de subred por defecto según la clase de IP son:
+
+- **Clase A:** `255.0.0.0` (primer octeto entre 1 y 126)
+- **Clase B:** `255.255.0.0` (primer octeto entre 128 y 191)
+- **Clase C:** `255.255.255.0` (primer octeto entre 192 y 223)
+
+| Dirección IP | Clase | Máscara |
+| --- | --- | --- |
+| **177.100.18.4** | **B** | `255.255.0.0` |
+| **119.18.45.0** | **A** | `255.0.0.0` |
+| **191.249.234.191** | **B** | `255.255.0.0` |
+| **223.23.223.109** | **C** | `255.255.255.0` |
+| **10.10.250.1** | **A** | `255.0.0.0` |
+| **126.123.23.1** | **A** | `255.0.0.0` |
+| **223.69.230.250** | **C** | `255.255.255.0` |
+| **192.12.35.105** | **C** | `255.255.255.0` |
+| **77.251.200.51** | **A** | `255.0.0.0` |
+| **189.210.50.1** | **B** | `255.255.0.0` |
+| **88.45.65.35** | **A** | `255.0.0.0` |
+| **128.212.250.254** | **B** | `255.255.0.0` |
+| **193.100.77.83** | **C** | `255.255.255.0` |
+| **125.125.250.1** | **A** | `255.0.0.0` |
+| **1.1.10.50** | **A** | `255.0.0.0` |
+| **220.90.130.45** | **C** | `255.255.255.0` |
+| **134.125.34.9** | **B** | `255.255.0.0` |
+| **95.250.91.99** | **A** | `255.0.0.0` |
+ -->
+
+!!! exercise "Ejercicio 1"
     1. Disponemos de la dirección de red: `172.16.0.0/16`
     1. Determinar:
         - Clase:
@@ -450,7 +573,7 @@ Las máscaras de subred por defecto según la clase de IP son:
         - Nº total de direcciones de host:
         - Nº de direcciones útiles:
 
-!!! exercise "Ejercicio 4"
+!!! exercise "Ejercicio 2"
     1. Disponemos de la dirección de red: `172.16.0.0/16`
     1. Se desea montar 2 subredes útiles sobre esa red.
     1. Se desea saber:
@@ -480,7 +603,7 @@ Solución según el estándar actual (RFC 1878)
         2ª subred: 172.16.128.0/17)
 -->
 
-!!! exercise "Ejercicio 5"
+!!! exercise "Ejercicio 3"
     1. Disponemos de la dirección de red: `116.0.0.0`
     1. Se desea montar 126 subredes útiles sobre esa red.
     1. Se desea saber:
@@ -520,7 +643,7 @@ Solución según el estándar actual (RFC 1878)
     3ª subred útil: 116.6.0.0 a 116.7.255.255 (IPs útiles de host: 116.6.0.1 a 116.7.255.254)
 -->
 
-!!! exercise "Ejercicio 6"
+!!! exercise "Ejercicio 4"
     1. Disponemos de la dirección de red: `199.95.30.0`
     1. Se desea montar 62 subredes útiles sobre esa red.
     1. Se desea saber:
@@ -652,6 +775,25 @@ TCP es un protocolo robusto y flexible, capaz de servir de base a muchos otros p
     - **Puertos dinámicos o privados (Dynamic or Private ports):** del 49152 al 65535. Son utilizados por aplicaciones y servicios temporales o personalizados, y no están asignados oficialmente; suelen emplearse como puertos de origen en conexiones salientes de los clientes.
 
 ### 3.9 Ejercicios sobre puertos del protocolo TCP/IP
+
+!!! exercise "Ejercicio 1"
+    - Rellenar la tabla siguiente.
+
+    | Puerto | Protocolo/Servicio | TCP/UDP/Ambos | Función principal | Rango |
+    |--------|--------------------|---------------|--------------------|-------|
+    | 20/21  |||||
+    | 22     |||||
+    | 23     |||||
+    | 25     |||||
+    | 53     |||||
+    | 67/68  |||||
+    | 80     |||||
+    | 110    |||||
+    | 143    |||||
+    | 161    |||||
+    | 443    |||||
+    | 3306   |||||
+    | 3389   |||||
 <!-- 
 # Soluciones al ejercicio de investigación
 
@@ -672,64 +814,40 @@ TCP es un protocolo robusto y flexible, capaz de servir de base a muchos otros p
 | 443    | HTTPS (HTTP Secure) | TCP | Transferencia de páginas web cifradas mediante SSL/TLS. | Bien conocido |
 | 3306   | MySQL | TCP | Conexión a bases de datos MySQL/MariaDB. | Registrado |
 | 3389   | RDP (Remote Desktop Protocol) | TCP | Acceso remoto al escritorio de equipos Windows. | Registrado |
+-->
+!!! exercise "Ejercicio 2"
+    ¿Por qué DNS o DHCP usan UDP en lugar de TCP?**
 
-## Respuestas a las preguntas de reflexión
-
-**1. ¿Por qué DNS o DHCP usan UDP en lugar de TCP?**
-
+<!--
 UDP es más rápido porque no establece conexión previa ni verifica la entrega (no hay *handshake* ni confirmaciones), lo cual es ideal para consultas breves y frecuentes como resolver un nombre de dominio o solicitar una IP al conectarse a una red. DNS usa UDP para consultas normales (por velocidad), pero recurre a TCP cuando la respuesta es demasiado grande para un solo paquete UDP o para transferencias de zona entre servidores DNS, donde sí es necesaria la fiabilidad de TCP.
+-->
 
-**2. Diferencia entre el puerto 80 y el 443**
+!!! exercise "Ejercicio 3"
+    - ¿Diferencia entre el puerto 80 y el 443?
 
-El puerto 80 (HTTP) transmite los datos en texto plano, sin cifrar, por lo que cualquier persona que intercepte el tráfico podría leer la información (contraseñas, datos personales, etc.). El puerto 443 (HTTPS) añade una capa de cifrado mediante TLS/SSL, protegiendo la confidencialidad e integridad de los datos, además de autenticar la identidad del servidor mediante certificados digitales.
+<!-- El puerto 80 (HTTP) transmite los datos en texto plano, sin cifrar, por lo que cualquier persona que intercepte el tráfico podría leer la información (contraseñas, datos personales, etc.). El puerto 443 (HTTPS) añade una capa de cifrado mediante TLS/SSL, protegiendo la confidencialidad e integridad de los datos, además de autenticar la identidad del servidor mediante certificados digitales. -->
 
-**3. Por qué Telnet (23) es inseguro frente a SSH (22)**
+!!! exercise "Ejercicio 4"
+    ¿Por qué Telnet (23) es inseguro frente a SSH (22)?
 
-Telnet transmite toda la información, incluidas las credenciales de acceso, en texto plano, por lo que es vulnerable a ataques de interceptación (*sniffing*). SSH, en cambio, cifra toda la comunicación de extremo a extremo, incluye mecanismos de autenticación más robustos (contraseñas cifradas o claves públicas/privadas) y protege contra ataques de intermediario (*man-in-the-middle*). Por eso SSH ha sustituido prácticamente por completo a Telnet en la administración remota de sistemas.
+<!-- Telnet transmite toda la información, incluidas las credenciales de acceso, en texto plano, por lo que es vulnerable a ataques de interceptación (*sniffing*). SSH, en cambio, cifra toda la comunicación de extremo a extremo, incluye mecanismos de autenticación más robustos (contraseñas cifradas o claves públicas/privadas) y protege contra ataques de intermediario (*man-in-the-middle*). Por eso SSH ha sustituido prácticamente por completo a Telnet en la administración remota de sistemas. -->
 
-**4. Ejemplo de puerto registrado**
+!!! exercise "Ejercicio 5"
+    - Dar un ejemplo de puerto registrado y el servicio aosciado.
+    - ¿Diferencia entre puerto registrado y puerto conocido?
 
-El puerto 3306 (MySQL) es un buen ejemplo: no es un servicio "básico" de Internet como HTTP o DNS, sino una aplicación específica (el motor de bases de datos MySQL/MariaDB) que la IANA ha registrado oficialmente para evitar conflictos con otras aplicaciones.
+<!-- El puerto 3306 (MySQL) es un buen ejemplo: no es un servicio "básico" de Internet como HTTP o DNS, sino una aplicación específica (el motor de bases de datos MySQL/MariaDB) que la IANA ha registrado oficialmente para evitar conflictos con otras aplicaciones. -->
 
-**5. Riesgos de tener puertos abiertos innecesariamente**
+!!! exercise "Ejercicio 6"
+    - ¿Cuales son los riesgos de tener puertos abiertos innecesariamente.
 
-Cada puerto abierto es una posible puerta de entrada para un atacante: si el servicio asociado tiene una vulnerabilidad, puede ser explotada para acceder al sistema, robar datos o instalar malware. El **escaneo de puertos** (*port scanning*) es una técnica (usada tanto por atacantes como por administradores de seguridad) que consiste en analizar un equipo o red para detectar qué puertos están abiertos y qué servicios están escuchando en ellos, con el fin de identificar posibles vulnerabilidades explotables. Por eso una buena práctica de seguridad es cerrar o filtrar (mediante firewall) todos los puertos que no sean estrictamente necesarios. -->
-
-<!-- 
-muy bien escrito revisar para ver si el texto sigue la misma esstructura.
-https://itadmins.es/networking-i-el-modelo-osi/ -->
-
-<!-- 
-falta poner imagen de hardware de red + serviciois en red para introducir el modulo -->
-
-<!-- revisar coherencia con estos apuntes -->
-<!-- https://aules.edu.gva.es/fp/pluginfile.php/13446079/mod_resource/content/1/Unidad%201.%20Introducci%C3%B3n%20a%20los%20servicios%20en%20red.pdf -->
-<!-- https://aules.edu.gva.es/fp/pluginfile.php/13446083/mod_resource/content/1/Actividad3.U01_Soluci%C3%B3n.docx.pdf -->
-<!-- https://aules.edu.gva.es/fp/pluginfile.php/13446085/mod_resource/content/1/Introduccion_3_casos_practicos.pdf -->
-
-<!-- https://www.manageengine.com/latam/oputils/direcciones-ip-fundamentos.html -->
-<!-- https://itadmins.es/networking-ii-dispositivos-de-red-y-tipos-de-trafico/ -->
+<!-- Cada puerto abierto es una posible puerta de entrada para un atacante: si el servicio asociado tiene una vulnerabilidad, puede ser explotada para acceder al sistema, robar datos o instalar malware. El **escaneo de puertos** (*port scanning*) es una técnica (usada tanto por atacantes como por administradores de seguridad) que consiste en analizar un equipo o red para detectar qué puertos están abiertos y qué servicios están escuchando en ellos, con el fin de identificar posibles vulnerabilidades explotables. Por eso una buena práctica de seguridad es cerrar o filtrar (mediante firewall) todos los puertos que no sean estrictamente necesarios. --> -->
 
 <!-- 
+https://www.manageengine.com/latam/oputils/direcciones-ip-fundamentos.html 
+-->
 
+<!-- 
 http://www.newdevices.com/tutoriales/ipv4/2.html
-
-https://www.paessler.com/es/it-explained/ip-address
-
-https://usuaris.tinet.cat/fbd/comunicaciones/tcpip/a.htm
-
 https://www.sapalomera.cat/moodlecf/RS/1/course/module10/#10.2.1.3
-
-https://www.sapalomera.cat/moodlecf/RS/1/course/module9/#9.0.1.1
-
-https://www.sapalomera.cat/moodlecf/RS/1/course/module8/#8.1.1.2
-
-https://www.sapalomera.cat/moodlecf/RS/1/course/module8/#8.0.1.1
-
-https://itadmins.es/networking-ii-dispositivos-de-red-y-tipos-de-trafico/
-
-http://127.0.0.1:5500/docs/SMX/SMX_2/SX/sxe/UD01/1_arquitectura_de_xarxa_tcpip.html
-
-https://aules.edu.gva.es/docent/pluginfile.php/5719248/mod_resource/content/1/XL_UT03_Interconnexio%CC%81%20d%E2%80%99equips%20en%20xarxes%20locals%20i%20muntatge%20de%20connectors-IP.pdf
-
 -->
