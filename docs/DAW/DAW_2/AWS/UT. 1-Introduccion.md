@@ -333,7 +333,7 @@ Como podemos ver en la imagen, AWS sigue disponiendo de la mayor cuota de mercad
     !!! warning "Condiciones de la entrega."  
         Subir el documento con vuestras respuestas a la tarea RA1-CEa de Aules.
 
-## 7 - Tarea 2 - RA1-CEb
+## 7 - Tarea - RA1-CEb
 
 !!! exercise "Trabajo de investigación"
     - Dar, al menos, 5 ventajas de uso de la nube frente a sistemas on premise.

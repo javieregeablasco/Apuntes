@@ -1,0 +1,319 @@
+---
+ciclo: CFGM - Técnico en Sistemas Microinformáticos y Redes
+title: Sostenibilidad aplicada al sistema productivo
+module number: 
+lesson: UD. 1.0 - Aspectos ambientales, sociales y de gobernanza (ASG) relativos a la sostenibilidad.  
+author: Javier Egea Blasco  
+layout: default  
+year: 26-27  
+keywords: SMX, SMR, SOST
+schedule: 1h/w
+---
+
+![Descripción de la imagen](./img_1/img_1_1.png){ .img1 }
+  
+**Resultados de aprendizaje y criterios de evaluacion que se evaluarán en esta unidad.**  
+
+| **Resultados de aprendizaje de la unidad didáctica:**|
+||
+| **RA. 1:** Identifica los aspectos ambientales, sociales y de gobernanza (ASG) relativos a la sostenibilidad teniendo en cuenta el concepto de desarrollo sostenible y los marcos internacionales que contribuyen a su consecución.|
+
+|**Criterios de evaluación de la unidad didáctica:**|
+||
+|**c)** Se han relacionado los Objetivos de Desarrollo Sostenible (ODS) con su importancia para la consecución de la Agenda 2030.|
+|**d)** Se ha analizado la importancia de identificar los aspectos ASG más relevantes para los grupos de interés de las organizaciones relacionándolos con los riesgos y oportunidades que suponen para la propia organización.|
+
+## 1 - Desarrollo Sostenible
+
+![Descripción de la imagen](./img_1/img_1_2.png){ .img1 }
+
+### 1. 1 Concepto de desarrollo sostenible
+
+- El concepto de desarrollo sostenible tiene sus raíces institucionales en el **Informe Brundtland (1987)**, donde se formuló como "aquel que satisface las necesidades del presente sin comprometer la capacidad de las futuras generaciones para satisfacer sus propias necesidades".
+- Las tres dimensiones integradas: Requiere mantener un equilibrio simultáneo entre tres pilares: crecimiento económico, inclusión social y protección del medio ambiente. Si alguno de estos tres pilares falla, el desarrollo no puede sostenerse en el tiempo.
+- Condiciones e impacto: Un desarrollo sostenible garantiza que todas las personas tengan acceso a trabajo digno, atención sanitaria y educación de calidad, al tiempo que las decisiones de políticas públicas aseguran que nadie quede atrás por discriminación y que el uso de los recursos naturales evite la contaminación.
+- Contraste con el desarrollo insostenible: El desarrollo insostenible surge cuando se buscan beneficios o gratificaciones inmediatas a corto plazo sin considerar los daños a largo plazo, originando problemas como el cambio climático, la pobreza, el hambre y la inestabilidad social.
+
+### 1.2 Marcos e Instrumentos Internacionales
+
+- Agenda 2030 para el Desarrollo Sostenible: En 2015, los Estados miembros de la ONU establecieron este plan global para guiar la transición hacia un mundo sostenible.
+- Los 17 Objetivos de Desarrollo Sostenible (ODS): Constituyen el núcleo de la Agenda 2030, con metas ambiciosas que abarcan las dimensiones económica, social y ambiental.
+- La Cumbre de los ODS de las Naciones Unidas: Se estableció como un encuentro decisivo entre líderes mundiales (como la Cumbre de septiembre de 2023) para renovar compromisos, evaluar los avances y lagunas existentes, y ofrecer orientación política para acelerar las acciones.
+- Seguimiento e informes globales: Instrumentos como el Informe de los ODS de la ONU (2023) y las evaluaciones del Grupo Intergubernamental de Expertos sobre el Cambio Climático (IPCC) monitorean los retrocesos y desafíos críticos, tales como los niveles de pobreza extrema o el riesgo de superar el umbral de 1,5 °C para 2035.
+- Implementación multinivel: Los gobiernos están incorporando estos objetivos internacionales dentro de sus planes nacionales, proceso que requiere financiamiento público y privado, así como el compromiso activo de la sociedad civil y las decisiones individuales
+
+## 2 - Sostenibilidad Ecosocial
+
+- Desde una perspectiva ecosocial, el concepto de sostenibilidad se redefine críticamente como **la capacidad de atender con justicia las necesidades del presente sin poner en riesgo las del futuro**, asegurando que las personas puedan desarrollar vidas dignas mientras el planeta y todos sus seres vivos mantienen su equilibrio biofísico.
+- Este enfoque advierte sobre la contradicción interna del "desarrollismo" capitalista, señalando que un crecimiento económico sostenido e ilimitado (como el propuesto en el ODS 8) resulta materialmente inviable dentro de una biosfera con límites físicos, energéticos y de recursos finitos.
+
+## 3 - Aspectos ASG (Ambientales, Sociales y de Gobernanza) de la Sostenibilidad
+
+La búsqueda de una sostenibilidad real exige abordar de forma simultánea e integrada las tres dimensiones del enfoque ASG:
+
+### 3.1 Aspectos Ambientales (A)
+
+Analizan el impacto que las actividades socioeconómicas ejercen sobre la estabilidad y conservación del medio natural. Se estructuran en torno a:
+
+- **Respeto a los Límites Planetarios:** Adecuar los sistemas productivos para no sobrepasar los parámetros que garantizan que el planeta siga siendo seguro para la vida humana. Esto requiere actuar sobre los límites que ya han sido superados: el cambio climático, la pérdida de biodiversidad, el cambio de uso del suelo, los ciclos alterados del nitrógeno y del fósforo, la acidificación de océanos y el uso de agua dulce, además de regular la incorporación de nuevas entidades (químicos, plásticos, etc.).
+- **Vivir del "Sol Actual":** Detener la extracción y quema desmesurada de los combustibles fósiles del subsuelo (carbón, petróleo y gas) y de energía nuclear, los cuales alteran la atmósfera y generan residuos peligrosos para miles de generaciones. Implica realizar una reducción drástica del consumo energético general y transitar hacia fuentes renovables descentralizadas y de bajo impacto (energías R3E).
+- **Cierre de Ciclos de Materiales:** Abandonar el metabolismo económico lineal de "usar y tirar" y adaptarlo a la economía circular. Esto requiere erradicar la obsolescencia programada, penalizar el consumo superfluo e imitar a los ecosistemas, donde los residuos de un proceso se convierten en los recursos de otro.
+- **Uso de Recursos en Equilibrio:** Ajustar el consumo material de la actividad productiva para que no supere la capacidad de regeneración o reposición del ecosistema del cual se extrae.
+
+### 3.2 Aspectos Sociales (S)
+
+Evalúan la relación de la actividad productiva con el bienestar de los trabajadores, la clientela y las comunidades. No hay sostenibilidad ecológica viable si no viene acompañada de justicia social. Los criterios clave son:
+
+- **Trabajos que Sostienen la Vida:** Garantizar condiciones laborales dignas, seguras y con salarios suficientes que permitan una adecuada conciliación de la vida personal y laboral. Implica valorizar y facilitar el reparto equitativo de los trabajos de cuidados imprescindibles para sostener cotidianamente la salud y el bienestar.
+- **Construcción de Equidad:** Combatir la desigualdad material y social fomentando la predistribución y redistribución de la riqueza, limitando la acumulación opulenta e inmoral por parte de una minoría y garantizando los recursos y derechos básicos de subsistencia para toda la humanidad.
+- **Inclusión e Interseccionalidad:** Erradicar activamente las barreras que provocan discriminación interseccional en las organizaciones (por motivos de género, clase social, procedencia, racialización, cultura o capacidades).
+- **Soberanía y Relocalización:** Incentivar el desarrollo de una economía social, solidaria, feminista y ecológica estrechamente vinculada al territorio, promoviendo los mercados de proximidad (circuitos cortos) y la soberanía alimentaria para reducir la fragilidad frente a las cadenas de suministro globales.
+
+### 3.3 Aspectos de Gobernanza (G)
+
+Se centran en la transparencia, la estructura organizativa, la participación democrática en la toma de decisiones y el cumplimiento normativo y ético de las organizaciones. Incluyen:
+
+- **Gestión Democrática y Horizontal:** Reemplazar los modelos de organización jerárquicos por esquemas participativos donde la toma de decisiones sea colectiva y la capacidad de influencia esté repartida equitativamente.
+- **Equidad Salarial Interna:** Fomentar diferencias salariales mínimas o inexistentes entre los salarios más altos y los más bajos de la organización, reconociendo que todos los trabajos cooperan de forma valiosa en los objetivos comunes.
+- **Responsabilidad Social Compartida:** Tomar decisiones estratégicas considerando su impacto sobre la población general y sobre otras comunidades, garantizando que el cumplimiento de los fines propios no suponga un perjuicio para entidades terceras.
+- **Resolución Noviolenta de Conflictos:** Establecer mecanismos internos que permitan anticipar, gestionar y regular de forma noviolenta y constructiva los desacuerdos.
+
+## 4 - Marcos Internacionales para la Consecución de la Sostenibilidad
+
+Los esfuerzos internacionales para estructurar un modelo de desarrollo viable han configurado diversos marcos políticos, científicos y legislativos:
+
+1. **El Informe Meadows (Club de Roma, 1972):** Elaborado por Donella Meadows en el MIT bajo el título "Los límites del crecimiento", fue el primer aviso científico internacional de que un crecimiento ilimitado en un planeta de recursos finitos es físicamente imposible, urgiendo a reconducir la economía global.
+1. **La Agenda 2030 y los Objetivos de Desarrollo Sostenible (ODS) (ONU, 2015):** Acuerdo universal suscrito por 193 países que define 17 ODS y 169 metas articulando las esferas social, ambiental y económica. No obstante, presenta serias carencias según el análisis ecosocial:
+1. **Voluntariedad:** Funciona como un instrumento de soft law, lo que significa que carece de fuerza vinculante, capacidad de fiscalización externa o sanciones ante su incumplimiento.
+1. **Falta de ambición estructural:** Sus metas e indicadores suelen tratar manifestaciones tardías de las crisis ("final de tubería") en vez de las causas de raíz. Además, promueve una contradicción falaz al instar al "crecimiento sostenido" (ODS 8) en un entorno biofísico limitado.
+1. **El Protocolo de Kioto (1997) y el Acuerdo de París (2015):** Marcos adoptados en las Conferencias de las Partes (COP) de la ONU. Destaca el Acuerdo de París por ser jurídicamente vinculante y comprometer a los estados a limitar el calentamiento global de la atmósfera por debajo de los 2 °C (preferiblemente a 1,5 °C) respecto a la época preindustrial.
+1. **El Convenio sobre la Diversidad Biológica de las Naciones Unidas (1993):** Tratado internacional casi universal dedicado a la conservación de la biodiversidad global, el uso sostenible de sus componentes y el reparto equitativo de los beneficios derivados de los recursos biológicos.
+1. **El Pacto Verde Europeo (2019) y su Marco Normativo:**
+
+    - **Pacto Verde:** Estrategia de la Comisión Europea para reorientar los flujos financieros y conseguir que Europa sea el primer continente climáticamente neutro en 2050.
+    - **Reglamento de Taxonomía Europea (2020):** Herramienta legislativa para clasificar qué actividades económicas contribuyen sustancialmente a los objetivos ambientales sin causar un perjuicio significativo al resto.
+    - **Directiva sobre la Información de Sostenibilidad de las Empresas (CSRD - Directiva UE 2022/2464):** Exige obligatoriamente a las grandes empresas presentar informes auditados y transparentes sobre su desempeño e impactos ASG, aplicando el principio de doble materialidad.
+    - **Directiva sobre Diligencia Debida de las Empresas (CSDDD - Directiva UE 2024/1760):**  Exige que las grandes compañías identifiquen, prevengan, mitiguen y reparen activamente los efectos nocivos de su actividad y su cadena de valor sobre los derechos humanos y el medio ambiente.
+
+## 5 - ASG dentro del sector de las TIC
+
+### 5.1 Introducción
+
+- Los criterios ASG han pasado de ser una tendencia a convertirse en un elemento clave en la estrategia de las empresas.
+- Cada vez más inversores, administraciones públicas, clientes, empleados y grupos de interés exigen a las organizaciones un mayor compromiso con la sostenibilidad, la responsabilidad social y la transparencia.
+- Tenerlas en cuenta puede impulsar la competitividad, reforzar la reputación corporativa y contribuir a una mejor gestión.
+- En el sector de las Tecnologías de la Información y la Comunicación (TIC), la aplicación de la sostenibilidad ecosocial y los criterios ASG resulta de vital importancia. A menudo existe el "espejismo" de que la digitalización es intrínsecamente "verde" o inmaterial por basarse en la "nube". Sin embargo, la realidad biofísica nos muestra que el sector TIC descansa sobre una infraestructura física masiva con profundos impactos ambientales, sociales y de gobernanza.
+
+### 5.2 Dimensión Ambiental (A) en el Sector TIC
+
+El impacto ambiental de las TIC es físico, creciente y sumamente centralizado:
+
+- **La huella de carbono digital**: Aunque no se vea, internet ya genera aproximadamente el 3,7% de las emisiones globales de CO2, con un incremento del 4% anual en su intensidad energética. Los centros de datos consumen el 45% de esta energía y las redes de comunicación el 24%. El auge de la Inteligencia Artificial (IA), el internet de las cosas y el minado de criptomonedas multiplican exponencialmente esta demanda.
+
+- **La mochila ecológica**: Los dispositivos que utilizamos diariamente son verdaderos icebergs de materiales. Un teléfono móvil de solo 150 gramos arrastra una mochila ecológica de 80 kg (es decir, el 99,8% de los materiales movilizados para su extracción, fabricación y transporte se desechan antes de que llegue a tus manos). Un ordenador promedio carga una mochila invisible de 1.500 kg.
+
+- **Extractivismo de minerales críticos**: La alta tecnología de las TIC requiere la extracción de más de 50 metales diferentes por dispositivo (como coltán, litio, cobalto, cobre y níquel). Estos minerales son finitos y muchos ya están cerca de sus picos de extracción. Su minería, a menudo a cielo abierto, destruye ecosistemas locales.
+
+- **Residuos electrónicos (E-waste)**: Estrategias de marketing y la obsolescencia tecnológica programada provocan el descarte de más de 5.300 millones de teléfonos inteligentes al año en todo el mundo. Muchos de estos residuos, altamente contaminantes y de difícil degradación, acaban siendo exportados ilegalmente a vertederos del Sur Global, como el basurero de Agbogbloshie en Ghana.
+
+### 5.3 Dimensión Social (S) en el Sector TIC
+
+La cara social de la digitalización globalizada revela asimetrías de poder y precarización laboral:
+
+- **Conflictos de neocolonialidad:** La obtención de los componentes baratos de hardware perpetúa dinámicas coloniales en los países de origen. Un ejemplo paradigmático es la enorme violencia y el uso de trabajo infantil en las minas de coltán de la República Democrática del Congo para abastecer la producción de móviles y ordenadores occidentales.
+
+- **Precarización y "plataformas colaborativas":** En el ámbito del empleo, las TIC facilitan la aparición de plataformas de servicios que acceden a una fuerza de trabajo sindicalmente débil y fácil de explotar. Además, la conectividad constante dilata la jornada de trabajo hacia el espacio privado de las personas.
+
+- **Colonización del tiempo y la atención:** El diseño de las aplicaciones de internet está orientado a la captación de datos y la dependencia de las pantallas, colonizando espacios de la vida íntima que previamente no estaban mercantilizados (relaciones, ocio, descanso).
+
+### 5.4 Dimensión de Gobernanza (G) en el Sector TIC
+
+La gobernanza en el sector se enfrenta al surgimiento de monopolios y la pérdida de soberanía tecnológica:
+
+- **Monopolios radicales:** El uso de móviles y pantallas se ha convertido en una obligación social de la que es casi imposible escapar sin arriesgarse a la dessocialización. Al mismo tiempo, el tráfico global de internet está monopolizado por un puñado de corporaciones (como Google, Meta, Apple, Amazon, Microsoft y Netflix), que controlan el 57% del tráfico mundial.
+
+- **Control de la infraestructura física:** Estas grandes corporaciones ya no solo controlan el software, sino que son propietarias directas de las autopistas físicas de la información, como los cables submarinos de larga distancia por los que discurre el 95% del tráfico intercontinental. Esto les otorga la capacidad de decidir qué datos viajan, hacia dónde y a qué velocidad.
+
+- **Extracción de datos y vigilancia:** El modelo de negocio se basa en la extracción masiva de datos individuales y financieros, lo que devalúa el derecho a la privacidad y facilita sistemas de control tanto corporativos como estatales.
+
+### 5.5 Falsas soluciones comunes en TIC
+
+- **Eficiencia y "Paradoja de Jevons":** Creer que hacer chips más eficientes solucionará el problema. La paradoja demuestra que cuanto más eficiente y barato es un chip, más aumenta la producción total de dispositivos, incrementando el consumo global de recursos.
+- **Centros de datos "0 emisiones":** Es una ficción publicitaria de lavado verde (greenwashing) si no se calcula el ciclo de vida completo (ACV), que incluye las emisiones de la construcción de los servidores, los materiales de red y el tendido de cables.
+- **El mito del teletrabajo ecológico:** Aunque reduce desplazamientos, el tráfico de datos intensivo en la nube y el uso constante de videollamadas masivas consumen ingentes cantidades de electricidad que reducen el beneficio ambiental inicial.
+
+### 5.6 Líneas de acción para unas TIC sostenibles (Nueva Cultura de la Tierra)
+
+- **Ecodiseño de hardware modular:** Implementar de manera obligatoria la modularidad y estandarización de las marcas para facilitar la reparación, eliminando la obsolescencia técnica.
+- **Desdigitalización paulatina y local:** Salir del modelo de "todo en la nube" mediante el uso de servidores locales, almacenamiento descentralizado e intercambio de información más comunitario.
+- **Software libre y ligero:** Utilizar programas ligeros sostenidos por comunidades abiertas, lo que evita que los equipos queden obsoletos y requieran ser reemplazados continuamente.
+- **Internet Low-Tech:** Apostar por redes autónomas que dependan únicamente de energías renovables locales. Aunque presentan cierta intermitencia y menor velocidad, son viables y resilientes para cubrir las necesidades informativas de administraciones y servicios comunitarios de proximidad.
+- **Soberanía tecnológica:** Participar en cooperativas y proyectos de telecomunicaciones sin ánimo de lucro y de control ciudadano (como Guifi.es o Som Conexió), que reorientan el servicio TIC hacia el bien común.
+
+### 5.7 Beneficios de implantar los criterios ASG
+
+Los criterios ASG pueden aplicarse a empresas de cualquier tamaño y sector. Aunque las medidas adoptadas varían según la actividad y las necesidades, estas aportan múltiples ventajas:
+
+- **Mejora de la reputación corporativa.** Las organizaciones que integran este enfoque refuerzan su imagen y generan mayor confianza entre clientes, empleados, inversores y otros actores implicados.
+- **Mayor competitividad.** La incorporación de los criterios ASG optimiza procesos, impulsa la innovación y permite diferenciarse en un mercado cada vez más exigente.
+- **Acceso a financiación sostenible.** Las compañías con un sólido desempeño en sostenibilidad pueden tener más facilidades para acceder a algunos tipos de financiación e inversión.
+- **Reducción de riesgos.** Las prácticas sostenibles ayudan a identificar y gestionar riesgos ambientales, sociales y de gobernanza, mitigando su impacto operativo, legal y reputacional.
+- **Ahorro de costes.** Un mejor uso de los recursos contribuye a reducir los costes operativos. En el sector logístico, esto puede traducirse en un menor consumo energético en los almacenes y una rebaja de las emisiones del transporte.
+- **Confianza de clientes y socios comerciales.** Se da una respuesta más adecuada a las expectativas de los clientes, socios comerciales y organismos reguladores en materia de sostenibilidad y transparencia.
+
+### 5.8 Foro de discusión
+
+!!! question "Sobre el concepto mismo de sostenibilidad"
+    1. ¿Es la sostenibilidad un concepto universal o depende del contexto cultural, económico y geográfico de cada región?
+    1. ¿Existe una tensión irresoluble entre crecimiento económico y sostenibilidad ambiental, o son compatibles?
+    1. El famoso "Informe Brundtland" (1987) define desarrollo sostenible como aquel que satisface las necesidades presentes sin comprometer las de futuras generaciones. ¿Sigue siendo esta definición suficiente casi 40 años después?
+
+<!-- 
+1. Sobre el concepto mismo de sostenibilidad
+¿Es la sostenibilidad un concepto universal o depende del contexto?
+Hay dos posturas principales:
+
+A favor de la universalidad: existen límites planetarios objetivos (cambio climático, pérdida de biodiversidad) que afectan a toda la humanidad por igual, por lo que se necesitan principios comunes.
+A favor del relativismo contextual: lo que es sostenible en un país nórdico rico difiere radicalmente de lo que es viable en una comunidad rural africana o andina. Imponer un modelo único puede ser una forma de "colonialismo verde".
+Una respuesta intermedia sería: los principios (equidad intergeneracional, límites ecológicos) pueden ser universales, pero las estrategias deben adaptarse localmente. -->
+
+<!-- 
+1. Sobre el concepto mismo de sostenibilidad
+
+¿Es la sostenibilidad un concepto universal o depende del contexto?
+Hay dos posturas principales:
+
+A favor de la universalidad: existen límites planetarios objetivos (cambio climático, pérdida de biodiversidad) que afectan a toda la humanidad por igual, por lo que se necesitan principios comunes.
+A favor del relativismo contextual: lo que es sostenible en un país nórdico rico difiere radicalmente de lo que es viable en una comunidad rural africana o andina. Imponer un modelo único puede ser una forma de "colonialismo verde".
+Una respuesta intermedia sería: los principios (equidad intergeneracional, límites ecológicos) pueden ser universales, pero las estrategias deben adaptarse localmente.
+
+2. ¿Tensión entre crecimiento económico y sostenibilidad?
+
+Postura de la "economía verde": es posible el desacoplamiento (crecer sin aumentar el uso de recursos) mediante innovación tecnológica y eficiencia.
+Postura del "decrecimiento": el desacoplamiento absoluto nunca se ha demostrado a escala global; el crecimiento económico infinito es incompatible con un planeta finito.
+Postura pragmática/institucional (la de la mayoría de organismos como la ONU): se puede lograr un "crecimiento verde" mediante cambios en la matriz energética y regulación, aunque con matices y plazos inciertos.
+
+3. ¿Sigue vigente la definición de Brundtland?
+Argumentos a favor: sigue siendo útil porque introduce la equidad intergeneracional, un principio ético central.
+Argumentos en contra: es ambigua (no define qué "necesidades" ni cómo medir el "compromiso" con el futuro), y ha sido criticada por no cuestionar el modelo de crecimiento capitalista. Muchos autores proponen complementarla con enfoques como los "límites planetarios" (Rockström) o el "donut" de Kate Raworth.
+-->
+
+!!! question "Marcos internacionales (ODS, Agenda 2030, Acuerdo de París, etc.)"
+    - ¿Los Objetivos de Desarrollo Sostenible (ODS) son metas realistas o más bien aspiraciones simbólicas sin mecanismos de cumplimiento efectivos?
+    - ¿Qué responsabilidad diferenciada deben asumir los países desarrollados frente a los países en desarrollo en el cumplimiento de estos marcos?
+    - ¿Hasta qué punto los acuerdos internacionales (como el Acuerdo de París) logran traducirse en políticas nacionales concretas y vinculantes?
+
+<!-- 
+1. Sobre los marcos internacionales (ODS, Agenda 2030, Acuerdo de París)
+
+¿Los ODS son metas realistas o simbólicas?
+
+Postura crítica: son 17 objetivos y 169 metas sin mecanismos de sanción; los países que incumplen no enfrentan consecuencias reales, y los informes de progreso muestran que la mayoría de metas no se cumplirán para 2030.
+Postura defensora: aunque no sean vinculantes, funcionan como marco orientador común que permite comparar, medir y presionar políticamente (mediante la opinión pública, inversión ESG, cooperación internacional).
+Un punto de encuentro: los ODS son más útiles como lenguaje común y herramienta de rendición de cuentas blanda que como instrumento jurídico.
+
+2. ¿Responsabilidad diferenciada entre países desarrollados y en desarrollo?
+Este es un tema de fuerte disputa geopolítica:
+
+Los países en desarrollo argumentan que los países industrializados generaron la mayor parte de las emisiones históricas y deben asumir mayor carga financiera y tecnológica ("deuda climática").
+Los países desarrollados suelen aceptar el principio pero discuten su alcance práctico, y algunos señalan que potencias emergentes (China, India) ya son grandes emisores actuales.
+El principio de "responsabilidades comunes pero diferenciadas" (CBDR, reconocido en la CMNUCC) intenta equilibrar ambas posturas, aunque su aplicación concreta sigue siendo objeto de negociación en cada COP.
+
+3. ¿Se traducen los acuerdos en políticas nacionales concretas?
+En la práctica, el cumplimiento es desigual: algunos países (ej. varios de la UE) han integrado metas climáticas en su legislación; otros presentan compromisos (NDC) poco ambiciosos o no vinculantes. La falta de mecanismos de cumplimiento obligatorio en el Acuerdo de París (a diferencia del Protocolo de Kioto) es señalada tanto como debilidad (falta de fuerza) como fortaleza (permitió mayor adhesión de países).
+-->
+
+!!! question "Las tres dimensiones de la sostenibilidad (ambiental, social, económica)"
+    - ¿Se le da igual peso a las tres dimensiones en la práctica, o predomina la dimensión económica sobre la ambiental y social?
+    - ¿Cómo se mide el "progreso" en sostenibilidad más allá del PIB? ¿Son útiles indicadores alternativos como el Índice de Progreso Social o la Huella Ecológica?
+
+<!-- 
+Sobre las tres dimensiones de la sostenibilidad
+
+1. ¿Se le da igual peso a las tres dimensiones?
+La mayoría de análisis académicos coinciden en que, en la práctica, la dimensión económica suele predominar, porque los indicadores de éxito político y empresarial siguen centrados en el PIB y la rentabilidad. Las dimensiones social y ambiental muchas veces se tratan como "externalidades" a mitigar, no como ejes centrales de la toma de decisiones.
+
+¿Son útiles indicadores alternativos al PIB?
+
+2. A favor: indicadores como el Índice de Progreso Social, la Huella Ecológica o el Índice de Desarrollo Humano capturan dimensiones de bienestar que el PIB ignora (desigualdad, salud, medio ambiente).
+Objeción: son más complejos de calcular, menos comparables entre países, y no siempre reemplazan al PIB en la toma de decisiones porque los mercados financieros siguen priorizando indicadores económicos tradicionales.
+Respuesta de síntesis: probablemente lo más realista sea usar paneles de indicadores complementarios en vez de buscar un único sustituto del PIB.
+-->
+
+!!! question "Actores y responsabilidades"
+    - ¿Quién debe liderar la transición hacia la sostenibilidad: los gobiernos, las empresas, la sociedad civil o los organismos internacionales?
+    - ¿El fenómeno del "greenwashing" debilita la credibilidad de los marcos y certificaciones de sostenibilidad?
+    - ¿Qué papel deben jugar las corporaciones multinacionales frente a marcos que, en principio, son de adhesión voluntaria?
+
+<!-- 
+Sobre actores y responsabilidades
+
+1. ¿Quién debe liderar la transición?
+
+Argumento a favor del liderazgo estatal: los gobiernos tienen la capacidad regulatoria y fiscal para imponer reglas vinculantes.
+Argumento a favor del sector privado: las empresas tienen los recursos, tecnología y capacidad de escala para implementar cambios rápidos.
+Argumento a favor de la sociedad civil: los movimientos sociales han sido históricamente el motor que presiona a gobiernos y empresas a actuar (ej. movimientos climáticos juveniles).
+La postura más extendida en la literatura es que se requiere una gobernanza "multinivel" o "multisectorial", donde ningún actor puede lograrlo solo.
+
+2. ¿El "greenwashing" debilita la credibilidad de los marcos?
+Sí, es un consenso bastante amplio: numerosos estudios y casos mediáticos muestran empresas que usan certificaciones de sostenibilidad como estrategia de marketing sin cambios sustanciales. Esto genera escepticismo del consumidor y presiona a que surjan regulaciones más estrictas sobre reporte de sostenibilidad (como la normativa CSRD de la UE).
+
+3. ¿Qué papel deben jugar las multinacionales frente a marcos voluntarios?
+
+Postura optimista: la presión de inversores (criterios ESG), consumidores y reputación empresarial puede generar cambios reales incluso sin obligación legal.
+Postura escéptica: sin regulación vinculante, las empresas tienden a priorizar el cumplimiento mínimo o solo declarativo, especialmente cuando implica costos de corto plazo. 
+-->
+
+!!! question "Sobre desafíos y críticas a los marcos actuales"
+    - ¿Los marcos internacionales de sostenibilidad reproducen relaciones de poder desiguales entre el Norte y el Sur global?
+    - ¿Es posible alcanzar los ODS para 2030, dado el contexto actual de crisis climática, conflictos geopolíticos y desigualdad creciente?
+    - ¿Qué alternativas o complementos existen a los marcos dominantes (por ejemplo, el "Buen Vivir" en América Latina, o el decrecimiento)?
+
+<!-- 
+Sobre desafíos y críticas a los marcos actuales
+
+1. ¿Reproducen los marcos desigualdades Norte-Sur?
+Este es un debate genuinamente abierto en la literatura de estudios del desarrollo:
+
+Quienes lo afirman señalan que los marcos fueron diseñados principalmente por y para intereses de países desarrollados, y que imponen estándares (ej. certificaciones ambientales) que pueden limitar el desarrollo industrial de países pobres.
+Quienes lo niegan o matizan argumentan que los ODS fueron negociados con participación amplia de países del Sur Global y que ofrecen financiamiento y transferencia tecnológica (aunque insuficiente) para compensar asimetrías.
+
+2. ¿Es posible cumplir los ODS para 2030?
+La evidencia de seguimiento de la ONU (informes anuales) indica que la mayoría de las metas están retrasadas o estancadas, agravado por la pandemia, conflictos y crisis económicas. La postura predominante entre analistas es que el cumplimiento total para 2030 es poco probable, aunque el marco puede extenderse o servir de base para una "Agenda post-2030".
+
+3. ¿Qué alternativas existen a los marcos dominantes?
+
+El "Buen Vivir" (Sumak Kawsay) en países andinos propone una relación armónica con la naturaleza distinta del paradigma desarrollista occidental.
+El decrecimiento (degrowth) cuestiona la idea misma de "desarrollo sostenible" y propone reducir deliberadamente la producción y el consumo en economías ricas.
+Estos enfoques son valorados por ofrecer visiones alternativas, pero criticados por su difícil aplicación a gran escala o su tensión con la reducción de la pobreza en países en desarrollo.
+-->
+
+!!! questin "Aplicación local"
+    - ¿Cómo se traducen estos marcos globales a la realidad de una comunidad, empresa o país específico?
+    - ¿Qué barreras (financieras, políticas, culturales) impiden que estos marcos se implementen efectivamente a nivel local?
+
+<!-- 
+Sobre aplicación local
+
+1. ¿Cómo se traducen los marcos globales a la realidad local?
+Usualmente mediante planes nacionales de desarrollo que "aterrizan" los ODS en metas específicas, indicadores locales y presupuestos públicos. Sin embargo, la traducción es desigual: depende de la voluntad política, la capacidad institucional y la disponibilidad de datos para monitorear el progreso.
+
+1. ¿Qué barreras impiden la implementación efectiva?
+
+Financieras: falta de presupuesto público y dificultad de acceso a financiamiento climático internacional.
+Políticas: cambios de gobierno que alteran prioridades, corrupción, falta de continuidad de políticas de largo plazo.
+Culturales: resistencia al cambio de hábitos de consumo o producción, desconocimiento del marco por parte de la ciudadanía.
+Técnicas: falta de datos confiables para medir indicadores de sostenibilidad en muchos países.  
+-->
+
+---
+
+| **Licencia Creative Commons:** | |
+| - | - |
+| ![alt text](../../../../assets/by-nc-nd-eu_.png) { .by-nc-nd-eu_ } | **Reconocimiento-NoComercial-CompartirIgual CC BY-NC-SA:**  No se permite un uso comercial de la obra original ni de las posibles obras derivadas, la distribución de la cuales se debe hace con una licencia igual a la que regula la obra original.
+
+<!-- Ra1 c https://www.youtube.com/watch?v=0hlIl9mhCXE&list=PLy_p4f0UmJpYVdYTPDn7sRnoLI3fGJpe2&index=6 -->
+<!-- ra1 b https://www.youtube.com/watch?v=-GozBVKAioI&list=PLy_p4f0UmJpYVdYTPDn7sRnoLI3fGJpe2&index=7 -->
+<!-- ra1 a https://www.youtube.com/watch?v=nmIhqAbBkqk&list=PLy_p4f0UmJpYVdYTPDn7sRnoLI3fGJpe2&index=8  -->
+<!-- https://www.un.org/sustainabledevelopment/es/2023/08/fast-facts/ -->
+<!-- https://www.sostenibilidad.com/desarrollo-sostenible/5-curiosos-inventos-sostenibles -->

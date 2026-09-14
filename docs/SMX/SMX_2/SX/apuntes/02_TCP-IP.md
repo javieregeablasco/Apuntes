@@ -278,7 +278,7 @@ Para determinar la clase de una dirección IP (según el sistema clásico de cla
     Escribe la máscara de subred por defecto correspondiente a cada una de estas direcciones IP's.
     !!! tip "Identificar primero la clase de red a la que pertenece la IP"
     |Dirección IP|Clase|Máscara|
-    ||||
+    ||:-:||
     |177.100.18.4|B|255.255.0.0|
     |119.18.45.0|A|255.0.0.0|
     |191.249.234.191|||
