@@ -331,11 +331,11 @@ Las máscaras de subred por defecto según la clase de IP son:
     Con la ayuda de las definiciones de los apartados anteriores, responder a las siguientes preguntas.  
 
     1. Proponer una IP de una red de clase C.
-    2. Calcular la dirección de red.  
-    3. Calcular la dirección de broadcast.
-    4. ¿Cuántos hosts admite esa red?
-    5. ¿Qué ocurre si, desde cualquier IP de la red, envío un paquete a la dirección de broadcast?
-    6. ¿Pueden, teorícamente, ser enrutados hacia internet los paquetes emitidos por la IP de tipo 127.0.0.80?
+    1. Calcular la dirección de red.  
+    1. Calcular la dirección de broadcast.
+    1. ¿Cuántos hosts admite esa red?
+    1. ¿Qué ocurre si, desde cualquier IP de la red, envío un paquete a la dirección de broadcast?
+    1. ¿Pueden, teorícamente, ser enrutados hacia internet los paquetes emitidos por la IP de tipo 127.0.0.80?
 
 <!--
 1. 192.168.1.50
@@ -404,7 +404,7 @@ Ejercicio 7
 Puerta de enlace (IGW)
 -->
 
-#### 2.2.7 Métodos de transmisión
+#### 2.2.8 Métodos de transmisión
 
 En una red IP, un paquete puede enviarse siguiendo distintos métodos de transmisión según cuántos destinatarios deban recibirlo. La elección del método influye directamente en el uso del ancho de banda y en el diseño de aplicaciones como streaming, videoconferencias o descubrimiento de dispositivos.
 
@@ -420,151 +420,35 @@ La información se envía a todos los dispositivos de la subred. Como se explic�
         - Solicitudes **DHCP (el cliente no conoce aún la IP del servidor)**, resolución de direcciones con ARP (para averiguar qué MAC corresponde a una IP).
         - Desventaja: genera tráfico innecesario en dispositivos que no están interesados en el paquete, y en redes grandes puede provocar problemas de rendimiento (broadcast storms).
 
-#### 2.2.8 Subnetting
+#### 2.2.9 Subnetting
 
 - El subnetting es un proceso fundamental en la administración de redes que permite dividir una red grande en varias subredes más pequeñas.
+
 - Este proceso optimiza el uso de direcciones IP, mejora la seguridad y facilita la gestión de redes complejas.
 
-El subnetting es la práctica de **dividir una red IP grande en subredes más pequeñas** y eficientes.  
+- Se logra "prestando" bits de la parte de host para aumentar el número de subredes disponibles.  
 
-Sus metas principales son mejorar el rendimiento, aumentar la seguridad y organizar mejor los dispositivos.
+!!! tip "Conceptos Clave del Subnetting"
+    - **Notación CIDR:**  
+    Usa un sufijo (como /24) para mostrar de forma rápida cuántos bits forman la red.
+    - **Máscara de subred:**  
+    Indica qué parte de la dirección IP identifica a la red y qué parte identifica a los equipos o hosts.
+    - **IP de red y de broadcast:**  
+    Las direcciones primera y última de cada subred se reservan para identificar la red y para enviar mensajes generales, por lo que no se pueden dar a los equipos.
 
-Se logra "prestando" bits de la parte de host para aumentar el número de subredes disponibles.  
-
-**Conceptos Clave del Subnetting**  
-
-- **Máscara de subred:**
-Indica qué parte de la dirección IP identifica a la red y qué parte identifica a los equipos o hosts.
-- **Notación CIDR:**  
-Usa un sufijo (como /24) para mostrar de forma rápida cuántos bits forman la red.
-- **IP de red y de broadcast:**  
-Las direcciones primera y última de cada subred se reservan para identificar la red y para enviar mensajes generales, por lo que no se pueden dar a los equipos.
-
-**Ventajas de dividir una red:**  
-
-- **Menos tráfico:** al haber menos equipos por sección, los datos viajan más rápido y sin choques de información.
-- **Más seguridad:** permite separar departamentos (como administración o ventas) y limitar el acceso entre ellos.- **Ahorro de IP:** ayuda a aprovechar mejor los recursos de direcciones disponibles.
+!!! tip "Ventajas de dividir una red"
+    - **Menos tráfico:**  
+    Al haber menos equipos por sección, los datos viajan más rápido y sin choques de información.
+    - **Más seguridad:**  
+    Permite separar departamentos (como administración o ventas) y limitar el acceso entre ellos.- **Ahorro de IP:** ayuda a aprovechar mejor los recursos de direcciones disponibles.
 
 [**Calculadora IP**](https://www.aprendaredes.com/cgi-bin/ipcalc/ipcalc_cgi1)
 
 #### 2.2.9 Ejercicios de redes y de subnetting
 
-<!-- !!! exercise "Ejercicio 1"
-    Definir la clase de red de las sigientes IP's.
-
-    |Dirección IP|Clase|
-    ||:-:|
-    |10.250.1.1|A|
-    |150.10.15.0|B|
-    |192.14.2.0||
-    |148.17.9.1||
-    |193.42.1.1||
-    |126.8.156.0||
-    |220.200.23.1||
-    |230.230.45.58||
-    |177.100.18.4||
-    |119.18.45.0||
-    |249.240.80.78||
-    |199.155.77.56||
-    |117.89.56.45||
-    |215.45.45.0||
-    |199.200.15.0||
-    |95.0.21.90||
-    |33.0.0.0||
-    |158.98.80.0||
-    |219.21.56.0|| -->
-
-<!-- 
-Para determinar la clase de una dirección IP (según el sistema clásico de clases *Classful*), basta con observar el valor del **primer octeto** de la dirección:
-
-* **Clase A:** 1 a 126 (bits de inicio `0`)
-* **Clase B:** 128 a 191 (bits de inicio `10`)
-* **Clase C:** 192 a 223 (bits de inicio `110`)
-* **Clase D (Multicast):** 224 a 239 (bits de inicio `1110`)
-* **Clase E (Investigación):** 240 a 255 (bits de inicio `1111`)
-
-### Tabla resuelta
-
-| Dirección IP | Clase | Justificación (Primer Octeto) |
-| --- | --- | --- |
-| **10.250.1.1** | **A** | 10 está en el rango 1 - 126 |
-| **150.10.15.0** | **B** | 150 está en el rango 128 - 191 |
-| **192.14.2.0** | **C** | 192 está en el rango 192 - 223 |
-| **148.17.9.1** | **B** | 148 está en el rango 128 - 191 |
-| **193.42.1.1** | **C** | 193 está en el rango 192 - 223 |
-| **126.8.156.0** | **A** | 126 está en el rango 1 - 126 |
-| **220.200.23.1** | **C** | 220 está en el rango 192 - 223 |
-| **230.230.45.58** | **D** | 230 está en el rango 224 - 239 (Multicast) |
-| **177.100.18.4** | **B** | 177 está en el rango 128 - 191 |
-| **119.18.45.0** | **A** | 119 está en el rango 1 - 126 |
-| **249.240.80.78** | **E** | 249 está en el rango 240 - 255 (Investigación) |
-| **199.155.77.56** | **C** | 199 está en el rango 192 - 223 |
-| **117.89.56.45** | **A** | 117 está en el rango 1 - 126 |
-| **215.45.45.0** | **C** | 215 está en el rango 192 - 223 |
-| **199.200.15.0** | **C** | 199 está en el rango 192 - 223 |
-| **95.0.21.90** | **A** | 95 está en el rango 1 - 126 |
-| **33.0.0.0** | **A** | 33 está en el rango 1 - 126 |
-| **158.98.80.0** | **B** | 158 está en el rango 128 - 191 |
-| **219.21.56.0** | **C** | 219 está en el rango 192 - 223 |
--->
-
-<!-- !!! exercise "Ejercicio 2"
-    Escribe la máscara de subred por defecto correspondiente a cada una de estas direcciones IP's.
-    !!! tip "Identificar primero la clase de red a la que pertenece la IP"
-    |Dirección IP|Clase|Máscara|
-    ||||
-    |177.100.18.4|B|255.255.0.0|
-    |119.18.45.0|A|255.0.0.0|
-    |191.249.234.191|||
-    |223.23.223.109|||
-    |10.10.250.1|||
-    |126.123.23.1|||
-    |223.69.230.250|||
-    |192.12.35.105|||
-    |77.251.200.51|||
-    |189.210.50.1|||
-    |88.45.65.35|||
-    |128.212.250.254|||
-    |193.100.77.83|||
-    |125.125.250.1|||
-    |1.1.10.50|||
-    |220.90.130.45|||
-    |134.125.34.9|||
-    |95.250.91.99||| -->
-
-<!-- 
-Las máscaras de subred por defecto según la clase de IP son:
-
-- **Clase A:** `255.0.0.0` (primer octeto entre 1 y 126)
-- **Clase B:** `255.255.0.0` (primer octeto entre 128 y 191)
-- **Clase C:** `255.255.255.0` (primer octeto entre 192 y 223)
-
-| Dirección IP | Clase | Máscara |
-| --- | --- | --- |
-| **177.100.18.4** | **B** | `255.255.0.0` |
-| **119.18.45.0** | **A** | `255.0.0.0` |
-| **191.249.234.191** | **B** | `255.255.0.0` |
-| **223.23.223.109** | **C** | `255.255.255.0` |
-| **10.10.250.1** | **A** | `255.0.0.0` |
-| **126.123.23.1** | **A** | `255.0.0.0` |
-| **223.69.230.250** | **C** | `255.255.255.0` |
-| **192.12.35.105** | **C** | `255.255.255.0` |
-| **77.251.200.51** | **A** | `255.0.0.0` |
-| **189.210.50.1** | **B** | `255.255.0.0` |
-| **88.45.65.35** | **A** | `255.0.0.0` |
-| **128.212.250.254** | **B** | `255.255.0.0` |
-| **193.100.77.83** | **C** | `255.255.255.0` |
-| **125.125.250.1** | **A** | `255.0.0.0` |
-| **1.1.10.50** | **A** | `255.0.0.0` |
-| **220.90.130.45** | **C** | `255.255.255.0` |
-| **134.125.34.9** | **B** | `255.255.0.0` |
-| **95.250.91.99** | **A** | `255.0.0.0` |
- -->
-
 !!! exercise "Ejercicio 1"
     1. Disponemos de la dirección de red: `172.16.0.0/16`
     1. Determinar:
-        - Clase:
         - Máscara de Subred (por defecto):
         - Nº total de direcciones de host:
         - Nº de direcciones útiles:
@@ -573,7 +457,6 @@ Las máscaras de subred por defecto según la clase de IP son:
     1. Disponemos de la dirección de red: `172.16.0.0/16`
     1. Se desea montar 2 subredes útiles sobre esa red.
     1. Se desea saber:
-        1. Clase:
         1. Máscara de subred por defecto:
         1. Máscara de subred adaptada:
         1. Nº total de subredes:
@@ -603,7 +486,6 @@ Solución según el estándar actual (RFC 1878)
     1. Disponemos de la dirección de red: `116.0.0.0`
     1. Se desea montar 126 subredes útiles sobre esa red.
     1. Se desea saber:
-        1. Clase:
         1. Máscara de subred por defecto:
         1. Máscara de subred adaptada a las 126 subredes:
         1. Nº de bits cogidos:  
@@ -643,7 +525,6 @@ Solución según el estándar actual (RFC 1878)
     1. Disponemos de la dirección de red: `199.95.30.0`
     1. Se desea montar 62 subredes útiles sobre esa red.
     1. Se desea saber:
-        1. Clase:
         1. Máscara de subred por defecto:
         1. Máscara de subred adaptada a las 126 subredes:
         1. Nº de bits cogidos:  
@@ -679,35 +560,36 @@ Solución del ejercicio
 
 ## 3 - Protocolo TCP
 
-El protocolo TCP (Transmission Control Protocol o Protocolo de Control de Transmisión) es uno de los pilares fundamentales de las redes informáticas e internet. Junto con IP, forma la base de la suite de protocolos TCP/IP sobre la que funciona la comunicación en internet.
+- El protocolo TCP (Transmission Control Protocol o Protocolo de Control de Transmisión) es uno de los pilares fundamentales de las redes informáticas e internet. Junto con IP, forma la base de la suite de protocolos TCP/IP sobre la que funciona la comunicación en internet.
 
-TCP es el mecanismo que controla las transmisiones de datos y se asegura de que los paquetes enviados entre dispositivos lleguen completos, en orden y sin cambios. A diferencia de otros protocolos de transporte como UDP, TCP prioriza la fiabilidad sobre la velocidad.
+- TCP es el mecanismo que controla las transmisiones de datos y se asegura de que los paquetes enviados entre dispositivos lleguen completos, en orden y sin cambios. A diferencia de otros protocolos de transporte como UDP, TCP prioriza la fiabilidad sobre la velocidad.
 
 ### 3.1 Modelo cliente-servidor en TCP
 
-En este modelo la comunicación se establece entre un cliente y un servidor. El cliente es quien inicia la comunicación solicitando un servicio o recurso, mientras que el servidor es quien responde a esas solicitudes proporcionando los datos o servicios requeridos.
+- En este modelo la comunicación se establece entre un cliente y un servidor. El cliente es quien inicia la comunicación solicitando un servicio o recurso, mientras que el servidor es quien responde a esas solicitudes proporcionando los datos o servicios requeridos.
 
-Este modelo es el más habitual en internet: por ejemplo, cuando un navegador (cliente) solicita una página web a un servidor web.
+- Este modelo es el más habitual en internet: por ejemplo, cuando un navegador (cliente) solicita una página web a un servidor web.
 
 ### 3.2 Modelo P2P en TCP
 
-En este modelo, todos los nodos de la red actúan como iguales, es decir, cada nodo puede funcionar tanto como cliente como servidor. Esto permite que los nodos compartan recursos directamente entre sí sin necesidad de un servidor centralizado.
+- En este modelo, todos los nodos de la red actúan como iguales, es decir, cada nodo puede funcionar tanto como cliente como servidor. Esto permite que los nodos compartan recursos directamente entre sí sin necesidad de un servidor centralizado.
 
-Este modelo se utiliza, por ejemplo, en redes de intercambio de archivos, donde cada usuario puede tanto descargar como distribuir fragmentos del mismo archivo.
+- Este modelo se utiliza, por ejemplo, en redes de intercambio de archivos, donde cada usuario puede tanto descargar como distribuir fragmentos del mismo archivo.
 
 ### 3.3 Segmentación y reensamblaje de datos
 
-Entre otros mecanismos, TCP se encarga de **dividir** las transmisiones en pequeños fragmentos llamados segmentos (comúnmente denominados también paquetes, aunque técnicamente el segmento es la unidad de TCP y el paquete la de IP), para que puedan ser transferidos de manera eficiente por la red.
+- Entre otros mecanismos, TCP se encarga de **dividir** las transmisiones en pequeños fragmentos llamados segmentos (comúnmente denominados también paquetes, aunque técnicamente el segmento es la unidad de TCP y el paquete la de IP), para que puedan ser transferidos de manera eficiente por la red.
 
-Cada segmento incluye un número de secuencia que permite identificar su posición dentro del flujo original de datos. Gracias a esta numeración, TCP puede reensamblar los segmentos en el orden correcto en el destino, incluso si llegan desordenados por la red.
+- Cada segmento incluye un número de secuencia que permite identificar su posición dentro del flujo original de datos. Gracias a esta numeración, TCP puede reensamblar los segmentos en el orden correcto en el destino, incluso si llegan desordenados por la red.
 
 ### 3.4 Establecimiento de la conexión (three-way handshake)
 
-El three-way handshake es un proceso que actúa como saludo inicial entre el cliente y el servidor. Consiste en el intercambio de tres mensajes que permiten a ambas partes confirmar que están preparadas para realizar una transmisión fiable.
+1. El three-way handshake es un proceso que actúa como saludo inicial entre el cliente y el servidor.
+1. Consiste en el intercambio de tres mensajes que permiten a ambas partes confirmar que están preparadas para realizar una transmisión fiable.
 
-- **SYN:** el cliente envía un mensaje de sincronización al servidor para comprobar que está disponible y solicitar el inicio de la conexión.
-- **SYN-ACK:** el servidor responde confirmando que está listo para recibir datos y que ha recibido la solicitud del cliente.
-- **ACK:** el cliente confirma la recepción de la respuesta del servidor, y a partir de este momento ambos pueden comenzar a intercambiar datos.
+    - **SYN:** el cliente envía un mensaje de sincronización al servidor para comprobar que está disponible y solicitar el inicio de la conexión.
+    - **SYN-ACK:** el servidor responde confirmando que está listo para recibir datos y que ha recibido la solicitud del cliente.
+    - **ACK:** el cliente confirma la recepción de la respuesta del servidor, y a partir de este momento ambos pueden comenzar a intercambiar datos.
 
 ### 3.5 Control de flujo y gestión de errores en TCP
 
@@ -720,21 +602,23 @@ Una vez iniciada la comunicación, TCP se encarga de controlar el flujo de datos
 
 ### 3.6 Finalización de la conexión TCP
 
-Cuando la transferencia de datos ha finalizado, el protocolo todavía debe cerrar la conexión de forma ordenada. En este proceso, tanto cliente como servidor intercambian mensajes de FIN (finalización) y ACK (confirmación), en un proceso que suele denominarse four-way handshake, ya que cada extremo debe cerrar su propio flujo de datos de manera independiente. Esto garantiza que ambas partes hayan terminado de enviar y recibir información antes de cerrar la comunicación por completo.
+- Cuando la transferencia de datos ha finalizado, el protocolo todavía debe cerrar la conexión de forma ordenada.
+- En este proceso, tanto cliente como servidor intercambian mensajes de FIN (finalización) y ACK (confirmación), en un proceso que suele denominarse four-way handshake, ya que cada extremo debe cerrar su propio flujo de datos de manera independiente.
+- Esto garantiza que ambas partes hayan terminado de enviar y recibir información antes de cerrar la comunicación por completo.
 
 ### 3.7 Principales características del protocolo TCP
 
-1. **Confiabilidad en la transmisión de datos**
+1. **Confiabilidad en la transmisión de datos**  
 TCP garantiza que los datos lleguen sin errores y en el orden correcto, resolviendo los posibles fallos que puedan surgir por el camino. Si un paquete se pierde y no llega al destino, TCP se encarga de reenviarlo automáticamente.
-1. **Orientación a conexión**
+1. **Orientación a conexión**  
 TCP gestiona todo el proceso de conexión entre los integrantes de la transmisión. Es decir, antes de transferir datos, TCP establece una conexión formal (mediante el three-way handshake) que se mantiene activa durante todo el intercambio.
-1. **Control de congestión en la red**
+1. **Control de congestión en la red**  
 Las redes pueden llegar a congestionarse. En esos casos, TCP es capaz de ajustar la velocidad de transmisión según las condiciones de la red, evitando fallos debidos a saturaciones y adaptándose dinámicamente mediante algoritmos como el slow start o el congestion avoidance.
-1. **Garantía de entrega de datos en el orden correcto**
+1. **Garantía de entrega de datos en el orden correcto**  
 Otro aspecto que asegura el protocolo es que los datos lleguen en el orden en que fueron enviados. Gracias a ello, es posible recomponerlos correctamente una vez llegan al cliente, incluso si los segmentos han tomado rutas distintas por la red.
-1. **Compatibilidad con otros protocolos de la capa de transporte**
+1. **Compatibilidad con otros protocolos de la capa de transporte**  
 TCP es un protocolo robusto y flexible, capaz de servir de base a muchos otros protocolos más specializados. TCP se encarga del transporte de las comunicaciones de protocolos tan conocidos como HTTP, FTP, SMTP, SSH y muchos otros.
-1. **Casos de uso del protocolo TCP**
+1. **Casos de uso del protocolo TCP**  
 
     - **Protocolo de mensajes de control de Internet (ICMP)**
     El rol de ICMP es enviar mensajes de error e información operativa cada vez que ocurre un problema.
@@ -746,11 +630,11 @@ TCP es un protocolo robusto y flexible, capaz de servir de base a muchos otros p
     FTP permite transferir archivos de un cliente a un servidor. Por ejemplo, este protocolo es lo que nos permite acceder a los datos almacenados en la nube, lee más sobre «lo que es un iPaaS» para obtener más información.
     - **Protocolo de transferencia de hipertexto (HTTP/HTTPS)**  
     Comúnmente conocido como el ancestro de HTTPS, sólo que con menos seguridad de datos, HTTP es lo que hace posible la interacción entre el cliente y el servidor web. A menudo se le considera como la base para la comunicación de datos.
-    - **Protocolo simple de transferencia de correo (SMTP, IMAP y POP3)**
+    - **Protocolo simple de transferencia de correo (SMTP, IMAP y POP3)**  
     Los SMTP permiten que los ordenadores y los servidores intercambien datos para que los usuarios puedan enviar y recibir correo electrónico.  
     Los IMAP permiten que los usuarios accedan a sus correos electrónicos desde múltiples dispositivos, manteniendo los mensajes sincronizados en todos ellos. Por otro lado, los POP3 permiten que los usuarios descarguen sus correos electrónicos desde el servidor a su dispositivo local, eliminando los mensajes del servidor después de la descarga.  
     Los POP3 son más simples y ligeros, pero no permiten la sincronización entre dispositivos, mientras que los IMAP ofrecen una experiencia más completa y flexible para la gestión del correo electrónico.
-    - **Aplicaciones de streaming que requieren fiabilidad en la entrega**
+    - **Aplicaciones de streaming que requieren fiabilidad en la entrega**  
     Los servicios de streaming, como la transmisión de video o audio en tiempo real, requieren que los datos lleguen de manera confiable y en el orden correcto. TCP garantiza que los paquetes de datos se entreguen sin errores, lo que es crucial para mantener la calidad del contenido transmitido.
     - **Conexiones seguras en redes empresariales (SSH, VPN)**  
     SSH (Secure Shell) y las VPN (Virtual Private Network) utilizan TCP para establecer conexiones seguras y cifradas entre dispositivos. Esto es esencial para proteger la información sensible durante la transmisión a través de redes públicas o no confiables.
@@ -812,7 +696,7 @@ TCP es un protocolo robusto y flexible, capaz de servir de base a muchos otros p
 | 3389   | RDP (Remote Desktop Protocol) | TCP | Acceso remoto al escritorio de equipos Windows. | Registrado |
 -->
 !!! exercise "Ejercicio 2"
-    ¿Por qué DNS o DHCP usan UDP en lugar de TCP?**
+    - ¿Por qué DNS o DHCP usan UDP en lugar de TCP?
 
 <!--
 UDP es más rápido porque no establece conexión previa ni verifica la entrega (no hay *handshake* ni confirmaciones), lo cual es ideal para consultas breves y frecuentes como resolver un nombre de dominio o solicitar una IP al conectarse a una red. DNS usa UDP para consultas normales (por velocidad), pero recurre a TCP cuando la respuesta es demasiado grande para un solo paquete UDP o para transferencias de zona entre servidores DNS, donde sí es necesaria la fiabilidad de TCP.
@@ -824,7 +708,7 @@ UDP es más rápido porque no establece conexión previa ni verifica la entrega 
 <!-- El puerto 80 (HTTP) transmite los datos en texto plano, sin cifrar, por lo que cualquier persona que intercepte el tráfico podría leer la información (contraseñas, datos personales, etc.). El puerto 443 (HTTPS) añade una capa de cifrado mediante TLS/SSL, protegiendo la confidencialidad e integridad de los datos, además de autenticar la identidad del servidor mediante certificados digitales. -->
 
 !!! exercise "Ejercicio 4"
-    ¿Por qué Telnet (23) es inseguro frente a SSH (22)?
+    - ¿Por qué Telnet (23) es inseguro frente a SSH (22)?
 
 <!-- Telnet transmite toda la información, incluidas las credenciales de acceso, en texto plano, por lo que es vulnerable a ataques de interceptación (*sniffing*). SSH, en cambio, cifra toda la comunicación de extremo a extremo, incluye mecanismos de autenticación más robustos (contraseñas cifradas o claves públicas/privadas) y protege contra ataques de intermediario (*man-in-the-middle*). Por eso SSH ha sustituido prácticamente por completo a Telnet en la administración remota de sistemas. -->
 
@@ -837,7 +721,7 @@ UDP es más rápido porque no establece conexión previa ni verifica la entrega 
 !!! exercise "Ejercicio 6"
     - ¿Cuales son los riesgos de tener puertos abiertos innecesariamente.
 
-<!-- Cada puerto abierto es una posible puerta de entrada para un atacante: si el servicio asociado tiene una vulnerabilidad, puede ser explotada para acceder al sistema, robar datos o instalar malware. El **escaneo de puertos** (*port scanning*) es una técnica (usada tanto por atacantes como por administradores de seguridad) que consiste en analizar un equipo o red para detectar qué puertos están abiertos y qué servicios están escuchando en ellos, con el fin de identificar posibles vulnerabilidades explotables. Por eso una buena práctica de seguridad es cerrar o filtrar (mediante firewall) todos los puertos que no sean estrictamente necesarios. --> -->
+<!-- Cada puerto abierto es una posible puerta de entrada para un atacante: si el servicio asociado tiene una vulnerabilidad, puede ser explotada para acceder al sistema, robar datos o instalar malware. El **escaneo de puertos** (*port scanning*) es una técnica (usada tanto por atacantes como por administradores de seguridad) que consiste en analizar un equipo o red para detectar qué puertos están abiertos y qué servicios están escuchando en ellos, con el fin de identificar posibles vulnerabilidades explotables. Por eso una buena práctica de seguridad es cerrar o filtrar (mediante firewall) todos los puertos que no sean estrictamente necesarios. --> 
 
 <!-- 
 https://www.manageengine.com/latam/oputils/direcciones-ip-fundamentos.html 
