@@ -141,7 +141,8 @@ nav:
 
   - Sostenibilidad:
     - Presentación módulo: SMX/SMX_2/Sostenibilidad/00_Temario.md
-    - ASG: SMX/SMX_2/Sostenibilidad/01_RA1.md
+    - ASG: SMX/SMX_2/Sostenibilidad/01_RA1_ab.md
+    # - Agenda 2030: SMX/SMX_2/Sostenibilidad/02_RA1_cd.md
 
 extra: 
     generator: false #eliminar el made with""

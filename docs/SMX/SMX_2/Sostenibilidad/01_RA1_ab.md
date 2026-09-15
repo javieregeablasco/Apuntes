@@ -10,7 +10,7 @@ keywords: SMX, SMR, SOST
 schedule: 1h/w
 ---
 
-![Descripción de la imagen](./img_1/img_1_1.png){ .img1 }
+![Descripción de la imagen](./img_1/img_1_1.png){ .sietecinco }
   
 **Resultados de aprendizaje y criterios de evaluacion que se evaluarán en esta unidad.**  
 
@@ -25,14 +25,15 @@ schedule: 1h/w
 
 ## 1 - Desarrollo Sostenible
 
-![Descripción de la imagen](./img_1/img_1_2.png){ .img1 }
+![Descripción de la imagen](./img_1/img_1_2.png){ .original .marco }
 
 ### 1. 1 Concepto de desarrollo sostenible
 
-- El concepto de desarrollo sostenible tiene sus raíces institucionales en el **Informe Brundtland (1987)**, donde se formuló como "aquel que satisface las necesidades del presente sin comprometer la capacidad de las futuras generaciones para satisfacer sus propias necesidades".
-- Las tres dimensiones integradas: Requiere mantener un equilibrio simultáneo entre tres pilares: crecimiento económico, inclusión social y protección del medio ambiente. Si alguno de estos tres pilares falla, el desarrollo no puede sostenerse en el tiempo.
-- Condiciones e impacto: Un desarrollo sostenible garantiza que todas las personas tengan acceso a trabajo digno, atención sanitaria y educación de calidad, al tiempo que las decisiones de políticas públicas aseguran que nadie quede atrás por discriminación y que el uso de los recursos naturales evite la contaminación.
-- Contraste con el desarrollo insostenible: El desarrollo insostenible surge cuando se buscan beneficios o gratificaciones inmediatas a corto plazo sin considerar los daños a largo plazo, originando problemas como el cambio climático, la pobreza, el hambre y la inestabilidad social.
+- El concepto de desarrollo sostenible tiene sus raíces institucionales en el **Informe Brundtland (1987)**, donde se formuló como "**aquel que satisface las necesidades del presente sin comprometer la capacidad de las futuras generaciones para satisfacer sus propias necesidades**".
+- **Las tres dimensiones integradas:** Requiere mantener un equilibrio simultáneo entre tres pilares: **crecimiento económico, inclusión social y protección del medio ambiente**.  
+Si alguno de estos tres pilares falla, el desarrollo no puede sostenerse en el tiempo.
+- **Condiciones e impacto:** Un desarrollo sostenible garantiza que todas las personas tengan acceso a trabajo digno, atención sanitaria y educación de calidad, al tiempo que las decisiones de políticas públicas aseguran que nadie quede atrás por discriminación y que el uso de los recursos naturales evite la contaminación.
+- **Contraste con el desarrollo insostenible:** El desarrollo insostenible surge cuando se buscan beneficios o gratificaciones inmediatas a corto plazo sin considerar los daños a largo plazo, originando problemas como el cambio climático, la pobreza, el hambre y la inestabilidad social.
 
 ### 1.2 Marcos e Instrumentos Internacionales
 
@@ -53,16 +54,22 @@ La búsqueda de una sostenibilidad real exige abordar de forma simultánea e int
 
 ### 3.1 Aspectos Ambientales (A)
 
-Analizan el impacto que las actividades socioeconómicas ejercen sobre la estabilidad y conservación del medio natural. Se estructuran en torno a:
+Analizan el impacto que las actividades socioeconómicas ejercen sobre la estabilidad y conservación del medio natural. 
+
+Se estructuran en torno a:
 
 - **Respeto a los Límites Planetarios:** Adecuar los sistemas productivos para no sobrepasar los parámetros que garantizan que el planeta siga siendo seguro para la vida humana. Esto requiere actuar sobre los límites que ya han sido superados: el cambio climático, la pérdida de biodiversidad, el cambio de uso del suelo, los ciclos alterados del nitrógeno y del fósforo, la acidificación de océanos y el uso de agua dulce, además de regular la incorporación de nuevas entidades (químicos, plásticos, etc.).
 - **Vivir del "Sol Actual":** Detener la extracción y quema desmesurada de los combustibles fósiles del subsuelo (carbón, petróleo y gas) y de energía nuclear, los cuales alteran la atmósfera y generan residuos peligrosos para miles de generaciones. Implica realizar una reducción drástica del consumo energético general y transitar hacia fuentes renovables descentralizadas y de bajo impacto (energías R3E).
 - **Cierre de Ciclos de Materiales:** Abandonar el metabolismo económico lineal de "usar y tirar" y adaptarlo a la economía circular. Esto requiere erradicar la obsolescencia programada, penalizar el consumo superfluo e imitar a los ecosistemas, donde los residuos de un proceso se convierten en los recursos de otro.
 - **Uso de Recursos en Equilibrio:** Ajustar el consumo material de la actividad productiva para que no supere la capacidad de regeneración o reposición del ecosistema del cual se extrae.
 
+!!! question "Cuántos kilos de materia prima son necesarios para la fabricación de un teléfono móvil"
+
 ### 3.2 Aspectos Sociales (S)
 
-Evalúan la relación de la actividad productiva con el bienestar de los trabajadores, la clientela y las comunidades. No hay sostenibilidad ecológica viable si no viene acompañada de justicia social. Los criterios clave son:
+Evalúan la relación de la actividad productiva con el bienestar de los trabajadores, la clientela y las comunidades. No hay sostenibilidad ecológica viable si no viene acompañada de justicia social. 
+
+Los criterios clave son:
 
 - **Trabajos que Sostienen la Vida:** Garantizar condiciones laborales dignas, seguras y con salarios suficientes que permitan una adecuada conciliación de la vida personal y laboral. Implica valorizar y facilitar el reparto equitativo de los trabajos de cuidados imprescindibles para sostener cotidianamente la salud y el bienestar.
 - **Construcción de Equidad:** Combatir la desigualdad material y social fomentando la predistribución y redistribución de la riqueza, limitando la acumulación opulenta e inmoral por parte de una minoría y garantizando los recursos y derechos básicos de subsistencia para toda la humanidad.
@@ -71,7 +78,9 @@ Evalúan la relación de la actividad productiva con el bienestar de los trabaja
 
 ### 3.3 Aspectos de Gobernanza (G)
 
-Se centran en la transparencia, la estructura organizativa, la participación democrática en la toma de decisiones y el cumplimiento normativo y ético de las organizaciones. Incluyen:
+Se centran en la transparencia, la estructura organizativa, la participación democrática en la toma de decisiones y el cumplimiento normativo y ético de las organizaciones. 
+
+Incluyen:
 
 - **Gestión Democrática y Horizontal:** Reemplazar los modelos de organización jerárquicos por esquemas participativos donde la toma de decisiones sea colectiva y la capacidad de influencia esté repartida equitativamente.
 - **Equidad Salarial Interna:** Fomentar diferencias salariales mínimas o inexistentes entre los salarios más altos y los más bajos de la organización, reconociendo que todos los trabajos cooperan de forma valiosa en los objetivos comunes.
@@ -199,9 +208,9 @@ Argumentos en contra: es ambigua (no define qué "necesidades" ni cómo medir el
 -->
 
 !!! question "Marcos internacionales (ODS, Agenda 2030, Acuerdo de París, etc.)"
-    - ¿Los Objetivos de Desarrollo Sostenible (ODS) son metas realistas o más bien aspiraciones simbólicas sin mecanismos de cumplimiento efectivos?
-    - ¿Qué responsabilidad diferenciada deben asumir los países desarrollados frente a los países en desarrollo en el cumplimiento de estos marcos?
-    - ¿Hasta qué punto los acuerdos internacionales (como el Acuerdo de París) logran traducirse en políticas nacionales concretas y vinculantes?
+    1. ¿Los Objetivos de Desarrollo Sostenible (ODS) son metas realistas o más bien aspiraciones simbólicas sin mecanismos de cumplimiento efectivos?
+    1. ¿Qué responsabilidad diferenciada deben asumir los países desarrollados frente a los países en desarrollo en el cumplimiento de estos marcos?
+    1. ¿Hasta qué punto los acuerdos internacionales (como el Acuerdo de París) logran traducirse en políticas nacionales concretas y vinculantes?
 
 <!-- 
 1. Sobre los marcos internacionales (ODS, Agenda 2030, Acuerdo de París)
@@ -224,8 +233,8 @@ En la práctica, el cumplimiento es desigual: algunos países (ej. varios de la 
 -->
 
 !!! question "Las tres dimensiones de la sostenibilidad (ambiental, social, económica)"
-    - ¿Se le da igual peso a las tres dimensiones en la práctica, o predomina la dimensión económica sobre la ambiental y social?
-    - ¿Cómo se mide el "progreso" en sostenibilidad más allá del PIB? ¿Son útiles indicadores alternativos como el Índice de Progreso Social o la Huella Ecológica?
+    1. ¿Se le da igual peso a las tres dimensiones en la práctica, o predomina la dimensión económica sobre la ambiental y social?
+    1. ¿Cómo se mide el "progreso" en sostenibilidad más allá del PIB? ¿Son útiles indicadores alternativos como el Índice de Progreso Social o la Huella Ecológica?
 
 <!-- 
 Sobre las tres dimensiones de la sostenibilidad
@@ -241,9 +250,9 @@ Respuesta de síntesis: probablemente lo más realista sea usar paneles de indic
 -->
 
 !!! question "Actores y responsabilidades"
-    - ¿Quién debe liderar la transición hacia la sostenibilidad: los gobiernos, las empresas, la sociedad civil o los organismos internacionales?
-    - ¿El fenómeno del "greenwashing" debilita la credibilidad de los marcos y certificaciones de sostenibilidad?
-    - ¿Qué papel deben jugar las corporaciones multinacionales frente a marcos que, en principio, son de adhesión voluntaria?
+    1. ¿Quién debe liderar la transición hacia la sostenibilidad: los gobiernos, las empresas, la sociedad civil o los organismos internacionales?
+    1. ¿El fenómeno del "greenwashing" debilita la credibilidad de los marcos y certificaciones de sostenibilidad?
+    1. ¿Qué papel deben jugar las corporaciones multinacionales frente a marcos que, en principio, son de adhesión voluntaria?
 
 <!-- 
 Sobre actores y responsabilidades
@@ -265,9 +274,9 @@ Postura escéptica: sin regulación vinculante, las empresas tienden a priorizar
 -->
 
 !!! question "Sobre desafíos y críticas a los marcos actuales"
-    - ¿Los marcos internacionales de sostenibilidad reproducen relaciones de poder desiguales entre el Norte y el Sur global?
-    - ¿Es posible alcanzar los ODS para 2030, dado el contexto actual de crisis climática, conflictos geopolíticos y desigualdad creciente?
-    - ¿Qué alternativas o complementos existen a los marcos dominantes (por ejemplo, el "Buen Vivir" en América Latina, o el decrecimiento)?
+    1. ¿Los marcos internacionales de sostenibilidad reproducen relaciones de poder desiguales entre el Norte y el Sur global?
+    1. ¿Es posible alcanzar los ODS para 2030, dado el contexto actual de crisis climática, conflictos geopolíticos y desigualdad creciente?
+    1. ¿Qué alternativas o complementos existen a los marcos dominantes (por ejemplo, el "Buen Vivir" en América Latina, o el decrecimiento)?
 
 <!-- 
 Sobre desafíos y críticas a los marcos actuales
@@ -288,9 +297,9 @@ El decrecimiento (degrowth) cuestiona la idea misma de "desarrollo sostenible" y
 Estos enfoques son valorados por ofrecer visiones alternativas, pero criticados por su difícil aplicación a gran escala o su tensión con la reducción de la pobreza en países en desarrollo.
 -->
 
-!!! questin "Aplicación local"
-    - ¿Cómo se traducen estos marcos globales a la realidad de una comunidad, empresa o país específico?
-    - ¿Qué barreras (financieras, políticas, culturales) impiden que estos marcos se implementen efectivamente a nivel local?
+!!! question "Aplicación local"
+    1. ¿Cómo se traducen estos marcos globales a la realidad de una comunidad, empresa o país específico?
+    1. ¿Qué barreras (financieras, políticas, culturales) impiden que estos marcos se implementen efectivamente a nivel local?
 
 <!-- 
 Sobre aplicación local
@@ -310,7 +319,7 @@ Técnicas: falta de datos confiables para medir indicadores de sostenibilidad en
 
 | **Licencia Creative Commons:** | |
 | - | - |
-| ![alt text](../../../../assets/by-nc-nd-eu_.png) { .by-nc-nd-eu_ } | **Reconocimiento-NoComercial-CompartirIgual CC BY-NC-SA:**  No se permite un uso comercial de la obra original ni de las posibles obras derivadas, la distribución de la cuales se debe hace con una licencia igual a la que regula la obra original.
+| ![alt text](../../../../assets/by-nc-nd-eu_.png) { .by-nc-nd-eu_ } | **Reconocimiento-NoComercial-CompartirIgual CC BY-NC-SA:**  No se permite un uso comercial de la obra original ni de las posibles obras derivadas, la distribución de la cuales se debe hace con una licencia igual a la que regula la obra original. |
 
 <!-- Ra1 c https://www.youtube.com/watch?v=0hlIl9mhCXE&list=PLy_p4f0UmJpYVdYTPDn7sRnoLI3fGJpe2&index=6 -->
 <!-- ra1 b https://www.youtube.com/watch?v=-GozBVKAioI&list=PLy_p4f0UmJpYVdYTPDn7sRnoLI3fGJpe2&index=7 -->
