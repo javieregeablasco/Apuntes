@@ -695,17 +695,6 @@ Para ello, usaremos la siguiente sintaxis.
 
     ![Descripción de la imagen](./img_3/img_3_78.png){  .marginbottom10  }
 
-## 10 - Seguirá
+<!-- ## 10 - Seguirá
 
-![Descripción de la imagen](./img_3/img_3_79.png){  .marginbottom10 .cincozero }
-
-<!-- https://marcosruiz.github.io/posts/servicio-ssh/ -->
-<!-- https://www.hostinger.com/es/tutoriales/que-es-ssh/ -->
-<!-- https://gatlenculp.medium.com/a-practical-guide-to-ssh-7dece875a41a -->
-
-<!-- revisar -->
-
-<!-- https://docs.google.com/presentation/d/1eJTYUdgqbQTfzIJDM4FhhvqMX3ICfIG85OaFwnReU3A/edit?slide=id.g1142a802_1_0#slide=id.g1142a802_1_0 -->
-<!-- https://acastan.gitbook.io/servicios -->
-<!-- https://www.educatica.es/informatica/sistemas-operativos-en-red/casos-practicos/2408-administracion-remota/administracion-remota/ -->
-<!-- https://raul-profesor.github.io/SXI/section/P3.1/ -->
+![Descripción de la imagen](./img_3/img_3_79.png){  .marginbottom10 .cincozero } -->
