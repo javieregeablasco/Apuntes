@@ -369,10 +369,6 @@ Las máscaras de subred por defecto según la clase de IP son:
     1. ¿Cuantos hosts quedarían en las redes anteriores si la red tiene acceso a internet?
     1. ¿Como se llama la IP reservada para salir de la red?
 
-<!-- 
-https://aules.edu.gva.es/docent/pluginfile.php/5719248/mod_resource/content/1/XL_UT03_Interconnexio%CC%81%20d%E2%80%99equips%20en%20xarxes%20locals%20i%20muntatge%20de%20connectors-IP.pdf 
--->
-
 <!--
 Ejercicio 1
 El número /8 indica que los primeros 8 bits están reservados para la red
