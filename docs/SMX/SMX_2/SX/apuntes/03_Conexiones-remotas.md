@@ -72,6 +72,8 @@ Mientras que el **acceso remoto** significa conectarse a un sistema o red, el **
         - **Remmina** es un cliente de escritorio remoto que soporta múltiples protocolos, incluyendo RDP, VNC y SSH, facilitando la conexión a diferentes sistemas desde una única aplicación.
         - **VNC (Virtual Network Computing)** permite controlar un ordenador remoto a través de una interfaz gráfica, transmitiendo la pantalla del sistema remoto al local y permitiendo la interacción con el mismo.
 
+!!! question "Comprobar si tenéis instalado el software RDP en windows"
+
 ## 3 - Riesgos e inconvenientes asociados al control externo
 
 ### 3.1 Riesgos de seguridad y malware
@@ -95,7 +97,7 @@ Mientras que el **acceso remoto** significa conectarse a un sistema o red, el **
 
 1. **No exponer el puerto de administración (RDP) a internet**  
 
-    - Los atacantes escanean el puerto RDP (UDP 3389) constantemente. 
+    - Los atacantes escanean el puerto RDP (UDP 3389) constantemente.
     - Una práctica recomendada es utilizar una VPN para acceder a la red interna de manera segura.
 
 1. **Usar firewalls y listas de control de acceso (ACL)**
@@ -127,10 +129,12 @@ Mientras que el **acceso remoto** significa conectarse a un sistema o red, el **
     !!! warning "Entrega de la tarea"
         - Guardar el documento con RA6-CEa-NombreApellidos.
         - Una vez completada la tarea, subirla a la tarea RA6-CEa de Aules.
-        - A partir de momento de apertura de la tarea, dispondréis de **20 minutos** para subir vuestros trabajos. 
+        - A partir de momento de apertura de la tarea, dispondréis de **20 minutos** para subir vuestros trabajos.
         - Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
 
 ## 6 Tarea RA6-CEbcd-1 - Instalación y conexión remota a Windows Server 2025 en AWS
+
+!!! warning "Obligatorio seguir las normas para la presentación de trabajos escritos."
 
 ### 6.1 Instalación de Windows Server 2025 en AWS
 
@@ -140,77 +144,81 @@ Mientras que el **acceso remoto** significa conectarse a un sistema o red, el **
 #### 6.1.1 Primer acceso a AWS
 
 - Revisad vuestros correos electrónicos, ya que habréis recibido un correo de AWS con un enlace para crear vuestra cuenta.
-- Para la creación de la cuenta, debéis seguir los pasos indicados en el siguiente [enlace](https://javieregeablasco.github.io/Apuntes/DAW/DAW_2/AWS/UT.%203-AWS%20Academy/#2-learner-lab)
+- Para la creación de la cuenta, debéis seguir los pasos indicados en el siguiente [enlace](https://javieregeablasco.github.io/Apuntes/DAW/DAW_2/AWS/UT.%203-AWS%20Academy/#2-learner-lab).
 - Una vez creada la cuenta accederemos al laboratorio de AWS (learner lab).
 
 #### 6.1.2 Acceder al curso
 
-- Para acceder al curso, debéis seguir los pasos indicados en el siguiente [enlace](https://javieregeablasco.github.io/Apuntes/DAW/DAW_2/AWS/UT.%203-AWS%20Academy/#23-acceso-al-curso)
+- Para acceder al curso, debéis seguir los pasos indicados en el siguiente [enlace](https://javieregeablasco.github.io/Apuntes/DAW/DAW_2/AWS/UT.%203-AWS%20Academy/#23-acceso-al-curso).
 
 #### 6.1.3 Acceder al laboratorio
 
-- Para acceder al laboratorio, debéis seguir los pasos indicados en el siguiente [enlace](https://javieregeablasco.github.io/Apuntes/DAW/DAW_2/AWS/UT.%203-AWS%20Academy/#24-acceder-al-laboratorio)
+- Para acceder al laboratorio, debéis seguir los pasos indicados en el siguiente [enlace](https://javieregeablasco.github.io/Apuntes/DAW/DAW_2/AWS/UT.%203-AWS%20Academy/#24-acceder-al-laboratorio).
 
 #### 6.1.4 Lanzar el laboratorio
 
-- Para lanzar el laboratorio, debéis seguir los pasos indicados en el siguiente [enlace](https://javieregeablasco.github.io/Apuntes/DAW/DAW_2/AWS/UT.%203-AWS%20Academy/#25-lanzar-el-laboratorio)
+- Para lanzar el laboratorio, debéis seguir los pasos indicados en el siguiente [enlace](https://javieregeablasco.github.io/Apuntes/DAW/DAW_2/AWS/UT.%203-AWS%20Academy/#25-lanzar-el-laboratorio).
 
 #### 6.1.5 Acceder al panel del laboratorio
 
-- Para acceder al panel del laboratorio, debéis seguir los pasos indicados en el siguiente [enlace](https://javieregeablasco.github.io/Apuntes/DAW/DAW_2/AWS/UT.%203-AWS%20Academy/#26-panel-de-aws)
+- Para acceder al panel del laboratorio, debéis seguir los pasos indicados en el siguiente [enlace](https://javieregeablasco.github.io/Apuntes/DAW/DAW_2/AWS/UT.%203-AWS%20Academy/#26-panel-de-aws).
 
 #### 6.1.6 Creación de una instancia EC2
 
-Una instancia EC2 es un servidor virtual que se ejecuta en la infraestructura de AWS.
+1. Una instancia EC2 es un servidor virtual que se ejecuta en la infraestructura de AWS.
 
-Para crear una instancia EC2 con Windows Server 2025, seguir los siguientes pasos:
+1. Para crear una instancia EC2 con Windows Server 2025, haremos lo siguiente:
 
-- Ir al panel de control de AWS y seleccionar el servicio EC2.
-![Descripción de la imagen](./img_3/img_3_2.png){ .margintop10 .marginbottom10}
-- Una vez en el menú de EC2, seleccionar "Lanzar instancia".
-![Descripción de la imagen](./img_3/img_3_4.png){ .margintop10 .marginbottom10 .marco}
-- Seleccionar la imagen de Windows Server 2025.
-![Descripción de la imagen](./img_3/img_3_3.png){ .margintop10 .marginbottom10 .marco}
-- Configurar las opciones de la instancia (tipo, par de claves).
-![Descripción de la imagen](./img_3/img_3_5.png){ .margintop10 .marginbottom10 .marco}
-- Configurar las opciones de red.
-![Descripción de la imagen](./img_3/img_3_6.png){ .margintop10 .marginbottom10 .marco}
-- Configurar el almacenamiento.
-![Descripción de la imagen](./img_3/img_3_7.png){ .margintop10 .marginbottom10 .marco}
-- Buscamos el botón de lanzar y lo pulsamos.
-![Descripción de la imagen](./img_3/img_3_8.png){ .margintop10 .marginbottom10 .marco}
-- Volvemos a la página de EC2 y supervisamos el estado de creación de nuestra instancia.
-![Descripción de la imagen](./img_3/img_3_9.png){ .margintop10 .marginbottom10 .marco}
+    - Ir al panel de control de AWS y seleccionar el servicio EC2.
+    ![Descripción de la imagen](./img_3/img_3_2.png){ .margintop10 .marginbottom10}
+    - Una vez en el menú de EC2, seleccionar "Lanzar instancia".
+    ![Descripción de la imagen](./img_3/img_3_4.png){ .margintop10 .marginbottom10 .marco}
+    - Seleccionar la imagen de Windows Server 2025.
+    ![Descripción de la imagen](./img_3/img_3_3.png){ .margintop10 .marginbottom10 .marco}
+    !!! warning "Para el tipo de instancia seleccionar m7i.large"
+    - Configurar las opciones de la instancia (tipo, par de claves).
+    ![Descripción de la imagen](./img_3/img_3_5.png){ .margintop10 .marginbottom10 .marco}
+    - Configurar las opciones de red.
+    ![Descripción de la imagen](./img_3/img_3_6.png){ .margintop10 .marginbottom10 .marco}
+    - Configurar el almacenamiento.
+    ![Descripción de la imagen](./img_3/img_3_7.png){ .margintop10 .marginbottom10 .marco}
+    - Buscamos el botón de lanzar y lo pulsamos.
+    ![Descripción de la imagen](./img_3/img_3_8.png){ .margintop10 .marginbottom10 .marco}
+    - Volvemos a la página de EC2 y supervisamos el estado de creación de nuestra instancia.  
+    ==Realizar captura de pantalla==
+    ![Descripción de la imagen](./img_3/img_3_9.png){ .margintop10 .marginbottom10 .marco}
 
 ### 6.2 Conexión remota a la instancia de Windows Server 2025 desde windows 10-11
 
-En este caso usaremos el protocolo RDP (Remote Desktop Protocol) para conectarnos a la instancia de Windows Server 2025. ese protocolo permite a los usuarios conectarse a otro ordenador a través de una interfaz gráfica, proporcionando acceso completo al escritorio del sistema remoto.
+1. En este caso usaremos el protocolo RDP (Remote Desktop Protocol) para conectarnos a la instancia de Windows Server 2025. ese protocolo permite a los usuarios conectarse a otro ordenador a través de una interfaz gráfica, proporcionando acceso completo al escritorio del sistema remoto.
 
-AWS facilita la conexión remota a través de RDP proporcionando un archivo de conexión que contiene la dirección IP pública de la instancia y las credenciales necesarias para acceder.
+1. AWS facilita la conexión remota a través de RDP proporcionando un archivo de conexión que contiene la dirección IP pública de la instancia y las credenciales necesarias para acceder.
 
-- Seleccionamos la instancia a la que queremos acceder y accedemos al servicio de conexión remota en AWS.
-![Descripción de la imagen](./img_3/img_3_10.png){ .margintop10 .marginbottom10 .marco}
-- Seleccionamos RDP. Descargamos el archivo de conexión. De momento no lo abrimos ya que aún no tenemos las credenciales.
-![Descripción de la imagen](./img_3/img_3_11.png){ .margintop10 .marginbottom10 .marco}
-- Volvemos al learner lab pinchamos en AWS details y descargamos el archivo de la clave privada **labuser.pem** y lo guardamos en nuestro equipo.
-![Descripción de la imagen](./img_3/img_3_12.png){ .margintop10 .marginbottom10 .marco}
-- Volvemos a la página de EC2 y seleccionamos la instancia a la que queremos acceder. Pinchamos en **Conectar** y luego en **Obtener contraseña**. Subimos el archivo **labuser.pem** y obtenemos la contraseña de acceso.
-![Descripción de la imagen](./img_3/img_3_13.png){ .margintop10 .marginbottom10 .marco}
-Contraseña de acceso: **[Contraseña generada por AWS]**
-![Descripción de la imagen](./img_3/img_3_14.png){ .margintop10 .marginbottom10 .marco}
-- Abrimos el archivo de conexión RDP que hemos descargado anteriormente y pegamos la contraseña generada por AWS.  
-Acceso al escritorio remoto de Windows Server 2025.
-![Descripción de la imagen](./img_3/img_3_15.png){ .margintop10 .marginbottom10 }  
-Pegamos la contraseña generada por AWS.
-![Descripción de la imagen](./img_3/img_3_16.png){ .margintop10 .marginbottom10 }
-- Aceptamos los riesgos de seguridad y nos conectamos al escritorio remoto de Windows Server 2025.  
-![Descripción de la imagen](./img_3/img_3_17.png){ .margintop10 .marginbottom10 }
-- Una vez conectdos, podemos trabajar con el escritorio remoto de Windows Server 2025 como si estuviéramos físicamente frente a él.
-![Descripción de la imagen](./img_3/img_3_18.png){ .margintop10 .marginbottom10}
+    - Seleccionamos la instancia a la que queremos acceder y accedemos al servicio de conexión remota en AWS.
+    ![Descripción de la imagen](./img_3/img_3_10.png){ .margintop10 .marginbottom10 .marco}
+    - Seleccionamos RDP. Descargamos el archivo de conexión. De momento no lo abrimos ya que aún no tenemos las credenciales.
+    ![Descripción de la imagen](./img_3/img_3_11.png){ .margintop10 .marginbottom10 .marco}
+    - Volvemos al learner lab pinchamos en AWS details y descargamos el archivo de la clave privada **labuser.pem** y lo guardamos en nuestro equipo.
+    ![Descripción de la imagen](./img_3/img_3_12.png){ .margintop10 .marginbottom10 .marco}
+    - Volvemos a la página de EC2 y seleccionamos la instancia a la que queremos acceder. Pinchamos en **Conectar** y luego en **Obtener    contraseña**. Subimos el archivo **labuser.pem** y obtenemos la contraseña de acceso.
+    ![Descripción de la imagen](./img_3/img_3_13.png){ .margintop10 .marginbottom10 .marco}
+    - Contraseña de acceso:  
+    ==Realizar captura de pantalla==
+    ![Descripción de la imagen](./img_3/img_3_14.png){ .margintop10 .marginbottom10 .marco}
+    - Abrimos el archivo de conexión RDP que hemos descargado anteriormente y pegamos la contraseña generada por AWS.  
+    Acceso al escritorio remoto de Windows Server 2025.
+    ![Descripción de la imagen](./img_3/img_3_15.png){ .margintop10 .marginbottom10 }  
+    Pegamos la contraseña generada por AWS.
+    ![Descripción de la imagen](./img_3/img_3_16.png){ .margintop10 .marginbottom10 }
+    - Aceptamos los riesgos de seguridad y nos conectamos al escritorio remoto de Windows Server 2025.  
+    ![Descripción de la imagen](./img_3/img_3_17.png){ .margintop10 .marginbottom10 }
+    - Una vez conectdos, podemos trabajar con el escritorio remoto de Windows Server 2025 como si estuviéramos físicamente frente a él.  
+    ==Realizar captura de pantalla==
+    ![Descripción de la imagen](./img_3/img_3_18.png){ .margintop10 .marginbottom10}
 
 ### 6.3 Configuraciones preliminares de Windows Server 2025
 
-!!! warning "Optional"
+!!! warning "¡Obligatorio!"
 Una vez conectados al escritorio remoto de Windows Server 2025, es recomendable realizar algunas configuraciones preliminares para asegurar el correcto funcionamiento del servidor y la seguridad del mismo.
 
 - Cambiar el nombre del equipo.
@@ -222,6 +230,7 @@ Si cambiamos el nombre del equipo, debemos reiniciar el servidor para que los ca
 - Configurar el widget.
 ![Descripción de la imagen](./img_3/img_3_22.png){ .margintop10 .marginbottom10 }
 ![Descripción de la imagen](./img_3/img_3_23.png){ .margintop10 .marginbottom10 }
+- ==Realizar captura de pantalla== del widget después de haber cambiado el nombre de la máquina.
 
 ### 6.4 Desconexión de la instancia a Windows Server 2025
 
@@ -235,10 +244,13 @@ Podemos hacerlo de varias formas:
 
 ### 6.5 Cerrar el laboratorio
 
-Tenemos que cerrar el laboratorio de AWS para liberar los recursos y evitar cargos innecesarios. Para ello, simplemente finalizaremos el laboratorio, pinchando en **End Lab** en la consola del laboratory y esperaremos a que el testigo de AWS pase a **rojo**.
-![Descripción de la imagen](./img_3/img_3_26.png){ .margintop10 .marginbottom10 }
+- Tenemos que cerrar el laboratorio de AWS para liberar los recursos y evitar cargos innecesarios. 
+- Para ello, simplemente finalizaremos el laboratorio, pinchando en **End Lab** en la consola del laboratory y esperaremos a que el testigo de AWS pase a **rojo**.  
+![Descripción de la imagen](./img_3/img_3_26.png){ .margintop10 .marginbottom10 .marco }
 
 ## 7 Tarea RA6-CEbcd-2 - Instalación y conexión remota a Ubuntu Server 24.04 LTS en AWS
+
+!!! warning "Obligatorio seguir las normas para la presentación de trabajos escritos."
 
 ### 7.1 Instalación de Ubuntu Server 24.04 LTS en AWS
 
@@ -250,6 +262,7 @@ Repetiremos los pasos anteriores para crear una instancia EC2, pero esta vez sel
 ![Descripción de la imagen](./img_3/img_3_28.png){ .margintop10 .marginbottom10 .marco}
 - Configuramos la red donde se desplegará la instancia.
 ![Descripción de la imagen](./img_3/img_3_29.png){ .margintop10 .marginbottom10 .marco}
+!!! warning "Para el almacenamiento seleccionar 50GiB"
 - Configuramos el almacenamiento de la instancia.
 ![Descripción de la imagen](./img_3/img_3_30.png){ .margintop10 .marginbottom10 .marco}
 
@@ -259,7 +272,8 @@ Repetiremos los pasos anteriores para crear una instancia EC2, pero esta vez sel
 ![Descripción de la imagen](./img_3/img_3_31.png){ .margintop10 .marginbottom10 .marco}
 - AWS facilita la conexión remota a través de SSH de manera fácil e intuitiva.
 ![Descripción de la imagen](./img_3/img_3_32.png){ .margintop10 .marginbottom10 .marco}
-- Una vez establecida la conexión, se nos abrirá una ventana de terminal con la conexión SSH a la instancia de Ubuntu Server 24.04 LTS.
+- Una vez establecida la conexión, se nos abrirá una ventana de terminal con la conexión SSH a la instancia de Ubuntu Server 24.04 LTS.  
+==Realizar captura de pantalla==
 ![Descripción de la imagen](./img_3/img_3_33.png){ .margintop10 .marginbottom10 }
 
 ### 7.3 Conexión remota desde SO Windows
@@ -269,90 +283,94 @@ Repetiremos los pasos anteriores para crear una instancia EC2, pero esta vez sel
 
 #### 7.3.1 Apertura de puertos en la instancia
 
-Con abrir los puertos necesarios en el firewall de la instancia de Ubuntu Server 24.04 LTS, podremos permitir conexiones remotas a través de RDP.
+1. Al abrir los puertos necesarios en el firewall de la instancia de Ubuntu Server 24.04 LTS, podremos permitir conexiones remotas a través de RDP.
 
-Aunque no sea una buena práctica, para fines educativos, no solo abriremos el puerto 3389 para los protocolos **TCP** y **UDP** sino que abriremos todos los puertos.
+1. Aunque no sea una buena práctica, para fines educativos, no solo abriremos el puerto 3389 para los protocolos **TCP** y **UDP** sino que abriremos todos los puertos.
 
-- Vamos a la consola de AWS y seleccionamos la instancia de Ubuntu Server 24.04 LTS.
-- En la sección de **Seguridad**, seleccionamos el grupo de seguridad asociado a la instancia.
-![Descripción de la imagen](./img_3/img_3_34.png){ .margintop10 .marginbottom10 .marco}
-- Editamos las reglas de entrada.
-![Descripción de la imagen](./img_3/img_3_35.png){ .margintop10 .marginbottom10 .marco}
-Agregamos una regla de entrada para permitir **el tráfico entrante desde internet sobre cualquier puerto**.
-![Descripción de la imagen](./img_3/img_3_36.png){ .margintop10 .marginbottom10 .marco}  
-Al final, obtendremos el siguiente resultado:
-![Descripción de la imagen](./img_3/img_3_37.png){ .margintop10 .marginbottom10 .marco}
+    - Vamos a la consola de AWS y seleccionamos la instancia de Ubuntu Server 24.04 LTS.
+    - En la sección de **Seguridad**, seleccionamos el grupo de seguridad asociado a la instancia.
+    ![Descripción de la imagen](./img_3/img_3_34.png){ .margintop10 .marginbottom10 .marco}
+    - Editamos las reglas de entrada.
+    ![Descripción de la imagen](./img_3/img_3_35.png){ .margintop10 .marginbottom10 .marco}
+    - Agregamos una regla de entrada para permitir **el tráfico entrante desde internet sobre cualquier puerto**.
+    ![Descripción de la imagen](./img_3/img_3_36.png){ .margintop10 .marginbottom10 .marco}  
+    - Al final, obtendremos el siguiente resultado:  
+    ==Realizar captura de pantalla==
+    ![Descripción de la imagen](./img_3/img_3_37.png){ .margintop10 .marginbottom10 .marco}
 
 #### 7.3.2 Preparación de la instancia de Ubuntu Server 24.04 LTS
 
-En la instancia de Ubuntu Server 24.04 LTS, instalaremos un servidor RDP para permitir conexiones remotas desde sistemas Windows. Para ello, primero nos conectaremos a la instancia a través de SSH y luego instalaremos el servidor RDP.
+En la instancia de Ubuntu Server 24.04 LTS, instalaremos un servidor RDP para permitir conexiones remotas desde sistemas Windows. 
+
+Para ello, primero nos conectaremos a la instancia a través de SSH y luego instalaremos el servidor RDP.
 
 - Actualizamos los repositorios y actualizamos el sistema operativo.
 
-```bash
-sudo apt update && sudo apt upgrade -y
-```
+    ```bash
+    sudo apt update && sudo apt upgrade -y
+    ```
 
 - De momento no disponemos de interfaz gráfica en la instancia de Ubuntu Server 24.04 LTS, por lo que instalaremos un entorno de escritorio ligero como **XFCE**.
 
-```bash
-sudo apt install xfce4 xfce4-goodies -y
-```
+    ```bash
+    sudo apt install xfce4 xfce4-goodies -y
+    ```
 
 - Instalamos el servidor RDP **XRDP**.
 
-```bash
-sudo apt install xrdp -y
-```
+    ```bash
+    sudo apt install xrdp -y    
+    ```
 
 - Habilitamos el servicio xrdp para que se inicie automáticamente al arrancar el sistema.
 
-```bash
-sudo systemctl enable xrdp
-```
+    ```bash
+    sudo systemctl enable xrdp
+    ```
 
 - Iniciamos el servicio xrdp.
 
-```bash
-sudo systemctl start xrdp
-```
+    ```bash
+    sudo systemctl start xrdp
+    ```
 
 - Verificamos que el servicio xrdp esté activo y en ejecución.
 
-```bash
-sudo systemctl status xrdp
-```
+    ```bash
+    sudo systemctl status xrdp
+    ```
 
-Obtendremos un resultado similar al siguiente.  
+- Obtendremos un resultado similar al siguiente.  
+==Realizar captura de pantalla==
 ![Descripción de la imagen](./img_3/img_3_38.png){ .margintop10 .marginbottom10 }
 
 - Cambiamos la contraseña del usuario para que pueda iniciar sesión a través de RDP.
 
-```bash
-sudo passwd <nombre_de_usuario>
-```
+    ```bash
+    sudo passwd <nombre_de_usuario>
+    ```
 
-![Descripción de la imagen](./img_3/img_3_39.png){  .marginbottom10 }
+    ![Descripción de la imagen](./img_3/img_3_39.png){  .marginbottom10 }
 
 - Para evitar conflictos con la elección de la interfaz gráfica por parte de XFCE, figuramos el archivo de sesion.
 
-```bash
-echo "startxfce4" > ~/.xsession
-chmod +x ~/.xsession
-```
+    ```bash
+    echo "startxfce4" > ~/.xsession
+    chmod +x ~/.xsession
+    ```
 
-- Nos aseguramos que la interfaz se aplica globalmente al servicio.
+- Nos aseguramos que la interfaz se aplica al servicio globalmente.
 
-```bash
-sudo sed -i.bak 's/exec \/etc\/X11\/Xsession/exec startxfce4/' /etc/xrdp/startwm.sh
-```
+    ```bash
+    sudo sed -i.bak 's/exec \/etc\/X11\/Xsession/exec startxfce4/' /etc/xrdp/startwm.sh
+    ```
 
 - Reiniciamos el servicio XFCE
 
-```bash
-sudo systemctl restart xrdp
-sudo systemctl status xrdp
-```
+    ```bash
+    sudo systemctl restart xrdp
+    sudo systemctl status xrdp
+    ```
 
 #### 7.3.3 Conexión remota desde SO windows
 
@@ -368,10 +386,13 @@ sudo systemctl status xrdp
 - Una vez conectados introducimos las credenciales.
 ![Descripción de la imagen](./img_3/img_3_42.png){ .margintop10 .marginbottom10 }
 
-- Si todo ha ido bien obtendremos una interfaz similar a la siguiente imagen.
+- Si todo ha ido bien obtendremos una interfaz similar a la siguiente imagen.  
+==Realizar captura de pantalla==
 ![Descripción de la imagen](./img_3/img_3_43.png){ .margintop10 .marginbottom10 }
 
 ## 8 - Tarea RA6-CEf-1 - Conexión remota desde Ubuntu Server 24.04 LTS a SO Windows
+
+!!! warning "Obligatorio seguir las normas para la presentación de trabajos escritos."
 
 Para poder conectarnos desde una distribución de Linux a Windows necesitaremos una aplicación de acceso a escritorio como **Remmina**.
 
@@ -379,25 +400,25 @@ Para poder conectarnos desde una distribución de Linux a Windows necesitaremos 
 
 - Remmina no viene instalada en todas las distribuciones de Linux así que comprobaremos si la tenemos instalada.
 
-```bash
-remmina --version
-```
+    ```bash
+    remmina --version
+    ```
 
 - Si nos devuelve un mensaje de error, instalaremos la aplicación.
 
-```bash
-sudo apt install remmina -y
-```
+    ```bash
+    sudo apt install remmina -y
+    ```
 
 ### 8.2 Conexión a la instancia de Windows Server 2025
 
 - Ejecutamos la aplicación
 
-```bash
-remmina
-```
+    ```bash
+    remmina
+    ```
 
-![Descripción de la imagen](./img_3/img_3_45.png){ .margintop10 .marginbottom10  }
+    ![Descripción de la imagen](./img_3/img_3_45.png){  .marginbottom10  }
 
 - Introducimos los parámetros de la conexión
 ![Descripción de la imagen](./img_3/img_3_46.png){ .margintop10 .marginbottom10 }
@@ -405,11 +426,15 @@ remmina
 - Guardamos los parametros de la conexión y lanzamos la conexión
 ![Descripción de la imagen](./img_3/img_3_49.png){ .margintop10 .marginbottom10 }
 
-- Aceptamos el certificado.
+- Aceptamos el certificado.  
+==Realizar captura de pantalla==
 ![Descripción de la imagen](./img_3/img_3_47.png){ .margintop10 .marginbottom10  }
 
-- Si todo ha ido bien, estaremos en el escritorio de nuestra máquina Windows Server.
+- Si todo ha ido bien, estaremos en el escritorio de nuestra máquina Windows Server.  
+==Realizar captura de pantalla==
 ![Descripción de la imagen](./img_3/img_3_48.png){ .margintop10 .marginbottom10  }
+
+- ==Responder a la pregunta== Describir el flujo de conexiones remotas realizado anteriormente.
 
 ### 8.3 Posibles problemas de conexión a la instancia de Windows Server 2025
 
@@ -429,11 +454,12 @@ Así pues, verificaremos si Windows Server está configurado para aceptar conexi
 - Comprobamos la configuración del **Remote Desktop**
 ![Descripción de la imagen](./img_3/img_3_53.png){ .margintop10 .marginbottom10  }
 
-!!! tip "Como podemos ver, Windows Server acepta por defecto las conexiones RDP. De no ser así no podriamos habernos conectado a la instancia en una práctica anterior."
+!!! tip "Como podemos ver, la imagen de Windows Server usada en AWS acepta por defecto las conexiones RDP. De no ser así no podriamos habernos conectado a la instancia en una práctica anterior."
 
 ## 9 - Administración remota segura con SSH (Secure Shell)
 
-El protocolo SSH (Secure Shell) es **un protocolo de red** diseñado para acceder, administrar y controlar dispositivos de forma remota a través de una conexión totalmente cifrada. Surgió como un reemplazo seguro para protocolos tradicionales como **Telnet** o **FTP**, que transmitían la información y las contraseñas en texto plano.
+- El protocolo SSH (Secure Shell) es **un protocolo de red** diseñado para acceder, administrar y controlar dispositivos de forma remota a través de una conexión totalmente cifrada. 
+- Surgió como un reemplazo seguro para protocolos tradicionales como **Telnet** o **FTP**, que transmitían la información y las contraseñas en texto plano.
 
 ### 9.1 Uso básico de SSH
 
@@ -486,47 +512,74 @@ flowchart TB
 En la siguiente imagen se muestran, de forma simplificada, las principales etapas que intervienen en el establecimiento de una conexión SSH.
 ![Descripción de la imagen](./img_3/img_3_54.png){ .margintop10 .marginbottom10  }
 
-**1 - Inicio de la conexión TCP:** El cliente establece una conexión TCP con el servidor, normalmente a través del puerto (de escucha) 22.  
-**2 - Intercambio de versiones:** Cliente y servidor intercambian información sobre las versiones del protocolo SSH que admiten.
-Negociación de algoritmos: Ambas partes acuerdan los algoritmos criptográficos que utilizarán para el intercambio de claves, el cifrado, la integridad (MAC) y, opcionalmente, la compresión de los datos.  
-**3-4-5 - Intercambio de claves y generación del secreto compartido:** Mediante un protocolo de intercambio de claves, como Diffie-Hellman o ECDH, cliente y servidor generan un secreto compartido que permitirá establecer las claves de sesión utilizadas para cifrar la comunicación.  
-**6 - Verificación de la identidad del servidor:** El cliente verifica la identidad del servidor mediante su clave pública, que se compara con una clave previamente conocida o almacenada en el archivo known_hosts.  
-**7-8 - Configuración del cifrado:** Una vez establecido el secreto compartido, se activan los mecanismos de cifrado e integridad para proteger las comunicaciones posteriores.  
-**9 - Autenticación del usuario:** El cliente demuestra su identidad ante el servidor, normalmente mediante contraseña, clave pública/privada SSH u otros mecanismos de autenticación configurados en el servidor.  
-**10 - Establecimiento de la sesión:** Una vez autenticado el usuario, se establece una sesión SSH y el cliente puede solicitar un shell remoto, ejecutar comandos o utilizar otros servicios proporcionados por SSH.  
+**1 - Inicio de la conexión TCP:**  
 
-### 9.5 Tarea RA6-CEf-1 - Conexión SSH desde SO windows con PuTTy  
+- El cliente establece una conexión TCP con el servidor, normalmente a través del puerto (de escucha) 22.  
 
-![Descripción de la imagen](./img_3//img_3_70.png){ .margintop10 .marginbottom10 .trescinco  }
+**2 - Intercambio de versiones:**  
 
-En esta tarea instalaremos PuTTY en nuestra **instancia de Windows Server** y no conectaremos por **SSH** a la instancia de **Unbuntu Server**.
+- Cliente y servidor intercambian información sobre las versiones del protocolo SSH que admiten.
+- Negociación de algoritmos: Ambas partes acuerdan los algoritmos criptográficos que utilizarán para el intercambio de claves, el cifrado, la integridad (MAC) y, opcionalmente, la compresión de los datos.  
+
+**3-4-5 - Intercambio de claves y generación del secreto compartido:**
+
+- Mediante un protocolo de intercambio de claves, como Diffie-Hellman o ECDH, cliente y servidor generan un secreto compartido que permitirá establecer las claves de sesión utilizadas para cifrar la comunicación.
+
+**6 - Verificación de la identidad del servidor:**
+
+- El cliente verifica la identidad del servidor mediante su clave pública, que se compara con una clave previamente conocida o almacenada en el archivo known_hosts.  
+
+**7-8 - Configuración del cifrado:**
+
+- Una vez establecido el secreto compartido, se activan los mecanismos de cifrado e integridad para proteger las comunicaciones posteriores.  
+
+**9 - Autenticación del usuario:**
+
+- El cliente demuestra su identidad ante el servidor, normalmente mediante contraseña, clave pública/privada SSH u otros mecanismos de autenticación configurados en el servidor.  
+
+**10 - Establecimiento de la sesión:**
+
+- Una vez autenticado el usuario, se establece una sesión SSH y el cliente puede solicitar un shell remoto, ejecutar comandos o utilizar otros servicios proporcionados por SSH.  
+
+### 9.5 Tarea RA6-CEf-2 - Conexión SSH desde SO windows con PuTTy  
+
+!!! warning "Obligatorio seguir las normas para la presentación de trabajos escritos."
+
+![Descripción de la imagen](./img_3/img_3_70.png){ .margintop10 .marginbottom10 .trescinco  .marco}
+
+- En esta tarea instalaremos PuTTY en nuestra **instancia de Windows Server** y no conectaremos por **SSH** a la instancia de **Unbuntu Server**.
 
 !!! warning "Antes de nada nos conectaremos a nuestra instancia de Windows Server"
 
-Descargamos la aplicación desde [la página oficial](https://www.putty.org/index.html) y la instalaremos **en nuestra instancia de Windows Server**.
+- Descargamos la aplicación desde [la página oficial](https://www.putty.org/index.html) y la instalaremos **en nuestra instancia de Windows Server**.
 
 ![Descripción de la imagen](./img_3/img_3_55.png){ .margintop10 .marginbottom10 .seiscinco }
 
-Una vez instalado **PuTTy** consultaremos [la documentación de AWS](https://docs.aws.amazon.com/es_es/AWSEC2/latest/UserGuide/connect-linux-inst-from-windows.html) y la seguiremos paso a paso.
+- Una vez instalado **PuTTy** consultaremos [la documentación de AWS](https://docs.aws.amazon.com/es_es/AWSEC2/latest/UserGuide/connect-linux-inst-from-windows.html) y la seguiremos paso a paso.
 
 #### 9.5.1 Convertir la clave privada con PuTTYgen
 
-- Ejecutamos PuTTYgen (instalado al mismo tiempo que PuTTy). En **Type of key to generate**, elegimos RSA. Si la versión de PuTTYGen no incluye esta opción, eligiremos SSH-2 RSA.
+- Ejecutamos PuTTYgen (instalado al mismo tiempo que PuTTy).  
+- En **Type of key to generate**, elegimos RSA.  
+- Si la versión de PuTTYGen no incluye esta opción, eligiremos SSH-2 RSA.
 ![Descripción de la imagen](./img_3/img_3_59.png){ .margintop10 .marginbottom10  }
 
 - Elegimos Load.  
-De forma predeterminada, PuTTYgen muestra solo archivos con **la extensión .ppk**. Para localizar el archivo .pem, seleccionamos la opción de mostrar todos los tipos de archivo.  
-Seleccionamos **el archivo .pem** para el par de claves que se especificó cuando se lanzó la instancia y, a continuación, eligimos **Open (Abrir)**.
-![Descripción de la imagen](./img_3/img_3_60.png){ .margintop10 .marginbottom10  }
+- De forma predeterminada, PuTTYgen solo muestra archivos con **la extensión .ppk**.  
+- Para localizar el archivo .pem, seleccionamos la opción de mostrar todos los tipos de archivo.  
+- Seleccionamos **el archivo .pem** para el par de claves que se especificó cuando se lanzó la instancia y, a continuación, eligimos **Open (Abrir)**.
+![Descripción de la imagen](./img_3/img_3_60.png){ .margintop10 .marginbottom10 .marco  }
 
 - Si la importación se ha hecho correctamente, no aparecerá un aviso similar a la siguiente imagen.  
-![Descripción de la imagen](./img_3/img_3_61.png){ .margintop10 .marginbottom10  }  
+![Descripción de la imagen](./img_3/img_3_61.png){ .margintop10 .marginbottom10 .marco  }  
 
-- Luego elegimos **Save private key** para guardar la clave en un formato que PuTTY pueda utilizar. Si no ponemos ninguna contraseña para el archivo de claves, PuTTYgen mostrará una advertencia (eligimos Yes si no queremos poner contraseña).  
-![Descripción de la imagen](./img_3/img_3_62.png){ .margintop10 .marginbottom10  }
+- Luego elegimos **Save private key** para guardar la clave en un formato que PuTTY pueda utilizar.
+!!! warning "Si no ponemos ninguna contraseña para el archivo de claves, PuTTYgen mostrará una advertencia (eligimos Yes si no queremos poner contraseña)."  
+    ![Descripción de la imagen](./img_3/img_3_62.png){ .margintop10 .marginbottom10 .original }
 
-- Especificaremos un nombre para el archivo de claves. PuTTY añadirá la extensión de archivo .ppk automáticamente.
-![Descripción de la imagen](./img_3/img_3_63.png){ .margintop10 .marginbottom10 .leftseiscero }
+- Especificaremos un nombre para el archivo de claves.  
+**PuTTY añadirá la extensión de archivo .ppk automáticamente**.
+![Descripción de la imagen](./img_3/img_3_63.png){ .margintop10 .marginbottom10 .leftsietecinco }
 
 #### 9.5.2 Conexión con la instancia de Linux
 
@@ -539,22 +592,24 @@ Seleccionamos **el archivo .pem** para el par de claves que se especificó cuand
 - Si hemos puesto contraseña a nuestro archivo de claves, lo introducimos.
 ![Descripción de la imagen](./img_3/img_3_65.png){ .margintop10 .marginbottom10  }
 
-- Obviamos las advertencias de seguridad.
+- Obviamos las advertencias de seguridad.  
+==Realizar captura de pantalla==
 ![Descripción de la imagen](./img_3/img_3_57.png){ .margintop10 .marginbottom10  }
 
 - Si todo ha ido bien, tendremos acceso a la terminal de nuestra instancia.
+==Realizar captura de pantalla==
 ![Descripción de la imagen](./img_3/img_3_66.png){ .margintop10 .marginbottom10  }
 
-#### 9.4.3 Migración del archivo de claves
+#### 9.5.3 Migración del archivo de claves
 
 !!! warning "Preparación de la siguiente tarea"
 
-Para poder realizar la siguiente práctica, necesitaremos enviar el archivo con el par de claves de nuestras instancias (LabUser) a la intancia que usaremos de cliente para la conexión SSH.  
+- Para poder realizar la siguiente práctica, necesitaremos enviar el archivo con el par de claves de nuestras instancias (LabUser) a la intancia que usaremos de cliente para la conexión SSH.  
 
-Ese tipo de proceder no es **una buena práctica, desde el punto de vista de la seguridad informática** pero, lo haremos para facilitar la conexión SSH entre instancias con distribuciones Linux en AWS.
+- Ese tipo de proceder no es **una buena práctica, desde el punto de vista de la seguridad informática** pero, lo haremos para facilitar la conexión SSH entre instancias con distribuciones Linux en AWS.
 
 - Primero recuperaremos la IP pública de la instancia a la que enviaremos el archivo de claves.
-![Descripción de la imagen](./img_3/img_3_71.png){ .margintop10 .marginbottom10  }
+![Descripción de la imagen](./img_3/img_3_71.png){ .margintop10 .marginbottom10 .marco }
 
 - Luego enviaremos el archivo de claves **archivo.pem** a la instancia cliente con la aplicación **pscp** del ecosistema PuTTy.  
 Para ello, usaremos la siguiente sintaxis.  
@@ -568,13 +623,15 @@ Para ello, usaremos la siguiente sintaxis.
 - Si nos conectamos por consola de AWS a la instancia cliente, podremos comprobar que el archivo se ha enviado correctamente.
 ![Descripción de la imagen](./img_3/img_3_73.png){ .margintop10 .marginbottom10  }
 
-### 9.4 Tarea RA6-CEf-2 - Conexión SSH desde Linux con cliente SSH
+### 9.6 Tarea RA6-CEf-3 - Conexión SSH entre instancias Linux
 
-#### 9.4.1 Preparación del entorno
+!!! warning "Obligatorio seguir las normas para la presentación de trabajos escritos."
+
+#### 9.6.1 Preparación del entorno
 
 - Antes de nada, crearemos otra instancia de Ubuntu-server, dejando la configuración del tipo de instancia así como de la capacidad de almacenaje con los valores por defecto (t3.micro, 8GB).
 
-- Nos conectamos a la instancia de Ubuntu-Server **dónde hemos enviado el archivo con el par de claves** y comprobaremos que el cliente SSH está instalado.
+- Nos conectamos a la instancia de Ubuntu-Server **dónde hemos enviado el archivo.pem con el par de claves** y comprobaremos que el cliente SSH está instalado.
 
     ```bash
     ssh -V
@@ -605,7 +662,7 @@ Para ello, usaremos la siguiente sintaxis.
     ```
 
     Es probable que no salte un error al tener permisos de lectura del archivo demasiado permisivos.
-    ![Descripción de la imagen](./img_3/img_3_76.png){  .marginbottom10  }
+    ![Descripción de la imagen](./img_3/img_3_76.png){  .marginbottom10 .margintop10 }
 
 - Cambiamos los permisos a solo lectura por el propietario con:
 
@@ -633,11 +690,12 @@ Para ello, usaremos la siguiente sintaxis.
 
     ![Descripción de la imagen](./img_3/img_3_77.png){  .marginbottom10  }
 
-- Nos volvemos a conectar a la máquina Ubuntu-Server servidor y esta vez, accedemos sin problemas.
+- Nos volvemos a conectar a la máquina Ubuntu-Server servidor y esta vez, accedemos sin problemas.  
+==Realizar captura de pantalla==
 
     ![Descripción de la imagen](./img_3/img_3_78.png){  .marginbottom10  }
 
-## 10 - Administración remota con Remmina
+## 10 - Seguirá
 
 ![Descripción de la imagen](./img_3/img_3_79.png){  .marginbottom10 .cincozero }
 
