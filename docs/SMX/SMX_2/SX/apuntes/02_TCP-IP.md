@@ -449,7 +449,7 @@ La información se envía a todos los dispositivos de la subred. Como se explic�
 !!! exercise "Ejercicio 1"
     1. Disponemos de la dirección de red: `172.16.0.0/16`
     1. Determinar:
-        - Máscara de Subred (por defecto):
+        - Máscara de subred por defecto:
         - Nº total de direcciones de host:
         - Nº de direcciones útiles:
 
@@ -460,7 +460,6 @@ La información se envía a todos los dispositivos de la subred. Como se explic�
         1. Máscara de subred por defecto:
         1. Máscara de subred adaptada:
         1. Nº total de subredes:
-        1. Nº de subredes útiles:  
         1. Nº total de direcciones de host:
         1. Nº de direcciones útiles  
         1. Nº de subred de la 2ª subred útil  
@@ -483,14 +482,13 @@ Solución según el estándar actual (RFC 1878)
 -->
 
 !!! exercise "Ejercicio 3"
-    1. Disponemos de la dirección de red: `116.0.0.0`
+    1. Disponemos de la dirección de red: `116.0.0.0/8`
     1. Se desea montar 126 subredes útiles sobre esa red.
     1. Se desea saber:
         1. Máscara de subred por defecto:
-        1. Máscara de subred adaptada a las 126 subredes:
         1. Nº de bits cogidos:  
         1. Nº total de subredes:
-        1. Nº de subredes útiles:  
+        1. Máscara de subred adaptada a las 126 subredes:
         1. Nº total de direcciones de host:
         1. Nº de direcciones útiles  
         1. ¿Nº de subred de la 2ª subred útil?  
@@ -522,14 +520,13 @@ Solución según el estándar actual (RFC 1878)
 -->
 
 !!! exercise "Ejercicio 4"
-    1. Disponemos de la dirección de red: `199.95.30.0`
+    1. Disponemos de la dirección de red: `199.95.30.0/24`
     1. Se desea montar 62 subredes útiles sobre esa red.
     1. Se desea saber:
         1. Máscara de subred por defecto:
-        1. Máscara de subred adaptada a las 126 subredes:
         1. Nº de bits cogidos:  
         1. Nº total de subredes:
-        1. Nº de subredes útiles:  
+        1. Máscara de subred adaptada a las 126 subredes:
         1. Nº total de direcciones de host:
         1. Nº de direcciones útiles  
         1. ¿Nº de subred de la 2ª subred útil?  
@@ -719,7 +716,7 @@ UDP es más rápido porque no establece conexión previa ni verifica la entrega 
 <!-- El puerto 3306 (MySQL) es un buen ejemplo: no es un servicio "básico" de Internet como HTTP o DNS, sino una aplicación específica (el motor de bases de datos MySQL/MariaDB) que la IANA ha registrado oficialmente para evitar conflictos con otras aplicaciones. -->
 
 !!! exercise "Ejercicio 6"
-    - ¿Cuales son los riesgos de tener puertos abiertos innecesariamente.
+    - ¿Cuáles son los riesgos de tener puertos abiertos innecesariamente?
 
 <!-- Cada puerto abierto es una posible puerta de entrada para un atacante: si el servicio asociado tiene una vulnerabilidad, puede ser explotada para acceder al sistema, robar datos o instalar malware. El **escaneo de puertos** (*port scanning*) es una técnica (usada tanto por atacantes como por administradores de seguridad) que consiste en analizar un equipo o red para detectar qué puertos están abiertos y qué servicios están escuchando en ellos, con el fin de identificar posibles vulnerabilidades explotables. Por eso una buena práctica de seguridad es cerrar o filtrar (mediante firewall) todos los puertos que no sean estrictamente necesarios. --> 
 
