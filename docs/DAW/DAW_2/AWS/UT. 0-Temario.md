@@ -11,40 +11,40 @@ schedule: 96h - 3h/s
 
 ![Descripción de la imagen](./img/publiccloud.webp){.nuevezero}
 
-## 1. - Calendario escolar
+## 1 - Calendario escolar
 
 ![imagen](../../../2627/26-27_FP_CALENDARI.png){.marco}
 
-## 2. - Horario de sesiones
+## 2 - Horario de sesiones
 
 ![imagen](./ut0/Horario2627.png){.marco}
 
-## 3. - Contenidos del módulo
+## 3 - Contenidos del módulo
 
-A continuación, se presentan los contenidos de este módulo tal y como aparecen en el [**Anexo X: Módulos optativos**](href=https://ceice.gva.es/documents/388109149/391641510/ANEXOS_Optativas_Propuesta_Decreto_Curris_LFP_GMGS.pdf), seguiendo las [**Instrucciones de la dirección de formación profesional**](href=https://ceice.gva.es/documents/388109149/392955746/Instrucciones_optativas_FP_definitivas_firmado_.pdf) sobre la oferta de módulos optativos para el curso 2025-2026.
+- A continuación, se presentan los contenidos de este módulo tal y como aparecen en el [**Anexo X: Módulos optativos**](./ut0/ANEXO%20optativas%20Web%20cas.pdf), seguiendo las [**Instrucciones de la dirección de formación profesional**](./ut0/Instrucciones_optativas_FP_definitivas_firmado_.pdf) sobre la oferta de módulos optativos para el curso 2025-2026.
 
-### 3.1. - Introducción a la Nube
+### 3.1 Introducción a la Nube
 
 - ¿Qué es la computación en la nube?
 - Ventajas de la nube frente a sistemas tradicionales.
 - Introducción al ecosistema de la nube.
 - Principios de migración a la nube.
 
-### 3.2. - Facturación y Economía de la Nube
+### 3.2 Facturación y Economía de la Nube
 
 - Aspectos fundamentales de los precios.
 - Uso de herramientas como la calculadora de costos.
 - Modelos de soporte técnico.
 - Gestión de costos y herramientas para calcular costos.
 
-### 3.3 - Infraestructura Global y Servicios Principales
+### 3.3 Infraestructura Global y Servicios Principales
 
 - Infraestructura global.
 - Categorías de servicios.
 - Exploración de la consola de administración.
 - Navegación por la infraestructura global y servicios principales.
 
-### 3.4 - Seguridad en la Nube
+### 3.4 Seguridad en la Nube
 
 - Modelo de responsabilidad compartida.
 - Identidad y gestión de acceso.
@@ -52,7 +52,7 @@ A continuación, se presentan los contenidos de este módulo tal y como aparecen
 - Conformidad y mejores prácticas de seguridad.
 - Introducción a la gestión de accesos.
 
-### 3.5 - Redes y Entrega de Contenido
+### 3.5 Redes y Entrega de Contenido
 
 - Conceptos básicos de redes.
 - Configuración de Red Virtual.
@@ -60,28 +60,28 @@ A continuación, se presentan los contenidos de este módulo tal y como aparecen
 - Servicios de enrutamiento y distribución de contenido.
 - Crear una Red Virtual y lanzar un servidor web.
 
-### 3.6 - Informática y Escalado Automático
+### 3.6 Informática y Escalado Automático
 
 - Introducción a los servicios de cómputo.
 - Uso de máquinas virtuales y Lambda.
 - Balanceo de carga y escalado automático.
 - Escalado y balanceo de la carga de una arquitectura.
 
-### 3.7 - Almacenamiento y Bases de Datos
+### 3.7 Almacenamiento y Bases de Datos
 
 - Servicios de almacenamiento: disco duro en nube, almacenamiento, EFS.
 - Introducción a bases de datos: Relacionales, No SQL y otros servicios.
 - Creación y gestión de una base de datos.
 - Selección de tecnologías de almacenamiento.
 
-### 3.8 - Arquitectura y Monitoreo
+### 3.8 Arquitectura y Monitoreo
 
 - Principios del marco de trabajo: Well-Architected.
 - Uso de herramientas como Monitorización y asistentes de infraestructura.
 - Diseño de arquitecturas resilientes y escalables.
 - Interpretación de recomendaciones de optimización.
 
-## 4. - Metodología de aprendizaje
+## 4 - Metodología de aprendizaje
 
 1. Exposición de los **aspectos teóricos** para que después **sean aplicados mediante prácticas y ejercicios**.  
 
@@ -93,14 +93,14 @@ A continuación, se presentan los contenidos de este módulo tal y como aparecen
 
 1. Proyección de vídeos.
 
-## 5. - Evaluación
+## 5 - Evaluación
 
-1. Las evaluaciones serán **por resultados de aprendizaje RA**. [R.D. 659/2023](href=https://www.boe.es/boe/dias/2023/07/22/pdfs/BOE-A-2023-16889.pdf).
+1. Las evaluaciones serán **por resultados de aprendizaje RA**. [R.D. 659/2023](./ut0/BOE-A-2023-16889.pdf).
 
 1. Los resultados de aprendizaje y criterios de evaluación asociados al módulo **Introducción a la nube pública** constituyen los logros que los alumnos/as tienen que alcanzar para **superar el módulo**.
 1. Cada resultado de aprendizaje **RA** se evalúa a través de los criterios de evaluación **CE**. Los **CE** actúan como “desglose” del **RA**, facilitando medir de forma objetiva si el aprendizaje se ha alcanzado.
 
-### 5.1. - Relación entre Criterios de Evaluación y Resultados de Aprendizaje
+### 5.1 Relación entre Criterios de Evaluación y Resultados de Aprendizaje
 
 **Los criterios de evaluación** asociados a los **resultados de aprendizaje** son los siguientes:
 
@@ -144,13 +144,13 @@ A continuación, se presentan los contenidos de este módulo tal y como aparecen
     |**e)** Se ha hecho uso de herramientas de monitoreo y recomendaciones de optimización.|15%|
     |**f)** `Se ha participado en actividades que simulen el análisis y mejora de arquitecturas existentes.`|15%|
 
-### 5.2. - Metodología de evaluación
+### 5.2 Metodología de evaluación
 
 1. La evaluación será **contínua**.
 2. Se basará en la comprobación de la superación de los **resultados de aprendizaje RA**.
 3. La evaluación se hará por **RA's** sobre todos los **CE's** del currículo.
 
-### 5.3. - Instrumentos de evaluación
+### 5.3 Instrumentos de evaluación
 
 1. Exámenes.  
     - Preguntas tipo test.
@@ -159,7 +159,7 @@ A continuación, se presentan los contenidos de este módulo tal y como aparecen
 1. Exposiciones orales.  
 1. Prácticas en empresa.
 
-### 5.4. - Responsable evaluación de los RA's y/o CE's
+### 5.4 Responsable evaluación de los RA's y/o CE's
 
 1. Evaluación por profesor:
 **Todos lo que no se evaluarán en empresa**.
@@ -181,9 +181,9 @@ A continuación, se presentan los contenidos de este módulo tal y como aparecen
     **a)** Se ha realizado la diferenciación entre tecnologías de almacenamiento en la nube.  
     **f)** Se ha participado en actividades que simulen el análisis y mejora de arquitecturas existentes.
 
-## 6. - Criterio de superación del módulo
+## 6 - Criterio de superación del módulo
 
-### 6.1. - Nota final
+### 6.1 Nota final
 
 La nota final será la suma ponderada de **los resultados de aprendizaje** obtenidos en cada evaluación.  
 
@@ -198,7 +198,7 @@ En caso de no superar el módulo, el alumna/o dispondrá de un proceso de recupe
 |**RA3.** Diseña y configura redes virtuales y servicios de cómputo en la nube, aplicando buenas prácticas de seguridad, estrategias de balanceo de carga, escalado automático y aprovechando tecnologías serverless, contenedores y máquinas virtuales según casos de uso específicos.|30%|
 |**RA4.** Gestiona servicios de almacenamiento y bases de datos en la nube, seleccionando tecnologías adecuadas para casos específicos, y diseña arquitecturas escalables y resilientes utilizando herramientas de monitoreo y optimización para mejorar el rendimiento.|30%|
 
-### 6.2. - Instrumentos de recuperación
+### 6.2 Instrumentos de recuperación
 
 - Se propondrá a los alumnos una serie de **recuperaciones** que le permitirán recuperar los **criterios de evaluación** no superados.
 - Si el alumno **no entrega los trabajos obligatorios o presenta tasas de absentismo elevadas**, perderá la evaluación continua y deberá presentarse a la evaluación **ordinaria** y/o **extraordinaria**.  
@@ -206,7 +206,7 @@ En caso de no superar el módulo, el alumna/o dispondrá de un proceso de recupe
 - Para las evaluaciones ordinaria y extraordinaria, el alumno deberá obtener una media mínima de **5 sobre 10 en cada resultado de aprendizaje** para superar el módulo.
 - Para las evaluaciones ordinaria y extraordinaria, el alumno deberá presentar todas las tareas no realizadas quedando a criterio del profesor realizar pruebas adicionales para demostrar el logro de los **RA no superados**.
 
-### 6.3. - Calendario de evaluaciones
+### 6.3 Calendario de evaluaciones
 
 1. Evaluación inicial (primer mes).
 1. **Una evaluación parcial por cada trimestre**.
@@ -216,7 +216,7 @@ En caso de no superar el módulo, el alumna/o dispondrá de un proceso de recupe
 
 1. **Evaluación ordinaria** y **extraordinaria**: Permitiran recuperar los **RA no superados**.
 
-## 7. - Secuenciación y duración de cada Unidad de Trabajo
+## 7 - Secuenciación y duración de cada Unidad de Trabajo
 
 Por motivos de simplicidad **se asocia un RA a cada tema. Los temas se dividirán en varias Unidad de Trabajo (UT)**.  
 

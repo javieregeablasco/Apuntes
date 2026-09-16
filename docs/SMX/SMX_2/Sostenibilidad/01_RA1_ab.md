@@ -319,7 +319,7 @@ Técnicas: falta de datos confiables para medir indicadores de sostenibilidad en
 
 | **Licencia Creative Commons:** | |
 | - | - |
-| ![alt text](../../../../assets/by-nc-nd-eu_.png) { .by-nc-nd-eu_ } | **Reconocimiento-NoComercial-CompartirIgual CC BY-NC-SA:**  No se permite un uso comercial de la obra original ni de las posibles obras derivadas, la distribución de la cuales se debe hace con una licencia igual a la que regula la obra original. |
+| ![alt text](../../../assets/by-nc-nd-eu_.png) { .by-nc-nd-eu_ } | **Reconocimiento-NoComercial-CompartirIgual CC BY-NC-SA:**  No se permite un uso comercial de la obra original ni de las posibles obras derivadas, la distribución de la cuales se debe hace con una licencia igual a la que regula la obra original. |
 
 <!-- Ra1 c https://www.youtube.com/watch?v=0hlIl9mhCXE&list=PLy_p4f0UmJpYVdYTPDn7sRnoLI3fGJpe2&index=6 -->
 <!-- ra1 b https://www.youtube.com/watch?v=-GozBVKAioI&list=PLy_p4f0UmJpYVdYTPDn7sRnoLI3fGJpe2&index=7 -->

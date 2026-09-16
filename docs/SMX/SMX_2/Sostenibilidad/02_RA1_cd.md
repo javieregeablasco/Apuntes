@@ -10,7 +10,7 @@ keywords: SMX, SMR, SOST
 schedule: 1h/w
 ---
 
-![Descripción de la imagen](./img_2/img_2_1.jpg){  }
+![Descripción de la imagen](./img_2/img_2_1.jpg){ .original  }
   
 **Resultados de aprendizaje y criterios de evaluacion que se evaluarán en esta unidad.**  
 
@@ -30,191 +30,135 @@ schedule: 1h/w
 
 ## 2 - Estructura y Principios Fundamentales
 
-- **Objetivos y metas**: Se articula alrededor de **17 Objetivos de Desarrollo Sostenible (ODS) y 169 metas específicas**, cuyo seguimiento se realiza mediante un marco mundial que cuenta con más de 230 indicadores únicos.
+1. **Objetivos y metas**:  
+Se articula alrededor de **17 Objetivos de Desarrollo Sostenible (ODS) y 169 metas específicas**, cuyo seguimiento se realiza mediante un marco mundial que cuenta con más de 230 indicadores únicos.
 
-- **Evolución respecto a los ODM**: Surge como continuación de los Objetivos de Desarrollo del Milenio (ODM, 2000-2015). 
+1. **Evolución respecto a los ODM**:  
+Surge como continuación de los Objetivos de Desarrollo del Milenio (ODM, 2000-2015). 
 
-- A diferencia de los ODM (centrados principalmente en problemas sociales de países en desarrollo), la Agenda 2030 tiene **carácter universal** (se aplica a todos los países) e integra de forma indivisible la dimensión económica, la social y la ambiental.
+1. A diferencia de los ODM (centrados principalmente en problemas sociales de países en desarrollo), la Agenda 2030 tiene **carácter universal** (se aplica a todos los países) e integra de forma indivisible la dimensión económica, la social y la ambiental.
 
-- **Principios rectores**:
-  - **Universalidad**: Aplica a todos los Estados según sus circunstancias, sin dividirlos de forma rígida entre donantes y receptores.
-  - **Integración e indivisibilidad**: Los objetivos no pueden abordarse de forma aislada, ya que existen sinergias y conflictos (*trade-offs*) entre ellos.
-  - **No dejar a nadie atrás (leave no one behind)**: Prioriza la atención a los grupos en mayor situación de vulnerabilidad y la reducción de desigualdades.
-  - **Las cinco P**: Agrupa sus áreas de acción en **Personas** (pobreza y dignidad), **Planeta** (protección ambiental), **Prosperidad** (progreso económico y tecnológico), **Paz** (sociedades inclusivas) y **Alianzas** (*Partnerships*).
+1. **Principios rectores**:
+
+    - **Universalidad**: Aplica a todos los Estados según sus circunstancias, sin dividirlos de forma rígida entre donantes y receptores.
+    - **Integración e indivisibilidad**: Los objetivos no pueden abordarse de forma aislada, ya que existen sinergias y conflictos (*trade-offs*) entre ellos.
+    - **No dejar a nadie atrás (leave no one behind)**: Prioriza la atención a los grupos en mayor situación de vulnerabilidad y la reducción de desigualdades.
+    - **Las cinco P**: Agrupa sus áreas de acción en **Personas** (pobreza y dignidad), **Planeta** (protección ambiental), **Prosperidad** (progreso económico y tecnológico), **Paz** (sociedades inclusivas) y **Alianzas** (*Partnerships*).
 
 ## 3 - Implementación y Financiación
 
-* **Gobernanza y localización**: La Agenda no establece un mecanismo único; cada país la adapta a sus estructuras institucionales mediante estrategias nacionales y planes locales (como la *Estrategia de Desarrollo Sostenible 2030* o la Red de Entidades Locales en España)[16]. El seguimiento se evalúa en el Foro Político de Alto Nivel (HLPF) mediante Exámenes Nacionales Voluntarios[19][20].
-* **Brecha de financiación**: La ONU señala un déficit de financiación anual de **entre 2,5 y 4 billones de dólares** para alcanzar los ODS[21][22]. Para cerrar esta brecha se apela al sector privado mediante herramientas como la **Inversión Socialmente Responsable (criterios ASG/ESG)** y la **Inversión de Impacto**[21][23].
+- **Gobernanza y localización**:  
+La Agenda no establece un mecanismo único; cada país la adapta a sus estructuras institucionales mediante estrategias nacionales y planes locales (como la *Estrategia de Desarrollo Sostenible 2030* o la Red de Entidades Locales en España). El seguimiento se evalúa en el Foro Político de Alto Nivel (HLPF) mediante Exámenes Nacionales Voluntarios.
+- **Brecha de financiación**:  
+La ONU señala un déficit de financiación anual de **entre 2,5 y 4 billones de dólares** para alcanzar los ODS. Para cerrar esta brecha se apela al sector privado mediante herramientas como la **Inversión Socialmente Responsable (criterios ASG/ESG)** y la **Inversión de Impacto**.
 
 ---
 
-### 3\. Balance de Progreso Global (Hacia 2026)
+## 4 - Balance de Progreso Global
 
-Las evaluaciones globales muestran que el plan está en riesgo y avanza a dos velocidades[24]:
+Las evaluaciones globales muestran que el plan está en riesgo y avanza a dos velocidades:
 
-* **Estado de las metas**: Según los datos oficiales, **solo el 36% de las metas va por buen camino o registra un progreso moderado** (15% encaminadas y 21% moderado)[26][27]. Casi la mitad (**49%**) muestra avances insuficientes y un **15% ha retrocedido** a niveles peores que los de 2015[26].
-* **Hitos positivos**: Se registraron avances notables en el acceso a agua potable (casi 1.000 millones de personas adicionales desde 2015), electrificación global (92%), conectividad digital (74%) y extensión de la protección social[28].
-* **Graves barreras**: La **crisis climática** (con récords de temperatura global)[29], el aumento de **conflictos armados**[29], la caída de la ayuda oficial al desarrollo[30] y la persistencia de la pobreza extrema y la inseguridad alimentaria están provocando retrocesos estructurales[30].
+1. **Estado de las metas**:  
+
+Según los datos oficiales, **solo el 36% de las metas va por buen camino o registra un progreso moderado** (15% encaminadas y 21% moderado). Casi la mitad (**49%**) muestra avances insuficientes y un **15% ha retrocedido** a niveles peores que los de 2015.
+
+- **Hitos positivos**: Se registraron avances notables en el acceso a agua potable (casi 1.000 millones de personas adicionales desde 2015), electrificación global (92%), conectividad digital (74%) y extensión de la protección social.
+- **Graves barreras**: La **crisis climática** (con récords de temperatura global), el aumento de **conflictos armados**, la caída de la ayuda oficial al desarrollo y la persistencia de la pobreza extrema y la inseguridad alimentaria están provocando retrocesos estructurales.
 
 ---
 
-### 4\. Críticas y Debates Ecosociales
+## 5 - Críticas y Debates Ecosociales
 
-* **Voluntariedad (** **Soft Law** **)**: Al no ser un acuerdo jurídicamente vinculante ni establecer sanciones por incumplimiento, depende de la voluntad política de los gobiernos de turno, lo que facilita el *greenwashing* o cumplimiento cosmético[31].
-* **Contradicción biofísica**: Análisis ecosociales critican que el ODS 8 promueva un "crecimiento económico sostenido", lo que resulta incompatible con los límites planetarios y la escasez de energía y materiales[34]. Además, se señala que muchas metas tienen un enfoque de "final de tubería" (atienden los síntomas en lugar de las causas estructurales)[35].
-* **Oposición y desinformación**: Ha encontrado contestación política en sectores negacionistas y de extrema derecha[36][37], además de ser blanco de teorías conspirativas que le atribuyen de forma falsa mandatos obligatorios[38].
+- **Voluntariedad (** **Soft Law** **)**: Al no ser un acuerdo jurídicamente vinculante ni establecer sanciones por incumplimiento, depende de la voluntad política de los gobiernos de turno, lo que facilita el *greenwashing* o cumplimiento cosmético.
+- **Contradicción biofísica**: Análisis ecosociales critican que el ODS 8 promueva un "crecimiento económico sostenido", lo que resulta incompatible con los límites planetarios y la escasez de energía y materiales. Además, se señala que muchas metas tienen un enfoque de "final de tubería" (atienden los síntomas en lugar de las causas estructurales).
+- **Oposición y desinformación**: Ha encontrado contestación política en sectores negacionistas y de extrema derecha, además de ser blanco de teorías conspirativas que le atribuyen de forma falsa mandatos obligatorios.
 
-### 5.8 Foro de discusión
+## 6 - Foro de discusión
 
-!!! question "Sobre el concepto mismo de sostenibilidad"
-    1. ¿Es la sostenibilidad un concepto universal o depende del contexto cultural, económico y geográfico de cada región?
-    1. ¿Existe una tensión irresoluble entre crecimiento económico y sostenibilidad ambiental, o son compatibles?
-    1. El famoso "Informe Brundtland" (1987) define desarrollo sostenible como aquel que satisface las necesidades presentes sin comprometer las de futuras generaciones. ¿Sigue siendo esta definición suficiente casi 40 años después?
+!!! question "Aspectos ASG, Grupos de Interés y Gestión de Riesgos y Oportunidades"
+    1. ¿Son los Objetivos de Desarrollo Sostenible (ODS) herramientas suficientes y eficaces para hacer realidad la Agenda 2030, o su carácter de **soft law** **(no vinculante) compromete su cumplimiento real?
+    1. ¿Existe una contradicción insalvable dentro de la Agenda 2030 al promover el crecimiento económico (ODS 8) en un planeta con límites biofísicos finitos?
+    1. ¿Puede alcanzarse la premisa de "no dejar a nadie atrás" mediante la "localización" de los ODS si no se corrigen primero los impactos transfronterizos y la huella ecológica de los países ricos sobre el Sur Global?
 
-<!-- 
-1. Sobre el concepto mismo de sostenibilidad
-¿Es la sostenibilidad un concepto universal o depende del contexto?
-Hay dos posturas principales:
-
-A favor de la universalidad: existen límites planetarios objetivos (cambio climático, pérdida de biodiversidad) que afectan a toda la humanidad por igual, por lo que se necesitan principios comunes.
-A favor del relativismo contextual: lo que es sostenible en un país nórdico rico difiere radicalmente de lo que es viable en una comunidad rural africana o andina. Imponer un modelo único puede ser una forma de "colonialismo verde".
-Una respuesta intermedia sería: los principios (equidad intergeneracional, límites ecológicos) pueden ser universales, pero las estrategias deben adaptarse localmente. -->
+---
 
 <!-- 
-1. Sobre el concepto mismo de sostenibilidad
+-1-
+**Contexto de debate:** La Agenda 2030 constituye el marco internacional global, mientras que los 17 ODS y sus 169 metas son su núcleo operativo e integrado[1][2]. Sin embargo, al ser guías de cumplimiento voluntario que carecen de sanciones en el derecho internacional, se cuestiona si los gobiernos y empresas realmente están avanzando hacia las transformaciones sistémicas necesarias 
 
-¿Es la sostenibilidad un concepto universal o depende del contexto?
-Hay dos posturas principales:
-
-A favor de la universalidad: existen límites planetarios objetivos (cambio climático, pérdida de biodiversidad) que afectan a toda la humanidad por igual, por lo que se necesitan principios comunes.
-A favor del relativismo contextual: lo que es sostenible en un país nórdico rico difiere radicalmente de lo que es viable en una comunidad rural africana o andina. Imponer un modelo único puede ser una forma de "colonialismo verde".
-Una respuesta intermedia sería: los principios (equidad intergeneracional, límites ecológicos) pueden ser universales, pero las estrategias deben adaptarse localmente.
-
-2. ¿Tensión entre crecimiento económico y sostenibilidad?
-
-Postura de la "economía verde": es posible el desacoplamiento (crecer sin aumentar el uso de recursos) mediante innovación tecnológica y eficiencia.
-Postura del "decrecimiento": el desacoplamiento absoluto nunca se ha demostrado a escala global; el crecimiento económico infinito es incompatible con un planeta finito.
-Postura pragmática/institucional (la de la mayoría de organismos como la ONU): se puede lograr un "crecimiento verde" mediante cambios en la matriz energética y regulación, aunque con matices y plazos inciertos.
-
-3. ¿Sigue vigente la definición de Brundtland?
-Argumentos a favor: sigue siendo útil porque introduce la equidad intergeneracional, un principio ético central.
-Argumentos en contra: es ambigua (no define qué "necesidades" ni cómo medir el "compromiso" con el futuro), y ha sido criticada por no cuestionar el modelo de crecimiento capitalista. Muchos autores proponen complementarla con enfoques como los "límites planetarios" (Rockström) o el "donut" de Kate Raworth.
+**Líneas de respuesta esperadas:**
+* El seguimiento de los ODS se articula bajo la figura jurídica de *soft law* (derecho no vinculante), lo que significa que no contempla sanciones internacionales por incumplimiento[7].
+* Esta falta de exigibilidad legal facilita que gobiernos y empresas apliquen una selección estratégica de metas (*cherry picking*) o realicen un cumplimiento puramente formal o cosmético[7].
+* Aunque sirven como marco común de armonización y consenso internacional[7], se argumenta que sin mecanismos de fiscalización o vinculación jurídica resulta difícil alcanzar las transformaciones estructurales necesarias[10][11].
 -->
 
-!!! question "Marcos internacionales (ODS, Agenda 2030, Acuerdo de París, etc.)"
-    - ¿Los Objetivos de Desarrollo Sostenible (ODS) son metas realistas o más bien aspiraciones simbólicas sin mecanismos de cumplimiento efectivos?
-    - ¿Qué responsabilidad diferenciada deben asumir los países desarrollados frente a los países en desarrollo en el cumplimiento de estos marcos?
-    - ¿Hasta qué punto los acuerdos internacionales (como el Acuerdo de París) logran traducirse en políticas nacionales concretas y vinculantes?
-
-<!-- 
-1. Sobre los marcos internacionales (ODS, Agenda 2030, Acuerdo de París)
-
-¿Los ODS son metas realistas o simbólicas?
-
-Postura crítica: son 17 objetivos y 169 metas sin mecanismos de sanción; los países que incumplen no enfrentan consecuencias reales, y los informes de progreso muestran que la mayoría de metas no se cumplirán para 2030.
-Postura defensora: aunque no sean vinculantes, funcionan como marco orientador común que permite comparar, medir y presionar políticamente (mediante la opinión pública, inversión ESG, cooperación internacional).
-Un punto de encuentro: los ODS son más útiles como lenguaje común y herramienta de rendición de cuentas blanda que como instrumento jurídico.
-
-2. ¿Responsabilidad diferenciada entre países desarrollados y en desarrollo?
-Este es un tema de fuerte disputa geopolítica:
-
-Los países en desarrollo argumentan que los países industrializados generaron la mayor parte de las emisiones históricas y deben asumir mayor carga financiera y tecnológica ("deuda climática").
-Los países desarrollados suelen aceptar el principio pero discuten su alcance práctico, y algunos señalan que potencias emergentes (China, India) ya son grandes emisores actuales.
-El principio de "responsabilidades comunes pero diferenciadas" (CBDR, reconocido en la CMNUCC) intenta equilibrar ambas posturas, aunque su aplicación concreta sigue siendo objeto de negociación en cada COP.
-
-3. ¿Se traducen los acuerdos en políticas nacionales concretas?
-En la práctica, el cumplimiento es desigual: algunos países (ej. varios de la UE) han integrado metas climáticas en su legislación; otros presentan compromisos (NDC) poco ambiciosos o no vinculantes. La falta de mecanismos de cumplimiento obligatorio en el Acuerdo de París (a diferencia del Protocolo de Kioto) es señalada tanto como debilidad (falta de fuerza) como fortaleza (permitió mayor adhesión de países).
+<!--
+-2-
+ La Agenda 2030 busca articular de forma indivisible las dimensiones económica, social y ambiental (las "5 Ps")[5][6]. No obstante, desde posturas ecosociales se critica que perseguir un "crecimiento económico sostenido" resulta incompatible con los límites del planeta y la escasez de recursos[7][8], debatiéndose si los ODS deberían redefinirse hacia modelos de decrecimiento material o economía de la rosquilla 
+ 
+ * **Núcleo conceptual:** La Agenda 2030 plantea una visión holística que busca conjugar las dimensiones económica, social y ambiental de manera integrada[6].
+* **Líneas de respuesta esperadas:**
+* Existe una tensión intrínseca al promover en el ODS 8 un "crecimiento económico sostenido" dentro de un sistema planetario con límites biofísicos finitos[12].
+* La evidencia muestra la imposibilidad de desacoplar permanentemente el crecimiento del PIB del aumento en el consumo de recursos, energía e impactos ecológicos[14].
+* Análisis ecosociales y decoloniales proponen modelos alternativos como la **economía de la rosquilla** o el **decrecimiento material**, los cuales plantean reorganizar la actividad productiva dentro del espacio seguro comprendido entre un suelo de necesidades sociales cubiertas y un techo ecológico[17]
 -->
 
-!!! question "Las tres dimensiones de la sostenibilidad (ambiental, social, económica)"
-    - ¿Se le da igual peso a las tres dimensiones en la práctica, o predomina la dimensión económica sobre la ambiental y social?
-    - ¿Cómo se mide el "progreso" en sostenibilidad más allá del PIB? ¿Son útiles indicadores alternativos como el Índice de Progreso Social o la Huella Ecológica?
+ <!-- 
+ -3- 
+ La localización adapta las metas globales a los municipios y regiones[11][12]. Sin embargo, las evaluaciones revelan que los altos niveles de consumo del Norte Global generan externalidades negativas (*spillovers*) en países en desarrollo[13], planteando si las iniciativas locales bastan sin una reforma justa de la arquitectura ambiental y financiera internacional[16][17]. 
 
-<!-- 
-Sobre las tres dimensiones de la sostenibilidad
-
-1. ¿Se le da igual peso a las tres dimensiones?
-La mayoría de análisis académicos coinciden en que, en la práctica, la dimensión económica suele predominar, porque los indicadores de éxito político y empresarial siguen centrados en el PIB y la rentabilidad. Las dimensiones social y ambiental muchas veces se tratan como "externalidades" a mitigar, no como ejes centrales de la toma de decisiones.
-
-¿Son útiles indicadores alternativos al PIB?
-
-2. A favor: indicadores como el Índice de Progreso Social, la Huella Ecológica o el Índice de Desarrollo Humano capturan dimensiones de bienestar que el PIB ignora (desigualdad, salud, medio ambiente).
-Objeción: son más complejos de calcular, menos comparables entre países, y no siempre reemplazan al PIB en la toma de decisiones porque los mercados financieros siguen priorizando indicadores económicos tradicionales.
-Respuesta de síntesis: probablemente lo más realista sea usar paneles de indicadores complementarios en vez de buscar un único sustituto del PIB.
+ * **Núcleo conceptual:** El principio de "no dejar a nadie atrás" (*leave no one behind*) prioriza la atención a los colectivos en mayor situación de vulnerabilidad[3], mientras que la **localización** adapta las metas globales a las realidades municipales y regionales[23][24].
+* **Líneas de respuesta esperadas:**
+* Aunque la localización adapta la gestión a las comunidades locales, no corrige por sí misma los efectos transfronterizos (*spillovers*)[25].
+* Los altos patrones de consumo de los países desarrollados generan externalidades negativas masivas (deforestación, contaminación y explotación de recursos) sobre el Sur Global[26][28].
+* Enfocar la localización solo en regiones de altos ingresos sin mecanismos de financiamiento global equitativo ni reducción de la huella ecológica puede desviar fondos de cooperación y acentuar los desequilibrios internacionales
 -->
 
-!!! question "Actores y responsabilidades"
-    - ¿Quién debe liderar la transición hacia la sostenibilidad: los gobiernos, las empresas, la sociedad civil o los organismos internacionales?
-    - ¿El fenómeno del "greenwashing" debilita la credibilidad de los marcos y certificaciones de sostenibilidad?
-    - ¿Qué papel deben jugar las corporaciones multinacionales frente a marcos que, en principio, son de adhesión voluntaria?
+!!! question "Relación entre los ODS y su importancia para la Agenda 2030"
+    1. ¿Identificar e integrar los aspectos ASG (Ambientales, Sociales y de Gobernanza) es una oportunidad estratégica real de innovación o corre el riesgo de convertirse en una herramienta de **greenwashing** (lavado verde)?
+    1. En caso de conflicto de intereses, ¿debe la dirección de una organización priorizar los criterios ASG ambientales e intergeneracionales por encima de la rentabilidad económica a corto plazo exigida por los accionistas?
+    1. ¿Garantizan las nuevas normativas europeas sobre informes de sostenibilidad y diligencia debida (CSRD y CSDDD) una prevención efectiva de riesgos corporativos, o impondrán barreras inasumibles para el tejido empresarial?
 
-<!-- 
-Sobre actores y responsabilidades
+<!--
+-1- 
+**Contexto de debate:** El enfoque ASG evalúa el impacto de la organización en el entorno, en las personas y en la ética directiva[18][19]. Aunque para muchas empresas es una vía para diferenciarse e ingresar en la inversión de impacto[20][21], existe la crítica de que la Responsabilidad Social Corporativa (RSC) se utiliza frecuentemente como estrategia publicitaria sin asumir cambios en el modelo de negocio[22]. 
 
-1. ¿Quién debe liderar la transición?
+* **Núcleo conceptual:** El enfoque **ASG (Ambiental, Social y de Gobernanza)** e instrumentos como la Inversión Socialmente Responsable (ISR) integran criterios de sostenibilidad en la toma de decisiones corporativas y financieras[32].
+* **Líneas de respuesta esperadas:**
+* **Oportunidad de innovación:** La integración de criterios ASG optimiza la eficiencia operativa, reduce riesgos en las cadenas de suministro globales y acelera la creación de productos y materiales sostenibles[35].
+* **Riesgo de** **greenwashing** **:** Muchas corporaciones emplean la retórica ambiental o sellos de certificación parciales como herramientas de marketing sin transformar verdaderamente sus modelos de negocio extractivistas
 
-Argumento a favor del liderazgo estatal: los gobiernos tienen la capacidad regulatoria y fiscal para imponer reglas vinculantes.
-Argumento a favor del sector privado: las empresas tienen los recursos, tecnología y capacidad de escala para implementar cambios rápidos.
-Argumento a favor de la sociedad civil: los movimientos sociales han sido históricamente el motor que presiona a gobiernos y empresas a actuar (ej. movimientos climáticos juveniles).
-La postura más extendida en la literatura es que se requiere una gobernanza "multinivel" o "multisectorial", donde ningún actor puede lograrlo solo.
-
-2. ¿El "greenwashing" debilita la credibilidad de los marcos?
-Sí, es un consenso bastante amplio: numerosos estudios y casos mediáticos muestran empresas que usan certificaciones de sostenibilidad como estrategia de marketing sin cambios sustanciales. Esto genera escepticismo del consumidor y presiona a que surjan regulaciones más estrictas sobre reporte de sostenibilidad (como la normativa CSRD de la UE).
-
-3. ¿Qué papel deben jugar las multinacionales frente a marcos voluntarios?
-
-Postura optimista: la presión de inversores (criterios ESG), consumidores y reputación empresarial puede generar cambios reales incluso sin obligación legal.
-Postura escéptica: sin regulación vinculante, las empresas tienden a priorizar el cumplimiento mínimo o solo declarativo, especialmente cuando implica costos de corto plazo. 
 -->
 
-!!! question "Sobre desafíos y críticas a los marcos actuales"
-    - ¿Los marcos internacionales de sostenibilidad reproducen relaciones de poder desiguales entre el Norte y el Sur global?
-    - ¿Es posible alcanzar los ODS para 2030, dado el contexto actual de crisis climática, conflictos geopolíticos y desigualdad creciente?
-    - ¿Qué alternativas o complementos existen a los marcos dominantes (por ejemplo, el "Buen Vivir" en América Latina, o el decrecimiento)?
+<!--
+-2-
+**Contexto de debate:** El diseño de un Plan de Sostenibilidad exige identificar las expectativas de múltiples grupos de interés (plantilla, clientes, comunidades locales, administración y sistemas naturales)[25][26]. Tradicionalmente, los indicadores clásicos de desempeño económico (KPI de rentabilidad) chocan con los objetivos sociales y ecológicos[27][28], lo que abre el debate sobre cómo equilibrar o reordenar dichas prioridades[29][30]. 
 
-<!-- 
-Sobre desafíos y críticas a los marcos actuales
+* **Núcleo conceptual:** La elaboración de un **Plan de Sostenibilidad** empresarial requiere atender a las expectativas de diversos grupos de interés (empleados, clientes, comunidades locales y sistemas naturales)[41][42].
+* **Líneas de respuesta esperadas:**
+* Los indicadores clásicos de desempeño económico (KPI enfocados en el retorno financiero a corto plazo para accionistas) entran frecuentemente en conflicto con los objetivos sociales y ecológicos[43][44].
+* Asumir el compromiso ASG implica cuestionar el paradigma que coloca la rentabilidad financiera en el centro de las organizaciones[44].
+* Propuestas económicas alternativas (como la Economía Social y Solidaria o la Economía del Bien Común) plantean internalizar los costes socioambientales y "poner la vida en el centro" para garantizar la sostenibilidad intergeneracional
 
-1. ¿Reproducen los marcos desigualdades Norte-Sur?
-Este es un debate genuinamente abierto en la literatura de estudios del desarrollo:
-
-Quienes lo afirman señalan que los marcos fueron diseñados principalmente por y para intereses de países desarrollados, y que imponen estándares (ej. certificaciones ambientales) que pueden limitar el desarrollo industrial de países pobres.
-Quienes lo niegan o matizan argumentan que los ODS fueron negociados con participación amplia de países del Sur Global y que ofrecen financiamiento y transferencia tecnológica (aunque insuficiente) para compensar asimetrías.
-
-2. ¿Es posible cumplir los ODS para 2030?
-La evidencia de seguimiento de la ONU (informes anuales) indica que la mayoría de las metas están retrasadas o estancadas, agravado por la pandemia, conflictos y crisis económicas. La postura predominante entre analistas es que el cumplimiento total para 2030 es poco probable, aunque el marco puede extenderse o servir de base para una "Agenda post-2030".
-
-3. ¿Qué alternativas existen a los marcos dominantes?
-
-El "Buen Vivir" (Sumak Kawsay) en países andinos propone una relación armónica con la naturaleza distinta del paradigma desarrollista occidental.
-El decrecimiento (degrowth) cuestiona la idea misma de "desarrollo sostenible" y propone reducir deliberadamente la producción y el consumo en economías ricas.
-Estos enfoques son valorados por ofrecer visiones alternativas, pero criticados por su difícil aplicación a gran escala o su tensión con la reducción de la pobreza en países en desarrollo.
 -->
 
-!!! questin "Aplicación local"
-    - ¿Cómo se traducen estos marcos globales a la realidad de una comunidad, empresa o país específico?
-    - ¿Qué barreras (financieras, políticas, culturales) impiden que estos marcos se implementen efectivamente a nivel local?
+<!--
+-3-
+**Contexto de debate:** Regulaciones como la directiva CSRD y la CSDDD obligan a las grandes empresas a evaluar, mitigar y reparar los impactos adversos en derechos humanos y medio ambiente bajo el principio de doble materialidad[21]. El debate se centra en si estas normas previenen verdaderamente los riesgos operativos y reputacionales o si trasladarán una carga desproporcionada a la cadena de suministro 
 
-<!-- 
-Sobre aplicación local
+* **Núcleo conceptual:** Marco normativo europeo en materia de informes de sostenibilidad (**Directiva CSRD 2022/2464**) y diligencia debida (**Directiva CSDDD 2024/1760**)[46].
+* **Líneas de respuesta esperadas:**
+* **CSRD:** Introduce el principio de **doble materialidad**, exigiendo a las grandes empresas reportar tanto los riesgos que la sostenibilidad plantea para su negocio como los impactos que su actividad genera en el entorno[47].
+* **CSDDD:** Establece un marco vinculante para detectar, prevenir, mitigar y reparar efectos adversos en los derechos humanos y el medio ambiente a lo largo de toda la cadena de valor[48].
+* **Debilidades y retos:** Se señalan los dilatados plazos de implementación, la exclusión de pymes del ámbito directo de aplicación y el riesgo de que las grandes corporaciones trasladen la carga de gestión a los eslabones más débiles de la cadena[48][51].
 
-1. ¿Cómo se traducen los marcos globales a la realidad local?
-Usualmente mediante planes nacionales de desarrollo que "aterrizan" los ODS en metas específicas, indicadores locales y presupuestos públicos. Sin embargo, la traducción es desigual: depende de la voluntad política, la capacidad institucional y la disponibilidad de datos para monitorear el progreso.
-
-1. ¿Qué barreras impiden la implementación efectiva?
-
-Financieras: falta de presupuesto público y dificultad de acceso a financiamiento climático internacional.
-Políticas: cambios de gobierno que alteran prioridades, corrupción, falta de continuidad de políticas de largo plazo.
-Culturales: resistencia al cambio de hábitos de consumo o producción, desconocimiento del marco por parte de la ciudadanía.
-Técnicas: falta de datos confiables para medir indicadores de sostenibilidad en muchos países.  
 -->
 
 ---
 
 | **Licencia Creative Commons:** | |
 | - | - |
-| ![alt text](../../../../assets/by-nc-nd-eu_.png) { .by-nc-nd-eu_ } | **Reconocimiento-NoComercial-CompartirIgual CC BY-NC-SA:**  No se permite un uso comercial de la obra original ni de las posibles obras derivadas, la distribución de la cuales se debe hace con una licencia igual a la que regula la obra original. |
+| ![alt text](../../../assets/by-nc-nd-eu_.png) { .by-nc-nd-eu_ } | **Reconocimiento-NoComercial-CompartirIgual CC BY-NC-SA:**  No se permite un uso comercial de la obra original ni de las posibles obras derivadas, la distribución de la cuales se debe hace con una licencia igual a la que regula la obra original. |
 
 <!-- Ra1 c https://www.youtube.com/watch?v=0hlIl9mhCXE&list=PLy_p4f0UmJpYVdYTPDn7sRnoLI3fGJpe2&index=6 -->
 <!-- ra1 b https://www.youtube.com/watch?v=-GozBVKAioI&list=PLy_p4f0UmJpYVdYTPDn7sRnoLI3fGJpe2&index=7 -->

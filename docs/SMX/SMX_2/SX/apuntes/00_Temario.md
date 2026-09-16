@@ -22,7 +22,7 @@ schedule: 233h - 7h/w
 
 ## 3 - Contenidos del módulo
 
-Contenidos disponibles [aquí](href=https://www.boe.es/eli/es/rd/2007/12/14/1691/dof/spa/pdf).
+Contenidos disponibles [aquí](./img_0/BOE-A-2008-819.pdf).
 
 !!! info "Instalación de servicios de configuración dinámica de sistemas"
     - Dirección IP, máscara de red, puerta de enlace.
