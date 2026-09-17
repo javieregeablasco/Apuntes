@@ -10,108 +10,107 @@ layout: default
 schedule: 224h - 7h/w
 ---
 
-# **UD. 2.3 - LibreOffice Writer**
-
 ![Descripción de la imagen](../img/UT2/LOwriter.jpg){ .sietecinco }
-<br>
 
 **Resultados de aprendizaje y criterios de evaluacion que se evaluarán en esta unidad.**  
 
 | **Resultados de aprendizaje de la unidad didáctica:** |
-|-|
+||
 | **RA. 2:** Elabora documentos y plantillas, describiendo y aplicando las opciones avanzadas de procesadores de textos.  
-
 
 |**Criterios de evaluación de la unidad didáctica:**|
     |-|
     |**a)** Se ha personalizado las opciones de software y barra de herramientas. |
-    |**b)** Se han utilizado los elementos básicos en la elaboración de documentos. |
-    |**c)** Se han diseñado plantillas. |
-    |**d)** Se han utilizado aplicaciones y periféricos para introducir textos e imágenes. |
-    |**e)** Se han importado y exportado documentos creados con otras aplicaciones y en otros formatos.|
-    |**f)** Se han creado y utilizado macros en la realización de documentos.|
+    |**b)** Se han diseñado plantillas. |
+    |**c)** Se han utilizado aplicaciones y periféricos para introducir textos e imágenes. |
+    |**d)** Se han importado y exportado documentos creados con otras aplicaciones y en otros formatos.|
+    |**e)** Se han creado y utilizado macros en la realización de documentos.|
 
-## **1 - Interfaz de trabajo en Writer**
+## 1 - Interfaz de trabajo en Writer
+
 Después de hacer doble clic sobre el icono de **LibreOffice** seleccionamos **Nuevo &rarr; Documento de texto** y nos encontraremos con la siguiente interfaz.
 
 ![Descripción de la imagen](../02_Procesadores_de_texto/img_ut2/newfile.png)
 
 !!! question "Pregunta"
-    ¿Qué es lo primero que debemos hacer cuando creamos un nuevo documento?
+    ¿Qué es lo primero que debemos hacer cuando creamos un documento nuevo?
 
-### **1.1 - Menú: Archivo**
-Permite la creación de un archivo de texto y su posterior guardado, firmado digital o impresión, etc.
+### 1.1 Menú: Archivo
 
-![Descripción de la imagen](../02_Procesadores_de_texto/img_ut2/m_archivo.png){ .m_archivo }
-<br>
+Permite la creación de un archivo de texto y su posterior guardado, firmado digital, impresión, etc.
 
-### **1.2 - Menú: Editar**
-Aparte del conocido “copiar pegar” también permite buscar, reemplazar palabras... 
+![Descripción de la imagen](../02_Procesadores_de_texto/img_ut2/m_archivo.png){ .sietecinco .marco }
 
-![Descripción de la imagen](../02_Procesadores_de_texto/img_ut2/m_editar.png){ .m_archivo }
-<br>
+### 1.2 Menú: Editar
 
-### **1.3 - Menú: Ver**
-El menú "Ver" sirve para controlar cómo se muestra el documento en pantalla y qué elementos visuales de la interfaz deseamos ver u ocultar. 
-**No modifica el contenido del documento**, solo la forma en que se visualiza mientras trabajamos.
+Aparte del conocido “copiar pegar” también permite buscar, reemplazar palabras...
 
-![Descripción de la imagen](../02_Procesadores_de_texto/img_ut2/m_ver.png){ .m_ver }
-<br>
+![Descripción de la imagen](../02_Procesadores_de_texto/img_ut2/m_editar.png){ .sietecinco .marco }
 
-### **1.4 - Menú: Insertar**
-Ofrece opciones para incluir objetos en nuestro documento: fotografías, dibujos, tablas, ecuaciones matemáticas o incluso otros archivos. También se encuentran aquí algunas opciones de organización del documento, como encabezados y pies de página, numeración, portada o división en secciones. 
+### 1.3 Menú: Ver
 
-![Descripción de la imagen](../02_Procesadores_de_texto/img_ut2/m_insertar.png){ .m_ver }
-<br>
+- El menú "Ver" sirve para controlar cómo se muestra el documento en pantalla y qué elementos visuales de la interfaz deseamos ver u ocultar.
+- **No modifica el contenido del documento**, solo la forma en que se visualiza mientras trabajamos.
 
-### **1.5 - Menú: Formato**
-Es, sin duda, la ventana que más se utilizará ya que, permite dar formato y organizar nuestro texto.
+![Descripción de la imagen](../02_Procesadores_de_texto/img_ut2/m_ver.png){ .sietecinco .marco }
 
-![Descripción de la imagen](../02_Procesadores_de_texto/img_ut2/m_formato.png){ .m_ver }
-<br>
+### 1.4 Menú: Insertar
 
-### **1.6 - Menú: Estilos**
-Casi tan importante como el menú formato, es sin duda el gran olvidado de la mayoría de usuarios.
-El dominio de los estilos, **ahorra un tiempo importante** en la elaboración de un documento y **facilita** sus posteriores modificaciones.
+- Ofrece opciones para incluir objetos en nuestro documento: fotografías, dibujos, tablas, ecuaciones matemáticas o incluso otros archivos.
+- También se encuentran aquí algunas opciones de organización del documento, como encabezados y pies de página, numeración, portada o división en secciones.
 
-![Descripción de la imagen](../02_Procesadores_de_texto/img_ut2/m_estilos.png){ .m_ver }
-<br>
+![Descripción de la imagen](../02_Procesadores_de_texto/img_ut2/m_insertar.png){ .sietecinco .marco }
 
-### **1.7 - Menú: Tabla**
+### 1.5 Menú: Formato
+
+- Es, sin duda, la ventana que más se utilizará en este módulo.
+- Permite dar formato y organizar nuestro texto.
+
+![Descripción de la imagen](../02_Procesadores_de_texto/img_ut2/m_formato.png){ .sietecinco .marco }
+
+### 1.6 Menú: Estilos
+
+- Casi tan importante como el menú formato, es sin duda el gran olvidado de la mayoría de usuarios.
+- Dominar los estilos de texto, **ahorra un tiempo importante** en la elaboración de un documento y **facilita** sus posteriores modificaciones.
+
+![Descripción de la imagen](../02_Procesadores_de_texto/img_ut2/m_estilos.png){ .sietecinco .marco }
+
+### 1.7 Menú: Tabla
+
 Las tablas son una forma de estructurar datos en filas y columnas: la información se almacena en los recuadros generados por la intersección de filas y columnas, llamadas celdas.
 
-![Descripción de la imagen](../02_Procesadores_de_texto/img_ut2/m_tabla.png){ .m_ver }
-<br>
+![Descripción de la imagen](../02_Procesadores_de_texto/img_ut2/m_tabla.png){ .sietecinco .marco }
 
-### **1.8 - Menú: Formulario**
-Sirve para crear, editar y configurar formularios interactivos dentro de un documento de texto, muy útil si se desea hacer plantillas para rellenar, encuestas o documentos que luego se completan digitalmente. 
+### 1.8 Menú: Formulario
 
-![Descripción de la imagen](../02_Procesadores_de_texto/img_ut2/m_formulario.png){ .m_ver }
-<br>
+- Sirve para crear, editar y configurar formularios interactivos dentro de un documento de texto
+- Muy útil si se desea hacer plantillas para rellenar, encuestas o documentos que luego se completan digitalmente.
 
-### **1.9 - Menú: Herramientas**
-Es el menú de la mayoría de herramientas de validación de un documento: En ese menú se encuentran las funciones de ortografía, autocorrección, macros, configuración de idioma, complementos, etc. 
+![Descripción de la imagen](../02_Procesadores_de_texto/img_ut2/m_formulario.png){ .sietecinco .marco }
 
-![Descripción de la imagen](../02_Procesadores_de_texto/img_ut2/m_herramientas.png){ .m_ver }
-<br>
+### 1.9 Menú: Herramientas
 
-### **1.10 - Menú: Ventana**
+- Es el menú de la mayoría de herramientas de validación de un documento.
+- En ese menú se encuentran las funciones de ortografía, autocorrección, macros, configuración de idioma, complementos, etc...
+
+![Descripción de la imagen](../02_Procesadores_de_texto/img_ut2/m_herramientas.png){ .sietecinco .marco}
+
+### 1.10 Menú: Ventana
+
 El menú "Ventana" está pensado para gestionar las distintas ventanas o instancias del programa abiertas en ese momento.
 No afecta al contenido del documento, sino a cómo se interactúa con varios documentos o vistas al mismo tiempo.
 
-![Descripción de la imagen](../02_Procesadores_de_texto/img_ut2/m_ventana.png){ .m_ver }
-<br>
+![Descripción de la imagen](../02_Procesadores_de_texto/img_ut2/m_ventana.png){ .sietecinco .marco }
 
-### **1.11 - Menú: Ayuda**
+### 1.11 - Menú: Ayuda
+
 Reúne todas las opciones para obtener asistencia, acceder a la documentación oficial y consultar información sobre la instalación de LibreOffice
 
-![Descripción de la imagen](../02_Procesadores_de_texto/img_ut2/m_ayuda.png){ .m_ver }
-<br>
+![Descripción de la imagen](../02_Procesadores_de_texto/img_ut2/m_ayuda.png){ .sietecinco .marco }
 
-### **1.12 - Configuración del entorno de trabajo**
-#### Tarea RA2-CEa:
+### 1.12 Tarea RA2-CEa - Configuración del entorno de trabajo
 
-!!! task "Tarea - Personalización del software utilizado."
+!!! task "Tarea RA2-CEa - Personalización del software utilizado."
      **Parte hecha en clase:**  
 
      1. Buscar la opción que permite cambiar el modo (día/noche) de la interfaz de usuario ¿Qué occure cuando escribimos texto?
@@ -127,29 +126,33 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
      1. ¿Qué opción me permite cambiar la forma de seleccionar palabras, letras, imágenes?
      1. Cambiar el tipo de letra básico de **Liberation Sans** a **Arial**.
      1. Configurar el archivo guardado para que solo se pueda abrir mediante **contraseña**.
-    
 
-!!! task "Tarea - Personalización de las barras de herramientas."
+!!! task "Tarea RA2-CEa - Personalización de las barras de herramientas."
      **Parte a entregar**:  
 
-    1. Seleccionar las opciones que permitan mostrar las reglas, tanto superior como vertical (pista: ver).
-    1. Seleccionar la opción que permite mostrar la barra de estilos (pista: ver).
+    1. Seleccionar las opciones que permitan mostrar las reglas, tanto horizontal como verticalmente (pista: ver).
+    1. Seleccionar la opción que permita mostrar la barra de estilos (pista: ver).
     1. Cambiar la interfaz de usuario para que esta sea similar a la de Microsoft Word (pista: ver).
     1. Mostrar, en la interfaz de usuario, varias barras de herramientas que no aparecen por defecto (p.e. Controles de formulario y Tabla).
     1. Después de mostrar esas barras de herramientas, eliminar varios iconos de esas barras de herramientas de la interfaz de usuario (pista: personalizar).
     1. Cambiar la opción para que, en vez de una coma, sea un punto lo que aparezca en pantalla después de presionar el ‘punto’ del teclado numérico (pista: personalizar, configurar idioma, separador decimal).
 
-#### Condiciones de entrega de la práctica.
-Realizar una captura de un documento dónde se vean las personalizaciones de las barras de herramientas. Subir la captura a Aules en **Tarea RA2-CEa**.
+    !!! warning "Condiciones de la entrega."  
+        Realizar una captura de un documento dónde se vean las personalizaciones de las barras de herramientas.
+        Subir el documento con vuestras respuestas a la tarea RA2-CEa de Aules.
 
-### **Enlaces de interés**
-<a href=https://books.libreoffice.org/es/WG73/WG7320-ConfiguracionDeWriter.html>Configuración writer</a>
+### 1.13 Enlaces de interés
 
-## **2 - Familiarización con el uso de Writer**
+[Configuración de Libre Office Writer](https://books.libreoffice.org/es/WG73/WG7320-ConfiguracionDeWriter.html)
 
+## 2 - Familiarización con el uso de Writer
 
-## **2.1 - Creación y edición básica de un documento de texto**
+## 2.1 - Creación y edición básica de un documento de texto
+
+<!-- HASATA AQUI -->
+
 ### Tarea - RA2-CEb-1
+
 !!! task "Tarea a entregar en RA2-CEb-1"
     **1. Abre un nuevo documento y copia el siguiente texto:**  
     Michael Jeffrey Jordan (Brooklyn, Nueva York, 17 de febrero de 1963) es un exjugador de baloncesto estadounidense. Con 1,98 metros de altura, jugaba en la posición de escolta. Es considerado por la mayoría de aficionados y especialistas como el mejor jugador de baloncesto de todos los tiempos.​ Se retiró definitivamente a los cuarenta años en 2003 en los Washington Wizards, tras haberlo hecho en dos ocasiones anteriores, en 1993 y 1998, después de haber jugado 13 temporadas en los Chicago Bulls.
