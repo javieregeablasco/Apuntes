@@ -37,11 +37,16 @@ Si alguno de estos tres pilares falla, el desarrollo no puede sostenerse en el t
 
 ### 1.2 Marcos e Instrumentos Internacionales
 
-- Agenda 2030 para el Desarrollo Sostenible: En 2015, los Estados miembros de la ONU establecieron este plan global para guiar la transición hacia un mundo sostenible.
-- Los 17 Objetivos de Desarrollo Sostenible (ODS): Constituyen el núcleo de la Agenda 2030, con metas ambiciosas que abarcan las dimensiones económica, social y ambiental.
-- La Cumbre de los ODS de las Naciones Unidas: Se estableció como un encuentro decisivo entre líderes mundiales (como la Cumbre de septiembre de 2023) para renovar compromisos, evaluar los avances y lagunas existentes, y ofrecer orientación política para acelerar las acciones.
-- Seguimiento e informes globales: Instrumentos como el Informe de los ODS de la ONU (2023) y las evaluaciones del Grupo Intergubernamental de Expertos sobre el Cambio Climático (IPCC) monitorean los retrocesos y desafíos críticos, tales como los niveles de pobreza extrema o el riesgo de superar el umbral de 1,5 °C para 2035.
-- Implementación multinivel: Los gobiernos están incorporando estos objetivos internacionales dentro de sus planes nacionales, proceso que requiere financiamiento público y privado, así como el compromiso activo de la sociedad civil y las decisiones individuales
+- **Agenda 2030 para el Desarrollo Sostenible**:  
+En 2015, los Estados miembros de la ONU establecieron este plan global para guiar la transición hacia un mundo sostenible.
+- **Los 17 Objetivos de Desarrollo Sostenible (ODS)**:  
+Constituyen el núcleo de la Agenda 2030, con metas ambiciosas que abarcan las dimensiones económica, social y ambiental.
+- **La Cumbre de los ODS de las Naciones Unidas**:  
+Se estableció como un encuentro decisivo entre líderes mundiales (como la Cumbre de septiembre de 2023) para renovar compromisos, evaluar los avances y lagunas existentes, y ofrecer orientación política para acelerar las acciones.
+- **Seguimiento e informes globales**:  
+Instrumentos como el Informe de los ODS de la ONU (2023) y las evaluaciones del Grupo Intergubernamental de Expertos sobre el Cambio Climático (IPCC) monitorean los retrocesos y desafíos críticos, tales como los niveles de pobreza extrema o el riesgo de superar el umbral de 1,5 °C para 2035.
+- **Implementación multinivel**:  
+Los gobiernos están incorporando estos objetivos internacionales dentro de sus planes nacionales, proceso que requiere financiamiento público y privado, así como el compromiso activo de la sociedad civil y las decisiones individuales
 
 ## 2 - Sostenibilidad Ecosocial
 
@@ -78,7 +83,7 @@ Los criterios clave son:
 
 ### 3.3 Aspectos de Gobernanza (G)
 
-Se centran en la transparencia, la estructura organizativa, la participación democrática en la toma de decisiones y el cumplimiento normativo y ético de las organizaciones. 
+Se centran en la transparencia, la estructura organizativa, la participación democrática en la toma de decisiones y el cumplimiento normativo y ético de las organizaciones.
 
 Incluyen:
 

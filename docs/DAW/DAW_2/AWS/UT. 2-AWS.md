@@ -41,7 +41,7 @@ Sus orígenes se remontan a principios de la década de 2000, cuando Amazon, com
 - **2025** Servicios ofrecidos por AWS en la actualidad.  
 [![img](./img/awsservices.png){.margintop10}](https://docs.aws.amazon.com/whitepapers/latest/aws-overview/amazon-web-services-cloud-platform.html?pg=cloudessentials)
 
-- Buscador de productos [aquí](https://aws.amazon.com/es/products/).
+Buscador de productos [aquí](https://aws.amazon.com/es/products/).
 
 ## 2- Infraestructura global de AWS
 
