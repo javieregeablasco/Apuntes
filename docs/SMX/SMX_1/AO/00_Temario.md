@@ -237,8 +237,8 @@ A continuación, se presentan los contenidos de este módulo tal y como aparecen
 
 ### 5.2 - Resultados de aprendizaje
 
-En cada unidad de trabajo (UT) se evaluarán los **criterios de evaluación (CE)** correspondientes al **RA**.  
-En el caso concreto del módulo **Aplicaciones Ofimáticas**, en cada unidad de trabajo (UT), **se evaluará un RA**.  
+1. En cada unidad de trabajo (UT) se evaluarán los **criterios de evaluación (CE)** correspondientes al **RA**.  
+1. En el caso concreto del módulo **Aplicaciones Ofimáticas**, en cada unidad de trabajo (UT), **se evaluará un RA**.  
 
 !!! info "RA 1 - Instala y actualiza aplicaciones ofimaticas, interpretando especificaciones y describiendo los pasos a seguir en el proceso."
     **UT 1** - Instalación de aplicaciones ofimáticas.
@@ -269,16 +269,16 @@ En el caso concreto del módulo **Aplicaciones Ofimáticas**, en cada unidad de 
 
 ### 5.3 - Metodología de evaluación
 
-- La evaluación será **contínua**.
-- Se basará en la comprobación de la superación de los **resultados de aprendizaje (RA)**.
-- La evaluación se hará sobre **todos los RA y todos los CE** del currículo.
+1. La evaluación será **contínua**.
+1. Se basará en la comprobación de la superación de los **resultados de aprendizaje (RA)**.
+1. La evaluación se hará sobre **todos los RA y todos los CE** del currículo.
 
 ### 5.4 - Instrumentos de evaluación
 
-- Exámenes (preguntas tipo test o ejercicios).
-- Entrega de tareas.  
-- Exposiciones orales.  
-- **Prácticas en empresa**.
+1. Exámenes (preguntas tipo test o ejercicios).
+1. Entrega de tareas.  
+1. Exposiciones orales.  
+1. **Prácticas en empresa**.
 
 ### 5.5. - Responsable evaluación de los RA's y/o CE's
 
@@ -320,11 +320,11 @@ En el caso concreto del módulo **Aplicaciones Ofimáticas**, en cada unidad de 
 
 ### 6.1. - Nota final
 
-La nota final será la suma ponderada de **los resultados de aprendizaje** obtenidos en cada evaluación.  
+1. La nota final será la suma ponderada de **los resultados de aprendizaje** obtenidos en cada evaluación.  
 
-La superación del módulo requerirá obtener una media mínima de **5 sobre 10 en cada resultado de aprendizaje**.
+1. La superación del módulo requerirá obtener una media mínima de **5 sobre 10 en cada resultado de aprendizaje**.
 
-En caso de no superar el módulo, el alumna/o dispondrá de un proceso de recuperación orientado a reforzar específicamente los resultados de aprendizaje no alcanzados.
+1. En caso de no superar el módulo, el alumna/o dispondrá de un proceso de recuperación orientado a reforzar específicamente los resultados de aprendizaje no alcanzados.
 
 |Resultado de aprendizaje|Porcentage|
 |-|-|
@@ -340,26 +340,28 @@ En caso de no superar el módulo, el alumna/o dispondrá de un proceso de recupe
 
 ### 6.2 - Instrumentos de recuperación
 
-- Se propondrá a los alumnos una serie de **recuperaciones** que le permitirán recuperar los **criterios de evaluación** no superados.
-- Si el alumno **no entrega los trabajos obligatorios o presenta tasas de absentismo elevadas**, perderá la evaluación continua y deberá presentarse a la evaluación **ordinaria** y/o **extraordinaria**.
+1. Se propondrá a los alumnos una serie de **recuperaciones** que le permitirán recuperar los **criterios de evaluación** no superados.
+1. Si el alumno **no entrega los trabajos obligatorios o presenta tasas de absentismo elevadas**, perderá la evaluación continua y deberá presentarse a la evaluación **ordinaria** y/o **extraordinaria**.
 <!-- - Para poder presentarse a las convocatorias ordinarias y extraordinarias **el alumno deberá realizar todas las tareas no entregadas de los RA no aprobados y haber obtenido una nota superior o igual a 3 en las mismas.** -->
 
 ### 6.3 - Calendario de evaluaciones
 
 1. Evaluación inicial (primer mes).
 1. **Una evaluación parcial por cada trimestre**.
+
     - Se darán las notas de los **RA** completados y también la nota **parcial** de los **RA** incompletos.
     - Para tener el aprobado será necesario haber alcanzado una puntuación superior o igual a 5 en los **Resultados de Aprendizaje RA** completados.
+
 1. **Evaluación ordinaria** y **extraordinaria**: Permitirán recuperar los **RA no superados**.
 
 ### 6.4 - Condiciones para poder presentarse a las evaluaciones ordinarias y extraordinarias
 
-Para poder presentarse a las convocatorias ordinaria y extraordinaria, el alumnado deberá cumplir con los siguientes requisitos en los RA suspensos:
+1. Para poder presentarse a las convocatorias ordinaria y extraordinaria, el alumnado deberá cumplir con los siguientes requisitos en los RA suspensos:
 
-- Haber presentado **al menos una tarea** por cada criterio de evaluación.
-- Haber obtenido **una puntuación mínima de 3/10 en el 60% de las tareas**.
+    - Haber presentado **al menos una tarea** por cada criterio de evaluación.
+    - Haber obtenido **una puntuación mínima de 3/10 en el 60% de las tareas**.
 
-En caso de suspender el módulo en la convocatoria ordinaria, se dispondrá de una convocatoria extraordinaria que consistirá en una prueba sobre los RA no superados.
+1. En caso de suspender el módulo en la convocatoria ordinaria, se dispondrá de una convocatoria extraordinaria que consistirá en una prueba sobre los RA no superados.
 
 ## 7 - Secuenciación y duración de cada Unidad de Trabajo
 

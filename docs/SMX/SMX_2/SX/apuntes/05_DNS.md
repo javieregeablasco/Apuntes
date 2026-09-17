@@ -1352,9 +1352,44 @@ En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.
     ![Descripción de la imagen](./img_5/img_5_84.png){.margintop10 .marginbottom10 .marco }
 
 - Como veremos, gran parte de las advertencias **están relacionadas con IPv6** que no están configuradas en nuestro entorno.
-- **En un entorno real, los errores deberán solucionarse** ya que afectarán al rendimiento y la capacidad de resolución de nombre de nuestro servidor DNS.
+- **En un entorno real, los errores deberán solucionarse** ya que afectarán al rendimiento y la capacidad de resolución de nombres de nuestro servidor DNS.
 
 !!! task "Comentar brevemente los errores encontrados así como sus posibles soluciones."
+
+## 17 - Tarea RA2-CEabcde - Configuración de un segundo Controlador de Dominio y DNS
+
+1. En entornos de producción, disponer de un único servidor representa un punto único de fallo (Single Point of Failure). 
+
+1. Desplegar un segundo controlador de dominio con DNS y AD DS responde a cuatro razones esenciales:
+
+    - Alta disponibilidad y tolerancia a fallos: Si el servidor principal cae, falla el hardware o se reinicia por mantenimiento, el segundo servidor asume la autenticación de usuarios y la resolución DNS sin interrupciones en la red.
+
+    - Balanceo de carga: Distribuye el tráfico de peticiones de inicio de sesión, directivas de grupo (GPO) y consultas DNS entre ambos equipos para no saturar el servidor principal.
+
+    - Replicación automática: Al integrar DNS dentro de Active Directory (arquitectura multi-master), cualquier cambio en usuarios, equipos o registros de red se sincroniza automáticamente en ambos servidores.
+
+    - Recuperación ante desastres: Evita la pérdida total de la base de datos de la empresa si el servidor primario queda inservible.
+
+1. En esta práctica haremos lo siguiente:
+    - Lanzaremos una segunda instancia de Windows Server 2025 (y le asignaremos una IP estática).
+    - Uniremos la segunda instancia al dominio existente.
+    - Instalaremos el rol de AD DS y promocionaremos el servidor a Controlador de Dominio adicional (incluyendo el rol de servidor DNS de forma integrada).
+    - Reconfiguraremos los DNS en ambas interfaces de red para que se apunten de forma cruzada (el DC1 apuntará al DC2 como preferido y a sí mismo como alternativo, y viceversa) para garantizar redundancia.
+
+### 17.1 Lanzar una segunda instancia de Windows Server 2025
+
+### 17.2 Agregar la segunda instancia al dominio
+
+agregamos la instancia al dominio. necesitaremos credenciales de administrador de ese dominio.
+si vamos al equipo 1 en active directory veremos que en computers tenemos el segundo servidor.
+
+### 17.3 Levantar el AD DS en la segunda instancia al dominio
+
+si vamos a la consola de Active Directory veremos que tenemos 2 controladores de dominio.
+
+### 17.4 Configuración de los DNS
+
+editaremos las interfaces de red para que se apunten mutuamente.
 
 ## hasta aqui
 
