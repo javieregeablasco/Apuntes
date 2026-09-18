@@ -700,7 +700,7 @@ UDP es más rápido porque no establece conexión previa ni verifica la entrega 
 -->
 
 !!! exercise "Ejercicio 3"
-    - ¿Diferencia entre el puerto 80 y el 443?
+    - ¿Diferencias entre el protocolo del puerto 80 y del 443?
 
 <!-- El puerto 80 (HTTP) transmite los datos en texto plano, sin cifrar, por lo que cualquier persona que intercepte el tráfico podría leer la información (contraseñas, datos personales, etc.). El puerto 443 (HTTPS) añade una capa de cifrado mediante TLS/SSL, protegiendo la confidencialidad e integridad de los datos, además de autenticar la identidad del servidor mediante certificados digitales. -->
 
@@ -710,7 +710,7 @@ UDP es más rápido porque no establece conexión previa ni verifica la entrega 
 <!-- Telnet transmite toda la información, incluidas las credenciales de acceso, en texto plano, por lo que es vulnerable a ataques de interceptación (*sniffing*). SSH, en cambio, cifra toda la comunicación de extremo a extremo, incluye mecanismos de autenticación más robustos (contraseñas cifradas o claves públicas/privadas) y protege contra ataques de intermediario (*man-in-the-middle*). Por eso SSH ha sustituido prácticamente por completo a Telnet en la administración remota de sistemas. -->
 
 !!! exercise "Ejercicio 5"
-    - Dar un ejemplo de puerto registrado y el servicio aosciado.
+    - Dar un ejemplo de puerto registrado y el servicio asociado.
     - ¿Diferencia entre puerto registrado y puerto conocido?
 
 <!-- El puerto 3306 (MySQL) es un buen ejemplo: no es un servicio "básico" de Internet como HTTP o DNS, sino una aplicación específica (el motor de bases de datos MySQL/MariaDB) que la IANA ha registrado oficialmente para evitar conflictos con otras aplicaciones. -->
@@ -718,13 +718,4 @@ UDP es más rápido porque no establece conexión previa ni verifica la entrega 
 !!! exercise "Ejercicio 6"
     - ¿Cuáles son los riesgos de tener puertos abiertos innecesariamente?
 
-<!-- Cada puerto abierto es una posible puerta de entrada para un atacante: si el servicio asociado tiene una vulnerabilidad, puede ser explotada para acceder al sistema, robar datos o instalar malware. El **escaneo de puertos** (*port scanning*) es una técnica (usada tanto por atacantes como por administradores de seguridad) que consiste en analizar un equipo o red para detectar qué puertos están abiertos y qué servicios están escuchando en ellos, con el fin de identificar posibles vulnerabilidades explotables. Por eso una buena práctica de seguridad es cerrar o filtrar (mediante firewall) todos los puertos que no sean estrictamente necesarios. --> 
-
-<!-- 
-https://www.manageengine.com/latam/oputils/direcciones-ip-fundamentos.html 
--->
-
-<!-- 
-http://www.newdevices.com/tutoriales/ipv4/2.html
-https://www.sapalomera.cat/moodlecf/RS/1/course/module10/#10.2.1.3
--->
+<!-- Cada puerto abierto es una posible puerta de entrada para un atacante: si el servicio asociado tiene una vulnerabilidad, puede ser explotada para acceder al sistema, robar datos o instalar malware. El **escaneo de puertos** (*port scanning*) es una técnica (usada tanto por atacantes como por administradores de seguridad) que consiste en analizar un equipo o red para detectar qué puertos están abiertos y qué servicios están escuchando en ellos, con el fin de identificar posibles vulnerabilidades explotables. Por eso una buena práctica de seguridad es cerrar o filtrar (mediante firewall) todos los puertos que no sean estrictamente necesarios. -->

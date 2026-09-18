@@ -110,7 +110,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
 
 ### 1.12 Tarea RA2-CEa - Configuración del entorno de trabajo
 
-!!! task "Tarea RA2-CEa - Personalización del software utilizado."
+!!! task "Tarea RA2-CEa - Parte 1 - Personalización del software utilizado."
      **Parte hecha en clase:**  
 
      1. Buscar la opción que permite cambiar el modo (día/noche) de la interfaz de usuario ¿Qué occure cuando escribimos texto?
@@ -127,7 +127,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
      1. Cambiar el tipo de letra básico de **Liberation Sans** a **Arial**.
      1. Configurar el archivo guardado para que solo se pueda abrir mediante **contraseña**.
 
-!!! task "Tarea RA2-CEa - Personalización de las barras de herramientas."
+!!! task "Tarea RA2-CEa - Parte 2 - Personalización de las barras de herramientas."
      **Parte a entregar**:  
 
     1. Seleccionar las opciones que permitan mostrar las reglas, tanto horizontal como verticalmente (pista: ver).
@@ -137,9 +137,9 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
     1. Después de mostrar esas barras de herramientas, eliminar varios iconos de esas barras de herramientas de la interfaz de usuario (pista: personalizar).
     1. Cambiar la opción para que, en vez de una coma, sea un punto lo que aparezca en pantalla después de presionar el ‘punto’ del teclado numérico (pista: personalizar, configurar idioma, separador decimal).
 
-    !!! warning "Condiciones de la entrega."  
-        Realizar una captura de un documento dónde se vean las personalizaciones de las barras de herramientas.
-        Subir el documento con vuestras respuestas a la tarea RA2-CEa de Aules.
+    !!! warning "Condiciones de entrega de la tarea"  
+        1. Realizar una captura de un documento dónde se vean las personalizaciones de las barras de herramientas.
+        1. Subir el documento con vuestras respuestas a la tarea RA2-CEa de Aules.
 
 ### 1.13 Enlaces de interés
 
@@ -149,17 +149,17 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
 
 ## 2.1 - Creación y edición básica de un documento de texto
 
-<!-- HASATA AQUI -->
+### Tarea - RA2-CEc-1
 
-### Tarea - RA2-CEb-1
-
-!!! task "Tarea a entregar en RA2-CEb-1"
-    **1. Abre un nuevo documento y copia el siguiente texto:**  
+!!! task "Tarea a entregar en RA2-CEc-1"
+    **1. Abre un nuevo documento, copia y pega el siguiente texto:**  
+    ```text
     Michael Jeffrey Jordan (Brooklyn, Nueva York, 17 de febrero de 1963) es un exjugador de baloncesto estadounidense. Con 1,98 metros de altura, jugaba en la posición de escolta. Es considerado por la mayoría de aficionados y especialistas como el mejor jugador de baloncesto de todos los tiempos.​ Se retiró definitivamente a los cuarenta años en 2003 en los Washington Wizards, tras haberlo hecho en dos ocasiones anteriores, en 1993 y 1998, después de haber jugado 13 temporadas en los Chicago Bulls.
 
     Ganó 6 anillos con Chicago Bulls, promediando 30,1 puntos por partido en toda su carrera deportiva, el mayor promedio en la historia de la liga. También ganó 10 títulos de máximo anotador, 5 MVP de la temporada, 6 MVP de las Finales; fue nombrado en el mejor quinteto de la NBA en diez ocasiones, en el defensivo nueve veces, líder en robos de balón durante tres años y un premio al mejor defensor de la temporada.
 
     Desde 1983, ha aparecido en la portada de la prestigiosa revista deportiva Sports Illustrated en 50 ocasiones, todo un récord, además de ser designado deportista del año en 1991 y mejor atleta del siglo XX por ESPN y segundo tras Babe Ruth por Associated Press.​ 
+    ```
 
     **2. Seleccionar y mover texto:**  
     Selecciona el segundo párrafo, cortalo y pegalo después del último párrafo.
@@ -172,18 +172,24 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
     &nbsp;&nbsp;&nbsp;&nbsp;b. Pasar el idioma de la palabra **Desde** a catalán.  
 
     **5. Guardar y guardar como:**  
-    &nbsp;&nbsp;&nbsp;&nbsp;a. **Guardar** el documento y darle como nombre: **RA2-CEb-1-Nombre Alumno**.  
-    &nbsp;&nbsp;&nbsp;&nbsp;b. **Guardar como** el documento, **protegerlo con la contraseña 1234** y darle como nombre **Copia RA2-CEb-1-Nombre Alumno**.
+    &nbsp;&nbsp;&nbsp;&nbsp;a. **Guardar** el documento y darle como nombre: **RA2-CEc-1-NombreApellidosAlumno**.  
+    &nbsp;&nbsp;&nbsp;&nbsp;b. **Guardar como** el documento, **protegerlo con la contraseña 1234** y darle como nombre **Copia RA2-CEc-1-NombreApellidosAlumno**.
 
-    **6. Entregar la tarea:**  
-    Subir los 2 archivos **RA2-CEb-1-Nombre Alumno** y **Copia RA2-CEb-1-Nombre Alumno** a la **tarea RA2-CEb-1**.  
+    !!! warning "Condiciones de entrega de la tarea"
+        1. Subir los 2 archivos **RA2-CEc-1-Nombre Alumno** y **Copia RA2-CEc-1-Nombre Alumno** a la **tarea RA2-CEc-1**.  
+        1. Los archivos a subir deberan ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
+        1. **No se aceptará ningún otro formato de archivo**.
 
-## **2.2 - Formatos de texto**
-### Tarea - RA2-CEb-2
-!!! task "Tarea a entregar en RA2-CEb-2"
-    **1. Abre un nuevo documento y copia el siguiente texto:**  
-    Michael, hijo de James y Deloris Jordan, nació en Brooklyn, Nueva York. Su familia se mudó a Wilmington, Carolina del Norte, cuando él era niño. Estudió en la Ogden Elementary School, y posteriormente asistió a la preparatoria Emsley A. Laney, donde, debido a sus impresionantes condiciones atléticas, jugó al baloncesto, béisbol y fútbol americano. Sin embargo, fue apartado del equipo de baloncesto en su segundo año porque para su altura (1,80 metros) estaba aparentemente subdesarrollado. El verano siguiente, creció 10 centímetros y se entrenó rigurosamente.​ En su último año en Laney High, promedió un triple-doble: 29,2 puntos, 11,6 rebotes y 10,1 asistencias,​ y fue seleccionado en el McDonald's All-American Team.​ 
-    
+## 2.2 - Formatos de texto
+
+### Tarea - RA2-CEc-2
+
+!!! task "Tarea a entregar en RA2-CEc-2"
+    **1. Abre un nuevo documento, copia y pega el siguiente texto:**
+    ```text  
+    Michael, hijo de James y Deloris Jordan, nació en Brooklyn, Nueva York. Su familia se mudó a Wilmington, Carolina del Norte, cuando él era niño. Estudió en la Ogden Elementary School, y posteriormente asistió a la preparatoria Emsley A. Laney, donde, debido a sus impresionantes condiciones atléticas, jugó al baloncesto, béisbol y fútbol americano. Sin embargo, fue apartado del equipo de baloncesto en su segundo año porque para su altura (1,80 metros) estaba aparentemente subdesarrollado. El verano siguiente, creció 10 centímetros y se entrenó rigurosamente.​ En su último año en Laney High, promedió un triple-doble: 29,2 puntos, 11,6 rebotes y 10,1 asistencias,​ y fue seleccionado en el McDonald's All-American Team.​
+    ```
+
     **Todo el texto deberá estar inicialmente en ARIAL**
 
     **2. Modificar el texto de la siguiente manera:**  
@@ -199,14 +205,11 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Estilo de sombra: **inferior izquierda**.    
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Color de sombra: **Naranja 3**.    
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Distancia de sombra: **0.1cm**.    
-
     &nbsp;&nbsp;&nbsp;&nbsp;h. Añadir los números 2 y 10 y ponerles respectivamente el superíndice 125 y subíndice 512.  
 
-    &nbsp;&nbsp;&nbsp;&nbsp;**El texto quedará de la siguiente manera:**
+    !!! tip "Resultado esperado"
+        ![](./img_ut2/ra2ceb2.png){.original }
 
-    ![](./img_ut2/ra2ceb2.png){.sietecinco}
-
-    <br>
     **3. Copiar y pegar el texto y limpiar los formatos.**  
     &nbsp;&nbsp;&nbsp;&nbsp;a. Poner la primera frase **color RGB 125 135 247**.  
     &nbsp;&nbsp;&nbsp;&nbsp;b. Poner la frase siguiente **color RGB 125 135 247 y tamaño de fuente 16pt**.  
@@ -215,9 +218,8 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
     &nbsp;&nbsp;&nbsp;&nbsp;e. Poner la frase siguiente **primera letra de cada palabra en mayúsculas**.  
     &nbsp;&nbsp;&nbsp;&nbsp;f. Poner la frase siguiente **fue seleccionada con un hiperenlace https://es.wikipedia.org/wiki/Michael_Jordan**.  
 
-    &nbsp;&nbsp;&nbsp;&nbsp;**El texto quedará de la siguiente manera:**
-
-    ![](./img_ut2/ra2ceb21.png){.sietecinco}
+    !!! tip "Resultado esperado"
+        ![](./img_ut2/ra2ceb21.png){.original }
 
     <br>
     **4. Copiar y pegar el texto y limpiar los formatos.**  
@@ -228,32 +230,49 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
     &nbsp;&nbsp;&nbsp;&nbsp;e. Poner **Sin embargo** en naranja 1 y con efecto contorno.  
     &nbsp;&nbsp;&nbsp;&nbsp;f. Poner **centímetros** en naranja 2 y giro de 90 grados.  
     
-    &nbsp;&nbsp;&nbsp;&nbsp;**El texto quedará de la siguiente manera:**
-
-    ![](./img_ut2/ra2ceb22.png){.sietecinco}
+    !!! tip "Resultado esperado"
+        ![](./img_ut2/ra2ceb22.png){.original }
 
     **5. Aprendiendo a insertar caracteres especiales:**  
-    Escribar la siguiente frase.  
-    Ω es el símbolo de la unidad de medida, <u>el ohmio</u> , que se usa para la resistencia eléctrica. 
+    Escribar la siguiente frase insertando un carácter especial.  
+    !!! tip "Resultado esperado"
+        Ω es el símbolo de la unidad de medida, <u>el ohmio</u> , que se usa para la resistencia eléctrica. 
 
-    Deberéis insertar el **carácter especial** `omega` del bloque de carácteres `Griego y copto`. Acordaros de subrayar la palabra **ohmio**. 
+        !!! warning "Nota"
+            Deberéis insertar el **carácter especial** `omega` del bloque de carácteres `Griego y copto`. Acordaros de subrayar la palabra **ohmio**. 
 
     **6. Aprendiendo a escribir fórmulas:**  
     Ir a **Insertar &rarr; Objeto OLE &rarr; Objeto de fórmula...** y escribir la siguiente fórmula.
-    ![](./img_ut2/ra2ceb23.png){.doscinco}
+    !!! tip "Resultado esperado"
+        ![](./img_ut2/ra2ceb23.png){.trescinco }
 
-   
-## **2.3 - Formatos de párrafo**
-### **Tarea - RA2-CEb-3**
-!!! task "Tarea a entregar en RA2-CEb-3"
-    **1. Abre un nuevo documento y copia el siguiente texto:**  
+    !!! warning "Condiciones de entrega de la tarea"
+        1. Subir vuestra tarea nombrando el archivo **RA2-CEc-2-Nombre Alumno** a la **tarea RA2-CEc-2**.  
+        1. El archivo a subir deberá ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
+        1. **No se aceptará ningún otro formato de archivo**.
+
+## 2.3 - Formatos de párrafo
+
+### Tarea - RA2-CEc-3
+
+<!-- HASTA AQUI -->
+!!! task "Tarea a entregar en RA2-CEc-3"
+    **1. Abre un nuevo documento, copia y pega el siguiente texto:**  
+    ```text
     Michael Jordan
+
     No debe confundirse con Michael B. Jordan.  
+
     Michael Jeffrey Jordan (Brooklyn, Nueva York, 17 de febrero de 1963) es un exjugador de baloncesto estadounidense. Con 1,98 metros de altura, jugaba en la posición de escolta. Es considerado por la mayoría de aficionados y especialistas como el mejor jugador de baloncesto de todos los tiempos. ​Se retiró definitivamente a los cuarenta años en 2003 en los Washington Wizards, tras haberlo hecho en dos ocasiones anteriores, en 1993 y 1998, después de haber jugado 13 temporadas en los Chicago Bulls.​  
-    Ganó 6 anillos con Chicago Bulls, promediando 30,1 puntos por partido en toda su carrera deportiva, el mayor promedio en la historia de la liga. También ganó 10 títulos de máximo anotador, 5 MVP de la temporada, 6 MVP de las Finales; fue nombrado en el mejor quinteto de la NBA en diez ocasiones, en el defensivo nueve veces, líder en robos de balón durante tres años y un premio al mejor defensor de la temporada.   
+
+    Ganó 6 anillos con Chicago Bulls, promediando 30,1 puntos por partido en toda su carrera deportiva, el mayor promedio en la historia de la liga. También ganó 10 títulos de máximo anotador, 5 MVP de la temporada, 6 MVP de las Finales; fue nombrado en el mejor quinteto de la NBA en diez ocasiones, en el defensivo nueve veces, líder en robos de balón durante tres años y un premio al mejor defensor de la temporada.
+    
     Desde 1983, ha aparecido en la portada de la prestigiosa revista deportiva Sports Illustrated en 50 ocasiones, todo un récord, además de ser designado  deportista del año en 1991 y mejor atleta del siglo XX por ESPN y segundo tras Babe Ruth por Associated Press.​  
-    En la actualidad es el propietario del equipo 23XI Racing en la Copa NASCAR,​ y, desde 2010 a 2023, fue propietario de los Charlotte Hornets en la NBA.​   
+    
+    En la actualidad es el propietario del equipo 23XI Racing en la Copa NASCAR,​ y, desde 2010 a 2023, fue propietario de los Charlotte Hornets en la NBA.​
+    
     En 2021 se calculaba que su patrimonio neto era de $1600 millones,​ fortuna que ascendió a los $3000 millones en octubre de 2023, entrando en la lista Forbes 400, siendo la primera vez que un deportista profesional figura entre las personas más ricas de Estados Unidos.
+    ```
 
     **2. Modificar los párrafos de la siguiente manera:**  
     &nbsp;&nbsp;&nbsp;&nbsp;a. Primer párrafo: **centrado**.  
@@ -264,9 +283,8 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
     &nbsp;&nbsp;&nbsp;&nbsp;f. Párrafo siguiente: **aumentar sangria una vez**.  
     &nbsp;&nbsp;&nbsp;&nbsp;f. Párrafo siguiente: **aumentar sangria 2 veces**.  
 
-    &nbsp;&nbsp;&nbsp;&nbsp;**El texto quedará de la siguiente manera:**
-
-    ![](./img_ut2/ra2ceb24.png){.sietecinco}
+    !!! tip "Resultado esperado"
+        ![](./img_ut2/ra2ceb24-1.png){.cien }
 
     <br>
     **3. Copiar y pegar los párrafos en el mismo documento de la siguiente manera:**  
@@ -300,25 +318,34 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Primer renglón: 0.5cm  
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Letras capitulares: Caracteres=2, Renglones=2.  
  
-    &nbsp;&nbsp;&nbsp;&nbsp;**El texto quedará de la siguiente manera:**
-    !!!warning "¡Cuidado con los estilos de texto o de párrafo que se han incorporado pero no se han mencionado!"
+    !!! tip "Resultado esperado"
+        !!!warning "¡Cuidado con los estilos de texto o de párrafo que se han incorporado pero no se han mencionado!"
+        ![](./img_ut2/ra2ceb25.png){.original }
 
-    ![](./img_ut2/ra2ceb25.png){.sietecinco}
+    !!! warning "Condiciones de entrega de la tarea"
+        1. Subir vuestra tarea nombrando el archivo **RA2-CEc-3-Nombre Alumno** a la **tarea RA2-CEc-3**.  
+        1. El archivo a subir deberá ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
+        1. **No se aceptará ningún otro formato de archivo**.
 
-    <br>
+### Tarea - RA2-CEc-4
 
-### **Tarea - RA2-CEb-4**
-!!! task "Tarea a entregar en RA2-CEb-4"
-    **1. Abre un nuevo documento y copia el texto:**
-    Michael Jordan  
-	No debe confundirse con Michael B. Jordan.  
-	Michael Jeffrey Jordan (Brooklyn, Nueva York, 17 de febrero de 1963) es un exjugador de baloncesto estadounidense. Con 1,98 metros de altura, jugaba en la posición de escolta. Es considerado por la mayoría de aficionados y especialistas como el mejor jugador de baloncesto de todos los tiempos.[2]​[3]​ Se retiró definitivamente a los cuarenta años en 2003 en los Washington Wizards, tras haberlo hecho en dos ocasiones anteriores, en 1993 y 1998, después de haber jugado 13 temporadas en los Chicago Bulls.[4]  
-	Ganó 6 anillos con Chicago Bulls, promediando 30,1 puntos por partido en toda su carrera deportiva, el mayor promedio en la historia de la liga. También ganó 10 títulos de máximo anotador, 5 MVP de la temporada, 6 MVP de las Finales; fue nombrado en el mejor quinteto de la NBA en diez ocasiones, en el defensivo nueve veces, líder en robos de balón durante tres años y un premio al mejor defensor de la temporada.   
-	
-	Desde 1983, ha aparecido en la portada de la prestigiosa revista deportiva Sports Illustrated en 50 ocasiones, todo un récord, además de ser designado deportista del año en 1991 y mejor atleta del siglo XX por ESPN y segundo tras Babe Ruth por Associated Press.[5]​ 
+!!! task "Tarea a entregar en RA2-CEc-4"
+    **1. Abre un nuevo documento, copia y pega el siguiente texto:**
+    ```text
+    Michael Jordan
+
+    No debe confundirse con Michael B. Jordan.
+    
+    Michael Jeffrey Jordan (Brooklyn, Nueva York, 17 de febrero de 1963) es un exjugador de baloncesto estadounidense. Con 1,98 metros de altura, jugaba en la posición de escolta. Es considerado por la mayoría de aficionados y especialistas como el mejor jugador de baloncesto de todos los tiempos.[2]​[3]​ Se retiró definitivamente a los cuarenta años en 2003 en los Washington Wizards, tras haberlo hecho en dos ocasiones anteriores, en 1993 y 1998, después de haber jugado 13 temporadas en los Chicago Bulls.[4]  
+
+    Ganó 6 anillos con Chicago Bulls, promediando 30,1 puntos por partido en toda su carrera deportiva, el mayor promedio en la historia de la liga. También ganó 10 títulos de máximo anotador, 5 MVP de la temporada, 6 MVP de las Finales; fue nombrado en el mejor quinteto de la NBA en diez ocasiones, en el defensivo nueve veces, líder en robos de balón durante tres años y un premio al mejor defensor de la temporada.   
+
+    Desde 1983, ha aparecido en la portada de la prestigiosa revista deportiva Sports Illustrated en 50 ocasiones, todo un récord, además de ser designado deportista del año en 1991 y mejor atleta del siglo XX por ESPN y segundo tras Babe Ruth por Associated Press.[5]​ 
+    
     En la actualidad es el propietario del equipo 23XI Racing en la Copa NASCAR,[6]​ y, desde 2010 a 2023, fue propietario de los Charlotte Hornets en la NBA.[7]​[8]  
     ​ 
-	12,366 11251,695 6,22566 1259,26 3,2256  
+    12,366 11251,695 6,22566 1259,26 3,2256  
+    ```
 
     **2. Modificar los párrafos de la siguiente manera:**  
     &nbsp;&nbsp;&nbsp;&nbsp;a. Primer párrafo: **no hacer nada**.  
@@ -330,33 +357,46 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
     &nbsp;&nbsp;&nbsp;&nbsp;g. Párrafo siguiente: **añadir un tabulador decimal a 12cm**.  
     &nbsp;&nbsp;&nbsp;&nbsp;h. Primer párrafo: **añadir un tabulador para que el texto quede como se ve an la imagen**.  
     
-    &nbsp;&nbsp;&nbsp;&nbsp;**El texto quedará de la siguiente manera:**
+    !!! tip "Resultado esperado"
+        ![](./img_ut2/ra2ceb27.png){.cien }
+
+    !!! warning "Condiciones de entrega de la tarea"
+        1. Subir vuestra tarea nombrando el archivo **RA2-CEc-4-Nombre Alumno** a la **tarea RA2-CEc-4**.  
+        1. El archivo a subir deberá ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
+        1. **No se aceptará ningún otro formato de archivo**.    
+
+### Tarea - RA2-CEc-5
+
+!!! task "Tarea a entregar en RA2-CEc-5"
+    **1. Abre un nuevo documento, copia y pega el siguiente texto:**  
+    ```text
+    El que suscribe, Don PATRICIO RUIZ MAÑOSA, de 21 años de edad, hijo de Don Críspulo Ruiz Beltrán y de Doña Leonor Mañosa Abad, natural de Alcaudete (Jaén) y con domicilio en esta ciudad, Avenida de Coria, 17,  
+
+    EXPONE: Que siendo una persona con gran interés en la música y la danza, como acredita con los documentos y vídeos que acompaña, se halla incluido en los criterios que las bases del concurso para el Festival de Verano señalan para la participación en el mismo. Acogiéndose a lo dispuesto en ellas, y con el propósito de aportar su talento y contribuir a la alegría del festival,  
     
-    ![](./img_ut2/ra2ceb27.png){.sietecinco}
-
-    <br>
-
-### **Tarea - RA2-CEb-5**   
-!!! task "Tarea a entregar en RA2-CEb-5"
-    **1. Abre un nuevo documento y copia el siguiente texto:**  
-    El que suscribe, Don **PATRICIO RUIZ MAÑOSA**, de 21 años de edad, hijo de Don Críspulo Ruiz Beltrán y de Doña Leonor Mañosa Abad, natural de Alcaudete (Jaén) y con domicilio en esta ciudad, Avenida de Coria, 17,  
-    **EXPONE:** Que siendo una persona con gran interés en la música y la danza, como acredita con los documentos y vídeos que acompaña, se halla incluido en los criterios que las bases del concurso para el Festival de Verano señalan para la participación en el mismo. Acogiéndose a lo dispuesto en ellas, y con el propósito de aportar su talento y contribuir a la alegría del festival,  
-    **SOLICITA:** Se sirva ordenar que le sea concedida, si es que lo merece en justicia, una de las plazas para actuar en la gran final.
+    SOLICITA: Se sirva ordenar que le sea concedida, si es que lo merece en justicia, una de las plazas para actuar en la gran final.
     En Sevilla, a cuatro de marzo de 2025.  
- 
+    ```
     **2. Modifica los estilos de párrafos para que quede la siguiente manera (sangría francesa):**
-    
+
     **3. Añade después del texto anterior el texto que aparece en la imagen y usa tabuladores para ordenarlo.**
+    
+    !!! tip "Resultado esperado"
+        ![](./img_ut2/ra2ceb26.png){.cien }
 
-    ![](./img_ut2/ra2ceb26.png){.sietecinco}
-
-    <br>
+    !!! warning "Condiciones de entrega de la tarea"
+        1. Subir vuestra tarea nombrando el archivo **RA2-CEc-5-Nombre Alumno** a la **tarea RA2-CEc-5**.  
+        1. El archivo a subir deberá ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
+        1. **No se aceptará ningún otro formato de archivo**.
+      
 
 ## **2.5 - Viñetas y numeración de títulos y párrafos**
 
-### **Tarea - RA2-CEb-6**
-!!! task "Tarea a entregar en RA2-CEb-6"
-    **1. Abre un nuevo documento y copia el siguiente texto:**  
+### Tarea - RA2-CEc-6
+
+!!! task "Tarea a entregar en RA2-CEc-6"
+    **1. Abre un nuevo documento, copia y pega el siguiente texto:**  
+    ```text
     OPERACIONES BÁSICAS:
     Entrar en el programa.
     Guardar un documento por primera vez.
@@ -382,14 +422,18 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
     Desplegar el menú Formato.
     Seleccionar la opción Fuentes.
     Seleccionar una fuente, un tamaño para el texto y un color.
+    ```
 
     **2. Incorporar numeraciones y viñetas para que el texto quede de la siguiente manera.**  
-    Tener en cuenta los formatos que ya conoceís: Parrafo, texto, etc. Cualquier aportación personal para aportar vistosidad y legibilidad al texto será bienvenida.  
-    No hacer **fontaneria**. El espacio entre elementos de texto deberá realizarse eligiendo correctamente los parametros de cada elemento, **no realizando saltos de línea**.  
 
-    ![](./img_ut2/ra2ceb29.png){.trescinco}
+    - Tener en cuenta los formatos que ya conoceís: Parrafo, texto, etc. Cualquier aportación personal para aportar vistosidad y legibilidad al texto será bienvenida.  
+    - No hacer **fontaneria**. El espacio entre elementos de texto deberá realizarse eligiendo correctamente los parámetros de cada elemento, **no realizando saltos de línea**.
 
-    **3. Realiza un salto de página en el documento anterior y copia el siguiente texto:**  
+    !!! tip "Resultado esperado"
+        ![](./img_ut2/ra2ceb29.png){.original}
+
+    **3. Realiza un salto de página en el documento anterior, copia y pega el siguiente texto:**  
+    ```text
     Introducción al programa
     Utilidad del Procesador de Texto.
     Entrar en Procesador de Texto.
@@ -414,78 +458,105 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
     Sangría 1ª línea.
     Sangría izquierda.
     Sangría derecha.
+    ```
 
     **4. Incorporar numeraciones y viñetas para que el texto quede de la siguiente manera.**
+    !!! tip "Resultado esperado"
+        ![](./img_ut2/ra2ceb30.png){.sietecinco}
 
-    ![](./img_ut2/ra2ceb30.png){.cincozero}
+    !!! warning "Condiciones de entrega de la tarea"
+        1. Subir vuestra tarea nombrando el archivo **RA2-CEc-6-Nombre Alumno** a la **tarea RA2-CEc-6**.  
+        1. El archivo a subir deberá ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
+        1. **No se aceptará ningún otro formato de archivo**.     
 
+## 2.6 - Estilos y plantillas
 
-## **2.6 - Estilos y plantillas**
-### **Tarea - RA2-CEc-1**
+### Tarea - RA2-CEb-1
+
 En este apartado aprenderemos a definir estilos para todos los elementos de nuestro documento de texto.
 
-!!! task "Tarea a entregar en RA2-CEc-1"
-    **1. Descargar y abrir el archivo 'RA2-CEc-1' pinchando en el enlace siguiente:** [Descargar archivo](./archivos/RA2-CEc-1.rar)  
-    **2.** Crear un nuevo estilo **MisEstilos**. Dejar la configuración por defecto y solo modificar el tipo de letra a **Arial 12**.  
-    Acordaros de elegir **Heredar de ninguno** si no, creará el estilo dentro de **Estilo de párrafo predeterminado**.  
-    **3.** Crear 3 sub estilos **Cabeceras**, **Párrafos** y **Títulos** (realmente no son estilos, sino carpetas donde iremos creando los estilos para cada apartado del documento). 
+!!! task "Tarea a entregar en RA2-CEb-1"
+    !!! exercise "1. Descargar y abrir el archivo 'RA2-CEb-1' pinchando en el enlace siguiente: [Descargar archivo](./archivos/RA2-CEb-1.rar)<br>2. Crear un nuevo estilo MisEstilos. Dejar la configuración por defecto y solo modificar el tipo de letra a Arial 12. Acordaros de elegir Heredar de ninguno, si no, creará el estilo dentro de Estilo de párrafo predeterminado.<br>3. Crear 3 sub estilos Cabeceras, Párrafos y Títulos (realmente no son estilos, sino carpetas donde iremos creando los estilos para cada apartado del documento).""
+        !!! tip "Resultado esperado"
+            ![img](./img_ut2/ra2ceb31.png){.cuatrozero }
 
-    ![](./img_ut2/ra2ceb31.png){.doscinco} <br>  
-
-    **4.** Dentro de **Cabeceras** crear el estilo **Cabecera centrada** con un resultado similar al de la siguiente imagen. (Sois libres de incorporar más características al estilo).
+    !!! exercise "4. Dentro de **Cabeceras** crear el estilo **Cabecera centrada** con un resultado similar al de la siguiente imagen. (Sois libres de incorporar más características al estilo)""
      
-    ![](./img_ut2/ra2ceb32.png){.sietecinco}  
+        !!! tip "Resultado esperado"
+            ![](./img_ut2/ra2ceb32.png){.cien }  
 
-    **5.** Dentro de **Cabeceras** crear el estilo **Cabecera conclusión** con un resultado similar al de la siguiente imagen.  
-    **Nota importante:** Cada vez que se use ese estilo se deberá insertar automáticamente un salto de página. 
-    ![](./img_ut2/ra2ceb37.png){.sietecinco} <br>
-
-
-    **6.** Dentro de **Párrafos** crear 4 estilos **Párrafo centrado**, **Párrafo izquierdo**, **Párrafo normal** y **viñeta 1** con el resultado siguiente:  
-    <br>
-          &nbsp;&nbsp;&nbsp;&nbsp;- **Párrafo normal** (cuidado con los márgenes izquierdo y derecho)
-              ![](./img_ut2/ra2ceb33.png){.sietecinco}          
-          &nbsp;&nbsp;&nbsp;&nbsp;- **Párrafo centrado**  
-              ![](./img_ut2/ra2ceb34.png){.sietecinco}          
-          &nbsp;&nbsp;&nbsp;&nbsp;- **Párrafo izquierdo**  
-              ![](./img_ut2/ra2ceb35.png){.sietecinco} 
-          &nbsp;&nbsp;&nbsp;&nbsp;- **viñeta 1**  
-              ![](./img_ut2/ra2ceb43.png){.cincozero} 
-    <br>
-
-    **7.** Dentro de **Párrafo normal** crear el estilo **Párrafo numerado** con el resultado siguiente:  
-    **Nota** Ese estilo es idéntico al estilo **Párrafo normal**. Para evitar de buscar una a una las características del estilo **Párrafo normal** lo que haremos es, al definir **Párrafo numerado** es **heredar** los estilos de **Párrafo normal**.  
-    El estilo **Párrafo numerado** quedará de la siguiente manera (Como podeís ver se ha aplicado un estilo de carácter especial al numerador):  
-              ![](./img_ut2/ra2ceb40.png){.sietecinco} <br>  
-
-
-    **8.** Dentro de **Títulos** crear el estilo **Títulos-1** con el siguiente resultado.  
-    **Nota 1:** Cuando se aplique ese estilo, se insertará **automáticamente** un salto de página antes del texto seleccionado.  
-    **Nota 2:** Cuando se aplique ese estilo, **se insertará automáticamente la numeración 'Apartado xx.'**.  
-    <br>
-    ![](./img_ut2/ra2ceb41.png){.sietecinco} <br>
+    !!! exercise "5. Dentro de **Cabeceras** crear el estilo **Cabecera conclusión** con un resultado similar al de la siguiente imagen."  
+        !!! warning "Nota importante"
+            Cada vez que se use ese estilo se deberá insertar automáticamente un salto de página. 
     
-    **9.** Resumen de todos los estilos:  
-    <br>
-    ![](./img_ut2/ra2ceb39.png){.doscinco} <br>
+        !!! tip "Resultado esperado"
+            ![](./img_ut2/ra2ceb37.png){.cien}
 
-    **10.** Aplicar los estilos al texto del documento. Recordad que también **teneís que terminar de modificar los estilos** para respetar los márgenes, fuentes y tamaño de fuentes del documento de muestra.     
 
-    **11.** **Entrega de la tarea**.  
-    Subir el archivo en **formato .odt (open text document)** a la tarea RA2-CEc-1. No se admitirá ningún otro tipo de formato.
-  
-### **Tarea - RA2-CEc-2**
+    !!! exercise "**6.** Dentro de **Párrafos**, crear 4 estilos:<br>- **Párrafo centrado**<br>- **Párrafo izquierdo**<br>- **Párrafo normal**<br>- **viñeta 1**"  
+
+        !!! tip "Resultado esperado"
+            - **Párrafo normal** (cuidado con los márgenes izquierdo y derecho)
+                  ![](./img_ut2/ra2ceb33.png){.cien .marco .margintop10 .marginbottom30}   
+
+            - **Párrafo centrado**  
+                  ![](./img_ut2/ra2ceb34.png){.cien .marco .margintop10 .marginbottom30}
+
+            - **Párrafo izquierdo**  
+                  ![](./img_ut2/ra2ceb35.png){.cien .marco .margintop10 .marginbottom30} 
+
+            - **viñeta 1**  
+                  ![](./img_ut2/ra2ceb43.png){.cien .marco .margintop10 } 
+    
+    
+    !!! exercise "**7.** Dentro de **Párrafo normal** crear el estilo **Párrafo numerado** con el siguiente resultado:""  
+        !!! tip "Nota" 
+            - Ese estilo es idéntico al estilo **Párrafo normal**. 
+            - Para evitar de buscar una a una las características del estilo **Párrafo normal** lo que haremos es, al definir **Párrafo numerado**,     **heredar** los estilos de **Párrafo normal**.  
+        - El estilo **Párrafo numerado** quedará de la siguiente manera (Como podeís ver se ha aplicado un estilo de carácter especial al numerador)    :  
+        !!! tip "Resultado esperado"
+            ![](./img_ut2/ra2ceb40.png){.cien .marco .margintop10 .marginbottom30}   
+
+
+    !!! exercise "**8.** Dentro de **Títulos** crear el estilo **Títulos-1** con el siguiente resultado."  
+
+        !!! warning "Nota 1"
+            Configurar el estilo para que inserte **automáticamente** un salto de página antes del texto seleccionado.  
+        !!! warning "Nota 2"
+            Configurar el estilo para que, al aplicar el estilo, **se inserte automáticamente la numeración 'Apartado xx.'**.  
+
+        !!! tip "Resultado esperado"
+            ![](./img_ut2/ra2ceb41.png){.cien .marco .margintop10 .marginbottom30} 
+    
+    !!! exercise "**9.** Resumen de todos los estilos:"
+        !!! tip "Resultado esperado"
+            ![](./img_ut2/ra2ceb39.png){.cuatrozero  .margintop10 .marginbottom30} 
+
+    !!! exercise "**10.** Aplicar los estilos al texto del documento. Recordad que también **teneís que terminar de modificar los estilos** para respetar los márgenes, fuentes y tamaño de fuentes del documento de muestra."
+
+    !!! warning "Condiciones de entrega de la tarea"
+        1. Subir vuestra tarea nombrando el archivo **RA2-CEb-1-Nombre Alumno** a la **tarea RA2-CEb-1**.  
+        1. El archivo a subir deberá ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
+        1. **No se aceptará ningún otro formato de archivo**. 
+    
+### Tarea - RA2-CEb-2
+
 En este apartado aprenderemos a definir plantillas sobre los estilos creados anteriormente, lo que permetrá **ahorrar un tiempo considerable** en la redacción de documentos nuevos.
 
-!!! task "Tarea a entregar en RA2-CEc-2"
+!!! task "Tarea a entregar en RA2-CEb-2"
     Crear una plantilla de un documento de texto no es otra cosa que crear un archivo que contendrá todos los estilos y los campos  que se repiten documento a documento.  
-    **1.** **Recuperar vuestro documento de la tarea RA2-CEc-1**.  
-    **2.** **Eliminar todo el texto y solo dejar un texto con el nombre de los estilos**. Os podéis ayudar con [el siguiente documento](./archivos/RA2-CEc/RA2-CEc-2.pdf)  
-    **3.** **Guardar el documento como plantilla**, categoría **Mis plantillas** con el siguiente nombre: Tarea RA2-CEc Nombre Apellidos.   
-    **4.** **Recuperar la plantilla** y subidla a la **tarea RA2-CEc-2** de Aules.    
+    **1.** **Recuperar vuestro documento de la tarea RA2-CEb-1**.  
+    **2.** **Eliminar todo el texto y solo dejar un texto con el nombre de los estilos**.  
+    Os podéis ayudar con [el siguiente documento](./archivos/RA2-CEc/RA2-CEb-2.pdf)  
+    **3.** **Guardar el documento como plantilla**, categoría **Mis plantillas** con el siguiente nombre: Tarea RA2-CEc Nombre Apellidos.  
+    **4.** **Recuperar la plantilla** y subidla a la **tarea RA2-CEb-2** de Aules.
 
+    !!! warning "Condiciones de entrega de la tarea"
+        1. Subir vuestra tarea nombrando el archivo **RA2-CEb-2-Nombre Alumno** a la **tarea RA2-CEb-2**.  
+        1. El archivo a subir deberá ser de tipo plantilla de texto de OpenDocument (.ott) (formato predeterminado de plantillas de LibreOffice Writer).  
+        1. **No se aceptará ningún otro formato de archivo**. 
 
-<!-- crear macros: 1h.   -->
+# HASTA AQUI
 
 ## **2.7 - Paginación, tablas, encabezado, pie de página e imágenes**
 ### **Tarea - RA2-CEd**
