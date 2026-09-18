@@ -152,28 +152,28 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
 ### Tarea - RA2-CEc-1
 
 !!! task "Tarea a entregar en RA2-CEc-1"
-    **1. Abre un nuevo documento, copia y pega el siguiente texto:**  
-    ```text
-    Michael Jeffrey Jordan (Brooklyn, Nueva York, 17 de febrero de 1963) es un exjugador de baloncesto estadounidense. Con 1,98 metros de altura, jugaba en la posición de escolta. Es considerado por la mayoría de aficionados y especialistas como el mejor jugador de baloncesto de todos los tiempos.​ Se retiró definitivamente a los cuarenta años en 2003 en los Washington Wizards, tras haberlo hecho en dos ocasiones anteriores, en 1993 y 1998, después de haber jugado 13 temporadas en los Chicago Bulls.
+    !!! exercise "**1. Abre un nuevo documento, copia y pega el siguiente texto:**"  
+        ```text
+        Michael Jeffrey Jordan (Brooklyn, Nueva York, 17 de febrero de 1963) es un exjugador de baloncesto estadounidense. Con 1,98 metros de   altura, jugaba en la posición de escolta. Es considerado por la mayoría de aficionados y especialistas como el mejor jugador de baloncesto    de todos los tiempos.​ Se retiró definitivamente a los cuarenta años en 2003 en los Washington Wizards, tras haberlo hecho en dos ocasiones    anteriores, en 1993 y 1998, después de haber jugado 13 temporadas en los Chicago Bulls.
 
-    Ganó 6 anillos con Chicago Bulls, promediando 30,1 puntos por partido en toda su carrera deportiva, el mayor promedio en la historia de la liga. También ganó 10 títulos de máximo anotador, 5 MVP de la temporada, 6 MVP de las Finales; fue nombrado en el mejor quinteto de la NBA en diez ocasiones, en el defensivo nueve veces, líder en robos de balón durante tres años y un premio al mejor defensor de la temporada.
+        Ganó 6 anillos con Chicago Bulls, promediando 30,1 puntos por partido en toda su carrera deportiva, el mayor promedio en la historia de la  liga. También ganó 10 títulos de máximo anotador, 5 MVP de la temporada, 6 MVP de las Finales; fue nombrado en el mejor quinteto de la NBA   en diez ocasiones, en el defensivo nueve veces, líder en robos de balón durante tres años y un premio al mejor defensor de la temporada.
 
-    Desde 1983, ha aparecido en la portada de la prestigiosa revista deportiva Sports Illustrated en 50 ocasiones, todo un récord, además de ser designado deportista del año en 1991 y mejor atleta del siglo XX por ESPN y segundo tras Babe Ruth por Associated Press.​ 
-    ```
+        Desde 1983, ha aparecido en la portada de la prestigiosa revista deportiva Sports Illustrated en 50 ocasiones, todo un récord, además de ser    designado deportista del año en 1991 y mejor atleta del siglo XX por ESPN y segundo tras Babe Ruth por Associated Press.​ 
+        ```
 
-    **2. Seleccionar y mover texto:**  
-    Selecciona el segundo párrafo, cortalo y pegalo después del último párrafo.
+    !!! exercise "**2. Seleccionar y mover texto:**"
+        Selecciona el segundo párrafo, cortalo y pegalo después del último párrafo.
 
-    **3. Buscar y reemplazar texto:**  
-    Con la herramienta de **buscar** y/o **buscar reemplazar** localizar el texto: **10 títulos** y reemplazarlo por **15 MPV**.
+    !!! exercise "**3. Buscar y reemplazar texto:**" 
+        Con la herramienta de **buscar** y/o **buscar reemplazar** localizar el texto: **10 títulos** y reemplazarlo por **15 MPV**.
 
-    **4. Corrección ortográfica:**  
-    &nbsp;&nbsp;&nbsp;&nbsp;a. Pasar el idioma del primer párrafo a idioma inglés. Es decir el Writer deberá revisar el primer párrafo como si estuviera escrito en idioma inglés.  
-    &nbsp;&nbsp;&nbsp;&nbsp;b. Pasar el idioma de la palabra **Desde** a catalán.  
+    !!! exercise "**4. Corrección ortográfica:**""
+        - Pasar el idioma del primer párrafo a idioma inglés. Es decir el Writer deberá revisar el primer párrafo como si estuviera escrito en idioma inglés.  
+        - Pasar el idioma de la palabra **Desde** a catalán.  
 
-    **5. Guardar y guardar como:**  
-    &nbsp;&nbsp;&nbsp;&nbsp;a. **Guardar** el documento y darle como nombre: **RA2-CEc-1-NombreApellidosAlumno**.  
-    &nbsp;&nbsp;&nbsp;&nbsp;b. **Guardar como** el documento, **protegerlo con la contraseña 1234** y darle como nombre **Copia RA2-CEc-1-NombreApellidosAlumno**.
+    !!! exercise "**5. Guardar y guardar como:**"
+        - **Guardar** el documento y darle como nombre: **RA2-CEc-1-NombreApellidosAlumno**.  
+        - **Guardar como** el documento, **protegerlo con la contraseña 1234** y darle como nombre **Copia RA2-CEc-1-NombreApellidosAlumno**.
 
     !!! warning "Condiciones de entrega de la tarea"
         1. Subir los 2 archivos **RA2-CEc-1-Nombre Alumno** y **Copia RA2-CEc-1-Nombre Alumno** a la **tarea RA2-CEc-1**.  
@@ -185,66 +185,65 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
 ### Tarea - RA2-CEc-2
 
 !!! task "Tarea a entregar en RA2-CEc-2"
-    **1. Abre un nuevo documento, copia y pega el siguiente texto:**
-    ```text  
-    Michael, hijo de James y Deloris Jordan, nació en Brooklyn, Nueva York. Su familia se mudó a Wilmington, Carolina del Norte, cuando él era niño. Estudió en la Ogden Elementary School, y posteriormente asistió a la preparatoria Emsley A. Laney, donde, debido a sus impresionantes condiciones atléticas, jugó al baloncesto, béisbol y fútbol americano. Sin embargo, fue apartado del equipo de baloncesto en su segundo año porque para su altura (1,80 metros) estaba aparentemente subdesarrollado. El verano siguiente, creció 10 centímetros y se entrenó rigurosamente.​ En su último año en Laney High, promedió un triple-doble: 29,2 puntos, 11,6 rebotes y 10,1 asistencias,​ y fue seleccionado en el McDonald's All-American Team.​
-    ```
+    !!! exercise "**1. Abre un nuevo documento, copia y pega el siguiente texto:**"
+        ```text  
+        Michael, hijo de James y Deloris Jordan, nació en Brooklyn, Nueva York. Su familia se mudó a Wilmington, Carolina del Norte, cuando él era niño. Estudió en la Ogden Elementary School, y posteriormente asistió a la preparatoria Emsley A. Laney, donde, debido a sus impresionantes condiciones atléticas, jugó al baloncesto, béisbol y fútbol americano. Sin embargo, fue apartado del equipo de baloncesto en su segundo año porque para su altura (1,80 metros) estaba aparentemente subdesarrollado. El verano siguiente, creció 10 centímetros y se entrenó rigurosamente.​ En su último año en Laney High, promedió un triple-doble: 29,2 puntos, 11,6 rebotes y 10,1 asistencias,​ y fue seleccionado en el McDonald's All-American Team.​
+        ```
 
-    **Todo el texto deberá estar inicialmente en ARIAL**
+        !!! warning "**Todo el texto deberá estar inicialmente en ARIAL**"
 
-    **2. Modificar el texto de la siguiente manera:**  
-    &nbsp;&nbsp;&nbsp;&nbsp;a. Poner la primera frase **en negrita**.  
-    &nbsp;&nbsp;&nbsp;&nbsp;b. Poner la frase siguiente **en itálica**.  
-    &nbsp;&nbsp;&nbsp;&nbsp;c. Poner la frase siguiente **en subrayado**.  
-    &nbsp;&nbsp;&nbsp;&nbsp;d. Poner la frase siguiente **tachado**.  
-    &nbsp;&nbsp;&nbsp;&nbsp;e. Poner la frase siguiente **subrayado + onda**.  
-    &nbsp;&nbsp;&nbsp;&nbsp;f. Poner la frase siguiente **en color de fondo, verde realzado**.  
-    &nbsp;&nbsp;&nbsp;&nbsp;g. Poner dentro de la última frase las palabras "McDonald's All-American Team":  
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Bordes superiores e inferiores, **color green 1**.  
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Separación superior e inferior, **0.2 y 0.1**.    
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Estilo de sombra: **inferior izquierda**.    
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Color de sombra: **Naranja 3**.    
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Distancia de sombra: **0.1cm**.    
-    &nbsp;&nbsp;&nbsp;&nbsp;h. Añadir los números 2 y 10 y ponerles respectivamente el superíndice 125 y subíndice 512.  
+    !!! exercise "**2. Modificar el texto de la siguiente manera:**"
+        1. Poner la primera frase **en negrita**.  
+        1. Poner la frase siguiente **en itálica**.  
+        1. Poner la frase siguiente **en subrayado**.  
+        1. Poner la frase siguiente **tachado**.  
+        1. Poner la frase siguiente **subrayado + onda**.  
+        1. Poner la frase siguiente **en color de fondo, verde realzado**.  
+        1. Poner dentro de la última frase las palabras "McDonald's All-American Team": 
+            - Bordes superiores e inferiores, **color green 1**.  
+            - Separación superior e inferior, **0.2 y 0.1**.    
+            - Estilo de sombra: **inferior izquierda**. 
+            - Color de sombra: **Naranja 3**.    
+            - Distancia de sombra: **0.1cm**.    
+        1. Añadir los números 2 y 10 y ponerles respectivamente el superíndice 125 y subíndice 512.  
 
-    !!! tip "Resultado esperado"
-        ![](./img_ut2/ra2ceb2.png){.original }
+        !!! tip "Resultado esperado"
+            ![](./img_ut2/ra2ceb2.png){.original }
 
-    **3. Copiar y pegar el texto y limpiar los formatos.**  
-    &nbsp;&nbsp;&nbsp;&nbsp;a. Poner la primera frase **color RGB 125 135 247**.  
-    &nbsp;&nbsp;&nbsp;&nbsp;b. Poner la frase siguiente **color RGB 125 135 247 y tamaño de fuente 16pt**.  
-    &nbsp;&nbsp;&nbsp;&nbsp;c. Poner la frase siguiente **fuente mistral**.  
-    &nbsp;&nbsp;&nbsp;&nbsp;d. Poner la frase siguiente **color púrpura y todo en mayúsculas**.  
-    &nbsp;&nbsp;&nbsp;&nbsp;e. Poner la frase siguiente **primera letra de cada palabra en mayúsculas**.  
-    &nbsp;&nbsp;&nbsp;&nbsp;f. Poner la frase siguiente **fue seleccionada con un hiperenlace https://es.wikipedia.org/wiki/Michael_Jordan**.  
+    !!! exercise "**3. Copiar y pegar el texto y limpiar los formatos.**"  
+        1. Poner la primera frase **color RGB 125 135 247**.  
+        1. Poner la frase siguiente **color RGB 125 135 247 y tamaño de fuente 16pt**.  
+        1. Poner la frase siguiente **fuente mistral**.  
+        1. Poner la frase siguiente **color púrpura y todo en mayúsculas**.  
+        1. Poner la frase siguiente **primera letra de cada palabra en mayúsculas**.  ç
+        1. Poner la frase siguiente **fue seleccionada con un hiperenlace https://es.wikipedia.org/wiki/Michael_Jordan**.  
 
-    !!! tip "Resultado esperado"
-        ![](./img_ut2/ra2ceb21.png){.original }
+        !!! tip "Resultado esperado"
+            ![](./img_ut2/ra2ceb21.png){.original }
 
-    <br>
-    **4. Copiar y pegar el texto y limpiar los formatos.**  
-    &nbsp;&nbsp;&nbsp;&nbsp;a. Poner **Deloris Jordan** en tamaño de fuente 14, negrita y con un escalado de anchura del 85%.   
-    &nbsp;&nbsp;&nbsp;&nbsp;b. Poner **Nueva York** en  negrita, púrpura 2 y **sombra**.  
-    &nbsp;&nbsp;&nbsp;&nbsp;c. Poner **Carolina del norte** en  negrita, green 1 y giro de 270 grados.  
-    &nbsp;&nbsp;&nbsp;&nbsp;d. Poner **Ogden Elementary School** en azul 2 y un espaciado entre caracteres de 1.0pt.  
-    &nbsp;&nbsp;&nbsp;&nbsp;e. Poner **Sin embargo** en naranja 1 y con efecto contorno.  
-    &nbsp;&nbsp;&nbsp;&nbsp;f. Poner **centímetros** en naranja 2 y giro de 90 grados.  
+    !!! exercise "**4. Copiar y pegar el texto y limpiar los formatos.**"
+        - Poner **Deloris Jordan** en tamaño de fuente 14, negrita y con un escalado de anchura del 85%.   
+        - Poner **Nueva York** en  negrita, púrpura 2 y **sombra**.  
+        - Poner **Carolina del norte** en  negrita, green 1 y giro de 270 grados.  
+        - Poner **Ogden Elementary School** en azul 2 y un espaciado entre caracteres de 1.0pt.  
+        - Poner **Sin embargo** en naranja 1 y con efecto contorno.  
+        - Poner **centímetros** en naranja 2 y giro de 90 grados.  
     
-    !!! tip "Resultado esperado"
-        ![](./img_ut2/ra2ceb22.png){.original }
+        !!! tip "Resultado esperado"
+            ![](./img_ut2/ra2ceb22.png){.original }
 
-    **5. Aprendiendo a insertar caracteres especiales:**  
-    Escribar la siguiente frase insertando un carácter especial.  
-    !!! tip "Resultado esperado"
-        Ω es el símbolo de la unidad de medida, <u>el ohmio</u> , que se usa para la resistencia eléctrica. 
+    !!! exercise "**5. Aprendiendo a insertar caracteres especiales:**"
+        Escribir la siguiente frase insertando un carácter especial.  
+        !!! tip "Resultado esperado"
+            Ω es el símbolo de la unidad de medida, <u>el ohmio</u> , que se usa para la resistencia eléctrica. 
 
         !!! warning "Nota"
             Deberéis insertar el **carácter especial** `omega` del bloque de carácteres `Griego y copto`. Acordaros de subrayar la palabra **ohmio**. 
 
-    **6. Aprendiendo a escribir fórmulas:**  
-    Ir a **Insertar &rarr; Objeto OLE &rarr; Objeto de fórmula...** y escribir la siguiente fórmula.
-    !!! tip "Resultado esperado"
-        ![](./img_ut2/ra2ceb23.png){.trescinco }
+    !!! exercise "**6. Aprendiendo a escribir fórmulas:**" 
+        Ir a **Insertar &rarr; Objeto OLE &rarr; Objeto de fórmula...** y escribir la siguiente fórmula.
+        !!! tip "Resultado esperado"
+            ![](./img_ut2/ra2ceb23.png){.trescinco }
 
     !!! warning "Condiciones de entrega de la tarea"
         1. Subir vuestra tarea nombrando el archivo **RA2-CEc-2-Nombre Alumno** a la **tarea RA2-CEc-2**.  
@@ -255,68 +254,64 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
 
 ### Tarea - RA2-CEc-3
 
-<!-- HASTA AQUI -->
 !!! task "Tarea a entregar en RA2-CEc-3"
-    **1. Abre un nuevo documento, copia y pega el siguiente texto:**  
-    ```text
-    Michael Jordan
+    !!! exercise "**1. Abre un nuevo documento, copia y pega el siguiente texto:**"  
+        ```text
+        Michael Jordan
 
-    No debe confundirse con Michael B. Jordan.  
+        No debe confundirse con Michael B. Jordan.  
 
-    Michael Jeffrey Jordan (Brooklyn, Nueva York, 17 de febrero de 1963) es un exjugador de baloncesto estadounidense. Con 1,98 metros de altura, jugaba en la posición de escolta. Es considerado por la mayoría de aficionados y especialistas como el mejor jugador de baloncesto de todos los tiempos. ​Se retiró definitivamente a los cuarenta años en 2003 en los Washington Wizards, tras haberlo hecho en dos ocasiones anteriores, en 1993 y 1998, después de haber jugado 13 temporadas en los Chicago Bulls.​  
+        Michael Jeffrey Jordan (Brooklyn, Nueva York, 17 de febrero de 1963) es un exjugador de baloncesto estadounidense. Con 1,98 metros de altura, jugaba en la posición de escolta. Es considerado por la mayoría de aficionados y especialistas como el mejor jugador de baloncesto de todos los tiempos. ​Se retiró definitivamente a los cuarenta años en 2003 en los Washington Wizards, tras haberlo hecho en dos ocasiones anteriores, en 1993 y 1998, después de haber jugado 13 temporadas en los Chicago Bulls.​  
 
-    Ganó 6 anillos con Chicago Bulls, promediando 30,1 puntos por partido en toda su carrera deportiva, el mayor promedio en la historia de la liga. También ganó 10 títulos de máximo anotador, 5 MVP de la temporada, 6 MVP de las Finales; fue nombrado en el mejor quinteto de la NBA en diez ocasiones, en el defensivo nueve veces, líder en robos de balón durante tres años y un premio al mejor defensor de la temporada.
+        Ganó 6 anillos con Chicago Bulls, promediando 30,1 puntos por partido en toda su carrera deportiva, el mayor promedio en la historia de la liga. También ganó 10 títulos de máximo anotador, 5 MVP de la temporada, 6 MVP de las Finales; fue nombrado en el mejor quinteto de la NBA en diez ocasiones, en el defensivo nueve veces, líder en robos de balón durante tres años y un premio al mejor defensor de la temporada.
     
-    Desde 1983, ha aparecido en la portada de la prestigiosa revista deportiva Sports Illustrated en 50 ocasiones, todo un récord, además de ser designado  deportista del año en 1991 y mejor atleta del siglo XX por ESPN y segundo tras Babe Ruth por Associated Press.​  
+        Desde 1983, ha aparecido en la portada de la prestigiosa revista deportiva Sports Illustrated en 50 ocasiones, todo un récord, además de ser designado  deportista del año en 1991 y mejor atleta del siglo XX por ESPN y segundo tras Babe Ruth por Associated Press.​  
     
-    En la actualidad es el propietario del equipo 23XI Racing en la Copa NASCAR,​ y, desde 2010 a 2023, fue propietario de los Charlotte Hornets en la NBA.​
+        En la actualidad es el propietario del equipo 23XI Racing en la Copa NASCAR,​ y, desde 2010 a 2023, fue propietario de los Charlotte Hornets en la NBA.​
     
-    En 2021 se calculaba que su patrimonio neto era de $1600 millones,​ fortuna que ascendió a los $3000 millones en octubre de 2023, entrando en la lista Forbes 400, siendo la primera vez que un deportista profesional figura entre las personas más ricas de Estados Unidos.
-    ```
+        En 2021 se calculaba que su patrimonio neto era de $1600 millones,​ fortuna que ascendió a los $3000 millones en octubre de 2023, entrando en la lista Forbes 400, siendo la primera vez que un deportista profesional figura entre las personas más ricas de Estados Unidos.
+        ```
 
-    **2. Modificar los párrafos de la siguiente manera:**  
-    &nbsp;&nbsp;&nbsp;&nbsp;a. Primer párrafo: **centrado**.  
-    &nbsp;&nbsp;&nbsp;&nbsp;b. Párrafo siguiente: **alinear a la izquierda**.  
-    &nbsp;&nbsp;&nbsp;&nbsp;c. Párrafo siguiente: **alinear a la izquierda**.  
-    &nbsp;&nbsp;&nbsp;&nbsp;d. Párrafo siguiente: **alinear a la derecha**.  
-    &nbsp;&nbsp;&nbsp;&nbsp;e. Párrafo siguiente: **justificado**.  
-    &nbsp;&nbsp;&nbsp;&nbsp;f. Párrafo siguiente: **aumentar sangria una vez**.  
-    &nbsp;&nbsp;&nbsp;&nbsp;f. Párrafo siguiente: **aumentar sangria 2 veces**.  
+    !!! exercise "**2. Modificar los párrafos de la siguiente manera:**"
+        - Primer párrafo: **centrado**.  
+        - Párrafo siguiente: **alinear a la izquierda**.  
+        - Párrafo siguiente: **alinear a la izquierda**.  
+        - Párrafo siguiente: **alinear a la derecha**.  
+        - Párrafo siguiente: **justificado**.  
+        - Párrafo siguiente: **aumentar sangria una vez**.  
+        - Párrafo siguiente: **aumentar sangria 2 veces**.  
 
-    !!! tip "Resultado esperado"
-        ![](./img_ut2/ra2ceb24-1.png){.cien }
+        !!! tip "Resultado esperado"
+           ![](./img_ut2/ra2ceb24-1.png){.cien }
 
-    <br>
-    **3. Copiar y pegar los párrafos en el mismo documento de la siguiente manera:**  
-    &nbsp;&nbsp;&nbsp;&nbsp;a. Copiar el pegar el documento creado anteriormente **insertando un salto de página**.  
-    &nbsp;&nbsp;&nbsp;&nbsp;b. Primer párrafo: **Espacio sobre el párrafo 0.5cm, debajo 1.5cm**  
-    &nbsp;&nbsp;&nbsp;&nbsp;c. Párrafo siguiente: **Espacio sobre el párrafo 0.0cm, debajo 0.50cm**  
-    &nbsp;&nbsp;&nbsp;&nbsp;d. Resto párrafos: **Espacio sobre el párrafo 0.0cm, debajo 0.75cm**
+!!! exercise "**3. Copiar y pegar los párrafos en el mismo documento de la siguiente manera:**"
+    - Copiar el pegar el documento creado anteriormente **insertando un salto de página**.  
+    - Primer párrafo: **Espacio sobre el párrafo 0.5cm, debajo 1.5cm**  
+    - Párrafo siguiente: **Espacio sobre el párrafo 0.0cm, debajo 0.50cm**  
+    - Resto párrafos: **Espacio sobre el párrafo 0.0cm, debajo 0.75cm**
 
-    <!-- falta imagen -->
-    
-    **4. Seguir con el texto anterior y además modificar los estilos de párrafos con:**  
-    &nbsp;&nbsp;&nbsp;&nbsp;**a. Párrafo 4:**   
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Interlineado 1.5 renglones.  
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Sangría antes de texto: 0.5cm.  
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Sangría después de texto: 0.3cm.  
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Primer renglón: 0.5cm  
-    &nbsp;&nbsp;&nbsp;&nbsp;**b. Párrafo 5:**     
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Interlineado 2 renglones.  
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Sangría antes de texto: 1cm.  
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Sangría después de texto: 1cm.  
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Primer renglón: 1cm.  
-    &nbsp;&nbsp;&nbsp;&nbsp;**b. Párrafo 6:**     
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Interlineado 2 renglones.  
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Sangría antes de texto: 0cm.  
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Sangría después de texto: 0cm.  
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Primer renglón: 1cm.  
-    &nbsp;&nbsp;&nbsp;&nbsp;**b. Párrafo 7:**     
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Interlineado 1.5 renglones.  
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Sangría antes de texto: 0.5cm.  
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Sangría después de texto: 0.3cm.  
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Primer renglón: 0.5cm  
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Letras capitulares: Caracteres=2, Renglones=2.  
+!!! exercise "**4. Seguir con el texto anterior y además modificar los estilos de párrafos con:**"
+    1. **Párrafo 4:**
+        - Interlineado 1.5 renglones.  
+        - Sangría antes de texto: 0.5cm.  
+        - Sangría después de texto: 0.3cm.  
+        - Primer renglón: 0.5cm  
+    1. **Párrafo 5:**
+        - Interlineado 2 renglones.  
+        - Sangría antes de texto: 1cm.  
+        - Sangría después de texto: 1cm.  
+        - Primer renglón: 1cm.  
+    1. **Párrafo 6:**
+        - Interlineado 2 renglones.  
+        - Sangría antes de texto: 0cm.  
+        - Sangría después de texto: 0cm.  
+        - Primer renglón: 1cm.  
+    1. **Párrafo 7:**
+        - Interlineado 1.5 renglones.  
+        - Sangría antes de texto: 0.5cm.  
+        - Sangría después de texto: 0.3cm.  
+        - Primer renglón: 0.5cm  
+        - Letras capitulares: Caracteres=2, Renglones=2.  
  
     !!! tip "Resultado esperado"
         !!!warning "¡Cuidado con los estilos de texto o de párrafo que se han incorporado pero no se han mencionado!"
@@ -330,32 +325,33 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
 ### Tarea - RA2-CEc-4
 
 !!! task "Tarea a entregar en RA2-CEc-4"
-    **1. Abre un nuevo documento, copia y pega el siguiente texto:**
-    ```text
-    Michael Jordan
 
-    No debe confundirse con Michael B. Jordan.
+    !!! exercise "**1. Abre un nuevo documento, copia y pega el siguiente texto:**"
+        ```text
+        Michael Jordan
+
+        No debe confundirse con Michael B. Jordan.
     
-    Michael Jeffrey Jordan (Brooklyn, Nueva York, 17 de febrero de 1963) es un exjugador de baloncesto estadounidense. Con 1,98 metros de altura, jugaba en la posición de escolta. Es considerado por la mayoría de aficionados y especialistas como el mejor jugador de baloncesto de todos los tiempos.[2]​[3]​ Se retiró definitivamente a los cuarenta años en 2003 en los Washington Wizards, tras haberlo hecho en dos ocasiones anteriores, en 1993 y 1998, después de haber jugado 13 temporadas en los Chicago Bulls.[4]  
+        Michael Jeffrey Jordan (Brooklyn, Nueva York, 17 de febrero de 1963) es un exjugador de baloncesto estadounidense. Con 1,98 metros de altura, jugaba en la posición de escolta. Es considerado por la mayoría de aficionados y especialistas como el mejor jugador de baloncesto de todos los tiempos.[2]​[3]​ Se retiró definitivamente a los cuarenta años en 2003 en los Washington Wizards, tras haberlo hecho en dos ocasiones anteriores, en 1993 y 1998, después de haber jugado 13 temporadas en los Chicago Bulls.[4]  
 
-    Ganó 6 anillos con Chicago Bulls, promediando 30,1 puntos por partido en toda su carrera deportiva, el mayor promedio en la historia de la liga. También ganó 10 títulos de máximo anotador, 5 MVP de la temporada, 6 MVP de las Finales; fue nombrado en el mejor quinteto de la NBA en diez ocasiones, en el defensivo nueve veces, líder en robos de balón durante tres años y un premio al mejor defensor de la temporada.   
+        Ganó 6 anillos con Chicago Bulls, promediando 30,1 puntos por partido en toda su carrera deportiva, el mayor promedio en la historia de la liga. También ganó 10 títulos de máximo anotador, 5 MVP de la temporada, 6 MVP de las Finales; fue nombrado en el mejor quinteto de la NBA en diez ocasiones, en el defensivo nueve veces, líder en robos de balón durante tres años y un premio al mejor defensor de la temporada.   
 
-    Desde 1983, ha aparecido en la portada de la prestigiosa revista deportiva Sports Illustrated en 50 ocasiones, todo un récord, además de ser designado deportista del año en 1991 y mejor atleta del siglo XX por ESPN y segundo tras Babe Ruth por Associated Press.[5]​ 
+        Desde 1983, ha aparecido en la portada de la prestigiosa revista deportiva Sports Illustrated en 50 ocasiones, todo un récord, además de ser designado deportista del año en 1991 y mejor atleta del siglo XX por ESPN y segundo tras Babe Ruth por Associated Press.[5]​ 
     
-    En la actualidad es el propietario del equipo 23XI Racing en la Copa NASCAR,[6]​ y, desde 2010 a 2023, fue propietario de los Charlotte Hornets en la NBA.[7]​[8]  
-    ​ 
-    12,366 11251,695 6,22566 1259,26 3,2256  
-    ```
+        En la actualidad es el propietario del equipo 23XI Racing en la Copa NASCAR,[6]​ y, desde 2010 a 2023, fue propietario de los Charlotte Hornets en la NBA.[7]​[8]
 
-    **2. Modificar los párrafos de la siguiente manera:**  
-    &nbsp;&nbsp;&nbsp;&nbsp;a. Primer párrafo: **no hacer nada**.  
-    &nbsp;&nbsp;&nbsp;&nbsp;b. Párrafo siguiente: **añadir un tabulador izquierdo a 0.5cm**.  
-    &nbsp;&nbsp;&nbsp;&nbsp;c. Párrafo siguiente: **añadir un tabulador izquierdo a 1.5cm**.  
-    &nbsp;&nbsp;&nbsp;&nbsp;d. Párrafo siguiente: **añadir un tabulador izquierdo a 1.5cm**.  
-    &nbsp;&nbsp;&nbsp;&nbsp;e. Párrafo siguiente: **añadir un tabulador derecho a 10cm**.  
-    &nbsp;&nbsp;&nbsp;&nbsp;f. Párrafo siguiente: **añadir un tabulador centrado a 5cm**.  
-    &nbsp;&nbsp;&nbsp;&nbsp;g. Párrafo siguiente: **añadir un tabulador decimal a 12cm**.  
-    &nbsp;&nbsp;&nbsp;&nbsp;h. Primer párrafo: **añadir un tabulador para que el texto quede como se ve an la imagen**.  
+        12,366 11251,695 6,22566 1259,26 3,2256  
+        ```
+
+    !!! exercise "**2. Modificar los párrafos de la siguiente manera:**"
+        - Primer párrafo: **no hacer nada**.  
+        - Párrafo siguiente: **añadir un tabulador izquierdo a 0.5cm**.  
+        - Párrafo siguiente: **añadir un tabulador izquierdo a 1.5cm**.  
+        - Párrafo siguiente: **añadir un tabulador izquierdo a 1.5cm**.  
+        - Párrafo siguiente: **añadir un tabulador derecho a 10cm**.  
+        - Párrafo siguiente: **añadir un tabulador centrado a 5cm**.  
+        - Párrafo siguiente: **añadir un tabulador decimal a 12cm**.  
+        - Primer párrafo: **añadir un tabulador para que el texto quede como se ve an la imagen**.  
     
     !!! tip "Resultado esperado"
         ![](./img_ut2/ra2ceb27.png){.cien }
@@ -368,19 +364,18 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
 ### Tarea - RA2-CEc-5
 
 !!! task "Tarea a entregar en RA2-CEc-5"
-    **1. Abre un nuevo documento, copia y pega el siguiente texto:**  
-    ```text
-    El que suscribe, Don PATRICIO RUIZ MAÑOSA, de 21 años de edad, hijo de Don Críspulo Ruiz Beltrán y de Doña Leonor Mañosa Abad, natural de Alcaudete (Jaén) y con domicilio en esta ciudad, Avenida de Coria, 17,  
+    !!! exercise "**1. Abre un nuevo documento, copia y pega el siguiente texto.**"
+        ```text
+        El que suscribe, Don PATRICIO RUIZ MAÑOSA, de 21 años de edad, hijo de Don Críspulo Ruiz Beltrán y de Doña Leonor Mañosa Abad, natural de Alcaudete (Jaén) y con domicilio en esta ciudad, Avenida de Coria, 17,  
 
-    EXPONE: Que siendo una persona con gran interés en la música y la danza, como acredita con los documentos y vídeos que acompaña, se halla incluido en los criterios que las bases del concurso para el Festival de Verano señalan para la participación en el mismo. Acogiéndose a lo dispuesto en ellas, y con el propósito de aportar su talento y contribuir a la alegría del festival,  
+        EXPONE: Que siendo una persona con gran interés en la música y la danza, como acredita con los documentos y vídeos que acompaña, se halla incluido en los criterios que las bases del concurso para el Festival de Verano señalan para la participación en el mismo. Acogiéndose a lo dispuesto en ellas, y con el propósito de aportar su talento y contribuir a la alegría del festival,  
     
-    SOLICITA: Se sirva ordenar que le sea concedida, si es que lo merece en justicia, una de las plazas para actuar en la gran final.
-    En Sevilla, a cuatro de marzo de 2025.  
-    ```
-    **2. Modifica los estilos de párrafos para que quede la siguiente manera (sangría francesa):**
-
-    **3. Añade después del texto anterior el texto que aparece en la imagen y usa tabuladores para ordenarlo.**
-    
+        SOLICITA: Se sirva ordenar que le sea concedida, si es que lo merece en justicia, una de las plazas para actuar en la gran final.
+        
+        En Sevilla, a cuatro de marzo de 2025.  
+        ```
+    !!! exercise "2. Modifica los estilos de párrafos para que quede la siguiente manera (sangría francesa).<br>3. Añade después del texto anterior el texto que aparece en la imagen y usa tabuladores para ordenarlo."
+     
     !!! tip "Resultado esperado"
         ![](./img_ut2/ra2ceb26.png){.cien }
 
@@ -389,80 +384,77 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
         1. El archivo a subir deberá ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
         1. **No se aceptará ningún otro formato de archivo**.
       
-
 ## **2.5 - Viñetas y numeración de títulos y párrafos**
 
 ### Tarea - RA2-CEc-6
 
 !!! task "Tarea a entregar en RA2-CEc-6"
-    **1. Abre un nuevo documento, copia y pega el siguiente texto:**  
-    ```text
-    OPERACIONES BÁSICAS:
-    Entrar en el programa.
-    Guardar un documento por primera vez.
-    Recuperar un archivo.
-    Fuentes, tamaños y colores.
-    ENTRAR EN EL PROGRAMA:
-    Desplegar el menú Inicio.
-    Seleccionar el apartado Programas.
-    En el segundo menú pinchar sobre la opción correspondiente.
-    GUARDAR UN DOCUMENTO POR 1a VEZ:
-    Desplegar el menú Archivo.
-    Elegir la opción Guardar como.
-    Seleccionar la unidad de almacenamiento.
-    Escribir el nombre con el que se vaya a guardar el documento.
-    Pulsar el botón Guardar.
-    RECUPERAR UN ARCHIVO:
-    Desplegar el menú Archivo.
-    Elegir la opción Abrir.
-    Indicar la unidad en la que está almacenado el documento.
-    Seleccionar el archivo de la lista.
-    Pulsar el botón Abrir.
-    FUENTES, TAMAÑOS Y COLORES:
-    Desplegar el menú Formato.
-    Seleccionar la opción Fuentes.
-    Seleccionar una fuente, un tamaño para el texto y un color.
-    ```
+    !!! exercise "**1. Abre un nuevo documento, copia y pega el siguiente texto:**"
+        ```text
+        OPERACIONES BÁSICAS:
+        Entrar en el programa.
+        Guardar un documento por primera vez.
+        Recuperar un archivo.
+        Fuentes, tamaños y colores.
+        ENTRAR EN EL PROGRAMA:
+        Desplegar el menú Inicio.
+        Seleccionar el apartado Programas.
+        En el segundo menú pinchar sobre la opción correspondiente.
+        GUARDAR UN DOCUMENTO POR 1a VEZ:
+        Desplegar el menú Archivo.
+        Elegir la opción Guardar como.
+        Seleccionar la unidad de almacenamiento.
+        Escribir el nombre con el que se vaya a guardar el documento.
+        Pulsar el botón Guardar.
+        RECUPERAR UN ARCHIVO:
+        Desplegar el menú Archivo.
+        Elegir la opción Abrir.
+        Indicar la unidad en la que está almacenado el documento.
+        Seleccionar el archivo de la lista.
+        Pulsar el botón Abrir.
+        FUENTES, TAMAÑOS Y COLORES:
+        Desplegar el menú Formato.
+        Seleccionar la opción Fuentes.
+        Seleccionar una fuente, un tamaño para el texto y un color.
+        ```
 
-    **2. Incorporar numeraciones y viñetas para que el texto quede de la siguiente manera.**  
+    !!! exercise "**2. Incorporar numeraciones y viñetas para que el texto quede de la siguiente manera.**"
+        - Tener en cuenta los formatos que ya conoceís: Parrafo, texto, etc. Cualquier aportación personal para aportar vistosidad y legibilidad al texto será bienvenida.  
+        - No hacer **fontaneria**. El espacio entre elementos de texto deberá realizarse eligiendo correctamente los parámetros de cada elemento, **no realizando saltos de línea**.
 
-    - Tener en cuenta los formatos que ya conoceís: Parrafo, texto, etc. Cualquier aportación personal para aportar vistosidad y legibilidad al texto será bienvenida.  
-    - No hacer **fontaneria**. El espacio entre elementos de texto deberá realizarse eligiendo correctamente los parámetros de cada elemento, **no realizando saltos de línea**.
+        !!! tip "Resultado esperado"
+            ![](./img_ut2/ra2ceb29.png){.original}
 
-    !!! tip "Resultado esperado"
-        ![](./img_ut2/ra2ceb29.png){.original}
-
-    **3. Realiza un salto de página en el documento anterior, copia y pega el siguiente texto:**  
-    ```text
-    Introducción al programa
-    Utilidad del Procesador de Texto.
-    Entrar en Procesador de Texto.
-    Los elementos de la pantalla.
-    Barra de Título.
-    Barra de menús.
-    Barra de herramientas Estándar.
-    Barra de Formato.
-    Barra de Regla.
-    Barra de Estado.
-    Salir del programa.
-    Gestión de archivos
-    Guardar un documento nuevo.
-    Recuperar un archivo.
-    Guardar cambios.
-    Diferencias entre Guardar y Guardar como. Guardar actualiza un documento existente, sobrescribiendo la versión anterior con los cambios que has hecho. Por otro lado, Guardar como te permite guardar una nueva copia del documento. Puedes elegir una nueva ubicación, un nuevo nombre de archivo o un formato de archivo diferente, dejando el documento original sin modificar. 
-    Formato del documento
-    Márgenes.
-    Interlineado.
-    Espacio entre párrafos.
-    Sangrías.
-    Sangría 1ª línea.
-    Sangría izquierda.
-    Sangría derecha.
-    ```
-
-    **4. Incorporar numeraciones y viñetas para que el texto quede de la siguiente manera.**
-    !!! tip "Resultado esperado"
-        ![](./img_ut2/ra2ceb30.png){.sietecinco}
+    !!! exercise "**3. Realiza un salto de página en el documento anterior, copia y pega el siguiente texto:**"
+        ```text
+        Introducción al programa
+        Utilidad del Procesador de Texto.
+        Entrar en Procesador de Texto.
+        Los elementos de la pantalla.
+        Barra de Título.
+        Barra de menús.
+        Barra de herramientas Estándar.
+        Barra de Formato.
+        Barra de Regla.
+        Barra de Estado.
+        Salir del programa.
+        Gestión de archivos
+        Guardar un documento nuevo.
+        Recuperar un archivo.
+        Guardar cambios.
+        Diferencias entre Guardar y Guardar como. Guardar actualiza un documento existente, sobrescribiendo la versión anterior con los cambios que     has hecho. Por otro lado, Guardar como te permite guardar una nueva copia del documento. Puedes elegir una nueva ubicación, un nuevo nombre     de archivo o un formato de archivo diferente, dejando el documento original sin modificar. 
+        Formato del documento
+        Márgenes.
+        Interlineado.
+        Espacio entre párrafos.
+        Sangrías.
+        Sangría 1ª línea.
+        Sangría izquierda.
+        Sangría derecha.
+        ```
+    !!! exercise "**4. Incorporar numeraciones y viñetas para que el texto quede de la siguiente manera.**"
+        !!! tip "Resultado esperado"
+            ![](./img_ut2/ra2ceb30.png){.sietecinco}
 
     !!! warning "Condiciones de entrega de la tarea"
         1. Subir vuestra tarea nombrando el archivo **RA2-CEc-6-Nombre Alumno** a la **tarea RA2-CEc-6**.  
@@ -558,8 +550,10 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
 
 # HASTA AQUI
 
-## **2.7 - Paginación, tablas, encabezado, pie de página e imágenes**
-### **Tarea - RA2-CEd**
+## 2.7 - Paginación, tablas, encabezado, pie de página e imágenes
+
+### Tarea - RA2-CEd
+
 !!! task "Tarea a entregar en RA2-CEd"
     **1. Descargar y descomprimir el archivo 'Tarea RA2-CEd pinchando en el enlace siguiente:** [Descargar archivo](./archivos/RA2-CEd.rar)  
     **2. Estilos de página.**  
@@ -737,40 +731,37 @@ De lo contrario, iremos a la [página de descarga](https://www.java.com/es/downl
 La grabación de macro viene **deshabilitado por defecto** en LibreOffice. Para habilitar las grabaciones de macros iremos a **Herramientas → Opciones → Avanzadas** y activaremos la grabación de macros.
 
 ![](./img_ut2/RA2-CEf/img3.png){.cincozero}
-<br>
 
-### **Tarea - RA2-CEf**
+
+### Tarea - RA2-CEf
+
 !!! task "Tarea a entregar en RA2-CEf"
-    **Descargar y descomprimir el archivo 'Tarea RA2-CEf pinchando en el enlace siguiente:** [Descargar archivo](./archivos/RA2-CEf/RA2-CEf.rar)  
+    **Descargar y descomprimir el archivo 'Tarea RA2-CEf pinchando en el enlace siguiente:** [Descargar archivo](./archivos/RA2-CEf/RA2-CEf.rar)
 
-    **Ejercicio 1**
-    **Grabar una macro que inserte automáticamente un encabezado con el siguiente texto:**  
-    **1.** Documento escrito por el alumno: Insertar campo → Autor → Nombre completo. (Arial, 16, negrita, gris, centrado).  
-    **2.** Fecha de redacción: Insertar campo → Fecha fija (Arial, 12, cursiva, centrado, formato de fecha ISO: AAAA-MM-DD).  
-    **3.** Hora de redacción: Insertar campo → Hora fija (Arial, 12, cursiva, centrado, formato de hora: hh-mm-ss).  
-    **4.** Guardar la macro dentro del documento para que **al exportar el archivo la macro acompañe al documento**.  
-    **5.** Crear un atajo de teclado que permita ejecutar la macro con (p.e.) **ctrl q**.  
+    !!! exercise "**Ejercicio 1**<br>Grabar una macro que inserte automáticamente un encabezado con el siguiente texto:"
+        **1.** Documento escrito por el alumno: Insertar campo → Autor → Nombre completo. (Arial, 16, negrita, gris, centrado).  
+        **2.** Fecha de redacción: Insertar campo → Fecha fija (Arial, 12, cursiva, centrado, formato de fecha ISO: AAAA-MM-DD).  
+        **3.** Hora de redacción: Insertar campo → Hora fija (Arial, 12, cursiva, centrado, formato de hora: hh-mm-ss).  
+        **4.** Guardar la macro dentro del documento para que **al exportar el archivo la macro acompañe al documento**.  
+        **5.** Crear un atajo de teclado que permita ejecutar la macro con (p.e.) **ctrl q**.  
 
-    **Resultado esperado:**
-    ![](./img_ut2/RA2-CEf/img1.png){.sietecinco}
-    <br>
+        !!! tip "Resultado esperado"
+            ![](./img_ut2/RA2-CEf/img1.png){.sietecinco}
+    
+    !!! exercise "**Ejercicio 2<br>**Grabar una macro que modifique un párrafo de la siguiente manera:"  
+        **1.** Interlineado doble, justificado y espaciado sobre y debajo del párrafo: 0.5cm.  
+        **2.** Insertar un borde con una separación de 0.5cm.  
+        **3.** Aplicar la macro al documento alternando párrafos.  
+        **4.** Guardar la macro dentro del documento para que **al exportar el archivo la macro acompañe al documento**.  
+        **5.** Crear un atajo de teclado que permita ejecutar la macro con (p.e.) **ctrl a**.  
 
-    **Ejercicio 2**
-    **Grabar una macro que modifique un párrafo de la siguiente manera:**  
-    **1.** Interlineado doble, justificado y espaciado sobre y debajo del párrafo: 0.5cm.  
-    **2.** Insertar un borde con una separación de 0.5cm.  
-    **3.** Aplicar la macro al documento alternando párrafos.  
-    **4.** Guardar la macro dentro del documento para que **al exportar el archivo la macro acompañe al documento**.  
-    **5.** Crear un atajo de teclado que permita ejecutar la macro con (p.e.) **ctrl a**.  
+        !!! tip "Resultado esperado"
+            ![](./img_ut2/RA2-CEf/img4.png){.ochocinco }
 
-    **Resultado esperado:**
-    ![](./img_ut2/RA2-CEf/img4.png){.seiscinco .marco}
-    <br>
-
-    **Entrega de la tarea**.  
-    Subir el archivo en **formato .odt (open text document)** a la tarea RA2-CEf. No se admitirá ningún otro tipo de formato.  
-
-
+    !!! warning "Condiciones de entrega de la tarea"
+        1. Subir vuestra tarea nombrando el archivo **RA2-CEf-Nombre Alumno** a la **tarea RA2-CEf**.  
+        1. El archivo a subir deberá ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
+        1. **No se aceptará ningún otro formato de archivo**.
 
 
 | **Licencia Creative Commons:** | |
