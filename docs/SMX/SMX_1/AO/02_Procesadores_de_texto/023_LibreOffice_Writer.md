@@ -548,65 +548,56 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
         1. El archivo a subir deberá ser de tipo plantilla de texto de OpenDocument (.ott) (formato predeterminado de plantillas de LibreOffice Writer).  
         1. **No se aceptará ningún otro formato de archivo**. 
 
-# HASTA AQUI
-
 ## 2.7 - Paginación, tablas, encabezado, pie de página e imágenes
 
 ### Tarea - RA2-CEd
 
 !!! task "Tarea a entregar en RA2-CEd"
-    **1. Descargar y descomprimir el archivo 'Tarea RA2-CEd pinchando en el enlace siguiente:** [Descargar archivo](./archivos/RA2-CEd.rar)  
-    **2. Estilos de página.**  
-    &nbsp;&nbsp;&nbsp;&nbsp;**a.** Ir a **Estilos de página** → **Primera página** → **Editar estilo** → Configurar con los siguientes datos.
+    !!! exercise "**1. Descargar y descomprimir el archivo 'Tarea RA2-CEd pinchando en el enlace siguiente:** [Descargar archivo](./archivos/RA2-CEd.rar)"
+    !!! exercise "**2. Estilos de página.**"
+        !!! tip "Ir a **Estilos de página** → **Primera página** → **Editar estilo** → Configurar con los siguientes datos."
+            ![img](./img_ut2/RA2CEd/img1.png){.cien .marginbottom20 }
+            ![img](./img_ut2/RA2CEd/img2.png){.cien .marginbottom20}
+            ![img](./img_ut2/RA2CEd/img3.png){.cien}
 
-    ![](./img_ut2/RA2CEd/img1.png){.sietecinco} <br>
-    ![](./img_ut2/RA2CEd/img2.png){.sietecinco} <br>
-    ![](./img_ut2/RA2CEd/img3.png){.sietecinco} <br>
+        !!! tip "Ir a **Estilo de página predeterminado** y configurar con los siguientes datos."
+            ![img](./img_ut2/RA2CEd/img4.png){.cien .marginbottom20}
+            ![img](./img_ut2/RA2CEd/img5.png){.cien .marginbottom20}
+            ![img](./img_ut2/RA2CEd/img6.png){.cien .marginbottom20}
+            ![img](./img_ut2/RA2CEd/img7.png){.cien .marginbottom20}
+            ![img](./img_ut2/RA2CEd/img8.png){.cien }
+        
+        !!! tip "Dentro de los estilos de página **crear** el **Estilo de página especial** y configurar con los siguientes datos."
+            ![](./img_ut2/RA2CEd/img34.png){.cuatrocinco .marginbottom20 }
+            ![](./img_ut2/RA2CEd/img30.png){.cien .marginbottom20}
+            ![](./img_ut2/RA2CEd/img31.png){.cien .marginbottom20}
+            ![](./img_ut2/RA2CEd/img32.png){.cien .marginbottom20}
+            ![](./img_ut2/RA2CEd/img33.png){.cien}
 
-    &nbsp;&nbsp;&nbsp;&nbsp;**b.** Ir a **Estilo de página predeterminado** y configurar con los siguientes datos.
+        !!! tip "**Concatenar** los estilos de la siguiente manera:<br>**Primera página** → **Estilo de página predeterminado** → **Estilo de página especial**"
+            ![](./img_ut2/RA2CEd/img42.png){.cien .marginbottom20} 
+            ![](./img_ut2/RA2CEd/img43.png){.cien .marginbottom20} 
+            ![](./img_ut2/RA2CEd/img41.png){.cien} 
 
-    ![](./img_ut2/RA2CEd/img4.png){.sietecinco} <br>
-    ![](./img_ut2/RA2CEd/img5.png){.sietecinco} <br>
-    ![](./img_ut2/RA2CEd/img6.png){.sietecinco} <br>
-    ![](./img_ut2/RA2CEd/img7.png){.sietecinco} <br>
-    ![](./img_ut2/RA2CEd/img8.png){.sietecinco} <br>
+# hasta aqui
 
-    &nbsp;&nbsp;&nbsp;&nbsp;**c.** Dentro de los estilos de página **crear** el **Estilo de página especial** y configurar con los siguientes datos.
-
-    ![](./img_ut2/RA2CEd/img34.png){.doscinco} <br>
-    ![](./img_ut2/RA2CEd/img30.png){.sietecinco} <br>
-    ![](./img_ut2/RA2CEd/img31.png){.sietecinco} <br>
-    ![](./img_ut2/RA2CEd/img32.png){.sietecinco} <br>
-    ![](./img_ut2/RA2CEd/img33.png){.sietecinco} <br>
-
-    &nbsp;&nbsp;&nbsp;&nbsp;**d.** Concatenar estilos. No es exclusivo de los estilos de página, pero sí, es obligatorio hacerlo (versión 25.8.1.1).  
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Concatenar** los estilos de la siguiente manera: **Primera página** → **Estilo de página predeterminado** → **Estilo de página especial**.
-
-    ![](./img_ut2/RA2CEd/img42.png){.sietecinco} <br>
-    ![](./img_ut2/RA2CEd/img43.png){.sietecinco} <br>
-    ![](./img_ut2/RA2CEd/img41.png){.sietecinco} <br>
-
-
-    **3. Estilos de títulos.**  
-    &nbsp;&nbsp;&nbsp;&nbsp;**a.** Editar el estilo **Título 1** → Configurar con los siguientes datos.
-   
-    ![](./img_ut2/RA2CEd/img9.png){.sietecinco} <br>
-    ![](./img_ut2/RA2CEd/img10.png){.sietecinco} <br>
-    ![](./img_ut2/RA2CEd/img11.png){.sietecinco} <br>
+    !!! exercise "**3. Estilos de títulos.**"  
+        !!! tip "Editar el estilo **Título 1** → Configurar con los siguientes datos."
+            ![](./img_ut2/RA2CEd/img9.png){.cien .marginbottom20} 
+            ![](./img_ut2/RA2CEd/img10.png){.cien .marginbottom20} 
+            ![](./img_ut2/RA2CEd/img11.png){.cien } 
     
-    &nbsp;&nbsp;&nbsp;&nbsp;**b.** Editar el estilo **Título 2** → Configurar con los siguientes datos.
-   
-    ![](./img_ut2/RA2CEd/img12.png){.sietecinco} <br>
-    ![](./img_ut2/RA2CEd/img13.png){.sietecinco} <br>
-    ![](./img_ut2/RA2CEd/img14.png){.sietecinco} <br>
+        !!! tip "Editar el estilo **Título 2** → Configurar con los siguientes datos."
+            ![](./img_ut2/RA2CEd/img12.png){.cien .marginbottom20} 
+            ![](./img_ut2/RA2CEd/img13.png){.cien .marginbottom20} 
+            ![](./img_ut2/RA2CEd/img14.png){.cien } 
     
-    &nbsp;&nbsp;&nbsp;&nbsp;**c.** Editar el estilo **Título 3** → Configurar con los siguientes datos.
-   
-    ![](./img_ut2/RA2CEd/img15.png){.sietecinco} <br>
-    ![](./img_ut2/RA2CEd/img16.png){.sietecinco} <br>
-    ![](./img_ut2/RA2CEd/img17.png){.sietecinco} <br>
+        !!! tip "Editar el estilo **Título 3** → Configurar con los siguientes datos."
+            ![](./img_ut2/RA2CEd/img15.png){.cien .marginbottom20} 
+            ![](./img_ut2/RA2CEd/img16.png){.cien .marginbottom20} 
+            ![](./img_ut2/RA2CEd/img17.png){.cien} 
     
-    **4. Estilos de texto.**  
+    !!! exercise "**4. Estilos de texto.**  
     &nbsp;&nbsp;&nbsp;&nbsp;**a.** Ir al estilo **Cuerpo de texto** y configurar con los siguientes datos.
    
     ![](./img_ut2/RA2CEd/img18.png){.sietecinco} <br>

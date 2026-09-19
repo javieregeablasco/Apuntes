@@ -1099,13 +1099,17 @@ Para la instalación del rol AD DS en un servidor Windows Server 2025 en AWS, po
 ![Descripción de la imagen](./img_5/img_5_47.png){ .margintop10 .marginbottom10 .marco}
 1. En `Deployment Configuration` seleccionamos `Add a new forest` e introducimos un nombre de dominio para el dominio de AD interno. Por buena práctica de Microsoft se recomienda usar el nombre de dominio de la empresa (de internet) + un subdominio (ad).
 ![Descripción de la imagen](./img_5/img_5_48.png){ .margintop10 .marginbottom10 .marco}
-1. Al ser un bosque nuevo, dejaremos los valores por defecto de los niveles funcionales. Como AD requiere de un servidor DNS para funcionar, nos viene la opción DNS marcada por defecto. Para finalizar introduciremos la contraseña de restauración de servicios de directorio (**DSRM – Directory Services Restore Mode**), que se utiliza para iniciar el servidor en modo de recuperación de AD en caso de fallo grave. No se recomienda que esta contraseña coincida con la contraseña de administrador.
+1. Al ser un bosque nuevo, dejaremos los valores por defecto de los niveles funcionales.  
+Como AD requiere de un servidor DNS para funcionar, nos viene la opción DNS marcada por defecto.  
+Para finalizar introduciremos la contraseña de restauración de servicios de directorio (**DSRM – Directory Services Restore Mode**), que se utiliza para iniciar el servidor en modo de recuperación de AD en caso de fallo grave. **No se recomienda que esta contraseña coincida con la contraseña de administrador**.
 ![Descripción de la imagen](./img_5/img_5_49.png){ .margintop10 .marginbottom10 .marco}
-1. En `DNS Options` nos aparecerá un aviso indicando que no se puede crear una delegación para este servidor DNS, ya que no existe una zona superior (padre) que la administre. Es un aviso esperado al crear un bosque nuevo (todavía no existe ningún dominio DNS previo al que delegar) y lo podemos ignorar.
+1. En `DNS Options` nos aparecerá un aviso indicando que no se puede crear una delegación para este servidor DNS, ya que no existe una zona superior (padre) que la administre.  
+Es un aviso esperado al crear un bosque nuevo (todavía no existe ningún dominio DNS previo al que delegar) y lo podemos ignorar.
 ![Descripción de la imagen](./img_5/img_5_50.png){ .margintop10 .marginbottom10 .marco}
 1. En `Additional Options` dejaremos el nombre por defecto de dominio de NetBIOS (solo para compatibilidad con equipos antiguos / obsoletos).
 ![Descripción de la imagen](./img_5/img_5_51.png){ .margintop10 .marginbottom10 .marco}
-1. Continuamos por las ventanas de `Paths` (donde se define la ubicación de la base de datos de AD, los logs y el volumen SYSVOL) y `Review Options` (resumen de toda la configuración elegida). En `Prerequisites Check` apuntaremos las advertencias para gestionarlas más adelante (entre ellas, es habitual que aparezca un aviso relacionado con la configuración de IP estática del servidor, que trataremos en el punto 12).
+1. Continuamos por las ventanas de `Paths` (donde se define la ubicación de la base de datos de AD, los logs y el volumen SYSVOL) y `Review Options` (resumen de toda la configuración elegida).  
+En `Prerequisites Check` apuntaremos las advertencias para gestionarlas más adelante (entre ellas, es habitual que aparezca un aviso relacionado con la configuración de IP estática del servidor, que trataremos en el punto 12).
 ![Descripción de la imagen](./img_5/img_5_52.png){ .margintop10 .marginbottom10 .marco}
 1. Una vez reiniciada la máquina, veremos que aunque parezca que no ha ocurrido nada, ahora iniciamos sesión como **DOMINIO\Administrador** (cuenta de dominio) en lugar de como administrador local del servidor. Podemos comprobarlo, por ejemplo, ejecutando `whoami` en una consola.
 ![Descripción de la imagen](./img_5/img_5_53.png){ .margintop10 .marginbottom10 .marco}
@@ -1114,7 +1118,8 @@ Para la instalación del rol AD DS en un servidor Windows Server 2025 en AWS, po
     Aun así, es recomendable **fijar esa misma IP privada como estática dentro de la configuración de red de Windows** (en lugar de dejarla en modo DHCP), para evitar problemas si el adaptador de red se reinicia. Para ello, buscaremos en EC2 → Detalles la IP privada actual de nuestra instancia (en este ejemplo, 172.31.39.10) y configuraremos esa **misma IP** como estática en las propiedades de red de Windows.
 
     !!! warning "Importante"
-        La IP que configuremos manualmente en Windows debe **coincidir siempre** con la IP privada que AWS ya tiene asignada a la instancia. Si configuramos una IP diferente, la instancia perderá la conectividad de red, ya que AWS solo enruta tráfico a las IPs asociadas a esa interfaz de red (ENI).
+        - La IP que configuremos manualmente en Windows debe **coincidir siempre** con la IP privada que AWS ya tiene asignada a la instancia. 
+        - Si configuramos una IP diferente, la instancia perderá la conectividad de red, ya que AWS solo enruta tráfico a las IPs asociadas a esa interfaz de red (ENI).
 
     ![Descripción de la imagen](./img_5/img_5_54.png){ .margintop10 .marginbottom10 .marco}
 
@@ -1378,16 +1383,85 @@ En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.
 
 ### 17.1 Lanzar una segunda instancia de Windows Server 2025
 
-### 17.2 Agregar la segunda instancia al dominio
+- Lanzaremos una instancia nueva de Windows Server 2025 con estás características.
+![Descripción de la imagen](./img_5/img_5_90.png){.margintop10 .marginbottom10 .marco }
 
-agregamos la instancia al dominio. necesitaremos credenciales de administrador de ese dominio.
-si vamos al equipo 1 en active directory veremos que en computers tenemos el segundo servidor.
+- Antes de definir totalemente la nueva instancia, comprobaremos la subred de la primera instancia de Windows Server.  
+**Nota:** Para las prácticas estamos usando la VPC y las subredes del laboratory. Cada subred (6 en total) concide con una zona de disponibilidad lo que hace fácil su identificación.
+![Descripción de la imagen](./img_5/img_5_91.png){.margintop10 .marginbottom10 .marco }
 
-### 17.3 Levantar el AD DS en la segunda instancia al dominio
+- Al lanzar la nueva instancia, nos aseguraremos de que la subred (zona de disponibilidad) coincide con la de la primera instancia.
+![Descripción de la imagen](./img_5/img_5_92.png){.margintop10 .marginbottom10 .marco }
 
-si vamos a la consola de Active Directory veremos que tenemos 2 controladores de dominio.
+- Nos esperaremos hasta que las 2 instancias (ServidorDNS-1 y ServidorDNS-2) estén disponibles.
+![Descripción de la imagen](./img_5/img_5_93.png){.margintop10 .marginbottom10 .marco }
 
-### 17.4 Configuración de los DNS
+### 17.2 Modificar los grupos de seguridad de las instancias
+
+- Un grupo de seguridad funciona como un firewall virtual para las instancias de EC2 para controlar el tráfico entrante y saliente. 
+
+- Las **reglas de entrada** controlan el tráfico entrante a la instancia y las **reglas de salida** controlan el tráfico saliente desde la instancia.
+
+- Modificaremos las reglas de los grupos de seguridad para permitir el tráfico en los puertos de Active Directory (como TCP/UDP 53, 88, 389, 445 y 636).  
+**Aunque no sea una buena práctica de seguridad informática**, abriremos todos los puertos para evitar problemas con nuestras máquinas.  
+![Descripción de la imagen](./img_5/img_5_97.png){.margintop10 .marginbottom10 .marco }
+
+### 17.3 Agregar la segunda instancia al dominio
+
+- Nos conectamos a la instancia 2 (ServidorDNS-2) y cambiamos el nombre de la máquina a Servidor-DNS-2.  
+![Descripción de la imagen](./img_5/img_5_94.png){.margintop10 .marginbottom10  }
+
+- Agregamos la instancia al dominio definido en nuestra primera máquina (ServidorDNS).  
+Para ello vamos a `System` → `About` → `Domain or workgroup`.  
+En la imagen vemos que la máquina tiene `WORKGROUP` como domonio por defecto.  
+Pulsamos `Change` e introducimos el dominio definido en la primera máquina.
+![Descripción de la imagen](./img_5/img_5_95.png){.margintop10 .marginbottom10 }
+!!! warning "Si da error, solucionar el problema leyendo los `details` del error"
+
+- Necesitaremos introducir las credenciales de administrador del dominio al que queremos agregar la máquina.
+![Descripción de la imagen](./img_5/img_5_99.png){.margintop10 .marginbottom10 .marco }
+
+- Si todo ha ido bien, recibiremos una aviso de bienvenida.
+![Descripción de la imagen](./img_5/img_5_100.png){.margintop10 .marginbottom10 .marco }
+
+- También deberemos reiniciar la máquina.  
+![Descripción de la imagen](./img_5/img_5_101.png){.margintop10 .marginbottom10 .marco }
+
+- Si vamos a `AD DS` → `Active Directory Users and Computers` veremos la máquina que acabamos de agregar se encuentra en `Computers`.
+![Descripción de la imagen](./img_5/img_5_102.png){.margintop10 .marginbottom10 .marco }
+
+- Si vamos a `DNS` → `DNS Manager` → `Forward Lookup Zones` podremos comprobar que se ha generado en el DNS un registro `Host` de tipo `A` para la segunda instancia.
+![Descripción de la imagen](./img_5/img_5_103.png){.margintop10 .marginbottom10 .marco }
+
+### 17.3 Promocionar la máquina a controladora de dominio
+
+- Agregaremos un nuevo ROL a nuestra máquina y la seleccionaremos dentro del grupo de servidores.
+![Descripción de la imagen](./img_5/img_5_104.png){.margintop10 .marginbottom10 .marco }
+- Seleccionamos el servicio que queremos agregar.
+![Descripción de la imagen](./img_5/img_5_105.png){.margintop10 .marginbottom10 .marco }
+- Aceptamos la características que se añadiran al implementar al AD DS en la máquina.
+![Descripción de la imagen](./img_5/img_5_106.png){.margintop10 .marginbottom10 .marco }
+- Confirmamos la operación. A diferencia de la primera máquina, aquí, no nos pide crear un servidor DNS al detectar que ya existe uno en el dominio (lo crearemos manualmente más adelante).
+![Descripción de la imagen](./img_5/img_5_107.png){.margintop10 .marginbottom10 .marco }
+- Una vez finalizada la instalación, deberemos promocionar la máquina a controladora de dominio.
+![Descripción de la imagen](./img_5/img_5_108.png){.margintop10 .marginbottom10 .marco }
+- Añadiremos el AD DS al dominio actual.
+![Descripción de la imagen](./img_5/img_5_109.png){.margintop10 .marginbottom10 .marco }
+- Introducimos las credenciales de la copia de administrador.
+![Descripción de la imagen](./img_5/img_5_110.png){.margintop10 .marginbottom10 .marco }
+- Introducimos una contraseña para el modo restauración.
+![Descripción de la imagen](./img_5/img_5_111.png){.margintop10 .marginbottom10 .marco }
+- Vamos pasando todas las ventanas dejando las opciones por defecto.
+- En la ventana final nos aseguramos que todos los prerequisitos se cumplen correctamente.  
+![Descripción de la imagen](./img_5/img_5_112.png){.margintop10 .marginbottom10 .marco }
+- Después de reiniciar la máquina veremos que tenemos las 2 máquinas como controladoras de dominio.
+![Descripción de la imagen](./img_5/img_5_113.png){.margintop10 .marginbottom10 .marco }
+
+### 17.4 Crear el rol DNS en la máquina
+
+<!-- https://youtu.be/TwMAS7Iha30?si=rSr3dnYcNMS0Z29P&t=1101 -->
+
+### 17.5 Configuración de los DNS
 
 editaremos las interfaces de red para que se apunten mutuamente.
 
@@ -1406,8 +1480,6 @@ editaremos las interfaces de red para que se apunten mutuamente.
 lanza cmd windows + r
 services.msc
 
-<!-- clave B(yOoX))w1DwyvgA6LeRgbEquLuQcIKW -->
-
 <!-- dhcp options set -->
 <!-- https://www.youtube.com/watch?v=1aysEp601sk&t=175s -->
 
@@ -1418,27 +1490,12 @@ https://serviciosgm.readthedocs.io/es/latest/windows/dns/tarea1.html -->
 https://asir.readthedocs.io/es/latest/Tema_3_DNS/Index.html -->
 ---
 
-<!-- # hasta aqui -->
-
 <!-- https://notebook.google.com/notebook/3ba0b1e5-23cc-414c-a66b-1591bdf88c4a -->
 
-<!-- PAJA -->
-<!-- https://sri.codeandcoke.com/doku.php?id=sri:t2
-https://ioc.xtec.cat/materials/FP/Recursos/fp_smx_m07_/web/fp_smx_m07_htmlindex/WebContent/u1/a2/continguts.html
+<!-- 
 https://serviciosgm.readthedocs.io/es/latest/windows/dns/index.html
 
 <!-- https://www.youtube.com/watch?v=EfSbT3gJUFY&t=47s -->
-
-<!-- para nat -->
-<!-- tipo de elementos de red -->
-<!-- https://itadmins.es/networking-ii-dispositivos-de-red-y-tipos-de-trafico/ -->
-
-<!-- # NAT -->
-<!-- https://www.manageengine.com/latam/oputils/direcciones-ip-fundamentos.html
-https://www.redeszone.net/tutoriales/redes-cable/calcular-subnetting-ip-red-mascara-subred-ipv4/
-https://www.1nce.com/es-es/recursos/iot-knowledge-base/que-es-el-mecanismo-nat
-https://openwebinars.net/blog/nat-que-es-y-para-que-sirve/
--->
 
 <!-- https://www.dreamhost.com/blog/es/nameservers-vs-dns-guia/ -->
 

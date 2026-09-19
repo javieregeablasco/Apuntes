@@ -210,6 +210,12 @@ Mientras que el **acceso remoto** significa conectarse a un sistema o red, el **
     ![Descripción de la imagen](./img_3/img_3_15.png){ .margintop10 .marginbottom10 }  
     Pegamos la contraseña generada por AWS.
     ![Descripción de la imagen](./img_3/img_3_16.png){ .margintop10 .marginbottom10 }
+    !!! warning "Solo para usuarios con nombre de equipo vinculado a un Sistema de Información y Control Empresarial (SICE)."
+        - Ir a `Usar otra cuenta`:  
+        ![Descripción de la imagen](./img_3/img_3_80.png){ .margintop10 .marginbottom10 }
+        - Introducir `.\Administrator` en vez de solamente Administrator.
+        ![Descripción de la imagen](./img_3/img_3_80.png){ .margintop10 .marginbottom10 }
+
     - Aceptamos los riesgos de seguridad y nos conectamos al escritorio remoto de Windows Server 2025.  
     ![Descripción de la imagen](./img_3/img_3_17.png){ .margintop10 .marginbottom10 }
     - Una vez conectdos, podemos trabajar con el escritorio remoto de Windows Server 2025 como si estuviéramos físicamente frente a él.  
