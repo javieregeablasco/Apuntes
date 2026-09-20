@@ -214,7 +214,7 @@ Mientras que el **acceso remoto** significa conectarse a un sistema o red, el **
         - Ir a `Usar otra cuenta`:  
         ![Descripción de la imagen](./img_3/img_3_80.png){ .margintop10 .marginbottom10 }
         - Introducir `.\Administrator` en vez de solamente Administrator.
-        ![Descripción de la imagen](./img_3/img_3_80.png){ .margintop10 .marginbottom10 }
+        ![Descripción de la imagen](./img_3/img_3_81.png){ .margintop10 .marginbottom10 }
 
     - Aceptamos los riesgos de seguridad y nos conectamos al escritorio remoto de Windows Server 2025.  
     ![Descripción de la imagen](./img_3/img_3_17.png){ .margintop10 .marginbottom10 }

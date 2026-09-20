@@ -1413,7 +1413,7 @@ En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.
 
 - Agregamos la instancia al dominio definido en nuestra primera máquina (ServidorDNS).  
 Para ello vamos a `System` → `About` → `Domain or workgroup`.  
-En la imagen vemos que la máquina tiene `WORKGROUP` como domonio por defecto.  
+En la imagen vemos que la máquina tiene `WORKGROUP` como dominio por defecto.  
 Pulsamos `Change` e introducimos el dominio definido en la primera máquina.
 ![Descripción de la imagen](./img_5/img_5_95.png){.margintop10 .marginbottom10 }
 !!! warning "Si da error, solucionar el problema leyendo los `details` del error"
@@ -1433,7 +1433,7 @@ Pulsamos `Change` e introducimos el dominio definido en la primera máquina.
 - Si vamos a `DNS` → `DNS Manager` → `Forward Lookup Zones` podremos comprobar que se ha generado en el DNS un registro `Host` de tipo `A` para la segunda instancia.
 ![Descripción de la imagen](./img_5/img_5_103.png){.margintop10 .marginbottom10 .marco }
 
-### 17.3 Promocionar la máquina a controladora de dominio
+### 17.3 Promocionar la segunda instancia a controladora de dominio
 
 - Agregaremos un nuevo ROL a nuestra máquina y la seleccionaremos dentro del grupo de servidores.
 ![Descripción de la imagen](./img_5/img_5_104.png){.margintop10 .marginbottom10 .marco }
@@ -1457,9 +1457,12 @@ Pulsamos `Change` e introducimos el dominio definido en la primera máquina.
 - Después de reiniciar la máquina veremos que tenemos las 2 máquinas como controladoras de dominio.
 ![Descripción de la imagen](./img_5/img_5_113.png){.margintop10 .marginbottom10 .marco }
 
-### 17.4 Crear el rol DNS en la máquina
+### 17.4 Crear el rol DNS en la segunda instancia
+
+<!-- KnL$zkDxGpV4&!VlGJ;8(Hc%AdlB(s*A -->
 
 <!-- https://youtu.be/TwMAS7Iha30?si=rSr3dnYcNMS0Z29P&t=1101 -->
+<!-- https://youtu.be/7_fyUsXY7m0?si=x6NT3Gwk_jKuQa5S&t=463 -->
 
 ### 17.5 Configuración de los DNS
 
