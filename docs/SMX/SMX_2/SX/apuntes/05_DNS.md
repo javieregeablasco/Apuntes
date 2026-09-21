@@ -1441,7 +1441,7 @@ Pulsamos `Change` e introducimos el dominio definido en la primera máquina.
 ![Descripción de la imagen](./img_5/img_5_105.png){.margintop10 .marginbottom10 .marco }
 - Aceptamos la características que se añadiran al implementar al AD DS en la máquina.
 ![Descripción de la imagen](./img_5/img_5_106.png){.margintop10 .marginbottom10 .marco }
-- Confirmamos la operación. A diferencia de la primera máquina, aquí, no nos pide crear un servidor DNS al detectar que ya existe uno en el dominio (lo crearemos manualmente más adelante).
+- Confirmamos la operación. A diferencia de la primera máquina, aquí, no nos pide crear un servidor DNS al detectar que ya existe uno en el dominio (como veremos más adelante, el rol DNS se instalará automaticamente al promocionar la segunda instancia a controladora de dominio).
 ![Descripción de la imagen](./img_5/img_5_107.png){.margintop10 .marginbottom10 .marco }
 - Una vez finalizada la instalación, deberemos promocionar la máquina a controladora de dominio.
 ![Descripción de la imagen](./img_5/img_5_108.png){.margintop10 .marginbottom10 .marco }
@@ -1459,66 +1459,44 @@ Pulsamos `Change` e introducimos el dominio definido en la primera máquina.
 
 ### 17.4 Crear el rol DNS en la segunda instancia
 
-<!-- KnL$zkDxGpV4&!VlGJ;8(Hc%AdlB(s*A -->
+- Comprobaremos que el ROL DNS ya se ha creado en la segunda instancia.
+![Descripción de la imagen](./img_5/img_5_114.png){.margintop10 .marginbottom10 .marco }
 
-<!-- https://youtu.be/TwMAS7Iha30?si=rSr3dnYcNMS0Z29P&t=1101 -->
-<!-- https://youtu.be/7_fyUsXY7m0?si=x6NT3Gwk_jKuQa5S&t=463 -->
+### 17.5 Configuración de los DNS en las instancias
 
-### 17.5 Configuración de los DNS
+Comprobaremos que las interfaces de red en cada instancia cumplen las reglas de la siguiente tabla.
 
-editaremos las interfaces de red para que se apunten mutuamente.
+||DNS preferido|DNS segundario|
+||||
+|Instancia 1|IP instancia 2|IP instancia 1|
+|Instancia 2|IP instancia 1|IP instancia 2|
 
-## hasta aqui
+- Configuración instancia 1
+![Descripción de la imagen](./img_5/img_5_116.png){.margintop10 .marginbottom20 .marco .leftcincocero}
 
-<!-- https://youtu.be/TwMAS7Iha30?si=aUXNNEtXNO6CMvqE&t=838 -->
----
+- Configuración instancia 2
+![Descripción de la imagen](./img_5/img_5_115.png){.margintop10 .marginbottom20 .marco .leftcincocero}
 
+### 17.6 Configuración de los reenviadores (fowarders)
 
-<!-- ad ds -->
+!!! question "¿Qué son los reenviadores?<br>¿Cuál es su función?"
 
-<!-- file:///C:/Users/titan/Downloads/UT02_ServicioDNS_Windows.pdf -->
+- También comprobaremos que los reenviadores están configurados correctamente.  
+Para ello, accederemos a las propiedades de los servidores DNS de nuestras máquinas.
+![Descripción de la imagen](./img_5/img_5_117.png){.margintop10 .marginbottom10 }
 
-<!-- https://www.youtube.com/watch?v=TwMAS7Iha30 -->
+## 16 - Tarea RA2-CEde-2 - Instalación y configuración de un servidor DNS con BIND9 en Ubuntu Server 22.04
 
-lanza cmd windows + r
-services.msc
+### 16.1 Objetivos
 
-<!-- dhcp options set -->
-<!-- https://www.youtube.com/watch?v=1aysEp601sk&t=175s -->
+- En esta práctica crearemos una pequeña red dentro de **Amazon Web Services (AWS)** formada por tres instancias EC2.
 
-<!-- poner mas ejemplos
-https://serviciosgm.readthedocs.io/es/latest/windows/dns/tarea1.html -->
+- Una de las instancias actuará como **servidor DNS** utilizando BIND9 y las otras dos actuarán como clientes.
 
-<!-- Imagen que explica muy bien las zonas DNS
-https://asir.readthedocs.io/es/latest/Tema_3_DNS/Index.html -->
----
+- Aparte de las VPC, subredes, puertas de enlace, grupos de seguridad y tablas de enrutamiento que son las que vienen por defecto en AWS, configuraremos:
 
-<!-- https://notebook.google.com/notebook/3ba0b1e5-23cc-414c-a66b-1591bdf88c4a -->
+1. Tres instancias EC2 con Ubuntu Server.
 
-<!-- 
-https://serviciosgm.readthedocs.io/es/latest/windows/dns/index.html
-
-<!-- https://www.youtube.com/watch?v=EfSbT3gJUFY&t=47s -->
-
-<!-- https://www.dreamhost.com/blog/es/nameservers-vs-dns-guia/ -->
-
-<!-- pracrica DNS -->
-<!-- # Práctica - Instalación y configuración de un servidor DNS con BIND9 en AWS
-
-## 1 - Objetivos
-
-En esta práctica crearemos una pequeña red dentro de **Amazon Web Services (AWS)** formada por tres instancias EC2.
-
-Una de las instancias actuará como **servidor DNS** utilizando BIND9 y las otras dos actuarán como clientes.
-
-Configuraremos:
-
-* Una VPC propia.
-* Dos subredes.
-* Una puerta de enlace a Internet.
-* Una tabla de enrutamiento.
-* Grupos de seguridad.
-* Tres instancias EC2 con Ubuntu Server.
 * Un servidor DNS BIND9.
 * Una zona DNS directa.
 * Dos zonas DNS inversas.
@@ -3429,3 +3407,22 @@ www.wikipedia.org
 ```
 
 utilizando siempre nuestro servidor BIND9 como servidor DNS. -->
+
+<!-- dhcp options set -->
+<!-- https://www.youtube.com/watch?v=1aysEp601sk&t=175s -->
+
+<!-- poner mas ejemplos
+https://serviciosgm.readthedocs.io/es/latest/windows/dns/tarea1.html -->
+
+<!-- Imagen que explica muy bien las zonas DNS
+https://asir.readthedocs.io/es/latest/Tema_3_DNS/Index.html -->
+---
+
+<!-- https://notebook.google.com/notebook/3ba0b1e5-23cc-414c-a66b-1591bdf88c4a -->
+
+<!-- 
+https://serviciosgm.readthedocs.io/es/latest/windows/dns/index.html
+
+<!-- https://www.youtube.com/watch?v=EfSbT3gJUFY&t=47s -->
+
+<!-- https://www.dreamhost.com/blog/es/nameservers-vs-dns-guia/ -->

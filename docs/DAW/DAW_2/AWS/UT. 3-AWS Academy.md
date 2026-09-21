@@ -236,14 +236,14 @@ Desde la consola de AWS se puede:
 #### a. Acceder al panel de facturación de AWS
 
 Después de iniciar sesión en su cuenta, en el menú de la cuenta, seleccione `Panel de facturación`.
-![img](../AWS/ut3/costos/billdash.png){.original}
+![img](../AWS/ut3/costos/billdash.png){.original .marco .margintop10 .marginbottom20}
 
 #### **b. Revisar el panel de facturación**
 
 - En la sección **Resumen de AWS**, se podrá ver un resumen de los costos del mes hasta la fecha.
 - También se podrá ver la tendencia de los costos de los cinco servicios principales durante los tres a seis períodos de facturación cerrados más recientes.
 
-![img](../AWS/ut3/costos/billdash1.png){.original}
+![img](../AWS/ut3/costos/billdash1.png){.original .marco .margintop10 .marginbottom20}
 
 #### c. Modificar las alertas de correo electrónico del límite de uso
 
@@ -264,13 +264,13 @@ Después de iniciar sesión en su cuenta, en el menú de la cuenta, seleccione `
 #### a. Crear un controlador de costos
 
 En el menú de navegación de la izquierda, seleccione **Presupuestos** y, a continuación, seleccione **Crear un presupuesto** en la página de la consola de AWS Budgets.
-![img](../AWS/ut3/costos/budget.png){.ochocinco .marco .margintop10}
+![img](../AWS/ut3/costos/budget.png){.cien .marco .margintop10 .marginbottom20 }
 
 #### b. Elejir el tipo de presupuesto
 
 En la página **Elegir tipo de presupuesto**, elija **Presupuesto de costos**.
 
-![img](../AWS/ut3/costos/budget1.png){.sietecinco}
+![img](../AWS/ut3/costos/budget1.png){.cien .marco .margintop10 .marginbottom20}
 
 #### c. Establecer los detalles del presupuesto
 
@@ -278,12 +278,12 @@ En la página **Elegir tipo de presupuesto**, elija **Presupuesto de costos**.
 - En la sección Establecer el importe del presupuesto, mantener las selecciones predeterminadas e introducir 100 USD en el campo **Introduzca el importe presupuestado (USD)**.
 - En la sección **Parámetros de presupuesto**, se puede utilizar estas características para crear presupuestos que rastreen los costos asociados con un **conjunto particular** de servicios de AWS.
 
-![img](../AWS/ut3/costos/budget2.png){.sietecinco}
+![img](../AWS/ut3/costos/budget2.png){.cien .marco .margintop10 .marginbottom20}
 
 #### d. Tarea RA1-CEd Billing dashboard
 
 !!! exercise "Tarea RA1-CEd"
-    Realizar una captura de pantalla de vuestro **Panel de facturación** y justificar brevemente los valores introducir.
+    Realizar una captura de pantalla de vuestro **Panel de facturación** y justificar brevemente los valores introducidos.
 
     !!! warning "Condiciones de la entrega."  
         Subir el documento con vuestras respuestas a la tarea RA1-CEd de Aules.
@@ -325,13 +325,12 @@ Antes de usar la calculadora podremos ver en la pestaña precios el coste de los
 #### 3.5.2 Ejemplo de cálculo de coste de una infraestructura
 
 - Para ello usaremos la calculadora de AWS.
-- Como se puede ver en la imagen
+- Como se puede ver en la imagen:  
+![img](../AWS/ut3/presupuestos/presu1.png){.cien .margintop10 .marginbottom20}
 
-    1. primero agregaremos los servicios,
+    1. Primero agregaremos los servicios,
     1. luego los configuraremos,
     1. para terminar tendremos una estimación bastante exacta del coste de la infraestructura que queremos implementar.
-
-![img](../AWS/ut3/presupuestos/presu1.png){.sietecinco}
 
 ##### 3.5.2.1 Añadir servicio
 
