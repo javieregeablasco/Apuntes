@@ -1485,7 +1485,7 @@ Comprobaremos que las interfaces de red en cada instancia cumplen las reglas de 
 Para ello, accederemos a las propiedades de los servidores DNS de nuestras máquinas.
 ![Descripción de la imagen](./img_5/img_5_117.png){.margintop10 .marginbottom10 }
 
-## 16 - Tarea RA2-CEde-2 - Instalación y configuración de un servidor DNS con BIND9 en Ubuntu Server 22.04
+## 16 - Tarea RA2-CEde-2 - Instalación y configuración de un servidor DNS con BIND9 en Ubuntu Server 26.04 LTS
 
 ### 16.1 Objetivos
 
@@ -1495,7 +1495,7 @@ Para ello, accederemos a las propiedades de los servidores DNS de nuestras máqu
 
 - Aparte de las VPC, subredes, puertas de enlace, grupos de seguridad y tablas de enrutamiento que son las que vienen por defecto en AWS, configuraremos:
 
-1. Tres instancias EC2 con Ubuntu Server.
+1. Tres instancias EC2 con Ubuntu Server 26.04 LTS.
 1. Un servidor DNS BIND9.
 1. Una zona DNS directa.
 1. Dos zonas DNS inversas.
@@ -1504,8 +1504,6 @@ Para ello, accederemos a las propiedades de los servidores DNS de nuestras máqu
 1. Reenvío de consultas DNS no resueltas hacia Internet.
 
 Al finalizar la práctica tendremos una arquitectura similar a:
-
-# hasta aqui
 
 <!-- https://www.youtube.com/watch?v=1s0vjLv9roQ -->
 
@@ -1574,216 +1572,141 @@ Nuestro servidor DNS será exclusivamente para los equipos de nuestra red privad
 
 ---
 
-# 7 - Creación del servidor DNS
+### 16.2 Lanzar instancias
 
-Accedemos a:
+#### 16.2.1 Instancia Servidor-DNS
 
-```text
-EC2 → Instances → Launch instance
-```
+Lanzaremos una instancia que hará de servidor DNS con las siguiente características.
 
-Configuramos:
+- Sistema operativo Ubuntu Server 26.04 LTS.
+![Descripción de la imagen](./img_5/img_5_120.png){.margintop10 .marginbottom10 .marco }
+- Tipo de instancia, par de claves y configuración de red.
+![Descripción de la imagen](./img_5/img_5_121.png){.margintop10 .marginbottom10 .marco }
+- Almacenamiento.
+![Descripción de la imagen](./img_5/img_5_122.png){.margintop10 .marginbottom10 .marco }
 
-```text
-Name: DNS-SERVER
-```
+#### 16.2.2 Instancias Clientes
 
-Seleccionamos una imagen:
+- Sistema operativo Ubuntu Server 26.04 LTS.
+![Descripción de la imagen](./img_5/img_5_123.png){.margintop10 .marginbottom10 .marco }
 
-```text
-Ubuntu Server 24.04 LTS
-```
+- Tipo de instancia, par de claves y configuración de red.
+![Descripción de la imagen](./img_5/img_5_124.png){.margintop10 .marginbottom10 .marco }
 
-Seleccionamos un tipo de instancia pequeño disponible en AWS Academy, por ejemplo:
+- Almacenamiento.
+![Descripción de la imagen](./img_5/img_5_125.png){.margintop10 .marginbottom10 .marco }
 
-```text
-t2.micro
-```
+#### 16.2.3 Resumen de instancias
 
-o:
+- Después de lanzar las 3 instancias (servidor DNS + 2 clientes) tendremos:
 
-```text
-t3.micro
-```
+    |Máquina|Dirección privada|Función|
+    ||:-:||
+    | Servidor-DNS |       `172.31.XX.XX` | Servidor BIND9 |
+    | Cliente-1  |       `172.31.XX.XX` | Cliente DNS    |
+    | Cliente-2  |       `172.31.XX.XX` | Cliente DNS    |
 
-dependiendo de las opciones disponibles en el laboratorio.
+==Realizar captura de pantalla==
+![Descripción de la imagen](./img_5/img_5_126.png){.margintop10 .marginbottom10 .marco }
 
-Seleccionamos nuestra clave SSH.
+### 16.3 Visualizar las reglas de la tabla de enrutamiento
 
-En configuración de red:
+Para ver/modificar la tabla de enrutamiento de la red que estamos utilizando haremos lo siguiente:
 
-```text
-VPC:                VPC-DNS-SMR
-Subnet:             SUBNET-SERVIDORES
-Auto-assign public IP: Enable
-Security Group:     SG-DNS
-```
+- En la consola de AWS introducimos VPC. Una vez que el servicio aparezca, lo seleccionamos.
+![Descripción de la imagen](./img_5/img_5_127.png){.margintop10 .marginbottom10 .marco }
+- En el panel de VPC, seleccionamos nuestra VPC (solo hay 1).
+![Descripción de la imagen](./img_5/img_5_128.png){.margintop10 .marginbottom10 .marco }
+- En la pestaña ´Mapa de rescursos´ veremos todos los recursos asociados a nuestra red.
+![Descripción de la imagen](./img_5/img_5_129.png){.margintop10 .marginbottom10 .marco }
+==Realizar captura de pantalla==
+- Después de seleccionar el recurso asociado a la tabla de enrutamiento podremos ver/editar las reglas de enrutamiento.
+![Descripción de la imagen](./img_5/img_5_130.png){.margintop10 .marginbottom10 .marco }
 
-Configuramos manualmente como dirección IPv4 privada:
+### 16.4 Modificación de los grupos de seguridad para permitir plena comunicación entre instancias
 
-```text
-10.0.1.10
-```
+!!! tip "¿Qué es un grupo de seguridad?"
+    - Un Grupo de Seguridad (Security Group) en AWS es un firewall virtual con estado (stateful) que controla el tráfico de entrada (ingress) y salida (egress) a nivel de la interfaz de red (ENI) de una instancia o recurso (como una máquina virtual EC2 o una base de datos RDS).
+    - Funciona como la primera línea de defensa para restringir qué tipo de tráfico IP, puerto o protocolo tiene permitido entrar o salir.
 
-!!! warning "Dirección privada"
+- Vamos a `EC2` → Seleccionamos una de las instancias → Abrimos el grupo de seguridad asociado a la instancia.
+![Descripción de la imagen](./img_5/img_5_131.png){.margintop10 .marginbottom10 .marco }
+- Editamos las reglas de entrada.
+![Descripción de la imagen](./img_5/img_5_132.png){.margintop10 .marginbottom10 .marco }
+- Aunque no sea una buena práctica, abriremos todos los puertos.  
+==Realizar captura de pantalla==
+![Descripción de la imagen](./img_5/img_5_133.png){.margintop10 .marginbottom10 .marco }
+- Repetiremos esta operación en los grupos de seguridad de las 2 instancias restantes.  
+==Realizar captura de pantalla==
 
-````
-Es importante que el servidor DNS mantenga siempre la misma dirección IP privada.
+### 16.5 Comprobar la conectividad a las instancias
 
-Si los clientes tienen configurado:
+- Nos conectaremos mediante SSH a las máquinas Cliente-1 y Cliente-2.
 
-```text
-DNS = 10.0.1.10
-```
+- Desde Cliente-1 comprobaremos que tenemos 'ping' con las otras instancias (Servidor-DNS y Cliente-2).  
+Para ello usaremos el siguiente comando:
 
-el servicio dejaría de funcionar si cambiara la dirección del servidor.
-````
+      ```bash
+      ping -c 4 IP.instancia
+      ```
 
----
+    ![Descripción de la imagen](./img_5/img_5_134.png){ .marginbottom10 }
 
-# 8 - Creación de CLIENTE-1
+- Desde Cliente-2:  
+![Descripción de la imagen](./img_5/img_5_135.png){ .marginbottom10 .margintop10 }
 
-Creamos otra instancia:
+!!! info "Si no se pierden paquetes, entonces, dispondremos de comunicación entre las instancias."
 
-```text
-Name: CLIENTE-1
+!!! question "¿Por qué las instancias pueden comunicarse si están en subredes diferentes?"
 
-Sistema:
-Ubuntu Server 24.04 LTS
+### 16.6 Instalar BIND9
 
-VPC:
-VPC-DNS-SMR
+- Vamos a proceder a la instalación de BIND9 en la instancia `Servidor-DNS`.  
 
-Subnet:
-SUBNET-CLIENTES
+- Para ello nos conectaremos a:
 
-Private IPv4:
-10.0.2.10
+      ```text
+      Servidor-DNS
+      ```
+- Actualizaremos los repositorios e la instalaremos.
 
-Public IPv4:
-Enable
+      ```bash
+      sudo apt update && sudo apt upgrade -y
+      ```
+- Como nos sugiere el log, reiniciaremos la instancia.  
+==Realizar captura de pantalla==  
+![Descripción de la imagen](./img_5/img_5_136.png){ .marginbottom10 .margintop10 }
 
-Security Group:
-SG-CLIENTES
-```
+- Luego, instalaremos BIND9 y sus paquetes.
 
----
+      ```bash
+      sudo apt install bind9 bind9-utils bind9-doc bind9-dnsutils -y
+      ```
 
-# 9 - Creación de CLIENTE-2
+- Comprobaremos el servicio con cualquiera de estos 2 comandos:
 
-Creamos:
+      ```bash
+      sudo systemctl status named
+      ```
+      
+      ```bash
+      sudo systemctl status bind9
+      ```
 
-```text
-Name: CLIENTE-2
+    ==Realizar captura de pantalla==  
+    ![Descripción de la imagen](./img_5/img_5_137.png){ .marginbottom10 .margintop10 }
 
-Sistema:
-Ubuntu Server 24.04 LTS
+- Comprobaremos que el servicio DNS escucha en el puerto 53:
 
-VPC:
-VPC-DNS-SMR
+      ```bash
+      sudo ss -lntup | grep :53
+      ```
+    ==Realizar captura de pantalla==  
+    ![Descripción de la imagen](./img_5/img_5_137.png){ .marginbottom10 .margintop10 }
 
-Subnet:
-SUBNET-CLIENTES
+### 16.7 Configuración de BIND9
 
-Private IPv4:
-10.0.2.20
-
-Public IPv4:
-Enable
-
-Security Group:
-SG-CLIENTES
-```
-
-Al finalizar tendremos:
-
-| Máquina    | Dirección privada | Función        |
-| ---------- | ----------------: | -------------- |
-| DNS-SERVER |       `10.0.1.10` | Servidor BIND9 |
-| CLIENTE-1  |       `10.0.2.10` | Cliente DNS    |
-| CLIENTE-2  |       `10.0.2.20` | Cliente DNS    |
-
----
-
-# 10 - Comprobar la conectividad
-
-Nos conectamos mediante SSH a las máquinas.
-
-Desde CLIENTE-1 comprobamos:
-
-```bash
-ping -c 4 10.0.1.10
-```
-
-También:
-
-```bash
-ping -c 4 10.0.2.20
-```
-
-Desde CLIENTE-2:
-
-```bash
-ping -c 4 10.0.1.10
-```
-
-Si funciona, disponemos de comunicación entre las instancias.
-
-!!! question "¿Por qué pueden comunicarse si están en subredes diferentes?"
-
-````
-Las dos subredes pertenecen a:
-
-```text
-10.0.0.0/16
-```
-
-y la tabla de rutas de la VPC dispone automáticamente de una ruta:
-
-```text
-10.0.0.0/16 → local
-```
-
-que permite la comunicación entre las subredes de la VPC, siempre que los grupos de seguridad y ACL lo permitan.
-````
-
----
-
-# 11 - Instalar BIND9
-
-Nos conectamos a:
-
-```text
-DNS-SERVER
-```
-
-Actualizamos los repositorios:
-
-```bash
-sudo apt update
-```
-
-Instalamos BIND9:
-
-```bash
-sudo apt install bind9 bind9-utils dnsutils -y
-```
-
-Comprobamos el servicio:
-
-```bash
-sudo systemctl status named
-```
-
-Podemos comprobar que escucha en el puerto 53:
-
-```bash
-sudo ss -lntup | grep :53
-```
-
----
-
-# 12 - Configuración general de BIND9
+# HASTA AQUI
 
 Editamos:
 
