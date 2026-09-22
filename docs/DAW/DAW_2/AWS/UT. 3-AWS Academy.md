@@ -70,18 +70,18 @@ de uso.
   
 ### 2.5 Lanzar el laboratorio
 
+![Descripción de la imagen](../AWS/ut3/llon.png){.margintop10 .marginbottom20}
+
 - Para acceder a la consola de AWS y empezar a trabajar, pulsaremos **Start Lab**.  
 - Disponemos de una sesión activa de **4 horas** de duración para realizar las prácticas.
 - Si necesitamos más tiempo, podemos pulsar de nuevo **Start Lab** antes de que expiren las 4 horas para renovar el contador a 4 horas adicionales.  
-
-![Descripción de la imagen](../AWS/ut3/llon.png)
 
 **Comportamiento al finalizar el tiempo del Learner Lab:**  
 
 1. **Expiración de la sesión:** Al llegar al tiempo límite, se cierra el acceso a la consola web de AWS.  
 2. **Persistencia de los datos:** **No se pierde la configuración ni los archivos almacenados** en discos persitentes (EBS) o buckets (S3). Los datos permanecen guardados en la cuenta para la siguiente sesión.
 3. **Estado de los servicios:** Las instancias y servicios activos **NO se apagan automáticamente** al caducar el temporizador de 4 horas, por lo que **seguirán consumiendo el crédito disponible** del laboratorio.
-4. **Gestión del presupuesto:** Para evitar agotar el crédito ($100 USD):
+4. **Gestión del presupuesto:** Para evitar agotar el crédito ($50 USD):
    - Al terminar de trabajar, debemos pulsar **Stop Lab** para detener el cómputo de las máquinas.
    - Al finalizar completamente una práctica, **debemos eliminar todos los recursos creados** que ya no vayamos a utilizar.
 
@@ -223,7 +223,7 @@ Aunque no son “planes de uso” como tal, se combinan con ellos para reducir c
 | Spot Instances              | Procesos batch o interrumpibles  | Hasta 90 % más barato            |
 | Optimización almacenamiento | Datos según frecuencia de acceso | Reduce costes de almacenamiento  |
 
-### 3.3 Consola de Billing & Cost Management
+### 3.3 Consola de Administración de facturación y costos
 
 Desde la consola de AWS se puede:
 
@@ -236,41 +236,81 @@ Desde la consola de AWS se puede:
 #### a. Acceder al panel de facturación de AWS
 
 Después de iniciar sesión en su cuenta, en el menú de la cuenta, seleccione `Panel de facturación`.
-![img](../AWS/ut3/costos/billdash.png){.original .marco .margintop10 .marginbottom20}
+![img](../AWS/ut3/img_3_1.png){.cincozero .marco .margintop10 .marginbottom20}
 
 #### **b. Revisar el panel de facturación**
 
-- En la sección **Resumen de AWS**, se podrá ver un resumen de los costos del mes hasta la fecha.
+![img](../AWS/ut3/img_3_2.png){.original .marco .margintop10 .marginbottom20}
+
+- En la sección **Resumen de costos**, se podrá ver un resumen de los costos del mes hasta la fecha.
 - También se podrá ver la tendencia de los costos de los cinco servicios principales durante los tres a seis períodos de facturación cerrados más recientes.
 
-![img](../AWS/ut3/costos/billdash1.png){.original .marco .margintop10 .marginbottom20}
+#### c. Tarea RA1-CEd Billing dashboard
 
-#### c. Modificar las alertas de correo electrónico del límite de uso
+!!! exercise "Tarea RA1-CEd"
+    Realizar una captura de pantalla de vuestro **Panel de facturación** y justificar brevemente los valores devueltos.
+
+    !!! warning "Condiciones de la entrega."  
+        Subir el documento con vuestras respuestas a la tarea RA1-CEd de Aules.
+
+<!-- #### c. Modificar las alertas de correo electrónico del límite de uso
 
 - De manera predeterminada, la mayoría de las cuentas se activan automáticamente para recibir alertas por correo electrónico respecto del límite **del nivel gratuito de AWS** cuando el uso de su servicio excede el 85 % de un límite determinado.
 
 - Para cambiar quién recibe estas alertas por correo electrónico, seleccione **Preferencias de facturación** en la barra de navegación izquierda.
 
-- Para que otras personas puedan recibir alertas de uso del nivel gratuito, agregue su dirección de correo electrónico en el campo de Dirección de correo electrónico y seleccione Guardar preferencias.
+- Para que otras personas puedan recibir alertas de uso del nivel gratuito, agregue su dirección de correo electrónico en el campo de Dirección de correo electrónico y seleccione Guardar preferencias. -->
 
-### 3.4 Creación de controladores de costos básico
+### 3.4 Monitor de costos y monitor de presupuestos
 
-- En este apartado crearemos un controlador de costos en la **consola de facturación** de AWS con **AWS Budgets**.
-- Se establecerán tres notificaciones:
-    1. Una por si sus costos alcanzan el 80 % de su presupuesto,
-    1. otra por si se pronostica que sus costos excederán su presupuesto,
-    1. otra si sus costos exceden el presupuesto asignado.
+En AWS, existen varios tipos de monitores entre los cuales encontraremos:
 
-#### a. Crear un controlador de costos
+- **Monitor de costos**.
+- **Monitor de presupuestos**.
 
-En el menú de navegación de la izquierda, seleccione **Presupuestos** y, a continuación, seleccione **Crear un presupuesto** en la página de la consola de AWS Budgets.
-![img](../AWS/ut3/costos/budget.png){.cien .marco .margintop10 .marginbottom20 }
+La diferencia principal radica en su enfoque: un monitor de costos es **reactivo y analítico**, mientras que un monitor de presupuestos es **preventivo y orientado al control**.  
+
+En la consola de AWS, estas dos funciones se corresponden principalmente con **AWS Cost Explorer** (o AWS Cost Anomaly Detection) y **AWS Budgets**.
+
+!!! abstract "Monitor de Costos (AWS Cost Explorer & Anomaly Detection)"  
+    Su objetivo es ayudar a entender en qué se está gastando el dinero mediante visualización y análisis de datos históricos y proyecciones.
+
+    !!! tip "Enfoque"
+        Diagnóstico e identificación de tendencias.
+    !!! success "Qué hace"
+        - Muestra gráficos detallados de los gastos pasados y proyectados a futuro.
+        - Permite filtrar y agrupar costos por servicio, cuenta, región, etiquetas (tags) o tipo de uso.
+        - AWS Cost Anomaly Detection (Detección de anomalías), utiliza aprendizaje automático para avisar si se detecta un pico de gasto inusual fuera de tus patrones normales.
+
+!!! abstract "Monitor de Presupuestos (AWS Budgets)"
+    Su objetivo es ayudar a mantenerte dentro de un límite financiero establecido configurando umbrales y alertas en tiempo real.
+
+    !!! tip "Enfoque"
+        Control financiero y prevención de sorpresas en la factura.
+    !!! success "Qué hace"
+        - Permite fijar un costo o uso objetivo diario, mensual, trimestral o anual.
+        - Envía notificaciones (vía correo electrónico...) cuando el gasto o uso real (o proyectado) supera un porcentaje de un límite.
+        - Permite asociar AWS Budget Actions (no disponible para usuarios de la capa gratuita) para ejecutar acciones automáticas si se supera el presupuesto.
+
+### 3.5 Creación de un monitor de presupuesto con plantilla de AWS
+
+- En este apartado crearemos un monitor de presupuesto de costo o uso usando una plantilla de AWS.
+- Con la plantilla se establecerán automáticamente tres notificaciones:
+    1. Una si los costos alcanzan el 85% de su presupuesto,
+    1. Otra si el gasto real alcanza el 100% del presupuesto,
+    1. Otra si se prevee que el gasto alcance el 100% del presupuesto asignado.
+
+#### a. Crear un controlador de presupuesto de costos
+
+- El la consola de AWS buscamos `Análisis de costos y uso`, luego `Nivel gratuito` y para terminar `Configurar presupuestos de costo o uso`.
+![img](../AWS/ut3/img_3_3.png){.cien .marco .margintop10 .marginbottom20 }
+
+- En la página de `Presupuestos` pulsaremos `Crear presupuestos`  
 
 #### b. Elejir el tipo de presupuesto
 
-En la página **Elegir tipo de presupuesto**, elija **Presupuesto de costos**.
-
-![img](../AWS/ut3/costos/budget1.png){.cien .marco .margintop10 .marginbottom20}
+En la página **Elegir el tipo de presupuesto**, elegiremos  la plantilla que más se adecúe a nuestras necesidades.
+![img](../AWS/ut3/img_3_4.png){.cien .marco .margintop10 .marginbottom20 }
 
 #### c. Establecer los detalles del presupuesto
 
@@ -278,61 +318,59 @@ En la página **Elegir tipo de presupuesto**, elija **Presupuesto de costos**.
 - En la sección Establecer el importe del presupuesto, mantener las selecciones predeterminadas e introducir 100 USD en el campo **Introduzca el importe presupuestado (USD)**.
 - En la sección **Parámetros de presupuesto**, se puede utilizar estas características para crear presupuestos que rastreen los costos asociados con un **conjunto particular** de servicios de AWS.
 
-![img](../AWS/ut3/costos/budget2.png){.cien .marco .margintop10 .marginbottom20}
+![img](../AWS/ut3/img_3_5.png){.cien .marco .margintop10 .marginbottom20 }
 
-#### d. Tarea RA1-CEd Billing dashboard
+### 3.6 Tarea RA1-CEf - Creación de una alerta de costes personalizada y de un monitor de costos
 
-!!! exercise "Tarea RA1-CEd"
-    Realizar una captura de pantalla de vuestro **Panel de facturación** y justificar brevemente los valores introducidos.
+Ejemplo de resultado después de realizar las alertas de los monitores de costos y presupuestos.
 
-    !!! warning "Condiciones de la entrega."  
-        Subir el documento con vuestras respuestas a la tarea RA1-CEd de Aules.
-
-#### e. Tarea RA1-CEf - Creación de una alerta de costes y un resumen de facturación
+![img](../AWS/ut3/img_3_6.png){.cien .marco .margintop10 .marginbottom20 }
 
 !!! task "Tarea RA1-CEf"
     **Crear una alerta de costos con las siguientes condiciones:**
 
-    1. Presupuesto: 50$
-    1. Umbral de la alerta: 50%.  
-    1. Correos: **El vuestro** y el del profesor: `j.egeablasco@edu.gva.es`  
-    1. Frecuencia de las alertas: Resúmenes semanales.  
+    1. Presupuesto: 10$
+    1. Periódo: Fecha actual hasta fin de mes.  
+    1. Umbral de la alerta: 50%. Desencadenador de la alerta: `Real`  
+    1. Destinatarios de correo: **El vuestro** y el del profesor: `j.egeablasco@edu.gva.es`  
 
-    **Resumen de facturación:**    
+    **Crear un monitor de costos con las siguientes condiciones:**
     
-    1. Frecuencia de regeneración: Semanal   
-    1. Día de la semana de emisión: Martes  
-    1. Correos: **El vuestro** y el del profesor: j.egeablasco@edu.gva.es  
-
+    1. Nombre del supervisor: Supervisor de cuenta
+    1. Nombre de la suscripción: Vuestro nombre
+    1. Frecuencia de las alertas: Semanal   
+    1. Destinatarios de las alertas: **El correo del alumno** y el del profesor: j.egeablasco@edu.gva.es  
+    1. Umbral: 40$  
+    
     !!! tip "Ayuda:"
         Como crear [una alerta de costes](https://www.youtube.com/watch?v=O0sofGVT7uw) en AWS.
     
     !!! warning "Condiciones de la entrega."  
         Subir el documento con vuestras respuestas a la tarea RA1-CEf de Aules.
 
-### 3.5 Presupuesto de una infraestructura básica
+### 3.7 Presupuesto de una infraestructura básica
 
 - Para estimar de forma precisa el coste de desplegar una infraestructura en la nube es fundamental utilizar herramientas que nos permitan simularla.  
 - Para ello, AWS ofrece una **Calculadora de Costes oficial**, con la que se puede configurar servicios (instancias EC2, almacenamiento, bases de datos, redes ...) y obtener de esa manera un presupuesto aproximado antes de su puesta en marcha.
-- Se puede acceder a la calculadora en el siguiente enlace: [AWS Pricing Calculator](https://calculator.aws/#/)
+- Se puede acceder a la calculadora pinchando en el siguiente enlace: [AWS Pricing Calculator](https://calculator.aws/#/)
 
-#### 3.5.1 Precios
+#### 3.7.1 Precios
 
-Antes de usar la calculadora podremos ver en la pestaña precios el coste de los diferentes servicios de AWS.
+Antes de usar la calculadora podremos consultar en la pestaña precios el coste de los diferentes servicios de AWS.
 
-![img](../AWS/ut3/presupuestos/presu.png){.cien .marco}
+[![img](../AWS/ut3/img_3_7.png){.cien .marco}](https://aws.amazon.com/es/pricing/)
 
-#### 3.5.2 Ejemplo de cálculo de coste de una infraestructura
+#### 3.7.2 Ejemplo de cálculo de coste de una infraestructura
 
 - Para ello usaremos la calculadora de AWS.
 - Como se puede ver en la imagen:  
 ![img](../AWS/ut3/presupuestos/presu1.png){.cien .margintop10 .marginbottom20}
 
     1. Primero agregaremos los servicios,
-    1. luego los configuraremos,
-    1. para terminar tendremos una estimación bastante exacta del coste de la infraestructura que queremos implementar.
+    1. Luego los configuraremos,
+    1. Para terminar tendremos una estimación bastante exacta del coste de la infraestructura que queremos implementar.
 
-##### 3.5.2.1 Añadir servicio
+##### 3.7.2.1 Añadir servicio
 
 En este caso usaremos una instancia de Amazon EC2.
 
@@ -361,7 +399,7 @@ En este caso usaremos una instancia de Amazon EC2.
 Pulsamos guardar y ver resumen y obtendremos el presupuesto.
 ![img](../AWS/ut3/presupuestos/presu8.png){.original .margintop10 .marginbottom20 .marco}
 
-#### 3.5.3 Tarea RA1-CEe Estimación del coste de una página web
+#### 3.7.3 Tarea RA1-CEe Estimación del coste de una página web
 
 !!! task "Tarea RA1-CEe"
     Ir a **calculadora de costes oficial** y crear un presupuesto con las siguientes especificaciones:
@@ -404,9 +442,9 @@ Pulsamos guardar y ver resumen y obtendremos el presupuesto.
 
 !!! question "Buscar información para un hosting convencional de similares caracteristicas y comparar precios."
 
-### 3.6 Resumen de servicios para el control de costos en AWS
+### 3.8 Resumen de servicios para el control de costos en AWS
 
-#### 3.6.1 Herramientas de costos esenciales de AWS  
+#### 3.8.1 Herramientas de costos esenciales de AWS  
 
 |Herramienta |Para qué sirve |Beneficio principal |
 ||||
@@ -415,13 +453,13 @@ Pulsamos guardar y ver resumen y obtendremos el presupuesto.
 |Cost Reports |Detalles de uso |Analiza cada céntimo gastado |
 |Organizations |Control multi-cuenta |Una sola factura para todo |
 
-#### 3.6.2 Formas inmediatas de ahorrar
+#### 3.8.2 Formas inmediatas de ahorrar
 
 - Usar instancias reservadas: ahorra hasta 72%
 - Implementar Spot Instances: ahorra hasta 90%
 - Activar Savings Plans: ahorra hasta 66%
 
-#### 3.6.3 Uso del panel de facturación
+#### 3.8.3 Uso del panel de facturación
 
 El panel se actualiza cada 24 horas y muestra entre otras cosas:
 
@@ -432,7 +470,7 @@ El panel se actualiza cada 24 horas y muestra entre otras cosas:
 |Top servicios|Dónde más se gastas|Cada día|
 |Historial |Gasto histórico mes a mes|Cada mes|
 
-#### 3.6.4 Términos comunes de facturación  
+#### 3.8.4 Términos comunes de facturación  
 
 |Término |¿Qué es?|
 |||
@@ -441,7 +479,7 @@ El panel se actualiza cada 24 horas y muestra entre otras cosas:
 |Spot Instances |Ahorros grandes |
 |Reserved Instances |Descuentos por reservar con specs fijas|
 
-#### 3.6.5 Problemas Frecuentes de Facturación
+#### 3.8.5 Problemas Frecuentes de Facturación
 
 |Problema|Solución|Acción preventiva|
 ||||
@@ -451,7 +489,7 @@ El panel se actualiza cada 24 horas y muestra entre otras cosas:
 |Región mal elegida|Algunas regiones son más baratas que otras.|Ver si influye la latencia y las normativas.|
 |No configurar alertas|Configurar en Billing → *Budgets* y *Cost Anomaly Detection* para recibir avisos si los gastos superan un umbral.|Crear alertas|
 
-## **4 - Enlaces de interés**
+## 4 - Enlaces de interés
 
 Documentación de [AWS](https://docs.aws.amazon.com).  
 [Aspectos básicos de control de costes en AWS](https://aws.amazon.com/es/getting-started/cost-optimization-essentials)  
