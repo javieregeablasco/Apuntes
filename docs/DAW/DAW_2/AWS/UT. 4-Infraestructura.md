@@ -163,7 +163,7 @@ En esta tarea crearemos una VPC que nos permetrá ir familiarizandonos con la co
     - **IP elástica:** Es una **dirección IPv4 pública estática** que se puede asignar a los recursos dentro de una VPC en AWS. **No permenece a la VPC** sino a la cuenta de usuario de AWS. Permite mantener la IP pública de una instancia aunque la paremos y lanzemos de nuevo.
     - **IGW de solo salida:** Similar al Internet Gateway, pero solo para **tráfico saliente de IPv6**.
 
-#### 1.2.4 Tarea RA2-CEa-2 Creación de una VPC con acceso a internet
+#### 1.2.4 Tarea RA2-CEa-2 - Creación de una VPC con acceso a internet
 
 Realizar el siguiente escenario y poblar las tablas de enrutamiento de las subredes públicas y privadas.
 
