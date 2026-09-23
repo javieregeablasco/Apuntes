@@ -211,12 +211,12 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
             ![](./img_ut2/ra2ceb2.png){.original }
 
     !!! exercise "**3. Copiar y pegar el texto y limpiar los formatos.**"  
-        1. Poner la primera frase con el **color RGB 125 135 247**.  
-        1. Poner la frase siguiente con el **color RGB 125 135 247 y tamaño de fuente 16pt**.  
-        1. Poner la frase siguiente con la fuente **fuente mistral**.  
+        1. Aplicar el **color RGB 125 135 247** a la primera frase.  
+        1. Aplicar el **color RGB 125 135 247** a la primera frase y poner el texta a tamaño de fuente 16pt**.  
+        1. Poner la frase siguiente con la **fuente mistral**.  
         1. Poner la frase siguiente con el **color púrpura y todo en mayúsculas**.  
         1. Poner la frase siguiente con la **primera letra de cada palabra en mayúsculas**.
-        1. Poner la frase **fue seleccionado** con el hiperenlace https://es.wikipedia.org/wiki/Michael_Jordan**.  
+        1. Insertar en el texto **fue seleccionado** el hiperenlace https://es.wikipedia.org/wiki/Michael_Jordan**.  
 
         !!! tip "Resultado esperado"
             ![](./img_ut2/ra2ceb21.png){.original }
