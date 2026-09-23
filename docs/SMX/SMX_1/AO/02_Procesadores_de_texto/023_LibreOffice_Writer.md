@@ -152,7 +152,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
 ### Tarea - RA2-CEc-1
 
 !!! task "Tarea a entregar en RA2-CEc-1"
-    !!! exercise "**1. Abre un nuevo documento, copia y pega el siguiente texto:**"  
+    !!! exercise "1. Abre un nuevo documento, copia y pega el siguiente texto:"  
         ```text
         Michael Jeffrey Jordan (Brooklyn, Nueva York, 17 de febrero de 1963) es un exjugador de baloncesto estadounidense. Con 1,98 metros de   altura, jugaba en la posición de escolta. Es considerado por la mayoría de aficionados y especialistas como el mejor jugador de baloncesto    de todos los tiempos.​ Se retiró definitivamente a los cuarenta años en 2003 en los Washington Wizards, tras haberlo hecho en dos ocasiones    anteriores, en 1993 y 1998, después de haber jugado 13 temporadas en los Chicago Bulls.
 
@@ -161,17 +161,17 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
         Desde 1983, ha aparecido en la portada de la prestigiosa revista deportiva Sports Illustrated en 50 ocasiones, todo un récord, además de ser    designado deportista del año en 1991 y mejor atleta del siglo XX por ESPN y segundo tras Babe Ruth por Associated Press.​ 
         ```
 
-    !!! exercise "**2. Seleccionar y mover texto:**"
+    !!! exercise "2. Seleccionar y mover texto:"
         Selecciona el segundo párrafo, cortalo y pegalo después del último párrafo.
 
-    !!! exercise "**3. Buscar y reemplazar texto:**" 
+    !!! exercise "3. Buscar y reemplazar texto:" 
         Con la herramienta de **buscar** y/o **buscar reemplazar** localizar el texto: **10 títulos** y reemplazarlo por **15 MPV**.
 
-    !!! exercise "**4. Corrección ortográfica:**""
+    !!! exercise "4. Corrección ortográfica:"
         - Pasar el idioma del primer párrafo a idioma inglés. Es decir el Writer deberá revisar el primer párrafo como si estuviera escrito en idioma inglés.  
         - Pasar el idioma de la palabra **Desde** a catalán.  
 
-    !!! exercise "**5. Guardar y guardar como:**"
+    !!! exercise "5. Guardar y guardar como:"
         - **Guardar** el documento y darle como nombre: **RA2-CEc-1-NombreApellidosAlumno**.  
         - **Guardar como** el documento, **protegerlo con la contraseña 1234** y darle como nombre **Copia RA2-CEc-1-NombreApellidosAlumno**.
 

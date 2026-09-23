@@ -1708,6 +1708,14 @@ Para ello usaremos el siguiente comando:
 
 # HASTA AQUI
 
+<!-- https://www.youtube.com/watch?v=1s0vjLv9roQ&t=250s -->
+
+<!-- ver si hay apuntes
+
+https://www.youtube.com/watch?v=b_mOOs53ut0 
+
+-->
+
 Editamos:
 
 ```bash

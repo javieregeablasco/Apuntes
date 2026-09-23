@@ -322,9 +322,11 @@ En la página **Elegir el tipo de presupuesto**, elegiremos  la plantilla que m�
 
 ### 3.6 Tarea RA1-CEf - Creación de una alerta de costes personalizada y de un monitor de costos
 
-Ejemplo de resultado después de realizar las alertas de los monitores de costos y presupuestos.
-
+- Ejemplo de resultado después de realizar las alertas de los monitores de costos y presupuestos.
 ![img](../AWS/ut3/img_3_6.png){.cien .marco .margintop10 .marginbottom20 }
+
+- Ejemplo de correo de alerta de costos"
+![img](../AWS/ut3/img_3_8.png){.leftsietecinco .marco .margintop10 .marginbottom20 }
 
 !!! task "Tarea RA1-CEf"
     **Crear una alerta de costos con las siguientes condiciones:**
