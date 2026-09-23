@@ -1118,7 +1118,7 @@ En `Prerequisites Check` apuntaremos las advertencias para gestionarlas más ade
     Aun así, es recomendable **fijar esa misma IP privada como estática dentro de la configuración de red de Windows** (en lugar de dejarla en modo DHCP), para evitar problemas si el adaptador de red se reinicia. Para ello, buscaremos en EC2 → Detalles la IP privada actual de nuestra instancia (en este ejemplo, 172.31.39.10) y configuraremos esa **misma IP** como estática en las propiedades de red de Windows.
 
     !!! warning "Importante"
-        - La IP que configuremos manualmente en Windows debe **coincidir siempre** con la IP privada que AWS ya tiene asignada a la instancia. 
+        - La IP que configuremos manualmente en Windows debe **coincidir siempre** con la IP privada que AWS ya tiene asignada a la instancia.
         - Si configuramos una IP diferente, la instancia perderá la conectividad de red, ya que AWS solo enruta tráfico a las IPs asociadas a esa interfaz de red (ENI).
 
     ![Descripción de la imagen](./img_5/img_5_54.png){ .margintop10 .marginbottom10 .marco}
@@ -1329,7 +1329,7 @@ En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.
     - Los intervalos deben ser suficientemente largos para que un equipo pueda renovar su concesión DHCP y actualizar su registro DNS antes de que este sea considerado obsoleto.
 
 !!! tip "Idea clave"
-    - **Aging determina cuándo un registro puede considerarse antiguo y Scavenging permite eliminarlo automáticamente.** 
+    - **Aging determina cuándo un registro puede considerarse antiguo y Scavenging permite eliminarlo automáticamente.**
     - Son mecanismos especialmente útiles en redes donde las direcciones IP cambian con frecuencia, como ocurre cuando se utiliza DHCP.
 
 ### 16.7.1 Determinación del lease del sercidor DHCP
@@ -1363,7 +1363,7 @@ En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.
 
 ## 17 - Tarea RA2-CEabcde - Configuración de un segundo Controlador de Dominio y DNS
 
-1. En entornos de producción, disponer de un único servidor representa un punto único de fallo (Single Point of Failure). 
+1. En entornos de producción, disponer de un único servidor representa un punto único de fallo (Single Point of Failure).
 
 1. Desplegar un segundo controlador de dominio con DNS y AD DS responde a cuatro razones esenciales:
 
@@ -1398,7 +1398,7 @@ En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.
 
 ### 17.2 Modificar los grupos de seguridad de las instancias
 
-- Un grupo de seguridad funciona como un firewall virtual para las instancias de EC2 para controlar el tráfico entrante y saliente. 
+- Un grupo de seguridad funciona como un firewall virtual para las instancias de EC2 para controlar el tráfico entrante y saliente.
 
 - Las **reglas de entrada** controlan el tráfico entrante a la instancia y las **reglas de salida** controlan el tráfico saliente desde la instancia.
 
@@ -1679,146 +1679,141 @@ Para ello usaremos el siguiente comando:
 
 - Luego, instalaremos BIND9 y sus paquetes.
 
-      ```bash
-      sudo apt install bind9 bind9-utils bind9-doc bind9-dnsutils -y
-      ```
+```bash
+sudo apt install bind9 bind9-utils bind9-doc bind9-dnsutils -y
+```
 
 - Comprobaremos el servicio con cualquiera de estos 2 comandos:
 
-      ```bash
-      sudo systemctl status named
-      ```
+```bash
+sudo systemctl status named
+```
       
-      ```bash
-      sudo systemctl status bind9
-      ```
+```bash
+sudo systemctl status bind9
+```
 
-    ==Realizar captura de pantalla==  
-    ![Descripción de la imagen](./img_5/img_5_137.png){ .marginbottom10 .margintop10 }
+==Realizar captura de pantalla==  
+![Descripción de la imagen](./img_5/img_5_137.png){ .marginbottom10 .margintop10 }
 
 - Comprobaremos que el servicio DNS escucha en el puerto 53:
 
-      ```bash
-      sudo ss -lntup | grep :53
-      ```
-    ==Realizar captura de pantalla==  
-    ![Descripción de la imagen](./img_5/img_5_137.png){ .marginbottom10 .margintop10 }
-
-### 16.7 Configuración de BIND9
-
-# HASTA AQUI
-
-<!-- https://www.youtube.com/watch?v=1s0vjLv9roQ&t=250s -->
-
-<!-- ver si hay apuntes
-
-https://www.youtube.com/watch?v=b_mOOs53ut0 
-
--->
-
-Editamos:
-
 ```bash
-sudo nano /etc/bind/named.conf.options
+sudo ss -lntup | grep :53
 ```
 
-Configuramos:
+==Realizar captura de pantalla==  
+![Descripción de la imagen](./img_5/img_5_137.png){ .marginbottom10 .margintop10 }
+
+### 16.7 Configuración mínima de BIND9
+
+1. Antes de nada accederemos al archivo `/etc/bind/named.conf.options` y realizaremos una copia de seguridad del mismo.  
+
+```bash
+sudo cp /etc/bind/named.conf.options /etc/bind/named.conf.options.bak
+```
+
+1. Luego, editaremos `named.conf.options` para completar la configuración del servidor DNS.
+
+```bash
+sudo nano named.conf.options
+```
+
+1. Una vez dentro del editor de texto incorporamos al archivo la siguiente configuración:
 
 ```text
 options {
         directory "/var/cache/bind";
 
+        // Activar la resolución recursiva
         recursion yes;
 
+        // Permitir consultas solo desde localhost y la red interna
         allow-query {
                 localhost;
-                10.0.0.0/16;
+                172.31.0.0/16;
         };
 
+        // Permitir recursión solo a clientes de la red interna
         allow-recursion {
                 localhost;
-                10.0.0.0/16;
+                172.31.0.0/16;
         };
 
+        // IPs donde escucha BIND9
         listen-on {
                 127.0.0.1;
-                10.0.1.10;
+                172.31.81.127;
         };
 
+        // No atender peticiones IPv6
         listen-on-v6 { none; };
 
+        // Reenviar las consultas no resueltas a DNS externos
         forwarders {
-                10.0.0.2;
+                172.31.0.2;
+                1.1.1.1;
+                8.8.8.8;
         };
 
+        // Usar únicamente los forwarders, sin resolver desde los servidores raíz
+        forward only;
+
+        // No permitir transferencias de zona
+        allow-transfer { none; };
+
+        // Validar firmas DNSSEC (valor por defecto en BIND 9.16+)
         dnssec-validation auto;
 };
 ```
 
-Guardamos el archivo.
+# probar a deshabilitar dnssec
 
-!!! info "Forwarders"
-
-````
-Nuestro servidor será autoritativo para:
-
-```text
-smr.test
-```
-
-pero no conoce todos los dominios de Internet.
-
-Cuando un cliente pregunte por:
-
-```text
-www.google.com
-```
-
-BIND9 reenviará la consulta al resolver DNS proporcionado por AWS:
-
-```text
-10.0.0.2
-```
-````
-
-El proceso será:
-
-```text
-CLIENTE-1
-     │
-     │ www.google.com
-     ▼
-DNS-SERVER
-10.0.1.10
-     │
-     │ no pertenece a smr.test
-     ▼
-DNS AWS
-10.0.0.2
-     │
-     ▼
-Internet
-```
-
----
-
-# 13 - Declarar la zona directa
-
-Editamos:
+<!--
+ - Reiniciamos el servicio.
 
 ```bash
-sudo nano /etc/bind/named.conf.local
+sudo systemctl restart bind9
 ```
 
-Añadimos:
+- Comprobamos si hay errores.
+
+```bash
+sudo systemctl status bind9
+``` -->
+
+### 16.7 Declarar la zona directa y la zona inversa
+
+1. Haremos una copia de seguridad del archivo `named.conf.local`.
+
+```bash
+sudo cp /etc/bind/named.conf.local /etc/bind/named.conf.local.bak
+```
+
+1. Editamos `named.conf.local` y añadimos.
 
 ```text
-zone "smr.test" {
+zone "practicadns.test" {
         type master;
-        file "/etc/bind/db.smr.test";
+        file "/etc/bind/db.practicadns.test";
         allow-update { none; };
 };
 ```
+
+# HASTA AQUI
+
+<!-- https://youtu.be/1s0vjLv9roQ?si=R9ydv5w47NW5RqIF&t=447 -->
+
+<!-- ver si hay apuntes
+
+https://youtu.be/b_mOOs53ut0?si=FFDjOV6oi2_d8rxG&t=456 
+
+https://networldcu.com/instalar-y-configurar-servidor-dns-bind9-en-ubuntu-20-04/
+-->
+
+<!-- https://claude.ai/chat/f2afa4f9-9965-4694-9333-a63051657cd4 -->
+
+
 
 Ahora debemos crear el archivo de zona.
 
