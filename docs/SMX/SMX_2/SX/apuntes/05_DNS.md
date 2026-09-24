@@ -1945,8 +1945,8 @@ resolvectl status
 ![Descripción de la imagen](./img_5/img_5_149.png){ .marginbottom20 .marco .margintop10}
 ![Descripción de la imagen](./img_5/img_5_150.png){ .marginbottom20 .marco .margintop10}
 
-- Después de reiniciar, veremos que el nuevo servidor DNS de la instancias es el nuestro.  
-![Descripción de la imagen](./img_5/img_5_151.png){ .marginbottom20 .marco .margintop10}
+- Después de reiniciar, veremos nuestro servidor DNS como el predefinido de todas las instancias de la VPC.  
+![Descripción de la imagen](./img_5/img_5_151.png){ .marginbottom20 .margintop10}
 
 # HASTA AQUI
 
