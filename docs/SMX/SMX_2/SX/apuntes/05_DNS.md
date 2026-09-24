@@ -1862,6 +1862,10 @@ zone "31.172.in-addr.arpa" {
 };
 ```
 
+!!! tip "Zona inversa"
+    - Para la red 172.31.0.0/16 la zona inversa se llama `31.172.in-addr.arpa`.
+    - Se escriben al revés solo los dos primeros octetos, porque el /16 fija esos dos.
+
 # HASTA AQUI
 
 <!-- https://youtu.be/1s0vjLv9roQ?si=R9ydv5w47NW5RqIF&t=447 -->
