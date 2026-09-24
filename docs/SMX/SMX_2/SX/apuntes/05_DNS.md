@@ -1703,7 +1703,7 @@ sudo ss -lntup | grep :53
 ```
 
 ==Realizar captura de pantalla==  
-![Descripción de la imagen](./img_5/img_5_137.png){ .marginbottom10 .margintop10 }
+![Descripción de la imagen](./img_5/img_5_138.png){ .marginbottom10 .margintop10 }
 
 ### 16.7 Configuración mínima de BIND9
 
