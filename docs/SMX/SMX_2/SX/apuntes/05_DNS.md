@@ -1776,6 +1776,10 @@ sudo named-checkconf
 ==Realizar captura de pantalla==
 ![Descripción de la imagen](./img_5/img_5_139.png){ .marginbottom10 }
 
+1. Para terminar comprobaremos si el servicio DNS está operativo.
+
+![Descripción de la imagen](./img_5/img_5_141.png){ .marginbottom10 }
+
 <!--
  - Reiniciamos el servicio.
 
