@@ -1778,6 +1778,10 @@ sudo named-checkconf
 
 1. Para terminar comprobaremos si el servicio DNS está operativo.
 
+```bash
+sudo systemctl status bind9
+```
+
 ![Descripción de la imagen](./img_5/img_5_141.png){ .marginbottom10 }
 
 <!--
