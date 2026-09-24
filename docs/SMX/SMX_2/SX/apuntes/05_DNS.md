@@ -1818,7 +1818,7 @@ www     IN      A       172.31.81.127
     - En el SOA (ns1.practicadns.test.): indica cuál es el servidor primario de la zona, es decir, el que tiene la copia original de los datos.
     - En el registro NS (@ IN NS ns1.practicadns.test.): declara que ns1.practicadns.test. es un servidor autoritativo para la zona practicadns.test (un registro NS apunta siempre a un nombre, no a una IP).
     - En el registro A (ns1 IN A 172.31.81.127): traduce ese nombre a una IP. Es lo que permite encontrar el servidor. Sin este registro, el NS apuntaría a un nombre que nadie sabe resolver y la zona no cargaría.
-
+    - En el registro A (www IN A 172.31.81.127): traduce un hipotetico servidor web.
 
 1. Validamos y reiniciamos.
 
