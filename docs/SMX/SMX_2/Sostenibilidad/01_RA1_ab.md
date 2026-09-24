@@ -184,15 +184,6 @@ Los criterios ASG pueden aplicarse a empresas de cualquier tamaño y sector. Aun
 
 <!-- 
 1. Sobre el concepto mismo de sostenibilidad
-¿Es la sostenibilidad un concepto universal o depende del contexto?
-Hay dos posturas principales:
-
-A favor de la universalidad: existen límites planetarios objetivos (cambio climático, pérdida de biodiversidad) que afectan a toda la humanidad por igual, por lo que se necesitan principios comunes.
-A favor del relativismo contextual: lo que es sostenible en un país nórdico rico difiere radicalmente de lo que es viable en una comunidad rural africana o andina. Imponer un modelo único puede ser una forma de "colonialismo verde".
-Una respuesta intermedia sería: los principios (equidad intergeneracional, límites ecológicos) pueden ser universales, pero las estrategias deben adaptarse localmente. -->
-
-<!-- 
-1. Sobre el concepto mismo de sostenibilidad
 
 ¿Es la sostenibilidad un concepto universal o depende del contexto?
 Hay dos posturas principales:
