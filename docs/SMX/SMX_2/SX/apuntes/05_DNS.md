@@ -1767,7 +1767,13 @@ options {
 };
 ```
 
-# probar a deshabilitar dnssec
+1. Con el siguiente comando comprobaremos si tenemos errores en el archivo de configuration.
+
+```bash
+sudo named-checkconf
+```
+
+![Descripción de la imagen](./img_5/img_5_139.png){ .marginbottom10 }
 
 <!--
  - Reiniciamos el servicio.
