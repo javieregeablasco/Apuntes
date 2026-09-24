@@ -1786,13 +1786,40 @@ sudo systemctl status bind9
 ![Descripción de la imagen](./img_5/img_5_141.png){ .marginbottom10 }
 !!! question "¿A qué se deben los errores encontrados?"
 
+### 16.7 Crear el archivo de zona
+
+- Para solucionar el error detectado anteriormente, crearemos un archivo de zona.  
+
+```bash
+# Realizamos una copia de seguridad del archivo original (si existe)
+sudo cp /etc/bind/db.local /etc/bind/db.practicadns.test
+# Editamos o creamos el archivo 
+sudo nano /etc/bind/db.practicadns.test
+```
+
+- Luego pegaremos la siguiente configuración.
+
+```text
+$TTL    604800
+@       IN      SOA     ns1.practicadns.test. admin.practicadns.test. (
+                        2026092301      ; Serial
+                        604800          ; Refresh
+                        86400           ; Retry
+                        2419200         ; Expire
+                        604800 )        ; Negative Cache TTL
+;
+@       IN      NS      ns1.practicadns.test.
+ns1     IN      A       172.31.81.127
+www     IN      A       172.31.81.127
+```
+
 1. Validamos y reiniciamos.
 
 ```bash
-# Comprueba que el archivo de zona es correcto
-sudo named-checkzone smr.test /etc/bind/db.smr.test
 # Comprueba la configuración de BIND (named.conf)
 sudo named-checkconf
+# Comprueba que el archivo de zona es correcto
+sudo named-checkzone smr.test /etc/bind/db.practicadns.test
 # Reiniciamos el servicio
 sudo systemctl restart bind9
 ```
@@ -1803,42 +1830,15 @@ sudo systemctl restart bind9
 1. Hacemos una prueba de resolución.
 
 ```bash
-dig @172.31.81.127 www.smr.test
+dig @172.31.81.127 www.practicadns.test
 ```
 
 ==Realizar captura de pantalla==
 ![Descripción de la imagen](./img_5/img_5_143.png){ .marginbottom10 }
 
-### 16.7 Crear el archivo de zona
-
-- Para solucionar el error detectado anteriormente, crearemos un archivo de zona.  
-
-```bash
-# Realizamos una copia de seguridad del archivo original (si existe)
-sudo cp /etc/bind/db.local /etc/bind/db.smr.test
-# Editamos el archivo 
-sudo nano /etc/bind/db.smr.test
-```
-
-- Luego pegaremos la siguiente configuración.
-
-```text
-$TTL    604800
-@       IN      SOA     ns1.smr.test. admin.smr.test. (
-                        2026092301      ; Serial
-                        604800          ; Refresh
-                        86400           ; Retry
-                        2419200         ; Expire
-                        604800 )        ; Negative Cache TTL
-;
-@       IN      NS      ns1.smr.test.
-ns1     IN      A       172.31.81.127
-www     IN      A       172.31.81.127
-```
-
 ### 16.8 Declarar la zona directa y la zona inversa
 
-1. Haremos una copia de seguridad del archivo `named.conf.local`.
+1. Haremos una copia de seguridad del archivo de configuración (en entorno de pruebas) `named.conf.local`.
 
 ```bash
 sudo cp /etc/bind/named.conf.local /etc/bind/named.conf.local.bak
@@ -1866,6 +1866,31 @@ zone "31.172.in-addr.arpa" {
     - Para la red 172.31.0.0/16 la zona inversa se llama `31.172.in-addr.arpa`.
     - Se escriben al revés solo los dos primeros octetos, porque el /16 fija esos dos.
 
+1. También crearemos el archivo de zona inversa (siempre realizar una copia de seguridad si el archivo existe).
+
+```bash
+sudo nano /etc/bind/db.172.31
+```
+
+1. Pegaremos la siguiente configuración
+
+```text
+$TTL    604800
+@       IN      SOA     ns1.practicadns.test. admin.practicadns.test. (
+                        2026092301      ; Serial
+                        604800          ; Refresh
+                        86400           ; Retry
+                        2419200         ; Expire
+                        604800 )        ; Negative Cache TTL
+;
+@       IN      NS      ns1.practicadns.test.
+127.81  IN      PTR     ns1.practicadns.test.
+127.81  IN      PTR     www.practicadns.test.
+```
+
+
+
+
 # HASTA AQUI
 
 <!-- https://youtu.be/1s0vjLv9roQ?si=R9ydv5w47NW5RqIF&t=447 -->
@@ -1879,18 +1904,6 @@ https://networldcu.com/instalar-y-configurar-servidor-dns-bind9-en-ubuntu-20-04/
 
 <!-- https://claude.ai/chat/f2afa4f9-9965-4694-9333-a63051657cd4 -->
 
-
-
-Ahora debemos crear el archivo de zona.
-
----
-
-# 14 - Crear la zona directa
-
-Creamos:
-
-```bash
-sudo nano /etc/bind/db.smr.test
 ```
 
 Introducimos:
@@ -1924,44 +1937,10 @@ cliente2.smr.test  → 10.0.2.20
 www.smr.test       → cliente1.smr.test
 ```
 
-!!! info "El punto final"
-
-````
-En nombres completos (*Fully Qualified Domain Names* o FQDN) veremos frecuentemente:
-
-```text
-dns.smr.test.
-```
-
-El punto final representa la raíz del espacio de nombres DNS.
-````
-
 ---
 
 # 15 - Comprobar la zona directa
 
-Antes de reiniciar BIND debemos comprobar la configuración.
-
-Ejecutamos:
-
-```bash
-sudo named-checkconf
-```
-
-Si todo es correcto no aparecerá ningún mensaje.
-
-Comprobamos después la zona:
-
-```bash
-sudo named-checkzone smr.test /etc/bind/db.smr.test
-```
-
-Deberíamos obtener algo similar a:
-
-```text
-zone smr.test/IN: loaded serial 2026090201
-OK
-```
 
 !!! warning "Muy importante"
 
@@ -1980,30 +1959,6 @@ Por ejemplo:
 2026090203
 ```
 ````
-
----
-
-# 16 - Reiniciar BIND9
-
-Ejecutamos:
-
-```bash
-sudo systemctl restart named
-```
-
-Comprobamos:
-
-```bash
-sudo systemctl status named
-```
-
-También podemos utilizar:
-
-```bash
-sudo journalctl -u named -n 50 --no-pager
-```
-
-para consultar los últimos mensajes del servicio.
 
 ---
 
@@ -2099,134 +2054,6 @@ Tenemos dos redes:
 ```
 
 Crearemos una zona inversa para cada una.
-
----
-
-# 20 - Declarar las zonas inversas
-
-Editamos:
-
-```bash
-sudo nano /etc/bind/named.conf.local
-```
-
-El archivo completo quedará:
-
-```text
-zone "smr.test" {
-        type master;
-        file "/etc/bind/db.smr.test";
-        allow-update { none; };
-};
-
-zone "1.0.10.in-addr.arpa" {
-        type master;
-        file "/etc/bind/db.10.0.1";
-        allow-update { none; };
-};
-
-zone "2.0.10.in-addr.arpa" {
-        type master;
-        file "/etc/bind/db.10.0.2";
-        allow-update { none; };
-};
-```
-
-!!! question "¿Por qué 2.0.10?"
-
-````
-Para la red:
-
-```text
-10.0.2.0/24
-```
-
-DNS utiliza el dominio especial:
-
-```text
-in-addr.arpa
-```
-
-y escribe los octetos de la red en orden inverso:
-
-```text
-10.0.2
-    ↓
-2.0.10
-    ↓
-2.0.10.in-addr.arpa
-```
-````
-
----
-
-# 21 - Zona inversa de 10.0.1.0/24
-
-Creamos:
-
-```bash
-sudo nano /etc/bind/db.10.0.1
-```
-
-Introducimos:
-
-```text
-$TTL 300
-
-@       IN      SOA     dns.smr.test. admin.smr.test. (
-                        2026090201
-                        3600
-                        600
-                        86400
-                        300
-)
-
-@       IN      NS      dns.smr.test.
-
-10      IN      PTR     dns.smr.test.
-```
-
-Esto establece:
-
-```text
-10.0.1.10 → dns.smr.test
-```
-
----
-
-# 22 - Zona inversa de 10.0.2.0/24
-
-Creamos:
-
-```bash
-sudo nano /etc/bind/db.10.0.2
-```
-
-Introducimos:
-
-```text
-$TTL 300
-
-@       IN      SOA     dns.smr.test. admin.smr.test. (
-                        2026090201
-                        3600
-                        600
-                        86400
-                        300
-)
-
-@       IN      NS      dns.smr.test.
-
-10      IN      PTR     cliente1.smr.test.
-20      IN      PTR     cliente2.smr.test.
-```
-
-Ahora:
-
-```text
-10.0.2.10 → cliente1.smr.test
-10.0.2.20 → cliente2.smr.test
-```
 
 ---
 
@@ -2434,24 +2261,6 @@ La arquitectura DNS pasa a ser:
                                10.0.0.2
                                DNS de AWS
 ```
-
----
-
-# 27 - Actualizar la configuración de los clientes
-
-Los cambios de las opciones DHCP no tienen por qué aparecer inmediatamente en una instancia que ya está funcionando.
-
-En una práctica podemos reiniciar CLIENTE-1 y CLIENTE-2 para que vuelvan a obtener su configuración de red.
-
-Desde cada cliente:
-
-```bash
-sudo reboot
-```
-
-Después volvemos a conectarnos mediante SSH.
-
----
 
 # 28 - Comprobar qué DNS utiliza CLIENTE-1
 
@@ -2800,44 +2609,6 @@ Resultado esperado:
 servidorweb.smr.test.  IN  A  10.0.2.10
 ```
 
----
-
-# 37 - Comprobar el TTL
-
-En nuestra zona tenemos:
-
-```text
-$TTL 300
-```
-
-Esto corresponde a:
-
-```text
-300 segundos = 5 minutos
-```
-
-Desde CLIENTE-1:
-
-```bash
-dig cliente2.smr.test
-```
-
-En la sección:
-
-```text
-ANSWER SECTION
-```
-
-podremos observar el TTL.
-
-Por ejemplo:
-
-```text
-cliente2.smr.test.    300    IN    A    10.0.2.20
-```
-
----
-
 # 38 - Comandos de diagnóstico
 
 Durante la práctica serán especialmente útiles los siguientes comandos.
@@ -3055,88 +2826,6 @@ debe resolver:
 ```text
 10.0.2.20
 ```
-
----
-
-# 40 - Funcionamiento final de la arquitectura
-
-Cuando CLIENTE-1 quiere comunicarse con:
-
-```text
-cliente2.smr.test
-```
-
-ocurre:
-
-```text
-CLIENTE-1
-10.0.2.10
-     │
-     │ "¿Cuál es la IP de cliente2.smr.test?"
-     │ UDP/53
-     ▼
-DNS-SERVER
-10.0.1.10
-     │
-     │ consulta su zona
-     │ smr.test
-     ▼
-cliente2.smr.test = 10.0.2.20
-     │
-     ▼
-CLIENTE-1
-     │
-     │ ya conoce la IP
-     ▼
-10.0.2.20
-CLIENTE-2
-```
-
-Sin embargo, si pregunta por:
-
-```text
-www.google.com
-```
-
-BIND no es autoritativo para ese dominio:
-
-```text
-CLIENTE-1
-     │
-     │ www.google.com
-     ▼
-DNS-SERVER
-10.0.1.10
-     │
-     │ forward
-     ▼
-DNS de AWS
-10.0.0.2
-     │
-     ▼
-Internet
-     │
-     ▼
-respuesta
-     │
-     ▼
-DNS-SERVER
-     │
-     ▼
-CLIENTE-1
-```
-
-Por tanto, nuestro servidor BIND9 realiza **dos funciones diferentes**:
-
-1. Es **servidor DNS autoritativo** para:
-
-   ```text
-   smr.test
-   ```
-
-2. Actúa como **servidor DNS recursivo con reenvío** para el resto de dominios.
-
----
 
 # 41 - Resultado de la práctica
 
