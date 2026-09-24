@@ -1776,7 +1776,7 @@ sudo named-checkconf
 ==Realizar captura de pantalla==
 ![Descripción de la imagen](./img_5/img_5_139.png){ .marginbottom10 }
 
-1. Para terminar comprobaremos si el servicio DNS está operativo.
+1. Comprobaremos si el servicio DNS está operativo.
 
 ```bash
 sudo systemctl status bind9
@@ -1785,20 +1785,58 @@ sudo systemctl status bind9
 ==Realizar captura de pantalla==
 ![Descripción de la imagen](./img_5/img_5_141.png){ .marginbottom10 }
 !!! question "¿A qué se deben los errores encontrados?"
-<!--
- - Reiniciamos el servicio.
+
+1. Validamos y reiniciamos.
 
 ```bash
+# Comprueba que el archivo de zona es correcto
+sudo named-checkzone smr.test /etc/bind/db.smr.test
+# Comprueba la configuración de BIND (named.conf)
+sudo named-checkconf
+# Reiniciamos el servicio
 sudo systemctl restart bind9
 ```
 
-- Comprobamos si hay errores.
+==Realizar captura de pantalla==
+![Descripción de la imagen](./img_5/img_5_142.png){ .marginbottom10 }
+
+1. Hacemos una prueba de resolución.
 
 ```bash
-sudo systemctl status bind9
-``` -->
+dig @172.31.81.127 www.smr.test
+```
 
-### 16.7 Declarar la zona directa y la zona inversa
+==Realizar captura de pantalla==
+![Descripción de la imagen](./img_5/img_5_143.png){ .marginbottom10 }
+
+### 16.7 Crear el archivo de zona
+
+- Para solucionar el error detectado anteriormente, crearemos un archivo de zona.  
+
+```bash
+# Realizamos una copia de seguridad del archivo original (si existe)
+sudo cp /etc/bind/db.local /etc/bind/db.smr.test
+# Editamos el archivo 
+sudo nano /etc/bind/db.smr.test
+```
+
+- Luego pegaremos la siguiente configuración.
+
+```text
+$TTL    604800
+@       IN      SOA     ns1.smr.test. admin.smr.test. (
+                        2026092301      ; Serial
+                        604800          ; Refresh
+                        86400           ; Retry
+                        2419200         ; Expire
+                        604800 )        ; Negative Cache TTL
+;
+@       IN      NS      ns1.smr.test.
+ns1     IN      A       172.31.81.127
+www     IN      A       172.31.81.127
+```
+
+### 16.8 Declarar la zona directa y la zona inversa
 
 1. Haremos una copia de seguridad del archivo `named.conf.local`.
 
@@ -1809,9 +1847,17 @@ sudo cp /etc/bind/named.conf.local /etc/bind/named.conf.local.bak
 1. Editamos `named.conf.local` y añadimos.
 
 ```text
+// Zona directa
 zone "practicadns.test" {
         type master;
         file "/etc/bind/db.practicadns.test";
+        allow-update { none; };
+};
+
+// Zona inversa (172.31.0.0/16)
+zone "31.172.in-addr.arpa" {
+        type master;
+        file "/etc/bind/db.172.31";
         allow-update { none; };
 };
 ```
