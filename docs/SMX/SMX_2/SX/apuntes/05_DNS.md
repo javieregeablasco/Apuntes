@@ -1782,8 +1782,9 @@ sudo named-checkconf
 sudo systemctl status bind9
 ```
 
+==Realizar captura de pantalla==
 ![Descripción de la imagen](./img_5/img_5_141.png){ .marginbottom10 }
-
+!!! question "¿A qué se deben los errores encontrados?"
 <!--
  - Reiniciamos el servicio.
 
