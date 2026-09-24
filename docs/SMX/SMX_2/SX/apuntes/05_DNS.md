@@ -1813,6 +1813,13 @@ ns1     IN      A       172.31.81.127
 www     IN      A       172.31.81.127
 ```
 
+!!! tip "Explicación de la configuración"
+    - **ns1** significa **name server 1** (servidor de nombres 1). Es el nombre del host que actúa como servidor DNS de la zona. Por convención se llama ns1, y un segundo servidor se llamaría ns2, pero se le puede poner cualquier nombre (dns, servidor, etc.).
+    - En el SOA (ns1.practicadns.test.): indica cuál es el servidor primario de la zona, es decir, el que tiene la copia original de los datos.
+    - En el registro NS (@ IN NS ns1.practicadns.test.): declara que ns1.practicadns.test. es un servidor autoritativo para la zona practicadns.test (un registro NS apunta siempre a un nombre, no a una IP).
+    - En el registro A (ns1 IN A 172.31.81.127): traduce ese nombre a una IP. Es lo que permite encontrar el servidor. Sin este registro, el NS apuntaría a un nombre que nadie sabe resolver y la zona no cargaría.
+
+
 1. Validamos y reiniciamos.
 
 ```bash
