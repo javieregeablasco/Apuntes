@@ -1786,7 +1786,37 @@ sudo systemctl status bind9
 ![Descripción de la imagen](./img_5/img_5_141.png){ .marginbottom10 }
 !!! question "¿A qué se deben los errores encontrados?"
 
-### 16.7 Crear el archivo de zona
+### 16.8 Declarar la zona directa y la zona inversa
+
+1. Haremos una copia de seguridad del archivo de configuración (en entorno de pruebas) `named.conf.local`.
+
+```bash
+sudo cp /etc/bind/named.conf.local /etc/bind/named.conf.local.bak
+```
+
+1. Editamos `named.conf.local` y añadimos.
+
+```text
+// Zona directa
+zone "practicadns.test" {
+        type master;
+        file "/etc/bind/db.practicadns.test";
+        allow-update { none; };
+};
+
+// Zona inversa (172.31.0.0/16)
+zone "31.172.in-addr.arpa" {
+        type master;
+        file "/etc/bind/db.172.31";
+        allow-update { none; };
+};
+```
+
+!!! tip "Zona inversa"
+    - Para la red 172.31.0.0/16 la zona inversa se llama `31.172.in-addr.arpa`.
+    - Se escriben al revés solo los dos primeros octetos, porque el /16 fija esos dos.
+
+### 16.9 Crear el archivo de zona directa
 
 - Para solucionar el error detectado anteriormente, crearemos un archivo de zona.  
 
@@ -1843,35 +1873,7 @@ dig @172.31.81.127 www.practicadns.test
 ==Realizar captura de pantalla==
 ![Descripción de la imagen](./img_5/img_5_143.png){ .marginbottom10 }
 
-### 16.8 Declarar la zona directa y la zona inversa
-
-1. Haremos una copia de seguridad del archivo de configuración (en entorno de pruebas) `named.conf.local`.
-
-```bash
-sudo cp /etc/bind/named.conf.local /etc/bind/named.conf.local.bak
-```
-
-1. Editamos `named.conf.local` y añadimos.
-
-```text
-// Zona directa
-zone "practicadns.test" {
-        type master;
-        file "/etc/bind/db.practicadns.test";
-        allow-update { none; };
-};
-
-// Zona inversa (172.31.0.0/16)
-zone "31.172.in-addr.arpa" {
-        type master;
-        file "/etc/bind/db.172.31";
-        allow-update { none; };
-};
-```
-
-!!! tip "Zona inversa"
-    - Para la red 172.31.0.0/16 la zona inversa se llama `31.172.in-addr.arpa`.
-    - Se escriben al revés solo los dos primeros octetos, porque el /16 fija esos dos.
+### 16.10 Crear el archivo de zona inversa
 
 1. También crearemos el archivo de zona inversa (siempre realizar una copia de seguridad si el archivo existe).
 
@@ -1920,23 +1922,44 @@ dig @172.31.81.127 -x 172.31.81.127
 ==Realizar captura de pantalla==
 ![Descripción de la imagen](./img_5/img_5_146.png){ .marginbottom10 }
 
+### 16.11 Añadir los clientes a los registros del DNS
+
+#### 16.11.1 Asociar el DHCP Options Set de la VPC
+
+- Ahora mismo todas las instancias (DNS, Cliente-1 y Cliente-2) de nuestra VPC reciben el DNS predeterminado de AWS.
+
+- Si nos conectamos a cualquier instancia que hemos lanzado y buscamos el DNS primario veremos lo siguiente.
+
+```bash
+resolvectl status
+```
+
+![Descripción de la imagen](./img_5/img_5_147.png){ .marginbottom10 }
+
+- Para evitar de configurar manualmente cada instancia podemos modificar la configuración de nuestra VPC para que las instancias reciban nuestro servidor como DNS primario.
+
+- Accedemos a `VPC → Conjuntos de opciones de DHCP → Crear conjunto de opciones de DHCP`. Luego introducimos el dominio y la ip de nuestro servidor DHCP
+![Descripción de la imagen](./img_5/img_5_148.png){ .marginbottom20 .marco .margintop10}
+
+- Luego vamos a `VPC → Acciones → Editar la configuración de VPC`, seleccionamos nuestro conjunto de opciones de DHCP.  
+![Descripción de la imagen](./img_5/img_5_149.png){ .marginbottom20 .marco .margintop10}
+![Descripción de la imagen](./img_5/img_5_150.png){ .marginbottom20 .marco .margintop10}
+
+- Después de reiniciar, veremos que el nuevo servidor DNS de la instancias es el nuestro.  
+![Descripción de la imagen](./img_5/img_5_151.png){ .marginbottom20 .marco .margintop10}
+
 # HASTA AQUI
 
-<!-- https://youtu.be/1s0vjLv9roQ?si=R9ydv5w47NW5RqIF&t=447 -->
+![Descripción de la imagen](./img_5/img_5_152.png){ .marginbottom20 .marco .margintop10}
 
-<!-- ver si hay apuntes
 
-https://youtu.be/b_mOOs53ut0?si=FFDjOV6oi2_d8rxG&t=456 
 
-https://networldcu.com/instalar-y-configurar-servidor-dns-bind9-en-ubuntu-20-04/
--->
 
 <!-- https://claude.ai/chat/f2afa4f9-9965-4694-9333-a63051657cd4 -->
 
-```
 
-Introducimos:
 
+<!--
 ```text
 $TTL 300
 
@@ -2202,126 +2225,7 @@ BIND9 será quien reenvíe las consultas externas al resolver de AWS.
 
 ---
 
-# 26 - Asociar el DHCP Options Set a la VPC
 
-Accedemos a:
-
-```text
-VPC → Your VPCs
-```
-
-Seleccionamos:
-
-```text
-VPC-DNS-SMR
-```
-
-Después:
-
-```text
-Actions → Edit VPC settings
-```
-
-En:
-
-```text
-DHCP options set
-```
-
-seleccionamos:
-
-```text
-DHCP-DNS-SMR
-```
-
-Guardamos los cambios.
-
-La arquitectura DNS pasa a ser:
-
-```text
-                     VPC
-                 10.0.0.0/16
-                       │
-                DHCP de AWS
-                       │
-        entrega DNS = 10.0.1.10
-                       │
-             ┌─────────┴──────────┐
-             │                    │
-        CLIENTE-1            CLIENTE-2
-        10.0.2.10            10.0.2.20
-             │                    │
-             └─────────┬──────────┘
-                       │
-                       ▼
-                 DNS-SERVER
-                  10.0.1.10
-                       │
-           ┌───────────┴────────────┐
-           │                        │
-       smr.test                otros dominios
-           │                        │
-     responde BIND              forwarder
-                                    │
-                                    ▼
-                               10.0.0.2
-                               DNS de AWS
-```
-
-# 28 - Comprobar qué DNS utiliza CLIENTE-1
-
-Ejecutamos:
-
-```bash
-resolvectl status
-```
-
-Debemos localizar una información similar a:
-
-```text
-DNS Servers: 10.0.1.10
-DNS Domain: smr.test
-```
-
-También podemos ejecutar:
-
-```bash
-resolvectl dns
-```
-
-Debemos comprobar que aparece:
-
-```text
-10.0.1.10
-```
-
-!!! warning "/etc/resolv.conf"
-
-````
-En Ubuntu moderno no siempre debemos interpretar directamente:
-
-```bash
-cat /etc/resolv.conf
-```
-
-porque Ubuntu utiliza normalmente `systemd-resolved`.
-
-Es posible encontrar:
-
-```text
-nameserver 127.0.0.53
-```
-
-Esto no significa necesariamente que nuestro DNS esté mal configurado.
-
-`127.0.0.53` corresponde al *stub resolver* local de `systemd-resolved`.
-
-Para conocer los servidores DNS reales utilizaremos:
-
-```bash
-resolvectl status
-```
-````
 
 ---
 
@@ -2881,9 +2785,6 @@ www.wikipedia.org
 ```
 
 utilizando siempre nuestro servidor BIND9 como servidor DNS. -->
-
-<!-- dhcp options set -->
-<!-- https://www.youtube.com/watch?v=1aysEp601sk&t=175s -->
 
 <!-- poner mas ejemplos
 https://serviciosgm.readthedocs.io/es/latest/windows/dns/tarea1.html -->
