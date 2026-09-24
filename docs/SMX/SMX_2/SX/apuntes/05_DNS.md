@@ -1819,7 +1819,7 @@ www     IN      A       172.31.81.127
 # Comprueba la configuración de BIND (named.conf)
 sudo named-checkconf
 # Comprueba que el archivo de zona es correcto
-sudo named-checkzone smr.test /etc/bind/db.practicadns.test
+sudo named-checkzone practicadns.test /etc/bind/db.practicadns.test
 # Reiniciamos el servicio
 sudo systemctl restart bind9
 ```
@@ -1872,7 +1872,7 @@ zone "31.172.in-addr.arpa" {
 sudo nano /etc/bind/db.172.31
 ```
 
-1. Pegaremos la siguiente configuración
+1. Pegaremos la siguiente configuración.
 
 ```text
 $TTL    604800
@@ -1888,8 +1888,30 @@ $TTL    604800
 127.81  IN      PTR     www.practicadns.test.
 ```
 
+1. Validamos y reiniciamos
 
+```bash
+sudo named-checkconf
+sudo named-checkzone 31.172.in-addr.arpa /etc/bind/db.172.31
+sudo systemctl restart bind9
+```
 
+==Realizar captura de pantalla==
+![Descripción de la imagen](./img_5/img_5_144.png){ .marginbottom10 }
+
+1. Probamos la resolución inversa
+
+```bash
+dig @172.31.81.127 -x 172.31.81.127
+```
+
+==Realizar captura de pantalla==
+![Descripción de la imagen](./img_5/img_5_145.png){ .marginbottom10 }
+
+1. Comprobamos el estado del servicio DNS
+
+==Realizar captura de pantalla==
+![Descripción de la imagen](./img_5/img_5_146.png){ .marginbottom10 }
 
 # HASTA AQUI
 
@@ -1936,29 +1958,6 @@ cliente1.smr.test  → 10.0.2.10
 cliente2.smr.test  → 10.0.2.20
 www.smr.test       → cliente1.smr.test
 ```
-
----
-
-# 15 - Comprobar la zona directa
-
-
-!!! warning "Muy importante"
-
-````
-Siempre que modifiquemos el archivo de zona debemos incrementar el valor:
-
-```text
-Serial
-```
-
-Por ejemplo:
-
-```text
-2026090201
-2026090202
-2026090203
-```
-````
 
 ---
 
