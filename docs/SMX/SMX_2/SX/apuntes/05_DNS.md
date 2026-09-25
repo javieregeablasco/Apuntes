@@ -1617,9 +1617,9 @@ Para ver/modificar la tabla de enrutamiento de la red que estamos utilizando har
 ![Descripción de la imagen](./img_5/img_5_127.png){.margintop10 .marginbottom10 .marco }
 - En el panel de VPC, seleccionamos nuestra VPC (solo hay 1).
 ![Descripción de la imagen](./img_5/img_5_128.png){.margintop10 .marginbottom10 .marco }
-- En la pestaña ´Mapa de rescursos´ veremos todos los recursos asociados a nuestra red.
-![Descripción de la imagen](./img_5/img_5_129.png){.margintop10 .marginbottom10 .marco }
+- En la pestaña `Mapa de rescursos`, veremos todos los recursos asociados a nuestra red.
 ==Realizar captura de pantalla==
+![Descripción de la imagen](./img_5/img_5_129.png){.margintop10 .marginbottom10 .marco }
 - Después de seleccionar el recurso asociado a la tabla de enrutamiento podremos ver/editar las reglas de enrutamiento.
 ![Descripción de la imagen](./img_5/img_5_130.png){.margintop10 .marginbottom10 .marco }
 
@@ -1928,12 +1928,12 @@ dig @172.31.81.127 -x 172.31.81.127
 
 - Ahora mismo todas las instancias (DNS, Cliente-1 y Cliente-2) de nuestra VPC reciben el DNS predeterminado de AWS.
 
-- Si nos conectamos a cualquier instancia que hemos lanzado y buscamos el DNS primario veremos lo siguiente.
-
+- Si nos conectamos a cualquier instancia que hemos lanzado y buscamos el DNS primario veremos lo siguiente.  
+  
 ```bash
 resolvectl status
 ```
-
+  
 ![Descripción de la imagen](./img_5/img_5_147.png){ .marginbottom10 }
 
 - Para evitar de configurar manualmente cada instancia podemos modificar la configuración de nuestra VPC para que las instancias reciban nuestro servidor como DNS primario.
@@ -1945,7 +1945,7 @@ resolvectl status
 ![Descripción de la imagen](./img_5/img_5_149.png){ .marginbottom20 .marco .margintop10}
 ![Descripción de la imagen](./img_5/img_5_150.png){ .marginbottom20 .marco .margintop10}
 
-- Después de reiniciar, veremos nuestro servidor DNS como el predefinido de todas las instancias de la VPC.  
+- Después de reiniciar, veremos nuestro servidor DNS como el predefinido para todas las instancias de la VPC.  
 ![Descripción de la imagen](./img_5/img_5_151.png){ .marginbottom20 .margintop10}
 
 # HASTA AQUI

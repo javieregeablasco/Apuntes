@@ -602,7 +602,7 @@ En la siguiente imagen se muestran, de forma simplificada, las principales etapa
 ==Realizar captura de pantalla==
 ![Descripción de la imagen](./img_3/img_3_57.png){ .margintop10 .marginbottom10  }
 
-- Si todo ha ido bien, tendremos acceso a la terminal de nuestra instancia.
+- Si todo ha ido bien, tendremos acceso a la terminal de nuestra instancia.  
 ==Realizar captura de pantalla==
 ![Descripción de la imagen](./img_3/img_3_66.png){ .margintop10 .marginbottom10  }
 
