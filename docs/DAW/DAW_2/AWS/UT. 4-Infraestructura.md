@@ -74,6 +74,21 @@ Las **infraestructuras** de **AWS** son el conjunto de servicios y recursos que 
                 - En vez de tener credenciales fijas (usuario/contraseña o access keys permanentes), un rol se asume temporalmente por quien lo necesite, y AWS le entrega credenciales de seguridad temporales mientras dura esa sesión.
 
             - **Políticas (Policies):** documentos JSON que definen permisos (qué acciones están permitidas o denegadas sobre qué recursos).
+            !!! important "Las políticas son el mecanismo que "activa" los permisos de usuarios"
+                - sin una política adjunta, una identidad de IAM no puede hacer nada.
+                - Ejemplo de política básica.
+                ```json
+                {
+                  "Version": "2012-10-17",
+                  "Statement": [
+                    {
+                      "Effect": "Allow",
+                      "Action": "s3:GetObject",
+                      "Resource": "arn:aws:s3:::mi-bucket/*"
+                    }
+                  ]
+                }
+                ```           
 
         1. **En Learner Lab, no se tiene acceso a IAM.** AWS Academy restringe este servicio porque:
             - La cuenta viene con un rol predefinido (generalmente voclabs o similar) que tiene permisos    limitados.
