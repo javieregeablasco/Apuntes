@@ -193,13 +193,8 @@ En esta tarea crearemos una VPC que nos permetrá ir familiarizandonos con la co
 !!! example "Ejemplo de tabla de enrutamiento en AWS"
     ![img](./ut4/RT.png){.original .marco}
 
-    - En este ejemplo, vemos cómo el tráfico destinado a la red 172.18.0.0/16 se enruta localmente, es decir, todo el tráfico interno dentro de ese rango IP se queda dentro de la VPC / subred.
-    - También vemos cómo el tráfico con destino a direcciones no especificadas (0.0.0.0/0) se enruta hacia la puerta de enlace de Internet (IGW) para salir de la VPC / subred.
-
-<!-- [**Otro ejemplo**](./ut4/CloudWolf%20-%20AWS%20CCP%20Route%20Tables.pdf) -->
-
-<!-- 1. Las redes públicas deberán compartir la misma tabla de enrutamiento.
-1. Cada red privada dispondrá de su propia tabla de enrutamiento. -->
+    - En este ejemplo, vemos cómo el tráfico destinado a la red 172.18.0.0/16 se enruta localmente, es decir, todo el tráfico interno dentro de ese rango IP se queda dentro de la VPC.
+    - También vemos cómo el tráfico con destino a direcciones no especificadas (0.0.0.0/0) se enruta hacia la puerta de enlace de Internet (IGW) para salir de la VPC.
 
 #### 1.2.3.2 Internet gateway (IGW - puerta de enlace)
 
