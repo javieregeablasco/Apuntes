@@ -180,7 +180,7 @@ En esta tarea crearemos una VPC que nos permetrá ir familiarizandonos con la co
     Las tablas de enrutamiento (RT) contienen una lista de rutas que determinan hacia qué redes (o subredes) se debe direccionar el tráfico procedente (de las instancias) de las subredes.
 
 !!! success "RT's en AWS"
-    1. Cada subred de una VPC **está asociada a una única tabla de enrutamiento**. Si no se le asigna ninguna tabla, AWS le asignará pordefecto la **RT principal**.
+    1. Cada subred de una VPC **está asociada a una única tabla de enrutamiento**. Si no se le asigna ninguna tabla, AWS le asignará por defecto la **RT principal**.
     1. Varias subredes pueden compartir **una misma tabla de enrutamiento**.
     1. Cada ruta dentro de la tabla tiene dos partes:
         - Destino (CIDR) → la red a la que se desea llegar (ejemplo: 10.0.0.0/16, 0.0.0.0/0).
