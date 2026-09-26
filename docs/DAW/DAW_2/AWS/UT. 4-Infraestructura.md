@@ -65,24 +65,29 @@ Las **infraestructuras** de **AWS** son el conjunto de servicios y recursos que 
 
         1. **Los elementos principales de IAM son:**
 
-            - **Usuarios (Users):** identidades individuales (personas o aplicaciones) con credenciales     propias.
+            - **Usuarios (Users):** identidades individuales (personas o aplicaciones) con credenciales propias.
             - **Grupos (Groups):** conjuntos de usuarios a los que se les aplican los mismos permisos.
-            - **Roles (Roles):** identidades temporales que pueden asumir usuarios, servicios o aplicaciones,   sin necesidad de credenciales fijas.
-            - **Políticas (Policies):** documentos JSON que definen permisos (qué acciones están permitidas o   denegadas sobre qué recursos).
+            - **Roles (Roles):** identidades temporales que pueden asumir usuarios, servicios o aplicaciones, sin necesidad de credenciales fijas.
+
+            !!! important "Un rol de IAM es una identidad de AWS con permisos específicos"
+                - No está asociada a una persona en concreto (a diferencia de un usuario).
+                - En vez de tener credenciales fijas (usuario/contraseña o access keys permanentes), un rol se asume temporalmente por quien lo necesite, y AWS le entrega credenciales de seguridad temporales mientras dura esa sesión.
+
+            - **Políticas (Policies):** documentos JSON que definen permisos (qué acciones están permitidas o denegadas sobre qué recursos).
 
         1. **En Learner Lab, no se tiene acceso a IAM.** AWS Academy restringe este servicio porque:
             - La cuenta viene con un rol predefinido (generalmente voclabs o similar) que tiene permisos    limitados.
             - Así pues, no se puede crear usuarios, grupos ni roles. 
             - Si entramos a la consola de IAM, veremos una vista muy limitada o directamente un mensaje de  acceso denegado (AccessDenied) al intentar crear o modificar recursos de IAM.
-            - Sí puedemos, en cambio, ver el rol de laboratorio existente y a veces consultar políticas ya  asignadas.
+            - Sí puedemos, en cambio, ver el rol de laboratorio existente y a veces consultar políticas ya asignadas.
 
-    !!! tip "Recursos disponibles para el ROL voclabs"
-        - Podemos acceder a todos los recursos disponbles con el ROL voclabs desde la consola del   **Laboratorio de AWS Academy**.  
+    !!! tip "Recursos y políticas disponibles para el ROL voclabs"
+        - Podemos acceder a todos los recursos disponibles con el ROL voclabs desde la consola del   **Laboratorio de AWS Academy**.  
         ![img](./ut4/img-4-1.png){.marco .seiszero}
         - Panel de IAM:  
         Si vamos a IAM → Panel de IAM veremos que tenemos asignados **25 roles y 6 políticas**.
         ![img](./ut4/img-4-2.png){.marco .seiszero}
-        - Roles:
+        - Roles:  
         ![img](./ut4/img-4-3.png){.marco .seiszero}
         - Políticas:
         ![img](./ut4/img-4-4.png){.marco .seiszero}
