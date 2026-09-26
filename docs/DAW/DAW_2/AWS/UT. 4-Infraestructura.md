@@ -78,7 +78,7 @@ Las **infraestructuras** de **AWS** son el conjunto de servicios y recursos que 
 
 !!! tip "Recursos disponibles para el ROL voclabs"
     - Podemos acceder a todos los recursos disponbles con el ROL voclabs desde la consola del **Laboratorio de AWS Academy**.
-    ![img](./ut4/img-4-1.png){.marco}
+    ![img](./ut4/img-4-1.png){.marco .seiszero}
 
 ### 1.2 VPC
 
