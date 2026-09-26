@@ -61,6 +61,7 @@ Las **infraestructuras** de **AWS** son el conjunto de servicios y recursos que 
     - **CloudTrail y CloudWatch**: Auditoría, monitorización y logging.
 
     !!! tip "¿Qué es IAM?"
+        
         1. **IAM** (Identity and Access Management) es el servicio de AWS que permite gestionar el acceso a     los recursos de tu cuenta de forma segura. Con IAM se puede controlar **quién** (usuarios, grupos,  roles) **puede hacer qué** (acciones) **sobre qué recursos** (S3, EC2, etc.) **y bajo qué    condiciones**.
 
         1. **Los elementos principales de IAM son:**
@@ -69,26 +70,27 @@ Las **infraestructuras** de **AWS** son el conjunto de servicios y recursos que 
             - **Grupos (Groups):** conjuntos de usuarios a los que se les aplican los mismos permisos.
             - **Roles (Roles):** identidades temporales que pueden asumir usuarios, servicios o aplicaciones, sin necesidad de credenciales fijas.
 
-            !!! warning "Un rol de IAM es una identidad de AWS con permisos específicos"
-                - No está asociada a una persona en concreto (a diferencia de un usuario).
-                - En vez de tener credenciales fijas (usuario/contraseña o access keys permanentes), un rol se asume temporalmente por quien lo necesite, y AWS le entrega credenciales de seguridad temporales mientras dura esa sesión.
+                !!! warning "Un rol de IAM es una identidad de AWS con permisos específicos"
+                    - No está asociada a una persona en concreto (a diferencia de un usuario).
+                    - En vez de tener credenciales fijas (usuario/contraseña o access keys permanentes), un rol se asume temporalmente por quien lo necesite, y AWS le entrega credenciales de seguridad temporales mientras dura esa sesión.
 
             - **Políticas (Policies):** documentos JSON que definen permisos (qué acciones están permitidas o denegadas sobre qué recursos).
-            !!! warning "Las políticas son el mecanismo que "activa" los permisos de usuarios"
-                - sin una política adjunta, una identidad de IAM no puede hacer nada.
-                - Ejemplo de política básica.
-                ```json
-                {
-                  "Version": "2012-10-17",
-                  "Statement": [
+
+                !!! warning "Las políticas son el mecanismo que "activa" los permisos de usuarios"
+                    - sin una política adjunta, una identidad de IAM no puede hacer nada.
+                    - Ejemplo de política básica.
+                    ```json
                     {
-                      "Effect": "Allow",
-                      "Action": "s3:GetObject",
-                      "Resource": "arn:aws:s3:::mi-bucket/*"
+                      "Version": "2012-10-17",
+                      "Statement": [
+                        {
+                          "Effect": "Allow",
+                          "Action": "s3:GetObject",
+                          "Resource": "arn:aws:s3:::mi-bucket/*"
+                        }
+                      ]
                     }
-                  ]
-                }
-                ```           
+                    ```           
 
         1. **En Learner Lab, no se tiene acceso a IAM.** AWS Academy restringe este servicio porque:
             - La cuenta viene con un rol predefinido (generalmente voclabs o similar) que tiene permisos    limitados.
