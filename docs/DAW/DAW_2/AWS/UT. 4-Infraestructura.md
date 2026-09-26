@@ -69,12 +69,12 @@ Las **infraestructuras** de **AWS** son el conjunto de servicios y recursos que 
             - **Grupos (Groups):** conjuntos de usuarios a los que se les aplican los mismos permisos.
             - **Roles (Roles):** identidades temporales que pueden asumir usuarios, servicios o aplicaciones, sin necesidad de credenciales fijas.
 
-            !!! important "Un rol de IAM es una identidad de AWS con permisos específicos"
+            !!! warning "Un rol de IAM es una identidad de AWS con permisos específicos"
                 - No está asociada a una persona en concreto (a diferencia de un usuario).
                 - En vez de tener credenciales fijas (usuario/contraseña o access keys permanentes), un rol se asume temporalmente por quien lo necesite, y AWS le entrega credenciales de seguridad temporales mientras dura esa sesión.
 
             - **Políticas (Policies):** documentos JSON que definen permisos (qué acciones están permitidas o denegadas sobre qué recursos).
-            !!! important "Las políticas son el mecanismo que "activa" los permisos de usuarios"
+            !!! warning "Las políticas son el mecanismo que "activa" los permisos de usuarios"
                 - sin una política adjunta, una identidad de IAM no puede hacer nada.
                 - Ejemplo de política básica.
                 ```json
