@@ -80,8 +80,10 @@ Las **infraestructuras** de **AWS** son el conjunto de servicios y recursos que 
         - Podemos acceder a todos los recursos disponbles con el ROL voclabs desde la consola del   **Laboratorio de AWS Academy**.  
         ![img](./ut4/img-4-1.png){.marco .seiszero}
         - Panel de IAM:  
-        Si vamos a IAM → Panel de IAM veremos que tenemos asignados **25 roles y 6 políticas**. 
+        Si vamos a IAM → Panel de IAM veremos que tenemos asignados **25 roles y 6 políticas**.
         ![img](./ut4/img-4-2.png){.marco .seiszero}
+        - Roles:
+        ![img](./ut4/img-4-3.png){.marco .seiszero}
 
 ### 1.2 VPC
 
