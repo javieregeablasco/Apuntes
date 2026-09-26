@@ -1707,19 +1707,19 @@ sudo ss -lntup | grep :53
 
 ### 16.7 Configuración mínima de BIND9
 
-1. Antes de nada accederemos al archivo `/etc/bind/named.conf.options` y realizaremos una copia de seguridad del mismo.  
+- Antes de nada accederemos al archivo `/etc/bind/named.conf.options` y realizaremos una copia de seguridad del mismo.  
 
 ```bash
 sudo cp /etc/bind/named.conf.options /etc/bind/named.conf.options.bak
 ```
 
-1. Luego, editaremos `named.conf.options` para completar la configuración del servidor DNS.
+- Luego, editaremos `named.conf.options` para completar la configuración del servidor DNS.
 
 ```bash
 sudo nano named.conf.options
 ```
 
-1. Una vez dentro del editor de texto incorporamos al archivo la siguiente configuración:
+- Una vez dentro del editor de texto incorporamos al archivo la siguiente configuración:
 
 ```text
 options {
@@ -1767,13 +1767,16 @@ options {
 };
 ```
 
-1. Con el siguiente comando comprobaremos si tenemos errores en el archivo de configuration.
+- Con el siguiente comando comprobaremos si tenemos errores en el archivo de configuration.
 
 ```bash
 sudo named-checkconf
 ```
 
-==Realizar captura de pantalla==
+==Realizar captura de pantalla==  
+==Explicar los errores (si los hay).==
+==Explicar la solución que habeís aportado para resolver los errores.==
+
 ![Descripción de la imagen](./img_5/img_5_139.png){ .marginbottom10 }
 
 1. Comprobaremos si el servicio DNS está operativo.
@@ -1784,7 +1787,8 @@ sudo systemctl status bind9
 
 ==Realizar captura de pantalla==
 ![Descripción de la imagen](./img_5/img_5_141.png){ .marginbottom10 }
-!!! question "¿A qué se deben los errores encontrados?"
+!!! question "Explicar los errores (si los hay)"
+==Explicar la causa de esos errores.==
 
 ### 16.8 Declarar la zona directa y la zona inversa
 
@@ -1919,7 +1923,10 @@ dig @172.31.81.127 -x 172.31.81.127
 
 1. Comprobamos el estado del servicio DNS
 
-==Realizar captura de pantalla==
+==Realizar captura de pantalla==  
+==Explicar los errores (si los hay).==
+==Explicar la causa de esos errores.==
+
 ![Descripción de la imagen](./img_5/img_5_146.png){ .marginbottom10 }
 
 ### 16.11 Añadir los clientes a los registros del DNS
@@ -1946,6 +1953,7 @@ resolvectl status
 ![Descripción de la imagen](./img_5/img_5_150.png){ .marginbottom20 .marco .margintop10}
 
 - Después de reiniciar, veremos nuestro servidor DNS como el predefinido para todas las instancias de la VPC.  
+==Realizar captura de pantalla==
 ![Descripción de la imagen](./img_5/img_5_151.png){ .marginbottom20 .margintop10}
 
 # HASTA AQUI
