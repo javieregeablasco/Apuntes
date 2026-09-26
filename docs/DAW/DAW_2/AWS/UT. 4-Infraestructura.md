@@ -61,7 +61,7 @@ Las **infraestructuras** de **AWS** son el conjunto de servicios y recursos que 
     - **CloudTrail y CloudWatch**: Auditoría, monitorización y logging.
 
     !!! tip "¿Qué es IAM?"
-        
+
         1. **IAM** (Identity and Access Management) es el servicio de AWS que permite gestionar el acceso a     los recursos de tu cuenta de forma segura. Con IAM se puede controlar **quién** (usuarios, grupos,  roles) **puede hacer qué** (acciones) **sobre qué recursos** (S3, EC2, etc.) **y bajo qué    condiciones**.
 
         1. **Los elementos principales de IAM son:**
@@ -93,17 +93,17 @@ Las **infraestructuras** de **AWS** son el conjunto de servicios y recursos que 
                     ```           
 
         1. **En Learner Lab, no se tiene acceso a IAM.** AWS Academy restringe este servicio porque:
-            - La cuenta viene con un rol predefinido (generalmente voclabs o similar) que tiene permisos    limitados.
+            - La cuenta viene con un rol predefinido (generalmente voclabs o similar) que tiene permisos limitados.
             - Así pues, no se puede crear usuarios, grupos ni roles. 
-            - Si entramos a la consola de IAM, veremos una vista muy limitada o directamente un mensaje de  acceso denegado (AccessDenied) al intentar crear o modificar recursos de IAM.
-            - Sí puedemos, en cambio, ver el rol de laboratorio existente y a veces consultar políticas ya asignadas.
+            - Si entramos a la consola de IAM, veremos una vista muy limitada o directamente un mensaje de acceso denegado (AccessDenied) al intentar crear o modificar recursos de IAM.
+            - Sí podemos ver el rol de laboratorio existente y a veces consultar políticas ya asignadas.
 
     !!! tip "Recursos y políticas disponibles para el ROL voclabs"
         - Podemos acceder a todos los recursos disponibles con el ROL voclabs desde la consola del   **Laboratorio de AWS Academy**.  
         ![img](./ut4/img-4-1.png){.marco .seiszero}
         - Panel de IAM:  
         Si vamos a IAM → Panel de IAM veremos que tenemos asignados **25 roles y 6 políticas**.
-        ![img](./ut4/img-4-2.png){.marco .seiszero}
+        ![img](./ut4/img-4-2.png){.marco .ochocinco}
         - Roles:  
         ![img](./ut4/img-4-3.png){.marco .seiszero}
         - Políticas:
