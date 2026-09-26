@@ -84,6 +84,8 @@ Las **infraestructuras** de **AWS** son el conjunto de servicios y recursos que 
         ![img](./ut4/img-4-2.png){.marco .seiszero}
         - Roles:
         ![img](./ut4/img-4-3.png){.marco .seiszero}
+        - Políticas:
+        ![img](./ut4/img-4-4.png){.marco .seiszero}
 
 ### 1.2 VPC
 
