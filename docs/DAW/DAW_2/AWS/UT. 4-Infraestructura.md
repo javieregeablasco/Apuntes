@@ -60,25 +60,25 @@ Las **infraestructuras** de **AWS** son el conjunto de servicios y recursos que 
     - **AWS Organizations**: Gestión de varias cuentas.
     - **CloudTrail y CloudWatch**: Auditoría, monitorización y logging.
 
-!!! tip "¿Qué es IAM?"
-    1. **IAM** (Identity and Access Management) es el servicio de AWS que permite gestionar el acceso a los recursos de tu cuenta de forma segura. Con IAM se puede controlar **quién** (usuarios, grupos, roles) **puede hacer qué** (acciones) **sobre qué recursos** (S3, EC2, etc.) **y bajo qué condiciones**.
-
-    1. Los elementos principales de IAM son:
-
-        - **Usuarios (Users):** identidades individuales (personas o aplicaciones) con credenciales propias.
-        - **Grupos (Groups):** conjuntos de usuarios a los que se les aplican los mismos permisos.
-        - **Roles (Roles):** identidades temporales que pueden asumir usuarios, servicios o aplicaciones, sin necesidad de credenciales fijas.
-        - **Políticas (Policies):** documentos JSON que definen permisos (qué acciones están permitidas o denegadas sobre qué recursos).
-
-    1. En Learner Lab, no se tiene acceso a IAM. AWS Academy restringe este servicio porque:
-        - La cuenta viene con un rol predefinido (generalmente voclabs o similar) que tiene permisos limitados.
-        - Así pues, no se puede crear usuarios, grupos ni roles. 
-        - Si entramos a la consola de IAM, veremos una vista muy limitada o directamente un mensaje de acceso denegado (AccessDenied) al intentar crear o modificar recursos de IAM.
-        - Sí puedemos, en cambio, ver el rol de laboratorio existente y a veces consultar políticas ya asignadas.
-
-!!! tip "Recursos disponibles para el ROL voclabs"
-    - Podemos acceder a todos los recursos disponbles con el ROL voclabs desde la consola del **Laboratorio de AWS Academy**.
-    ![img](./ut4/img-4-1.png){.marco .seiszero}
+    !!! tip "¿Qué es IAM?"
+        1. **IAM** (Identity and Access Management) es el servicio de AWS que permite gestionar el acceso a     los recursos de tu cuenta de forma segura. Con IAM se puede controlar **quién** (usuarios, grupos,  roles) **puede hacer qué** (acciones) **sobre qué recursos** (S3, EC2, etc.) **y bajo qué    condiciones**.
+    
+        1. **Los elementos principales de IAM son:**
+    
+            - **Usuarios (Users):** identidades individuales (personas o aplicaciones) con credenciales     propias.
+            - **Grupos (Groups):** conjuntos de usuarios a los que se les aplican los mismos permisos.
+            - **Roles (Roles):** identidades temporales que pueden asumir usuarios, servicios o aplicaciones,   sin necesidad de credenciales fijas.
+            - **Políticas (Policies):** documentos JSON que definen permisos (qué acciones están permitidas o   denegadas sobre qué recursos).
+    
+        1. **En Learner Lab, no se tiene acceso a IAM.** AWS Academy restringe este servicio porque:
+            - La cuenta viene con un rol predefinido (generalmente voclabs o similar) que tiene permisos    limitados.
+            - Así pues, no se puede crear usuarios, grupos ni roles. 
+            - Si entramos a la consola de IAM, veremos una vista muy limitada o directamente un mensaje de  acceso denegado (AccessDenied) al intentar crear o modificar recursos de IAM.
+            - Sí puedemos, en cambio, ver el rol de laboratorio existente y a veces consultar políticas ya  asignadas.
+    
+    !!! tip "Recursos disponibles para el ROL voclabs"
+        - Podemos acceder a todos los recursos disponbles con el ROL voclabs desde la consola del   **Laboratorio de AWS Academy**.  
+        ![img](./ut4/img-4-1.png){.marco .seiszero}
 
 ### 1.2 VPC
 
