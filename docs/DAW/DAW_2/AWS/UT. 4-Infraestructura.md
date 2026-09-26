@@ -56,7 +56,7 @@ Las **infraestructuras** de **AWS** son el conjunto de servicios y recursos que 
     - **DynamoDB**: Base de datos NoSQL de baja latencia.
 
 1. **Seguridad y gestión**
-    - **IAM (Identity and Access Management)**, control de acceso y permisos (Muy restringido en Learner Lab).
+    - **IAM (Identity and Access Management)**, control de acceso y permisos (muy restringido en Learner Lab).
     - **AWS Organizations**: Gestión de varias cuentas.
     - **CloudTrail y CloudWatch**: Auditoría, monitorización y logging.
 
