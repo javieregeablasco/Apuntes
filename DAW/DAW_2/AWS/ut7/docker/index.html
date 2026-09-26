@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Imagen contenedor</title>
+<style>
+body {
+    font-family: Arial;
+    background: #283048;
+    background: linear-gradient(135deg,#283048,#859398);
+    color: white;
+    text-align: center;
+    padding-top: 80px;
+}
+.card {
+    background: rgba(255,255,255,0.12);
+    border-radius: 16px;
+    padding: 30px;
+    display: inline-block;
+}
+</style>
+</head>
+<body>
+<div class="card">
+    <h1>Esta es una imagen de un contendor nginx modificada</h1>
+    <p>Revision 1</p>
+    <p>Hora: <b id="hora"></b></p>
+</div>
+
+<script>
+const ahora = new Date();
+const hora = String(ahora.getHours()).padStart(2,'0') + ':' +
+             String(ahora.getMinutes()).padStart(2,'0') + ':' +
+             String(ahora.getSeconds()).padStart(2,'0');
+
+document.getElementById("hora").innerHTML = "<b>" + hora + "</b>";
+</script>
+
+</body>
+</html>
