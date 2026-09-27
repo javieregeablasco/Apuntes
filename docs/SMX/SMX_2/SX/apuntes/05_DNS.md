@@ -1959,6 +1959,13 @@ resolvectl status
 # HASTA AQUI
 
 ![Descripción de la imagen](./img_5/img_5_152.png){ .marginbottom20 .marco .margintop10}
+![Descripción de la imagen](./img_5/img_5_153.png){ .marginbottom20 .marco .margintop10}
+![Descripción de la imagen](./img_5/img_5_154.png){ .marginbottom20 .marco .margintop10}
+![Descripción de la imagen](./img_5/img_5_155.png){ .marginbottom20 .marco .margintop10}
+![Descripción de la imagen](./img_5/img_5_156.png){ .marginbottom20 .marco .margintop10}
+![Descripción de la imagen](./img_5/img_5_157.png){ .marginbottom20 .marco .margintop10}
+![Descripción de la imagen](./img_5/img_5_158.png){ .marginbottom20 .marco .margintop10}
+![Descripción de la imagen](./img_5/img_5_159.png){ .marginbottom20 .marco .margintop10}
 
 
 

@@ -384,7 +384,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
         1. El archivo a subir deberá ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
         1. **No se aceptará ningún otro formato de archivo**.
       
-## **2.5 - Viñetas y numeración de títulos y párrafos**
+## **2.5 - Viñetas, numeración de títulos y párrafos**
 
 ### Tarea - RA2-CEc-6
 
@@ -461,7 +461,80 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
         1. El archivo a subir deberá ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
         1. **No se aceptará ningún otro formato de archivo**.     
 
+### Tarea - RA2-CEc-7
+
+!!! task "Tarea a entregar en RA2-CEc-7"
+    !!! exercise "**1. Abre un nuevo documento, copia y pega el siguiente texto:**"
+        ```text
+        Sopa de espinacas
+        La espinaca es la hortaliza más completa en vitaminas y sales minerales. Por cierto, Popeye es un invento de los productores de espinacas para animar a los niños, y no tan niños, a su consumo. Esta superhortaliza procede del Cáucaso, Irán y Afganistán. Llegó a Europa de la mano de un pueblo sabio, los árabes.
+        Ingredientes:
+        Caldo de espinacas de otro día
+        Puntas de espárragos
+        1/2 kg de patatas
+        1/2 kg de espinacas
+        1 puñado de pasta variada
+        1 diente de ajo, sal y aceite
+        Elaboración:
+        En primer lugar, cocemos las patatas ya peladas y las espinacas por separado. Una vez cocidas las espinacas, las escurrimos, reservamos el caldo y las picamos.
+        En el caldo cocemos la pasta durante 15 minutos. Mientras tanto, doramos en la sartén con aceite el diente de ajo.
+        Añadimos las espinacas picadas y las patatas troceadas. Machacamos todo con el tenedor para hacer una especie de puré y lo añadimos a la cazuela con la pasta.
+        Pelamos el huevo cocido, lo picamos y lo añadimos a la sopa. 
+        Por último, echamos unas puntas de espárrago y este plato ya está listo para servir.
+        Karlos Arguiñano. El menú de cada día
+        ```
+
+    !!! exercise "**2. Incorporar numeraciones y viñetas para que el texto quede de la siguiente manera.**"
+        - Tener en cuenta los formatos que ya conoceís: Parrafo, texto, etc. Cualquier aportación personal para aportar vistosidad y legibilidad al texto será bienvenida.  
+        - No hacer **fontaneria**. El espacio entre elementos de texto deberá realizarse eligiendo correctamente los parámetros de cada elemento, **no realizando saltos de línea**.
+
+    !!! tip "Resultado esperado"
+        ![](./img_ut2//img-2-1.png){.original}
+            
+### Tarea - RA2-CEc-8
+
+!!! task "Tarea a entregar en RA2-CEc-8"
+    !!! exercise "**1. Abre un nuevo documento, copia y pega el siguiente texto:**"
+        ```text
+        El legado andalusi
+        Trataremos aqui una de las rutas inmersas en la historia, la legenda y la nostalgia. En las cercanías de Covadonga, Don Pelayo y un grupo de fieles derrotaron a la expedición de castigo de Al-Andalus. Coria el año 722 y abría que esperar hasta 1492 con la toma del reiño de Granada, para ver completada la Reconquista.
+        A continuación se mostrarán un conjunto de cidades junto con algunas de las características más importantes jumto con el hoôel más rélevante de la zona.
+        1. Córdoba Andalucía Periférico 22,10
+        2. Granada Saray Céntrico 12,30
+        3. Granada Luz Céntrico 55,10
+        4. Cádiz Bahía Costero 123,22
+        5. Huelva Águila Periférico 33,00
+        6. Huelva Río Céntrico 129,00
+        7. Almería Paseo Costero 88,90
+        8. Almería Playa Costero 77,00
+        9. Jaén Oliva Periférico 9,12
+        10. Sevilla Giralda Céntrico 23,20
+        11. Málaga Boquerón Costero 123,00
+        12. Málaga Humilladero Periférico 66,66
+        Depertamento de Turismo de la Jonta de Andalucia
+        C/Hotel, nº5
+        SEVILLA
+        (Para más información acudir a la dirección arriba indicada o al teléfono 689-111111)
+        Fdo.: Juan Antonio Ortiz Buendía
+        (Jefe del departamento de Oriemtación Turítica de Andalucía)
+        Patrocinado por la jusnta de Andalucía
+        - Mimisterio de turisno -
+        ```
+
+    !!! exercise "**2. Incorporar numeraciones y viñetas para que el texto quede de la siguiente manera.**"
+        - Tener en cuenta los formatos que ya conoceís: Parrafo, texto, etc. Cualquier aportación personal para aportar vistosidad y legibilidad al texto será bienvenida.  
+        - No hacer **fontaneria**. El espacio entre elementos de texto deberá realizarse eligiendo correctamente los parámetros de cada elemento, **no realizando saltos de línea**.
+        - ¡Cuidado con la ortografía!
+
+    !!! tip "Resultado esperado"
+        ![](./img_ut2//img-2-2.png){.original}
+
 ## 2.6 - Estilos y plantillas
+
+<!-- # hasta aqui -->
+
+<!-- file:///C:/Users/titan/Documents/GitHub/githubpages/Apuntes/docs/SMX/SMX_1/AO/admin/recursos/INFORMATICA_APLICADA_Ejercicios_practicos_para_Writer_y_Calc.pdf -->
+<!-- file:///C:/Users/titan/Documents/GitHub/githubpages/Apuntes/docs/SMX/SMX_1/AO/admin/recursos/EjerciciosWriter2.pdf -->
 
 ### Tarea - RA2-CEb-1
 
@@ -549,7 +622,7 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
         1. **No se aceptará ningún otro formato de archivo**. 
 
 ## 2.7 - Paginación, tablas, encabezado, pie de página e imágenes
-
+<!-- # hasta aqui -->
 ### Tarea - RA2-CEd
 
 !!! task "Tarea a entregar en RA2-CEd"
@@ -579,7 +652,7 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
             ![](./img_ut2/RA2CEd/img43.png){.cien .marginbottom20} 
             ![](./img_ut2/RA2CEd/img41.png){.cien} 
 
-# hasta aqui
+
 
     !!! exercise "**3. Estilos de títulos.**"  
         !!! tip "Editar el estilo **Título 1** → Configurar con los siguientes datos."
