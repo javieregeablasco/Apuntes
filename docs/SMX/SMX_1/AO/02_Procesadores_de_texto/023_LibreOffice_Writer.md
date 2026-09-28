@@ -368,7 +368,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
         ```text
         El que suscribe, Don PATRICIO RUIZ MAÑOSA, de 21 años de edad, hijo de Don Críspulo Ruiz Beltrán y de Doña Leonor Mañosa Abad, natural de Alcaudete (Jaén) y con domicilio en esta ciudad, Avenida de Coria, 17,  
 
-        EXPONE: Que siendo una persona con gran interés en la música y la danza, como acredita con los documentos y vídeos que acompaña, se halla incluido en los criterios que las bases del concurso para el Festival de Verano señalan para la participación en el mismo. Acogiéndose a lo dispuesto en ellas, y con el propósito de aportar su talento y contribuir a la alegría del festival,  
+        EXPONE: Que siendo una persona con gran interés en la música y la danza, como acredita con los documentos y vídeos que acompaña, se halla incluido en los criterios que las bases del concurso para el Festival de Verano señalan para la participación en el mismo. Acogiéndose a lo dispuesto en ellas, y con el propósito de aportar su talento y contribuir a la alegría del festival,
     
         SOLICITA: Se sirva ordenar que le sea concedida, si es que lo merece en justicia, una de las plazas para actuar en la gran final.
         
@@ -539,6 +539,22 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
         1. El archivo a subir deberá ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
         1. **No se aceptará ningún otro formato de archivo**.
 
+### Tarea - RA2-CEc-9
+
+!!! task "Tarea a entregar en RA2-CEc-9"
+    !!! exercise "**1. Abre un nuevo documento, copia y pega el siguiente texto:**"
+        ```text
+
+        tablas 
+
+### Tarea - RA2-CEc-10
+
+!!! task "Tarea a entregar en RA2-CEc-10"
+    !!! exercise "**1. Abre un nuevo documento, copia y pega el siguiente texto:**"
+        ```text
+
+        numeracion y encabezado pie de página insertar indice
+
 ## 2.6 - Estilos y plantillas
 
 <!-- # hasta aqui -->
@@ -572,16 +588,16 @@ En este apartado aprenderemos a definir estilos para todos los elementos de nues
 
         !!! tip "Resultado esperado"
             - **Párrafo normal** (cuidado con los márgenes izquierdo y derecho)
-                  ![](./img_ut2/ra2ceb33.png){.cien .marco .margintop10 .marginbottom30}   
+                  ![](./img_ut2/ra2ceb33.png){.cien  .margintop10 .marginbottom30}   
 
             - **Párrafo centrado**  
-                  ![](./img_ut2/ra2ceb34.png){.cien .marco .margintop10 .marginbottom30}
+                  ![](./img_ut2/ra2ceb34.png){.cien  .margintop10 .marginbottom30}
 
             - **Párrafo izquierdo**  
-                  ![](./img_ut2/ra2ceb35.png){.cien .marco .margintop10 .marginbottom30} 
+                  ![](./img_ut2/ra2ceb35.png){.cien  .margintop10 .marginbottom30} 
 
             - **viñeta 1**  
-                  ![](./img_ut2/ra2ceb43.png){.cien .marco .margintop10 } 
+                  ![](./img_ut2/ra2ceb43.png){.cien  .margintop10 } 
     
     
     !!! exercise "**7.** Dentro de **Párrafo normal** crear el estilo **Párrafo numerado** con el siguiente resultado:""  
@@ -590,7 +606,7 @@ En este apartado aprenderemos a definir estilos para todos los elementos de nues
             - Para evitar de buscar una a una las características del estilo **Párrafo normal** lo que haremos es, al definir **Párrafo numerado**,     **heredar** los estilos de **Párrafo normal**.  
         - El estilo **Párrafo numerado** quedará de la siguiente manera (Como podeís ver se ha aplicado un estilo de carácter especial al numerador)    :  
         !!! tip "Resultado esperado"
-            ![](./img_ut2/ra2ceb40.png){.cien .marco .margintop10 .marginbottom30}   
+            ![](./img_ut2/ra2ceb40.png){.cien  .margintop10 .marginbottom30}   
 
 
     !!! exercise "**8.** Dentro de **Títulos** crear el estilo **Títulos-1** con el siguiente resultado."  
@@ -601,7 +617,7 @@ En este apartado aprenderemos a definir estilos para todos los elementos de nues
             Configurar el estilo para que, al aplicar el estilo, **se inserte automáticamente la numeración 'Apartado xx.'**.  
 
         !!! tip "Resultado esperado"
-            ![](./img_ut2/ra2ceb41.png){.cien .marco .margintop10 .marginbottom30} 
+            ![](./img_ut2/ra2ceb41.png){.cien  .margintop10 .marginbottom30} 
     
     !!! exercise "**9.** Resumen de todos los estilos:"
         !!! tip "Resultado esperado"

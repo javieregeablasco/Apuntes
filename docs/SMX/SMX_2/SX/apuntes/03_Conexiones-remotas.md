@@ -464,25 +464,32 @@ Así pues, verificaremos si Windows Server está configurado para aceptar conexi
 
 ## 9 - Administración remota segura con SSH (Secure Shell)
 
-- El protocolo SSH (Secure Shell) es **un protocolo de red** diseñado para acceder, administrar y controlar dispositivos de forma remota a través de una conexión totalmente cifrada. 
-- Surgió como un reemplazo seguro para protocolos tradicionales como **Telnet** o **FTP**, que transmitían la información y las contraseñas en texto plano.
+![Descripción de la imagen](./img_3/img_3_83.png){ .cincozero .margintop10 .marginbottom10  }
+
+1. El protocolo SSH (Secure Shell) es **un protocolo de red** diseñado para acceder, administrar y controlar dispositivos de forma remota a través de una conexión totalmente cifrada.
+
+1. Surgió como un reemplazo seguro para protocolos tradicionales como **Telnet** o **FTP**, que transmitían la información y las contraseñas en texto plano.
+
+1. SSH opera en la capa de aplicación del modelo TCP/IP y funciona de la siguiente manera:
+![Descripción de la imagen](./img_3/img_3_82.png){ .cincozero .margintop10 .marginbottom10  }
+
+    - **Capa de Aplicación:** SSH proporciona servicios directos al usuario o administrador (como la ejecución remota de comandos, transferencia segura de archivos vía SFTP/SCP y túneles de puertos).
+    - **Capa de Transporte:** Se apoya directamente en el protocolo TCP (generalmente a través del puerto 22) para garantizar que los datos se entreguen de forma fiable y ordenada antes de establecer el cifrado.
 
 ### 9.1 Uso básico de SSH
 
-Para conectar dos equipos mediante SSH se utiliza un modelo **cliente-servidor**:
+1. Para conectar dos equipos mediante SSH se utiliza un modelo **cliente-servidor**:
 
-- **Cliente:** La máquina local desde la que nos conectamos (CLI en Linux/macOS o GUI's como PuTTY/OpenSSH en Windows).
-- **Servidor:** Equipo o servidor remoto que escucha peticiones de conexión (normalmente en el puerto TCP 22).
+    - **Cliente:** La máquina local desde la que nos conectamos (CLI en Linux/macOS o GUI's como PuTTY/OpenSSH en Windows).  
+    - **Servidor:** Equipo o servidor remoto que escucha peticiones de conexión (normalmente en el puerto TCP 22).
 
-El comando básico en la terminal se compone de:
-
-```bash
-ssh usuario@direccion_ip_o_dominio
-```
-
-- **ssh:** Indica al sistema que inicie una sesión cifrada Secure Shell.
-- **usuario:** Cuenta a la que deseamos acceder (p.e. root).
-- **direccion_ip_o_dominio:** Dirección del servidor al que nos conectamos (p.e. 192.168.1.1 o servidor.com).
+1. El comando básico en la terminal se compone de:  
+    ```bash
+    ssh usuario@direccion_ip_o_dominio
+    ```
+    - **ssh:** Indica al sistema que inicie una sesión cifrada Secure Shell.
+    - **usuario:** Cuenta a la que deseamos acceder (p.e. root).
+    - **direccion_ip_o_dominio:** Dirección del servidor al que nos conectamos (p.e. 192.168.1.1 o servidor.com).
 
 ### 9.2 Mecanismos de cifrado en SSH
 
@@ -496,27 +503,27 @@ flowchart TB
 ```
 
 1. **Cifrado simétrico**  
-    - El cifrado simétrico utiliza **una única clave secreta** tanto para **cifrar como para descifrar** la información en ambos lados.  
-    - **Uso en SSH:** Cifra la totalidad del tráfico y los comandos enviados durante la sesión activa.
-    - **Seguridad:** La clave no se transmite por la red. El cliente y el servidor la generan de manera independiente durante el saludo inicial mediante un algoritmo de intercambio de claves.
+    1. El cifrado simétrico utiliza **una única clave secreta** tanto para **cifrar como para descifrar** la información en ambos lados.  
+    1. **Uso en SSH:** Cifra la totalidad del tráfico y los comandos enviados durante la sesión activa.
+    1. **Seguridad:** La clave no se transmite por la red. El cliente y el servidor la generan de manera independiente durante el saludo inicial mediante un algoritmo de intercambio de claves.
 
 1. **Cifrado Asimétrico**  
-    - El cifrado asimétrico emplea **un par de claves matemáticamente enlazadas**.
+    1. El cifrado asimétrico emplea **un par de claves matemáticamente enlazadas**.
         - **Una clave pública** que se puede compartir libremente.
         - **Una clave privada** que debe mantenerse secreta.  
-    - Lo que se cifra con la clave pública solo puede descifrarse con la clave privada correspondiente.  
-    - **Uso en SSH:** No se utiliza para cifrar toda la sesión (por ser computacionalmente más lento), sino para:
+    1. Lo que se cifra con la clave pública solo puede descifrarse con la clave privada correspondiente.  
+    1. **Uso en SSH:** No se utiliza para cifrar toda la sesión (por ser computacionalmente más lento), sino para:
         - **Autenticar** la identidad del cliente y del servidor.
         - **Negociar** de forma segura la clave simétrica que se usará en la sesión.
 
 1. **Hashing (Verificación de Integridad)**  
-    - El hashing transforma cualquier entrada de datos en un valor único de longitud fija de forma unidireccional. No es posible de revertir es decir, con el hash no es posible obtener la información original.  
-    - **Uso en SSH:** SSH utiliza HMAC (Hash-based Message Authentication Codes) para asegurar que los comandos e información transmitidos no hayan sido interceptados o alterados por terceros en tránsito.
+    1. **El hashing** transforma cualquier entrada de datos en un valor único de longitud fija de forma unidireccional. No es posible de revertir es decir, con el hash no es posible obtener la información original.  
+    1. **Uso en SSH:** SSH utiliza HMAC (Hash-based Message Authentication Codes) para asegurar que los comandos e información transmitidos no hayan sido interceptados o alterados por terceros en tránsito.
 
 ### 9.3 Establecimiento de una conexión SSH
 
 En la siguiente imagen se muestran, de forma simplificada, las principales etapas que intervienen en el establecimiento de una conexión SSH.
-![Descripción de la imagen](./img_3/img_3_54.png){ .margintop10 .marginbottom10  }
+![Descripción de la imagen](./img_3/img_3_54.png){ .margintop10 .marginbottom10 .marco  }
 
 **1 - Inicio de la conexión TCP:**  
 
@@ -546,6 +553,98 @@ En la siguiente imagen se muestran, de forma simplificada, las principales etapa
 **10 - Establecimiento de la sesión:**
 
 - Una vez autenticado el usuario, se establece una sesión SSH y el cliente puede solicitar un shell remoto, ejecutar comandos o utilizar otros servicios proporcionados por SSH.  
+
+### 9.4 Funcionamineto de SSH
+
+Vamos a ver lo que ocurre cuando escribimos `ssh usuario@direccion_ip_o_dominio` y pulsamos Enter.
+
+- **Fase 1: Conexión TCP**
+
+    !!! tip "SSH funciona sobre TCP, normalmente en el puerto 22"
+    !!! info "El cliente inicia el handshake TCP estándar:"
+        1. Cliente → Servidor: SYN
+        1. Servidor → Cliente: SYN-ACK
+        1. Cliente → Servidor: ACK
+    !!! success "Un vez que la conexión esta establecida, comienza el protocolo SSH.""
+
+- **Fase 2: Intercambio de versión del protocolo**
+
+    !!! info "Ambos lados anuncian su versión de SSH:"
+        1. **Cliente:**  SSH-2.0-OpenSSH_8.9
+        1. **Servidor:** SSH-2.0-OpenSSH_8.4
+
+    !!! success "Acuerdan usar SSH-2.<br>Si alguno solo soporta SSH-1, los clientes modernos se negarán a conectar (y deben hacerlo).""
+
+- **Fase 3: Intercambio de claves**  
+
+    1. Aquí es donde ocurre la criptografía.  
+    1. **Objetivo:** crear una clave secreta compartida que ningún espía pueda conocer.
+    1. El algoritmo más común es **Diffie-Hellman** de curva elíptica (ECDH):
+
+    !!! warning "Intercambio de claves (versión simplificada)"
+        1. Cliente y servidor acuerdan los parámetros matemáticos (la curva)
+        1. El cliente genera:  valor privado (a), valor público (A)  
+        El servidor genera: valor privado (b), valor público (B)
+        1. Intercambian los valores públicos (A y B)
+        [Un atacante puede ver A y B; no le sirve de nada]
+        1. El cliente calcula:  secreto_compartido = a·B  
+        El servidor calcula: secreto_compartido = b·A  
+        → **"¡Ambos llegan al MISMO secreto!"**
+        1. Este secreto compartido sirve para derivar las claves de cifrado de la sesión
+
+    !!! warning "La clave de todo esto:"
+        - **El secreto compartido nunca se transmite**.  
+        - Un atacante que observe todos los paquetes sigue sin poder calcularlo.
+
+- **Fase 4: Autenticación del servidor (claves de host)**
+
+    1. Algo que muchos pasan por alto: antes de que nos autentiquemos ante el servidor, el servidor se autentica ante ti.
+    1. Cuando nos conectamos a un servidor por primera vez, vemos esto:
+
+        > The authenticity of host 'server.com (192.168.1.100)' can't be established.  
+        > ED25519 key fingerprint is SHA256:AbCdEf1234567890...  
+        > Are you sure you want to continue connecting (yes/no/[fingerprint])?  
+
+    1. Con esto, el servidor está demostrando su identidad mediante su clave de host.
+        - Si escribimos `yes`, la huella (fingerprint) se guarda en `~/.ssh/known_hosts`  
+        - En futuras conexiones se verifica que la clave del servidor coincida  
+        - Si no coincide, SSH dirá:
+
+        > @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  
+        > @    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @  
+        > @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  
+        > IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!  
+
+    1. Esto protege contra ataques de intermediario (man-in-the-middle). Si un atacante intercepta la conexión y presenta su propio servidor, la huella no coincidirá.
+
+        - **Consejo:** en la primera conexión, verificar la huella por un canal alternativo (proveedor de hosting, etc.).
+
+- **Fase 5: Autenticación del usuario**  
+En esta fase demostraremos quienes somos. SSH admite varios métodos:
+    1. **Método 1: Autenticación por contraseña**
+    > ssh `user@server.com`
+    > Se solicita la contraseña
+    Es simple, pero no se recomienda por varias razones:
+        - Las contraseñas pueden ser atacadas por fuerza bruta
+        - Son vulnerables a keyloggers
+        - Se debe escribir cada vez (sin automatización)
+
+    1. **Método 2: Autenticación por clave pública (preferido)**  
+    Se utiliza criptografía asimétrica, es decir, un par de claves:
+
+        | Clave | Ubicación | Propósito |
+        ||||
+        | Clave privada | Tu ordenador (`~/.ssh/id_ed25519`) | Nunca sale de tu máquina. Demuestra nuestra identidad. |
+        | Clave pública | Servidor (`~/.ssh/authorized_keys`) | Se puede compartir libremente. Verifica las firmas hechas con la clave privada. |
+    La clave privada nunca sale de nuestra máquina. El servidor solo ve una prueba de que la tienes.
+
+    1. **Método 3: Autenticación basada en certificados**  
+    Se usa en entornos empresariales. Una Autoridad de Certificación (CA) firma las claves de los usuarios, y los servidores confían en la CA en lugar de en claves individuales.
+
+- **Fase 6: Sesión cifrada**
+    1. Una vez completado el intercambio de claves, todo el tráfico se cifra con **cifrado simétrico** (AES-256, ChaCha20, etc.), incluida la propia autenticación del usuario.
+    1. ¿Por qué pasar del cifrado asimétrico al simétrico? Por velocidad: el cifrado simétrico es aproximadamente 1000 veces más rápido.
+    1. Además, cada paquete incluye un MAC (Message Authentication Code, código de autenticación de mensaje): una suma de comprobación criptográfica que detecta cualquier manipulación. Con cifrados modernos como AES-GCM o ChaCha20-Poly1305, esta verificación va integrada en el propio cifrado (cifrado autenticado).
 
 ### 9.5 Tarea RA6-CEf-2 - Conexión SSH desde SO windows con PuTTy  
 
