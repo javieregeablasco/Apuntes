@@ -490,6 +490,11 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
 
     !!! tip "Resultado esperado"
         ![](./img_ut2//img-2-1.png){.original}
+
+    !!! warning "Condiciones de entrega de la tarea"
+        1. Subir vuestra tarea nombrando el archivo **RA2-CEc-7-Nombre Alumno** a la **tarea RA2-CEc-7**.  
+        1. El archivo a subir deberá ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
+        1. **No se aceptará ningún otro formato de archivo**.
             
 ### Tarea - RA2-CEc-8
 
@@ -528,6 +533,11 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
 
     !!! tip "Resultado esperado"
         ![](./img_ut2//img-2-2.png){.original}
+
+   !!! warning "Condiciones de entrega de la tarea"
+       1. Subir vuestra tarea nombrando el archivo **RA2-CEc-8-Nombre Alumno** a la **tarea RA2-CEc-8**.  
+       1. El archivo a subir deberá ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
+       1. **No se aceptará ningún otro formato de archivo**.
 
 ## 2.6 - Estilos y plantillas
 
