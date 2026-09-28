@@ -312,7 +312,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
         - Sangría después de texto: 0.3cm.  
         - Primer renglón: 0.5cm  
         - Letras capitulares: Caracteres=2, Renglones=2.  
- 
+
     !!! tip "Resultado esperado"
         !!!warning "¡Cuidado con los estilos de texto o de párrafo que se han incorporado pero no se han mencionado!"
         ![](./img_ut2/ra2ceb25.png){.original }
@@ -479,7 +479,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
         En primer lugar, cocemos las patatas ya peladas y las espinacas por separado. Una vez cocidas las espinacas, las escurrimos, reservamos el caldo y las picamos.
         En el caldo cocemos la pasta durante 15 minutos. Mientras tanto, doramos en la sartén con aceite el diente de ajo.
         Añadimos las espinacas picadas y las patatas troceadas. Machacamos todo con el tenedor para hacer una especie de puré y lo añadimos a la cazuela con la pasta.
-        Pelamos el huevo cocido, lo picamos y lo añadimos a la sopa. 
+        Pelamos el huevo cocido, lo picamos y lo añadimos a la sopa.
         Por último, echamos unas puntas de espárrago y este plato ya está listo para servir.
         Karlos Arguiñano. El menú de cada día
         ```

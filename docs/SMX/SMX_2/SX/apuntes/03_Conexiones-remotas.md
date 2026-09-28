@@ -250,7 +250,7 @@ Podemos hacerlo de varias formas:
 
 ### 6.5 Cerrar el laboratorio
 
-- Tenemos que cerrar el laboratorio de AWS para liberar los recursos y evitar cargos innecesarios. 
+- Tenemos que cerrar el laboratorio de AWS para liberar los recursos y evitar cargos innecesarios.
 - Para ello, simplemente finalizaremos el laboratorio, pinchando en **End Lab** en la consola del laboratory y esperaremos a que el testigo de AWS pase a **rojo**.  
 ![Descripción de la imagen](./img_3/img_3_26.png){ .margintop10 .marginbottom10 .marco }
 
@@ -306,7 +306,7 @@ Repetiremos los pasos anteriores para crear una instancia EC2, pero esta vez sel
 
 #### 7.3.2 Preparación de la instancia de Ubuntu Server 24.04 LTS
 
-En la instancia de Ubuntu Server 24.04 LTS, instalaremos un servidor RDP para permitir conexiones remotas desde sistemas Windows. 
+En la instancia de Ubuntu Server 24.04 LTS, instalaremos un servidor RDP para permitir conexiones remotas desde sistemas Windows.
 
 Para ello, primero nos conectaremos a la instancia a través de SSH y luego instalaremos el servidor RDP.
 
@@ -558,8 +558,7 @@ En la siguiente imagen se muestran, de forma simplificada, las principales etapa
 
 Vamos a ver lo que ocurre cuando escribimos `ssh usuario@direccion_ip_o_dominio` y pulsamos Enter.
 
-- **Fase 1: Conexión TCP**
-
+!!! abstract "Fase 1: Conexión TCP"
     !!! tip "SSH funciona sobre TCP, normalmente en el puerto 22"
     !!! info "El cliente inicia el handshake TCP estándar:"
         1. Cliente → Servidor: SYN
@@ -567,83 +566,77 @@ Vamos a ver lo que ocurre cuando escribimos `ssh usuario@direccion_ip_o_dominio`
         1. Cliente → Servidor: ACK
     !!! success "Un vez que la conexión esta establecida, comienza el protocolo SSH.""
 
-- **Fase 2: Intercambio de versión del protocolo**
-
+!!! abstract "Fase 2: Intercambio de versión del protocolo"
     !!! info "Ambos lados anuncian su versión de SSH:"
         1. **Cliente:**  SSH-2.0-OpenSSH_8.9
         1. **Servidor:** SSH-2.0-OpenSSH_8.4
+    !!! success "Acuerdan usar SSH-2.<br>Si alguno solo soporta SSH-1, los clientes modernos se negarán a conectar (y deben hacerlo)."
 
-    !!! success "Acuerdan usar SSH-2.<br>Si alguno solo soporta SSH-1, los clientes modernos se negarán a conectar (y deben hacerlo).""
-
-- **Fase 3: Intercambio de claves**  
-
-    1. Aquí es donde ocurre la criptografía.  
+!!! abstract "Fase 3: Intercambio de claves"  
+    1. Aquí empieza la criptografía.  
     1. **Objetivo:** crear una clave secreta compartida que ningún espía pueda conocer.
     1. El algoritmo más común es **Diffie-Hellman** de curva elíptica (ECDH):
-
     !!! warning "Intercambio de claves (versión simplificada)"
         1. Cliente y servidor acuerdan los parámetros matemáticos (la curva)
         1. El cliente genera:  valor privado (a), valor público (A)  
-        El servidor genera: valor privado (b), valor público (B)
+        1. El servidor genera: valor privado (b), valor público (B)
         1. Intercambian los valores públicos (A y B)
-        [Un atacante puede ver A y B; no le sirve de nada]
-        1. El cliente calcula:  secreto_compartido = a·B  
-        El servidor calcula: secreto_compartido = b·A  
-        → **"¡Ambos llegan al MISMO secreto!"**
+        1. **Un atacante puede ver A y B pero no lo servidrá de nada al no dsponer de a y b**.
+        1. El cliente calcula:  secreto_compartido = a*B  
+        1. El servidor calcula: secreto_compartido = b*A  
+        1. **¡Ambos llegan al MISMO secreto!**.
         1. Este secreto compartido sirve para derivar las claves de cifrado de la sesión
-
     !!! warning "La clave de todo esto:"
         - **El secreto compartido nunca se transmite**.  
         - Un atacante que observe todos los paquetes sigue sin poder calcularlo.
 
-- **Fase 4: Autenticación del servidor (claves de host)**
-
-    1. Algo que muchos pasan por alto: antes de que nos autentiquemos ante el servidor, el servidor se autentica ante ti.
-    1. Cuando nos conectamos a un servidor por primera vez, vemos esto:
-
-        > The authenticity of host 'server.com (192.168.1.100)' can't be established.  
-        > ED25519 key fingerprint is SHA256:AbCdEf1234567890...  
-        > Are you sure you want to continue connecting (yes/no/[fingerprint])?  
-
+!!! abstract "Fase 4: Autenticación del servidor (claves de host)"
+    1. Algo que muchos pasan por alto: antes de que nos autentiquemos ante el servidor, el servidor se autentica ante nosotros.
+    1. Cuando nos conectemos a un servidor por primera vez, veremos esto:  
+    > The authenticity of host 'server.com (192.168.1.100)' can't be established.  
+    ED25519 key fingerprint is SHA256:AbCdEf1234567890...  
+    Are you sure you want to continue connecting (yes/no/[fingerprint])?  
     1. Con esto, el servidor está demostrando su identidad mediante su clave de host.
         - Si escribimos `yes`, la huella (fingerprint) se guarda en `~/.ssh/known_hosts`  
         - En futuras conexiones se verifica que la clave del servidor coincida  
         - Si no coincide, SSH dirá:
-
         > @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  
         > @    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @  
         > @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  
         > IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!  
-
     1. Esto protege contra ataques de intermediario (man-in-the-middle). Si un atacante intercepta la conexión y presenta su propio servidor, la huella no coincidirá.
-
         - **Consejo:** en la primera conexión, verificar la huella por un canal alternativo (proveedor de hosting, etc.).
 
-- **Fase 5: Autenticación del usuario**  
-En esta fase demostraremos quienes somos. SSH admite varios métodos:
-    1. **Método 1: Autenticación por contraseña**
-    > ssh `user@server.com`
-    > Se solicita la contraseña
-    Es simple, pero no se recomienda por varias razones:
+!!! abstract "Fase 5: Autenticación del usuario.<br>     En esta fase demostraremos quienes somos.<br>     SSH admite varios métodos"  
+    !!! tip "Método 1: Autenticación por contraseña"
+        ```bash
+        ssh `user@server.com`  
+        (luego se solicita la contraseña)
+        ```
+        Aunque simple, no se recomienda por varias razones:  
+
         - Las contraseñas pueden ser atacadas por fuerza bruta
         - Son vulnerables a keyloggers
         - Se debe escribir cada vez (sin automatización)
 
-    1. **Método 2: Autenticación por clave pública (preferido)**  
-    Se utiliza criptografía asimétrica, es decir, un par de claves:
+    !!! tip "Método 2: Autenticación por clave pública (preferido)"
+        Se utiliza criptografía asimétrica, es decir, un par de claves:
 
         | Clave | Ubicación | Propósito |
         ||||
-        | Clave privada | Tu ordenador (`~/.ssh/id_ed25519`) | Nunca sale de tu máquina. Demuestra nuestra identidad. |
+        | Clave privada | Nuestro ordenador (`~/.ssh/id_ed25519`) | Nunca sale de tu máquina. Demuestra nuestra identidad. |
         | Clave pública | Servidor (`~/.ssh/authorized_keys`) | Se puede compartir libremente. Verifica las firmas hechas con la clave privada. |
-    La clave privada nunca sale de nuestra máquina. El servidor solo ve una prueba de que la tienes.
+        
+        La clave privada nunca sale de nuestra máquina. El servidor solo ve una prueba de que disponemos de ella.
+    
+    !!! tip "Método 3: Autenticación basada en certificados"  
+        - Se usa en entornos empresariales. 
+        - Una Autoridad de Certificación (CA) firma las claves de los usuarios, y los servidores confían en la CA en lugar de en claves individuales.
 
-    1. **Método 3: Autenticación basada en certificados**  
-    Se usa en entornos empresariales. Una Autoridad de Certificación (CA) firma las claves de los usuarios, y los servidores confían en la CA en lugar de en claves individuales.
-
-- **Fase 6: Sesión cifrada**
+!!! tip "Fase 6: Sesión cifrada"
     1. Una vez completado el intercambio de claves, todo el tráfico se cifra con **cifrado simétrico** (AES-256, ChaCha20, etc.), incluida la propia autenticación del usuario.
-    1. ¿Por qué pasar del cifrado asimétrico al simétrico? Por velocidad: el cifrado simétrico es aproximadamente 1000 veces más rápido.
+    1. ¿Por qué pasar del cifrado asimétrico al simétrico?  
+    **Por velocidad:** el cifrado simétrico es aproximadamente 1000 veces más rápido.
     1. Además, cada paquete incluye un MAC (Message Authentication Code, código de autenticación de mensaje): una suma de comprobación criptográfica que detecta cualquier manipulación. Con cifrados modernos como AES-GCM o ChaCha20-Poly1305, esta verificación va integrada en el propio cifrado (cifrado autenticado).
 
 ### 9.5 Tarea RA6-CEf-2 - Conexión SSH desde SO windows con PuTTy  
