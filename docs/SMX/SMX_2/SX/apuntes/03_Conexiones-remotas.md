@@ -24,9 +24,12 @@ schedule: 233h - 7h/w
 |**b)** Se ha instalado un servicio de acceso remoto en línea de comandos.|
 |**c)** Se ha instalado un servicio de acceso remoto en modo gráfico.|
 |**d)** Se ha comprobado el funcionamiento de ambos métodos.|
-|*e) Se han identificado las principales ventajas y deficiencias de cada uno.*|
+|**e) Se han identificado las principales ventajas y deficiencias de cada uno.**|
 |**f)** Se han realizado pruebas de acceso remoto entre sistemas de distinta naturaleza.|
-|*g) Se han realizado pruebas de administración remota entre sistemas de distinta naturaleza.*|
+|**g) Se han realizado pruebas de administración remota entre sistemas de distinta naturaleza.**|
+
+!!! warning "Nota:"
+    Los criterios de evaluación en negrita será evaluados durante la FCT.
 
 ## 1 - Introducción
 
