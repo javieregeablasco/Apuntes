@@ -452,7 +452,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
         Sangría izquierda.
         Sangría derecha.
         ```
-    !!! exercise "**4. Incorporar numeraciones y viñetas para que el texto quede de la siguiente manera.**"
+    !!! exercise "4. Incorporar numeraciones y viñetas para que el texto quede de la siguiente manera."
         !!! tip "Resultado esperado"
             ![](./img_ut2/ra2ceb30.png){.sietecinco}
 
@@ -464,7 +464,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
 ### Tarea - RA2-CEc-7
 
 !!! task "Tarea a entregar en RA2-CEc-7"
-    !!! exercise "**1. Abre un nuevo documento, copia y pega el siguiente texto:**"
+    !!! exercise "1. Abre un nuevo documento, copia y pega el siguiente texto:"
         ```text
         Sopa de espinacas
         La espinaca es la hortaliza más completa en vitaminas y sales minerales. Por cierto, Popeye es un invento de los productores de espinacas para animar a los niños, y no tan niños, a su consumo. Esta superhortaliza procede del Cáucaso, Irán y Afganistán. Llegó a Europa de la mano de un pueblo sabio, los árabes.
@@ -484,7 +484,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
         Karlos Arguiñano. El menú de cada día
         ```
 
-    !!! exercise "**2. Incorporar numeraciones y viñetas para que el texto quede de la siguiente manera.**"
+    !!! exercise "2. Incorporar numeraciones y viñetas para que el texto quede de la siguiente manera."
         - Tener en cuenta los formatos que ya conoceís: Parrafo, texto, etc. Cualquier aportación personal para aportar vistosidad y legibilidad al texto será bienvenida.  
         - No hacer **fontaneria**. El espacio entre elementos de texto deberá realizarse eligiendo correctamente los parámetros de cada elemento, **no realizando saltos de línea**.
 
@@ -499,7 +499,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
 ### Tarea - RA2-CEc-8
 
 !!! task "Tarea a entregar en RA2-CEc-8"
-    !!! exercise "**1. Abre un nuevo documento, copia y pega el siguiente texto:**"
+    !!! exercise "1. Abre un nuevo documento, copia y pega el siguiente texto:"
         ```text
         El legado andalusi
         Trataremos aqui una de las rutas inmersas en la historia, la legenda y la nostalgia. En las cercanías de Covadonga, Don Pelayo y un grupo de fieles derrotaron a la expedición de castigo de Al-Andalus. Coria el año 722 y abría que esperar hasta 1492 con la toma del reiño de Granada, para ver completada la Reconquista.
@@ -526,7 +526,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
         - Mimisterio de turisno -
         ```
 
-    !!! exercise "**2. Incorporar numeraciones y viñetas para que el texto quede de la siguiente manera.**"
+    !!! exercise "2. Incorporar numeraciones y viñetas para que el texto quede de la siguiente manera."
         - Tener en cuenta los formatos que ya conoceís: Parrafo, texto, etc. Cualquier aportación personal para aportar vistosidad y legibilidad al texto será bienvenida.  
         - No hacer **fontaneria**. El espacio entre elementos de texto deberá realizarse eligiendo correctamente los parámetros de cada elemento, **no realizando saltos de línea**.
         - ¡Cuidado con la ortografía!
@@ -542,10 +542,142 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
 ### Tarea - RA2-CEc-9
 
 !!! task "Tarea a entregar en RA2-CEc-9"
-    !!! exercise "**1. Abre un nuevo documento, copia y pega el siguiente texto:**"
+    !!! exercise "1. Abre un nuevo documento, copia y pega el siguiente texto:"
         ```text
+        Relación de ejercicios del procesador de texto writer
+        Enumera cinco características de un procesador de textos que no posea una máquina de escribir.
+        Abre el documento titulado “resolucion del monitor SIN FORMATO ” y cierra este documento sin salir del programa. ¿ puedes  explicar la diferencia entre cerrar el documento y cerrar la aplicación?
+        Crea una copia del documento titulado “ resolucion del monitor SIN FORMATO ” y realiza las siguientes operaciones con él:
+        Renombra el archivo con el título: “ resolucion monitor selecc de texto”
+        Separa los párrafos con 2 líneas en blanco.
+        Selecciona el 2º párrafo y copialo 2 veces al final del documento.
+        Borra del final del documento una de las copias del segundo párrafo.
+        Busca la palabra “verticales”, seleccionala y borrala.
+        Borra la primera línea del 4º párrafo. Tras esto deshaz lo que has hecho.
+        Situa el cursor delante de una palabra, presiona la tecla “Ins” o "Insert" y escribe otra palabra cualquiera ¿qué ocurre? ¿ y si vuelves a pulsar la tecla “Ins” o "Insert"?.
+        Corta el último párrafo y crea un nuevo documento titulado "ult parrresol moni" con ese párrafo.
+        Abre el archivo “Cronologia de Tchaikovski desordenada ” y utilizando el menú formato realiza las siguientes tareas:
+        Cambia la fuente del título a Verdana con tamaño 20 y subrayado.
+        Resalta las fechas en negrita.
+        Escribe los títulos de las obras en cursiva.
+        Centra el título y justifica el resto del texto.
+        En el texto los párrafos aparecen desordenados. Mueve los párrafos para que las fechas queden ordenadas cronológicamente.
+        Resalta cada año con un fondo en color rojo.
+        Contrastando los datos acerca de la vida de Tchaikovski, se ha encontrado un error. En 1893 fue nombrado Doctor por la Universidad de Cambridge, no por la de San Petersburgo. Utiliza la opción Reemplazar del menú editar para corregir el error.
+        Almacena el documento en un archivo de nombre “ Cronología de Tchaikovski ” tanto en tu directorio de trabajo como en tu disquete.
+        Abre el fichero "Ficha 1 Formato caracter SIN FORMATO" y utilizando el menú formato de carácter conviértelo en la "Ficha 1 Formato caracter".
+        Abre el archivo “ sopa de espinacas “ y utilizando el menú formato realiza las siguientes tareas:
+        Centra el título y pon su fuente en tamaño 18 y su estilo en cursiva.
+        El primer párrafo ha de tener:
+        Sangría en primera línea de 0.7 cm, y de 0.4 cm antes del texto y después del texto.
+        Un espacio encima del párrafo de 0.5 cm.
+        Interlineado sencillo.
+        Alineación izquierda
+        Ha de resaltarse la primera L del párrafo de forma que ocupe 2 líneas.
+        El párrafo de los ingredientes ha de tener:
+        Sangría antes del texto de 2 cm.
+        Cada ingrediente con una enumeración 5.
+        Los párrafos de la elaboración
+        Sangría antes y después del texto de 1.5 cm
+        Espacio encima de los párrafos de 0.2 cm
+        Justificados.
+        Con el fondo en gris claro.
+        La última línea debe estar centrada y con los caracteres de color azul.
+        Abre el fichero "Ficha 2 Sangrías SIN FORMATO" y utilizando el menú formato de párrafo conviértelo en la "Ficha 2 Sangrías".
+        Abre el fichero "Ficha 3 Formato Parrafo SIN FORMATO" y utilizando el menú formato de párrafo conviértelo en la "Ficha 3 Formato Parrafo".
+        Abre el fichero " Ficha 4 Formato Parrafo SIN FORMATO" y utilizando el menú formato de párrafo conviértelo en la "Ficha 4 Formato Parrafo".
+        Crea un documento como la "Ficha 5 tabuladores" utilizando el menú formato de párrafo y la tecla del tabulador. El texto de esta ficha se encuentra en el archivo "Ficha 5 tabuladores SIN FORMATO".
+        Writer permite aplicar el estilo periodístico a un documento. Abre el documento “astronautas del columbia” y realiza las siguientes operaciones:
+        Haz clic sobre el menú formato y selecciona la opción columnas.
+        Activa las opciones necesarias para distribuir el texto en tres columnas, separadas por un espacio de 0,3 cm y una línea delgada.
+        Pon el título en negrita y aumenta el tamaño de la fuente.
+        Pon el segundo párrafo en negrita.
+        Guarda el documento con el nombre “astronautas en columnas”.
+        Crea un documento como la " Ficha 6 columnas y tabuladores" utilizando el menú formato de párrafo y la tecla del tabulador. El texto de esta ficha se encuentra en el archivo " Ficha 6 columnas y tabuladores SIN FORMATO".
+        Abre el documento "drogas" y realiza lo siguiente:
+        Da el formato a los párrafos que desees ( sangrías, espacio, alineación,etc).
+        Da a la página una orientación horizontal.
+        Amplía los márgenes de la página (Usa la vista preliminar para ver cómo quedaría el documento).
+        Crea un encabezamiento de página con 2 cm de altura y fondo en algún color con el texto "DOCUMENTO SOBRE LAS DROGAS" centrado en el encabezamiento.
+        Crea un pie de página y con el menú Insertar->campos pon en él la fecha a la izquierda y el número de página a la derecha.
+        Crea un borde a la página con color azul y 6,55 pt .
+        Abre el fichero "Formato de sección y página" y realiza cada uno de los apartados haciendo uso del fichero "sección_página_auxiliar".
+        Abre el fichero "Formato numeracion y viñetas" y realiza cada uno de los apartados haciendo uso del fichero "numeracion y viñetas_auxiliar".
+        Crea un documento llamado tablas y realiza varias tablas con la opción de autoformato.Con estas tablas prueba las opciones de insertar fila-columna, eliminar fila-columna, dividir celdas, unir celdas, poner un borde a la tabla y cambiar los colores del fondo. Cambia el alto de las filas y el ancho de las columnas con la opción del menú y cambiando la alineación arrastrando el borde de la columna con el ratón.
+        Crea un documento nuevo que contenga una tabla con tu horario de clases.
+        Creale un encabezado con tu nombre, el curso académico y el nombre del centro.
+        Centra todas las materias dentro de su celda.
+        Selecciona las celdas del recreo y únelas para crear una única celda.
+        Da colores distintos de fondo a la primera fila y a cada una de las columnas.
+        Abre el fichero "ejercicio TABLAS" y realiza cada uno de sus apartados.
+        Abre un documento nuevo y crea en él una tabla como la "ficha 8 tablas-facturas".
+        Abre un documento nuevo y crea en él una tabla como la "ficha 9 tablas-almacen".
+        ```
 
-        tablas 
+    !!! exercise "2. Incorporar numeraciones y viñetas y estilos a cada párrafo"
+
+        !!! tip "Título"
+            - Javanese Text 15pt, negrita, itálica color #666666 
+            - Sangría: Al gusto.
+            - Espaciado sobre el párrafo: 0.0cm, debajo: 1cm
+            - Interlineado: sencillo 
+            - Centrado
+            - Borde doble total #b85c00
+            - Estilo de sombra: inferior derecho, color #dee7e5, distancia 0.2cm 
+            - Fondo: imagen 'Mármol'
+            - Separación del fondo: 0.05cm
+            
+        !!! tip "Párrafos con numeración 1., 2., 3., ..."
+            - Arial 13pt, color #b47804 
+            - Mayúsculas iniciales
+            - Sangría: Al gusto.
+            - Espaciado del párrafo: 0.2cm, debajo: 0.0cm
+            - Interlineado: 1.5 renglones 
+            - Justificado
+            - Borde doble (grueso + fino)  superior e inferior color #b85c00
+            - Fondo color #ffffd7
+            - Separación del fondo: 0.10cm
+
+        !!! tip "Párrafos con numeración a., b., c., ..."
+            - Bahnschrift 12pt, color #127622 
+            - Sangría: Al gusto.
+            - Espaciado sobre el párrafo: 0.0cm, debajo: 0.25cm
+            - Interlineado: sencillo 
+            - Alineado a la izquierda
+            - Fondo color #eeeeee
+            - Separación del fondo: 0.20cm
+ 
+        !!! tip "Párrafos con numeración I., II., III., ..."
+            - Bauhaus 93 12pt, color #acb20c 
+            - Sangría: Al gusto.
+            - Espaciado sobre el párrafo: 0.0cm, debajo: 0.1cm
+            - Interlineado: sencillo 
+            - Alineado a la izquierda
+            - Borde simple, superior, inferior, izquierdo y derecho color #468a1a
+            - Fondo color #dee6ef
+            - Separación del fondo: 0.20cm
+
+        !!! tip "Párrafos con viñeta"
+            - Cascadia Mono 10pt, color #acb20c 
+            - Sangría: Al gusto.
+            - Espaciado sobre el párrafo: 0.0cm, debajo: 0.0cm
+            - Interlineado: 1.15 renglones 
+            - Alineado a la izquierda
+            - Borde mediano, izquierdo y derecho color #ff4000
+            - Fondo color #b4c7dc
+            - Separación del fondo: izquierda y derecha: 0.5cm, superior e inferior 0.2cm
+            
+        !!! tip "Resultado esperado"
+            !!! info "Página 1"
+                ![](./img_ut2//img-2-3.png){.original}    
+            !!! info "Página 2"
+                ![](./img_ut2//img-2-4.png){.original}    
+            !!! info "Página 3"
+                ![](./img_ut2//img-2-5.png){.original}    
+            !!! info "Página 4"
+                ![](./img_ut2//img-2-6.png){.original}    
+            !!! info "Página 5"
+                ![](./img_ut2//img-2-7.png){.original}    
 
 ### Tarea - RA2-CEc-10
 
