@@ -9,51 +9,60 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 * `mkdocs build` - Build the documentation site.
 * `mkdocs -h` - Print help message and exit.
 
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
-
-
-## Content tabs.
+## Content tabs
 
 === "Tabla 1"
-    Este es su contendi
+    Este es su contenido
 
 === "Tabla 2"
     Otra contenido
 
 === "Tabla 3"
-    Contenido final 
+    Contenido final
 
 ## Admonition tabs
 
 !!! note "Title of the callout"
-    Aquí va el texto, no se si se puede cambiar el icono
+    Aquí va el texto
 
 ??? quote "Title of the content"
-    Aquí va el texto, no se si se puede cambiar el icono    
+    Aquí va el texto
 
 Tipos (iconos disponibles).  
-- abstract  
-- info  
-- tip  
-- success  
-- octicons  
-- question  
-- warning  
-- failure  
-- danger  
-- bug  
-- example  
-- quote     
+!!! note "note"
+!!! abstract "abstract"
+!!! info "info"
+!!! tip "tip"
+!!! success "success"
+!!! question "question"
+!!! warning "warning"
+!!! failure "failure"
+!!! danger "danger"
+!!! bug "bug"
+!!! failure "failure"
+!!! example "example"
+!!! quote "quote"
 
-## Enlace a documentacion sobre mkdocs
-<a href=https://squidfunk.github.io/mkdocs-material>Clic aqui</a>
+!!! info inline end "info inline end"
+
+    Lorem ipsum dolor sit amet, consectetur
+    adipiscing elit. Nulla et euismod nulla.
+    Curabitur feugiat, tortor non consequat
+    finibus, justo purus auctor massa, nec
+    semper lorem quam in massa.  
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor massa, nec semper lorem quam in massa. texto. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor massa, nec semper lorem quam in massa. texto. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor massa, nec semper lorem quam in massa. texto. 
+  
+!!! info inline "info inline"
+
+    Lorem ipsum dolor sit amet, consectetur
+    adipiscing elit. Nulla et euismod nulla.
+    Curabitur feugiat, tortor non consequat
+    finibus, justo purus auctor massa, nec
+    semper lorem quam in massa.    
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor massa, nec semper lorem quam in massa. texto. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor massa, nec semper lorem quam in massa. texto. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor massa, nec semper lorem quam in massa. texto.
 
 ## Diagramas (superfences)
+
 <div style="text-align:center;">
 ```mermaid
 flowchart TD
@@ -64,26 +73,4 @@ flowchart TD
 ```
 </div>
 
- Admonition tabs
-
-!!! note "Title of the callout"
-    Aquí va el texto, no se si se puede cambiar el icono
-
-??? info "Title of the content"
-    Aquí va el texto, no se si se puede cambiar el icono    
-
-Tipos (iconos disponibles).  
-- abstract  
-- info  
-- tip  
-- success  
-- octicons  
-- question  
-- warning  
-- failure  
-- danger  
-- bug  
-- example  
-- quote    
-
-<a href=https://mermaid.js.org>Editor de diagramas</a>
+[mermaid](https://mermaid.js.org)

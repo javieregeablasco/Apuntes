@@ -10,18 +10,13 @@ layout: default
 schedule: 96h - 3h/s 
 ---
 
-# **UT. 5 - Instancias y seguridad en AWS**
-
-![Descripción de la imagen](../AWS/ut5/initi.png){ .sietecinco }
-
-<br>
+![Descripción de la imagen](../AWS/ut5/initi.png){ .original .marginbottom30 .marco}
 
 **Resultados de aprendizaje y criterios de evaluacion que se evaluarán en esta unidad.**  
 
 | **Resultados de aprendizaje de la unidad didáctica:** |
-|-|
+||
 | **RA. 2:** Identifica los componentes clave de la infraestructura global de la nube, diferenciando servicios principales, regiones, zonas de disponibilidad y aplicando medidas básicas de seguridad como el modelo de responsabilidad compartida, gestión de accesos y protección de datos.|  
-
 
 |**Criterios de evaluación de la unidad didáctica:**|
 ||
@@ -30,7 +25,7 @@ schedule: 96h - 3h/s
 |**d)** Se ha comprendido el modelo de responsabilidad compartida en la nube.|
 
 | **Resultados de aprendizaje de la unidad didáctica:** |
-|-|
+||
 |**RA. 3:** Diseña y configura redes virtuales y servicios de cómputo en la nube, aplicando buenas prácticas de seguridad, estrategias de balanceo de carga, escalado automático y aprovechando tecnologías serverless, contenedores y máquinas virtuales según casos de uso específicos.|
 
 |**Criterios de evaluación de la unidad didáctica:**|
@@ -39,87 +34,84 @@ schedule: 96h - 3h/s
 |**b)** Se ha aplicado buenas prácticas de seguridad en redes y arquitecturas.|20%|
 |**c)** Se ha participado activamente en la creación y configuración de una red funcional.|15%|
 
-<br>
+## 1 - Introducción
 
-  
+- no de los servicios más utilizados de AWS es **Amazon EC2 (Elastic Compute Cloud)**, que permite lanzar y administrar **instancias**, es decir, **máquinas virtuales** que funcionan de manera similar a un ordenador físico.  
 
-## **1 - Introducción**
-Uno de los servicios más utilizados de AWS es **Amazon EC2 (Elastic Compute Cloud)**, que permite lanzar y administrar **instancias**, es decir, **máquinas virtuales** que funcionan de manera similar a un ordenador físico.  
+- Estas **instancias** pueden configurarse con distintos sistemas operativos, hardware para adaptarse a las necesidades de cada proyecto (aplicación web, base de datos...).
 
-Estas **instancias** pueden configurarse con distintos sistemas operativos, hardware para adaptarse a las necesidades de cada proyecto (aplicación web, base de datos...).
+- Al igual que cualquier dispositivo, las instancias necesitan un mecanismo de control de tráfico para **garantizar su seguridad**. En este contexto aparecen los **grupos de seguridad** (Security Groups, SG). Un grupo de seguridad no es más que un **firewall virtual**, que supervisa y restrinje el tráfico entrante y saliente de las instancias.
 
-Al igual que cualquier dispositivo, las instancias necesitan un mecanismo de control de tráfico para **garantizar su seguridad**. En este contexto aparecen los **grupos de seguridad** (Security Groups, SG). Un grupo de seguridad no es más que un **firewall virtual**, que supervisa y restrinje el tráfico entrante y saliente de las instancias.
+- En conjunto, las EC2 y los SG constituyen la base de la infraestructura en la nube: las instancias proporcionan la capacidad de cómputo, mientras que los grupos de seguridad ofrecen la primera línea de defensa para proteger los recursos desplegados.
 
-En conjunto, las EC2 y los SG constituyen la base de la infraestructura en la nube: las instancias proporcionan la capacidad de cómputo, mientras que los grupos de seguridad ofrecen la primera línea de defensa para proteger los recursos desplegados.
+## 2 - Instancias EC2
 
-## **2 - Instancias EC2**
-### **2.1 - Instancias de AWS**
-Como hemos dicho, una instancia EC2 (**E**lastic **C**loud **C**ompute) es básicamente una computadora en la nube.  
-**Al igual que los equipos físicos**, las instancias se caracterizan por una serie de características como potencia de computo, RAM y otras características que veremos a continuación.
+### 2.1 - Instancias de AWS
 
-**Nomenclatura de las instancias EC2**  
-El nombre de la instancia define las especificaciones de la misma es decir, la familia, la generación, la capacidad adicional y el tamaño.
+- Como hemos dicho, una instancia EC2 (**E**lastic **C**loud **C**ompute) es básicamente una computadora en la nube.  
 
-![](./ut5/ec2.webp){.doscinco}
+- **Al igual que los equipos físicos**, las instancias se caracterizan por una serie de características como potencia de computo, RAM y otras características que veremos a continuación.
 
-- **Familia**  
-La familia define la optimización principal de la máquina, dicho en otras palabras, el uso preferente que debemos dar a esas máquinas.  
+!!! abstract "Nomenclatura de las instancias EC2"
+    - El nombre de la instancia define las especificaciones de la misma es decir, la familia, la generación, la capacidad adicional y el tamaño.
 
-      |Familia|Aplicación|
-      |:-:|-|
-      |C|  Compute Optimized. Para cargas de trabajo que requieren mucha CPU (alta      relación CPU/memoria).  |
-      |M | General Purpose. Equilibrio entre CPU, memoria y almacenamiento. Usadas para       la mayoría de aplicaciones estándar.  |
-      |R| Memory Optimized. Diseñadas para cargas de trabajo que requieren gran     cantidad de memoria en relación con la CPU.  |
-      |I| Storage Optimized (I/O Optimized). Pensadas para cargas que requieren     altísimo rendimiento en disco local (NVMe/SSD).   |
-      |G | **Graphics / GPU-based**. Para machine learning (basadas en GPU NVIDIA).  |
-      |P|  **Accelerated Computing (GPU)**. Para entrenamiento de deep learning,     computación científica, simulaciones de alto nivel.  |
-      |X|  Extra Memory Optimized. Instancias con terabytes de RAM, usadas para grandes       bases de datos o aplicaciones que requieren mucha memoria.  |
+    ![](./ut5/ec2.webp){.cincozero .marco}
 
+    !!! info "Familia"  
+        - La familia define la optimización principal de la máquina, dicho en otras palabras, el uso preferente que debemos     dar a esas máquinas.  
 
+            |  Familia |Aplicación |
+            | :------: |---------- |
+            | **M, T** | **General Purpose**. Equilibrio entre CPU, memoria, red y almacenamiento. Son adecuadas para la mayoría de aplicaciones y servidores habituales. Las **T** permiten aumentar temporalmente el rendimiento de CPU mediante créditos. |
+            |   **C**  | **Compute Optimized**. Optimizadas para aplicaciones que necesitan mucha capacidad de procesamiento (CPU) en relación con la memoria, como servidores web de alto rendimiento o procesamiento de datos.                             |
+            | **R, X** | **Memory Optimized**. Diseñadas para aplicaciones que necesitan mucha memoria RAM en relación con la CPU, como bases de datos, cachés y análisis de grandes cantidades de datos.                                                    |
+            | **I, D** | **Storage Optimized**. Diseñadas para aplicaciones que necesitan un almacenamiento local de gran capacidad o un elevado rendimiento de entrada/salida (I/O), como bases de datos y sistemas de procesamiento de datos.              |
+            | **G, P** | **Accelerated Computing**. Incorporan GPU para acelerar determinadas cargas de trabajo, como procesamiento gráfico, inteligencia artificial, machine learning y computación científica.                                             |
+            |  **Hpc** | **High Performance Computing (HPC)**. Diseñadas para cálculos científicos y técnicos que requieren una elevada capacidad de procesamiento y comunicación entre los nodos. |
+            |  **Bare Metal** | **Acceso directo al hardware físico**. Instancias que se ejecutan sobre el servidor físico sin la capa de virtualización habitual para la instancia. Se utilizan cuando una aplicación necesita acceso directo al hardware o determinados requisitos de virtualización. |
 
-- **Generación**  
-Representan la evolución tecnológica de las instancias. Cada nueva generación trae mejor rendimiento, menor coste por hora y mejor eficiencia energética.  
-La generación de una instancia EC2 se identifica por el número que acompaña a la familia.<br>  
-**Ejemplos:**  
+            !!! note "Nota"
+                AWS dispone de muchas otras familias y variantes especializadas. Para seleccionar una instancia EC2 se debe tener en cuenta principalmente la cantidad de CPU, memoria RAM, almacenamiento, red y aceleradores que necesita la aplicación.
 
-      |Instancias|Descripción|
-      |-|-|
-      |t**2**.micro | 2ª generación de instancias de uso general.  |
-      |t**3**.micro | 3ª generación, más eficiente que t2.  |
-      |t**4**g.micro | 4ª generación, basada en procesadores ARM Graviton2 de AWS. |
+    !!! info "Generación"
+        - Representan la evolución tecnológica de las instancias. Cada nueva generación trae mejor rendimiento, menor coste por hora y mejor eficiencia energética.  
+        - La generación de una instancia EC2 se identifica por el número que acompaña a la familia.  
+        - **Ejemplos:**  
+            
+            |Instancias|Descripción|
+            |-|-|
+            |t**2**.micro | 2ª generación de instancias de uso general.  |
+            |t**3**.micro | 3ª generación, más eficiente que t2.  |
+            |t**4**g.micro | 4ª generación, basada en procesadores ARM Graviton2 de AWS. |
 
-  
+    !!! info "Capacidad adicional"
+        - La capacidad adicional de EC2 se refiere a esas optimizaciones extra (almacenamiento, red, EBS, GPU, bare metal, etc.) que hacen que dos instancias de la misma familia y tamaño puedan comportarse de forma distinta.  
+        - Las letras utilizadas en el nombre de instancia y las propiedades asociadas se explican en la tabla siguiente.  
 
-- **Capacidad adicional**  
-La capacidad adicional de EC2 se refiere a esas optimizaciones extra (almacenamiento, red, EBS, GPU, bare metal, etc.) que hacen que dos instancias de la misma familia y tamaño puedan comportarse de forma distinta.  
-Las letras utilizadas en el nombre de instancia y las propiedades asociadas se explican en la tabla siguiente.  
-
-       |Nombre |Propiedad|Ejemplo|
-       |-|-|-|
-       |a|Procesador AMD|m5a|
-       |d|Almacenamiento SSD NVMe local|m5d|
-       |e|Capacidad extra|P6e|
-       |g|Procesador Graviton(ARM)|m6g|
-       |n|Redes de alta velocidad|c5n|
-       |z|Alta frecuencia de CPU|m5zn|
-       |.metal|Bare metal|m8g.metal|
+            |Nombre |Propiedad|Ejemplo|
+            |-|-|-|
+            |a|Procesador AMD|m5a|
+            |d|Almacenamiento SSD NVMe local|m5d|
+            |e|Capacidad extra|P6e|
+            |g|Procesador Graviton(ARM)|m6g|
+            |n|Redes de alta velocidad|c5n|
+            |z|Alta frecuencia de CPU|m5zn|
+            |.metal|Bare metal|m8g.metal|
              
-- **Tamaño de la instancia**  
-El **tamaño de una instancia de EC2 en AWS** se refiere a la combinación de recursos de hardware virtualizados (vCPU, memoria RAM, almacenamiento y capacidad de red) que se asignan a una máquina virtual. En otras palabras, define la **potencia y capacidad de cómputo** que tendrá la instancia dentro de la familia de instancias elegida.  
-<br>
- 
+    !!! INFO "Tamaño de la instancia"
+        - El **tamaño de una instancia de EC2 en AWS** se refiere a la combinación de recursos de hardware virtualizados (vCPU, memoria RAM, almacenamiento y capacidad de red) que se asignan a una máquina virtual.
+        - En otras palabras, define la **potencia y capacidad de cómputo** que tendrá la instancia dentro de la familia de instancias elegida.  
+        - **Tabla comparativa de tamaños de instancias:**  
 
-      **Tabla comparativa de tamaños de instancias:**  
+            | Instancia   | vCPU | RAM (GB) | Almacenamiento (GB) | Red (Gbit/s) | Ancho de banda de EBS | Precio USD/h (% aumento) |
+            |-------------|------|----------|----------------------|--------------|------------------------|--------------------------|
+            | r5d.xlarge  | 4    | 32       | 1 x 150             | Hasta 10     | Hasta 4750             | 0.288                    |
+            | r5d.2xlarge | 8    | 64       | 1 x 300             | Hasta 10     | Hasta 4750             | 0.576 (+100%)            |
+            | r5d.4xlarge | 16   | 128      | 2 x 300             | Hasta 10     | 4750                   | 1.152 (+100%)            |
+            | r5d.8xlarge | 32   | 256      | 2 x 600             | 10           | 6800                   | 2.304 (+100%)            |
 
-      | Instancia   | vCPU | RAM (GB) | Almacenamiento (GB) | Red (Gbit/s) | Ancho de banda de EBS | Precio USD/h (% aumento) |
-      |-------------|------|----------|----------------------|--------------|------------------------|--------------------------|
-      | r5d.xlarge  | 4    | 32       | 1 x 150             | Hasta 10     | Hasta 4750             | 0.288                    |
-      | r5d.2xlarge | 8    | 64       | 1 x 300             | Hasta 10     | Hasta 4750             | 0.576 (+100%)            |
-      | r5d.4xlarge | 16   | 128      | 2 x 300             | Hasta 10     | 4750                   | 1.152 (+100%)            |
-      | r5d.8xlarge | 32   | 256      | 2 x 600             | 10           | 6800                   | 2.304 (+100%)            |
-<br>
+### 2.2 - AMI (Amazon Machine Image)
 
-### **2.2 - AMI (Amazon Machine Image)**
 Una AMI es una plantilla que contiene la información necesaria para lanzar una instancia de EC2. Es como si fuera la `imagen base` de una máquina virtual.
 
 Cada AMI incluye:
@@ -998,6 +990,7 @@ sudo firewall-cmd --permanent --add-rich-rule='rule family="ipv4" source address
 Documentación de [AWS](https://docs.aws.amazon.com)  
 Instancias [EC2](https://docs.aws.amazon.com/es_es/ec2/?icmpid=docs_homepage_featuredsvcs)  
 Tipos de instancias [EC2](https://aws.amazon.com/es/ec2/instance-types)  
+Información general de las familias de instancias de [Amazon EC2 y Amazon RDS](https://docs.aws.amazon.com/es_es/whitepapers/latest/cost-optimization-right-sizing/overview-amazon-ec2-amazon-rds.html)  
 Controlar el tráfico hacia los recursos de AWS mediante [grupos de seguridad](https://docs.aws.amazon.com/es_es/vpc/latest/userguide/vpc-security-groups.html#security-group-basics)  
 [Grupos de seguridad de instancias EC2](https://docs.aws.amazon.com/es_es/AWSEC2/latest/UserGuide/ec2-security-groups.html)  
 Control del tráfico de la subred con [listas de control de acceso a la red](https://docs.aws.amazon.com/es_es/vpc/latest/userguide/vpc-network-acls.html)  
