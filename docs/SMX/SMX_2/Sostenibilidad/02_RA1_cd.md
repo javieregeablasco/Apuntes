@@ -55,8 +55,8 @@ Surge como continuación de los Objetivos de Desarrollo del Milenio (ODM, 2000-2
 ## 3 - Implementación y Financiación
 
 - **Gobernanza y localización**:
-       1. La Agenda no establece un mecanismo único. 
-       1. cada país la adapta a sus estructuras institucionales mediante estrategias nacionales y planes locales (como la *Estrategia de Desarrollo Sostenible 2030* o la Red de Entidades Locales en España). 
+       1. La Agenda no establece un mecanismo único.
+       1. cada país la adapta a sus estructuras institucionales mediante estrategias nacionales y planes locales (como la *Estrategia de Desarrollo Sostenible 2030* o la Red de Entidades Locales en España).
        1. El seguimiento se evalúa en el Foro Político de Alto Nivel (HLPF) mediante Exámenes Nacionales Voluntarios.
 
 - **Brecha de financiación**:  
@@ -84,8 +84,19 @@ Las evaluaciones globales muestran que el plan está en riesgo y avanza a dos ve
 - **Contradicción biofísica**: Análisis ecosociales critican que el ODS 8 promueva un "crecimiento económico sostenido", lo que resulta incompatible con los límites planetarios y la escasez de energía y materiales. Además, se señala que muchas metas tienen un enfoque de "final de tubería" (atienden los síntomas en lugar de las causas estructurales).
 - **Oposición y desinformación**: Ha encontrado contestación política en sectores negacionistas y de extrema derecha, además de ser blanco de teorías conspirativas que le atribuyen de forma falsa mandatos obligatorios.
 
-<!-- ## 6 - Foro de discusión
+<!-- ## 6 - Foro de discusión -->
 
+<!-- !!! question "¿Qué tienen en comun los ods y la agenda 2030?"
+
+Los Objetivos de Desarrollo Sostenible (ODS) y la Agenda 2030 no son dos cosas distintas o separadas, sino dos partes del mismo plan de acción global impulsado por la Organización de las Naciones Unidas (ONU) en 2015.
+
+Tienen en común los siguientes puntos fundamentales:
+
+    Origen y marco temporal: Ambos fueron adoptados simultáneamente en septiembre de 2015 por 193 países miembros de la ONU, con la meta compartida de alcanzarse para el año 2030.
+
+    Propósito general: Comparten el mismo objetivo central: erradicar la pobreza, proteger el planeta y asegurar la prosperidad y paz para todas las personas sin dejar a nadie atrás. -->
+
+<!--
 !!! question "Aspectos ASG, Grupos de Interés y Gestión de Riesgos y Oportunidades"
     1. ¿Son los Objetivos de Desarrollo Sostenible (ODS) herramientas suficientes y eficaces para hacer realidad la Agenda 2030, o su carácter de **soft law** **(no vinculante) compromete su cumplimiento real?
     1. ¿Existe una contradicción insalvable dentro de la Agenda 2030 al promover el crecimiento económico (ODS 8) en un planeta con límites biofísicos finitos?
