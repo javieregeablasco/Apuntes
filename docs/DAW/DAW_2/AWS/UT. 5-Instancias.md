@@ -46,7 +46,7 @@ schedule: 96h - 3h/s
 
 ## 2 - Instancias EC2
 
-### 2.1 - Instancias de AWS
+### 2.1 Instancias de AWS
 
 - Como hemos dicho, una instancia EC2 (**E**lastic **C**loud **C**ompute) es básicamente una computadora en la nube.  
 
@@ -110,42 +110,44 @@ schedule: 96h - 3h/s
             | r5d.4xlarge | 16   | 128      | 2 x 300             | Hasta 10     | 4750                   | 1.152 (+100%)            |
             | r5d.8xlarge | 32   | 256      | 2 x 600             | 10           | 6800                   | 2.304 (+100%)            |
 
-### 2.2 - AMI (Amazon Machine Image)
+### 2.2 AMI (Amazon Machine Image)
 
-Una AMI es una plantilla que contiene la información necesaria para lanzar una instancia de EC2. Es como si fuera la `imagen base` de una máquina virtual.
+- Una AMI es una plantilla que contiene la información necesaria para lanzar una instancia de EC2. Es como si fuera la `imagen base` de una máquina virtual.
 
-Cada AMI incluye:
+- Cada AMI incluye:
 
-* **Un sistema operativo** (Amazon Linux, Ubuntu, Windows Server, etc.).
-* **Software preinstalado** (Apache, Nginx, MySQL, Docker, etc.).
-* **Configuración de permisos** (qué usuarios pueden usar la AMI, no es posible hacerlo con las cuentas de ALB).
-* **Configuración de volumen raíz** (el disco donde se instala el sistema).
-* ...
+    1. **Un sistema operativo** (Amazon Linux, Ubuntu, Windows Server, etc.).
+    1. **Software preinstalado** (Apache, Nginx, MySQL, Docker, etc.).
+    1. **Configuración de permisos** (qué usuarios pueden usar la AMI, no es posible hacerlo con las cuentas de ALB).
+    1. **Configuración de volumen raíz** (el disco donde se instala el sistema).
+    1. ...
 
-Cuando se lanza una **instancia EC2**, se elige una AMI como punto de partida, y a partir de ahí la instancia puede configurarse, modificarse y **personalizarse**.
+- Cuando se lanza una **instancia EC2**, se elige una AMI como punto de partida, y a partir de ahí la instancia puede configurarse, modificarse y **personalizarse**.
 
-#### **2.2.1 - Tipos de AMI**
+#### **2.2.1 Tipos de AMI**
+
+En AWS, las AMIs se clasifican principalmente según su origen y propiedad, y según el método de virtualización que utilizan para arrancar las instancias de Amazon EC2
 
 1. **AMIs públicas**
 
-     * Disponibles en el catálogo de AWS.
-     * Incluyen imágenes oficiales de Amazon (Amazon Linux, Windows, etc.) y distribuciones de Linux mantenidas por la comunidad o proveedores (Ubuntu, Debian, RHEL…).
+     - Disponibles en el catálogo de AWS.
+     - Incluyen imágenes oficiales de Amazon (Amazon Linux, Windows, etc.) y distribuciones de Linux mantenidas por la comunidad o proveedores (Ubuntu, Debian, RHEL…).
 
 2. **AMIs privadas**
 
-     * Creadas por **un usuario**.
-     * Solo accesibles para la cuenta propietaria (posibilidad de compartir).
+     - Creadas por **un usuario**.
+     - Solo accesibles para la cuenta propietaria (posibilidad de compartir).
 
 3. **AMIs del AWS Marketplace**
 
-     * Imágenes de terceros (generalmente de pago) con aplicaciones ya listas (WordPress, SAP, soluciones de seguridad, etc.).
+     - Imágenes de terceros (generalmente de pago) con aplicaciones ya listas (WordPress, SAP, soluciones de seguridad, etc.).
 
-#### **2.2.2 - Regiones y AMIs**
+#### **2.2.2 Regiones y AMIs**
 
-* Una AMI está **ligada a una región**.
-* Si se necesita usarla en otra región, se debe **copiar**.
+- Una AMI está **ligada a una región**.
+- Si se necesita usarla en otra región, se debe **copiar**.
 
-#### **2.2.3 - Crear una AMI**
+#### **2.2.3 Crear una AMI**
 
 Se pueden crear AMI's desde:
 
@@ -153,145 +155,155 @@ Se pueden crear AMI's desde:
 2. **Un snapshot de EBS** → Luego convertir en AMI.
 3. **Importar una VM** (desde VMware, VirtualBox o Hyper-V con la herramienta VM Import/Export).
 
-### **2.3 - EBS (Elastic Block Store)**
-**EBS (Elastic Block Store)** es el servicio de **almacenamiento en bloque** que se usa para las instancias EC2. Dicho en otras palabras, es el **disco duro** de las instancias y se puede usar para instalar el sistema operativo, guardar bases de datos, etc.
+### 2.3 Almacenamiento EBS (Elastic Block Store)
 
-#### **2.3.1 - Concepto básico**
-!!! info "Características principales"
-    * **Persistente**: los datos persisten aunque la instancia EC2 se detenga o se termine (si el volumen no se borra automáticamente al terminar la instancia).
-    * **Redimensionable**: Se puede cambiar el tamaño, tipo o rendimiento sin reiniciar la instancia (en muchos casos).
-    * **Alta disponibilidad**: cada volumen EBS se replica automáticamente dentro de la zona de disponibilidad (AZ) para protegerlo de fallos de hardware.
-    * **Snapshots**: Se pueden programar copias de seguridad incrementales en S3 (Snapshots EBS).
-    * **Tipos de volumen**: AWS ofrece varios tipos (SSD y HDD) adaptados a rendimiento y coste:  
-    &nbsp;&nbsp;&nbsp;&nbsp; **gp3/gp2**: SSD de uso general.  
-    &nbsp;&nbsp;&nbsp;&nbsp; **io1/io2**: SSD de alto rendimiento para IOPS elevados.  
-    &nbsp;&nbsp;&nbsp;&nbsp; **st1**: HDD optimizado para throughput.  
-    &nbsp;&nbsp;&nbsp;&nbsp; **sc1**: HDD de bajo coste para datos menos usados.
+- **EBS (Elastic Block Store)** es el servicio de **almacenamiento en bloque** que se usa para las instancias EC2.
+- Dicho en otras palabras, es el **disco duro** de las instancias y se puede usar para instalar el sistema operativo, guardar bases de datos, etc.
 
----
-#### **2.3.2 - Uso con EC2**
-* Al lanzar una instancia EC2, se crea automáticamente un volumen EBS para el sistema operativo.
-* Se puede **adjuntar** varios volúmenes EBS a una misma instancia EC2.
-* **Se deben montar** como dispositivos de bloque en el sistema operativo y luego se formatean y usan como cualquier disco.
-* Es posible **desadjuntar** un volumen de una instancia y **adjuntarlo** a otra (útil para migrar datos).
----
+#### 2.3.1 Concepto básico de EBS
 
-#### **2.3.3 - Otros tipos de almacenamientos de AWS**
+!!! info "Características principales de los almacenamientos EBS"
+    - **Persistente**: los datos persisten aunque la instancia EC2 se detenga o se termine (si el volumen no se borra automáticamente al terminar la instancia).
+    - **Redimensionable**: Se puede cambiar el tamaño, tipo o rendimiento sin reiniciar la instancia (en muchos casos).
+    - **Alta disponibilidad**: cada volumen EBS se replica automáticamente dentro de la zona de disponibilidad (AZ) para protegerlo de fallos de hardware.
+    - **Snapshots**: Se pueden programar copias de seguridad incrementales en S3 (Snapshots EBS).
+    - **Tipos de volumen**: AWS ofrece varios tipos (SSD y HDD) adaptados al rendimiento y coste deseados:  
+        1. **gp3/gp2**: SSD de uso general.  
+        1. **io1/io2**: SSD de alto rendimiento para IOPS elevados.  
+        1. **st1**: HDD optimizado para throughput.  
+        1. **sc1**: HDD de bajo coste para datos menos usados.
 
-* **Instance store**: almacenamiento efímero local (desaparece al detener/terminar la instancia).
-* **S3**: almacenamiento de objetos, no en bloques.
-* **EFS**: almacenamiento de archivos (compartido NFS).
----
-### **2.4 - Tarea RA2-CEb**
-Realizar el siguiente escenario.
-De momento, no tener en cuenta los grupos de seguridad.  
+#### 2.3.2 Uso con EC2
 
-![](./ut5/práctica1.png){ .sietecinco }
+- Al lanzar una instancia EC2, se crea automáticamente un volumen EBS para el sistema operativo.
+- Se puede **adjuntar** varios volúmenes EBS a una misma instancia EC2.
+- **Se deben montar** como dispositivos de bloque en el sistema operativo y luego se formatean y usan como cualquier disco.
+- Es posible **desadjuntar** un volumen de una instancia y **adjuntarlo** a otra (útil para migrar datos).
 
-!!! question "Preguntas a responder:"
-    1. Suponiendo que queremos usar la EC2 de la subred pública como servidor web (frontend), ¿Qué debemos hacer para ampliar la infraestructura e incorporar un servidor para el backend?
+#### 2.3.3 Tipos de almacenamientos de AWS
+
+**AWS ofrece tres tipos principales de almacenamiento** en la nube clasificados según cómo se estructuran y acceden los datos: almacenamiento de objetos (S3), almacenamiento en bloques (EBS), almacenamiento de archivos (EFS).
+
+!!! tip "Almacenamiento de Objetos (Amazon S3 / bucket S3)"
+    - **Qué es:** Guarda los datos como objetos individuales dentro de contenedores llamados buckets, junto con sus metadatos y un identificador único.
+    - **Uso principal:** Ideal para almacenar cualquier volumen de información como páginas web estáticas, copias de seguridad (backups), contenido multimedia y lagos de datos (data lakes).
+    - **Servicio clave:** Amazon S3 destaca por una durabilidad extremadamente alta (99,999999999%) y clases adaptables como S3 Standard, S3 Intelligent-Tiering y S3 Glacier para archivo a largo plazo.
+
+!!! tip "Almacenamiento en Bloques (Amazon EBS)"
+    - **Qué es:** Divide los datos en bloques de igual tamaño que funcionan como discos duros independientes. Requiere un sistema operativo gestionado para acceder a ellos.
+    - **Uso principal:** Diseñado como almacenamiento persistente de bajo nivel para instalar sistemas operativos, ejecutar bases de datos transaccionales y aplicaciones de alto rendimiento.
+    - **Servicio clave:** Amazon Elastic Block Store (EBS) se conecta directamente a las máquinas virtuales de Amazon EC2, permitiendo modificar el tamaño o crear instantáneas (snapshots) incrementales de forma sencilla.
+    - **EBS instance store:** Ideal para almacenamiento temporal de información que cambia constantemente. A diferencia de las Amazon EBS el almacenamiento es efímero y local (desaparece al detener/terminar la instancia y solo es accesible desde una EC2).
+
+!!! tip "Almacenamiento de Archivos (Amazon EFS y FSx)"
+    - **Qué es:** Organiza los datos en una jerarquía tradicional de carpetas y archivos compartidos mediante protocolos estándar de red (como NFS o SMB).
+    - **Uso principal:** Permite que múltiples servidores o usuarios accedan y modifiquen los mismos archivos de manera simultánea.
+    - **Servicios clave:**
+        1. Amazon Elastic File System (Amazon EFS): Sistema de archivos compartido para instancias Linux en EC2.
+	    1. Amazon FSx: Familias de servicios optimizadas para sistemas de archivos especializados de terceros (como Windows File Server, Lustre o NetApp ONTAP).  
+
+### 2.4 Tarea RA2-CEb - Primer despliegue de una instancia
+
+- Realizar el siguiente escenario.
+- De momento, no tener en cuenta los grupos de seguridad.  
+
+![img](./ut5/práctica1.png){ .original }
+
+!!! question "Preguntas a responder"
+
+    1. Suponiendo que queremos usar la EC2 de la subred pública como servidor web (frontend), ¿Qué debemos hacer para ampliar la infraestructura e incorporar un servidor y una base de datos para el backend?
     2. Queremos, además, guardar imágenes, PDFs y vídeos para que los clientes puedan descargarlos.  
-    ¿Qué tipo de almacenamiento de AWS sería el más adecuado?  
-    Buscar un ejemplo de tipo de almacenamiento adecuado en AWS. 
----
+        - ¿Qué tipo de almacenamiento de AWS sería el más adecuado?  
+        - Buscar un ejemplo de tipo de almacenamiento adecuado en AWS. 
 
-#### **2.4.1 - Infraestructura de red básica**
-![](./ut5/RA2CEb.png){ .original .marco }
-<br>
+#### 2.4.1 Infraestructura de red
 
-#### **2.4.2 - Lanzar instancia 1/4**
-!!! tip "Vamos a EC2"
-Una vez dentro del menú de instancias veremos los apartados principales de EC2
+- En la imagen podemos ver el mapa de recurso de la infraestructura de red desplagada.
 
-- **Instances (Instancias):**  
-Donde se puede lanzar, detener, reiniciar o terminar instancias EC2.
+![img](./ut5/RA2CEb.png){ .original .marco }
 
-- **Images (Imágenes):**
-Donde se puede gestionar las AMIs, que son plantillas para lanzar nuevas instancias con un sistema operativo y software preinstalado.
+#### 2.4.2 Lanzar instancia
 
-- **Elastic Block Store (EBS):**
-Servicio de almacenamiento en bloques persistente. Permite crear y asociar volúmenes a las instancias EC2.  
-**Nota:** EBS no es específico de EC2 pero, tiene su propio menú aquí.
+!!! tip "Lanzar una EC2"
+    Buscamos en AWS el recurso EC2 y pulsamos `Lanzar la instancia`.
+    ![img](./ut5/RA2CEb1.png){ .original .marco .margintop10 }
 
-- **Network & Security (Red y seguridad):**
-Desde aquí se gestion los Security Groups, Elastic IPs, Key Pairs y VPCs asociadas a las instancias.
-Básicamente, es donde se definen las reglas de seguridad y de conectividad.
+!!! tip "Menú de instancias EC2"
+    Una vez dentro del menú de instancias veremos los apartados principales de EC2
 
-- **Load Balancing (Balanceo de carga):**
-Sección para crear y administrar Elastic Load Balancers (ELB), que reparten el tráfico entre varias instancias.
+    - **Instances (Instancias):** Donde se puede lanzar, detener, reiniciar o terminar instancias EC2.
+    - **Images (Imágenes):** Donde se puede gestionar las AMIs, que son plantillas para lanzar nuevas instancias con un sistema operativo y software preinstalado.
+    - **Elastic Block Store (EBS):** Servicio de almacenamiento en bloques persistente. Permite crear y asociar volúmenes a las instancias EC2.  
+    !!! warning "EBS no es específico de EC2 pero, tiene su menú de configuración dentro de la página de EC2."
+    - **Network & Security (Red y seguridad):** Desde aquí se gestion los Security Groups, Elastic IPs, Key Pairs y VPCs asociadas a las instancias. Básicamente, es donde se definen las reglas de seguridad y de conectividad.
+    - **Load Balancing (Balanceo de carga):** Sección para crear y administrar Elastic Load Balancers (ELB), que reparten el tráfico entre varias instancias.
+    - **Auto Scaling:** Aquí se configuran los **Auto Scaling Groups**, que crean o destruyen instancias automáticamente según las métricas (CPU, tráfico, etc.) para mantener el rendimiento.
 
-- **Auto Scaling:**
-Aquí se configuran los **Auto Scaling Groups**, que crean o destruyen instancias automáticamente según las métricas (CPU, tráfico, etc.) para mantener el rendimiento.
+!!! info "Dar un nombre a la instancia"
 
-!!! tip "Lanzamos una instancia."
-![](./ut5/RA2CEb1.png){ .original .marco }
-<br>
+!!! info "Seleccionar la AMI adecuada a nuestras necesidades"
+    ![img](./ut5/RA2CEb2.png){ .original }
 
-#### **2.4.3 - Lanzar instancia 2/4**
-1. Damos un nombre a la instancia.
-1. Seleccionamos el tipo de instancia y la AMI adecuada a nuestras necesidades.
+!!! info "Seleccionar el tipo de instancia"
+    ![img](./ut5/RA2CEb2-1.png){ .original }
 
-    ![](./ut5/RA2CEb2.png){ .original }
-    <br>
-    ![](./ut5/RA2CEb2-1.png){ .original }
-    <br>
+!!! info "Elegimos el par de claves con el que podremos conectarnos por SSH a nuestra instancia."
+    - El par de claves (Key Pair) en AWS EC2 es un mecanismo de credenciales de seguridad basado en criptografía de **clave pública** (asimétrica) que se utiliza para autenticarse y acceder de forma segura a las instancias sin necesidad de usar contraseñas tradicionales.
+    !!! info "Se compone de dos partes generadas conjuntamente:"
+        !!! success "Clave Pública (Public Key):"
+            - AWS la inserta automáticamente dentro de la instancia EC2 al momento de crearla (en servidores Linux, se escribe en el archivo ~/.ssh/authorized_keys).
+            - Actúa como el candado de acceso a la instancia. **Es pública** y no importa si alguien más la ve, ya que solo sirve para validar que quien intenta conectarse posee **la clave privada correcta**.
+        !!! success "Clave Privada (Private Key)"
+            - En nuestro caso tendremos acceso a esa clave desde la consola de acceso al `Laboratorio de AWS`. Dependiendo del tipo de instancia (Windows, Mac, Linux  ) estará disponible con extensión `.pem` o `.ppk`.
 
-#### **2.4.4 - Lanzar instancia 3/4**
-1. Elegimos el par de claves con el que podremos conectarnos por SSH a nuestra instancia.
-  
-    ![](./ut5/RA2CEb3-1.png){ .original }
-<br>
+    - En nuestro caso el par de claves de laboratory será `vockey`.         
+    ![img](./ut5/RA2CEb3-1.png){ .original .margintop10}
 
-1. Configuración de red y seguridad
+!!! info "Configuración de red y seguridad"
+    - Eligiremos la red donde vamos a desplegar nuestra instancia.
+    - Elegiremos también la opción `Crear grupo de seguridad`. Veremos más adelante la importancia de los grupos de seguridad para la seguridad de los recursos desplagados (no solamente las EC2).
+    ![img](./ut5/RA2CEb3.png){ .original .margintop10}
 
-    ![](./ut5/RA2CEb3.png){ .original }
-<br>    
+!!! info "Elegir el tamaño del almacenamiento del volumen raíz"
+    - Eligiremos el tamaño y el tipo adecuado a nuestras necesidades.
+    ![img](./ut5/RA2CEb3-2.png){ .original .margintop10}
 
-#### **2.4.5 - Lanzar instancia 4/4**
-1. Elegimos el tamaño del almacenamiento del volumen raíz. 
+    - Si después de desplagar la instancia resulta que el volumen del almacenamiento es insuficiente podremos modificarlo (o añadir otro volumen).
+    - Para ello, basta con detener la instancia, ir al menú de los volumenes EBS y modificar el tamaño.  
+    !!! warning "Importante"
+        - Ampliar la capacidad del volumen no presenta ninguna dificultad.
+        - Reducirlo implica realizar una **snapshot del mismo**, **eliminar** el EBS original, **crear y poner otro** de menor tamaño.     
+        ![](./ut5/RA2CEb3-3.png){ .original .marco .margintop10}
 
+#### 2.4.6 - Panel de control de las instancias
 
-    ![](./ut5/RA2CEb3-2.png){ .original }
-<br>    
+Una vez lanzada la instancia, podremos acceder a su panel de supervisión/configuración.
 
-1. Modificar volumen (sí necesario)  
-Es posible **aumentar** el tamaño del volumen raíz. Para ello, basta con detener la instancia, ir al menú de los volumenes EBS y modificar el tamaño.  
-**Nota:** Ampliar la capacidad del volumen no presenta ninguna dificultad. Reducirlo implica realizar una **snapshot del mismo**, **eliminar** el EBS original, **crear y poner otro** de menor tamaño.     
-
-    ![](./ut5/RA2CEb3-3.png){ .original .marco }
-<br>   
-
-#### **2.4.6 - Panel de control de las instancias**
 - **Instancias**
-
-    ![](./ut5/RA2CEb4.png){ .original .marco }
-<br>
+![img](./ut5/RA2CEb4.png){ .original .marco .margintop10 .marginbottom30}
 
 - **Resumen de las instancias**  
-**Nota:** Asegurarse de que tenemos un IPv4 pública. De lo contrario no será posible conectarse remotamente con la instancia.
+**Nota:** Asegurarse de que tener un IPv4 pública. De lo contrario no será posible conectarse remotamente a la instancia.
+![img](./ut5/RA2CEb5.png){ .original .marco .margintop10 .marginbottom30}
 
-    ![](./ut5/RA2CEb5.png){ .original .marco }
-<br>
+#### 2.4.7 Conexión CLI remota SSH a la instancia (SO linux)
 
-#### **2.4.7 - Conexión remota con la instancia**
-El laboratorio crea por defecto una clave llamada **vockey**. Esa llave que ya hemos usado a la hora de configurar nustra instancia EC2 permitirá a un cliente SSH conectarse a ella de forma remota.
+1. El laboratorio crea por defecto una clave llamada **vockey**.
+1. Esa llave que ya hemos usado a la hora de configurar nuestra instancia EC2 permitirá a un cliente SSH conectarse a ella de forma remota.
 
 1. **Descargar el archivo de clave privada labsuser.pem**  
-El fichero labsuser.pem se encuentra disponible en **AWS Academy Learner Lab** en `AWS Details`.
-El fichero labsuser.pem contiene la parte privada de la clave que necesitará el cliente SSH para conectarse a la EC2 en la cual se encuentra instalada la parte pública de la clave.
+    - El fichero `labsuser.pem` se encuentra disponible en **AWS Academy Learner Lab** en `AWS Details`.
+    - El fichero `labsuser.pem` contiene la parte privada de la clave que necesitará el cliente SSH para conectarse a la EC2 en la cual se encuentra instalada la parte pública de la clave.
+    ![img](./ut5/RA2CEb6.png){ .sietecinco .marco .marginbottom30}  
 
-![](./ut5/RA2CEb6.png){ .cincozero .marco }
-<br>
-
-1. **Cambiar los permisos del archivo labsuser.pem**  
-Para cambiar los permisos a solo lectura por el propietario usaremos:
+1. **Cambiar los permisos del archivo labsuser.pem**
+Para cambiar los permisos a solo lectura por el propietario usaremos:  
 ```bash
 chmod 400 labsuser.pem
 ```
-<br>
 
 1. **Conexión remota por SSH a la instancia**  
-Para conectarnos a la instancia por SSH usaremos el cliente de ssh con los siguientes argumentos:
+Para conectarnos a la instancia por SSH usaremos el cliente de ssh con los siguientes argumentos:  
 ```bash
 ssh -i labsuser.pem ec2-user@3.90.114.96   
 ```
@@ -306,22 +318,21 @@ ssh -i labsuser.pem ec2-user@3.90.114.96
 
     !!! info "¿Cómo saber la ip de la instancia?"
         ![](./ut5/RA2CEb7.png) 
-<br>
 
-#### **2.4.8 - Conexión con la instancia desde la consola de AWS**  
-También es posible conectarse a la instancia desde el panel de control de AWS.
+#### 2.4.8 Conexión con la instancia desde la consola de AWS
 
-![](./ut5/RA2CEb9.png){ .original .marco }
+- También es posible conectarse a la instancia desde el panel de control de AWS.
+![img](./ut5/RA2CEb9.png){ .original .marco .margintop10 .marginbottom30}
+- Una vez hecha la conexión podremos usar ese servicio virtualizado.
+![img](./ut5/RA2CEb11.png){ .original .marco .margintop10 .marginbottom30}
 
-<br>
+#### 2.4.9
 
-Una vez hecha la conexión podremos usar ese servicio virtualizado.
+#### Hasta aquí
 
-![](./ut5/RA2CEb11.png){ .original .marco }
 
-<br>
+#### 2.4.9 Realizar Ping a la instancia
 
-#### **2.4.9 - Realizar Ping a la instancia**  
 Si queremos realizar un ping a la instancia desde cualquier ordenador veremos que no es posible.
 
 ![](./ut5/RA2CEb12.png){ .cincozero }
