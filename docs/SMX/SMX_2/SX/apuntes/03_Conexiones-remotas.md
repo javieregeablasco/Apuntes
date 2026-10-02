@@ -652,7 +652,7 @@ Vamos a ver lo que ocurre cuando escribimos `ssh usuario@direccion_ip_o_dominio`
 
 !!! warning "Antes de nada nos conectaremos a nuestra instancia de Windows Server"
 
-- Descargamos la aplicación desde [la página oficial](https://www.putty.org/index.html) y la instalaremos **en nuestra instancia de Windows Server**.
+- Descargamos la aplicación desde [la página oficial](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) y la instalaremos **en nuestra instancia de Windows Server**.
 
 ![Descripción de la imagen](./img_3/img_3_55.png){ .margintop10 .marginbottom10 .seiscinco }
 

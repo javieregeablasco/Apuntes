@@ -55,59 +55,65 @@ Surge como continuación de los Objetivos de Desarrollo del Milenio (ODM, 2000-2
 ## 3 - Implementación y Financiación
 
 - **Gobernanza y localización**:
-       1. La Agenda no establece un mecanismo único.
-       1. cada país la adapta a sus estructuras institucionales mediante estrategias nacionales y planes locales (como la *Estrategia de Desarrollo Sostenible 2030* o la Red de Entidades Locales en España).
+       1. La Agenda no crea un mecanismo sancionador.
+       1. Cada país la adapta a sus estructuras institucionales mediante estrategias nacionales y planes locales (como la *Estrategia de Desarrollo Sostenible 2030* o la Red de Entidades Locales en España).
        1. El seguimiento se evalúa en el Foro Político de Alto Nivel (HLPF) mediante Exámenes Nacionales Voluntarios.
 
 - **Brecha de financiación**:  
-       1. La ONU señala un déficit de financiación anual de **entre 2,5 y 4 billones de dólares** para alcanzar los ODS.
+       1. La ONU señala un déficit de financiación anual de **4 billones de dólares** para alcanzar los ODS (2024-2025).
        1. Para cerrar esta brecha se apela al sector privado mediante herramientas como la **Inversión Socialmente Responsable (criterios ASG/ESG)** y la **Inversión de Impacto**.
-
----
 
 ## 4 - Balance de Progreso Global
 
 Las evaluaciones globales muestran que el plan está en riesgo y avanza a dos velocidades:
 
-- **Estado de las metas**:  
+- **Estado de las metas (2024)**:  
 
     1. Según los datos oficiales, **solo el 36% de las metas va por buen camino o registra un progreso moderado** (15% encaminadas y 21% moderado).
     1. Casi la mitad (**49%**) muestra avances insuficientes y un **15% ha retrocedido** a niveles peores que los de 2015.
     1. **Hitos positivos**: Se registraron avances notables en el acceso a agua potable (casi 1.000 millones de personas adicionales desde 2015), electrificación global (92%), conectividad digital (74%) y extensión de la protección social.
     1. **Graves barreras**: La **crisis climática** (con récords de temperatura global), el aumento de **conflictos armados**, la caída de la ayuda oficial al desarrollo y la persistencia de la pobreza extrema y la inseguridad alimentaria están provocando retrocesos estructurales.
 
----
+- **Estado de las metas (2025)**:  
+
+    1. Según los datos oficiales, **solo el 35% de las metas va por buen camino o registra un progreso moderado** (18% encaminadas y 17% moderado).
+    1. Casi la mitad (**48%**) muestra avances insuficientes y un **18% ha retrocedido** a niveles peores que los de 2015.
+    1. **Hitos positivos**: Se registraron avances notables en el acceso a agua potable (casi 1.000 millones de personas adicionales desde 2015), electrificación global (92%), conectividad digital (74%) y extensión de la protección social.
+    1. **Graves barreras**: La **crisis climática** (con récords de temperatura global), el aumento de **conflictos armados**, la caída de la ayuda oficial al desarrollo y la persistencia de la pobreza extrema y la inseguridad alimentaria están provocando retrocesos estructurales.
 
 ## 5 - Críticas y Debates Ecosociales
 
 - **Voluntariedad (Soft Law)**: Al no ser un acuerdo jurídicamente vinculante ni establecer sanciones por incumplimiento, depende de la voluntad política de los gobiernos de turno, lo que facilita el *greenwashing* o cumplimiento cosmético.
 - **Contradicción biofísica**: Análisis ecosociales critican que el ODS 8 promueva un "crecimiento económico sostenido", lo que resulta incompatible con los límites planetarios y la escasez de energía y materiales. Además, se señala que muchas metas tienen un enfoque de "final de tubería" (atienden los síntomas en lugar de las causas estructurales).
-- **Oposición y desinformación**: Ha encontrado contestación política en sectores negacionistas y de extrema derecha, además de ser blanco de teorías conspirativas que le atribuyen de forma falsa mandatos obligatorios.
+- **Oposición y desinformación**: Ha encontrado contestación política en distintos sectores (negacionistas, ...), además de ser blanco de teorías conspirativas que le atribuyen de forma falsa mandatos obligatorios.
 
-<!-- ## 6 - Foro de discusión -->
+## 6 - Foro de discusión
 
-<!-- !!! question "¿Qué tienen en comun los ods y la agenda 2030?"
-
+!!! question "¿Qué tienen en comun los ods y la agenda 2030?"
+<!-- 
 Los Objetivos de Desarrollo Sostenible (ODS) y la Agenda 2030 no son dos cosas distintas o separadas, sino dos partes del mismo plan de acción global impulsado por la Organización de las Naciones Unidas (ONU) en 2015.
 
-Tienen en común los siguientes puntos fundamentales:
+Tienen en común los siguientes puntos fundamentales: 
+-->
 
-    Origen y marco temporal: Ambos fueron adoptados simultáneamente en septiembre de 2015 por 193 países miembros de la ONU, con la meta compartida de alcanzarse para el año 2030.
+<!-- 
+Origen y marco temporal: Ambos fueron adoptados simultáneamente en septiembre de 2015 por 193 países miembros de la ONU, con la meta compartida de alcanzarse para el año 2030. 
+-->
 
-    Propósito general: Comparten el mismo objetivo central: erradicar la pobreza, proteger el planeta y asegurar la prosperidad y paz para todas las personas sin dejar a nadie atrás. -->
+<!-- Propósito general: Comparten el mismo objetivo central: erradicar la pobreza, proteger el planeta y asegurar la prosperidad y paz para todas las personas sin dejar a nadie atrás.  
+-->
 
-<!--
 !!! question "Aspectos ASG, Grupos de Interés y Gestión de Riesgos y Oportunidades"
-    1. ¿Son los Objetivos de Desarrollo Sostenible (ODS) herramientas suficientes y eficaces para hacer realidad la Agenda 2030, o su carácter de **soft law** **(no vinculante) compromete su cumplimiento real?
+    1. ¿Son los Objetivos de Desarrollo Sostenible (ODS) herramientas suficientes y eficaces para hacer realidad la Agenda 2030, o su carácter de **soft law** (no vinculante) compromete su cumplimiento real?
     1. ¿Existe una contradicción insalvable dentro de la Agenda 2030 al promover el crecimiento económico (ODS 8) en un planeta con límites biofísicos finitos?
-    1. ¿Puede alcanzarse la premisa de "no dejar a nadie atrás" mediante la "localización" de los ODS si no se corrigen primero los impactos transfronterizos y la huella ecológica de los países ricos sobre el Sur Global?
-
---- -->
+    1. ¿Puede alcanzarse la premisa de "no dejar a nadie atrás" mediante la "localización" de los ODS si no se corrigen primero los impactos transfronterizos y la huSella ecológica de los países ricos sobre el Sur Global?
 
 <!-- 
 -1-
 **Contexto de debate:** La Agenda 2030 constituye el marco internacional global, mientras que los 17 ODS y sus 169 metas son su núcleo operativo e integrado[1][2]. Sin embargo, al ser guías de cumplimiento voluntario que carecen de sanciones en el derecho internacional, se cuestiona si los gobiernos y empresas realmente están avanzando hacia las transformaciones sistémicas necesarias 
+-->
 
+<!--
 **Líneas de respuesta esperadas:**
 * El seguimiento de los ODS se articula bajo la figura jurídica de *soft law* (derecho no vinculante), lo que significa que no contempla sanciones internacionales por incumplimiento[7].
 * Esta falta de exigibilidad legal facilita que gobiernos y empresas apliquen una selección estratégica de metas (*cherry picking*) o realicen un cumplimiento puramente formal o cosmético[7].
@@ -136,10 +142,10 @@ Tienen en común los siguientes puntos fundamentales:
 * Enfocar la localización solo en regiones de altos ingresos sin mecanismos de financiamiento global equitativo ni reducción de la huella ecológica puede desviar fondos de cooperación y acentuar los desequilibrios internacionales
 -->
 
-<!-- !!! question "Relación entre los ODS y su importancia para la Agenda 2030"
+!!! question "Relación entre los ODS y su importancia para la Agenda 2030"
     1. ¿Identificar e integrar los aspectos ASG (Ambientales, Sociales y de Gobernanza) es una oportunidad estratégica real de innovación o corre el riesgo de convertirse en una herramienta de **greenwashing** (lavado verde)?
     1. En caso de conflicto de intereses, ¿debe la dirección de una organización priorizar los criterios ASG ambientales e intergeneracionales por encima de la rentabilidad económica a corto plazo exigida por los accionistas?
-    1. ¿Garantizan las nuevas normativas europeas sobre informes de sostenibilidad y diligencia debida (CSRD y CSDDD) una prevención efectiva de riesgos corporativos, o impondrán barreras inasumibles para el tejido empresarial? -->
+    1. ¿Garantizan las nuevas normativas europeas sobre informes de sostenibilidad y diligencia debida (CSRD y CSDDD) una prevención efectiva de riesgos corporativos, o impondrán barreras inasumibles para el tejido empresarial?
 
 <!--
 -1- 
@@ -149,7 +155,6 @@ Tienen en común los siguientes puntos fundamentales:
 * **Líneas de respuesta esperadas:**
 * **Oportunidad de innovación:** La integración de criterios ASG optimiza la eficiencia operativa, reduce riesgos en las cadenas de suministro globales y acelera la creación de productos y materiales sostenibles[35].
 * **Riesgo de** **greenwashing** **:** Muchas corporaciones emplean la retórica ambiental o sellos de certificación parciales como herramientas de marketing sin transformar verdaderamente sus modelos de negocio extractivistas
-
 -->
 
 <!--
@@ -161,7 +166,6 @@ Tienen en común los siguientes puntos fundamentales:
 * Los indicadores clásicos de desempeño económico (KPI enfocados en el retorno financiero a corto plazo para accionistas) entran frecuentemente en conflicto con los objetivos sociales y ecológicos[43][44].
 * Asumir el compromiso ASG implica cuestionar el paradigma que coloca la rentabilidad financiera en el centro de las organizaciones[44].
 * Propuestas económicas alternativas (como la Economía Social y Solidaria o la Economía del Bien Común) plantean internalizar los costes socioambientales y "poner la vida en el centro" para garantizar la sostenibilidad intergeneracional
-
 -->
 
 <!--
@@ -173,7 +177,6 @@ Tienen en común los siguientes puntos fundamentales:
 * **CSRD:** Introduce el principio de **doble materialidad**, exigiendo a las grandes empresas reportar tanto los riesgos que la sostenibilidad plantea para su negocio como los impactos que su actividad genera en el entorno[47].
 * **CSDDD:** Establece un marco vinculante para detectar, prevenir, mitigar y reparar efectos adversos en los derechos humanos y el medio ambiente a lo largo de toda la cadena de valor[48].
 * **Debilidades y retos:** Se señalan los dilatados plazos de implementación, la exclusión de pymes del ámbito directo de aplicación y el riesgo de que las grandes corporaciones trasladen la carga de gestión a los eslabones más débiles de la cadena[48][51].
-
 -->
 
 ---
