@@ -202,14 +202,14 @@ Se pueden crear AMI's desde:
         1. Amazon Elastic File System (Amazon EFS): Sistema de archivos compartido para instancias Linux en EC2.
 	    1. Amazon FSx: Familias de servicios optimizadas para sistemas de archivos especializados de terceros (como Windows File Server, Lustre o NetApp ONTAP).  
 
-### 2.4 Tarea RA2-CEb - Primer despliegue de una instancia
+### 2.4 Despliegue de una instancia Linux
 
-- Realizar el siguiente escenario.
-- De momento, no tener en cuenta los grupos de seguridad.  
+- En este apartado lanzaremos una instancia EC2 linux en el siguiente escenario.
+- De momento, no tendremos en cuenta los grupos de seguridad.  
 
 ![img](./ut5/práctica1.png){ .original }
 
-!!! question "Preguntas a responder"
+!!! question "Preguntas"
 
     1. Suponiendo que queremos usar la EC2 de la subred pública como servidor web (frontend), ¿Qué debemos hacer para ampliar la infraestructura e incorporar un servidor y una base de datos para el backend?
     2. Queremos, además, guardar imágenes, PDFs y vídeos para que los clientes puedan descargarlos.  
@@ -282,9 +282,11 @@ Una vez lanzada la instancia, podremos acceder a su panel de supervisión/config
 - **Instancias**
 ![img](./ut5/RA2CEb4.png){ .original .marco .margintop10 .marginbottom30}
 
-- **Resumen de las instancias**  
-**Nota:** Asegurarse de que tener un IPv4 pública. De lo contrario no será posible conectarse remotamente a la instancia.
-![img](./ut5/RA2CEb5.png){ .original .marco .margintop10 .marginbottom30}
+- **Resumen de las instancias**
+
+    !!! warning "Importante"
+        Asegurarse de que tener un IPv4 pública. De lo contrario no será posible conectarse remotamente a la instancia.
+        ![img](./ut5/RA2CEb5.png){ .original .marco .margintop10 .marginbottom30}
 
 #### 2.4.7 Conexión CLI remota SSH a la instancia (SO linux)
 
@@ -323,32 +325,427 @@ ssh -i labsuser.pem ec2-user@3.90.114.96
 
 - También es posible conectarse a la instancia desde el panel de control de AWS.
 ![img](./ut5/RA2CEb9.png){ .original .marco .margintop10 .marginbottom30}
+
+- Podremos elegir entre 4 tipo de conexiones. Por limitaciones de Roles y Permisos de LabRole, solo podremos usar la opción de conexión a subredes públicas con claves SSH administradas.
+![img](./ut5/img-5-1.png){ .original .marco .margintop10 .marginbottom30}
+
 - Una vez hecha la conexión podremos usar ese servicio virtualizado.
 ![img](./ut5/RA2CEb11.png){ .original .marco .margintop10 .marginbottom30}
 
-#### 2.4.9
+#### 2.4.9 Realizar ping a la instancia
 
-#### Hasta aquí
+- Si queremos realizar un ping a la instancia desde cualquier ordenador veremos que no es posible.  
+![img](./ut5/RA2CEb12.png){ .sietecinco .margintop10}
+
+!!! question "¿Por qué no es posible realizar un ping a la instancia?"
+
+- Para poder realizar el ping deberemos agregar reglas **al grupo de seguridad de la instancia**. En este caso añadiremos una regla de protocolo de mensajes de control de Internet **ICMP**.  
+![img](./ut5/RA2CEb13.png){ .original .marco .margintop10 .marginbottom20}
+
+- Después de agregar la regla ICMP sí que será posible realizar un ping a nuestra instancia.
+![img](./ut5/RA2CEb14.png){ .sietecinco .margintop10 .marginbottom20}
+
+- Los grupos de seguridad son una parte fundamental de la seguridad en la nube. Permiten controlar el tráfico entrante y saliente de las instancias EC2. Por ese motivo se deben conocer y configurar correctamente para garantizar la seguridad de los recursos desplegados en AWS.
+
+## 3 - Grupos de seguridad (SG) y listas de control de acceso (ACL)
+
+### 3.1 - Introducción
+
+- Los **grupos de seguridad** y las **ACL de red y de VPC** son componentes fundamentales de la **seguridad** en un entorno de nube.
+- Aunque funcionan de manera similar a los **firewalls**, no son exactamente lo mismo, ya que presentan diferencias en su **comportamiento (stateful / stateless)** y **alcance (nivel de instancia / nivel de subred)**.
+- Dentro del modelo de **nube pública**, el proveedor está obligado contractualmente a cumplir con su parte del modelo de **responsabilidad compartida**. Sin embargo, la configuración de los grupos de seguridad es **responsabilidad del cliente**.
+- Por defecto, al lanzar una instancia **EC2 en AWS**, la única regla permitida es la apertura del **puerto 22** para el **acceso SSH**. Es posible editar esa configuración durante el lanzamiento de la instancia, así como durante todo el ciclo de vida de la instancia.
+- Para garantizar el correcto despliegue de las aplicaciones, será necesario ampliar las reglas de los grupos de seguridad, asegurando siempre que estas configuraciones no comprometan la seguridad del entorno.
+
+### 3.2 Grupos de seguridad
+
+![img](./ut5/SG-0.png){ .sietecinco }
+
+#### 3.2.1 Definición y función de un grupo de seguridad
+
+!!! tip "¿Qué es un grupo de seguridad?"
+    !!! info "Un grupo de seguridad es **un conjunto de reglas de firewall virtual** que controlan el **tráfico entrante y saliente** de una instancia."  
+    !!! success "Tráfico entrante:"
+        - Las reglas de tráfico entrante deciden qué puede entrar a la instancia. Es decir, qué protocolo de red y qué IP o rango de IPs, podrán realizar conexiones entrantes a la instancia.
+    !!! success "Tráfico saliente:"
+        - Las reglas de tráfico saliente deciden qué puede salir a la instancia.
+    !!! warning "Importante"
+        - Las reglas de los grupos de seguridad deciden **qué tráfico se permite, quedando automaticamente el resto de tráfico prohibido**.  
+        - A diferencia de las ACL de red (que veremos más adelante), las reglas de los grupos de seguridad **no tienen orden de prioridad**. Todas se evalúan en conjunto y solo pueden permitir tráfico. **Si no existe una regla que lo permita, el tráfico se deniega por defecto**.  
+        - Los grupos de seguridad se aplican a **nivel de instancia**, no a **nivel de subred** (de esa función se encargan las **ACL de red**).
+    !!! warning "Reglas stateful"
+        - Los grupos de seguridad son por naturaleza **con estado** (*stateful*): las respuestas al tráfico permitido se aceptan automáticamente sin necesidad de una regla explícita en la dirección opuesta.  
+        - Esto **no significa que la entrada y la salida sean simétricas**, sino que **el tráfico de retorno** está permitido.
+
+    !!! example "Ejemplo"
+        - **Permitir** que todo el mundo (0.0.0.0/32) visite mi sitio web en el puerto 443 (HTTPS).  
+        - **Bloquear todo lo demás** (entre otros, rechazar conexiones HTTP sobre el puerto 80).
+
+!!! tip "Resumen de características de un grupo de seguridad"
+
+    1. Todo lo que no está **permitido explícitamente** está **prohibido**.
+    1. Configuración por defecto del SG:
+        - **Tráfico entrante:** Solo se aceptan conexiones SSH sobre el puerto 22 (TCP).
+        - **Tráfico saliente:** Todo está permitido. Es decir, la instancia puede conectarse a cualquier IP.
+    1. Los grupos de seguridad son por naturaleza **con estado** (*stateful*): las respuestas al tráfico permitido se **aceptan automáticamente** sin necesidad de una regla explícita en la dirección opuesta.  
+        
+        !!! example "Ejemplo"  
+            - Si **permitimos tráfico ICMP de salida**, la instancia podrá hacer `ping` a cualquier IP pública.  
+            - Las **respuestas ICMP** (eco reply), es decir tráfico de entrada, se permitirán automáticamente.  
+            - Si no tenemos una regla ICMP de **entrada**, **nadie podrá iniciar un ping hacia la instancia**.
+
+    1. **Las reglas de un SG no tienen orden de prioridad**.  
+        - Todas se evalúan **en conjunto** y solo pueden **permitir tráfico**. Si no existe una regla que lo permita, el tráfico se **deniega por defecto**.
+    1. Cada instancia **debe tener al menos** un grupo de seguridad.   
+    1. Cada instancia **puede tener hasta 5 grupos de seguridad**, lo que permite gestiones las reglas de una manera eficiente.
+    1. Varias instancias **pueden compartir** un mismo grupo de seguridad.   
+    1. Los grupos de seguridad **son específicos a una zona y VPC** es decir, **no se puede compartir entre instancias en VPC o regiones distintas**.
+
+#### 3.2.2 Configuración de las reglas de entrada y salida
+
+- Para que una instancia funcione correctamente **y esté segura**, es imprescindible definir **las reglas de entrada (inbound) y de salida (outbound) del grupo de seguridad (SG)**:  
+
+!!! success "Reglas de entrada:"  
+    - Controlan qué tráfico puede entrar a la instancia desde Internet u otras redes.  
+    - Por defecto las EC2 solo aceptan conexiones SSH.
+    ![img](./ut5/sg-1.png){.original .marco .margintop10}
+    !!! example "Modificar las reglas de seguridad de nuestra instancia de Linux"  
+        - **Permitir** el puerto 80 (HTTP) y 443 (HTTPS) para que una web sea accesible públicamente desde nuestra IP.  
+
+!!! success "Reglas de salida:"  
+    - Controlan qué tráfico puede salir desde la instancia **hacia otras redes o Internet**.  
+    - **Por defecto**, AWS permite todo el **tráfico de salida**.
+    ![img](./ut5/sg-2.png){.original .marco .margintop10}
+
+    !!! example "Modificar las reglas de seguridad de nuestra instancia de Linux"  
+        - **Restringir** el tráfico **ICMP** a nuestra IP.  
+
+!!! warning "Importante"
+    - **El destino** y el **origen** del tráfico puede ser un **CIDR** o **otro grupo de seguridad** (lo veremos más adelante).  
+    ![img](./ut5/sg-3.png){.original .marco .margintop10}
+
+- **Resumen:**
+
+    | Tipo de regla         | Qué tráfico puede iniciar una conexión        | Ejemplo                           |
+    | --------------------- | ---------------------------------------------------- | --------------------------------- |
+    | **Entrada (Inbound)** | Qué tráfico puede **iniciar** conexión **hacia** la instancia.  | Permitir SSH (22) desde determinadas IP's.     |
+    | **Salida (Outbound)** | **Hacia** qué destinos puede **iniciar** conexión la instancia. | Permitir HTTP (80) hacia Internet. |
+
+#### 3.2.3 - Ejemplo de SG
+
+- En el siguiente ejemplo tenemos una VPC, una subred con **una instancia EC2**, una puerta de enlace de Internet y **un grupo de seguridad**.  
+- Como hemos dicho **el grupo de seguridad se asigna a la instancia** y actúa como un firewall virtual.  
+- El único tráfico que llega a la instancia es el permitido por las reglas del grupo de seguridad.
+
+- **Infraestructura**
+![img](./ut5/SG.png){.original .marco .margintop10 .marginbottom30}  
+
+- **Configuración de las reglas de entrada de la instancia**
+    ![img](./ut5/sg-rules.png){.original .marco .margintop10}  
+
+### 3.3 Tarea RA2-CEb
+
+1. Retomar el escenario anterior.
+1. Ampliar el escenario con una segunda instancia que se encontrará en una subred privada.
+El escenario quedará de la siguiente manera:  
+![img](./ut5/VPC2.png){.sietecinco .margintop10 .marginbottom20}  
+
+1. Poblar las RT para que la instancia de la subred pública tenga acceso a internet y la instancia de la subred privada no.
+1. Poblar los grupos de seguridad de la siguiente manera:  
+
+     |Instancia|Subred|Grupo de Seguridad|Reglas de Entrada|Reglas de Salida|
+     |-|-|-|-|-|
+     |Web|Pública|SG-Web|80, 443 desde Internet;  22 desde IP admin|Todo permitido (o restringir a lo necesario)|
+     |DB|Privada|SG-DB|3306 desde SG-Web|Todo permitido (o restringir a lo necesario)|
+
+!!! warning "Entrega de la tarea"
+    - **Realizar capturas de pantalla de los momentos clave de la realización de la tarea**.
+    - Comentar las captura de pantalla explicando el trabajo realizado para llegar a ese punto y el resultado obtenido.
+    - Guardar el documento con RA2-CEb-NombreApellidos y subirlo a la tarea correspondiente de Aules.
+    - A partir de momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
+    - Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
+
+### 3.4 Listas de control de acceso (ACL) de red
+
+![img](./ut5/acl.jpg){ .cincozero }
+
+#### 3.4.1 Definición y función de una lista de control de acceso
+
+!!! tip "¿Qué es una lista de control de acceso ACL?"
+    !!! info "Las **Network ACL (NACL)** son un componente de seguridad que actúa a nivel de **subred** dentro de una **VPC**."
+        ![img](./ut5/nacl.png){.sietecinco .marco .margintop10 .marginbottom20}  
+
+    !!! success "Características de las NACL"
+        1. **Se aplican a nivel de subred**: Todas las instancias dentro de esa subred quedan sujetas a las reglas de la ACL.  
+        1. Cada **VPC** en AWS tiene **una ACL por defecto**, y se pueden crear ACLs personalizadas para afinar el control del tráfico.
+        1. **Son sin estado** (stateless): No recuerdan el estado de la conexión. Por ejemplo, si se permite el tráfico entrante en un puerto, **también se debe** permitir explícitamente el tráfico de salida de respuesta.
+        1. **Soportan reglas de entrada y salida**:    
+            - Reglas de entrada → Controlan tráfico **entrante a la subred**.
+            - Reglas de salida → Controlan tráfico **saliente desde la subred**.
+        1. **Orden numérico de las reglas**
+            - Cada regla tiene un número (del 1 al 32766).
+            - Se evalúan en **orden ascendente** → la primera regla que coincida se aplica, y se ignoran las siguientes.
+        1. **Acciones posibles**
+            - `ALLOW`: Permitir tráfico.
+            - `DENY`: Bloquear tráfico.
+        1. **ACL por defecto**  
+        !!! warning "¡Por defecto, todo está abierto en las NACL!"
+            - La **ACL por defecto** de una VPC permite todo el tráfico entrante y saliente.  
+            ![](./ut5/img-5-4.png){.original .marco .margintop10 .marginbottom20}          
+                  
+#### 3.4.2 Ejemplo de ACL
+
+- En el siguiente ejemplo, tenemos una VPC con dos subredes.  
+- Cada **subred tiene una ACL de red**. Cuando el tráfico entra en la VPC, el enrutador envía el tráfico a su destino.
+- La ACL de red A determina qué tráfico destinado a la subred 1 puede entrar en la subred 1, y qué tráfico destinado a una ubicación fuera de la subred 1 puede salir de la subred 1.  
+- Del mismo modo, la ACL de red B determina qué tráfico puede entrar y salir de la subred 2.
+![img](./ut5/acl.png){.original .marco .margintop10 .marginbottom20}  
+
+Si vamos a AWS y consultamos las ACL de cada red veremos que, como hemos dicho anteriormente, **todo el tráfico entrante y saliente está permitido por defecto**.
+![img](./ut5/acl1.png){.original .marco .margintop10}  
+
+### 3.5 Tabla comparativa entre SG y ACL
+
+| Característica | **Security Groups (SG)** | **Network ACLs (NACL)** |
+|:-| | |
+| **Naturaleza** | *Stateful* (tienen “efecto memoria”) | *Stateless* (no recuerdan conexiones) |
+| **Nivel de aplicación** | Asociados a **instancias EC2** (interfaz de red) | Asociados a **subredes**|
+| **Reglas de entrada y salida** | Reglas de entrada y salida se procesan **por separado**, pero las respuestas se permiten automáticamente | Se deben definir reglas para entrada **y** salida; si no, el tráfico será bloqueado                   |
+| **Orden de evaluación**        | No tienen orden; se procesan todas las reglas                                                            | Se procesan en orden ascendente por número de regla (más bajo = mayor prioridad)                      |
+| **Acciones**                   | Solo permiten **Allow** (permitir tráfico)                                                               | Admiten **Allow** y **Deny** (puedes denegar explícitamente)                                          |
+| **Predeterminado**             | Todo el tráfico está **denegado por defecto** (excepto lo que se permita explícitamente)                 | Todo el tráfico está **permitido por defecto** (excepto lo que se niegue explícitamente)              |
+| **Casos de uso típicos**       | Control fino del tráfico a instancias (ej. abrir 22/SSH o 443/HTTPS)                                     | Control global a nivel de subred, aplicar restricciones más amplias (ej. denegar rangos IP completos) |
+
+### 3.6 Tarea RA2-CEc
+
+1. Ampliar el escenario anterior para que quede de la siguiente manera:
+![img](./ut5/VPC2-2.png){.original .margintop10 .marginbottom20}
+
+1. Reflexionar sobre como impedir que las instancias de la subred privada no puedan establecer conexiones la una con la otra.
+1. Realizar las modificaciones necesarias a los SG y ACL para impedir dicho tráfico.
+1. `¡Bonus track!` Lanzar en la subred pública una instancia de `Windows Server 2025` y realizar una conexión por RDP a dicha instancia.
+
+!!! warning "Entrega de la tarea"
+    - **Realizar capturas de pantalla de los momentos clave de la realización de la tarea**.
+    - Comentar las captura de pantalla explicando el trabajo realizado para llegar a ese punto y el resultado obtenido.
+    - Guardar el documento con RA2-CEc-NombreApellidos y subirlo a la tarea correspondiente de Aules.
+    - A partir de momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
+    - Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
+
+## 4 - OFFTOPIC sobre Cloud9
+
+- Cloud 9 es un entorno de desarrollo integrado (IDE) basado en la nube que permite a los desarrolladores escribir, ejecutar y depurar código directamente desde un navegador web sin necesidad de instalar nada en el equipo local.  
+- Proporciona un entorno de desarrollo completo con soporte para múltiples lenguajes de programación, integración con servicios de AWS y colaboración en tiempo real.
+- Está completamente integrado con los servicios de AWS (como EC2, Lambda, S3 o CloudFormation) y propone una terminal Linux completa dentro del entorno, como si estuvieramos conectado por SSH a una instancia EC2.
+
+!!! tip "Creación de un entorno Cloud9"
+    - Buscamos y creamos el recurso dentro de la consola de AWS.
+    ![img](./ut5/RA2CEc21.png){.original .margintop10 .marginbottom20}  
+    - Rellenamos los campos necesarios. Es posible crear el recurso sobre una instancia ya existente pero, en esta caso, lanzaremos una instancia nueva.
+    ![img](./ut5/RA2CEc22.png){.original .margintop10 .marginbottom20}  
+    - Seleccionamos el tipo de instancia.
+    ![img](./ut5/RA2CEc23.png){.original .margintop10 .marginbottom20}
+    - Seleccionamos la VPC y la subred donde desplegaremos el servicio.
+    ![img](./ut5/RA2CEc24.png){.original .margintop10 .marginbottom20}
+    - Esperamos a que el servicio esté disponible y luego ya lo podremos usar.
+    ![img](./ut5/RA2CEc25.png){.original .margintop10 .marginbottom20}
+    - Ejemplo de ejecución de un programa de python.
+    ![img](./ut5/RA2CEc26.png){.original .margintop10 .marginbottom20}
+    - Intentamos conectarnos por ssh a cualquier otra instancia pero tampoco funciona.
+    ![img](./ut5/RA2CEc27.png){.original}  
+
+<!-- 1. **Conexión a la EC2 pública.**  
+    - **Conexión a la EC2 pública mediante interfaz de AWS**
+    ![](./ut5/RA2CEc3.png){.original} <br> 
+    Luego:  
+    ![](./ut5/RA2CEc4.png){.original}  <br>
+    Desde esa conexión podremos hacer ping a las EC2 de la subred privada.
+    ![](./ut5/RA2CEc5.png){.cincozero}  <br>
+  
+    - **Conexión a la EC2 pública mediante SSH**
+    Como ya hemos visto, en linux usaremos el comando:  
+    ```bash 
+    ssh -i <CLAVE_PRIVADA> <NOMBRE_DE_USUARIO>@<IP_DE_LA_INSTANCIA>
+    ```
+    ![](./ut5/RA2CEc6.png){.cincozero}  <br>
+
+    - **Conexión a la EC2 pública mediante AWS CLI y EC2 Instance Connect **  
+    Para ello usaremos el comando de aws:  
+    ```bash 
+    aws ec2-instance-connect ssh --instance-id <ID_DE_LA_INSTANCIA> --os-user <NOMBRE_DE_USUARIO>
+    ```
+![](./ut5/RA2CEc7.png){.sietecinco}  <br>
+
+1. **Conexión a las EC2 privadas.**  
+    - **Mediante interfaz de AWS**
+    El procedimiento es identico al anterior pero, al no disponer de **IP pública** haremos la conexión a través de un punto de conexión.<br>  
+    **Nota importante:**
+    Para crear el punto de conexión, se recomienda usar el mismo grupo de seguridad que el de la instancia a la que queremos acceder.   
+    ![](./ut5/RA2CEc8.png){.sietecinco}  <br>
+    Luego
+    ![](./ut5/RA2CEc9.png){.sietecinco}
+    ![](./ut5/RA2CEc10.png){.sietecinco}  <br>
+    Esperamos a que esté disponible... Puede tardar varios minutos.
+    ![](./ut5/RA2CEc11.png){.sietecinco}  <br>
+    Una vez disponible, lo seleccionamos y seguimos con la conexión.
+    ![](./ut5/RA2CEc12.png){.sietecinco}  <br>
+    Intentaremos conectarnos pero no podremos hacerlo.
+    ![](./ut5/RA2CEc14.png){.sietecinco}  <br>
+
+    
+    - **Conexión mediante AWS CLI y EC2 Instance Connect EndPoint**  
+    Para ello usaremos el comando de aws:  
+    ```bash
+    aws ec2-instance-connect ssh --instance-id i-1234567890example --connection-type eice
+    ```
+    Que nos devolverá el siguiente error:
+    ![](./ut5/RA2CEc13.png){.sietecinco}  <br>
+    Ese error se debe a las limitaciones de los permisos del usuario **labrole** dentro del recurso IAM (Identity and Access Management).
+    Si vamos a **IAM → Panel**, veremos que nuestra cuenta tiene 24 roles asignados...
+    ![](./ut5/RA2CEc15.png){.sietecinco}  <br>
+    ...Dentro de los cuales encontraremos el LabRole.
+    ![](./ut5/RA2CEc16.png){.sietecinco}  <br>
+    Dentro de LabRole encontraremos la política de permisos de ese rol. De disponer de las credenciales necesarias, podriamos agregar más roles a nuestro usuario (y apmpliar o reducir la política de permisos). Con el rol asignado por el **learner lab** no es posible hacerlo.
+    ![](./ut5/RA2CEc17.png){.sietecinco}  <br> -->
+
+    - **Conexión mediante instancia bastión**  
+    En este caso, utilizaremos la instancia pública a la que tenemos acceso como una instancia bastión. Es decir, primero nos conectaremos a ella y, desde allí, estableceremos una conexión SSH hacia las instancias ubicadas en la subred privada.
+    Para poder conectarnos por SSH a la EC2 de la subred privada, necesitaremos trasladar el archivo de la clave privada a la EC2 pública.  
+    Mover nuestra clave privada no se considera una buena práctica desde el punto de vista de la seguridad informática, pero nos permitirá familiarizarnos con nuevas funcionalidades de AWS.
+
+        - **Opción 1: Mover archivo con scp**  
+        En este caso usaremos el comando `scp` (Secure CoPy) para enviar el archivo *.pem desde la máquina local a la instancia EC2 pública.<br>  
+        En linux usaremos el comando:  
+        ```bash
+        scp -i <ARCHIVO_PEM> <ARCHIVO_A_TRANSFERIR> <NOMBRE_DE_USUARIO>@<IP_DE_LA_INSTANCIA>:<RUTA_ARCHIVO_DESTINO>
+        ```  
+        Donde -i especifica la clave privada.<br>
+        ![](./ut5/RA2CEc19.png){.original}<br>  
+        A partir de entonces, ya tendremos disponible dentro de nuestra EC2 pública la clave privada para conectarnos a las EC2 privadas.
+        
+        ![](./ut5/RA2CEc20.png){.original}  <br>
+
+          
+## **4 - NAT gateway**
+- NAT gateway es un servicio de traducción de direcciones de red (NAT) que permite a las instancias de una subred privada tener acceso a Internet o a otros servicios de AWS, **sin exponer** sus IP privadas.
+- Este servicio resulta particularmente útil por necesidad de los servicios de las EC2 de la subred privada (p.e. actualización de software) a la vez que impide que servicios externos inicien una conexión con esas instancias.
+
+### **4.1 - Características de un NAT Gateway de AWS**
+1. Solo existe un tipo de NAT Gateway, pero puede actuar como:  
+
+    - NAT Gateway público: cuando está en una subred pública y tiene asociada una Elastic IP (EIP).
+    - NAT Gateway privado: cuando está en una subred privada y se usa para enrutar tráfico hacia otra VPC o VPN, sin acceso a Internet.  
+
+1. Debe crearse en una zona de disponibilidad específica (AZ).
+1. Soporta los protocolos: TCP, UDP y ICMP.
+1. No se le puede asociar un grupo de seguridad (Security Group); en su lugar, se controlan los accesos mediante las Listas de Control de Acceso (ACLs) de red.
 
 
-#### 2.4.9 Realizar Ping a la instancia
+### **4.2 - Tipos de despliegue** 
+- **NAT Gateway público**  
+!!! info "" 
+    Se ubica en una subred pública.  
+    Se le asigna una Elastic IP.
+    Permite que las instancias en una subred privada puedan acceder a Internet. 
+    No permite que el tráfico desde Internet inicie conexiones hacia las instancias privadas.
 
-Si queremos realizar un ping a la instancia desde cualquier ordenador veremos que no es posible.
+- **NAT Gateway privado**
+!!! info ""
+    Se ubica en una subred privada pero se usa en conjunto con un Transit Gateway o una VPN/Direct Connect.
+    No tiene Elastic IP.
+    Sirve para enrutamiento privado: Las instancias en una subred privada pueden comunicarse con otras redes (VPCs, etc.) y ocultan sus direcciones privadas detrás de una IP en el lado del NAT.
 
-![](./ut5/RA2CEb12.png){ .cincozero }
+- **Resumen comparativo:**
+!!! info ""
+    | **Característica**        | **NAT Gateway Público**                                                        | **NAT Gateway Privado**                                 |
+    | ------------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------- |
+    | **Ubicación**             | Subred pública                                                                 | Subred privada                                          |
+    | **Elastic IP**            | Requiere una Elastic IP                            | No necesita Elastic IP           |
+    | **Acceso a Internet**     | Permite que las instancias privadas accedan a Internet                         | No tiene acceso directo a Internet                      |
+    | **Rutas (Route Table)**   | Las subredes privadas deben tener una ruta hacia el NAT Gateway                | Se usa para enrutar tráfico hacia otra VPC o VPN        |
+    | **Uso típico**            | Salida a Internet desde instancias privadas (actualizaciones, descargas, etc.) | Comunicación privada entre redes sin exposición pública |
+    | **Seguridad**             | No admite SG's, solo ACL de red                | No admite SG, solo ACL de red           |
+    | **Alta disponibilidad**   | Se debe desplegar **uno por zona de disponibilidad (AZ)**     | Uno por AZ si se requiere redundancia            |
+    | **Protocolos soportados** | TCP, UDP, ICMP                                            | TCP, UDP, ICMP                  |
+
+### **4.3 - Tarea RA2-CEd**
+Para realizar la tarea retomaremos el escenario de la **Tarea RA2-CEc**, y pondremos un NAT gateway público para que las instancias de la subred privada puedan acceder a internet.
+
+![](./ut5/VPC2-nat.png){.sietecinco}  
+
+Este esquema tiene un error de concepto aunque siempre se representa de esa manera ¿Cuál?
+
+### **4.3.1 - Crear el NAT Gateway**
+Vamos al menú de NAT Gateway y creamos nuestro NAT Gateway.  
+Si no tenemos ninguna IP elástica, dejaremos que AWS le asigne una. 
+
+![](./ut5/RA2CEc1.png){.original .marco}  
+
+### **4.3.2 - Modificar la tabla de enrutamiento**
+Enlazamos todo el tráfico hacia internet de la tabla de enrutamiento de la subred privada hacia el NAT Gateway
+
+![](./ut5/RA2CEc2.png){.original .marco}  
+
+### **4.3.3 - Conexión a la EC2 de la subred privada**
+Al carecer, la EC2 de la subred privada de IP pública, para poder conectarnos a ella, primero deberemos conectarnos a la EC2 de la subred pública, y luego, desde ella, conectarnos a la EC2 de la subred privada. 
+
+!!! info "Preparación de las variables de entorno"
+Antes de conectar por SSH a una instancia, es recomendable preparar el entorno de autenticación cargando la clave privada en el agente SSH.
+
+1. Ejecutar ssh-agent en segundo plano
+```bash
+eval $(ssh-agent)
+```
+
+1. Cargar en memoria la clave privada de la instancia
+```bash
+ssh-add labsuser.pem
+```
+
+1. Comprobar las claves añadidas al agente ssh
+```bash
+ssh-add -l 
+```
+
+!!! tip "¿Por qué usar ssh-agent?"
+    El agente SSH permite mantener las claves privadas cargadas en memoria durante la sesión.  
+    **Ventajas:**  
+    - Evita tener que escribir la ruta o la contraseña de la clave en cada conexión.  
+    - Mejora la seguridad, ya que la clave no se guarda en texto plano ni se reenvía en cada conexión.  
+    - Facilita la autenticación si se conectan varias veces a la misma instancia o a distintos servidores dentro del mismo entorno.
+
+<br>
+!!! info "Conexión a la instancia EC2 mediante SSH"
+Una vez configurado el agente SSH y cargada la clave privada, nos conectaremos a la instancia EC2 de la subred pública.
+
+```bash
+ssh -A ec2-user@dirección-ip-pública
+```
+**Nota:**  
+Con la **opción -A**, las claves se mantienen en memoria.  
+Ya no es necesario utilizar la **opción -i** para especificar la clave privada que se usará.
+
+<br>
+!!! info "Conexión a la instancia EC2 de la subred privada"
+Una vez conectados a la instancia pública, desde ella nos conectaremos a la instancia de la subred privada.  
+```bash
+ssh ec2-user@direccion-ip-privada
+```
 <br>
 
-Para poder realizar el ping deberemos agregar reglas **al grupo de seguridad de la instancia**. En este caso añadiremos una regla de protocolo de mensajes de control de Internet **ICMP**.  
+### **4.3.4 - Condiciones de entrega de la tarea RA2-CEd**
+!!! task "Tarea RA2-CEd: Pruebas de ping"
+    **Comprobar:**  
+    Realizar una prueba de ping de las 2 instancias hacia internet (p.e google.es).  
+    Realizar capturas (3 capturas en total).
 
-![](./ut5/RA2CEb13.png){ .original .marco }
-<br>
 
-Después de agregar la regla ICMP sí que será posible realizar un ping a nuestra instancia.   
+<br>           
 
-![](./ut5/RA2CEb14.png){ .cincozero }
-<br>
 
-#### **2.4.10 - Modificar el tamaño de un EBS**
+
+## 5 - Gestión de los EBS asociados a las instancias
+
 Aunque en la consola de EC2 podamos gestionar los volúmenes EBS asociados a nuestras instancias, EC2 y EBS son **servicios independientes** dentro de AWS.
 
 1. **Modificar volumen**
@@ -510,404 +907,10 @@ Toda la información [aquí](https://docs.aws.amazon.com/es_es/ebs/latest/usergu
     - Realizar capturas de pantalla con el tamaño del EBS de la instancia modificado. 
     - Realizar capturas de pantalla con el nuevo EBS asociado a la instancia. 
     - Comentar brevemente cada captura para entender a qué corresponde y subir el documento a la tarea correspondiente de AULES.
-## **3 - Grupos de seguridad (SG) y listas de control de acceso (ACL)**
+### 2.5 Tarea RA2-CEb - Primer despliegue de una instancia
 
 
-### **3.1 - Introducción**
-Los **grupos de seguridad** y las **ACL de red y de VPC** son componentes fundamentales de la **seguridad** en un entorno de nube. Aunque funcionan de manera similar a los **firewalls**, no son exactamente lo mismo, ya que presentan diferencias en su uso y alcance.
 
-Dentro del modelo de **nube pública**, el proveedor está obligado contractualmente a cumplir con su parte del modelo de **responsabilidad compartida**. Sin embargo, la configuración de los grupos de seguridad es **responsabilidad del cliente**.
-
-Por defecto, al lanzar una instancia **EC2 en AWS**, la única regla permitida es la apertura del **puerto 22** para el **acceso SSH**.
-
-Para garantizar el correcto despliegue de las aplicaciones, será necesario ampliar las reglas de los grupos de seguridad, asegurando siempre que estas configuraciones no comprometan la seguridad del entorno.
-
-### **3.2 - Grupos de seguridad**
-![](./ut5/SG-0.png){ .sietecinco }
-    <br>
-!!! tip "¿Qué es un grupo de seguridad?"
-
-Un grupo de seguridad es **un conjunto de reglas de firewall virtual** que controlan el **tráfico entrante y saliente** de una **instancia**.  
-- **Tráfico entrante:** Qué puede entrar a la instancia.  
-- **Tráfico saliente:** Qué puede salir de la instancia.
-
->**Ejemplo:**   
->- **Permitir** que todo el mundo (0.0.0.0/32) visite mi sitio web en el puerto 443 (HTTPS).  
->- **Bloquear todo lo demás** (entre otros, rechazar conexiones HTTP sobre el puerto 80).
-
-Los grupos de seguridad se aplican a **nivel de instancia**, no a **nivel de subred** (de esa función se encargan las **ACL de red**).
-<br>
-
-!!! tip "Características de un grupo de seguridad"
-
-1. Todo lo que no está **permitido explícitamente** está **prohibido**.
-1. Configuración por defecto del SG:
-    - **Tráfico entrante:** Solo se aceptan conexiones SSH sobre el puerto 22 (TCP).
-    - **Tráfico saliente:** Todo está permitido. Es decir, la instancia puede conectarse a cualquier IP.
-1. Los grupos de seguridad son por naturaleza **con estado** (*stateful*):  
-   las respuestas al tráfico permitido se **aceptan automáticamente** sin necesidad de una regla explícita en la dirección opuesta.  
-   No obstante, esto **no significa que la entrada y la salida sean simétricas**, sino que **el tráfico de retorno** está permitido.
-   > **Ejemplo:**  
-   > - Si **permites tráfico ICMP de salida**, la instancia podrá hacer `ping` a cualquier IP pública.  
-   > - Las **respuestas ICMP** (eco reply) se permitirán automáticamente.  
-   > - Pero si no tienes una regla ICMP de **entrada**, **nadie podrá iniciar un ping hacia la instancia**.
-
-1. **Las reglas de un SG no tienen orden de prioridad**.  
-   Todas se evalúan **en conjunto** y solo pueden **permitir tráfico**.  
-   Si no existe una regla que lo permita, el tráfico se **deniega por defecto**.
-1. Una instancia **debe tener** un grupo de seguridad.   
-1. Varias instancias **pueden compartir** un mismo grupo de seguridad.   
-1. Los grupos de seguridad **son específicos a una zona y VPC**.
-
-
-!!! tip "Configuración de las reglas de entrada y salida."
-
-Para que una instancia funcione correctamente **y esté segura**, es imprescindible definir **las reglas de entrada (inbound) y de salida (outbound) del grupo de seguridad (SG)**:  
-
-- **Reglas de entrada:**  
-Controlan qué tráfico puede entrar a la instancia desde Internet u otras redes.  
-Por defecto las EC2 solo aceptan conexiones SSH. 
-
-    ![](./ut5/sg-1.png){.original .marco}
-<br>
-
-    >**Ejemplo:**  
-        &nbsp;&nbsp;&nbsp;&nbsp;**Permitir** el puerto 80 (HTTP) o 443 (HTTPS) para que una web sea accesible públicamente.  
-        &nbsp;&nbsp;&nbsp;&nbsp;**Restringir** todo lo que no sea necesario: Todo lo que no está **permitido explicitamente** está  prohibido.  
-
-<br>
-
-- **Reglas de salida:**  
-Controlan qué tráfico puede salir desde la instancia **hacia otras redes o Internet**.  
-**Por defecto**, AWS permite todo el **tráfico de salida**.
-
-    ![](./ut5/sg-2.png){.original .marco}
-<br>
-
-- **El destino** y el **origen** del tráfico puede ser un **CIDR** o **otro grupo de seguridad** (lo veremos más adelante).  
-    ![](./ut5/sg-3.png){.original .marco}
-<br>
-
-- **Resumen:**
-
-    | Tipo de regla         | Qué tráfico puede iniciar una conexión        | Ejemplo                           |
-    | --------------------- | ---------------------------------------------------- | --------------------------------- |
-    | **Entrada (Inbound)** | Qué tráfico puede **iniciar** conexión **hacia** la instancia.  | Permitir SSH (22) desde determinadas IP's.     |
-    | **Salida (Outbound)** | **Hacia** qué destinos puede **iniciar** conexión la instancia. | Permitir HTTP (80) hacia Internet. |
-
-
-
-### **3.3 - Ejemplo de SG**  
-En el siguiente ejemplo tenemos una VPC, una subred con **una instancia EC2**, una puerta de enlace de Internet y **un grupo de seguridad**.  
-Como hemos dicho **el grupo de seguridad se asigna a la instancia** y actúa como un firewall virtual.  
-El único tráfico que llega a la instancia es el permitido por las reglas del grupo de seguridad. 
-
-- **Infraestructura**
-![](./ut5/SG.png){.original}  
-<br>
-
-- **Configuración de las reglas de entrada de la instancia** 
-
-    ![](./ut5/sg-rules.png){.original .marco}  
-
-### **3.4 - Tarea RA2-CEc (parte 1)**  
-1. Retomar el escenario de la tarea RA2-CEb. 
-1. Ampliar el escenario con una segunda instancia que se encontrará en una subred privada.
-El escenario quedará de la siguiente manera:
-![](./ut5/VPC2.png){.sietecinco}  
-
-1. Poblar las RT para que las instancias de las subredes solo se puedan comunicar **la una con la otra y no con toda la VPC**.  
-1. Poblar los grupos de seguridad de la siguiente manera:  
-
-     |Instancia	|Subred	|Grupo de Seguridad	|Reglas de Entrada|	Reglas de Salida|
-     |-|-|-|-|-|
-     |Web|	Pública	|SG-Web|	80, 443 desde Internet;  22 desde IP admin	|Todo permitido (o restringir a lo necesario)|
-     |DB	|Privada|	SG-DB|	3306 desde SG-Web	|Todo permitido (o restringir a lo necesario)|
-
-### **3.5 - ACL de red**
-![](./ut5/acl.jpg){ .doscinco }
-    <br>
-
-!!! tip "¿Qué es una lista de control de acceso ACL?"
-Las **Network ACL (NACL)** son un componente de seguridad que actúa a nivel de **subred** dentro de una **VPC**.
-
-<br>
-![](./ut5/nacl.png){.sietecinco}  
-
-!!! tip "Características de las NACL"
-1. **Se aplican a nivel de subred**: Todas las instancias dentro de esa subred quedan sujetas a las reglas de la ACL.  
-1. Cada **VPC** en AWS tiene **una ACL por defecto**, y se pueden crear ACLs personalizadas para afinar el control del tráfico.
-1. **Son sin estado** (stateless): No recuerdan el estado de la conexión. Por ejemplo, si se permite el tráfico entrante en un puerto, **también se debe** permitir explícitamente el tráfico de salida de respuesta.
-1. **Soportan reglas de entrada y salida**:    
-      * Reglas de entrada → Controlan tráfico **entrante a la subred**.
-      * Reglas de salida → Controlan tráfico **saliente desde la subred**.
-1. **Orden numérico de las reglas**
-      * Cada regla tiene un número (del 1 al 32766).
-      * Se evalúan en **orden ascendente** → la primera regla que coincida se aplica, y se ignoran las siguientes.
-1. **Acciones posibles**
-      * `ALLOW`: Permitir tráfico.
-      * `DENY`: Bloquear tráfico.
-1. **ACL por defecto**  
-
-    !!! warning "¡Por defecto, todo está abierto en las NACL!"
-        * La **NACL por defecto** de una VPC permite todo el tráfico entrante y saliente.
-        * Las **ACL personalizadas** niegan todo el tráfico hasta que se configuren reglas.
-        
-
-**Ejemplo de ACL**  
-En el siguiente ejemplo, tenemos una VPC con dos subredes.  
-Cada **subred tiene una ACL de red**. Cuando el tráfico entra en la VPC, el enrutador envía el tráfico a su destino.    
-La ACL de red A determina qué tráfico destinado a la subred 1 puede entrar en la subred 1, y qué tráfico destinado a una ubicación fuera de la subred 1 puede salir de la subred 1.  
-Del mismo modo, la ACL de red B determina qué tráfico puede entrar y salir de la subred 2.
-![](./ut5/acl.png){.original}  
-
-Si vamos a AWS y consultamos las ACL de cada red veremos que, como hemos dicho anteriormente, **todo el tráfico entrante y saliente está permitido por defecto**.
-
-![](./ut5/acl1.png){.original}  
-
-
-<br>
-
-### **3.7 - Tabla comparativa entre SG y ACL**
-| Característica                 | **Security Groups (SG)**                                                                                 | **Network ACLs (NACL)**                                                                               |
-| ------------------------------ | -------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| **Naturaleza**                 | *Stateful* (tienen “efecto memoria”)                                                                     | *Stateless* (no recuerdan conexiones)                                                                 |
-| **Nivel de aplicación**        | Asociados a **instancias EC2** (interfaz de red)                                                         | Asociados a **subredes**                                                                              |
-| **Reglas de entrada y salida** | Reglas de entrada y salida se procesan **por separado**, pero las respuestas se permiten automáticamente | Se deben definir reglas para entrada **y** salida; si no, el tráfico será bloqueado                   |
-| **Orden de evaluación**        | No tienen orden; se procesan todas las reglas                                                            | Se procesan en orden ascendente por número de regla (más bajo = mayor prioridad)                      |
-| **Acciones**                   | Solo permiten **Allow** (permitir tráfico)                                                               | Admiten **Allow** y **Deny** (puedes denegar explícitamente)                                          |
-| **Predeterminado**             | Todo el tráfico está **denegado por defecto** (excepto lo que se permita explícitamente)                 | Todo el tráfico está **permitido por defecto** (excepto lo que se niegue explícitamente)              |
-| **Casos de uso típicos**       | Control fino del tráfico a instancias (ej. abrir 22/SSH o 443/HTTPS)                                     | Control global a nivel de subred, aplicar restricciones más amplias (ej. denegar rangos IP completos) |
-
-### **3.8 - Tarea RA2-CEc (parte 2)**
-1. Ampliar el escenario para que quede de la siguiente manera:
-![](./ut5/VPC2-2.png){.sietecinco}
-1. Reflexionar sobre como impedir que las instancias de la subred privada no puedan establecer conexiones la una con la otra.
-1. Realizar las modificaciones necesarias a los SG y ACL para impedir dicho tráfico.
-1. Realizar capturas de pantallas de los SG ACL y mapa de recursos de la VPC y subirlas a la tarea **RA2-CEc** de AULES.
-
-### **3.9 - Tarea RA2-CEc (parte 3)**
-**Formas de conectarse a las instancias (públicas y privadas).**  
-
-1. **Conexión a la EC2 pública.**  
-    - **Conexión a la EC2 pública mediante interfaz de AWS**
-    ![](./ut5/RA2CEc3.png){.original} <br> 
-    Luego:  
-    ![](./ut5/RA2CEc4.png){.original}  <br>
-    Desde esa conexión podremos hacer ping a las EC2 de la subred privada.
-    ![](./ut5/RA2CEc5.png){.cincozero}  <br>
-  
-    - **Conexión a la EC2 pública mediante SSH**
-    Como ya hemos visto, en linux usaremos el comando:  
-    ```bash 
-    ssh -i <CLAVE_PRIVADA> <NOMBRE_DE_USUARIO>@<IP_DE_LA_INSTANCIA>
-    ```
-    ![](./ut5/RA2CEc6.png){.cincozero}  <br>
-
-    - **Conexión a la EC2 pública mediante AWS CLI y EC2 Instance Connect **  
-    Para ello usaremos el comando de aws:  
-    ```bash 
-    aws ec2-instance-connect ssh --instance-id <ID_DE_LA_INSTANCIA> --os-user <NOMBRE_DE_USUARIO>
-    ```
-![](./ut5/RA2CEc7.png){.sietecinco}  <br>
-
-
-1. **Conexión a las EC2 privadas.**  
-    - **Mediante interfaz de AWS**
-    El procedimiento es identico al anterior pero, al no disponer de **IP pública** haremos la conexión a través de un punto de conexión.<br>  
-    **Nota importante:**
-    Para crear el punto de conexión, se recomienda usar el mismo grupo de seguridad que el de la instancia a la que queremos acceder.   
-    ![](./ut5/RA2CEc8.png){.sietecinco}  <br>
-    Luego
-    ![](./ut5/RA2CEc9.png){.sietecinco}
-    ![](./ut5/RA2CEc10.png){.sietecinco}  <br>
-    Esperamos a que esté disponible... Puede tardar varios minutos.
-    ![](./ut5/RA2CEc11.png){.sietecinco}  <br>
-    Una vez disponible, lo seleccionamos y seguimos con la conexión.
-    ![](./ut5/RA2CEc12.png){.sietecinco}  <br>
-    Intentaremos conectarnos pero no podremos hacerlo.
-    ![](./ut5/RA2CEc14.png){.sietecinco}  <br>
-
-    
-    - **Conexión mediante AWS CLI y EC2 Instance Connect EndPoint**  
-    Para ello usaremos el comando de aws:  
-    ```bash
-    aws ec2-instance-connect ssh --instance-id i-1234567890example --connection-type eice
-    ```
-    Que nos devolverá el siguiente error:
-    ![](./ut5/RA2CEc13.png){.sietecinco}  <br>
-    Ese error se debe a las limitaciones de los permisos del usuario **labrole** dentro del recurso IAM (Identity and Access Management).
-    Si vamos a **IAM → Panel**, veremos que nuestra cuenta tiene 24 roles asignados...
-    ![](./ut5/RA2CEc15.png){.sietecinco}  <br>
-    ...Dentro de los cuales encontraremos el LabRole.
-    ![](./ut5/RA2CEc16.png){.sietecinco}  <br>
-    Dentro de LabRole encontraremos la política de permisos de ese rol. De disponer de las credenciales necesarias, podriamos agregar más roles a nuestro usuario (y apmpliar o reducir la política de permisos). Con el rol asignado por el **learner lab** no es posible hacerlo.
-    ![](./ut5/RA2CEc17.png){.sietecinco}  <br>
-
-    - **Conexión mediante instancia bastión**  
-    En este caso, utilizaremos la instancia pública a la que tenemos acceso como una instancia bastión. Es decir, primero nos conectaremos a ella y, desde allí, estableceremos una conexión SSH hacia las instancias ubicadas en la subred privada.
-    Para poder conectarnos por SSH a la EC2 de la subred privada, necesitaremos trasladar el archivo de la clave privada a la EC2 pública.  
-    Mover nuestra clave privada no se considera una buena práctica desde el punto de vista de la seguridad informática, pero nos permitirá familiarizarnos con nuevas funcionalidades de AWS.
-
-        - **Opción 1: Mover archivo con scp**  
-        En este caso usaremos el comando `scp` (Secure CoPy) para enviar el archivo *.pem desde la máquina local a la instancia EC2 pública.<br>  
-        En linux usaremos el comando:  
-        ```bash
-        scp -i <ARCHIVO_PEM> <ARCHIVO_A_TRANSFERIR> <NOMBRE_DE_USUARIO>@<IP_DE_LA_INSTANCIA>:<RUTA_ARCHIVO_DESTINO>
-        ```  
-        Donde -i especifica la clave privada.<br>
-        ![](./ut5/RA2CEc19.png){.original}<br>  
-        A partir de entonces, ya tendremos disponible dentro de nuestra EC2 pública la clave privada para conectarnos a las EC2 privadas.
-        
-        ![](./ut5/RA2CEc20.png){.original}  <br>
-
-        - **Opción 2: Mover archivo.pem con Cloud9**  
-        Cloud9 es un entorno de desarrollo integrado (IDE) basado en la nube que permite escribir, ejecutar y depurar código directamente desde el navegador web, sin necesidad de instalar nada en el equipo local.  
-        Está completamente integrado con los servicios de AWS (como EC2, Lambda, S3 o CloudFormation) y propone una terminal Linux completa dentro del entorno, como si estuvieramos conectado por SSH a una instancia EC2.
-
-            !!! warning "Nota importante:"
-                Cloud9 no es un servicio para mover archivos. Es un IDE para compartir, ejecutar y depurar código sin necesidad de tener ningún programa instalado en nuestro ordenador local.  
-                Lo usaremos como excusa para descubrir sus funcionalidades y por la facilidad que incorpora a la hora de subir y descargar archivos.
-
-            **Creamos el entorno.**
-            ![](./ut5/RA2CEc21.png){.original}  <br>
-            Rellenamos los campos necesarios.
-            ![](./ut5/RA2CEc22.png){.original}  <br>
-            ![](./ut5/RA2CEc23.png){.original}  <br>
-            ![](./ut5/RA2CEc24.png){.original}  <br>
-            Esperamos a que el servicio esté disponible y luego ya lo podremos usar.
-            ![](./ut5/RA2CEc25.png){.original}  <br>
-            Ejemplo de ejecución de un programa de python.
-            ![](./ut5/RA2CEc26.png){.original}  <br>
-            Intentamos conectarnos por ssh a cualquier otra instancia pero tampoco funciona.
-            ![](./ut5/RA2CEc27.png){.original}  <br>
-
-
-### **3.10 - Condiciones de entrega de la tarea RA2-CEc**
-Mediante conexiones a las diferentes instancias, comprobar (mediantes ping) que las configuraciones de los grupos de seguridad y de las listas de control de acceso a las subredes (NACL) cumplen (o no) con los objetivos propuestos (instancias de la subred privada aisladas).  
-
-!!! warning "Condiciones de la entrega" 
-    1. Realizar capturas de pantallas de los pings entre instancias de la subred privada.  
-    1. Realizar capturas de pantallas de los pings entre instancias de la subred privada y la instancia de la subred pública.
-    1. Comentar brevemente cada captura para entender a qué corresponde.
-    1. ¿Qué conclusión podemos sacar?  
-    1. Subir el documento a la tarea correspondiente de AULES.
-
-## **4 - NAT gateway**
-- NAT gateway es un servicio de traducción de direcciones de red (NAT) que permite a las instancias de una subred privada tener acceso a Internet o a otros servicios de AWS, **sin exponer** sus IP privadas.
-- Este servicio resulta particularmente útil por necesidad de los servicios de las EC2 de la subred privada (p.e. actualización de software) a la vez que impide que servicios externos inicien una conexión con esas instancias.
-
-### **4.1 - Características de un NAT Gateway de AWS**
-1. Solo existe un tipo de NAT Gateway, pero puede actuar como:  
-
-    - NAT Gateway público: cuando está en una subred pública y tiene asociada una Elastic IP (EIP).
-    - NAT Gateway privado: cuando está en una subred privada y se usa para enrutar tráfico hacia otra VPC o VPN, sin acceso a Internet.  
-
-1. Debe crearse en una zona de disponibilidad específica (AZ).
-1. Soporta los protocolos: TCP, UDP y ICMP.
-1. No se le puede asociar un grupo de seguridad (Security Group); en su lugar, se controlan los accesos mediante las Listas de Control de Acceso (ACLs) de red.
-
-
-### **4.2 - Tipos de despliegue** 
-- **NAT Gateway público**  
-!!! info "" 
-    Se ubica en una subred pública.  
-    Se le asigna una Elastic IP.
-    Permite que las instancias en una subred privada puedan acceder a Internet. 
-    No permite que el tráfico desde Internet inicie conexiones hacia las instancias privadas.
-
-- **NAT Gateway privado**
-!!! info ""
-    Se ubica en una subred privada pero se usa en conjunto con un Transit Gateway o una VPN/Direct Connect.
-    No tiene Elastic IP.
-    Sirve para enrutamiento privado: Las instancias en una subred privada pueden comunicarse con otras redes (VPCs, etc.) y ocultan sus direcciones privadas detrás de una IP en el lado del NAT.
-
-- **Resumen comparativo:**
-!!! info ""
-    | **Característica**        | **NAT Gateway Público**                                                        | **NAT Gateway Privado**                                 |
-    | ------------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------- |
-    | **Ubicación**             | Subred pública                                                                 | Subred privada                                          |
-    | **Elastic IP**            | Requiere una Elastic IP                            | No necesita Elastic IP           |
-    | **Acceso a Internet**     | Permite que las instancias privadas accedan a Internet                         | No tiene acceso directo a Internet                      |
-    | **Rutas (Route Table)**   | Las subredes privadas deben tener una ruta hacia el NAT Gateway                | Se usa para enrutar tráfico hacia otra VPC o VPN        |
-    | **Uso típico**            | Salida a Internet desde instancias privadas (actualizaciones, descargas, etc.) | Comunicación privada entre redes sin exposición pública |
-    | **Seguridad**             | No admite SG's, solo ACL de red                | No admite SG, solo ACL de red           |
-    | **Alta disponibilidad**   | Se debe desplegar **uno por zona de disponibilidad (AZ)**     | Uno por AZ si se requiere redundancia            |
-    | **Protocolos soportados** | TCP, UDP, ICMP                                            | TCP, UDP, ICMP                  |
-
-### **4.3 - Tarea RA2-CEd**
-Para realizar la tarea retomaremos el escenario de la **Tarea RA2-CEc**, y pondremos un NAT gateway público para que las instancias de la subred privada puedan acceder a internet.
-
-![](./ut5/VPC2-nat.png){.sietecinco}  
-
-Este esquema tiene un error de concepto aunque siempre se representa de esa manera ¿Cuál?
-
-### **4.3.1 - Crear el NAT Gateway**
-Vamos al menú de NAT Gateway y creamos nuestro NAT Gateway.  
-Si no tenemos ninguna IP elástica, dejaremos que AWS le asigne una. 
-
-![](./ut5/RA2CEc1.png){.original .marco}  
-
-### **4.3.2 - Modificar la tabla de enrutamiento**
-Enlazamos todo el tráfico hacia internet de la tabla de enrutamiento de la subred privada hacia el NAT Gateway
-
-![](./ut5/RA2CEc2.png){.original .marco}  
-
-### **4.3.3 - Conexión a la EC2 de la subred privada**
-Al carecer, la EC2 de la subred privada de IP pública, para poder conectarnos a ella, primero deberemos conectarnos a la EC2 de la subred pública, y luego, desde ella, conectarnos a la EC2 de la subred privada. 
-
-!!! info "Preparación de las variables de entorno"
-Antes de conectar por SSH a una instancia, es recomendable preparar el entorno de autenticación cargando la clave privada en el agente SSH.
-
-1. Ejecutar ssh-agent en segundo plano
-```bash
-eval $(ssh-agent)
-```
-
-1. Cargar en memoria la clave privada de la instancia
-```bash
-ssh-add labsuser.pem
-```
-
-1. Comprobar las claves añadidas al agente ssh
-```bash
-ssh-add -l 
-```
-
-!!! tip "¿Por qué usar ssh-agent?"
-    El agente SSH permite mantener las claves privadas cargadas en memoria durante la sesión.  
-    **Ventajas:**  
-    - Evita tener que escribir la ruta o la contraseña de la clave en cada conexión.  
-    - Mejora la seguridad, ya que la clave no se guarda en texto plano ni se reenvía en cada conexión.  
-    - Facilita la autenticación si se conectan varias veces a la misma instancia o a distintos servidores dentro del mismo entorno.
-
-<br>
-!!! info "Conexión a la instancia EC2 mediante SSH"
-Una vez configurado el agente SSH y cargada la clave privada, nos conectaremos a la instancia EC2 de la subred pública.
-
-```bash
-ssh -A ec2-user@dirección-ip-pública
-```
-**Nota:**  
-Con la **opción -A**, las claves se mantienen en memoria.  
-Ya no es necesario utilizar la **opción -i** para especificar la clave privada que se usará.
-
-<br>
-!!! info "Conexión a la instancia EC2 de la subred privada"
-Una vez conectados a la instancia pública, desde ella nos conectaremos a la instancia de la subred privada.  
-```bash
-ssh ec2-user@direccion-ip-privada
-```
-<br>
-
-### **4.3.4 - Condiciones de entrega de la tarea RA2-CEd**
-!!! task "Tarea RA2-CEd: Pruebas de ping"
-    **Comprobar:**  
-    Realizar una prueba de ping de las 2 instancias hacia internet (p.e google.es).  
-    Realizar capturas (3 capturas en total).
-
-
-<br>
 
 ## **5 - Reglas encadenadas en grupos de seguridad**
 Como hemos visto, AWS ofrece diferentes herramientas para proteger una infraestructura en la nube, como los grupos de seguridad (**Security Groups**) y las listas de control de acceso a red (**NACL**).  
