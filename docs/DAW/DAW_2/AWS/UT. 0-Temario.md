@@ -13,7 +13,7 @@ schedule: 96h - 3h/s
 
 ## 1 - Calendario escolar
 
-![imagen](../../../2627/26-27_FP_CALENDARI.png){.marco}
+![imagen](./ut0/26-27_FP_CALENDARI.png){.marco}
 
 ## 2 - Horario de sesiones
 
