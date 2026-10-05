@@ -679,13 +679,18 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
             !!! info "Página 5"
                 ![](./img_ut2//img-2-7.png){.original}    
 
-### Tarea - RA2-CEc-10
+    !!! warning "Condiciones de entrega de la tarea"
+        1. Subir vuestra tarea nombrando el archivo **RA2-CEc-9-Nombre Alumno** a la **tarea RA2-CEc-9**.  
+        1. El archivo a subir deberá ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
+        1. **No se aceptará ningún otro formato de archivo**.
+
+<!-- ### Tarea - RA2-CEc-10
 
 !!! task "Tarea a entregar en RA2-CEc-10"
     !!! exercise "**1. Abre un nuevo documento, copia y pega el siguiente texto:**"
         ```text
 
-        numeracion y encabezado pie de página insertar indice
+        numeracion y encabezado pie de página insertar indice -->
 
 ## 2.6 - Estilos y plantillas
 
