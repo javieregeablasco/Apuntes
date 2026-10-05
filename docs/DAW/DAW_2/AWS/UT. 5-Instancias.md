@@ -351,11 +351,13 @@ ssh -i labsuser.pem ec2-user@3.90.114.96
 
 ### 3.1 - Introducción
 
+- La seguridad de nuestra indraestructura responde al modelo ya visto de **responsabilidad compartida**. Por ese motivo es importante conocer los mecanismos de seguridad que nos ofrece AWS y cómo configurarlos correctamente.
+- Dentro del modelo de **nube pública**, el proveedor está obligado contractualmente a cumplir con su parte del modelo de **responsabilidad compartida**. Sin embargo, la configuración de los grupos de seguridad y de las listas de control de acceso es **responsabilidad del cliente**.
+![img](./ut5/img-5-5.png){ .original .marco .margintop10 .marginbottom30}
 - Los **grupos de seguridad** y las **ACL de red y de VPC** son componentes fundamentales de la **seguridad** en un entorno de nube.
 - Aunque funcionan de manera similar a los **firewalls**, no son exactamente lo mismo, ya que presentan diferencias en su **comportamiento (stateful / stateless)** y **alcance (nivel de instancia / nivel de subred)**.
-- Dentro del modelo de **nube pública**, el proveedor está obligado contractualmente a cumplir con su parte del modelo de **responsabilidad compartida**. Sin embargo, la configuración de los grupos de seguridad es **responsabilidad del cliente**.
 - Por defecto, al lanzar una instancia **EC2 en AWS**, la única regla permitida es la apertura del **puerto 22** para el **acceso SSH**. Es posible editar esa configuración durante el lanzamiento de la instancia, así como durante todo el ciclo de vida de la instancia.
-- Para garantizar el correcto despliegue de las aplicaciones, será necesario ampliar las reglas de los grupos de seguridad, asegurando siempre que estas configuraciones no comprometan la seguridad del entorno.
+- Para garantizar el correcto despliegue de las aplicaciones, será necesario ampliar las reglas de los grupos de seguridad así comopoblar las listas de control de acceso, asegurando siempre que estas configuraciones no comprometan la seguridad del entorno.
 
 ### 3.2 Grupos de seguridad
 
@@ -364,7 +366,7 @@ ssh -i labsuser.pem ec2-user@3.90.114.96
 #### 3.2.1 Definición y función de un grupo de seguridad
 
 !!! tip "¿Qué es un grupo de seguridad?"
-    !!! info "Un grupo de seguridad es **un conjunto de reglas de firewall virtual** que controlan el **tráfico entrante y saliente** de una instancia."  
+    !!! info "Un grupo de seguridad es **un conjunto de reglas de firewall virtual** que trabajan a nivel de instancia y controlan el **tráfico entrante y saliente** de una instancia."  
     !!! success "Tráfico entrante:"
         - Las reglas de tráfico entrante deciden qué puede entrar a la instancia. Es decir, qué protocolo de red y qué IP o rango de IPs, podrán realizar conexiones entrantes a la instancia.
     !!! success "Tráfico saliente:"
@@ -382,13 +384,12 @@ ssh -i labsuser.pem ec2-user@3.90.114.96
         - **Bloquear todo lo demás** (entre otros, rechazar conexiones HTTP sobre el puerto 80).
 
 !!! tip "Resumen de características de un grupo de seguridad"
-
     1. Todo lo que no está **permitido explícitamente** está **prohibido**.
     1. Configuración por defecto del SG:
         - **Tráfico entrante:** Solo se aceptan conexiones SSH sobre el puerto 22 (TCP).
         - **Tráfico saliente:** Todo está permitido. Es decir, la instancia puede conectarse a cualquier IP.
     1. Los grupos de seguridad son por naturaleza **con estado** (*stateful*): las respuestas al tráfico permitido se **aceptan automáticamente** sin necesidad de una regla explícita en la dirección opuesta.  
-        
+
         !!! example "Ejemplo"  
             - Si **permitimos tráfico ICMP de salida**, la instancia podrá hacer `ping` a cualquier IP pública.  
             - Las **respuestas ICMP** (eco reply), es decir tráfico de entrada, se permitirán automáticamente.  
@@ -425,9 +426,10 @@ ssh -i labsuser.pem ec2-user@3.90.114.96
     ![img](./ut5/sg-3.png){.original .marco .margintop10}
 
 - **Resumen:**
+![img](./ut5/img-5-6.png){.marco .original .margintop10 .marginbottom30}
 
     | Tipo de regla         | Qué tráfico puede iniciar una conexión        | Ejemplo                           |
-    | --------------------- | ---------------------------------------------------- | --------------------------------- |
+    ||||
     | **Entrada (Inbound)** | Qué tráfico puede **iniciar** conexión **hacia** la instancia.  | Permitir SSH (22) desde determinadas IP's.     |
     | **Salida (Outbound)** | **Hacia** qué destinos puede **iniciar** conexión la instancia. | Permitir HTTP (80) hacia Internet. |
 
@@ -505,6 +507,8 @@ Si vamos a AWS y consultamos las ACL de cada red veremos que, como hemos dicho a
 ![img](./ut5/acl1.png){.original .marco .margintop10}  
 
 ### 3.5 Tabla comparativa entre SG y ACL
+
+![img](./ut5/img-5-7.png){.original .marco .margintop10 .marginbottom20}  
 
 | Característica | **Security Groups (SG)** | **Network ACLs (NACL)** |
 |:-| | |
