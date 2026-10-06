@@ -239,6 +239,8 @@ El servidor DHCP responde con un mensaje "DHCP Acknowledge", confirmando que la 
 
 ## 5 - Tarea RA1-CEcd-1 - Instalación y configuración de un DHCP con Windows Server en AWS
 
+!!! warning "Obligatorio seguir las normas para la presentación de trabajos escritos."
+
 ### 5.1 Objetivo de la práctica
 
 - Desplegar un servidor DHCP en Windows Server sobre AWS con virtualización anidada.
