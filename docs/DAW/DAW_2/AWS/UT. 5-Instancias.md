@@ -349,15 +349,17 @@ ssh -i labsuser.pem ec2-user@3.90.114.96
 
 ## 3 - Grupos de seguridad (SG) y listas de control de acceso (ACL)
 
+<!-- ![img](./ut5/img-5-6.png){ .original .margintop10 .marginbottom30} -->
+
 ### 3.1 - Introducción
 
 - La seguridad de nuestra indraestructura responde al modelo ya visto de **responsabilidad compartida**. Por ese motivo es importante conocer los mecanismos de seguridad que nos ofrece AWS y cómo configurarlos correctamente.
 - Dentro del modelo de **nube pública**, el proveedor está obligado contractualmente a cumplir con su parte del modelo de **responsabilidad compartida**. Sin embargo, la configuración de los grupos de seguridad y de las listas de control de acceso es **responsabilidad del cliente**.
-![img](./ut5/img-5-5.png){ .original .marco .margintop10 .marginbottom30}
+![img](./ut5/img-5-5.png){ .original .margintop10 .marginbottom30}
 - Los **grupos de seguridad** y las **ACL de red y de VPC** son componentes fundamentales de la **seguridad** en un entorno de nube.
 - Aunque funcionan de manera similar a los **firewalls**, no son exactamente lo mismo, ya que presentan diferencias en su **comportamiento (stateful / stateless)** y **alcance (nivel de instancia / nivel de subred)**.
-- Por defecto, al lanzar una instancia **EC2 en AWS**, la única regla permitida es la apertura del **puerto 22** para el **acceso SSH**. Es posible editar esa configuración durante el lanzamiento de la instancia, así como durante todo el ciclo de vida de la instancia.
-- Para garantizar el correcto despliegue de las aplicaciones, será necesario ampliar las reglas de los grupos de seguridad así comopoblar las listas de control de acceso, asegurando siempre que estas configuraciones no comprometan la seguridad del entorno.
+- Por defecto, al lanzar una instancia **EC2 en AWS**, la única regla permitida del grupo de seguridad es la apertura del **puerto 22** para el **acceso SSH**. Es posible editar esa configuración durante el lanzamiento de la instancia, así como durante todo el ciclo de vida de la instancia.
+- Para garantizar el correcto despliegue de las aplicaciones, será necesario ampliar las reglas de los grupos de seguridad así como poblar las listas de control de acceso, asegurando siempre que estas configuraciones no comprometan la seguridad del entorno.
 
 ### 3.2 Grupos de seguridad
 
@@ -370,7 +372,7 @@ ssh -i labsuser.pem ec2-user@3.90.114.96
     !!! success "Tráfico entrante:"
         - Las reglas de tráfico entrante deciden qué puede entrar a la instancia. Es decir, qué protocolo de red y qué IP o rango de IPs, podrán realizar conexiones entrantes a la instancia.
     !!! success "Tráfico saliente:"
-        - Las reglas de tráfico saliente deciden qué puede salir a la instancia.
+        - Las reglas de tráfico saliente deciden qué puede salir a la instancia y hacia donde.
     !!! warning "Importante"
         - Las reglas de los grupos de seguridad deciden **qué tráfico se permite, quedando automaticamente el resto de tráfico prohibido**.  
         - A diferencia de las ACL de red (que veremos más adelante), las reglas de los grupos de seguridad **no tienen orden de prioridad**. Todas se evalúan en conjunto y solo pueden permitir tráfico. **Si no existe una regla que lo permita, el tráfico se deniega por defecto**.  
@@ -408,10 +410,13 @@ ssh -i labsuser.pem ec2-user@3.90.114.96
 
 !!! success "Reglas de entrada:"  
     - Controlan qué tráfico puede entrar a la instancia desde Internet u otras redes.  
-    - Por defecto las EC2 solo aceptan conexiones SSH.
+    - Por defecto las única regla disponible en los grupos de seguridad de las EC2 es la conexión SSH (puerto 22).
     ![img](./ut5/sg-1.png){.original .marco .margintop10}
     !!! example "Modificar las reglas de seguridad de nuestra instancia de Linux"  
-        - **Permitir** el puerto 80 (HTTP) y 443 (HTTPS) para que una web sea accesible públicamente desde nuestra IP.  
+        - Suponiendo que queremos desplegar **un servidor web** en nuestra instancia, deberemos **permitir** el tráfico web en el puerto 80 (HTTP) y 443 (HTTPS) para que nuestra web sea accesible públicamente desde cualquier IP.  
+        - Además si queremos hacer ping a la instancia también deberemos **permitir** el tráfico **ICMP** hacia la instancia.
+        - Resultado después de añadir las nuevas reglas para el tráfico de entrada a la instancia.
+        ![img](./ut5/img-5-9.png){.original .marco .margintop10}
 
 !!! success "Reglas de salida:"  
     - Controlan qué tráfico puede salir desde la instancia **hacia otras redes o Internet**.  
@@ -419,19 +424,37 @@ ssh -i labsuser.pem ec2-user@3.90.114.96
     ![img](./ut5/sg-2.png){.original .marco .margintop10}
 
     !!! example "Modificar las reglas de seguridad de nuestra instancia de Linux"  
-        - **Restringir** el tráfico **ICMP** a nuestra IP.  
+        - Suponiendo que queremos desplegar **un servidor de aplicación** que habla **con una base de datos** deberemos permitir el tráfico de salida de nuestra instancia de la siguienta manera:
+
+            |Tipo|Protocolo|Puerto|Destino|Finalidad|
+            ||||||
+            |MySQL|TCP 3306|IP |base-de-datos|Acceso a RDS|
+
+        - También deberemos permitir el tráfico HTTPS de la instancia para descargar actualizaciones y tener acceso al servidor DNS.
+
+            |Tipo|Protocolo|Puerto|Destino|Finalidad|
+            ||||||
+            |HTTPS|TCP|443|0.0.0.0/0|Actualizaciones, APIs externas, repositorios|
+            |DNS|UDP|53|0.0.0.0/0|Resolución de nombres|
+
+        - Resultado después de añadir las nuevas reglas para el tráfico de salida de la instancia.
+        ![img](./ut5/img-5-10.png){.original .marco .margintop10}
+    !!! warning "Aunque hemos hablado de permitir el tráfico saliente, realmente hemos limitado ese tráfico a las reglas que hemos indicado, es decir, el resto de tráfico queda, de facto, prohibido."
 
 !!! warning "Importante"
     - **El destino** y el **origen** del tráfico puede ser un **CIDR** o **otro grupo de seguridad** (lo veremos más adelante).  
     ![img](./ut5/sg-3.png){.original .marco .margintop10}
 
 - **Resumen:**
-![img](./ut5/img-5-6.png){.marco .original .margintop10 .marginbottom30}
+<!-- ![img](./ut5/img-5-6.png){.marco .original .margintop10 .marginbottom30} -->
+![img](./ut5/img-5-8.png){ .original .margintop10 .marginbottom30}
 
-    | Tipo de regla         | Qué tráfico puede iniciar una conexión        | Ejemplo                           |
+<!--
+     | Tipo de regla         | Qué tráfico puede iniciar una conexión        | Ejemplo                           |
     ||||
     | **Entrada (Inbound)** | Qué tráfico puede **iniciar** conexión **hacia** la instancia.  | Permitir SSH (22) desde determinadas IP's.     |
-    | **Salida (Outbound)** | **Hacia** qué destinos puede **iniciar** conexión la instancia. | Permitir HTTP (80) hacia Internet. |
+    | **Salida (Outbound)** | **Hacia** qué destinos puede **iniciar** conexión la instancia. | Permitir HTTP (80) hacia Internet. | 
+-->
 
 #### 3.2.3 - Ejemplo de SG
 
@@ -508,8 +531,9 @@ Si vamos a AWS y consultamos las ACL de cada red veremos que, como hemos dicho a
 
 ### 3.5 Tabla comparativa entre SG y ACL
 
-![img](./ut5/img-5-7.png){.original .marco .margintop10 .marginbottom20}  
+![img](./ut5/img-5-11.jpeg){.original .marco .margintop10 .marginbottom20}  
 
+<!--
 | Característica | **Security Groups (SG)** | **Network ACLs (NACL)** |
 |:-| | |
 | **Naturaleza** | *Stateful* (tienen “efecto memoria”) | *Stateless* (no recuerdan conexiones) |
@@ -518,7 +542,8 @@ Si vamos a AWS y consultamos las ACL de cada red veremos que, como hemos dicho a
 | **Orden de evaluación**        | No tienen orden; se procesan todas las reglas                                                            | Se procesan en orden ascendente por número de regla (más bajo = mayor prioridad)                      |
 | **Acciones**                   | Solo permiten **Allow** (permitir tráfico)                                                               | Admiten **Allow** y **Deny** (puedes denegar explícitamente)                                          |
 | **Predeterminado**             | Todo el tráfico está **denegado por defecto** (excepto lo que se permita explícitamente)                 | Todo el tráfico está **permitido por defecto** (excepto lo que se niegue explícitamente)              |
-| **Casos de uso típicos**       | Control fino del tráfico a instancias (ej. abrir 22/SSH o 443/HTTPS)                                     | Control global a nivel de subred, aplicar restricciones más amplias (ej. denegar rangos IP completos) |
+| **Casos de uso típicos**       | Control fino del tráfico a instancias (ej. abrir 22/SSH o 443/HTTPS)                                     | Control global a nivel de subred, aplicar restricciones más amplias (ej. denegar rangos IP completos) | 
+-->
 
 ### 3.6 Tarea RA2-CEc
 
@@ -537,6 +562,9 @@ Si vamos a AWS y consultamos las ACL de cada red veremos que, como hemos dicho a
     - Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
 
 ## 4 - OFFTOPIC sobre Cloud9
+
+!!! warning "Actualización a 10/2026"
+    El servicio ya no está diponible para alumnos del academy.
 
 - Cloud 9 es un entorno de desarrollo integrado (IDE) basado en la nube que permite a los desarrolladores escribir, ejecutar y depurar código directamente desde un navegador web sin necesidad de instalar nada en el equipo local.  
 - Proporciona un entorno de desarrollo completo con soporte para múltiples lenguajes de programación, integración con servicios de AWS y colaboración en tiempo real.
@@ -612,6 +640,7 @@ Si vamos a AWS y consultamos las ACL de cada red veremos que, como hemos dicho a
     Dentro de LabRole encontraremos la política de permisos de ese rol. De disponer de las credenciales necesarias, podriamos agregar más roles a nuestro usuario (y apmpliar o reducir la política de permisos). Con el rol asignado por el **learner lab** no es posible hacerlo.
     ![](./ut5/RA2CEc17.png){.sietecinco}  <br> -->
 
+<!--
     - **Conexión mediante instancia bastión**  
     En este caso, utilizaremos la instancia pública a la que tenemos acceso como una instancia bastión. Es decir, primero nos conectaremos a ella y, desde allí, estableceremos una conexión SSH hacia las instancias ubicadas en la subred privada.
     Para poder conectarnos por SSH a la EC2 de la subred privada, necesitaremos trasladar el archivo de la clave privada a la EC2 pública.  
@@ -627,10 +656,12 @@ Si vamos a AWS y consultamos las ACL de cada red veremos que, como hemos dicho a
         ![](./ut5/RA2CEc19.png){.original}<br>  
         A partir de entonces, ya tendremos disponible dentro de nuestra EC2 pública la clave privada para conectarnos a las EC2 privadas.
         
-        ![](./ut5/RA2CEc20.png){.original}  <br>
+        ![](./ut5/RA2CEc20.png){.original}  <br> 
 
-          
-## **4 - NAT gateway**
+-->
+
+## 4 - NAT gateway
+
 - NAT gateway es un servicio de traducción de direcciones de red (NAT) que permite a las instancias de una subred privada tener acceso a Internet o a otros servicios de AWS, **sin exponer** sus IP privadas.
 - Este servicio resulta particularmente útil por necesidad de los servicios de las EC2 de la subred privada (p.e. actualización de software) a la vez que impide que servicios externos inicien una conexión con esas instancias.
 
