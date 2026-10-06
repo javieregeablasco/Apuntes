@@ -35,15 +35,15 @@ schedule: 233h - 7h/w
 ## 1 - Introducción
 
 - Con el crecimiento de las redes locales (LAN) y la expansión de internet, surgió la necesidad de un sistema más dinámico y flexible para la asignación de direcciones IP.
-- Aquí es donde surge DHCP, que fue diseñado para superar las limitaciones de BOOTP, permitiendo la asignación automática, dinámica y más eficiente de las direcciones IP.
-- Los servicios DNS y DHCP son dos de los servicios más importantes en una red TCP/IP. Ambos permiten la **configuración automática de los parámetros de red** en los equipos clientes, lo que facilita la administración de redes y mejora la experiencia del usuario.
+- Aquí es donde surge **DHCP**, que fue diseñado para superar las limitaciones de BOOTP, permitiendo la asignación automática, dinámica y más eficiente de las direcciones IP.
+- Los servicios **DNS** y **DHCP** son dos de los servicios más importantes en una red TCP/IP. Ambos permiten la **configuración automática de los parámetros de red** en los equipos clientes, lo que facilita la administración de redes y mejora la experiencia del usuario.
 
 ## 2 - DHCP (Dynamic Host Configuration Protocol)
 
 ![img](././img_4/img_4_140.png){.cincozero .marco}
 
-1. El DHCP (Dynamic Host Configuration Protocol) es un protocolo de red que permite a los dispositivos obtener automáticamente una dirección IP y otros parámetros necesarios para conectarse a la red, como la máscara de subred, la puerta de enlace predeterminada y los servidores DNS.
-1. Esto elimina la necesidad de configurar manualmente cada dispositivo, facilitando enormemente la administración de redes grandes.
+1. El DHCP (Dynamic Host Configuration Protocol) es un protocolo de red que permite a los dispositivos obtener automáticamente una dirección IP y otros parámetros necesarios para conectarse a la red, como la **máscara de subred**, la **puerta de enlace predeterminada** y los **servidores DNS**.
+1. Esto elimina la necesidad de **configurar manualmente cada dispositivo**, facilitando enormemente la administración de redes grandes.
 1. Antes del DHCP, las redes dependían del protocolo BOOTP (Bootstrap Protocol), que proporcionaba configuraciones básicas, como la asignación de direcciones IP. Sin embargo, BOOTP presentaba varias limitaciones:
     - **Configuración manual:** Los administradores debían asignar manualmente una IP a cada dispositivo, lo que era tedioso y poco práctico en redes grandes.
     - **Asignación estática:** Las direcciones IP eran fijas, lo que significaba que cada dispositivo mantenía la misma dirección aunque se desconectara, lo que no permitía un uso eficiente de las direcciones disponibles.
@@ -75,8 +75,20 @@ Con un servidor DHCP centralizado, los administradores pueden gestionar y actual
 1. La arquitectura de DHCP está formada por tres elementos principales:
     - **Los servidores DHCP**
     - **Los clientes DHCP**
-    - **Los agentes de retransmisión DHCP**
+    - **Los agentes de retransmisión DHCP (también llamados relés DHCP)**
 1. La comunicación entre cliente y servidor se realiza a través de un intercambio de mensajes DHCP, mediante el cual el cliente obtiene y renueva tanto la concesión de su dirección IP como el resto de parámetros de configuración de red.
+
+??? question "¿Qué parámetros de red puede asignar un servidor DHCP a un cliente?"
+    - Dirección IP
+    - Máscara de subred
+    - Puerta de enlace predeterminada
+    ??? tip "Y además..."
+        - Servidor DNS
+        - Dominio de búsqueda (search domain)
+        - Tiempo de concesión (lease time)
+        - Identificador de clase de proveedor (Vendor Class Identifier)
+        - Número de intentos de retransmisión
+        - Intervalo entre reintentos
 
 <!-- - **Servidor DHCP**
 - **Cliente DHCP**
@@ -124,7 +136,10 @@ Con un servidor DHCP centralizado, los administradores pueden gestionar y actual
 - Un mismo dispositivo puede combinar ambos roles si gestiona distintas interfaces o subredes, pero no puede actuar simultáneamente como servidor DHCP y como agente de retransmisión DHCP para una misma interfaz o subred.
 - La diferencia entre ambos roles es clara: el servidor responde directamente al cliente entregándole una dirección IP de su propio rango, mientras que el agente de retransmisión se limita a reenviar los mensajes DHCP entre el cliente y el servidor configurado, incluso cuando ambos pertenecen a redes IP distintas.
 
-### 2.3 Modelo de cliente y servidor DHCP
+### 2.3 Modelo cliente servidor DHCP
+
+- Ya lo hemos mencionado varias veces. El protocolo **DHCP** sigue un modelo cliente-servidor, donde el servidor DHCP es responsable de asignar direcciones IP y otros parámetros de red a los clientes que lo solicitan. 
+- El proceso de comunicación entre cliente y servidor se realiza mediante un intercambio de mensajes, que permite al cliente obtener su configuración de red de manera automática.
 
 ![Descripción de la imagen](./img_4/img_4_2.png){ .marginbottom40 .marco}
 
@@ -222,33 +237,34 @@ El servidor DHCP responde con un mensaje "DHCP Acknowledge", confirmando que la 
         - A partir de momento de apertura de la tarea, dispondréis de **20 minutos** para subir vuestros trabajos.
         - Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
 
-## 4 - Tarea RA1-def-1 - Instalación y configuración de un DHCP con Windows Server en AWS
+## 5 - Tarea RA1-CEcd-1 - Instalación y configuración de un DHCP con Windows Server en AWS
 
-### 4.1 Objetivo de la práctica
+### 5.1 Objetivo de la práctica
 
 - Desplegar un servidor DHCP en Windows Server sobre AWS con virtualización anidada.
 - En este primer paso instalaremos y configuraremos el rol **DHCP Server** en Windows Server, y observaremos en tiempo real cómo varios equipos cliente obtienen su configuración IP (DHCPDISCOVER → OFFER → REQUEST → ACK), reservas, exclusiones, ámbitos (scopes), opciones de ámbito (DNS, puerta de enlace, etc.).
 
-### 4.2 Limitaciones de AWS para el despliegue de un servicio DHCP
+### 5.2 Limitaciones de AWS para el despliegue de un servicio DHCP
 
-Dentro de **una VPC** (virtual private cloud) de AWS, **el tráfico broadcast/multicast no se propaga entre instancias**.
+- Dentro de **una VPC** (virtual private cloud) de AWS, **el tráfico broadcast/multicast no se propaga entre instancias**.
 
-DHCP depende de broadcasts (`255.255.255.255`), así que un cliente en una instancia EC2 **nunca "verá" un DHCPOFFER** de otra instancia EC2 en la misma subred.  
-Cada tarjeta de red ENI (Elastic Network Interface) recibe su IP exclusivamente **del DHCP interno de AWS, que no se puede sustituir**.
+- DHCP depende de broadcasts (`255.255.255.255`), así que un cliente en una instancia EC2 **nunca "verá" un DHCPOFFER** de otra instancia EC2 en la misma subred.  
+- Cada tarjeta de red ENI (Elastic Network Interface) recibe su IP exclusivamente **del DHCP interno de AWS, que no se puede sustituir**.
 
-**Solución:** Montar toda la práctica **dentro** de una sola instancia EC2, usando un hipervisor anidado (Hyper-V) donde sí existe broadcast real entre las VMs virtuales.
+- **Solución:** Montar toda la práctica **dentro** de una sola instancia EC2, usando un hipervisor anidado (Hyper-V) donde sí existe broadcast real entre las VMs virtuales.
 
 !!! important "Novedad Feb 2026"
 
-    - Desde el **16 de febrero de 2026**, AWS soporta oficialmente virtualización anidada en instancias EC2 **normales** (no metal). ctica. 
+    - Desde el **16 de febrero de 2026**, AWS soporta oficialmente virtualización anidada en instancias EC2 **normales** (no metal).  
     - Familias soportadas actualmente: `C8i`, `M8i`, `R8i`, `C8id`, `R8id`, `M8id`, `C8i-flex`, `R8i-flex`, `M8i-flex`, `X8i`, `C7i`, `R7i`, `M7i`, `C7id`, `R7id`, `M7id`, `C7i-flex`, `R7i-flex`, `M7i-flex`, `I7i`. 
     - Solo procesadores Intel (no Graviton). Hipervisores L1 soportados: **Hyper-V** y **KVM**.
 
-### 4.3 Arquitectura del laboratorio
+### 5.3 Arquitectura del laboratorio
 
 !!! important "Diagrama de la infraestructura de red"
     ![Descripción de la imagen](./img_4/img_4_9.png)
 
+<!-- 
 ```bash
 Instancia EC2 (m7i.large, 100GB, Windows Server 2025 Base, Virtualización HVM)
 │
@@ -261,27 +277,23 @@ Instancia EC2 (m7i.large, 100GB, Windows Server 2025 Base, Virtualización HVM)
 │   ├── VM-1: Alpine Linux (cliente) → IP por DHCP
 │   └── VM-2: Windows 10/11 (cliente) → IP por DHCP
 │   
-```
+``` 
+-->
 
-!!! tip "Con el switch en modo **Interno/Privado** (no "Externo"), el broadcast DHCP se queda encerrado dentro del propio hipervisor Hyper-V."
+- Dispondremos de una instancia EC2 con Windows Server 2025 Base (ver apuntes de `Acceso y control remoto`), sobre la que instalaremos el rol **DHCP Server**.
+- Configuraremos un **switch virtual interno** en Hyper-V, de modo que el tráfico broadcast/multicast quede confinado dentro del hipervisor.
+- Lanzaremos 2 clientes Linux Alpine, que obtendrán su configuración IP del servidor DHCP de Windows Server.
+- Observaremos en tiempo real cómo se produce el proceso de asignación de direcciones IP mediante DHCP (DORA: Discover → Offer → Request → Acknowledge) con el analizador de redes **Wireshark**.
 
-#### 4.3.1 Activar / comprobar el nested virtualization en una instancia YA existente
-
-Para ello, nos conectaremos a la instancia de Windows Server creada en prácticas anteriores.
-!!! question "Comprobación del Nested Virtualization"
-
-    - Abrimos el Windows Powershell y escribimos el siguiente comando
-    ```powershell
-    Get-WindowsFeature -Name Hyper-V
-    ```
-
-    - Si Obtenemos el siguiente resultado ([ ] vacío + Available) significa que está **disponible por no instalado**.
-    ![Descripción de la imagen](./img_4/img_4_8.png){.margintop10}
+#### 5.3.1 Activar la virtualización de EC2 en AWS
 
 !!! success "Activar la virtualización de la CPU por la consola de AWS"
 
-    - Abrimos el powershell de AWS y escribimos los siguientes comandos:  
-    **Nota IMPORTANTE:** Cambiar la id por la **id de vuestra instancia**.
+    - Abrimos el **cloudshell de AWS**.  
+    ![Descripción de la imagen](./img_4/img_4_142.png){.margintop10}
+
+    - Escribimos los siguientes comandos:  
+    **Nota IMPORTANTE:** Cambiar la id del ejemplo por la **id de vuestra instancia**.
     ```powershell
     # 1. Parar la instancia (aunque la acabes de arrancar)
     aws ec2 stop-instances --instance-ids i-069fe851e6325d765
@@ -298,10 +310,24 @@ Para ello, nos conectaremos a la instancia de Windows Server creada en práctica
     aws ec2 start-instances --instance-ids i-069fe851e6325d765
     ```
 
-    - Lanzar el powershell de AWS.
+    - Powershell de AWS una vez abierto.
     ![Descripción de la imagen](./img_4/img_4_48.png){.margintop10}
     - Comandos en ejecución.  
+    ==Realizar captura de pantalla==  
     ![Descripción de la imagen](./img_4/img_4_46.png){.margintop10 .leftcien}
+
+#### 5.3.2 Comprobar el nested virtualization en una instancia
+
+Para ello, nos conectaremos a la instancia de Windows Server creada en prácticas anteriores.
+!!! question "Comprobación del Nested Virtualization"
+
+    - Abrimos el Windows Powershell y escribimos el siguiente comando
+    ```powershell
+    Get-WindowsFeature -Name Hyper-V
+    ```
+
+    - Si Obtenemos el siguiente resultado ([ ] vacío + Available), significa que está **disponible por no instalado**.
+    ![Descripción de la imagen](./img_4/img_4_8.png){.margintop10}
 
 !!! Success "Activación del Nested Vitualization"
 
@@ -310,7 +336,7 @@ Para ello, nos conectaremos a la instancia de Windows Server creada en práctica
     Install-WindowsFeature -Name Hyper-V -IncludeManagementTools -Restart
     ```
     ![Descripción de la imagen](./img_4/img_4_47.png){.leftcien}
-    - Como hemos incluido la opción de reinicio del sistema, perderemos la conexión con la instancia...
+    - Como hemos incluido la opción de reinicio del sistema (-Restart), perderemos la conexión con la instancia...
     
 !!! question "Comprobación del Nested Virtualization por CLI"
 
@@ -319,17 +345,19 @@ Para ello, nos conectaremos a la instancia de Windows Server creada en práctica
     ```powershell
     Get-WindowsFeature -Name Hyper-V
     ```
-    - Si nos aparece [X] Hyper-V, significa que el servicio se ha instalado correctamente.
+    - Si nos aparece [X] Hyper-V, significa que el servicio se ha instalado correctamente.  
+    ==Realizar captura de pantalla==    
     ![Descripción de la imagen](./img_4/img_4_45.png){.margintop10}
 
 !!! question "Comprobación del Nested Virtualization en la consola de Windows Server"
 
     - Abrimos el **Server Manager**.
     ![Descripción de la imagen](./img_4/img_4_10.png){.margintop10}
-    - Seleccionamos Local Server → Services → buscamos hyper-V 
+    - Seleccionamos Local Server → Services → buscamos hyper-V  
+    ==Realizar captura de pantalla==    
     ![Descripción de la imagen](./img_4/img_4_49.png){.margintop10}
 
-#### 4.3.2 Crear el switch virtual interno
+#### 5.3.3 Crear el switch virtual interno
 
 - Vamos a **Hyper-V Manager** → **Virtual Switch Manager**:
 ![Descripción de la imagen](./img_4/img_4_50.png){.margintop10 .marginbottom10}
@@ -337,19 +365,20 @@ Para ello, nos conectaremos a la instancia de Windows Server creada en práctica
 - Luego seleccionamos → **New virtual network switch**
 ![Descripción de la imagen](./img_4/img_4_51.png){.margintop10 .marginbottom10}
 
-- Tipo: **Internal**. Esto asegura que el tráfico DHCP nunca sale hacia la red de AWS ni a otras instancias. También seleccionaremos **Enable virtual LAN id...**. De ese modo el adaptador de red virtual aparecerá con cualquier otro adaptador.
+- Tipo: **Internal**. Esto asegura que el tráfico DHCP nunca saldrá hacia la red de AWS ni a otras instancias de la VPC/subred.
+- También seleccionaremos **Enable virtual LAN id...**. De ese modo el adaptador de red virtual aparecerá como cualquier otro adaptador físico.
 ![Descripción de la imagen](./img_4/img_4_41.png){.margintop10 .marginbottom10}
 Después de **ipconfig**
 ![Descripción de la imagen](./img_4/img_4_53.png){.margintop10 .marginbottom10}
 
-- Si volvemos a **Hyper-V** → **SERVERS** → Refrescamos el estado del servidor (solo tenemos uno) veremos que tenemos unaIP interna del servidor en nuestra red virtual privada, siendo la otra IP, la IP de la instancia dentro de **la VPC de AWS**.
+- Si volvemos a **Hyper-V** → **SERVERS** → Refrescamos el estado del servidor veremos que tenemos una IP interna del servidor en nuestra red virtual privada, siendo la otra IP, la IP de la instancia dentro de **la VPC de AWS**.
 ![Descripción de la imagen](./img_4/img_4_52.png){.margintop10 .marginbottom10}
 
-#### 4.3.3 Configurar los parámetros de red
+#### 5.3.4 Configurar los parámetros de red
 
 - Como podemos ver en las capturas anteriores, el servidor tiene asignada la IP 169.254.200.142.
 - Esto se debe a la falta de un servidor DHCP en la red virtual, lo que provoca la activación automática de una dirección APIPA (Automatic Private IP Addressing).
-- Hasta que no despleguemos el servidor DHCP, la asignación de IPs en la red privada no podrá realizarse de forma automática, por lo que deberemos configurar manualmente la IP del servidor.
+- Hasta que no despleguemos el servidor DHCP, la asignación de IPs en la red privada no podrá realizarse de forma automática, por lo que configuraremos manualmente la IP del servidor que más adelante hará el ROL de servidor DHCP.
 
 - Nos dirigimos a **Local Server** → **Properties** → **vEthernet**
 ![Descripción de la imagen](./img_4/img_4_54.png){.margintop10 .marginbottom10}
@@ -357,19 +386,21 @@ Después de **ipconfig**
 - Una vez encontrado el adaptador, configuraremos **el protocolo TCP/IPv4**.
 ![Descripción de la imagen](./img_4/img_4_55_1.png){.margintop10 .marginbottom10}
 
-- Refrescamos la información y ya tendremos la IP esperada para nuestro servidor.
+- Refrescamos la información y ya tendremos la IP esperada para nuestro servidor.  
+==Realizar captura de pantalla==  
 ![Descripción de la imagen](./img_4/img_4_56_1.png){.margintop10 .marginbottom10}
 
 - Con esto ya tendremos montada la red virtual de Windows Server. El siguiente paso será montar el servicio DHCP sobre el servidor de Windows Server.
 ![Descripción de la imagen](./img_4/img_4_57.png){.margintop10 .marginbottom10}
 
-### 4.4 Instalación y configuración del rol DHCP en el host (Windows Server anfitrión)
+### 5.4 Instalación y configuración del rol DHCP en el host (Windows Server anfitrión)
 
-#### 4.4.1 Instalar el rol DHCP
+#### 5.4.1 Instalar el rol DHCP
 
 - Nos dirigimos a la consola de Windows Server y seleccionamos **Add roles and features**.
 ![Descripción de la imagen](./img_4/img_4_11.png){ .margintop10 .marginbottom10 }
-- En server roles seleccionamos el servicio que queremos implementar.
+- En server roles seleccionamos el servicio que queremos implementar.  
+==Realizar captura de pantalla==
 ![Descripción de la imagen](./img_4/img_4_12.png){ .margintop10 .marginbottom10 }
 - Confirmamos las caracteristicas necesarias para el servivio DHCP.
 ![Descripción de la imagen](./img_4/img_4_13.png){ .margintop10 .marginbottom10 }
@@ -382,7 +413,7 @@ Después de **ipconfig**
 - Al final el instalador dirá que el DHCP requiere configuración. Lo haremos en el siguiente paso. De momento cerramos el asistente.
 ![Descripción de la imagen](./img_4/img_4_19.png){ .margintop10 .marginbottom10}
 
-#### 4.4.2 Configurar el rol DHCP
+#### 5.4.2 Configurar el rol DHCP
 
 - Volvemos al panel de control dónde veremos que tenemos el servicio DHCP disponible.
 ![Descripción de la imagen](./img_4/img_4_58.png){ .margintop10 .marginbottom10}
@@ -391,19 +422,27 @@ Después de **ipconfig**
 - Hacemos un commit.
 ![Descripción de la imagen](./img_4/img_4_18.png){ .margintop10 .marginbottom10}
 - Vamos al panel de control del DHCP y comprobamos que el servicio sobre IPv4 y IPv6 está implementado.
-![Descripción de la imagen](./img_4/img_4_20.png){ .margintop10 .marginbottom10}
+![Descripción de la imagen](./img_4/img_4_20.png){ .margintop10 .marginbottom10}  
+==Realizar captura de pantalla==
 ![Descripción de la imagen](./img_4/img_4_23.png){ .margintop10 .marginbottom10}
 
-#### 4.4.3 Crear el ámbito (scope)
+#### 5.4.3 Crear el ámbito (scope)
 
-Una vez instalado el rol de servidor DHCP, el siguiente paso es crear un ámbito (scope), es decir, el rango de direcciones IP que el servidor podrá asignar automáticamente a los equipos de la red. En este apartado configuraremos dicho rango junto con los parámetros básicos necesarios (máscara de subred, puerta de enlace, duración de la concesión, etc.) para que los clientes de la red privada puedan obtener su configuración de red de forma automática.
+Una vez instalado el rol de servidor DHCP, el siguiente paso es crear un ámbito (scope), es decir, el rango de direcciones IP que el servidor podrá asignar automáticamente a los equipos de la red.
+
+En este apartado configuraremos dicho rango junto con los parámetros básicos necesarios (máscara de subred, puerta de enlace, duración de la concesión, etc.) para que los clientes de la red privada puedan obtener su configuración de red de forma automática.
 
 - Vamos a la consola de configuración de DHCP.
 ![Descripción de la imagen](./img_4/img_4_61.png){ .margintop10 .marginbottom10}
 - Seleccionamos **new scope** y damos un nombre al ámbito.
 ![Descripción de la imagen](./img_4/img_4_62.png){ .margintop10 .marginbottom10}
-- Estableceremos un rango de direcciones suficiente, siempre en función de nuestras necesidades. También tendremos que tener en cuenta dejar fuera del rango DHCP las direcciones IP reservadas para los sistemas que requieren **IP estática**, como switches, servidores de dominio, servidores DHCP, impresoras o sistemas de almacenamiento en red. Por último, deberemos reservar otro rango de direcciones IP para los dispositivos no anclados a la red, como tabletas, ordenadores portátiles o teléfonos móviles.
+- Estableceremos un rango de direcciones en función de nuestras necesidades. También tendremos en cuenta dejar fuera del rango DHCP las direcciones IP reservadas para los sistemas que requieren **IP estática** (switches, servidores de dominio, servidores DHCP, impresoras o sistemas de almacenamiento en red).
+- Por último, deberemos reservar otro rango de direcciones IP para los dispositivos no anclados a la red, como tabletas, ordenadores portátiles o teléfonos móviles.
+
+    !!! warning "¡Cuidado!"
+        Dejar fuera del rango DHCP al servidor DHCP y a la puerta de enlace predeterminada, ya que si no lo hacemos, el servidor DHCP podría asignar estas direcciones a otros clientes, provocando conflictos de IP y problemas de conectividad en la red.  
 ![Descripción de la imagen](./img_4/img_4_60.png){ .margintop10 .marginbottom10}
+
 - Dejamos en blanco la pantalla de **Add Exclusions and Delay**.
 - Configurar la duración del lease (lease duration) es decir, el tiempo durante el cual un cliente mantendrá asignada una dirección IP antes de tener que renovarla. Este valor debe ajustarse según el tipo de red y de dispositivos que la componen: en redes estables con equipos fijos conviene establecer una duración larga (varios días), mientras que en redes con gran cantidad de dispositivos móviles o temporales resulta más adecuado un lease corto, ya que permite liberar y reutilizar las direcciones IP con mayor frecuencia.
 En nuestro caso, estableceremos una duración de lease de 8 días (valor por defecto).
@@ -414,22 +453,24 @@ En nuestro caso, estableceremos una duración de lease de 8 días (valor por def
 - Reiniciamos el servicio.
 ![Descripción de la imagen](./img_4/img_4_22.png){ .margintop10 .marginbottom10}
 
-#### 4.4.4 Activar el scope
+#### 5.4.4 Activar el scope
 
-- Vamos a la consola de DHCo y veremos nuestro scope en rojo (desactivado).
+- Vamos a la consola de DHCP y veremos nuestro scope en rojo (desactivado).
 ![Descripción de la imagen](./img_4/img_4_64.png){ .margintop10 .marginbottom10}
-- Haremos clic derecho y lo activaremos.
+- Haremos clic derecho y lo activaremos.  
+==Realizar captura de pantalla==
 ![Descripción de la imagen](./img_4/img_4_65.png){ .margintop10 .marginbottom10}
 
-#### 4.4.5 Configurar opciones del ámbito
+#### 5.4.5 Configurar opciones del ámbito
 
 Las opciones de ámbito son parámetros de configuración adicionales que el servidor DHCP puede asignar a los clientes DHCP por ejemplo el DNS y la puerta de enlace (enrutador).
 
 - Vamos a scope y seleccionamos **Configure Options...**
 ![Descripción de la imagen](./img_4/img_4_66.png){ .margintop10 .marginbottom10}
-- Buscamos la opción **003 Enrutador**, que permitirá a las máquinas conectadas a la red virtual acceder a Internet. No configuraremos el DNS, ya que lo veremos en otra unidad, ni definiremos un controlador de dominio, puesto que la implementación de Active Directory se tratará más adelante y queda fuera del alcance de este apartado.
+- Buscamos la opción **003 Enrutador**, que permitirá, **en un escenario real**, a las máquinas conectadas a la red acceder a Internet. **No configuraremos el DNS**, ya que lo veremos en otra unidad, ni definiremos un controlador de dominio, puesto que la implementación de **Active Directory** se tratará más adelante.
 ![Descripción de la imagen](./img_4/img_4_67.png){ .margintop10 .marginbottom10}
-- Comprobamos que la option se ha guardado correctamente.
+- Comprobamos que la opción se ha guardado correctamente.  
+==Realizar captura de pantalla==  
 ![Descripción de la imagen](./img_4/img_4_68.png){ .margintop10 .marginbottom10}
 
 #### 4.4.6 Best Practices analyzer
