@@ -564,7 +564,7 @@ Si vamos a AWS y consultamos las ACL de cada red veremos que, como hemos dicho a
 ## 4 - OFFTOPIC sobre Cloud9
 
 !!! warning "Actualización a 10/2026"
-    El servicio ya no está diponible para alumnos del academy.
+    El servicio Cloud9 ya no está diponible para alumnos del academy.
 
 - Cloud 9 es un entorno de desarrollo integrado (IDE) basado en la nube que permite a los desarrolladores escribir, ejecutar y depurar código directamente desde un navegador web sin necesidad de instalar nada en el equipo local.  
 - Proporciona un entorno de desarrollo completo con soporte para múltiples lenguajes de programación, integración con servicios de AWS y colaboración en tiempo real.
@@ -583,8 +583,8 @@ Si vamos a AWS y consultamos las ACL de cada red veremos que, como hemos dicho a
     ![img](./ut5/RA2CEc25.png){.original .margintop10 .marginbottom20}
     - Ejemplo de ejecución de un programa de python.
     ![img](./ut5/RA2CEc26.png){.original .margintop10 .marginbottom20}
-    - Intentamos conectarnos por ssh a cualquier otra instancia pero tampoco funciona.
-    ![img](./ut5/RA2CEc27.png){.original}  
+    <!-- - Intentamos conectarnos por ssh a cualquier otra instancia pero tampoco funciona.
+    ![img](./ut5/RA2CEc27.png){.original}   -->
 
 <!-- 1. **Conexión a la EC2 pública.**  
     - **Conexión a la EC2 pública mediante interfaz de AWS**
@@ -659,6 +659,7 @@ Si vamos a AWS y consultamos las ACL de cada red veremos que, como hemos dicho a
         ![](./ut5/RA2CEc20.png){.original}  <br> 
 
 -->
+# hasta aqui
 
 ## 4 - NAT gateway
 
