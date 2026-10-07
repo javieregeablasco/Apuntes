@@ -521,13 +521,18 @@ El escenario quedará de la siguiente manera:
 #### 3.4.2 Ejemplo de ACL
 
 - En el siguiente ejemplo, tenemos una VPC con dos subredes.  
-- Cada **subred tiene una ACL de red**. Cuando el tráfico entra en la VPC, el enrutador envía el tráfico a su destino.
+- De una manera similar a las tablas de enrutamiento, al crear la VPC, se crea automaticamente una **ACL de red por defecto (predeterminada)** que permite controlar el tráfico entrante y saliente de la VPC.
+![img](./ut5/img-5-11.png){.original .marco .margintop10 .marginbottom20}  
+- Podemos crear ACLs adicionales para controlar el tráfico de manera más granular, es decir, para permitir o denegar tráfico específico hacia o desde ciertas subredes.
+![img](./ut5/img-5-12.png){.original .marco .margintop10 .marginbottom20}  
+- Luego, simplemente asignaremos las ACLs creadas a las subredes correspondientes.
+![img](./ut5/img-5-13.png){.original .marco .margintop10 .marginbottom20}  
 - La ACL de red A determina qué tráfico destinado a la subred 1 puede entrar en la subred 1, y qué tráfico destinado a una ubicación fuera de la subred 1 puede salir de la subred 1.  
 - Del mismo modo, la ACL de red B determina qué tráfico puede entrar y salir de la subred 2.
-![img](./ut5/acl.png){.original .marco .margintop10 .marginbottom20}  
-
-Si vamos a AWS y consultamos las ACL de cada red veremos que, como hemos dicho anteriormente, **todo el tráfico entrante y saliente está permitido por defecto**.
-![img](./ut5/acl1.png){.original .marco .margintop10}  
+![img](./ut5/img-5-14.png){.original .marco .margintop10 .marginbottom20}  
+- Si vamos a AWS y consultamos las ACL de cada subred veremos que, **todo el tráfico entrante y saliente está permitido por defecto salvo para las nuevas ACLs**.
+![img](./ut5/img-5-15.png){.original .marco .margintop10 }  
+![img](./ut5/img-5-16.png){.original .marco .marginbottom20}  
 
 ### 3.5 Tabla comparativa entre SG y ACL
 
@@ -561,10 +566,10 @@ Si vamos a AWS y consultamos las ACL de cada red veremos que, como hemos dicho a
     - A partir de momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
     - Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
 
-## 4 - OFFTOPIC sobre Cloud9
+## 4 - Presentación de Cloud9
 
 !!! warning "Actualización a 10/2026"
-    El servicio Cloud9 ya no está diponible para alumnos del academy.
+    El servicio Cloud9 ya no está diponible para los alumnos del academy.
 
 - Cloud 9 es un entorno de desarrollo integrado (IDE) basado en la nube que permite a los desarrolladores escribir, ejecutar y depurar código directamente desde un navegador web sin necesidad de instalar nada en el equipo local.  
 - Proporciona un entorno de desarrollo completo con soporte para múltiples lenguajes de programación, integración con servicios de AWS y colaboración en tiempo real.
