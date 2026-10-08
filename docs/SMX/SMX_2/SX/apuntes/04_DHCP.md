@@ -703,7 +703,6 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     ipconfig /all
     ```
 
-## HASTA AQUI
 
 ## 6 - Tarea RA1-cd-2 - Instalación y configuración de un DHCP con Ubuntu Server en AWS
 
@@ -738,7 +737,7 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     | VHDX                              | qcow2 / raw                              |
     | Hyper-V NAT / switches            | NAT / bridge de libvirt                  |
 
-### 5.3 Instalación de GNOME en Ubuntu Server 22.04
+### 6.3 Instalación de GNOME en Ubuntu Server 22.04
 
 - Para facilitar algunas etapas de la configuración de esta práctica, instalaremos la interfaz gráfica **GNOME** sobre la instancia de Ubuntu Server que hemos creado anteriormente.
 - Instalar un escritorio gráfico no se suele recomendar en entornos de producción, por rendimiento y seguridad pero, dentro de un contexto de prácticas, puede estar plenamente justificado.
@@ -759,7 +758,7 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     ```bash
     sudo apt install ubuntu-desktop -y
     ```
-    - Configurar el archivo **.xsession** para el usuario. Aquí nos aseguraremos de que **Xrdp** sepa exactamente qué entorno de escritorio debe lanzar al autenticarse.
+    - Configurar el archivo **.xsession** para el usuario. Así nos aseguraremos de que **Xrdp** sepa exactamente qué entorno de escritorio debe lanzar al autenticarse.
     ```bash
     echo "gnome-session" > ~/.xsession
     ```
@@ -775,7 +774,7 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     sudo systemctl restart xrdp
     ```
 
-### 5.4 Primera conexión por escritorio gráfico a Ubuntu Server
+### 6.4 Primera conexión por escritorio gráfico a Ubuntu Server
 
 - Lanzamos desde Windows la aplicación de conexión a escritorio remoto e introducimos la contraseña de nuestra máquina.  
 ![Descripción de la imagen](./img_4/img_4_110.png){ .margintop10 .marginbottom10}
@@ -787,7 +786,7 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
 - Si todo ha ido bien, estaremos en el escritorio gráfico típico de Ubuntu Desktop.
 ![Descripción de la imagen](./img_4/img_4_113.png){ .margintop10 .marginbottom10}
 
-### 5.5 Activar la virtualización de la CPU por la consola de AWS
+### 6.5 Activar la virtualización de la CPU por la consola de AWS
 
 !!! success "Activar la virtualización de la CPU por la consola de AWS"
 
@@ -822,31 +821,34 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     egrep -c '(vmx|svm)' /proc/cpuinfo
     ```
     Si nos devuelve un valor mayor que 0, significa que la CPU expone las extensiones de virtualización (Intel VT-x/ AMD AMD-V).  
-    ![Descripción de la imagen](./img_4/img_4_115.png){ .margintop10 .marginbottom10}
+    ==Realizar captura de pantalla==
+    ![Descripción de la imagen](./img_4/img_4_115.png){   .marginbottom10}
     - Otra manera sería usando la aplicación **cpu-checker**
     ```bash
     sudo apt update
     sudo apt install -y cpu-checker
     sudo kvm-ok
     ```
+    ==Realizar captura de pantalla==
     ![Descripción de la imagen](./img_4/img_4_116.png){ .marginbottom10}
 
-### 5.6 Instalación de KVM y herramientas relacionadas
 
-- Instalaremos KVM y las herraminetas relacionadas con:
+### 6.6 Instalación de KVM y herramientas relacionadas
+
+- Instalaremos KVM y las herramientas relacionadas con:
 
     ```bash
     sudo apt install -y qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virtinst virt-manager
     ```
 
-!!! note "Explicación de las aplicaciones instaladas"
-    - **qemu-kvm** → el hipervisor en sí.
-    - **libvirt-daemon-system / libvirt-clients** → capa de gestión (permite usar virsh, virt-install, etc.).
-    - **bridge-utils** → para redes puente entre las VMs anidadas.
-    - **virtinst** → herramientas para crear VMs desde línea de comandos (virt-install).
-    - **virt-manager** → interfaz gráfica de gestión (solo si disponemos de entorno gráfico).
+    !!! note "Explicación de las aplicaciones instaladas"
+        - **qemu-kvm** → el hipervisor en sí.
+        - **libvirt-daemon-system / libvirt-clients** → capa de gestión (permite usar virsh, virt-install, etc.).
+        - **bridge-utils** → para redes puente entre las VMs anidadas.
+        - **virtinst** → herramientas para crear VMs desde línea de comandos (virt-install).
+        - **virt-manager** → interfaz gráfica de gestión (solo si disponemos de entorno gráfico).
 
-### 5.7 Añadir usuarios a los grupos necesarios
+### 6.7 Añadir usuarios a los grupos necesarios
 
 - Para poder utilizar las opciones de virtualización deberemos añadir nuestro usuario **a los grupos libvirt y kvm**.
     ```bash
@@ -856,7 +858,7 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
 
 !!! warning "Desloggearse para que los cambios surtan efecto"
 
-### 5.8 Comprobar que el servicio libvirt está activo
+### 6.8 Comprobar que el servicio libvirt está activo
 
 - Lo comprobaremos con:
     ```bash
@@ -870,9 +872,10 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     sudo systemctl start libvirtd
     sudo systemctl status libvirtd
     ```
+    ==Realizar captura de pantalla==
     ![Descripción de la imagen](./img_4/img_4_118.png){ .marginbottom10}
 
-### 5.9 Verificar que /dev/kvm existe y los permisos de usuario del directorio
+### 6.9 Verificar que /dev/kvm existe y los permisos de usuario del directorio
 
 - Lo verificaremos con:
     ```bash
@@ -885,31 +888,33 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     - **rw-rw----+** → El propietario **root** y el grupo **kvm** tienen permisos de lectura y escritura (rw-). 
     - El símbolo + indica que tiene Listas de Control de Acceso (ACL) adicionales aplicadas.
 
-### 5.10 Listar el hipervisor detectado
+### 6.10 Listar el hipervisor detectado
 
 - Listaremos los servicios de virtualización con:
+
     ```bash
     virsh list --all
     ```
+
     ![Descripción de la imagen](./img_4/img_4_120.png){ .marginbottom10}
 
-!!! note "Nota"
-    A esta altura de la práctica, que la lista esté vacía no es motivo de preocupación. Aún no hemos creado ninguna máquina virtual.
+    !!! note "Nota"
+        A esta altura de la práctica, que la lista esté vacía no es motivo de preocupación. Aún no hemos creado ninguna máquina virtual.
 
-!!! tip "De no devolver un error tipo *failed to connect to the hypervisor* confirma que:"
+    !!! tip "De no devolver un error tipo *failed to connect to the hypervisor* confirma que:"
 
-    - **libvirtd** se está ejecutando correctamente.
-    - Nuestro usuario tiene permisos **para comunicarse con el hipervisor**.
-    - **KVM/QEMU** están listos para usarse.
+        - **libvirtd** se está ejecutando correctamente.
+        - Nuestro usuario tiene permisos **para comunicarse con el hipervisor**.
+        - **KVM/QEMU** están listos para usarse.
 
-!!! tip "Aplicación Virt-Manager"
+### 6.11 Aplicación Virt-Manager
 
-    - Si nos conectamos por escritorio remoto, también podremos ver que el asistente (gráfico) de virtualización (virt-manager) está instalado.
-    ![Descripción de la imagen](./img_4/img_4_121.png){ .margintop10 . marginbottom10}
-    - Escritorio de Virt-Manager
-    ![Descripción de la imagen](./img_4/img_4_123.png){ .margintop10}
+- Si nos conectamos por escritorio remoto, también podremos ver que el asistente (gráfico) de virtualización (virt-manager) está instalado.
+![Descripción de la imagen](./img_4/img_4_121.png){ .margintop10 . marginbottom10}
+- Escritorio de Virt-Manager
+![Descripción de la imagen](./img_4/img_4_123.png){ .margintop10}
 
-### 5.11 Crear la red aislada y el switch virtual sin acceso al exterior
+### 6.12 Crear la red aislada y el switch virtual sin acceso al exterior
 
 - Como el la práctica anterior, crearemos una red privada para evitar ingerencias de AWS a la hora de asignar IPs.
 
@@ -935,10 +940,10 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     ip link show Switch-Virtual
     virsh net-list --all
     ```  
-
+    ==Realizar captura de pantalla==
     ![Descripción de la imagen](./img_4/img_4_124.png)
 
-### 5.12 Configurar el switch virtual
+### 6.13 Configurar el switch virtual
 
 - A diferencia de la práctica de Windows Server aquí sí que podemos / debemos asignar un IP al switch virtual.
 
@@ -995,8 +1000,10 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
         ip addr show Switch-Virtual
         sudo systemctl status isc-dhcp-server
         ```
+        ==Realizar captura de pantalla==
         ![Descripción de la imagen](./img_4/img_4_133.png)
 
+# HASTA AQUI 
 ### 5.13 Configurar la máquina anfitriona como servidor DHCP
 
 - Instalamos el servicio DHCP
@@ -1206,8 +1213,7 @@ En este caso no usaremos wireshark sino el propio log del servicio DHCP.
 
 - **Reservas** por MAC: `Add-DhcpServerV4Reservation`.
 - **Exclusiones** dentro del ámbito: `Add-DhcpServerV4ExclusionRange`.
-- **Liberar y renovar** (contraste DISCOVER completo de 4 paquetes vs. renovación de 2 paquetes): en Alpine, `udhcpc -R` para liberar y volver a pedir.
-- **Agotamiento del ámbito**: crear un ámbito de prueba muy pequeño (p. ej. solo 2-3 IPs) para que los alumnos vean qué ocurre cuando un cliente no puede recibir oferta.
+
 
 <!-- para nat -->
 <!-- tipo de elementos de red -->
