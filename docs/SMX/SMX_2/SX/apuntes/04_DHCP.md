@@ -368,12 +368,14 @@ Para ello, nos conectaremos a la instancia de Windows Server creada en práctica
 ![Descripción de la imagen](./img_4/img_4_51.png){.margintop10 .marginbottom10}
 
 - Tipo: **Internal**. Esto asegura que el tráfico DHCP nunca saldrá hacia la red de AWS ni a otras instancias de la VPC/subred.
-- También seleccionaremos **Enable virtual LAN id...**. De ese modo el adaptador de red virtual aparecerá como cualquier otro adaptador físico.
+- También seleccionaremos **Enable virtual LAN id...**. De ese modo el adaptador de red virtual aparecerá como cualquier otro adaptador físico.  
+==Realizar captura de pantalla==
 ![Descripción de la imagen](./img_4/img_4_41.png){.margintop10 .marginbottom10}
 Después de **ipconfig**
 ![Descripción de la imagen](./img_4/img_4_53.png){.margintop10 .marginbottom10}
 
-- Si volvemos a **Hyper-V** → **SERVERS** → Refrescamos el estado del servidor veremos que tenemos una IP interna del servidor en nuestra red virtual privada, siendo la otra IP, la IP de la instancia dentro de **la VPC de AWS**.
+- Si volvemos a **Hyper-V** → **SERVERS** → Refrescamos el estado del servidor veremos que tenemos una IP interna del servidor en nuestra red virtual privada, siendo la otra IP, la IP de la instancia dentro de **la VPC de AWS**.  
+==Realizar captura de pantalla==
 ![Descripción de la imagen](./img_4/img_4_52.png){.margintop10 .marginbottom10}
 
 #### 5.3.4 Configurar los parámetros de red
@@ -408,7 +410,7 @@ Después de **ipconfig**
 ![Descripción de la imagen](./img_4/img_4_13.png){ .margintop10 .marginbottom10 }
 - Recordatorios: De nada sirve lanzar un servicio sin un planteamiento previo.
 ![Descripción de la imagen](./img_4/img_4_14.png){ .margintop10 .marginbottom10 }
-- La instalación del servicio DHCP **no requiere reinicio** pero, lo ticamos de todos modos.
+- La instalación del servicio DHCP **no requiere reinicio** pero, seleccionaremos la opción de todos modos.
 ![Descripción de la imagen](./img_4/img_4_15.png){ .margintop10 .marginbottom10}
 - Se inicia la instalación.
 ![Descripción de la imagen](./img_4/img_4_16.png){ .margintop10 .marginbottom10}
@@ -469,13 +471,13 @@ Las opciones de ámbito son parámetros de configuración adicionales que el ser
 
 - Vamos a scope y seleccionamos **Configure Options...**
 ![Descripción de la imagen](./img_4/img_4_66.png){ .margintop10 .marginbottom10}
-- Buscamos la opción **003 Enrutador**, que permitirá, **en un escenario real**, a las máquinas conectadas a la red acceder a Internet. **No configuraremos el DNS**, ya que lo veremos en otra unidad, ni definiremos un controlador de dominio, puesto que la implementación de **Active Directory** se tratará más adelante.
+- Buscamos la opción **003 Enrutador**, que permitirá, **en un escenario real**, a las máquinas conectadas a la red acceder a Internet. **No configuraremos el DNS**, ya que lo veremos en otra unidad, ni definiremos un controlador de dominio, puesto que la implementación de **Active Directory** se tratará más adelante.  
 ![Descripción de la imagen](./img_4/img_4_67.png){ .margintop10 .marginbottom10}
 - Comprobamos que la opción se ha guardado correctamente.  
 ==Realizar captura de pantalla==  
 ![Descripción de la imagen](./img_4/img_4_68.png){ .margintop10 .marginbottom10}
 
-#### 4.4.6 Best Practices analyzer
+#### 5.4.6 Best Practices analyzer
 
 No es una herramienta especifica del servicio DHCP sino de todo el ecosistema de Windows Server.
 
@@ -485,30 +487,32 @@ No es una herramienta especifica del servicio DHCP sino de todo el ecosistema de
 !!! note "Nota"  
     Algunos de los errores o advertencias que aparecen se deben a las limitaciones de nuestra infraestructura. No los tendremos en cuenta.
 
-#### 4.4.7 Comprobar el servicio por CLI
+#### 5.4.7 Comprobar el servicio por CLI
 
 ```powershell
 Get-DhcpServerV4Scope
 Get-DhcpServerV4OptionValue -ScopeId 192.168.10.0
 ```
 
+==Realizar captura de pantalla==  
 ![Descripción de la imagen](./img_4/img_4_70.png){ .marginbottom10}
 
 ```powershell
 ipconfig
 ```
 
+==Realizar captura de pantalla==  
 ![Descripción de la imagen](./img_4/img_4_71.png){ .marginbottom10}
 
 - Con esto ya tendremos montada la red virtual de Windows Server y el servidor DHCP. El siguiente paso será montar clientes con Alpine Linux y comprobar si las asignaciones de IP y el acceso a internet se hace correctamente.
 ![Descripción de la imagen](./img_4/img_4_72.png){ .margintop10 .marginbottom10}
 
-### 4.5 Creación de las máquinas virtuales cliente
+### 5.5 Creación de las máquinas virtuales cliente
 
 - Con RAM limitada (`m7i.large` con 8 GiB), lo más eficiente es que **el propio host Windows Server actúe como servidor DHCP** y usar Hyper-V solo para las VMs cliente.  
 - Como cliente, **Alpine Linux** es la opción más ligera (256–512 MB por VM) y perfectamente válida para ver el proceso DHCP completo.
 
-#### 4.5.1 Creación de las carpetas de trabajo
+#### 5.5.1 Creación de las carpetas de trabajo
 
 Crearemos dos carpetas de trabajo: **ISOs** y **VMs**.
 
@@ -522,7 +526,7 @@ New-Item -Path "C:\ISO" -ItemType Directory -Force
 New-Item -Path "C:\VM" -ItemType Directory -Force
 ```
 
-#### 4.5.2 Descargar el ISO
+#### 5.5.2 Descargar el ISO
 
 - Como ya hemos comentado, descargaremos [Alpine Linux](https://alpinelinux.org/downloads/) al ser una versión muy ligera de linux.
 - La versión elegida para nuestras prácticas será la versión optimizada para virtualización y arquitectura de 32 bits (Virtual + x86).
@@ -542,7 +546,7 @@ Get-Item "C:\ISO\alpine.iso" | Select-Object Name, Length
 
 ![Descripción de la imagen](./img_4/img_4_74.png){  .marginbottom10 }
 
-### 4.5.3 Crear la VM
+#### 5.5.3 Crear la VM
 
 !!! tip "Podemos usar el asistente para la creación de la máquina virtual."
 
@@ -556,7 +560,7 @@ Get-Item "C:\ISO\alpine.iso" | Select-Object Name, Length
     ![Descripción de la imagen](./img_4/img_4_78.png){ .margintop10 .marginbottom10 }
     - Conectamos la máquina a nuestro switch virtual.
     ![Descripción de la imagen](./img_4/img_4_79.png){ .margintop10 .marginbottom10 }
-    - Disco duro virtaul. Ubicaremos el disco duro en la carpeta **VM* creada anteriormente.
+    - Disco duro virtual. Ubicaremos el disco duro en la carpeta **VM* creada anteriormente.
     ![Descripción de la imagen](./img_4/img_4_91.png){ .margintop10 .marginbottom10 }
     - Opciones de instalación del SO. En **Image file** ponemos la ubicación de nuestra imagen.iso.
     ![Descripción de la imagen](./img_4/img_4_92.png){.margintop10  .marginbottom10 }
@@ -592,22 +596,24 @@ Get-Item "C:\ISO\alpine.iso" | Select-Object Name, Length
     Start-VM -Name "Cliente-1"
     ```
 
-### 4.5.4 Arrancar la VM
+#### 5.5.4 Arrancar la VM
 
 - Arrancamos la máquina virtual desde el **Hyper-V Manager**
 ![Descripción de la imagen](./img_4/img_4_94.png){ .margintop10 .marginbottom10 }
 - Esperamos a que se cargue el SO.
 ![Descripción de la imagen](./img_4/img_4_42.png){ .margintop10 .marginbottom10 }
-- La contraseña del login es **root**.
+- La contraseña del login es **root**.  
+==Realizar captura de pantalla==  
 ![Descripción de la imagen](./img_4/img_4_95.png){ .margintop10 .marginbottom10 }
 
-### 4.5.4 Verificar la conexión a la red a la asignación de la IP por parte del DHCP
+#### 5.5.5 Verificar la conexión a la red a la asignación de la IP por parte del DHCP
 
 - Dentro de la consola de la VM confirmaremos el nombre real de la interfaz (eth0, enp0s3...):  
     ``` shell
     ip link show           
     ```
 
+    ==Realizar captura de pantalla==
     ![Descripción de la imagen](./img_4/img_4_96.png)
 
 - Si aparece "state DOWN", levantaremos la interfaz.
@@ -622,12 +628,13 @@ Get-Item "C:\ISO\alpine.iso" | Select-Object Name, Length
     udhcpc -i eth0
     ```
 
+    ==Realizar captura de pantalla==  
     ![Descripción de la imagen](./img_4/img_4_98.png)
 
 - Como podemos ver, la solicitud no se realiza. Eso se puede deber a, al menos 2 causas.  
-No hemos asociado el **Switch Virtual** a nuestra **máquina anfitrión**.
+:one: No hemos asociado el **Switch Virtual** a nuestra **máquina anfitrión**.
 ![Descripción de la imagen](./img_4/img_4_99.png){ .margintop10 .marginbottom20}
-Cuando hemos creado el switch virtual hemos autorizado el VLAN ID → Lo deseleccionaremos.
+:two: Cuando hemos creado el switch virtual hemos autorizado el VLAN ID → Lo deseleccionaremos.
 ![Descripción de la imagen](./img_4/img_4_101.png){ .margintop10 .marginbottom10}
 
 - Solicitamos de nuevo una dirección IP:
@@ -635,15 +642,16 @@ Cuando hemos creado el switch virtual hemos autorizado el VLAN ID → Lo deselec
     udhcpc -i eth0
     ```
 
+    ==Realizar captura de pantalla==  
     ![Descripción de la imagen](./img_4/img_4_100.png)
 
-### 4.6 Supervisión del proceso de broadcast y asignación (DORA) con Wireshark
+### 5.6 Supervisión del proceso de broadcast y asignación (DORA) con Wireshark
 
 - En esta parte supervisaremos la activida de red con **Wireshark** para ver el proceso DORA: DHCPDISCOVER → DHCPOFFER → DHCPREQUEST → DHCPACK.
 - Wireshark es un popular analizador de protocolos de red de código abierto.  
 - Permite capturar y examinar **en tiempo real** el tráfico de datos que pasa por una red de comunicaciones, mostrando los paquetes individuales de información.
 
-### 4.6.1 Descargar e instalar Wireshark
+#### 5.6.1 Descargar e instalar Wireshark
 
 !!! tip "Por línea de comandos"
     ```powershell
@@ -654,32 +662,39 @@ Cuando hemos creado el switch virtual hemos autorizado el VLAN ID → Lo deselec
 !!! tip "Descargar desde la página oficial"
     ![Descripción de la imagen](./img_4/img_4_84.png)
 
-### 4.6.2 Primeras capturas con Wireshark
+#### 5.6.2 Primeras capturas con Wireshark
 
-- Una vez en ejecución la aplicación nos mostrará todos los adaptadores de red disponibles.
+- Una vez en ejecución la aplicación nos mostrará todos los adaptadores de red disponibles.  
+==Realizar captura de pantalla==  
 ![Descripción de la imagen](./img_4/img_4_85.png){ .margintop10 .marginbottom10}
 - Si no se detecta ninguna actividad de red, ponemos forzar tráfico haciendo ping desde la máquina virtual con Alpine Linux a otros dispositvos de la red. De esa manera también nos aseguraremos que todo funciona correctamente.
+==Realizar captura de pantalla==  
 ![Descripción de la imagen](./img_4/img_4_86.png){ .margintop10 .marginbottom10 }
 
-### 4.6.3 Capturas del DORA entre MV y DHCP
+#### 5.6.3 Capturas del DORA entre MV y DHCP
 
 - Wireshark solo captura el tráfico a partir del momento en el cual se está ejecutando. Por ese motivo deberemos forzar el DORA entre MV y DHCP. Para ello forzaremos a la MV a devolver la IP asignada y negociaremos otra.
-- Primero comprobaremos que la MV está conectada a la red. Si no lo está levantaremos el servicio.
+- Primero comprobaremos que la MV está conectada a la red. Si no lo está levantaremos el servicio.  
+==Realizar captura de pantalla==  
 ![Descripción de la imagen](./img_4/img_4_87.png){ .margintop10 .marginbottom10}
 - Si la MV estaba conectada, devolveremos la IP asignada.
 ![Descripción de la imagen](./img_4/img_4_88.png){ .margintop10 .marginbottom10}
-- Forzamos la negociación de una nueva IP con el servidor DHCP.
+- Forzamos la negociación de una nueva IP con el servidor DHCP.  
+==Realizar captura de pantalla==  
 ![Descripción de la imagen](./img_4/img_4_89.png){ .margintop10 .marginbottom10}
-- Aplicando filtros o simplemente ordenando los protocolos en orden alfabetico podremos ver las 4 fases del procesa DORA.
+- Aplicando filtros o simplemente ordenando los protocolos en orden alfabetico podremos ver las 4 fases del procesa DORA.  
+==Realizar captura de pantalla==  
 ![Descripción de la imagen](./img_4/img_4_90.png){ .margintop10 .marginbottom10}
 
-### 4.7 Creación de otra máquina virtual
+### 5.7 Tarea RA1-CEfgh-1 - Creación de otra máquina virtual
 
-Para comprobar que los conocimientos han sido asimilados correctamente. Lanzar otra máquina virtual y comprobar con Wireshark el proceso DORA.
+Para comprobar que los conocimientos han sido asimilados correctamente.
 
-La máquina virtual podrá ser del mismo tipo que la MV anterior o estar montada con un SO de *Windows**.
-
-Si elegís esta última opción podreís descargar un SO de uso limitado desde [el centro de evaluación de Microsoft](https://www.microsoft.com/es-es/evalcenter/).
+1. Lanzar otra máquina virtual y comprobar con Wireshark el proceso DORA.  
+==Realizar captura de pantalla==  
+1. La máquina virtual podrá ser del mismo tipo que la MV anterior o estar montada con un SO de **Windows**.  
+==Realizar captura de pantalla==  
+1. Si elegís esta última opción podreís descargar un SO de uso limitado desde [el centro de evaluación de Microsoft](https://www.microsoft.com/es-es/evalcenter/).
 
 !!! tip "Comandos para devolver IP y solicitarla de nuevo"
     ```cmd
@@ -688,78 +703,21 @@ Si elegís esta última opción podreís descargar un SO de uso limitado desde [
     ipconfig /all
     ```
 
-## 5 - Tarea RA1-def-2 - Instalación y configuración de un DHCP con Ubuntu Server en AWS
+## HASTA AQUI
 
-### 5.1 Objetivo de la práctica
+## 6 - Tarea RA1-cd-2 - Instalación y configuración de un DHCP con Ubuntu Server en AWS
 
-- Desplegar un servidor DHCP en Ubuntu Server 22.04 LTS sobre AWS con virtualización anidada.
+### 6.1 Objetivo de la práctica
+
+- Desplegar un servidor DHCP en Ubuntu Server 26.04 LTS sobre AWS con virtualización anidada.
 - En este primer paso instalaremos y configuraremos el rol **DHCP Server** en Ubuntu Server, y observaremos en tiempo real cómo varios equipos cliente obtienen su configuración IP (DHCPDISCOVER → OFFER → REQUEST → ACK), reservas, exclusiones, ámbitos (scopes), opciones de ámbito (DNS, puerta de enlace, etc.).
 
-### 5.2 Arquitectura del laboratorio
+### 6.2 Arquitectura del laboratorio
 
-- Instancia EC2 (m7i.large, 100GB, Unbuntu Server 24.04 LTS
+- Instancia EC2 (m7i.large, 60GB, Unbuntu Server 26.04 LTS
 - Virtualización KVM + QEMU + libvirt)
 
 ![Descripción de la imagen](./img_4/img_4_122.png){  .marginbottom10}
-
-<!-- ┌───────────────────────────────┐
-          │         UBUNTU SERVER         │
-          │                               │
-          │      KVM + QEMU + libvirt     │ 
-          │                               │
-          │   ┌───────────────────────┐   │
-          │   │       RED DHCP        │   │
-          │   │    192.168.50.0/24    │   │
-          │   │                       │   │
-          │   │   ┌───────────────┐   │   │
-          │   │   │ DHCP SERVER   │   │   │
-          │   │   │ Ubuntu Server │   │   │
-          │   │   │ 192.168.50.10 │   │   │
-          │   │   └───────┬───────┘   │   │
-          │   │           │           │   │
-          │   │      ┌────┴────┐      │   │
-          │   │      │ virtual │      │   │
-          │   │      │ switch  │      │   │
-          │   │      └─┬──┬──┬─┘      │   │
-          │   │        │  │  │        │   │
-          │   │      VM1 VM2 VM3      │   │
-          │   │     DHCP DHCP DHCP    │   │
-          │   │                       │   │
-          │   └───────────────────────┘   │
-          └───────────────────────────────┘
--->
-
-<!-- ```mermaid
-flowchart TB
-    subgraph Host["UBUNTU SERVER (KVM + QEMU + libvirt)"]
-        direction TB
-        
-        subgraph Red["RED DHCP (192.168.50.0/24)"]
-            direction TB
-            
-            DHCP["<b>DHCP SERVER</b><br/>Ubuntu Server<br/>192.168.50.10"]
-            Switch["virtual switch"]
-            
-            subgraph VMs["Clientes DHCP"]
-                direction LR
-                VM1["VM1<br/>(DHCP)"]
-                VM2["VM2<br/>(DHCP)"]
-                VM3["VM3<br/>(DHCP)"]
-            end
-            
-            DHCP --- Switch
-            Switch --- VM1
-            Switch --- VM2
-            Switch --- VM3
-        end
-    %% Estilos visuales
-    style Host fill:#f9f9f9,stroke:#333,stroke-width:2px
-    style Red fill:#e1f5fe,stroke:#0288d1,stroke-width:2px
-    style DHCP fill:#fff3e0,stroke:#f57c00,stroke-width:1px
-    style Switch fill:#e8f5e9,stroke:#388e3c,stroke-width:1px
-    style VMs fill:#ffffff,stroke:none
-    end
-``` -->
 
 !!! note "Explicación de los elementos de la arquitectura"
 

@@ -1485,6 +1485,13 @@ Comprobaremos que las interfaces de red en cada instancia cumplen las reglas de 
 Para ello, accederemos a las propiedades de los servidores DNS de nuestras máquinas.
 ![Descripción de la imagen](./img_5/img_5_117.png){.margintop10 .marginbottom10 }
 
+### 17.7 Comprobación de la resolución de nombres
+
+1. Lanzar una instancia de Ubuntu server 26.04.
+1. Instalar GNOME para poder utilizar un navegador de internet.
+1. Configurar la IP de la instancia y el DNS preferido apuntando a la IP de la primera instancia de Windows Server.
+1. Abrir un navegador y comprobar que podemos navegar por internet y que la resolución de nombres funciona correctamente.
+
 ## 16 - Tarea RA2-CEde-2 - Instalación y configuración de un servidor DNS con BIND9 en Ubuntu Server 26.04 LTS
 
 ### 16.1 Objetivos
