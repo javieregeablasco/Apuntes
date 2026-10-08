@@ -25,7 +25,7 @@ schedule: 1h/w
 
 ## 1 - Agenda 2030
 
-- La **Agenda 2030 para el Desarrollo Sostenible** es un acuerdo global aprobado por consenso por los **193 Estados miembros de las Naciones Unidas el 25 de septiembre de 2015**, mediante la resolución A/RES/70/1 titulada `*Transformar nuestro mundo: la Agenda 2030 para el Desarrollo Sostenible*`.
+- La **Agenda 2030 para el Desarrollo Sostenible** es un acuerdo global aprobado por consenso por los **193 Estados miembros de las Naciones Unidas el 25 de septiembre de 2015**, mediante la resolución A/RES/70/1 titulada `Transformar nuestro mundo: la Agenda 2030 para el Desarrollo Sostenible`.
 - Entró en vigor formalmente el 1 de enero de 2016 como un marco internacional para orientar las políticas de desarrollo económico, social y ambiental.
 
 ## 2 - Estructura y Principios Fundamentales
@@ -55,7 +55,7 @@ Surge como continuación de los Objetivos de Desarrollo del Milenio (ODM, 2000-2
 ## 3 - Implementación y Financiación
 
 - **Gobernanza y localización**:
-       1. La Agenda no crea un mecanismo sancionador.
+       1. La Agenda 2030 no crea un mecanismo sancionador.
        1. Cada país la adapta a sus estructuras institucionales mediante estrategias nacionales y planes locales (como la *Estrategia de Desarrollo Sostenible 2030* o la Red de Entidades Locales en España).
        1. El seguimiento se evalúa en el Foro Político de Alto Nivel (HLPF) mediante Exámenes Nacionales Voluntarios.
 
@@ -89,7 +89,7 @@ Las evaluaciones globales muestran que el plan está en riesgo y avanza a dos ve
 
 ## 6 - Foro de discusión
 
-!!! question "¿Qué tienen en comun los ods y la agenda 2030?"
+!!! question "¿Qué tienen en común los ods y la agenda 2030?"
 <!-- 
 Los Objetivos de Desarrollo Sostenible (ODS) y la Agenda 2030 no son dos cosas distintas o separadas, sino dos partes del mismo plan de acción global impulsado por la Organización de las Naciones Unidas (ONU) en 2015.
 
@@ -106,54 +106,54 @@ Origen y marco temporal: Ambos fueron adoptados simultáneamente en septiembre d
 !!! question "Aspectos ASG, Grupos de Interés y Gestión de Riesgos y Oportunidades"
     1. ¿Son los Objetivos de Desarrollo Sostenible (ODS) herramientas suficientes y eficaces para hacer realidad la Agenda 2030, o su carácter de **soft law** (no vinculante) compromete su cumplimiento real?
     1. ¿Existe una contradicción insalvable dentro de la Agenda 2030 al promover el crecimiento económico (ODS 8) en un planeta con límites biofísicos finitos?
-    1. ¿Puede alcanzarse la premisa de "no dejar a nadie atrás" mediante la "localización" de los ODS si no se corrigen primero los impactos transfronterizos y la huSella ecológica de los países ricos sobre el Sur Global?
+    1. ¿Puede alcanzarse la premisa de "no dejar a nadie atrás" mediante la "localización" de los ODS si no se corrigen primero los impactos transfronterizos y la huella ecológica de los países ricos sobre el Sur Global?
 
 <!-- 
 -1-
-**Contexto de debate:** La Agenda 2030 constituye el marco internacional global, mientras que los 17 ODS y sus 169 metas son su núcleo operativo e integrado[1][2]. Sin embargo, al ser guías de cumplimiento voluntario que carecen de sanciones en el derecho internacional, se cuestiona si los gobiernos y empresas realmente están avanzando hacia las transformaciones sistémicas necesarias 
+**Contexto de debate:** La Agenda 2030 constituye el marco internacional global, mientras que los 17 ODS y sus 169 metas son su núcleo operativo e integrado. Sin embargo, al ser guías de cumplimiento voluntario que carecen de sanciones en el derecho internacional, se cuestiona si los gobiernos y empresas realmente están avanzando hacia las transformaciones sistémicas necesarias 
 -->
 
 <!--
 **Líneas de respuesta esperadas:**
-* El seguimiento de los ODS se articula bajo la figura jurídica de *soft law* (derecho no vinculante), lo que significa que no contempla sanciones internacionales por incumplimiento[7].
-* Esta falta de exigibilidad legal facilita que gobiernos y empresas apliquen una selección estratégica de metas (*cherry picking*) o realicen un cumplimiento puramente formal o cosmético[7].
-* Aunque sirven como marco común de armonización y consenso internacional[7], se argumenta que sin mecanismos de fiscalización o vinculación jurídica resulta difícil alcanzar las transformaciones estructurales necesarias[10][11].
+* El seguimiento de los ODS se articula bajo la figura jurídica de *soft law* (derecho no vinculante), lo que significa que no contempla sanciones internacionales por incumplimiento.
+* Esta falta de exigibilidad legal facilita que gobiernos y empresas apliquen una selección estratégica de metas (*cherry picking*) o realicen un cumplimiento puramente formal o cosmético.
+* Aunque sirven como marco común de armonización y consenso internacional, se argumenta que sin mecanismos de fiscalización o vinculación jurídica resulta difícil alcanzar las transformaciones estructurales necesarias.
 -->
 
 <!--
 -2-
- La Agenda 2030 busca articular de forma indivisible las dimensiones económica, social y ambiental (las "5 Ps")[5][6]. No obstante, desde posturas ecosociales se critica que perseguir un "crecimiento económico sostenido" resulta incompatible con los límites del planeta y la escasez de recursos[7][8], debatiéndose si los ODS deberían redefinirse hacia modelos de decrecimiento material o economía de la rosquilla 
+ La Agenda 2030 busca articular de forma indivisible las dimensiones económica, social y ambiental (las "5 Ps"). No obstante, desde posturas ecosociales se critica que perseguir un "crecimiento económico sostenido" resulta incompatible con los límites del planeta y la escasez de recursos[7][8], debatiéndose si los ODS deberían redefinirse hacia modelos de decrecimiento material o economía de la rosquilla 
  
- * **Núcleo conceptual:** La Agenda 2030 plantea una visión holística que busca conjugar las dimensiones económica, social y ambiental de manera integrada[6].
+ * **Núcleo conceptual:** La Agenda 2030 plantea una visión holística que busca conjugar las dimensiones económica, social y ambiental de manera integrada.
 * **Líneas de respuesta esperadas:**
-* Existe una tensión intrínseca al promover en el ODS 8 un "crecimiento económico sostenido" dentro de un sistema planetario con límites biofísicos finitos[12].
-* La evidencia muestra la imposibilidad de desacoplar permanentemente el crecimiento del PIB del aumento en el consumo de recursos, energía e impactos ecológicos[14].
-* Análisis ecosociales y decoloniales proponen modelos alternativos como la **economía de la rosquilla** o el **decrecimiento material**, los cuales plantean reorganizar la actividad productiva dentro del espacio seguro comprendido entre un suelo de necesidades sociales cubiertas y un techo ecológico[17]
+* Existe una tensión intrínseca al promover en el ODS 8 un "crecimiento económico sostenido" dentro de un sistema planetario con límites biofísicos finitos.
+* La evidencia muestra la imposibilidad de desacoplar permanentemente el crecimiento del PIB del aumento en el consumo de recursos, energía e impactos ecológicos.
+* Análisis ecosociales y decoloniales proponen modelos alternativos como la **economía de la rosquilla** o el **decrecimiento material**, los cuales plantean reorganizar la actividad productiva dentro del espacio seguro comprendido entre un suelo de necesidades sociales cubiertas y un techo ecológico
 -->
 
  <!-- 
  -3- 
- La localización adapta las metas globales a los municipios y regiones[11][12]. Sin embargo, las evaluaciones revelan que los altos niveles de consumo del Norte Global generan externalidades negativas (*spillovers*) en países en desarrollo[13], planteando si las iniciativas locales bastan sin una reforma justa de la arquitectura ambiental y financiera internacional[16][17]. 
+ La localización adapta las metas globales a los municipios y regiones. Sin embargo, las evaluaciones revelan que los altos niveles de consumo del Norte Global generan externalidades negativas (*spillovers*) en países en desarrollo, planteando si las iniciativas locales bastan sin una reforma justa de la arquitectura ambiental y financiera internacional. 
 
- * **Núcleo conceptual:** El principio de "no dejar a nadie atrás" (*leave no one behind*) prioriza la atención a los colectivos en mayor situación de vulnerabilidad[3], mientras que la **localización** adapta las metas globales a las realidades municipales y regionales[23][24].
+ * **Núcleo conceptual:** El principio de "no dejar a nadie atrás" (*leave no one behind*) prioriza la atención a los colectivos en mayor situación de vulnerabilidad, mientras que la **localización** adapta las metas globales a las realidades municipales y regionales.
 * **Líneas de respuesta esperadas:**
-* Aunque la localización adapta la gestión a las comunidades locales, no corrige por sí misma los efectos transfronterizos (*spillovers*)[25].
-* Los altos patrones de consumo de los países desarrollados generan externalidades negativas masivas (deforestación, contaminación y explotación de recursos) sobre el Sur Global[26][28].
+* Aunque la localización adapta la gestión a las comunidades locales, no corrige por sí misma los efectos transfronterizos (*spillovers*).
+* Los altos patrones de consumo de los países desarrollados generan externalidades negativas masivas (deforestación, contaminación y explotación de recursos) sobre el Sur Global.
 * Enfocar la localización solo en regiones de altos ingresos sin mecanismos de financiamiento global equitativo ni reducción de la huella ecológica puede desviar fondos de cooperación y acentuar los desequilibrios internacionales
 -->
 
 !!! question "Relación entre los ODS y su importancia para la Agenda 2030"
     1. ¿Identificar e integrar los aspectos ASG (Ambientales, Sociales y de Gobernanza) es una oportunidad estratégica real de innovación o corre el riesgo de convertirse en una herramienta de **greenwashing** (lavado verde)?
     1. En caso de conflicto de intereses, ¿debe la dirección de una organización priorizar los criterios ASG ambientales e intergeneracionales por encima de la rentabilidad económica a corto plazo exigida por los accionistas?
-    1. ¿Garantizan las nuevas normativas europeas sobre informes de sostenibilidad y diligencia debida (CSRD y CSDDD) una prevención efectiva de riesgos corporativos, o impondrán barreras inasumibles para el tejido empresarial?
+    1. ¿Garantizan las nuevas normativas europeas sobre informes de sostenibilidad y diligencia debida (CSRD (Directiva de Informes de Sostenibilidad Corporativa) y CSDDD (Directiva de diligencia debida de las empresas en sostenibilidad)) una prevención efectiva de riesgos corporativos, o impondrán barreras inasumibles para el tejido empresarial?
 
 <!--
 -1- 
-**Contexto de debate:** El enfoque ASG evalúa el impacto de la organización en el entorno, en las personas y en la ética directiva[18][19]. Aunque para muchas empresas es una vía para diferenciarse e ingresar en la inversión de impacto[20][21], existe la crítica de que la Responsabilidad Social Corporativa (RSC) se utiliza frecuentemente como estrategia publicitaria sin asumir cambios en el modelo de negocio[22]. 
+**Contexto de debate:** El enfoque ASG evalúa el impacto de la organización en el entorno, en las personas y en la ética directiva. Aunque para muchas empresas es una vía para diferenciarse e ingresar en la inversión de impacto, existe la crítica de que la Responsabilidad Social Corporativa (RSC) se utiliza frecuentemente como estrategia publicitaria sin asumir cambios en el modelo de negocio[22]. 
 
-* **Núcleo conceptual:** El enfoque **ASG (Ambiental, Social y de Gobernanza)** e instrumentos como la Inversión Socialmente Responsable (ISR) integran criterios de sostenibilidad en la toma de decisiones corporativas y financieras[32].
+* **Núcleo conceptual:** El enfoque **ASG (Ambiental, Social y de Gobernanza)** e instrumentos como la Inversión Socialmente Responsable (ISR) integran criterios de sostenibilidad en la toma de decisiones corporativas y financieras.
 * **Líneas de respuesta esperadas:**
-* **Oportunidad de innovación:** La integración de criterios ASG optimiza la eficiencia operativa, reduce riesgos en las cadenas de suministro globales y acelera la creación de productos y materiales sostenibles[35].
+* **Oportunidad de innovación:** La integración de criterios ASG optimiza la eficiencia operativa, reduce riesgos en las cadenas de suministro globales y acelera la creación de productos y materiales sostenibles.
 * **Riesgo de** **greenwashing** **:** Muchas corporaciones emplean la retórica ambiental o sellos de certificación parciales como herramientas de marketing sin transformar verdaderamente sus modelos de negocio extractivistas
 -->
 

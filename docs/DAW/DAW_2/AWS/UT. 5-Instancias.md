@@ -569,7 +569,7 @@ El escenario quedará de la siguiente manera:
 ## 4 - Presentación de Cloud9
 
 !!! warning "Actualización a 10/2026"
-    El servicio Cloud9 ya no está diponible para los alumnos del academy.
+    El servicio Cloud9 ya no está diponible para los alumnos del AWS Academy Learner Lab.
 
 - Cloud 9 es un entorno de desarrollo integrado (IDE) basado en la nube que permite a los desarrolladores escribir, ejecutar y depurar código directamente desde un navegador web sin necesidad de instalar nada en el equipo local.  
 - Proporciona un entorno de desarrollo completo con soporte para múltiples lenguajes de programación, integración con servicios de AWS y colaboración en tiempo real.
