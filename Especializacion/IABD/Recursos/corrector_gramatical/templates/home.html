@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asistente de Escritura · IA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #1a1a2e;
+            --paper: #f5f0e8;
+            --accent: #c0392b;
+            --accent-soft: #e8d5d3;
+            --gold: #b8960c;
+            --mid: #6b6b7a;
+            --line: rgba(26,26,46,0.15);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--paper);
+            color: var(--ink);
+            font-family: 'DM Sans', sans-serif;
+            min-height: 100vh            
+        }
+       
+        /* MAIN LAYOUT */
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3rem 3rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        /* SECTION TITLES */
+        .section-label {
+            font-size: 0.6rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--line);
+        }
+
+        /* MODO SELECTOR */
+        .modo-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.6rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .modo-btn {
+            padding: 0.7rem 0.8rem;
+            border: 1.5px solid var(--line);
+            background: transparent;
+            cursor: pointer;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: var(--mid);
+            text-align: left;
+            transition: all 0.2s;
+            position: relative;
+        }
+
+        .modo-btn .modo-icon {
+            display: block;
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .modo-btn .modo-name {
+            display: block;
+            font-weight: 500;
+            color: var(--ink);
+        }
+
+        .modo-btn .modo-desc {
+            display: block;
+            font-size: 0.65rem;
+            color: var(--mid);
+            margin-top: 0.1rem;
+        }
+
+        .modo-btn:hover {
+            border-color: var(--ink);
+            background: rgba(26,26,46,0.03);
+        }
+
+        .modo-btn.active {
+            border-color: var(--accent);
+            background: var(--accent-soft);
+        }
+
+        .modo-btn.active .modo-name {
+            color: var(--accent);
+        }
+
+        .modo-btn.active::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 100%;
+            background: var(--accent);
+        }
+
+        /* TEXTAREA */
+        .textarea-wrap {
+            position: relative;
+            margin-bottom: 1rem;
+        }
+
+        textarea {
+            width: 100%;
+            height: 220px;
+            padding: 1rem;
+            border: 1.5px solid var(--line);
+            background: rgba(255,255,255,0.6);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: var(--ink);
+            resize: vertical;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        textarea:focus {
+            border-color: var(--ink);
+        }
+
+        textarea::placeholder {
+            color: var(--mid);
+            font-style: italic;
+        }
+
+        .char-count {
+            position: absolute;
+            bottom: 0.5rem;
+            right: 0.75rem;
+            font-size: 0.65rem;
+            color: var(--mid);
+        }
+
+        /* SUBMIT BUTTON */
+        .btn-procesar {
+            width: 100%;
+            padding: 0.9rem 2rem;
+            background: var(--ink);
+            color: var(--paper);
+            border: none;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn-procesar:hover {
+            background: var(--accent);
+        }
+
+        .btn-procesar:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .btn-procesar .spinner {
+            width: 14px;
+            height: 14px;
+            border: 2px solid rgba(245,240,232,0.3);
+            border-top-color: var(--paper);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            display: none;
+        }
+
+        .btn-procesar.loading .spinner { display: block; }
+        .btn-procesar.loading .btn-text { display: none; }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* OUTPUT PANEL */
+        .output-col {
+            display: flex;
+            flex-direction: column; 
+        }
+
+        .output-panel {
+            flex: 1;
+            border: 1.5px solid var(--line);
+            background: rgba(255,255,255,0.5);
+            min-height: 380px;
+            padding: 1.5rem;
+            position: relative;
+        }
+
+        .output-empty {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            min-height: 300px;
+            text-align: center;
+            gap: 0.75rem;
+        }
+
+        .output-empty-icon {
+            font-size: 2.5rem;
+            opacity: 0.3;
+        }
+
+        .output-empty-text {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: var(--mid);
+            font-size: 0.95rem;
+        }
+
+        .output-content {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .output-content.visible {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .output-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .output-modo-badge {
+            font-size: 0.6rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            background: var(--ink);
+            color: var(--paper);
+            padding: 0.25rem 0.6rem;
+        }
+
+        .btn-copiar {
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            background: none;
+            border: 1px solid var(--line);
+            padding: 0.25rem 0.6rem;
+            cursor: pointer;
+            color: var(--mid);
+            font-family: 'DM Sans', sans-serif;
+            transition: all 0.2s;
+        }
+
+        .btn-copiar:hover {
+            border-color: var(--ink);
+            color: var(--ink);
+        }
+
+        /* RESULTADO MARKDOWN */
+        .resultado-body {
+            font-size: 0.88rem;
+            line-height: 1.8;
+            color: var(--ink);
+        }
+
+        .resultado-body h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin: 1rem 0 0.5rem;
+            color: var(--ink);
+        }
+
+        .resultado-body h2:first-child { margin-top: 0; }
+
+        .resultado-body ul, .resultado-body ol {
+            padding-left: 1.25rem;
+            margin: 0.5rem 0;
+        }
+
+        .resultado-body li { margin-bottom: 0.3rem; }
+
+        .resultado-body strong {
+            background: rgba(192,57,43,0.1);
+            padding: 0 0.15rem;
+            border-radius: 2px;
+        }
+
+        .resultado-body p { margin-bottom: 0.75rem; }
+        .resultado-body p:last-child { margin-bottom: 0; }
+
+        /* ERROR */
+        .output-error {
+            display: none;
+            padding: 1rem;
+            border-left: 3px solid var(--accent);
+            background: var(--accent-soft);
+            font-size: 0.85rem;
+            color: var(--accent);
+        }
+
+        .output-error.visible { display: block; }
+
+        /* DIVIDER */
+        .ornament {
+            text-align: center;
+            color: var(--mid);
+            font-size: 0.8rem;
+            letter-spacing: 0.5em;
+            margin: 0.5rem 0 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            main { grid-template-columns: 1fr; padding: 1.5rem; gap: 2rem; }
+            header { padding: 1.5rem; }
+            .brand-name { font-size: 1.6rem; }
+        }
+    </style>
+</head>
+<body>
+
+
+
+<main>
+    <!-- COLUMNA IZQUIERDA: INPUT -->
+    <div class="input-col">
+        <p class="section-label">Paso 1</p>
+        <h2 class="section-title">Eligir el tipo de procesamiento</h2>
+
+        <div class="modo-grid">
+            <button class="modo-btn active" data-modo="corregir" onclick="seleccionarModo(this)">
+                <span class="modo-icon">✍️</span>
+                <span class="modo-name">Corregir</span>                 
+            </button>
+            <button class="modo-btn" data-modo="resumir" onclick="seleccionarModo(this)">
+                <span class="modo-icon">📋</span>
+                <span class="modo-name">Resumir</span>                
+            </button>
+            <button class="modo-btn" data-modo="mejorar" onclick="seleccionarModo(this)">
+                <span class="modo-icon">✨</span>
+                <span class="modo-name">Mejorar Estilo</span>                
+            </button>
+            <button class="modo-btn" data-modo="formalizar" onclick="seleccionarModo(this)">
+                <span class="modo-icon">💼</span>
+                <span class="modo-name">Formalizar</span>     
+            </button>
+        </div>
+
+        <p class="section-label">Paso 2</p>
+        <h2 class="section-title">Introducir el texto</h2>
+
+        <div class="textarea-wrap">
+            <textarea
+                id="textoInput"
+                placeholder="Escribe o pega aquí tu texto..."
+                oninput="actualizarContador()"
+            ></textarea>
+            <span class="char-count" id="charCount">0 caracteres</span>
+        </div>
+
+        <button class="btn-procesar" id="btnProcesar" onclick="procesarTexto()">
+            <div class="spinner"></div>
+            <span class="btn-text">Procesar texto</span>
+        </button>
+    </div>
+
+    <!-- COLUMNA DERECHA: OUTPUT -->
+    <div class="output-col">
+        <p class="section-label">Resultado</p>
+        <h2 class="section-title">Texto procesado</h2>
+
+        <div class="output-panel">
+            <div class="output-empty" id="outputEmpty">
+                <span class="output-empty-icon">📝</span>
+                <p class="output-empty-text">El resultado aparecerá aquí<br>una vez procesado el texto.</p>
+            </div>
+
+            <div class="output-content" id="outputContent">
+                <div class="output-header">
+                    <span class="output-modo-badge" id="outputModoBadge">—</span>
+                    <button class="btn-copiar" onclick="copiarTexto()">Copiar</button>
+                </div>
+                <div class="resultado-body" id="resultadoBody"></div>
+            </div>
+
+            <div class="output-error" id="outputError"></div>
+        </div>
+    </div>
+</main>
+
+<script>
+    let modoActual = 'corregir';
+
+    const modoNombres = {
+        corregir: 'Corrección Gramatical',
+        resumir: 'Resumen',
+        mejorar: 'Mejora de Estilo',
+        formalizar: 'Formalización'
+    };
+
+    function seleccionarModo(btn) {
+        document.querySelectorAll('.modo-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        modoActual = btn.dataset.modo;
+    }
+
+    function actualizarContador() {
+        const texto = document.getElementById('textoInput').value;
+        document.getElementById('charCount').textContent = texto.length + ' caracteres';
+    }
+
+    async function procesarTexto() {
+        const texto = document.getElementById('textoInput').value.trim();
+        if (!texto) {
+            mostrarError('Por favor, introduce un texto antes de procesar.');
+            return;
+        }
+
+        const btn = document.getElementById('btnProcesar');
+        btn.classList.add('loading');
+        btn.disabled = true;
+
+        ocultarResultados();
+
+        const formData = new FormData();
+        formData.append('TEXTO', texto);
+        formData.append('MODO', modoActual);
+
+        try {
+            const resp = await fetch('/procesar', { method: 'POST', body: formData });
+            const data = await resp.json();
+
+            if (data.error) {
+                mostrarError(data.error);
+            } else {
+                mostrarResultado(data.resultado, data.modo_nombre);
+            }
+        } catch (err) {
+            mostrarError('Error de conexión. Por favor, inténtalo de nuevo.');
+        } finally {
+            btn.classList.remove('loading');
+            btn.disabled = false;
+        }
+    }
+
+    function ocultarResultados() {
+        document.getElementById('outputEmpty').style.display = 'none';
+        document.getElementById('outputContent').classList.remove('visible');
+        document.getElementById('outputError').classList.remove('visible');
+    }
+
+    function mostrarResultado(html, modoNombre) {
+        document.getElementById('resultadoBody').innerHTML = html;
+        document.getElementById('outputModoBadge').textContent = modoNombre;
+        document.getElementById('outputContent').classList.add('visible');
+    }
+
+    function mostrarError(msg) {
+        const err = document.getElementById('outputError');
+        err.textContent = msg;
+        err.classList.add('visible');
+    }
+
+    function copiarTexto() {
+        const texto = document.getElementById('resultadoBody').innerText;
+        navigator.clipboard.writeText(texto).then(() => {
+            const btn = document.querySelector('.btn-copiar');
+            btn.textContent = '¡Copiado!';
+            setTimeout(() => btn.textContent = 'Copiar', 2000);
+        });
+    }
+
+    // Enter en textarea (Ctrl+Enter para enviar)
+    document.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('textoInput').addEventListener('keydown', (e) => {
+            if (e.ctrlKey && e.key === 'Enter') procesarTexto();
+        });
+    });
+</script>
+
+</body>
+</html>
