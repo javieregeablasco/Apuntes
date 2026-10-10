@@ -785,7 +785,9 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
         1. **No se aceptará ningún otro formato de archivo**. 
 
 ## 2.7 - Paginación, tablas, encabezado, pie de página e imágenes
-<!-- # hasta aqui -->
+
+# hasta aqui
+
 ### Tarea - RA2-CEd
 
 !!! task "Tarea a entregar en RA2-CEd"

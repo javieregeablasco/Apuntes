@@ -223,6 +223,7 @@ Antes de instalar cualquier programa, es importante conocer quién posee los der
 - Es el **derecho de autor** tradicional.
 - El creador de una obra (texto, música, software, imagen, etc.) obtiene derechos exclusivos sobre su uso, reproducción y distribución.
 - Nadie puede usar la obra sin su permiso, salvo en casos específicos como la *copia privada* o el *uso justo*.
+- La licencia EULA (End User License Agreement) se encuadra dentro del marco del copyright, ya que es el derecho de autor el que otorga al creador la facultad legal de fijar las condiciones bajo las cuales permite a terceros usar su software.
 
 ---
 
@@ -318,7 +319,12 @@ Como queda evidente, esos requisitos son de hardware y software obsoletos...
     1. Comprobar si vuestro equipo cumple con los requisitos mínimos para poder instalarlo.
     1. Realizar capturas de pantalla tanto de los requisitos de OpenOffice como de las especificaciones de vuestro equipo.
     1. Responder a la siguiente pregunta: ¿Bajo qué versión de licencia se permite el uso de OpenOffice?
-    1. Subir el documento a Aules en la tarea **Tarea RA1-CEb**.
+
+!!! warning "Condiciones de entrega de la tarea"
+    1. Subir vuestra tarea nombrando el archivo **RA2-CEb-Nombre Alumno** a la **tarea abierta en AULES**.
+    1. A partir de momento de apertura de la tarea, dispondréis de **14 días** para subir vuestros trabajos.
+    1. Pasado ese tiempo, dispondréis de **7 días adicionales** para subir vuestros ejercicios pero la nota final se calculará sobre una base de 6 (y no sobre 10).
+    1. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestros ejercicios siendo vuestra nota **0/10**.
 
 ### 6.2 - Tarea RA1-CEa - Instalación típica de OpenOffice
 
@@ -327,7 +333,12 @@ Según el sistema operativo, descargar el paquete de instalación correspondient
 !!! task "Tarea RA1-CEa: Se han identificado y establecido las fases del proceso de instalación."
     1. Realizar capturas de pantalla de los momentos clave de la instalación.  
     1. Comentar brevemente lo que se realiza en cada momento.
-    1. Subir el documento a Aules en la tarea **Tarea RA1-CEa**.
+
+!!! warning "Condiciones de entrega de la tarea"
+    1. Subir vuestra tarea nombrando el archivo **RA2-CEa-Nombre Alumno** a la **tarea abierta en AULES**.
+    1. A partir de momento de apertura de la tarea, dispondréis de **14 días** para subir vuestros trabajos.
+    1. Pasado ese tiempo, dispondréis de **7 días adicionales** para subir vuestros ejercicios pero la nota final se calculará sobre una base de 6 (y no sobre 10).
+    1. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestros ejercicios siendo vuestra nota **0/10**.
 
 ### 6.3 - Tarea RA1-CEcf - Reinstalación de OpenOffice y personalización
 
@@ -344,7 +355,6 @@ Según el sistema operativo, descargar el paquete de instalación correspondient
         - OpenOffice Impress
         - OpenOffice Math  
     1. Comentar brevemente lo que se realiza en cada momento.
-    1. Subir el documento a Aules en la tarea **Tarea RA1-CEcf**.
 
 ### 6.4 - RA1-CEg - Actualizaciones de OpenOffice
 
@@ -362,9 +372,19 @@ Según el sistema operativo, descargar el paquete de instalación correspondient
     1. Lanzar OpenOffice y familiarizarse con el entorno gráfico.
     1. Buscar la opción que permita comprobar si OpenOffice se encuentra totalmente actualizado.
     1. Realizar una captura de pantalla donde se muestra que OpenOffice está actualizado (o no).
-    1. Subir el documento a Aules en la tarea **Tarea RA1-CEg**.
     1. Responder a la siguiente pregunta: ¿Qué se debería hacer si aparece que OpenOffice no está actualizado?
     1. Responder a la siguiente pregunta: ¿Como se debería actualizar OpenOffice si aparece que está actualizado?
+
+!!! warning "Condiciones de entrega de la tarea"
+    1. Subir vuestra tarea nombrando el archivo **RA2-CEg-Nombre Alumno** a la **tarea abierta en AULES**.
+    1. A partir de momento de apertura de la tarea, dispondréis de **14 días** para subir vuestros trabajos.
+    1. Pasado ese tiempo, dispondréis de **7 días adicionales** para subir vuestros ejercicios pero la nota final se calculará sobre una base de 6 (y no sobre 10).
+    1. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestros ejercicios siendo vuestra nota **0/10**.
+!!! warning "Condiciones de entrega de la tarea"
+    1. Subir vuestra tarea nombrando el archivo **RA2-CEg-Nombre Alumno** a la **tarea abierta en AULES**.
+    1. A partir de momento de apertura de la tarea, dispondréis de **14 días** para subir vuestros trabajos.
+    1. Pasado ese tiempo, dispondréis de **7 días adicionales** para subir vuestros ejercicios pero la nota final se calculará sobre una base de 6 (y no sobre 10).
+    1. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestros ejercicios siendo vuestra nota **0/10**.
 
 ### 6.5 - Tarea RA1-CEe - Resolución de problemas durante la instalación
 
@@ -394,6 +414,12 @@ Según el sistema operativo, descargar el paquete de instalación correspondient
 
     **Puesta en común:**  
     - Cada grupo expone sus soluciones, las dificultades detectadas y la solución adoptada.
+
+!!! warning "Condiciones de entrega de la tarea para los alumnos ausentes durante la sesión"
+    1. Subir vuestra tarea nombrando el archivo **RA2-CEe-Nombre Alumno** a la **tarea abierta en AULES**.
+    1. A partir de momento de apertura de la tarea, dispondréis de **14 días** para subir vuestros trabajos.
+    1. Pasado ese tiempo, dispondréis de **7 días adicionales** para subir vuestros ejercicios pero la nota final se calculará sobre una base de 6 (y no sobre 10).
+    1. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestros ejercicios siendo vuestra nota **0/10**.
 
 | **Licencia Creative Commons:** | |
 | - | - |
