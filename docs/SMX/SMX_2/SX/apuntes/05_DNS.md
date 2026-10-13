@@ -1963,6 +1963,8 @@ resolvectl status
 ==Realizar captura de pantalla==
 ![Descripción de la imagen](./img_5/img_5_151.png){ .marginbottom20 .margintop10}
 
+#### 16.11.2 Añadir clientes
+
 # HASTA AQUI
 
 ![Descripción de la imagen](./img_5/img_5_152.png){ .marginbottom20 .marco .margintop10}
@@ -1974,12 +1976,7 @@ resolvectl status
 ![Descripción de la imagen](./img_5/img_5_158.png){ .marginbottom20 .marco .margintop10}
 ![Descripción de la imagen](./img_5/img_5_159.png){ .marginbottom20 .marco .margintop10}
 
-
-
-
 <!-- https://claude.ai/chat/f2afa4f9-9965-4694-9333-a63051657cd4 -->
-
-
 
 <!--
 ```text
@@ -2823,3 +2820,26 @@ https://serviciosgm.readthedocs.io/es/latest/windows/dns/index.html
 <!-- https://www.youtube.com/watch?v=EfSbT3gJUFY&t=47s -->
 
 <!-- https://www.dreamhost.com/blog/es/nameservers-vs-dns-guia/ -->
+
+
+
+<!-- https://claude.ai/chat/062d0a59-02ce-4044-b774-4249a42049e9 -->
+<!-- https://gemini.google.com/u/1/app/ad715c98d45d977e?hl=es-ES -->
+<!-- https://chatgpt.com/c/6a87ef1d-7130-83ed-8c1c-e4a9da08330f -->
+
+<!-- ### 5.24 Añadir clientes al DNS
+
+- **Reservas** por MAC: `Add-DhcpServerV4Reservation`.
+- **Exclusiones** dentro del ámbito: `Add-DhcpServerV4ExclusionRange`. -->
+
+
+<!-- para nat -->
+<!-- tipo de elementos de red -->
+<!-- https://itadmins.es/networking-ii-dispositivos-de-red-y-tipos-de-trafico/ -->
+
+<!-- # NAT -->
+<!-- https://www.manageengine.com/latam/oputils/direcciones-ip-fundamentos.html
+https://www.redeszone.net/tutoriales/redes-cable/calcular-subnetting-ip-red-mascara-subred-ipv4/
+https://www.1nce.com/es-es/recursos/iot-knowledge-base/que-es-el-mecanismo-nat
+https://openwebinars.net/blog/nat-que-es-y-para-que-sirve/
+-->

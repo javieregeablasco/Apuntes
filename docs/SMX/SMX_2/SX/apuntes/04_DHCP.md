@@ -1204,24 +1204,3 @@ En este caso no usaremos wireshark sino el propio log del servicio DHCP.
     cat /var/lib/dhcp/dhcpd.leases
     ```
     ![Descripción de la imagen](./img_4/img_4_136.png)
-
-<!-- https://claude.ai/chat/062d0a59-02ce-4044-b774-4249a42049e9 -->
-<!-- https://gemini.google.com/u/1/app/ad715c98d45d977e?hl=es-ES -->
-<!-- https://chatgpt.com/c/6a87ef1d-7130-83ed-8c1c-e4a9da08330f -->
-
-# Ejercicios adicionales 
-
-- **Reservas** por MAC: `Add-DhcpServerV4Reservation`.
-- **Exclusiones** dentro del ámbito: `Add-DhcpServerV4ExclusionRange`.
-
-
-<!-- para nat -->
-<!-- tipo de elementos de red -->
-<!-- https://itadmins.es/networking-ii-dispositivos-de-red-y-tipos-de-trafico/ -->
-
-<!-- # NAT -->
-<!-- https://www.manageengine.com/latam/oputils/direcciones-ip-fundamentos.html
-https://www.redeszone.net/tutoriales/redes-cable/calcular-subnetting-ip-red-mascara-subred-ipv4/
-https://www.1nce.com/es-es/recursos/iot-knowledge-base/que-es-el-mecanismo-nat
-https://openwebinars.net/blog/nat-que-es-y-para-que-sirve/
--->
