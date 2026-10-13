@@ -684,13 +684,24 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
         1. El archivo a subir deberá ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
         1. **No se aceptará ningún otro formato de archivo**.
 
-<!-- ### Tarea - RA2-CEc-10
+### Tarea - RA2-CEc-10
 
 !!! task "Tarea a entregar en RA2-CEc-10"
-    !!! exercise "**1. Abre un nuevo documento, copia y pega el siguiente texto:**"
-        ```text
-
-        numeracion y encabezado pie de página insertar indice -->
+    !!! info "Columnas, numeración e insertar imágenes"
+    !!! tip "1. Descargar el archivo con los textos y la imágenes"
+        [Descargar archivo](./archivos/RA2-CEc-10-alumno.odt)
+    !!! tip "2. Arreglar el texto para que quede de la siguiente manera."
+        !!! tip "El propio texto es el enunciado del ejercicio"
+        ![img](./img_ut2/img-2-8.png){.original}
+        !!! warning "No realizar ningún salto de línea entre los diferentes párrafos"
+    !!! tip "3. Realizar el siguiente esquema de numeración."
+        ![img](./img_ut2/img-2-13.png){.original}
+    !!! tip "4. Arreglar el texto para que quede de la siguiente manera."
+        ![img](./img_ut2/img-2-12.png){.original}
+        !!! warning "Criterios para la inserción de imágenes"
+            - Imágen 1: Anclada al párrafo, ancho 4cm, centrada horizontalmente.
+            - Imágen 2: Anclada a la página, ancho 3cm, centrada horizontalmente.
+            - Imágen 3: Anclada al párrafo, ancho automático.
 
 ## 2.6 - Estilos y plantillas
 
