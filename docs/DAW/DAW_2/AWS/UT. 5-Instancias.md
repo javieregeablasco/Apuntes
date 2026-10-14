@@ -531,6 +531,11 @@ El escenario quedará de la siguiente manera:
 - Del mismo modo, la ACL de red B determina qué tráfico puede entrar y salir de la subred 2.
 ![img](./ut5/img-5-14.png){.original .marco .margintop10 .marginbottom20}  
 - Si vamos a AWS y consultamos las ACL de cada subred veremos que, **todo el tráfico entrante y saliente está permitido por defecto salvo para las nuevas ACLs**.
+
+# modificar texto imagen
+
+![img](./ut5/img-5-15.png){.original .marco .margintop10 }  
+![img](./ut5/img-5-15.png){.original .marco .margintop10 }  
 ![img](./ut5/img-5-15.png){.original .marco .margintop10 }  
 ![img](./ut5/img-5-16.png){.original .marco .marginbottom20}  
 
@@ -1040,8 +1045,8 @@ sudo firewall-cmd --state
 sudo firewall-cmd --permanent --add-rich-rule='rule family="ipv4" source address="172.18.2.184" reject' && sudo firewall-cmd --reload
 sudo firewall-cmd --permanent --add-rich-rule='rule family="ipv4" source address="172.18.2.193" reject' && sudo firewall-cmd --reload -->
 
+## Enlaces de interés
 
-## **Enlaces de interés**
 Documentación de [AWS](https://docs.aws.amazon.com)  
 Instancias [EC2](https://docs.aws.amazon.com/es_es/ec2/?icmpid=docs_homepage_featuredsvcs)  
 Tipos de instancias [EC2](https://aws.amazon.com/es/ec2/instance-types)  
