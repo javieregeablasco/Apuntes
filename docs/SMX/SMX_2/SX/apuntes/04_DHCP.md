@@ -667,7 +667,12 @@ Get-Item "C:\ISO\alpine.iso" | Select-Object Name, Length
 - Una vez en ejecución la aplicación nos mostrará todos los adaptadores de red disponibles.  
 ==Realizar captura de pantalla==  
 ![Descripción de la imagen](./img_4/img_4_85.png){ .margintop10 .marginbottom10}
-- Si no se detecta ninguna actividad de red, ponemos forzar tráfico haciendo ping desde la máquina virtual con Alpine Linux a otros dispositvos de la red. De esa manera también nos aseguraremos que todo funciona correctamente.  
+- Si no se detecta ninguna actividad de red, ponemos forzar tráfico haciendo ping desde la máquina virtual con Alpine Linux a otros dispositvos de la red (en nuestro caso, a la instancia de `Windows Server`).  
+De esa manera también nos aseguraremos que todo funciona correctamente.  
+- Si no conseguimos hacer ping pero si podemos hacer ping desde nuestro servidor DHCP, es posible que se deba a la configuración del **firewall de windows**.  
+Para ello ejecutaremos `wf.msc` y comprobaremos si tenemos restricciones sobre el tráfico `ICMP` de entrada a nuestra máquina `Windows-server`.
+![Descripción de la imagen](./img_4/img_4_143.png){ .margintop10 .marginbottom10 }
+- después de solucionar posibles problemas, generaremos tráfico de red para familiarizarnos con la interfaz de `Wireshark`.  
 ==Realizar captura de pantalla==  
 ![Descripción de la imagen](./img_4/img_4_86.png){ .margintop10 .marginbottom10 }
 
@@ -694,7 +699,7 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
 ==Realizar captura de pantalla==  
 1. La máquina virtual podrá ser del mismo tipo que la MV anterior o estar montada con un SO de **Windows**.  
 ==Realizar captura de pantalla==  
-1. Si elegís esta última opción podreís descargar un SO de uso limitado desde [el centro de evaluación de Microsoft](https://www.microsoft.com/es-es/evalcenter/).
+1. Si elegís esta última opción, podreís descargar un SO de uso limitado desde [el centro de evaluación de Microsoft](https://www.microsoft.com/es-es/evalcenter/).
 
 !!! tip "Comandos para devolver IP y solicitarla de nuevo"
     ```cmd
@@ -702,7 +707,6 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     ipconfig /renew
     ipconfig /all
     ```
-
 
 ## 6 - Tarea RA1-cd-2 - Instalación y configuración de un DHCP con Ubuntu Server en AWS
 
