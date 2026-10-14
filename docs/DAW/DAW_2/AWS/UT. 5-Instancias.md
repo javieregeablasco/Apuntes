@@ -532,16 +532,17 @@ El escenario quedará de la siguiente manera:
 ![img](./ut5/img-5-14.png){.original .marco .margintop10 .marginbottom20}  
 - Si vamos a AWS y consultamos las ACL de cada subred veremos que, **todo el tráfico entrante y saliente está permitido por defecto salvo para las nuevas ACLs**.
 
-# modificar texto imagen
+    !!! success "NACL predeterminada asignada a la subred pública"
+        ![img](./ut5/img-5-17.png){.original .marco .margintop10 }  
+        ![img](./ut5/img-5-18.png){.original .marco .marginbottom20}  
 
-![img](./ut5/img-5-15.png){.original .marco .margintop10 }  
-![img](./ut5/img-5-15.png){.original .marco .margintop10 }  
-![img](./ut5/img-5-15.png){.original .marco .margintop10 }  
-![img](./ut5/img-5-16.png){.original .marco .marginbottom20}  
+    !!! success "NACL predeterminada asignada a la subred privada"
+        ![img](./ut5/img-5-19.png){.original .marco .margintop10 }  
+        ![img](./ut5/img-5-20.png){.original .marco .marginbottom20}  
 
 ### 3.5 Tabla comparativa entre SG y ACL
 
-![img](./ut5/img-5-11.jpeg){.original .marco .margintop10 .marginbottom20}  
+![img](./ut5/img-5-11.jpeg){.original  .margintop10 .marginbottom20}  
 
 <!--
 | Característica | **Security Groups (SG)** | **Network ACLs (NACL)** |
@@ -669,126 +670,130 @@ El escenario quedará de la siguiente manera:
         ![](./ut5/RA2CEc20.png){.original}  <br> 
 
 -->
-# hasta aqui
 
 ## 4 - NAT gateway
 
 - NAT gateway es un servicio de traducción de direcciones de red (NAT) que permite a las instancias de una subred privada tener acceso a Internet o a otros servicios de AWS, **sin exponer** sus IP privadas.
 - Este servicio resulta particularmente útil por necesidad de los servicios de las EC2 de la subred privada (p.e. actualización de software) a la vez que impide que servicios externos inicien una conexión con esas instancias.
 
-### **4.1 - Características de un NAT Gateway de AWS**
+### 4.1 - Características de un NAT Gateway de AWS
+
 1. Solo existe un tipo de NAT Gateway, pero puede actuar como:  
 
-    - NAT Gateway público: cuando está en una subred pública y tiene asociada una Elastic IP (EIP).
-    - NAT Gateway privado: cuando está en una subred privada y se usa para enrutar tráfico hacia otra VPC o VPN, sin acceso a Internet.  
+    - **NAT Gateway público**: cuando está en una subred pública y tiene asociada una Elastic IP (EIP).
+    - **NAT Gateway privado**: cuando está en una subred privada y se usa para enrutar tráfico hacia otra VPC o VPN, sin acceso a Internet.  
 
 1. Debe crearse en una zona de disponibilidad específica (AZ).
 1. Soporta los protocolos: TCP, UDP y ICMP.
-1. No se le puede asociar un grupo de seguridad (Security Group); en su lugar, se controlan los accesos mediante las Listas de Control de Acceso (ACLs) de red.
+1. No se le puede asociar un grupo de seguridad (Security Group). En su lugar, se controlan los accesos mediante **Listas de Control de Acceso (ACLs) de red**.
 
+### 4.2 - Tipos de despliegue
 
-### **4.2 - Tipos de despliegue** 
-- **NAT Gateway público**  
-!!! info "" 
-    Se ubica en una subred pública.  
-    Se le asigna una Elastic IP.
-    Permite que las instancias en una subred privada puedan acceder a Internet. 
-    No permite que el tráfico desde Internet inicie conexiones hacia las instancias privadas.
+!!! info "NAT Gateway público"
+    - Se ubica en una subred pública.  
+    - Se le asigna una Elastic IP.
+    - Permite que las instancias en una subred privada puedan acceder a Internet. 
+    - No permite que el tráfico desde Internet inicie conexiones hacia las instancias privadas.
 
-- **NAT Gateway privado**
-!!! info ""
-    Se ubica en una subred privada pero se usa en conjunto con un Transit Gateway o una VPN/Direct Connect.
-    No tiene Elastic IP.
-    Sirve para enrutamiento privado: Las instancias en una subred privada pueden comunicarse con otras redes (VPCs, etc.) y ocultan sus direcciones privadas detrás de una IP en el lado del NAT.
+!!! info "NAT Gateway privado"
+    - Se ubica en una subred privada pero se usa en conjunto con un Transit Gateway o una VPN/Direct Connect.
+    - No tiene Elastic IP.
+    - Sirve para enrutamiento privado: Las instancias en una subred privada pueden comunicarse con otras redes (VPCs, etc.) y ocultan sus direcciones privadas detrás de una IP en el lado del NAT.
 
-- **Resumen comparativo:**
-!!! info ""
-    | **Característica**        | **NAT Gateway Público**                                                        | **NAT Gateway Privado**                                 |
-    | ------------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------- |
-    | **Ubicación**             | Subred pública                                                                 | Subred privada                                          |
-    | **Elastic IP**            | Requiere una Elastic IP                            | No necesita Elastic IP           |
-    | **Acceso a Internet**     | Permite que las instancias privadas accedan a Internet                         | No tiene acceso directo a Internet                      |
-    | **Rutas (Route Table)**   | Las subredes privadas deben tener una ruta hacia el NAT Gateway                | Se usa para enrutar tráfico hacia otra VPC o VPN        |
-    | **Uso típico**            | Salida a Internet desde instancias privadas (actualizaciones, descargas, etc.) | Comunicación privada entre redes sin exposición pública |
-    | **Seguridad**             | No admite SG's, solo ACL de red                | No admite SG, solo ACL de red           |
-    | **Alta disponibilidad**   | Se debe desplegar **uno por zona de disponibilidad (AZ)**     | Uno por AZ si se requiere redundancia            |
-    | **Protocolos soportados** | TCP, UDP, ICMP                                            | TCP, UDP, ICMP                  |
+!!! info "Resumen comparativo"
+    | **Característica**  | **NAT Gateway Público** | **NAT Gateway Privado**  |
+    | ------------------------- | ------------------------------ |---------------------- |
+    | **Ubicación**             | Subred pública | Subred privada  |
+    | **Elastic IP**   | Requiere una Elastic IP   | No necesita Elastic IP |
+    | **Acceso a Internet** | Permite que las instancias privadas accedan a Internet | No tiene acceso directo a Internet                      |
+    | **Rutas (Route Table)** | Las subredes privadas deben tener una ruta hacia el NAT Gateway | Se usa para enrutar tráfico hacia otra VPC o VPN |
+    | **Uso típico** | Salida a Internet desde instancias privadas (actualizaciones, descargas, etc.) | Comunicación privada entre redes sin exposición pública |
+    | **Seguridad**  | No admite SG's, solo ACL de red | No admite SG, solo ACL de red |
+    | **Alta disponibilidad** | Se debe desplegar **uno por zona de disponibilidad (AZ)** | Uno por AZ si se requiere redundancia            |
+    | **Protocolos soportados** | TCP, UDP, ICMP | TCP, UDP, ICMP      |
 
-### **4.3 - Tarea RA2-CEd**
+### 4.3 - Tarea RA2-CEd
+
 Para realizar la tarea retomaremos el escenario de la **Tarea RA2-CEc**, y pondremos un NAT gateway público para que las instancias de la subred privada puedan acceder a internet.
 
-![](./ut5/VPC2-nat.png){.sietecinco}  
+![img](./ut5/VPC2-nat.png){.original}  
 
-Este esquema tiene un error de concepto aunque siempre se representa de esa manera ¿Cuál?
+!!! question "Este esquema tiene un error de concepto aunque siempre se representa de esa manera ¿Cuál?"
 
-### **4.3.1 - Crear el NAT Gateway**
-Vamos al menú de NAT Gateway y creamos nuestro NAT Gateway.  
-Si no tenemos ninguna IP elástica, dejaremos que AWS le asigne una. 
+### 4.3.1 - Crear el NAT Gateway
 
-![](./ut5/RA2CEc1.png){.original .marco}  
+1. Vamos al menú de NAT Gateway y creamos nuestro NAT Gateway.  
+1. Si no tenemos ninguna IP elástica, dejaremos que AWS le asigne una.
+![img](./ut5/RA2CEc1.png){.original .marco .margintop10}  
 
-### **4.3.2 - Modificar la tabla de enrutamiento**
-Enlazamos todo el tráfico hacia internet de la tabla de enrutamiento de la subred privada hacia el NAT Gateway
+### 4.3.2 - Modificar la tabla de enrutamiento
 
-![](./ut5/RA2CEc2.png){.original .marco}  
+- Enlazaremos todo el tráfico hacia internet de la tabla de enrutamiento de la subred privada hacia el NAT Gateway
+![img](./ut5/RA2CEc2.png){.original .marco}  
 
-### **4.3.3 - Conexión a la EC2 de la subred privada**
-Al carecer, la EC2 de la subred privada de IP pública, para poder conectarnos a ella, primero deberemos conectarnos a la EC2 de la subred pública, y luego, desde ella, conectarnos a la EC2 de la subred privada. 
+### 4.3.3 - Conexión a la EC2 de la subred privada
+
+- Al carecer, la EC2 de la subred privada de IP pública, para poder conectarnos a ella, primero deberemos conectarnos a la EC2 de la subred pública, y luego, desde ella, conectarnos a la EC2 de la subred privada.
+- Antes de nada, deberemos enviar nuestra clave privada a la instancia EC2 ubicada en la subred pública.
+
+!!! info "Enviar la clave privada a nuestra instancia EC2"
+    !!! tip "SO Windows 11 / Linux /MacOS"
+        Para enviar archivos, usaremos el comando `scp`.
+        ```bash
+        scp -i clave-privada.pem archivo-a-enviar nombre-de-usuario@IP-publica-instancia:directorio-de-entrega
+        ```
 
 !!! info "Preparación de las variables de entorno"
-Antes de conectar por SSH a una instancia, es recomendable preparar el entorno de autenticación cargando la clave privada en el agente SSH.
+    Antes de conectar por SSH a una instancia, es recomendable preparar el entorno de autenticación cargando la clave privada en el agente SSH.
 
-1. Ejecutar ssh-agent en segundo plano
-```bash
-eval $(ssh-agent)
-```
+    1. Ejecutar ssh-agent en segundo plano
+    ```bash
+    eval $(ssh-agent)
+    ```
 
-1. Cargar en memoria la clave privada de la instancia
-```bash
-ssh-add labsuser.pem
-```
+    1. Cargar en memoria la clave privada de la instancia
+    ```bash
+    ssh-add clave-privada.pem
+    ```
 
-1. Comprobar las claves añadidas al agente ssh
-```bash
-ssh-add -l 
-```
+    1. Comprobar las claves añadidas al agente ssh
+    ```bash
+    ssh-add -l
+    ```
 
 !!! tip "¿Por qué usar ssh-agent?"
     El agente SSH permite mantener las claves privadas cargadas en memoria durante la sesión.  
+
     **Ventajas:**  
     - Evita tener que escribir la ruta o la contraseña de la clave en cada conexión.  
     - Mejora la seguridad, ya que la clave no se guarda en texto plano ni se reenvía en cada conexión.  
     - Facilita la autenticación si se conectan varias veces a la misma instancia o a distintos servidores dentro del mismo entorno.
 
-<br>
 !!! info "Conexión a la instancia EC2 mediante SSH"
-Una vez configurado el agente SSH y cargada la clave privada, nos conectaremos a la instancia EC2 de la subred pública.
+    Una vez configurado el agente SSH y cargada la clave privada, nos conectaremos a la instancia EC2 de la subred privada.
 
-```bash
-ssh -A ec2-user@dirección-ip-pública
-```
-**Nota:**  
-Con la **opción -A**, las claves se mantienen en memoria.  
-Ya no es necesario utilizar la **opción -i** para especificar la clave privada que se usará.
+    ```bash
+    ssh -A nombre-de-usuario@dirección-ip-privada
+    ```
 
-<br>
-!!! info "Conexión a la instancia EC2 de la subred privada"
-Una vez conectados a la instancia pública, desde ella nos conectaremos a la instancia de la subred privada.  
-```bash
-ssh ec2-user@direccion-ip-privada
-```
-<br>
+    !!! note "Nota"  
+        - Con la **opción -A**, las claves se mantienen en memoria.  
+        - Ya no es necesario utilizar la **opción -i** para especificar la clave privada que se usará.
 
-### **4.3.4 - Condiciones de entrega de la tarea RA2-CEd**
+!!! info "Conexión a otra instancia EC2 de la subred privada"
+    Una vez conectados a la instancia privada, desde ella, nos podremos conectar, dado el caso a otras instancias de la subred privada con:  
+    ```bash
+    ssh nombre-de-usuario@direccion-ip-privada
+    ```
+
+### 4.3.4 - Condiciones de entrega de la tarea RA2-CEd
+
 !!! task "Tarea RA2-CEd: Pruebas de ping"
     **Comprobar:**  
     Realizar una prueba de ping de las 2 instancias hacia internet (p.e google.es).  
     Realizar capturas (3 capturas en total).
 
-
-<br>           
-
-
+# HASTA AQUI
 
 ## 5 - Gestión de los EBS asociados a las instancias
 
