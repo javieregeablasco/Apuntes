@@ -258,9 +258,9 @@ Antes de instalar cualquier programa, es importante conocer quién posee los der
 - **Creative Commons** = Algunos derechos reservados, con distintos grados de libertad que el autor elige combinando condiciones (atribución, uso comercial, obra derivada, compartir igual).
 - **Dominio público** = Ningún derecho exclusivo, uso totalmente libre.
 
-### 4.3 - Tarea RA3-CEh - Comprobación de conocimientos
+### 4.3 - Tarea RA1-CEh - Comprobación de conocimientos
 
-!!! exercice "Tarea RA3-CEh - Se han respetado las licencias software"
+!!! exercice "Tarea RA1-CEh - Se han respetado las licencias software"
     1. Ir a Aules, descargar rellenar el documento RA1-CEh.
     1. Guardarlo con el nombre **RA1-CEh-NombreApellidosDelAlumno.ods**.
     1. Ir a Aules, subir el documento a la tarea RA1-CEh.
