@@ -1976,6 +1976,8 @@ resolvectl status
 ![Descripción de la imagen](./img_5/img_5_158.png){ .marginbottom20 .marco .margintop10}
 ![Descripción de la imagen](./img_5/img_5_159.png){ .marginbottom20 .marco .margintop10}
 
+https://www.youtube.com/results?search_query=bind+9
+
 <!-- https://claude.ai/chat/f2afa4f9-9965-4694-9333-a63051657cd4 -->
 
 <!--
