@@ -351,7 +351,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
         - Párrafo siguiente: **añadir un tabulador derecho a 10cm**.  
         - Párrafo siguiente: **añadir un tabulador centrado a 5cm**.  
         - Párrafo siguiente: **añadir un tabulador decimal a 12cm**.  
-        - Primer párrafo: **añadir un tabulador para que el texto quede como se ve an la imagen**.  
+        - Primer párrafo: **añadir un tabulador para que el texto quede como se ve en la imagen**.  
     
     !!! tip "Resultado esperado"
         ![](./img_ut2/ra2ceb27.png){.cien }
