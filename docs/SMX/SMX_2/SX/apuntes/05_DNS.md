@@ -1971,7 +1971,7 @@ ver carpeta etc/bind/
 comprobar sintaxis named.checkconf etc/
 comprobar zona named-checkzone  /etc/bind/db.practicadns.test
 
-192.168.222.51 → ver cuando define el cliente.
+192.168.222.51 → ver cuando define el cliente. https://www.youtube.com/watch?v=hq8kWcpGUvw
 
 # HASTA AQUI
 
