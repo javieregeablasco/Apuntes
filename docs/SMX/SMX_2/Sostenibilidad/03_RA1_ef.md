@@ -95,7 +95,7 @@ El reporte no financiero ha experimentado una transición acelerada desde la ado
     1. A su vez, los Consejos de Administración responden a este interés integrando **cuadros de mando con 15-20 métricas de sostenibilidad clave** y creando comisiones delegadas específicas de sostenibilidad.
 
     ??? tip "Métricas ambientales"
-        - Los indicadores ambientales miden el impacto de las actividades empresariales sobre el entorno natural. 
+        - Los indicadores ambientales miden el impacto de las actividades empresariales sobre el entorno natural.
         - Su objetivo es garantizar un uso responsable de los recursos y minimizar la huella ecológica.
         - Algunos ejemplos de KPIs ambientales más comunes incluyen:
             1. Emisiones de gases de efecto invernadero (GEI): toneladas de CO₂ equivalente emitidas por año.
@@ -133,6 +133,102 @@ El reporte no financiero ha experimentado una transición acelerada desde la ado
     1. **Promoción de la mejora continua**: Obligan a las empresas a implantar procesos de recogida de datos robustos, estructurar sus controles internos y someter sus indicadores a auditoría y verificación externa
 
 ---
+
+## 3 - Ejemplo práctico
+
+1. Buscar información corporativa sobre el [Grupo COX](https://grupocox.com) y más particularme datos relativos a la sostenibilidad.
+
+1. Interpretar los datos corporativos del último año.
+
+1. ¿Esos datos son buenos?
+
+## 4 - Foro de discusión
+
+!!! question "¿Es el cálculo de la huella de carbono suficiente para evaluar el compromiso de sostenibilidad empresarial?"
+
+<!--
+**No, la sostenibilidad empresarial y la evaluación del desempeño van mucho más allá de reducirlo todo al cálculo de la huella de carbono**.
+
+Aunque la huella de carbono es el indicador ambiental más habitual, más comparable y uno de los más exigidos en licitaciones e informes corporativos, cuantificar únicamente las emisiones de gases de efecto invernadero (Alcances 1, 2 y 3) deja fuera dimensiones fundamentales de la gestión ambiental, social y de gobernanza (ESG).
+
+Las razones principales por las que la sostenibilidad no puede simplificarse a una sola cifra son:
+
+---
+
+### 1\. Existen múltiples impactos ambientales más allá del carbono
+
+Medir la sostenibilidad ambiental requiere evaluar el comportamiento global de la empresa ante los límites del planeta. La huella de carbono no refleja por sí sola otros factores críticos como:
+
+* **Uso y estrés hídrico**: Volumen de agua captado, consumo hídrico y huella en zonas de estrés hídrico.
+* **Gestión de recursos y renovables**: Consumo energético total y proporción procedente de energías renovables.
+* **Residuos y economía circular**: Volumen de residuos generados (peligrosos y no peligrosos), tasa de valorización, tasa de reciclabilidad de los productos, ecodiseño y reutilización de materiales.
+* **Biodiversidad y ecosistemas**: Uso del suelo, vertidos, emisiones atmosféricas distintas de los GEI y afectación al capital natural.
+
+---
+
+### 2\. La dimensión Social (S) es determinante
+
+La sostenibilidad exige evaluar el impacto de la organización sobre las personas y la sociedad. Un indicador de carbono no mide aspectos sociales clave como:
+
+* **Salud y seguridad laboral**: Índice de frecuencia de accidentes y siniestralidad laboral.
+* **Equidad e inclusión**: Brecha salarial de género, rotación de plantilla y presencia de grupos subrepresentados en cargos de liderazgo.
+* **Cadena de suministro y comunidad**: Estándares laborales en la cadena de valor, derechos humanos e inversión e impacto en la comunidad.
+
+---
+
+### 3\. La dimensión de Gobernanza y Ética (G) garantiza la gestión responsable
+
+La gobernanza asegura que la empresa opere bajo reglas claras, éticas y transparentes. Esto abarca áreas extrafinancieras que la huella de carbono no contempla:
+
+* **Estructura y diversidad del Consejo de Administración**.
+* **Políticas anticorrupción y formación en ética empresarial** para la plantilla.
+* **Transparencia fiscal, remuneración ejecutiva y seguridad/privacidad de la información**.
+* **Homologación de la cadena de suministro**: Porcentaje del gasto en proveedores evaluado bajo criterios ESG.
+
+---
+
+### 4\. Exigencia regulatoria y estándares globales
+
+Marcos internacionales como el **Global Reporting Initiative (GRI)**, la norma **ISO 14031** para la Evaluación del Desempeño Ambiental, el marco de los **ODS (SDG Compass)** y la regulación vigente y en desarrollo (**CSRD/ESRS** y **Ley 11/2018**) exigen reportar bajo el principio de **doble materialidad**. Esto implica medir no solo el impacto de la empresa en el entorno, sino también cómo los riesgos y oportunidades extrafinancieros (sociales, climáticos y éticos) afectan a la viabilidad financiera del negocio a largo plazo.
+
+Por estas razones, la práctica recomendada no consiste en reducirlo todo a la huella de carbono, sino en articular un conjunto equilibrado y representativo de **entre 10 y 20 KPIs materiales** que abarquen las tres dimensiones ESG y permitan tomar decisiones estratégicas reales.
+-->
+
+!!! question "¿Hasta qué punto la exigencia legal de presentar estados de información no financiera garantiza una veracidad real sobre el desempeño corporativo sin sobrecargar operativamente a las empresas?"
+
+<!--
+* **Posibles soluciones y líneas de debate**:
+* **Enfoque en la materialidad**: Las organizaciones pueden apoyarse en el marco modular de los **Estándares GRI** (GRI 1, 2 y 3) para focalizar el reporte únicamente en aquellos temas que representen los impactos más significativos[1], evitando la dispersión de datos y optimizando recursos[4][5].
+* **Uso de herramientas públicas e indicadores estandarizados**: Para evitar duplicidades operativas, las empresas pueden utilizar calculadoras e índices oficiales (como los del MITECO para calcular los Alcances 1 y 2)[6][7] e implantar controles internos orientados al principio de **verificabilidad** de los datos[8].
+* **Estructuración mediante la norma ISO 14031**: Aplicar el proceso interno de **Evaluación del Desempeño Ambiental (EDA)** clasificando las métricas en **Indicadores de Desempeño de la Gestión (IDG)** e **Indicadores de Desempeño Operacional (IDO)**[9], conectando la toma de decisiones directiva con las operaciones diarias[11][12].
+-->
+
+!!! question "¿Es suficiente centrar la estrategia de sostenibilidad en el cálculo y reducción de la huella de carbono (Alcances 1 y 2), o se corre el riesgo de caer en una "visión de túnel" que ignore otros aspectos ambientales y sociales clave?"
+
+<!-- 
+**Posibles soluciones y líneas de debate**:
+* **Ampliación del alcance climático**: Si bien el cálculo básico se enfoca en multiplicar datos de actividad por factores de emisión para los Alcances 1 y 2[6][13], una medición rigurosa exige incorporar progresivamente las emisiones del **Alcance 3** a lo largo de la cadena de valor para reflejar el impacto total[6][14].
+* **Integración de métricas de Economía Circular**: Complementar la medición de gases de efecto invernadero con marcos de circularidad (como el marco de Forética), midiendo la tasa de reciclabilidad, la valorización de residuos, el ecodiseño y la eficiencia de los materiales de entrada[15].
+* **Equilibrio entre las tres dimensiones (ESG)**: Incorporar un cuadro equilibrado de indicadores extrafinancieros que abarque salud y seguridad laboral, brecha salarial de género, captación hídrica y formación en ética y anticorrupción[14][18].
+-->
+
+!!! question "¿Cómo pueden las organizaciones equilibrar la "materialidad de impacto" (lo que la empresa impacta en el entorno) y la "materialidad financiera" (cómo los factores extrafinancieros afectan al negocio) para evitar reportes meramente promocionales?"
+
+<!-- 
+**Posibles soluciones y líneas de debate**:
+* **Aplicación estricta del principio de equilibrio**: Exigir que los reportes de sostenibilidad incluyan de forma transparente tanto los avances positivos como las tendencias anuales negativas y los impactos desfavorables[19].
+* **Rigor en la determinación de temas materiales**: Utilizar la metodología de **GRI 3** junto con los **Estándares Sectoriales** para identificar y priorizar los impactos reales y potenciales con la participación activa de los grupos de interés[5].
+* **Contextualización de la información**: Evitar afirmaciones ambiguas enmarcando el desempeño corporativo dentro del contexto más amplio de desarrollo sostenible y los Objetivos de Desarrollo Sostenible (ODS)
+-->
+
+!!! question "¿De qué manera debe estructurarse el gobierno corporativo para transformar la recopilación de métricas de sostenibilidad en una herramienta de gestión estratégica y atracción de Inversión Socialmente Responsable (ISR)?"
+
+<!--
+**Posibles soluciones y líneas de debate**:
+* **Cuadro de Mando con frecuencias realistas de medición**: Establecer un seguimiento continuo de los KPIs según su naturaleza (frecuencia mensual para consumos directos y siniestralidad; trimestral o anual para brecha salarial, Alcance 3 y evaluación de proveedores)[14].
+* **Alineación estratégica mediante el SDG Compass**: Conectar las metas de la empresa con los ODS mediante los cinco pasos recomendados por el Pacto Mundial de la ONU: comprender, definir prioridades, establecer objetivos, integrar y reportar[22][23].
+* **Responsabilidad directiva y rendición de cuentas**: Involucrar directamente al Consejo de Administración y a la Alta Dirección en la supervisión de la información no financiera[24], garantizando que los datos sean confiables tanto para auditorías internas como para analistas e inversores
+-->
 
 | **Licencia Creative Commons:** | |
 | - | - |
