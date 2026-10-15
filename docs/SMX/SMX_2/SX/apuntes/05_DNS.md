@@ -1971,6 +1971,8 @@ ver carpeta etc/bind/
 comprobar sintaxis named.checkconf etc/
 comprobar zona named-checkzone  /etc/bind/db.practicadns.test
 
+192.168.222.51 → ver cuando define el cliente.
+
 # HASTA AQUI
 
 ![Descripción de la imagen](./img_5/img_5_152.png){ .marginbottom20 .marco .margintop10}
