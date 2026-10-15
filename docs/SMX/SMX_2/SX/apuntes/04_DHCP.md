@@ -1155,7 +1155,6 @@ Igual que en la práctica de Windows Server, usaremos **Alpine Linux** por su li
     ==Realizar captura de pantalla==
     ![Descripción de la imagen](./img_4/img_4_131.png)
 
-# HASTA AQUI
 ### 6.21 Gestión de las máquinas virtuales por consola
 
 - Para acceder a la ayuda de virsh teclar:
@@ -1179,6 +1178,7 @@ Igual que en la práctica de Windows Server, usaremos **Alpine Linux** por su li
 ### 6.22 Segundo cliente
 
 ==Realizar captura de pantalla==  
+
 - Repetir los pasos anteriores y crear una segunda VM con nombre `Cliente-2`.
 
 ### 6.23 Ver el proceso de broadcast y asignación DORA
@@ -1204,10 +1204,11 @@ En este caso no usaremos wireshark sino el propio log del servicio DHCP.
     ```
     ![Descripción de la imagen](./img_4/img_4_134.png)
 
-- Volvemos al log dónde podremos ver el DORA.
-==Realizar captura de pantalla==
+- Volvemos al log dónde podremos ver el DORA.  
+==Realizar captura de pantalla==  
 ![Descripción de la imagen](./img_4/img_4_135.png)
 
+# HASTA AQUI
 ### 6.24 Leases concedidos
 
 - Con el siguiente comando podemos consultar el registro de concesiones (leases) del servidor DHCP, donde se muestra qué dirección IP tiene asignada cada cliente, la duración de la concesión y su fecha de inicio y expiración.
