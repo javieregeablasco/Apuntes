@@ -825,7 +825,7 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     egrep -c '(vmx|svm)' /proc/cpuinfo
     ```
     Si nos devuelve un valor mayor que 0, significa que la CPU expone las extensiones de virtualización (Intel VT-x/ AMD AMD-V).  
-    ==Realizar captura de pantalla==
+    ==Realizar captura de pantalla==  
     ![Descripción de la imagen](./img_4/img_4_115.png){   .marginbottom10}
     - Otra manera sería usando la aplicación **cpu-checker**
     ```bash
@@ -835,7 +835,6 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     ```
     ==Realizar captura de pantalla==
     ![Descripción de la imagen](./img_4/img_4_116.png){ .marginbottom10}
-
 
 ### 6.6 Instalación de KVM y herramientas relacionadas
 
@@ -870,7 +869,7 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     ```
     ![Descripción de la imagen](./img_4/img_4_117.png){ .marginbottom10}
 
-- Si, como en el caso de la imagen, nos muestra inactive, los activaremos con:
+- Si, como en el caso de la imagen, nos muestra `inactive`, los activaremos con:
 
     ```bash
     sudo systemctl start libvirtd
@@ -879,7 +878,7 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     ==Realizar captura de pantalla==
     ![Descripción de la imagen](./img_4/img_4_118.png){ .marginbottom10}
 
-### 6.9 Verificar que /dev/kvm existe y los permisos de usuario del directorio
+### 6.9 Verificar que /dev/kvm existe y los comprobar permisos de usuario del directorio
 
 - Lo verificaremos con:
     ```bash
@@ -887,10 +886,9 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     ```
     ![Descripción de la imagen](./img_4/img_4_119.png){ .marginbottom10}
 
-!!! note "Nota"
-
-    - **rw-rw----+** → El propietario **root** y el grupo **kvm** tienen permisos de lectura y escritura (rw-). 
-    - El símbolo + indica que tiene Listas de Control de Acceso (ACL) adicionales aplicadas.
+    !!! note "Nota"
+        - **rw-rw----+** → El propietario **root** y el grupo **kvm** tienen permisos de lectura y escritura (rw-).
+        - El símbolo + indica que tiene Listas de Control de Acceso (ACL) adicionales aplicadas.
 
 ### 6.10 Listar el hipervisor detectado
 
@@ -914,7 +912,7 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
 ### 6.11 Aplicación Virt-Manager
 
 - Si nos conectamos por escritorio remoto, también podremos ver que el asistente (gráfico) de virtualización (virt-manager) está instalado.
-![Descripción de la imagen](./img_4/img_4_121.png){ .margintop10 . marginbottom10}
+![Descripción de la imagen](./img_4/img_4_121.png){ .margintop10 . marginbottom20}
 - Escritorio de Virt-Manager
 ![Descripción de la imagen](./img_4/img_4_123.png){ .margintop10}
 
@@ -935,8 +933,9 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     sudo virsh net-autostart RedPrivada-DHCP
     ```
 
-!!! warning "Importante"
-    Al **no** incluir ningún bloque `<forward>` ni `<ip>`, esta red queda en modo *isolated*. Libvirt no le asigna su propio DHCP interno ni la conecta a internet.
+    !!! warning "Importante"
+        - Al **no** incluir ningún bloque `<forward>` ni `<ip>`, esta red queda en modo *isolated*.
+        - Libvirt no le asigna su propio DHCP interno ni la conecta a internet.
 
 - Verificaremos que se ha creado switch virtual correctamente:  
 
@@ -1004,7 +1003,7 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
         ip addr show Switch-Virtual
         sudo systemctl status isc-dhcp-server
         ```
-        ==Realizar captura de pantalla==
+        ==Realizar captura de pantalla==  
         ![Descripción de la imagen](./img_4/img_4_133.png)
 
 ### 6.14 Configurar la máquina anfitriona como servidor DHCP
@@ -1049,7 +1048,7 @@ Para ello tendremos que editar el archivo `/etc/default/isc-dhcp-server`
     }
     ```
 
-    ==Realizar captura de pantalla==
+    ==Realizar captura de pantalla==  
     ![Descripción de la imagen](./img_4/img_4_127.png)
 
 ### 6.16 Arrancar el servicio DHCP
@@ -1061,7 +1060,8 @@ Para ello tendremos que editar el archivo `/etc/default/isc-dhcp-server`
     sudo systemctl status isc-dhcp-server
     ```
 
-    ![Descripción de la imagen](./img_4/img_4_127.png)
+    ==Realizar captura de pantalla==  
+    ![Descripción de la imagen](./img_4/img_4_128.png)
 
 !!! warning "Si falla al arrancar"
 
@@ -1085,10 +1085,11 @@ Igual que en la práctica de Windows Server, usaremos **Alpine Linux** por su li
     ls -lh ~/iso/alpine.iso   
     ```
 
-    ==Realizar captura de pantalla==
-    ![Descripción de la imagen](./img_4/img_4_125.png)
+    ==Realizar captura de pantalla==  
+    Mostrar el contenido de la carpeta `/var/lib/libvirt/images/`.
+    <!-- ![Descripción de la imagen](./img_4/img_4_125.png) -->
 
-!!! note "Nota"
+!!! note "¿Por qué `/lib/libvirt` y no cualquier otra carpeta?"
 
     - El proceso QEMU que ejecuta la VM se lanza con el usuario libvirt-qemu (por aislamiento/seguridad). Ese usuario no tiene permiso para atravesar el directorio /home/ubuntu. 
     - Por ese motivo usaremos el directorio `/var/lib/libvirt/`. 
@@ -1112,7 +1113,9 @@ Igual que en la práctica de Windows Server, usaremos **Alpine Linux** por su li
 !!! note "Notas"
     - **La opción** `--console pty,target_type=serial` nos conectará automáticamente a la **consola serie** de la VM en la misma terminal SSH.
     - En el prompt `localhost login:` entraremos como `root` con la contraseña **root**.
-    - Para salir de la consola serie sin apagar la VM cerraremos la ventana con la que estamos loggeado.
+    - Para salir de la consola serie sin apagar la VM, cerraremos la ventana con la que estamos loggeado.
+
+# HASTA AQUI
 
 ### 6.19 Conectarse por consola serie a la VM y comprobar la interfaz de red
 
