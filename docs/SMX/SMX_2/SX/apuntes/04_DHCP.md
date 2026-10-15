@@ -1208,7 +1208,6 @@ En este caso no usaremos wireshark sino el propio log del servicio DHCP.
 ==Realizar captura de pantalla==  
 ![Descripción de la imagen](./img_4/img_4_135.png)
 
-# HASTA AQUI
 ### 6.24 Leases concedidos
 
 - Con el siguiente comando podemos consultar el registro de concesiones (leases) del servidor DHCP, donde se muestra qué dirección IP tiene asignada cada cliente, la duración de la concesión y su fecha de inicio y expiración.
@@ -1219,3 +1218,5 @@ En este caso no usaremos wireshark sino el propio log del servicio DHCP.
 
     ==Realizar captura de pantalla==
     ![Descripción de la imagen](./img_4/img_4_136.png)
+
+## 7 Tarea RA1-CEfgh-1 - Bind9 por GUI
