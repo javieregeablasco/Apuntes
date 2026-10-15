@@ -1964,6 +1964,11 @@ resolvectl status
 ![Descripción de la imagen](./img_5/img_5_151.png){ .marginbottom20 .margintop10}
 
 #### 16.11.2 Añadir clientes
+etc/bind/db.root
+named.conf
+named.conf.local zona directa e inversa-
+ver carpeta etc/bind/
+comprobar sintaxis named.checkconf etc/
 
 # HASTA AQUI
 
@@ -2244,12 +2249,6 @@ Queremos que las máquinas consulten directamente a:
 BIND9 será quien reenvíe las consultas externas al resolver de AWS.
 ````
 
----
-
-
-
----
-
 # 29 - Realizar consultas sin especificar el servidor DNS
 
 Desde CLIENTE-1:
@@ -2357,46 +2356,6 @@ Deberá devolver:
 ```text
 cliente2.smr.test
 ```
-
----
-
-# 32 - Comprobar dominios de Internet
-
-Desde CLIENTE-1:
-
-```bash
-dig www.google.com
-```
-
-También:
-
-```bash
-nslookup www.google.com
-```
-
-La comunicación será:
-
-```text
-CLIENTE-1
-10.0.2.10
-     │
-     │ Consulta DNS
-     ▼
-DNS-SERVER
-10.0.1.10
-     │
-     │ Forward
-     ▼
-Amazon DNS
-10.0.0.2
-     │
-     ▼
-Resolución DNS de Internet
-```
-
-Así conseguimos que **todas las consultas DNS de nuestros clientes pasen primero por nuestro servidor BIND9**.
-
----
 
 # 33 - Observar las consultas DNS
 
