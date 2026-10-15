@@ -1969,6 +1969,7 @@ named.conf
 named.conf.local zona directa e inversa-
 ver carpeta etc/bind/
 comprobar sintaxis named.checkconf etc/
+comprobar zona named-checkzone  /etc/bind/db.practicadns.test
 
 # HASTA AQUI
 
