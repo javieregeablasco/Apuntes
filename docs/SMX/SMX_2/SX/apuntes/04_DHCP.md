@@ -1115,7 +1115,6 @@ Igual que en la práctica de Windows Server, usaremos **Alpine Linux** por su li
     - En el prompt `localhost login:` entraremos como `root` con la contraseña **root**.
     - Para salir de la consola serie sin apagar la VM, cerraremos la ventana con la que estamos loggeado.
 
-# HASTA AQUI
 
 ### 6.19 Conectarse por consola serie a la VM y comprobar la interfaz de red
 
@@ -1135,7 +1134,7 @@ Igual que en la práctica de Windows Server, usaremos **Alpine Linux** por su li
     ip link show
     ```
 
-    ==Realizar captura de pantalla==
+    ==Realizar captura de pantalla==  
     ![Descripción de la imagen](./img_4/img_4_129.png)
 
 - Si tenemos el `eth0` en DOWN, lo levantaremos con:
@@ -1156,6 +1155,7 @@ Igual que en la práctica de Windows Server, usaremos **Alpine Linux** por su li
     ==Realizar captura de pantalla==
     ![Descripción de la imagen](./img_4/img_4_131.png)
 
+# HASTA AQUI
 ### 6.21 Gestión de las máquinas virtuales por consola
 
 - Para acceder a la ayuda de virsh teclar:
@@ -1178,6 +1178,7 @@ Igual que en la práctica de Windows Server, usaremos **Alpine Linux** por su li
 
 ### 6.22 Segundo cliente
 
+==Realizar captura de pantalla==  
 - Repetir los pasos anteriores y crear una segunda VM con nombre `Cliente-2`.
 
 ### 6.23 Ver el proceso de broadcast y asignación DORA
