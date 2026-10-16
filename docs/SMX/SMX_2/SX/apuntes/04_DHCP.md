@@ -764,11 +764,11 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     ```
     Si durante la instalación no aparece la pantalla siguiente, eligiremos **No** como opción.  
     ![img](./img_4/img_4_144.png){.original .margintop10 }
-    !!! note "¿Qué son las kdump-tools"
-        - **¿Qué es kdump-tools?**: es un mecanismo que, cuando el kernel sufre un fallo grave (kernel panic), arranca un segundo kernel pequeño para guardar un volcado de memoria (crash dump). Ese volcado sirve para que un desarrollador o administrador analice después por qué falló el sistema.
-        - Es una herramienta de diagnóstico avanzado, pensada sobre todo para servidores en producción o depuración del kernel.
-        - Reserva una parte de la RAM de forma permanente (el parámetro crashkernel), que no podrá usarse para otra cosa. En equipos con poca memoria, eso se nota.
-        - Para un uso normal o de pruebas, no te aporta nada.
+        !!! note "¿Qué son las kdump-tools"
+            - **¿Qué es kdump-tools?**: es un mecanismo que, cuando el kernel sufre un fallo grave (kernel panic), arranca un segundo kernel pequeño para guardar un volcado de memoria (crash dump). Ese volcado sirve para que un desarrollador o administrador analice después por qué falló el sistema.
+            - Es una herramienta de diagnóstico avanzado, pensada sobre todo para servidores en producción o depuración del kernel.
+            - Reserva una parte de la RAM de forma permanente (el parámetro crashkernel), que no podrá usarse para otra cosa. En equipos con poca memoria, eso se nota.
+            - Para un uso normal o de pruebas, no te aporta nada.
 
     - Configurar el archivo **.xsession** para el usuario. Así nos aseguraremos de que **Xrdp** sepa exactamente qué entorno de escritorio debe lanzar al autenticarse por RDP.
     ```bash
