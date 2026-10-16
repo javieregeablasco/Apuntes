@@ -817,6 +817,11 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     sudo grdctl --system rdp set-tls-key rdp.key
     sudo grdctl --system rdp set-credentials MI_USUARIO MI_PASSWORD
     sudo grdctl --system rdp enable
+    
+    grdctl --system rdp set-tls-cert rdp.crt
+    grdctl --system rdp set-tls-key rdp.key
+    grdctl --system rdp set-credentials MI_USUARIO MI_PASSWORD
+    grdctl --system rdp enable
     ```
     - Habilitamos gnome remote desktop.
     ```bash
