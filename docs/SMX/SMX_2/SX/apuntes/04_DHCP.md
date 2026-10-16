@@ -741,7 +741,7 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     | VHDX                              | qcow2 / raw                              |
     | Hyper-V NAT / switches            | NAT / bridge de libvirt                  |
 
-### 6.3 Instalación de GNOME en Ubuntu Server 22.04
+### 6.3 Instalación de GNOME en Ubuntu Server 26.04
 
 - Para facilitar algunas etapas de la configuración de esta práctica, instalaremos la interfaz gráfica **GNOME** sobre la instancia de Ubuntu Server que hemos creado anteriormente.
 - Instalar un escritorio gráfico no se suele recomendar en entornos de producción, por rendimiento y seguridad pero, dentro de un contexto de prácticas, puede estar plenamente justificado.
