@@ -747,29 +747,22 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
 - Instalar un escritorio gráfico no se suele recomendar en entornos de producción, por rendimiento y seguridad pero, dentro de un contexto de prácticas, puede estar plenamente justificado.
 - GNOME propone un escrotorio completo o mínimo, siendo el completo el que instalaremos.
 
-    <!-- - Instalamos **tasksel** que nos permitirá instalar todo el entorno de escritorio en un solo paso.
-    ```bash
-    sudo apt install tasksel -y
-    ``` -->
-
-    <!-- - Evitar que GDM3 bloquee el arranque gráfico. En servidores en la nube (AWS/Cloud) sin monitor físico, GDM entra en conflicto con las sesiones remotas de Xrdp. Detendremos el servicio gdm3:
-    ```bash
-    sudo systemctl stop gdm3
-    sudo systemctl disable gdm3
-    ``` -->
-
-!!! tip "Instalación de GNOME"
+!!! tip "Instalación de GNOME con xrdp ya instalado"
 
     - Nos conectamos a nuestra instancia desde la consola de AWS.
     - Instalamos las actualizaciones disponibles en los repositorios.
     ```bash
     sudo apt update && sudo apt upgrade -y
     ```
+    - Instalamos **tasksel** que nos permitirá instalar todo el entorno de escritorio en un solo paso.
+    ```bash
+    sudo apt install tasksel -y
+    ```
     - Instalamos GNOME
     ```bash
     sudo apt install ubuntu-desktop -y
     ```
-    Si durante la instalación no aparece la pantalla siguiente, eligiremos **No** como opción.  
+    Si durante la instalación aparece la pantalla siguiente, eligiremos **No** como opción.  
     ![img](./img_4/img_4_144.png){.original .margintop10 }
         
         !!! note "¿Qué es kdump-tools"
@@ -780,17 +773,41 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
 
     - Configurar el archivo **.xsession** para el usuario. Así nos aseguraremos de que **Xrdp** sepa exactamente qué entorno de escritorio debe lanzar al autenticarse por RDP.
     ```bash
-    cat > ~/.xsession <<'EOF'
-    export GNOME_SHELL_SESSION_MODE=ubuntu
-    export XDG_CURRENT_DESKTOP=ubuntu:GNOME
-    export XDG_SESSION_TYPE=x11
-    exec gnome-session --session=ubuntu
-    EOF
+    echo "gnome-session" > ~/.xsession
+    ```
+
+    - Evitar que GDM3 bloquee el arranque gráfico. En servidores en la nube (AWS/Cloud) sin monitor físico, GDM entra en conflicto con las sesiones remotas de Xrdp. Detendremos el servicio gdm3:
+    ```bash
+    sudo systemctl stop gdm3
+    sudo systemctl disable gdm3
     ```
 
     - Reiniciar el servicio de Xrdp. Aplicaremos los cambios y reiniciaremos el demonio de escritorio remoto:
     ```bash
     sudo systemctl restart xrdp
+    ```
+
+!!! tip "Instalación de GNOME desde 0 sobre una máquina Ubuntu Server 26.04 recién lanzada"
+    - Instalamos las actualizaciones disponibles en los repositorios.
+    ```bash
+    sudo apt update && sudo apt upgrade -y
+    ```
+    - Instalamos GNOME
+    ```bash
+    sudo apt install gnome-remote-desktop -y
+    - Creamos el certificado TLS que necesita el servidor RDP.
+    ```bash
+    cd ~
+    openssl req -new -newkey rsa:4096 -days 365 -nodes -x509 -subj "/CN=ubuntu-server" -out rdp.crt -keyout rdp.key
+
+    sudo grdctl --system rdp set-tls-cert rdp.crt
+    sudo grdctl --system rdp set-tls-key rdp.key
+    sudo grdctl --system rdp set-credentials MI_USUARIO MI_PASSWORD
+    sudo grdctl --system rdp enable
+    ```
+    - Habilitamos gnome remote desktop.
+    ```bash
+    sudo systemctl enable --now gnome-remote-desktop.service
     ```
 
 ### 6.4 Primera conexión por escritorio gráfico a Ubuntu Server
