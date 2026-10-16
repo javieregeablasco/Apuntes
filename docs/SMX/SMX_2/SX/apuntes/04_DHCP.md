@@ -795,6 +795,7 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     - Instalamos GNOME
     ```bash
     sudo apt install gnome-remote-desktop -y
+    ```
     - Creamos el certificado TLS que necesita el servidor RDP.
     ```bash
     cd ~
