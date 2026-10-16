@@ -1964,6 +1964,49 @@ resolvectl status
 ![Descripción de la imagen](./img_5/img_5_151.png){ .marginbottom20 .margintop10}
 
 #### 16.11.2 Añadir clientes
+
+```text
+$TTL    604800
+@       IN      SOA     ns1.practicadns.test. admin.practicadns.test. (
+                        2026092302      ; Serial
+                        604800          ; Refresh
+                        86400           ; Retry
+                        2419200         ; Expire
+                        604800 )        ; Negative Cache TTL
+;
+@       IN      NS      ns1.practicadns.test.
+ns1     IN      A       172.31.81.127
+www     IN      A       172.31.81.127
+
+; --- NUEVOS CLIENTES ---
+cliente1 IN     A       172.31.56.124
+cliente2 IN     A       172.31.121.64
+```
+
+named-checkzone practicadns.test /etc/bind/db.practicadns.test
+
+```text
+$TTL    604800
+@       IN      SOA     ns1.practicadns.test. admin.practicadns.test. (
+                        2026092301      ; Serial
+                        604800          ; Refresh
+                        86400           ; Retry
+                        2419200         ; Expire
+                        604800 )        ; Negative Cache TTL
+;
+@       IN      NS      ns1.practicadns.test.
+127.81  IN      PTR     ns1.practicadns.test.
+127.81  IN      PTR     www.practicadns.test.
+124.56  IN      PTR     cliente1.practicadns.test.
+64.121  IN      PTR     cliente2.practicadns.test.
+```
+
+named-checkzone 31.172.in-addr.arpa /etc/bind/db.172.31
+
+sudo systemctl restart bind9
+
+---
+
 etc/bind/db.root → ver los servidor primarios
 named.conf
 named.conf.local zona directa e inversa-
