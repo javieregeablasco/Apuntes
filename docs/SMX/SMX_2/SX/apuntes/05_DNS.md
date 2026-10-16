@@ -2007,6 +2007,14 @@ named-checkzone 31.172.in-addr.arpa /etc/bind/db.172.31
 
 sudo systemctl restart bind9
 
+ver si al final el archivo `/etc/resolv.conf` contiene:
+
+```
+nameserver 127.0.0.53
+options edns0 trust-ad
+search ec2.internal
+```
+
 ---
 
 etc/bind/db.root → ver los servidor primarios
