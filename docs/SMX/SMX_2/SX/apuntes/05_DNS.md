@@ -1666,6 +1666,10 @@ Para ello usaremos el siguiente comando:
 
 !!! question "¿Por qué las instancias pueden comunicarse si están en subredes diferentes?"
 
+### 16.6 Instalar GNOME
+
+Para instala GNOME, seguir los pasos propuestos en el tema **Protocolo DHCP**.
+
 ### 16.6 Instalar BIND9
 
 - Vamos a proceder a la instalación de BIND9 en la instancia `Servidor-DNS`.  
