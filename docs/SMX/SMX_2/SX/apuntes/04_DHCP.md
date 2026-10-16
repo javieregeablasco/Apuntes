@@ -762,6 +762,9 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     ```bash
     sudo apt install ubuntu-desktop -y
     ```
+    Si durante la instalación no aparece la pantalla siguiente, eligiremos No como opción.
+    ![img](./img_4/img_4_119.png){.original}
+
     - Configurar el archivo **.xsession** para el usuario. Así nos aseguraremos de que **Xrdp** sepa exactamente qué entorno de escritorio debe lanzar al autenticarse por RDP.
     ```bash
     echo "gnome-session" > ~/.xsession
