@@ -1985,10 +1985,12 @@ cliente2 IN     A       172.31.121.64
 
 named-checkzone practicadns.test /etc/bind/db.practicadns.test
 
+!!! warning "¡Se debe incrementar el valor del serial!"
+
 ```text
 $TTL    604800
 @       IN      SOA     ns1.practicadns.test. admin.practicadns.test. (
-                        2026092301      ; Serial
+                        2026092302      ; Serial
                         604800          ; Refresh
                         86400           ; Retry
                         2419200         ; Expire
