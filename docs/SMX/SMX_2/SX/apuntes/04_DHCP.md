@@ -839,7 +839,9 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
 
     - Verificamos que el sistema arranca en modo gráfico con:
     ```bash
-    systemctl get-default # debe decir graphical.target y que GDM está corriendo con systemctl status gdm3.
+    systemctl status gdm3
+    sudo systemctl restart gnome-remote-desktop.service
+    systemctl status gnome-remote-desktop
     ```
     
 ### 6.4 Primera conexión por escritorio gráfico a Ubuntu Server
