@@ -792,11 +792,23 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     ```bash
     sudo apt update && sudo apt upgrade -y
     ```
+    
+    - Cambiamos la contraseña del usuario ubuntu con:
+    ```bash
+    sudo passwd ubuntu
+    ```
+
     - Instalamos GNOME
     ```bash
     sudo apt install gnome-remote-desktop -y
     ```
-    - Creamos el certificado TLS que necesita el servidor RDP.
+    
+    - Instalamos `pkexec` con:
+    ```bash
+    sudo apt install pkexec -y
+    ```
+
+    - Creamos el certificado TLS que necesitará el servidor RDP.
     ```bash
     cd ~
     openssl req -new -newkey rsa:4096 -days 365 -nodes -x509 -subj "/CN=ubuntu-server" -out rdp.crt -keyout rdp.key
