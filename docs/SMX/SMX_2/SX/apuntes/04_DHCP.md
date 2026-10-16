@@ -757,7 +757,7 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     sudo systemctl stop gdm3
     sudo systemctl disable gdm3
     ``` -->
-    
+
 !!! tip "Instalación de GNOME"
 
     - Nos conectamos a nuestra instancia desde la consola de AWS.
@@ -780,9 +780,13 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
 
     - Configurar el archivo **.xsession** para el usuario. Así nos aseguraremos de que **Xrdp** sepa exactamente qué entorno de escritorio debe lanzar al autenticarse por RDP.
     ```bash
-    echo "gnome-session" > ~/.xsession
+    cat > ~/.xsession <<'EOF'
+    export GNOME_SHELL_SESSION_MODE=ubuntu
+    export XDG_CURRENT_DESKTOP=ubuntu:GNOME
+    export XDG_SESSION_TYPE=x11
+    exec gnome-session --session=ubuntu
+    EOF
     ```
-
 
     - Reiniciar el servicio de Xrdp. Aplicaremos los cambios y reiniciaremos el demonio de escritorio remoto:
     ```bash
