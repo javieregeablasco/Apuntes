@@ -749,16 +749,19 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
 
 !!! tip "Instalación de GNOME con xrdp ya instalado"
 
-    - Nos conectamos a nuestra instancia desde la consola de AWS.
-    - Instalamos las actualizaciones disponibles en los repositorios.
+    1. Nos conectamos a nuestra instancia desde la consola de AWS.
+
+    1. Instalamos las actualizaciones disponibles en los repositorios.
     ```bash
     sudo apt update && sudo apt upgrade -y
     ```
-    - Instalamos **tasksel** que nos permitirá instalar todo el entorno de escritorio en un solo paso.
+
+    1. Instalamos **tasksel** que nos permitirá instalar todo el entorno de escritorio en un solo paso.
     ```bash
     sudo apt install tasksel -y
     ```
-    - Instalamos GNOME
+
+    1. Instalamos GNOME
     ```bash
     sudo apt install ubuntu-desktop -y
     ```
@@ -771,18 +774,18 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
             - Reserva una parte de la RAM de forma permanente (el parámetro crashkernel), que no podrá usarse para otra cosa. En equipos con poca memoria, eso se nota.
             - Para un uso normal o de pruebas, no te aporta nada.
 
-    - Configurar el archivo **.xsession** para el usuario. Así nos aseguraremos de que **Xrdp** sepa exactamente qué entorno de escritorio debe lanzar al autenticarse por RDP.
+    1. Configurar el archivo **.xsession** para el usuario. Así nos aseguraremos de que **Xrdp** sepa exactamente qué entorno de escritorio debe lanzar al autenticarse por RDP.
     ```bash
     echo "gnome-session" > ~/.xsession
     ```
 
-    - Evitar que GDM3 bloquee el arranque gráfico. En servidores en la nube (AWS/Cloud) sin monitor físico, GDM entra en conflicto con las sesiones remotas de Xrdp. Detendremos el servicio gdm3:
+    1. Evitar que GDM3 bloquee el arranque gráfico. En servidores en la nube (AWS/Cloud) sin monitor físico, GDM entra en conflicto con las sesiones remotas de Xrdp. Detendremos el servicio gdm3:
     ```bash
     sudo systemctl stop gdm3
     sudo systemctl disable gdm3
     ```
 
-    - Reiniciar el servicio de Xrdp. Aplicaremos los cambios y reiniciaremos el demonio de escritorio remoto:
+    1. Reiniciar el servicio de Xrdp. Aplicaremos los cambios y reiniciaremos el demonio de escritorio remoto:
     ```bash
     sudo systemctl restart xrdp
     ```
@@ -815,7 +818,7 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     sudo openssl req -new -newkey rsa:4096 -days 365 -nodes -x509 \
       -subj "/CN=ubuntu-server" \
       -out /etc/gnome-remote-desktop/rdp.crt \
-     -keyout /etc/gnome-remote-desktop/rdp.key
+      -keyout /etc/gnome-remote-desktop/rdp.key
     ```
 
     1. Permisos (antes de grdctl)
