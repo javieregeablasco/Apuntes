@@ -796,37 +796,53 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     ```
 
     1. Contraseña del usuario ubuntu (necesaria para el login de GDM)
+    ```bash
     sudo passwd ubuntu
+    ```
 
     3. Instalar GNOME y RDP (kdump-tools: elegir "No")
+    ```bash
     sudo apt install ubuntu-desktop gnome-remote-desktop pkexec openssl -y
     sudo apt install ubuntu-desktop-minimal gnome-remote-desktop pkexec openssl -y
+    ```
 
     4. Certificado TLS directamente en su ubicación final
+    ```bash
     sudo mkdir -p /etc/gnome-remote-desktop
     sudo openssl req -new -newkey rsa:4096 -days 365 -nodes -x509 \
       -subj "/CN=ubuntu-server" \
       -out /etc/gnome-remote-desktop/rdp.crt \
      -keyout /etc/gnome-remote-desktop/rdp.key
+    ```
+    ```
 
     5. Permisos (antes de grdctl)
+    ```bash
+    ```bash
     sudo chown gnome-remote-desktop:gnome-remote-desktop /etc/gnome-remote-desktop/rdp.crt /etc/gnome-remote-desktop/rdp.key
     sudo chmod 644 /etc/gnome-remote-desktop/rdp.crt
     sudo chmod 600 /etc/gnome-remote-desktop/rdp.key
+    ```
 
     6. Configurar RDP
     sudo grdctl --system rdp set-tls-cert /etc/gnome-remote-desktop/rdp.crt
+    ```bash
     sudo grdctl --system rdp set-tls-key /etc/gnome-remote-desktop/rdp.key
     sudo grdctl --system rdp set-credentials 'USUARIO' 'CONTRASEÑA'
     sudo grdctl --system rdp enable
+    ```
 
     7. Arranque gráfico y servicio
+    ```bash
     sudo systemctl set-default graphical.target
     sudo systemctl enable --now gnome-remote-desktop.service
     sudo grdctl --system status
+    ```
 
     8. Reiniciar
+    ```bash
     sudo reboot now
+    ```
     
 
 
