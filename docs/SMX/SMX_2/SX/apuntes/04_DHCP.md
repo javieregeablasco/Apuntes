@@ -837,7 +837,7 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     sudo grdctl --system rdp enable
     ```
 
-    1. Arranque gráfico y servicio
+    1. Arranque gráfico y servicio 
     ```bash
     sudo systemctl set-default graphical.target
     sudo systemctl enable --now gnome-remote-desktop.service
