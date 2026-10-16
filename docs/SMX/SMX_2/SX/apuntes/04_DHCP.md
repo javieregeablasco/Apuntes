@@ -752,6 +752,12 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     sudo apt install tasksel -y
     ``` -->
 
+    <!-- - Evitar que GDM3 bloquee el arranque gráfico. En servidores en la nube (AWS/Cloud) sin monitor físico, GDM entra en conflicto con las sesiones remotas de Xrdp. Detendremos el servicio gdm3:
+    ```bash
+    sudo systemctl stop gdm3
+    sudo systemctl disable gdm3
+    ``` -->
+    
 !!! tip "Instalación de GNOME"
 
     - Nos conectamos a nuestra instancia desde la consola de AWS.
@@ -777,11 +783,6 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     echo "gnome-session" > ~/.xsession
     ```
 
-    - Evitar que GDM3 bloquee el arranque gráfico. En servidores en la nube (AWS/Cloud) sin monitor físico, GDM entra en conflicto con las sesiones remotas de Xrdp. Detendremos el servicio gdm3:
-    ```bash
-    sudo systemctl stop gdm3
-    sudo systemctl disable gdm3
-    ```
 
     - Reiniciar el servicio de Xrdp. Aplicaremos los cambios y reiniciaremos el demonio de escritorio remoto:
     ```bash
