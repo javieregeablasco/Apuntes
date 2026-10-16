@@ -790,9 +790,12 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
 !!! tip "Instalación de GNOME desde 0 sobre una máquina Ubuntu Server 26.04 recién lanzada"
 
     1. Actualizar
+    ```bash
     sudo apt update && sudo apt upgrade -y
+    # Será necesario hacer reboot
+    ```
 
-    2. Contraseña del usuario ubuntu (necesaria para el login de GDM)
+    1. Contraseña del usuario ubuntu (necesaria para el login de GDM)
     sudo passwd ubuntu
 
     3. Instalar GNOME y RDP (kdump-tools: elegir "No")
