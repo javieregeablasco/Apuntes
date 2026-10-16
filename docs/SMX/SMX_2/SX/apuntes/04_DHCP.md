@@ -792,7 +792,7 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     ```bash
     sudo apt update && sudo apt upgrade -y
     ```
-    
+
     - Cambiamos la contraseña del usuario ubuntu con:
     ```bash
     sudo passwd ubuntu
@@ -816,27 +816,25 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     sudo mkdir -p /etc/gnome-remote-desktop
     sudo cp /home/ubuntu/rdp.crt /home/ubuntu/rdp.key /etc/gnome-remote-desktop/
 
-    sudo grdctl --system rdp set-tls-cert /home/ubuntu/rdp.crt
-    sudo grdctl --system rdp set-tls-key /home/ubuntu/rdp.keyy
-    sudo grdctl --system rdp set-credentials MI_USUARIO MI_PASSWORD
+    sudo grdctl --system rdp set-tls-cert /etc/gnome-remote-desktop/rdp.crt
+    sudo grdctl --system rdp set-tls-key /etc/gnome-remote-desktop/rdp.key
+    sudo grdctl --system rdp set-credentials ubuntu XinuE1069
     sudo grdctl --system rdp enable
-    
+        
     sudo chown gnome-remote-desktop:gnome-remote-desktop /etc/gnome-remote-desktop/rdp.crt /etc/gnome-remote-desktop/rdp.key
     sudo chmod 644 /etc/gnome-remote-desktop/rdp.crt
     sudo chmod 600 /etc/gnome-remote-desktop/rdp.key
-
-    sudo grdctl --system rdp set-tls-cert /etc/gnome-remote-desktop/rdp.crt
-    sudo grdctl --system rdp set-tls-key /etc/gnome-remote-desktop/rdp.key
-
-    sudo grdctl --system rdp set-credentials ubuntu XinuE1069
-    sudo grdctl --system rdp enable
-    sudo systemctl enable --now gnome-remote-desktop.service
-    sudo grdctl --system status
-
     ```
+
     - Habilitamos gnome remote desktop.
     ```bash
     sudo systemctl enable --now gnome-remote-desktop.service
+    sudo grdctl --system status
+    ```
+
+    - Reiniciamos la máquina
+    ```bash 
+    reboot now
     ```
 
     - Verificamos que el sistema arranca en modo gráfico con:
