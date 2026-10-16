@@ -795,12 +795,40 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     1. Actualizar
     ```bash
     sudo apt update && sudo apt upgrade -y
-    # Será necesario hacer reboot
+    # Comprobar si es necesario hacer reboot
     ```
-
+    <!--
     1. Contraseña del usuario ubuntu (necesaria para el login de GDM)
     ```bash
     sudo passwd ubuntu
+    ```
+    -->
+
+    1. Crear un nuevo usuario
+    ```bash
+    sudo adduser nuevousuario
+    sudo adduser javieregeablasco
+    ```
+
+    1. Dar al nuevo usuario los mismos privilegios que los que tenemos con el usuario `ubuntu`
+    ```bash
+    sudo usermod -aG $(id -nG ubuntu | sed 's/ /,/g') nuevousuario
+    echo 'nuevousuario ALL=(ALL) NOPASSWD:ALL' | sudo tee /etc/sudoers.d/90-nuevousuario
+    sudo chmod 440 /etc/sudoers.d/90-nuevousuario
+    sudo usermod -aG $(id -nG ubuntu | sed 's/ /,/g') javieregeablasco
+    echo 'javieregeablasco ALL=(ALL) NOPASSWD:ALL' | sudo tee /etc/sudoers.d/90-javieregeablasco
+    sudo chmod 440 /etc/sudoers.d/90-javieregeablasco
+    ```
+
+    1. Comprobar que funciona:
+    ```bash
+    sudo visudo -c
+    su - nuevousuario
+    sudo whoami
+    ```
+    sudo visudo -c
+    su - javieregeablasco
+    sudo whoami
     ```
 
     1. Instalar GNOME y RDP (kdump-tools: elegir "No")
@@ -811,7 +839,7 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     sudo apt install ubuntu-desktop-minimal gnome-remote-desktop pkexec openssl -y
     ```
 
-    1. Certificado TLS directamente en su ubicación final
+    1. Generar un certificado TLS directamente en su ubicación final
     ```bash
     sudo mkdir -p /etc/gnome-remote-desktop
     sudo openssl req -new -newkey rsa:4096 -days 365 -nodes -x509 \
@@ -856,57 +884,6 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     ```
     
 ### 6.4 Primera conexión por escritorio gráfico a Ubuntu Server
-
-<!--
-     - Instalamos las actualizaciones disponibles en los repositorios.
-    ```bash
-    sudo apt update && sudo apt upgrade -y
-    ```
-
-    - Cambiamos la contraseña del usuario ubuntu con:
-    ```bash
-    sudo passwd ubuntu
-    ```
-
-    - Instalamos GNOME
-    ```bash
-    sudo apt install gnome-remote-desktop -y
-    ```
-    
-    - Instalamos `pkexec` con:
-    ```bash
-    sudo apt install pkexec -y
-    ```
-
-    - Creamos el certificado TLS que necesitará el servidor RDP.
-    ```bash
-    cd ~
-    openssl req -new -newkey rsa:4096 -days 365 -nodes -x509 -subj "/CN=ubuntu-server" -out rdp.crt -keyout rdp.key
-
-    sudo mkdir -p /etc/gnome-remote-desktop
-    sudo cp /home/ubuntu/rdp.crt /home/ubuntu/rdp.key /etc/gnome-remote-desktop/
-
-    sudo grdctl --system rdp set-tls-cert /etc/gnome-remote-desktop/rdp.crt
-    sudo grdctl --system rdp set-tls-key /etc/gnome-remote-desktop/rdp.key
-    sudo grdctl --system rdp set-credentials USUARIO CONTRASEÑA
-    sudo grdctl --system rdp enable
-        
-    sudo chown gnome-remote-desktop:gnome-remote-desktop /etc/gnome-remote-desktop/rdp.crt /etc/gnome-remote-desktop/rdp.key
-    sudo chmod 644 /etc/gnome-remote-desktop/rdp.crt
-    sudo chmod 600 /etc/gnome-remote-desktop/rdp.key
-    ```
-
-    - Habilitamos gnome remote desktop.
-    ```bash
-    sudo systemctl enable --now gnome-remote-desktop.service
-    sudo grdctl --system status
-    ```
-
-    - Reiniciamos la máquina
-    ```bash 
-    reboot now
-    ``` 
--->
 
 - Lanzamos desde Windows la aplicación de conexión a escritorio remoto e introducimos la contraseña de nuestra máquina.  
 ![Descripción de la imagen](./img_4/img_4_110.png){ .margintop10 .marginbottom10}
