@@ -788,6 +788,7 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     ```
 
 !!! tip "Instalación de GNOME desde 0 sobre una máquina Ubuntu Server 26.04 recién lanzada"
+
     1. Actualizar
     sudo apt update && sudo apt upgrade -y
 
