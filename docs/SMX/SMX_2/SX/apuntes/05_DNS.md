@@ -1973,6 +1973,15 @@ comprobar zona named-checkzone  /etc/bind/db.practicadns.test
 
 192.168.222.51 → ver cuando define el cliente. https://www.youtube.com/watch?v=hq8kWcpGUvw
 
+1) instalar DNS bind9
+2) configurar ip estatica
+3) configurar servidor 
+    1) zona directa practicaDNS.test
+    2) zona inversa 
+4) crear los archivos de zona directa e inversa
+5) comprobar el funcioanamiento del servidor DNS 
+    1) ping host nslookup y dig
+
 # HASTA AQUI
 
 ![Descripción de la imagen](./img_5/img_5_152.png){ .marginbottom20 .marco .margintop10}
