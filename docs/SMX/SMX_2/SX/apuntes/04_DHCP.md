@@ -762,7 +762,7 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     ```bash
     sudo apt install ubuntu-desktop -y
     ```
-    - Configurar el archivo **.xsession** para el usuario. Así nos aseguraremos de que **Xrdp** sepa exactamente qué entorno de escritorio debe lanzar al autenticarse.
+    - Configurar el archivo **.xsession** para el usuario. Así nos aseguraremos de que **Xrdp** sepa exactamente qué entorno de escritorio debe lanzar al autenticarse por RDP.
     ```bash
     echo "gnome-session" > ~/.xsession
     ```
