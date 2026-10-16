@@ -1974,7 +1974,8 @@ comprobar zona named-checkzone  /etc/bind/db.practicadns.test
 192.168.222.51 → ver cuando define el cliente. https://www.youtube.com/watch?v=hq8kWcpGUvw
 
 1) instalar DNS bind9
-2) configurar ip estatica
+2) configurar ip estatica interface enpp=s3 address 192.168.222.2 netmask 255.255.255.0 gateway 192.168.222.1 dns-nameservers 192.168.222.2 dns-search practicadns.test
+archivo /etc/network/interfaces
 3) configurar servidor 
     1) zona directa practicaDNS.test
     2) zona inversa 
