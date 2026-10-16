@@ -818,7 +818,7 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
 
     sudo grdctl --system rdp set-tls-cert /etc/gnome-remote-desktop/rdp.crt
     sudo grdctl --system rdp set-tls-key /etc/gnome-remote-desktop/rdp.key
-    sudo grdctl --system rdp set-credentials ubuntu XinuE1069
+    sudo grdctl --system rdp set-credentials USUARIO CONTRASEÑA
     sudo grdctl --system rdp enable
         
     sudo chown gnome-remote-desktop:gnome-remote-desktop /etc/gnome-remote-desktop/rdp.crt /etc/gnome-remote-desktop/rdp.key
