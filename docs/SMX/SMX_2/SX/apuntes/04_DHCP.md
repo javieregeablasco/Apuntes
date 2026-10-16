@@ -802,7 +802,9 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
 
     1. Instalar GNOME y RDP (kdump-tools: elegir "No")
     ```bash
+    # Escritorio completo
     sudo apt install ubuntu-desktop gnome-remote-desktop pkexec openssl -y
+    # Escritorio minimo (instalar este)
     sudo apt install ubuntu-desktop-minimal gnome-remote-desktop pkexec openssl -y
     ```
 
