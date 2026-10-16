@@ -800,13 +800,14 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     sudo passwd ubuntu
     ```
 
-    3. Instalar GNOME y RDP (kdump-tools: elegir "No")
+    1. Instalar GNOME y RDP (kdump-tools: elegir "No")
     ```bash
     sudo apt install ubuntu-desktop gnome-remote-desktop pkexec openssl -y
     sudo apt install ubuntu-desktop-minimal gnome-remote-desktop pkexec openssl -y
     ```
 
-    4. Certificado TLS directamente en su ubicación final
+    1. Certificado TLS directamente en su ubicación final
+
     ```bash
     sudo mkdir -p /etc/gnome-remote-desktop
     sudo openssl req -new -newkey rsa:4096 -days 365 -nodes -x509 \
@@ -816,15 +817,15 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     ```
     ```
 
-    5. Permisos (antes de grdctl)
-    ```bash
+    1. Permisos (antes de grdctl)
+
     ```bash
     sudo chown gnome-remote-desktop:gnome-remote-desktop /etc/gnome-remote-desktop/rdp.crt /etc/gnome-remote-desktop/rdp.key
     sudo chmod 644 /etc/gnome-remote-desktop/rdp.crt
     sudo chmod 600 /etc/gnome-remote-desktop/rdp.key
     ```
 
-    6. Configurar RDP
+    1. Configurar RDP
     sudo grdctl --system rdp set-tls-cert /etc/gnome-remote-desktop/rdp.crt
     ```bash
     sudo grdctl --system rdp set-tls-key /etc/gnome-remote-desktop/rdp.key
@@ -832,19 +833,26 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     sudo grdctl --system rdp enable
     ```
 
-    7. Arranque gráfico y servicio
+    1. Arranque gráfico y servicio
     ```bash
     sudo systemctl set-default graphical.target
     sudo systemctl enable --now gnome-remote-desktop.service
     sudo grdctl --system status
     ```
 
-    8. Reiniciar
+    1. Reiniciar
     ```bash
     sudo reboot now
     ```
-    
 
+    - Verificamos que el sistema arranca en modo gráfico con:
+    ```bash
+    systemctl get-default
+    systemctl status gdm3
+    systemctl status gnome-remote-desktop
+    ```
+    
+### 6.4 Primera conexión por escritorio gráfico a Ubuntu Server
 
     <!-- - Instalamos las actualizaciones disponibles en los repositorios.
     ```bash
@@ -894,15 +902,6 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     ```bash 
     reboot now
     ``` -->
-
-    - Verificamos que el sistema arranca en modo gráfico con:
-    ```bash
-    systemctl get-default
-    systemctl status gdm3
-    systemctl status gnome-remote-desktop
-    ```
-    
-### 6.4 Primera conexión por escritorio gráfico a Ubuntu Server
 
 - Lanzamos desde Windows la aplicación de conexión a escritorio remoto e introducimos la contraseña de nuestra máquina.  
 ![Descripción de la imagen](./img_4/img_4_110.png){ .margintop10 .marginbottom10}
