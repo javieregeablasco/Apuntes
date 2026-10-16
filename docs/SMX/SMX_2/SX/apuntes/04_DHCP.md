@@ -854,7 +854,8 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     
 ### 6.4 Primera conexión por escritorio gráfico a Ubuntu Server
 
-    <!-- - Instalamos las actualizaciones disponibles en los repositorios.
+<!--
+     - Instalamos las actualizaciones disponibles en los repositorios.
     ```bash
     sudo apt update && sudo apt upgrade -y
     ```
@@ -901,7 +902,8 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     - Reiniciamos la máquina
     ```bash 
     reboot now
-    ``` -->
+    ``` 
+-->
 
 - Lanzamos desde Windows la aplicación de conexión a escritorio remoto e introducimos la contraseña de nuestra máquina.  
 ![Descripción de la imagen](./img_4/img_4_110.png){ .margintop10 .marginbottom10}
