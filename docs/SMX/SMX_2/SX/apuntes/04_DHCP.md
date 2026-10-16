@@ -788,7 +788,44 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     ```
 
 !!! tip "Instalación de GNOME desde 0 sobre una máquina Ubuntu Server 26.04 recién lanzada"
-    - Instalamos las actualizaciones disponibles en los repositorios.
+    # 1. Actualizar
+    sudo apt update && sudo apt upgrade -y
+
+    # 2. Contraseña del usuario ubuntu (necesaria para el login de GDM)
+    sudo passwd ubuntu
+
+    # 3. Instalar GNOME y RDP (kdump-tools: elegir "No")
+    sudo apt install ubuntu-desktop-minimal gnome-remote-desktop pkexec openssl -y
+
+    # 4. Certificado TLS directamente en su ubicación final
+    sudo mkdir -p /etc/gnome-remote-desktop
+    sudo openssl req -new -newkey rsa:4096 -days 365 -nodes -x509 \
+      -subj "/CN=ubuntu-server" \
+      -out /etc/gnome-remote-desktop/rdp.crt \
+     -keyout /etc/gnome-remote-desktop/rdp.key
+
+    # 5. Permisos (antes de grdctl)
+    sudo chown gnome-remote-desktop:gnome-remote-desktop /etc/gnome-remote-desktop/rdp.crt /etc/gnome-remote-desktop/rdp.key
+    sudo chmod 644 /etc/gnome-remote-desktop/rdp.crt
+    sudo chmod 600 /etc/gnome-remote-desktop/rdp.key
+
+    # 6. Configurar RDP
+    sudo grdctl --system rdp set-tls-cert /etc/gnome-remote-desktop/rdp.crt
+    sudo grdctl --system rdp set-tls-key /etc/gnome-remote-desktop/rdp.key
+    sudo grdctl --system rdp set-credentials 'USUARIO' 'CONTRASEÑA'
+    sudo grdctl --system rdp enable
+
+    # 7. Arranque gráfico y servicio
+    sudo systemctl set-default graphical.target
+    sudo systemctl enable --now gnome-remote-desktop.service
+    sudo grdctl --system status
+
+    # 8. Reiniciar
+    sudo reboot now
+    
+
+    
+    <!-- - Instalamos las actualizaciones disponibles en los repositorios.
     ```bash
     sudo apt update && sudo apt upgrade -y
     ```
@@ -835,12 +872,12 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     - Reiniciamos la máquina
     ```bash 
     reboot now
-    ```
+    ``` -->
 
     - Verificamos que el sistema arranca en modo gráfico con:
     ```bash
+    systemctl get-default
     systemctl status gdm3
-    sudo systemctl restart gnome-remote-desktop.service
     systemctl status gnome-remote-desktop
     ```
     
