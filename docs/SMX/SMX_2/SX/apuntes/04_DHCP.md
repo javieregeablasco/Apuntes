@@ -821,7 +821,7 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
       -keyout /etc/gnome-remote-desktop/rdp.key
     ```
 
-    1. Permisos (antes de grdctl)
+    1. Cambiar permisos (antes de grdctl)
 
     ```bash
     sudo chown gnome-remote-desktop:gnome-remote-desktop /etc/gnome-remote-desktop/rdp.crt /etc/gnome-remote-desktop/rdp.key
@@ -829,7 +829,7 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     sudo chmod 600 /etc/gnome-remote-desktop/rdp.key
     ```
 
-    1. Configurar RDP
+    1. Configurar RDP con grdctl (herramienta para configurar GNOME Remote desktop)
     ```bash
     sudo grdctl --system rdp set-tls-cert /etc/gnome-remote-desktop/rdp.crt
     sudo grdctl --system rdp set-tls-key /etc/gnome-remote-desktop/rdp.key
