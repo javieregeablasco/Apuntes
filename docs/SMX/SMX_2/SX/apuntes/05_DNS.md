@@ -1964,7 +1964,7 @@ resolvectl status
 ![Descripción de la imagen](./img_5/img_5_151.png){ .marginbottom20 .margintop10}
 
 #### 16.11.2 Añadir clientes
-etc/bind/db.root
+etc/bind/db.root → ver los servidor primarios
 named.conf
 named.conf.local zona directa e inversa-
 ver carpeta etc/bind/
