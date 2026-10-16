@@ -813,21 +813,37 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     cd ~
     openssl req -new -newkey rsa:4096 -days 365 -nodes -x509 -subj "/CN=ubuntu-server" -out rdp.crt -keyout rdp.key
 
-    sudo grdctl --system rdp set-tls-cert rdp.crt
-    sudo grdctl --system rdp set-tls-key rdp.key
+    sudo mkdir -p /etc/gnome-remote-desktop
+    sudo cp /home/ubuntu/rdp.crt /home/ubuntu/rdp.key /etc/gnome-remote-desktop/
+
+    sudo grdctl --system rdp set-tls-cert /home/ubuntu/rdp.crt
+    sudo grdctl --system rdp set-tls-key /home/ubuntu/rdp.keyy
     sudo grdctl --system rdp set-credentials MI_USUARIO MI_PASSWORD
     sudo grdctl --system rdp enable
     
-    grdctl --system rdp set-tls-cert rdp.crt
-    grdctl --system rdp set-tls-key rdp.key
-    grdctl --system rdp set-credentials MI_USUARIO MI_PASSWORD
-    grdctl --system rdp enable
+    sudo chown gnome-remote-desktop:gnome-remote-desktop /etc/gnome-remote-desktop/rdp.crt /etc/gnome-remote-desktop/rdp.key
+    sudo chmod 644 /etc/gnome-remote-desktop/rdp.crt
+    sudo chmod 600 /etc/gnome-remote-desktop/rdp.key
+
+    sudo grdctl --system rdp set-tls-cert /etc/gnome-remote-desktop/rdp.crt
+    sudo grdctl --system rdp set-tls-key /etc/gnome-remote-desktop/rdp.key
+
+    sudo grdctl --system rdp set-credentials ubuntu XinuE1069
+    sudo grdctl --system rdp enable
+    sudo systemctl enable --now gnome-remote-desktop.service
+    sudo grdctl --system status
+
     ```
     - Habilitamos gnome remote desktop.
     ```bash
     sudo systemctl enable --now gnome-remote-desktop.service
     ```
 
+    - Verificamos que el sistema arranca en modo gráfico con:
+    ```bash
+    systemctl get-default # debe decir graphical.target y que GDM está corriendo con systemctl status gdm3.
+    ```
+    
 ### 6.4 Primera conexión por escritorio gráfico a Ubuntu Server
 
 - Lanzamos desde Windows la aplicación de conexión a escritorio remoto e introducimos la contraseña de nuestra máquina.  
