@@ -1502,7 +1502,7 @@ Para ello, accederemos a las propiedades de los servidores DNS de nuestras máqu
 
 - Aparte de las VPC, subredes, puertas de enlace, grupos de seguridad y tablas de enrutamiento que son las que vienen por defecto en AWS, configuraremos:
 
-1. Tres instancias EC2 con Ubuntu Server 26.04 LTS.
+1. Tres instancias EC2 con Ubuntu Server 26.04 LTS. En una de ellas, haremos lo siguiente:
 1. Un servidor DNS BIND9.
 1. Una zona DNS directa.
 1. Dos zonas DNS inversas.
@@ -1982,6 +1982,10 @@ archivo /etc/network/interfaces
 4) crear los archivos de zona directa e inversa
 5) comprobar el funcioanamiento del servidor DNS 
     1) ping host nslookup y dig
+
+
+/etc/default/named → cambiar startup options for the server
+OTIONS="-u bind -4"    
 
 # HASTA AQUI
 
