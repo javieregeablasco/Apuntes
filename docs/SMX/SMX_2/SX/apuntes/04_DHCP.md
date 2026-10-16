@@ -812,7 +812,6 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     ```
 
     1. Certificado TLS directamente en su ubicación final
-
     ```bash
     sudo mkdir -p /etc/gnome-remote-desktop
     sudo openssl req -new -newkey rsa:4096 -days 365 -nodes -x509 \
