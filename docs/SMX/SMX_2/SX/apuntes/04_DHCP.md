@@ -747,16 +747,17 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
 - Instalar un escritorio gráfico no se suele recomendar en entornos de producción, por rendimiento y seguridad pero, dentro de un contexto de prácticas, puede estar plenamente justificado.
 - GNOME propone un escrotorio completo o mínimo, siendo el completo el que instalaremos.
 
+    <!-- - Instalamos **tasksel** que nos permitirá instalar todo el entorno de escritorio en un solo paso.
+    ```bash
+    sudo apt install tasksel -y
+    ``` -->
+
 !!! tip "Instalación de GNOME"
 
     - Nos conectamos a nuestra instancia desde la consola de AWS.
     - Instalamos las actualizaciones disponibles en los repositorios.
     ```bash
     sudo apt update && sudo apt upgrade -y
-    ```
-    - Instalamos **tasksel** que nos permitirá instalar todo el entorno de escritorio en un solo paso.
-    ```bash
-    sudo apt install tasksel -y
     ```
     - Instalamos GNOME
     ```bash
