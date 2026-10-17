@@ -800,30 +800,23 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
 
     1. Crear un nuevo usuario
     ```bash
-    sudo adduser `nuevo-usuario`
+    sudo adduser NuevoUsuario
     ```
 
     1. Dar al nuevo usuario los mismos privilegios que los que tenemos con el usuario `ubuntu`
     ```bash
-    sudo usermod -aG $(id -nG ubuntu | sed 's/ /,/g') nuevousuario
-    echo 'nuevousuario ALL=(ALL) NOPASSWD:ALL' | sudo tee /etc/sudoers.d/90-nuevousuario
-    sudo chmod 440 /etc/sudoers.d/90-nuevousuario
-    sudo usermod -aG $(id -nG ubuntu | sed 's/ /,/g') javieregeablasco
-    echo 'javieregeablasco ALL=(ALL) NOPASSWD:ALL' | sudo tee /etc/sudoers.d/90-javieregeablasco
-    sudo chmod 440 /etc/sudoers.d/90-javieregeablasco
+    sudo usermod -aG $(id -nG ubuntu | sed 's/ /,/g') NuevoUsuario
+    echo 'NuevoUsuario ALL=(ALL) NOPASSWD:ALL' | sudo tee /etc/sudoers.d/90-NuevoUsuario
+    sudo chmod 440 /etc/sudoers.d/90-NuevoUsuario
     ```
 
     1. Comprobar que funciona:
     ```bash
     sudo visudo -c
-    su - nuevousuario
+    su - NuevoUsuario
     sudo whoami
     ```
-    sudo visudo -c
-    su - javieregeablasco
-    sudo whoami
-    ```
-
+    
     1. Instalar GNOME y RDP (kdump-tools: elegir "No")
     ```bash
     # Escritorio completo
