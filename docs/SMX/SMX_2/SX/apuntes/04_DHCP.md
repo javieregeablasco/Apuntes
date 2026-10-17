@@ -761,29 +761,36 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     # Instalamos el entorno gráfico, el servidor de escritorio remoto y el componente que permite a Xrdp utilizar Xorg.
     sudo apt install -y xfce4 xfce4-goodies xrdp xorgxrdp
     ```
-    Si durante la instalación aparece la pantalla siguiente, eligiremos **No** como opción.  
-    ![img](./img_4/img_4_144.png){.original .margintop10 }
-        
-        !!! note "¿Qué es kdump-tools"
-            - **kdump-tools** es un mecanismo que, cuando el kernel sufre un fallo grave (kernel panic), arranca un segundo kernel pequeño para guardar un volcado de memoria (crash dump). Ese volcado sirve para que un desarrollador o administrador analice después por qué falló el sistema.
-            - Es una herramienta de diagnóstico avanzado, pensada sobre todo para servidores en producción o depuración del kernel.
-            - Reserva una parte de la RAM de forma permanente (el parámetro crashkernel), que no podrá usarse para otra cosa. En equipos con poca memoria, eso se nota.
-            - Para un uso normal o de pruebas, no te aporta nada.
 
-    1. Configurar el archivo **.xsession** para el usuario. Así nos aseguraremos de que **Xrdp** sepa exactamente qué entorno de escritorio debe lanzar al autenticarse por RDP.
+    1. Configurar la sesión gráfica.
     ```bash
-    echo "gnome-session" > ~/.xsession
+    echo "startxfce4" > ~/.xsession
     ```
 
-    1. Evitar que GDM3 bloquee el arranque gráfico. En servidores en la nube (AWS/Cloud) sin monitor físico, GDM entra en conflicto con las sesiones remotas de Xrdp. Detendremos el servicio gdm3:
+    1. Crear un nuevo usuario
     ```bash
-    sudo systemctl stop gdm3
-    sudo systemctl disable gdm3
+    sudo adduser NuevoUsuario
     ```
 
-    1. Reiniciar el servicio de Xrdp. Aplicaremos los cambios y reiniciaremos el demonio de escritorio remoto:
+    1. Dar al nuevo usuario los mismos privilegios que los que tenemos con el usuario `ubuntu`
     ```bash
-    sudo systemctl restart xrdp
+    sudo usermod -aG $(id -nG ubuntu | sed 's/ /,/g') NuevoUsuario
+    echo 'NuevoUsuario ALL=(ALL) NOPASSWD:ALL' | sudo tee /etc/sudoers.d/90-NuevoUsuario
+    sudo chmod 440 /etc/sudoers.d/90-NuevoUsuario
+    ```
+
+    1. Comprobar que funciona:
+    ```bash
+    sudo visudo -c
+    su - NuevoUsuario
+    sudo whoami
+    ```
+
+    1. Configurar el servicio Xrdp
+    ```bash
+    sudo adduser xrdp ssl-cert
+    sudo systemctl enable --now xrdp
+    udo systemctl restart xrdp
     ```
 
 !!! tip "Instalación de GNOME desde 0 sobre una máquina Ubuntu Server 26.04 recién lanzada"
