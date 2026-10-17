@@ -797,17 +797,10 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     sudo apt update && sudo apt upgrade -y
     # Comprobar si es necesario hacer reboot
     ```
-    <!--
-    1. Contraseña del usuario ubuntu (necesaria para el login de GDM)
-    ```bash
-    sudo passwd ubuntu
-    ```
-    -->
 
     1. Crear un nuevo usuario
     ```bash
-    sudo adduser nuevousuario
-    sudo adduser javieregeablasco
+    sudo adduser `nuevo-usuario`
     ```
 
     1. Dar al nuevo usuario los mismos privilegios que los que tenemos con el usuario `ubuntu`
