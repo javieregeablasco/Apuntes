@@ -835,7 +835,6 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     ```
 
     1. Cambiar permisos (antes de grdctl)
-
     ```bash
     sudo chown gnome-remote-desktop:gnome-remote-desktop /etc/gnome-remote-desktop/rdp.crt /etc/gnome-remote-desktop/rdp.key
     sudo chmod 644 /etc/gnome-remote-desktop/rdp.crt
