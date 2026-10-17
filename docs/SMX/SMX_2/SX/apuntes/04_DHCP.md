@@ -846,7 +846,7 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     ```bash
     sudo grdctl --system rdp set-tls-cert /etc/gnome-remote-desktop/rdp.crt
     sudo grdctl --system rdp set-tls-key /etc/gnome-remote-desktop/rdp.key
-    sudo grdctl --system rdp set-credentials 'USUARIO' 'CONTRASEÑA'
+    sudo grdctl --system rdp set-credentials NuevoUsuario CONTRASEÑA
     sudo grdctl --system rdp enable
     ```
 
