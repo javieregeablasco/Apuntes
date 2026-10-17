@@ -741,13 +741,13 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     | VHDX                              | qcow2 / raw                              |
     | Hyper-V NAT / switches            | NAT / bridge de libvirt                  |
 
-### 6.3 Instalación de GNOME en Ubuntu Server 26.04
+### 6.3 Instalación de escritorios en Ubuntu Server 26.04
 
-- Para facilitar algunas etapas de la configuración de esta práctica, instalaremos la interfaz gráfica **GNOME** sobre la instancia de Ubuntu Server que hemos creado anteriormente.
+- Para facilitar algunas etapas de la configuración de esta práctica, instalaremos una interfaz gráfica sobre la instancia de Ubuntu Server que hemos creado anteriormente.
 - Instalar un escritorio gráfico no se suele recomendar en entornos de producción, por rendimiento y seguridad pero, dentro de un contexto de prácticas, puede estar plenamente justificado.
-- GNOME propone un escrotorio completo o mínimo, siendo el completo el que instalaremos.
+- A continuación se dan los procedimientos de instalación de 2 escritorios: **Xfce Desktop Environment** y el muy conocido **GNOME**.
 
-!!! tip "Instalación de GNOME con xrdp ya instalado"
+!!! tip "Instalación de XFCE + Xrdp"
 
     1. Nos conectamos a nuestra instancia desde la consola de AWS.
 
@@ -756,14 +756,10 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     sudo apt update && sudo apt upgrade -y
     ```
 
-    1. Instalamos **tasksel** que nos permitirá instalar todo el entorno de escritorio en un solo paso.
+    1. Instalamos XFCE y Xrdp
     ```bash
-    sudo apt install tasksel -y
-    ```
-
-    1. Instalamos GNOME
-    ```bash
-    sudo apt install ubuntu-desktop -y
+    # Instalamos el entorno gráfico, el servidor de escritorio remoto y el componente que permite a Xrdp utilizar Xorg.
+    sudo apt install -y xfce4 xfce4-goodies xrdp xorgxrdp
     ```
     Si durante la instalación aparece la pantalla siguiente, eligiremos **No** como opción.  
     ![img](./img_4/img_4_144.png){.original .margintop10 }
@@ -824,6 +820,14 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     # Escritorio minimo (instalar este)
     sudo apt install ubuntu-desktop-minimal gnome-remote-desktop pkexec openssl -y
     ```
+    Si durante la instalación aparece la pantalla siguiente, eligiremos **No** como opción.  
+    ![img](./img_4/img_4_144.png){.original .margintop10 }
+        
+        !!! note "¿Qué es kdump-tools"
+            - **kdump-tools** es un mecanismo que, cuando el kernel sufre un fallo grave (kernel panic), arranca un segundo kernel pequeño para guardar un volcado de memoria (crash dump). Ese volcado sirve para que un desarrollador o administrador analice después por qué falló el sistema.
+            - Es una herramienta de diagnóstico avanzado, pensada sobre todo para servidores en producción o depuración del kernel.
+            - Reserva una parte de la RAM de forma permanente (el parámetro crashkernel), que no podrá usarse para otra cosa. En equipos con poca memoria, eso se nota.
+            - Para un uso normal o de pruebas, no aporta nada.
 
     1. Generar un certificado TLS directamente en su ubicación final
     ```bash
