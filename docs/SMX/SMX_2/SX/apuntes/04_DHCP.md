@@ -872,7 +872,7 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     sudo reboot now
     ```
 
-    - Verificamos que el sistema arranca en modo gráfico con:
+    1. Verificamos que el sistema arranca en modo gráfico con:
     ```bash
     systemctl get-default
     systemctl status gdm3
