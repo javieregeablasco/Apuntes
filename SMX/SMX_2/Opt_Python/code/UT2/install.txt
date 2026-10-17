@@ -1,0 +1,5 @@
+Instalar python en linux ubuntu/debian
+
+sudo apt-get install python3
+
+(sudo apt install python3)

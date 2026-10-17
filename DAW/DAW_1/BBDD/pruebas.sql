@@ -1,0 +1,6 @@
+CREATE SCHEMA bbdd_3;
+
+USE bbdd_3;
+SHOW DATABASES;
+
+ 
