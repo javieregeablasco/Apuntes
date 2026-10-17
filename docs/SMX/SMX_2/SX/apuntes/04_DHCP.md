@@ -790,7 +790,7 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     ```bash
     sudo adduser xrdp ssl-cert
     sudo systemctl enable --now xrdp
-    udo systemctl restart xrdp
+    sudo systemctl restart xrdp
     ```
 
 !!! tip "Instalación de GNOME desde 0 sobre una máquina Ubuntu Server 26.04 recién lanzada"
