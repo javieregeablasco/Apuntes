@@ -879,7 +879,7 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     systemctl status gnome-remote-desktop
     ```
     
-### 6.4 Primera conexión por escritorio gráfico a Ubuntu Server
+### 6.4 Primera conexión por escritorio gráfico a Ubuntu Server (xrdp)
 
 - Lanzamos desde Windows la aplicación de conexión a escritorio remoto e introducimos la contraseña de nuestra máquina.  
 ![Descripción de la imagen](./img_4/img_4_110.png){ .margintop10 .marginbottom10}
