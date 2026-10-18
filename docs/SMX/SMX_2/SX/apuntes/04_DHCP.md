@@ -879,17 +879,19 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     systemctl status gnome-remote-desktop
     ```
     
-### 6.4 Primera conexión por escritorio gráfico a Ubuntu Server (xrdp)
+### 6.4 Primera conexión por escritorio gráfico a Ubuntu Server (XFCE + Xrdp)
 
 - Lanzamos desde Windows la aplicación de conexión a escritorio remoto e introducimos la contraseña de nuestra máquina.  
 ![Descripción de la imagen](./img_4/img_4_110.png){ .margintop10 .marginbottom10}
 - Para la práctica, no tendremos en cuenta la advertencias de seguridad.
 - Introducimos nuestras credenciales en la pasarela (servidor Xrdp).
 ![Descripción de la imagen](./img_4/img_4_111.png){ .margintop10 .marginbottom10}
-- Si la sesión de ubuntu se ha cerrado, introducimos de nuevo las credenciales.
-![Descripción de la imagen](./img_4/img_4_112.png){ .margintop10 .marginbottom10}
-- Si todo ha ido bien, estaremos en el escritorio gráfico típico de Ubuntu Desktop.
-![Descripción de la imagen](./img_4/img_4_113.png){ .margintop10 .marginbottom10}
+<!-- - Si la sesión de ubuntu se ha cerrado, introducimos de nuevo las credenciales.
+![Descripción de la imagen](./img_4/img_4_112.png){ .margintop10 .marginbottom10} -->
+<!-- - Si todo ha ido bien, estaremos en el escritorio gráfico típico de Ubuntu Desktop.
+![Descripción de la imagen](./img_4/img_4_113.png){ .margintop10 .marginbottom10} -->
+- Un vez iniciada la sesión estaremos en el escritorio gráfico típico de XFCE.
+![Descripción de la imagen](./img_4/img_4_145.png){ .margintop10 .marginbottom10} 
 
 ### 6.5 Activar la virtualización de la CPU por la consola de AWS
 
