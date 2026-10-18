@@ -891,7 +891,7 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
 <!-- - Si todo ha ido bien, estaremos en el escritorio gráfico típico de Ubuntu Desktop.
 ![Descripción de la imagen](./img_4/img_4_113.png){ .margintop10 .marginbottom10} -->
 - Un vez iniciada la sesión estaremos en el escritorio gráfico típico de XFCE.
-![Descripción de la imagen](./img_4/img_4_145.png){ .margintop10 .marginbottom10} 
+![Descripción de la imagen](./img_4/img_4_145.png){ .margintop10 .marginbottom10}
 
 ### 6.5 Activar la virtualización de la CPU por la consola de AWS
 
