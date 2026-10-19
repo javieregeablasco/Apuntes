@@ -715,7 +715,11 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
 En este apartado aprenderemos a definir estilos para todos los elementos de nuestro documento de texto.
 
 !!! task "Tarea a entregar en RA2-CEb-1"
-    !!! exercise "1. Descargar y abrir el archivo 'RA2-CEb-1' pinchando en el enlace siguiente: [Descargar archivo](./archivos/RA2-CEb-1.rar)<br>2. Crear un nuevo estilo MisEstilos. Dejar la configuración por defecto y solo modificar el tipo de letra a Arial 12. Acordaros de elegir Heredar de ninguno, si no, creará el estilo dentro de Estilo de párrafo predeterminado.<br>3. Crear 3 sub estilos Cabeceras, Párrafos y Títulos (realmente no son estilos, sino carpetas donde iremos creando los estilos para cada apartado del documento).""
+    !!! exercise "1. Descargar y abrir el archivo 'RA2-CEb-1' pinchando en el enlace siguiente: [Descargar archivo](./archivos/RA2-CEb-1.rar)"
+
+    !!! exercise "2. Crear un nuevo estilo MisEstilos. Dejar la configuración por defecto y solo modificar el tipo de letra a Arial 12. Acordaros de elegir Heredar de ninguno, si no, creará el estilo dentro de Estilo de párrafo predeterminado"
+
+    !!! exercise "3. Crear los 3 sub estilos 'Cabeceras', 'Párrafos' y 'Títulos (realmente no son estilos, sino carpetas donde iremos creando los estilos para cada apartado del documento)"
         !!! tip "Resultado esperado"
             ![img](./img_ut2/ra2ceb31.png){.cuatrozero }
 
@@ -749,10 +753,12 @@ En este apartado aprenderemos a definir estilos para todos los elementos de nues
     
     
     !!! exercise "**7.** Dentro de **Párrafo normal** crear el estilo **Párrafo numerado** con el siguiente resultado:""  
+        
         !!! tip "Nota" 
             - Ese estilo es idéntico al estilo **Párrafo normal**. 
-            - Para evitar de buscar una a una las características del estilo **Párrafo normal** lo que haremos es, al definir **Párrafo numerado**,     **heredar** los estilos de **Párrafo normal**.  
-        - El estilo **Párrafo numerado** quedará de la siguiente manera (Como podeís ver se ha aplicado un estilo de carácter especial al numerador)    :  
+            - Para evitar de buscar una a una las características del estilo **Párrafo normal** lo que haremos es, al definir **Párrafo numerado**, **heredar** los estilos de **Párrafo normal**.  
+        - El estilo **Párrafo numerado** quedará de la siguiente manera (Como podeís ver se ha aplicado un estilo de carácter especial al numerador):  
+        
         !!! tip "Resultado esperado"
             ![](./img_ut2/ra2ceb40.png){.cien  .margintop10 .marginbottom30}   
 
@@ -761,6 +767,7 @@ En este apartado aprenderemos a definir estilos para todos los elementos de nues
 
         !!! warning "Nota 1"
             Configurar el estilo para que inserte **automáticamente** un salto de página antes del texto seleccionado.  
+        
         !!! warning "Nota 2"
             Configurar el estilo para que, al aplicar el estilo, **se inserte automáticamente la numeración 'Apartado xx.'**.  
 
@@ -768,6 +775,7 @@ En este apartado aprenderemos a definir estilos para todos los elementos de nues
             ![](./img_ut2/ra2ceb41.png){.cien  .margintop10 .marginbottom30} 
     
     !!! exercise "**9.** Resumen de todos los estilos:"
+        
         !!! tip "Resultado esperado"
             ![](./img_ut2/ra2ceb39.png){.cuatrozero  .margintop10 .marginbottom30} 
 
@@ -797,181 +805,176 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
 
 ## 2.7 - Paginación, tablas, encabezado, pie de página e imágenes
 
-# hasta aqui
-
 ### Tarea - RA2-CEd
 
 !!! task "Tarea a entregar en RA2-CEd"
-    !!! exercise "**1. Descargar y descomprimir el archivo 'Tarea RA2-CEd pinchando en el enlace siguiente:** [Descargar archivo](./archivos/RA2-CEd.rar)"
-    !!! exercise "**2. Estilos de página.**"
+
+    !!! exercise "1. Descargar y descomprimir el archivo 'Tarea RA2-CEd' pinchando en el enlace siguiente:<br>[Descargar archivo](./archivos/RA2-CEd.rar)"
+
+    !!! exercise "2. Estilos de página."
         !!! tip "Ir a **Estilos de página** → **Primera página** → **Editar estilo** → Configurar con los siguientes datos."
             ![img](./img_ut2/RA2CEd/img1.png){.cien .marginbottom20 }
             ![img](./img_ut2/RA2CEd/img2.png){.cien .marginbottom20}
             ![img](./img_ut2/RA2CEd/img3.png){.cien}
 
-        !!! tip "Ir a **Estilo de página predeterminado** y configurar con los siguientes datos."
+        !!! tip "-A- Ir a 'Estilo de página predeterminado' y configurar con los siguientes datos."
             ![img](./img_ut2/RA2CEd/img4.png){.cien .marginbottom20}
             ![img](./img_ut2/RA2CEd/img5.png){.cien .marginbottom20}
             ![img](./img_ut2/RA2CEd/img6.png){.cien .marginbottom20}
             ![img](./img_ut2/RA2CEd/img7.png){.cien .marginbottom20}
             ![img](./img_ut2/RA2CEd/img8.png){.cien }
         
-        !!! tip "Dentro de los estilos de página **crear** el **Estilo de página especial** y configurar con los siguientes datos."
+        !!! tip "-B- Dentro de los estilos de página CREAR el 'Estilo de página especial' y configurar con los siguientes datos."
             ![](./img_ut2/RA2CEd/img34.png){.cuatrocinco .marginbottom20 }
             ![](./img_ut2/RA2CEd/img30.png){.cien .marginbottom20}
             ![](./img_ut2/RA2CEd/img31.png){.cien .marginbottom20}
             ![](./img_ut2/RA2CEd/img32.png){.cien .marginbottom20}
             ![](./img_ut2/RA2CEd/img33.png){.cien}
 
-        !!! tip "**Concatenar** los estilos de la siguiente manera:<br>**Primera página** → **Estilo de página predeterminado** → **Estilo de página especial**"
+        !!! tip "-C- Concatenar los estilos de la siguiente manera:<br>Primera página → Estilo de página predeterminado → Estilo de página especial"
             ![](./img_ut2/RA2CEd/img42.png){.cien .marginbottom20} 
             ![](./img_ut2/RA2CEd/img43.png){.cien .marginbottom20} 
             ![](./img_ut2/RA2CEd/img41.png){.cien} 
 
-
-
-    !!! exercise "**3. Estilos de títulos.**"  
-        !!! tip "Editar el estilo **Título 1** → Configurar con los siguientes datos."
+    !!! exercise "3. Estilos de títulos."  
+        !!! tip "-A- Editar el estilo 'Título 1' → Configurar con los siguientes datos."
             ![](./img_ut2/RA2CEd/img9.png){.cien .marginbottom20} 
             ![](./img_ut2/RA2CEd/img10.png){.cien .marginbottom20} 
             ![](./img_ut2/RA2CEd/img11.png){.cien } 
     
-        !!! tip "Editar el estilo **Título 2** → Configurar con los siguientes datos."
+        !!! tip "-B- Editar el estilo 'Título 2' → Configurar con los siguientes datos."
             ![](./img_ut2/RA2CEd/img12.png){.cien .marginbottom20} 
             ![](./img_ut2/RA2CEd/img13.png){.cien .marginbottom20} 
             ![](./img_ut2/RA2CEd/img14.png){.cien } 
     
-        !!! tip "Editar el estilo **Título 3** → Configurar con los siguientes datos."
+        !!! tip "-C- Editar el estilo 'Título 3' → Configurar con los siguientes datos."
             ![](./img_ut2/RA2CEd/img15.png){.cien .marginbottom20} 
             ![](./img_ut2/RA2CEd/img16.png){.cien .marginbottom20} 
             ![](./img_ut2/RA2CEd/img17.png){.cien} 
     
-    !!! exercise "**4. Estilos de texto.**  
-    &nbsp;&nbsp;&nbsp;&nbsp;**a.** Ir al estilo **Cuerpo de texto** y configurar con los siguientes datos.
+    !!! exercise "4. Estilos de texto."  
+        !!! tip "-A- Ir al estilo Cuerpo de texto y configurar con los siguientes datos"
+            ![](./img_ut2/RA2CEd/img18.png){.cien .marginbottom20 .margintop10} 
+            ![](./img_ut2/RA2CEd/img19.png){.cien .marginbottom20} 
+            ![](./img_ut2/RA2CEd/img20.png){.cien  } 
    
-    ![](./img_ut2/RA2CEd/img18.png){.sietecinco} <br>
-    ![](./img_ut2/RA2CEd/img19.png){.sietecinco} <br>
-    ![](./img_ut2/RA2CEd/img20.png){.sietecinco} <br>
-   
-    &nbsp;&nbsp;&nbsp;&nbsp;**b.** Ir al estilo **Contenido de la tabla** y configurar con los siguientes datos.
-   
-    ![](./img_ut2/RA2CEd/img21.png){.sietecinco} <br>
-    ![](./img_ut2/RA2CEd/img22.png){.sietecinco} <br>
+        !!! tip "-B- Ir al estilo **Contenido de la tabla** y configurar con los siguientes datos"
+            ![](./img_ut2/RA2CEd/img21.png){.cien .marginbottom20 .margintop10} 
+            ![](./img_ut2/RA2CEd/img22.png){.cien   } 
     
-    &nbsp;&nbsp;&nbsp;&nbsp;**c.** Ir al estilo **Título de la tabla** y configurar con los siguientes datos.
-   
-    ![](./img_ut2/RA2CEd/img23.png){.sietecinco} <br>
-    ![](./img_ut2/RA2CEd/img24.png){.sietecinco} <br>
-    ![](./img_ut2/RA2CEd/img25.png){.sietecinco} <br>
+        !!! tip "-C- Ir al estilo **Título de la tabla** y configurar con los siguientes datos"   
+            ![](./img_ut2/RA2CEd/img23.png){.cien .marginbottom20 .margintop10} 
+            ![](./img_ut2/RA2CEd/img24.png){.cien .marginbottom20 .margintop10} 
+            ![](./img_ut2/RA2CEd/img25.png){.cien  }
 
-    &nbsp;&nbsp;&nbsp;&nbsp;**d.** Ir al estilo **Leyenda** y configurar con los siguientes datos.
-   
-    ![](./img_ut2/RA2CEd/img27.png){.sietecinco} <br>
-    ![](./img_ut2/RA2CEd/img28.png){.sietecinco} <br>
-    ![](./img_ut2/RA2CEd/img29.png){.sietecinco} <br>
+        !!! tip "-D-. Ir al estilo **Leyenda** y configurar con los siguientes datos"
+            ![](./img_ut2/RA2CEd/img27.png){.cien .marginbottom20 .margintop10} 
+            ![](./img_ut2/RA2CEd/img28.png){.cien .marginbottom20 .margintop10} 
+            ![](./img_ut2/RA2CEd/img29.png){.cien  } 
     
-    **5. Estilos de marco.**  
-    &nbsp;&nbsp;&nbsp;&nbsp;Ir a **Estilos de marco** → **Imagen** y configurar con los siguientes datos.
-   
-    ![](./img_ut2/RA2CEd/img26.png){.sietecinco} <br>
+    !!! exercise "5. Estilos de marco"  
+        Ir a **Estilos de marco** → **Imagen** y configurar con los siguientes datos.
+        ![](./img_ut2/RA2CEd/img26.png){.cien .margintop10 } 
 
-    **6. Estilos de cabecera y pie de página.**  
-    &nbsp;&nbsp;&nbsp;&nbsp;**a.** Cabecera.
-   
-    ![](./img_ut2/RA2CEd/img35.png){.sietecinco}  
-    ![](./img_ut2/RA2CEd/img36.png){.sietecinco}  
-    ![](./img_ut2/RA2CEd/img37.png){.sietecinco} 
+    !!! exercise "6. Estilos de cabecera y pie de página"  
+        !!! tip "-A- Cabecera"
+            ![](./img_ut2/RA2CEd/img35.png){.cien .margintop10}  
+            ![](./img_ut2/RA2CEd/img36.png){.cien  }  
+            ![](./img_ut2/RA2CEd/img37.png){.cien   } 
 
-    &nbsp;&nbsp;&nbsp;&nbsp;**b.** Pie de página.
-    ![](./img_ut2/RA2CEd/img38.png){.sietecinco}  
-    ![](./img_ut2/RA2CEd/img39.png){.sietecinco}   
-    ![](./img_ut2/RA2CEd/img40.png){.sietecinco}   
+        !!! tip "-B- Pie de página"
+            ![](./img_ut2/RA2CEd/img38.png){.cien   .margintop10}  
+            ![](./img_ut2/RA2CEd/img39.png){.cien    }   
+            ![](./img_ut2/RA2CEd/img40.png){.cien  }   
    
-    
-    **7. Aplicar estilos de página.**  
-    Aplicar los estilos a las páginas de la siguiente manera:  
-    &nbsp;&nbsp;&nbsp;&nbsp;**a.** Página 1 → Estilo **Primera página**.  
-    &nbsp;&nbsp;&nbsp;&nbsp;**b.** Página 2 → Estilo **Estilo de página predeterminado**.  
-    &nbsp;&nbsp;&nbsp;&nbsp;**c.** Página 3 → Estilo **Estilo de página especial**.  
+    !!! exercise "7. Aplicar estilos de página"
+        Aplicar los estilos a las páginas de la siguiente manera:  
+
+        1. **Página 1** → Estilo **Primera página**.
+        1. **Página 2** → Estilo **Estilo de página predeterminado**.  
+        1. **Página 3** → Estilo **Estilo de página especial**.  
       
-    **8. Aplicar estilos de títulos y texto.**
-    Aplicar los estilos de títulos de la siguiente manera:  
-    &nbsp;&nbsp;&nbsp;&nbsp;**a.** Título 1 → Michael Jordan.  
-    &nbsp;&nbsp;&nbsp;&nbsp;**b.** Título 2 → Biografía, Trayectoria profesional.  
-    &nbsp;&nbsp;&nbsp;&nbsp;**c.** Título 3 → Universidad, Estadísticas, Primeros años.  
-    &nbsp;&nbsp;&nbsp;&nbsp;**d.** Cuerpo de texto → Todo el texto.  
+    !!! exercise "8. Aplicar estilos de títulos y texto"
+        Aplicar los estilos de títulos de la siguiente manera:  
+        
+        1. **Título 1** → Michael Jordan
+        1. **Título 2** → Biografía, Trayectoria profesional.
+        1. **Título 3** → Universidad, Estadísticas, Primeros años.  
+        1. **Cuerpo de texto** → Todo el texto.  
 
-    **9.** **Modificar las propiedades de partes del texto** para que se vean como en el documento adjuntado a la práctica.
+    !!! exercise "9. Modificar las propiedades de partes del texto para que se vean como en el documento adjuntado a la práctica"
     
-    **10.** **Modificar las propiedades de los párrafos** para que se vean como en el documento adjuntado a la práctica.
+    !!! exercise "10. Modificar las propiedades de los párrafos para que se vean como en el documento adjuntado a la práctica"
 
-    **11.** **Insertar una tabla**.  
-    &nbsp;&nbsp;&nbsp;&nbsp;**a.** Modificar las propiedades de la siguiente manera
-    ![](./img_ut2/RA2CEd/img44.png){.cincozero}   
-    ![](./img_ut2/RA2CEd/img45.png){.cincozero} <br>  
+    !!! exercise "11. Insertar una tabla"  
+        !!! tip "-A- Modificar las propiedades de la siguiente manera"
+            ![](./img_ut2/RA2CEd/img44.png){.cien   .margintop10}   
+            ![](./img_ut2/RA2CEd/img45.png){.cien    }   
      
-    &nbsp;&nbsp;&nbsp;&nbsp;**b.** Personalizar las propiedades de celdas y texto para que el resultado sea como el siguiente.
-
-    ![](./img_ut2/RA2CEd/img46.png){.cincozero} <br>  
+        !!! tip "-B- Personalizar las propiedades de celdas y texto para que el resultado sea como el siguiente"
+            ![](./img_ut2/RA2CEd/img46.png){.cien}   
    
-    **12.** **Insertar las 2 imágenes**.  
-    &nbsp;&nbsp;&nbsp;&nbsp;**a. Imagen 1**    
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Insertar** la imagen de Michael Jordan.  
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Insertar** una leyenda sobre la imagen.  
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Como podemos ver**, al insertar la leyenda hemos creado un marco que contiene la imagen.  
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Editamos las propiedades del marco de la siguiente manera:**
+    !!! exercise "12. Insertar las 2 imágenes"  
+        !!! tip "-A- Imagen 1"    
+            - **Insertar** la imagen de Michael Jordan.  
+            - **Insertar** una leyenda sobre la imagen.  
+            - **Como podemos ver**, al insertar la leyenda hemos creado un marco que contiene la imagen.  
+            - **Editamos las propiedades del marco de la siguiente manera:**
+            ![](./img_ut2/RA2CEd/img47.png){.cien .margintop10}   
+            ![](./img_ut2/RA2CEd/img48.png){.cien .marginbottom20}  
+            - Una vez el marco a la escala, movemos el marco a la posición deseada. 
 
-    ![](./img_ut2/RA2CEd/img47.png){.cincozero}   
-    ![](./img_ut2/RA2CEd/img48.png){.cincozero}  
+        !!! tip "-B- Imagen 2"    
+            - **Insertar** la imagen de las camisetas.  
+            ![](./img_ut2/RA2CEd/img49.png){.cien .margintop10}   
+            ![](./img_ut2/RA2CEd/img50.png){.cien }  
+            - Una vez el marco a la escala, movemos el marco a la posición deseada. 
 
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Una vez el marco a la escala, movemos el marco a la posición deseada. 
+    !!! exercise "13. Cabecera y pie de página"
+        !!! tip "-A- Cabecera página 1"     
+            1. **Anclar** la imagen al párrafo de la cabecera.
+            1. **Podéis** ajustar la posición al gusto de cada uno.  
+            ![](./img_ut2/RA2CEd/img51.png){.cien .margintop10 }  
+        !!! tip "-B- Cabecera páginas 2 y 3"     
+            1. **Anclar** la imagen al párrafo de la cabecera **como en la página 1**.  
+            1. **Escribir Tarea RA2-CEd y vuestro nombre y apellidos**.  
 
-    &nbsp;&nbsp;&nbsp;&nbsp;**a. Imagen 2**    
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Insertar** la imagen de las camisetas.  
-    ![](./img_ut2/RA2CEd/img49.png){.cincozero}   
-    ![](./img_ut2/RA2CEd/img50.png){.cincozero}  
+        !!! tip "-C- Pie de página, página 2 y 3"  
+            **Escribir el texto del pie de página** y además **insertar un campo con la página actual y el recuento de páginas**.  
+ 
+    !!! warning "Condiciones de entrega de la tarea"
+        1. Subir vuestra tarea nombrando el archivo **RA2-CEd-Nombre Alumno** a la **tarea RA2-CEd**.  
+        1. El archivo a subir deberá ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
+        1. **No se aceptará ningún otro formato de archivo**.  
 
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Una vez el marco a la escala, movemos el marco a la posición deseada. 
+## 2.8 - Exportar a otros formatos
 
-    **13.** **Cabecera y pie de página**.  
-    &nbsp;&nbsp;&nbsp;&nbsp;**a. Cabecera página 1**     
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Anclar** la imagen al párrafo de la cabecera.  
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Podéis** ajustar la posición al gusto de cada uno.  
-    ![](./img_ut2/RA2CEd/img51.png){.cincozero}  
-    &nbsp;&nbsp;&nbsp;&nbsp;**a. Cabecera páginas 2 y 3**     
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Anclar** la imagen al párrafo de la cabecera **como en la página 1**.  
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Escribir Tarea RA2-CEd y vuestro nombre y apellidos**.  
+### Tarea - RA2-CEe
 
-    &nbsp;&nbsp;&nbsp;&nbsp;**b. Pie de página, página 2 y 3**  
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Escribir el texto del pie de página** y además **insertar un campo con la página actual y el recuento de páginas**.  
-
-
-    **14.** **Entrega de la tarea**.  
-    Subir el archivo en **formato .odt (open text document)** a la tarea RA2-CEd. No se admitirá ningún otro tipo de formato.  
-
-## **2.8 - Exportar a otros formatos**
-### **Tarea - RA2-CEe**
 !!! task "Tarea a entregar en RA2-CEe"
     Exportar la tarea RA2-CEd a formato pdf y subirla a la **tarea RA2-CEe**.
 
+## 2.9 - Macros
 
-## **2.9 - Macros**
-### **2.9.1 - Instalar JRE**
-Antes de nada comprobaremos si tenemos el JRE (Java Runtime Environment) instalado en nuestro ordenador. Para ello abriremos una terminal y escribiremos: 
+### 2.9.1 - Instalar JRE
+
+Antes de nada comprobaremos si tenemos el JRE (Java Runtime Environment) instalado en nuestro ordenador. Para ello abriremos una terminal y escribiremos:
+
 ```bash
 java --version 
 ```
-Si no devuelve la versión de JRE, significa que lo tenemos instalado.
 
-![](./img_ut2/RA2-CEf/img2.png){.cincozero}
-<br>
-De lo contrario, iremos a la [página de descarga](https://www.java.com/es/download/manual.jsp), descargaremos la versión adecuada a nuestro sistema operativo y lo instalaremos. 
+Si nos devuelve la versión de JRE, significa que lo tenemos instalado.
 
-### **2.9.2 - Habilitar la grabación de macros en LibreOffice**
-La grabación de macro viene **deshabilitado por defecto** en LibreOffice. Para habilitar las grabaciones de macros iremos a **Herramientas → Opciones → Avanzadas** y activaremos la grabación de macros.
+![img](./img_ut2/RA2-CEf/img2.png){.cien}
 
-![](./img_ut2/RA2-CEf/img3.png){.cincozero}
+De lo contrario, iremos a la [página de descarga](https://www.java.com/es/download/manual.jsp), descargaremos la versión adecuada a nuestro sistema operativo y lo instalaremos.
 
+### 2.9.2 - Habilitar la grabación de macros en LibreOffice
+
+- La grabación de macros viene **deshabilitado por defecto** en LibreOffice.
+- Para habilitar las grabaciones de macros iremos a **Herramientas → Opciones → Avanzadas** y activaremos la grabación de macros.
+    ![img](./img_ut2/RA2-CEf/img3.png){.cien .margintop10}
 
 ### Tarea - RA2-CEf
 
@@ -1003,10 +1006,6 @@ La grabación de macro viene **deshabilitado por defecto** en LibreOffice. Para 
         1. El archivo a subir deberá ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
         1. **No se aceptará ningún otro formato de archivo**.
 
-
 | **Licencia Creative Commons:** | |
 | - | - |
-| ![alt text](../../../../assets/by-nc-nd-eu_.png) { .by-nc-nd-eu_ } | **Reconocimiento-NoComercial-CompartirIgual CC BY-NC-SA:**  No se permite un uso comercial de la obra original ni de las posibles obras derivadas, la distribución de la cuales se debe hace con una licencia igual a la que regula la obra original. | 
-  
- 
-
+| ![alt text](../../../../assets/by-nc-nd-eu_.png) { .by-nc-nd-eu_ } | **Reconocimiento-NoComercial-CompartirIgual CC BY-NC-SA:**  No se permite un uso comercial de la obra original ni de las posibles obras derivadas, la distribución de la cuales se debe hace con una licencia igual a la que regula la obra original. |
