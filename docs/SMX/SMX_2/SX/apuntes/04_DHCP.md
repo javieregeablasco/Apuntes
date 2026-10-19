@@ -225,11 +225,11 @@ El servidor DHCP responde con un mensaje "DHCP Acknowledge", confirmando que la 
     - **Dependencia del servidor DHCP:** Si el servidor falla, los dispositivos pueden no obtener una dirección IP válida.
     - **Menor control sobre la asignación:** Puede ser más difícil rastrear qué dispositivo tiene qué dirección IP en un momento dado.
 
-## 4 - Tarea RA1-CE-ab - Funcionamiento de DHCP
+## 4 - Tarea RA1-CEab - Funcionamiento de DHCP
 
 !!! Exercise "Trabajo a realizar."
     - Para esta evaluación, deberéis responder a preguntas tipo test.
-    - Podéis descargar el archivo de texto desde la correspondiente tarea de aules (RA1CEab Nombre Apellidos).
+    - Podéis descargar el archivo de texto desde la correspondiente tarea de aules (RA1-CEab Nombre Apellidos).
     - Subrayar la respuesta que consideráis correcta.
     !!! warning "Entrega de la tarea"
         - Guardar el documento con RA1-CEab-NombreApellidos.
@@ -708,7 +708,7 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     ipconfig /all
     ```
 
-## 6 - Tarea RA1-cd-2 - Instalación y configuración de un DHCP con Ubuntu Server en AWS
+## 6 - Tarea RA1-CEcd-2 - Instalación y configuración de un DHCP con Ubuntu Server en AWS
 
 ### 6.1 Objetivo de la práctica
 
@@ -944,13 +944,14 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
 - Instalaremos KVM y las herramientas relacionadas con:
 
     ```bash
-    sudo apt install -y qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virtinst virt-manager
+    sudo apt install -y qemu-system-x86 qemu-utils libvirt-daemon-system libvirt-clients bridge-utils virtinst virt-manager
+
     ```
 
     !!! note "Explicación de las aplicaciones instaladas"
-        - **qemu-kvm** → el hipervisor en sí.
+        - **qemu-system-x86** → el hipervisor en sí.
         - **libvirt-daemon-system / libvirt-clients** → capa de gestión (permite usar virsh, virt-install, etc.).
-        - **bridge-utils** → para redes puente entre las VMs anidadas.
+        - **qemu-utils / bridge-utils** → para redes puente entre las VMs anidadas.
         - **virtinst** → herramientas para crear VMs desde línea de comandos (virt-install).
         - **virt-manager** → interfaz gráfica de gestión (solo si disponemos de entorno gráfico).
 
