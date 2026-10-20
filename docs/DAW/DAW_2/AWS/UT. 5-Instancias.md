@@ -752,23 +752,25 @@ Toda la información en la documentación de [AWS](https://docs.aws.amazon.com/e
 
     !!! tip "Conéctarse a la instancia con SSH y listar dispositivos (de bloque)."  
         - Utilizaremos el comando **lsblk** para comparar el tamaño de la partición con el tamaño del volumen.
+
         ![img](./ut5/RA2CEb33.png){ .original .margintop10}
 
     !!! tip "Ampliar la partición"  
         - Si no coincide el tamaño del volumen con el tamaño de la partición deberemos ampliarla con **growpart**.
+
         ![img](./ut5/RA2CEb34.png){ .original .margintop10}
 
     !!! tip "Comprobar que la partición se ha ampliado"  
+
         ![img](./ut5/RA2CEb35.png){ .original }
-    
 
     !!! tip "Comprobar el tamaño del sistema de archivos"  
-    Con **df -hT** podemos comprobar el tamaño y el tipo de sistema de archivos de cada dispositivo. En este caso, verificaremos si **/dev/nvme0n1p1** (la partición actual) y **/dev/nvme1n1** (el nuevo volumen EBS) tienen el mismo tamaño.
-    Si el tamaño del nuevo volumen es mayor, será necesario ampliar el sistema de archivos para aprovechar todo el espacio adicional disponible en el volumen.  
+        - Con **df -hT** podemos comprobar el tamaño y el tipo de sistema de archivos de cada dispositivo.
+        - En este caso, verificaremos si **/dev/nvme0n1p1** (la partición actual) y **/dev/nvme1n1** (el nuevo volumen EBS) tienen el mismo tamaño.
+        - Si el tamaño del nuevo volumen es mayor, será necesario ampliar el sistema de archivos para aprovechar todo el espacio adicional disponible en el volumen.  
 
-    ![](./ut5/RA2CEb36.png){ .original }
-    <br>
-  
+        ![img](./ut5/RA2CEb36.png){ .original }
+
     !!! tip "Ampliar el sistema de archivos"  
     Para un sistema de archivos XFS usaremos **xfs_growfs**.    
 
