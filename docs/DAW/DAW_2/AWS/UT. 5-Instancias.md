@@ -783,7 +783,7 @@ Aunque en la consola de EC2 podamos gestionar los volúmenes EBS asociados a nue
 
         - Ya podremos usar esa partición.  
 
-## 6.2 Añadir un EBS a la instancia
+### 6.2 Añadir un EBS a la instancia
 
 En muchos casos puede resultar necesario añadir volúmenes EBS adicionales a una instancia, ya sea para ampliar capacidad, separar datos del sistema operativo, realizar migraciones o incluso compartir información entre diferentes instancias (adjuntando y desadjuntando volúmenes).
 
@@ -857,10 +857,12 @@ En muchos casos puede resultar necesario añadir volúmenes EBS adicionales a un
         ![img](./ut5/RA2CEb30.png){ .original  }
     
 
-#### **2.4.12 - Condiciones de entrega de la tarea RA2-CEb**  
+### 6.3 Tarea RA3-CEa  
 
-!!! warning "Condiciones de la entrega" 
-    
+# HASTA AQUI
+
+!!! warning "Condiciones de la entrega"
+ 
     - Realizar capturas de pantalla del mapa de recursos de la VPC. 
     - Realizar capturas de pantalla del ping desde vuestro ordenador a la instancia. 
     - Realizar capturas de pantalla de la conexión por SSH a la instancia desde vuestro ordenador. 
@@ -870,7 +872,6 @@ En muchos casos puede resultar necesario añadir volúmenes EBS adicionales a un
 
 
 
-# HASTA AQUI
 
 ### 2.5 Tarea RA2-CEb - Primer despliegue de una instancia
 
@@ -878,6 +879,7 @@ En muchos casos puede resultar necesario añadir volúmenes EBS adicionales a un
 
 
 ## **5 - Reglas encadenadas en grupos de seguridad**
+
 Como hemos visto, AWS ofrece diferentes herramientas para proteger una infraestructura en la nube, como los grupos de seguridad (**Security Groups**) y las listas de control de acceso a red (**NACL**).  
 Una funcionalidad especialmente interesante es la posibilidad de encadenar grupos de seguridad (**Security Groups Chaining**), lo que permite aplicar un modelo de seguridad por capas dentro de una VPC.
 
