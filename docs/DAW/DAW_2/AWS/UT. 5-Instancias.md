@@ -753,12 +753,12 @@ Aunque en la consola de EC2 podamos gestionar los volúmenes EBS asociados a nue
     Toda la información en la documentación de [AWS](https://docs.aws.amazon.com/es_es/ebs/latest/userguide/recognize-expanded-volume-linux.html).  
 
     !!! tip "Conéctarse a la instancia con SSH y listar dispositivos (de bloque)."  
-        - Utilizaremos el comando **lsblk** para comparar el tamaño de la partición con el tamaño del volumen.
+        - Utilizaremos el comando ==**lsblk**== para comparar el tamaño de la partición con el tamaño del volumen.
 
         ![img](./ut5/RA2CEb33.png){ .original .margintop10}
 
     !!! tip "Ampliar la partición"  
-        - Si no coincide el tamaño del volumen con el tamaño de la partición deberemos ampliarla con **growpart**.
+        - Si no coincide el tamaño del volumen con el tamaño de la partición deberemos ampliarla con ==**growpart**==.
 
         ![img](./ut5/RA2CEb34.png){ .original .margintop10}
 
@@ -767,14 +767,14 @@ Aunque en la consola de EC2 podamos gestionar los volúmenes EBS asociados a nue
         ![img](./ut5/RA2CEb35.png){ .original }
 
     !!! tip "Comprobar el tamaño del sistema de archivos"  
-        - Con **df -hT** podemos comprobar el tamaño y el tipo de sistema de archivos de cada dispositivo.
-        - En este caso, verificaremos si **/dev/nvme0n1p1** (la partición actual) y **/dev/nvme1n1** (el nuevo volumen EBS) tienen el mismo tamaño.
+        - Con ==**df -hT**== podemos comprobar el tamaño y el tipo de sistema de archivos de cada dispositivo.
+        - En este caso, verificaremos si **/dev/nvme0n1p1** (la partición actual) y ==**/dev/nvme1n1**== (el nuevo volumen EBS) tienen el mismo tamaño.
         - Si el tamaño del nuevo volumen es mayor, será necesario ampliar el sistema de archivos para aprovechar todo el espacio adicional disponible en el volumen.  
 
         ![img](./ut5/RA2CEb36.png){ .original .margintop10}
 
     !!! tip "Ampliar el sistema de archivos"  
-        - Para un sistema de archivos XFS usaremos **xfs_growfs**.
+        - Para un sistema de archivos XFS usaremos ==**xfs_growfs**==.
 
         ![img](./ut5/RA2CEb37.png){ .original .margintop10 .marginbottom20 }
     
@@ -831,7 +831,7 @@ En muchos casos puede resultar necesario añadir volúmenes EBS adicionales a un
         - Utilizaremos el comando **lsblk -f** para obtener información sobre todos los dispositivos asociados a la instancia.  
         ![img](./ut5/RA2CEb24.png){ .original .margintop10 .marginbottom20}
     
-        - La columna =3=**FSTYPE**=3= muestra el tipo de sistema de archivos. Si la columna está vacía para un dispositivo específico, significa que el dispositivo no tiene un sistema de archivos.
+        - La columna ==**FSTYPE**== muestra el tipo de sistema de archivos. Si la columna está vacía para un dispositivo específico, significa que el dispositivo no tiene un sistema de archivos.
 
     !!! tip "Crear un sistema de archivos"  
     Si tenemos un volumen vacío, crearemos el sistema de archivos con **mkfs -t**.  
