@@ -839,17 +839,14 @@ En muchos casos puede resultar necesario añadir volúmenes EBS adicionales a un
         ![img](./ut5/RA2CEb26.png){ .original .margintop10 .marginbottom20}
    
     !!! tip "Montar el volumen"  
-    Montaremos el volumen con **mount**.   
-
-    ![](./ut5/RA2CEb27.png){ .original }
-    <br>
-
+        - Montaremos el volumen con **mount**.  
+        ![img](./ut5/RA2CEb27.png){ .original .margintop10 .marginbottom20}
+   
     !!! tip "Montar el volumen automáticamente después de un reinicio"  
-    :one: Usaremos **blkid** para encontrar el **UUID** del dispositivo.   
-
-    ![](./ut5/RA2CEb28.png){ .original }
-    <br>
-    :two: Editamos el archivo **/etc/fstab** (p.e. nano ) y añadimos los campos UUID, el punto de montaje, el sistema de archivos y las opciones de montaje.  
+        - :one: Usaremos **blkid** para encontrar el **UUID** del dispositivo.  
+        ![img](./ut5/RA2CEb28.png){ .original .margintop10 .marginbottom20 }
+        
+        - :two: Editamos el archivo **/etc/fstab** (p.e. nano ) y añadimos los campos UUID, el punto de montaje, el sistema de archivos y las opciones de montaje.  
 
 
     ![](./ut5/RA2CEb29.png){ .original }
