@@ -787,7 +787,7 @@ Aunque en la consola de EC2 podamos gestionar los volúmenes EBS asociados a nue
 
 En muchos casos puede resultar necesario añadir volúmenes EBS adicionales a una instancia, ya sea para ampliar capacidad, separar datos del sistema operativo, realizar migraciones o incluso compartir información entre diferentes instancias (adjuntando y desadjuntando volúmenes).
 
-1. **Crear un volumen EBS**
+!!! abstract "1. Crear un volumen EBS"
 
     ![img](./ut5/RA2CEb16.png){ .original .marco .marginbottom20}
 
@@ -795,8 +795,8 @@ En muchos casos puede resultar necesario añadir volúmenes EBS adicionales a un
 
     ![img](./ut5/RA2CEb17.png){ .original .marco .marginbottom20}
 
-1. **Adjuntar el volumen EBS a la instancia EC2**  
-Si volvemos al menú de volúmenes EBS, veremos que el nuevo volumen aparece como disponible.
+!!! abstract "2. Adjuntar el volumen EBS a la instancia EC2"
+    Si volvemos al menú de volúmenes EBS, veremos que el nuevo volumen aparece como disponible.
 
     ![img](./ut5/RA2CEb18.png){ .original .marco .marginbottom20 }
 
