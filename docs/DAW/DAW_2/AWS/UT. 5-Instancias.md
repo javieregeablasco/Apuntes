@@ -828,11 +828,10 @@ En muchos casos puede resultar necesario añadir volúmenes EBS adicionales a un
     
 
     !!! tip "Obtener información sobre todos los dispositivos asociados a la instancia"  
-        - Utilizaremos el comando **lsblk -f** para obtener información sobre todos los dispositivos asociados a la instancia. 
-
-        ![img](./ut5/RA2CEb24.png){ .original }
+        - Utilizaremos el comando **lsblk -f** para obtener información sobre todos los dispositivos asociados a la instancia.  
+        ![img](./ut5/RA2CEb24.png){ .original .margintop10 .marginbottom20}
     
-        - La columna `FSTYPE` muestra el tipo de sistema de archivos. Si la columna está vacía para un dispositivo específico, significa que el dispositivo no tiene un sistema de archivos.
+        - La columna =3=**FSTYPE**=3= muestra el tipo de sistema de archivos. Si la columna está vacía para un dispositivo específico, significa que el dispositivo no tiene un sistema de archivos.
 
     !!! tip "Crear un sistema de archivos"  
     Si tenemos un volumen vacío, crearemos el sistema de archivos con **mkfs -t**.  
