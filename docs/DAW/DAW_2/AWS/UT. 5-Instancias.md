@@ -738,6 +738,8 @@ El escenario quedará de la siguiente manera:
 
 Aunque en la consola de EC2 podamos gestionar los volúmenes EBS asociados a nuestras instancias, EC2 y EBS son **servicios independientes** dentro de AWS.
 
+## 6.1 Modificación del tamaño del volumen asociado a una instancia
+
 1. **Modificar volumen**  
     - Desde el menú de la instancia o directamente desde el menú EBS seleccionamos modificar volumen y lo ajustamos al tamaño deseado (p.e. 20 GiB).
     ![img](./ut5/RA2CEb31.png){ .original .marco .margintop10 .marginbottom20}
@@ -779,21 +781,21 @@ Toda la información en la documentación de [AWS](https://docs.aws.amazon.com/e
         - Comprobamos de nuevo el tamaño de la partición:
         ![img](./ut5/RA2CEb38.png){ .original .margintop10 .marginbottom20 }
 
-        - Ya podemos usar esa partición.  
+        - Ya podremos usar esa partición.  
 
-#### **2.4.11 - Añadir un EBS a la instancia**  
-En muchos casos puede resultar necesario añadir volúmenes EBS adicionales a una instancia, ya sea para ampliar capacidad, separar datos del sistema operativo, realizar migraciones o incluso compartir información entre diferentes instancias (adjuntando y desadjuntando volúmenes).
+## 6.2 Añadir un EBS a la instancia
+
+- En muchos casos puede resultar necesario añadir volúmenes EBS adicionales a una instancia, ya sea para ampliar capacidad, separar datos del sistema operativo, realizar migraciones o incluso compartir información entre diferentes instancias (adjuntando y desadjuntando volúmenes).
 
 1. **Crear un volumen EBS**
 
-      ![](./ut5/RA2CEb16.png){ .original .marco }
- <br>
+    ![img](./ut5/RA2CEb16.png){ .original .marco }
 
     **Nota importante:**  
-    El volumen debe crearse en la misma **zona de disponibilidad** que la EC2. 
+    El volumen debe crearse en la misma **zona de disponibilidad** que la EC2.
 
-    ![](./ut5/RA2CEb17.png){ .original .marco }
- <br>
+    ![img](./ut5/RA2CEb17.png){ .original .marco }
+ 
 
 1. **Adjuntar el volumen EBS a la instancia EC2**  
 Si volvemos al menú de volúmenes EBS, veremos que el nuevo volumen aparece como disponible.
