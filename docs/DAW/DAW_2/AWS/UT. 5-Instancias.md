@@ -604,26 +604,6 @@ El escenario quedará de la siguiente manera:
     - Ejemplo de ejecución de un programa de python.
     ![img](./ut5/RA2CEc26.png){.original .margintop10 .marginbottom20}
 
-<!--
-    - **Conexión mediante instancia bastión**  
-    En este caso, utilizaremos la instancia pública a la que tenemos acceso como una instancia bastión. Es decir, primero nos conectaremos a ella y, desde allí, estableceremos una conexión SSH hacia las instancias ubicadas en la subred privada.
-    Para poder conectarnos por SSH a la EC2 de la subred privada, necesitaremos trasladar el archivo de la clave privada a la EC2 pública.  
-    Mover nuestra clave privada no se considera una buena práctica desde el punto de vista de la seguridad informática, pero nos permitirá familiarizarnos con nuevas funcionalidades de AWS.
-
-        - **Opción 1: Mover archivo con scp**  
-        En este caso usaremos el comando `scp` (Secure CoPy) para enviar el archivo *.pem desde la máquina local a la instancia EC2 pública.<br>  
-        En linux usaremos el comando:  
-        ```bash
-        scp -i <ARCHIVO_PEM> <ARCHIVO_A_TRANSFERIR> <NOMBRE_DE_USUARIO>@<IP_DE_LA_INSTANCIA>:<RUTA_ARCHIVO_DESTINO>
-        ```  
-        Donde -i especifica la clave privada.<br>
-        ![](./ut5/RA2CEc19.png){.original}<br>  
-        A partir de entonces, ya tendremos disponible dentro de nuestra EC2 pública la clave privada para conectarnos a las EC2 privadas.
-        
-        ![](./ut5/RA2CEc20.png){.original}  <br> 
-
--->
-
 ## 5 - NAT gateway
 
 - NAT gateway es un servicio de traducción de direcciones de red (NAT) que permite a las instancias de una subred privada tener acceso a Internet o a otros servicios de AWS, **sin exponer** sus IP privadas.
@@ -758,13 +738,11 @@ El escenario quedará de la siguiente manera:
 
 Aunque en la consola de EC2 podamos gestionar los volúmenes EBS asociados a nuestras instancias, EC2 y EBS son **servicios independientes** dentro de AWS.
 
-1. **Modificar volumen**
-Desde el menú de la instancia o directamente desde el menú EBS seleccionamos modificar volumen y lo ajustamos al tamaño deseado (p.e. 20 GiB).
-
-      ![](./ut5/RA2CEb31.png){ .original .marco }
- <br>
-
-    No saldrá el siguiente mensaje de advertencia:
+1. **Modificar volumen**  
+    - Desde el menú de la instancia o directamente desde el menú EBS seleccionamos modificar volumen y lo ajustamos al tamaño deseado (p.e. 20 GiB).
+    ![img](./ut5/RA2CEb31.png){ .original .marco .margintop10}
+ 
+    Nos saldrá el siguiente mensaje de advertencia:
 
       ![](./ut5/RA2CEb32.png){ .cincozero }
  <br>
