@@ -749,7 +749,7 @@ Aunque en la consola de EC2 podamos gestionar los volúmenes EBS asociados a nue
 
     - Confirmamos y seguimos.
 
-!!! tip "1. Ampliación de un sistema de archivos después de cambiar el tamaño de un volumen de Amazon EBS (solo EC2 amazon linux)"  
+!!! abstract "2. Ampliación de un sistema de archivos después de cambiar el tamaño de un volumen de Amazon EBS (solo EC2 amazon linux)"  
     Toda la información en la documentación de [AWS](https://docs.aws.amazon.com/es_es/ebs/latest/userguide/recognize-expanded-volume-linux.html)  
 
     !!! tip "Conéctarse a la instancia con SSH y listar dispositivos (de bloque)."  
