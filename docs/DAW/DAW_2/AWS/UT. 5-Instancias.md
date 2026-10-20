@@ -665,24 +665,24 @@ El escenario quedará de la siguiente manera:
 
 !!! question "Este esquema tiene un error de concepto aunque siempre se representa de esa manera ¿Cuál?"
 
-### 4.3.1 - Crear el NAT Gateway
+### 5.3.1 - Crear el NAT Gateway
 
 1. Vamos al menú de NAT Gateway y creamos nuestro NAT Gateway.  
 1. Si no tenemos ninguna IP elástica, dejaremos que AWS le asigne una.
 ![img](./ut5/RA2CEc1.png){.original .marco .margintop10}  
 
-### 4.3.2 - Modificar la tabla de enrutamiento
+### 5.3.2 - Modificar la tabla de enrutamiento
 
 - Enlazaremos todo el tráfico hacia internet de la tabla de enrutamiento de la subred privada hacia el NAT Gateway
 ![img](./ut5/RA2CEc2.png){.original .marco .margintop10}  
 
-### 4.3.3 - Conexión a la EC2 de la subred privada
+### 5.3.3 - Conexión a la EC2 de la subred privada
 
 - Al carecer, la EC2 de la subred privada de IP pública, para poder conectarnos a ella, primero deberemos conectarnos a la EC2 de la subred pública, y luego, desde ella, conectarnos a la EC2 de la subred privada.
 - Antes de nada, deberemos enviar nuestra clave privada a la instancia EC2 ubicada en la subred pública.
 
 !!! info "Enviar la clave privada a nuestra instancia EC2"
-    !!! tip "SO Windows 11 / Linux /MacOS"
+    !!! tip "SO Windows 11 / Linux / MacOS"
         Para enviar archivos, usaremos el comando `scp`.
         ```bash
         scp -i clave-privada.pem archivo-a-enviar nombre-de-usuario@IP-publica-instancia:directorio-de-entrega
@@ -731,16 +731,22 @@ El escenario quedará de la siguiente manera:
     ssh nombre-de-usuario@direccion-ip-privada
     ```
 
-### 4.3.4 - Condiciones de entrega de la tarea RA2-CEd
+### 5.3.4 - Condiciones de entrega de la tarea RA2-CEd
 
-!!! task "Tarea RA2-CEd: Pruebas de ping"
-    **Comprobar:**  
-    Realizar una prueba de ping de las 2 instancias hacia internet (p.e google.es).  
-    Realizar capturas (3 capturas en total).
+!!! warning "Entrega de la tarea"
 
-# HASTA AQUI
+    - Realizar capturas de pantalla de los momentos clave de la realización de la tarea.
+    - Comentar las captura de pantalla explicando el trabajo realizado para llegar a ese punto y el resultado obtenido.
+    - Guardar el documento con RA2-CEd-NombreApellidos y subirlo a la tarea correspondiente de Aules.
+    - A partir de momento de apertura de la tarea, dispondréis de 2 semanas para subir vuestros trabajos.
+    - Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas
 
-## 5 - Gestión de los EBS asociados a las instancias
+    !!! note "Capturas de pantalla mínimas a adjuntar"
+        - Prueba de ping de las 2 instancias hacia internet (p.e google.es).  
+        - Tabla de enrutamiento de la instancia de la subred privada.
+
+
+## 6 - Gestión de los EBS asociados a las instancias
 
 Aunque en la consola de EC2 podamos gestionar los volúmenes EBS asociados a nuestras instancias, EC2 y EBS son **servicios independientes** dentro de AWS.
 
@@ -903,6 +909,11 @@ Toda la información [aquí](https://docs.aws.amazon.com/es_es/ebs/latest/usergu
     - Realizar capturas de pantalla con el tamaño del EBS de la instancia modificado. 
     - Realizar capturas de pantalla con el nuevo EBS asociado a la instancia. 
     - Comentar brevemente cada captura para entender a qué corresponde y subir el documento a la tarea correspondiente de AULES.
+
+
+
+# HASTA AQUI
+
 ### 2.5 Tarea RA2-CEb - Primer despliegue de una instancia
 
 
