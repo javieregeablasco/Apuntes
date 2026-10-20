@@ -563,7 +563,7 @@ El escenario quedará de la siguiente manera:
 
 1. Reflexionar sobre como impedir que las instancias de la subred privada no puedan establecer conexiones la una con la otra.
 1. Realizar las modificaciones necesarias a los SG y ACL para impedir dicho tráfico.
-<!-- 1. `¡Bonus track!` Lanzar en la subred pública una instancia de `Windows Server 2025` y realizar una conexión por RDP a dicha instancia. -->
+1. `¡Bonus!` Lanzar en la subred pública una instancia de `Windows Server 2025` y realizar una conexión por RDP a dicha instancia.
 
 !!! warning "Entrega de la tarea"
     - **Realizar capturas de pantalla de los momentos clave de la realización de la tarea**.
