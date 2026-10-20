@@ -797,13 +797,13 @@ En muchos casos puede resultar necesario añadir volúmenes EBS adicionales a un
 
 !!! abstract "2. Adjuntar el volumen EBS a la instancia EC2"
     - Si volvemos al menú de volúmenes EBS, veremos que el nuevo volumen aparece como disponible.  
-    ![img](./ut5/RA2CEb18.png){ .original .marco .marginbottom20 }
+    ![img](./ut5/RA2CEb18.png){ .original .marco .marginbottom20 .margintop10 }
 
     - Seleccionamos el EBS que se encuentra disponible y lo asociamos.  
-    ![img](./ut5/RA2CEb20.png){ .original .marco }
+    ![img](./ut5/RA2CEb20.png){ .original .marco .margintop10}
 
     - Si volvemos a la EC2, en el apartado **Almacenamiento** veremos los EBS asociados a la instancia.  
-    ![img](./ut5/RA2CEb21.png){ .original .marco }
+    ![img](./ut5/RA2CEb21.png){ .original .marco .margintop10}
 
 !!! abstract "3. Utilizar el volumen de Amazon EBS una vez adjuntado"
     Toda la información en la documentación de [AWS](https://docs.aws.amazon.com/es_es/ebs/latest/userguide/ebs-attaching-volume.html).  
