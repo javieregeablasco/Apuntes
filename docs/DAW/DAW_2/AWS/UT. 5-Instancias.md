@@ -789,10 +789,9 @@ Toda la información en la documentación de [AWS](https://docs.aws.amazon.com/e
 
 1. **Crear un volumen EBS**
 
-    ![img](./ut5/RA2CEb16.png){ .original .marco }
+    ![img](./ut5/RA2CEb16.png){ .original .marco .marginbottom20}
 
-    **Nota importante:**  
-    El volumen debe crearse en la misma **zona de disponibilidad** que la EC2.
+    !!! warning "El volumen debe crearse en la misma **zona de disponibilidad** que la EC2"
 
     ![img](./ut5/RA2CEb17.png){ .original .marco }
  
