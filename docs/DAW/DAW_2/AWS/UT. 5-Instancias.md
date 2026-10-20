@@ -808,14 +808,16 @@ En muchos casos puede resultar necesario añadir volúmenes EBS adicionales a un
 
     ![img](./ut5/RA2CEb21.png){ .original .marco }
 
-1. **Adjuntar un volumen de Amazon EBS a una instancia de Amazon EC2**  
-Toda la información [aquí](https://docs.aws.amazon.com/es_es/ebs/latest/userguide/ebs-attaching-volume.html)  
+!!! abstract "3. Utilizar el volumen de Amazon EBS una vez adjuntado"
+    Toda la información [aquí](https://docs.aws.amazon.com/es_es/ebs/latest/userguide/ebs-attaching-volume.html)  
 
     !!! tip "Conéctarse a la instancia mediante SSH"  
-    Utilizaremos el comando **lsblk** para ver los dispositivos de disco disponibles y sus puntos de montaje (si los hay).
     
-    ![](./ut5/RA2CEb22.png){ .original }
-    <br>
+    !!! tip "Ver dispositivos disponibles"
+        Utilizaremos el comando **lsblk** para ver los dispositivos de disco disponibles y sus puntos de montaje (si los hay).
+    
+        ![](./ut5/RA2CEb22.png){ .original .margintop10 .marginbottom20}
+    
     
     Como podemos ver en la imagen el volumen adjunto es **/dev/nvme1n1**. No tiene particiones ni se ha montado aún.  
 
