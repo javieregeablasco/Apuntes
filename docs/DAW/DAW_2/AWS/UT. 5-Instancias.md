@@ -785,22 +785,21 @@ Toda la información en la documentación de [AWS](https://docs.aws.amazon.com/e
 
 ## 6.2 Añadir un EBS a la instancia
 
-- En muchos casos puede resultar necesario añadir volúmenes EBS adicionales a una instancia, ya sea para ampliar capacidad, separar datos del sistema operativo, realizar migraciones o incluso compartir información entre diferentes instancias (adjuntando y desadjuntando volúmenes).
+En muchos casos puede resultar necesario añadir volúmenes EBS adicionales a una instancia, ya sea para ampliar capacidad, separar datos del sistema operativo, realizar migraciones o incluso compartir información entre diferentes instancias (adjuntando y desadjuntando volúmenes).
 
 1. **Crear un volumen EBS**
 
     ![img](./ut5/RA2CEb16.png){ .original .marco .marginbottom20}
 
-    !!! warning "El volumen debe crearse en la misma **zona de disponibilidad** que la EC2"
+    !!! warning "El volumen debe crearse en la misma zona de disponibilidad que la EC2"
 
-    ![img](./ut5/RA2CEb17.png){ .original .marco }
- 
+    ![img](./ut5/RA2CEb17.png){ .original .marco .marginbottom20}
 
 1. **Adjuntar el volumen EBS a la instancia EC2**  
 Si volvemos al menú de volúmenes EBS, veremos que el nuevo volumen aparece como disponible.
 
-    ![](./ut5/RA2CEb18.png){ .original .marco }
- <br>
+    ![img](./ut5/RA2CEb18.png){ .original .marco .marginbottom20 }
+ 
 
     Seleccionamos el EBS disponible y lo asociamos.
 
