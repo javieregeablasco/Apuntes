@@ -738,9 +738,9 @@ El escenario quedará de la siguiente manera:
 
 Aunque en la consola de EC2 podamos gestionar los volúmenes EBS asociados a nuestras instancias, EC2 y EBS son **servicios independientes** dentro de AWS.
 
-## 6.1 Modificación del tamaño del volumen asociado a una instancia
+### 6.1 Modificación del tamaño del volumen asociado a una instancia
 
-1. **Modificar volumen**  
+!!! tip "1. **Modificar volumen**""  
     - Desde el menú de la instancia o directamente desde el menú EBS seleccionamos modificar volumen y lo ajustamos al tamaño deseado (p.e. 20 GiB).
     ![img](./ut5/RA2CEb31.png){ .original .marco .margintop10 .marginbottom20}
 
@@ -799,17 +799,14 @@ En muchos casos puede resultar necesario añadir volúmenes EBS adicionales a un
 Si volvemos al menú de volúmenes EBS, veremos que el nuevo volumen aparece como disponible.
 
     ![img](./ut5/RA2CEb18.png){ .original .marco .marginbottom20 }
- 
 
-    Seleccionamos el EBS disponible y lo asociamos.
+    Seleccionamos el EBS que se encuentra disponible y lo asociamos.
 
-    ![](./ut5/RA2CEb20.png){ .original .marco }
- <br>
+    ![img](./ut5/RA2CEb20.png){ .original .marco }
 
     Si volvemos a la EC2, en el apartado **Almacenamiento** veremos los EBS asociados a la instancia.
 
-    ![](./ut5/RA2CEb21.png){ .original .marco }
- <br>
+    ![img](./ut5/RA2CEb21.png){ .original .marco }
 
 1. **Adjuntar un volumen de Amazon EBS a una instancia de Amazon EC2**  
 Toda la información [aquí](https://docs.aws.amazon.com/es_es/ebs/latest/userguide/ebs-attaching-volume.html)  
