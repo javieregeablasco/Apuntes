@@ -803,6 +803,14 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
         1. El archivo a subir deberá ser de tipo plantilla de texto de OpenDocument (.ott) (formato predeterminado de plantillas de LibreOffice Writer).  
         1. **No se aceptará ningún otro formato de archivo**. 
 
+### Tarea - RA2-CEb-3
+
+- Con esta tarea iremos un paso más allá y aprenderemos a crear estilos **con numeración automática**.
+- Eso nos permitirá numerar automáticamente titulos y subtítulos además de posibilitará la creación de un índice general.
+
+!!! task "Tarea a entregar en RA2-CEb-3"
+
+
 ## 2.7 - Paginación, tablas, encabezado, pie de página e imágenes
 
 ### Tarea - RA2-CEd
