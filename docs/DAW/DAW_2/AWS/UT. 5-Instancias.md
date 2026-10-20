@@ -809,9 +809,9 @@ En muchos casos puede resultar necesario añadir volúmenes EBS adicionales a un
     ![img](./ut5/RA2CEb21.png){ .original .marco }
 
 !!! abstract "3. Utilizar el volumen de Amazon EBS una vez adjuntado"
-    Toda la información [aquí](https://docs.aws.amazon.com/es_es/ebs/latest/userguide/ebs-attaching-volume.html)  
+    Toda la información en la documentación de [AWS](https://docs.aws.amazon.com/es_es/ebs/latest/userguide/ebs-attaching-volume.html)  
 
-    !!! tip "Conéctarse a la instancia mediante SSH"  
+    !!! tip "Conéctarse a la instancia (por SSH)"  
     
     !!! tip "Ver dispositivos disponibles"
         Utilizaremos el comando **lsblk** para ver los dispositivos de disco disponibles y sus puntos de montaje (si los hay).
