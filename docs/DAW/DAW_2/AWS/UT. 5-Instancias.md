@@ -854,7 +854,7 @@ En muchos casos puede resultar necesario añadir volúmenes EBS adicionales a un
         sudo umount /data
         sudo mount -a
         ```
-        ![img](./ut5/RA2CEb30.png){ .original .margintop10 }
+        ![img](./ut5/RA2CEb30.png){ .original  }
     
 
 #### **2.4.12 - Condiciones de entrega de la tarea RA2-CEb**  
