@@ -748,18 +748,15 @@ Aunque en la consola de EC2 podamos gestionar los volúmenes EBS asociados a nue
     - Confirmamos y seguimos.
 
 1. **Ampliación de un sistema de archivos después de cambiar el tamaño de un volumen de Amazon EBS (solo EC2 amazon linux)**  
-Toda la información [aquí](https://docs.aws.amazon.com/es_es/ebs/latest/userguide/recognize-expanded-volume-linux.html)  
+Toda la información en la documentación de [AWS](https://docs.aws.amazon.com/es_es/ebs/latest/userguide/recognize-expanded-volume-linux.html)  
 
     !!! tip "Conéctarse a la instancia con SSH y listar dispositivos (de bloque)."  
-    Utilizaremos el comando **lsblk** para comparar el tamaño de la partición con el tamaño del volumen.
-    
-    ![](./ut5/RA2CEb33.png){ .original }
-    <br>
+        - Utilizaremos el comando **lsblk** para comparar el tamaño de la partición con el tamaño del volumen.
+        ![img](./ut5/RA2CEb33.png){ .original .margintop10}
 
     !!! tip "Ampliar la partición"  
-    Si no coincide el tamaño del volumen con el tamaño de la partición deberemos ampliarla con **growpart**. 
-    
-    ![](./ut5/RA2CEb34.png){ .original }
+        - Si no coincide el tamaño del volumen con el tamaño de la partición deberemos ampliarla con **growpart**.
+        ![img](./ut5/RA2CEb34.png){ .original }
     <br>
     
     !!! tip "Comprobar que la partición se ha ampliado"  
