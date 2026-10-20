@@ -777,7 +777,7 @@ Toda la información en la documentación de [AWS](https://docs.aws.amazon.com/e
         ![img](./ut5/RA2CEb37.png){ .original .margintop10 .marginbottom20 }
     
         - Comprobamos de nuevo el tamaño de la partición:
-        ![img](./ut5/RA2CEb38.png){ .original .margintop10 }
+        ![img](./ut5/RA2CEb38.png){ .original .margintop10 .marginbottom20 }
 
         - Ya podemos usar esa partición.  
 
