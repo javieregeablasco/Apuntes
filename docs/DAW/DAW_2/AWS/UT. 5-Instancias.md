@@ -740,7 +740,7 @@ Aunque en la consola de EC2 podamos gestionar los volúmenes EBS asociados a nue
 
 ### 6.1 Modificación del tamaño del volumen asociado a una instancia
 
-!!! tip "1. **Modificar volumen**""  
+!!! tip "1. Modificar volumen"  
     - Desde el menú de la instancia o directamente desde el menú EBS seleccionamos modificar volumen y lo ajustamos al tamaño deseado (p.e. 20 GiB).
     ![img](./ut5/RA2CEb31.png){ .original .marco .margintop10 .marginbottom20}
 
@@ -749,8 +749,8 @@ Aunque en la consola de EC2 podamos gestionar los volúmenes EBS asociados a nue
 
     - Confirmamos y seguimos.
 
-1. **Ampliación de un sistema de archivos después de cambiar el tamaño de un volumen de Amazon EBS (solo EC2 amazon linux)**  
-Toda la información en la documentación de [AWS](https://docs.aws.amazon.com/es_es/ebs/latest/userguide/recognize-expanded-volume-linux.html)  
+!!! tip "1. Ampliación de un sistema de archivos después de cambiar el tamaño de un volumen de Amazon EBS (solo EC2 amazon linux)"  
+    Toda la información en la documentación de [AWS](https://docs.aws.amazon.com/es_es/ebs/latest/userguide/recognize-expanded-volume-linux.html)  
 
     !!! tip "Conéctarse a la instancia con SSH y listar dispositivos (de bloque)."  
         - Utilizaremos el comando **lsblk** para comparar el tamaño de la partición con el tamaño del volumen.
