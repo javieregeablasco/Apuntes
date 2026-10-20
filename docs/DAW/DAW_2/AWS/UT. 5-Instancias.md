@@ -856,6 +856,10 @@ En muchos casos puede resultar necesario añadir volúmenes EBS adicionales a un
         ```
         ![img](./ut5/RA2CEb30.png){ .original  }
     
+!!! abstract "4. Compartir el volumen dentro de la organización o con cualquier persona"
+    !!! warning "Role no disponible en AWS Academy Learner Lab"
+    - Para compartir un volumen EBS, primero debemos crear un **snapshot** del volumen.
+    - Una vez creado el snapshot, podemos modificar sus permisos para compartirlo con otras cuentas de AWS o hacerlo público.
 
 ### 6.3 Tarea RA3-CEa  
 
