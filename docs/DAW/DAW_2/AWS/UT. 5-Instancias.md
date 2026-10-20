@@ -740,15 +740,12 @@ Aunque en la consola de EC2 podamos gestionar los volúmenes EBS asociados a nue
 
 1. **Modificar volumen**  
     - Desde el menú de la instancia o directamente desde el menú EBS seleccionamos modificar volumen y lo ajustamos al tamaño deseado (p.e. 20 GiB).
-    ![img](./ut5/RA2CEb31.png){ .original .marco .margintop10}
- 
-    Nos saldrá el siguiente mensaje de advertencia:
+    ![img](./ut5/RA2CEb31.png){ .original .marco .margintop10 .marginbottom20}
 
-      ![](./ut5/RA2CEb32.png){ .cincozero }
- <br>
-    Confirmamos y seguimos.
+    - Nos saldrá el siguiente mensaje de advertencia:
+    ![img](./ut5/RA2CEb32.png){ .sietecinco .margintop10 .marginbottom20 }
 
-<br>
+    - Confirmamos y seguimos.
 
 1. **Ampliación de un sistema de archivos después de cambiar el tamaño de un volumen de Amazon EBS (solo EC2 amazon linux)**  
 Toda la información [aquí](https://docs.aws.amazon.com/es_es/ebs/latest/userguide/recognize-expanded-volume-linux.html)  
