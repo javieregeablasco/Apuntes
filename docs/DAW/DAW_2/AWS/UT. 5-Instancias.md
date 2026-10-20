@@ -831,17 +831,13 @@ En muchos casos puede resultar necesario añadir volúmenes EBS adicionales a un
         - La columna ==**FSTYPE**== muestra el tipo de sistema de archivos. Si la columna está vacía para un dispositivo específico, significa que el dispositivo no tiene un sistema de archivos.
 
     !!! tip "Crear un sistema de archivos"  
-    Si tenemos un volumen vacío, crearemos el sistema de archivos con **mkfs -t**.  
-
-    ![](./ut5/RA2CEb25.png){ .original }
-    <br>
+        - Si tenemos un volumen vacío, crearemos el sistema de archivos con ==**mkfs -t**==. 
+        ![img](./ut5/RA2CEb25.png){ .original .margintop10 .marginbottom20}    
   
     !!! tip "Crear un directorio para el punto de montaje"  
-    Utilizaremos el comando **mkdir** para crear un directorio para el punto de montaje del volumen.   
-
-    ![](./ut5/RA2CEb26.png){ .original }
-    <br>
-
+        - Utilizaremos el comando ==**mkdir**== para crear un directorio para el punto de montaje del volumen.   
+        ![img](./ut5/RA2CEb26.png){ .original .margintop10 .marginbottom20}
+   
     !!! tip "Montar el volumen"  
     Montaremos el volumen con **mount**.   
 
