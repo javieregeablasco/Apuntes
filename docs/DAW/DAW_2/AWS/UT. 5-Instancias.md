@@ -768,7 +768,7 @@ Aunque en la consola de EC2 podamos gestionar los volúmenes EBS asociados a nue
 
     !!! tip "Comprobar el tamaño del sistema de archivos"  
         - Con ==**df -hT**== podemos comprobar el tamaño y el tipo de sistema de archivos de cada dispositivo.
-        - En este caso, verificaremos si **/dev/nvme0n1p1** (la partición actual) y ==**/dev/nvme1n1**== (el nuevo volumen EBS) tienen el mismo tamaño.
+        - En este caso, verificaremos si ==**/dev/nvme0n1p1**== (la partición actual) y ==**/dev/nvme1n1**== (el nuevo volumen EBS) tienen el mismo tamaño.
         - Si el tamaño del nuevo volumen es mayor, será necesario ampliar el sistema de archivos para aprovechar todo el espacio adicional disponible en el volumen.  
 
         ![img](./ut5/RA2CEb36.png){ .original .margintop10}
@@ -796,15 +796,15 @@ En muchos casos puede resultar necesario añadir volúmenes EBS adicionales a un
     ![img](./ut5/RA2CEb17.png){ .original .marco .marginbottom20}
 
 !!! abstract "2. Adjuntar el volumen EBS a la instancia EC2"
-    Si volvemos al menú de volúmenes EBS, veremos que el nuevo volumen aparece como disponible.
+    - Si volvemos al menú de volúmenes EBS, veremos que el nuevo volumen aparece como disponible.
 
     ![img](./ut5/RA2CEb18.png){ .original .marco .marginbottom20 }
 
-    Seleccionamos el EBS que se encuentra disponible y lo asociamos.
+    - Seleccionamos el EBS que se encuentra disponible y lo asociamos.
 
     ![img](./ut5/RA2CEb20.png){ .original .marco }
 
-    Si volvemos a la EC2, en el apartado **Almacenamiento** veremos los EBS asociados a la instancia.
+    - Si volvemos a la EC2, en el apartado **Almacenamiento** veremos los EBS asociados a la instancia.
 
     ![img](./ut5/RA2CEb21.png){ .original .marco }
 
@@ -814,15 +814,15 @@ En muchos casos puede resultar necesario añadir volúmenes EBS adicionales a un
     !!! tip "Conéctarse a la instancia (por SSH)"  
     
     !!! tip "Ver dispositivos disponibles"
-        - Utilizaremos el comando **lsblk** para ver los dispositivos de disco disponibles y sus puntos de montaje (si los hay).
+        - Utilizaremos el comando ==**lsblk**== para ver los dispositivos de disco disponibles y sus puntos de montaje (si los hay).
     
         ![](./ut5/RA2CEb22.png){ .original .margintop10 .marginbottom20}
     
-        - Como podemos ver en la imagen el volumen adjunto es **/dev/nvme1n1**. No tiene particiones ni se ha montado aún.  
+        - Como podemos ver en la imagen el volumen adjunto es ==**/dev/nvme1n1**==. No tiene particiones ni se ha montado aún.  
 
     !!! tip "Determinar si hay un sistema de archivos en el volumen"  
-        - Utilizaremos el comando **file -s** para obtener información sobre un dispositivo.
-        - Si el resultado es **data**, significa que no se encuentra ningún sistema de archivos en el dispositivo. 
+        - Utilizaremos el comando ==**file -s**== para obtener información sobre un dispositivo.
+        - Si el resultado es ==**data**==, significa que no se encuentra ningún sistema de archivos en el dispositivo. 
 
         ![img](./ut5/RA2CEb23.png){ .original .margintop10}
     
