@@ -750,7 +750,7 @@ Aunque en la consola de EC2 podamos gestionar los volúmenes EBS asociados a nue
     - Confirmamos y seguimos.
 
 !!! abstract "2. Ampliación de un sistema de archivos después de cambiar el tamaño de un volumen de Amazon EBS (solo EC2 amazon linux)"  
-    Toda la información en la documentación de [AWS](https://docs.aws.amazon.com/es_es/ebs/latest/userguide/recognize-expanded-volume-linux.html)  
+    Toda la información en la documentación de [AWS](https://docs.aws.amazon.com/es_es/ebs/latest/userguide/recognize-expanded-volume-linux.html).  
 
     !!! tip "Conéctarse a la instancia con SSH y listar dispositivos (de bloque)."  
         - Utilizaremos el comando **lsblk** para comparar el tamaño de la partición con el tamaño del volumen.
@@ -809,23 +809,23 @@ En muchos casos puede resultar necesario añadir volúmenes EBS adicionales a un
     ![img](./ut5/RA2CEb21.png){ .original .marco }
 
 !!! abstract "3. Utilizar el volumen de Amazon EBS una vez adjuntado"
-    Toda la información en la documentación de [AWS](https://docs.aws.amazon.com/es_es/ebs/latest/userguide/ebs-attaching-volume.html)  
+    Toda la información en la documentación de [AWS](https://docs.aws.amazon.com/es_es/ebs/latest/userguide/ebs-attaching-volume.html).  
 
     !!! tip "Conéctarse a la instancia (por SSH)"  
     
     !!! tip "Ver dispositivos disponibles"
-        Utilizaremos el comando **lsblk** para ver los dispositivos de disco disponibles y sus puntos de montaje (si los hay).
+        - Utilizaremos el comando **lsblk** para ver los dispositivos de disco disponibles y sus puntos de montaje (si los hay).
     
         ![](./ut5/RA2CEb22.png){ .original .margintop10 .marginbottom20}
     
-    
-    Como podemos ver en la imagen el volumen adjunto es **/dev/nvme1n1**. No tiene particiones ni se ha montado aún.  
+        - Como podemos ver en la imagen el volumen adjunto es **/dev/nvme1n1**. No tiene particiones ni se ha montado aún.  
 
     !!! tip "Determinar si hay un sistema de archivos en el volumen"  
-    Utilizaremos el comando **file -s** para obtener información sobre un dispositivo. Si el resultado es **data**, significa que no se encuentra ningún sistema de archivos en el dispositivo. 
+        - Utilizaremos el comando **file -s** para obtener información sobre un dispositivo.
+        - Si el resultado es **data**, significa que no se encuentra ningún sistema de archivos en el dispositivo. 
 
-    ![](./ut5/RA2CEb23.png){ .original }
-    <br>
+        ![img](./ut5/RA2CEb23.png){ .original .margintop10}
+    
 
     !!! tip "Obtener información sobre todos los dispositivos asociados a la instancia"  
     Utilizaremos el comando **lsblk -f** para obtener información sobre todos los dispositivos asociados a la instancia. 
