@@ -740,7 +740,7 @@ Aunque en la consola de EC2 podamos gestionar los volúmenes EBS asociados a nue
 
 ### 6.1 Modificación del tamaño del volumen asociado a una instancia
 
-!!! tip "1. Modificar volumen"  
+!!! abstract "1. Modificar volumen"  
     - Desde el menú de la instancia o directamente desde el menú EBS seleccionamos modificar volumen y lo ajustamos al tamaño deseado (p.e. 20 GiB).
     ![img](./ut5/RA2CEb31.png){ .original .marco .margintop10 .marginbottom20}
 
