@@ -615,12 +615,12 @@ El escenario quedará de la siguiente manera:
 
 -->
 
-## 4 - NAT gateway
+## 5 - NAT gateway
 
 - NAT gateway es un servicio de traducción de direcciones de red (NAT) que permite a las instancias de una subred privada tener acceso a Internet o a otros servicios de AWS, **sin exponer** sus IP privadas.
 - Este servicio resulta particularmente útil por necesidad de los servicios de las EC2 de la subred privada (p.e. actualización de software) a la vez que impide que servicios externos inicien una conexión con esas instancias.
 
-### 4.1 - Características de un NAT Gateway de AWS
+### 5.1 - Características de un NAT Gateway de AWS
 
 1. Solo existe un tipo de NAT Gateway, pero puede actuar como:  
 
@@ -631,7 +631,7 @@ El escenario quedará de la siguiente manera:
 1. Soporta los protocolos: TCP, UDP y ICMP.
 1. No se le puede asociar un grupo de seguridad (Security Group). En su lugar, se controlan los accesos mediante **Listas de Control de Acceso (ACLs) de red**.
 
-### 4.2 - Tipos de despliegue
+### 5.2 - Tipos de despliegue
 
 !!! info "NAT Gateway público"
     - Se ubica en una subred pública.  
@@ -656,9 +656,10 @@ El escenario quedará de la siguiente manera:
     | **Alta disponibilidad** | Se debe desplegar **uno por zona de disponibilidad (AZ)** | Uno por AZ si se requiere redundancia            |
     | **Protocolos soportados** | TCP, UDP, ICMP | TCP, UDP, ICMP      |
 
-### 4.3 - Tarea RA2-CEd
+### 5.3 - Tarea RA2-CEd
 
-Para realizar la tarea retomaremos el escenario de la **Tarea RA2-CEc**, y pondremos un NAT gateway público para que las instancias de la subred privada puedan acceder a internet.
+- Para realizar la tarea retomaremos el escenario de la **Tarea RA2-CEc**, (eliminando lo que no es necesario, y modificando las tablas de enrutamiento)
+- Pondremos un NAT gateway público para que la instancia de la subred privada pueda acceder a internet.
 
 ![img](./ut5/VPC2-nat.png){.original}  
 
@@ -673,7 +674,7 @@ Para realizar la tarea retomaremos el escenario de la **Tarea RA2-CEc**, y pondr
 ### 4.3.2 - Modificar la tabla de enrutamiento
 
 - Enlazaremos todo el tráfico hacia internet de la tabla de enrutamiento de la subred privada hacia el NAT Gateway
-![img](./ut5/RA2CEc2.png){.original .marco}  
+![img](./ut5/RA2CEc2.png){.original .marco .margintop10}  
 
 ### 4.3.3 - Conexión a la EC2 de la subred privada
 
