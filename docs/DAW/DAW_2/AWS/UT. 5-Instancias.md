@@ -756,13 +756,11 @@ Toda la información en la documentación de [AWS](https://docs.aws.amazon.com/e
 
     !!! tip "Ampliar la partición"  
         - Si no coincide el tamaño del volumen con el tamaño de la partición deberemos ampliarla con **growpart**.
-        ![img](./ut5/RA2CEb34.png){ .original }
-    <br>
-    
-    !!! tip "Comprobar que la partición se ha ampliado"  
+        ![img](./ut5/RA2CEb34.png){ .original .margintop10}
 
-    ![](./ut5/RA2CEb35.png){ .original }
-    <br>
+    !!! tip "Comprobar que la partición se ha ampliado"  
+        ![img](./ut5/RA2CEb35.png){ .original }
+    
 
     !!! tip "Comprobar el tamaño del sistema de archivos"  
     Con **df -hT** podemos comprobar el tamaño y el tipo de sistema de archivos de cada dispositivo. En este caso, verificaremos si **/dev/nvme0n1p1** (la partición actual) y **/dev/nvme1n1** (el nuevo volumen EBS) tienen el mismo tamaño.
