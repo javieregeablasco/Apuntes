@@ -490,6 +490,10 @@ El escenario quedará de la siguiente manera:
     - A partir de momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
     - Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
 
+    !!! note "Capturas de pantalla mínimas a adjuntar"
+        - Tablas de enrutamiento de las subredes privadas y públicas.  
+        - Reglas de entrada y salida de los grupos de seguridad de las instancias.    
+        
 ### 3.4 Listas de control de acceso (ACL) de red
 
 ![img](./ut5/acl.jpg){ .cincozero }
@@ -571,6 +575,11 @@ El escenario quedará de la siguiente manera:
     - Guardar el documento con RA2-CEc-NombreApellidos y subirlo a la tarea correspondiente de Aules.
     - A partir de momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
     - Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
+
+    !!! note "Capturas de pantalla mínimas a adjuntar"
+        - Prueba de ping de las instancias entre ellas (EC1 → EC2, EC1 → EC3, EC2 → EC3, EC2 → EC1, EC3 → EC2, EC3 → EC1).  
+        - Reglas de entrada y salida de los grupos de seguridad de las instancias.    
+        - Reglas de entrada y salida de las listas de control de acceso de las subredes.     
 
 ## 4 - Presentación de Cloud9
 
@@ -739,12 +748,11 @@ El escenario quedará de la siguiente manera:
     - Comentar las captura de pantalla explicando el trabajo realizado para llegar a ese punto y el resultado obtenido.
     - Guardar el documento con RA2-CEd-NombreApellidos y subirlo a la tarea correspondiente de Aules.
     - A partir de momento de apertura de la tarea, dispondréis de 2 semanas para subir vuestros trabajos.
-    - Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas
+    - Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
 
     !!! note "Capturas de pantalla mínimas a adjuntar"
         - Prueba de ping de las 2 instancias hacia internet (p.e google.es).  
         - Tabla de enrutamiento de la instancia de la subred privada.
-
 
 ## 6 - Gestión de los EBS asociados a las instancias
 
