@@ -849,15 +849,13 @@ En muchos casos puede resultar necesario añadir volúmenes EBS adicionales a un
         - :two: Editamos el archivo **/etc/fstab** (p.e. nano ) y añadimos los campos UUID, el punto de montaje, el sistema de archivos y las opciones de montaje.  
         ![](./ut5/RA2CEb29.png){ .original .margintop10 .marginbottom20}
     
-        - :three: Verificar que la entrada funciona correctamente. Para ello usaremos Para desmontar y montar automáticamente el dispositivo. Si no hay errores la operación se habrá realizado correctamente.
-
+        - :three: Verificar que la entrada funciona correctamente. Para ello usaremos los comandos siguientes para desmontar y montar automáticamente el dispositivo. Si no hay errores la operación se habrá realizado correctamente.  
         ```bash
         sudo umount /data
         sudo mount -a
         ```
+        ![img](./ut5/RA2CEb30.png){ .original .margintop10 }
     
-    ![](./ut5/RA2CEb30.png){ .original }
-    <br>
 
 #### **2.4.12 - Condiciones de entrega de la tarea RA2-CEb**  
 
