@@ -769,20 +769,17 @@ Toda la información en la documentación de [AWS](https://docs.aws.amazon.com/e
         - En este caso, verificaremos si **/dev/nvme0n1p1** (la partición actual) y **/dev/nvme1n1** (el nuevo volumen EBS) tienen el mismo tamaño.
         - Si el tamaño del nuevo volumen es mayor, será necesario ampliar el sistema de archivos para aprovechar todo el espacio adicional disponible en el volumen.  
 
-        ![img](./ut5/RA2CEb36.png){ .original }
+        ![img](./ut5/RA2CEb36.png){ .original .margintop10}
 
     !!! tip "Ampliar el sistema de archivos"  
-    Para un sistema de archivos XFS usaremos **xfs_growfs**.    
+        - Para un sistema de archivos XFS usaremos **xfs_growfs**.
 
-    ![](./ut5/RA2CEb37.png){ .original }
-    <br>
+        ![img](./ut5/RA2CEb37.png){ .original .margintop10 .marginbottom20 }
+    
+        - Comprobamos de nuevo el tamaño de la partición:
+        ![img](./ut5/RA2CEb38.png){ .original .margintop10 }
 
-    Comprobamos de nuevo el tamaño de la partición:
-    ![](./ut5/RA2CEb38.png){ .original }
-    <br>
-
-    Ya podemos usar esa partición.  
-<br>
+        - Ya podemos usar esa partición.  
 
 #### **2.4.11 - Añadir un EBS a la instancia**  
 En muchos casos puede resultar necesario añadir volúmenes EBS adicionales a una instancia, ya sea para ampliar capacidad, separar datos del sistema operativo, realizar migraciones o incluso compartir información entre diferentes instancias (adjuntando y desadjuntando volúmenes).
