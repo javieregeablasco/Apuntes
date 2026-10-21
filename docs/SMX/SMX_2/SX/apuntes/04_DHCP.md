@@ -1023,6 +1023,8 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
 
 ### 6.12 Crear la red aislada y el switch virtual sin acceso al exterior
 
+# HASTA AQUI
+
 - Como el la práctica anterior, crearemos una red privada para evitar ingerencias de AWS a la hora de asignar IPs.
 
     ```bash
