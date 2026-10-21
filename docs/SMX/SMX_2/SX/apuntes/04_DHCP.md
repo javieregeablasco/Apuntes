@@ -1025,7 +1025,7 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
 
 # HASTA AQUI
 
-- Como el la práctica anterior, crearemos una red privada para evitar ingerencias de AWS a la hora de asignar IPs.
+- Como el la práctica anterior, crearemos una red privada para evitar ingeconflictos con AWS a la hora de asignar IPs.
 
     ```bash
     cat > ~/Documents/UbunterServerDHCP.xml << 'EOF'
