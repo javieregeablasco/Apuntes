@@ -966,8 +966,6 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
 !!! warning "Cerrar sesión para aplicar los cambios"
     Es necesario cerrar sesión y volver a iniciarla (o reiniciar) para que los nuevos grupos surtan efecto.
 
-
-
 ### 6.8 Comprobar que el servicio libvirt está activo
 
 - Lo comprobaremos con:
