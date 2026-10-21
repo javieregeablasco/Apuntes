@@ -939,34 +939,6 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     ==Realizar captura de pantalla==
     ![Descripción de la imagen](./img_4/img_4_116.png){ .marginbottom10}
 
-# hasta aqui
-
-### 6.6 Instalación de KVM y herramientas relacionadas
-
-- Instalaremos KVM y las herramientas relacionadas con:
-
-    ```bash
-    sudo apt install -y qemu-system-x86 qemu-utils libvirt-daemon-system libvirt-clients bridge-utils virtinst virt-manager
-
-    ```
-
-    !!! note "Explicación de las aplicaciones instaladas"
-        - **qemu-system-x86** → el hipervisor en sí.
-        - **libvirt-daemon-system / libvirt-clients** → capa de gestión (permite usar virsh, virt-install, etc.).
-        - **qemu-utils / bridge-utils** → para redes puente entre las VMs anidadas.
-        - **virtinst** → herramientas para crear VMs desde línea de comandos (virt-install).
-        - **virt-manager** → interfaz gráfica de gestión (solo si disponemos de entorno gráfico).
-
-### 6.7 Añadir usuarios a los grupos necesarios
-
-- Para poder utilizar las opciones de virtualización deberemos añadir nuestro usuario **a los grupos libvirt y kvm**.
-    ```bash
-    sudo usermod -aG libvirt $USER
-    sudo usermod -aG kvm $USER
-    ```
-
-!!! warning "Desloggearse para que los cambios surtan efecto"
-
 ### 6.6 Instalación de KVM y herramientas relacionadas
 
 - Instalaremos KVM y las herramientas relacionadas con:
