@@ -42,6 +42,7 @@ Tipos (iconos disponibles).
 !!! failure "failure"
 !!! example "example"
 !!! quote "quote"
+!!! important "important"
 
 !!! info inline end "info inline end"
 

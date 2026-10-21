@@ -983,7 +983,7 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     ==Realizar captura de pantalla==
     ![Descripción de la imagen](./img_4/img_4_118.png){ .marginbottom10}
 
-### 6.9 Verificar que /dev/kvm existe y comprobar permisos de usuario del directorio
+### 6.9 Verificar que /dev/kvm existe y comprobar los permisos de usuario del directorio
 
 - Lo verificaremos con:
     ```bash
@@ -1023,26 +1023,25 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
 
 ### 6.12 Crear la red aislada y el switch virtual sin acceso al exterior
 
-# HASTA AQUI
-
-- Como el la práctica anterior, crearemos una red privada para evitar ingeconflictos con AWS a la hora de asignar IPs.
+- Como el la práctica anterior, crearemos una red privada para evitar conflictos con AWS a la hora de asignar IPs.
 
     ```bash
-    cat > ~/Documents/UbunterServerDHCP.xml << 'EOF'
+    cat > /home/ubuntu/Documents/RedPrivada.xml << 'EOF'
     <network>
-      <name>RedPrivada-DHCP</name>
-      <bridge name='Switch-Virtual' stp='on' delay='0'/>
+        <name>RedPrivada-DHCP</name>
+        <bridge name='Switch-Virtual' stp='on' delay='0'/>
     </network>
     EOF
 
-    sudo virsh net-define ~/Documents/UbunterServerDHCP.xml
+    sudo virsh net-define /home/ubuntu/Documents/RedPrivada.xml
     sudo virsh net-start RedPrivada-DHCP
     sudo virsh net-autostart RedPrivada-DHCP
     ```
 
-    !!! warning "Importante"
+    !!! warning "Importante: Red en modo aislado"
         - Al **no** incluir ningún bloque `<forward>` ni `<ip>`, esta red queda en modo *isolated*.
-        - Libvirt no le asigna su propio DHCP interno ni la conecta a internet.
+        - Libvirt no le asigna su propio servidor DHCP interno ni la conecta a internet.
+        - Las VMs conectadas **no recibirán IP automáticamente**: De eso se encaragará el servidor DHCP que implementaremos más adelante.
 
 - Verificaremos que se ha creado switch virtual correctamente:  
 
@@ -1062,13 +1061,43 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     sudo ip link set Switch-Virtual up
     ```
 
-    !!! warning "En estas condiciones, el switch virtual no es persistente. Eso quiere decir que lo tendremos que iniciar cada vez que retomemos la práctica"
+    !!! warning "En estas condiciones, el switch virtual no es persistente. Eso quiere decir que lo tendremos que iniciar cada vez que retomemos la práctica."
+        Por ejemplo si ejecutamos el comando:
+        ```bash
+        ip -br -4 addr show Switch-Virtual
+        ```
+        Obtendremos:  
+        ![Descripción de la imagen](./img_4/img_4_147.png){.marginbottom20}  
 
-- Para evitar de tener que asignar un IP al switch virtual y el posterior reinicio del servicio DHCP podremos intentar lo siguiente:
+        Si reiniciamos la máquina o el servicio veremos:
+        ![Descripción de la imagen](./img_4/img_4_146.png)
+
+        !!! note "El <span style="color: red">DOWN</span> no significa un problema con nuestra red. Solo nos indica que, de momento, no hay ninguna máquina virtual conectada a la red"
+
+- Para evitar de tener que volver a asignar la IP al switch virtual y el posterior reinicio del servicio haremos lo siguiente:
+
+    !!! tip "Editar el archivo `RedPrivada.xml`"
+        Dentro del archi creado justa antes añadiremos un línea adicional que especificará la IP y la mascara del switch virtual.
+        ```bash
+        <network>
+          <name>RedPrivada-DHCP</name>
+          <bridge name='Switch-Virtual' stp='on' delay='0'/>
+          <ip address='192.168.50.1' netmask='255.255.255.0'/>
+        </network>
+        ```
+
+    !!! tip "Aplicar los cambios"
+        ```bash
+        sudo virsh net-destroy RedPrivada-DHCP
+        sudo virsh net-undefine RedPrivada-DHCP
+        sudo virsh net-define /home/ubuntu/Documents/RedPrivada.xml
+        sudo virsh net-start RedPrivada-DHCP
+        sudo virsh net-autostart RedPrivada-DHCP
+        ```
 
     !!! warning "Los pasos a continuación solo se podrán hacer después de haber completado la práctica"
 
-    !!! Success "Hacer el switch virtual persistente con un hook"
+    <!-- !!! Success "Hacer el switch virtual persistente con un hook"
         ```bash
         sudo mkdir -p /etc/libvirt/hooks
         sudo tee /etc/libvirt/hooks/network > /dev/null << 'EOF'
@@ -1079,9 +1108,9 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
         EOF
         sudo chmod +x /etc/libvirt/hooks/network
         sudo systemctl restart libvirtd
-        ```
+        ``` -->
 
-    !!! Success "Iniciar el servicio DHCP solo después de que el virtual switch tenga IP"
+    <!-- !!! Success "Iniciar el servicio DHCP solo después de que el virtual switch tenga IP"
 
         - Abriremos un editor vacío  que creará automáticamente `/etc/systemd/system/isc-dhcp-server.service.d/override.conf`.
         ```bash
@@ -1111,7 +1140,7 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
         sudo systemctl status isc-dhcp-server
         ```
         ==Realizar captura de pantalla==  
-        ![Descripción de la imagen](./img_4/img_4_133.png)
+        ![Descripción de la imagen](./img_4/img_4_133.png) -->
 
 ### 6.14 Configurar la máquina anfitriona como servidor DHCP
 
@@ -1121,17 +1150,18 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     sudo apt install -y isc-dhcp-server
     ```
 
-- Definir qué interfaz debe escuchar el servidor DHCP
-Para ello tendremos que editar el archivo `/etc/default/isc-dhcp-server`
+- Definiremos qué interfaz debe escuchar el servidor DHCP editando el archivo `/etc/default/isc-dhcp-server`
 
     ```bash
     sudo nano /etc/default/isc-dhcp-server
     ```
 
-    Bajamos hasta la línea INTERFACESv4="" y ponemos el valor Switch-Virtual
+- Bajamos hasta la línea INTERFACESv4="" y ponemos el valor `Switch-Virtual`.
+
     ```
     INTERFACESv4="Switch-Virtual"
     ```
+
     ![Descripción de la imagen](./img_4/img_4_126.png){.marco}
 
 ### 6.15 Configurar el ámbito de nuestro servidor DHCP
@@ -1189,7 +1219,7 @@ Igual que en la práctica de Windows Server, usaremos **Alpine Linux** por su li
     sudo mkdir -p /var/lib/libvirt/images
     sudo mkdir -p /var/lib/libvirt/vm
     sudo wget -O /var/lib/libvirt/images/alpine.iso https://dl-cdn.alpinelinux.org/alpine/v3.24/releases/x86/alpine-virt-3.24.1-x86.iso
-    ls -lh ~/iso/alpine.iso   
+    sudo ls -lh /var/lib/libvirt/images/alpine.iso   
     ```
 
     ==Realizar captura de pantalla==  
@@ -1222,7 +1252,6 @@ Igual que en la práctica de Windows Server, usaremos **Alpine Linux** por su li
     - En el prompt `localhost login:` entraremos como `root` con la contraseña **root**.
     - Para salir de la consola serie sin apagar la VM, cerraremos la ventana con la que estamos loggeado.
 
-
 ### 6.19 Conectarse por consola serie a la VM y comprobar la interfaz de red
 
 - Para conectarnos de nuevo a la VM y configurar la interfaz de red usaremos:
@@ -1242,7 +1271,7 @@ Igual que en la práctica de Windows Server, usaremos **Alpine Linux** por su li
     ```
 
     ==Realizar captura de pantalla==  
-    ![Descripción de la imagen](./img_4/img_4_129.png)
+    ![Descripción de la imagen](./img_4/img_4_129.png){.marginbottom20}
 
 - Si tenemos el `eth0` en DOWN, lo levantaremos con:
     ```bash
