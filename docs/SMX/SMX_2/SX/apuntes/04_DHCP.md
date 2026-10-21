@@ -983,7 +983,7 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     ==Realizar captura de pantalla==
     ![Descripción de la imagen](./img_4/img_4_118.png){ .marginbottom10}
 
-### 6.9 Verificar que /dev/kvm existe y los comprobar permisos de usuario del directorio
+### 6.9 Verificar que /dev/kvm existe y comprobar permisos de usuario del directorio
 
 - Lo verificaremos con:
     ```bash
