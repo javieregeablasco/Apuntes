@@ -1366,7 +1366,7 @@ En este caso no usaremos wireshark sino el propio log del servicio DHCP.
 
 ## 7 Tarea RA1-CEfgh-2 - Creación de VM con Virtual Machine Manager (libvirt)
 
-!!! warning "Realizar una captura de pantalla de cada punto. Acordaros de comentar brevemente cada captura."
+!!! warning "Realizar una captura de pantalla para cada punto. Acordaros de comentar brevemente cada captura."
 
 1. Conectarse por **RDP** a la instancia y acceder a **VMM**.  
 1. Eliminar las 2 máquinas virtuales.
