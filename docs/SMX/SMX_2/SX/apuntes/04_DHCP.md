@@ -1215,7 +1215,7 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
 ```bash
     sudo systemctl daemon-reload
     sudo systemctl restart isc-dhcp-server
-    systemctl status isc-dhcp-server
+    sudo systemctl status isc-dhcp-server
 ```
 
 !!! warning "La red de libvirt debe tener IP al arrancar"
