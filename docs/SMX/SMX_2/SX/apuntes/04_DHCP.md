@@ -1096,7 +1096,7 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
         sudo virsh net-start RedPrivada-DHCP
         sudo virsh net-autostart RedPrivada-DHCP
         ```
-        
+
         - Tras el reinicio, comprobar el estado del servicio del switch virtual.
         ```bash
         ip addr show Switch-Virtual
@@ -1209,11 +1209,11 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
 
 - Guardamos, recargamos systemd y reiniciamos el servicio:
 
-```bash
+    ```bash
     sudo systemctl daemon-reload
     sudo systemctl restart isc-dhcp-server
     sudo systemctl status isc-dhcp-server
-```
+    ```
 
 !!! warning "La red de libvirt debe tener IP al arrancar"
     `After=libvirtd.service` no garantiza que el switch virtual tenga ya su IP. Para ello, la red debe estar en autostart (`sudo virsh net-autostart RedPrivada-DHCP`) y su XML debe incluir el bloque `<ip address='192.168.50.1' netmask='255.255.255.0'/>`.
