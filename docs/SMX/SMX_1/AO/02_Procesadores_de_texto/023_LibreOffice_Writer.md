@@ -807,8 +807,24 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
 
 - Con esta tarea iremos un paso más allá y aprenderemos a crear estilos **con numeración automática**.
 - Eso nos permitirá numerar automáticamente titulos y subtítulos además de posibilitará la creación de un índice general.
+- Para el desarollo de la práctica usaremos [las normas APA-7 (séptima edición)](https://normas-apa.org/) y mas particularme el apartado [Títulos y Subtitulos](https://normas-apa.org/titulos-y-subtitulos/).  
 
 !!! task "Tarea a entregar en RA2-CEb-3"
+
+    !!! tip "1. Descargar y abrir el archivo 'RA2-CEb-3' pinchando en el enlace siguiente: [Descargar archivo](./archivos/RA2-CEb-3-Alumno.odt)"
+    !!! tip "2. Definir 5 niveles de estilos con la siguiente configuración"
+        !!! info "Nota"
+            - Para la definición de los niveles podreís reutilizar los estilos **Títulos 1/2/3...** de LibreOffice o crear los vuestros propios con los nombre **Nivel 1/2/3...**
+        |**Nivel|**Formato**|
+        |:-|:-|
+        |Nivel 1|Centrado • Negrita • Cada Palabra Iniciando en Mayúscula <br>Texto inicia en nuevo párrafo|
+        |Nivel 2||
+        |Nivel 3||
+        |Nivel 4||
+        |Nivel 5||
+
+
+
 
 
 ## 2.7 - Paginación, tablas, encabezado, pie de página e imágenes
