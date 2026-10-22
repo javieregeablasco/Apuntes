@@ -1096,7 +1096,8 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
         sudo virsh net-start RedPrivada-DHCP
         sudo virsh net-autostart RedPrivada-DHCP
         ```
-        - Tras el reinicio, comprobar.
+        
+        - Tras el reinicio, comprobar el estado del servicio del switch virtual.
         ```bash
         ip addr show Switch-Virtual
         sudo systemctl status isc-dhcp-server
