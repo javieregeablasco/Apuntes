@@ -1096,12 +1096,6 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
         sudo virsh net-start RedPrivada-DHCP
         sudo virsh net-autostart RedPrivada-DHCP
         ```
-
-    
-            - `ExecStartPre=/bin/bash -c 'for i in $(seq 1 15)` → reintenta cada segundo durante 15 segundos, y solo lanza dhcpd  cuando confirma que la IP ya está cargada.
-        - Recargar systemd. 
-        
-         
         - Tras el reinicio, comprobar.
         ```bash
         ip addr show Switch-Virtual
