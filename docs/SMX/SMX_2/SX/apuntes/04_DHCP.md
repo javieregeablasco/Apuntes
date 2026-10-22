@@ -1175,26 +1175,26 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
         sudo dhcpd -t -cf /etc/dhcp/dhcpd.conf
         ```
 
-### 6.17 Habilitar el servicio y ordenarlo después de libvirt
+### 6.17 Habilitar el servicio DHCP y ordenarlo después de libvirt
 
 - Por defecto, el servicio DHCP no se inicia solo: cada vez que arranquemos la instancia habría que lanzarlo manualmente.
 - Si lo habilitamos para el arranque, debemos asegurarnos de que se inicie **después** de que libvirtd haya creado el switch virtual. si no, fallará porque la interfaz aún no existe.
 
 - Primero habilitamos el servicio:
 
-```bash
+    ```bash
     sudo systemctl enable isc-dhcp-server
-```
+    ```
 
 - Después creamos un *override* de la unidad de systemd:
 
-```bash
+    ```bash
     sudo systemctl edit isc-dhcp-server
-```
+    ```
 
 - Dentro del editor escribiremos:
 
-```ini
+    ```ini
     [Unit]
     After=libvirtd.service
     Wants=libvirtd.service
@@ -1202,7 +1202,7 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     [Service]
     Restart=on-failure
     RestartSec=5
-```
+    ```
 
     !!! note "Nota"
         - `After=` → isc-dhcp-server arranca después de libvirtd.
