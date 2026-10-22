@@ -1077,7 +1077,7 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
 - Para evitar de tener que volver a asignar la IP al switch virtual y el posterior reinicio del servicio haremos lo siguiente:
 
     !!! tip "Editar el archivo `RedPrivada.xml`"
-        Dentro del archi creado justa antes añadiremos un línea adicional que especificará la IP y la mascara del switch virtual.
+        Dentro del archivo creado justo antes añadiremos una línea que especificará la IP y la mascara de red del switch virtual.
         ```bash
         <network>
           <name>RedPrivada-DHCP</name>
@@ -1095,52 +1095,18 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
         sudo virsh net-autostart RedPrivada-DHCP
         ```
 
-    !!! warning "Los pasos a continuación solo se podrán hacer después de haber completado la práctica"
-
-    <!-- !!! Success "Hacer el switch virtual persistente con un hook"
-        ```bash
-        sudo mkdir -p /etc/libvirt/hooks
-        sudo tee /etc/libvirt/hooks/network > /dev/null << 'EOF'
-        #!/bin/bash
-        if [ "$1" = "RedPrivada-DHCP" ] && [ "$2" = "started" ]; then
-            ip addr add 192.168.50.1/24 dev Switch-Virtual
-        fi
-        EOF
-        sudo chmod +x /etc/libvirt/hooks/network
-        sudo systemctl restart libvirtd
-        ``` -->
-
-    <!-- !!! Success "Iniciar el servicio DHCP solo después de que el virtual switch tenga IP"
-
-        - Abriremos un editor vacío  que creará automáticamente `/etc/systemd/system/isc-dhcp-server.service.d/override.conf`.
-        ```bash
-        sudo systemctl edit isc-dhcp-server
-        ```
-        - Dentro del editor escribiremos: 
-        ```ini
-        [Unit]
-        After=libvirtd.service
-        Requires=libvirtd.service
- 
-        [Service]
-        ExecStartPre=/bin/bash -c 'for i in $(seq 1 15); do ip addr show Switch-Virtual | grep -q "192.168.50.1" && exit 0; sleep 1;  done; exit 1'
-        ```
-        ![Descripción de la imagen](./img_4/img_4_132.png){.marginbottom10 .margintop10}
-        - Guardar y cierrar. 
-            - `After= + Requires=` → obliga a que isc-dhcp-server arranque después de libvirtd, y no arranque en absoluto si libvirtd  falla.
+    
             - `ExecStartPre=/bin/bash -c 'for i in $(seq 1 15)` → reintenta cada segundo durante 15 segundos, y solo lanza dhcpd  cuando confirma que la IP ya está cargada.
         - Recargar systemd. 
-        ```bash
-        sudo systemctl daemon-reload
-        sudo reboot
-        ```
+        
+         
         - Tras el reinicio, comprobar.
         ```bash
         ip addr show Switch-Virtual
         sudo systemctl status isc-dhcp-server
         ```
         ==Realizar captura de pantalla==  
-        ![Descripción de la imagen](./img_4/img_4_133.png) -->
+        ![Descripción de la imagen](./img_4/img_4_133.png)
 
 ### 6.14 Configurar la máquina anfitriona como servidor DHCP
 
@@ -1193,6 +1159,7 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
 - Para arrancar el servicio y comprobar que el servicio se ha levantado correctamente usaremos:
 
     ```bash
+    sudo systemctl enable isc-dhcp-server
     sudo systemctl restart isc-dhcp-server
     sudo systemctl status isc-dhcp-server
     ```
@@ -1208,13 +1175,58 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
         sudo dhcpd -t -cf /etc/dhcp/dhcpd.conf
         ```
 
+### 6.17 Habilitar el servicio y ordenarlo después de libvirt
+
+- Por defecto, el servicio DHCP no se inicia solo: cada vez que arranquemos la instancia habría que lanzarlo manualmente.
+- Si lo habilitamos para el arranque, debemos asegurarnos de que se inicie **después** de que libvirtd haya creado el switch virtual. si no, fallará porque la interfaz aún no existe.
+
+- Primero habilitamos el servicio:
+
+```bash
+    sudo systemctl enable isc-dhcp-server
+```
+
+- Después creamos un *override* de la unidad de systemd:
+
+```bash
+    sudo systemctl edit isc-dhcp-server
+```
+
+- Dentro del editor escribiremos:
+
+```ini
+    [Unit]
+    After=libvirtd.service
+    Wants=libvirtd.service
+
+    [Service]
+    Restart=on-failure
+    RestartSec=5
+```
+
+    !!! note "Nota"
+        - `After=` → isc-dhcp-server arranca después de libvirtd.
+        - `Wants=` → al arrancar el DHCP, systemd intenta iniciar también libvirtd, pero si este falla o se reinicia, el DHCP no se detiene. (Con `Requires=` sí se detendría.)
+        - `Restart=on-failure` → si el servicio termina con error, systemd lo reinicia automáticamente.
+        - `RestartSec=5` → espera 5 segundos entre reintentos.
+
+- Guardamos, recargamos systemd y reiniciamos el servicio:
+
+```bash
+    sudo systemctl daemon-reload
+    sudo systemctl restart isc-dhcp-server
+    systemctl status isc-dhcp-server
+```
+
+!!! warning "La red de libvirt debe tener IP al arrancar"
+    `After=libvirtd.service` no garantiza que el switch virtual tenga ya su IP. Para ello, la red debe estar en autostart (`sudo virsh net-autostart RedPrivada-DHCP`) y su XML debe incluir el bloque `<ip address='192.168.50.1' netmask='255.255.255.0'/>`.
+
 ### 6.17 Descargar la imagen de las máquinas virtuales cliente
 
 Igual que en la práctica de Windows Server, usaremos **Alpine Linux** por su ligereza (256–512 MB por VM).
 
 - Podemos usar el escritorio gráfico para descargar la iso del SO de Alpine Linux pero, lo haremos por línea de comando.
 
-    <!-- mkdir -p ~/Documents/iso ~/Documents/vm -->
     ```bash
     sudo mkdir -p /var/lib/libvirt/images
     sudo mkdir -p /var/lib/libvirt/vm
