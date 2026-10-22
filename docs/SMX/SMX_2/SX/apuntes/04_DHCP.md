@@ -944,7 +944,7 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
 - Instalaremos KVM y las herramientas relacionadas con:
 
     ```bash
-        sudo apt install -y qemu-system-x86 qemu-utils libvirt-daemon-system libvirt-clients bridge-utils virtinst virt-manager
+    sudo apt install -y qemu-system-x86 qemu-utils libvirt-daemon-system libvirt-clients bridge-utils virtinst virt-manager
     ```
 
     !!! note "Explicación de las aplicaciones instaladas"
@@ -959,9 +959,9 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
 
 - Para poder utilizar las opciones de virtualización deberemos añadir nuestro usuario **a los grupos `libvirt` y `kvm`**:
 
-```bash
+    ```bash
     sudo usermod -aG libvirt,kvm $USER
-```
+    ```
 
 !!! warning "Cerrar sesión para aplicar los cambios"
     Es necesario cerrar sesión y volver a iniciarla (o reiniciar) para que los nuevos grupos surtan efecto.
