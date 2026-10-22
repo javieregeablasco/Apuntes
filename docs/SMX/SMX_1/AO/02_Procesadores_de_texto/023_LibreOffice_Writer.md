@@ -818,7 +818,7 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
         |**Nivel**|**Formato APA 7**|**Formato adicional**|**Esquema de numeración**|
         |:-|:-|:-|:-|
         |Nivel 1|- Centrado.<br>- Negrita.<br>- Cada Palabra Iniciando en Mayúscula.<br>- Texto inicia en nuevo párrafo|- Arial 14pt, color #b47804.<br>- Espaciado sobre el párrafo: 0.2cm, debajo: 0.2cm.<br>- Interlineado: sencillo.<br>- Borde doble (grueso + fino) superior e inferior, color #b85c00.<br>- Fondo color #ffffd7. Separación del fondo: 0.10cm|Nivel 1.<br>- Numeración 1,2,3,...<br>- Estilo de carácter: Nivel_1 (crear)|
-        |Nivel 2|Alineado a la izquierda. **Negrita**. Cada Palabra Iniciando en Mayúscula.<br>Texto inicia en nuevo párrafo|
+        |Nivel 2|- Alineado a la izquierda. <br>- **Negrita**. <br>- Cada Palabra Iniciando en Mayúscula.<br>- Texto inicia en nuevo párrafo|
         |Nivel 3|Alineado a la izquierda. **Negrita**. *Cursiva*. Cada Palabra Iniciando en Mayúscula.<br>Texto inicia en nuevo párrafo|
         |Nivel 4|Alineado a la izquierda. **Negrita**. Cada Palabra Iniciando en Mayúscula. Con sangría de ½ pulgada (1.27 cm). Con punto final. **Texto inicia en la misma línea** |
         |Nivel 5|Alineado a la izquierda. **Negrita**. *Cursiva*. Cada Palabra Iniciando en Mayúscula. Con sangría de ½ pulgada (1.27 cm). Con punto final. **Texto inicia en la misma línea**|
