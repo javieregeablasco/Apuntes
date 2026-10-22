@@ -817,10 +817,10 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
             - Para la definición de los niveles podreís reutilizar los estilos **Títulos 1/2/3...** de LibreOffice o crear los vuestros propios con los nombre **Nivel 1/2/3...**
         |**Nivel**|**Formato**|
         |:-|:-|
-        |Nivel 1|Centrado. Negrita. Cada Palabra Iniciando en Mayúscula.<br>Texto inicia en nuevo párrafo|{ .text-center }
+        |Nivel 1|Centrado. Negrita. Cada Palabra Iniciando en Mayúscula.<br>Texto inicia en nuevo párrafo|
         |Nivel 2|Alineado a la izquierda. **Negrita**. Cada Palabra Iniciando en Mayúscula.<br>Texto inicia en nuevo párrafo|
         |Nivel 3|Alineado a la izquierda. **Negrita**. *Cursiva*. Cada Palabra Iniciando en Mayúscula.<br>Texto inicia en nuevo párrafo|
-        |Nivel 4| Alineado a la izquierda. **Negrita**. Cada Palabra Iniciando en Mayúscula. Con sangría de ½ pulgada (1.27 cm). Con punto final. **Texto inicia en la misma línea** |
+        |Nivel 4|Alineado a la izquierda. **Negrita**. Cada Palabra Iniciando en Mayúscula. Con sangría de ½ pulgada (1.27 cm). Con punto final. **Texto inicia en la misma línea** |
         |Nivel 5|Alineado a la izquierda. **Negrita**. *Cursiva*. Cada Palabra Iniciando en Mayúscula. Con sangría de ½ pulgada (1.27 cm). Con punto final. **Texto inicia en la misma línea**|
 
 
