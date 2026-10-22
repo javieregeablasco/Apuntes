@@ -1100,10 +1100,12 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
         - Tras el reinicio, comprobar el estado del servicio del switch virtual.
         ```bash
         ip addr show Switch-Virtual
-        sudo systemctl status isc-dhcp-server
+        
         ```
-        ==Realizar captura de pantalla==  
-        ![Descripción de la imagen](./img_4/img_4_133.png)
+
+<!-- sudo systemctl status isc-dhcp-server -->
+<!-- ==Realizar captura de pantalla==   -->
+<!-- ![Descripción de la imagen](./img_4/img_4_133.png) -->
 
 ### 6.14 Configurar la máquina anfitriona como servidor DHCP
 
