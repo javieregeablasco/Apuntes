@@ -1382,9 +1382,8 @@ En este caso no usaremos wireshark sino el propio log del servicio DHCP.
 
 !!! warning "Entrega de la tarea"
 
-    - Seguir las `Normas para la Presentación de Trabajos Escritos.  tarea.
+    - Seguir las `Normas para la Presentación de Trabajos Escritos.
     - Comentar las capturas de pantalla explicando el trabajo realizado para llegar a ese punto y el resultado obtenido.
-    - Guardar el documento con RA1-CEfgh-2-NombreApellidos y subirlo a la tarea correspondiente de Aules.
+    - Guardar el documento con **RA1-CEfgh-2-NombreApellidos** y subirlo a la tarea correspondiente de Aules.
     - A partir de momento de apertura de la tarea, dispondréis de 2 semanas para subir vuestros trabajos.
     - Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
-    
