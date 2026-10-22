@@ -943,17 +943,17 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
 
 - Instalaremos KVM y las herramientas relacionadas con:
 
-```bash
-    sudo apt install -y qemu-system-x86 qemu-utils libvirt-daemon-system libvirt-clients bridge-utils virtinst virt-manager
-```
+    ```bash
+        sudo apt install -y qemu-system-x86 qemu-utils libvirt-daemon-system libvirt-clients bridge-utils virtinst virt-manager
+    ```
 
-!!! note "Explicación de las aplicaciones instaladas"
-    - **qemu-system-x86** → emulador QEMU para x86, que usa KVM como aceleración porhardware.
-    - **libvirt-daemon-system / libvirt-clients** → capa de gestión (permite usar `virsh`,`virt-install`, etc.).
-    - **qemu-utils** → utilidades para manejar discos virtuales (`qemu-img`).
-    - **bridge-utils** → herramientas para crear redes puente entre las VMs.
-    - **virtinst** → herramientas para crear VMs desde línea de comandos (`virt-install`).
-    - **virt-manager** → interfaz gráfica de gestión (solo si disponemos de entorno gráfico).
+    !!! note "Explicación de las aplicaciones instaladas"
+        - **qemu-system-x86** → emulador QEMU para x86, que usa KVM como aceleración porhardware.
+        - **libvirt-daemon-system / libvirt-clients** → capa de gestión (permite usar `virsh`,`virt-install`, etc.).
+        - **qemu-utils** → utilidades para manejar discos virtuales (`qemu-img`).
+        - **bridge-utils** → herramientas para crear redes puente entre las VMs.
+        - **virtinst** → herramientas para crear VMs desde línea de comandos (`virt-install`).
+        - **virt-manager** → interfaz gráfica de gestión (solo si disponemos de entorno gráfico).
 
 ### 6.7 Añadir usuarios a los grupos necesarios
 
