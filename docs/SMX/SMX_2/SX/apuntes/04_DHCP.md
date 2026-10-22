@@ -1366,3 +1366,25 @@ En este caso no usaremos wireshark sino el propio log del servicio DHCP.
 
 ## 7 Tarea RA1-CEfgh-2 - Creación de VM con Virtual Machine Manager (libvirt)
 
+!!! warning "Realizar una captura de pantalla de cada punto. Acordaros de comentar brevemente cada captura."
+
+1. Conectarse por **RDP** a la instancia y acceder a **VMM**.  
+1. Eliminar las 2 máquinas virtuales.
+1. Crear 1 máquina nueva usando la misma configuración que en la tarea anterior.
+1. Lanzar la máquina y acceder a la consola de la misma.
+1. Detener la máquina virtual y volver a lanzarla: ¿Qué ocurre entonces?
+1. Aportar la modificaciones necesarias a la configuración de la máquina virtual para que arranque sin problemas después de una parada.
+1. Eliminar la red virtual `RedPrivada-DHCP`.
+1. Crear una red virtual nueva `RedPrivada-Tarea` con IP 192.168.100.0/24. Acordaros de que deberá estar en modo `isolated`.  
+1. Realizar las modificaciones necesarias a nuestro servicio DHCP para que pueda funcionar sobre la red `RedPrivada-Tarea` y que asigne un scope desde `192.168.100.60` hasta `192.168.100.90`.
+1. Aportar la modificaciones necesarias a la configuración de la máquina virtual para que su interfaz de red se conecte a `RedPrivada-Tarea`.
+1. Levantar la interfaz de red de la máquina virtual y comprobar qué IP le ha asignado el servicio DHCP.
+
+!!! warning "Entrega de la tarea"
+
+    - Seguir las `Normas para la Presentación de Trabajos Escritos.  tarea.
+    - Comentar las capturas de pantalla explicando el trabajo realizado para llegar a ese punto y el resultado obtenido.
+    - Guardar el documento con RA1-CEfgh-2-NombreApellidos y subirlo a la tarea correspondiente de Aules.
+    - A partir de momento de apertura de la tarea, dispondréis de 2 semanas para subir vuestros trabajos.
+    - Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
+    
