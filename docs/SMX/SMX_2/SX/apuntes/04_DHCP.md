@@ -1355,4 +1355,5 @@ En este caso no usaremos wireshark sino el propio log del servicio DHCP.
     ==Realizar captura de pantalla==
     ![Descripción de la imagen](./img_4/img_4_136.png)
 
-## 7 Tarea RA1-CEfgh-1 - Bind9 por GUI
+## 7 Tarea RA1-CEfgh-2 - Creación de VM con Virtual Machine Manager (libvirt)
+
