@@ -1221,7 +1221,7 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
 !!! warning "La red de libvirt debe tener IP al arrancar"
     `After=libvirtd.service` no garantiza que el switch virtual tenga ya su IP. Para ello, la red debe estar en autostart (`sudo virsh net-autostart RedPrivada-DHCP`) y su XML debe incluir el bloque `<ip address='192.168.50.1' netmask='255.255.255.0'/>`.
 
-### 6.17 Descargar la imagen de las máquinas virtuales cliente
+### 6.18 Descargar la imagen de las máquinas virtuales cliente
 
 Igual que en la práctica de Windows Server, usaremos **Alpine Linux** por su ligereza (256–512 MB por VM).
 
@@ -1243,7 +1243,7 @@ Igual que en la práctica de Windows Server, usaremos **Alpine Linux** por su li
     - El proceso QEMU que ejecuta la VM se lanza con el usuario libvirt-qemu (por aislamiento/seguridad). Ese usuario no tiene permiso para atravesar el directorio /home/ubuntu. 
     - Por ese motivo usaremos el directorio `/var/lib/libvirt/`. 
 
-### 6.18 Crear la VM con virt-install (consola de texto, sin necesidad de GUI)
+### 6.19 Crear la VM con virt-install (consola de texto, sin necesidad de GUI)
 
 - Para crear nuestra primera VM usaremos el script:
     ```bash
@@ -1264,7 +1264,7 @@ Igual que en la práctica de Windows Server, usaremos **Alpine Linux** por su li
     - En el prompt `localhost login:` entraremos como `root` con la contraseña **root**.
     - Para salir de la consola serie sin apagar la VM, cerraremos la ventana con la que estamos loggeado.
 
-### 6.19 Conectarse por consola serie a la VM y comprobar la interfaz de red
+### 6.20 Conectarse por consola serie a la VM y comprobar la interfaz de red
 
 - Para conectarnos de nuevo a la VM y configurar la interfaz de red usaremos:
 
@@ -1293,7 +1293,7 @@ Igual que en la práctica de Windows Server, usaremos **Alpine Linux** por su li
 
     ![Descripción de la imagen](./img_4/img_4_130.png)
 
-### 6.20 Solicitar la IP por DHCP
+### 6.21 Solicitar la IP por DHCP
 
 - Solicitaremos un IP al DHCP con:
     ```bash
@@ -1303,7 +1303,7 @@ Igual que en la práctica de Windows Server, usaremos **Alpine Linux** por su li
     ==Realizar captura de pantalla==
     ![Descripción de la imagen](./img_4/img_4_131.png)
 
-### 6.21 Gestión de las máquinas virtuales por consola
+### 6.22 Gestión de las máquinas virtuales por consola
 
 - Para acceder a la ayuda de virsh teclar:
 
@@ -1323,13 +1323,13 @@ Igual que en la práctica de Windows Server, usaremos **Alpine Linux** por su li
     |virsh list --all| Lista todas las máquinas y su estado|
     |virsh console `<Cliente-1>`| Conexión por consale a la MV|
 
-### 6.22 Segundo cliente
+### 6.23 Segundo cliente
 
 ==Realizar captura de pantalla==  
 
 - Repetir los pasos anteriores y crear una segunda VM con nombre `Cliente-2`.
 
-### 6.23 Ver el proceso de broadcast y asignación DORA
+### 6.24 Ver el proceso de broadcast y asignación DORA
 
 En este caso no usaremos wireshark sino el propio log del servicio DHCP.
 
@@ -1356,7 +1356,7 @@ En este caso no usaremos wireshark sino el propio log del servicio DHCP.
 ==Realizar captura de pantalla==  
 ![Descripción de la imagen](./img_4/img_4_135.png)
 
-### 6.24 Leases concedidos
+### 6.25 Leases concedidos
 
 - Con el siguiente comando podemos consultar el registro de concesiones (leases) del servidor DHCP, donde se muestra qué dirección IP tiene asignada cada cliente, la duración de la concesión y su fecha de inicio y expiración.
 
