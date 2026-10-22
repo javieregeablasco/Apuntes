@@ -1069,10 +1069,12 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
         Obtendremos:  
         ![Descripción de la imagen](./img_4/img_4_147.png){.marginbottom20}  
 
+        !!! warning "El <span style="color: red">DOWN</span> no significa un problema con nuestra red. Solo nos indica que, de momento, no hay ninguna máquina virtual conectada a la red"
+
         Si reiniciamos la máquina o el servicio veremos:
         ![Descripción de la imagen](./img_4/img_4_146.png)
-
-        !!! warning "El <span style="color: red">DOWN</span> no significa un problema con nuestra red. Solo nos indica que, de momento, no hay ninguna máquina virtual conectada a la red"
+        
+        !!! question "¿Qué podemos interpretar acerca del servicio del switch virtual?"
 
 - Para evitar de tener que volver a asignar la IP al switch virtual y el posterior reinicio del servicio haremos lo siguiente:
 
