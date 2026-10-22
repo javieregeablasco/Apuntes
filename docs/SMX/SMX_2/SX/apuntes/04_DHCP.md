@@ -1054,7 +1054,7 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
 
 ### 6.13 Configurar el switch virtual
 
-- A diferencia de la práctica de Windows Server aquí sí que podemos / debemos asignar un IP al switch virtual.
+- A diferencia de la práctica de Windows Server, aquí sí que podemos / debemos asignar un IP al switch virtual.
 
     ```bash
     sudo ip addr add 192.168.50.1/24 dev Switch-Virtual
@@ -1072,7 +1072,7 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
         Si reiniciamos la máquina o el servicio veremos:
         ![Descripción de la imagen](./img_4/img_4_146.png)
 
-        !!! note "El <span style="color: red">DOWN</span> no significa un problema con nuestra red. Solo nos indica que, de momento, no hay ninguna máquina virtual conectada a la red"
+        !!! warning "El <span style="color: red">DOWN</span> no significa un problema con nuestra red. Solo nos indica que, de momento, no hay ninguna máquina virtual conectada a la red"
 
 - Para evitar de tener que volver a asignar la IP al switch virtual y el posterior reinicio del servicio haremos lo siguiente:
 
