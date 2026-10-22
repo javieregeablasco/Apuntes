@@ -1375,7 +1375,7 @@ En este caso no usaremos wireshark sino el propio log del servicio DHCP.
 1. Detener la máquina virtual y volver a lanzarla: ¿Qué ocurre entonces?
 1. Aportar la modificaciones necesarias a la configuración de la máquina virtual para que arranque sin problemas después de una parada.
 1. Eliminar la red virtual `RedPrivada-DHCP`.
-1. Crear una red virtual nueva `RedPrivada-Tarea` con IP 192.168.100.0/24. Acordaros de que deberá estar en modo `isolated`.  
+1. Crear una red virtual nueva `RedPrivada-Tarea` con **IP 192.168.100.0/24**. Acordaros de que deberá estar en modo `isolated`.  
 1. Realizar las modificaciones necesarias a nuestro servicio DHCP para que pueda funcionar sobre la red `RedPrivada-Tarea` y que asigne un scope desde `192.168.100.60` hasta `192.168.100.90`.
 1. Aportar la modificaciones necesarias a la configuración de la máquina virtual para que su interfaz de red se conecte a `RedPrivada-Tarea`.
 1. Levantar la interfaz de red de la máquina virtual y comprobar qué IP le ha asignado el servicio DHCP.
