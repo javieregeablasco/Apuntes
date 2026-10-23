@@ -604,7 +604,7 @@ El escenario quedará de la siguiente manera:
 ### 3.8 Tarea RA3-CEab
 
 - Para entender mejor la posiblidad de las reglas encadenas, usaremos el siguiente escenario:
-![img](./ut5/RA3-CEab-ver2.png){.cien .marco .margintop10 .marginbottom20}  
+![img](./ut5/RA3-CEab-ver2.png){.cien .margintop10 .marginbottom20}  
 
 **Condiciones especificas de la infraestructura:**
 
