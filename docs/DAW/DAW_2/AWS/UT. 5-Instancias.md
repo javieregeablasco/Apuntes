@@ -930,8 +930,6 @@ En muchos casos puede resultar necesario añadir volúmenes EBS adicionales a un
 
 ### 6.3 Tarea RA3-CEa  
 
-
-
 !!! warning "Condiciones de la entrega"
  
     - Realizar capturas de pantalla del mapa de recursos de la VPC. 
@@ -941,18 +939,10 @@ En muchos casos puede resultar necesario añadir volúmenes EBS adicionales a un
     - Realizar capturas de pantalla con el nuevo EBS asociado a la instancia. 
     - Comentar brevemente cada captura para entender a qué corresponde y subir el documento a la tarea correspondiente de AULES.
 
-
-
-
-### 2.5 Tarea RA2-CEb - Primer despliegue de una instancia
-
-
-
-
-
-
 ## **6 - Caso práctico**
+
 ### Tarea RA3-CEc: Montar un servidor web y una base de datos mysql 
+
 **Escenario propuesto:**
 ![](./ut5/VPC2-nat.png){.sietecinco}  
 !!! task "Tarea RA3-CEc (continuación): Montar un servidor web y un agente mysql"
