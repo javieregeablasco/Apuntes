@@ -608,14 +608,14 @@ El escenario quedará de la siguiente manera:
 
 !!! nota "Condiciones especificas de la infraestructura:"
     1. Lanzar 3 instancias en la subred pública. Las **instancias 1, 2 y 3 tendran IP pública** es decir, acceso a internet.
-    1. Los grupos de seguridad de las instancias (2 y 3) de la subred pública serán encadenados **directamente** al grupo de seguridad de la instancia 1 de tal manera que solo aceptaran tráfico procedente de la instancia 1.
     1. Lanzar 2 instancias en la subred privada y encadenar los grupos de seguridad de esas instancias al grupo de seguridad de la instancia 1 de tal manera que esas solo aceptarán tráfico procedente de la instancia 1.
+    1. Los grupos de seguridad de las instancias (2 y 3) de la subred pública serán encadenados **directamente** al grupo de seguridad de la instancia 1 de tal manera que solo aceptaran tráfico procedente de la instancia 1.
 
 !!! success "Comprobaciones a realizar:"  
     1. Realizar una conexión SSH a la **instancia 1**.
     1. Desde la instancia 1 realizar pings al resto de instancias (4 pings en total).
     1. Propagarse a una de las 2 instancias de la subred pública y realizar pings a las otras instancias (4 pings en total). Si no hay errores solo se podrá hacer ping a la instancia 1. Al resto de instancias (2 en la subred pública y 2 en la subred privada, no se les podrá hacer ping.)
-    1. Desde la instancia dónde nos encontramos, intentar propagarse a otra instancia (da igual que sea de la subred pública o privada). 
+    1. Desde la instancia dónde nos encontramos, intentar propagarse a otra instancia (da igual que sea de la subred pública o privada).
     1. Desde la instancia 1, propagarse a una de las instancias de la subred privada y realizar pings a las otras instancias (4 pings en total).
 
 !!! abstract "Ejemplos de pings entre instancias:"
@@ -638,11 +638,11 @@ El escenario quedará de la siguiente manera:
 
     !!! note "Capturas de pantalla mínimas a adjuntar"
         1. Prueba de ping de las instancias entre ellas:
-            - EC1 → EC2, EC1 → EC3.
+            - EC1 → EC2, EC1 → EC3, EC1 → EC4, EC1 → EC5.
             - EC2 → EC1, EC2 → EC3, EC2 → www.google.es
             - EC3 → EC2, EC3 → EC1, EC2 → www.google.es  
-            - EC4 → EC5, EC4 → EC1, EC4 → EC2
-            - EC5 → EC4, EC5 → EC1, EC5 → EC3
+            - EC4 → EC5, EC4 → EC1, EC4 → EC2.
+            - EC5 → EC4, EC5 → EC1, EC5 → EC3.
         2. Reglas de entrada y salida de los grupos de seguridad de las instancias.    
         3. Reglas de entrada y salida de las listas de control de acceso de las subredes.  
 
