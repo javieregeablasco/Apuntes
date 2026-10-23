@@ -606,16 +606,15 @@ El escenario quedará de la siguiente manera:
 - Para entender mejor la posiblidad de las reglas encadenas, usaremos el siguiente escenario:
 ![img](./ut5/RA3-CEab-ver2.png){.cien .margintop10 .marginbottom20}  
 
-**Condiciones especificas de la infraestructura:**
-
-1. Lanzar 3 instancias en la subred pública. La **instancia 1 tendrá IP pública**, las otras 2 no. 
-1. Los grupos de seguridad de las instancias (2 y 3) de la subred pública serán encadenados **directamente** al grupo de seguridad de la instancia 1.
-1. Lanzar 2 instancias en la subred privada y encadenar los grupos de seguridad de esas instancias al grupo de seguridad de la instancia 1.
+!!! nota "Condiciones especificas de la infraestructura:"
+    1. Lanzar 3 instancias en la subred pública. Las **instancias 1, 2 y 3 tendran IP pública** es decir, acceso a internet.
+    1. Los grupos de seguridad de las instancias (2 y 3) de la subred pública serán encadenados **directamente** al grupo de seguridad de la instancia 1 de tal manera que solo aceptaran tráfico procedente de la instancia 1.
+    1. Lanzar 2 instancias en la subred privada y encadenar los grupos de seguridad de esas instancias al grupo de seguridad de la instancia 1 de tal manera que esas solo aceptarán tráfico procedente de la instancia 1.
 
 **Comprobaciones a realizar:**  
 
 1. Realizar una conexión SSH a la **instancia 1**.
-1. Desde la instancia 1 realizar pings al resto de instancias (4 pings en total). 
+1. Desde la instancia 1 realizar pings al resto de instancias (4 pings en total).
 1. Propagarse a una de las 2 instancias de la subred pública y realizar pings a las otras instancias (4 pings en total). Si no hay errores solo se podrá hacer ping a la instancia 1. Al resto de instancias (2 en la subred pública y 2 en la subred privada, no se les podrá hacer ping.)
 1. Desde la instancia dónde nos encontramos, intentar propagarse a otra instancia (da igual que sea de la subred pública o privada). 
 1. Desde la instancia 1, propagarse a una de las instancias de la subred privada y realizar pings a las otras instancias (4 pings en total). 
