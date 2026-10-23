@@ -597,14 +597,14 @@ El escenario quedará de la siguiente manera:
     1. Un grupo de seguridad para los servidores web, que permite conexiones HTTP y HTTPS.
     1. Otro grupo de seguridad para los servidores de base de datos, que **solo acepta tráfico desde el grupo de seguridad del servidor web**.
 
-De esa manera, conseguimos un entorno más seguro, en el que cada capa (web, base de datos, etc.) solo puede comunicarse con las capas que realmente necesita.
+- De esa manera, conseguimos un entorno más seguro, en el que cada capa (web, base de datos, etc.) solo puede comunicarse con las capas que realmente necesita.
 
-Esta técnica facilita una gestión más ordenada y modular de la seguridad, ya que podemos reutilizar y combinar grupos de seguridad según las necesidades de cada componente de la infraestructura.
+- Esta técnica facilita una gestión más ordenada y modular de la seguridad, ya que podemos reutilizar y combinar grupos de seguridad según las necesidades de cada componente de la infraestructura.
 
-### **Tarea RA3-CEab**
-Para entender mejor la posiblidad de las reglas encadenas, usaremos el siguiente escenario:
+### 3.8 Tarea RA3-CEab
 
-![](./ut5/RA3-CEab-ver2.png){.cincozero .marco}  
+- Para entender mejor la posiblidad de las reglas encadenas, usaremos el siguiente escenario:
+![img](./ut5/RA3-CEab-ver2.png){.cien .marco .margintop10 .marginbottom20}  
 
 **Condiciones especificas de la infraestructura:**
 
