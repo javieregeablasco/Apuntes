@@ -586,12 +586,11 @@ El escenario quedará de la siguiente manera:
 - Como hemos visto, AWS ofrece diferentes herramientas para proteger una infraestructura en la nube, como los grupos de seguridad (**Security Groups**) y las listas de control de acceso a red (**NACL**).  
 - Una funcionalidad especialmente interesante es la posibilidad de encadenar grupos de seguridad (**Security Groups Chaining**), lo que permite aplicar un modelo de seguridad por capas dentro de una VPC.
 
-!!! info "Comprendiendo el encadenamiento de grupos de seguridad
+!!! info "Comprendiendo el encadenamiento de grupos de seguridad"
 
 - Encadenar grupos de seguridad significa referenciar un grupo de seguridad dentro de otro.  
 - De esta forma, se pueden crear reglas que **solo permiten el tráfico procedente de instancias asociadas a un grupo de seguridad concreto**, añadiendo una capa adicional de control y segmentación del tráfico.
 
-<br>
 !!! tip "Ejemplo:"
     **Tenemos:**
 
