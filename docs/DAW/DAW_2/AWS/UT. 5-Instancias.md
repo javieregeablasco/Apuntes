@@ -626,13 +626,21 @@ El escenario quedará de la siguiente manera:
     !!! tip "Instancia subred pública al resto de instancias"
         ![img](./ut5/RA3-CEab-2.png){.sietecinco}  
 
-!!! tip "Instancia subred privada al resto de instancias"
+    !!! tip "Instancia subred privada al resto de instancias"
         ![img](./ut5/RA3-CEab-3.png){.sietecinco}  
 
-!!! warning "Condiciones de la entrega:"  
-    - Realizar capturas de pantalla de los pings entre instancias. 
-    - Comentar brevemente cada captura para entender a qué corresponde
-    - Subir el documento a la tarea correspondiente de AULES.
+!!! warning "Entrega de la tarea"
+    - **Realizar capturas de pantalla de los momentos clave de la realización de la tarea**.
+    - Comentar las captura de pantalla explicando el trabajo realizado para llegar a ese punto y el resultado obtenido.
+    - Guardar el documento con RA3-CEab-NombreApellidos y subirlo a la tarea correspondiente de Aules.
+    - A partir de momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
+    - Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
+
+    !!! note "Capturas de pantalla mínimas a adjuntar"
+        - Prueba de ping de las instancias entre ellas (EC1 → EC2, EC1 → EC3, EC2 → EC3, EC2 → EC1, EC3 → EC2, EC3 → EC1).  
+        - Reglas de entrada y salida de los grupos de seguridad de las instancias.    
+        - Reglas de entrada y salida de las listas de control de acceso de las subredes.  
+
 
 
 ## 4 - Presentación de Cloud9
