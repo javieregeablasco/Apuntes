@@ -618,10 +618,10 @@ El escenario quedará de la siguiente manera:
     1. Desde la instancia dónde nos encontramos, intentar propagarse a otra instancia (da igual que sea de la subred pública o privada). 
     1. Desde la instancia 1, propagarse a una de las instancias de la subred privada y realizar pings a las otras instancias (4 pings en total).
 
-**Ejemplos de pings entre instancias:**
+!!! abstract "Ejemplos de pings entre instancias:"
 
-!!! tip "Instancia 1 al resto de instancias"
-![](./ut5/RA3-CEab-1.png){.cincozero}  
+    !!! tip "Instancia 1 al resto de instancias"
+        ![img](./ut5/RA3-CEab-1.png){.cincozero}  
 
 !!! tip "Instancia subred pública al resto de instancias"
 ![](./ut5/RA3-CEab-2.png){.cincozero}  
