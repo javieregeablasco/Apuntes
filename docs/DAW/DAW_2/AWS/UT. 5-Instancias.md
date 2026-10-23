@@ -581,6 +581,64 @@ El escenario quedará de la siguiente manera:
         - Reglas de entrada y salida de los grupos de seguridad de las instancias.    
         - Reglas de entrada y salida de las listas de control de acceso de las subredes.     
 
+### 3.7 - Reglas encadenadas en grupos de seguridad
+
+- Como hemos visto, AWS ofrece diferentes herramientas para proteger una infraestructura en la nube, como los grupos de seguridad (**Security Groups**) y las listas de control de acceso a red (**NACL**).  
+- Una funcionalidad especialmente interesante es la posibilidad de encadenar grupos de seguridad (**Security Groups Chaining**), lo que permite aplicar un modelo de seguridad por capas dentro de una VPC.
+
+**Comprendiendo el encadenamiento de grupos de seguridad**  
+
+- Encadenar grupos de seguridad significa referenciar un grupo de seguridad dentro de otro.  
+- De esta forma, se pueden crear reglas que **solo permiten el tráfico procedente de instancias asociadas a un grupo de seguridad concreto**, añadiendo una capa adicional de control y segmentación del tráfico.
+
+<br>
+!!! tip "Ejemplo:"
+    **Tenemos:**
+
+    1. Un grupo de seguridad para los servidores web, que permite conexiones HTTP y HTTPS.
+    1. Otro grupo de seguridad para los servidores de base de datos, que **solo acepta tráfico desde el grupo de seguridad del servidor web**.
+
+De esa manera, conseguimos un entorno más seguro, en el que cada capa (web, base de datos, etc.) solo puede comunicarse con las capas que realmente necesita.
+
+Esta técnica facilita una gestión más ordenada y modular de la seguridad, ya que podemos reutilizar y combinar grupos de seguridad según las necesidades de cada componente de la infraestructura.
+
+### **Tarea RA3-CEab**
+Para entender mejor la posiblidad de las reglas encadenas, usaremos el siguiente escenario:
+
+![](./ut5/RA3-CEab-ver2.png){.cincozero .marco}  
+
+**Condiciones especificas de la infraestructura:**
+
+1. Lanzar 3 instancias en la subred pública. La **instancia 1 tendrá IP pública**, las otras 2 no. 
+1. Los grupos de seguridad de las instancias (2 y 3) de la subred pública serán encadenados **directamente** al grupo de seguridad de la instancia 1.
+1. Lanzar 2 instancias en la subred privada y encadenar los grupos de seguridad de esas instancias al grupo de seguridad de la instancia 1.
+
+**Comprobaciones a realizar:**  
+
+1. Realizar una conexión SSH a la **instancia 1**.
+1. Desde la instancia 1 realizar pings al resto de instancias (4 pings en total). 
+1. Propagarse a una de las 2 instancias de la subred pública y realizar pings a las otras instancias (4 pings en total). Si no hay errores solo se podrá hacer ping a la instancia 1. Al resto de instancias (2 en la subred pública y 2 en la subred privada, no se les podrá hacer ping.)
+1. Desde la instancia dónde nos encontramos, intentar propagarse a otra instancia (da igual que sea de la subred pública o privada). 
+1. Desde la instancia 1, propagarse a una de las instancias de la subred privada y realizar pings a las otras instancias (4 pings en total). 
+
+**Ejemplos de pings entre instancias:**
+
+!!! tip "Instancia 1 al resto de instancias"
+![](./ut5/RA3-CEab-1.png){.cincozero}  
+
+!!! tip "Instancia subred pública al resto de instancias"
+![](./ut5/RA3-CEab-2.png){.cincozero}  
+
+!!! tip "Instancia subred privada al resto de instancias"
+![](./ut5/RA3-CEab-3.png){.cincozero}  
+
+<br>
+!!! warning "Condiciones de la entrega:"  
+    - Realizar capturas de pantalla de los pings entre instancias. 
+    - Comentar brevemente cada captura para entender a qué corresponde
+    - Subir el documento a la tarea correspondiente de AULES.
+
+
 ## 4 - Presentación de Cloud9
 
 !!! warning "Actualización a 10/2026"
@@ -882,62 +940,7 @@ En muchos casos puede resultar necesario añadir volúmenes EBS adicionales a un
 
 
 
-## **5 - Reglas encadenadas en grupos de seguridad**
 
-Como hemos visto, AWS ofrece diferentes herramientas para proteger una infraestructura en la nube, como los grupos de seguridad (**Security Groups**) y las listas de control de acceso a red (**NACL**).  
-Una funcionalidad especialmente interesante es la posibilidad de encadenar grupos de seguridad (**Security Groups Chaining**), lo que permite aplicar un modelo de seguridad por capas dentro de una VPC.
-
-**Comprendiendo el encadenamiento de grupos de seguridad**  
-
-- Encadenar grupos de seguridad significa referenciar un grupo de seguridad dentro de otro.  
-- De esta forma, se pueden crear reglas que **solo permiten el tráfico procedente de instancias asociadas a un grupo de seguridad concreto**, añadiendo una capa adicional de control y segmentación del tráfico.
-
-<br>
-!!! tip "Ejemplo:"
-    **Tenemos:**
-
-    1. Un grupo de seguridad para los servidores web, que permite conexiones HTTP y HTTPS.
-    1. Otro grupo de seguridad para los servidores de base de datos, que **solo acepta tráfico desde el grupo de seguridad del servidor web**.
-
-De esa manera, conseguimos un entorno más seguro, en el que cada capa (web, base de datos, etc.) solo puede comunicarse con las capas que realmente necesita.
-
-Esta técnica facilita una gestión más ordenada y modular de la seguridad, ya que podemos reutilizar y combinar grupos de seguridad según las necesidades de cada componente de la infraestructura.
-
-### **Tarea RA3-CEab**
-Para entender mejor la posiblidad de las reglas encadenas, usaremos el siguiente escenario:
-
-![](./ut5/RA3-CEab-ver2.png){.cincozero .marco}  
-
-**Condiciones especificas de la infraestructura:**
-
-1. Lanzar 3 instancias en la subred pública. La **instancia 1 tendrá IP pública**, las otras 2 no. 
-1. Los grupos de seguridad de las instancias (2 y 3) de la subred pública serán encadenados **directamente** al grupo de seguridad de la instancia 1.
-1. Lanzar 2 instancias en la subred privada y encadenar los grupos de seguridad de esas instancias al grupo de seguridad de la instancia 1.
-
-**Comprobaciones a realizar:**  
-
-1. Realizar una conexión SSH a la **instancia 1**.
-1. Desde la instancia 1 realizar pings al resto de instancias (4 pings en total). 
-1. Propagarse a una de las 2 instancias de la subred pública y realizar pings a las otras instancias (4 pings en total). Si no hay errores solo se podrá hacer ping a la instancia 1. Al resto de instancias (2 en la subred pública y 2 en la subred privada, no se les podrá hacer ping.)
-1. Desde la instancia dónde nos encontramos, intentar propagarse a otra instancia (da igual que sea de la subred pública o privada). 
-1. Desde la instancia 1, propagarse a una de las instancias de la subred privada y realizar pings a las otras instancias (4 pings en total). 
-
-**Ejemplos de pings entre instancias:**
-
-!!! tip "Instancia 1 al resto de instancias"
-![](./ut5/RA3-CEab-1.png){.cincozero}  
-
-!!! tip "Instancia subred pública al resto de instancias"
-![](./ut5/RA3-CEab-2.png){.cincozero}  
-
-!!! tip "Instancia subred privada al resto de instancias"
-![](./ut5/RA3-CEab-3.png){.cincozero}  
-
-<br>
-!!! warning "Condiciones de la entrega:"  
-    - Realizar capturas de pantalla de los pings entre instancias. 
-    - Comentar brevemente cada captura para entender a qué corresponde
-    - Subir el documento a la tarea correspondiente de AULES.
 
 ## **6 - Caso práctico**
 ### Tarea RA3-CEc: Montar un servidor web y una base de datos mysql 
