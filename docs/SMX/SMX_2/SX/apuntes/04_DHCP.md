@@ -1168,7 +1168,7 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
 
 !!! warning "Si falla al arrancar"
 
-    - Revisar si `INTERFACESv4` apunta a una interfaz que no existe todavía o el archivo `dhcpd.conf`.
+    - Revisar si `INTERFACESv4` apunta a una interfaz que no existe todavía o el archivo `dhcpd.conf` contiene un error de sintaxis.
     - Si hay un error de sintaxis usar:
         ```bash
         sudo dhcpd -t -cf /etc/dhcp/dhcpd.conf
