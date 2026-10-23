@@ -710,6 +710,8 @@ El escenario quedará de la siguiente manera:
     | **Alta disponibilidad** | Se debe desplegar **uno por zona de disponibilidad (AZ)** | Uno por AZ si se requiere redundancia            |
     | **Protocolos soportados** | TCP, UDP, ICMP | TCP, UDP, ICMP      |
 
+# HASTA AQUI
+
 ### 5.3 - Tarea RA2-CEd
 
 - Para realizar la tarea retomaremos el escenario de la **Tarea RA2-CEc**, (eliminando lo que no es necesario, y modificando las tablas de enrutamiento)
@@ -928,7 +930,7 @@ En muchos casos puede resultar necesario añadir volúmenes EBS adicionales a un
 
 ### 6.3 Tarea RA3-CEa  
 
-# HASTA AQUI
+
 
 !!! warning "Condiciones de la entrega"
  
