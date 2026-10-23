@@ -621,15 +621,14 @@ El escenario quedará de la siguiente manera:
 !!! abstract "Ejemplos de pings entre instancias:"
 
     !!! tip "Instancia 1 al resto de instancias"
-        ![img](./ut5/RA3-CEab-1.png){.cincozero}  
+        ![img](./ut5/RA3-CEab-1.png){.sietecinco}  
 
-!!! tip "Instancia subred pública al resto de instancias"
-![](./ut5/RA3-CEab-2.png){.cincozero}  
+    !!! tip "Instancia subred pública al resto de instancias"
+        ![img](./ut5/RA3-CEab-2.png){.sietecinco}  
 
 !!! tip "Instancia subred privada al resto de instancias"
-![](./ut5/RA3-CEab-3.png){.cincozero}  
+        ![img](./ut5/RA3-CEab-3.png){.sietecinco}  
 
-<br>
 !!! warning "Condiciones de la entrega:"  
     - Realizar capturas de pantalla de los pings entre instancias. 
     - Comentar brevemente cada captura para entender a qué corresponde
