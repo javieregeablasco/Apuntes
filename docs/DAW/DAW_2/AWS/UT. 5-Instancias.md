@@ -637,11 +637,14 @@ El escenario quedará de la siguiente manera:
     - Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
 
     !!! note "Capturas de pantalla mínimas a adjuntar"
-        - Prueba de ping de las instancias entre ellas (EC1 → EC2, EC1 → EC3, EC2 → EC3, EC2 → EC1, EC3 → EC2, EC3 → EC1).  
-        - Reglas de entrada y salida de los grupos de seguridad de las instancias.    
-        - Reglas de entrada y salida de las listas de control de acceso de las subredes.  
-
-
+        1. Prueba de ping de las instancias entre ellas:
+            - EC1 → EC2, EC1 → EC3.
+            - EC2 → EC1, EC2 → EC3, EC2 → www.google.es
+            - EC3 → EC2, EC3 → EC1, EC2 → www.google.es  
+            - EC4 → EC5, EC4 → EC1, EC4 → EC2
+            - EC5 → EC4, EC5 → EC1, EC5 → EC3
+        2. Reglas de entrada y salida de los grupos de seguridad de las instancias.    
+        3. Reglas de entrada y salida de las listas de control de acceso de las subredes.  
 
 ## 4 - Presentación de Cloud9
 
