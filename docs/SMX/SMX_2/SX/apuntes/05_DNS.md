@@ -110,7 +110,7 @@ schedule: 233h - 7h/w
 
 ## 4 - Servidores DNS
 
-- Un servidor DNS es el elemento de la infraestructura de red que aloja la información de uno o más espacios de nombres de dominio y que responde a las consultas (queries) que le llegan, ya sea resolviéndolas directamente (si tiene autoridad sobre los datos) o remitiendo al cliente hacia otros servidores que sí la tienen.
+- Un servidor DNS es el elemento de la infraestructura de red que aloja la información de uno o más espacios de nombres de dominio y que responde a las consultas (queries) que le llegan, ya sea resolviéndolas directamente (**si tiene autoridad sobre los datos**) o remitiendo al cliente hacia otros servidores que sí la tienen.
 - Un mismo servidor puede ser autoritativo para unas zonas y actuar solo como intermediario (resolutor) para otras, y puede alojar simultáneamente varias zonas con roles distintos.
 
 ### 4.1 Zonas DNS
