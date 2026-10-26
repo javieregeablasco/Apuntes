@@ -68,7 +68,7 @@ schedule: 233h - 7h/w
 ![Descripción de la imagen](./img_5/img_5_18.png){.marco .seiszero}
 
 - **El servicio de nombres de dominio utiliza el protocolo DNS para realizar las consultas y las respuestas**.
-- Se trata de un protocolo de **capa de aplicación** que puede utilizar tanto UDP como TCP en la capa de transporte. 
+- Se trata de un protocolo de **capa de aplicación** que puede utilizar tanto UDP como TCP en la capa de transporte.
 - **El servidor DNS utiliza el puerto privilegiado 53**.
 - Habitualmente, tanto las consultas del cliente como las respuestas del servidor caben en un datagrama (512 bytes) y se utiliza UDP (de hecho, generalmente se dice que el DNS usa UDP).
 - Si la información a transmitir es amplia (por ejemplo, una respuesta con una lista con mucha información), la comunicación pasa a TCP automáticamente.
@@ -80,7 +80,12 @@ schedule: 233h - 7h/w
     - Los datagramas DNS se componen de varios apartados, tal como se puede ver en la siguiente consulta con host:
 
         !!! example "Ejemplo de consulta DNS"
-            ![imagen](./img_5/img_5_17.png){.sietecinco}            
+            ![imagen](./img_5/img_5_17.png){.sietecinco}    
+
+            !!! abstract "Explicación del comando" 
+                - **nslookup**: Herramienta utilizada para consultar a **los servidores de nombres DNS** y obtener información sobre direcciones IP o registros de dominio.
+                - **www.google.es**: Dominio objetivo cuya dirección IP (o registros asociados) deseamos consultar.
+                - **8.8.8.8**: Dirección IP del servidor DNS específico **al que deseas realizar la consulta**.        
     
 ## 3 - Mecanismos de comunicación DNS
 
