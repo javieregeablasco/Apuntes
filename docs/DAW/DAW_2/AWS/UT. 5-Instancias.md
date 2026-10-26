@@ -683,7 +683,7 @@ El escenario quedará de la siguiente manera:
 
 1. Debe crearse en una zona de disponibilidad específica (AZ).
 1. Soporta los protocolos: TCP, UDP y ICMP.
-1. No se le puede asociar un grupo de seguridad (Security Group). En su lugar, se controlan los accesos mediante **Listas de Control de Acceso (ACLs) de red**.
+1. No se le puede asociar un grupo de seguridad (Security Group). En su lugar, se controlan los accesos mediante **listas de Control de Acceso (ACLs) de red**.
 
 ### 5.2 - Tipos de despliegue
 
@@ -709,8 +709,6 @@ El escenario quedará de la siguiente manera:
     | **Seguridad**  | No admite SG's, solo ACL de red | No admite SG, solo ACL de red |
     | **Alta disponibilidad** | Se debe desplegar **uno por zona de disponibilidad (AZ)** | Uno por AZ si se requiere redundancia            |
     | **Protocolos soportados** | TCP, UDP, ICMP | TCP, UDP, ICMP      |
-
-# HASTA AQUI
 
 ### 5.3 - Tarea RA2-CEd
 
@@ -930,21 +928,27 @@ En muchos casos puede resultar necesario añadir volúmenes EBS adicionales a un
 
 ### 6.3 Tarea RA3-CEa  
 
-!!! warning "Condiciones de la entrega"
- 
-    - Realizar capturas de pantalla del mapa de recursos de la VPC. 
-    - Realizar capturas de pantalla del ping desde vuestro ordenador a la instancia. 
-    - Realizar capturas de pantalla de la conexión por SSH a la instancia desde vuestro ordenador. 
-    - Realizar capturas de pantalla con el tamaño del EBS de la instancia modificado. 
-    - Realizar capturas de pantalla con el nuevo EBS asociado a la instancia. 
-    - Comentar brevemente cada captura para entender a qué corresponde y subir el documento a la tarea correspondiente de AULES.
+!!! warning "Entrega de la tarea"
+    - **Realizar capturas de pantalla de los momentos clave de la realización de la tarea**.
+    - Comentar las captura de pantalla explicando el trabajo realizado para llegar a ese punto y el resultado obtenido.
+    - Guardar el documento con RA3-CEa-NombreApellidos y subirlo a la tarea correspondiente de Aules.
+    - A partir de momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
+    - Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
 
-## **6 - Caso práctico**
+    !!! note "Capturas de pantalla mínimas a adjuntar"
+        - Mapa de recursos de la VPC. 
+        - Ping desde vuestro ordenador a la instancia pública. 
+        - Tamaño del EBS de la instancia antes y depués de modificarlo. 
+        - Creación EBS.
+        - EBS después de asociarlo a la instancia. 
 
-### Tarea RA3-CEc: Montar un servidor web y una base de datos mysql 
+## 7 - Caso práctico
+
+### Tarea RA3-CEc: Montar un servidor web y una base de datos mysql
 
 **Escenario propuesto:**
-![](./ut5/VPC2-nat.png){.sietecinco}  
+![img](./ut5/VPC2-nat.png){.sietecinco}  
+
 !!! task "Tarea RA3-CEc (continuación): Montar un servidor web y un agente mysql"
     **1. Instancia pública**  
     Instalar un servidor web Apache, que será accesible desde cualquier equipo externo a la VPC por el puerto 80, utilizando tanto su nombre DNS como su dirección IP pública.
