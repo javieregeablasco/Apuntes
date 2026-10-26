@@ -805,27 +805,68 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
 
 ### Tarea - RA2-CEb-3
 
-<!-- - Con esta tarea iremos un paso más allá y aprenderemos a crear estilos **con numeración automática**.
+- Con esta tarea iremos un paso más allá y aprenderemos a crear estilos **con numeración automática**.
 - Eso nos permitirá numerar automáticamente titulos y subtítulos además de posibilitará la creación de un índice general.
 - Para el desarollo de la práctica usaremos [las normas APA-7 (séptima edición)](https://normas-apa.org/) y mas particularme el apartado [Títulos y Subtitulos](https://normas-apa.org/titulos-y-subtitulos/).  
 
 !!! task "Tarea a entregar en RA2-CEb-3"
 
     !!! tip "1. Descargar y abrir el archivo 'RA2-CEb-3' pinchando en el enlace siguiente: [Descargar archivo](./archivos/RA2-CEb-3-Alumno.odt)"
+        La carpeta contiene:
+
+            - Un archivo de texto plano al que deberéis darle formato.
+            - Un archivo en `.pdf` del resultado final. 
+
     !!! tip "2. Definir 5 niveles de estilos con la siguiente configuración"
         !!! info "Nota"
             - Para la definición de los niveles podreís reutilizar los estilos **Títulos 1/2/3...** de LibreOffice o crear los vuestros propios con los nombre **Nivel 1/2/3...**
+
+        ![img](./img_ut2/img-2-16.png){.cincozero .margintop10 .marginbottom20}
+        
         |**Nivel**|**Formato APA 7**|**Formato adicional**|**Esquema de numeración**|
         |:-|:-|:-|:-|
         |Nivel 1|- Centrado.<br>- Negrita.<br>- Cada Palabra Iniciando en Mayúscula.<br>- Texto inicia en nuevo párrafo|- Arial 14pt, color #b47804.<br>- Espaciado sobre el párrafo: 0.2cm, debajo: 0.2cm.<br>- Interlineado: sencillo.<br>- Borde doble (grueso + fino) superior e inferior, color #b85c00.<br>- Fondo color #ffffd7. Separación del fondo: 0.10cm|- Nivel 1.<br>- Numeración 1,2,3,...<br>- Estilo de carácter: Nivel_1 (crear)<br>- Rubik 14, color #d52d2d, resalte #d2d320.<br>- Borde vertical, finisimo, color #d52d2d. Separación del borde: 0.2cm.|   
         |Nivel 2|- Alineado a la izquierda. <br>- **Negrita**. <br>- Cada Palabra Iniciando en Mayúscula.<br>- Texto inicia en nuevo párrafo|- Arial 13pt, color #b47804.<br>- Espaciado sobre el párrafo: 0.4cm, debajo: 0.2cm.<br>- Interlineado: sencillo.<br>- Borde punteado superior e inferior, color #2a6099.<br>- Fondo motivo 5% color primer plano #444915, color fondo #e7dede. Separación del borde: 0.25cm.<br>- Resalte color #f6f9d4 |- Nivel 2.<br>- Numeración 1.1, 1.2, 1.3,...<br>- Separador después de la numeración `-`.<br>- Estilo de carácter: Nivel_2 (crear).<br>- Verdana 12, color #14d9ac.<br>Borde vertical doble, finisimo, color #d52d2d. Separación del borde: 0.2cm.  | 
         |Nivel 3|Alineado a la izquierda. **Negrita**. *Cursiva*. Cada Palabra Iniciando en Mayúscula.<br>Texto inicia en nuevo párrafo|- Liberation Sans 12pt, color #d65fba.<br>- Espaciado sobre el párrafo: 0.2cm, debajo: 0.1cm.<br>- Interlineado: sencillo.<br>- Borde normal superior, color #b47804.<br>- Fondo color #dddddd. Separación del borde: 0.2cm.<br> |- Nivel 3.<br>- Numeración I, II, III...<br>- Separador después de la numeración ` -` (espacio + `-`).<br>- Alineado a 1.5cm, seguido de `Espacio` <br>- Estilo de carácter: Nivel_3 (crear).<br>- Lucida Sans 12, color #ff5429.<br>Borde horizontal doble, finisimo, color #d52d2d. Separación del borde: 0.2cm.  |    
         |Nivel 4|Alineado a la izquierda. **Negrita**. Cada Palabra Iniciando en Mayúscula. Con sangría de ½ pulgada (1.27 cm). Con punto final. **Texto inicia en la misma línea** |- MS Gothic 11pt, color #22031b.<br>- Espaciado sobre el párrafo: 0.2cm, debajo: 0.1cm.<br>- Interlineado: 1.5 renglones.<br>- Borde doble mediano (1.5pt) superior, color #e8a202.<br>- Fondo color #c6dee7. Separación del borde: 0.2cm.<br> |- Nivel 4.<br>- Numeración A, B, C...<br>- Separador después de la numeración ` -` (espacio + `-`).<br>- Seguido de `Espacio` <br>- Estilo de carácter: Nivel_4 (crear).<br>- Yu Gothic 11, color #1c4adf.<br>- Borde horizontal normal, finísimo, superior e inferior color #b92dd5. Separación del borde: 0.1cm.  |   
-        |Nivel 5|Alineado a la izquierda. **Negrita**. *Cursiva*. Cada Palabra Iniciando en Mayúscula. Con sangría de ½ pulgada (1.27 cm). Con punto final. **Texto inicia en la misma línea**|- Lucida Calligraphy 10pt, color #881620.<br>- Espaciado sobre el párrafo: 0.2cm, debajo: 0.1cm.<br>- Interlineado: 1.5 renglones.<br>- Borde simple finísimo (0.05pt) superior, color #e23376.<br>- Separación del borde: 0.2cm.<br> |- Nivel 5.<br>- Numeración i, ii, iii...<br>- Separador después de la numeración ` -` (espacio + `-`).<br>- Seguido de `Espacio` <br>- Estilo de carácter: Nivel_5 (crear).<br>- Tahoma, color #1c4adf.<br>- Borde horizontal normal, finísimo, superior e inferior color #61c8cf. Separación del borde: 0.1cm.  |   
+        |Nivel 5|Alineado a la izquierda. **Negrita**. *Cursiva*. Cada Palabra Iniciando en Mayúscula. Con sangría de ½ pulgada (1.27 cm). Con punto final. **Texto inicia en la misma línea**|- Lucida Calligraphy 10pt, color #881620.<br>- Espaciado sobre el párrafo: 0.2cm, debajo: 0.1cm.<br>- Interlineado: 1.5 renglones.<br>- Borde simple finísimo (0.05pt) superior, color #e23376.<br>- Separación del borde: 0.2cm.<br> |- Nivel 5.<br>- Numeración i, ii, iii...<br>- Separador después de la numeración ` -` (espacio + `-`).<br>- Seguido de `Espacio` <br>- Estilo de carácter: Nivel_5 (crear).<br>- Carlito, color #3faf46.<br>- Borde horizontal normal, finísimo, superior e inferior color #61c8cf. Separación del borde: 0.1cm.  |   
 
-    !!! tip "2. Definir 2 niveles de estilos de párrafos con la siguiente configuración"
+    !!! tip "3. Definir 2 niveles de estilos de párrafos con la siguiente configuración"
 
-    !!! tip "3. Definir 2 niveles de estilos de carácter con la siguiente configuración" -->
+        ![img](./img_ut2/img-2-15.png){.cincozero .margintop10 .marginbottom20}
+
+        |**Párrafo**|**Estilo**|**Formato**|**Aplicación**|
+        |:-|:-|:-|:-|
+        |**Párrafo 1**|- Cuerpo de texto con sangría|- Arial 12 normal.<br>- Alinear a la izquierda.<br>- Antes de texto: 1cm, después de texto 1cm, primer renglón 1.27cm.<br>- Espaciado sobre el párrafo: 0.1cm, debajo del párrafo 0.2cm.<br>- Interlineado: 1.5 renglones.||
+        |**Párrafo 2**|- Cuerpo de texto con sangría_2 (crear)|- Liberation Serif 10pt normal.<br>- Alinear a la izquierda.<br>- Antes de texto: 2cm, después de texto 1cm, primer renglón1.0cm.<br>- Espaciado sobre el párrafo: 0.1cm, debajo del párrafo 0.1cm.<br>- Interlineado: 1.15 renglones.||
+
+    !!! tip "4. Definir 2 niveles de estilos de carácter con la siguiente configuración"
+
+        ![img](./img_ut2/img-2-14.png){.cincozero .margintop10 .marginbottom20}
+
+        |**Estilo carácter**|**Estilo**|**Aplicación**|
+         |:-|:-|:-|
+        |**Texto Párrafo nivel 4**|- Tw Cen MT Condensed 10 normal.|Nivel 4|
+        |**Texto Párrafo nivel 5**|- Carlito 10 normal.<br>- Color #3faf46|Nivel 5|
+
+    !!! tip "5. Definir 5 niveles de estilos de carácter con la siguiente configuración"
+
+        ![img](./img_ut2/img-2-17.png){.cincozero .margintop10 .marginbottom20}
+
+        |**Estilo carácter**|**Estilo**|**Aplicación**|
+        |:-|:-|:-|
+        |**Nivel_1**|- Rubik 14 normal.<br>- Color de letra: #d52d2d.<br>- Resalte color #d2d320.<br>- Izquierdo, derecho, 0.05pt, color #d52d2d  |Estilo de numeración 1|
+        |**Nivel_2**|- Rubik 14 normal.<br>- Color de letra: #7e70e2.<br>- Resalte color #14d9ac.<br>- Izquierdo, derecho, 0.05pt, color #d9c4c4  |Estilo de numeración 2|
+        |**Nivel_3**|- Lucida Sans 12 normal.<br>- Color de letra: #ff5429. |Estilo de numeración 3|
+        |**Nivel_4**|- Yu Gothic 12 normal.<br>- Color de letra: #1c4adf.<br>- Resalte color #d2d320.<br>- Superior, inferior, 0.10pt, color #b92dd5  |Estilo de numeración 4|
+        |**Nivel_5**|- Tahoma 12 normal.<br>- Superior, inferior, 0.10pt, color #b92dd5  |Estilo de numeración 5|
+
+    !!! tip "6. Insertar un índice (o sumario) que solo mostrará LOS 3 PRIMEROS NIVELES."
+
+    !!! warning "Condiciones de entrega de la tarea"
+        1. Subir vuestra tarea nombrando el archivo **RA2-CEb-3-Nombre Alumno** a la **tarea RA2-CEb-3**.  
+        1. El archivo a subir deberá ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
+        1. **No se aceptará ningún otro formato de archivo**. 
 
 ## 2.7 - Paginación, tablas, encabezado, pie de página e imágenes
 
