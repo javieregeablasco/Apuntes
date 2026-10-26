@@ -155,8 +155,8 @@ Se conoce como **transferencia de zona** el proceso de replicar el contenido de 
 
 Hay dos tipos de transferencia:
 
-- **AXFR (transferencia completa):** replica todo el archivo de zona.
-- **IXFR (transferencia incremental):** replica solo los registros modificados desde la última sincronización, reduciendo el tráfico de red.
+1. **AXFR (transferencia completa):** replica todo el archivo de zona.
+1. **IXFR (transferencia incremental):** replica solo los registros modificados desde la última sincronización, reduciendo el tráfico de red.
 
 Por motivos de seguridad, es recomendable restringir qué servidores pueden solicitar una transferencia de zona (habitualmente, solo los indicados en los registros NS de la zona), ya que una transferencia abierta a cualquier host expondría toda la estructura de la red interna.
 
