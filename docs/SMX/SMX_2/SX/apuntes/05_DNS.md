@@ -191,6 +191,8 @@ En una situación ideal, los datos de registro almacenados en la memoria caché 
 
 ---
 
+# HASTA AQUI
+
 ### 6.1 Inicio de la consulta y comprobación de la caché
 
 - El dispositivo realiza una consulta a un **servidor DNS recursivo**, también denominado **DNS resolver**.
