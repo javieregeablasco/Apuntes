@@ -68,10 +68,11 @@ schedule: 233h - 7h/w
 ![Descripción de la imagen](./img_5/img_5_18.png){.marco .seiszero}
 
 - **El servicio de nombres de dominio utiliza el protocolo DNS para realizar las consultas y las respuestas**.
-- Se trata de un protocolo de **capa de aplicación** que puede utilizar tanto UDP como TCP en la capa de transporte.  
+- Se trata de un protocolo de **capa de aplicación** que puede utilizar tanto UDP como TCP en la capa de transporte. 
+- **El servidor DNS utiliza el puerto privilegiado 53**.
 - Habitualmente, tanto las consultas del cliente como las respuestas del servidor caben en un datagrama (512 bytes) y se utiliza UDP (de hecho, generalmente se dice que el DNS usa UDP).
 - Si la información a transmitir es amplia (por ejemplo, una respuesta con una lista con mucha información), la comunicación pasa a TCP automáticamente.
-- Otro caso en el que la comunicación es por TCP es cuando se realiza la transferencia de información de una zona entre servidores primarios y secundarios. **El servidor DNS utiliza el puerto privilegiado 53**.
+- Otro caso en el que la comunicación es por TCP es cuando se realiza la transferencia de información de una zona entre servidores primarios y secundarios.
 
 !!! tip "Resumen de los que hemos visto"
     - El protocolo DNS es habitualmente UDP, pero puede ser TCP y UDP.
