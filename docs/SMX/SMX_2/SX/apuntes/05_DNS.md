@@ -193,7 +193,8 @@ En una situación ideal, los datos de registro almacenados en la memoria caché 
 
 ### 6.1 Inicio de la consulta y comprobación de la caché
 
-El dispositivo realiza una consulta a un **servidor DNS recursivo**, también denominado **DNS resolver**. Habitualmente, este servidor es proporcionado por el proveedor de acceso a Internet, aunque también puede pertenecer a una organización, una empresa o ser **configurado manualmente**.
+- El dispositivo realiza una consulta a un **servidor DNS recursivo**, también denominado **DNS resolver**.
+- Habitualmente, este servidor es proporcionado por el proveedor de acceso a Internet, aunque también puede pertenecer a una organización, una empresa o ser **configurado manualmente**.
 ![Descripción de la imagen](./img_5/img_5_6.png){.marco .margintop10}
 
 Antes de realizar nuevas consultas, pueden comprobarse diferentes **cachés DNS**. Por ejemplo, pueden existir cachés en:
