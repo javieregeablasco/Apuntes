@@ -162,11 +162,13 @@ Por motivos de seguridad, es recomendable restringir qué servidores pueden soli
 
 ### 4.4 Delegación de zonas
 
-El espacio de nombres se puede dividir en varias zonas para delegar su administración a otros departamentos u organizaciones (por ejemplo, delegar `filial.empresa.com` desde la zona `empresa.com`). Para cada delegación es necesario crear registros NS en la zona padre que apunten a los servidores autoritativos de la nueva subzona, de modo que otros servidores y clientes puedan encontrarlos correctamente.
+- El espacio de nombres se puede dividir en varias zonas para delegar su administración a otros departamentos u organizaciones (por ejemplo, delegar `filial.empresa.com` desde la zona `empresa.com`).
+- Para cada delegación es necesario crear registros NS en la zona padre que apunten a los servidores autoritativos de la nueva subzona, de modo que otros servidores y clientes puedan encontrarlos correctamente.
 
 ### 4.5 Control de acceso
 
-El acceso de escritura a una zona y a sus registros se puede restringir mediante listas de control de acceso (ACL), que determinan qué usuarios o grupos pueden crear o modificar registros concretos. Esto permite, por ejemplo, reservar ciertos nombres para que solo determinados usuarios los puedan registrar, protegiendo la zona de modificaciones no autorizadas sin dejar de permitir su uso general.
+- El acceso de escritura a una zona y a sus registros se puede restringir mediante listas de control de acceso (ACL), que determinan qué usuarios o grupos pueden crear o modificar registros concretos.
+- Esto permite, por ejemplo, reservar ciertos nombres para que solo determinados usuarios los puedan registrar, protegiendo la zona de modificaciones no autorizadas sin dejar de permitir su uso general.
 
 ## 5 - Consultas al DNS
 
@@ -181,11 +183,11 @@ En una situación ideal, los datos de registro almacenados en la memoria caché 
 
 ## 6 - Funcionamiento del DNS
 
-El funcionamiento del DNS se basa en un sistema **jerárquico y distribuido** conocido como **resolución de nombres de dominio**. Su función principal es obtener información asociada a un nombre de dominio, como su dirección IP.
+- El funcionamiento del DNS se basa en un sistema **jerárquico y distribuido** conocido como **resolución de nombres de dominio**. Su función principal es obtener información asociada a un nombre de dominio, como su dirección IP.
 
-Cuando escribimos la dirección web `www.aules.edu.gva.es` en el navegador, el dispositivo necesita obtener la dirección IP asociada a ese nombre antes de poder establecer la comunicación con el servicio.
+- Cuando escribimos la dirección web `www.aules.edu.gva.es` en el navegador, el dispositivo necesita obtener la dirección IP asociada a ese nombre antes de poder establecer la comunicación con el servicio.
 
-La resolución de un nombre puede implicar diferentes servidores DNS. De forma simplificada, el proceso es el siguiente:
+- La resolución de un nombre puede implicar diferentes servidores DNS. De forma simplificada, el proceso es el siguiente:
 
 ---
 
