@@ -805,7 +805,7 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
 
 ### Tarea - RA2-CEb-3
 
-<!-- - Con esta tarea iremos un paso más allá y aprenderemos a crear estilos **con numeración automática**.
+- Con esta tarea iremos un paso más allá y aprenderemos a crear estilos **con numeración automática**.
 - Eso nos permitirá numerar automáticamente titulos y subtítulos además de posibilitará la creación de un índice general.
 - Para el desarollo de la práctica usaremos [las normas APA-7 (séptima edición)](https://normas-apa.org/) y mas particularme el apartado [Títulos y Subtitulos](https://normas-apa.org/titulos-y-subtitulos/).  
 
@@ -819,15 +819,16 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
         |:-|:-|:-|:-|
         |Nivel 1|- Centrado.<br>- Negrita.<br>- Cada Palabra Iniciando en Mayúscula.<br>- Texto inicia en nuevo párrafo|- Arial 14pt, color #b47804.<br>- Espaciado sobre el párrafo: 0.2cm, debajo: 0.2cm.<br>- Interlineado: sencillo.<br>- Borde doble (grueso + fino) superior e inferior, color #b85c00.<br>- Fondo color #ffffd7. Separación del fondo: 0.10cm|- Nivel 1.<br>- Numeración 1,2,3,...<br>- Estilo de carácter: Nivel_1 (crear)<br>- Rubik 14, color #d52d2d, resalte #d2d320.<br>- Borde vertical, finisimo, color #d52d2d. Separación del borde: 0.2cm.|   
         |Nivel 2|- Alineado a la izquierda. <br>- **Negrita**. <br>- Cada Palabra Iniciando en Mayúscula.<br>- Texto inicia en nuevo párrafo|- Arial 13pt, color #b47804.<br>- Espaciado sobre el párrafo: 0.4cm, debajo: 0.2cm.<br>- Interlineado: sencillo.<br>- Borde punteado superior e inferior, color #2a6099.<br>- Fondo motivo 5% color primer plano #444915, color fondo #e7dede. Separación del borde: 0.25cm.<br>- Resalte color #f6f9d4 |Nivel 2.<br>- Numeración 1.1, 1.2, 1.3,...<br>- Separador después de la numeración `-`.<br>- Estilo de carácter: Nivel_2 (crear).<br>- Verdana 12, color #14d9ac.<br>Borde vertical doble, finisimo, color #d52d2d. Separación del borde: 0.2cm.  | 
+        |Nivel 3|Alineado a la izquierda. **Negrita**. *Cursiva*. Cada Palabra Iniciando en Mayúscula.<br>Texto inicia en nuevo párrafo|- Arial 13pt, color #b47804.<br>- Espaciado sobre el párrafo: 0.4cm, debajo: 0.2cm.<br>- Interlineado: sencillo.<br>- Borde punteado superior e inferior, color #2a6099.<br>- Fondo motivo 5% color primer plano #444915, color fondo #e7dede. Separación del borde: 0.25cm.<br>- Resalte color #f6f9d4 |Nivel 2.<br>- Numeración 1.1, 1.2, 1.3,...<br>- Separador después de la numeración `-`.<br>- Estilo de carácter: Nivel_2 (crear).<br>- Verdana 12, color #14d9ac.<br>Borde vertical doble, finisimo, color #d52d2d. Separación del borde: 0.2cm.  | 
    
-
-        |Nivel 3|Alineado a la izquierda. **Negrita**. *Cursiva*. Cada Palabra Iniciando en Mayúscula.<br>Texto inicia en nuevo párrafo|
+   
+   
         |Nivel 4|Alineado a la izquierda. **Negrita**. Cada Palabra Iniciando en Mayúscula. Con sangría de ½ pulgada (1.27 cm). Con punto final. **Texto inicia en la misma línea** |
         |Nivel 5|Alineado a la izquierda. **Negrita**. *Cursiva*. Cada Palabra Iniciando en Mayúscula. Con sangría de ½ pulgada (1.27 cm). Con punto final. **Texto inicia en la misma línea**|
 
 
 
- -->
+
 
 ## 2.7 - Paginación, tablas, encabezado, pie de página e imágenes
 
