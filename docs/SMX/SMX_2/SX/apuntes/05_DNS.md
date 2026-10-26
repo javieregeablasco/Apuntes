@@ -89,7 +89,8 @@ schedule: 233h - 7h/w
     
 ## 3 - Mecanismos de comunicación DNS
 
-La comunicación DNS es un mecanismo de consulta/respuesta entre **el cliente y el servidor**. Los datagramas, por tanto, serán de query (consulta) o de answer (respuesta).
+- La comunicación DNS es un mecanismo de consulta/respuesta entre **el cliente y el servidor**. 
+- Los datagramas, por tanto, serán de query (consulta) o de answer (respuesta).
 
 !!! tip "Los apartados que componen un mensaje DNS son:"
 
