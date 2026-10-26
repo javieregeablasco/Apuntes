@@ -89,7 +89,7 @@ schedule: 233h - 7h/w
     
 ## 3 - Mecanismos de comunicación DNS
 
-- La comunicación DNS es un mecanismo de consulta/respuesta entre **el cliente y el servidor**. 
+- La comunicación DNS es un mecanismo de consulta/respuesta entre **el cliente y el servidor**.
 - Los datagramas, por tanto, serán de query (consulta) o de answer (respuesta).
 
 !!! tip "Los apartados que componen un mensaje DNS son:"
@@ -102,6 +102,11 @@ schedule: 233h - 7h/w
 
 !!! example "Ejemplo de comunicación DNS"
     ![imagen](./img_5/img_5_19.png){.ochocinco}
+
+    !!! abstract "Explicación del comando" 
+        - **dig**: Domain Information Groper (explorador de información de dominios) es una utilidad habitualmente utilizada para consultar servidores DNS de manera detallada.
+        - A diferencia de nslookup, dig muestra información mucho más técnica, limpia y sin interpretaciones automáticas que a veces confunden el diagnóstico.
+        - **www.wikipedia.org**: Es el dominio objetivo a consultar.
 
 ## 4 - Servidores DNS
 
