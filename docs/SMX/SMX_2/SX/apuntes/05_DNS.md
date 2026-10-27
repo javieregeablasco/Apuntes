@@ -198,6 +198,7 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
 - Como hemos visto, la resolución de un nombre puede implicar diferentes servidores DNS. De forma simplificada, el proceso es el siguiente:
 
 ---
+<!--
 
 ### 6.1 Inicio de la consulta y comprobación de la caché
 
@@ -1992,6 +1993,17 @@ resolvectl status
 
 #### 16.11.2 Añadir clientes
 
+![Descripción de la imagen](./img_5/img_5_152.png){ .marginbottom20 .marco .margintop10}
+![Descripción de la imagen](./img_5/img_5_153.png){ .marginbottom20 .marco .margintop10}
+![Descripción de la imagen](./img_5/img_5_154.png){ .marginbottom20 .marco .margintop10}
+![Descripción de la imagen](./img_5/img_5_155.png){ .marginbottom20 .marco .margintop10}
+![Descripción de la imagen](./img_5/img_5_156.png){ .marginbottom20 .marco .margintop10}
+![Descripción de la imagen](./img_5/img_5_157.png){ .marginbottom20 .marco .margintop10}
+![Descripción de la imagen](./img_5/img_5_158.png){ .marginbottom20 .marco .margintop10}
+![Descripción de la imagen](./img_5/img_5_159.png){ .marginbottom20 .marco .margintop10}
+
+-->
+<!--
 ```text
 $TTL    604800
 @       IN      SOA     ns1.practicadns.test. admin.practicadns.test. (
@@ -2066,19 +2078,12 @@ archivo /etc/network/interfaces
 
 /etc/default/named → cambiar startup options for the server
 OTIONS="-u bind -4"    
+-->
 
-# HASTA AQUI
+<!-- # HASTA AQUI -->
 
-![Descripción de la imagen](./img_5/img_5_152.png){ .marginbottom20 .marco .margintop10}
-![Descripción de la imagen](./img_5/img_5_153.png){ .marginbottom20 .marco .margintop10}
-![Descripción de la imagen](./img_5/img_5_154.png){ .marginbottom20 .marco .margintop10}
-![Descripción de la imagen](./img_5/img_5_155.png){ .marginbottom20 .marco .margintop10}
-![Descripción de la imagen](./img_5/img_5_156.png){ .marginbottom20 .marco .margintop10}
-![Descripción de la imagen](./img_5/img_5_157.png){ .marginbottom20 .marco .margintop10}
-![Descripción de la imagen](./img_5/img_5_158.png){ .marginbottom20 .marco .margintop10}
-![Descripción de la imagen](./img_5/img_5_159.png){ .marginbottom20 .marco .margintop10}
 
-https://www.youtube.com/results?search_query=bind+9
+<!-- https://www.youtube.com/results?search_query=bind+9 -->
 
 <!-- https://claude.ai/chat/f2afa4f9-9965-4694-9333-a63051657cd4 -->
 
@@ -2182,33 +2187,6 @@ está funcionando correctamente.
 
 ---
 
-# 19 - Configurar la resolución inversa
-
-Hasta ahora podemos hacer:
-
-```text
-cliente1.smr.test → 10.0.2.10
-```
-
-Queremos ahora conseguir también:
-
-```text
-10.0.2.10 → cliente1.smr.test
-```
-
-Para ello utilizaremos registros **PTR**.
-
-Tenemos dos redes:
-
-```text
-10.0.1.0/24
-10.0.2.0/24
-```
-
-Crearemos una zona inversa para cada una.
-
----
-
 # 23 - Comprobar las zonas inversas
 
 Comprobamos:
@@ -2283,68 +2261,6 @@ Resultado:
 
 ---
 
-# 25 - Configurar los clientes para utilizar nuestro DNS
-
-Hasta este momento hemos realizado consultas indicando explícitamente:
-
-```bash
-dig @10.0.1.10 cliente1.smr.test
-```
-
-Queremos que los clientes utilicen automáticamente:
-
-```text
-10.0.1.10
-```
-
-como su servidor DNS.
-
-En AWS podemos hacerlo mediante un **DHCP Options Set**.
-
-Accedemos a:
-
-```text
-VPC → DHCP option sets → Create DHCP options set
-```
-
-Configuramos:
-
-```text
-Name:
-DHCP-DNS-SMR
-```
-
-Como nombre de dominio:
-
-```text
-smr.test
-```
-
-Como servidor DNS:
-
-```text
-10.0.1.10
-```
-
-!!! warning "Importante"
-
-````
-No debemos escribir aquí:
-
-```text
-AmazonProvidedDNS
-```
-
-junto con nuestro servidor.
-
-Queremos que las máquinas consulten directamente a:
-
-```text
-10.0.1.10
-```
-
-BIND9 será quien reenvíe las consultas externas al resolver de AWS.
-````
 
 # 29 - Realizar consultas sin especificar el servidor DNS
 
@@ -2722,98 +2638,6 @@ sudo tcpdump -i any port 53 -nn
 
 ---
 
-# 39 - Pruebas finales
-
-Antes de considerar terminada la práctica deben funcionar todas las siguientes pruebas.
-
-Desde CLIENTE-1:
-
-```bash
-dig dns.smr.test
-```
-
-Debe devolver:
-
-```text
-10.0.1.10
-```
-
-Ejecutamos:
-
-```bash
-dig cliente1.smr.test
-```
-
-Debe devolver:
-
-```text
-10.0.2.10
-```
-
-Ejecutamos:
-
-```bash
-dig cliente2.smr.test
-```
-
-Debe devolver:
-
-```text
-10.0.2.20
-```
-
-Ejecutamos:
-
-```bash
-dig www.smr.test
-```
-
-Debe resolver el CNAME.
-
-Ejecutamos:
-
-```bash
-dig -x 10.0.2.10
-```
-
-Debe devolver:
-
-```text
-cliente1.smr.test
-```
-
-Ejecutamos:
-
-```bash
-dig -x 10.0.2.20
-```
-
-Debe devolver:
-
-```text
-cliente2.smr.test
-```
-
-Ejecutamos:
-
-```bash
-dig www.google.com
-```
-
-Debe resolver un dominio de Internet.
-
-Finalmente:
-
-```bash
-ping cliente2.smr.test
-```
-
-debe resolver:
-
-```text
-10.0.2.20
-```
-
 # 41 - Resultado de la práctica
 
 Al finalizar tendremos configurada la siguiente infraestructura:
@@ -2879,25 +2703,7 @@ https://serviciosgm.readthedocs.io/es/latest/windows/dns/index.html
 
 <!-- https://www.dreamhost.com/blog/es/nameservers-vs-dns-guia/ -->
 
-
-
-<!-- https://claude.ai/chat/062d0a59-02ce-4044-b774-4249a42049e9 -->
-<!-- https://gemini.google.com/u/1/app/ad715c98d45d977e?hl=es-ES -->
-<!-- https://chatgpt.com/c/6a87ef1d-7130-83ed-8c1c-e4a9da08330f -->
-
 <!-- ### 5.24 Añadir clientes al DNS
 
 - **Reservas** por MAC: `Add-DhcpServerV4Reservation`.
 - **Exclusiones** dentro del ámbito: `Add-DhcpServerV4ExclusionRange`. -->
-
-
-<!-- para nat -->
-<!-- tipo de elementos de red -->
-<!-- https://itadmins.es/networking-ii-dispositivos-de-red-y-tipos-de-trafico/ -->
-
-<!-- # NAT -->
-<!-- https://www.manageengine.com/latam/oputils/direcciones-ip-fundamentos.html
-https://www.redeszone.net/tutoriales/redes-cable/calcular-subnetting-ip-red-mascara-subred-ipv4/
-https://www.1nce.com/es-es/recursos/iot-knowledge-base/que-es-el-mecanismo-nat
-https://openwebinars.net/blog/nat-que-es-y-para-que-sirve/
--->
