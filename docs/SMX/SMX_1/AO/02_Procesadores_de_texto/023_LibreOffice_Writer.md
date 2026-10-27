@@ -846,8 +846,8 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
 
         |**Estilo carácter**|**Estilo**|**Aplicación**|
          |:-|:-|:-|
-        |**Texto Párrafo nivel 4**|- Tw Cen MT Condensed 10 normal.|Nivel 4|
-        |**Texto Párrafo nivel 5**|- Carlito 10 normal.<br>- Color #3faf46|Nivel 5|
+        |**Texto Párrafo nivel 4**|- Tw Cen MT Condensed 10 normal.|Texto párrafo **Nivel 4**|
+        |**Texto Párrafo nivel 5**|- Carlito 10 normal.<br>- Color #3faf46|Texto párrafo **Nivel 5**|
 
     !!! tip "5. Definir 5 niveles de estilos de carácter con la siguiente configuración"
 
