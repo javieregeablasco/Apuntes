@@ -851,6 +851,7 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
         |**Texto Párrafo nivel 5**|- Carlito 10 normal.<br>- Color #3faf46|Texto párrafo **Nivel 5**|
 
     !!! tip "5. Definir 5 niveles de estilos de carácter con la siguiente configuración"
+        - Usaremos esos estilos de carácter para la numeración de los títulos y subtítulos de nivel 1, 2, 3, 4 y 5.
 
         ![img](./img_ut2/img-2-17.png){.cincozero .margintop10 .marginbottom20}
 
@@ -875,7 +876,7 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
 
 !!! task "Tarea a entregar en RA2-CEd"
 
-    !!! exercise "1. Descargar y descomprimir el archivo 'Tarea RA2-CEd' pinchando en el enlace siguiente:<br>[Descargar archivo](./archivos/RA2-CEd.rar)"
+    !!! exercise "1. Descargar y descomprimir el archivo 'Tarea RA2-CEd' pinchando en el enlace siguiente:<br>[Descargar archivo](./archivos/RA2-CEd/RA2-CEd.rar)"
 
     !!! exercise "2. Estilos de página."
         !!! tip "Ir a **Estilos de página** → **Primera página** → **Editar estilo** → Configurar con los siguientes datos."
