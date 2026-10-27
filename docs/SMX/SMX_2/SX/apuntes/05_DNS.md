@@ -29,6 +29,9 @@ schedule: 233h - 7h/w
 |**g)** Se ha trabajado en grupo para realizar transferencias de zona entre dos o más servidores.|
 |**h)** Se ha comprobado el funcionamiento correcto del servidor.|
 
+!!! warning "Nota:"
+    Los criterios de evaluación en negrita será evaluados durante la FCT.
+
 <!-- > **Importante:** el DNS no es el encargado de conectar un dispositivo a una red Wi-Fi. En una conexión Wi-Fi intervienen tecnologías y protocolos como **IEEE 802.11** y, habitualmente, **DHCP** para obtener la configuración de red. El DNS puede utilizarse posteriormente para resolver los nombres de los servicios a los que queremos acceder. -->
 
 ## 1 - Introducción
