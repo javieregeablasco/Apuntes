@@ -811,7 +811,7 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
 
 !!! task "Tarea a entregar en RA2-CEb-3"
 
-    !!! tip "1. Descargar y abrir el archivo 'RA2-CEb-3' pinchando en el enlace siguiente: [Descargar archivo](./archivos/RA2-CEb-3-Alumno.odt)"
+    !!! tip "1. Descargar y abrir el archivo 'RA2-CEb-3' pinchando en el enlace siguiente: [Descargar archivo](./archivos/RA2-CEb-3/RA2-CEb-3.rar)"
         La carpeta contiene:
 
         - Un archivo de texto plano al que deberéis dar formato.
