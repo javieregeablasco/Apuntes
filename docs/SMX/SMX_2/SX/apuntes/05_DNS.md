@@ -54,7 +54,7 @@ schedule: 233h - 7h/w
         
         1. **Permite localizar servicios de red:** Los dispositivos pueden consultar el DNS para obtener información sobre la ubicación de diferentes servicios, como servidores web, servidores de correo electrónico, redes de distribución de contenidos (CDN, Content Delivery Network)...
 
-    - **Facilita la administración de redes locales** permitiendo asociar nombres a equipos y servicios locales.
+    - **Facilita la administración de redes locales** donde también es posible asociar nombres a equipos y servicios locales.
 
 ## 2 - Protocolo DNS
 
@@ -62,10 +62,10 @@ schedule: 233h - 7h/w
 
 - **El servicio de nombres de dominio utiliza el protocolo DNS para realizar las consultas y las respuestas**.
 - Se trata de un protocolo de **capa de aplicación** que puede utilizar tanto UDP como TCP en la capa de transporte.
-- **El servidor DNS utiliza el puerto privilegiado 53**.
+- **El servidor DNS utiliza el puerto 53** para realizar las consultas y recibir las respuestas.
 - Habitualmente, tanto las consultas del cliente como las respuestas del servidor caben en un datagrama (512 bytes) y se utiliza UDP (de hecho, generalmente se dice que el DNS usa UDP).
 - Si la información a transmitir es amplia (por ejemplo, una respuesta con una lista con mucha información), la comunicación pasa a TCP automáticamente.
-- Otro caso en el que la comunicación es por TCP es cuando se realiza la transferencia de información de una zona entre servidores primarios y secundarios.
+- Otro caso en el que la comunicación es por TCP es cuando se realiza la transferencia de información de una zona entre **servidores primarios y secundarios**.
 
 !!! tip "Resumen de los que hemos visto"
     - El protocolo DNS es habitualmente UDP, pero puede ser TCP y UDP.
@@ -78,7 +78,7 @@ schedule: 233h - 7h/w
             !!! abstract "Explicación del comando" 
                 - **nslookup**: Herramienta utilizada para consultar a **los servidores de nombres DNS** y obtener información sobre direcciones IP o registros de dominio.
                 - **www.google.es**: Dominio objetivo cuya dirección IP (o registros asociados) deseamos consultar.
-                - **8.8.8.8**: Dirección IP del servidor DNS específico **al que deseas realizar la consulta**.        
+                - **8.8.8.8**: Dirección IP del servidor DNS específico **al que hemos realizado la consulta**.        
     
 ## 3 - Mecanismos de comunicación DNS
 
