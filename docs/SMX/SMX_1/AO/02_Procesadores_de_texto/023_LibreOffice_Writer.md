@@ -841,7 +841,7 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
         |**Párrafo 2**|- Cuerpo de texto con sangría_2 (crear)|- Liberation Serif 10pt normal.<br>- Alinear a la izquierda.<br>- Antes de texto: 2cm, después de texto 1cm, primer renglón1.0cm.<br>- Espaciado sobre el párrafo: 0.1cm, debajo del párrafo 0.1cm.<br>- Interlineado: 1.15 renglones.|Texto después de **títulos nivel 3**|
 
     !!! tip "4. Definir 2 niveles de estilos de carácter con la siguiente configuración"
-
+        - A diferencia del procesador de textos Microsoft Word, LibreOffice Writer no distingue estilos de títulos y estilos de párrafo. Por ello, para los niveles 4 y 5 de títulos, deberemos definir estilos de carácter que se aplicarán al texto que viene a continuación de los títulos de nivel 4 y 5.
         ![img](./img_ut2/img-2-14.png){.cincozero .margintop10 .marginbottom20}
 
         |**Estilo carácter**|**Estilo**|**Aplicación**|
