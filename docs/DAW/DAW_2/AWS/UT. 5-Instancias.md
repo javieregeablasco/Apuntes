@@ -963,7 +963,6 @@ En muchos casos puede resultar necesario añadir volúmenes EBS adicionales a un
     De la conexión a la base de datos.  
     El servidor web desplegado.  
 
-
 <!-- instalar firewall sobre una EC2 Amazon linux 
 -Instalar el firewall
 sudo dnf install firewalld -y
