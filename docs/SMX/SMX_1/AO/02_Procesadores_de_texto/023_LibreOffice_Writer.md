@@ -1029,9 +1029,9 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
 
 Antes de nada comprobaremos si tenemos el JRE (Java Runtime Environment) instalado en nuestro ordenador. Para ello abriremos una terminal y escribiremos:
 
-```bash
-java --version 
-```
+    ```bash
+    java --version 
+    ```
 
 Si nos devuelve la versión de JRE, significa que lo tenemos instalado.
 
