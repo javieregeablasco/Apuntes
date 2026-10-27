@@ -1027,17 +1027,16 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
 
 ### 2.9.1 - Instalar JRE
 
-Antes de nada comprobaremos si tenemos el JRE (Java Runtime Environment) instalado en nuestro ordenador. Para ello abriremos una terminal y escribiremos:
+- Antes de nada comprobaremos si tenemos el JRE (Java Runtime Environment) instalado en nuestro ordenador. Para ello abriremos una terminal y escribiremos:
 
-    ```bash
-    java --version 
-    ```
+      ```bash
+      java --version 
+      ```
 
-Si nos devuelve la versión de JRE, significa que lo tenemos instalado.
+- Si nos devuelve la versión de JRE, significa que lo tenemos instalado.
+![img](./img_ut2/RA2-CEf/img2.png){.cien .margintop10 .marginbottom20}
 
-![img](./img_ut2/RA2-CEf/img2.png){.cien}
-
-De lo contrario, iremos a la [página de descarga](https://www.java.com/es/download/manual.jsp), descargaremos la versión adecuada a nuestro sistema operativo y lo instalaremos.
+- De lo contrario, iremos a la [página de descarga](https://www.java.com/es/download/manual.jsp), descargaremos la versión adecuada a nuestro sistema operativo y lo instalaremos.
 
 ### 2.9.2 - Habilitar la grabación de macros en LibreOffice
 
