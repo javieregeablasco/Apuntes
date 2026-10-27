@@ -193,15 +193,11 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
 
 ## 6 - Funcionamiento del DNS
 
-- El funcionamiento del DNS se basa en un sistema **jerárquico y distribuido** conocido como **resolución de nombres de dominio**. Su función principal es obtener información asociada a un nombre de dominio, como su dirección IP.
+- El funcionamiento del DNS se basa en un sistema **jerárquico y distribuido**.
 
-- Cuando escribimos la dirección web `www.aules.edu.gva.es` en el navegador, el dispositivo necesita obtener la dirección IP asociada a ese nombre antes de poder establecer la comunicación con el servicio.
-
-- La resolución de un nombre puede implicar diferentes servidores DNS. De forma simplificada, el proceso es el siguiente:
+- Como hemos visto, la resolución de un nombre puede implicar diferentes servidores DNS. De forma simplificada, el proceso es el siguiente:
 
 ---
-
-# HASTA AQUI
 
 ### 6.1 Inicio de la consulta y comprobación de la caché
 
