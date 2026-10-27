@@ -569,8 +569,7 @@ Get-Item "C:\ISO\alpine.iso" | Select-Object Name, Length
 
 !!! tip "Creación de la máquina virtual por línea de comando."
 
-    - Declarar la máquina    
-
+    - Declarar la máquina:
     ```powershell
     New-VM -Name "Cliente-1" `
     -MemoryStartupBytes 256MB `
@@ -582,7 +581,7 @@ Get-Item "C:\ISO\alpine.iso" | Select-Object Name, Length
 
     - Declarar la unidad de DVD  y montar el **ISO**.
     
-    !!! warning "Las VMs Generation 1 traen una unidad de DVD por defecto (a diferencia de Generation 2, donde hay que añadirla explícitamente con Add-VMDvdDrive). Por tanto, basta con usar Set-VMDvdDrive para montar la ISO en la unidad ya existente."
+        !!! warning "Las VMs Generation 1 traen una unidad de DVD por defecto (a diferencia de Generation 2, donde hay que añadirla explícitamente con Add-VMDvdDrive). Por tanto, basta con usar Set-VMDvdDrive para montar la ISO en la unidad ya existente."
 
     ```powershell
     Set-VMDvdDrive -VMName "CLIENTE-1" -Path "C:\ISOs\alpine.iso"
