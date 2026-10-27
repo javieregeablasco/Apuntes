@@ -39,11 +39,11 @@ schedule: 233h - 7h/w
 !!! question "¿Qué es el DNS?"
     ![Descripción de la imagen](./img_5/img_5_3.png){.cincozero}
 
-    - El **DNS** (*Domain Name System* o **Sistema de Nombres de Dominio**) es un sistema **distribuido y jerárquico** que permite asociar    nombres de dominio legibles para las personas, como `www.aules.edu.gva.es`, con **direcciones IP**, como `195.77.20.168`, que los  dispositivos utilizan para localizar servicios y comunicarse en una red.
+    - El **DNS** (*Domain Name System* o **Sistema de Nombres de Dominio**) es un sistema **distribuido y jerárquico** que permite asociar nombres de dominio legibles para las personas, como `www.aules.edu.gva.es`, con **direcciones IP**, como `195.77.20.168`.
 
-    - El DNS suele describirse popularmente como la **"guía telefónica de Internet"**. Al igual que la agenda de un teléfono móvil nos evita  tener que memorizar los números de teléfono de cada persona, el DNS evita que los usuarios tengan que memorizar direcciones IP para  acceder a los diferentes servicios de una red.
+    - El DNS suele describirse popularmente como la **"guía telefónica de Internet"** permitiendo a los usuarios acceder a los servicios de una red utilizando nombres de dominio en lugar de direcciones IP.
 
-    - Aunque normalmente pensamos en el DNS como un sistema que traduce nombres de dominio en direcciones IP, también permite realizar otro   tipo de consultas. Por ejemplo, puede indicar qué servidores se encargan del correo electrónico de un dominio o proporcionar  direcciones IPv6.
+    - Aunque normalmente pensamos en el DNS como un sistema que traduce nombres de dominio en direcciones IP, también permite realizar todo tipo de consultas. Por ejemplo, puede indicar qué servidores se encargan del correo electrónico, devolver el servidor más cercano de un dominio (o de un Content Delivery Network CDN) o proporcionar direcciones IPv6.
 
 !!! question "¿Para qué sirve?"
     ![Descripción de la imagen](./img_5/img_5_5.png){.cincozero}
