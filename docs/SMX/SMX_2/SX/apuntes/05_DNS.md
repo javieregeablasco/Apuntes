@@ -82,7 +82,7 @@ schedule: 233h - 7h/w
     
 ## 3 - Mecanismos de comunicación DNS
 
-- La comunicación DNS es un mecanismo de consulta/respuesta entre **el cliente y el servidor**.
+- La comunicación DNS es un mecanismo de consulta/respuesta de tipo **cliente / servidor**.
 - Los datagramas, por tanto, serán de query (consulta) o de answer (respuesta).
 
 !!! tip "Los apartados que componen un mensaje DNS son:"
@@ -90,7 +90,7 @@ schedule: 233h - 7h/w
      - **HEADER**. Cabecera del mensaje que indica si se trata de una consulta o de una respuesta. Contiene el id (identificador) del   mensaje, flags y un resumen de qué secciones del mensaje llevan información y cuánta.
      - **QUESTION**. Esta sección contiene la consulta que se ha efectuado, es decir, qué dato se ha pedido al servidor. Puede ser la   resolución de un nombre de dominio a una dirección IP, pedir la lista de servidores de impresión, etc.
      - **ANSWER**. Sección que contiene la respuesta obtenida del servidor. Esta respuesta será autoritativa o no en función de si el   servidor que responde es autoritativo para esa zona: cuando la respuesta procede de un servidor caché/resolver (no autoritativo), algunas utilidades de consulta la muestran como non-authoritative answer.
-     - **AUTHORITY**. Esta sección contiene las respuestas que son autoritativas para la consulta efectuada. Evidentemente, puede estar vacía.
+     - **AUTHORITY**. Esta sección contiene las respuestas que son autoritativas para la consulta efectuada (puede estar vacía).
      - **ADDITIONAL**. Contiene información adicional para completar la respuesta. En el ejemplo se observa que completa la resolución de los nombres de máquina que aparecen en la sección ANSWER, indicando su dirección IP correspondiente.
 
 !!! example "Ejemplo de comunicación DNS"
@@ -98,13 +98,17 @@ schedule: 233h - 7h/w
 
     !!! abstract "Explicación del comando" 
         - **dig**: Domain Information Groper (explorador de información de dominios) es una utilidad habitualmente utilizada para consultar servidores DNS de manera detallada.
-        - A diferencia de nslookup, dig muestra información mucho más técnica, limpia y sin interpretaciones automáticas que a veces confunden el diagnóstico.
-        - **www.wikipedia.org**: Es el dominio objetivo a consultar.
+        - A diferencia de **nslookup**, **dig** muestra información mucho más técnica, limpia y sin interpretaciones automáticas que a veces confunden el diagnóstico.
+        - **www.wikipedia.org**: Es el dominio a consultar.
 
 ## 4 - Servidores DNS
 
-- Un servidor DNS es el elemento de la infraestructura de red que aloja la información de uno o más espacios de nombres de dominio y que responde a las consultas (queries) que le llegan, ya sea resolviéndolas directamente (**si tiene autoridad sobre los datos**) o remitiendo al cliente hacia otros servidores que sí la tienen.
+- **Un servidor DNS es el elemento de la infraestructura de red que aloja la información de uno o más espacios de nombres de dominio y que responde a las consultas (queries) que le llegan, ya sea resolviéndolas directamente (si tiene autoridad sobre los datos) o remitiendo al cliente hacia otros servidores que sí la tienen**.
 - Un mismo servidor puede ser autoritativo para unas zonas y actuar solo como intermediario (resolutor) para otras, y puede alojar simultáneamente varias zonas con roles distintos.
+
+??? question "¿Qué es un servidor autoritativo?"
+    - Un **servidor autoritativo** es aquel que tiene autoridad sobre una zona concreta y puede responder a las consultas con información oficial y actualizada de esa zona.
+    - Por ejemplo, el servidor autoritativo para la zona `edu.gva.es` puede responder a consultas sobre nombres como `www.edu.gva.es` o `correo.edu.gva.es`, proporcionando las direcciones IP correspondientes.
 
 ### 4.1 Zonas DNS
 
