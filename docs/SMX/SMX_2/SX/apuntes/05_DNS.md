@@ -41,22 +41,20 @@ schedule: 233h - 7h/w
 
     - El **DNS** (*Domain Name System* o **Sistema de Nombres de Dominio**) es un sistema **distribuido y jerárquico** que permite asociar nombres de dominio legibles para las personas, como `www.aules.edu.gva.es`, con **direcciones IP**, como `195.77.20.168`.
 
-    - El DNS suele describirse popularmente como la **"guía telefónica de Internet"** permitiendo a los usuarios acceder a los servicios de una red utilizando nombres de dominio en lugar de direcciones IP.
-
-    - Aunque normalmente pensamos en el DNS como un sistema que traduce nombres de dominio en direcciones IP, también permite realizar todo tipo de consultas. Por ejemplo, puede indicar qué servidores se encargan del correo electrónico, devolver el servidor más cercano de un dominio (o de un Content Delivery Network CDN) o proporcionar direcciones IPv6.
+    - El DNS suele describirse popularmente como la **"guía telefónica de Internet"** permitiendo a los usuarios acceder a los servicios de una red utilizando **nombres de dominio** en lugar de direcciones IP.
 
 !!! question "¿Para qué sirve?"
     ![Descripción de la imagen](./img_5/img_5_5.png){.cincozero}
 
     La utilidad del sistema DNS es fundamental para el funcionamiento de Internet y de **muchas redes privadas**. Entre sus principales funciones encontramos:
 
-    - **Simplifica el acceso a los servicios de red:** permite utilizar nombres fáciles de recordar en lugar de direcciones IP.
+    - **Simplifica el acceso a los servicios de red:** permite utilizar nombres fáciles de recordar (en lugar de direcciones IP).
 
-    - **Aporta flexibilidad:** si un servicio cambia de servidor o de dirección IP, es posible modificar la información DNS manteniendo el  mismo nombre de dominio. De esta forma, los usuarios pueden continuar utilizando el mismo nombre para acceder al servicio.
+    - **Aporta flexibilidad:** si un servicio cambia de servidor o de dirección IP, es posible **modificar la información DNS manteniendo el mismo nombre de dominio**. De esta forma, los usuarios pueden continuar utilizando el mismo nombre para acceder al servicio.
 
-    - **Permite localizar servicios de red:** los dispositivos pueden consultar el DNS para obtener información sobre la ubicación de   diferentes servicios, como servidores web o servidores de correo electrónico.
+    - **Permite localizar servicios de red:** los dispositivos pueden consultar el DNS para obtener información sobre la ubicación de diferentes servicios, como servidores web o servidores de correo electrónico o redes de distribución de contenidos (CDN, Content Delivery Network).
 
-    - **Facilita la administración de redes:** en las redes locales también es posible utilizar DNS para asociar nombres a equipos y    servicios, evitando tener que recordar sus direcciones IP.
+    - **Facilita la administración de redes:** en las redes locales también es posible utilizar DNS para asociar nombres a equipos y servicios (evitando tener que recordar sus direcciones IP).
 
     - **Interviene en numerosos servicios de Internet**, como:  
 
