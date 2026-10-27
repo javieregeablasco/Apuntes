@@ -1218,7 +1218,8 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
     ```
 
 !!! warning "La red de libvirt debe tener IP al arrancar"
-    `After=libvirtd.service` no garantiza que el switch virtual tenga ya su IP. Para ello, la red debe estar en autostart (`sudo virsh net-autostart RedPrivada-DHCP`) y su XML debe incluir el bloque `<ip address='192.168.50.1' netmask='255.255.255.0'/>`.
+    - `After=libvirtd.service` no garantiza que el switch virtual tenga ya su IP.
+    - Para ello, la red debe estar en autostart (`sudo virsh net-autostart RedPrivada-DHCP`) y su XML debe incluir el bloque `<ip address='192.168.50.1' netmask='255.255.255.0'/>`.
 
 ### 6.18 Descargar la imagen de las máquinas virtuales cliente
 
