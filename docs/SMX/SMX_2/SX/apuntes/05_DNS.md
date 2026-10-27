@@ -20,9 +20,9 @@ schedule: 233h - 7h/w
 
 |**Criterios de evaluación de la unidad didáctica:**|
 ||
-|**a)** Se han identificado y descrito escenarios en los que surge la necesidad de un servicio de resolución de nombres.|
+|**a) Se han identificado y descrito escenarios en los que surge la necesidad de un servicio de resolución de nombres.**|
 |**b)** Se han clasificado los principales mecanismos de resolución de nombres.|
-|**c)** Se ha descrito la estructura, nomenclatura y funcionalidad de los sistemas de nombres jerárquicos.|
+|**c) Se ha descrito la estructura, nomenclatura y funcionalidad de los sistemas de nombres jerárquicos.**|
 |**d)** Se ha instalado un servicio jerárquico de resolución de nombres.|
 |**e)** Se ha preparado el servicio para almacenar las respuestas procedentes de servidores de redes públicas y servirlas a los equipos de la red local.|
 |**f)** Se han añadido registros de nombres correspondientes a una zona nueva, con opciones relativas a servidores de correo y alias.|
