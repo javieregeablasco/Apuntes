@@ -112,8 +112,6 @@ schedule: 233h - 7h/w
 
 ### 4.1 Zonas DNS
 
-- **Una zona DNS es la porción concreta del espacio de nombres que un servidor determinado aloja y sobre la cual puede responder consultas**. Por ejemplo, el servidor autoritativo que resuelve `www.edu.gva.es` contiene la zona `edu.gva.es`.
-
 - **Una zona DNS es la porción del espacio de nombres cuya administración corresponde a uno (o varios) servidores autoritativos, que mantienen sus registros y responden las consultas sobre ella**.
 - Una zona no tiene por qué coincidir con un dominio completo: si un subdominio se delega a otros servidores, deja de formar parte de la zona padre. Por ejemplo, dentro del dominio `gva.es`, si `edu.gva.es` está delegado, `www.edu.gva.es` pertenece a la zona `edu.gva.es` y no a `gva.es`.
 ![imagen](./img_5/img_5_2.png){.ochocinco}
