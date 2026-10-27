@@ -863,7 +863,9 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
         |**Nivel_4**|- Yu Gothic 12 normal.<br>- Color de letra: #1c4adf.<br>- Resalte color #d2d320.<br>- Superior, inferior, 0.10pt, color #b92dd5  |Estilo de numeración 4|
         |**Nivel_5**|- Tahoma 12 normal.<br>- Superior, inferior, 0.10pt, color #b92dd5  |Estilo de numeración 5|
 
-    !!! tip "6. Insertar un índice (o sumario) que solo mostrará LOS 3 PRIMEROS NIVELES."
+    !!! tip "6. Insetar leyendas en las imágenes y la tabla que se encuentran al final del documento."
+
+    !!! tip "7. Insertar un índice (o sumario) que solo mostrará LOS 3 PRIMEROS NIVELES.<br>Insertir un índice de figuras y un índice de tablas."
 
     !!! warning "Condiciones de entrega de la tarea"
         1. Subir vuestra tarea nombrando el archivo **RA2-CEb-3-Nombre Alumno** a la **tarea RA2-CEb-3**.  
