@@ -181,7 +181,7 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
     - En esta situación, el cliente DNS permitirá que un servidor DNS devuelva la mejor respuesta posible.
     - Si el servidor DNS consultado no cuenta con un nombre que corresponda con el de la consulta, devolverá una referencia a un servidor DNS autoritativo para un nivel inferior del espacio de nombres de dominio.
     - El cliente DNS hará a continuación una consulta a la dirección de referencia.
-    - Este proceso continúa con servidores DNS adicionales que siguen en la cadena de consulta hasta que se produzca un error o se supere el tiempo de espera.
+    - Este proceso continúa con servidores DNS adicionales que siguen en la cadena de consulta hasta conseguir la información requerida, se produzca un error o se supere el tiempo de espera.
 
 !!! tip "3. Consulta no recursiva:"
     - Generalmente se produce cuando un cliente resolver DNS consulta a un servidor DNS por un registro al que tiene acceso porque o bien es autoritativo para el registro o el registro existe dentro de su caché.
