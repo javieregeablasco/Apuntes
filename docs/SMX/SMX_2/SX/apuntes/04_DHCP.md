@@ -581,15 +581,14 @@ Get-Item "C:\ISO\alpine.iso" | Select-Object Name, Length
 
     - Declarar la unidad de DVD  y montar el **ISO**.
     
-        !!! warning "Las VMs Generation 1 traen una unidad de DVD por defecto (a diferencia de Generation 2, donde hay que añadirla explícitamente con Add-VMDvdDrive). Por tanto, basta con usar Set-VMDvdDrive para montar la ISO en la unidad ya existente."
+        !!! warning "Las VMs Generation 1 traen una unidad de DVD por defecto (a diferencia de Generation 2, donde hay que añadirla explícitamente con Add-VMDvdDrive).<br>Por tanto, basta con usar Set-VMDvdDrive para montar la ISO en la unidad ya existente."
 
-    ```powershell
-    Set-VMDvdDrive -VMName "CLIENTE-1" -Path "C:\ISOs\alpine.iso"
-    Get-VMDvdDrive -VMName "CLIENTE-1"   # debe mostrar el Path del ISO
-    ```
+            ```powershell
+            Set-VMDvdDrive -VMName "CLIENTE-1" -Path "C:\ISOs\alpine.iso"
+            Get-VMDvdDrive -VMName "CLIENTE-1"   # debe mostrar el Path del ISO
+            ```
 
     - Definir el orden de arranque (DVD antes que red)
-    
     ```powershell
     Stop-VM -Name "Cliente-1" -TurnOff -Force
     Set-VMFirmware -VMName "Cliente-1" -FirstBootDevice (Get-VMDvdDrive -VMName "Cliente-1")
