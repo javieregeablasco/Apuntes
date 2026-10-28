@@ -43,35 +43,35 @@ schedule: 1h/w
 
 ### 🌎 Desafíos ambientales principales
 
-!!! tip "1. Cambio Climático y Transición Energética:"
+!!! abstract "1. Cambio Climático y Transición Energética:"
     - Aumento de las temperaturas globales provocado por la emisión de Gases de Efecto Invernadero (GEI) procedentes de combustibles fósiles.
     - Provoca un incremento en la frecuencia e intensidad de fenómenos meteorológicos extremos (olas de calor, sequías prolongadas, precipitaciones torrenciales y DANA), el aumento del nivel del mar y la alteración de los patrones climáticos.
 
-!!! tip "2. Pérdida de Biodiversidad y Colapso de Ecosistemas:"
+!!! abstract "2. Pérdida de Biodiversidad y Colapso de Ecosistemas:"
     - Extinción acelerada de especies y destrucción de hábitats clave (bosques, humedales, arrecifes) por sobreexplotación, deforestación y contaminación, reduciendo la resiliencia de la naturaleza y los servicios ecosistémicos.
 
-!!! tip "3. Contaminación y Gestión Ineficiente de Residuos:"
+!!! abstract "3. Contaminación y Gestión Ineficiente de Residuos:"
     -Presencia masiva de plásticos, microplásticos, vertidos químicos e industriales y emisiones contaminantes en el aire, agua y suelo.
 
-!!! tip "4. Escasez Hídrica y Estrés de Agua Dulce:"
+!!! abstract "4. Escasez Hídrica y Estrés de Agua Dulce:"
     - Desequilibrio creciente entre la demanda humana/productiva y la disponibilidad real de agua dulce, agravado por el cambio climático y la contaminación de acuíferos.
 
-!!! tip "5. Degradación del Suelo y Desertificación:"
+!!! abstract "5. Degradación del Suelo y Desertificación:"
     - Pérdida de la fertilidad de la tierra, erosión y salinización debido a la agricultura intensiva, la deforestación y el aumento del estrés térmico.
 
 ### 👥 Desafíos Sociales Principales
 
-!!! tip "1. Pobreza, Desigualdad y Brecha Climática:"
+!!! abstract "1. Pobreza, Desigualdad y Brecha Climática:"
     - Gran disparidad socioeconómica en el acceso a recursos y oportunidades.
     - La exposición a los riesgos ambientales es inequitativa: las poblaciones con menor nivel de renta sufren los mayores daños a pesar de haber contribuido sustancialmente menos a las emisiones globales.
 
-!!! tip "2. Acceso Limitado a Servicios Básicos e Inseguridad Alimentaria:"
+!!! abstract "2. Acceso Limitado a Servicios Básicos e Inseguridad Alimentaria:"
     - Dificultades para garantizar agua potable, saneamiento digno, energía asequible y alimentos nutritivos debido a caídas en la producción agropecuaria y sequías.
 
-!!! tip "3. Desplazamientos y Migraciones Climáticas:"
+!!! abstract "3. Desplazamientos y Migraciones Climáticas:"
     - Éxodo rural y migraciones forzosas internas e internacionales provocadas por la pérdida de medios de vida, desertificación, inundaciones o escasez extrema de agua.
 
-!!! tip "4. Reto Demográfico y Vulnerabilidad Territorial:"
+!!! abstract "4. Reto Demográfico y Vulnerabilidad Territorial:"
     - Concentración poblacional en grandes áreas urbanas y zonas costeras, dejando entornos rurales envejecidos y desatendidos ante catástrofes naturales
 
 ## 2. Impactos sobre las Personas (Eje Social)
@@ -108,35 +108,35 @@ Las actividades económicas enfrentan riesgos físicos (daños directos por el c
 
 ### 🌽 Sector Primario (Agricultura, Ganadería y Pesca)
 
-!!! tip "1. Agricultura"
+!!! abstract "1. Agricultura"
     - Reducción drástica del potencial productivo y pérdida de cosechas por sequías y lluvias torrenciales (p. ej., pérdidas anuales estimadas en 1.500 millones de euros en España por escasez hídrica y caídas de más del 20% de ingresos en explotaciones locales). Pérdida de suelos por erosión y salinización de acuíferos
 
-!!! tip "2. Ganadería"
+!!! abstract "2. Ganadería"
     - Estrés térmico animal que reduce la productividad de leche y carne, aumentando la morbilidad y los costes operativos por la escasez de pastos y mayor gasto en refrigeración o piensos.
 
-!!! tip "3. Pesca y Acuicultura"
+!!! abstract "3. Pesca y Acuicultura"
     - Desplazamiento y reducción de caladeros por el aumento de la temperatura del mar, la acidificación oceánica y la pérdida de biodiversidad
 
 ### 🏭 Sector Industrial y Energético
 
-!!! tip "1. Industria Manufacturera y Agroalimentaria"
+!!! abstract "1. Industria Manufacturera y Agroalimentaria"
     - Interrupción de cadenas de suministro por eventos meteorológicos y sobrecostes por restricción de insumos clave como el agua (especialmente intensivo en minería, textil, bebidas y procesado de alimentos).
     - Necesidad de asumir inversiones de descarbonización e impuestos al carbono para mantener la competitividad.
 
-!!! tip "2. Sector Energético"
+!!! abstract "2. Sector Energético"
     - La menor disponibilidad de agua compromete la generación hidroeléctrica, la producción de biomasa y los sistemas de refrigeración de plantas no renovables.
     - A su vez, el cambio en los patrones térmicos altera la demanda energética provocando picos de consumo en verano.
 
 ### 🏙️ Sector Servicios, Turismo, Transporte y Finanzas
 
-!!! tip "1. Turismo"
+!!! abstract "1. Turismo"
     - Deterioro de atractivos naturales (blanqueamiento de corales, erosión de playas, falta de nieve en estaciones de esquí), sobrecalentamiento estival en zonas del sur y alteración de las temporadas de afluencia
 
-!!! tip "2. Transporte y Logística"
+!!! abstract "2. Transporte y Logística"
     - Daños en infraestructuras viales y ferroviarias por eventos extremos y retrasos logísticos por sequías en vías fluviales.
     - Desafío de renovar flotas hacia vehículos de cero emisiones ante el diferencial de precios de los combustibles limpios.
 
-!!! tip "3. Sector Financiero y Seguros"
+!!! abstract "3. Sector Financiero y Seguros"
     - Aumento del riesgo de impago en carteras crediticias expuestas al clima y fuerte elevación de las primas e indemnizaciones por siniestros y catástrofes naturales.
 
 ## 4. Acciones y Respuestas para Minimizar los Impactos
@@ -156,31 +156,31 @@ Para frenar la degradación y construir resiliencia, las respuestas abarcan inic
 
 ### 🌎 A. Medidas Ambientales y de Eficiencia Productiva
 
-!!! tip "Mitigación Climática y Transición Energética"
+!!! abstract "Mitigación Climática y Transición Energética"
     - **Descarbonización del Mix:** Sustitución gradual de combustibles fósiles por energías renovables (fotovoltaica, eólica, geotérmica) y despliegue de almacenamiento energético.
     - **Eficiencia y Rehabilitación:** Planes masivos de optimización térmica en viviendas e instalaciones industriales (sistemas LED, aislamiento, climatización de alto rendimiento).
     - **Movilidad Sostenible:** Electrificación del transporte, potenciación del transporte público y fomento de biocombustibles avanzados en aviación y transporte pesado.
     - **Fiscalidad Ambiental:** Aplicación de precios al carbono y revisión de subsidios para internalizar costes ambientales.
 
-!!! tip "Gestión de Recursos y Economía Circular"
+!!! abstract "Gestión de Recursos y Economía Circular"
     - **Estrategia R (Reducir, Reutilizar, Reparar, Reciclar):** Implantación de diseño modular, ecodiseño para alargar la vida útil del producto, eliminación de plásticos de un solo uso y valorización de residuos.
     - **Simbiosis Industrial:** Configuración de redes donde los subproductos o residuos de una empresa actúan como materia prima de otra.
     - **Ciclo Eficiente del Agua:** Modernización de regadíos (riego por goteo inteligente), tratamiento y reutilización de aguas grises/residuales y detección digital de fugas en redes.
 
-!!! tip "Restauración Ecológica y Agroecología"
+!!! abstract "Restauración Ecológica y Agroecología"
     - **Soluciones Basadas en la Naturaleza:** Reforestación con especies autóctonas, restauración de humedales y ríos, y creación de infraestructura verde urbana para mitigar islas de calor.
     - **Agricultura de Conservación:** Rotación de cultivos, reducción de fertilizantes sintéticos y pesticidas, y manejo de suelos vivos para retener agua y capturar carbono.
 
 ### 👥 B. Medidas Sociales, Laborales y de Transición Justa
 
-!!! tip "Políticas Activas de Empleo (PAE) y Competencias Verdes"
+!!! abstract "Políticas Activas de Empleo (PAE) y Competencias Verdes"
     - **Recualificación (Reskilling) y Capacitación (Upskilling):** Programas de formación continua para adaptar la mano de obra de sectores en declive ("empleos marrones") hacia actividades sostenibles ("empleos verdes") como la rehabilitación energética, la gestión de residuos o el montaje de renovables.
     - **Fomento del Empleo Joven y de Género:** Incentivos mediante convocatorias específicas (como el programa Empleoverde+) y fomento de titulaciones STEM e insumos sostenibles entre colectivos infrarepresentados.
 
-!!! tip "Estrategia de Transición Justa"
+!!! abstract "Estrategia de Transición Justa"
     - **Convenios de Transición Justa:** Planes de reconversión territorial para comarcas afectadas por el cierre de minas o centrales térmicas, incluyendo bolsas de trabajo prioritarias, prejubilaciones y proyectos de restauración ambiental.
     - **Protección Social y Redistribución:** Mecanismos de compensación para familias en situación de pobreza energética, bonos sociales y subsidios directos a la rehabilitación de vivienda en barrios de baja renta.
 
-!!! tip "Diálogo Social y Marco Laboral"
+!!! abstract "Diálogo Social y Marco Laboral"
     - **Negociación Colectiva Verde:** Inclusión de cláusulas ambientales y de adaptación climática en convenios colectivos, impulsadas por acuerdos marco entre patronal y sindicatos.
     - **Mecanismos de Flexibilidad e Higiene Laboral:** Integración de protocolos específicos en la Prevención de Riesgos Laborales frente a fenómenos extremos (olas de calor) y uso de sistemas de flexibilidad interna (como los ERTE o Mecanismo RED) para salvaguardar el empleo en crisis climáticas.
