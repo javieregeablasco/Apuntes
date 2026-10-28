@@ -159,6 +159,8 @@ Para frenar la degradación y construir resiliencia, las respuestas abarcan inic
 
 ### 🌎 Medidas Ambientales y de Eficiencia Productiva
 
+![img](./img_4/img_4_24.webp){.sietecinco }
+
 !!! abstract "Mitigación Climática y Transición Energética"
     - **Descarbonización del Mix:** Sustitución gradual de combustibles fósiles por energías renovables (fotovoltaica, eólica, geotérmica) y despliegue de almacenamiento energético.
     - **Eficiencia y Rehabilitación:** Planes masivos de optimización térmica en viviendas e instalaciones industriales (sistemas LED, aislamiento, climatización de alto rendimiento).
