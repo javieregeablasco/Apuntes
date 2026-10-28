@@ -100,7 +100,7 @@ Los impactos ambientales y de la transición afectan de manera directa e inmedia
 
 Las actividades económicas enfrentan riesgos físicos (daños directos por el clima) y riesgos de transición (costes de adaptación normativa, penalizaciones al carbono y cambios de demanda).
 
-![img](./img_4/img_4_14.jpeg){.sietecinco}
+![img](./img_4/img_4_14.jpeg){.cien }
 
                      ┌────────────────────────────────┐
                      │   RIESGOS EN EL SECTOR PRODUCTIVO │
