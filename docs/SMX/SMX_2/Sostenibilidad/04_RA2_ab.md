@@ -76,7 +76,7 @@ schedule: 1h/w
 
 ## 2. Impactos sobre las Personas (Eje Social)
 
-- Los impactos ambientales y de la transición afectan de manera directa e inmediata a la salud, la economía doméstica, la equidad de género y los medios de vida de la ciudadaníar.
+Los impactos ambientales y de la transición afectan de manera directa e inmediata a la salud, la economía doméstica, la equidad de género y los medios de vida de la ciudadaníar.
 
 |Dimensión de Impacto|Manifestaciones clave y evidencia|
 |||
