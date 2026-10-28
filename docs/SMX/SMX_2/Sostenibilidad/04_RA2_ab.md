@@ -76,10 +76,13 @@ schedule: 1h/w
 
     - Éxodo rural y migraciones forzosas internas e internacionales provocadas por la pérdida de medios de vida, desertificación, inundaciones o escasez extrema de agua.
 
-!!! abstract "4. Reto Demográfico y Vulnerabilidad Territorial:"
+!!! abstract "4. Reto demográfico y vulnerabilidad territorial"
+    ![img](./img_4/img_4_11.jpeg){.sietecinco}
     - Concentración poblacional en grandes áreas urbanas y zonas costeras, dejando entornos rurales envejecidos y desatendidos ante catástrofes naturales
 
-## 2. Impactos sobre las Personas (Eje Social)
+## 2. Impactos sobre las personas (eje social)
+
+![img](./img_4/img_4_12.avif){.sietecinco}
 
 Los impactos ambientales y de la transición afectan de manera directa e inmediata a la salud, la economía doméstica, la equidad de género y los medios de vida de la ciudadaníar.
 
