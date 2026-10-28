@@ -40,23 +40,29 @@ schedule: 1h/w
 
 !!! abstract "2. Pérdida de biodiversidad y colapso de ecosistemas"
     ![img](./img_4/img_4_4.jpg){.sietecinco}
+
     - Extinción acelerada de especies y destrucción de hábitats clave (bosques, humedales, arrecifes) por sobreexplotación, deforestación y contaminación, reduciendo la resiliencia de la naturaleza y los servicios ecosistémicos.
 
 !!! abstract "3. Contaminación y gestión ineficiente de residuos"
     ![img](./img_4/img_4_5.jpg){.sietecinco}
+
     -Presencia masiva de plásticos, microplásticos, vertidos químicos e industriales y emisiones contaminantes en el aire, agua y suelo.
 
 !!! abstract "4. Escasez hídrica y estrés de agua dulce"
     ![img](./img_4/img_4_6.jpg){.sietecinco}
+
     - Desequilibrio creciente entre la demanda humana/productiva y la disponibilidad real de agua dulce, agravado por el cambio climático y la contaminación de acuíferos.
 
 !!! abstract "5. Degradación del suelo y desertificación"
     ![img](./img_4/img_4_7.jpg){.sietecinco}
+
     - Pérdida de la fertilidad de la tierra, erosión y salinización debido a la agricultura intensiva, la deforestación y el aumento del estrés térmico.
 
 ### 👥 Desafíos Sociales Principales
 
-!!! abstract "1. Pobreza, Desigualdad y Brecha Climática:"
+!!! abstract "1. Pobreza, desigualdad y brecha climática"
+    ![img](./img_4/img_4_8.webp){.sietecinco}
+
     - Gran disparidad socioeconómica en el acceso a recursos y oportunidades.
     - La exposición a los riesgos ambientales es inequitativa: las poblaciones con menor nivel de renta sufren los mayores daños a pesar de haber contribuido sustancialmente menos a las emisiones globales.
 
