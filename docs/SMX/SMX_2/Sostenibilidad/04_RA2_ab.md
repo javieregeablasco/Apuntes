@@ -93,9 +93,14 @@ Los impactos ambientales y de la transición afectan de manera directa e inmedia
 |**Injusticia y Desigualdad**|**- Afectación desproporcionada:** Niños, ancianos, personas con discapacidades, hogares monomarentales y migrantes son los más vulnerables.<br>**- Desigualdad de Emisiones:** Mientras el 70% de la población habita en municipios donde la temperatura subió más de 1,5 °C (con rentas familiares bajo la media), las grandes fortunas y corporaciones registran huellas de carbono drásticamente superiores.|
 |**Empleo y Trabajo**|**- Pérdida de Puestos Directos:** Extinción de empleo en agricultura tradicional y sectores dependientes de recursos amenazados.<br> **- Riesgos Laborales Térmicos:** Mayor exposición a golpe de calor en trabajos al aire libre (construcción, agricultura).|
 
-## 3. Impactos sobre los Sectores Productivos (Eje Económico)
+## 3. Impactos sobre los sectores productivos (eje económico)
+
+![img](./img_4/img_4_13.png){.sietecinco}
 
 Las actividades económicas enfrentan riesgos físicos (daños directos por el clima) y riesgos de transición (costes de adaptación normativa, penalizaciones al carbono y cambios de demanda).
+
+![img](./img_4/img_4_14.png){.sietecinco}
+
 
                      ┌────────────────────────────────┐
                      │   RIESGOS EN EL SECTOR PRODUCTIVO │
