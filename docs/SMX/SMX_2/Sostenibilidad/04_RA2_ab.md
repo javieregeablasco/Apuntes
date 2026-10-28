@@ -110,6 +110,8 @@ Las actividades económicas enfrentan riesgos físicos (daños directos por el c
     - Reducción drástica del potencial productivo y pérdida de cosechas por sequías y lluvias torrenciales (p. ej., pérdidas anuales estimadas en 1.500 millones de euros en España por escasez hídrica y caídas de más del 20% de ingresos en explotaciones locales). Pérdida de suelos por erosión y salinización de acuíferos
 
 !!! abstract "2. Ganadería"
+    ![img](./img_4/img_4_16.jpg){.sietecinco }
+
     - Estrés térmico animal que reduce la productividad de leche y carne, aumentando la morbilidad y los costes operativos por la escasez de pastos y mayor gasto en refrigeración o piensos.
 
 !!! abstract "3. Pesca y Acuicultura"
