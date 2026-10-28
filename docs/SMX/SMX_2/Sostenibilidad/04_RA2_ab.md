@@ -102,7 +102,7 @@ Las actividades económicas enfrentan riesgos físicos (daños directos por el c
 
 ![img](./img_4/img_4_14.jpeg){.cien }
 
-### 🌽 Sector Primario (Agricultura, Ganadería y Pesca)
+### 🌽 Sector primario (agricultura, ganadería y pesca)
 
 !!! abstract "1. Agricultura"
     ![img](./img_4/img_4_15.jpeg){.sietecinco }
@@ -119,7 +119,7 @@ Las actividades económicas enfrentan riesgos físicos (daños directos por el c
 
     - Desplazamiento y reducción de caladeros por el aumento de la temperatura del mar, la acidificación oceánica y la pérdida de biodiversidad
 
-### 🏭 Sector Industrial y Energético
+### 🏭 Sector industrial y energético
 
 !!! abstract "1. Industria Manufacturera y Agroalimentaria"
     ![img](./img_4/img_4_18.jpg){.sietecinco }
@@ -133,7 +133,7 @@ Las actividades económicas enfrentan riesgos físicos (daños directos por el c
     - La menor disponibilidad de agua compromete la generación hidroeléctrica, la producción de biomasa y los sistemas de refrigeración de plantas no renovables.
     - A su vez, el cambio en los patrones térmicos altera la demanda energética provocando picos de consumo en verano.
 
-### 🏙️ Sector Servicios, Turismo, Transporte y Finanzas
+### 🏙️ Sector servicios, turismo, transporte y finanzas
 
 !!! abstract "1. Turismo"
     ![img](./img_4/img_4_20.jpg){.sietecinco }
@@ -151,13 +151,13 @@ Las actividades económicas enfrentan riesgos físicos (daños directos por el c
 
     - Aumento del riesgo de impago en carteras crediticias expuestas al clima y fuerte elevación de las primas e indemnizaciones por siniestros y catástrofes naturales.
 
-## 4. Acciones y Respuestas para Minimizar los Impactos
+## 4. Acciones y respuestas para minimizar los impactos
 
 Para frenar la degradación y construir resiliencia, las respuestas abarcan iniciativas ambiental-tecnológicas, transformaciones productivas y políticas de protección social.
 
 ![img](./img_4/img_4_23.jpeg){.sietecinco }
 
-### 🌎 Medidas Ambientales y de Eficiencia Productiva
+### 🌎 Medidas ambientales y de eficiencia productiva
 
 ![img](./img_4/img_4_24.webp){.sietecinco }
 
@@ -176,7 +176,9 @@ Para frenar la degradación y construir resiliencia, las respuestas abarcan inic
     - **Soluciones Basadas en la Naturaleza:** Reforestación con especies autóctonas, restauración de humedales y ríos, y creación de infraestructura verde urbana para mitigar islas de calor.
     - **Agricultura de Conservación:** Rotación de cultivos, reducción de fertilizantes sintéticos y pesticidas, y manejo de suelos vivos para retener agua y capturar carbono.
 
-### 👥 Medidas Sociales, Laborales y de Transición Justa
+### 👥 Medidas sociales, laborales y de transición justa
+
+![img](./img_4/img_4_25.jpg){.sietecinco }
 
 !!! abstract "Políticas Activas de Empleo (PAE) y Competencias Verdes"
     - **Recualificación (Reskilling) y Capacitación (Upskilling):** Programas de formación continua para adaptar la mano de obra de sectores en declive ("empleos marrones") hacia actividades sostenibles ("empleos verdes") como la rehabilitación energética, la gestión de residuos o el montaje de renovables.
