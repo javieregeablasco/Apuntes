@@ -27,20 +27,8 @@ schedule: 1h/w
 
 - La sociedad contemporánea se enfrenta a una crisis sistémica donde los desafíos ambientales y sociales están intrínsecamente interconectados de forma bidireccional.
 - El deterioro de los ecosistemas mina el desarrollo socioeconómico, mientras que la desigualdad y los modelos insostenibles de producción y consumo aceleran la degradación ambiental.
-1more_horiz.
 
 ![img](./img_4/img_4_2.jpeg){.cien}
-
-                 ┌────────────────────────────────────────┐
-                 │       SISTEMA SOCIOECONÓMICO           │
-                 └──────────────────┬─────────────────────┘
-                                    │
-           Emisiones / Contaminación│ ▲ Impactos en Salud /
-         Sobreexplotación Recursos  │ │ Producción y Empleo
-                                    ▼ │
-                 ┌────────────────────────────────────────┐
-                 │          SISTEMA NATURAL               │
-                 └────────────────────────────────────────┘
 
 ### 🌎 Desafíos ambientales principales
 
