@@ -105,6 +105,8 @@ Las actividades económicas enfrentan riesgos físicos (daños directos por el c
 ### 🌽 Sector Primario (Agricultura, Ganadería y Pesca)
 
 !!! abstract "1. Agricultura"
+    ![img](./img_4/img_4_15.jpeg){.sietecinco }
+
     - Reducción drástica del potencial productivo y pérdida de cosechas por sequías y lluvias torrenciales (p. ej., pérdidas anuales estimadas en 1.500 millones de euros en España por escasez hídrica y caídas de más del 20% de ingresos en explotaciones locales). Pérdida de suelos por erosión y salinización de acuíferos
 
 !!! abstract "2. Ganadería"
