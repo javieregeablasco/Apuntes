@@ -50,7 +50,8 @@ schedule: 1h/w
     ![img](./img_4/img_4_6.jpg){.sietecinco}
     - Desequilibrio creciente entre la demanda humana/productiva y la disponibilidad real de agua dulce, agravado por el cambio climático y la contaminación de acuíferos.
 
-!!! abstract "5. Degradación del Suelo y Desertificación"
+!!! abstract "5. Degradación del suelo y desertificación"
+    ![img](./img_4/img_4_7.jpg){.sietecinco}
     - Pérdida de la fertilidad de la tierra, erosión y salinización debido a la agricultura intensiva, la deforestación y el aumento del estrés térmico.
 
 ### 👥 Desafíos Sociales Principales
