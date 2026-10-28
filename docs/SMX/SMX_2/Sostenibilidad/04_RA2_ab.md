@@ -10,7 +10,7 @@ keywords: SMX, SMR, SOST
 schedule: 1h/w
 ---
 
-![Descripción de la imagen](./img_1/img_1_1.png){ .sietecinco }
+![Descripción de la imagen](./img_4/img_4_1.jpg){ .sietecinco }
   
 **Resultados de aprendizaje y criterios de evaluacion que se evaluarán en esta unidad.**  
 
