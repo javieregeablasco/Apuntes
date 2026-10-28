@@ -32,19 +32,22 @@ schedule: 1h/w
 
 ### 🌎 Desafíos ambientales principales
 
-!!! abstract "1. Cambio Climático y Transición Energética"
+!!! abstract "1. Cambio climático y transición energética"
     ![img](./img_4/img_4_3.jpg){.sietecinco}
-    
+
     - Aumento de las temperaturas globales provocado por la emisión de Gases de Efecto Invernadero (GEI) procedentes de combustibles fósiles.
     - Provoca un incremento en la frecuencia e intensidad de fenómenos meteorológicos extremos (olas de calor, sequías prolongadas, precipitaciones torrenciales y DANA), el aumento del nivel del mar y la alteración de los patrones climáticos.
 
-!!! abstract "2. Pérdida de Biodiversidad y Colapso de Ecosistemas"
+!!! abstract "2. Pérdida de biodiversidad y colapso de ecosistemas"
+    ![img](./img_4/img_4_4.jpg){.sietecinco}
     - Extinción acelerada de especies y destrucción de hábitats clave (bosques, humedales, arrecifes) por sobreexplotación, deforestación y contaminación, reduciendo la resiliencia de la naturaleza y los servicios ecosistémicos.
 
-!!! abstract "3. Contaminación y Gestión Ineficiente de Residuos"
+!!! abstract "3. Contaminación y gestión ineficiente de residuos"
+    ![img](./img_4/img_4_5.jpg){.sietecinco}
     -Presencia masiva de plásticos, microplásticos, vertidos químicos e industriales y emisiones contaminantes en el aire, agua y suelo.
 
-!!! abstract "4. Escasez Hídrica y Estrés de Agua Dulce"
+!!! abstract "4. Escasez hídrica y estrés de agua dulce"
+    ![img](./img_4/img_4_6.jpg){.sietecinco}
     - Desequilibrio creciente entre la demanda humana/productiva y la disponibilidad real de agua dulce, agravado por el cambio climático y la contaminación de acuíferos.
 
 !!! abstract "5. Degradación del Suelo y Desertificación"
