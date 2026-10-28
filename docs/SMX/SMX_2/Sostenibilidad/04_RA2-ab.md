@@ -64,24 +64,24 @@ schedule: 1h/w
 !!! tip "1. Pobreza, Desigualdad y Brecha Climática:"
     - Gran disparidad socioeconómica en el acceso a recursos y oportunidades.
     - La exposición a los riesgos ambientales es inequitativa: las poblaciones con menor nivel de renta sufren los mayores daños a pesar de haber contribuido sustancialmente menos a las emisiones globales.
-    
+
 !!! tip "2. Acceso Limitado a Servicios Básicos e Inseguridad Alimentaria:"
     - Dificultades para garantizar agua potable, saneamiento digno, energía asequible y alimentos nutritivos debido a caídas en la producción agropecuaria y sequías.
-    
+
 !!! tip "3. Desplazamientos y Migraciones Climáticas:"
     - Éxodo rural y migraciones forzosas internas e internacionales provocadas por la pérdida de medios de vida, desertificación, inundaciones o escasez extrema de agua.
-    
+
 !!! tip "4. Reto Demográfico y Vulnerabilidad Territorial:"
     - Concentración poblacional en grandes áreas urbanas y zonas costeras, dejando entornos rurales envejecidos y desatendidos ante catástrofes naturales
-    
-## .2. Impactos sobre las Personas (Eje Social)
+
+## 2. Impactos sobre las Personas (Eje Social)
 
 - Los impactos ambientales y de la transición afectan de manera directa e inmediata a la salud, la economía doméstica, la equidad de género y los medios de vida de la ciudadaníar.
 
 |Dimensión de Impacto|Manifestaciones clave y evidencia|
 |||
-|**Salud PúblicaMortalidad por calor extremo: Incremento de muertes directas por olas de calor (alcanzando 116 fallecidos por millón en España, muy por encima de la media europea)2728.
-Afecciones respiratorias y cardiovasculares: Agravadas por la concentración de ozono troposférico y partículas finas2729.
+|**- Salud Pública**|**Mortalidad por calor extremo:** Incremento de muertes directas por olas de calor (alcanzando 116 fallecidos por millón en España, muy por encima de la media europea).<br>**- Afecciones respiratorias y cardiovasculares:** Agravadas por la concentración de ozono troposférico y partículas finas.|
+
 Enfermedades infecciosas y gastrointestinales: Expansión de vectores (dengue, malaria) y patógenos en el agua por mala calidad o sequía18more_horiz.Economía DomésticaPobreza Energética: Incapacidad de mantener una temperatura adecuada en el hogar en invierno o verano debido al bajo aislamiento edilicio y la volatilidad tarifaria3233.
 Encarecimiento de la Cesta de la Compra: Aumento sostenido de precios en alimentos frescos e insumos básicos por caídas de cosecha615.
 Gastos Extraordinarios: Coste adicional directo por la compra de agua embotellada o camiones cisterna en municipios con escasez3435.Injusticia y DesigualdadAfectación desproporcionada: Niños, ancianos, personas con discapacidades, hogares monomarentales y migrantes son los más vulnerables16more_horiz.
