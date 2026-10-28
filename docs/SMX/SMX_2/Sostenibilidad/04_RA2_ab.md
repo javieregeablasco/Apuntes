@@ -80,13 +80,16 @@ schedule: 1h/w
 
 |Dimensión de Impacto|Manifestaciones clave y evidencia|
 |||
-|**- Salud Pública**|**Mortalidad por calor extremo:** Incremento de muertes directas por olas de calor (alcanzando 116 fallecidos por millón en España, muy por encima de la media europea).<br>**- Afecciones respiratorias y cardiovasculares:** Agravadas por la concentración de ozono troposférico y partículas finas.|
+|**Salud Pública**|**- Mortalidad por calor extremo:** Incremento de muertes directas por olas de calor (alcanzando 116 fallecidos por millón en España, muy por encima de la media europea).<br>**- Afecciones respiratorias y cardiovasculares:** Agravadas por la concentración de ozono troposférico y partículas finas.<br>**- Enfermedades infecciosas y gastrointestinales:** Expansión de vectores (dengue, malaria) y patógenos en el agua por mala calidad o sequía.
+|**Economía Doméstica**|**- Pobreza Energética:** Incapacidad de mantener una temperatura adecuada en el hogar en invierno o verano debido al bajo aislamiento edilicio y la volatilidad tarifaria.<br>**- Encarecimiento de la Cesta de la Compra:** Aumento sostenido de precios en alimentos frescos e insumos básicos por caídas de cosechas.<br>**- Gastos Extraordinarios:** Coste adicional directo por la compra de agua embotellada o camiones cisterna en municipios con escasez.|
+|**Injusticia y Desigualdad**|**- Afectación desproporcionada:** Niños, ancianos, personas con discapacidades, hogares monomarentales y migrantes son los más vulnerables.<br>**- Desigualdad de Emisiones:** Mientras el 70% de la población habita en municipios donde la temperatura subió más de 1,5 °C (con rentas familiares bajo la media), las grandes fortunas y corporaciones registran huellas de carbono drásticamente superiores.|
+|**Empleo y Trabajo**|**- Pérdida de Puestos Directos:** Extinción de empleo en agricultura tradicional y sectores dependientes de recursos amenazados.<br> **- Riesgos Laborales Térmicos:** Mayor exposición a golpe de calor en trabajos al aire libre (construcción, agricultura).|
 
-Enfermedades infecciosas y gastrointestinales: Expansión de vectores (dengue, malaria) y patógenos en el agua por mala calidad o sequía18more_horiz.Economía DomésticaPobreza Energética: Incapacidad de mantener una temperatura adecuada en el hogar en invierno o verano debido al bajo aislamiento edilicio y la volatilidad tarifaria3233.
-Encarecimiento de la Cesta de la Compra: Aumento sostenido de precios en alimentos frescos e insumos básicos por caídas de cosecha615.
-Gastos Extraordinarios: Coste adicional directo por la compra de agua embotellada o camiones cisterna en municipios con escasez3435.Injusticia y DesigualdadAfectación desproporcionada: Niños, ancianos, personas con discapacidades, hogares monomarentales y migrantes son los más vulnerables16more_horiz.
-Desigualdad de Emisiones: Mientras el 70% de la población habita en municipios donde la temperatura subió más de 1,5 °C (con rentas familiares bajo la media)1737, las grandes fortunas y corporaciones registran huellas de carbono drásticamente superiores1736.Empleo y TrabajoPérdida de Puestos Directos: Extinción de empleo en agricultura tradicional y sectores dependientes de recursos amenazados38more_horiz.
-Riesgos Laborales Térmicos: Mayor exposición a golpe de calor en trabajos al aire libre (construcción, agricultura)4142.3. Impactos sobre los Sectores Productivos (Eje Económico)Las actividades económicas enfrentan riesgos físicos (daños directos por el clima) y riesgos de transición (costes de adaptación normativa, penalizaciones al carbono y cambios de demanda)38more_horiz.                     ┌────────────────────────────────┐
+## 3. Impactos sobre los Sectores Productivos (Eje Económico)
+
+Las actividades económicas enfrentan riesgos físicos (daños directos por el clima) y riesgos de transición (costes de adaptación normativa, penalizaciones al carbono y cambios de demanda).
+
+                     ┌────────────────────────────────┐
                      │   RIESGOS EN EL SECTOR PRODUCTIVO │
                      └───────────────┬────────────────┘
                                      │
