@@ -102,23 +102,6 @@ Las actividades económicas enfrentan riesgos físicos (daños directos por el c
 
 ![img](./img_4/img_4_14.jpeg){.cien }
 
-                     ┌────────────────────────────────┐
-                     │   RIESGOS EN EL SECTOR PRODUCTIVO │
-                     └───────────────┬────────────────┘
-                                     │
-            ┌────────────────────────┴────────────────────────┐
-            ▼                                                 ▼
-   ┌──────────────────┐                              ┌──────────────────┐
-   │ RIESGOS FÍSICOS  │                              │RIESGOS TRANSICIÓN│
-   └────────┬─────────┘                              └────────┬─────────┘
-            │ Daños en infraestructuras                       │ Impuestos carbono / Normativa
-            │ Reducción materia prima / agua                  │ Obsoletización de tecnología
-            │ Interrupción cadena suministro                  │ Pérdida "licencia social"
-            ▼                                                 ▼
-   ┌────────────────────────────────────────────────────────────────────┐
-   │ SECTORES AFECTADOS: Primario, Industrial, Servicios, Transporte    │
-   └────────────────────────────────────────────────────────────────────┘
-
 ### 🌽 Sector Primario (Agricultura, Ganadería y Pesca)
 
 !!! abstract "1. Agricultura"
