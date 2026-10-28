@@ -154,7 +154,7 @@ Para frenar la degradación y construir resiliencia, las respuestas abarcan inic
 │ & Eficiencia│        │ & Agua      │        │ lógica    │     │ Empleo    │
 └─────────────┘        └─────────────┘        └───────────┘     └───────────┘
 
-### 🌎 A. Medidas Ambientales y de Eficiencia Productiva
+### 🌎 Medidas Ambientales y de Eficiencia Productiva
 
 !!! abstract "Mitigación Climática y Transición Energética"
     - **Descarbonización del Mix:** Sustitución gradual de combustibles fósiles por energías renovables (fotovoltaica, eólica, geotérmica) y despliegue de almacenamiento energético.
@@ -171,7 +171,7 @@ Para frenar la degradación y construir resiliencia, las respuestas abarcan inic
     - **Soluciones Basadas en la Naturaleza:** Reforestación con especies autóctonas, restauración de humedales y ríos, y creación de infraestructura verde urbana para mitigar islas de calor.
     - **Agricultura de Conservación:** Rotación de cultivos, reducción de fertilizantes sintéticos y pesticidas, y manejo de suelos vivos para retener agua y capturar carbono.
 
-### 👥 B. Medidas Sociales, Laborales y de Transición Justa
+### 👥 Medidas Sociales, Laborales y de Transición Justa
 
 !!! abstract "Políticas Activas de Empleo (PAE) y Competencias Verdes"
     - **Recualificación (Reskilling) y Capacitación (Upskilling):** Programas de formación continua para adaptar la mano de obra de sectores en declive ("empleos marrones") hacia actividades sostenibles ("empleos verdes") como la rehabilitación energética, la gestión de residuos o el montaje de renovables.
