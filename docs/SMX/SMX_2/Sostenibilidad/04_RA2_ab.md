@@ -170,7 +170,7 @@ Para frenar la degradación y construir resiliencia, las respuestas abarcan inic
 !!! tip "Restauración Ecológica y Agroecología"
     - **Soluciones Basadas en la Naturaleza:** Reforestación con especies autóctonas, restauración de humedales y ríos, y creación de infraestructura verde urbana para mitigar islas de calor.
     - **Agricultura de Conservación:** Rotación de cultivos, reducción de fertilizantes sintéticos y pesticidas, y manejo de suelos vivos para retener agua y capturar carbono.
-    
+
 ### 👥 B. Medidas Sociales, Laborales y de Transición Justa
 
 !!! tip "Políticas Activas de Empleo (PAE) y Competencias Verdes"
