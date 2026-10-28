@@ -29,6 +29,7 @@ schedule: 1h/w
 - El deterioro de los ecosistemas mina el desarrollo socioeconómico, mientras que la desigualdad y los modelos insostenibles de producción y consumo aceleran la degradación ambiental.
 1more_horiz.
 
+![img](./img_4/img_4_2.jpeg){.cien}
 
                  ┌────────────────────────────────────────┐
                  │       SISTEMA SOCIOECONÓMICO           │
