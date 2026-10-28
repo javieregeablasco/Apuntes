@@ -66,7 +66,9 @@ schedule: 1h/w
     - Gran disparidad socioeconómica en el acceso a recursos y oportunidades.
     - La exposición a los riesgos ambientales es inequitativa: las poblaciones con menor nivel de renta sufren los mayores daños a pesar de haber contribuido sustancialmente menos a las emisiones globales.
 
-!!! abstract "2. Acceso Limitado a Servicios Básicos e Inseguridad Alimentaria:"
+!!! abstract "2. Acceso limitado a servicios básicos e inseguridad alimentaria"
+    ![img](./img_4/img_4_8.webp){.sietecinco}
+
     - Dificultades para garantizar agua potable, saneamiento digno, energía asequible y alimentos nutritivos debido a caídas en la producción agropecuaria y sequías.
 
 !!! abstract "3. Desplazamientos y Migraciones Climáticas:"
