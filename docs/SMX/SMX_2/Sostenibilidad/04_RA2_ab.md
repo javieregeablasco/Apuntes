@@ -115,44 +115,47 @@ Las actividades económicas enfrentan riesgos físicos (daños directos por el c
     - Estrés térmico animal que reduce la productividad de leche y carne, aumentando la morbilidad y los costes operativos por la escasez de pastos y mayor gasto en refrigeración o piensos.
 
 !!! abstract "3. Pesca y Acuicultura"
+    ![img](./img_4/img_4_17.jpg){.sietecinco }
+
     - Desplazamiento y reducción de caladeros por el aumento de la temperatura del mar, la acidificación oceánica y la pérdida de biodiversidad
 
 ### 🏭 Sector Industrial y Energético
 
 !!! abstract "1. Industria Manufacturera y Agroalimentaria"
+    ![img](./img_4/img_4_18.jpg){.sietecinco }
+
     - Interrupción de cadenas de suministro por eventos meteorológicos y sobrecostes por restricción de insumos clave como el agua (especialmente intensivo en minería, textil, bebidas y procesado de alimentos).
     - Necesidad de asumir inversiones de descarbonización e impuestos al carbono para mantener la competitividad.
 
 !!! abstract "2. Sector Energético"
+    ![img](./img_4/img_4_19.jpg){.sietecinco }
+
     - La menor disponibilidad de agua compromete la generación hidroeléctrica, la producción de biomasa y los sistemas de refrigeración de plantas no renovables.
     - A su vez, el cambio en los patrones térmicos altera la demanda energética provocando picos de consumo en verano.
 
 ### 🏙️ Sector Servicios, Turismo, Transporte y Finanzas
 
 !!! abstract "1. Turismo"
+    ![img](./img_4/img_4_20.jpg){.sietecinco }
+
     - Deterioro de atractivos naturales (blanqueamiento de corales, erosión de playas, falta de nieve en estaciones de esquí), sobrecalentamiento estival en zonas del sur y alteración de las temporadas de afluencia
 
 !!! abstract "2. Transporte y Logística"
+    ![img](./img_4/img_4_21.webp){.sietecinco }
+
     - Daños en infraestructuras viales y ferroviarias por eventos extremos y retrasos logísticos por sequías en vías fluviales.
     - Desafío de renovar flotas hacia vehículos de cero emisiones ante el diferencial de precios de los combustibles limpios.
 
 !!! abstract "3. Sector Financiero y Seguros"
+    ![img](./img_4/img_4_22.png){.sietecinco }
+
     - Aumento del riesgo de impago en carteras crediticias expuestas al clima y fuerte elevación de las primas e indemnizaciones por siniestros y catástrofes naturales.
 
 ## 4. Acciones y Respuestas para Minimizar los Impactos
 
 Para frenar la degradación y construir resiliencia, las respuestas abarcan iniciativas ambiental-tecnológicas, transformaciones productivas y políticas de protección social.
 
-┌───────────────────────────────────────────────────────────────────────────┐
-│              ACCIONES INTEGRADAS DE MITIGACIÓN Y ADAPTACIÓN               │
-└─────┬──────────────────────┬──────────────────────┬─────────────────┬─────┘
-      │                      │                      │                 │
-      ▼                      ▼                      ▼                 ▼
-┌─────────────┐        ┌─────────────┐        ┌───────────┐     ┌───────────┐
-│ Transición  │        │ Economía    │        │ Restaura- │     │Transición │
-│ Energética  │        │ Circular    │        │ ción Eco- │     │ Justa y   │
-│ & Eficiencia│        │ & Agua      │        │ lógica    │     │ Empleo    │
-└─────────────┘        └─────────────┘        └───────────┘     └───────────┘
+![img](./img_4/img_4_23.jpeg){.sietecinco }
 
 ### 🌎 Medidas Ambientales y de Eficiencia Productiva
 
