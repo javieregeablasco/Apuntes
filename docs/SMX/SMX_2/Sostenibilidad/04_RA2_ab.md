@@ -67,11 +67,13 @@ schedule: 1h/w
     - La exposición a los riesgos ambientales es inequitativa: las poblaciones con menor nivel de renta sufren los mayores daños a pesar de haber contribuido sustancialmente menos a las emisiones globales.
 
 !!! abstract "2. Acceso limitado a servicios básicos e inseguridad alimentaria"
-    ![img](./img_4/img_4_8.webp){.sietecinco}
+    ![img](./img_4/img_4_9.jpeg){.sietecinco}
 
     - Dificultades para garantizar agua potable, saneamiento digno, energía asequible y alimentos nutritivos debido a caídas en la producción agropecuaria y sequías.
 
-!!! abstract "3. Desplazamientos y Migraciones Climáticas:"
+!!! abstract "3. Desplazamientos y migraciones climáticas"
+    ![img](./img_4/img_4_10.jpeg){.sietecinco}
+
     - Éxodo rural y migraciones forzosas internas e internacionales provocadas por la pérdida de medios de vida, desertificación, inundaciones o escasez extrema de agua.
 
 !!! abstract "4. Reto Demográfico y Vulnerabilidad Territorial:"
