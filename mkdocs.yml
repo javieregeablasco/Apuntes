@@ -141,9 +141,11 @@ nav:
   - Sostenibilidad:
     - Presentación módulo: SMX/SMX_2/Sostenibilidad/00_Temario.md
     - RA1:
-      - ASG: SMX/SMX_2/Sostenibilidad/01_RA1_ab.md
+      - ASG: SMX/SMX_2/Sostenibilidad/01_RA1_ab.md      
       - Agenda 2030: SMX/SMX_2/Sostenibilidad/02_RA1_cd.md
       - Métricas de sostenibilidad: SMX/SMX_2/Sostenibilidad/03_RA1_ef.md
+    - RA2:
+      - Retos ambientales y sociales: SMX/SMX_2/Sostenibilidad/04_RA2_ab.md
 
 extra: 
     generator: false #eliminar el made with""
