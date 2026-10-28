@@ -1245,13 +1245,16 @@ Igual que en la práctica de Windows Server, usaremos **Alpine Linux** por su li
 ### 6.19 Crear la VM con virt-install (consola de texto, sin necesidad de GUI)
 
 - Para crear nuestra primera VM usaremos el script:
+
     ```bash
     sudo virt-install \
       --name Cliente-1 \
       --memory 256 \
       --vcpus 1 \
-      --disk path=/var/lib/libvirt/vm/Cliente-1.qcow2,size=4 \
-      --cdrom /var/lib/libvirt/images/alpine.iso \
+      --disk path=/var/lib/libvirt/vm/Cliente-1.qcow2,size=2 \
+      --disk path=/var/lib/libvirt/images/alpine.iso,device=cdrom \
+      --boot cdrom,hd \
+      --import \
       --network network=RedPrivada-DHCP \
       --graphics none \
       --console pty,target_type=serial \
@@ -1262,6 +1265,7 @@ Igual que en la práctica de Windows Server, usaremos **Alpine Linux** por su li
     - **La opción** `--console pty,target_type=serial` nos conectará automáticamente a la **consola serie** de la VM en la misma terminal SSH.
     - En el prompt `localhost login:` entraremos como `root` con la contraseña **root**.
     - Para salir de la consola serie sin apagar la VM, cerraremos la ventana con la que estamos loggeado.
+    - Para apagar la VM desde la consola serie, teclearemos `poweroff` y pulsaremos **Enter**.
 
 ### 6.20 Conectarse por consola serie a la VM y comprobar la interfaz de red
 
