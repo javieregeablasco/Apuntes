@@ -1318,13 +1318,14 @@ Igual que en la práctica de Windows Server, usaremos **Alpine Linux** por su li
 
     | Comando | Qué hace |
     |||
+    |virsh start `<Cliente-1>` | Inicia la VM |
     |virsh destroy `<Cliente-1>` | Apagado forzoso e inmediato |
     |virsh shutdown `<Cliente-1>` | Apagado ordenado (envía señal ACPI, espera a que el SO se apague solo) |
     |virsh reboot `<Cliente-1>` |Reinicio ordenado (equivalente ACPI) |
     |virsh undefine `<Cliente-1>` | Elimina la definición de la VM (metadatos) |
-    |virsh undefine `<Cliente-1>` --remove-all-storage| Elimina la definición de la VM y del disco --remove-all-storage|
+    |virsh undefine `<Cliente-1>` --remove-all-storage| Elimina la definición de la VM y del disco|
     |virsh list --all| Lista todas las máquinas y su estado|
-    |virsh console `<Cliente-1>`| Conexión por consale a la MV|
+    |virsh console `<Cliente-1>`| Conexión por consola a la MV|
 
 ### 6.23 Segundo cliente
 
