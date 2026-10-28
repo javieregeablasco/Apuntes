@@ -78,6 +78,7 @@ schedule: 1h/w
 
 !!! abstract "4. Reto demográfico y vulnerabilidad territorial"
     ![img](./img_4/img_4_11.jpeg){.sietecinco}
+
     - Concentración poblacional en grandes áreas urbanas y zonas costeras, dejando entornos rurales envejecidos y desatendidos ante catástrofes naturales
 
 ## 2. Impactos sobre las personas (eje social)
@@ -100,7 +101,6 @@ Los impactos ambientales y de la transición afectan de manera directa e inmedia
 Las actividades económicas enfrentan riesgos físicos (daños directos por el clima) y riesgos de transición (costes de adaptación normativa, penalizaciones al carbono y cambios de demanda).
 
 ![img](./img_4/img_4_14.png){.sietecinco}
-
 
                      ┌────────────────────────────────┐
                      │   RIESGOS EN EL SECTOR PRODUCTIVO │
