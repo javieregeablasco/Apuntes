@@ -41,19 +41,46 @@ schedule: 1h/w
                  │          SISTEMA NATURAL               │
                  └────────────────────────────────────────┘
 
-## 🌎 Desafíos ambientales principales
+### 🌎 Desafíos ambientales principales
 
 !!! tip "1. Cambio Climático y Transición Energética:"
-      - Aumento de las temperaturas globales provocado por la emisión de Gases de Efecto Invernadero (GEI) procedentes de combustibles fósiles.
-      - Provoca un incremento en la frecuencia e intensidad de fenómenos meteorológicos extremos (olas de calor, sequías prolongadas, precipitaciones torrenciales y DANA), el aumento del nivel del mar y la alteración de los patrones climáticos.
+    - Aumento de las temperaturas globales provocado por la emisión de Gases de Efecto Invernadero (GEI) procedentes de combustibles fósiles.
+    - Provoca un incremento en la frecuencia e intensidad de fenómenos meteorológicos extremos (olas de calor, sequías prolongadas, precipitaciones torrenciales y DANA), el aumento del nivel del mar y la alteración de los patrones climáticos.
 
 !!! tip "2. Pérdida de Biodiversidad y Colapso de Ecosistemas:"
-      - Extinción acelerada de especies y destrucción de hábitats clave (bosques, humedales, arrecifes) por sobreexplotación, deforestación y contaminación, reduciendo la resiliencia de la naturaleza y los servicios ecosistémicos.
+    - Extinción acelerada de especies y destrucción de hábitats clave (bosques, humedales, arrecifes) por sobreexplotación, deforestación y contaminación, reduciendo la resiliencia de la naturaleza y los servicios ecosistémicos.
 
 !!! tip "3. Contaminación y Gestión Ineficiente de Residuos:"
-      -Presencia masiva de plásticos, microplásticos, vertidos químicos e industriales y emisiones contaminantes en el aire, agua y suelo.
-      
-!!! tip Escasez Hídrica y Estrés de Agua Dulce: Desequilibrio creciente entre la demanda humana/productiva y la disponibilidad real de agua dulce, agravado por el cambio climático y la contaminación de acuíferos9more_horiz.Degradación del Suelo y Desertificación: Pérdida de la fertilidad de la tierra, erosión y salinización debido a la agricultura intensiva, la deforestación y el aumento del estrés térmico9more_horiz.👥 Desafíos Sociales PrincipalesPobreza, Desigualdad y Brecha Climática: Gran disparidad socioeconómica en el acceso a recursos y oportunidades9. La exposición a los riesgos ambientales es inequitativa: las poblaciones con menor nivel de renta sufren los mayores daños a pesar de haber contribuido sustancialmente menos a las emisiones globales15more_horiz.Acceso Limitado a Servicios Básicos e Inseguridad Alimentaria: Dificultades para garantizar agua potable, saneamiento digno, energía asequible y alimentos nutritivos debido a caídas en la producción agropecuaria y sequías9more_horiz.Desplazamientos y Migraciones Climáticas: Éxodo rural y migraciones forzosas internas e internacionales provocadas por la pérdida de medios de vida, desertificación, inundaciones o escasez extrema de agua13more_horiz.Reto Demográfico y Vulnerabilidad Territorial: Concentración poblacional en grandes áreas urbanas y zonas costeras, dejando entornos rurales envejecidos y desatendidos ante catástrofes naturales2223.2. Impactos sobre las Personas (Eje Social)Los impactos ambientales y de la transición afectan de manera directa e inmediata a la salud, la economía doméstica, la equidad de género y los medios de vida de la ciudadanía24more_horiz.Dimensión de ImpactoManifestaciones Clave y EvidenciaSalud PúblicaMortalidad por calor extremo: Incremento de muertes directas por olas de calor (alcanzando 116 fallecidos por millón en España, muy por encima de la media europea)2728.
+    -Presencia masiva de plásticos, microplásticos, vertidos químicos e industriales y emisiones contaminantes en el aire, agua y suelo.
+
+!!! tip "4. Escasez Hídrica y Estrés de Agua Dulce:"
+    - Desequilibrio creciente entre la demanda humana/productiva y la disponibilidad real de agua dulce, agravado por el cambio climático y la contaminación de acuíferos.
+
+!!! tip "5. Degradación del Suelo y Desertificación:"
+    - Pérdida de la fertilidad de la tierra, erosión y salinización debido a la agricultura intensiva, la deforestación y el aumento del estrés térmico.
+
+### 👥 Desafíos Sociales Principales
+
+!!! tip "1. Pobreza, Desigualdad y Brecha Climática:"
+    - Gran disparidad socioeconómica en el acceso a recursos y oportunidades.
+    - La exposición a los riesgos ambientales es inequitativa: las poblaciones con menor nivel de renta sufren los mayores daños a pesar de haber contribuido sustancialmente menos a las emisiones globales.
+    
+!!! tip "2. Acceso Limitado a Servicios Básicos e Inseguridad Alimentaria:"
+    - Dificultades para garantizar agua potable, saneamiento digno, energía asequible y alimentos nutritivos debido a caídas en la producción agropecuaria y sequías.
+    
+!!! tip "3. Desplazamientos y Migraciones Climáticas:"
+    - Éxodo rural y migraciones forzosas internas e internacionales provocadas por la pérdida de medios de vida, desertificación, inundaciones o escasez extrema de agua.
+    
+!!! tip "4. Reto Demográfico y Vulnerabilidad Territorial:"
+    - Concentración poblacional en grandes áreas urbanas y zonas costeras, dejando entornos rurales envejecidos y desatendidos ante catástrofes naturales
+    
+## .2. Impactos sobre las Personas (Eje Social)
+
+- Los impactos ambientales y de la transición afectan de manera directa e inmediata a la salud, la economía doméstica, la equidad de género y los medios de vida de la ciudadaníar.
+
+|Dimensión de Impacto|Manifestaciones clave y evidencia|
+|||
+|**Salud PúblicaMortalidad por calor extremo: Incremento de muertes directas por olas de calor (alcanzando 116 fallecidos por millón en España, muy por encima de la media europea)2728.
 Afecciones respiratorias y cardiovasculares: Agravadas por la concentración de ozono troposférico y partículas finas2729.
 Enfermedades infecciosas y gastrointestinales: Expansión de vectores (dengue, malaria) y patógenos en el agua por mala calidad o sequía18more_horiz.Economía DomésticaPobreza Energética: Incapacidad de mantener una temperatura adecuada en el hogar en invierno o verano debido al bajo aislamiento edilicio y la volatilidad tarifaria3233.
 Encarecimiento de la Cesta de la Compra: Aumento sostenido de precios en alimentos frescos e insumos básicos por caídas de cosecha615.
