@@ -206,7 +206,9 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
 - Habitualmente, este servidor es proporcionado por el proveedor de acceso a Internet, aunque también puede pertenecer a una organización, una empresa o ser **configurado manualmente**.
 ![Descripción de la imagen](./img_5/img_5_6.png){.marco .margintop10}
 
-- Antes de realizar nuevas consultas, pueden comprobarse diferentes **cachés DNS**. Por ejemplo, pueden existir cachés en:
+- Antes de realizar nuevas consultas, pueden comprobarse diferentes **cachés DNS**.
+
+- Por ejemplo, pueden existir cachés en:
 
     1. El navegador.
     1. El sistema operativo.
@@ -218,14 +220,14 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
 
 ### 6.2 Consulta al servidor raíz (*Root Server*)
 
-Si el resolver recursivo no dispone de la respuesta en su caché, comienza la búsqueda consultando la jerarquía DNS.
+- Si el resolver recursivo no dispone de la respuesta en su caché, comienza la búsqueda consultando la jerarquía DNS.
 
-El primer nivel corresponde a los **servidores raíz**.
+- El primer nivel corresponde a los **servidores raíz**.
 ![Descripción de la imagen](./img_5/img_5_7.png){.marco .margintop10}
 
-Existen **13 servidores raíz lógicos**, identificados mediante las letras de la **A a la M**. Cada uno de ellos está replicado mediante numerosas instancias distribuidas geográficamente por diferentes lugares del mundo.
+- Existen **13 servidores raíz lógicos**, identificados mediante las letras de la **A a la M**. Cada uno de ellos está replicado mediante numerosas instancias distribuidas geográficamente por diferentes lugares del mundo.
 
-Los servidores raíz **no conocen directamente la dirección IP** del dominio que estamos buscando. Su función es indicar qué servidores son responsables del **dominio de nivel superior (TLD)** correspondiente.
+- Los servidores raíz **no conocen directamente la dirección IP** del dominio que estamos buscando. Su función es indicar qué servidores son responsables del **dominio de nivel superior (TLD)** correspondiente.
 
 Por ejemplo, si estamos buscando:
 
