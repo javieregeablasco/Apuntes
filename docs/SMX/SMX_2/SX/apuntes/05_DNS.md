@@ -396,44 +396,43 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
       www.edu.gva.es
       ```
 
-    Un dominio dentro del **TLD** `.es` sería.
+    **Un dominio dentro del TLD** `.es` sería.
 
       ```text
       gva.es
       ```
 
-
-<!--
 ### 7.4 Subdominios
 
-Un **subdominio** es un dominio que se encuentra por debajo de otro dominio dentro de la jerarquía DNS.
+- Un **subdominio** es un dominio que se encuentra por debajo de otro dominio dentro de la jerarquía DNS.
 
-En el caso de:
+- En el caso de:
 
-    ```text
-    gva.es
-    ```
+      ```text
+      gva.es
+      ```
 
-podría tener diferentes subdominios:
+    podría tener diferentes subdominios:
 
-    ```text
-    edu.gva.es
-    san.gva.es
-    just.gva.es
-    ```
+      ```text
+      edu.gva.es
+      san.gva.es
+      just.gva.es
+      ```
 
-Y, a su vez, `edu.gva.es` podría tener otros niveles:
+    Y, a su vez, `edu.gva.es` podría tener otros niveles:
 
-    ```text
-    www.edu.gva.es
-    aules.edu.gva.es
-    correo.edu.gva.es
-    ```
+      ```text
+      www.edu.gva.es
+      aules.edu.gva.es
+      correo.edu.gva.es
+      ```
 
-Los subdominios permiten organizar diferentes servicios, departamentos o recursos dentro de una misma estructura de nombres.
+- Los subdominios permiten organizar diferentes servicios, departamentos o recursos dentro de una misma estructura de nombres.
 
 ---
 
+<!--
 ### 7.5 FQDN
 
 Un **FQDN (*Fully Qualified Domain Name*)**, o **nombre de dominio completamente cualificado**, identifica de forma completa una posición dentro de la jerarquía DNS.
