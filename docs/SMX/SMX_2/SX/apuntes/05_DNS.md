@@ -565,70 +565,61 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
       Servidor DNS alternativo: 1.0.0.1
       ```
 
-A partir de ese momento, las consultas DNS realizadas por el dispositivo podrán enviarse a los servidores de Cloudflare.
+- A partir de ese momento, las consultas DNS realizadas por el dispositivo podrán enviarse a los servidores de Cloudflare.
 
 !!! tip "Importante"
     - Un servidor DNS público **no significa que sea un servidor raíz ni un servidor autoritativo**.
     - Por ejemplo, `1.1.1.1` es un **resolver DNS recursivo público**. Recibe consultas de los clientes y, cuando es necesario, realiza las consultas correspondientes a otros servidores DNS de la jerarquía.
 
----
-
-<!--
 ### 8.2 ¿Por qué utilizar un DNS público?
 
-Existen diferentes motivos para utilizar un servidor DNS público en lugar del servidor DNS proporcionado automáticamente por nuestro proveedor de Internet.
+- Existen diferentes motivos para utilizar un servidor DNS público en lugar del servidor DNS proporcionado automáticamente por nuestro proveedor de Internet:
 
 #### 8.2.1 Rendimiento
 
-Algunos proveedores de DNS público disponen de una infraestructura distribuida por diferentes partes del mundo. Esto permite que las consultas puedan ser atendidas desde servidores cercanos al usuario.
+- Algunos proveedores de DNS público disponen de una infraestructura distribuida por diferentes partes del mundo. Esto permite que las consultas puedan ser atendidas desde servidores cercanos al usuario.
 
-El tiempo necesario para obtener una respuesta DNS se denomina habitualmente **latencia DNS**.
+- El tiempo necesario para obtener una respuesta DNS se denomina habitualmente **latencia DNS**.
 
-Una menor latencia puede hacer que la resolución de nombres sea más rápida.
-
----
+- Una menor latencia puede hacer que la resolución de nombres sea más rápida.
 
 #### 8.2.2 Disponibilidad y redundancia
 
-Los grandes proveedores de DNS público utilizan infraestructuras distribuidas y redundantes.
+- Los grandes proveedores de DNS público utilizan infraestructuras distribuidas y redundantes.
 
-Si uno de sus servidores o centros de datos deja de funcionar, otros servidores pueden continuar atendiendo las consultas.
+- Si uno de sus servidores o centros de datos deja de funcionar, otros servidores pueden continuar atendiendo las consultas.
 
-Esto proporciona una elevada **disponibilidad** del servicio.
-
----
+- Esto proporciona una elevada **disponibilidad** del servicio.
 
 #### 8.2.3 Seguridad
 
-Algunos servicios DNS públicos incorporan mecanismos de seguridad adicionales, como el bloqueo de determinados dominios asociados a:
+- Algunos servicios DNS públicos incorporan mecanismos de seguridad adicionales, como el bloqueo de determinados dominios asociados a:
 
-- Malware.
-- Phishing.
-- Botnets.
-- Otros tipos de amenazas.
+    1. Malware.
+    2. Phishing.
+    3. Botnets.
+    4. Otros tipos de amenazas.
 
-Por ejemplo, algunos resolvers públicos están diseñados específicamente para proporcionar una capa adicional de protección frente a determinados dominios maliciosos.
+- Por ejemplo, algunos resolvers públicos están diseñados específicamente para proporcionar una capa adicional de protección frente a determinados dominios maliciosos.
 
 !!! warning "DNS y seguridad"
     - El uso de un DNS público **no garantiza por sí mismo que una conexión sea segura**.
     - DNS se encarga principalmente de resolver nombres. La seguridad de la comunicación dependerá también de otros mecanismos, como **HTTPS/TLS**, firewalls, sistemas de detección de intrusiones y otros controles de seguridad.
 
----
-
 ### 8.3 Servidores DNS privados
 
-Un **servidor DNS privado** es un servidor DNS que está destinado a una organización, red o conjunto limitado de usuarios.
+- Un **servidor DNS privado** es un servidor DNS que está destinado a una organización, red o conjunto limitado de usuarios.
 
-A diferencia de un servidor DNS público, no está pensado para que cualquier usuario de Internet pueda realizar consultas libremente.
+- A diferencia de un servidor DNS público, no está pensado para que cualquier usuario de Internet pueda realizar consultas libremente.
 
-Los servidores DNS privados son muy habituales en:
+- Los servidores DNS privados son muy habituales en:
 
-- Empresas.
-- Centros educativos.
-- Organismos públicos.
-- Redes domésticas.
-- Centros de datos.
-- Redes virtuales en la nube.
+    1.- Empresas.
+    2.- Centros educativos.
+    3.- Organismos públicos.
+    4.- Redes domésticas.
+    5.- Centros de datos.
+    6.- Redes virtuales en la nube.
 
 !!! example "Ejemplo de red empresarial"
     ![Descripción de la imagen](./img_5/img_5_13.png){.marco .margintop10 .marginbottom10}
@@ -643,6 +634,7 @@ Los servidores DNS privados son muy habituales en:
     !!! Warning "Estos nombres pueden (suelen) no existir en el DNS público de Internet"
 
 ---
+<!--
 
 ### 8.4 DNS privado y acceso a Internet
 
