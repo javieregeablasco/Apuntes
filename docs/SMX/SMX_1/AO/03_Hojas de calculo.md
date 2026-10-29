@@ -10,10 +10,8 @@ layout: default
 schedule: 224h - 7h/w
 ---
 
-# **UD. 3 - LibreOffice Calc**
-
 ![Descripción de la imagen](./03_hojas_de_calculo/img/loc.avif){ .sietecinco }
-<br>
+
 
 **Resultados de aprendizaje y criterios de evaluacion que se evaluarán en esta unidad.**  
 
