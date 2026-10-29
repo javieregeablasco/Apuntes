@@ -77,28 +77,31 @@ Es, la ventana que más se utilizará ya que, permite dar formato y propiedades 
 
 ![Descripción de la imagen](./03_hojas_de_calculo/img/calc2.png){ .m_ver }
 
-### 1.6 - Menú: Estilos
-Casi tan importante como el menú formato, es sin duda el gran olvidado de la mayoría de usuarios.
+### 1.6 Menú: Estilos
+
+Casi tan importante como el menú formato, es, sin duda, el gran olvidado de la mayoría de usuarios.
 
 ![Descripción de la imagen](./03_hojas_de_calculo/img/calc3.png){ .m_ver }
-<br>
 
-### **1.7 - Menú: Hoja**
+### 1.7 Menú: Hoja
+
 Contiene todo lo relacionado con la gestión de las filas y columnas de las hojas de cálculo así como la gestión de las propias hojas.
 
 ![Descripción de la imagen](./03_hojas_de_calculo/img/calc4.png){ .m_ver }
-<br>
 
-### **1.8 - Menú: Datos**
+### 1.8 Menú: Datos
+
 Sirve para para gestionar, manipular y analizar la información de las hojas de cálculo.
 
 ![Descripción de la imagen](./03_hojas_de_calculo/img/calc5.png){ .m_ver }
-<br>
 
-### **1.9 - Menú: Herramientas**
-Es el menú de la mayoría de herramientas de validación de un documento: En ese menú se encuentran las funciones de ortografía, autocorrección, macros, configuración de idioma, complementos, etc. 
-<br>
-**Muy parecido al de LibreOffice writer.**
+
+### 1.9 Menú: Herramientas
+
+Es el menú de la mayoría de herramientas de validación de un documento: En ese menú se encuentran las funciones de ortografía, autocorrección, macros, configuración de idioma, complementos, etc.
+
+!!! note ""
+    **Muy parecido al de LibreOffice writer.**
 
 ### **1.10 - Menú: Ventana**
 El menú "Ventana" está pensado para gestionar las distintas ventanas o instancias del programa abiertas en ese momento.
