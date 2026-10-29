@@ -309,6 +309,8 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
       style F fill:#bbf,stroke:#333,stroke-width:4px
       style G fill:#bbf,stroke:#333,stroke-width:4px
       style H fill:#f9f,stroke:#333,stroke-width:4px
+      style I fill:#bbf,stroke:#333,stroke-width:4px
+      style center fill:none,stroke:none
 
       ```
 
