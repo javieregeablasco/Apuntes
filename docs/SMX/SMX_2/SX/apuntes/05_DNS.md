@@ -191,7 +191,7 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
     - Al usar una combinación de estas consultas, un proceso optimizado para la resolución de DNS puede conllevar una reducción de la distancia recorrida.  
     - En una situación ideal, los datos de registro almacenados en la memoria caché estarán disponibles, lo cual permitirá que un servidor de nombres DNS devuelva una consulta no recursiva.
 
-## 6 - Funcionamiento del DNS
+## 6 - Funcionamiento del servicio DNS
 
 - El funcionamiento del DNS se basa en un sistema **jerárquico y distribuido**.
 
@@ -202,22 +202,20 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
 ### 6.1 Inicio de la consulta y comprobación de la caché
 
 - El dispositivo realiza una consulta a un **servidor DNS recursivo**, también denominado **DNS resolver**.
+
 - Habitualmente, este servidor es proporcionado por el proveedor de acceso a Internet, aunque también puede pertenecer a una organización, una empresa o ser **configurado manualmente**.
 ![Descripción de la imagen](./img_5/img_5_6.png){.marco .margintop10}
 
-Antes de realizar nuevas consultas, pueden comprobarse diferentes **cachés DNS**. Por ejemplo, pueden existir cachés en:
+- Antes de realizar nuevas consultas, pueden comprobarse diferentes **cachés DNS**. Por ejemplo, pueden existir cachés en:
 
-- El navegador.
-- El sistema operativo.
-- El servidor DNS recursivo.
+    1. El navegador.
+    1. El sistema operativo.
+    1. El servidor DNS recursivo.
 
-Si alguno de estos componentes dispone de una respuesta válida almacenada en caché, no será necesario repetir todo el proceso de resolución.
+- Si alguno de estos componentes dispone de una respuesta válida almacenada en caché, no será necesario realizar (repetir) todo el proceso de resolución.
 
-La información almacenada en caché tiene un tiempo de validez denominado **TTL (*Time To Live*)**.
+- La información almacenada en caché tiene un tiempo de validez denominado **TTL (*Time To Live*)** pasado el cual caducará y se deberá volver a consultar los servidores DNS correspondientes.
 
----
-
-<!--
 ### 6.2 Consulta al servidor raíz (*Root Server*)
 
 Si el resolver recursivo no dispone de la respuesta en su caché, comienza la búsqueda consultando la jerarquía DNS.
@@ -239,6 +237,7 @@ el servidor raíz puede indicar qué servidores se encargan del TLD `.es`.
 
 ---
 
+<!--
 ### 6.3 Consulta al servidor de nivel superior (TLD)
 
 El resolver recursivo consulta entonces a un **servidor TLD** (*Top-Level Domain*).
