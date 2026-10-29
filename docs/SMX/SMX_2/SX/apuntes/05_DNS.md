@@ -235,7 +235,7 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
       www.aules.edu.gva.es
       ```
 
-    el [**servidor raíz**](https://www.iana.org/domains/root/db) puede indicar qué servidores se encargan del TLD `.es`.
+    el [**servidor raíz**](https://root-servers.org/) puede indicar qué servidores se encargan del TLD `.es`.
 
 ### 6.3 Consulta al servidor de nivel superior (TLD)
 
@@ -258,10 +258,10 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
       ```text
       aules.edu.gva.es
       ```
-<!--
+
 ### 6.4 Consulta al servidor de nombres autoritativo
 
-El resolver recursivo consulta finalmente a uno de los **servidores DNS autoritativos** responsables de la zona correspondiente.
+- El resolver recursivo consulta finalmente a uno de los **servidores DNS autoritativos** responsables de la zona correspondiente.
 ![Descripción de la imagen](./img_5/img_5_9.png){.marco .margintop10}
 
 Un servidor autoritativo dispone de la **información oficial de la zona DNS que administra**. Esta información contiene diferentes registros DNS que permiten conocer los servicios asociados a los nombres del dominio.
@@ -276,8 +276,8 @@ Para IPv6 se utiliza normalmente un registro **AAAA**.
 
 Un dominio puede disponer de **varios servidores autoritativos**, proporcionando redundancia y disponibilidad.
 
----
 
+<!--
 ### 6.5 Resolución final y almacenamiento en caché
 
 El resolver recursivo recibe la respuesta del servidor autoritativo y se la proporciona al dispositivo que realizó la consulta.
