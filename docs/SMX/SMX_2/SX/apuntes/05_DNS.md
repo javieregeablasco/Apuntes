@@ -558,12 +558,12 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
     | **Cloudflare DNS**    | `1.0.0.1`      |
     | **Quad9**             | `9.9.9.9`      |
 
-Por ejemplo, podemos configurar un ordenador para que utilice:
+- Por ejemplo, podemos configurar un ordenador para que utilice:
 
-    ```text
-    Servidor DNS preferido: 1.1.1.1
-    Servidor DNS alternativo: 1.0.0.1
-    ```
+      ```text
+      Servidor DNS preferido: 1.1.1.1
+      Servidor DNS alternativo: 1.0.0.1
+      ```
 
 A partir de ese momento, las consultas DNS realizadas por el dispositivo podrán enviarse a los servidores de Cloudflare.
 
