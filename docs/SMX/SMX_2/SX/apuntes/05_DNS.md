@@ -380,7 +380,7 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
       www.edu.gva.es
       ```
 
-    el TLD es:
+    el **TLD** es:
 
       ```text
       .es
@@ -396,7 +396,7 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
       www.edu.gva.es
       ```
 
-    Un dominio dentro del TLD `.es` sería.
+    Un dominio dentro del **TLD** `.es` sería.
 
       ```text
       gva.es
