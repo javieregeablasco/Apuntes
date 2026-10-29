@@ -932,7 +932,7 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
 
 #### 10.3.4 Registro DNAME
 
-Los registros de nombres de delegación, o registros DNAME, se utilizan para redirigir varios subdominios con un registro y apuntarlos a otro dominio.
+- Los registros de nombres de delegación, o registros DNAME, se utilizan para redirigir varios subdominios con un registro y apuntarlos a otro dominio.
 
 !!! example "Ejemplo"
 
@@ -941,9 +941,9 @@ Los registros de nombres de delegación, o registros DNAME, se utilizan para red
 
 #### 10.3.5 Registros CAA
 
-Los registros de autorización de autoridad de certificación, o registros CAA, permiten a los propietarios de dominios especificar qué **autoridades de certificación (CA)** pueden emitir certificados para su dominio.
+- Los registros de autorización de autoridad de certificación, o registros CAA, permiten a los propietarios de dominios especificar qué **autoridades de certificación (CA)** pueden emitir certificados para su dominio.
 
-Una CA es una organización que valida la identidad de los sitios web y los conecta a claves criptográficas mediante la emisión de certificados digitales.
+- Una CA es una organización que valida la identidad de los sitios web y los conecta a claves criptográficas mediante la emisión de certificados digitales.
 
 #### 10.3.6 Registro NS (Nameserver)
 
@@ -955,22 +955,22 @@ Una CA es una organización que valida la identidad de los sitios web y los cone
 
 #### 10.3.7 Registro MX (Mail Exchange)
 
-Los registros MX son indispensables para la recepción de correos electrónicos bajo el nombre de dominio.
+- Los registros MX son indispensables para la recepción de correos electrónicos bajo el nombre de dominio.
 
-Indica cuáles son los servidores de correo autorizados para recibir los mensajes mediante el protocolo SMTP.
+- Indica cuáles son los servidores de correo autorizados para recibir los mensajes mediante el protocolo SMTP.
 
 !!! example "Sintaxis típica"
     midominio.com. IN MX 10 mail.midominio.com.
 
 #### 10.3.8 Registro TXT
 
-Permite que un administrador pueda almacenar notas de texto en el registro. Estos registros se suelen utilizar para la seguridad del correo electrónico.
+- Permite que un administrador pueda almacenar notas de texto en el registro. Estos registros se suelen utilizar para la seguridad del correo electrónico.
 
 #### 10.3.9 Registros CERT
 
-Los certificados, o registros CERT, almacenan certificados que verifican la autenticidad de todas las partes involucradas.  
+- Los certificados, o registros CERT, almacenan certificados que verifican la autenticidad de todas las partes involucradas.  
 
-Este tipo de registro es particularmente valioso cuando se protege y encripta información confidencial.
+- Este tipo de registro es particularmente valioso cuando se protege y encripta información confidencial.
 
 #### 10.3.10 Registros SOA
 
