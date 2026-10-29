@@ -327,20 +327,18 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
 
     4. Esta jerarquía permite que el DNS sea un sistema **distribuido, escalable y resistente**, capaz de gestionar una enorme cantidad de  nombres de dominio sin depender de un único servidor central.
 
-
 ## 7 - Jerarquía de nombres DNS
 
-El sistema DNS está organizado mediante una **estructura jerárquica**, similar a un árbol invertido. En la parte superior se encuentra la **raíz (`.`)** y, a medida que descendemos por la jerarquía, encontramos los diferentes dominios y subdominios.
+- El sistema DNS está organizado mediante una **estructura jerárquica**, similar a un árbol invertido. En la parte superior se encuentra la **raíz (`.`)** y, a medida que descendemos por la jerarquía, encontramos los diferentes dominios y subdominios.
 
-Si tenemos el siguiente nombre:
+- Si tenemos el siguiente nombre:
 ![Descripción de la imagen](./img_5/img_5_11.png){.margintop10}
 
-Su estructura jerárquica sería:
+- Su estructura jerárquica sería:
 ![Descripción de la imagen](./img_5/img_5_12.png){.margintop10}
 
-Cada nivel representa una parte diferente de la jerarquía DNS.
+- Cada nivel representa una parte diferente de la jerarquía DNS.
 
-<!--
 ### 7.1 La raíz DNS
 
 En la parte superior de la jerarquía se encuentra la **raíz DNS**, representada mediante un punto:
@@ -358,8 +356,9 @@ Un nombre de dominio completamente cualificado (*FQDN, Fully Qualified Domain Na
 Normalmente este punto final no se escribe cuando utilizamos un nombre de dominio en un navegador pero forma parte de la estructura completa del nombre.
 ![Descripción de la imagen](./img_5/img_5_11.jpeg){.margintop10}
 
----
 
+
+<!--
 ### 7.2 Dominios de nivel superior (TLD)
 
 Por debajo de la raíz se encuentran los **dominios de nivel superior**, conocidos como **TLD (*Top-Level Domain*)**.
