@@ -706,24 +706,25 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
 
     - Si el servidor tiene una dirección IP dinámica, esta podría cambiar periódicamente:
 
-    ```text
-    servidor.midominio.com → 80.25.10.100
-    ```
+        ```text
+        servidor.midominio.com → 80.25.10.100
+        ```
 
-    y posteriormente:
+    - y posteriormente:
 
-    ```text
-    servidor.midominio.com → 80.25.15.200
-    ```
+        ```text
+        servidor.midominio.com → 80.25.15.200
+        ```
 
-    El servicio DDNS se encarga de actualizar el registro DNS para que el nombre continúe apuntando a la dirección IP actual.
+    - El servicio DDNS se encarga de actualizar el registro DNS para que el nombre continúe apuntando a la dirección IP actual.
 
-    Un mecanismo habitual consiste en que un dispositivo o servicio con conocimiento del cambio de IP comunique la nueva dirección al servidor DNS para actualizar el registro correspondiente.
+    - Un mecanismo habitual consiste en que un dispositivo o servicio con conocimiento del cambio de IP comunique la nueva dirección al servidor DNS para actualizar el registro correspondiente.
 
-    En determinadas redes, el **servidor DHCP** puede participar en este proceso. Cuando asigna o modifica una dirección IP, puede actualizar también los registros DNS asociados. De esta forma, **DHCP y DNS pueden trabajar conjuntamente** para mantener actualizada la información de nombres y direcciones.
+    - En determinadas redes, el **servidor DHCP** puede participar en este proceso. Cuando asigna o modifica una dirección IP, puede actualizar también los registros DNS asociados. De esta forma, **DHCP y DNS pueden trabajar conjuntamente** para mantener actualizada la información de nombres y direcciones.
 
     !!! warning "Importante:"
-        DDNS no es un protocolo DNS diferente. Es un mecanismo o servicio que permite realizar **actualizaciones dinámicas de los registros DNS**.
+        - DDNS no es un protocolo DNS diferente.
+        - Es un mecanismo o servicio que permite realizar **actualizaciones dinámicas de los registros DNS**.
 
 <!--
 ### 9.2 DNSSEC
