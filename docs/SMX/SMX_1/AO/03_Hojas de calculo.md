@@ -26,35 +26,40 @@ schedule: 224h - 7h/w
     |**c)** Se han aplicado fórmulas y funciones. |30%|
     |**d)** Se han generado y modificado gráficos de diferentes tipos. |10%|
     |**e)** Se han empleado macros para la realización de documentos y plantillas.|5%|
-    |**f)** **Se han importado y exportado hojas de cálculo creadas con otras aplicaciones y en otros formatos.**|5%|
+    |**f) Se han importado y exportado hojas de cálculo creadas con otras aplicaciones y en otros formatos.**|5%|
     |**g)** Se ha utilizado la hoja de cálculo como base de datos: formularios, creación de listas, filtrado, protección y ordenación de datos. |25%|
     |**h)** Se han utilizado aplicaciones y periféricos para introducir textos, números, códigos e imágenes.|5%|
 
 !!! warning "Nota:"
     Los criterios de evaluación en negrita será evaluados durante la FCT.
 
-## **1 - Interfaz de trabajo en Calc**
-Después de hacer doble clic sobre el icono de **LibreOffice** seleccionamos **Nuevo &rarr; Hoja de cálculo** y nos encontraremos con la siguiente interfaz.
+## 1 - Interfaz de trabajo en Calc
+
+- Después de hacer doble clic sobre el icono de **LibreOffice** seleccionamos **Nuevo &rarr; Hoja de cálculo** y nos encontraremos con la siguiente interfaz.
 
 ![Descripción de la imagen](./03_hojas_de_calculo/img/calc1.png)
 
 !!! question "Pregunta"
     ¿Qué es lo primero que debemos hacer cuando creamos un nuevo documento?
 
-### **1.1 - Menú: Archivo**
-Permite la creación de un archivo de hoja de cálculo y su posterior guardado, firmado digital o impresión, etc.
-<br>  
-**Idéntico al de LibreOffice writer.**
+### 1.1 Menú: Archivo
 
-### **1.2 - Menú: Editar**
-Aparte del conocido “copiar pegar” también permite buscar, editar celdas...  
-<br>
+- Permite la creación de un archivo de hoja de cálculo y su posterior guardado, firmado digital o impresión, etc.
+  
+!!! note ""
+    **Idéntico al de LibreOffice writer.**
+
+### 1.2 Menú: Editar
+
+- Aparte del conocido “copiar pegar” también permite buscar, editar celdas...  
+
 **Muy parecido al de LibreOffice writer.**
 
-### **1.3 - Menú: Ver**
+### 1.3 Menú: Ver
+
 El menú "Ver" sirve para controlar cómo se muestra el documento en pantalla y qué elementos visuales de la interfaz deseamos ver u ocultar. 
 **No modifica el contenido del documento**, solo la forma en que se visualiza mientras trabajamos.  
-<br>
+
 **Muy parecido al de LibreOffice writer.**
 
 ### **1.4 - Menú: Insertar**
