@@ -193,8 +193,8 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
     
     !!! tip "4 - Aplicar estilos"
 
-        !!! abstract "Aplicar los estilos de la siguiente manera"
-            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc9.png){ .sietecinco .margintop10 }
+        - Aplicar los estilos de la siguiente manera.
+        ![Descripción de la imagen](./03_hojas_de_calculo/img/calc9.png){ .sietecinco .margintop10 }
 
     !!! tip "5 - Trabajo adicional"
         - Combinar las celdas A1, B1, C1, D1 y E1   
