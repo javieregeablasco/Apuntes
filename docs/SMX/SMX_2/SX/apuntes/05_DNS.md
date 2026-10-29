@@ -302,6 +302,14 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
           G -->|8. Entrega de IP a cliente <br/>192.0.2.1| H[Cliente]
           H -->|192.0.2.1| I["Servidor (web)"]
       style A fill:#f9f,stroke:#333,stroke-width:4px
+      style B fill:#bbf,stroke:#333,stroke-width:4px
+      style C fill:#bbf,stroke:#333,stroke-width:4px
+      style D fill:#bbf,stroke:#333,stroke-width:4px
+      style E fill:#bbf,stroke:#333,stroke-width:4px
+      style F fill:#bbf,stroke:#333,stroke-width:4px
+      style G fill:#bbf,stroke:#333,stroke-width:4px
+      style H fill:#f9f,stroke:#333,stroke-width:4px
+
       ```
 
 !!! tip "Resumen de los que hemos visto"
