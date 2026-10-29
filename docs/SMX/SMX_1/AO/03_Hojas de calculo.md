@@ -144,17 +144,15 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
 
 !!! exercice "Tarea RA3-CEb-1 - Elaboración de una tabla en un hoja de cálculo"
 
-    !!! tip "1 - Estilos"
-        ^^**Creación de estilos**^^  
-        
+    !!! tip "1 - Creación de estilos"
         - Crear los estilos **Valores, Columnas, Indices** como se muestra a continuación.  
 
         ![Descripción de la imagen](./03_hojas_de_calculo/img/calc6.png){ .cincozero }
 
-    !!! tip "2 - Configuración"
-        ^^**Configuración de los estilos**^^  
-        - **1. Predeterminado:**  
-        Tipo de letra: Arial 12 normal, alineación izquierda.   
+    !!! tip "2 - Configuración de los estilos" 
+        
+        !!! abstract "Estilo ^^Predeterminado^^"
+            Tipo de letra: Arial 12 normal, alineación izquierda.   
     
     **2. Estilo Valores**  
     &emsp;Tipo de letra: Arial 12 normal Añil oscuro, centrado horizontalmente.  
