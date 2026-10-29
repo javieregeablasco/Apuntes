@@ -195,10 +195,9 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
 
 - El funcionamiento del DNS se basa en un sistema **jerárquico y distribuido**.
 
-- Como hemos visto, la resolución de un nombre puede implicar diferentes servidores DNS. De forma simplificada, el proceso es el siguiente:
+- Como hemos visto, la resolución de un nombre puede implicar diferentes servidores DNS.
 
----
-<!--
+- De forma simplificada, el proceso es el siguiente:
 
 ### 6.1 Inicio de la consulta y comprobación de la caché
 
@@ -218,6 +217,7 @@ La información almacenada en caché tiene un tiempo de validez denominado **TTL
 
 ---
 
+<!--
 ### 6.2 Consulta al servidor raíz (*Root Server*)
 
 Si el resolver recursivo no dispone de la respuesta en su caché, comienza la búsqueda consultando la jerarquía DNS.
