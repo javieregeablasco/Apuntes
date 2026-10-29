@@ -535,15 +535,12 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
     | **FQDN** | Nombre DNS completamente cualificado (incluye el punto raíz final) | `www.edu.gva.es.` |
     | **Host** | Equipo o servicio identificado mediante un nombre | `www.edu.gva.es` |
     | **Zona** | Parte de la jerarquía administrada por unos servidores autoritativos concretos | `edu.gva.es` (zona delegada, con sus propios servidores autoritativos dentro del dominio `gva.es`) |
- 
-<!--
+
 ## 8 - Servidores DNS públicos y privados
 
-No todos los servidores DNS tienen la misma función ni están disponibles para los mismos usuarios.
+- No todos los servidores DNS tienen la misma función ni están disponibles para los mismos usuarios.
 
-Dependiendo de quién pueda utilizarlos y de dónde se encuentren, podemos distinguir entre **servidores DNS públicos** y **servidores DNS privados**.
-
----
+- Dependiendo de quién pueda utilizarlos y de dónde se encuentren, podemos distinguir entre **servidores DNS públicos** y **servidores DNS privados**.
 
 ### 8.1 Servidores DNS públicos
 
@@ -576,6 +573,7 @@ A partir de ese momento, las consultas DNS realizadas por el dispositivo podrán
 
 ---
 
+<!--
 ### 8.2 ¿Por qué utilizar un DNS público?
 
 Existen diferentes motivos para utilizar un servidor DNS público en lugar del servidor DNS proporcionado automáticamente por nuestro proveedor de Internet.
