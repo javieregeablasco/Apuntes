@@ -500,7 +500,8 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
 !!! warning "Dominio y zona no son exactamente lo mismo"
     1. Aunque en el ejemplo anterior el dominio `edu.gva.es` y la zona que lo administra coinciden, **dominio y zona son conceptos diferentes**.
     1. Un dominio representa una parte de la **jerarquía de nombres DNS**, mientras que una zona representa una parte de esa jerarquía que está **administrativamente gestionada mediante servidores DNS autoritativos**.
-    1. Un dominio puede contener diferentes subdominios y estos pueden estar delegados en otras zonas. Veamos un segundo escenario, alternativo al anterior, en el que la organización decide **dividir** la administración de `edu.gva.es` en dos zonas distintas:
+    1. Un dominio puede contener diferentes subdominios y estos pueden estar delegados en otras zonas.
+    - Veamos un segundo escenario, alternativo al anterior, en el que la organización decide **dividir** la administración de `edu.gva.es` en dos zonas distintas:
     ```mermaid
    
     flowchart TD
