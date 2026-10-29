@@ -503,7 +503,7 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
     1. Un dominio puede contener diferentes subdominios y estos pueden estar delegados en otras zonas.
     - Veamos un segundo escenario, alternativo al anterior, en el que la organización decide **dividir** la administración de `edu.gva.es` en dos zonas distintas:
     ```mermaid
-   
+
     flowchart TD
         A[edu.gva.es] --> X((　))
         X --> B[Zona A]
@@ -512,7 +512,7 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
         C --> E[ftp.edu.gva.es]
     style X fill:none,stroke:none
     ```
-    En este segundo escenario, la organización administra directamente una zona con `www.edu.gva.es` y `correo.edu.gva.es` (Zona A), mientras que `ftp.edu.gva.es` está delegado a otros servidores DNS que administran la Zona B. Ambas zonas siguen perteneciendo al mismo dominio `edu.gva.es`, pero están gestionadas de forma independiente.
+    - En este segundo escenario, la organización administra directamente una zona con `www.edu.gva.es` y `correo.edu.gva.es` (Zona A), mientras que `ftp.edu.gva.es` está delegado a otros servidores DNS que administran la Zona B. Ambas zonas siguen perteneciendo al mismo dominio `edu.gva.es`, pero están gestionadas de forma independiente.
 
 
 <!--
