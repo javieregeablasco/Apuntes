@@ -155,11 +155,11 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
             Tipo de letra: Arial 12 normal, alineación izquierda.   
     
         !!! abstract "Estilo ^^Valores^^"  
-            - Tipo de letra: Arial 12 normal Añil oscuro, centrado horizontalmente.  
-            - Bordes: Grosor 0.5pt, Añil oscuro 2.  
-            - Fondo: Gris claro 5.
-            
-              
+            - Tipo de letra: Arial 12 normal #5b277d, centrado horizontalmente.  
+            - Bordes: Grosor 0.5pt, #55215b.  
+            - Fondo: #b2b2b2.
+
+
 
     **3. Estilo Columnas**  
     &emsp;Tipo de letra: Arial 12 cursiva verde, centrado horizontalmente.   
