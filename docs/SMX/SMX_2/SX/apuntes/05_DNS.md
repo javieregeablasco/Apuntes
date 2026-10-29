@@ -614,12 +614,12 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
 
 - Los servidores DNS privados son muy habituales en:
 
-    1.- Empresas.
-    1.- Centros educativos.
-    1.- Organismos públicos.
-    1.- Redes domésticas.
-    1.- Centros de datos.
-    1.- Redes virtuales en la nube.
+     1.- Empresas.
+     1.- Centros educativos.
+     1.- Organismos públicos.
+     1.- Redes domésticas.
+     1.- Centros de datos.
+     1.- Redes virtuales en la nube.
 
 !!! example "Ejemplo de red empresarial"
     ![Descripción de la imagen](./img_5/img_5_13.png){.marco .margintop10 .marginbottom10}
