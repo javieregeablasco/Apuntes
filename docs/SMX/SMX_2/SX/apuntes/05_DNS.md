@@ -827,7 +827,7 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
 
 ## 10 - Registros DNS
 
-![img](./img_5/img_5_152.jpeg){.cien .margintop10 .marginbottom20}
+![img](./img_5/img_5_152.jpeg){.cien .margintop10 .marginbottom20 .marco}
 
 ### 10.1 Introducción
 
