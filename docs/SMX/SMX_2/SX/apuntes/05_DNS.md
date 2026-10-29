@@ -278,33 +278,30 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
 
 ### 6.5 Resolución final y almacenamiento en caché
 
-El resolver recursivo recibe la respuesta del servidor autoritativo y se la proporciona al dispositivo que realizó la consulta.
+- El resolver recursivo recibe la respuesta del servidor autoritativo y se la proporciona al dispositivo que realizó la consulta.
 ![Descripción de la imagen](./img_5/img_5_6.png){.marco .margintop10}
 
-El navegador ya puede utilizar la dirección IP obtenida para establecer una conexión con el servicio correspondiente.
+- El navegador ya puede utilizar la dirección IP obtenida para establecer una conexión con el servicio correspondiente.
 
-Además, el resolver puede almacenar la respuesta en su **caché DNS** durante el tiempo indicado por el **TTL** del registro.
+- Además, el resolver puede almacenar la respuesta en su **caché DNS** durante el tiempo indicado por el **TTL** del registro.
 
-De esta forma, si otro dispositivo realiza posteriormente la misma consulta, el resolver puede responder utilizando la información almacenada en caché sin tener que volver a consultar a los servidores raíz, TLD y autoritativos.
-
----
-<!--
+- De esta forma, si otro dispositivo realiza posteriormente la misma consulta, el resolver puede responder utilizando la información almacenada en caché sin tener que volver a consultar a los servidores raíz, TLD y autoritativos.
 
 ### 6.6 Resumen del proceso
 
-De forma simplificada, podemos representar la resolución de un nombre de dominio de la siguiente manera:
+- De forma simplificada, podemos representar la resolución de un nombre de dominio de la siguiente manera:
 
-    ```mermaid
-    flowchart TD
-        A[Cliente] -->|1. Consulta DNS| B[DNS recursivo<br/>Resolver]
-        B -->|2-3. Consulta a servidor raíz | C[Servidor raíz]
-        C -->|4-5. Consulta a servidor TLD| D["Servidor TLD<br/>(.es)"]
-        D -->|6-7. Indica los servidores<br/>autoritativos| E[Servidor autoritativo]
-        E -->|Registro A / AAAA| F[Dirección IP]
-        F -->|192.0.2.1| G[DNS Resolver]
-        G -->|8. Entrega de IP a cliente <br/>192.0.2.1| H[Cliente]
-        H -->|192.0.2.1| I["Servidor (web)"]
-    ```
+      ```mermaid
+      flowchart TD
+          A[Cliente] -->|1. Consulta DNS| B[DNS recursivo<br/>Resolver]
+          B -->|2-3. Consulta a servidor raíz | C[Servidor raíz]
+          C -->|4-5. Consulta a servidor TLD| D["Servidor TLD<br/>(.es)"]
+          D -->|6-7. Indica los servidores<br/>autoritativos| E[Servidor autoritativo]
+          E -->|Registro A / AAAA| F[Dirección IP]
+          F -->|192.0.2.1| G[DNS Resolver]
+          G -->|8. Entrega de IP a cliente <br/>192.0.2.1| H[Cliente]
+          H -->|192.0.2.1| I["Servidor (web)"]
+      ```
 
 !!! tip "Resumen de los que hemos visto"
 
@@ -322,6 +319,7 @@ De forma simplificada, podemos representar la resolución de un nombre de domini
     4. Esta jerarquía permite que el DNS sea un sistema **distribuido, escalable y resistente**, capaz de gestionar una enorme cantidad de  nombres de dominio sin depender de un único servidor central.
 
 ---
+<!--
 
 ## 7 - Jerarquía de nombres DNS
 
