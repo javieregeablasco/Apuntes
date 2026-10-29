@@ -216,7 +216,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
     !!! tip "7 - Trabajando en la hoja nueva"
         - Arreglar el ancho de la columna de los meses para que el texto no quede cortado.  
         - Para evitar que los datos se repitan, poner la formula `=ALEATORIO.ENTRE(-10;35)` como valor de las **celdas de las temperaturas**.  
-        ![Descripción de la imagen](./03_hojas_de_calculo/img/calc17.png){ .sietecinco .margintop10 }
+        ![Descripción de la imagen](./03_hojas_de_calculo/img/calc17.png){ .ochocinco .margintop10 }
 
     &emsp;Al final la tabla quedará de la siguiente manera.  
 
