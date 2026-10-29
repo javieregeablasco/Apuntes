@@ -893,9 +893,9 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
         - Durante ese periodo, un servidor DNS recursivo puede utilizar la información almacenada en su caché sin tener que volver a consultar al servidor autoritativo.
 
         !!! warning "Importante" 
-            el TTL **no indica cada cuánto tiempo se actualiza el registro en el servidor DNS autoritativo**. Indica cuánto tiempo otros servidores pueden conservar ese registro en su caché.
+            - El TTL **no indica cada cuánto tiempo se actualiza el registro en el servidor DNS autoritativo**.
+            - Indica cuánto tiempo otros servidores pueden conservar ese registro en su caché.
 
-<!--
 ### 10.3 Tipos de Registros DNS
 
 #### 10.3.1 Registro A (Address)
@@ -982,6 +982,7 @@ Los registros de puntero, o registros PTR, funcionan en la dirección opuesta a 
 
 Cuando una búsqueda de DNS comienza con una dirección IP, encuentra el nombre de host correspondiente. Estos registros se utilizan para detectar spam comprobando si las direcciones IP y las direcciones de correo electrónico asociadas son utilizadas por servidores de correo electrónico legítimos. El host del servidor debe configurar los registros PTR.
 
+<!--
 ## 11 - Herramientas de Diagnóstico Técnico de Registros DNS
 
 Para verificar y solucionar problemas con las zonas DNS, los administradores de sistemas y profesionales de redes emplean herramientas de terminal populares:
