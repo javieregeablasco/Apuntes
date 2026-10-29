@@ -327,6 +327,7 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
 
     4. Esta jerarquía permite que el DNS sea un sistema **distribuido, escalable y resistente**, capaz de gestionar una enorme cantidad de  nombres de dominio sin depender de un único servidor central.
 
+
 ## 7 - Jerarquía de nombres DNS
 
 El sistema DNS está organizado mediante una **estructura jerárquica**, similar a un árbol invertido. En la parte superior se encuentra la **raíz (`.`)** y, a medida que descendemos por la jerarquía, encontramos los diferentes dominios y subdominios.
@@ -508,12 +509,15 @@ La zona podría contener registros como:
     correo.edu.gva.es   → 192.168.10.20
     ftp.edu.gva.es      → 192.168.10.30
     ```
+-->
 
+<!--
 !!! warning "Dominio y zona no son exactamente lo mismo"
     1. Aunque en el ejemplo anterior el dominio `edu.gva.es` y la zona que lo administra coinciden, **dominio y zona son conceptos diferentes**.
     1. Un dominio representa una parte de la **jerarquía de nombres DNS**, mientras que una zona representa una parte de esa jerarquía que está **administrativamente gestionada mediante servidores DNS autoritativos**.
     1. Un dominio puede contener diferentes subdominios y estos pueden estar delegados en otras zonas. Veamos un segundo escenario, alternativo al anterior, en el que la organización decide **dividir** la administración de `edu.gva.es` en dos zonas distintas:
     ```mermaid
+   
     flowchart TD
         A[edu.gva.es] --> X((　))
         X --> B[Zona A]
@@ -523,8 +527,7 @@ La zona podría contener registros como:
     style X fill:none,stroke:none
     ```
     En este segundo escenario, la organización administra directamente una zona con `www.edu.gva.es` y `correo.edu.gva.es` (Zona A), mientras que `ftp.edu.gva.es` está delegado a otros servidores DNS que administran la Zona B. Ambas zonas siguen perteneciendo al mismo dominio `edu.gva.es`, pero están gestionadas de forma independiente.
-
----
+<!--
 
 ### 7.8 Resumen de la jerarquía DNS
 
@@ -1004,7 +1007,7 @@ Para verificar y solucionar problemas con las zonas DNS, los administradores de 
     dig (Domain Information Groper): Ofrece información mucho más profunda y detallada sobre las consultas DNS, incluyendo los tiempos de respuesta del servidor y la jerarquía de autoridad.
 
 ## 12 - Tarea RA2-CEbc-1 - Resolución manual de un dominio
-<!-- # hasta aqui -->
+
 
 - El proposito de esta tarea es que el alumno comprenda cómo se resuelve un nombre de dominio en Internet y cómo se obtiene la dirección IP asociada a ese nombre.
 - Para el ejemplo usaremos el dominio `www.aules.edu.gva.es` y realizaremos la resolución de forma manual, paso a paso, para comprender el proceso completo.
@@ -1159,7 +1162,7 @@ En `Prerequisites Check` apuntaremos las advertencias para gestionarlas más ade
 <!-- 1. **Verificación final.** Para comprobar que el dominio y el DNS han quedado correctamente configurados, podemos:
     - Ejecutar `dcdiag` en una consola para diagnosticar el estado del controlador de dominio.
     - Ejecutar `nslookup <nombre-del-dominio>` para comprobar que el propio servidor resuelve correctamente los registros de su dominio.
-    - Abrir la consola "Usuarios y equipos de Active Directory" para confirmar que el dominio se ha creado correctamente. -->
+    - Abrir la consola "Usuarios y equipos de Active Directory" para confirmar que el dominio se ha creado correctamente. 
 
 ## 16 - Tarea RA2-CEf - Configuración del servidor DNS
 
@@ -1373,7 +1376,7 @@ En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.
 
     ![Descripción de la imagen](./img_5/img_5_83.png){ .marginbottom10 .marco }
 
-<!-- https://youtu.be/TwMAS7Iha30?si=OSfwWAilvhFkGNdD&t=330 -->
+<!-- https://youtu.be/TwMAS7Iha30?si=OSfwWAilvhFkGNdD&t=330 
 
 ### 16.8 Best practices analyzer (BPA)
 
@@ -1536,7 +1539,7 @@ Para ello, accederemos a las propiedades de los servidores DNS de nuestras máqu
 
 Al finalizar la práctica tendremos una arquitectura similar a:
 
-<!-- https://www.youtube.com/watch?v=1s0vjLv9roQ -->
+<!-- https://www.youtube.com/watch?v=1s0vjLv9roQ 
 
 ```text
                             INTERNET
