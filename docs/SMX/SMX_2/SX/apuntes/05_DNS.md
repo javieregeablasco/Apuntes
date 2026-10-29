@@ -633,19 +633,17 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
     
     !!! Warning "Estos nombres pueden (suelen) no existir en el DNS público de Internet"
 
----
-<!--
-
 ### 8.4 DNS privado y acceso a Internet
 
-Un servidor DNS privado no tiene por qué limitarse a resolver nombres internos.
+- Un servidor DNS privado no tiene por qué limitarse a resolver nombres internos.
 
-También puede actuar como **resolver recursivo** para los dispositivos de la organización.
+- También puede actuar como **resolver recursivo** para los dispositivos de la organización.
 
-Si miramos el siguiente esquema veremos que el servidor DNS puede resolver tanto `servidor.empresa.local` utilizando sus **zonas internas** como `www.google.com`, `www.wikipedia.org` y `www.aules.edu.gva.es` realizando consultas recursivas hacia otros servidores DNS.
+- Si miramos el siguiente esquema veremos que el servidor DNS puede resolver tanto `servidor.empresa.local` utilizando sus **zonas internas** como `www.google.com`, `www.wikipedia.org` y `www.aules.edu.gva.es` realizando consultas recursivas hacia otros servidores DNS.
 
 ![Descripción de la imagen](./img_5/img_5_14.png){.marco .margintop10 .marginbottom10}
 
+<!--
 ### 8.5 Servidor DNS privado en una red local
 
 En una red local, los equipos suelen obtener automáticamente la dirección del servidor DNS mediante el protocolo **DHCP**.
