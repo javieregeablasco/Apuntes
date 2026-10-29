@@ -178,7 +178,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
             - Bordes: Grosor 0.5pt, lima.  
             - Fondo: #f7d1d5.  
       
-        !!! abstract "^^Tamaño de celdas^^"  
+        !!! abstract "Tamaño de celdas"  
             - Anchura columna 1: 2cm  
             - Anchura columnas 2, 3, 4 y 5,: 3cm
             - Altura fila 1: 1cm  
@@ -188,11 +188,11 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
 
         !!! abstract "Datos a introducir dentro de las celdas"  
             - Introducir los datos a mano para que quede de la siguiente manera.
-            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc16.png){ .cien  }
+            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc16.png){ .cien .margintop10 }
     
-    <u>**Trabajo adicional**</u>  
-    &emsp;Aplicar los estilos de la siguiente manera.
-    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc9.png){ .leftsietecinco }
+        !!! abstract "Trabajo adicional"  
+            - Aplicar los estilos de la siguiente manera.
+            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc9.png){ .sietecinco .margintop10 }
 
     
     <u>**Trabajo adicional**</u>  
