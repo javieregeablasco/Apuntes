@@ -728,29 +728,29 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
 
 ### 9.2 DNSSEC
 
-**DNSSEC (Domain Name System Security Extensions o extensiones de seguridad para el DNS)** es un conjunto de extensiones que permite añadir **autenticidad e integridad** a la información proporcionada por DNS.
+- **DNSSEC (Domain Name System Security Extensions o extensiones de seguridad para el DNS)** es un conjunto de extensiones que permite añadir **autenticidad e integridad** a la información proporcionada por DNS.
 
-El funcionamiento tradicional de DNS presenta un problema: un atacante podría intentar proporcionar al cliente una respuesta DNS falsa.
+- El funcionamiento tradicional de DNS presenta un problema: un atacante podría intentar proporcionar al cliente una respuesta DNS falsa.
 
 !!! example "Ejemplo"
-    Ante una consulta como:
+    - Ante una consulta como:
 
-    ```text
-    www.banco.com → ¿cuál es su dirección IP?
-    ```
+        ```text
+        www.banco.com → ¿cuál es su dirección IP?
+        ```
 
-    un atacante podría intentar conseguir que el cliente recibiera una dirección IP incorrecta:
+    - Un atacante podría intentar conseguir que el cliente recibiera una dirección IP incorrecta:
 
-    ```text
-    www.banco.com → 203.0.113.50
-    ```
+        ```text
+        www.banco.com → 203.0.113.50
+        ```
 
-    DNSSEC utiliza **firmas digitales** para que el resolver DNS pueda comprobar que los datos recibidos son auténticos y que no han sido modificados.
+    - DNSSEC utiliza **firmas digitales** para que el resolver DNS pueda comprobar que los datos recibidos son auténticos y que no han sido modificados.
 
-    Por tanto, DNSSEC permite proteger principalmente:
+    - Por tanto, DNSSEC permite proteger principalmente:
 
-    - **La autenticidad:** comprobar que los datos DNS proceden de la zona DNS que tiene autoridad sobre ellos.
-    - **La integridad:** comprobar que los datos no han sido modificados durante su transmisión.
+        1. **La autenticidad:** comprobar que los datos DNS proceden de la zona DNS que tiene autoridad sobre ellos.
+        1. **La integridad:** comprobar que los datos no han sido modificados durante su transmisión.
 
     !!! warning "Importante"
         
@@ -763,7 +763,7 @@ El funcionamiento tradicional de DNS presenta un problema: un atacante podría i
         - Además, las respuestas DNSSEC suelen ser de mayor tamaño debido a la información criptográfica que contienen. Esto puede contribuir a que determinadas configuraciones de DNS sean utilizadas en **ataques de amplificación DNS**, aunque DNSSEC no sea la causa de estos ataques.
 
     !!! note "En resumen"
-        DNSSEC proporciona **autenticidad e integridad**, pero no **confidencialidad ni disponibilidad**.
+        - DNSSEC proporciona **autenticidad e integridad**, pero no **confidencialidad ni disponibilidad**.
 
 ### 9.3 Envenenamiento de la caché DNS
 
