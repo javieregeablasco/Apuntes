@@ -875,26 +875,27 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
     - **Servidores DNS de TLD:** indican cuáles son los servidores autoritativos responsables de un dominio concreto.
     - **Servidores DNS autoritativos:** contienen la información oficial de una zona DNS y proporcionan los registros correspondientes.
 
-<!--
 ### 10.2 TTL (Time To Live)
 
 - Los registros DNS incluyen un valor denominado **TTL (Time To Live)**.
+
 - El TTL indica **durante cuánto tiempo puede mantenerse un registro DNS en la caché de un servidor DNS recursivo antes de que deba volver a consultarse**.
 
     !!! example "Ejemplo"
-        Si un registro tiene:
+        - Si un registro tiene:
 
-        ```text
-        www.ejemplo.com.    3600    IN    A    192.0.2.10
-        ```
+            ```text
+            www.ejemplo.com.    3600    IN    A    192.0.2.10
+            ```
 
-        el valor `3600` representa un TTL de **3600 segundos**, es decir, **1 hora**.
+        - El valor `3600` representa un TTL de **3600 segundos**, es decir, **1 hora**.
 
-        Durante ese periodo, un servidor DNS recursivo puede utilizar la información almacenada en su caché sin tener que volver a consultar al servidor autoritativo.
+        - Durante ese periodo, un servidor DNS recursivo puede utilizar la información almacenada en su caché sin tener que volver a consultar al servidor autoritativo.
 
         !!! warning "Importante" 
             el TTL **no indica cada cuánto tiempo se actualiza el registro en el servidor DNS autoritativo**. Indica cuánto tiempo otros servidores pueden conservar ese registro en su caché.
 
+<!--
 ### 10.3 Tipos de Registros DNS
 
 #### 10.3.1 Registro A (Address)
