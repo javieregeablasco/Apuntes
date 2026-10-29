@@ -191,3 +191,6 @@ Para frenar la degradación y construir resiliencia, las respuestas abarcan inic
 !!! abstract "Diálogo social y marco laboral"
     - **Negociación Colectiva Verde:** Inclusión de cláusulas ambientales y de adaptación climática en convenios colectivos, impulsadas por acuerdos marco entre patronal y sindicatos.
     - **Mecanismos de Flexibilidad e Higiene Laboral:** Integración de protocolos específicos en la Prevención de Riesgos Laborales frente a fenómenos extremos (olas de calor) y uso de sistemas de flexibilidad interna (como los ERTE o Mecanismo RED) para salvaguardar el empleo en crisis climáticas.
+
+## 5 - Foro de discusión
+
