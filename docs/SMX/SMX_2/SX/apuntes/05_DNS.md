@@ -535,7 +535,7 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
     | **FQDN** | Nombre DNS completamente cualificado (incluye el punto raíz final) | `www.edu.gva.es.` |
     | **Host** | Equipo o servicio identificado mediante un nombre | `www.edu.gva.es` |
     | **Zona** | Parte de la jerarquía administrada por unos servidores autoritativos concretos | `edu.gva.es` (zona delegada, con sus propios servidores autoritativos dentro del dominio `gva.es`) |
-
+ 
 <!--
 ## 8 - Servidores DNS públicos y privados
 
