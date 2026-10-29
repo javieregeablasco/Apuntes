@@ -227,7 +227,7 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
 
 - Existen **13 servidores raíz lógicos**, identificados mediante las letras de la **A a la M**. Cada uno de ellos está replicado mediante numerosas instancias distribuidas geográficamente por diferentes lugares del mundo.
 
-- Los servidores raíz **no conocen directamente la dirección IP** del dominio que estamos buscando. Su función es indicar qué servidores son responsables del **dominio de nivel superior (TLD Top Level Domain)** correspondiente.
+- Los servidores raíz **no conocen directamente la dirección IP** del dominio que estamos buscando. Su función es indicar qué servidores son responsables del **dominio de nivel superior (TLD Top-Level Domain)** correspondiente.
 
 - Por ejemplo, si estamos buscando:
 
@@ -235,7 +235,7 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
       www.aules.edu.gva.es
       ```
 
-el servidor raíz puede indicar qué servidores se encargan del TLD `.es`.
+    el servidor raíz puede indicar qué servidores se encargan del TLD `.es`.
 
 ---
 
