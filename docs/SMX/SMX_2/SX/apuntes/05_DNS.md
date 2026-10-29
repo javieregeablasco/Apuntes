@@ -796,30 +796,30 @@ El funcionamiento tradicional de DNS presenta un problema: un atacante podría i
     - Este tipo de ataque puede utilizarse, por ejemplo, como parte de una campaña de **phishing**.
 
     !!! success "Prevención contra el DNS cache poisoning" 
-        DNSSEC ayuda a prevenir el problema del ataque de envenenamiento de caché porque permite al resolver DNS comprobar mediante firmas digitales que los registros DNS recibidos son auténticos y no han sido modificados.
+        - DNSSEC ayuda a prevenir el problema del ataque de envenenamiento de caché porque permite al resolver DNS comprobar mediante firmas digitales que los registros DNS recibidos son auténticos y no han sido modificados.
 
     !!! warning "Importante"
         - No debemos confundir el **envenenamiento de la caché DNS** con el hecho de que un servidor DNS haya sido comprometido. 
-        - En el primer caso, el atacante intenta introducir información DNS falsa en la caché de un resolver; en el segundo, el propio servidor DNS puede haber sido tomado bajo control por el atacante.
+        - En el primer caso, el atacante intenta introducir información DNS falsa en la caché de un resolver.
+        - En el segundo, el propio servidor DNS puede haber sido tomado bajo control por el atacante.
 
-<!--
 ### 9.4 Ataques Man-in-the-Middle
 
-Un ataque **Man-in-the-Middle (MITM)**, o **hombre en el medio**, se produce cuando un atacante consigue situarse entre dos dispositivos que se están comunicando.
+- Un ataque **Man-in-the-Middle (MITM)**, o **hombre en el medio**, se produce cuando un atacante consigue situarse entre dos dispositivos que se están comunicando.
 
 !!! example "Ejemplo"
-    Imaginemos que un usuario cree estar comunicándose directamente con el servidor de su banco:
-    ```text
-    Cliente --→ Banco
-    ```
+    - Imaginemos que un usuario cree estar comunicándose directamente con el servidor de su banco:
+        ```text
+        Cliente --→ Banco
+        ```
 
-    En un ataque MITM, el atacante intenta situarse entre ambos:
-    ```text
-    Cliente --→ Atacante --→ Banco
-    Cliente ←-- Atacante ←-- Banco
-    ```
+    - En un ataque MITM, el atacante intenta situarse entre ambos:
+        ```text
+        Cliente --→ Atacante --→ Banco
+        Cliente ←-- Atacante ←-- Banco
+        ```
 
-    El atacante puede recibir el tráfico, analizarlo y, dependiendo de las circunstancias y de las protecciones utilizadas, intentar modificarlo antes de reenviarlo.
+    - El atacante puede recibir el tráfico, analizarlo y, dependiendo de las circunstancias y de las protecciones utilizadas, intentar modificarlo antes de reenviarlo.
 
     !!! warning "Importante"
         - Un ataque MITM no es específico de DNS. **Puede producirse en diferentes tipos de comunicaciones de red**. 
@@ -869,6 +869,7 @@ Un ataque **Man-in-the-Middle (MITM)**, o **hombre en el medio**, se produce cua
     - **Servidores DNS de TLD:** indican cuáles son los servidores autoritativos responsables de un dominio concreto.
     - **Servidores DNS autoritativos:** contienen la información oficial de una zona DNS y proporcionan los registros correspondientes.
 
+<!--
 ### 10.2 TTL (Time To Live)
 
 - Los registros DNS incluyen un valor denominado **TTL (Time To Live)**.
