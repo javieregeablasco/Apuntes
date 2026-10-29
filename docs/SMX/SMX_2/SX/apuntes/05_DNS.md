@@ -596,9 +596,9 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
 - Algunos servicios DNS públicos incorporan mecanismos de seguridad adicionales, como el bloqueo de determinados dominios asociados a:
 
     1. Malware.
-    2. Phishing.
-    3. Botnets.
-    4. Otros tipos de amenazas.
+    1. Phishing.
+    1. Botnets.
+    1. Otros tipos de amenazas.
 
 - Por ejemplo, algunos resolvers públicos están diseñados específicamente para proporcionar una capa adicional de protección frente a determinados dominios maliciosos.
 
@@ -615,11 +615,11 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
 - Los servidores DNS privados son muy habituales en:
 
     1.- Empresas.
-    2.- Centros educativos.
-    3.- Organismos públicos.
-    4.- Redes domésticas.
-    5.- Centros de datos.
-    6.- Redes virtuales en la nube.
+    1.- Centros educativos.
+    1.- Organismos públicos.
+    1.- Redes domésticas.
+    1.- Centros de datos.
+    1.- Redes virtuales en la nube.
 
 !!! example "Ejemplo de red empresarial"
     ![Descripción de la imagen](./img_5/img_5_13.png){.marco .margintop10 .marginbottom10}
