@@ -726,7 +726,6 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
         - DDNS no es un protocolo DNS diferente.
         - Es un mecanismo o servicio que permite realizar **actualizaciones dinámicas de los registros DNS**.
 
-<!--
 ### 9.2 DNSSEC
 
 **DNSSEC (Domain Name System Security Extensions o extensiones de seguridad para el DNS)** es un conjunto de extensiones que permite añadir **autenticidad e integridad** a la información proporcionada por DNS.
@@ -765,6 +764,8 @@ El funcionamiento tradicional de DNS presenta un problema: un atacante podría i
 
     !!! note "En resumen"
         DNSSEC proporciona **autenticidad e integridad**, pero no **confidencialidad ni disponibilidad**.
+
+<!--
 
 ### 9.3 Envenenamiento de la caché DNS
 
