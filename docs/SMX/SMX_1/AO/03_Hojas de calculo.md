@@ -53,27 +53,31 @@ schedule: 224h - 7h/w
 
 - Aparte del conocido “copiar pegar” también permite buscar, editar celdas...  
 
-**Muy parecido al de LibreOffice writer.**
+!!! note ""
+    **Muy parecido al de LibreOffice writer.**
 
 ### 1.3 Menú: Ver
 
 El menú "Ver" sirve para controlar cómo se muestra el documento en pantalla y qué elementos visuales de la interfaz deseamos ver u ocultar. 
 **No modifica el contenido del documento**, solo la forma en que se visualiza mientras trabajamos.  
 
-**Muy parecido al de LibreOffice writer.**
+!!! note ""
+    **Muy parecido al de LibreOffice writer.**
 
-### **1.4 - Menú: Insertar**
+### 1.4 Menú: Insertar
+
 Ofrece opciones para incluir objetos en nuestro documento: fotografías, dibujos, tablas, ecuaciones matemáticas o incluso otros archivos.  
-<br>
-**Muy parecido al de LibreOffice writer.**
 
-### **1.5 - Menú: Formato**
+!!! note ""
+    **Muy parecido al de LibreOffice writer.**
+
+### 1.5 Menú: Formato
+
 Es, la ventana que más se utilizará ya que, permite dar formato y propiedades a las celdas de nuestras hojas de cálculo.
 
 ![Descripción de la imagen](./03_hojas_de_calculo/img/calc2.png){ .m_ver }
-<br>
 
-### **1.6 - Menú: Estilos**
+### 1.6 - Menú: Estilos
 Casi tan importante como el menú formato, es sin duda el gran olvidado de la mayoría de usuarios.
 
 ![Descripción de la imagen](./03_hojas_de_calculo/img/calc3.png){ .m_ver }
