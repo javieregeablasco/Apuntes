@@ -430,49 +430,44 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
 
 - Los subdominios permiten organizar diferentes servicios, departamentos o recursos dentro de una misma estructura de nombres.
 
----
-
-<!--
 ### 7.5 FQDN
 
-Un **FQDN (*Fully Qualified Domain Name*)**, o **nombre de dominio completamente cualificado**, identifica de forma completa una posición dentro de la jerarquía DNS.
+- Un **FQDN (*Fully Qualified Domain Name*)**, o **nombre de dominio completamente cualificado**, identifica de forma completa una posición dentro de la jerarquía DNS.
 
-En el caso de tendríamos:
+- En nuestro caso tendríamos el siguiente FQDN:
 
-    ```text
-    www.edu.gva.es.
-    ```
+      ```text
+      www.edu.gva.es.
+      ```
 
 !!! tip "Importante"
     Los nombres DNS se interpretan **de derecha a izquierda**.
 
 ### 7.6 Nombre de host
 
-En una red, un **host** es un dispositivo o sistema que puede comunicarse mediante una red.
+- En una red, un **host** es un dispositivo o sistema que puede comunicarse mediante una red.
 
-En DNS, un nombre como `www.edu.gva.es` puede utilizarse para identificar un servicio o un host.
+- En DNS, un nombre como `www.edu.gva.es` puede utilizarse para identificar un servicio o un host.
 
-Por ejemplo, podríamos tener:
+- Por ejemplo, podríamos tener:
 
-    ```text
-    www.edu.gva.es
-    correo.edu.gva.es
-    ftp.edu.gva.es
-    ```
+      ```text
+      www.edu.gva.es
+      correo.edu.gva.es
+      ftp.edu.gva.es
+      ```
 
-Cada nombre podría estar asociado mediante DNS a una dirección IP diferente:
+- Cada nombre podría estar asociado mediante DNS a una dirección IP diferente:
 
-    ```text
-    www.edu.gva.es       → 192.168.1.10
-    correo.edu.gva.es    → 192.168.1.20
-    ftp.edu.gva.es       → 192.168.1.30
-    ```
+      ```text
+      www.edu.gva.es       → 192.168.1.10
+      correo.edu.gva.es    → 192.168.1.20
+      ftp.edu.gva.es       → 192.168.1.30
+      ```
 
 !!! warning "Importante"
     - Cada nombre DNS **no representa necesariamente un único equipo físico**.  
     - Un mismo servicio puede estar distribuido entre varios servidores y una misma dirección IP puede utilizarse para diferentes nombres.
-
----
 
 ### 7.7 Zona DNS
 
@@ -501,6 +496,7 @@ La zona podría contener registros como:
     correo.edu.gva.es   → 192.168.10.20
     ftp.edu.gva.es      → 192.168.10.30
     ```
+<!--
 -->
 
 <!--
