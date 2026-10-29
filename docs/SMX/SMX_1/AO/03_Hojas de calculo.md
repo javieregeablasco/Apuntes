@@ -159,39 +159,36 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
             - Bordes: Grosor 0.5pt, #55215b.  
             - Fondo: #b2b2b2.
 
+        !!! abstract "Estilo ^^Columnas^^"  
+            - Tipo de letra: Arial 12 cursiva #00a933, centrado horizontalmente.   
+            - Bordes: Grosor 0.05pt, #ffbf00.  
+            - Fondo: #fff5ce.
 
-
-    **3. Estilo Columnas**  
-    &emsp;Tipo de letra: Arial 12 cursiva verde, centrado horizontalmente.   
-    &emsp;Bordes: Grosor 0.05pt, oro.  
-    &emsp;Fondo: Oro claro 4.
-
-    **4. Estilo Índices**  
-    &emsp;Tipo de letra: Arial 12 cursiva, azul oscuro 1, alineación izquierda.   
-    &emsp;Bordes: Grosor 0.5pt, oro claro 1.  
-    &emsp;Fondo: Rojo claro 4.  
+        !!! abstract "Estilo ^^Índices^^"  
+            - Tipo de letra: Arial 12 cursiva, #3465a4, alineación izquierda.   
+            - Bordes: Grosor 0.5pt, #ffd428.  
+            - Fondo: #ffd7d7.  
     
-    **3. Estilo Título 1**  
-    &emsp;Tipo de letra: Arial 16 negrita blanco, centrado horizontalmente y verticalmente.   
-    &emsp;Fondo: Negro.  
+        !!! abstract "Estilo ^^Título 1^^"  
+            - Tipo de letra: Arial 16 negrita blanco, centrado horizontalmente y verticalmente.   
+            - Fondo: Negro.  
 
-    **4. Estilo Título 2**  
-    &emsp;Tipo de letra: Arial 12 negrita, rojo, centrado horizontalmente.   
-    &emsp;Bordes: Grosor 0.5pt, lima.  
-    &emsp;Fondo: Magenta claro 4.  
+        !!! abstract "Estilo ^^Título 2^^"  
+            - Tipo de letra: Arial 12 negrita, rojo, centrado horizontalmente.   
+            - Bordes: Grosor 0.5pt, lima.  
+            - Fondo: #f7d1d5.  
       
-    <u>**Tamaño de celdas**</u>   
-    &emsp;Anchura columna 1: 2cm  
-    &emsp;Anchura columnas 2, 3, 4 y 5,: 3cm  
-    &emsp;Altura fila 1: 1cm  
-    &emsp;Altura fila 2: 0.75cm  
-    &emsp;Altura fila 3: 0.6cm  
-    &emsp;Altura fila 4, 5, 6, 7, y 8: 0.5cm
+        !!! abstract "Estilo ^^Tamaño de celdas^^"  
+            - Anchura columna 1: 2cm  
+            - Anchura columnas 2, 3, 4 y 5,: 3cm
+            - Altura fila 1: 1cm  
+            - Altura fila 2: 0.75cm  
+            - Altura fila 3: 0.6cm  
+            - Altura fila 4, 5, 6, 7, y 8: 0.5cm
 
-    <u>**Datos a introducir dentro de las celdas**</u>  
-    &emsp;Introducir los datos a mano para que quede de la siguiente manera.
-
-    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc16.png){ .leftsietecinco }
+        !!! abstract "Datos a introducir dentro de las celdas"  
+            - Introducir los datos a mano para que quede de la siguiente manera.
+            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc16.png){ .sietecinco }
     
     <u>**Trabajo adicional**</u>  
     &emsp;Aplicar los estilos de la siguiente manera.
