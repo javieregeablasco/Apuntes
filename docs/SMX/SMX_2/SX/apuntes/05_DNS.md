@@ -262,7 +262,7 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
 ### 6.4 Consulta al servidor de nombres autoritativo
 
 - El resolver recursivo consulta finalmente a uno de los **servidores DNS autoritativos** responsables de la zona correspondiente.
-![Descripción de la imagen](./img_5/img_5_9.png){.marco .margintop10}
+![Descripción de la imagen](./img_5/img_5_9.png){.marco .margintop10 .marginbottom20}
 
 - Un servidor autoritativo dispone de la **información oficial de la zona DNS que administra**. Esta información contiene diferentes registros DNS que permiten conocer los servicios asociados a los nombres del dominio.
 
@@ -279,7 +279,7 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
 ### 6.5 Resolución final y almacenamiento en caché
 
 - El resolver recursivo recibe la respuesta del servidor autoritativo y se la proporciona al dispositivo que realizó la consulta.
-![Descripción de la imagen](./img_5/img_5_6.png){.marco .margintop10}
+![Descripción de la imagen](./img_5/img_5_6.png){.marco .margintop10 .marginbottom20}
 
 - El navegador ya puede utilizar la dirección IP obtenida para establecer una conexión con el servicio correspondiente.
 
