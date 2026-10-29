@@ -264,17 +264,17 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
 - El resolver recursivo consulta finalmente a uno de los **servidores DNS autoritativos** responsables de la zona correspondiente.
 ![Descripción de la imagen](./img_5/img_5_9.png){.marco .margintop10}
 
-Un servidor autoritativo dispone de la **información oficial de la zona DNS que administra**. Esta información contiene diferentes registros DNS que permiten conocer los servicios asociados a los nombres del dominio.
+- Un servidor autoritativo dispone de la **información oficial de la zona DNS que administra**. Esta información contiene diferentes registros DNS que permiten conocer los servicios asociados a los nombres del dominio.
 
-Por ejemplo, un registro **A** puede asociar un nombre con una dirección IPv4:
+- Por ejemplo, un registro **A** puede asociar un nombre con una dirección IPv4:
 
-    ```text
-    www.aules.edu.gva.es  →  195.77.20.168
-    ```
+      ```text
+      www.aules.edu.gva.es  →  195.77.20.168
+      ```
 
-Para IPv6 se utiliza normalmente un registro **AAAA**.
+- Para IPv6 se utiliza normalmente un registro **AAAA**.
 
-Un dominio puede disponer de **varios servidores autoritativos**, proporcionando redundancia y disponibilidad.
+- Un dominio puede disponer de **varios servidores autoritativos**, proporcionando redundancia y disponibilidad.
 
 
 <!--
