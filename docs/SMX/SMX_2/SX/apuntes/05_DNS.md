@@ -544,19 +544,19 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
 
 ### 8.1 Servidores DNS públicos
 
-Un **servidor DNS público** es un servidor DNS que ofrece su servicio de resolución de nombres a usuarios y dispositivos de Internet de forma pública.
+- Un **servidor DNS público** es un servidor DNS que ofrece su servicio de resolución de nombres a usuarios y dispositivos de Internet de forma pública.
 
-Estos servidores suelen estar gestionados por empresas, organizaciones o proveedores de servicios de Internet y pueden ser utilizados por cualquier usuario que tenga acceso a Internet.
+- Estos servidores suelen estar gestionados por empresas, organizaciones o proveedores de servicios de Internet y pueden ser utilizados por cualquier usuario que tenga acceso a Internet.
 
-Algunos ejemplos conocidos son:
+- Algunos ejemplos conocidos son:
 
-| Servicio DNS          | Dirección IPv4 |
-| --------------------- | -------------- |
-| **Google Public DNS** | `8.8.8.8`      |
-| **Google Public DNS** | `8.8.4.4`      |
-| **Cloudflare DNS**    | `1.1.1.1`      |
-| **Cloudflare DNS**    | `1.0.0.1`      |
-| **Quad9**             | `9.9.9.9`      |
+    | Servicio DNS          | Dirección IPv4 |
+    | --------------------- | -------------- |
+    | **Google Public DNS** | `8.8.8.8`      |
+    | **Google Public DNS** | `8.8.4.4`      |
+    | **Cloudflare DNS**    | `1.1.1.1`      |
+    | **Cloudflare DNS**    | `1.0.0.1`      |
+    | **Quad9**             | `9.9.9.9`      |
 
 Por ejemplo, podemos configurar un ordenador para que utilice:
 
