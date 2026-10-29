@@ -18,7 +18,6 @@ schedule: 224h - 7h/w
 ||
 | **RA3. Elabora documentos y plantillas de cálculo, describiendo y aplicando opciones avanzadas de hojas de cálculo.** |
 
-
 |**Criterios de evaluación de la unidad didáctica:**||
     |-|-|
     |**a)** Se ha personalizado las opciones de software y barra de herramientas. |5%|
@@ -133,7 +132,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
     1. Condiciones de entrega de la práctica: Subir el archivo en **formato ods, nativo de LibreOffice** a la tarea RA3-CEa. No se admitirá ningún otro tipo de formato.
 
     !!! warning "Entrega de la tarea"
-        - Guardar el documento con RA3-CEa-NombreApellidos y subirlo a la tarea correspondiente de Aules.
+        - Guardar el documento como RA3-CEa-NombreApellidos y subirlo a la tarea correspondiente de Aules.
         - El archivo deberá estar en **formato ods, nativo de LibreOffice para hojas de cálculo**. No se admitirá ningún otro tipo de formato.
         - A partir de momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
         - Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
@@ -221,10 +220,13 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
         Al final la tabla quedará de la siguiente manera.  
         ![Descripción de la imagen](./03_hojas_de_calculo/img/calc8.png){ .ochocinco .margintop10 }
 
-    <u>**Condiciones de entrega**</u>  
-    &emsp;Guardar el documento con NombreApellidos-Tarea-RA3-CEb-1   
-    &emsp;Subir la hoja de cálculo en **formato ods, nativo de LibreOffice** a la tarea RA3-CEb-1  
-    &emsp;**No se aceptará ningun formato que no sea ods**.
+    !!! warning "Entrega de la tarea"
+        - Guardar el documento como RA3-CEb-1-NombreApellidos y subirlo a la tarea correspondiente de Aules.
+        - El archivo deberá estar en **formato ods, nativo de LibreOffice para hojas de cálculo**. No se admitirá ningún otro tipo de formato.
+        - A partir de momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
+        - Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.    
+
+### HASTA AQUI
 
 ### **Tarea RA3-CEb-2 - Elaboración básica de hojas de cálculo**
 !!! exercice "Tarea RA3-CEb-2 - Trabajando con series"
