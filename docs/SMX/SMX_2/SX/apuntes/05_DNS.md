@@ -276,8 +276,6 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
 
 - Un dominio puede disponer de **varios servidores autoritativos**, proporcionando redundancia y disponibilidad.
 
-
-<!--
 ### 6.5 Resolución final y almacenamiento en caché
 
 El resolver recursivo recibe la respuesta del servidor autoritativo y se la proporciona al dispositivo que realizó la consulta.
@@ -290,6 +288,7 @@ Además, el resolver puede almacenar la respuesta en su **caché DNS** durante e
 De esta forma, si otro dispositivo realiza posteriormente la misma consulta, el resolver puede responder utilizando la información almacenada en caché sin tener que volver a consultar a los servidores raíz, TLD y autoritativos.
 
 ---
+<!--
 
 ### 6.6 Resumen del proceso
 
