@@ -121,7 +121,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
 ### Tarea RA3-CEa - Personalización de la interfaz de usuario
 
 !!! exercice "Tarea RA3-CEa - Configuración del software utilizado"
-    1. Crear un documento y guardarlo con el nombre **Tarea-RA3CEa-NombreApellidosDelAlumno.ods**.
+    1. Crear un documento y guardarlo con el nombre **RA3CEa-NombreApellidosDelAlumno.ods**.
     1. Cambiar el tipo de letra básico de Liberation Sans a **Arial**.
     1. Cambiar el idioma del documento a español
     1. Configurar la hoja de cálculo para que realice una copia de resplado cada 5 minutos.
@@ -134,7 +134,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
 
     !!! warning "Entrega de la tarea"
         - Guardar el documento con RA3-CEa-NombreApellidos y subirlo a la tarea correspondiente de Aules.
-        - El archivo deberá estar en **formato ods, nativo de LibreOffice para hojas de cálculo. No se admitirá ningún otro tipo de formato.
+        - El archivo deberá estar en **formato ods, nativo de LibreOffice para hojas de cálculo**. No se admitirá ningún otro tipo de formato.
         - A partir de momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
         - Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
 
