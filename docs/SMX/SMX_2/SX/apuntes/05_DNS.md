@@ -510,7 +510,12 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
         X --> C[Zona B]
         B --> D[www.edu.gva.es </br>+</br>correo.edu.gva.es]
         C --> E[ftp.edu.gva.es]
-    style X fill:none,stroke:none
+    style X fill:#
+    style A fill:#bbf,stroke:#333,stroke-width:4px
+    style B fill:#bbf,stroke:#333,stroke-width:4px
+    style C fill:#bbf,stroke:#333,stroke-width:4px
+    style D fill:#bbf,stroke:#333,stroke-width:4px
+    style E fill:#bbf,stroke:#333,stroke-width:4px
     ```
     - En este segundo escenario, la organización administra directamente una zona con `www.edu.gva.es` y `correo.edu.gva.es` (Zona A), mientras que `ftp.edu.gva.es` está delegado a otros servidores DNS que administran la Zona B. Ambas zonas siguen perteneciendo al mismo dominio `edu.gva.es`, pero están gestionadas de forma independiente.
 
