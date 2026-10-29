@@ -471,31 +471,31 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
 
 ### 7.7 Zona DNS
 
-Una **zona DNS** es una parte de la jerarquía DNS que está administrada por una organización o servidor DNS determinado.
+- Una **zona DNS** es una parte de la jerarquía DNS que está administrada por una organización o servidor DNS determinado.
 
-La zona contiene los **registros DNS** que proporcionan información sobre los nombres y servicios que administra.
+- La zona contiene los **registros DNS** que proporcionan información sobre los nombres y servicios que administra.
 
-Por ejemplo, una organización podría administrar la zona:
+- Por ejemplo, una organización podría administrar la zona:
 
-    ```text
-    edu.gva.es
-    ```
+      ```text
+      edu.gva.es
+      ```
 
-y dentro de ella tener, en un primer escenario, todos los nombres agrupados en una única zona:
+    y dentro de ella tener, en un primer escenario, todos los nombres agrupados en una única zona:
 
-    ```text
-    www.edu.gva.es
-    correo.edu.gva.es
-    ftp.edu.gva.es
-    ```
+      ```text
+      www.edu.gva.es
+      correo.edu.gva.es
+      ftp.edu.gva.es
+      ```
 
-La zona podría contener registros como:
+    La zona podría contener registros como:
 
-    ```text
-    www.edu.gva.es      → 192.168.10.10
-    correo.edu.gva.es   → 192.168.10.20
-    ftp.edu.gva.es      → 192.168.10.30
-    ```
+      ```text
+      www.edu.gva.es      → 192.168.10.10
+      correo.edu.gva.es   → 192.168.10.20
+      ftp.edu.gva.es      → 192.168.10.30
+      ```
 <!--
 -->
 
