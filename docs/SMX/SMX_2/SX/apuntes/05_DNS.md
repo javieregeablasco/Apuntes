@@ -843,26 +843,30 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
 1. En los **servidores DNS autoritativos**, estos registros pueden almacenarse en **archivos de zona**. Un archivo de zona es un archivo de texto que contiene los registros DNS y determinadas directivas que describen una zona DNS.
 
     !!! example "Ejemplo"
-        Un archivo de zona puede contener registros como:
+        - Un archivo de zona puede contener registros como:
 
-        ```text
-        ejemplo.com.      IN    A       192.0.2.10
-        www               IN    A       192.0.2.10
-        mail              IN    A       192.0.2.20
-        ```
+            ```text
+            ejemplo.com.      IN    A       192.0.2.10
+            www               IN    A       192.0.2.10
+            mail              IN    A       192.0.2.20
+            ```
 
 1. La **sintaxis de los archivos de zona** establece cómo deben escribirse estos registros y directivas para que el servidor DNS pueda interpretarlos correctamente.
 
     !!! example "Ejemplo"
-        Cuando un usuario introduce en su navegador una dirección como:
+        - Cuando un usuario introduce en su navegador una dirección como:
 
-        ```text
-        https://www.ejemplo.com/index.html
-        ```
+            ```text
+            https://www.ejemplo.com/index.html
+            ```
 
-        el navegador necesita conocer la dirección IP asociada al nombre de host **[www.ejemplo.com](http://www.ejemplo.com)**. Para obtenerla, se inicia una **consulta DNS**.
+        - El navegador necesita conocer la dirección IP asociada al nombre de host **[www.ejemplo.com](http://www.ejemplo.com)**.
+        
+        - Para obtenerla, se inicia una **consulta DNS**.
 
-        El equipo del usuario normalmente realiza la consulta a un **servidor DNS recursivo** o *resolver*. Este servidor puede disponer de la respuesta en su **caché**. Si no la tiene, puede realizar consultas a otros servidores DNS hasta encontrar la información necesaria.
+        - El equipo del usuario normalmente realiza la consulta a un **servidor DNS recursivo** o *resolver*.
+        
+        - Este servidor puede disponer de la respuesta en su **caché**. Si no la tiene, puede realizar consultas a otros servidores DNS hasta encontrar la información necesaria.
 
 1. En una resolución DNS pueden intervenir diferentes tipos de servidores, entre ellos:
 
