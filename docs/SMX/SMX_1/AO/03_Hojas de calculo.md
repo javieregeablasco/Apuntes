@@ -143,11 +143,12 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
 ### Tarea RA3-CEb-1 - Elaboración básica de hojas de cálculo
 
 !!! exercice "Tarea RA3-CEb-1 - Elaboración de una tabla en un hoja de cálculo"
-    !!! "1 - Estilos"
-        ^^**Creación de estilos**^^  
-    Crear los estilos **Valores, Columnas, Indices** según se vea a continuación.  
 
-    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc6.png){ .leftdoscinco }
+    !!! tip "1 - Estilos"
+        ^^**Creación de estilos**^^  
+        - Crear los estilos **Valores, Columnas, Indices** como se muestra a continuación.  
+
+        ![Descripción de la imagen](./03_hojas_de_calculo/img/calc6.png){ .cincozero }
 
     <u>**Configuración de los estilos**</u>  
     **1. Predeterminado:**  
