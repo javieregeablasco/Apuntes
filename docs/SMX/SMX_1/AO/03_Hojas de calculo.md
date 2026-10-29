@@ -103,18 +103,23 @@ Es el menú de la mayoría de herramientas de validación de un documento: En es
 !!! note ""
     **Muy parecido al de LibreOffice writer.**
 
-### **1.10 - Menú: Ventana**
+### 1.10 Menú: Ventana
+
 El menú "Ventana" está pensado para gestionar las distintas ventanas o instancias del programa abiertas en ese momento.
 No afecta al contenido del documento, sino a cómo se interactúa con varios documentos o vistas al mismo tiempo.
-<br>
-**Idéntico al de LibreOffice writer.**
 
-### **1.11 - Menú: Ayuda**
+!!! note ""
+    **Idéntico al de LibreOffice writer.**
+
+### 1.11 Menú: Ayuda
+
 Reúne todas las opciones para obtener asistencia, acceder a la documentación oficial y consultar información sobre la instalación de LibreOffice
-<br>
-**Idéntico al de LibreOffice writer.**
 
-### **Tarea RA3-CEa - Personalización de la interfaz de usuario**
+!!! note ""
+    **Idéntico al de LibreOffice writer.**
+
+### Tarea RA3-CEa - Personalización de la interfaz de usuario
+
 !!! exercice "Tarea RA3-CEa - Configuración del software utilizado"
     1. Crear un documento y guardarlo con el nombre **Tarea-RA3CEa-NombreApellidosDelAlumno.ods**.
     1. Cambiar el tipo de letra básico de Liberation Sans a **Arial**.
