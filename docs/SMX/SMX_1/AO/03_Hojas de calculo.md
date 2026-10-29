@@ -186,23 +186,25 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
             - Altura fila 3: 0.6cm  
             - Altura fila 4, 5, 6, 7, y 8: 0.5cm
 
+    !!! tip "3 - Configuración de los estilos"
+
         !!! abstract "Datos a introducir dentro de las celdas"  
             - Introducir los datos a mano para que quede de la siguiente manera.
             ![Descripción de la imagen](./03_hojas_de_calculo/img/calc16.png){ .cien .margintop10 }
     
-        !!! abstract "Trabajo adicional"  
-            - Aplicar los estilos de la siguiente manera.
+    !!! tip "4 - Aplicar estilos"
+
+        !!! abstract "Aplicar los estilos de la siguiente manera"
             ![Descripción de la imagen](./03_hojas_de_calculo/img/calc9.png){ .sietecinco .margintop10 }
 
-    
-    <u>**Trabajo adicional**</u>  
-    &emsp;Combinar las celdas A1, B1, C1, D1 y E1   
-    &emsp;Combinar las celdas B3 con C3 y D3 con E3   
-    &emsp;Insertar una fila en la posición 1 y una columna en la posición A.  
-    &emsp;Redimensionar la columna A al gusto.       
-    &emsp;El resultado final deberá ser similar al de la imagen.       
-
-    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc7.png){ .leftsietecinco }
+    !!! tip "5 - Trabajo adicional"
+        - Combinar las celdas A1, B1, C1, D1 y E1   
+        - Combinar las celdas B3 con C3 y D3 con E3   
+        - Insertar una fila en la posición 1 y una columna en la posición A.  
+        - Redimensionar la columna A al gusto.       
+        
+        El resultado final deberá ser similar al de la imagen.       
+        ![Descripción de la imagen](./03_hojas_de_calculo/img/calc7.png){ .leftsietecinco }
 
     **Ejercicio parte 2**  
     Dentro del mismo documento crear una hoja nueva.  
