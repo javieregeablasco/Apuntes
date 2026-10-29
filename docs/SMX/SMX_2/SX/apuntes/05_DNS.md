@@ -519,26 +519,24 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
     ```
     - En este segundo escenario, la organización administra directamente una zona con `www.edu.gva.es` y `correo.edu.gva.es` (Zona A), mientras que `ftp.edu.gva.es` está delegado a otros servidores DNS que administran la Zona B. Ambas zonas siguen perteneciendo al mismo dominio `edu.gva.es`, pero están gestionadas de forma independiente.
 
-
-<!--
 ### 7.8 Resumen de la jerarquía DNS
 
-Podemos resumir los diferentes conceptos mediante la siguiente imagen:
+- Podemos resumir los diferentes conceptos mediante la siguiente imagen:
+![Descripción de la imagen](./img_5/img_5_10.jpeg){.marco .margintop10 .marginbottom20}
 
-![Descripción de la imagen](./img_5/img_5_10.jpeg){.marco .margintop10}
+- De esta forma, el DNS organiza los nombres mediante una estructura jerárquica en la que cada nivel puede ser administrado de forma independiente.  
 
-De esta forma, el DNS organiza los nombres mediante una estructura jerárquica en la que cada nivel puede ser administrado de forma independiente.
+    | Concepto | Significado | Ejemplo |
+    ||||
+    | **Raíz** | Nivel superior de la jerarquía DNS | `.` |
+    | **TLD** | Dominio de nivel superior | `.es` |
+    | **Dominio** | Nombre registrado dentro de un TLD | `gva.es` |
+    | **Subdominio** | Dominio situado dentro de otro dominio | `edu.gva.es` |
+    | **FQDN** | Nombre DNS completamente cualificado (incluye el punto raíz final) | `www.edu.gva.es.` |
+    | **Host** | Equipo o servicio identificado mediante un nombre | `www.edu.gva.es` |
+    | **Zona** | Parte de la jerarquía administrada por unos servidores autoritativos concretos | `edu.gva.es` (zona delegada, con sus propios servidores autoritativos dentro del dominio `gva.es`) |
 
-| Concepto | Significado | Ejemplo |
-||||
-| **Raíz** | Nivel superior de la jerarquía DNS | `.` |
-| **TLD** | Dominio de nivel superior | `.es` |
-| **Dominio** | Nombre registrado dentro de un TLD | `gva.es` |
-| **Subdominio** | Dominio situado dentro de otro dominio | `edu.gva.es` |
-| **FQDN** | Nombre DNS completamente cualificado (incluye el punto raíz final) | `www.edu.gva.es.` |
-| **Host** | Equipo o servicio identificado mediante un nombre | `www.edu.gva.es` |
-| **Zona** | Parte de la jerarquía administrada por unos servidores autoritativos concretos | `edu.gva.es` (zona delegada, con sus propios servidores autoritativos dentro del dominio `gva.es`) |
-
+<!--
 ## 8 - Servidores DNS públicos y privados
 
 No todos los servidores DNS tienen la misma función ni están disponibles para los mismos usuarios.
