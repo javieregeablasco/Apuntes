@@ -237,24 +237,23 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
 
     el [**servidor raíz**](https://www.iana.org/domains/root/db) puede indicar qué servidores se encargan del TLD `.es`.
 
-
 ### 6.3 Consulta al servidor de nivel superior (TLD)
 
-El resolver recursivo consulta entonces a un **servidor TLD** (*Top-Level Domain*).
-![Descripción de la imagen](./img_5/img_5_8.png){.marco .margintop10}
+- El resolver recursivo consulta entonces a un **servidor TLD** (*Top-Level Domain*).
+![Descripción de la imagen](./img_5/img_5_8.png){.marco .margintop10 .marginbottom20}
 
-Un TLD es la parte final de un nombre de dominio, como:
+- Un TLD es la parte final de un nombre de dominio, como:
 
-    ```text
-    .com
-    .es
-    .org
-    .net
-    ```
+      ```text
+      .com
+      .es
+      .org
+      .net
+      ```
 
-El servidor TLD no proporciona necesariamente la dirección IP del equipo que buscamos. Su función es indicar cuáles son los **servidores DNS autoritativos** encargados del dominio correspondiente.
+- El servidor TLD no proporciona necesariamente la dirección IP del equipo que buscamos. Su función es indicar cuáles son los **servidores DNS autoritativos** encargados del dominio correspondiente.
 
-Por ejemplo, los servidores responsables del TLD `.es` pueden indicar qué servidores DNS son autoritativos para:
+- Por ejemplo, los servidores responsables del TLD `.es` pueden indicar qué servidores DNS son autoritativos para:
 
     ```text
     aules.edu.gva.es
