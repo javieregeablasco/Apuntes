@@ -765,34 +765,35 @@ El funcionamiento tradicional de DNS presenta un problema: un atacante podría i
     !!! note "En resumen"
         DNSSEC proporciona **autenticidad e integridad**, pero no **confidencialidad ni disponibilidad**.
 
-<!--
-
 ### 9.3 Envenenamiento de la caché DNS
 
-Uno de los principales problemas de seguridad del DNS tradicional es que, si un atacante consigue introducir información DNS falsa en la caché de un servidor DNS, puede conseguir que las consultas de los usuarios sean redirigidas a direcciones IP incorrectas.
+- Uno de los principales problemas de seguridad del DNS tradicional es que, si un atacante consigue introducir información DNS falsa en la caché de un servidor DNS, puede conseguir que las consultas de los usuarios sean redirigidas a direcciones IP incorrectas.
 
-Este ataque se conoce como **DNS cache poisoning o envenenamiento de la caché DNS**.
+- Este ataque se conoce como **DNS cache poisoning o envenenamiento de la caché DNS**.
 
 !!! example "Ejemplo"
-    Un usuario quiere acceder a la web de su banco:
+    - Un usuario quiere acceder a la web de su banco:
 
-    ```text
-    www.banco.com
-    ```
-    Normalmente, el servidor DNS debería proporcionar la dirección IP legítima:
-    ```text
-    www.banco.com → 198.51.100.20
-    ```
-    Sin embargo, si un atacante consigue introducir un registro falso en la caché DNS:
-    ```text
-    www.banco.com → 203.0.113.50
-    ```
+        ```text
+        www.banco.com
+        ```
 
-    Los usuarios que reciban esa respuesta podrían ser enviados a un servidor controlado por el atacante.
+    - Normalmente, el servidor DNS debería proporcionar la dirección IP legítima:
+        ```text
+        www.banco.com → 198.51.100.20
+        ```
 
-    El objetivo podría ser mostrar una página web falsa que imite a la original para intentar obtener **credenciales de acceso, datos personales u otra información confidencial**.
+    - Sin embargo, si un atacante consigue introducir un registro falso en la caché DNS:
 
-    Este tipo de ataque puede utilizarse, por ejemplo, como parte de una campaña de **phishing**.
+        ```text
+        www.banco.com → 203.0.113.50
+        ```
+
+    - Los usuarios que reciban esa respuesta podrían ser enviados a un servidor controlado por el atacante.
+
+    - El objetivo podría ser mostrar una página web falsa que imite a la original para intentar obtener **credenciales de acceso, datos personales u otra información confidencial**.
+
+    - Este tipo de ataque puede utilizarse, por ejemplo, como parte de una campaña de **phishing**.
 
     !!! success "Prevención contra el DNS cache poisoning" 
         DNSSEC ayuda a prevenir el problema del ataque de envenenamiento de caché porque permite al resolver DNS comprobar mediante firmas digitales que los registros DNS recibidos son auténticos y no han sido modificados.
@@ -801,6 +802,7 @@ Este ataque se conoce como **DNS cache poisoning o envenenamiento de la caché D
         - No debemos confundir el **envenenamiento de la caché DNS** con el hecho de que un servidor DNS haya sido comprometido. 
         - En el primer caso, el atacante intenta introducir información DNS falsa en la caché de un resolver; en el segundo, el propio servidor DNS puede haber sido tomado bajo control por el atacante.
 
+<!--
 ### 9.4 Ataques Man-in-the-Middle
 
 Un ataque **Man-in-the-Middle (MITM)**, o **hombre en el medio**, se produce cuando un atacante consigue situarse entre dos dispositivos que se están comunicando.
