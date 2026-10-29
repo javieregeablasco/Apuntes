@@ -347,14 +347,13 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
       .
       ```
 
-La raíz es el nivel superior de todo el sistema DNS.
+- La raíz es el nivel superior de todo el sistema DNS.
 
-Un nombre de dominio completamente cualificado (*FQDN, Fully Qualified Domain Name*) podría escribirse de la siguiente manera:
+- Un nombre de dominio completamente cualificado (*FQDN, Fully Qualified Domain Name*) podría escribirse de la siguiente manera:
+![Descripción de la imagen](./img_5/img_5_11.png){.margintop10 .marginbottom20}
 
-![Descripción de la imagen](./img_5/img_5_11.png){.margintop10}
-
-Normalmente este punto final no se escribe cuando utilizamos un nombre de dominio en un navegador pero forma parte de la estructura completa del nombre.
-![Descripción de la imagen](./img_5/img_5_11.jpeg){.margintop10}
+- Normalmente este punto final no se escribe cuando utilizamos un nombre de dominio en un navegador pero forma parte de la estructura completa del nombre.
+![Descripción de la imagen](./img_5/img_5_11.jpeg){.margintop10 .marginbottom20}
 
 
 
