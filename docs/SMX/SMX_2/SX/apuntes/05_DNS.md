@@ -698,13 +698,13 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
 - Su principal utilidad es permitir que un dispositivo o servidor cuya dirección IP es **dinámica** pueda seguir siendo accesible mediante un nombre de dominio, aunque su dirección IP cambie.
 
 !!! example "Ejemplo"
-    Imaginemos un servidor al que queremos acceder utilizando el nombre:
+    - Imaginemos un servidor al que queremos acceder utilizando el nombre:
 
-    ```text
-    servidor.midominio.com
-    ```
+        ```text
+        servidor.midominio.com
+        ```
 
-    Si el servidor tiene una dirección IP dinámica, esta podría cambiar periódicamente:
+    - Si el servidor tiene una dirección IP dinámica, esta podría cambiar periódicamente:
 
     ```text
     servidor.midominio.com → 80.25.10.100
