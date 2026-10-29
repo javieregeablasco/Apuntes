@@ -239,7 +239,7 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
 
 ### 6.3 Consulta al servidor de nivel superior (TLD)
 
-- El resolver recursivo consulta entonces a un **servidor TLD** (*Top-Level Domain*).
+- El resolver recursivo consulta entonces a un [**servidor TLD**](https://www.iana.org/domains/root/db) (*Top-Level Domain*).
 ![Descripción de la imagen](./img_5/img_5_8.png){.marco .margintop10 .marginbottom20}
 
 - Un TLD es la parte final de un nombre de dominio, como:
