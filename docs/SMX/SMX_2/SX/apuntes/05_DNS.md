@@ -670,10 +670,9 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
 !!! example "Ejemplo de consulta DNS externa"
     ![Descripción de la imagen](./img_5/img_5_16.png){ .margintop10 .marginbottom10}
 
-<!--
 ### 8.6 Comparativa DNS público vs. DNS privado
 
-Podemos comparar ambos tipos de servidores:
+- Podemos comparar ambos tipos de servidores:
 
 | Característica           | DNS público                  | DNS privado                          |
 | ------------------------ | ---------------------------- | ------------------------------------ |
@@ -686,19 +685,17 @@ Podemos comparar ambos tipos de servidores:
 | Uso en empresas          | Posible                      | Muy habitual                         |
 | Accesible desde Internet | Generalmente sí              | Normalmente no                       |
 
----
-
 ## 9 - Evolución del protocolo DNS y seguridad
 
-El protocolo DNS ha evolucionado para adaptarse a las necesidades cada vez mayores de las redes y, especialmente, para solucionar algunos de sus problemas de seguridad.
+- El protocolo DNS ha evolucionado para adaptarse a las necesidades cada vez mayores de las redes y, especialmente, para solucionar algunos de sus problemas de seguridad.
 
-Dos de las principales tecnologías relacionadas con esta evolución son **DDNS (Dynamic DNS)** y **DNSSEC (DNS Security Extensions)**.
+- Dos de las principales tecnologías relacionadas con esta evolución son **DDNS (Dynamic DNS)** y **DNSSEC (DNS Security Extensions)**.
 
 ### 9.1 DDNS
 
-**El DDNS (Dynamic DNS o DNS dinámico)** permite actualizar automáticamente los registros de un servidor DNS cuando cambia la dirección IP asociada a un nombre de dominio.
+- **El DDNS (Dynamic DNS o DNS dinámico)** permite actualizar automáticamente los registros de un servidor DNS cuando cambia la dirección IP asociada a un nombre de dominio.
 
-Su principal utilidad es permitir que un dispositivo o servidor cuya dirección IP es **dinámica** pueda seguir siendo accesible mediante un nombre de dominio, aunque su dirección IP cambie.
+- Su principal utilidad es permitir que un dispositivo o servidor cuya dirección IP es **dinámica** pueda seguir siendo accesible mediante un nombre de dominio, aunque su dirección IP cambie.
 
 !!! example "ejemplo"
     Imaginemos un servidor al que queremos acceder utilizando el nombre:
@@ -728,6 +725,7 @@ Su principal utilidad es permitir que un dispositivo o servidor cuya dirección 
     !!! warning "Importante:"
         DDNS no es un protocolo DNS diferente. Es un mecanismo o servicio que permite realizar **actualizaciones dinámicas de los registros DNS**.
 
+<!--
 ### 9.2 DNSSEC
 
 **DNSSEC (Domain Name System Security Extensions o extensiones de seguridad para el DNS)** es un conjunto de extensiones que permite añadir **autenticidad e integridad** a la información proporcionada por DNS.
