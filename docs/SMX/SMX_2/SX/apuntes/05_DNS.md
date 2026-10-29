@@ -235,11 +235,9 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
       www.aules.edu.gva.es
       ```
 
-    el servidor raíz puede indicar qué servidores se encargan del TLD `.es`.
+    el [**servidor raíz**](https://www.iana.org/domains/root/db) puede indicar qué servidores se encargan del TLD `.es`.
 
----
 
-<!--
 ### 6.3 Consulta al servidor de nivel superior (TLD)
 
 El resolver recursivo consulta entonces a un **servidor TLD** (*Top-Level Domain*).
@@ -264,6 +262,7 @@ Por ejemplo, los servidores responsables del TLD `.es` pueden indicar qué servi
 
 ---
 
+<!--
 ### 6.4 Consulta al servidor de nombres autoritativo
 
 El resolver recursivo consulta finalmente a uno de los **servidores DNS autoritativos** responsables de la zona correspondiente.
