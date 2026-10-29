@@ -827,12 +827,14 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
 
 ## 10 - Registros DNS
 
+![img](./img_5/img_5_152.jpeg){.cien .margintop10 .marginbottom20}
+
 ### 10.1 Introducción
 
 1. Los **registros DNS** son datos que contienen información sobre los nombres de dominio y los servicios asociados a ellos.
 
     !!! example "Ejemplo"
-        Un registro de tipo **A** permite asociar un nombre de dominio con **una dirección IPv4**:
+        - Un registro de tipo **A** permite asociar un nombre de dominio con **una dirección IPv4**:
 
         ```text
         www.ejemplo.com → 192.0.2.10
