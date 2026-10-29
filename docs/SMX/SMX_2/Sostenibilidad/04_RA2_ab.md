@@ -194,3 +194,65 @@ Para frenar la degradación y construir resiliencia, las respuestas abarcan inic
 
 ## 5 - Foro de discusión
 
+!!! question "¿Debería aplicarse una fiscalidad ambiental más severa a las grandes corporaciones y rentas altas para financiar la adaptación climática de los hogares vulnerables?"
+    - Argumentos a favor.
+    - Argumentos en contra.
+
+<!--     
+
+* **A favor (Justicia Climática):**
+  * **Argumento:** Existe una profunda huella de desigualdad: un porcentaje muy pequeño de la población con mayores ingresos y un grupo reducido de grandes corporaciones generan una parte sustancial de las emisiones directas. Sin embargo, la mayor exposición al calor extremo, la pobreza energética y las inundaciones recae sobre los hogares con menores ingresos. Aplicar impuestos redistributivos e internalizar costes ambientales es necesario para financiar subsidios directos a la rehabilitación de viviendas y la resiliencia social.
+* **En contra (Competitividad Económica):**
+  * **Argumento:** Una sobrecarga fiscal o regulatoria excesiva sobre las industrias clave y empresas tractoras puede incrementar drásticamente sus costes operativos. Esto arriesga deslocalizaciones productivas, pérdida de inversión privada en infraestructura verde y destrucción agregada de empleo en sectores estratégicos. La financiación climática debe provenir del crecimiento e incentivos de mercado, no de penalizaciones impositivas. 
+
+-->
+
+!!! question "En periodos de sequía severa, ¿se debe priorizar el corte/restricción del agua al sector agrícola e industrial o mantener el suministro para evitar recesiones y desabastecimiento?"
+    - Argumentos a favor.
+    - Argumentos en contra.
+
+<!--
+
+* **A favor de priorizar ecosistemas y consumo humano directo:**
+  * **Argumento:** El agua dulce y la calidad ambiental son un determinante directo de la salud pública; la escasez crítica provoca enfermedades gastrointestinales, problemas de saneamiento y deterioro permanente de los acuíferos[12]. Garantizar los caudales ecológicos y el agua potable urbana es indispensable antes de derivar caudales a actividades intensivas[14].
+* **A favor de garantizar el suministro al sector primario y productivo:**
+  * **Argumento:** La agricultura y la ganadería sufren reducciones directas de cosecha, pérdidas del potencial productivo del suelo e incrementos masivos de costes ante la falta de agua[19]. Limitar el riego en crisis hídricas provoca caídas superiores al 20-50% en los ingresos agrarios, quiebra de explotaciones, desempleo rural y un encarecimiento generalizado de los alimentos frescos en la cesta de la compra[3]
+
+-->
+
+!!! question "¿Es éticamente aceptable acelerar el cierre de industrias contaminantes ("empleos marrones") aun a costa de generar desempleo a corto plazo en comarcas dependientes de ellas?"
+    - Argumentos a favor.
+    - Argumentos en contra.
+
+<!--
+
+* **A favor del cierre urgente y descarbonización:**
+  * **Argumento:** Cumplir los objetivos de neutralidad climática exige eliminar paulatinamente las actividades con alta intensidad de emisiones[11][26]. Retrasar la transición agrava los riesgos físicos futuros[14][19]. Además, las inversiones verdes generarán nuevos puestos de trabajo con mayores cualificaciones en energías limpias, reciclaje, rehabilitación y sectores de agua a medio y largo plazo[11].
+* **En contra / A favor de una transición más gradual:**
+  * **Argumento:** El coste social de destruir "empleos marrones" recae desproporcionadamente en trabajadores de mediana edad y baja cualificación con difícil reincorporación al mercado de trabajo[26][29]. Si el ritmo de cierre supera la capacidad real de reconversión mediante el *reskilling* (recualificación) y las Políticas Activas de Empleo, se aboca a comarcas enteras al despoblamiento y la exclusión[18].
+
+-->
+
+!!! question "¿Deben imponerse límites obligatorios al turismo de masas en épocas estivales para proteger la capacidad hídrica y ambiental de los municipios?""
+    - Argumentos a favor.
+    - Argumentos en contra.
+
+<!--
+
+* **A favor de limitar el turismo e imponer pautas de economía circular:**
+  * **Argumento:** El turismo estival intensifica la presión sobre los recursos hídricos, la generación de residuos y el consumo energético en zonas costeras y de interior vulnerables[33][34]. La implantación obligatoria de prácticas circulares (reutilización de agua, tasa turística verde, reducción de plásticos) es imprescindible para evitar la degradación irreversible de las playas y parajes naturales[33].
+* **En contra de restricciones severas:**
+  * **Argumento:** El turismo representa más del 12% del PIB y del empleo en países como España[33].Imponer barreras de afluencia o cargas reglamentarias desmedidas puede perjudicar la competitividad frente a otros destinos internacionales, destruyendo puestos de trabajo en un sector que ya enfrenta retos por la alteración de las temporadas térmicas[33][37].
+
+-->
+
+!!! question "¿Debe el Estado financiar al 100% la rehabilitación térmica de las viviendas de bajos ingresos o debe dejarse a la iniciativa e inversión privada?""
+
+<!--
+
+* **A favor del subsidio público total:**
+  * **Argumento:** Cerca de un tercio de la población no puede mantener una temperatura adecuada en verano o invierno por ineficiencia de sus casas y altos costes energéticos[6]. Las familias con rentas bajas no pueden cofinanciar las obras ni acceder a las ayudas habituales por falta de liquidez[6]. Cubrir la totalidad del coste es una medida de justicia e higiene pública que reduce enfermedades y gastos en el sistema sanitario[7].
+* **En contra de la financiación pública completa:**
+  * **Argumento:** Asumir el 100% del coste supeditado a las arcas públicas generaría una carga fiscal insostenible y podría distorsionar el mercado inmobiliario[8][11]. Lo adecuado es combinar incentivos fiscales, créditos blandos y responsabilidad compartida con los propietarios para optimizar el uso de los fondos públicos[8].
+
+-->
