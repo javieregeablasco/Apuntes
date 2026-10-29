@@ -357,34 +357,34 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
 
 ### 7.2 Dominios de nivel superior (TLD)
 
-Por debajo de la raíz se encuentran los **dominios de nivel superior**, conocidos como **TLD (*Top-Level Domain*)**.
+- Por debajo de la raíz se encuentran los **dominios de nivel superior**, conocidos como **TLD (*Top-Level Domain*)**.
 
-Algunos ejemplos son:
+- Algunos ejemplos son:
 
-    ```text
-    .com
-    .org
-    .net
-    .es
-    .edu
-    ```
+      ```text
+      .com
+      .org
+      .net
+      .es
+      .edu
+      ```
 
-Existen diferentes tipos de TLD. Por ejemplo:
+- Existen diferentes tipos de TLD. Por ejemplo:
 
-- **gTLD (*generic Top-Level Domain*)**: `.com`, `.org`, `.net`, etc.
-- **ccTLD (*country code Top-Level Domain*)**: `.es`, `.fr`, `.it`, `.de`, etc.
+    1. **gTLD (*generic Top-Level Domain*)**: `.com`, `.org`, `.net`, etc.
+    1. **ccTLD (*country code Top-Level Domain*)**: `.es`, `.fr`, `.it`, `.de`, etc.
 
-En el caso de:
+- En el caso de:
 
-    ```text
-    www.edu.gva.es
-    ```
+      ```text
+      www.edu.gva.es
+      ```
 
-el TLD es:
+    el TLD es:
 
-    ```text
-    .es
-    ```
+      ```text
+      .es
+      ```
 
 <!--
 ### 7.3 Dominio
