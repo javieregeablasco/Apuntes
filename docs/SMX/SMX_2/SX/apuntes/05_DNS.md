@@ -902,33 +902,33 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
 
 - Los registros de direcciones, o registros A, son los registros DNS más utilizados. Crean una conexión directa entre **una dirección IPv4** y un nombre de dominio.
 - Permiten que un navegador web cargue un sitio utilizando un nombre de dominio legible, evitando que el usuario tenga que recordar complejas direcciones IP numéricas.
-- Redundancia: Es posible configurar múltiples registros A para un mismo dominio, lo que proporciona respaldo y redundancia en caso de fallos.
-- Seguridad: Se utiliza también en listas negras basadas en DNS (DNSBL) para bloquear correos provenientes de fuentes de spam conocidas.
+- **Redundancia**: Es posible configurar múltiples registros A para un mismo dominio, lo que proporciona respaldo y redundancia en caso de fallos.
+- **Seguridad**: Se utiliza también en listas negras basadas en DNS (DNSBL) para bloquear correos provenientes de fuentes de spam conocidas.
 
 !!! tip "Sintaxis típica"
     midominio.com. IN A 192.0.2.15.
 
 #### 10.3.2 Registro AAAA (Quad A)
 
-Funciona de manera similar al registro A, pero conecta nombres de dominio **con direcciones IPv6**.
-Aunque menos común que IPv4, su adopción global va en aumento para resolver el problema del agotamiento de las direcciones IPv4 tradicionales.
+- Funciona de manera similar al registro A, pero conecta nombres de dominio **con direcciones IPv6**.
+- Aunque menos común que IPv4, su adopción global va en aumento para resolver el problema del agotamiento de las direcciones IPv4 tradicionales.
 
 !!! tip "Sintaxis típica"
     midominio.net. IN AAAA 2001:0db8:85a3:0000:0000:8a2e:0370:1234
 
 #### 10.3.3 Registro CNAME (Canonical Name)
 
-Los registros de nombres canónicos, o registros CNAME, dirigen un dominio de alias a un dominio canónico.
-Los registros CNAME se usan a menudo para asignar un nombre de dominio con un alias al dominio principal que lleva el registro A o AAAA.
+- Los registros de nombres canónicos, o registros CNAME, dirigen un dominio de alias a un dominio canónico.
+- Los registros CNAME se usan a menudo para asignar un nombre de dominio con un alias al dominio principal que lleva el registro A o AAAA.
 
 !!! example "Ejemplo"
 
     - En lugar de crear dos registros A para `www.example.com` y `product.example.com`, puede vincular `product.example.com` a un **registro CNAME** que luego se **vincula a un registro A** para `example.com`.
     - El valor es que si la dirección IP cambia para el dominio raíz, solo se tendrá que actualizar el registro A y el CNAME se actualizará en consecuencia.
     - Restricciones de configuración:
-        - No se puede ubicar un registro CNAME en el dominio de raíz.
-        - Los registros de servidores de correo (MX) y servidores de nombres (NS) nunca deben estar dirigidos a un CNAME.
-        - Aunque técnicamente es posible apuntar un CNAME a otro CNAME, esta práctica no se recomienda porque resulta ineficaz y ralentiza la velocidad de carga.
+        1. No se puede ubicar un registro CNAME en el dominio de raíz.
+        1. Los registros de servidores de correo (MX) y servidores de nombres (NS) nunca deben estar dirigidos a un CNAME.
+        1. Aunque técnicamente es posible apuntar un CNAME a otro CNAME, esta práctica no se recomienda porque resulta ineficaz y ralentiza la velocidad de carga.
 
 #### 10.3.4 Registro DNAME
 
