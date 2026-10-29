@@ -130,9 +130,18 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
         - Insertar celda.
         - Controles de formulario.
         - Navegación de formulario.
-    1. Condiciones de entrega de la práctica: Subir el archivo en **formato ods, nativo de LibreOffice** a la tarea RA3-CEa. No se admitirá ningún otro tipo de formato. 
-   
-### **Tarea RA3-CEb-1 - Elaboración básica de hojas de cálculo**
+    1. Condiciones de entrega de la práctica: Subir el archivo en **formato ods, nativo de LibreOffice** a la tarea RA3-CEa. No se admitirá ningún otro tipo de formato.
+
+    !!! warning "Entrega de la tarea"
+        - Guardar el documento con RA3-CEa-NombreApellidos y subirlo a la tarea correspondiente de Aules.
+        - El archivo deberá estar en **formato ods, nativo de LibreOffice para hojas de cálculo. No se admitirá ningún otro tipo de formato.
+        - A partir de momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
+        - Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
+
+## 2 - Elaboración de hojas de cálculo
+
+### Tarea RA3-CEb-1 - Elaboración básica de hojas de cálculo
+
 !!! exercice "Tarea RA3-CEb-1 - Elaboración de una tabla en un hoja de cálculo"
     **Ejercicio parte 1**
     <u>Creación de estilos</u>  
