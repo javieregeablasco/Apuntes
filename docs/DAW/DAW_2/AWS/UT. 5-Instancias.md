@@ -990,4 +990,3 @@ Tipos y caracteristicas de las [EBS](https://docs.aws.amazon.com/es_es/ebs/lates
 [Adjuntar volúmenes EBS](https://docs.aws.amazon.com/es_es/ebs/latest/userguide/ebs-attaching-volume.html)  
 [Rquisitos para CE2 Instance Connect](https://docs.aws.amazon.com/es_es/AWSEC2/latest/UserGuide/ec2-instance-connect-prerequisites.html)  
 [EC2 Instance Connect](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-connect-methods.html#connect-linux-inst-eic-cli-ssh)  
-
