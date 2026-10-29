@@ -386,25 +386,24 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
       .es
       ```
 
-<!--
 ### 7.3 Dominio
 
-A la izquierda del TLD encontramos otros niveles de la jerarquía.
+- A la izquierda del TLD encontramos otros niveles de la jerarquía.
 
-En el caso de:
+- En el caso de:
 
-    ```text
-    www.edu.gva.es
-    ```
+      ```text
+      www.edu.gva.es
+      ```
 
-Un dominio dentro del TLD `.es` sería.
+    Un dominio dentro del TLD `.es` sería.
 
-    ```text
-    gva.es
-    ```
+      ```text
+      gva.es
+      ```
 
----
 
+<!--
 ### 7.4 Subdominios
 
 Un **subdominio** es un dominio que se encuentra por debajo de otro dominio dentro de la jerarquía DNS.
