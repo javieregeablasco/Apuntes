@@ -253,14 +253,11 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
 
 - El servidor TLD no proporciona necesariamente la dirección IP del equipo que buscamos. Su función es indicar cuáles son los **servidores DNS autoritativos** encargados del dominio correspondiente.
 
-- Por ejemplo, los servidores responsables del TLD `.es` pueden indicar qué servidores DNS son autoritativos para:
+- Por ejemplo, los servidores TLD `.es` pueden indicar qué servidores DNS son autoritativos para:
 
-    ```text
-    aules.edu.gva.es
-    ```
-
----
-
+      ```text
+      aules.edu.gva.es
+      ```
 <!--
 ### 6.4 Consulta al servidor de nombres autoritativo
 
