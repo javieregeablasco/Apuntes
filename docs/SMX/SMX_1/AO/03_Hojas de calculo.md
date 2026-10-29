@@ -186,11 +186,10 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
             - Altura fila 3: 0.6cm  
             - Altura fila 4, 5, 6, 7, y 8: 0.5cm
 
-    !!! tip "3 - Configuración de los estilos"
+    !!! tip "3 - Datos a introducir"
 
-        !!! abstract "Datos a introducir dentro de las celdas"  
-            - Introducir los datos a mano para que quede de la siguiente manera.
-            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc16.png){ .cien .margintop10 }
+        - Introducir los datos a mano para que quede de la siguiente manera.
+        ![Descripción de la imagen](./03_hojas_de_calculo/img/calc16.png){ .cien .margintop10 }
     
     !!! tip "4 - Aplicar estilos"
 
