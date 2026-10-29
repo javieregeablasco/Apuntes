@@ -12,12 +12,11 @@ schedule: 224h - 7h/w
 
 ![Descripción de la imagen](./03_hojas_de_calculo/img/loc.avif){ .sietecinco }
 
-
 **Resultados de aprendizaje y criterios de evaluacion que se evaluarán en esta unidad.**  
 
 | **Resultados de aprendizaje de la unidad didáctica:** |
-|-|
-| **RA3. Elabora documentos y plantillas de cálculo, describiendo y aplicando opciones avanzadas de hojas de cálculo.**  
+||
+| **RA3. Elabora documentos y plantillas de cálculo, describiendo y aplicando opciones avanzadas de hojas de cálculo.** |
 
 
 |**Criterios de evaluación de la unidad didáctica:**||
@@ -31,8 +30,8 @@ schedule: 224h - 7h/w
     |**g)** Se ha utilizado la hoja de cálculo como base de datos: formularios, creación de listas, filtrado, protección y ordenación de datos. |25%|
     |**h)** Se han utilizado aplicaciones y periféricos para introducir textos, números, códigos e imágenes.|5%|
 
-!!! warning "Nota:" 
-    El criterio de evaluación **f) Se han importado y exportado hojas de cálculo creadas con otras aplicaciones y en otros formatos** será evaluado durante la FCT.
+!!! warning "Nota:"
+    Los criterios de evaluación en negrita será evaluados durante la FCT.
 
 ## **1 - Interfaz de trabajo en Calc**
 Después de hacer doble clic sobre el icono de **LibreOffice** seleccionamos **Nuevo &rarr; Hoja de cálculo** y nos encontraremos con la siguiente interfaz.
