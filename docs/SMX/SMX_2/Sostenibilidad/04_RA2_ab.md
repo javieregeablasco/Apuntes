@@ -246,7 +246,9 @@ Para frenar la degradación y construir resiliencia, las respuestas abarcan inic
 
 -->
 
-!!! question "¿Debe el Estado financiar al 100% la rehabilitación térmica de las viviendas de bajos ingresos o debe dejarse a la iniciativa e inversión privada?""
+!!! question "¿Debe el Estado financiar al 100% la rehabilitación térmica de las viviendas de bajos ingresos o debe dejarse a la iniciativa e inversión privada?"
+    - Argumentos a favor.
+    - Argumentos en contra.
 
 <!--
 
