@@ -643,7 +643,6 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
 
 ![Descripción de la imagen](./img_5/img_5_14.png){.marco .margintop10 .marginbottom10}
 
-<!--
 ### 8.5 Servidor DNS privado en una red local
 
 En una red local, los equipos suelen obtener automáticamente la dirección del servidor DNS mediante el protocolo **DHCP**.
@@ -671,8 +670,7 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
 !!! example "Ejemplo de consulta DNS externa"
     ![Descripción de la imagen](./img_5/img_5_16.png){ .margintop10 .marginbottom10}
 
----
-
+<!--
 ### 8.6 Comparativa DNS público vs. DNS privado
 
 Podemos comparar ambos tipos de servidores:
