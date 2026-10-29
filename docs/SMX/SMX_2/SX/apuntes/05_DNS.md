@@ -623,7 +623,7 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
 
 !!! example "Ejemplo de red empresarial"
     ![Descripción de la imagen](./img_5/img_5_13.png){.marco .margintop10 .marginbottom10}
-    **Dónde:**  
+    **Dónde:**
 
     - `10.0.0.0/24` es la red de la empresa.
     - `10.0.0.10` es el servidor DNS interno.
