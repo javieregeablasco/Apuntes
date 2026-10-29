@@ -496,10 +496,7 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
       correo.edu.gva.es   → 192.168.10.20
       ftp.edu.gva.es      → 192.168.10.30
       ```
-<!--
--->
 
-<!--
 !!! warning "Dominio y zona no son exactamente lo mismo"
     1. Aunque en el ejemplo anterior el dominio `edu.gva.es` y la zona que lo administra coinciden, **dominio y zona son conceptos diferentes**.
     1. Un dominio representa una parte de la **jerarquía de nombres DNS**, mientras que una zona representa una parte de esa jerarquía que está **administrativamente gestionada mediante servidores DNS autoritativos**.
@@ -515,8 +512,9 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
     style X fill:none,stroke:none
     ```
     En este segundo escenario, la organización administra directamente una zona con `www.edu.gva.es` y `correo.edu.gva.es` (Zona A), mientras que `ftp.edu.gva.es` está delegado a otros servidores DNS que administran la Zona B. Ambas zonas siguen perteneciendo al mismo dominio `edu.gva.es`, pero están gestionadas de forma independiente.
-<!--
 
+
+<!--
 ### 7.8 Resumen de la jerarquía DNS
 
 Podemos resumir los diferentes conceptos mediante la siguiente imagen:
