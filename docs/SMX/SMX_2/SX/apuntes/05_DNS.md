@@ -327,9 +327,6 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
 
     4. Esta jerarquía permite que el DNS sea un sistema **distribuido, escalable y resistente**, capaz de gestionar una enorme cantidad de  nombres de dominio sin depender de un único servidor central.
 
----
-<!--
-
 ## 7 - Jerarquía de nombres DNS
 
 El sistema DNS está organizado mediante una **estructura jerárquica**, similar a un árbol invertido. En la parte superior se encuentra la **raíz (`.`)** y, a medida que descendemos por la jerarquía, encontramos los diferentes dominios y subdominios.
@@ -342,6 +339,7 @@ Su estructura jerárquica sería:
 
 Cada nivel representa una parte diferente de la jerarquía DNS.
 
+<!--
 ### 7.1 La raíz DNS
 
 En la parte superior de la jerarquía se encuentra la **raíz DNS**, representada mediante un punto:
