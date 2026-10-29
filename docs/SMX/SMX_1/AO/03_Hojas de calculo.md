@@ -203,13 +203,13 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
         - Redimensionar la columna A al gusto.       
         
         El resultado final deberá ser similar al de la imagen.       
-        ![Descripción de la imagen](./03_hojas_de_calculo/img/calc7.png){ .leftsietecinco }
+        ![Descripción de la imagen](./03_hojas_de_calculo/img/calc7.png){ .sietecinco .margintop10 }
 
-    **Ejercicio parte 2**  
-    Dentro del mismo documento crear una hoja nueva.  
-    Renombrar las hojas a:  
-    &emsp;&emsp;Hoja 1 → Ejercicio 1  
-    &emsp;&emsp;Hoja 2 → Ejercicio 2  
+    !!! tip "6 - Crear hoja nueva"
+        - Dentro del mismo documento crear una hoja nueva.  
+        - Renombrar las hojas a:  
+            1. Hoja 1 → Ejercicio 1
+            1. Hoja 2 → Ejercicio 2  
     En la hoja 2, copiar y pegar todos los datos de la hoja 1.  
     En la hoja 2, ampliar las filas de los meses y modificar los datos hasta completar todos los meses del año.  
     
