@@ -249,12 +249,14 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
     !!! exercise "**6. Aprendiendo a escribir fórmulas:**" 
         Ir a **Insertar &rarr; Objeto OLE &rarr; Objeto de fórmula...** y escribir la siguiente fórmula.
         !!! tip "Resultado esperado"
-            ![](./img_ut2/ra2ceb23.png){.trescinco }
+            ![img](./img_ut2/ra2ceb23.png){.trescinco }
 
-    !!! warning "Condiciones de entrega de la tarea"
-        1. Subir vuestra tarea nombrando el archivo **RA2-CEc-2-Nombre Alumno** a la **tarea RA2-CEc-2**.  
-        1. El archivo a subir deberá ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
+    !!! warning "Condiciones para la entrega de la tarea"
+        1. Subir vuestra tarea guardando el archivo como **RA2-CEc-2-Nombre Alumno** a la tarea correspondiente de aules.  
+        1. Los archivos a subir deberan ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
         1. **No se aceptará ningún otro formato de archivo**.
+        1. A partir del momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
+        1. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.    
 
 ## 2.3 - Formatos de párrafo
 
