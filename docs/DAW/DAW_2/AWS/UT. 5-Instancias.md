@@ -200,7 +200,7 @@ Se pueden crear AMI's desde:
     - **Uso principal:** Permite que múltiples servidores o usuarios accedan y modifiquen los mismos archivos de manera simultánea.
     - **Servicios clave:**
         1. Amazon Elastic File System (Amazon EFS): Sistema de archivos compartido para instancias Linux en EC2.
-	    1. Amazon FSx: Familias de servicios optimizadas para sistemas de archivos especializados de terceros (como Windows File Server, Lustre o NetApp ONTAP).  
+        1. Amazon FSx: Familias de servicios optimizadas para sistemas de archivos especializados de terceros (como Windows File Server, Lustre o NetApp ONTAP).  
 
 ### 2.4 Despliegue de una instancia Linux
 
@@ -300,15 +300,17 @@ Una vez lanzada la instancia, podremos acceder a su panel de supervisión/config
 
 1. **Cambiar los permisos del archivo labsuser.pem**
 Para cambiar los permisos a solo lectura por el propietario usaremos:  
-```bash
-chmod 400 labsuser.pem
-```
+
+       ```bash 
+       chmod 400 labsuser.pem
+       ```
 
 1. **Conexión remota por SSH a la instancia**  
 Para conectarnos a la instancia por SSH usaremos el cliente de ssh con los siguientes argumentos:  
-```bash
-ssh -i labsuser.pem ec2-user@3.90.114.96   
-```
+
+       ```bash
+       ssh -i labsuser.pem ec2-user@3.90.114.96   
+       ```
 
     !!! info "Explicación del comando"
         🔹**ssh:** Cliente de Secure Shell, que permite conectarte de forma remota y segura a otro equipo.  
