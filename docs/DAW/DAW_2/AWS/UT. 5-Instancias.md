@@ -315,13 +315,13 @@ Para conectarnos a la instancia por SSH usaremos el cliente de ssh con los sigui
     !!! info "Explicación del comando"
         🔹**ssh:** Cliente de Secure Shell, que permite conectarte de forma remota y segura a otro equipo.  
         🔹**-i labsuser.pem:** La opción -i especifica la clave privada (**labsuser.pem**) que se usará para autenticarse.  
-        🔹**ec2-user@3.90.114.96:** Indica usuario y dirección de la instancia a la que nos queremos conectar.   
+        🔹**ec2-user@3.90.114.96:** Indica usuario y dirección de la instancia a la que nos queremos conectar.
 
     !!! info "¿Cómo saber nuestro nombre de usuario?"
-        ![](./ut5/RA2CEb8.png) 
+        ![img](./ut5/RA2CEb8.png)
 
     !!! info "¿Cómo saber la ip de la instancia?"
-        ![](./ut5/RA2CEb7.png) 
+        ![img](./ut5/RA2CEb7.png)
 
 #### 2.4.8 Conexión con la instancia desde la consola de AWS
 
@@ -692,7 +692,7 @@ El escenario quedará de la siguiente manera:
 !!! info "NAT Gateway público"
     - Se ubica en una subred pública.  
     - Se le asigna una Elastic IP.
-    - Permite que las instancias en una subred privada puedan acceder a Internet. 
+    - Permite que las instancias en una subred privada puedan acceder a Internet.
     - No permite que el tráfico desde Internet inicie conexiones hacia las instancias privadas.
 
 !!! info "NAT Gateway privado"
