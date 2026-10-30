@@ -915,57 +915,57 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
             ![img](./img_ut2/RA2CEd/img2.png){.cien .marginbottom20}
             ![img](./img_ut2/RA2CEd/img3.png){.cien}
 
-        !!! tip ":two: - Ir a 'Estilo de página predeterminado' y configurar con los siguientes datos."
+        !!! tip ":regional_indicator_b: - Ir a 'Estilo de página predeterminado' y configurar con los siguientes datos."
             ![img](./img_ut2/RA2CEd/img4.png){.cien .marginbottom20}
             ![img](./img_ut2/RA2CEd/img5.png){.cien .marginbottom20}
             ![img](./img_ut2/RA2CEd/img6.png){.cien .marginbottom20}
             ![img](./img_ut2/RA2CEd/img7.png){.cien .marginbottom20}
             ![img](./img_ut2/RA2CEd/img8.png){.cien }
         
-        !!! tip ":three: - Dentro de los estilos de página CREAR el 'Estilo de página especial' y configurar con los siguientes datos."
+        !!! tip ":regional_indicator_c: - Dentro de los estilos de página CREAR el 'Estilo de página especial' y configurar con los siguientes datos."
             ![img](./img_ut2/RA2CEd/img34.png){.cuatrocinco .marginbottom20 }
             ![img](./img_ut2/RA2CEd/img30.png){.cien .marginbottom20}
             ![img](./img_ut2/RA2CEd/img31.png){.cien .marginbottom20}
             ![img](./img_ut2/RA2CEd/img32.png){.cien .marginbottom20}
             ![img](./img_ut2/RA2CEd/img33.png){.cien}
 
-        !!! tip ":four: - Concatenar los estilos de la siguiente manera:<br>Primera página → Estilo de página predeterminado → Estilo de página especial"
+        !!! tip ":regional_indicator_d: - Concatenar los estilos de la siguiente manera:<br>Primera página → Estilo de página predeterminado → Estilo de página especial"
             ![img](./img_ut2/RA2CEd/img42.png){.cien .marginbottom20} 
             ![img](./img_ut2/RA2CEd/img43.png){.cien .marginbottom20} 
             ![img](./img_ut2/RA2CEd/img41.png){.cien} 
 
     !!! exercise "3. Estilos de títulos."  
-        !!! tip ":one: - Editar el estilo 'Título 1' → Configurar con los siguientes datos."
+        !!! tip ":regional_indicator_a: - Editar el estilo 'Título 1' → Configurar con los siguientes datos."
             ![img](./img_ut2/RA2CEd/img9.png){.cien .marginbottom20} 
             ![img](./img_ut2/RA2CEd/img10.png){.cien .marginbottom20} 
             ![img](./img_ut2/RA2CEd/img11.png){.cien } 
     
-        !!! tip ":two: - Editar el estilo 'Título 2' → Configurar con los siguientes datos."
+        !!! tip ":regional_indicator_b: - Editar el estilo 'Título 2' → Configurar con los siguientes datos."
             ![img](./img_ut2/RA2CEd/img12.png){.cien .marginbottom20} 
             ![img](./img_ut2/RA2CEd/img13.png){.cien .marginbottom20} 
             ![img](./img_ut2/RA2CEd/img14.png){.cien } 
     
-        !!! tip ":three: - Editar el estilo 'Título 3' → Configurar con los siguientes datos."
+        !!! tip ":regional_indicator_c: - Editar el estilo 'Título 3' → Configurar con los siguientes datos."
             ![img](./img_ut2/RA2CEd/img15.png){.cien .marginbottom20} 
             ![img](./img_ut2/RA2CEd/img16.png){.cien .marginbottom20} 
             ![img](./img_ut2/RA2CEd/img17.png){.cien} 
     
     !!! exercise "4. Estilos de texto."  
-        !!! tip ":one: - Ir al estilo Cuerpo de texto y configurar con los siguientes datos"
+        !!! tip ":regional_indicator_a: - Ir al estilo Cuerpo de texto y configurar con los siguientes datos"
             ![img](./img_ut2/RA2CEd/img18.png){.cien .marginbottom20 .margintop10} 
             ![img](./img_ut2/RA2CEd/img19.png){.cien .marginbottom20} 
             ![img](./img_ut2/RA2CEd/img20.png){.cien  } 
    
-        !!! tip ":two: - Ir al estilo **Contenido de la tabla** y configurar con los siguientes datos"
+        !!! tip ":regional_indicator_b: - Ir al estilo **Contenido de la tabla** y configurar con los siguientes datos"
             ![img](./img_ut2/RA2CEd/img21.png){.cien .marginbottom20 .margintop10} 
             ![img](./img_ut2/RA2CEd/img22.png){.cien   } 
     
-        !!! tip ":three: - Ir al estilo **Título de la tabla** y configurar con los siguientes datos"   
+        !!! tip ":regional_indicator_c: - Ir al estilo **Título de la tabla** y configurar con los siguientes datos"   
             ![img](./img_ut2/RA2CEd/img23.png){.cien .marginbottom20 .margintop10} 
             ![img](./img_ut2/RA2CEd/img24.png){.cien .marginbottom20 .margintop10} 
             ![img](./img_ut2/RA2CEd/img25.png){.cien  }
 
-        !!! tip ":four: - Ir al estilo **Leyenda** y configurar con los siguientes datos"
+        !!! tip ":regional_indicator_d: - Ir al estilo **Leyenda** y configurar con los siguientes datos"
             ![img](./img_ut2/RA2CEd/img27.png){.cien .marginbottom20 .margintop10} 
             ![img](./img_ut2/RA2CEd/img28.png){.cien .marginbottom20 .margintop10} 
             ![img](./img_ut2/RA2CEd/img29.png){.cien  } 
@@ -975,12 +975,12 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
         ![img](./img_ut2/RA2CEd/img26.png){.cien .margintop10 } 
 
     !!! exercise "6. Estilos de cabecera y pie de página"  
-        !!! tip ":one: - Cabecera"
+        !!! tip ":regional_indicator_a: - Cabecera"
             ![img](./img_ut2/RA2CEd/img35.png){.cien .margintop10}  
             ![img](./img_ut2/RA2CEd/img36.png){.cien  }  
             ![img](./img_ut2/RA2CEd/img37.png){.cien   } 
 
-        !!! tip ":two: - Pie de página"
+        !!! tip ":regional_indicator_b: - Pie de página"
             ![img](./img_ut2/RA2CEd/img38.png){.cien   .margintop10}  
             ![img](./img_ut2/RA2CEd/img39.png){.cien    }   
             ![img](./img_ut2/RA2CEd/img40.png){.cien  }   
@@ -1005,15 +1005,15 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
     !!! exercise "10. Modificar las propiedades de los párrafos para que se vean como en el documento adjuntado a la práctica"
 
     !!! exercise "11. Insertar una tabla"  
-        !!! tip "-A- Modificar las propiedades de la siguiente manera"
+        !!! tip ":regional_indicator_a: - Modificar las propiedades de la siguiente manera"
             ![img](./img_ut2/RA2CEd/img44.png){.cien   .margintop10}   
             ![img](./img_ut2/RA2CEd/img45.png){.cien    }   
      
-        !!! tip "-B- Personalizar las propiedades de celdas y texto para que el resultado sea como el siguiente"
+        !!! tip ":regional_indicator_b: - Personalizar las propiedades de celdas y texto para que el resultado sea como el siguiente"
             ![img](./img_ut2/RA2CEd/img46.png){.cien}   
    
     !!! exercise "12. Insertar las 2 imágenes"  
-        !!! tip ":one: - Imagen 1"    
+        !!! tip ":regional_indicator_a: - Imagen 1"    
             - **Insertar** la imagen de Michael Jordan.  
             - **Insertar** una leyenda sobre la imagen.  
             - **Como podemos ver**, al insertar la leyenda hemos creado un marco que contiene la imagen.  
@@ -1022,28 +1022,32 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
             ![img](./img_ut2/RA2CEd/img48.png){.cien .marginbottom20}  
             - Una vez el marco a la escala, movemos el marco a la posición deseada. 
 
-        !!! tip ":two: - Imagen 2"    
+        !!! tip ":regional_indicator_b: - Imagen 2"    
             - **Insertar** la imagen de las camisetas.  
             ![img](./img_ut2/RA2CEd/img49.png){.cien .margintop10}   
             ![img](./img_ut2/RA2CEd/img50.png){.cien }  
             - Una vez el marco a la escala, movemos el marco a la posición deseada. 
 
     !!! exercise "13. Cabecera y pie de página"
-        !!! tip ":one: - Cabecera página 1"     
+        !!! tip ":regional_indicator_a: - Cabecera página 1"     
             1. **Anclar** la imagen al párrafo de la cabecera.
             1. **Podéis** ajustar la posición al gusto de cada uno.  
             ![img](./img_ut2/RA2CEd/img51.png){.cien .margintop10 }  
-        !!! tip ":two: - Cabecera páginas 2 y 3"     
+        !!! tip ":regional_indicator_b: - Cabecera páginas 2 y 3"     
             1. **Anclar** la imagen al párrafo de la cabecera **como en la página 1**.  
             1. **Escribir Tarea RA2-CEd y vuestro nombre y apellidos**.  
 
-        !!! tip ":three: - Pie de página, página 2 y 3"  
+        !!! tip ":regional_indicator_b: - Pie de página, página 2 y 3"  
             **Escribir el texto del pie de página** y además **insertar un campo con la página actual y el recuento de páginas**.  
- 
-    !!! warning "Condiciones de entrega de la tarea"
-        1. Subir vuestra tarea nombrando el archivo **RA2-CEd-Nombre Alumno** a la **tarea RA2-CEd**.  
-        1. El archivo a subir deberá ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
-        1. **No se aceptará ningún otro formato de archivo**.  
+
+    !!! warning "Condiciones para la entrega de la tarea"
+        1. Subir vuestra tarea guardando el archivo como **RA2-CEd-NombreApellidosAlumno** a la tarea correspondiente de aules.  
+        1. Los archivos a subir deberan ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
+        1. **No se aceptará ningún otro formato de archivo**.
+        1. A partir del momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
+        1. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.          
+
+:arrow-switch:
 
 ## 2.8 - Exportar a otros formatos
 
