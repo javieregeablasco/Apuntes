@@ -968,8 +968,10 @@ En muchos casos puede resultar necesario añadir volúmenes EBS adicionales a un
     - Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
 
     !!! note "Capturas de pantalla mínimas a adjuntar"
-        - Servidor web desplegado.  
-        - Conexión a la base de datos.  
+        - Servidor web desplegado.
+        - Conexión a la base de datos.
+        - Grupo de seguridad de la instancia con el servidor web.
+        - Grupo de seguridad de la instancia con la base de datos.
 
 !!! note "Ejemplos de capturas"
     - Servicio Web funcionando.
