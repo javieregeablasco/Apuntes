@@ -105,7 +105,12 @@ EOF
 # Proteger archivo
 sudo chmod 600 /etc/api-web.env
 
-# Crear un servicio para Node.js
+# -------------------------------------
+# Crear un servicio para Node.js INICIO
+# -------------------------------------
+#cat > /etc/api-web.env << 'EOF'
+
+
 
 # Activar Apache
 systemctl enable apache2
