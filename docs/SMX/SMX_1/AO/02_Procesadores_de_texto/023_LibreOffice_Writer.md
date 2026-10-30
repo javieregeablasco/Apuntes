@@ -1012,8 +1012,8 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
         !!! tip ":one::one::regional_indicator_b: - Personalizar las propiedades de celdas y texto para que el resultado sea como el siguiente"
             ![img](./img_ut2/RA2CEd/img46.png){.cien}   
    
-    !!! exercise "12. Insertar las 2 imágenes"  
-        !!! tip ":regional_indicator_a: - Imagen 1"    
+    !!! exercise ":one::two: - Insertar las 2 imágenes"  
+        !!! tip ":one::two::regional_indicator_a: - Imagen 1"    
             - **Insertar** la imagen de Michael Jordan.  
             - **Insertar** una leyenda sobre la imagen.  
             - **Como podemos ver**, al insertar la leyenda hemos creado un marco que contiene la imagen.  
@@ -1022,22 +1022,23 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
             ![img](./img_ut2/RA2CEd/img48.png){.cien .marginbottom20}  
             - Una vez el marco a la escala, movemos el marco a la posición deseada. 
 
-        !!! tip ":regional_indicator_b: - Imagen 2"    
+        !!! tip ":one::two::regional_indicator_b: - Imagen 2"    
             - **Insertar** la imagen de las camisetas.  
             ![img](./img_ut2/RA2CEd/img49.png){.cien .margintop10}   
             ![img](./img_ut2/RA2CEd/img50.png){.cien }  
             - Una vez el marco a la escala, movemos el marco a la posición deseada. 
 
-    !!! exercise "13. Cabecera y pie de página"
-        !!! tip ":regional_indicator_a: - Cabecera página 1"     
+    !!! exercise ":one::three: - Cabecera y pie de página"
+        !!! tip ":one::three::regional_indicator_a: - Cabecera página 1"     
             1. **Anclar** la imagen al párrafo de la cabecera.
             1. **Podéis** ajustar la posición al gusto de cada uno.  
-            ![img](./img_ut2/RA2CEd/img51.png){.cien .margintop10 }  
-        !!! tip ":regional_indicator_b: - Cabecera páginas 2 y 3"     
+            ![img](./img_ut2/RA2CEd/img51.png){.cien .margintop10 }
+              
+        !!! tip ":one::three::regional_indicator_b: - Cabecera páginas 2 y 3"     
             1. **Anclar** la imagen al párrafo de la cabecera **como en la página 1**.  
             1. **Escribir Tarea RA2-CEd y vuestro nombre y apellidos**.  
 
-        !!! tip ":regional_indicator_b: - Pie de página, página 2 y 3"  
+        !!! tip ":one::three::regional_indicator_c: - Pie de página, página 2 y 3"  
             **Escribir el texto del pie de página** y además **insertar un campo con la página actual y el recuento de páginas**.  
 
     !!! warning "Condiciones para la entrega de la tarea"
