@@ -907,10 +907,10 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
 
 !!! task "Tarea a entregar en RA2-CEd"
 
-    !!! exercise ":one:. Descargar y descomprimir el archivo 'Tarea RA2-CEd' pinchando en el enlace siguiente:<br>[Descargar archivo](./archivos/RA2-CEd/RA2-CEd.rar)"
+    !!! exercise ":one: - Descargar y descomprimir el archivo 'Tarea RA2-CEd' pinchando en el enlace siguiente:<br>[Descargar archivo](./archivos/RA2-CEd/RA2-CEd.rar)"
 
-    !!! exercise ":two:. Estilos de página."
-        !!! tip ":two::period::regional_indicator_a: - Ir a **Estilos de página** → **Primera página** → **Editar estilo** → Configurar con los siguientes datos."
+    !!! exercise ":two: - Estilos de página."
+        !!! tip ":two::regional_indicator_a: - Ir a **Estilos de página** → **Primera página** → **Editar estilo** → Configurar con los siguientes datos."
             ![img](./img_ut2/RA2CEd/img1.png){.cien .marginbottom20 }
             ![img](./img_ut2/RA2CEd/img2.png){.cien .marginbottom20}
             ![img](./img_ut2/RA2CEd/img3.png){.cien}
