@@ -21,6 +21,13 @@ DEBIAN_FRONTEND=noninteractive apt-get install -y apache2
 # Instalar node 
 sudo apt-get install nodejs npm -y
 
+# Directorio para la API
+mkdir /home/ubuntu/api-web
+cd /home/ubuntu/api-web
+npm init -y
+npm install express mysql2
+
+
 # Activar Apache
 systemctl enable apache2
 systemctl start apache2
