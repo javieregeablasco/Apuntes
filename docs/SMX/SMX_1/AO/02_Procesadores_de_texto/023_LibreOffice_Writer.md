@@ -1033,7 +1033,7 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
             1. **Anclar** la imagen al párrafo de la cabecera.
             1. **Podéis** ajustar la posición al gusto de cada uno.  
             ![img](./img_ut2/RA2CEd/img51.png){.cien .margintop10 }
-              
+
         !!! tip ":one::three::regional_indicator_b: - Cabecera páginas 2 y 3"     
             1. **Anclar** la imagen al párrafo de la cabecera **como en la página 1**.  
             1. **Escribir Tarea RA2-CEd y vuestro nombre y apellidos**.  
@@ -1048,19 +1048,17 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
         1. A partir del momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
         1. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.          
 
-:nine:
-:one::zero:  
-:one::one:  
-:one::two:-:regional_indicator_a:  
-
-
-
 ## 2.8 - Exportar a otros formatos
 
 ### Tarea - RA2-CEe
 
-!!! task "Tarea a entregar en RA2-CEe"
-    Exportar la tarea RA2-CEd a formato pdf y subirla a la **tarea RA2-CEe**.
+!!! warning "Condiciones para la entrega de la tarea"
+    1. Exportar la tarea RA2-CEd a formato pdf.
+    1. Subir vuestra tarea guardando el archivo como **RA2-CEe-NombreApellidosAlumno** a la tarea correspondiente de aules.  
+    1. Los archivos a subir deberan ser de tipo PDF (.pdf).  
+    1. **No se aceptará ningún otro formato de archivo**.
+    1. A partir del momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
+    1. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
 
 ## 2.9 - Macros
 
