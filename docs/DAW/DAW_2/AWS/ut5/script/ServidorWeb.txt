@@ -53,6 +53,7 @@ cat > /var/www/html/index.html <<'EOF'
         <h1>¡Servidor web funcionando!</h1>
         <p>Instancia EC2 de AWS.</p>
         <p>Ubuntu Server + Apache2</p>
+        <h2>Creado por Javier Egea Blasco</h2>
     </div>
 </body>
 </html>
