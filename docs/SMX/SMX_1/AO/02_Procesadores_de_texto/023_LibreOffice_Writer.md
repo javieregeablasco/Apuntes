@@ -1100,7 +1100,7 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
         **1.** Interlineado doble, justificado y espaciado sobre y debajo del párrafo: 0.5cm.  
         **2.** Insertar un borde con una separación de 0.5cm.  
         **3.** Aplicar la macro al documento alternando párrafos.  
-        **4.** Guardar la macro dentro del documento para que **al exportar el archivo la macro acompañe al documento**.  
+        **4.** Guardar la macro dentro del documento para que **al exportar el archivo, la macro acompañe al documento**.  
         **5.** Crear un atajo de teclado que permita ejecutar la macro con (p.e.) **ctrl a**.  
 
         !!! tip "Resultado esperado"
