@@ -733,11 +733,6 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
 
 ## 2.6 - Estilos y plantillas
 
-<!-- # hasta aqui -->
-
-<!-- file:///C:/Users/titan/Documents/GitHub/githubpages/Apuntes/docs/SMX/SMX_1/AO/admin/recursos/INFORMATICA_APLICADA_Ejercicios_practicos_para_Writer_y_Calc.pdf -->
-<!-- file:///C:/Users/titan/Documents/GitHub/githubpages/Apuntes/docs/SMX/SMX_1/AO/admin/recursos/EjerciciosWriter2.pdf -->
-
 ### Tarea - RA2-CEb-1
 
 En este apartado aprenderemos a definir estilos para todos los elementos de nuestro documento de texto.
@@ -754,30 +749,30 @@ En este apartado aprenderemos a definir estilos para todos los elementos de nues
     !!! exercise "4. Dentro de **Cabeceras** crear el estilo **Cabecera centrada** con un resultado similar al de la siguiente imagen. (Sois libres de incorporar más características al estilo)""
      
         !!! tip "Resultado esperado"
-            ![](./img_ut2/ra2ceb32.png){.cien }  
+            ![img](./img_ut2/ra2ceb32.png){.cien }  
 
     !!! exercise "5. Dentro de **Cabeceras** crear el estilo **Cabecera conclusión** con un resultado similar al de la siguiente imagen."  
         !!! warning "Nota importante"
             Cada vez que se use ese estilo se deberá insertar automáticamente un salto de página. 
     
         !!! tip "Resultado esperado"
-            ![](./img_ut2/ra2ceb37.png){.cien}
+            ![img](./img_ut2/ra2ceb37.png){.cien}
 
 
     !!! exercise "**6.** Dentro de **Párrafos**, crear 4 estilos:<br>- **Párrafo centrado**<br>- **Párrafo izquierdo**<br>- **Párrafo normal**<br>- **viñeta 1**"  
 
         !!! tip "Resultado esperado"
             - **Párrafo normal** (cuidado con los márgenes izquierdo y derecho)
-                  ![](./img_ut2/ra2ceb33.png){.cien  .margintop10 .marginbottom30}   
+                  ![img](./img_ut2/ra2ceb33.png){.cien  .margintop10 .marginbottom30}   
 
             - **Párrafo centrado**  
-                  ![](./img_ut2/ra2ceb34.png){.cien  .margintop10 .marginbottom30}
+                  ![img](./img_ut2/ra2ceb34.png){.cien  .margintop10 .marginbottom30}
 
             - **Párrafo izquierdo**  
-                  ![](./img_ut2/ra2ceb35.png){.cien  .margintop10 .marginbottom30} 
+                  ![img](./img_ut2/ra2ceb35.png){.cien  .margintop10 .marginbottom30} 
 
             - **viñeta 1**  
-                  ![](./img_ut2/ra2ceb43.png){.cien  .margintop10 } 
+                  ![img](./img_ut2/ra2ceb43.png){.cien  .margintop10 } 
     
     
     !!! exercise "**7.** Dentro de **Párrafo normal** crear el estilo **Párrafo numerado** con el siguiente resultado:""  
@@ -809,10 +804,12 @@ En este apartado aprenderemos a definir estilos para todos los elementos de nues
 
     !!! exercise "**10.** Aplicar los estilos al texto del documento. Recordad que también **teneís que terminar de modificar los estilos** para respetar los márgenes, fuentes y tamaño de fuentes del documento de muestra."
 
-    !!! warning "Condiciones de entrega de la tarea"
-        1. Subir vuestra tarea nombrando el archivo **RA2-CEb-1-Nombre Alumno** a la **tarea RA2-CEb-1**.  
-        1. El archivo a subir deberá ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
-        1. **No se aceptará ningún otro formato de archivo**. 
+    !!! warning "Condiciones para la entrega de la tarea"
+        1. Subir vuestra tarea guardando el archivo como **RA2-CEb-1-NombreApellidosAlumno** a la tarea correspondiente de aules.  
+        1. Los archivos a subir deberan ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
+        1. **No se aceptará ningún otro formato de archivo**.
+        1. A partir del momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
+        1. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.    
     
 ### Tarea - RA2-CEb-2
 
@@ -826,10 +823,12 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
     **3.** **Guardar el documento como plantilla**, categoría **Mis plantillas** con el siguiente nombre: Tarea RA2-CEc Nombre Apellidos.  
     **4.** **Recuperar la plantilla** y subidla a la **tarea RA2-CEb-2** de Aules.
 
-    !!! warning "Condiciones de entrega de la tarea"
-        1. Subir vuestra tarea nombrando el archivo **RA2-CEb-2-Nombre Alumno** a la **tarea RA2-CEb-2**.  
+    !!! warning "Condiciones para la entrega de la tarea"
+        1. Subir vuestra tarea guardando el archivo como **RA2-CEb-1-NombreApellidosAlumno** a la tarea correspondiente de aules.  
         1. El archivo a subir deberá ser de tipo plantilla de texto de OpenDocument (.ott) (formato predeterminado de plantillas de LibreOffice Writer).  
-        1. **No se aceptará ningún otro formato de archivo**. 
+        1. **No se aceptará ningún otro formato de archivo**.
+        1. A partir del momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
+        1. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.        
 
 ### Tarea - RA2-CEb-3
 
