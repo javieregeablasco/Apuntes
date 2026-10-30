@@ -14,6 +14,9 @@ DB_PASSWORD="CambiaEstaClave2026Segura"
 # Actualizar repositorios
 apt-get update
 
+# Instalar actualizaciones
+sudo apt-get upgrade -y
+
 # Instalar MariaDB
 DEBIAN_FRONTEND=noninteractive apt-get install -y mariadb-server
 
