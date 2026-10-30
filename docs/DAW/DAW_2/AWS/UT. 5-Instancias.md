@@ -958,9 +958,16 @@ En muchos casos puede resultar necesario añadir volúmenes EBS adicionales a un
     **3. Conexión a la BBDD**  
     Conectarse a la instancia de la subred pública y realizar una prueba de conexión **al servidor de base de datos**. Para esa conexión, se utilizará un cliente mysql.
 
-    **4. Realizar capturas**  
-    De la conexión a la base de datos.  
-    El servidor web desplegado.  
+!!! warning "Entrega de la tarea"
+    - **Realizar capturas de pantalla de los momentos clave de la realización de la tarea**.
+    - Comentar las captura de pantalla explicando el trabajo realizado para llegar a ese punto y el resultado obtenido.
+    - Guardar el documento con RA3-CEc-NombreApellidos y subirlo a la tarea correspondiente de Aules.
+    - A partir de momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
+    - Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
+
+    !!! note "Capturas de pantalla mínimas a adjuntar"
+        - Servidor web desplegado.  
+        - Conexión a la base de datos.  
 
 ## Enlaces de interés
 
