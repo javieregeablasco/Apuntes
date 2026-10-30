@@ -915,84 +915,84 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
             ![img](./img_ut2/RA2CEd/img2.png){.cien .marginbottom20}
             ![img](./img_ut2/RA2CEd/img3.png){.cien}
 
-        !!! tip ":two:.:regional_indicator_b: - Ir a 'Estilo de página predeterminado' y configurar con los siguientes datos."
+        !!! tip ":two::regional_indicator_b: - Ir a 'Estilo de página predeterminado' y configurar con los siguientes datos."
             ![img](./img_ut2/RA2CEd/img4.png){.cien .marginbottom20}
             ![img](./img_ut2/RA2CEd/img5.png){.cien .marginbottom20}
             ![img](./img_ut2/RA2CEd/img6.png){.cien .marginbottom20}
             ![img](./img_ut2/RA2CEd/img7.png){.cien .marginbottom20}
             ![img](./img_ut2/RA2CEd/img8.png){.cien }
         
-        !!! tip ":two:.:regional_indicator_c: - Dentro de los estilos de página CREAR el 'Estilo de página especial' y configurar con los siguientes datos."
+        !!! tip ":two::regional_indicator_c: - Dentro de los estilos de página CREAR el 'Estilo de página especial' y configurar con los siguientes datos."
             ![img](./img_ut2/RA2CEd/img34.png){.cuatrocinco .marginbottom20 }
             ![img](./img_ut2/RA2CEd/img30.png){.cien .marginbottom20}
             ![img](./img_ut2/RA2CEd/img31.png){.cien .marginbottom20}
             ![img](./img_ut2/RA2CEd/img32.png){.cien .marginbottom20}
             ![img](./img_ut2/RA2CEd/img33.png){.cien}
 
-        !!! tip ":two:.:regional_indicator_d: - Concatenar los estilos de la siguiente manera:<br>Primera página → Estilo de página predeterminado → Estilo de página especial"
+        !!! tip ":two::regional_indicator_d: - Concatenar los estilos de la siguiente manera:<br>Primera página → Estilo de página predeterminado → Estilo de página especial"
             ![img](./img_ut2/RA2CEd/img42.png){.cien .marginbottom20} 
             ![img](./img_ut2/RA2CEd/img43.png){.cien .marginbottom20} 
             ![img](./img_ut2/RA2CEd/img41.png){.cien} 
 
-    !!! exercise ":three:. Estilos de títulos."  
-        !!! tip ":three:.:regional_indicator_a: - Editar el estilo 'Título 1' → Configurar con los siguientes datos."
+    !!! exercise ":three: - Estilos de títulos."  
+        !!! tip ":three::regional_indicator_a: - Editar el estilo 'Título 1' → Configurar con los siguientes datos."
             ![img](./img_ut2/RA2CEd/img9.png){.cien .marginbottom20} 
             ![img](./img_ut2/RA2CEd/img10.png){.cien .marginbottom20} 
             ![img](./img_ut2/RA2CEd/img11.png){.cien } 
     
-        !!! tip ":three:.:regional_indicator_b: - Editar el estilo 'Título 2' → Configurar con los siguientes datos."
+        !!! tip ":three::regional_indicator_b: - Editar el estilo 'Título 2' → Configurar con los siguientes datos."
             ![img](./img_ut2/RA2CEd/img12.png){.cien .marginbottom20} 
             ![img](./img_ut2/RA2CEd/img13.png){.cien .marginbottom20} 
             ![img](./img_ut2/RA2CEd/img14.png){.cien } 
     
-        !!! tip ":three:.:regional_indicator_c: - Editar el estilo 'Título 3' → Configurar con los siguientes datos."
+        !!! tip ":three::regional_indicator_c: - Editar el estilo 'Título 3' → Configurar con los siguientes datos."
             ![img](./img_ut2/RA2CEd/img15.png){.cien .marginbottom20} 
             ![img](./img_ut2/RA2CEd/img16.png){.cien .marginbottom20} 
             ![img](./img_ut2/RA2CEd/img17.png){.cien} 
     
-    !!! exercise "4. Estilos de texto."  
-        !!! tip ":regional_indicator_a: - Ir al estilo Cuerpo de texto y configurar con los siguientes datos"
+    !!! exercise ":four: - Estilos de texto."  
+        !!! tip ":four::regional_indicator_a: - Ir al estilo Cuerpo de texto y configurar con los siguientes datos"
             ![img](./img_ut2/RA2CEd/img18.png){.cien .marginbottom20 .margintop10} 
             ![img](./img_ut2/RA2CEd/img19.png){.cien .marginbottom20} 
             ![img](./img_ut2/RA2CEd/img20.png){.cien  } 
    
-        !!! tip ":regional_indicator_b: - Ir al estilo **Contenido de la tabla** y configurar con los siguientes datos"
+        !!! tip ":four::regional_indicator_b: - Ir al estilo **Contenido de la tabla** y configurar con los siguientes datos"
             ![img](./img_ut2/RA2CEd/img21.png){.cien .marginbottom20 .margintop10} 
             ![img](./img_ut2/RA2CEd/img22.png){.cien   } 
     
-        !!! tip ":regional_indicator_c: - Ir al estilo **Título de la tabla** y configurar con los siguientes datos"   
+        !!! tip ":four::regional_indicator_c: - Ir al estilo **Título de la tabla** y configurar con los siguientes datos"   
             ![img](./img_ut2/RA2CEd/img23.png){.cien .marginbottom20 .margintop10} 
             ![img](./img_ut2/RA2CEd/img24.png){.cien .marginbottom20 .margintop10} 
             ![img](./img_ut2/RA2CEd/img25.png){.cien  }
 
-        !!! tip ":regional_indicator_d: - Ir al estilo **Leyenda** y configurar con los siguientes datos"
+        !!! tip ":four::regional_indicator_d: - Ir al estilo **Leyenda** y configurar con los siguientes datos"
             ![img](./img_ut2/RA2CEd/img27.png){.cien .marginbottom20 .margintop10} 
             ![img](./img_ut2/RA2CEd/img28.png){.cien .marginbottom20 .margintop10} 
             ![img](./img_ut2/RA2CEd/img29.png){.cien  } 
     
-    !!! exercise "5. Estilos de marco"  
+    !!! exercise ":five: - Estilos de marco"  
         Ir a **Estilos de marco** → **Imagen** y configurar con los siguientes datos.
         ![img](./img_ut2/RA2CEd/img26.png){.cien .margintop10 } 
 
-    !!! exercise "6. Estilos de cabecera y pie de página"  
-        !!! tip ":regional_indicator_a: - Cabecera"
+    !!! exercise ":six: - Estilos de cabecera y pie de página"  
+        !!! tip ":six::regional_indicator_a: - Cabecera"
             ![img](./img_ut2/RA2CEd/img35.png){.cien .margintop10}  
             ![img](./img_ut2/RA2CEd/img36.png){.cien  }  
             ![img](./img_ut2/RA2CEd/img37.png){.cien   } 
 
-        !!! tip ":regional_indicator_b: - Pie de página"
+        !!! tip ":six::regional_indicator_b: - Pie de página"
             ![img](./img_ut2/RA2CEd/img38.png){.cien   .margintop10}  
             ![img](./img_ut2/RA2CEd/img39.png){.cien    }   
             ![img](./img_ut2/RA2CEd/img40.png){.cien  }   
    
-    !!! exercise "7. Aplicar estilos de página"
+    !!! exercise ":seven: - Aplicar estilos de página"
         Aplicar los estilos a las páginas de la siguiente manera:  
 
         1. **Página 1** → Estilo **Primera página**.
         1. **Página 2** → Estilo **Estilo de página predeterminado**.  
         1. **Página 3** → Estilo **Estilo de página especial**.  
       
-    !!! exercise "8. Aplicar estilos de títulos y texto"
+    !!! exercise ":eight: - Aplicar estilos de títulos y texto"
         Aplicar los estilos de títulos de la siguiente manera:  
         
         1. **Título 1** → Michael Jordan
