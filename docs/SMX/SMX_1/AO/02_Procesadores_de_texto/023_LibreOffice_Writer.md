@@ -208,7 +208,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
         1. Añadir los números 2 y 10 y ponerles respectivamente el superíndice 125 y subíndice 512.  
 
         !!! tip "Resultado esperado"
-            ![](./img_ut2/ra2ceb2.png){.original }
+            ![img](./img_ut2/ra2ceb2.png){.original }
 
     !!! exercise "**3. Copiar y pegar el texto y limpiar los formatos.**"  
         1. Aplicar el **color RGB 125 135 247** a la primera frase.  
@@ -219,7 +219,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
         1. Insertar en el texto **fue seleccionado** el hiperenlace https://es.wikipedia.org/wiki/Michael_Jordan**.  
 
         !!! tip "Resultado esperado"
-            ![](./img_ut2/ra2ceb21.png){.original }
+            ![img](./img_ut2/ra2ceb21.png){.original }
 
     !!! exercise "**4. Copiar y pegar el texto y limpiar los formatos.**"
         - Poner **Deloris Jordan** en tamaño de fuente 14, negrita y con un escalado de anchura del 85%.   
@@ -230,7 +230,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
         - Poner **centímetros** en naranja 2 y giro de 90 grados.  
     
         !!! tip "Resultado esperado"
-            ![](./img_ut2/ra2ceb22.png){.original }
+            ![img](./img_ut2/ra2ceb22.png){.original }
 
     !!! exercise "**5. Aprendiendo a insertar caracteres especiales:**"
         Escribir la siguiente frase insertando un carácter especial.  
@@ -881,80 +881,80 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
     !!! exercise "1. Descargar y descomprimir el archivo 'Tarea RA2-CEd' pinchando en el enlace siguiente:<br>[Descargar archivo](./archivos/RA2-CEd/RA2-CEd.rar)"
 
     !!! exercise "2. Estilos de página."
-        !!! tip "Ir a **Estilos de página** → **Primera página** → **Editar estilo** → Configurar con los siguientes datos."
+        !!! tip "I - Ir a **Estilos de página** → **Primera página** → **Editar estilo** → Configurar con los siguientes datos."
             ![img](./img_ut2/RA2CEd/img1.png){.cien .marginbottom20 }
             ![img](./img_ut2/RA2CEd/img2.png){.cien .marginbottom20}
             ![img](./img_ut2/RA2CEd/img3.png){.cien}
 
-        !!! tip "-A- Ir a 'Estilo de página predeterminado' y configurar con los siguientes datos."
+        !!! tip "II - Ir a 'Estilo de página predeterminado' y configurar con los siguientes datos."
             ![img](./img_ut2/RA2CEd/img4.png){.cien .marginbottom20}
             ![img](./img_ut2/RA2CEd/img5.png){.cien .marginbottom20}
             ![img](./img_ut2/RA2CEd/img6.png){.cien .marginbottom20}
             ![img](./img_ut2/RA2CEd/img7.png){.cien .marginbottom20}
             ![img](./img_ut2/RA2CEd/img8.png){.cien }
         
-        !!! tip "-B- Dentro de los estilos de página CREAR el 'Estilo de página especial' y configurar con los siguientes datos."
-            ![](./img_ut2/RA2CEd/img34.png){.cuatrocinco .marginbottom20 }
-            ![](./img_ut2/RA2CEd/img30.png){.cien .marginbottom20}
-            ![](./img_ut2/RA2CEd/img31.png){.cien .marginbottom20}
-            ![](./img_ut2/RA2CEd/img32.png){.cien .marginbottom20}
-            ![](./img_ut2/RA2CEd/img33.png){.cien}
+        !!! tip "III - Dentro de los estilos de página CREAR el 'Estilo de página especial' y configurar con los siguientes datos."
+            ![img](./img_ut2/RA2CEd/img34.png){.cuatrocinco .marginbottom20 }
+            ![img](./img_ut2/RA2CEd/img30.png){.cien .marginbottom20}
+            ![img](./img_ut2/RA2CEd/img31.png){.cien .marginbottom20}
+            ![img](./img_ut2/RA2CEd/img32.png){.cien .marginbottom20}
+            ![img](./img_ut2/RA2CEd/img33.png){.cien}
 
-        !!! tip "-C- Concatenar los estilos de la siguiente manera:<br>Primera página → Estilo de página predeterminado → Estilo de página especial"
-            ![](./img_ut2/RA2CEd/img42.png){.cien .marginbottom20} 
-            ![](./img_ut2/RA2CEd/img43.png){.cien .marginbottom20} 
-            ![](./img_ut2/RA2CEd/img41.png){.cien} 
+        !!! tip "IV - Concatenar los estilos de la siguiente manera:<br>Primera página → Estilo de página predeterminado → Estilo de página especial"
+            ![img](./img_ut2/RA2CEd/img42.png){.cien .marginbottom20} 
+            ![img](./img_ut2/RA2CEd/img43.png){.cien .marginbottom20} 
+            ![img](./img_ut2/RA2CEd/img41.png){.cien} 
 
     !!! exercise "3. Estilos de títulos."  
-        !!! tip "-A- Editar el estilo 'Título 1' → Configurar con los siguientes datos."
-            ![](./img_ut2/RA2CEd/img9.png){.cien .marginbottom20} 
-            ![](./img_ut2/RA2CEd/img10.png){.cien .marginbottom20} 
-            ![](./img_ut2/RA2CEd/img11.png){.cien } 
+        !!! tip "I - Editar el estilo 'Título 1' → Configurar con los siguientes datos."
+            ![img](./img_ut2/RA2CEd/img9.png){.cien .marginbottom20} 
+            ![img](./img_ut2/RA2CEd/img10.png){.cien .marginbottom20} 
+            ![img](./img_ut2/RA2CEd/img11.png){.cien } 
     
-        !!! tip "-B- Editar el estilo 'Título 2' → Configurar con los siguientes datos."
-            ![](./img_ut2/RA2CEd/img12.png){.cien .marginbottom20} 
-            ![](./img_ut2/RA2CEd/img13.png){.cien .marginbottom20} 
-            ![](./img_ut2/RA2CEd/img14.png){.cien } 
+        !!! tip "II - Editar el estilo 'Título 2' → Configurar con los siguientes datos."
+            ![img](./img_ut2/RA2CEd/img12.png){.cien .marginbottom20} 
+            ![img](./img_ut2/RA2CEd/img13.png){.cien .marginbottom20} 
+            ![img](./img_ut2/RA2CEd/img14.png){.cien } 
     
-        !!! tip "-C- Editar el estilo 'Título 3' → Configurar con los siguientes datos."
-            ![](./img_ut2/RA2CEd/img15.png){.cien .marginbottom20} 
-            ![](./img_ut2/RA2CEd/img16.png){.cien .marginbottom20} 
-            ![](./img_ut2/RA2CEd/img17.png){.cien} 
+        !!! tip "III - Editar el estilo 'Título 3' → Configurar con los siguientes datos."
+            ![img](./img_ut2/RA2CEd/img15.png){.cien .marginbottom20} 
+            ![img](./img_ut2/RA2CEd/img16.png){.cien .marginbottom20} 
+            ![img](./img_ut2/RA2CEd/img17.png){.cien} 
     
     !!! exercise "4. Estilos de texto."  
-        !!! tip "-A- Ir al estilo Cuerpo de texto y configurar con los siguientes datos"
-            ![](./img_ut2/RA2CEd/img18.png){.cien .marginbottom20 .margintop10} 
-            ![](./img_ut2/RA2CEd/img19.png){.cien .marginbottom20} 
-            ![](./img_ut2/RA2CEd/img20.png){.cien  } 
+        !!! tip "I - Ir al estilo Cuerpo de texto y configurar con los siguientes datos"
+            ![img](./img_ut2/RA2CEd/img18.png){.cien .marginbottom20 .margintop10} 
+            ![img](./img_ut2/RA2CEd/img19.png){.cien .marginbottom20} 
+            ![img](./img_ut2/RA2CEd/img20.png){.cien  } 
    
-        !!! tip "-B- Ir al estilo **Contenido de la tabla** y configurar con los siguientes datos"
-            ![](./img_ut2/RA2CEd/img21.png){.cien .marginbottom20 .margintop10} 
-            ![](./img_ut2/RA2CEd/img22.png){.cien   } 
+        !!! tip "II - Ir al estilo **Contenido de la tabla** y configurar con los siguientes datos"
+            ![img](./img_ut2/RA2CEd/img21.png){.cien .marginbottom20 .margintop10} 
+            ![img](./img_ut2/RA2CEd/img22.png){.cien   } 
     
-        !!! tip "-C- Ir al estilo **Título de la tabla** y configurar con los siguientes datos"   
-            ![](./img_ut2/RA2CEd/img23.png){.cien .marginbottom20 .margintop10} 
-            ![](./img_ut2/RA2CEd/img24.png){.cien .marginbottom20 .margintop10} 
-            ![](./img_ut2/RA2CEd/img25.png){.cien  }
+        !!! tip "III - Ir al estilo **Título de la tabla** y configurar con los siguientes datos"   
+            ![img](./img_ut2/RA2CEd/img23.png){.cien .marginbottom20 .margintop10} 
+            ![img](./img_ut2/RA2CEd/img24.png){.cien .marginbottom20 .margintop10} 
+            ![img](./img_ut2/RA2CEd/img25.png){.cien  }
 
-        !!! tip "-D-. Ir al estilo **Leyenda** y configurar con los siguientes datos"
-            ![](./img_ut2/RA2CEd/img27.png){.cien .marginbottom20 .margintop10} 
-            ![](./img_ut2/RA2CEd/img28.png){.cien .marginbottom20 .margintop10} 
-            ![](./img_ut2/RA2CEd/img29.png){.cien  } 
+        !!! tip "IV - Ir al estilo **Leyenda** y configurar con los siguientes datos"
+            ![img](./img_ut2/RA2CEd/img27.png){.cien .marginbottom20 .margintop10} 
+            ![img](./img_ut2/RA2CEd/img28.png){.cien .marginbottom20 .margintop10} 
+            ![img](./img_ut2/RA2CEd/img29.png){.cien  } 
     
     !!! exercise "5. Estilos de marco"  
         Ir a **Estilos de marco** → **Imagen** y configurar con los siguientes datos.
-        ![](./img_ut2/RA2CEd/img26.png){.cien .margintop10 } 
+        ![img](./img_ut2/RA2CEd/img26.png){.cien .margintop10 } 
 
     !!! exercise "6. Estilos de cabecera y pie de página"  
-        !!! tip "-A- Cabecera"
-            ![](./img_ut2/RA2CEd/img35.png){.cien .margintop10}  
-            ![](./img_ut2/RA2CEd/img36.png){.cien  }  
-            ![](./img_ut2/RA2CEd/img37.png){.cien   } 
+        !!! tip "I - Cabecera"
+            ![img](./img_ut2/RA2CEd/img35.png){.cien .margintop10}  
+            ![img](./img_ut2/RA2CEd/img36.png){.cien  }  
+            ![img](./img_ut2/RA2CEd/img37.png){.cien   } 
 
-        !!! tip "-B- Pie de página"
-            ![](./img_ut2/RA2CEd/img38.png){.cien   .margintop10}  
-            ![](./img_ut2/RA2CEd/img39.png){.cien    }   
-            ![](./img_ut2/RA2CEd/img40.png){.cien  }   
+        !!! tip ":two: - Pie de página"
+            ![img](./img_ut2/RA2CEd/img38.png){.cien   .margintop10}  
+            ![img](./img_ut2/RA2CEd/img39.png){.cien    }   
+            ![img](./img_ut2/RA2CEd/img40.png){.cien  }   
    
     !!! exercise "7. Aplicar estilos de página"
         Aplicar los estilos a las páginas de la siguiente manera:  
@@ -977,11 +977,11 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
 
     !!! exercise "11. Insertar una tabla"  
         !!! tip "-A- Modificar las propiedades de la siguiente manera"
-            ![](./img_ut2/RA2CEd/img44.png){.cien   .margintop10}   
-            ![](./img_ut2/RA2CEd/img45.png){.cien    }   
+            ![img](./img_ut2/RA2CEd/img44.png){.cien   .margintop10}   
+            ![img](./img_ut2/RA2CEd/img45.png){.cien    }   
      
         !!! tip "-B- Personalizar las propiedades de celdas y texto para que el resultado sea como el siguiente"
-            ![](./img_ut2/RA2CEd/img46.png){.cien}   
+            ![img](./img_ut2/RA2CEd/img46.png){.cien}   
    
     !!! exercise "12. Insertar las 2 imágenes"  
         !!! tip "-A- Imagen 1"    
@@ -989,21 +989,21 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
             - **Insertar** una leyenda sobre la imagen.  
             - **Como podemos ver**, al insertar la leyenda hemos creado un marco que contiene la imagen.  
             - **Editamos las propiedades del marco de la siguiente manera:**
-            ![](./img_ut2/RA2CEd/img47.png){.cien .margintop10}   
-            ![](./img_ut2/RA2CEd/img48.png){.cien .marginbottom20}  
+            ![img](./img_ut2/RA2CEd/img47.png){.cien .margintop10}   
+            ![img](./img_ut2/RA2CEd/img48.png){.cien .marginbottom20}  
             - Una vez el marco a la escala, movemos el marco a la posición deseada. 
 
         !!! tip "-B- Imagen 2"    
             - **Insertar** la imagen de las camisetas.  
-            ![](./img_ut2/RA2CEd/img49.png){.cien .margintop10}   
-            ![](./img_ut2/RA2CEd/img50.png){.cien }  
+            ![img](./img_ut2/RA2CEd/img49.png){.cien .margintop10}   
+            ![img](./img_ut2/RA2CEd/img50.png){.cien }  
             - Una vez el marco a la escala, movemos el marco a la posición deseada. 
 
     !!! exercise "13. Cabecera y pie de página"
         !!! tip "-A- Cabecera página 1"     
             1. **Anclar** la imagen al párrafo de la cabecera.
             1. **Podéis** ajustar la posición al gusto de cada uno.  
-            ![](./img_ut2/RA2CEd/img51.png){.cien .margintop10 }  
+            ![img](./img_ut2/RA2CEd/img51.png){.cien .margintop10 }  
         !!! tip "-B- Cabecera páginas 2 y 3"     
             1. **Anclar** la imagen al párrafo de la cabecera **como en la página 1**.  
             1. **Escribir Tarea RA2-CEd y vuestro nombre y apellidos**.  
@@ -1057,7 +1057,7 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
         **5.** Crear un atajo de teclado que permita ejecutar la macro con (p.e.) **ctrl q**.  
 
         !!! tip "Resultado esperado"
-            ![](./img_ut2/RA2-CEf/img1.png){.sietecinco}
+            ![img](./img_ut2/RA2-CEf/img1.png){.sietecinco}
     
     !!! exercise "**Ejercicio 2<br>**Grabar una macro que modifique un párrafo de la siguiente manera:"  
         **1.** Interlineado doble, justificado y espaciado sobre y debajo del párrafo: 0.5cm.  
@@ -1067,7 +1067,7 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
         **5.** Crear un atajo de teclado que permita ejecutar la macro con (p.e.) **ctrl a**.  
 
         !!! tip "Resultado esperado"
-            ![](./img_ut2/RA2-CEf/img4.png){.ochocinco }
+            ![img](./img_ut2/RA2-CEf/img4.png){.ochocinco }
 
     !!! warning "Condiciones de entrega de la tarea"
         1. Subir vuestra tarea nombrando el archivo **RA2-CEf-Nombre Alumno** a la **tarea RA2-CEf**.  
