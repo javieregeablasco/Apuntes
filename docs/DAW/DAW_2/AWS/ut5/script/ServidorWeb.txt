@@ -45,6 +45,7 @@ cat > /var/www/html/index.html <<'EOF'
             border-radius: 12px;
         }
         h1 { color: #e47911; }
+        h2 { color: #203acf; }
     </style>
 </head>
 <body>
