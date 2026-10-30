@@ -27,6 +27,64 @@ cd /home/ubuntu/api-web
 npm init -y
 npm install express mysql2
 
+# Crear archivo de configuracion
+cat > /home/ubuntu/api-web/server.js << 'EOF'
+const express = require('express');
+const mysql = require('mysql2/promise');
+
+const app = express();
+const PORT = 3000;
+
+// Configuracion de la conexion a MariaDB
+const db = mysql.createPool({
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: 'appdb',
+    waitForConnections: true,
+    connectionLimit: 10
+});
+
+// Endpoint para consultar un cliente por su ID
+app.get('/api/clientes/:id', async (req, res) => {
+
+    try {
+        const id = Number(req.params.id);
+
+        if (!Number.isInteger(id) || id < 1) {
+            return res.status(400).json({
+                error: 'Identificador no valido'
+            });
+        }
+
+        const [filas] = await db.execute(
+            'SELECT id, nombre, email FROM clientes WHERE id = ?',
+            [id]
+        );
+
+        if (filas.length === 0) {
+            return res.status(404).json({
+                error: 'Cliente no encontrado'
+            });
+        }
+
+        res.json(filas[0]);
+
+    } catch (error) {
+        console.error('Error consultando MariaDB:', error);
+
+        res.status(500).json({
+            error: 'Error interno del servidor'
+        });
+    }
+});
+
+// Iniciar API exclusivamente en localhost
+app.listen(PORT, '127.0.0.1', () => {
+    console.log(`API funcionando en el puerto ${PORT}`);
+});
+EOF
+
 
 # Activar Apache
 systemctl enable apache2
