@@ -27,7 +27,9 @@ cd /home/ubuntu/api-web
 npm init -y
 npm install express mysql2
 
+# ------------------------------
 # Crear archivo de configuracion
+# ------------------------------
 cat > /home/ubuntu/api-web/server.js << 'EOF'
 const express = require('express');
 const mysql = require('mysql2/promise');
