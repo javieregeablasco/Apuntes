@@ -915,37 +915,37 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
             ![img](./img_ut2/RA2CEd/img2.png){.cien .marginbottom20}
             ![img](./img_ut2/RA2CEd/img3.png){.cien}
 
-        !!! tip ":two::regional_indicator_b: - Ir a 'Estilo de página predeterminado' y configurar con los siguientes datos."
+        !!! tip ":two:.:regional_indicator_b: - Ir a 'Estilo de página predeterminado' y configurar con los siguientes datos."
             ![img](./img_ut2/RA2CEd/img4.png){.cien .marginbottom20}
             ![img](./img_ut2/RA2CEd/img5.png){.cien .marginbottom20}
             ![img](./img_ut2/RA2CEd/img6.png){.cien .marginbottom20}
             ![img](./img_ut2/RA2CEd/img7.png){.cien .marginbottom20}
             ![img](./img_ut2/RA2CEd/img8.png){.cien }
         
-        !!! tip ":two::regional_indicator_c: - Dentro de los estilos de página CREAR el 'Estilo de página especial' y configurar con los siguientes datos."
+        !!! tip ":two:.:regional_indicator_c: - Dentro de los estilos de página CREAR el 'Estilo de página especial' y configurar con los siguientes datos."
             ![img](./img_ut2/RA2CEd/img34.png){.cuatrocinco .marginbottom20 }
             ![img](./img_ut2/RA2CEd/img30.png){.cien .marginbottom20}
             ![img](./img_ut2/RA2CEd/img31.png){.cien .marginbottom20}
             ![img](./img_ut2/RA2CEd/img32.png){.cien .marginbottom20}
             ![img](./img_ut2/RA2CEd/img33.png){.cien}
 
-        !!! tip ":two::regional_indicator_d: - Concatenar los estilos de la siguiente manera:<br>Primera página → Estilo de página predeterminado → Estilo de página especial"
+        !!! tip ":two:.:regional_indicator_d: - Concatenar los estilos de la siguiente manera:<br>Primera página → Estilo de página predeterminado → Estilo de página especial"
             ![img](./img_ut2/RA2CEd/img42.png){.cien .marginbottom20} 
             ![img](./img_ut2/RA2CEd/img43.png){.cien .marginbottom20} 
             ![img](./img_ut2/RA2CEd/img41.png){.cien} 
 
-    !!! exercise "3. Estilos de títulos."  
-        !!! tip ":regional_indicator_a: - Editar el estilo 'Título 1' → Configurar con los siguientes datos."
+    !!! exercise ":three:. Estilos de títulos."  
+        !!! tip ":three:.:regional_indicator_a: - Editar el estilo 'Título 1' → Configurar con los siguientes datos."
             ![img](./img_ut2/RA2CEd/img9.png){.cien .marginbottom20} 
             ![img](./img_ut2/RA2CEd/img10.png){.cien .marginbottom20} 
             ![img](./img_ut2/RA2CEd/img11.png){.cien } 
     
-        !!! tip ":regional_indicator_b: - Editar el estilo 'Título 2' → Configurar con los siguientes datos."
+        !!! tip ":three:.:regional_indicator_b: - Editar el estilo 'Título 2' → Configurar con los siguientes datos."
             ![img](./img_ut2/RA2CEd/img12.png){.cien .marginbottom20} 
             ![img](./img_ut2/RA2CEd/img13.png){.cien .marginbottom20} 
             ![img](./img_ut2/RA2CEd/img14.png){.cien } 
     
-        !!! tip ":regional_indicator_c: - Editar el estilo 'Título 3' → Configurar con los siguientes datos."
+        !!! tip ":three:.:regional_indicator_c: - Editar el estilo 'Título 3' → Configurar con los siguientes datos."
             ![img](./img_ut2/RA2CEd/img15.png){.cien .marginbottom20} 
             ![img](./img_ut2/RA2CEd/img16.png){.cien .marginbottom20} 
             ![img](./img_ut2/RA2CEd/img17.png){.cien} 
