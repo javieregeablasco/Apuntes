@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style >
+    /* * {
+      font-size: 2.5rem;
+      } */
+  </style>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+   
+  <div>
+    <h1>Esto es un título</h1>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam repellat doloribus voluptate ab mollitia ut repudiandae, animi quia omnis quod odio magni libero totam ipsa esse aliquam magnam iusto porro!</p>
+    <button class="botonPresionado">Aceptar</button>
+    <!-- <button onclick="alert('Ha funcionado')">Aceptar</button> -->
+    <div>
+      <input class="entrada" type="text">
+      <p class="seleccion">Texto seleccionado</p>
+      <p class="contadorTemporizador">Texto seleccionado</p>
+    </div>
+    
+    
+  </div>
+  <script type="text/Javascript">
+    // alert("Tu nombre es: "+prompt("¿Cual es tu nombre?"));
+    for (let i = 0; i<10; i++) {
+  console.log(`Resultado: ${i}`)
+  document.write(`<h5>Resultado: ${i}` )
+}
+  </script>
+
+  <!-- AXIOS -->
+  <!-- https://youtu.be/xOinGb2MZSk?si=L25GwDTKjc1nBp9f&t=25809 -->
+
+
+  <!-- fetch -->
+  <!-- https://youtu.be/xOinGb2MZSk?si=ZkpUoORLWPHUKntY&t=24791 -->
+
+
+
+  <!-- peticiones http -->
+  <!-- datos estructurados json -->
+  <!-- // https://youtu.be/xOinGb2MZSk?si=sMkPUEboEKIZNcYT&t=21877 -->
+  
+  
+  
+  <!-- <form id="formulario">
+    <input type="text" name="prueba1" color="red">
+    <input type="submit" name="prueba2">
+  </form>
+  <input type="submit" name="prueba3" id="" form="formulario"> -->
+  <script>
+
+// diferencia entre get y post
+// XMLHttpRequest
+
+
+    // json 
+     const objetoJSON = {
+      "variable_1" : "Javier",
+      "variable_2" : "Egea",
+      "variable_3" : "Blasco"
+  
+     };
+
+    //  const objetoJsonSerializado = 'objetoJSON';
+    //  const objetoSerializado = JSON.stringify(objetoJSON)
+    //  const objetoDeSerializado = JSON.parse(objetoSerializado)
+    //  console.log(objetoJSON);
+    //  document.open();
+    //  document.body.innerHTML = `<h1>Objeto JSON</h1> ${typeof objetoJSON}`;
+    //  document.write(`<h1>Objeto JSON serializado</h1>`, objetoSerializado);
+    //  document.write(`<h1>Objeto JSON deserializado</h1>`, objetoDeSerializado);
+    //  document.close();
+
+
+  // promesas
+  // callback 
+  // asinc
+  // await
+  
+  
+
+  
+  // callback, funcion dentro de otra funcion
+    // function funcion(callback){
+    //   callback("Javier")
+    // };
+
+    // funcion(nombre => document.write(nombre))
+
+    
+    
+    // function otraFuncion(nombre){
+    //   document.write(nombre)
+    // }
+    
+    // funcion(otraFuncion)
+    
+    
+    // const excepcion=(a,b)=>{
+    //   try {
+    //     throw [123, "error 123"]
+    //       }
+    //   catch (e) {
+    //     console.log(typeof(e[1]));        
+    //   } finally {
+    //     console.log(a+b,3,variable);
+    //   }
+    // } 
+
+    // excepcion("una","dos")
+  
+    // const excepcion = ()=>{
+    //   try {
+    //     console.log(1);
+    //   } catch (error) {
+    //     console.log(2);        
+    //   } finally {
+    //     console.log(3);
+    //   }
+    // } 
+
+    // excepcion()
+
+
+
+    // const vehiculo = prompt("Introducir tipo de vehículo");
+    // switch (vehiculo) {
+    //   case "coche": {
+    //     console.log("Es un coche");
+    //     alert("coche");
+    //     break;
+    //   }
+
+    //   case "amoto": {
+    //     console.log("Es una moto");
+    //     alert("moto");
+    //     break;
+    //   }
+
+    //   case "bicicleta": {
+    //     console.log("Es una bicicleta");
+    //     alert("bicicleta");
+    //     break;
+    //   }
+        
+    
+    //   default:
+    //     break;
+    // }
+
+
+
+    // let contador = 1;
+    // const valorContador = document.querySelector(".contadorTemporizador")
+    // const timer =setInterval(()=>{
+    //   valorContador.innerHTML = `<div><mark> ${contador} </mark></div>`; 
+ 
+      
+    //   contador++;
+
+      
+      
+      // document.open();
+      // document.write("");
+      // document.write(contador);
+      // document.close();
+      // contador++;
+    //},500
+    //);
+    // const entradaTexto = document.querySelector(".entrada");
+    // const seleccionado = document.querySelector(".seleccion");
+    // entradaTexto.addEventListener("select",(e)=>{
+    //   console.log("tecla presionada");
+    //   const start = e.target.selectionStart;
+    //   const end = e.target.selectionEnd;
+    //   const textoSeleccionado = entradaTexto.value;
+    //   seleccionado.innerHTML = textoSeleccionado.substring(start,end); 
+    //   console.log("indice inicio",start,"indice fin",end);     
+    //   console.log(e);
+      
+    // });
+
+
+
+    // const boton = document.querySelector(".botonPresionado");
+    // boton.addEventListener("contextmenu",()=>{
+    //   alert("hover");
+    // });
+    // boton.addEventListener("",(event)=>{
+    //   alert("Doble click");
+    //   console.log(this.event);
+    // });
+
+    // boton.onclick = () => {
+    //   console.log("exito")
+    //   alert("Ha funcionado")
+    // }
+// const estiloParrafo = document.querySelector("html body div p")
+// estiloParrafo.style.backgroundColor="yellow"
+
+
+
+    // const ancho = screen.availHeight;
+    // const alto = screen.availWidth;
+    // alert(`el alto es ${ancho} y el ancho es ${alto}`);
+    
+    // const href = window.location.protocol;
+    // document.write(href);
+    // const yt = "https://www.youtube.com";
+    // const youtube = window.open(yt);
+    // console.log(window.location.href);
+      
+    // youtube.resizeTo(300,400);
+    // const pantalla = window.screen;
+    // console.log(window.screenLeft);
+
+    // const yt = "https://www.youtube.com";
+    // const youtube = window.open(yt);
+    // youtube.close();
+    // document.write(youtube.closed)
+    
+    // console.time()
+    // const valor_1 = 50;
+    // const valor_2 = Math.sqrt(valor_1);
+    // // document.write(Math.fround(valor_2))
+    // console.time();
+    // console.log("Hola, qué tal");
+    // console.clear();
+    // console.timeEnd()
+    // console.time();
+    // console.table([4,"tal",2,5,,"hola",3,[2,3,6,5],"qué",6,4]);
+    // console.timeEnd()
+    // const array_1 = ["Pedro", "Maria", "Nazareth"]
+    // array_1.shift()
+    // document.write(array_1)
+    // const string_1 = "Hola, hoy será un buen día para salir a pasear...";
+    // // const string_2 = " qué tal";
+    // const string_2 = "qué tal ";
+    // const string_3 = "qué tal qué tal qué tal qué tal";
+    
+    // const var_1 = 50;
+    // const var_2 = 5;
+    // document.write(string_2.repeat(5)+"</br>");
+    // document.write(var_1+var_2);
+    // document.write(string_1.indexOf("será")+"<br>");
+    // document.write(string_3.lastIndexOf("qué"));
+    // document.write(string_1.indexOf("serà"))
+    // document.write(string_1[25])
+    // document.write(`<h3>${string_1}${string_2}</h3>`)
+    // document.write(string_1.concat(string_2))
+    // document.write(concat(string_1,string_2))
+    // //5:00
+    // class coche {
+    //   constructor(color, ruedas, precio){
+    //     this.color = color;
+    //     this.ruedas = ruedas;
+    //     this.precio = precio;
+    //   }
+
+    //   arrancar() {
+    //     document.write(`El vehiculo de color ${this.color}, está arrancando.`);
+    //   }
+    // }
+
+    // const carro = new coche("rojo", 4, 20000)
+    // carro.arrancar()
+    // const sumar = () => document.write(`<h3>Buenos días</h3>`);
+
+// let imprimir = sumar();
+
+// const sumar = () => {
+//   document.write(`<h3>Buenos días</h3>`);
+// }
+
+// let imprimir = sumar();
+
+// const sumar = numero_1 => {
+//   let numero_2 = 10
+//   let resultado = numero_1 + numero_2;  
+//   return resultado;
+// }
+
+// let imprimir = sumar(Number(prompt(("Introducir un valor"))));
+// document.write(`<h3>El resultado es:</h3>${imprimir}`);
+// const sumar = (numero_1) => {
+//   let numero_2 = 10
+//   let resultado = numero_1 + numero_2;  
+//   return resultado;
+// }
+
+// let imprimir = sumar(Number(prompt(("Introducir un valor"))));
+// document.write(`<h3>El resultado es:</h3>${imprimir}`);
+// const sumar = (numero_1, numero_2) => {
+//   let resultado = numero_1 + numero_2;  
+//   return resultado;
+// }
+
+// let imprimir = sumar(5,10);
+// document.write(`<h3>El resultado es:</h3>${imprimir}`);
+
+// const sumar = function(numero_1, numero_2){
+//   let resultado = numero_1 + numero_2;
+//   return resultado;
+// }
+
+// let imprimir = sumar(5,10);
+// document.write(`<p>El resultado es:</p><p>${imprimir}</p>`);
+
+// const sumar = function(numero_1, numero_2){
+//   let resultado = numero_1 + numero_2;
+//   document.write(`<p>El resultado es:</p><p>${resultado}</p>`);
+// }
+// sumar(5,10)
+
+
+// const saludar = function(){
+  //   alert("Buenos días")
+  //   return `<p>Saludos</p>`
+  // };
+  // saludar()
+  // document.write(saludar())
+
+//  for (let iterador = Number(prompt("Introducir un valor")); iterador <= 20; iterador++) {
+//     document.write(`<p>${iterador}`); 
+// }
+
+
+
+  // let contador = prompt("Introducir un valor");
+
+  // do {
+  //   document.write(`<p>El valor de contador es: ${contador}</p>`);
+  //   contador++;
+  //   if (contador >=25) {
+  //     break
+  //   }
+
+  // } 
+  // while (contador <= 100) 
+  // while (contador <= 10) {
+  //   contador++;
+  //   document.write(`<p>El valor de contador es: ${contador}</p>`)
+  // };
+
+
+
+
+// let array ={
+  //     fruta_1: "banana",
+  //     fruta_2: "mango",
+  //     numero_1: 1,
+  //     numero_2: 2,
+  //     numero_3: 3,
+  //     numero_4: 4
+  //   }
+  //   // document.write(array["numero_3"]);
+    
+  //   let frase = `numero ${array["numero_3"]} es es el resultado`
+  //   document.write(frase)
+
+
+  // let array =["banana", "mango",1,2,3,4];
+
+  // document.write(array[2]);
+  // document.write(array.slice(2,5))
+
+
+//   let variable_1
+//   let resultado = prompt("Introduce un valor")
+//   console.log(resultado)
+//   alert("Valor introducido es: " + resultado)
+  // let valor_1 = 20;
+  // let valor_2 = 2;
+  // valor_1 = valor_1 >> valor_2;
+
+
+  // document.write(`<h1>valor_1, ${valor_2}</h1>`)
+  // document.write(valor_1)
+  // alert("resultado "+valor_1)
+  // console.log("Todo va bien", valor_1, valor_2)
+</script>  
+</body>
+</html>
