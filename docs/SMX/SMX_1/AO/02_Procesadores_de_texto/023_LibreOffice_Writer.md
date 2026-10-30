@@ -290,7 +290,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
         - Párrafo siguiente: **aumentar sangria 2 veces**.  
 
         !!! tip "Resultado esperado"
-           ![](./img_ut2/ra2ceb24-1.png){.cien }
+           ![img](./img_ut2/ra2ceb24-1.png){.cien }
 
 !!! exercise "**3. Copiar y pegar los párrafos en el mismo documento de la siguiente manera:**"
     - Copiar el pegar el documento creado anteriormente **insertando un salto de página**.  
@@ -323,7 +323,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
 
     !!! tip "Resultado esperado"
         !!!warning "¡Cuidado con los estilos de texto o de párrafo que se han incorporado pero no se han mencionado!"
-        ![](./img_ut2/ra2ceb25.png){.original }
+        ![img](./img_ut2/ra2ceb25.png){.original }
 
     !!! warning "Condiciones para la entrega de la tarea"
         1. Subir vuestra tarea guardando el archivo como **RA2-CEc-3-NombreApellidosAlumno** a la tarea correspondiente de aules.  
@@ -389,7 +389,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
     !!! exercise "2. Modifica los estilos de párrafos para que quede la siguiente manera (sangría francesa).<br>3. Añade después del texto anterior el texto que aparece en la imagen y usa tabuladores para ordenarlo."
      
     !!! tip "Resultado esperado"
-        ![](./img_ut2/ra2ceb26.png){.cien }
+        ![img](./img_ut2/ra2ceb26.png){.cien }
 
     !!! warning "Condiciones para la entrega de la tarea"
         1. Subir vuestra tarea guardando el archivo como **RA2-CEc-5-NombreApellidosAlumno** a la tarea correspondiente de aules.  
@@ -437,7 +437,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
         - No hacer **fontaneria**. El espacio entre elementos de texto deberá realizarse eligiendo correctamente los parámetros de cada elemento, **no realizando saltos de línea**.
 
         !!! tip "Resultado esperado"
-            ![](./img_ut2/ra2ceb29.png){.original}
+            ![img](./img_ut2/ra2ceb29.png){.original}
 
     !!! exercise "**3. Realiza un salto de página en el documento anterior, copia y pega el siguiente texto:**"
         ```text
@@ -468,7 +468,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
         ```
     !!! exercise "4. Incorporar numeraciones y viñetas para que el texto quede de la siguiente manera."
         !!! tip "Resultado esperado"
-            ![](./img_ut2/ra2ceb30.png){.sietecinco}
+            ![img](./img_ut2/ra2ceb30.png){.sietecinco}
 
     !!! warning "Condiciones para la entrega de la tarea"
         1. Subir vuestra tarea guardando el archivo como **RA2-CEc-6-NombreApellidosAlumno** a la tarea correspondiente de aules.  
@@ -505,7 +505,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
         - No hacer **fontaneria**. El espacio entre elementos de texto deberá realizarse eligiendo correctamente los parámetros de cada elemento, **no realizando saltos de línea**.
 
     !!! tip "Resultado esperado"
-        ![](./img_ut2//img-2-1.png){.original}
+        ![img](./img_ut2//img-2-1.png){.original}
 
     !!! warning "Condiciones para la entrega de la tarea"
         1. Subir vuestra tarea guardando el archivo como **RA2-CEc-7-NombreApellidosAlumno** a la tarea correspondiente de aules.  
@@ -550,7 +550,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
         - ¡Cuidado con la ortografía!
 
     !!! tip "Resultado esperado"
-        ![](./img_ut2//img-2-2.png){.original}
+        ![img](./img_ut2//img-2-2.png){.original}
 
     !!! warning "Condiciones para la entrega de la tarea"
         1. Subir vuestra tarea guardando el archivo como **RA2-CEc-8-NombreApellidosAlumno** a la tarea correspondiente de aules.  
@@ -689,15 +689,15 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
             
         !!! tip "Resultado esperado"
             !!! info "Página 1"
-                ![](./img_ut2//img-2-3.png){.original}    
+                ![img](./img_ut2//img-2-3.png){.original}    
             !!! info "Página 2"
-                ![](./img_ut2//img-2-4.png){.original}    
+                ![img](./img_ut2//img-2-4.png){.original}    
             !!! info "Página 3"
-                ![](./img_ut2//img-2-5.png){.original}    
+                ![img](./img_ut2//img-2-5.png){.original}    
             !!! info "Página 4"
-                ![](./img_ut2//img-2-6.png){.original}    
+                ![img](./img_ut2//img-2-6.png){.original}    
             !!! info "Página 5"
-                ![](./img_ut2//img-2-7.png){.original}    
+                ![img](./img_ut2//img-2-7.png){.original}    
 
     !!! warning "Condiciones para la entrega de la tarea"
         1. Subir vuestra tarea guardando el archivo como **RA2-CEc-8-NombreApellidosAlumno** a la tarea correspondiente de aules.  
@@ -783,7 +783,7 @@ En este apartado aprenderemos a definir estilos para todos los elementos de nues
         - El estilo **Párrafo numerado** quedará de la siguiente manera (Como podeís ver se ha aplicado un estilo de carácter especial al numerador):  
         
         !!! tip "Resultado esperado"
-            ![](./img_ut2/ra2ceb40.png){.cien  .margintop10 .marginbottom30}   
+            ![img](./img_ut2/ra2ceb40.png){.cien  .margintop10 .marginbottom30}   
 
 
     !!! exercise "**8.** Dentro de **Títulos** crear el estilo **Títulos-1** con el siguiente resultado."  
@@ -795,12 +795,12 @@ En este apartado aprenderemos a definir estilos para todos los elementos de nues
             Configurar el estilo para que, al aplicar el estilo, **se inserte automáticamente la numeración 'Apartado xx.'**.  
 
         !!! tip "Resultado esperado"
-            ![](./img_ut2/ra2ceb41.png){.cien  .margintop10 .marginbottom30} 
+            ![img](./img_ut2/ra2ceb41.png){.cien  .margintop10 .marginbottom30} 
     
     !!! exercise "**9.** Resumen de todos los estilos:"
         
         !!! tip "Resultado esperado"
-            ![](./img_ut2/ra2ceb39.png){.cuatrozero  .margintop10 .marginbottom30} 
+            ![img](./img_ut2/ra2ceb39.png){.cuatrozero  .margintop10 .marginbottom30} 
 
     !!! exercise "**10.** Aplicar los estilos al texto del documento. Recordad que también **teneís que terminar de modificar los estilos** para respetar los márgenes, fuentes y tamaño de fuentes del documento de muestra."
 
@@ -910,7 +910,7 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
     !!! exercise "1. Descargar y descomprimir el archivo 'Tarea RA2-CEd' pinchando en el enlace siguiente:<br>[Descargar archivo](./archivos/RA2-CEd/RA2-CEd.rar)"
 
     !!! exercise "2. Estilos de página."
-        !!! tip ":one: - Ir a **Estilos de página** → **Primera página** → **Editar estilo** → Configurar con los siguientes datos."
+        !!! tip ":A: - Ir a **Estilos de página** → **Primera página** → **Editar estilo** → Configurar con los siguientes datos."
             ![img](./img_ut2/RA2CEd/img1.png){.cien .marginbottom20 }
             ![img](./img_ut2/RA2CEd/img2.png){.cien .marginbottom20}
             ![img](./img_ut2/RA2CEd/img3.png){.cien}
