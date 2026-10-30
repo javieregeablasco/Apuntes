@@ -1106,10 +1106,12 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
         !!! tip "Resultado esperado"
             ![img](./img_ut2/RA2-CEf/img4.png){.ochocinco }
 
-    !!! warning "Condiciones de entrega de la tarea"
-        1. Subir vuestra tarea nombrando el archivo **RA2-CEf-Nombre Alumno** a la **tarea RA2-CEf**.  
-        1. El archivo a subir deberá ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
+    !!! warning "Condiciones para la entrega de la tarea"
+        1. Subir vuestra tarea guardando el archivo como **RA2-CEf-NombreApellidosAlumno** a la tarea correspondiente de aules.  
+        1. Los archivos a subir deberán ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
         1. **No se aceptará ningún otro formato de archivo**.
+        1. A partir del momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
+        1. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.        
 
 | **Licencia Creative Commons:** | |
 | - | - |
