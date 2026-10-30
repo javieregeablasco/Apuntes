@@ -1049,7 +1049,10 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
 
 :nine:
 :one::zero:  
-:eleven:
+:one::one:  
+:one::two:-:regional_indicator_a:  
+
+
 
 ## 2.8 - Exportar a otros formatos
 
