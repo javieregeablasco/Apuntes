@@ -824,7 +824,7 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
     **4.** **Recuperar la plantilla** y subidla a la **tarea RA2-CEb-2** de Aules.
 
     !!! warning "Condiciones para la entrega de la tarea"
-        1. Subir vuestra tarea guardando el archivo como **RA2-CEb-1-NombreApellidosAlumno** a la tarea correspondiente de aules.  
+        1. Subir vuestra tarea guardando el archivo como **RA2-CEb-2-NombreApellidosAlumno** a la tarea correspondiente de aules.  
         1. El archivo a subir deberá ser de tipo plantilla de texto de OpenDocument (.ott) (formato predeterminado de plantillas de LibreOffice Writer).  
         1. **No se aceptará ningún otro formato de archivo**.
         1. A partir del momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
@@ -894,10 +894,12 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
 
     !!! tip "7. Insertar un índice (o sumario) que solo mostrará LOS 3 PRIMEROS NIVELES.<br>Insertir un índice de figuras y un índice de tablas."
 
-    !!! warning "Condiciones de entrega de la tarea"
-        1. Subir vuestra tarea nombrando el archivo **RA2-CEb-3-Nombre Alumno** a la **tarea RA2-CEb-3**.  
-        1. El archivo a subir deberá ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
-        1. **No se aceptará ningún otro formato de archivo**. 
+    !!! warning "Condiciones para la entrega de la tarea"
+        1. Subir vuestra tarea guardando el archivo como **RA2-CEb-3-NombreApellidosAlumno** a la tarea correspondiente de aules.  
+        1. Los archivos a subir deberan ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
+        1. **No se aceptará ningún otro formato de archivo**.
+        1. A partir del momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
+        1. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.        
 
 ## 2.7 - Paginación, tablas, encabezado, pie de página e imágenes
 
