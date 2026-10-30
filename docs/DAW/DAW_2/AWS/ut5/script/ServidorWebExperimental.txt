@@ -27,9 +27,9 @@ cd /home/ubuntu/api-web
 npm init -y
 npm install express mysql2
 
-# ------------------------------
-# Crear archivo de configuracion
-# ------------------------------
+# -------------------------------------
+# Crear archivo de configuracion inicio
+# -------------------------------------
 cat > /home/ubuntu/api-web/server.js << 'EOF'
 const express = require('express');
 const mysql = require('mysql2/promise');
@@ -86,6 +86,9 @@ app.listen(PORT, '127.0.0.1', () => {
     console.log(`API funcionando en el puerto ${PORT}`);
 });
 EOF
+# -------------------------------------
+# Crear archivo de configuracion fin
+# -------------------------------------
 
 
 
