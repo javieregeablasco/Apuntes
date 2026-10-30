@@ -1000,16 +1000,16 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
         1. **Título 3** → Universidad, Estadísticas, Primeros años.  
         1. **Cuerpo de texto** → Todo el texto.  
 
-    !!! exercise "9. Modificar las propiedades de partes del texto para que se vean como en el documento adjuntado a la práctica"
+    !!! exercise ":nine: - Modificar las propiedades de partes del texto para que se vean como en el documento adjuntado a la práctica"
     
-    !!! exercise "10. Modificar las propiedades de los párrafos para que se vean como en el documento adjuntado a la práctica"
+    !!! exercise ":one::zero: - Modificar las propiedades de los párrafos para que se vean como en el documento adjuntado a la práctica"
 
-    !!! exercise "11. Insertar una tabla"  
-        !!! tip ":regional_indicator_a: - Modificar las propiedades de la siguiente manera"
+    !!! exercise ":one::one: - Insertar una tabla"  
+        !!! tip ":one::one::regional_indicator_a: - Modificar las propiedades de la siguiente manera"
             ![img](./img_ut2/RA2CEd/img44.png){.cien   .margintop10}   
             ![img](./img_ut2/RA2CEd/img45.png){.cien    }   
      
-        !!! tip ":regional_indicator_b: - Personalizar las propiedades de celdas y texto para que el resultado sea como el siguiente"
+        !!! tip ":one::one::regional_indicator_b: - Personalizar las propiedades de celdas y texto para que el resultado sea como el siguiente"
             ![img](./img_ut2/RA2CEd/img46.png){.cien}   
    
     !!! exercise "12. Insertar las 2 imágenes"  
