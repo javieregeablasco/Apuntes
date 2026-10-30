@@ -90,15 +90,17 @@ EOF
 # Crear archivo de configuracion fin
 # -------------------------------------
 
-
-
-
-
-
-
-
-# Configurar las credenciales
+# ----------------------------------
+# Configurar las credenciales inicio
+# ----------------------------------
 cat > /etc/api-web.env << 'EOF'
+DB_HOST=IP_PRIVADA_INSTANCIA_MARIADB
+DB_USER=appuser
+DB_PASSWORD=TU_CONTRASEÑA
+EOF
+# ----------------------------------
+# Configurar las credenciales fin
+# ----------------------------------
 
 # Proteger archivo
 sudo chmod 600 /etc/api-web.env
