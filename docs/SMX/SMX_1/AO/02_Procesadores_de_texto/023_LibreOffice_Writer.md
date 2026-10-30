@@ -907,29 +907,29 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
 
 !!! task "Tarea a entregar en RA2-CEd"
 
-    !!! exercise "1. Descargar y descomprimir el archivo 'Tarea RA2-CEd' pinchando en el enlace siguiente:<br>[Descargar archivo](./archivos/RA2-CEd/RA2-CEd.rar)"
+    !!! exercise ":one:. Descargar y descomprimir el archivo 'Tarea RA2-CEd' pinchando en el enlace siguiente:<br>[Descargar archivo](./archivos/RA2-CEd/RA2-CEd.rar)"
 
-    !!! exercise "2. Estilos de página."
-        !!! tip ":regional_indicator_a: - Ir a **Estilos de página** → **Primera página** → **Editar estilo** → Configurar con los siguientes datos."
+    !!! exercise ":two:. Estilos de página."
+        !!! tip ":two:.:regional_indicator_a: - Ir a **Estilos de página** → **Primera página** → **Editar estilo** → Configurar con los siguientes datos."
             ![img](./img_ut2/RA2CEd/img1.png){.cien .marginbottom20 }
             ![img](./img_ut2/RA2CEd/img2.png){.cien .marginbottom20}
             ![img](./img_ut2/RA2CEd/img3.png){.cien}
 
-        !!! tip ":regional_indicator_b: - Ir a 'Estilo de página predeterminado' y configurar con los siguientes datos."
+        !!! tip ":two::regional_indicator_b: - Ir a 'Estilo de página predeterminado' y configurar con los siguientes datos."
             ![img](./img_ut2/RA2CEd/img4.png){.cien .marginbottom20}
             ![img](./img_ut2/RA2CEd/img5.png){.cien .marginbottom20}
             ![img](./img_ut2/RA2CEd/img6.png){.cien .marginbottom20}
             ![img](./img_ut2/RA2CEd/img7.png){.cien .marginbottom20}
             ![img](./img_ut2/RA2CEd/img8.png){.cien }
         
-        !!! tip ":regional_indicator_c: - Dentro de los estilos de página CREAR el 'Estilo de página especial' y configurar con los siguientes datos."
+        !!! tip ":two::regional_indicator_c: - Dentro de los estilos de página CREAR el 'Estilo de página especial' y configurar con los siguientes datos."
             ![img](./img_ut2/RA2CEd/img34.png){.cuatrocinco .marginbottom20 }
             ![img](./img_ut2/RA2CEd/img30.png){.cien .marginbottom20}
             ![img](./img_ut2/RA2CEd/img31.png){.cien .marginbottom20}
             ![img](./img_ut2/RA2CEd/img32.png){.cien .marginbottom20}
             ![img](./img_ut2/RA2CEd/img33.png){.cien}
 
-        !!! tip ":regional_indicator_d: - Concatenar los estilos de la siguiente manera:<br>Primera página → Estilo de página predeterminado → Estilo de página especial"
+        !!! tip ":two::regional_indicator_d: - Concatenar los estilos de la siguiente manera:<br>Primera página → Estilo de página predeterminado → Estilo de página especial"
             ![img](./img_ut2/RA2CEd/img42.png){.cien .marginbottom20} 
             ![img](./img_ut2/RA2CEd/img43.png){.cien .marginbottom20} 
             ![img](./img_ut2/RA2CEd/img41.png){.cien} 
