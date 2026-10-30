@@ -1047,7 +1047,9 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
         1. A partir del momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
         1. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.          
 
-:arrow-switch:
+:nine:
+:one::zero:  
+:eleven:
 
 ## 2.8 - Exportar a otros formatos
 
