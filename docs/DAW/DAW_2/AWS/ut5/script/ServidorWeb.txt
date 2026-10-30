@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 # Registrar toda la salida del script
