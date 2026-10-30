@@ -971,6 +971,10 @@ En muchos casos puede resultar necesario añadir volúmenes EBS adicionales a un
         - Servidor web desplegado.  
         - Conexión a la base de datos.  
 
+!!! note "Ejemplos de capturas"
+    - Servicio Web funcionando.
+    ![img](./ut5/img-5-21.png){.cien .margintop10 .marginbottom20 .marco }
+
 ## Enlaces de interés
 
 Documentación de [AWS](https://docs.aws.amazon.com)  
