@@ -181,7 +181,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
 
     !!! warning "Condiciones para la entrega de la tarea"
         1. Subir los 2 archivos **RA2-CEc-1-NombreApellidosAlumno** y **Copia RA2-CEc-1-NombreApellidosAlumno** a la **tarea RA2-CEc-1** de Aules.  
-        1. Los archivos a subir deberan ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
+        1. Los archivos a subir deberán ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
         1. **No se aceptará ningún otro formato de archivo**.
         1. A partir del momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
         1. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.    
@@ -253,7 +253,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
 
     !!! warning "Condiciones para la entrega de la tarea"
         1. Subir vuestra tarea guardando el archivo como **RA2-CEc-2-NombreApellidosAlumno** a la tarea correspondiente de aules.  
-        1. Los archivos a subir deberan ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
+        1. Los archivos a subir deberán ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
         1. **No se aceptará ningún otro formato de archivo**.
         1. A partir del momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
         1. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.    
@@ -327,7 +327,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
 
     !!! warning "Condiciones para la entrega de la tarea"
         1. Subir vuestra tarea guardando el archivo como **RA2-CEc-3-NombreApellidosAlumno** a la tarea correspondiente de aules.  
-        1. Los archivos a subir deberan ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
+        1. Los archivos a subir deberán ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
         1. **No se aceptará ningún otro formato de archivo**.
         1. A partir del momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
         1. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.     
@@ -368,7 +368,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
 
     !!! warning "Condiciones para la entrega de la tarea"
         1. Subir vuestra tarea guardando el archivo como **RA2-CEc-4-NombreApellidosAlumno** a la tarea correspondiente de aules.  
-        1. Los archivos a subir deberan ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
+        1. Los archivos a subir deberán ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
         1. **No se aceptará ningún otro formato de archivo**.
         1. A partir del momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
         1. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.     
@@ -393,7 +393,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
 
     !!! warning "Condiciones para la entrega de la tarea"
         1. Subir vuestra tarea guardando el archivo como **RA2-CEc-5-NombreApellidosAlumno** a la tarea correspondiente de aules.  
-        1. Los archivos a subir deberan ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
+        1. Los archivos a subir deberán ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
         1. **No se aceptará ningún otro formato de archivo**.
         1. A partir del momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
         1. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.     
@@ -472,7 +472,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
 
     !!! warning "Condiciones para la entrega de la tarea"
         1. Subir vuestra tarea guardando el archivo como **RA2-CEc-6-NombreApellidosAlumno** a la tarea correspondiente de aules.  
-        1. Los archivos a subir deberan ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
+        1. Los archivos a subir deberán ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
         1. **No se aceptará ningún otro formato de archivo**.
         1. A partir del momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
         1. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.     
@@ -509,7 +509,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
 
     !!! warning "Condiciones para la entrega de la tarea"
         1. Subir vuestra tarea guardando el archivo como **RA2-CEc-7-NombreApellidosAlumno** a la tarea correspondiente de aules.  
-        1. Los archivos a subir deberan ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
+        1. Los archivos a subir deberán ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
         1. **No se aceptará ningún otro formato de archivo**.
         1. A partir del momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
         1. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.     
@@ -554,7 +554,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
 
     !!! warning "Condiciones para la entrega de la tarea"
         1. Subir vuestra tarea guardando el archivo como **RA2-CEc-8-NombreApellidosAlumno** a la tarea correspondiente de aules.  
-        1. Los archivos a subir deberan ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
+        1. Los archivos a subir deberán ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
         1. **No se aceptará ningún otro formato de archivo**.
         1. A partir del momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
         1. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.     
@@ -701,7 +701,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
 
     !!! warning "Condiciones para la entrega de la tarea"
         1. Subir vuestra tarea guardando el archivo como **RA2-CEc-8-NombreApellidosAlumno** a la tarea correspondiente de aules.  
-        1. Los archivos a subir deberan ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
+        1. Los archivos a subir deberán ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
         1. **No se aceptará ningún otro formato de archivo**.
         1. A partir del momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
         1. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.     
@@ -726,7 +726,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
             - Imágen 3: Anclada al párrafo, ancho automático.
     !!! warning "Condiciones para la entrega de la tarea"
         1. Subir vuestra tarea guardando el archivo como **RA2-CEc-10-NombreApellidosAlumno** a la tarea correspondiente de aules.  
-        1. Los archivos a subir deberan ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
+        1. Los archivos a subir deberán ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
         1. **No se aceptará ningún otro formato de archivo**.
         1. A partir del momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
         1. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
@@ -806,7 +806,7 @@ En este apartado aprenderemos a definir estilos para todos los elementos de nues
 
     !!! warning "Condiciones para la entrega de la tarea"
         1. Subir vuestra tarea guardando el archivo como **RA2-CEb-1-NombreApellidosAlumno** a la tarea correspondiente de aules.  
-        1. Los archivos a subir deberan ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
+        1. Los archivos a subir deberán ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
         1. **No se aceptará ningún otro formato de archivo**.
         1. A partir del momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
         1. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.    
@@ -896,7 +896,7 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
 
     !!! warning "Condiciones para la entrega de la tarea"
         1. Subir vuestra tarea guardando el archivo como **RA2-CEb-3-NombreApellidosAlumno** a la tarea correspondiente de aules.  
-        1. Los archivos a subir deberan ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
+        1. Los archivos a subir deberán ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
         1. **No se aceptará ningún otro formato de archivo**.
         1. A partir del momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
         1. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.        
@@ -1043,7 +1043,7 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
 
     !!! warning "Condiciones para la entrega de la tarea"
         1. Subir vuestra tarea guardando el archivo como **RA2-CEd-NombreApellidosAlumno** a la tarea correspondiente de aules.  
-        1. Los archivos a subir deberan ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
+        1. Los archivos a subir deberán ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
         1. **No se aceptará ningún otro formato de archivo**.
         1. A partir del momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
         1. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.          
@@ -1055,7 +1055,7 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
 !!! warning "Condiciones para la entrega de la tarea"
     1. Exportar la tarea RA2-CEd a formato pdf.
     1. Subir vuestra tarea guardando el archivo como **RA2-CEe-NombreApellidosAlumno** a la tarea correspondiente de aules.  
-    1. Los archivos a subir deberan ser de tipo PDF (.pdf).  
+    1. Los archivos a subir deberán ser de tipo PDF (.pdf).  
     1. **No se aceptará ningún otro formato de archivo**.
     1. A partir del momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
     1. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
