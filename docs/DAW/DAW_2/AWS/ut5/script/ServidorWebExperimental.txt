@@ -86,6 +86,20 @@ app.listen(PORT, '127.0.0.1', () => {
 EOF
 
 
+
+
+
+
+
+
+# Configurar las credenciales
+cat > /etc/api-web.env << 'EOF'
+
+# Proteger archivo
+sudo chmod 600 /etc/api-web.env
+
+# Crear un servicio para Node.js
+
 # Activar Apache
 systemctl enable apache2
 systemctl start apache2
