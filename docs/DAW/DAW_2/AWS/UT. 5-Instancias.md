@@ -929,6 +929,7 @@ En muchos casos puede resultar necesario añadir volúmenes EBS adicionales a un
 ### 6.3 Tarea RA3-CEa  
 
 !!! warning "Entrega de la tarea"
+    - Realizar los puntos 6.1 y 6.2 de los apuntes.
     - **Realizar capturas de pantalla de los momentos clave de la realización de la tarea**.
     - Comentar las captura de pantalla explicando el trabajo realizado para llegar a ese punto y el resultado obtenido.
     - Guardar el documento con RA3-CEa-NombreApellidos y subirlo a la tarea correspondiente de Aules.
@@ -936,9 +937,7 @@ En muchos casos puede resultar necesario añadir volúmenes EBS adicionales a un
     - Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
 
     !!! note "Capturas de pantalla mínimas a adjuntar"
-        - Mapa de recursos de la VPC. 
-        - Ping desde vuestro ordenador a la instancia pública. 
-        - Tamaño del EBS de la instancia antes y depués de modificarlo. 
+        - Tamaño del EBS de la instancia antes y después de modificarlo. 
         - Creación EBS.
         - EBS después de asociarlo a la instancia. 
 
@@ -962,18 +961,6 @@ En muchos casos puede resultar necesario añadir volúmenes EBS adicionales a un
     **4. Realizar capturas**  
     De la conexión a la base de datos.  
     El servidor web desplegado.  
-
-<!-- instalar firewall sobre una EC2 Amazon linux 
--Instalar el firewall
-sudo dnf install firewalld -y
--Habilitar y levantar
-sudo systemctl enable firewalld
-sudo systemctl start firewalld
--Comprobar su estado:
-sudo firewall-cmd --state
--Configurar las instancias
-sudo firewall-cmd --permanent --add-rich-rule='rule family="ipv4" source address="172.18.2.184" reject' && sudo firewall-cmd --reload
-sudo firewall-cmd --permanent --add-rich-rule='rule family="ipv4" source address="172.18.2.193" reject' && sudo firewall-cmd --reload -->
 
 ## Enlaces de interés
 
