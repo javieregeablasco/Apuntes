@@ -1102,6 +1102,15 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
         
         ```
 
+    !!! tip "Comandos útiles"
+        1. ip -br link # Resumen de todas las interfaces
+        1. ip -br addr # Interfaces con sus IPs
+        1. ip link show type bridge # Solo bridges
+        1. ip -d link show `<interfaz>` # Detalles de una interfaz
+        1. bridge link # Interfaces conectadas a bridges
+        1. bridge fdb show # Tabla de direcciones MAC
+        1. ip route # Tabla de rutas
+
 <!-- sudo systemctl status isc-dhcp-server -->
 <!-- ==Realizar captura de pantalla==   -->
 <!-- ![Descripción de la imagen](./img_4/img_4_133.png) -->
@@ -1318,6 +1327,7 @@ Igual que en la práctica de Windows Server, usaremos **Alpine Linux** por su li
 
     | Comando | Qué hace |
     |||
+    |**Redes**||
     |virsh start `<Cliente-1>` | Inicia la VM |
     |virsh destroy `<Cliente-1>` | Apagado forzoso e inmediato |
     |virsh shutdown `<Cliente-1>` | Apagado ordenado (envía señal ACPI, espera a que el SO se apague solo) |
@@ -1326,11 +1336,20 @@ Igual que en la práctica de Windows Server, usaremos **Alpine Linux** por su li
     |virsh undefine `<Cliente-1>` --remove-all-storage| Elimina la definición de la VM y del disco|
     |virsh list --all| Lista todas las máquinas y su estado|
     |virsh console `<Cliente-1>`| Conexión por consola a la MV|
+    |**Redes**||
     |virsh net-list --all| Lista todas las redes virtuales y su estado|
     |virsh net-define `<nombre-de-la-red>` | Definir una red virtual|
     |virsh net-destroy `<nombre-de-la-red>` | Detener una red virtual|
     |virsh net-autostart --disable `<nombre-de-la-red>` | Desactivar el inicio automático|
     |virsh net-undefine `<nombre-de-la-red>` | Elimina la definición de la red|
+    |**Switch**||
+    |ip -br link | Resumen de todas las interfaces|
+    |ip -br addr | Interfaces con sus IPs|
+    |ip link show type bridge | Solo bridges|
+    |ip -d link show `<interfaz>` | Detalles de una interfaz|
+    |bridge link | Interfaces conectadas a bridges|
+    |bridge fdb show | Tabla de direcciones MAC|
+    |ip route | Tabla de rutas|
 
 ### 6.23 Segundo cliente
 
