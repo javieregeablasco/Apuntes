@@ -138,7 +138,7 @@ Con un servidor DHCP centralizado, los administradores pueden gestionar y actual
 
 ### 2.3 Modelo cliente servidor DHCP
 
-- Ya lo hemos mencionado varias veces. El protocolo **DHCP** sigue un modelo cliente-servidor, donde el servidor DHCP es responsable de asignar direcciones IP y otros parámetros de red a los clientes que lo solicitan. 
+- Ya lo hemos mencionado varias veces. El protocolo **DHCP** sigue un modelo cliente-servidor, donde el servidor DHCP es responsable de asignar direcciones IP y otros parámetros de red a los clientes que lo solicitan.
 - El proceso de comunicación entre cliente y servidor se realiza mediante un intercambio de mensajes, que permite al cliente obtener su configuración de red de manera automática.
 
 ![Descripción de la imagen](./img_4/img_4_2.png){ .marginbottom40 .marco}
@@ -1326,6 +1326,11 @@ Igual que en la práctica de Windows Server, usaremos **Alpine Linux** por su li
     |virsh undefine `<Cliente-1>` --remove-all-storage| Elimina la definición de la VM y del disco|
     |virsh list --all| Lista todas las máquinas y su estado|
     |virsh console `<Cliente-1>`| Conexión por consola a la MV|
+    |virsh net-list --all| Lista todas las redes virtuales y su estado|
+    |virsh net-define `<nombre-de-la-red>` | Definir una red virtual|
+    |virsh net-destroy `<nombre-de-la-red>` | Detener una red virtual|
+    |virsh net-autostart --disable `<nombre-de-la-red>` | Desactivar el inicio automático|
+    |virsh net-undefine `<nombre-de-la-red>` | Elimina la definición de la red|
 
 ### 6.23 Segundo cliente
 
@@ -1345,7 +1350,7 @@ En este caso no usaremos wireshark sino el propio log del servicio DHCP.
     **No cerraremos la ventana, lo dejamos corriendo.**
 
 - Abrimos otra conexión con nuestra instancia y la usaremos para conectarnos a nuestra(s) MV.
-    - Levantamos la interfaz de red con:
+        - Levantamos la interfaz de red con:
     ```bash
     ip link set eth0 up
     ```
