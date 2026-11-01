@@ -108,17 +108,48 @@ sudo chmod 600 /etc/api-web.env
 # -------------------------------------
 # Crear un servicio para Node.js INICIO
 # -------------------------------------
-#cat > /etc/api-web.env << 'EOF'
+cat > /etc/api-web.env << 'EOF'
+[Unit]
+Description=API Node.js para MariaDB
+After=network.target mariadb.service
 
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/api-web
+EnvironmentFile=/etc/api-web.env
+ExecStart=/usr/bin/node /home/ubuntu/api-web/server.js
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+'EOF'
+
+# Activar API
+sudo systemctl daemon-reload
+sudo systemctl enable --now api-web
+
+# Configurar Apache como intermediario
+sudo a2enmod proxy proxy_http
+
+# Crear la configuracion para redirigir las peticiones API hacia Node.js
+cat > /etc/apache2/conf-available/api-web.conf << 'EOF'
+ProxyPreserveHost On
+
+ProxyPass /api http://127.0.0.1:3000/api
+ProxyPassReverse /api http://127.0.0.1:3000/api
+'EOF'
 
 
 # Activar Apache
+sudo a2enconf api-web
+sudo apache2ctl configtest
 systemctl enable apache2
 systemctl start apache2
+sudo systemctl restart apache2
 
 # Crear página web
 cat > /var/www/html/index.html <<'EOF'
-<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -142,6 +173,7 @@ cat > /var/www/html/index.html <<'EOF'
         h2 { color: #203acf; }
     </style>
 </head>
+
 <body>
     <div class="contenedor">
         <h1>¡Servidor web funcionando!</h1>
@@ -149,6 +181,53 @@ cat > /var/www/html/index.html <<'EOF'
         <p>Ubuntu Server + Apache2</p>
         <h2>Creado por Javier Egea Blasco</h2>
     </div>
+
+
+    <h1>Consulta de clientes</h1>
+
+    <label for="idCliente">ID del cliente:</label>
+
+    <input type="number" id="idCliente" value="1" min="1">
+
+    <button onclick="consultarCliente()">
+        Consultar
+    </button>
+
+    <div id="resultado"></div>
+
+    <script>
+        async function consultarCliente() {
+
+            const id = document.getElementById('idCliente').value;
+            const resultado = document.getElementById('resultado');
+
+            resultado.textContent = 'Consultando...';
+
+            try {
+
+                const respuesta = await fetch(`/api/clientes/${id}`);
+
+                const datos = await respuesta.json();
+
+                if (!respuesta.ok) {
+                    throw new Error(datos.error);
+                }
+
+                resultado.innerHTML = `
+                    <h2>Datos del cliente</h2>
+                    <p><strong>ID:</strong> ${datos.id}</p>
+                    <p><strong>Nombre:</strong> ${datos.nombre}</p>
+                    <p><strong>Email:</strong> ${datos.email}</p>
+                `;
+
+            } catch (error) {
+
+                resultado.textContent = 'Error: ' + error.message;
+
+            }
+        }
+    </script>
+
 </body>
 </html>
 EOF
