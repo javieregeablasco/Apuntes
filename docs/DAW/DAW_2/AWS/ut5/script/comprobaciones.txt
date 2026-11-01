@@ -1,0 +1,7 @@
+# Comprueba las versiones:
+
+node -v
+npm -v
+
+# Comprueba API web:
+sudo systemctl status api-web
