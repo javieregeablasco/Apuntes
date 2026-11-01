@@ -33,7 +33,12 @@
             margin: auto;
             padding: 20px;
             border-radius: 6px;
+        }
 
+        .aspectoBoton {
+            background: rgb(69, 173, 221);
+            margin: auto;
+            border-radius: 6px;
         }
 
         h1 { color: #e47911; }
@@ -42,6 +47,7 @@
 </head>
 
 <body>
+
     <div class="contenedor">
       <h1>¡Servidor web funcionando!</h1>
       <p>Instancia EC2 de AWS.</p>
@@ -49,25 +55,22 @@
       <h2>Creado por Javier Egea Blasco</h2>
     </div>
     
-    
     <div class="contenedor_2">
       <h1>Consulta de clientes</h1>
       <p>Esta página permite consultar los datos de un cliente mediante su ID.</p>
     
-<div class="consultarCliente">
+    
+    <div class="consultarCliente">
+      <label for="idCliente">ID del cliente:</label>
+      <input type="number" id="idCliente" value="1" min="1">
 
-  <label for="idCliente">ID del cliente:</label>
+      <button onclick="consultarCliente()" class="aspectoBoton" >
+        Consultar
+      </button>
+      <div id="resultado"></div>
 
-<input type="number" id="idCliente" value="1" min="1">
-
-<button onclick="consultarCliente()" >
-    Consultar
-</button>
-
-<div id="resultado"></div>
-
-</div>
     </div>
+
 
     <script>
         async function consultarCliente() {
