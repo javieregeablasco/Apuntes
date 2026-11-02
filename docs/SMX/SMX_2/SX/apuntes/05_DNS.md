@@ -982,7 +982,6 @@ Los registros de puntero, o registros PTR, funcionan en la dirección opuesta a 
 
 Cuando una búsqueda de DNS comienza con una dirección IP, encuentra el nombre de host correspondiente. Estos registros se utilizan para detectar spam comprobando si las direcciones IP y las direcciones de correo electrónico asociadas son utilizadas por servidores de correo electrónico legítimos. El host del servidor debe configurar los registros PTR.
 
-<!--
 ## 11 - Herramientas de Diagnóstico Técnico de Registros DNS
 
 Para verificar y solucionar problemas con las zonas DNS, los administradores de sistemas y profesionales de redes emplean herramientas de terminal populares:
@@ -993,6 +992,7 @@ Para verificar y solucionar problemas con las zonas DNS, los administradores de 
 !!! tip "dig (Domain Information Groper)"
     dig (Domain Information Groper): Ofrece información mucho más profunda y detallada sobre las consultas DNS, incluyendo los tiempos de respuesta del servidor y la jerarquía de autoridad.
 
+<!--
 ## 12 - Tarea RA2-CEbc-1 - Resolución manual de un dominio
 
 
