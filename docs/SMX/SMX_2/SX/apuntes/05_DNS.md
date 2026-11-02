@@ -1125,20 +1125,24 @@ Para la instalación del rol AD DS en un servidor Windows Server 2025 en AWS, po
 
 1. Al ser un bosque nuevo, dejaremos los valores por defecto de los niveles funcionales.  
 Como AD requiere de un servidor DNS para funcionar, nos viene la opción DNS marcada por defecto.  
-Para finalizar introduciremos la contraseña de restauración de servicios de directorio (**DSRM – Directory Services Restore Mode**), que se utiliza para iniciar el servidor en modo de recuperación de AD en caso de fallo grave. **No se recomienda que esta contraseña coincida con la contraseña de administrador**.
+
+1. Para finalizar introduciremos la contraseña de restauración de servicios de directorio (**DSRM – Directory Services Restore Mode**), que se utiliza para iniciar el servidor en modo de recuperación de AD en caso de fallo grave. **No se recomienda que esta contraseña coincida con la contraseña de administrador**.
 ![Descripción de la imagen](./img_5/img_5_49.png){ .margintop10 .marginbottom10 .marco}
 
 1. En `DNS Options` nos aparecerá un aviso indicando que no se puede crear una delegación para este servidor DNS, ya que no existe una zona superior (padre) que la administre.
-
 Es un aviso esperado al crear un bosque nuevo (todavía no existe ningún dominio DNS previo al que delegar) y lo podemos ignorar.
 ![Descripción de la imagen](./img_5/img_5_50.png){ .margintop10 .marginbottom10 .marco}
+
 1. En `Additional Options` dejaremos el nombre por defecto de dominio de NetBIOS (solo para compatibilidad con equipos antiguos / obsoletos).
 ![Descripción de la imagen](./img_5/img_5_51.png){ .margintop10 .marginbottom10 .marco}
+
 1. Continuamos por las ventanas de `Paths` (donde se define la ubicación de la base de datos de AD, los logs y el volumen SYSVOL) y `Review Options` (resumen de toda la configuración elegida).  
 En `Prerequisites Check` apuntaremos las advertencias para gestionarlas más adelante (entre ellas, es habitual que aparezca un aviso relacionado con la configuración de IP estática del servidor, que trataremos en el punto 12).
 ![Descripción de la imagen](./img_5/img_5_52.png){ .margintop10 .marginbottom10 .marco}
+
 1. Una vez reiniciada la máquina, veremos que aunque parezca que no ha ocurrido nada, ahora iniciamos sesión como **DOMINIO\Administrador** (cuenta de dominio) en lugar de como administrador local del servidor. Podemos comprobarlo, por ejemplo, ejecutando `whoami` en una consola.
 ![Descripción de la imagen](./img_5/img_5_53.png){ .margintop10 .marginbottom10 .marco}
+
 1. Active Directory necesita que la IP del controlador de dominio no cambie, ya que los registros DNS y SRV del dominio se generan sobre esa IP. En AWS, la IP privada de una instancia EC2 ya es **estática por naturaleza** mientras no se elimine la instancia (sobrevive a stop/start, reinicios, etc.), por lo que no es necesario realizar ningún cambio a nivel de AWS.
 
     Aun así, es recomendable **fijar esa misma IP privada como estática dentro de la configuración de red de Windows** (en lugar de dejarla en modo DHCP), para evitar problemas si el adaptador de red se reinicia. Para ello, buscaremos en EC2 → Detalles la IP privada actual de nuestra instancia (en este ejemplo, 172.31.39.10) y configuraremos esa **misma IP** como estática en las propiedades de red de Windows.
