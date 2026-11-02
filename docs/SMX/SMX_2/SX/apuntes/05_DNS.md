@@ -1120,14 +1120,14 @@ Para la instalación del rol AD DS en un servidor Windows Server 2025 en AWS, po
 ![Descripción de la imagen](./img_5/img_5_46.png){ .margintop10 .marginbottom10 .marco}
 ![Descripción de la imagen](./img_5/img_5_47.png){ .margintop10 .marginbottom10 .marco}
 
-1. En `Deployment Configuration` seleccionamos `Add a new forest` e introducimos un nombre de dominio para el dominio de AD interno. Por buena práctica de Microsoft se recomienda usar el nombre de dominio de la empresa (de internet) + un subdominio (ad).
+1. En `Deployment Configuration` seleccionamos `Add a new forest` e introducimos un nombre de dominio para el dominio de AD interno. Por el código de buenas prácticas de Microsoft se recomienda usar **el nombre de dominio de la empresa (de internet) + un subdominio (ad)**.
 ![Descripción de la imagen](./img_5/img_5_48.png){ .margintop10 .marginbottom10 .marco}
 
 1. Al ser un bosque nuevo, dejaremos los valores por defecto de los niveles funcionales.  
 Como AD requiere de un servidor DNS para funcionar, nos viene la opción DNS marcada por defecto.  
 Para finalizar introduciremos la contraseña de restauración de servicios de directorio (**DSRM – Directory Services Restore Mode**), que se utiliza para iniciar el servidor en modo de recuperación de AD en caso de fallo grave. **No se recomienda que esta contraseña coincida con la contraseña de administrador**.
-
 ![Descripción de la imagen](./img_5/img_5_49.png){ .margintop10 .marginbottom10 .marco}
+
 1. En `DNS Options` nos aparecerá un aviso indicando que no se puede crear una delegación para este servidor DNS, ya que no existe una zona superior (padre) que la administre.
 
 Es un aviso esperado al crear un bosque nuevo (todavía no existe ningún dominio DNS previo al que delegar) y lo podemos ignorar.
