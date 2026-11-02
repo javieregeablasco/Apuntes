@@ -1,0 +1,130 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: VPC con subred pública y privada, Internet Gateway y NAT Gateway.
+
+Resources:
+
+  # VPC
+  VPCDespliegue:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 172.18.0.0/16
+      EnableDnsHostnames: true
+      EnableDnsSupport: true
+      Tags:
+        - Key: Name
+          Value: VPC-Despliegue
+
+  # Subred pública
+  SubredPublica:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref VPCDespliegue
+      CidrBlock: 172.18.1.0/24
+      AvailabilityZone: !Select [0, !GetAZs ""]
+      MapPublicIpOnLaunch: true
+      Tags:
+        - Key: Name
+          Value: Subred-Publica
+
+  # Subred privada
+  SubredPrivada:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref VPCDespliegue
+      CidrBlock: 172.18.2.0/24
+      AvailabilityZone: !Select [0, !GetAZs ""]
+      Tags:
+        - Key: Name
+          Value: Subred-Privada
+
+  # Internet Gateway
+  IGW:
+    Type: AWS::EC2::InternetGateway
+    Properties:
+      Tags:
+        - Key: Name
+          Value: PuertaDeEnlace
+
+  VPCGatewayAttachment:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      VpcId: !Ref VPCDespliegue
+      InternetGatewayId: !Ref IGW
+
+  # Tabla de rutas pública
+  RTSubredPublica:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId: !Ref VPCDespliegue
+      Tags:
+        - Key: Name
+          Value: RT-Subred-Publica
+
+  RoutePublicInternet:
+    Type: AWS::EC2::Route
+    DependsOn: VPCGatewayAttachment
+    Properties:
+      RouteTableId: !Ref RTSubredPublica
+      DestinationCidrBlock: 0.0.0.0/0
+      GatewayId: !Ref IGW
+
+  # IP elástica para la NAT
+  ElasticIP:
+    Type: AWS::EC2::EIP
+    DependsOn: VPCGatewayAttachment
+    Properties:
+      Domain: vpc
+      Tags:
+        - Key: Name
+          Value: IP-Elastica
+
+  # NAT Gateway (en la subred pública)
+  NatGateway:
+    Type: AWS::EC2::NatGateway
+    DependsOn: VPCGatewayAttachment
+    Properties:
+      AllocationId: !GetAtt ElasticIP.AllocationId
+      SubnetId: !Ref SubredPublica
+      Tags:
+        - Key: Name
+          Value: NAT-Gateway
+
+  # Tabla de rutas privada
+  RTSubredPrivada:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId: !Ref VPCDespliegue
+      Tags:
+        - Key: Name
+          Value: RT-Subred-Privada
+
+  RoutePrivateNat:
+    Type: AWS::EC2::Route
+    Properties:
+      RouteTableId: !Ref RTSubredPrivada
+      DestinationCidrBlock: 0.0.0.0/0
+      NatGatewayId: !Ref NatGateway
+
+  # Asociaciones
+  AsociacionPublica:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId: !Ref SubredPublica
+      RouteTableId: !Ref RTSubredPublica
+
+  AsociacionPrivada:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId: !Ref SubredPrivada
+      RouteTableId: !Ref RTSubredPrivada
+
+Outputs:
+  VpcId:
+    Description: ID de la VPC
+    Value: !Ref VPCDespliegue
+  SubredPublicaId:
+    Description: ID de la subred pública
+    Value: !Ref SubredPublica
+  SubredPrivadaId:
+    Description: ID de la subred privada
+    Value: !Ref SubredPrivada
