@@ -1101,7 +1101,8 @@ Para la instalación del rol AD DS en un servidor Windows Server 2025 en AWS, po
 1. Lanzar una nueva instancia de Windows Server 2025 en AWS. En este caso definiremos en qué subred de la VPC se encuentra la instancia EC2, ya que esto puede afectar a la conectividad y al rendimiento de la red.  
     - Resumen de la configuración de la instancia (acordarse de seleccionar el par de clave `vockey` para el inicio de sesión y seleccionar `50GiB` de capacidad para el volumen de la instancia).  
     ![Descripción de la imagen](./img_5/img_5_40.png){ .margintop10 .marginbottom10}
-    - Captura del apartado de configuración de red dónde eligiremos la Subred en la cual desplegaremos nuestra instancia.
+    - Captura del apartado de configuración de red dónde eligiremos la Subred en la cual desplegaremos nuestra instancia.  
+    ==Realizar captura de pantalla==
     ![Descripción de la imagen](./img_5/img_5_41.png){ .margintop10 .marginbottom10 .marco}
     - Esperaremos a que la instancia esté disponible. A partir de entonces sí podremos conectar via `RDP`.
     ![Descripción de la imagen](./img_5/img_5_42.png){ .margintop10 .marginbottom10 .marco}
