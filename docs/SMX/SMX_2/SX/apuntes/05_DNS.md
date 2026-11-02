@@ -1076,15 +1076,18 @@ Para verificar y solucionar problemas con las zonas DNS, los administradores de 
 
 ### 15.1 Active Directory Domain Services (AD DS)
 
-1. En una red doméstica, cada equipo se administra de forma individual: el usuario configura sus propios permisos, contraseñas, accesos a dispositivos, etc. En una empresa con decenas o cientos de equipos, gestionar la seguridad equipo por equipo es inviable al resultar lento, costoso y, sobre todo, inconsistente.
-1. Una parte importante de los incidentes de seguridad en las organizaciones no se debe a fallos de las herramientas de protección (firewall, VPN, antivirus), sino a errores de configuración en los equipos y servicios de red. Por ello, es fundamental poder definir de **forma centralizada** qué puede o no puede hacer el usuario final en los equipos de la empresa, por ejemplo:
+!!! tip "Red domestica vs red empresarial"
+    1. **En una red doméstica**, cada equipo se administra de forma individual: el usuario configura sus propios permisos, contraseñas, accesos a dispositivos, etc. 
+    1. En una empresa con decenas o cientos de equipos, gestionar la seguridad equipo por equipo es inviable al resultar lento, costoso y, sobre todo, inconsistente.
+    1. Una parte importante de los incidentes de seguridad en las organizaciones no se debe a fallos de las herramientas de protección (firewall, VPN, antivirus), sino a errores de configuración en los equipos y servicios de red. 
+    1. Por ello, es fundamental poder definir de **forma centralizada** qué puede o no puede hacer el usuario final en los equipos de la empresa, por ejemplo:
 
-    - Deshabilitar los puertos USB de los equipos de la empresa.
-    - Limitar el acceso a ciertos sitios web.
-    - Restringir el acceso al disco duro local de los equipos.
-    - Restringir el uso de archivos ejecutables descargados de Internet.
-    - Instalar software solo desde repositorios oficiales de la empresa.
-    - Forzar políticas de contraseñas seguras y definir la caducidad de las mismas.
+        - Deshabilitar los puertos USB de los equipos de la empresa.
+        - Limitar el acceso a ciertos sitios web.
+        - Restringir el acceso al disco duro local de los equipos.
+        - Restringir el uso de archivos ejecutables descargados de Internet.
+        - Instalar software solo desde repositorios oficiales de la empresa.
+        - Forzar políticas de contraseñas seguras y definir la caducidad de las mismas.
 
 1. AD DS es el rol de Windows Server que permite centralizar la gestión de identidades (usuarios, equipos, grupos) de toda la organización en un dominio, y aplicar de forma automática y uniforme políticas de seguridad y configuración mediante Directivas de Grupo (GPO – Group Policy Objects).
 1. Por este motivo, antes de instalar y configurar el rol de servidor DNS, instalaremos primero el rol de Active Directory Domain Services (AD DS): Será la base sobre la que se sustente la **gestión centralizada** de usuarios, equipos y políticas de seguridad de nuestra organización, y también porque el propio proceso de instalación de AD DS se encarga de configurar el servicio DNS necesario para el funcionamiento del dominio.
