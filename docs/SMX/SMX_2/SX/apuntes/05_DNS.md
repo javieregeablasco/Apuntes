@@ -1017,7 +1017,6 @@ Para verificar y solucionar problemas con las zonas DNS, los administradores de 
             - `-type=NS`: indica que queremos consultar los registros NS (Name Server), es decir, quieremos saber qué servidores DNS son los autoritativos (los "oficiales") para ese dominio.
             - `es`: el TLD que estamos consultando.
             - `a.root-servers.net`: el servidor raíz al que le estamos preguntando directamente (en lugar de usar el servidor DNS configurado por defecto en nuestro equipo).
-
                 ![Descripción de la imagen](./img_5/img_5_20.png){ .marginbottom10}
 
 ### 12.2 Paso 2: Consulta del dominio gva.es al servidor de dominio (.es)
@@ -1026,7 +1025,6 @@ Para verificar y solucionar problemas con las zonas DNS, los administradores de 
     - ¿Quién realiza la consulta al servidor autoritativo del TLD .es para obtener información sobre el dominio gva.es?
     - ¿Cuál sería la línea de comando para consultar los servidores autoritativos de gva.es?
         ![Descripción de la imagen](./img_5/img_5_21.png){ .margintop10 .marginbottom10}
-<!--
 
 ### 12.3 Paso 3: Consulta del subdominio aules.edu.gva.es al servidor de dominio (gva.es)
 
@@ -1035,6 +1033,7 @@ Para verificar y solucionar problemas con las zonas DNS, los administradores de 
     - ¿Cuál sería la línea de comando para consultar los servidores autoritativos de gva.es?
         ![Descripción de la imagen](./img_5/img_5_23.png){ .margintop10 .marginbottom10}
 
+<!--
 ### 12.4 Paso 4: Consulta del subdominio aules.edu.gva.es
 
 !!! question "Pregunta"
