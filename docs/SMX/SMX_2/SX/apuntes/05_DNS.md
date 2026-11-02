@@ -1104,24 +1104,32 @@ Para la instalación del rol AD DS en un servidor Windows Server 2025 en AWS, po
     - Captura del apartado de configuración de red dónde eligiremos la Subred en la cual desplegaremos nuestra instancia.  
     ==Realizar captura de pantalla==
     ![Descripción de la imagen](./img_5/img_5_41.png){ .margintop10 .marginbottom10 .marco}
-    - Esperaremos a que la instancia esté disponible. A partir de entonces sí podremos conectar via `RDP`.
+    - Esperaremos a que la instancia esté disponible. A partir de entonces nos conectaremos a la instancia por `RDP`.
     ![Descripción de la imagen](./img_5/img_5_42.png){ .margintop10 .marginbottom10 .marco}
+
 1. **Opcional**: renombrar la máquina creada.
 ![Descripción de la imagen](./img_5/img_5_43.png){ .margintop10 .marginbottom10 .marco}
+
 1. En añadir rol seleccionamos Active Directory Domain Services (AD DS).
 ![Descripción de la imagen](./img_5/img_5_44.png){ .margintop10 .marginbottom10 .marco}
+
 1. Dejamos el resto de opciones con los valores por defecto. En la página de `Confirmation` marcamos la opción de `Restart if required`.
 ![Descripción de la imagen](./img_5/img_5_45.png){ .margintop10 .marginbottom10 .marco}
+
 1. Una vez finalizada la instalación del servicio el sistema nos pedirá **promover el servidor a controlador de dominio**.
 ![Descripción de la imagen](./img_5/img_5_46.png){ .margintop10 .marginbottom10 .marco}
 ![Descripción de la imagen](./img_5/img_5_47.png){ .margintop10 .marginbottom10 .marco}
+
 1. En `Deployment Configuration` seleccionamos `Add a new forest` e introducimos un nombre de dominio para el dominio de AD interno. Por buena práctica de Microsoft se recomienda usar el nombre de dominio de la empresa (de internet) + un subdominio (ad).
 ![Descripción de la imagen](./img_5/img_5_48.png){ .margintop10 .marginbottom10 .marco}
+
 1. Al ser un bosque nuevo, dejaremos los valores por defecto de los niveles funcionales.  
 Como AD requiere de un servidor DNS para funcionar, nos viene la opción DNS marcada por defecto.  
 Para finalizar introduciremos la contraseña de restauración de servicios de directorio (**DSRM – Directory Services Restore Mode**), que se utiliza para iniciar el servidor en modo de recuperación de AD en caso de fallo grave. **No se recomienda que esta contraseña coincida con la contraseña de administrador**.
+
 ![Descripción de la imagen](./img_5/img_5_49.png){ .margintop10 .marginbottom10 .marco}
-1. En `DNS Options` nos aparecerá un aviso indicando que no se puede crear una delegación para este servidor DNS, ya que no existe una zona superior (padre) que la administre.  
+1. En `DNS Options` nos aparecerá un aviso indicando que no se puede crear una delegación para este servidor DNS, ya que no existe una zona superior (padre) que la administre.
+
 Es un aviso esperado al crear un bosque nuevo (todavía no existe ningún dominio DNS previo al que delegar) y lo podemos ignorar.
 ![Descripción de la imagen](./img_5/img_5_50.png){ .margintop10 .marginbottom10 .marco}
 1. En `Additional Options` dejaremos el nombre por defecto de dominio de NetBIOS (solo para compatibilidad con equipos antiguos / obsoletos).
