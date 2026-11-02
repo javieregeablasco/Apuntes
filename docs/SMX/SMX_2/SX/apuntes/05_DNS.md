@@ -982,19 +982,17 @@ Los registros de puntero, o registros PTR, funcionan en la dirección opuesta a 
 
 Cuando una búsqueda de DNS comienza con una dirección IP, encuentra el nombre de host correspondiente. Estos registros se utilizan para detectar spam comprobando si las direcciones IP y las direcciones de correo electrónico asociadas son utilizadas por servidores de correo electrónico legítimos. El host del servidor debe configurar los registros PTR.
 
-## 11 - Herramientas de Diagnóstico Técnico de Registros DNS
+## 11 - Herramientas de diagnóstico técnico de registros DNS
 
 Para verificar y solucionar problemas con las zonas DNS, los administradores de sistemas y profesionales de redes emplean herramientas de terminal populares:
 
 !!! tip "nslookup"
-    Permite consultar de forma rápida la dirección IP asociada a un dominio y ver registros básicos como A, MX o NS.
+    - **nslookup** permite consultar de forma rápida la dirección IP asociada a un dominio y ver registros básicos como A, MX o NS.
 
 !!! tip "dig (Domain Information Groper)"
-    dig (Domain Information Groper): Ofrece información mucho más profunda y detallada sobre las consultas DNS, incluyendo los tiempos de respuesta del servidor y la jerarquía de autoridad.
+    - **dig** (Domain Information Groper): Ofrece información mucho más profunda y detallada sobre las consultas DNS, incluyendo los tiempos de respuesta del servidor y la jerarquía de autoridad.
 
-<!--
 ## 12 - Tarea RA2-CEbc-1 - Resolución manual de un dominio
-
 
 - El proposito de esta tarea es que el alumno comprenda cómo se resuelve un nombre de dominio en Internet y cómo se obtiene la dirección IP asociada a ese nombre.
 - Para el ejemplo usaremos el dominio `www.aules.edu.gva.es` y realizaremos la resolución de forma manual, paso a paso, para comprender el proceso completo.
@@ -1022,6 +1020,7 @@ Para verificar y solucionar problemas con las zonas DNS, los administradores de 
 
                 ![Descripción de la imagen](./img_5/img_5_20.png){ .marginbottom10}
 
+<!--
 ### 12.2 Paso 2: Consulta del dominio gva.es al servidor de dominio (.es)
 
 !!! question "Pregunta"
