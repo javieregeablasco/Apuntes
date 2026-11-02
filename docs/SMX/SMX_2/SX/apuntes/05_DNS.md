@@ -992,7 +992,7 @@ Para verificar y solucionar problemas con las zonas DNS, los administradores de 
 !!! tip "dig (Domain Information Groper)"
     - **dig** (Domain Information Groper): Ofrece información mucho más profunda y detallada sobre las consultas DNS, incluyendo los tiempos de respuesta del servidor y la jerarquía de autoridad.
 
-## 12 - Tarea RA2-CEbc-1 - Resolución manual de un dominio
+## 12 - Tarea RA2-CEb-1 - Resolución manual de un dominio
 
 - El proposito de esta tarea es que el alumno comprenda cómo se resuelve un nombre de dominio en Internet y cómo se obtiene la dirección IP asociada a ese nombre.
 - Para el ejemplo usaremos el dominio `www.aules.edu.gva.es` y realizaremos la resolución de forma manual, paso a paso, para comprender el proceso completo.
