@@ -1166,11 +1166,12 @@ En `Prerequisites Check` apuntaremos las advertencias para gestionarlas más ade
     ![Descripción de la imagen](./img_5/img_5_55.png){ .margintop10 .marginbottom10 .marco}
     - Servicio DNS
     ![Descripción de la imagen](./img_5/img_5_56.png){ .margintop10 .marginbottom10 .marco}
-<!-- 1. **Verificación final.** Para comprobar que el dominio y el DNS han quedado correctamente configurados, podemos:
+
+1. **Verificación final.** Para comprobar que el dominio y el DNS han quedado correctamente configurados, podemos:
     - Ejecutar `dcdiag` en una consola para diagnosticar el estado del controlador de dominio.
     - Ejecutar `nslookup <nombre-del-dominio>` para comprobar que el propio servidor resuelve correctamente los registros de su dominio.
     - Abrir la consola "Usuarios y equipos de Active Directory" para confirmar que el dominio se ha creado correctamente. 
-
+<!--
 ## 16 - Tarea RA2-CEf - Configuración del servidor DNS
 
 ### 16.1 Configuración del adaptador de red
