@@ -1050,8 +1050,7 @@ Para verificar y solucionar problemas con las zonas DNS, los administradores de 
 
 ---
 
-<!--
-## 13 - Tarea RA2-CEbc-2 - Resolución manual de un dominio
+## 13 - Tarea RA2-CEb-2 - Resolución manual de un dominio
 
 !!! question "Pregunta"
     - Redactar el comando para consultar el dominio gmail.es y obtener los servidores autoritativos de correo electrónico de gmail.es.
@@ -1059,6 +1058,7 @@ Para verificar y solucionar problemas con las zonas DNS, los administradores de 
         ![Descripción de la imagen](./img_5/img_5_32-1.png){ .margintop10 .marginbottom10}
     - Redactar el comando para consultar la IP de uno de los servidores.
         ![Descripción de la imagen](./img_5/img_5_33-1.png){ .margintop10 .marginbottom10}
+<!--
 
 ## 14 - Tarea RA2-CEbc-3 - Resolución manual de un dominio
 
