@@ -3,7 +3,7 @@ Description: VPC con subred pública y privada, Internet Gateway y NAT Gateway.
 
 Resources:
 
-  # VPC
+# VPC
   VPCDespliegue:
     Type: AWS::EC2::VPC
     Properties:
@@ -14,7 +14,7 @@ Resources:
         - Key: Name
           Value: VPC-Despliegue
 
-  # Subred pública
+# Subred pública
   SubredPublica:
     Type: AWS::EC2::Subnet
     Properties:
@@ -26,7 +26,7 @@ Resources:
         - Key: Name
           Value: Subred-Publica
 
-  # Subred privada
+# Subred privada
   SubredPrivada:
     Type: AWS::EC2::Subnet
     Properties:
@@ -37,7 +37,7 @@ Resources:
         - Key: Name
           Value: Subred-Privada
 
-  # Internet Gateway
+# Internet Gateway
   IGW:
     Type: AWS::EC2::InternetGateway
     Properties:
@@ -51,7 +51,7 @@ Resources:
       VpcId: !Ref VPCDespliegue
       InternetGatewayId: !Ref IGW
 
-  # Tabla de rutas pública
+# Tabla de rutas pública
   RTSubredPublica:
     Type: AWS::EC2::RouteTable
     Properties:
@@ -68,7 +68,7 @@ Resources:
       DestinationCidrBlock: 0.0.0.0/0
       GatewayId: !Ref IGW
 
-  # IP elástica para la NAT
+# IP elástica para la NAT
   ElasticIP:
     Type: AWS::EC2::EIP
     DependsOn: VPCGatewayAttachment
@@ -78,7 +78,7 @@ Resources:
         - Key: Name
           Value: IP-Elastica
 
-  # NAT Gateway (en la subred pública)
+# NAT Gateway (en la subred pública)
   NatGateway:
     Type: AWS::EC2::NatGateway
     DependsOn: VPCGatewayAttachment
@@ -89,7 +89,7 @@ Resources:
         - Key: Name
           Value: NAT-Gateway
 
-  # Tabla de rutas privada
+# Tabla de rutas privada
   RTSubredPrivada:
     Type: AWS::EC2::RouteTable
     Properties:
@@ -105,7 +105,7 @@ Resources:
       DestinationCidrBlock: 0.0.0.0/0
       NatGatewayId: !Ref NatGateway
 
-  # Asociaciones
+# Asociaciones
   AsociacionPublica:
     Type: AWS::EC2::SubnetRouteTableAssociation
     Properties:
@@ -122,9 +122,125 @@ Outputs:
   VpcId:
     Description: ID de la VPC
     Value: !Ref VPCDespliegue
-  SubredPublicaId:
+  SubredPublicaId:  
     Description: ID de la subred pública
     Value: !Ref SubredPublica
   SubredPrivadaId:
     Description: ID de la subred privada
     Value: !Ref SubredPrivada
+
+# Grupo de seguridad sobre subnet pública para instancia de servidor web.
+  SecurityGroupServidorWeb:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupName: "GS-ServidorWeb"
+      GroupDescription: "definiciones de los accesos"
+      VpcId: !Ref VPCDespliegue
+      SecurityGroupIngress:
+        # Permitir tráfico web HTTP (Puerto 80)
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 0.0.0.0/0
+        # Permitir SSH (Puerto 22)
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+      SecurityGroupEgress:
+        # Acceso a internet ilimitado
+        - IpProtocol: "-1"
+          FromPort: -1
+          ToPort: -1
+          CidrIp: 0.0.0.0/0
+      Tags:
+        - Key: Name
+          Value: "Tarea-1-GS-ServodrWeb"
+
+  # Grupo de seguridad sobre subnet privada para instancia de BBDD MySQL
+  SecurityGroupMySQL:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupName: "GS-BBDD-MySQL"
+      GroupDescription: "definiciones de los accesos"
+      VpcId: !Ref VPCDespliegue
+      SecurityGroupIngress:
+        # Solo puerto 3306 DESDE el servidor web (referencia al Grupo de Seguridad anterior)
+        - IpProtocol: tcp
+          FromPort: 3306
+          ToPort: 3306
+          SourceSecurityGroupId: !Ref SecurityGroupServidorWeb
+        # Permitir SSH (Puerto 22)
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+      SecurityGroupEgress:
+        - IpProtocol: "-1"
+          FromPort: -1
+          ToPort: -1
+          CidrIp: 0.0.0.0/0
+      Tags:
+        - Key: Name
+          Value: "Tarea-1-GS-BBDD-MySQL"
+
+  # EC2 Servidor Web (en Subred Pública)
+  ServidorWebInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: "ami-020cba7c55df1f615"
+      InstanceType: "t2.micro"
+      SubnetId: !Ref SubredPublica
+      SecurityGroupIds:
+        - !Ref SecurityGroupServidorWeb
+      AssociatePublicIpAddress: true
+      KeyName: "vockey"
+      UserData: 
+        Fn::Base64: !Sub |
+          #!/bin/bash
+          sudo apt update -y
+          sudo apt install -y apache2
+          sudo systemctl enable apache2
+          sudo systemctl start apache2
+          echo "<h1>Servidor Web Tarea-1 - Activo</h1><p>Made by Javier Egea Blasco</p>" > /var/www/html/index.html
+          sudo apt install -y mysql-client
+      Tags:
+        - Key: Name
+          Value: "Tarea1-ServidorWeb"
+
+  # EC2 BBDD MySQL (en Subred Privada)
+  ServidorDbInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: "ami-020cba7c55df1f615"
+      InstanceType: "t2.micro"
+      SubnetId: !Ref SubredPrivada
+      SecurityGroupIds:
+        - !Ref SecurityGroupMySQL
+      AssociatePublicIpAddress: false
+      KeyName: "vockey"
+      UserData:
+        Fn::Base64: !Sub |
+          #!/bin/bash
+          sudo apt update -y
+          sudo apt install -y mysql-server
+          
+          # Modificar configuración para permitir conexiones remotas
+          sudo sed -i 's/^bind-address.*/bind-address = 0.0.0.0/' /etc/mysql/mysql.conf.d/mysqld.cnf
+          
+          # Reiniciar MySQL para aplicar cambios
+          sudo systemctl restart mysql
+
+          # Crear archivo con comandos SQL
+          cat > /tmp/setup.sql <<EOSQL
+          ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '1234';
+          CREATE USER 'javier'@'%' IDENTIFIED WITH mysql_native_password BY 'javier1234';
+          GRANT ALL PRIVILEGES ON *.* TO 'javier'@'%';
+          FLUSH PRIVILEGES;
+          EOSQL
+
+          # Ejecutar comandos SQL setup.sql
+          mysql -u root < /tmp/setup.sql
+      Tags:
+        - Key: Name
+          Value: "Tarea1-BBDD-MySQL"    
