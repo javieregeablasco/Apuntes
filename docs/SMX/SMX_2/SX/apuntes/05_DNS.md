@@ -1064,7 +1064,7 @@ Para verificar y solucionar problemas con las zonas DNS, los administradores de 
 -->
 ---
 
-## 13 - Tarea RA2-CEde-1 - Instalación y configuración de un servidor DNS con Windows Server 2025
+## 14 - Tarea RA2-CEde-1 - Instalación y configuración de un servidor DNS con Windows Server 2025
 
 !!! abstract "Instalar AD DS con DNS"  
     - Antes de instalar y configurar el rol de servidor DNS, instalaremos el rol de Active Directory Domain Services (AD DS), ya que en este caso queremos un DNS integrado en un dominio de Active Directory (el escenario más habitual en entornos empresariales).
@@ -1074,7 +1074,7 @@ Para verificar y solucionar problemas con las zonas DNS, los administradores de 
     - Al promover el servidor a controlador de dominio, si no existe ya un servidor DNS accesible para el dominio, Windows instala y configura automáticamente el rol DNS, creando la zona correspondiente con los registros SRV necesarios para la localización de los controladores de dominio (LDAP, Kerberos, etc.).
     - Esto simplifica la práctica: en vez de instalar y configurar DNS manualmente y luego preparar la integración con AD, dejamos que el propio proceso de promoción a DC lo resuelva.
 
-### 15.1 Active Directory Domain Services (AD DS)
+### 14.1 Active Directory Domain Services (AD DS)
 
 !!! tip "Red domestica vs red empresarial"
     1. **En una red doméstica**, cada equipo se administra de forma individual: el usuario configura sus propios permisos, contraseñas, accesos a dispositivos, etc.
@@ -1094,7 +1094,7 @@ Para verificar y solucionar problemas con las zonas DNS, los administradores de 
     1. Por este motivo, antes de instalar y configurar el rol de servidor DNS, instalaremos primero el rol de Active Directory Domain Services (AD DS).
     1. **AD DS Será la base** sobre la que se sustente la **gestión centralizada** de usuarios, equipos y políticas de seguridad de nuestra organización, y también porque el propio proceso de instalación de AD DS se encarga de configurar el servicio DNS necesario para el funcionamiento del dominio.
 
-### 15.2 Instalación del rol AD DS en AWS
+### 14.2 Instalación del rol AD DS en AWS
 
 Para la instalación del rol AD DS en un servidor Windows Server 2025 en AWS, podemos seguir los siguientes pasos:
 
