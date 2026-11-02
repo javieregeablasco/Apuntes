@@ -469,7 +469,7 @@ Resources:
           cho "======================================"
       Tags:
         - Key: Name
-          Value: "Tarea1-ServidorWeb"
+          Value: "ServidorWeb"
 
 # EC2 BBDD MySQL (en Subred Privada)
   ServidorDbInstance:
@@ -506,7 +506,7 @@ Resources:
           mysql -u root < /tmp/setup.sql
       Tags:
         - Key: Name
-          Value: "Tarea1-BBDD-MySQL"    
+          Value: "ServidorBBDD"    
 
 Outputs:
   VpcId:
