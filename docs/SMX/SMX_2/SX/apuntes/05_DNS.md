@@ -1163,9 +1163,9 @@ En `Prerequisites Check` apuntaremos las advertencias para gestionarlas más ade
     - !!! question "En un entorno no AWS (no virtual), ¿cómo se configuraría la interfaz de red de nuestra máquina a IP estática?"
 1. Después de un tiempo, aparecerán los servicios AD DS y DNS en nuestra máquina.
     - Servicio AD DS
-    ![Descripción de la imagen](./img_5/img_5_55.png){ .margintop10 .marginbottom10}
+    ![Descripción de la imagen](./img_5/img_5_55.png){ .margintop10 .marginbottom10 .marco}
     - Servicio DNS
-    ![Descripción de la imagen](./img_5/img_5_56.png){ .margintop10 .marginbottom10}
+    ![Descripción de la imagen](./img_5/img_5_56.png){ .margintop10 .marginbottom10 .marco}
 <!-- 1. **Verificación final.** Para comprobar que el dominio y el DNS han quedado correctamente configurados, podemos:
     - Ejecutar `dcdiag` en una consola para diagnosticar el estado del controlador de dominio.
     - Ejecutar `nslookup <nombre-del-dominio>` para comprobar que el propio servidor resuelve correctamente los registros de su dominio.
