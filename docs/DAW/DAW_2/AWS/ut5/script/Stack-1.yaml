@@ -471,12 +471,12 @@ Resources:
         - Key: Name
           Value: "Tarea1-ServidorWeb"
 
-  # EC2 BBDD MySQL (en Subred Privada)
+# EC2 BBDD MySQL (en Subred Privada)
   ServidorDbInstance:
     Type: AWS::EC2::Instance
     Properties:
-      ImageId: "ami-020cba7c55df1f615"
-      InstanceType: "t2.micro"
+      ImageId: "ami-0d97d7f07b25dd693"
+      InstanceType: "t3.micro"
       SubnetId: !Ref SubredPrivada
       SecurityGroupIds:
         - !Ref SecurityGroupMySQL
