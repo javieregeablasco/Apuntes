@@ -1033,7 +1033,6 @@ Para verificar y solucionar problemas con las zonas DNS, los administradores de 
     - ¿Cuál sería la línea de comando para consultar los servidores autoritativos de gva.es?
         ![Descripción de la imagen](./img_5/img_5_23.png){ .margintop10 .marginbottom10}
 
-<!--
 ### 12.4 Paso 4: Consulta del subdominio aules.edu.gva.es
 
 !!! question "Pregunta"
@@ -1051,6 +1050,7 @@ Para verificar y solucionar problemas con las zonas DNS, los administradores de 
 
 ---
 
+<!--
 ## 13 - Tarea RA2-CEbc-2 - Resolución manual de un dominio
 
 !!! question "Pregunta"
