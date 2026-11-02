@@ -526,10 +526,10 @@ Resources:
           COLLATE utf8mb4_unicode_ci;
 
           CREATE USER IF NOT EXISTS '${DB_USER}'@'%'
-          IDENTIFIED BY '${DB_PASSWORD}';
+          IDENTIFIED BY '$${DB_PASSWORD}';
 
-          ALTER USER '${DB_USER}'@'%'
-          IDENTIFIED BY '${DB_PASSWORD}';
+          ALTER USER '$${DB_USER}'@'%'
+          IDENTIFIED BY '$${DB_PASSWORD}';
 
           GRANT ALL PRIVILEGES ON ${DB_NAME}.*
           TO '${DB_USER}'@'%';
