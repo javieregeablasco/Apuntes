@@ -948,7 +948,7 @@ En muchos casos puede resultar necesario añadir volúmenes EBS adicionales a un
 ### Tarea RA3-CEc: Montar un servidor web y una base de datos mysql
 
 **Escenario propuesto:**
-![img](./ut5/VPC2-nat.png){.sietecinco}  
+![img](./ut5/VPC2-nat.png){.cien}  
 
 !!! task "Tarea RA3-CEc (continuación): Montar un servidor web y un agente mysql"
     **1. Instancia pública**  
