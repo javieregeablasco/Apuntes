@@ -80,6 +80,8 @@ schedule: 233h - 7h/w
                 - **www.google.es**: Dominio objetivo cuya dirección IP (o registros asociados) deseamos consultar.
                 - **8.8.8.8**: Dirección IP del servidor DNS específico **al que hemos realizado la consulta**.        
     
+            !!! question "¿Qué significa 'Respuesto no autoritativa'"
+
 ## 3 - Mecanismos de comunicación DNS
 
 - La comunicación DNS es un mecanismo de consulta/respuesta de tipo **cliente / servidor**.
