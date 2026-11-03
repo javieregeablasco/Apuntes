@@ -975,7 +975,7 @@ En muchos casos puede resultar necesario añadir volúmenes EBS adicionales a un
 
 !!! note "Ejemplos de capturas"
     - Página web y base de datos funcionando.
-    ![img](./ut5/img-5-22.png){.cien .margintop10 .marginbottom20 .marco }
+    ![img](./ut5/img-5-22.png){.cien .margintop10 .marginbottom20 }
 
 ## Enlaces de interés
 
