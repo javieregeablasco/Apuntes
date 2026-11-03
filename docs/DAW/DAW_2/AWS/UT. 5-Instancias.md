@@ -974,9 +974,7 @@ En muchos casos puede resultar necesario añadir volúmenes EBS adicionales a un
         - Grupo de seguridad de la instancia con la base de datos.
 
 !!! note "Ejemplos de capturas"
-    - Servicio Web funcionando.
-    ![img](./ut5/img-5-21.png){.cien .margintop10 .marginbottom20 .marco }
-    - Página web funcionando.
+    - Página web y base de datos funcionando.
     ![img](./ut5/img-5-22.png){.cien .margintop10 .marginbottom20 .marco }
 
 ## Enlaces de interés
