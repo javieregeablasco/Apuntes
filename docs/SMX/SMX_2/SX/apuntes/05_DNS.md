@@ -240,9 +240,9 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
     - Generalmente, el servidor DNS almacenará en caché registros DNS para prevenir el consumo de ancho de banda adicional y la carga en los servidores que preceden en la cadena.
 
 ??? question "¿En qué se diferencia una conulta recursiva de una consulta no recursiva?"
-    - La diferencia principal entre una consulta recursiva y una no recursiva radica en quién realiza **el esfuerzo de buscar la información** y cómo responde el servidor DNS.
+    **La diferencia principal** entre una consulta recursiva y una no recursiva radica en quién realiza **el esfuerzo de buscar la información** y cómo responde el servidor DNS.
 
-    |Característica |Consulta Recursiva | Consulta No Recursiva (Iterativa) |
+    |Característica |Consulta recursiva | Consulta no recursiva (iterativa) |
     ||||
     |Responsabilidad|El servidor hace todo el trabajo de búsqueda si no lo sabe.|El servidor solo responde con lo que ya sabe o indica a dónde ir.|
     |Uso típico|Entre un cliente (usuario/dispositivo) y su servidor DNS local (resolver).|Entre servidores DNS (por ejemplo, un servidor de Google preguntándole a un servidor raíz).
@@ -293,7 +293,7 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
 - Por ejemplo, si estamos buscando:
 
       ```text
-      www.aules.edu.gva.es
+      www.aules.edu.gva.es.
       ```
 
     el [**servidor raíz**](https://root-servers.org/) puede indicar qué servidores se encargan del TLD `.es`.
@@ -319,6 +319,12 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
       ```text
       aules.edu.gva.es
       ```
+
+??? question "¿A qué servidores el TLD de .es. delega sus consultas?"
+    - NS a.nic.es 194.69.254.1, 2001:67c:21cc:2000:0:0:64:41
+    - NS c.nic.es 194.0.34.53, 2001:678:44:0:0:0:0:53
+    - NS g.nic.es 204.61.217.1, 2001:500:14:7001:ad:0:0:1
+    - NS h.nic.es 194.0.33.53, 2001:678:40:0:0:0:0:53
 
 ### 6.4 Consulta al servidor de nombres autoritativo
 
