@@ -1,9 +1,11 @@
 AWSTemplateFormatVersion: "2010-09-09"
-Description: VPC con subred pública y privada, Internet Gateway y NAT Gateway.
+Description: VPC con subred pública y privada, Internet Gateway, NAT Gateway, servidor web (Apache + Node.js) y base de datos MariaDB.
 
 Resources:
 
-# VPC
+  # ---------------------------------------------------------------------------
+  # VPC
+  # ---------------------------------------------------------------------------
   VPCDespliegue:
     Type: AWS::EC2::VPC
     Properties:
@@ -14,7 +16,7 @@ Resources:
         - Key: Name
           Value: VPC-Despliegue
 
-# Subred pública
+  # Subred pública
   SubredPublica:
     Type: AWS::EC2::Subnet
     Properties:
@@ -26,7 +28,7 @@ Resources:
         - Key: Name
           Value: Subred-Publica
 
-# Subred privada
+  # Subred privada
   SubredPrivada:
     Type: AWS::EC2::Subnet
     Properties:
@@ -37,7 +39,9 @@ Resources:
         - Key: Name
           Value: Subred-Privada
 
-# Internet Gateway
+  # ---------------------------------------------------------------------------
+  # Internet Gateway
+  # ---------------------------------------------------------------------------
   IGW:
     Type: AWS::EC2::InternetGateway
     Properties:
@@ -51,7 +55,9 @@ Resources:
       VpcId: !Ref VPCDespliegue
       InternetGatewayId: !Ref IGW
 
-# Tabla de rutas pública
+  # ---------------------------------------------------------------------------
+  # Tabla de rutas pública
+  # ---------------------------------------------------------------------------
   RTSubredPublica:
     Type: AWS::EC2::RouteTable
     Properties:
@@ -68,7 +74,9 @@ Resources:
       DestinationCidrBlock: 0.0.0.0/0
       GatewayId: !Ref IGW
 
-# IP elástica para la NAT
+  # ---------------------------------------------------------------------------
+  # NAT Gateway
+  # ---------------------------------------------------------------------------
   ElasticIP:
     Type: AWS::EC2::EIP
     DependsOn: VPCGatewayAttachment
@@ -78,7 +86,6 @@ Resources:
         - Key: Name
           Value: IP-Elastica
 
-# NAT Gateway (en la subred pública)
   NatGateway:
     Type: AWS::EC2::NatGateway
     DependsOn: VPCGatewayAttachment
@@ -89,7 +96,9 @@ Resources:
         - Key: Name
           Value: NAT-Gateway
 
-# Tabla de rutas privada
+  # ---------------------------------------------------------------------------
+  # Tabla de rutas privada
+  # ---------------------------------------------------------------------------
   RTSubredPrivada:
     Type: AWS::EC2::RouteTable
     Properties:
@@ -105,7 +114,9 @@ Resources:
       DestinationCidrBlock: 0.0.0.0/0
       NatGatewayId: !Ref NatGateway
 
-# Asociaciones
+  # ---------------------------------------------------------------------------
+  # Asociaciones
+  # ---------------------------------------------------------------------------
   AsociacionPublica:
     Type: AWS::EC2::SubnetRouteTableAssociation
     Properties:
@@ -118,111 +129,216 @@ Resources:
       SubnetId: !Ref SubredPrivada
       RouteTableId: !Ref RTSubredPrivada
 
-
-# Grupo de seguridad sobre subnet pública para instancia de servidor web.
+  # ---------------------------------------------------------------------------
+  # Grupo de seguridad del servidor web (subred pública)
+  # ---------------------------------------------------------------------------
   SecurityGroupServidorWeb:
     Type: AWS::EC2::SecurityGroup
     Properties:
       GroupName: "GS-ServidorWeb"
-      GroupDescription: "Definiciones de los accesos"
+      GroupDescription: "Acceso HTTP y SSH al servidor web"
       VpcId: !Ref VPCDespliegue
       SecurityGroupIngress:
-        # Permitir tráfico web HTTP (Puerto 80)
+        # HTTP
         - IpProtocol: tcp
           FromPort: 80
           ToPort: 80
           CidrIp: 0.0.0.0/0
-        # Permitir SSH (Puerto 22)
+        # SSH (en producción, limitar a tu IP)
         - IpProtocol: tcp
           FromPort: 22
           ToPort: 22
           CidrIp: 0.0.0.0/0
-        # Solo desarrollo eliminar en produccion
-        - IpProtocol: "-1"
-          FromPort: -1
-          ToPort: -1
-          CidrIp: 0.0.0.0/0
       SecurityGroupEgress:
-        # Acceso a internet ilimitado
         - IpProtocol: "-1"
-          FromPort: -1
-          ToPort: -1
           CidrIp: 0.0.0.0/0
       Tags:
         - Key: Name
-          Value: "GS-ServodrWeb"
+          Value: "GS-ServidorWeb"
 
-# Grupo de seguridad sobre subnet privada para instancia de BBDD MySQL
+  # ---------------------------------------------------------------------------
+  # Grupo de seguridad de la base de datos (subred privada)
+  # ---------------------------------------------------------------------------
   SecurityGroupMySQL:
     Type: AWS::EC2::SecurityGroup
     Properties:
       GroupName: "GS-BBDD-MySQL"
-      GroupDescription: "definiciones de los accesos"
+      GroupDescription: "Acceso a MariaDB y SSH solo desde el servidor web"
       VpcId: !Ref VPCDespliegue
       SecurityGroupIngress:
-        # Solo puerto 3306 DESDE el servidor web (referencia al Grupo de Seguridad anterior)
+        # MariaDB solo desde el servidor web
         - IpProtocol: tcp
           FromPort: 3306
           ToPort: 3306
           SourceSecurityGroupId: !Ref SecurityGroupServidorWeb
-        # Permitir SSH (Puerto 22)
+        # SSH solo desde el servidor web (salto)
         - IpProtocol: tcp
           FromPort: 22
           ToPort: 22
-          CidrIp: 0.0.0.0/0
+          SourceSecurityGroupId: !Ref SecurityGroupServidorWeb
       SecurityGroupEgress:
         - IpProtocol: "-1"
-          FromPort: -1
-          ToPort: -1
           CidrIp: 0.0.0.0/0
       Tags:
         - Key: Name
-          Value: "Tarea-1-GS-BBDD-MySQL"
+          Value: "GS-BBDD-MySQL"
 
-# EC2 Servidor Web (en Subred Pública)
+  # ---------------------------------------------------------------------------
+  # EC2 Base de datos MariaDB (subred privada)
+  # ---------------------------------------------------------------------------
+  ServidorDbInstance:
+    Type: AWS::EC2::Instance
+    # Necesita salida a Internet (NAT) antes de ejecutar apt-get
+    DependsOn:
+      - RoutePrivateNat
+      - AsociacionPrivada
+    Properties:
+      ImageId: "ami-0d97d7f07b25dd693"
+      InstanceType: "t3.micro"
+      SubnetId: !Ref SubredPrivada
+      PrivateIpAddress: 172.18.2.50
+      SecurityGroupIds:
+        - !Ref SecurityGroupMySQL
+      KeyName: "vockey"
+      UserData:
+        Fn::Base64: |
+          #!/bin/bash
+
+          exec > >(tee -a /var/log/user-data.log) 2>&1
+          set -euxo pipefail
+          export DEBIAN_FRONTEND=noninteractive
+
+          # Esperar a tener salida a Internet (máx. ~5 minutos)
+          for i in $(seq 1 60); do
+            if curl -s --max-time 5 -o /dev/null https://archive.ubuntu.com; then
+              echo "Internet disponible"
+              break
+            fi
+            echo "Esperando Internet... intento $i"
+            sleep 5
+          done
+
+          echo "======================================"
+          echo " INSTALANDO MARIADB"
+          echo "======================================"
+
+          # CONFIGURACION DE LA BASE DE DATOS
+          DB_NAME="appdb"
+          DB_USER="appuser"
+          DB_PASSWORD="ClaveSegura"
+
+          apt-get update
+          apt-get upgrade -y
+          apt-get install -y mariadb-server
+
+          # Configurar acceso remoto
+          sed -i 's/^bind-address[[:space:]]*=.*/bind-address = 0.0.0.0/' \
+              /etc/mysql/mariadb.conf.d/50-server.cnf
+
+          systemctl enable --now mariadb
+          systemctl restart mariadb
+
+          echo "======================================"
+          echo " CREANDO BASE DE DATOS Y USUARIO"
+          echo "======================================"
+
+          mariadb <<EOF
+          CREATE DATABASE IF NOT EXISTS ${DB_NAME}
+          CHARACTER SET utf8mb4
+          COLLATE utf8mb4_unicode_ci;
+
+          CREATE USER IF NOT EXISTS '${DB_USER}'@'%'
+          IDENTIFIED BY '${DB_PASSWORD}';
+
+          ALTER USER '${DB_USER}'@'%'
+          IDENTIFIED BY '${DB_PASSWORD}';
+
+          GRANT ALL PRIVILEGES ON ${DB_NAME}.*
+          TO '${DB_USER}'@'%';
+
+          FLUSH PRIVILEGES;
+
+          USE ${DB_NAME};
+
+          CREATE TABLE IF NOT EXISTS clientes (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            nombre VARCHAR(100) NOT NULL,
+            email VARCHAR(150) NOT NULL
+          );
+
+          INSERT INTO clientes (nombre, email)
+          SELECT 'Cliente de prueba', 'prueba@example.com'
+          WHERE NOT EXISTS (SELECT 1 FROM clientes);
+          EOF
+
+          echo "======================================"
+          echo " COMPROBANDO INSTALACION"
+          echo "======================================"
+
+          systemctl is-active mariadb
+          mariadb -e "SHOW DATABASES;"
+
+          echo "======================================"
+          echo " INSTALACION FINALIZADA"
+          echo "======================================"
+      Tags:
+        - Key: Name
+          Value: "ServidorBBDD"
+
+  # ---------------------------------------------------------------------------
+  # EC2 Servidor web (subred pública)
+  # ---------------------------------------------------------------------------
   ServidorWebInstance:
     Type: AWS::EC2::Instance
+    # Necesita salida a Internet (IGW) antes de ejecutar apt-get
+    DependsOn:
+      - RoutePublicInternet
+      - AsociacionPublica
     Properties:
       ImageId: "ami-0d97d7f07b25dd693"
       InstanceType: "t3.medium"
       SubnetId: !Ref SubredPublica
       SecurityGroupIds:
         - !Ref SecurityGroupServidorWeb
-      AssociatePublicIpAddress: true
       KeyName: "vockey"
-      UserData: 
-        Fn::Base64: !Sub |
+      UserData:
+        Fn::Base64: |
           #!/bin/bash
 
           # Registrar toda la salida del script
           exec > >(tee -a /var/log/user-data.log) 2>&1
 
           set -euxo pipefail
+          export DEBIAN_FRONTEND=noninteractive
+
+          # Esperar a tener salida a Internet (máx. ~5 minutos)
+          for i in $(seq 1 60); do
+            if curl -s --max-time 5 -o /dev/null https://archive.ubuntu.com; then
+              echo "Internet disponible"
+              break
+            fi
+            echo "Esperando Internet... intento $i"
+            sleep 5
+          done
 
           echo "======================================"
           echo " INICIANDO INSTALACION DEL SERVIDOR WEB"
           echo "======================================"
 
-          # Actualizar repositorios
           apt-get update
-          
-          # Instalar actualizaciones
-          sudo apt-get upgrade -y
-          
-          # Instalar Apache
-          DEBIAN_FRONTEND=noninteractive apt-get install -y apache2
-          
-          # Instalar node 
-          sudo apt-get install nodejs npm -y
-          
+          apt-get upgrade -y
+
+          # Instalar Apache, Node.js y npm
+          apt-get install -y apache2 nodejs npm
+
           # Directorio para la API
-          mkdir /home/ubuntu/api-web
+          mkdir -p /home/ubuntu/api-web
           cd /home/ubuntu/api-web
           npm init -y
           npm install express mysql2
 
           # -------------------------------------
-          # Crear archivo de configuracion inicio
+          # Código de la API
           # -------------------------------------
           cat > /home/ubuntu/api-web/server.js << 'EOF'
           const express = require('express');
@@ -280,27 +396,24 @@ Resources:
               console.log(`API funcionando en el puerto ${PORT}`);
           });
           EOF
-          # -------------------------------------
-          # Crear archivo de configuracion fin
-          # -------------------------------------
 
-          # ----------------------------------
-          # Configurar las credenciales inicio
-          # ----------------------------------
+          # Permisos: el servicio corre como usuario ubuntu
+          chown -R ubuntu:ubuntu /home/ubuntu/api-web
+
+          # -------------------------------------
+          # Credenciales (misma clave que la BBDD)
+          # -------------------------------------
           cat > /etc/api-web.env << 'EOF'
-          DB_HOST=10.0.1.50
+          DB_HOST=172.18.2.50
           DB_USER=appuser
-          DB_PASSWORD=TU_CONTRASEÑA
+          DB_PASSWORD=CambiaEstaClave2026Segura
           EOF
-          # ----------------------------------
-          # Configurar las credenciales fin
-          # ----------------------------------
 
-          # Proteger archivo
-          sudo chmod 600 /etc/api-web.env
+          chmod 600 /etc/api-web.env
+          chown ubuntu:ubuntu /etc/api-web.env
 
           # -------------------------------------
-          # Crear un servicio para Node.js INICIO
+          # Servicio systemd para Node.js
           # -------------------------------------
           cat > /etc/systemd/system/api-web.service << 'EOF'
           [Unit]
@@ -318,18 +431,15 @@ Resources:
           [Install]
           WantedBy=multi-user.target
           EOF
+
+          systemctl daemon-reload
+          systemctl enable --now api-web
+
           # -------------------------------------
-          # Crear un servicio para Node.js FIN
+          # Apache como proxy inverso hacia la API
           # -------------------------------------
+          a2enmod proxy proxy_http
 
-          # Activar API
-          sudo systemctl daemon-reload
-          sudo systemctl enable --now api-web
-
-          # Configurar Apache como intermediario
-          sudo a2enmod proxy proxy_http
-
-          # Crear la configuracion para redirigir las peticiones API hacia Node.js
           cat > /etc/apache2/conf-available/api-web.conf << 'EOF'
           ProxyPreserveHost On
 
@@ -337,15 +447,14 @@ Resources:
           ProxyPassReverse /api http://127.0.0.1:3000/api
           EOF
 
-
-          # Activar Apache
-          sudo a2enconf api-web
-          sudo apache2ctl configtest
+          a2enconf api-web
+          apache2ctl configtest
           systemctl enable apache2
-          systemctl start apache2
-          sudo systemctl restart apache2
+          systemctl restart apache2
 
-          # Crear página web 
+          # -------------------------------------
+          # Página web
+          # -------------------------------------
           cat > /var/www/html/index.html <<'EOF'
           <html lang="es">
           <head>
@@ -420,7 +529,7 @@ Resources:
                   </button>
                   <div id="resultado"></div>
                 </div>
-              </div>  
+              </div>
 
               <script>
                   async function consultarCliente() {
@@ -458,107 +567,32 @@ Resources:
           chown -R www-data:www-data /var/www/html
           chmod -R 755 /var/www/html
 
-          # Reiniciar Apache
-          systemctl restart apache2
-
           # Comprobación
           systemctl is-active apache2
 
-          cho "======================================"
-          cho " INSTALACION FINALIZADA CORRECTAMENTE"
-          cho "======================================"
+          echo "======================================"
+          echo " INSTALACION FINALIZADA CORRECTAMENTE"
+          echo "======================================"
       Tags:
         - Key: Name
           Value: "ServidorWeb"
-
-# EC2 BBDD MySQL (en Subred Privada)
-  ServidorDbInstance:
-    Type: AWS::EC2::Instance
-    Properties:
-      ImageId: "ami-0d97d7f07b25dd693"
-      InstanceType: "t3.micro"
-      SubnetId: !Ref SubredPrivada
-      SecurityGroupIds:
-        - !Ref SecurityGroupMySQL
-      AssociatePublicIpAddress: false
-      KeyName: "vockey"
-      UserData:
-        Fn::Base64: !Sub |
-          #!/bin/bash
-
-          set -euxo pipefail
-
-          echo "======================================"
-          echo " INSTALANDO MARIADB"
-          echo "======================================"
-
-          # CONFIGURACION DE LA BASE DE DATOS
-          DB_NAME="appdb"
-          DB_USER="appuser"
-          DB_PASSWORD="CambiaEstaClave2026Segura"
-
-          # Actualizar repositorios
-          apt-get update
-
-          # Instalar actualizaciones
-          sudo apt-get upgrade -y
-
-          # Instalar MariaDB
-          DEBIAN_FRONTEND=noninteractive apt-get install -y mariadb-server
-
-          # Configurar acceso remoto
-          sed -i 's/^bind-address[[:space:]]*=.*/bind-address = 0.0.0.0/' \
-              /etc/mysql/mariadb.conf.d/50-server.cnf
-
-          # Habilitar e iniciar el servicio
-          systemctl enable --now mariadb
-
-          # Reiniciar para aplicar la configuracion
-          systemctl restart mariadb
-
-          echo "======================================"
-          echo " CREANDO BASE DE DATOS Y USUARIO"
-          echo "======================================"
-
-          mariadb <<EOF
-          CREATE DATABASE IF NOT EXISTS ${DB_NAME}
-          CHARACTER SET utf8mb4
-          COLLATE utf8mb4_unicode_ci;
-
-          CREATE USER IF NOT EXISTS '$${DB_USER}'@'%'
-          IDENTIFIED BY '$${DB_PASSWORD}';
-
-          ALTER USER '$${DB_USER}'@'%'
-          IDENTIFIED BY '$${DB_PASSWORD}';
-
-          GRANT ALL PRIVILEGES ON ${DB_NAME}.*
-          TO '$${DB_USER}'@'%';
-
-          FLUSH PRIVILEGES;
-          EOF
-
-          echo "======================================"
-          echo " COMPROBANDO INSTALACION"
-          echo "======================================"
-          
-          systemctl is-active mariadb
-          
-          mariadb -e "SHOW DATABASES;"
-          
-          echo "======================================"
-          echo " INSTALACION FINALIZADA"
-          echo "======================================"
-                Tags:
-                  - Key: Name
-                    Value: "ServidorBBDD"    
 
 Outputs:
   VpcId:
     Description: ID de la VPC
     Value: !Ref VPCDespliegue
-  SubredPublicaId:  
+  SubredPublicaId:
     Description: ID de la subred pública
     Value: !Ref SubredPublica
   SubredPrivadaId:
     Description: ID de la subred privada
     Value: !Ref SubredPrivada
+  ServidorWebIpPublica:
+    Description: IP pública del servidor web
+    Value: !GetAtt ServidorWebInstance.PublicIp
+  ServidorWebURL:
+    Description: URL del servidor web
+    Value: !Sub "http://${ServidorWebInstance.PublicIp}"
+  ServidorDbIpPrivada:
+    Description: IP privada de la base de datos
+    Value: !GetAtt ServidorDbInstance.PrivateIp
