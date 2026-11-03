@@ -10,3 +10,5 @@ sudo systemctl status api-web
 systemctl is-active apache2
 
 # https://chatgpt.com/c/6ae45dde-62e8-83ed-9544-6b185e87eb96
+
+https://s3.us-east-1.amazonaws.com/cf-templates-1t4w9uzhn60cj-us-east-1/2026-11-03T090005.318Z4ab-Stack-2.yaml
