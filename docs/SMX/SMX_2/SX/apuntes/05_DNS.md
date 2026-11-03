@@ -48,11 +48,11 @@ schedule: 233h - 7h/w
     
     - Entre sus principales funciones encontramos:
 
-        1. **Simplifica el acceso a los servicios de red:** Permite utilizar nombres fáciles de recordar (en lugar de direcciones IP).
+        1. **Simplificar el acceso a los servicios de red:** Permite utilizar nombres fáciles de recordar (en lugar de direcciones IP).
 
-        1. **Aporta flexibilidad:** Si un servicio cambia de servidor o de dirección IP, es posible **modificar la información DNS manteniendo el mismo nombre de dominio**. De esta forma, los usuarios pueden continuar utilizando el mismo nombre para acceder al servicio.
+        1. **Aportar flexibilidad:** Si un servicio cambia de servidor o de dirección IP, es posible **modificar la información DNS manteniendo el mismo nombre de dominio**. De esta forma, los usuarios pueden continuar utilizando el mismo nombre para acceder al servicio.
         
-        1. **Permite localizar servicios de red:** Los dispositivos pueden consultar el DNS para obtener información sobre la ubicación de diferentes servicios, como servidores web, servidores de correo electrónico, redes de distribución de contenidos (CDN, Content Delivery Network)...
+        1. **Permitir localizar servicios de red:** Los dispositivos pueden consultar el DNS para obtener información sobre la ubicación de diferentes servicios, como servidores web, servidores de correo electrónico, redes de distribución de contenidos (CDN, Content Delivery Network)...
 
     - **Facilita la administración de redes locales** donde también es posible asociar nombres a equipos y servicios locales.
 
