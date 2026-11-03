@@ -135,7 +135,7 @@ schedule: 233h - 7h/w
             
         !!! success "AUTHORITY / autoridad"
             - La sección de autoridad no aparece listada (o está vacía).
-            - No es una sorpresa ya que la **cabecera** marca AUTHORITY: 0.
+            - No es una sorpresa ya que la **cabecera** marca **AUTHORITY: 0**.
             - Esta sección contendría la información sobre los servidores que son autoritativos para la consulta efectuada. 
 
         !!! success "ADDITIONAL / adicional"
@@ -164,9 +164,13 @@ schedule: 233h - 7h/w
 ![imagen](./img_5/img_5_2.png){.ochocinco}
 - La información de una zona (sus registros de recursos) se puede almacenar en un archivo de texto en el propio servidor o en un directorio centralizado (como AD DS en entornos Windows). En este último caso se habla de *zonas integradas*, que permiten que varios servidores compartan y escriban sobre la misma copia de datos.
 
-### 4.2 Tipos de zona
+??? question "¿Qué es un AD DS"
+    - AD DS (Active Directory Domain Services o Servicios de dominio de Active Directory) es el servicio de directorio principal de Microsoft para Windows Server.
+    - Funciona como una base de datos centralizada y jerárquica que almacena, organiza y gestiona los recursos de una red informática.
 
-- **Zona primaria.** Es el origen editable de la zona. Todas las altas, bajas y modificaciones de registros se hacen aquí. El servidor que la aloja se llama *servidor primario* de esa zona.
+### 4.2 Tipos de zonas
+
+- **Zona primaria.** Es el origen editable de la zona. Todas las altas, bajas y modificaciones de registros se hacen aquí. El servidor que la aloja se llama **servidor primario** de esa zona.
 - **Zona secundaria.** Es una copia de solo lectura de una zona primaria, obtenida por red desde otro servidor DNS. No se puede editar directamente ni almacenarse como zona integrada, ya que siempre depende de la fuente primaria.
 - **Zona de rutas internas (*stub*).** Contiene únicamente los registros NS (y sus direcciones) necesarios para identificar qué servidores son autoritativos para una zona concreta, sin el resto de datos. Se usa para mantener actualizada la lista de servidores de una zona delegada y para mejorar la resolución evitando consultas innecesarias a los servidores raíz.
 - **Zona de búsqueda inversa.** Permite la consulta contraria a la habitual: a partir de una dirección IP, obtener el nombre del equipo (en vez de nombre → IP).
@@ -221,17 +225,28 @@ Por motivos de seguridad, es recomendable restringir qué servidores pueden soli
 En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
 
 !!! tip "1. Consulta recursiva:"
+    - El cliente (dispositivo que pide la información) solicita al servidor **una respuesta final completa** (por ejemplo, la dirección IP de un sitio web)
     - En una consulta recursiva, un cliente DNS requiere que un servidor DNS (generalmente un resolver DNS recursivo) responda al cliente con el registro del recurso solicitado o un mensaje de error si el resolver no puede encontrar el registro.
 
 !!! tip "2. Consulta iterativa:"
-    - En esta situación, el cliente DNS permitirá que un servidor DNS devuelva la mejor respuesta posible.
+    - El servidor consultado no busca la respuesta completa en nombre del cliente; simplemente aporta la mejor información que tiene en ese momento.
     - Si el servidor DNS consultado no cuenta con un nombre que corresponda con el de la consulta, devolverá una referencia a un servidor DNS autoritativo para un nivel inferior del espacio de nombres de dominio.
     - El cliente DNS hará a continuación una consulta a la dirección de referencia.
     - Este proceso continúa con servidores DNS adicionales que siguen en la cadena de consulta hasta conseguir la información requerida, se produzca un error o se supere el tiempo de espera.
 
 !!! tip "3. Consulta no recursiva:"
+    - Es aquella en la que el servidor ya posee la respuesta de manera directa (por ejemplo, porque está almacenada en su propia caché local o porque él mismo administra esa zona de nombres).
     - Generalmente se produce cuando un cliente resolver DNS consulta a un servidor DNS por un registro al que tiene acceso porque o bien es autoritativo para el registro o el registro existe dentro de su caché.
     - Generalmente, el servidor DNS almacenará en caché registros DNS para prevenir el consumo de ancho de banda adicional y la carga en los servidores que preceden en la cadena.
+
+??? question "¿En qué se diferencia una conulta recursiva de una consulta no recursiva?"
+    - La diferencia principal entre una consulta recursiva y una no recursiva radica en quién realiza **el esfuerzo de buscar la información** y cómo responde el servidor DNS.
+
+    |Característica |Consulta Recursiva | Consulta No Recursiva (Iterativa) |
+    ||||
+    |Responsabilidad|El servidor hace todo el trabajo de búsqueda si no lo sabe.|El servidor solo responde con lo que ya sabe o indica a dónde ir.|
+    |Uso típico|Entre un cliente (usuario/dispositivo) y su servidor DNS local (resolver).|Entre servidores DNS (por ejemplo, un servidor de Google preguntándole a un servidor raíz).
+    |Carga de trabajo|Alta para el servidor DNS (gestiona múltiples peticiones externas).|Baja para el servidor consultado (responde rápido y se desentiende).|
 
 !!! note ""
     - Al usar una combinación de estas consultas, un proceso optimizado para la resolución de DNS puede conllevar una reducción de la distancia recorrida.  
