@@ -208,6 +208,16 @@ Resources:
           set -euxo pipefail
           export DEBIAN_FRONTEND=noninteractive
 
+          # Esperar a tener salida a Internet (máx. ~5 minutos)
+          for i in $(seq 1 60); do
+            if curl -s --max-time 5 -o /dev/null https://archive.ubuntu.com; then
+              echo "Internet disponible"
+              break
+            fi
+            echo "Esperando Internet... intento $i"
+            sleep 5
+          done
+
           echo "======================================"
           echo " INSTALANDO MARIADB"
           echo "======================================"
@@ -300,6 +310,16 @@ Resources:
 
           set -euxo pipefail
           export DEBIAN_FRONTEND=noninteractive
+
+          # Esperar a tener salida a Internet (máx. ~5 minutos)
+          for i in $(seq 1 60); do
+            if curl -s --max-time 5 -o /dev/null https://archive.ubuntu.com; then
+              echo "Internet disponible"
+              break
+            fi
+            echo "Esperando Internet... intento $i"
+            sleep 5
+          done
 
           echo "======================================"
           echo " INICIANDO INSTALACION DEL SERVIDOR WEB"
