@@ -80,7 +80,7 @@ schedule: 233h - 7h/w
                 - **www.google.es**: Dominio objetivo cuya dirección IP (o registros asociados) deseamos consultar.
                 - **8.8.8.8**: Dirección IP del servidor DNS específico **al que hemos realizado la consulta**.        
     
-            !!! question "¿Qué significa 'Respuesto no autoritativa'"
+            !!! question "¿Qué significa 'Respuesta no autoritativa'"
 
 ## 3 - Mecanismos de comunicación DNS
 
@@ -102,6 +102,36 @@ schedule: 233h - 7h/w
         - **dig**: Domain Information Groper (explorador de información de dominios) es una utilidad habitualmente utilizada para consultar servidores DNS de manera detallada.
         - A diferencia de **nslookup**, **dig** muestra información mucho más técnica, limpia y sin interpretaciones automáticas que a veces confunden el diagnóstico.
         - **www.wikipedia.org**: Es el dominio a consultar.
+
+    !!! abstract "Explicación del resultado devuelto"
+        !!! success "HEADER / cabecera" 
+            ```bash
+            ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 7395
+            ;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1
+            ```
+            - **Es la cabecera del mensaje DNS**.
+            - Indica que se trata de una respuesta a una consulta (opcode: QUERY) completada con éxito (status: NOERROR).
+            - Muestra el identificador del mensaje (id: 7395), las flags de control activas (qr para respuesta, rd de recursión deseada y ra de recursión disponible) y el resumen de las secciones que contienen información: 1 pregunta (QUERY), 2 respuestas (ANSWER), *0 autoridades (AUTHORITY) y 1 registro adicional (ADDITIONAL).
+
+            
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 7395
+;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; QUESTION SECTION:
+;www.wikipedia.org.             IN      A
+
+;; ANSWER SECTION:
+www.wikipedia.org.      86252   IN      CNAME   dyna.wikimedia.org.
+dyna.wikimedia.org.     32      IN      A       185.15.58.224
+
+;; Query time: 13 msec
+;; SERVER: 1.1.1.1#53(1.1.1.1) (UDP)
+;; WHEN: Tue Nov 03 11:23:52 Hora estßndar romance 2026
+;; MSG SIZE  rcvd: 91"
 
 ## 4 - Servidores DNS
 
