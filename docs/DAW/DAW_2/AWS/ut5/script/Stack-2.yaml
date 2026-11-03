@@ -267,7 +267,13 @@ Resources:
           );
 
           INSERT INTO clientes (nombre, email)
-          SELECT 'Cliente de prueba', 'prueba@example.com'
+          SELECT 'Javier Egea Blasco', 'javier@edu.gva.es' UNION ALL
+          SELECT 'Adam', 'adam@alu.edu.gva.es' UNION ALL
+          SELECT 'Michael', 'michael@alu.edu.gva.es' UNION ALL
+          SELECT 'Adrian', 'adrian@alu.edu.gva.es' UNION ALL
+          SELECT 'Pablo', 'pablo@alu.edu.gva.es' UNION ALL
+          SELECT 'Josep', 'josep@alu.edu.gva.es' UNION ALL
+          SELECT 'Christian', 'christian@alu.edu.gva.es' 
           WHERE NOT EXISTS (SELECT 1 FROM clientes);
           EOF
 
