@@ -469,7 +469,7 @@ En el siguiente ejemplo mostraremos **una solicitud HTTP** entre cliente y servi
 
 ### 3.2 DHCP, DNS y Controlador de Dominio
 
-![imagen](./img_1/img_1_4.jpeg){.sietecinco .marginbottom20}
+![imagen](./img_1/img_1_4.jpeg){.cien .marginbottom20}
 
 En la siguiente tabla se resumen las funciones de cada uno de estos servicios y la necesidad que resuelven dentro de una red corporativa:
 
