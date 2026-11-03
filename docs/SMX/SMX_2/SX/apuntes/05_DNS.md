@@ -109,29 +109,43 @@ schedule: 233h - 7h/w
             ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 7395
             ;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1
             ```
+            
             - **Es la cabecera del mensaje DNS**.
             - Indica que se trata de una respuesta a una consulta (opcode: QUERY) completada con éxito (status: NOERROR).
             - Muestra el identificador del mensaje (id: 7395), las flags de control activas (qr para respuesta, rd de recursión deseada y ra de recursión disponible) y el resumen de las secciones que contienen información: 1 pregunta (QUERY), 2 respuestas (ANSWER), *0 autoridades (AUTHORITY) y 1 registro adicional (ADDITIONAL).
 
+        !!! success "QUESTION / pregunta (consulta)" 
+            ```bash
+            ;; QUESTION SECTION:
+            ;www.wikipedia.org.             IN      A
+            ```
+
+            - Consulta que se ha efectuado.
+            - En este caso, se ha pedido al servidor que resuelva el nombre de dominio www.wikipedia.org solicitando un registro de tipo A (es decir, la dirección IP IPv4 asociada). 
+
+        !!! success "ANSWER / respuesta" 
+            ```bash
+            ;; ANSWER SECTION:
+            www.wikipedia.org.      86252   IN      CNAME   dyna.wikimedia.org.
+            dyna.wikimedia.org.     32      IN      A       185.15.58.224
+            ```
+
+            - www.wikipedia.org es un alias (CNAME) que apunta a dyna.wikimedia.org.
+            - El servidor busca la dirección de ese alias y devuelve su registro A con la IP final 185.15.58.224.
             
-;; global options: +cmd
-;; Got answer:
-;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 7395
-;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1
+        !!! success "AUTHORITY / autoridad"
+            - La sección de autoridad no aparece listada (o está vacía).
+            - No es una sorpresa ya que la **cabecera** marca AUTHORITY: 0.
+            - Esta sección contendría la información sobre los servidores que son autoritativos para la consulta efectuada. 
 
-;; OPT PSEUDOSECTION:
-; EDNS: version: 0, flags:; udp: 1232
-;; QUESTION SECTION:
-;www.wikipedia.org.             IN      A
+        !!! success "ADDITIONAL / adicional"
+            ```bash
+            ;; OPT PSEUDOSECTION:
+            ; EDNS: version: 0, flags:; udp: 1232
+            ```
 
-;; ANSWER SECTION:
-www.wikipedia.org.      86252   IN      CNAME   dyna.wikimedia.org.
-dyna.wikimedia.org.     32      IN      A       185.15.58.224
-
-;; Query time: 13 msec
-;; SERVER: 1.1.1.1#53(1.1.1.1) (UDP)
-;; WHEN: Tue Nov 03 11:23:52 Hora estßndar romance 2026
-;; MSG SIZE  rcvd: 91"
+            - Información adicional para completar la gestión de la respuesta técnica. 
+            - En este caso se incluye la pseudosección EDNS (Extension Mechanisms for DNS), que indica que se soporta la versión 0 del protocolo extendido y establece un tamaño máximo de búfer UDP de 1232 bytes para evitar la fragmentación de paquetes en la red.
 
 ## 4 - Servidores DNS
 
