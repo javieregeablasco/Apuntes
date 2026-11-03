@@ -603,7 +603,7 @@ El escenario quedará de la siguiente manera:
 
 - Esta técnica facilita una gestión más ordenada y modular de la seguridad, ya que podemos reutilizar y combinar grupos de seguridad según las necesidades de cada componente de la infraestructura.
 
-### 3.8 Tarea RA3-CEab
+### 3.8 Tarea RA3-CEa
 
 - Para entender mejor la posiblidad de las reglas encadenas, usaremos el siguiente escenario:
 ![img](./ut5/RA3-CEab-ver2.png){.cien .margintop10 .marginbottom20}  
@@ -928,7 +928,7 @@ En muchos casos puede resultar necesario añadir volúmenes EBS adicionales a un
     - Para compartir un volumen EBS, primero debemos crear un **snapshot** del volumen.
     - Una vez creado el snapshot, podemos modificar sus permisos para compartirlo con otras cuentas de AWS o hacerlo público.
 
-### 6.3 Tarea RA3-CEa  
+### 6.3 Tarea RA3-CEb  
 
 !!! warning "Entrega de la tarea"
     - Realizar los puntos 6.1 y 6.2 de los apuntes.
