@@ -1236,7 +1236,7 @@ Para la instalación del rol AD DS en un servidor Windows Server 2025 en AWS, se
     ![Descripción de la imagen](./img_5/img_5_47.png){ .margintop10 .marginbottom10 .marco}
 
 !!! abstract ":five: - Creación de los bosques de AD DS"
-    !!! warning "Un bosque de AD DS es una estructura que permite organizar y administrar de forma centralizada los usuarios, equipos y recursos de una organización. Para funcionar, utiliza la tecnología DNS, la misma que se emplea en Internet para traducir nombres en direcciones IP. Sin embargo, un bosque de Active Directory es independiente de los dominios de Internet, ya que tiene su propia estructura y finalidad."
+    !!! warning "- Un bosque de AD DS es una estructura que permite organizar y administrar de forma centralizada los usuarios, equipos y recursos de una organización.<br>- Para funcionar, utiliza la tecnología DNS, la misma que se emplea en Internet para traducir nombres en direcciones IP.<br>- Sin embargo, un bosque de Active Directory es independiente de los dominios de Internet, ya que tiene su propia estructura y finalidad."
 
     - En `Deployment Configuration` seleccionamos `Add a new forest` e introducimos un nombre de dominio para el dominio de AD interno. Por el código de buenas prácticas de Microsoft se recomienda usar **el nombre de dominio de la empresa (de internet) + un subdominio (ad)**.
 ![Descripción de la imagen](./img_5/img_5_48.png){ .margintop10 .marginbottom10 .marco}
