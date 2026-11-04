@@ -1068,7 +1068,7 @@ Para verificar y solucionar problemas con las zonas DNS, los administradores de 
 
 - El primer paso en la resolución de un nombre de dominio es consultar a un **servidor raíz**. Los servidores raíz son los encargados de dirigir las consultas hacia los servidores de nivel superior (TLD) correspondientes.
 
-!!! question "Pregunta"
+!!! question "Enunciado paso 1"
     - ¿Quién realiza la consulta inicial al servidor raíz para obtener información sobre el TLD?
     - ¿Cuál es el TLD (Top-Level Domain) del dominio `www.aules.edu.gva.es`?
     - Consultar la base de datos de [iana.org](https://www.iana.org/domains/root/db) para verificar si el TLD está registrado.
@@ -1088,21 +1088,21 @@ Para verificar y solucionar problemas con las zonas DNS, los administradores de 
 
 ### 12.2 Paso 2: Consulta del dominio gva.es al servidor de dominio (.es)
 
-!!! question "Pregunta"
+!!! question "Enunciado paso 2"
     - ¿Quién realiza la consulta al servidor autoritativo del TLD .es para obtener información sobre el dominio gva.es?
     - ¿Cuál sería la línea de comando para consultar los servidores autoritativos de gva.es?
         ![Descripción de la imagen](./img_5/img_5_21.png){ .margintop10 .marginbottom10}
 
 ### 12.3 Paso 3: Consulta del subdominio aules.edu.gva.es al servidor de dominio (gva.es)
 
-!!! question "Pregunta"
+!!! question "Enunciado paso 3"
     - ¿Quién realiza la consulta al servidor autoritativo para obtener información sobre el dominio aules.edu.gva.es?
     - ¿Cuál sería la línea de comando para consultar los servidores autoritativos de aules.edu.gva.es?
         ![Descripción de la imagen](./img_5/img_5_23.png){ .margintop10 .marginbottom10}
 
 ### 12.4 Paso 4: Consulta final del subdominio aules.edu.gva.es
 
-!!! question "Pregunta"
+!!! question "Enunciado paso 4"
     - ¿Quién realiza la consulta al servidor autoritativo para obtener información sobre el dominio aules.edu.gva.es?
     - ¿Cuál sería la línea de comando para consultar los servidores autoritativos de aules.edu.gva.es?
         ![Descripción de la imagen](./img_5/img_5_28.png){ .margintop10 .marginbottom10}
@@ -1111,7 +1111,7 @@ Para verificar y solucionar problemas con las zonas DNS, los administradores de 
 
 ### 12.5 Paso 5: Confirmación de la IP
 
-!!! question "Pregunta"
+!!! question "Enunciado paso 5"
     - ¿Qué ocurre si escribimos la IP en el navegador? ¿Se abre la web de aules.edu.gva.es?
     ![Descripción de la imagen](./img_5/img_5_30.png){ .margintop10 .marginbottom10}
 
@@ -1234,10 +1234,10 @@ En `Prerequisites Check` apuntaremos las advertencias para gestionarlas más ade
     - Servicio DNS
     ![Descripción de la imagen](./img_5/img_5_56.png){ .margintop10 .marginbottom10 .marco}
 
-1. **Verificación final.** Para comprobar que el dominio y el DNS han quedado correctamente configurados, podemos:
+1. **Verificación final.** Para comprobar que el dominio y el DNS han quedado correctamente configurados, haremos lo siguiente:
     - Ejecutar `dcdiag` en una consola para diagnosticar el estado del controlador de dominio.
     - Ejecutar `nslookup <nombre-del-dominio>` para comprobar que el propio servidor resuelve correctamente los registros de su dominio.
-    - Abrir la consola "Usuarios y equipos de Active Directory" para confirmar que el dominio se ha creado correctamente. 
+    - Abrir la consola "Usuarios y equipos de Active Directory" para confirmar que el dominio se ha creado correctamente.
 <!--
 ## 16 - Tarea RA2-CEf - Configuración del servidor DNS
 
