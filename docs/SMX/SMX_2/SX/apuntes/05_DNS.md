@@ -1099,7 +1099,7 @@ Para verificar y solucionar problemas con las zonas DNS, los administradores de 
     - ¿Quién realiza la consulta al servidor autoritativo del TLD .es para obtener información sobre el dominio gva.es?
 
     ---
-    
+
     ==Realizar captura de pantalla==  
 
     - ¿Cuál sería la línea de comando para consultar los servidores autoritativos de gva.es?
@@ -1118,7 +1118,11 @@ Para verificar y solucionar problemas con las zonas DNS, los administradores de 
 
 !!! question "Enunciado paso 4"
     ==Preguntas a responder==  
+
     - ¿Quién realiza la consulta al servidor autoritativo para obtener información sobre el dominio aules.edu.gva.es?
+    
+    ---
+
     ==Realizar captura de pantalla==  
     - ¿Cuál sería la línea de comando para consultar los servidores autoritativos de aules.edu.gva.es?
         ![Descripción de la imagen](./img_5/img_5_28.png){ .margintop10 .marginbottom10}
@@ -1130,6 +1134,7 @@ Para verificar y solucionar problemas con las zonas DNS, los administradores de 
 !!! question "Enunciado paso 5"
     ==Preguntas a responder==  
     ==Realizar captura de pantalla==  
+
     - ¿Qué ocurre si escribimos la IP en el navegador? ¿Se abre la web de aules.edu.gva.es?
     ![Descripción de la imagen](./img_5/img_5_30.png){ .margintop10 .marginbottom10}
 
@@ -1139,11 +1144,18 @@ Para verificar y solucionar problemas con las zonas DNS, los administradores de 
 
 !!! question "Pregunta"
     ==Preguntas a responder==  
+
     - Redactar el comando para consultar el dominio gmail.es y obtener los servidores autoritativos de correo electrónico de gmail.es.
+    
+    ---
+
     ==Realizar captura de pantalla==  
+
     - Resultado esperado:
         ![Descripción de la imagen](./img_5/img_5_32-1.png){ .margintop10 .marginbottom10}
+
     ==Realizar captura de pantalla==  
+    
     - Redactar el comando para consultar la IP de uno de los servidores.
         ![Descripción de la imagen](./img_5/img_5_33-1.png){ .margintop10 .marginbottom10}
 
