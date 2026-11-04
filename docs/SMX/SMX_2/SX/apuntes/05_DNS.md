@@ -1204,9 +1204,10 @@ Para verificar y solucionar problemas con las zonas DNS, los administradores de 
 
 Para la instalación del rol AD DS en un servidor Windows Server 2025 en AWS, seguiremos los siguientes pasos:
 
-!!! abstract ":one: - Lanzar una nueva instancia de Windows Server 2025 en AWS. En este caso definiremos en qué subred de la VPC se encuentra la instancia EC2, ya que esto puede afectar a la conectividad y al rendimiento de la red"
+<!-- 1. Lanzar una nueva instancia de Windows Server 2025 en AWS. En este caso definiremos en qué subred de la VPC se encuentra la instancia EC2, ya que esto puede afectar a la conectividad y al rendimiento de la red.   -->
 
-1. Lanzar una nueva instancia de Windows Server 2025 en AWS. En este caso definiremos en qué subred de la VPC se encuentra la instancia EC2, ya que esto puede afectar a la conectividad y al rendimiento de la red.  
+!!! abstract ":one: - Lanzar una nueva instancia de Windows Server 2025 en AWS"
+    - En este caso definiremos en qué subred de la VPC se encuentra la instancia EC2, ya que esto puede afectar a la conectividad y al rendimiento de la red
     - Resumen de la configuración de la instancia (acordarse de seleccionar el par de clave `vockey` para el inicio de sesión y seleccionar `50GiB` de capacidad para el volumen de la instancia).  
     ![Descripción de la imagen](./img_5/img_5_40.png){ .margintop10 .marginbottom10}
     - Captura del apartado de configuración de red dónde eligiremos la Subred en la cual desplegaremos nuestra instancia.  
