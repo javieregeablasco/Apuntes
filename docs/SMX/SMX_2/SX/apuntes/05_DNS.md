@@ -1069,14 +1069,14 @@ Para verificar y solucionar problemas con las zonas DNS, los administradores de 
 - El primer paso en la resolución de un nombre de dominio es consultar a un **servidor raíz**. Los servidores raíz son los encargados de dirigir las consultas hacia los servidores de nivel superior (TLD) correspondientes.
 
 !!! question "Enunciado paso 1"
-    ==Preguntas a responder==
+    ==Preguntas a responder==  
     - ¿Quién realiza la consulta inicial al servidor raíz para obtener información sobre el TLD?
     - ¿Cuál es el TLD (Top-Level Domain) del dominio `www.aules.edu.gva.es`?
     - Consultar la base de datos de [iana.org](https://www.iana.org/domains/root/db) para verificar si el TLD está registrado.
     - Consultar la base de datos de [iana.org](https://www.iana.org/domains/root/servers) para obtener la lista de servidores raíz y sus direcciones IP (también se puede realizar la consulta a [root-servers.org](https://www.root-servers.org/)).
     - ¿Cuál es la dirección IP del servidor raíz `Verisign, Inc.`?
 
-    ==Realizar captura de pantalla==
+    ==Realizar captura de pantalla==  
     - Para realizar la consulta al servidor raíz, podemos utilizar herramientas como `nslookup` o `dig`. Por ejemplo, podemos ejecutar el siguiente comando en la terminal:
         ```bash
         nslookup -type=NS es a.root-servers.net
@@ -1092,21 +1092,27 @@ Para verificar y solucionar problemas con las zonas DNS, los administradores de 
 ### 12.2 Paso 2: Consulta del dominio gva.es al servidor de dominio (.es)
 
 !!! question "Enunciado paso 2"
+    ==Preguntas a responder==  
     - ¿Quién realiza la consulta al servidor autoritativo del TLD .es para obtener información sobre el dominio gva.es?
+    ==Realizar captura de pantalla==  
     - ¿Cuál sería la línea de comando para consultar los servidores autoritativos de gva.es?
         ![Descripción de la imagen](./img_5/img_5_21.png){ .margintop10 .marginbottom10}
 
 ### 12.3 Paso 3: Consulta del subdominio aules.edu.gva.es al servidor de dominio (gva.es)
 
 !!! question "Enunciado paso 3"
+    ==Preguntas a responder==  
     - ¿Quién realiza la consulta al servidor autoritativo para obtener información sobre el dominio aules.edu.gva.es?
+    ==Realizar captura de pantalla==  
     - ¿Cuál sería la línea de comando para consultar los servidores autoritativos de aules.edu.gva.es?
         ![Descripción de la imagen](./img_5/img_5_23.png){ .margintop10 .marginbottom10}
 
 ### 12.4 Paso 4: Consulta final del subdominio aules.edu.gva.es
 
 !!! question "Enunciado paso 4"
+    ==Preguntas a responder==  
     - ¿Quién realiza la consulta al servidor autoritativo para obtener información sobre el dominio aules.edu.gva.es?
+    ==Realizar captura de pantalla==  
     - ¿Cuál sería la línea de comando para consultar los servidores autoritativos de aules.edu.gva.es?
         ![Descripción de la imagen](./img_5/img_5_28.png){ .margintop10 .marginbottom10}
     - ¿Cuál es el nombre canonico de aules.edu.gva.es?
@@ -1115,6 +1121,8 @@ Para verificar y solucionar problemas con las zonas DNS, los administradores de 
 ### 12.5 Paso 5: Confirmación de la IP
 
 !!! question "Enunciado paso 5"
+    ==Preguntas a responder==  
+    ==Realizar captura de pantalla==  
     - ¿Qué ocurre si escribimos la IP en el navegador? ¿Se abre la web de aules.edu.gva.es?
     ![Descripción de la imagen](./img_5/img_5_30.png){ .margintop10 .marginbottom10}
 
@@ -1123,9 +1131,12 @@ Para verificar y solucionar problemas con las zonas DNS, los administradores de 
 ## 13 - Tarea RA2-CEb-2 - Resolución manual de un dominio
 
 !!! question "Pregunta"
+    ==Preguntas a responder==  
     - Redactar el comando para consultar el dominio gmail.es y obtener los servidores autoritativos de correo electrónico de gmail.es.
+    ==Realizar captura de pantalla==  
     - Resultado esperado:
         ![Descripción de la imagen](./img_5/img_5_32-1.png){ .margintop10 .marginbottom10}
+    ==Realizar captura de pantalla==  
     - Redactar el comando para consultar la IP de uno de los servidores.
         ![Descripción de la imagen](./img_5/img_5_33-1.png){ .margintop10 .marginbottom10}
 
