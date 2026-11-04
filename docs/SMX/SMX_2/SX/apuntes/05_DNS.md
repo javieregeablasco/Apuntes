@@ -1213,6 +1213,7 @@ Para la instalación del rol AD DS en un servidor Windows Server 2025 en AWS, se
     - Captura del apartado de configuración de red dónde eligiremos la Subred en la cual desplegaremos nuestra instancia.  
     ==Realizar captura de pantalla==
     ![Descripción de la imagen](./img_5/img_5_41.png){ .margintop10 .marginbottom10 .marco}
+    ==Realizar captura de pantalla==
     - Esperaremos a que la instancia esté disponible. A partir de entonces nos conectaremos a la instancia por `RDP`.
     ![Descripción de la imagen](./img_5/img_5_42.png){ .margintop10 .marginbottom10 .marco}
 
