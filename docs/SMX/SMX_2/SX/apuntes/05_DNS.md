@@ -1287,14 +1287,15 @@ Para la instalación del rol AD DS en un servidor Windows Server 2025 en AWS, se
     ==Pregunta a responder==  
     !!! question "En un entorno no AWS (no virtual), ¿cómo se configuraría la interfaz de red de nuestra máquina a IP estática?"
 
-!!! Abstract "Finalización de instalación del AD DS y del servidor DNS"
+!!! abstract ":one::one: - Finalización de instalación del AD DS y del servidor DNS"
     - Después de un tiempo, aparecerán los servicios AD DS y DNS en nuestra máquina.
     - Servicio AD DS
     ![Descripción de la imagen](./img_5/img_5_55.png){ .margintop10 .marginbottom10 .marco}
     - Servicio DNS
     ![Descripción de la imagen](./img_5/img_5_56.png){ .margintop10 .marginbottom10 .marco}
 
-1. **Verificación final.** Para comprobar que el dominio y el DNS han quedado correctamente configurados, haremos lo siguiente:  
+!!! abstract ":one:two: - Verificación final"
+    Para comprobar que el dominio y el DNS han quedado correctamente configurados, haremos lo siguiente:  
     ==Realizar captura de pantalla==  
     - Ejecutar `dcdiag` en una consola para diagnosticar el estado del controlador de dominio.  
     ==Realizar captura de pantalla==  
