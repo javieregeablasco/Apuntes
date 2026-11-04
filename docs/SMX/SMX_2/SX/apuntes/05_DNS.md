@@ -1268,7 +1268,7 @@ Para la instalación del rol AD DS en un servidor Windows Server 2025 en AWS, se
     - Podemos comprobarlo, por ejemplo, ejecutando `whoami` en una consola.
     ![Descripción de la imagen](./img_5/img_5_53.png){ .margintop10 .marginbottom10 .marco}
 
-!!! abstract "":ten: - Consideraciones sobre AD DS"
+!!! abstract "":one::zero: - Consideraciones sobre AD DS"
 1. Active Directory necesita que **la IP del controlador de dominio no cambie**, ya que los registros DNS y SRV del dominio se generan sobre esa IP.
 
 1. En AWS, la IP privada de una instancia EC2 ya es **estática por naturaleza** mientras no se elimine la instancia (sobrevive a stop/start, reinicios, etc.), por lo que no es necesario realizar ningún cambio a nivel de AWS.
