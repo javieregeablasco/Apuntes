@@ -1305,6 +1305,7 @@ Para la instalación del rol AD DS en un servidor Windows Server 2025 en AWS, se
 
     - Abrir la consola "Usuarios y equipos de Active Directory" para confirmar que el dominio se ha creado correctamente.  
     ==Realizar captura de pantalla==  
+    
 <!--
 ## 16 - Tarea RA2-CEf - Configuración del servidor DNS
 
