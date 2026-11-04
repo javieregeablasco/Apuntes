@@ -1265,7 +1265,7 @@ Para la instalación del rol AD DS en un servidor Windows Server 2025 en AWS, se
 
 !!! abstract ":nine: - Nuevo inicio de sesión bajo AD DS"
     - Una vez reiniciada la máquina, veremos que aunque parezca que no ha ocurrido nada, ahora iniciamos sesión como **DOMINIO\Administrador** (cuenta de dominio) en lugar de como administrador local del servidor. Podemos comprobarlo, por ejemplo, ejecutando `whoami` en una consola.
-![Descripción de la imagen](./img_5/img_5_53.png){ .margintop10 .marginbottom10 .marco}
+    ![Descripción de la imagen](./img_5/img_5_53.png){ .margintop10 .marginbottom10 .marco}
 
 1. Active Directory necesita que **la IP del controlador de dominio no cambie**, ya que los registros DNS y SRV del dominio se generan sobre esa IP.
 
