@@ -1129,7 +1129,7 @@ Para verificar y solucionar problemas con las zonas DNS, los administradores de 
     ---
 
     ==Realizar captura de pantalla==  
-    
+
     - ¿Cuál sería la línea de comando para consultar los servidores autoritativos de aules.edu.gva.es?
         ![Descripción de la imagen](./img_5/img_5_28.png){ .margintop10 .marginbottom10}
     - ¿Cuál es el nombre canonico de aules.edu.gva.es?
@@ -1202,7 +1202,7 @@ Para verificar y solucionar problemas con las zonas DNS, los administradores de 
 
 ### 14.2 Instalación del rol AD DS en AWS
 
-Para la instalación del rol AD DS en un servidor Windows Server 2025 en AWS, podemos seguir los siguientes pasos:
+Para la instalación del rol AD DS en un servidor Windows Server 2025 en AWS, seguiremos los siguientes pasos:
 
 1. Lanzar una nueva instancia de Windows Server 2025 en AWS. En este caso definiremos en qué subred de la VPC se encuentra la instancia EC2, ya que esto puede afectar a la conectividad y al rendimiento de la red.  
     - Resumen de la configuración de la instancia (acordarse de seleccionar el par de clave `vockey` para el inicio de sesión y seleccionar `50GiB` de capacidad para el volumen de la instancia).  
