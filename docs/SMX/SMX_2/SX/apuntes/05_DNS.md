@@ -1225,8 +1225,8 @@ Para la instalación del rol AD DS en un servidor Windows Server 2025 en AWS, se
     ==Realizar captura de pantalla==
     ![Descripción de la imagen](./img_5/img_5_44.png){ .margintop10 .marginbottom10 .marco}
 
-!!! abstract ":four: - Dejamos el resto de opciones con los valores por defecto. En la página de `Confirmation` marcamos la opción de `Restart if required`.
-![Descripción de la imagen](./img_5/img_5_45.png){ .margintop10 .marginbottom10 .marco}
+    - Dejamos el resto de opciones con los valores por defecto. En la página de `Confirmation` marcamos la opción de `Restart if required`.
+    ![Descripción de la imagen](./img_5/img_5_45.png){ .margintop10 .marginbottom10 .marco}
 
 1. Una vez finalizada la instalación del servicio el sistema nos pedirá **promover el servidor a controlador de dominio**.
 ![Descripción de la imagen](./img_5/img_5_46.png){ .margintop10 .marginbottom10 .marco}
