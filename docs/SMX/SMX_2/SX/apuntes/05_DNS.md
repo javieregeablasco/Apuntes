@@ -1109,8 +1109,13 @@ Para verificar y solucionar problemas con las zonas DNS, los administradores de 
 
 !!! question "Enunciado paso 3"
     ==Preguntas a responder==  
+
     - ¿Quién realiza la consulta al servidor autoritativo para obtener información sobre el dominio aules.edu.gva.es?
+    
+    ---
+
     ==Realizar captura de pantalla==  
+
     - ¿Cuál sería la línea de comando para consultar los servidores autoritativos de aules.edu.gva.es?
         ![Descripción de la imagen](./img_5/img_5_23.png){ .margintop10 .marginbottom10}
 
@@ -1124,6 +1129,7 @@ Para verificar y solucionar problemas con las zonas DNS, los administradores de 
     ---
 
     ==Realizar captura de pantalla==  
+    
     - ¿Cuál sería la línea de comando para consultar los servidores autoritativos de aules.edu.gva.es?
         ![Descripción de la imagen](./img_5/img_5_28.png){ .margintop10 .marginbottom10}
     - ¿Cuál es el nombre canonico de aules.edu.gva.es?
@@ -1155,7 +1161,7 @@ Para verificar y solucionar problemas con las zonas DNS, los administradores de 
         ![Descripción de la imagen](./img_5/img_5_32-1.png){ .margintop10 .marginbottom10}
 
     ==Realizar captura de pantalla==  
-    
+
     - Redactar el comando para consultar la IP de uno de los servidores.
         ![Descripción de la imagen](./img_5/img_5_33-1.png){ .margintop10 .marginbottom10}
 
