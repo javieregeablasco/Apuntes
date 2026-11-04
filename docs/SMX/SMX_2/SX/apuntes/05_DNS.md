@@ -1275,6 +1275,7 @@ Para la instalación del rol AD DS en un servidor Windows Server 2025 en AWS, se
     - Para ello, buscaremos en EC2 → Detalles la IP privada actual de nuestra instancia (en este ejemplo, 172.31.39.10) y configuraremos esa **misma IP** como estática en las propiedades de red de Windows.
 
     !!! warning "Importante"
+        ==Realizar captura de pantalla==  
         - La IP que configuremos manualmente en Windows debe **coincidir siempre** con la IP privada que AWS ya tiene asignada a la instancia.
         - Si configuramos una IP diferente, la instancia perderá la conectividad de red, ya que AWS solo enruta tráfico a las IPs asociadas a esa interfaz de red (ENI).
 
