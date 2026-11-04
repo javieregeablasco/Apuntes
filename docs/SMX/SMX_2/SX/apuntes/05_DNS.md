@@ -1232,6 +1232,7 @@ Para la instalación del rol AD DS en un servidor Windows Server 2025 en AWS, se
 !!! abstract ":four: - Promover el servidor a controlador de dominio"
     - Una vez finalizada la instalación del servicio el sistema nos pedirá **promover el servidor a controlador de dominio**.
     ![Descripción de la imagen](./img_5/img_5_46.png){ .margintop10 .marginbottom10 .marco}
+    ==Realizar captura de pantalla==
     ![Descripción de la imagen](./img_5/img_5_47.png){ .margintop10 .marginbottom10 .marco}
 
 1. En `Deployment Configuration` seleccionamos `Add a new forest` e introducimos un nombre de dominio para el dominio de AD interno. Por el código de buenas prácticas de Microsoft se recomienda usar **el nombre de dominio de la empresa (de internet) + un subdominio (ad)**.
