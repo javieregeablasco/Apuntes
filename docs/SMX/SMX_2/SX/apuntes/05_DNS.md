@@ -1247,14 +1247,16 @@ Para la instalación del rol AD DS en un servidor Windows Server 2025 en AWS, se
     - Como AD requiere de un servidor DNS para funcionar, nos viene la opción DNS marcada por defecto.  
 
 !!! abstract ":six: - Opciones del servidor DNS"
-    - Para finalizar introduciremos la contraseña de restauración de servicios de directorio (**DSRM – Directory Services Restore Mode**), que se utiliza para iniciar el servidor en modo de recuperación de AD en caso de fallo grave. **No se recomienda que esta contraseña coincida con la contraseña de administrador**.
+    - Introduciremos la contraseña de restauración de servicios de directorio (**DSRM – Directory Services Restore Mode**), que se utiliza para iniciar el servidor en modo de recuperación de AD en caso de fallo grave. **No se recomienda que esta contraseña coincida con la contraseña de administrador**.
     ![Descripción de la imagen](./img_5/img_5_49.png){ .margintop10 .marginbottom10 .marco}
     - En `DNS Options` nos aparecerá un aviso indicando que no se puede crear una delegación para este servidor DNS, ya que no existe una zona superior (padre) que la administre.
-    - Es un aviso esperado al crear un bosque nuevo (todavía no existe ningún dominio DNS previo al que delegar) y lo podemos ignorar.
+    - Es un aviso esperado al crear un bosque nuevo (todavía no existe ningún dominio DNS previo al que delegar) y lo podemos ignorar.  
+    ==Realizar captura de pantalla==
     ![Descripción de la imagen](./img_5/img_5_50.png){ .margintop10 .marginbottom10 .marco}
 
-1. En `Additional Options` dejaremos el nombre por defecto de dominio de NetBIOS (solo para compatibilidad con equipos antiguos / obsoletos).
-![Descripción de la imagen](./img_5/img_5_51.png){ .margintop10 .marginbottom10 .marco}
+!!! abstract ":seven: - Opciones adicionales de AD DS"
+    - En `Additional Options` dejaremos el nombre por defecto de dominio de NetBIOS (solo para compatibilidad con equipos antiguos / obsoletos).
+    ![Descripción de la imagen](./img_5/img_5_51.png){ .margintop10 .marginbottom10 .marco}
 
 1. Continuamos por las ventanas de `Paths` (donde se define la ubicación de la base de datos de AD, los logs y el volumen SYSVOL) y `Review Options` (resumen de toda la configuración elegida).  
 En `Prerequisites Check` apuntaremos las advertencias para gestionarlas más adelante (entre ellas, es habitual que aparezca un aviso relacionado con la configuración de IP estática del servidor, que trataremos en el punto 12).
