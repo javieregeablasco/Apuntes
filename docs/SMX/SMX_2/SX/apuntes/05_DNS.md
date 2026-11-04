@@ -1069,11 +1069,14 @@ Para verificar y solucionar problemas con las zonas DNS, los administradores de 
 - El primer paso en la resolución de un nombre de dominio es consultar a un **servidor raíz**. Los servidores raíz son los encargados de dirigir las consultas hacia los servidores de nivel superior (TLD) correspondientes.
 
 !!! question "Enunciado paso 1"
+    ==Preguntas a responder==
     - ¿Quién realiza la consulta inicial al servidor raíz para obtener información sobre el TLD?
     - ¿Cuál es el TLD (Top-Level Domain) del dominio `www.aules.edu.gva.es`?
     - Consultar la base de datos de [iana.org](https://www.iana.org/domains/root/db) para verificar si el TLD está registrado.
     - Consultar la base de datos de [iana.org](https://www.iana.org/domains/root/servers) para obtener la lista de servidores raíz y sus direcciones IP (también se puede realizar la consulta a [root-servers.org](https://www.root-servers.org/)).
     - ¿Cuál es la dirección IP del servidor raíz `Verisign, Inc.`?
+
+    ==Realizar captura de pantalla==
     - Para realizar la consulta al servidor raíz, podemos utilizar herramientas como `nslookup` o `dig`. Por ejemplo, podemos ejecutar el siguiente comando en la terminal:
         ```bash
         nslookup -type=NS es a.root-servers.net
