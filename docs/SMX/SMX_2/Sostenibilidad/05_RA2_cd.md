@@ -95,8 +95,95 @@ schedule: 1h/w
 
 ### 2.3 Medidas Transversales
 
-- **Gobernanza y Sector TIC**
+- **Gobernanza y sector TIC**
     1. **Finanzas sostenibles y fiscalidad**: Redirección de flujos de capital privado hacia inversiones ASG (ambientales, sociales y de gobernanza) y aplicación de reformas fiscales progresivas sobre los superricos y grandes emisores
     1. **Debida diligencia y transparencia corporativa**: Marco normativo que obliga a las empresas a auditar sus cadenas de suministro, previniendo impactos adversos en derechos humanos y medio ambiente.
     1. **Sostenibilidad digital e informática verde (Green IT)**: Reducción de la huella de carbono en el sector de las TIC mediante optimización de código, minimización de datos (data minimization), gestión FinOps/GreenOps en servidores en la nube y uso de modelos de Inteligencia Artificial eficientes (cuantización e inferencia en lotes).
 
+## 3 - Foro de discusión
+
+!!! question "Gestión de la Escasez Hídrica: ¿Deben aplicarse restricciones operativas a los sectores productivos o priorizar estrictamente el consumo humano y los caudales ecológicos?"
+    - Argumentos a favor de priorizar la salud pública y el medio ambiente:
+    - Argumentos a favor de salvaguardar el suministro a la agricultura e industria:
+
+<!--
+
+Criterios trabajados:
+    c) Impacto de la sequía en el sector primario e industrial vs. 
+    d) Gestión eficiente del agua
+
+A favor de priorizar la salud pública y el medio ambiente:
+- La contaminación y escasez de agua dulce provocan problemas gastrointestinales, deshidratación y riesgos sanitarios.
+- El desequilibrio en cuencas con alto estrés hídrico degrada gravemente los ecosistemas acuáticos y continentales.
+
+A favor de salvaguardar el suministro a la agricultura e industria:
+- Las restricciones severas provocan la caída del potencial productivo agrícola y pérdidas directas de cosechas, además de restar capacidad operativa a industrias intensivas como la alimentaria, la textil o la minería
+
+-->
+
+!!! question "¿Tienen las grandes corporaciones y rentas altas la obligación de financiar la adaptación climática de los colectivos vulnerables?"
+    - A favor de la redistribución e impuestos al carbono:
+    - A favor de no sobrecargar fiscalmente al tejido empresarial:
+
+<!--
+
+Criterios trabajados:
+    c) Desigualdad y vulnerabilidad social vs. 
+    d) Fiscalidad ambiental y justicia redistributiva.
+
+# A favor de la redistribución e impuestos al carbono: 
+- Existe una clara injusticia climática: las poblaciones de menores ingresos sufren con mayor dureza las olas de calor y la pobreza energética, mientras que los hogares de mayores ingresos y grandes corporaciones generan la mayor parte de las emisiones domésticas. Por ello, se propone una fiscalidad sobre grandes contaminantes para financiar viviendas ecoeficientes y protección social.
+
+# A favor de no sobrecargar fiscalmente al tejido empresarial: 
+- El sector industrial, el transporte y la energía absorben ya la mayor carga financiera derivada del reto de la descarbonización e impuestos al carbono.
+- Imponer impuestos excesivos arriesga mermar la competitividad industrial frente a otros mercados.
+
+-->
+
+!!! question "Transición laboral exigente ¿Es justificable acelerar la eliminación de "empleos marrones" para cumplir metas ambientales, a pesar del impacto en el empleo industrial y rural?
+    - A favor de acelerar el cierre y la descarbonización: 
+    - A favor de ritmos de transición graduales:
+
+<!--
+Criterios trabajados: 
+    c) Impactos del ajuste en sectores industriales y primarios vs. 
+    d) Estrategias de Transición Justa y recualificación (reskilling).
+    
+# A favor de acelerar el cierre y la descarbonización: 
+Los sectores de transporte, energía e industria representan conjuntamente el 63,6% de las emisiones de GEI16. Mantener empleos contaminantes solo aplaza la crisis; la transición ecológica genera oportunidades de empleo de mayor cualificación en energías renovables, rehabilitación y economía circular.
+
+# A favor de ritmos de transición graduales:
+Los empleos "marrones" se concentran a menudo en sectores maduros con trabajadores de cualificación media-baja24. Si la velocidad de descarbonización supera la capacidad real de recualificación profesional (reskilling) mediante Políticas Activas de Empleo (PAE), se genera despoblación y desprotección territorial
+-->
+
+!!! question "Protección y salud laboral frente al cambio climático ¿Deben imponerse limitaciones normativas a la jornada de trabajo durante episodios extremos de calor?
+    - A favor de la regulación estatal estricta.
+    - A favor de la flexibilidad negociada por empresas y sindicatos.
+
+<!--
+Criterios trabajados: 
+c) Repercusiones del clima en la salud laboral vs. d) Prevención de riesgos y negociación colectiva verde.
+
+# A favor de la regulación estatal estricta: 
+Las altas temperaturas e incrementos de concentración de ozono provocan un aumento masivo de la morbilidad y mortalidad. 
+La inclusión de la protección ante fenómenos climáticos extremos en la Estrategia Española de Seguridad y Salud en el Trabajo (EESST 2023-2027) y en la legislación laboral es una obligación para salvaguardar la vida.
+
+# A favor de la flexibilidad negociada por empresas y sindicatos: 
+Cada sector productivo presenta realidades operativas distintas; por ello, la regulación del tiempo de trabajo debe articularse mediante la negociación colectiva verde (distribución irregular de la jornada, teletrabajo o ajustes estacionales) para mantener la viabilidad de las empresas sin destruir tejido productivo
+-->
+
+!!! question "Responsabilidad empresarial y sostenibilidad digital: ¿Debe obligarse a las empresas a auditar sus cadenas de valor (debida diligencia) y adoptar prácticas de informática verde (Green IT)?"
+    - A favor de marcos regulatorios obligatorios.
+    - A favor de incentivos voluntarios y flexibilidad de mercado.
+
+<!--
+Criterios trabajados: 
+c) Riesgos reputacionales y de cadena de suministro vs. d) Debida diligencia y economía circular en servicios y TIC
+
+# A favor de marcos regulatorios obligatorios: 
+Las empresas deben asumir la debida diligencia empresarial para prevenir vulneraciones de derechos laborales y daños ambientales en su cadena de valor. Además, el sector TIC —como elemento tractor de la economía— debe descarbonizar sus desarrollos y servidores altamente intensivos en energía
+
+# A favor de incentivos voluntarios y flexibilidad de mercado: 
+La auditoría continua de proveedores e infraestructuras digitales implica costes burocráticos y tecnológicos elevados que pueden perjudicar especialmente a las pymes y microempresas. Es preferible fomentar la adopción voluntaria de la economía circular (principios de las 3R y simbiosis industrial).
+
+-->
