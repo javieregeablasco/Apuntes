@@ -52,7 +52,7 @@ schedule: 1h/w
 
 - Los sectores productivos enfrentan tres categorías principales de riesgo: **riesgos físicos** (daños climáticos directos), **riesgos de transición** (adaptación regulatoria y tecnológica) y **riesgos reputacionales** (pérdida de la licencia social para operar).
 
- ![img](./img_5/img_5_1.jpeg){.sietecinco}
+ ![img](./img_5/img_5_1.jpeg){.cien}
 
 ---
 
@@ -77,7 +77,7 @@ schedule: 1h/w
 
 - Las respuestas estratégicas para mitigar la degradación ambiental y **construir resiliencia** abarcan políticas públicas, transformación tecnológica y medidas laborales organizadas en torno a los **Objetivos de Desarrollo Sostenible (ODS)**.
 
- ![img](./img_5/img_5_2.jpeg){.sietecinco}
+ ![img](./img_5/img_5_2.jpeg){.cien }
 
 ### 2.1 Medidas ambientales y tecnológicas
 
@@ -141,7 +141,7 @@ Criterios trabajados:
 -->
 
 !!! question "Transición laboral exigente ¿Es justificable acelerar la eliminación de "empleos marrones" para cumplir metas ambientales, a pesar del impacto en el empleo industrial y rural?
-    - A favor de acelerar el cierre y la descarbonización: 
+    - A favor de acelerar el cierre y la descarbonización:
     - A favor de ritmos de transición graduales:
 
 <!--
