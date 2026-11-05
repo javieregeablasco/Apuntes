@@ -187,3 +187,7 @@ Las empresas deben asumir la debida diligencia empresarial para prevenir vulnera
 La auditoría continua de proveedores e infraestructuras digitales implica costes burocráticos y tecnológicos elevados que pueden perjudicar especialmente a las pymes y microempresas. Es preferible fomentar la adopción voluntaria de la economía circular (principios de las 3R y simbiosis industrial).
 
 -->
+
+## 4 - Mapa mental de la unidad didáctica
+
+![imagen](./img_5/img_5_3.png)
