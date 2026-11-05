@@ -20,241 +20,48 @@ schedule: 1h/w
 
 |**Criterios de evaluación de la unidad didáctica:**|
 ||
-|**a)** Se han identificado los principales retos ambientales y sociales. |
-|**b)** Se han relacionado los retos ambientales y sociales con el desarrollo de la actividad económica. |
+|**c)** Se ha analizado el efecto de los impactos ambientales y sociales sobre las personas y los sectores productivos.|
+|**d)** Se han identificado las medidas y acciones encaminadas a minimizar los impactos ambientales y sociales.|
 
-## 1 - Retos ambientales y sociales en el Desarrollo Sostenible
+## 1 - Impacto ambiental y sociales sobre las personas y los sectores productivos
 
-- La sociedad contemporánea se enfrenta a una crisis sistémica donde los desafíos ambientales y sociales están intrínsecamente interconectados de forma bidireccional.
-- El deterioro de los ecosistemas mina el desarrollo socioeconómico, mientras que la desigualdad y los modelos insostenibles de producción y consumo aceleran la degradación ambiental.
+- Los problemas ambientales y los desafíos sociales actúan como fuerzas externas negativas que alteran la base de la actividad económica, desestabilizando el bienestar ciudadano e incrementando los costes y riesgos operacionales de las empresas.
 
-![img](./img_4/img_4_2.jpeg){.cien}
+### 1.1 Efectos sobre las Personas
 
-### 🌎 Desafíos ambientales principales
+- **Salud y Bienestar Físico**:
 
-!!! abstract "1. Cambio climático y transición energética"
-    ![img](./img_4/img_4_3.jpg){.sietecinco}
+    1. La contaminación atmosférica incrementa drásticamente las enfermedades respiratorias y cardiovasculares.
+    1. Asimismo, la degradación de las aguas dulces provoca brotes gastrointestinales y el aumento global de temperaturas extiende el rango geográfico de transmisión de vectores infecciosos como el dengue o la malaria.
 
-    - Aumento de las temperaturas globales provocado por la emisión de Gases de Efecto Invernadero (GEI) procedentes de combustibles fósiles.
-    - Provoca un incremento en la frecuencia e intensidad de fenómenos meteorológicos extremos (olas de calor, sequías prolongadas, precipitaciones torrenciales y DANA), el aumento del nivel del mar y la alteración de los patrones climáticos.
+- **Seguridad Alimentaria y Humana**:
 
-!!! abstract "2. Pérdida de biodiversidad y colapso de ecosistemas"
-    ![img](./img_4/img_4_4.jpg){.sietecinco}
+    1. La desertificación, la erosión del suelo y las sequías recurrentes reducen los rendimientos agrícolas, amenazando la disponibilidad de alimentos básicos.
+    1. Ante la pérdida de sustento o la ocurrencia de eventos climáticos extremos, se generan desplazamientos forzados de población (migrantes climáticos), lo que aumenta la presión sobre los servicios urbanos y el riesgo de conflictos por recursos escasos
 
-    - Extinción acelerada de especies y destrucción de hábitats clave (bosques, humedales, arrecifes) por sobreexplotación, deforestación y contaminación, reduciendo la resiliencia de la naturaleza y los servicios ecosistémicos.
+- **Justicia Climática y Economía Familiar**:
 
-!!! abstract "3. Contaminación y gestión ineficiente de residuos"
-    ![img](./img_4/img_4_5.jpg){.sietecinco}
+    1. Los grupos socioeconómicamente más vulnerables sufren los efectos negativos de manera desproporcionada al contar con menor capacidad financiera de adaptación o aseguramiento.
+    1. A nivel doméstico, esto se traduce en pérdidas de ingresos por el colapso de actividades locales (agrícolas, pesqueras o turísticas) y en una mayor carga de gastos por el encarecimiento de alimentos y energía.
 
-    -Presencia masiva de plásticos, microplásticos, vertidos químicos e industriales y emisiones contaminantes en el aire, agua y suelo.
+### 1.2 Efectos sobre los Sectores Productivos
 
-!!! abstract "4. Escasez hídrica y estrés de agua dulce"
-    ![img](./img_4/img_4_6.jpg){.sietecinco}
+- Los sectores productivos enfrentan tres categorías principales de riesgo: **riesgos físicos** (daños climáticos directos), **riesgos de transición** (adaptación regulatoria y tecnológica) y **riesgos reputacionales** (pérdida de la licencia social para operar).
 
-    - Desequilibrio creciente entre la demanda humana/productiva y la disponibilidad real de agua dulce, agravado por el cambio climático y la contaminación de acuíferos.
+ ![img](./img_4/img_4_12.avif){.sietecinco}
 
-!!! abstract "5. Degradación del suelo y desertificación"
-    ![img](./img_4/img_4_7.jpg){.sietecinco}
+- **Sector Primario (Agricultura, Ganadería y Pesca)**:
+    1. **Agricultura**: Disminuye el potencial productivo del suelo por erosión y salinización de acuíferos, exigiendo inversiones elevadas en sistemas de riego eficientes y seguros agrarios910.
+    1. **Ganadería**: Se registran mermas productivas por estrés térmico en los animales, mayor morbilidad y desajuste en dietas por escasez de pastos
+    1. **Pesca**: Sufre el colapso de caladeros y el desplazamiento de especies a causa del aumento de temperatura marina, la acidificación oceánica y la desoxigenación
 
-    - Pérdida de la fertilidad de la tierra, erosión y salinización debido a la agricultura intensiva, la deforestación y el aumento del estrés térmico.
-
-### 👥 Desafíos Sociales Principales
-
-!!! abstract "1. Pobreza, desigualdad y brecha climática"
-    ![img](./img_4/img_4_8.webp){.sietecinco}
-
-    - Gran disparidad socioeconómica en el acceso a recursos y oportunidades.
-    - La exposición a los riesgos ambientales es inequitativa: las poblaciones con menor nivel de renta sufren los mayores daños a pesar de haber contribuido sustancialmente menos a las emisiones globales.
-
-!!! abstract "2. Acceso limitado a servicios básicos e inseguridad alimentaria"
-    ![img](./img_4/img_4_9.jpeg){.sietecinco}
-
-    - Dificultades para garantizar agua potable, saneamiento digno, energía asequible y alimentos nutritivos debido a caídas en la producción agropecuaria y sequías.
-
-!!! abstract "3. Desplazamientos y migraciones climáticas"
-    ![img](./img_4/img_4_10.jpeg){.sietecinco}
-
-    - Éxodo rural y migraciones forzosas internas e internacionales provocadas por la pérdida de medios de vida, desertificación, inundaciones o escasez extrema de agua.
-
-!!! abstract "4. Reto demográfico y vulnerabilidad territorial"
-    ![img](./img_4/img_4_11.jpeg){.sietecinco}
-
-    - Concentración poblacional en grandes áreas urbanas y zonas costeras, dejando entornos rurales envejecidos y desatendidos ante catástrofes naturales
-
-## 2. Impactos sobre las personas (eje social)
-
-![img](./img_4/img_4_12.avif){.sietecinco}
-
-Los impactos ambientales y de la transición afectan de manera directa e inmediata a la salud, la economía doméstica, la equidad de género y los medios de vida de la ciudadaníar.
-
-|Dimensión de impacto|Manifestaciones clave y evidencia|
-|||
-|**Salud Pública**|**- Mortalidad por calor extremo:** Incremento de muertes directas por olas de calor (alcanzando 116 fallecidos por millón en España, muy por encima de la media europea).<br>**- Afecciones respiratorias y cardiovasculares:** Agravadas por la concentración de ozono troposférico y partículas finas.<br>**- Enfermedades infecciosas y gastrointestinales:** Expansión de vectores (dengue, malaria) y patógenos en el agua por mala calidad o sequía.
-|**Economía Doméstica**|**- Pobreza Energética:** Incapacidad de mantener una temperatura adecuada en el hogar en invierno o verano debido al bajo aislamiento edilicio y la volatilidad tarifaria.<br>**- Encarecimiento de la Cesta de la Compra:** Aumento sostenido de precios en alimentos frescos e insumos básicos por caídas de cosechas.<br>**- Gastos Extraordinarios:** Coste adicional directo por la compra de agua embotellada o camiones cisterna en municipios con escasez.|
-|**Injusticia y Desigualdad**|**- Afectación desproporcionada:** Niños, ancianos, personas con discapacidades, hogares monomarentales y migrantes son los más vulnerables.<br>**- Desigualdad de Emisiones:** Mientras el 70% de la población habita en municipios donde la temperatura subió más de 1,5 °C (con rentas familiares bajo la media), las grandes fortunas y corporaciones registran huellas de carbono drásticamente superiores.|
-|**Empleo y Trabajo**|**- Pérdida de Puestos Directos:** Extinción de empleo en agricultura tradicional y sectores dependientes de recursos amenazados.<br> **- Riesgos Laborales Térmicos:** Mayor exposición a golpe de calor en trabajos al aire libre (construcción, agricultura).|
-
-## 3. Impactos sobre los sectores productivos (eje económico)
-
-![img](./img_4/img_4_13.png){.sietecinco}
-
-Las actividades económicas enfrentan riesgos físicos (daños directos por el clima) y riesgos de transición (costes de adaptación normativa, penalizaciones al carbono y cambios de demanda).
-
-![img](./img_4/img_4_14.jpeg){.cien }
-
-### 🌽 Sector primario (agricultura, ganadería y pesca)
-
-!!! abstract "1. Agricultura"
-    ![img](./img_4/img_4_15.jpeg){.sietecinco }
-
-    - Reducción drástica del potencial productivo y pérdida de cosechas por sequías y lluvias torrenciales (p. ej., pérdidas anuales estimadas en 1.500 millones de euros en España por escasez hídrica y caídas de más del 20% de ingresos en explotaciones locales). Pérdida de suelos por erosión y salinización de acuíferos
-
-!!! abstract "2. Ganadería"
-    ![img](./img_4/img_4_16.jpg){.sietecinco }
-
-    - Estrés térmico animal que reduce la productividad de leche y carne, aumentando la morbilidad y los costes operativos por la escasez de pastos y mayor gasto en refrigeración o piensos.
-
-!!! abstract "3. Pesca y acuicultura"
-    ![img](./img_4/img_4_17.jpg){.sietecinco }
-
-    - Desplazamiento y reducción de caladeros por el aumento de la temperatura del mar, la acidificación oceánica y la pérdida de biodiversidad
-
-### 🏭 Sector industrial y energético
-
-!!! abstract "1. Industria manufacturera y agroalimentaria"
-    ![img](./img_4/img_4_18.jpg){.sietecinco }
-
-    - Interrupción de cadenas de suministro por eventos meteorológicos y sobrecostes por restricción de insumos clave como el agua (especialmente intensivo en minería, textil, bebidas y procesado de alimentos).
-    - Necesidad de asumir inversiones de descarbonización e impuestos al carbono para mantener la competitividad.
-
-!!! abstract "2. Sector energético"
-    ![img](./img_4/img_4_19.jpg){.sietecinco }
-
-    - La menor disponibilidad de agua compromete la generación hidroeléctrica, la producción de biomasa y los sistemas de refrigeración de plantas no renovables.
-    - A su vez, el cambio en los patrones térmicos altera la demanda energética provocando picos de consumo en verano.
-
-### 🏙️ Sector servicios, turismo, transporte y finanzas
-
-!!! abstract "1. Turismo"
-    ![img](./img_4/img_4_20.jpg){.sietecinco }
-
-    - Deterioro de atractivos naturales (blanqueamiento de corales, erosión de playas, falta de nieve en estaciones de esquí), sobrecalentamiento estival en zonas del sur y alteración de las temporadas de afluencia
-
-!!! abstract "2. Transporte y logística"
-    ![img](./img_4/img_4_21.webp){.sietecinco }
-
-    - Daños en infraestructuras viales y ferroviarias por eventos extremos y retrasos logísticos por sequías en vías fluviales.
-    - Desafío de renovar flotas hacia vehículos de cero emisiones ante el diferencial de precios de los combustibles limpios.
-
-!!! abstract "3. Sector financiero y seguros"
-    ![img](./img_4/img_4_22.png){.sietecinco }
-
-    - Aumento del riesgo de impago en carteras crediticias expuestas al clima y fuerte elevación de las primas e indemnizaciones por siniestros y catástrofes naturales.
-
-## 4. Acciones y respuestas para minimizar los impactos
-
-Para frenar la degradación y construir resiliencia, las respuestas abarcan iniciativas ambiental-tecnológicas, transformaciones productivas y políticas de protección social.
-
-![img](./img_4/img_4_23.jpeg){.sietecinco }
-
-### 🌎 Medidas ambientales y de eficiencia productiva
-
-![img](./img_4/img_4_24.webp){.sietecinco }
-
-!!! abstract "Mitigación climática y transición energética"
-    - **Descarbonización del Mix:** Sustitución gradual de combustibles fósiles por energías renovables (fotovoltaica, eólica, geotérmica) y despliegue de almacenamiento energético.
-    - **Eficiencia y Rehabilitación:** Planes masivos de optimización térmica en viviendas e instalaciones industriales (sistemas LED, aislamiento, climatización de alto rendimiento).
-    - **Movilidad Sostenible:** Electrificación del transporte, potenciación del transporte público y fomento de biocombustibles avanzados en aviación y transporte pesado.
-    - **Fiscalidad Ambiental:** Aplicación de precios al carbono y revisión de subsidios para internalizar costes ambientales.
-
-!!! abstract "Gestión de recursos y economía circular"
-    - **Estrategia R (Reducir, Reutilizar, Reparar, Reciclar):** Implantación de diseño modular, ecodiseño para alargar la vida útil del producto, eliminación de plásticos de un solo uso y valorización de residuos.
-    - **Simbiosis Industrial:** Configuración de redes donde los subproductos o residuos de una empresa actúan como materia prima de otra.
-    - **Ciclo Eficiente del Agua:** Modernización de regadíos (riego por goteo inteligente), tratamiento y reutilización de aguas grises/residuales y detección digital de fugas en redes.
-
-!!! abstract "Restauración ecológica y agroecología"
-    - **Soluciones Basadas en la Naturaleza:** Reforestación con especies autóctonas, restauración de humedales y ríos, y creación de infraestructura verde urbana para mitigar islas de calor.
-    - **Agricultura de Conservación:** Rotación de cultivos, reducción de fertilizantes sintéticos y pesticidas, y manejo de suelos vivos para retener agua y capturar carbono.
-
-### 👥 Medidas sociales, laborales y de transición justa
-
-![img](./img_4/img_4_25.jpg){.sietecinco }
-
-!!! abstract "Políticas activas de empleo (PAE) y competencias verdes"
-    - **Recualificación (Reskilling) y Capacitación (Upskilling):** Programas de formación continua para adaptar la mano de obra de sectores en declive ("empleos marrones") hacia actividades sostenibles ("empleos verdes") como la rehabilitación energética, la gestión de residuos o el montaje de renovables.
-    - **Fomento del Empleo Joven y de Género:** Incentivos mediante convocatorias específicas (como el programa Empleoverde+) y fomento de titulaciones STEM e insumos sostenibles entre colectivos infrarepresentados.
-
-!!! abstract "Estrategia de transición justa"
-    - **Convenios de Transición Justa:** Planes de reconversión territorial para comarcas afectadas por el cierre de minas o centrales térmicas, incluyendo bolsas de trabajo prioritarias, prejubilaciones y proyectos de restauración ambiental.
-    - **Protección Social y Redistribución:** Mecanismos de compensación para familias en situación de pobreza energética, bonos sociales y subsidios directos a la rehabilitación de vivienda en barrios de baja renta.
-
-!!! abstract "Diálogo social y marco laboral"
-    - **Negociación Colectiva Verde:** Inclusión de cláusulas ambientales y de adaptación climática en convenios colectivos, impulsadas por acuerdos marco entre patronal y sindicatos.
-    - **Mecanismos de Flexibilidad e Higiene Laboral:** Integración de protocolos específicos en la Prevención de Riesgos Laborales frente a fenómenos extremos (olas de calor) y uso de sistemas de flexibilidad interna (como los ERTE o Mecanismo RED) para salvaguardar el empleo en crisis climáticas.
-
-## 5 - Foro de discusión
-
-!!! question "¿Debería aplicarse una fiscalidad ambiental más severa a las grandes corporaciones y rentas altas para financiar la adaptación climática de los hogares vulnerables?"
-    - Argumentos a favor.
-    - Argumentos en contra.
-
-<!--     
-
-* **A favor (Justicia Climática):**
-  * **Argumento:** Existe una profunda huella de desigualdad: un porcentaje muy pequeño de la población con mayores ingresos y un grupo reducido de grandes corporaciones generan una parte sustancial de las emisiones directas. Sin embargo, la mayor exposición al calor extremo, la pobreza energética y las inundaciones recae sobre los hogares con menores ingresos. Aplicar impuestos redistributivos e internalizar costes ambientales es necesario para financiar subsidios directos a la rehabilitación de viviendas y la resiliencia social.
-* **En contra (Competitividad Económica):**
-  * **Argumento:** Una sobrecarga fiscal o regulatoria excesiva sobre las industrias clave y empresas tractoras puede incrementar drásticamente sus costes operativos. Esto arriesga deslocalizaciones productivas, pérdida de inversión privada en infraestructura verde y destrucción agregada de empleo en sectores estratégicos. La financiación climática debe provenir del crecimiento e incentivos de mercado, no de penalizaciones impositivas. 
-
--->
-
-!!! question "En periodos de sequía severa, ¿se debe priorizar el corte/restricción del agua al sector agrícola e industrial o mantener el suministro para evitar recesiones y desabastecimiento?"
-    - Argumentos a favor.
-    - Argumentos en contra.
-
-<!--
-
-* **A favor de priorizar ecosistemas y consumo humano directo:**
-  * **Argumento:** El agua dulce y la calidad ambiental son un determinante directo de la salud pública; la escasez crítica provoca enfermedades gastrointestinales, problemas de saneamiento y deterioro permanente de los acuíferos[12]. Garantizar los caudales ecológicos y el agua potable urbana es indispensable antes de derivar caudales a actividades intensivas[14].
-* **A favor de garantizar el suministro al sector primario y productivo:**
-  * **Argumento:** La agricultura y la ganadería sufren reducciones directas de cosecha, pérdidas del potencial productivo del suelo e incrementos masivos de costes ante la falta de agua[19]. Limitar el riego en crisis hídricas provoca caídas superiores al 20-50% en los ingresos agrarios, quiebra de explotaciones, desempleo rural y un encarecimiento generalizado de los alimentos frescos en la cesta de la compra[3]
-
--->
-
-!!! question "¿Es éticamente aceptable acelerar el cierre de industrias contaminantes ("empleos marrones") aun a costa de generar desempleo a corto plazo en comarcas dependientes de ellas?"
-    - Argumentos a favor.
-    - Argumentos en contra.
-
-<!--
-
-* **A favor del cierre urgente y descarbonización:**
-  * **Argumento:** Cumplir los objetivos de neutralidad climática exige eliminar paulatinamente las actividades con alta intensidad de emisiones[11][26]. Retrasar la transición agrava los riesgos físicos futuros[14][19]. Además, las inversiones verdes generarán nuevos puestos de trabajo con mayores cualificaciones en energías limpias, reciclaje, rehabilitación y sectores de agua a medio y largo plazo[11].
-* **En contra / A favor de una transición más gradual:**
-  * **Argumento:** El coste social de destruir "empleos marrones" recae desproporcionadamente en trabajadores de mediana edad y baja cualificación con difícil reincorporación al mercado de trabajo[26][29]. Si el ritmo de cierre supera la capacidad real de reconversión mediante el *reskilling* (recualificación) y las Políticas Activas de Empleo, se aboca a comarcas enteras al despoblamiento y la exclusión[18].
-
--->
-
-!!! question "¿Deben imponerse límites obligatorios al turismo de masas en épocas estivales para proteger la capacidad hídrica y ambiental de los municipios?""
-    - Argumentos a favor.
-    - Argumentos en contra.
-
-<!--
-
-* **A favor de limitar el turismo e imponer pautas de economía circular:**
-  * **Argumento:** El turismo estival intensifica la presión sobre los recursos hídricos, la generación de residuos y el consumo energético en zonas costeras y de interior vulnerables[33][34]. La implantación obligatoria de prácticas circulares (reutilización de agua, tasa turística verde, reducción de plásticos) es imprescindible para evitar la degradación irreversible de las playas y parajes naturales[33].
-* **En contra de restricciones severas:**
-  * **Argumento:** El turismo representa más del 12% del PIB y del empleo en países como España[33].Imponer barreras de afluencia o cargas reglamentarias desmedidas puede perjudicar la competitividad frente a otros destinos internacionales, destruyendo puestos de trabajo en un sector que ya enfrenta retos por la alteración de las temporadas térmicas[33][37].
-
--->
-
-!!! question "¿Debe el Estado financiar al 100% la rehabilitación térmica de las viviendas de bajos ingresos o debe dejarse a la iniciativa e inversión privada?"
-    - Argumentos a favor.
-    - Argumentos en contra.
-
-<!--
-
-* **A favor del subsidio público total:**
-  * **Argumento:** Cerca de un tercio de la población no puede mantener una temperatura adecuada en verano o invierno por ineficiencia de sus casas y altos costes energéticos[6]. Las familias con rentas bajas no pueden cofinanciar las obras ni acceder a las ayudas habituales por falta de liquidez[6]. Cubrir la totalidad del coste es una medida de justicia e higiene pública que reduce enfermedades y gastos en el sistema sanitario[7].
-* **En contra de la financiación pública completa:**
-  * **Argumento:** Asumir el 100% del coste supeditado a las arcas públicas generaría una carga fiscal insostenible y podría distorsionar el mercado inmobiliario[8][11]. Lo adecuado es combinar incentivos fiscales, créditos blandos y responsabilidad compartida con los propietarios para optimizar el uso de los fondos públicos[8].
-
--->
+- **Sector Industrial y Energético**:
+    1. **Industria**: Las industrias intensivas en consumo de agua (minería, textil, bebidas, procesamiento alimentario) enfrentan restricciones operativas y sobrecostes13. Sectores clave como la industria, el transporte y la energía son responsables del 63,6% de las emisiones de GEI en España, asumiendo los mayores costes de descarbonización e impuestos al carbono1415.Energía: La menor disponibilidad de agua compromete la generación hidroeléctrica, la producción de biomasa y la refrigeración de plantas no renovables, mientras las olas de calor disparan los picos de demanda eléctrica1617.Sector Servicios, Turismo y Finanzas:Turismo: Representa alrededor del 12% del PIB y del empleo en España, pero padece la degradación de atractivos naturales (blanqueamiento de corales, erosión costera, menor acumulación de nieve) y la pérdida de confort climático en verano18more_horiz.Finanzas y Seguros: Las entidades financieras asumen mayores riesgos de impago en sus carteras crediticias y las aseguradoras enfrentan desembolsos elevados por la alta siniestralidad de catástrofes naturales21.Criterio d) Identificación de las medidas y acciones encaminadas a minimizar los impactos ambientales y socialesLas respuestas estratégicas para mitigar la degradación ambiental y construir resiliencia abarcan políticas públicas, transformación tecnológica y medidas laborales organizadas en torno a los Objetivos de Desarrollo Sostenible (ODS)2.                     ACCIONES PARA MINIMIZAR IMPACTOS
+                                     │
+      ┌──────────────────────────────┼──────────────────────────────┐
+      ▼                              ▼                              ▼
+MEDIDAS AMBIENTALES           MEDIDAS SOCIALES             MEDIDAS TRANSVERSALES
+• Transición energética       • Transición justa           • Marcos ESG / Fiscalidad
+• Economía Circular (3R)      • Seguridad laboral (EESST)  • Alianzas e Informática
+• Soluciones de Naturaleza    • Recualificación (Reskilling) Verde (GreenIT / FinOps)
+1. Medidas Ambientales y TecnológicasMitigación y Transición Energética: Descarbonización mediante el despliegue de energías renovables (fotovoltaica, eólica, geotérmica), electrificación de la movilidad, rehabilitación térmica de viviendas y aplicación del precio al carbono para internalizar costes ambientales22more_horiz.Gestión de Recursos y Economía Circular: Aplicación del principio de las 3R (Reducir, Reutilizar, Reciclar), adopción de la simbiosis industrial (aprovechamiento de subproductos de una empresa como materia prima de otra) y optimización del ciclo del agua mediante riego por goteo inteligente y reutilización de aguas grises25.Restauración Ecológica y Agroecología: Creación de reservas naturales, reforestación con especies autóctonas y transición hacia la agricultura de conservación para retener humedad y fijar carbono en el suelo26.2. Medidas Sociales y de Transición JustaProtección Laboral y Salud: Integración de los riesgos climáticos y del estrés térmico en la prevención de riesgos laborales (destacando el Marco de la Estrategia Española de Seguridad y Salud en el Trabajo 2023-2027)27.Políticas Activas de Empleo (PAE) y Competencias Verdes: Impulso a la recualificación (reskilling) y actualización de competencias (upskilling) para reconvertir a trabajadores de sectores "marrones" hacia "empleos verdes" (como a través del programa Empleoverde+)2829.Mecanismos de Equidad y Transición Justa: Aplicación de convenios de transición justa con bolsas de trabajo prioritarias para trabajadores afectados, prejubilaciones bonificadas y ayudas directas a familias vulnerables para combatir la pobreza energética2830.3. Medidas Transversales, Gobernanza y Sector TICFinanzas Sostenibles y Fiscalidad: Redirección de flujos de capital privado hacia inversiones ESG (ambientales, sociales y de gobernanza) y aplicación de reformas fiscales progresivas sobre los superricos y grandes emisores2431.Debida Diligencia y Transparencia Corporativa: Marco normativo que obliga a las empresas a auditar sus cadenas de suministro, previniendo impactos adversos en derechos humanos y medio ambiente3233.Sostenibilidad Digital e Informática Verde (Green IT): Reducción de la huella de carbono en el sector de las TIC mediante optimización de código, minimización de datos (data minimization), gestión FinOps/GreenOps en servidores en la nube y uso de modelos de Inteligencia Artificial eficientes (cuantización e inferencia en lotes)34.
