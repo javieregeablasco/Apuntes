@@ -155,7 +155,7 @@ Las actividades económicas enfrentan riesgos físicos (daños directos por el c
 
 Para frenar la degradación y construir resiliencia, las respuestas abarcan iniciativas ambiental-tecnológicas, transformaciones productivas y políticas de protección social.
 
-![img](./img_4/img_4_23.jpeg){.sietecinco }
+![img](./img_4/img_4_23.jpeg){.cien }
 
 ### 🌎 Medidas ambientales y de eficiencia productiva
 
@@ -178,7 +178,7 @@ Para frenar la degradación y construir resiliencia, las respuestas abarcan inic
 
 ### 👥 Medidas sociales, laborales y de transición justa
 
-![img](./img_4/img_4_25.jpg){.sietecinco }
+![img](./img_4/img_4_25.jpg){.cien }
 
 !!! abstract "Políticas activas de empleo (PAE) y competencias verdes"
     - **Recualificación (Reskilling) y Capacitación (Upskilling):** Programas de formación continua para adaptar la mano de obra de sectores en declive ("empleos marrones") hacia actividades sostenibles ("empleos verdes") como la rehabilitación energética, la gestión de residuos o el montaje de renovables.
