@@ -61,7 +61,8 @@ plugins:
   - search
   - tags
   - blog
-   
+  - glightbox
+  
 
 markdown_extensions:
   - pymdownx.highlight:
@@ -90,7 +91,7 @@ markdown_extensions:
   - tables   
   - pymdownx.caret
   - pymdownx.mark
-  
+  - md_in_html  
 
 nav: 
   - Aplicaciones Ofimáticas: 

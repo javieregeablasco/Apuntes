@@ -190,4 +190,4 @@ La auditoría continua de proveedores e infraestructuras digitales implica coste
 
 ## 4 - Mapa mental de la unidad didáctica
 
-![imagen](./img_5/img_5_3.png)
+![imagen](./img_5/img_5_3.png){ width="100%" }
