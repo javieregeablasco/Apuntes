@@ -2,7 +2,7 @@
 ciclo: CFGM - Técnico en Sistemas Microinformáticos y Redes
 title: Sostenibilidad aplicada al sistema productivo
 module number: 
-lesson: UD. 4.0 - Aspectos ambientales, sociales y de gobernanza (ASG) relativos a la sostenibilidad.  
+lesson: UD. 5.0 - Impacto ambiental y social y medidas para remediarlo.  
 author: Javier Egea Blasco  
 layout: default  
 year: 26-27  
@@ -23,7 +23,7 @@ schedule: 1h/w
 |**c)** Se ha analizado el efecto de los impactos ambientales y sociales sobre las personas y los sectores productivos.|
 |**d)** Se han identificado las medidas y acciones encaminadas a minimizar los impactos ambientales y sociales.|
 
-## 1 - Impacto ambiental y sociales sobre las personas y los sectores productivos
+## 1 - Impacto ambiental y social sobre las personas y los sectores productivos
 
 - Los problemas ambientales y los desafíos sociales actúan como fuerzas externas negativas que alteran la base de la actividad económica, desestabilizando el bienestar ciudadano e incrementando los costes y riesgos operacionales de las empresas.
 
@@ -56,7 +56,8 @@ schedule: 1h/w
     1. **Pesca**: Sufre el colapso de caladeros y el desplazamiento de especies a causa del aumento de temperatura marina, la acidificación oceánica y la desoxigenación
 
 - **Sector Industrial y Energético**:
-    1. **Industria**: Las industrias intensivas en consumo de agua (minería, textil, bebidas, procesamiento alimentario) enfrentan restricciones operativas y sobrecostes13. Sectores clave como la industria, el transporte y la energía son responsables del 63,6% de las emisiones de GEI en España, asumiendo los mayores costes de descarbonización e impuestos al carbono1415.Energía: La menor disponibilidad de agua compromete la generación hidroeléctrica, la producción de biomasa y la refrigeración de plantas no renovables, mientras las olas de calor disparan los picos de demanda eléctrica1617.Sector Servicios, Turismo y Finanzas:Turismo: Representa alrededor del 12% del PIB y del empleo en España, pero padece la degradación de atractivos naturales (blanqueamiento de corales, erosión costera, menor acumulación de nieve) y la pérdida de confort climático en verano18more_horiz.Finanzas y Seguros: Las entidades financieras asumen mayores riesgos de impago en sus carteras crediticias y las aseguradoras enfrentan desembolsos elevados por la alta siniestralidad de catástrofes naturales21.Criterio d) Identificación de las medidas y acciones encaminadas a minimizar los impactos ambientales y socialesLas respuestas estratégicas para mitigar la degradación ambiental y construir resiliencia abarcan políticas públicas, transformación tecnológica y medidas laborales organizadas en torno a los Objetivos de Desarrollo Sostenible (ODS)2.                     ACCIONES PARA MINIMIZAR IMPACTOS
+    1. **Industria**: Las industrias intensivas en consumo de agua (minería, textil, bebidas, procesamiento alimentario) enfrentan restricciones operativas y sobrecostes. Sectores clave como la industria, el transporte y la energía son responsables del 63,6% de las emisiones de GEI en España, asumiendo los mayores costes de descarbonización e impuestos al carbono
+    1. **Energía**: La menor disponibilidad de agua compromete la generación hidroeléctrica, la producción de biomasa y la refrigeración de plantas no renovables, mientras las olas de calor disparan los picos de demanda eléctrica1617.Sector Servicios, Turismo y Finanzas:Turismo: Representa alrededor del 12% del PIB y del empleo en España, pero padece la degradación de atractivos naturales (blanqueamiento de corales, erosión costera, menor acumulación de nieve) y la pérdida de confort climático en verano18more_horiz.Finanzas y Seguros: Las entidades financieras asumen mayores riesgos de impago en sus carteras crediticias y las aseguradoras enfrentan desembolsos elevados por la alta siniestralidad de catástrofes naturales21.Criterio d) Identificación de las medidas y acciones encaminadas a minimizar los impactos ambientales y socialesLas respuestas estratégicas para mitigar la degradación ambiental y construir resiliencia abarcan políticas públicas, transformación tecnológica y medidas laborales organizadas en torno a los Objetivos de Desarrollo Sostenible (ODS)2.                     ACCIONES PARA MINIMIZAR IMPACTOS
                                      │
       ┌──────────────────────────────┼──────────────────────────────┐
       ▼                              ▼                              ▼
