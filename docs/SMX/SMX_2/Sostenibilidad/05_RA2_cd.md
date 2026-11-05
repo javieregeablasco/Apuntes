@@ -34,10 +34,14 @@ schedule: 1h/w
     1. La contaminación atmosférica incrementa drásticamente las enfermedades respiratorias y cardiovasculares.
     1. Asimismo, la degradación de las aguas dulces provoca brotes gastrointestinales y el aumento global de temperaturas extiende el rango geográfico de transmisión de vectores infecciosos como el dengue o la malaria.
 
+---
+
 - **Seguridad Alimentaria y Humana**:
 
     1. La desertificación, la erosión del suelo y las sequías recurrentes reducen los rendimientos agrícolas, amenazando la disponibilidad de alimentos básicos.
     1. Ante la pérdida de sustento o la ocurrencia de eventos climáticos extremos, se generan desplazamientos forzados de población (migrantes climáticos), lo que aumenta la presión sobre los servicios urbanos y el riesgo de conflictos por recursos escasos
+
+---
 
 - **Justicia Climática y Economía Familiar**:
 
@@ -55,9 +59,16 @@ schedule: 1h/w
     1. **Ganadería**: Se registran mermas productivas por estrés térmico en los animales, mayor morbilidad y desajuste en dietas por escasez de pastos
     1. **Pesca**: Sufre el colapso de caladeros y el desplazamiento de especies a causa del aumento de temperatura marina, la acidificación oceánica y la desoxigenación
 
+---
+
 - **Sector Industrial y Energético**:
     1. **Industria**: Las industrias intensivas en consumo de agua (minería, textil, bebidas, procesamiento alimentario) enfrentan restricciones operativas y sobrecostes. Sectores clave como la industria, el transporte y la energía son responsables del 63,6% de las emisiones de GEI en España, asumiendo los mayores costes de descarbonización e impuestos al carbono
-    1. **Energía**: La menor disponibilidad de agua compromete la generación hidroeléctrica, la producción de biomasa y la refrigeración de plantas no renovables, mientras las olas de calor disparan los picos de demanda eléctrica1617.Sector Servicios, Turismo y Finanzas:Turismo: Representa alrededor del 12% del PIB y del empleo en España, pero padece la degradación de atractivos naturales (blanqueamiento de corales, erosión costera, menor acumulación de nieve) y la pérdida de confort climático en verano18more_horiz.Finanzas y Seguros: Las entidades financieras asumen mayores riesgos de impago en sus carteras crediticias y las aseguradoras enfrentan desembolsos elevados por la alta siniestralidad de catástrofes naturales21.Criterio d) Identificación de las medidas y acciones encaminadas a minimizar los impactos ambientales y socialesLas respuestas estratégicas para mitigar la degradación ambiental y construir resiliencia abarcan políticas públicas, transformación tecnológica y medidas laborales organizadas en torno a los Objetivos de Desarrollo Sostenible (ODS)2.                     ACCIONES PARA MINIMIZAR IMPACTOS
+    1. **Energía**: La menor disponibilidad de agua compromete la generación hidroeléctrica, la producción de biomasa y la refrigeración de plantas no renovables, mientras las olas de calor disparan los picos de demanda eléctrica
+
+---
+
+- **Sector Servicios, Turismo y Finanzas**:
+    1. **Turismo**: Representa alrededor del 12% del PIB y del empleo en España, pero padece la degradación de atractivos naturales (blanqueamiento de corales, erosión costera, menor acumulación de nieve) y la pérdida de confort climático en verano18more_horiz.Finanzas y Seguros: Las entidades financieras asumen mayores riesgos de impago en sus carteras crediticias y las aseguradoras enfrentan desembolsos elevados por la alta siniestralidad de catástrofes naturales21.Criterio d) Identificación de las medidas y acciones encaminadas a minimizar los impactos ambientales y socialesLas respuestas estratégicas para mitigar la degradación ambiental y construir resiliencia abarcan políticas públicas, transformación tecnológica y medidas laborales organizadas en torno a los Objetivos de Desarrollo Sostenible (ODS)2.                     ACCIONES PARA MINIMIZAR IMPACTOS
                                      │
       ┌──────────────────────────────┼──────────────────────────────┐
       ▼                              ▼                              ▼
