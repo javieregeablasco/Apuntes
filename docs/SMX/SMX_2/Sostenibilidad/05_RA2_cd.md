@@ -25,7 +25,7 @@ schedule: 1h/w
 
 ## 1 - Impacto ambiental y social sobre las personas y los sectores productivos
 
-- Los problemas ambientales y los desafíos sociales actúan como fuerzas externas negativas que alteran la base de la actividad económica, desestabilizando el bienestar ciudadano e incrementando los costes y riesgos operacionales de las empresas.
+Los problemas ambientales y los desafíos sociales actúan como fuerzas externas negativas que alteran la base de la actividad económica, desestabilizando el bienestar ciudadano e incrementando los costes y riesgos operacionales de las empresas.
 
 ### 1.1 Efectos sobre las personas
 
@@ -50,7 +50,7 @@ schedule: 1h/w
 
 ### 1.2 Efectos sobre los sectores productivos
 
-- Los sectores productivos enfrentan tres categorías principales de riesgo: **riesgos físicos** (daños climáticos directos), **riesgos de transición** (adaptación regulatoria y tecnológica) y **riesgos reputacionales** (pérdida de la licencia social para operar).
+Los sectores productivos enfrentan tres categorías principales de riesgo: **riesgos físicos** (daños climáticos directos), **riesgos de transición** (adaptación regulatoria y tecnológica) y **riesgos reputacionales** (pérdida de la licencia social para operar).
 
  ![img](./img_5/img_5_1.jpeg){.cien}
 
@@ -75,7 +75,7 @@ schedule: 1h/w
 
 ## 2 - Identificación de las medidas y acciones encaminadas a minimizar los impactos ambientales y sociales
 
-- Las respuestas estratégicas para mitigar la degradación ambiental y **construir resiliencia** abarcan políticas públicas, transformación tecnológica y medidas laborales organizadas en torno a los **Objetivos de Desarrollo Sostenible (ODS)**.
+Las respuestas estratégicas para mitigar la degradación ambiental y **construir resiliencia** abarcan políticas públicas, transformación tecnológica y medidas laborales organizadas en torno a los **Objetivos de Desarrollo Sostenible (ODS)**.
 
  ![img](./img_5/img_5_2.jpeg){.cien }
 
@@ -140,7 +140,7 @@ Criterios trabajados:
 
 -->
 
-!!! question "Transición laboral exigente ¿Es justificable acelerar la eliminación de "empleos marrones" para cumplir metas ambientales, a pesar del impacto en el empleo industrial y rural?
+!!! question "Transición laboral exigente ¿Es justificable acelerar la eliminación de "empleos marrones" para cumplir metas ambientales, a pesar del impacto en el empleo industrial y rural?"
     - A favor de acelerar el cierre y la descarbonización:
     - A favor de ritmos de transición graduales:
 
@@ -156,7 +156,7 @@ Los sectores de transporte, energía e industria representan conjuntamente el 63
 Los empleos "marrones" se concentran a menudo en sectores maduros con trabajadores de cualificación media-baja24. Si la velocidad de descarbonización supera la capacidad real de recualificación profesional (reskilling) mediante Políticas Activas de Empleo (PAE), se genera despoblación y desprotección territorial
 -->
 
-!!! question "Protección y salud laboral frente al cambio climático ¿Deben imponerse limitaciones normativas a la jornada de trabajo durante episodios extremos de calor?
+!!! question "Protección y salud laboral frente al cambio climático ¿Deben imponerse limitaciones normativas a la jornada de trabajo durante episodios extremos de calor?""
     - A favor de la regulación estatal estricta.
     - A favor de la flexibilidad negociada por empresas y sindicatos.
 
