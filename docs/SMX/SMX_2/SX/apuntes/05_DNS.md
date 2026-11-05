@@ -463,6 +463,7 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
 ### 7.4 Subdominios
 
 - Un **subdominio** es un dominio que se encuentra por debajo de otro dominio dentro de la jerarquía DNS.
+![Descripción de la imagen](./img_5/img_5_156.png){.margintop10}
 
 - En el caso de:
 
@@ -492,11 +493,9 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
 
 - Un **FQDN (*Fully Qualified Domain Name*)**, o **nombre de dominio completamente cualificado**, identifica de forma completa una posición dentro de la jerarquía DNS.
 
-- En nuestro caso tendríamos el siguiente FQDN:
+- En nuestro caso tendríamos el siguiente FQDN `www.edu.gva.es.` o `www.edu.gva.es`:
+![Descripción de la imagen](./img_5/img_5_11.png){.margintop10}
 
-      ```text
-      www.edu.gva.es.
-      ```
 
 !!! tip "Importante"
     Los nombres DNS se interpretan **de derecha a izquierda**.
