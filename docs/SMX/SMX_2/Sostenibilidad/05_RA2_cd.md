@@ -48,7 +48,7 @@ schedule: 1h/w
 
 - Los sectores productivos enfrentan tres categorías principales de riesgo: **riesgos físicos** (daños climáticos directos), **riesgos de transición** (adaptación regulatoria y tecnológica) y **riesgos reputacionales** (pérdida de la licencia social para operar).
 
- ![img](./img_4/img_4_12.avif){.sietecinco}
+ ![img](./img_5/img_5_1.jpeg){.sietecinco}
 
 - **Sector Primario (Agricultura, Ganadería y Pesca)**:
     1. **Agricultura**: Disminuye el potencial productivo del suelo por erosión y salinización de acuíferos, exigiendo inversiones elevadas en sistemas de riego eficientes y seguros agrarios910.
