@@ -457,11 +457,8 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
       www.edu.gva.es
       ```
 
-    **Un dominio dentro del TLD** `.es` sería.
-
-      ```text
-      gva.es
-      ```
+    **Un dominio dentro del TLD** `.es` sería `gva.es`.
+    ![Descripción de la imagen](./img_5/img_5_155.png){.margintop10}
 
 ### 7.4 Subdominios
 
