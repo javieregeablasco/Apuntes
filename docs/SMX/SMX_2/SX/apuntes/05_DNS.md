@@ -409,10 +409,7 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
 ### 7.1 La raíz DNS
 
 - En la parte superior de la jerarquía se encuentra la **raíz DNS**, representada mediante un punto:
-
-      ```text
-      .
-      ```
+![Descripción de la imagen](./img_5/img_5_153.png){.margintop10}
 
 - La raíz es el nivel superior de todo el sistema DNS.
 
