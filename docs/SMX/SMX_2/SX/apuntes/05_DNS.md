@@ -1003,14 +1003,6 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
             - Indica cuánto tiempo otros servidores pueden conservar ese registro en su caché.
 
 
-#### 10.4.6 Registro NS (Nameserver)
-
-- Especifica qué servidor de nombres o servidor DNS en particular actúa como la autoridad autoritativa para un dominio o subdominio.
-
-!!! warning "Importante"
-    - El registro NS indica qué servidor **alberga físicamente los archivos de zona del dominio**.
-    - Sin un registro NS debidamente configurado, es imposible cargar o acceder a un sitio web.
-
 #### 10.4.7 Registro MX (Mail Exchange)
 
 - Los registros MX son indispensables para la recepción de correos electrónicos bajo el nombre de dominio.
@@ -1170,22 +1162,21 @@ Cuando una búsqueda de DNS comienza con una dirección IP, encuentra el nombre 
     - El registro NS indica qué servidores DNS son **autoritativos** para la zona, es decir, los que contienen y responden con sus registros.
     - Sin un registro NS debidamente configurado, es imposible que los clientes resuelvan los nombres del dominio y, por tanto, acceder a su sitio web.
 
-**Sintaxis típica**
+!!! tip "Sintaxis"
+    ```text
+    midominio.com. IN NS ns1.midominio.com.
+    ```
 
-```text
-midominio.com. IN NS ns1.midominio.com.
-```
+!!! tip "Ejemplo"
+    - Un dominio suele tener, al menos, dos servidores de nombres por redundancia.
+    - Como los nombres de los NS están dentro del propio dominio, necesitan además su registro A (llamado *glue*):
 
-**Ejemplo típico**
-
-Un dominio suele tener, al menos, dos servidores de nombres por redundancia. Como los nombres de los NS están dentro del propio dominio, necesitan además su registro A (llamado *glue*):
-
-```text
-midominio.com.       86400   IN   NS   ns1.midominio.com.
-midominio.com.       86400   IN   NS   ns2.midominio.com.
-ns1.midominio.com.   86400   IN   A    192.0.2.53
-ns2.midominio.com.   86400   IN   A    192.0.2.54
-```
+    ```text
+    midominio.com.       86400   IN   NS   ns1.midominio.com.
+    midominio.com.       86400   IN   NS   ns2.midominio.com.
+    ns1.midominio.com.   86400   IN   A    192.0.2.53
+    ns2.midominio.com.   86400   IN   A    192.0.2.54
+    ```
 
 ### 10.4.7 Registro MX (Mail Exchange)
 
