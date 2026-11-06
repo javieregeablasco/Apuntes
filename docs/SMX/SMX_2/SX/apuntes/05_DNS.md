@@ -1100,13 +1100,14 @@ Cuando una búsqueda de DNS comienza con una dirección IP, encuentra el nombre 
 - Funciona de manera similar al registro A, pero conecta nombres de dominio con direcciones **IPv6**.
 - Aunque menos común que IPv4, su adopción global va en aumento para resolver el problema del agotamiento de las direcciones IPv4 tradicionales.
 
-!!! tip"Sintaxis típica"
+!!! tip "Sintaxis típica"
     ```text
     midominio.net. IN AAAA 2001:0db8:85a3:0000:0000:8a2e:0370:1234
     ```
 
 !!! tip "Ejemplo típico"
-    Lo habitual es publicar a la vez el registro A y el AAAA del mismo nombre (*doble pila*), de modo que cada cliente use la versión de IP que soporte. Las direcciones IPv6 pueden abreviarse (`::` sustituye a un grupo de ceros consecutivos):
+    - Lo habitual es publicar a la vez el registro A y el AAAA del mismo nombre (*doble pila*), de modo que cada cliente use la versión de IP que soporte.
+    - Las direcciones IPv6 pueden abreviarse (`::` sustituye a un grupo de ceros consecutivos):
 
     ```text
     www.midominio.net.   3600   IN   A      192.0.2.15
@@ -1118,20 +1119,18 @@ Cuando una búsqueda de DNS comienza con una dirección IP, encuentra el nombre 
 - Los registros de nombres canónicos, o registros CNAME, dirigen un dominio de alias a un dominio canónico.
 - Los registros CNAME se usan a menudo para asignar un nombre de dominio con un alias al dominio principal que lleva el registro A o AAAA.
 
-**Ejemplo**
+!!! tip"Ejemplo"
+    - En lugar de crear dos registros A para `www.example.com` y `product.example.com`, se puede vincular `product.example.com` a un registro CNAME que luego se vincula a un registro A para `example.com`.
+    - El valor es que si la dirección IP cambia para el dominio raíz, solo se tendrá que actualizar el registro A y el CNAME se actualizará en consecuencia.
 
-- En lugar de crear dos registros A para `www.example.com` y `product.example.com`, se puede vincular `product.example.com` a un registro CNAME que luego se vincula a un registro A para `example.com`.
-- El valor es que si la dirección IP cambia para el dominio raíz, solo se tendrá que actualizar el registro A y el CNAME se actualizará en consecuencia.
+!!! tip "Ejemplo típico"
+    ```text
+    example.com.           3600   IN   A       192.0.2.15
+    www.example.com.       3600   IN   CNAME   example.com.
+    product.example.com.   3600   IN   CNAME   example.com.
+    ```
 
-**Ejemplo típico**
-
-```text
-example.com.           3600   IN   A       192.0.2.15
-www.example.com.       3600   IN   CNAME   example.com.
-product.example.com.   3600   IN   CNAME   example.com.
-```
-
-Si la IP de `example.com` cambia, basta con modificar el registro A: `www` y `product` seguirán funcionando.
+    Si la IP de `example.com` cambia, basta con modificar el registro A: `www` y `product` seguirán funcionando.
 
 **Restricciones de configuración**
 
