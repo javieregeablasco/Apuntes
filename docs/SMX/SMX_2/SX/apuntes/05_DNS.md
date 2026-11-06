@@ -1235,22 +1235,21 @@ Cuando una búsqueda de DNS comienza con una dirección IP, encuentra el nombre 
 - Los registros de inicio de autoridad, o registros SOA, almacenan información administrativa importante sobre un dominio. Esta información puede incluir la dirección de correo electrónico del administrador del dominio, información sobre las actualizaciones del dominio y cuándo un servidor debe actualizar su información.
 - Hay **un único SOA por zona** y es siempre el primer registro del fichero de zona.
 
-!!! tip "Sintaxis típica"
+!!! tip "Sintaxis"
     ```text
     nombre   IN   SOA   servidor-primario   correo-admin   (
                     serie  refresh  retry  expire  minimum )
     ```
 
-**Ejemplo típico**
-
-```text
-midominio.com.   IN   SOA   ns1.midominio.com.   admin.midominio.com. (
-                      2026110601   ; serie (número de versión de la zona)
-                      3600         ; refresh: cada cuánto consulta el secundario si hay cambios
-                      900          ; retry: reintento si el refresh falla
-                      604800       ; expire: tiempo máximo que el secundario sirve datos sin poder actualizar
-                      86400 )      ; minimum: TTL para respuestas negativas
-```
+!!! tip "Ejemplo"
+    ```text
+    midominio.com.   IN   SOA   ns1.midominio.com.   admin.midominio.com. (
+                          2026110601   ; serie (número de versión de la zona)
+                          3600         ; refresh: cada cuánto consulta el secundario si hay cambios
+                          900          ; retry: reintento si el refresh falla
+                          604800       ; expire: tiempo máximo que el secundario sirve datos sin poder actualizar
+                          86400 )      ; minimum: TTL para respuestas negativas
+    ```
 
 - `ns1.midominio.com.` es el servidor DNS primario de la zona.
 - `admin.midominio.com.` es el correo del administrador: el primer punto representa la `@`, es decir, `admin@midominio.com`.
