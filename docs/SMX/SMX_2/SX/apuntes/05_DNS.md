@@ -521,7 +521,7 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
 
     Es decir: **FQDN = nombre de host + dominio**.
 
-    ![Descripción de la imagen](./img_5/img_5_158.png){.margintop10 .marco}
+    ![Descripción de la imagen](./img_5/img_5_158.png){.margintop10 .marco .marginbottom20}
 
 - La función del DNS es **asociar cada nombre con una dirección IP**. A este proceso se le llama **resolver** el nombre:
 
