@@ -1002,12 +1002,6 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
             - El TTL **no indica cada cuánto tiempo se actualiza el registro en el servidor DNS autoritativo**.
             - Indica cuánto tiempo otros servidores pueden conservar ese registro en su caché.
 
-#### 10.4.11 Registros PTR
-
-Los registros de puntero, o registros PTR, funcionan en la dirección opuesta a los registros A. Se utilizan para **conectar una dirección IP con un nombre de dominio, en lugar de un nombre de dominio con una dirección IP**.
-
-Cuando una búsqueda de DNS comienza con una dirección IP, encuentra el nombre de host correspondiente. Estos registros se utilizan para detectar spam comprobando si las direcciones IP y las direcciones de correo electrónico asociadas son utilizadas por servidores de correo electrónico legítimos. El host del servidor debe configurar los registros PTR.
-
 ## 10.4 Tipos de Registros DNS
 
 ### 10.4.1 Registro A (Address)
@@ -1266,24 +1260,22 @@ Cuando una búsqueda de DNS comienza con una dirección IP, encuentra el nombre 
 - Estos registros se utilizan para detectar spam comprobando si las direcciones IP y las direcciones de correo electrónico asociadas son utilizadas por servidores de correo electrónico legítimos.
 - El host del servidor debe configurar los registros PTR.
 
-**Sintaxis típica**
+!!! tip "Sintaxis"
+    ```text
+    15.2.0.192.in-addr.arpa. IN PTR www.midominio.com.
+    ```
 
-```text
-15.2.0.192.in-addr.arpa. IN PTR www.midominio.com.
-```
+!!! tip "Ejemplo típico"
+    - Los PTR se guardan en una zona especial de **resolución inversa**: la IP se escribe **al revés** y se le añade `.in-addr.arpa.`
 
-**Ejemplo típico**
+    ```text
+    IP:       192.0.2.15
+    Inversa:  15.2.0.192.in-addr.arpa.
+    ```
 
-Los PTR se guardan en una zona especial de **resolución inversa**: la IP se escribe **al revés** y se le añade `.in-addr.arpa.`
-
-```text
-IP:       192.0.2.15
-Inversa:  15.2.0.192.in-addr.arpa.
-```
-
-```text
-15.2.0.192.in-addr.arpa.   3600   IN   PTR   mail.midominio.com.
-```
+    ```text
+    15.2.0.192.in-addr.arpa.   3600   IN   PTR   mail.midominio.com.
+    ```
 
 Así, al consultar la IP `192.0.2.15`, el DNS responde `mail.midominio.com`. Para que un servidor de correo sea considerado legítimo, el PTR de su IP debería coincidir con el nombre del registro A correspondiente.
 
