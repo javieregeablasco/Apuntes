@@ -943,7 +943,7 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
 1. **Un registro DNS** (*Resource Record*) en un fichero de zona tiene **cinco campos**, separados por espacios o **tabuladores**:
 
        ```text
-       nombre   [TTL]   clase   tipo   datos
+       nombre   [TTL]   clase   tipo   datos   comentarios
        ```
 
     | Campo | Significado | Ejemplo |
@@ -953,23 +953,26 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
     | **Clase** | Familia de red del registro; casi siempre `IN` (internet) | `IN` |
     | **Tipo** | Qué información guarda el registro | `A`, `AAAA`, `CNAME`, `MX`, `NS`, `TXT`... |
     | **Datos** | Valor del registro; su formato depende del tipo | `192.0.2.15` |
+    | **Comentarios** | Información adicional | `servidor web` |
 
-    !!! example "Explicación del ejemplo anterior"
+    !!! example "Ejemplos"
         ```text
-        www.midominio.com.   3600   IN   A   192.0.2.15
+        www.midominio.com.   3600   IN   A   192.0.2.15 ; www.midominio.com.
+        www                  3600   IN   A   192.0.2.15 ; www.midominio.com.
+        @                    3600   IN   A   192.0.2.16 ; midominio.com.
         ```
 
-        Lectura del registro DNS: "el nombre `www.midominio.com.` tiene, durante 3600 segundos, una dirección IPv4 que es `192.0.2.15`".
+        Lectura del primer registro DNS: El nombre `www.midominio.com.` tiene, durante 3600 segundos, una dirección IPv4 que es `192.0.2.15`".
 
         !!! tip "Detalles de sintaxis"
 
             - **El punto final** indica un nombre absoluto (FQDN). Si lo olvidamos, el servidor añadirá el nombre de la zona al final y el nombre resultante será incorrecto.
-            - **`@`** representa el nombre de la zona. En la zona `midominio.com.`, `@` equivale a `midominio.com.`
             - **Un nombre relativo** como `www` se completa automáticamente con el dominio de la zona: `www` pasa a ser `www.midominio.com.`
+            - **`@`** representa el nombre de la zona. En la zona `midominio.com.`, `@` equivale a `midominio.com.`
             - **Los campos opcionales** (TTL y nombre) pueden omitirse. Si falta el TTL se usa el valor por defecto de la zona (`$TTL`), y si falta el nombre se reutiliza el del registro anterior.
             - **Los comentarios** empiezan por `;` y llegan hasta el final de la línea.
 
-    !!! note "-El campo de datos es el único que no tiene formato fijo: depende del tipo de registro.<br>- Cada tipo guarda una información distinta, y por eso necesita datos distintoSs."
+    !!! note "- El campo de datos es el único que no tiene formato fijo: depende del tipo de registro.<br>- Cada tipo guarda una información distinta, y por eso necesita datos distintoSs."
         - Por ejemplo, un registro A sola lleva una IP, un `MX` lleva prioridad y servidor, y un `CNAME` lleva otro nombre:
 
         ```text
