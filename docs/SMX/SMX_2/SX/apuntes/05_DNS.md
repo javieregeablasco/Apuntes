@@ -931,23 +931,6 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
             mail              IN    A       192.0.2.20
             ```
 
-<!-- 1. La **sintaxis de los archivos de zona** establece cómo deben escribirse estos registros y directivas para que el servidor DNS pueda interpretarlos correctamente.
-
-    !!! example "Ejemplo"
-        - Cuando un usuario introduce en su navegador una dirección como:
-
-            ```text
-            https://www.ejemplo.com/index.html
-            ```
-
-        - El navegador necesita conocer la dirección IP asociada al nombre de host **[www.ejemplo.com](http://www.ejemplo.com)**.
-        
-        - Para obtenerla, se inicia una **consulta DNS**.
-
-        - El equipo del usuario normalmente realiza la consulta a un **servidor DNS recursivo** o *resolver*.
-        
-        - Este servidor puede disponer de la respuesta en su **caché**. Si no la tiene, puede realizar consultas a otros servidores DNS hasta encontrar la información necesaria. -->
-
 1. **Un registro DNS** (*Resource Record*) en un fichero de zona tiene **cinco campos**, separados por espacios o **tabuladores**:
 
        ```text
@@ -977,31 +960,14 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
             - **Los campos opcionales** (TTL y nombre) pueden omitirse. Si falta el TTL se usa el valor por defecto de la zona (`$TTL`), y si falta el nombre se reutiliza el del registro anterior.
             - **Los comentarios** empiezan por `;` y llegan hasta el final de la línea.
 
-Los datos cambian según el tipo. Por ejemplo, un `MX` lleva prioridad y servidor, y un `CNAME` lleva otro nombre:
+    !!! note "-El campo de datos es el único que no tiene formato fijo: depende del tipo de registro.<br>- Cada tipo guarda una información distinta, y por eso necesita datos distintos.
+        - Por ejemplo, un registro A sola lleva una IP, un `MX` lleva prioridad y servidor, y un `CNAME` lleva otro nombre:
 
-```text
-@      IN   MX      10 correo.midominio.com.
-ftp    IN   CNAME   www.midominio.com.
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        ```text
+        www    IN   A       192.0.2.15
+        @      IN   MX      10 correo.midominio.com.
+        ftp    IN   CNAME   www.midominio.com.
+        ```
 
 1. En una resolución DNS pueden intervenir diferentes tipos de servidores, entre ellos:
 
