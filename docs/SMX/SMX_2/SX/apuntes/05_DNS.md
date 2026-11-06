@@ -1002,16 +1002,6 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
             - El TTL **no indica cada cuánto tiempo se actualiza el registro en el servidor DNS autoritativo**.
             - Indica cuánto tiempo otros servidores pueden conservar ese registro en su caché.
 
-
-#### 10.4.7 Registro MX (Mail Exchange)
-
-- Los registros MX son indispensables para la recepción de correos electrónicos bajo el nombre de dominio.
-
-- Indica cuáles son los servidores de correo autorizados para recibir los mensajes mediante el protocolo SMTP.
-
-!!! example "Sintaxis típica"
-    midominio.com. IN MX 10 mail.midominio.com.
-
 #### 10.4.8 Registro TXT
 
 - Permite que un administrador pueda almacenar notas de texto en el registro. Estos registros se suelen utilizar para la seguridad del correo electrónico.
@@ -1183,24 +1173,23 @@ Cuando una búsqueda de DNS comienza con una dirección IP, encuentra el nombre 
 - Los registros MX son indispensables para la recepción de correos electrónicos bajo el nombre de dominio.
 - Indica cuáles son los servidores de correo autorizados para recibir los mensajes mediante el protocolo SMTP.
 
-**Sintaxis típica**
+!!! tip "Sintaxis"
+    ```text
+    midominio.com. IN MX 10 mail.midominio.com.
+    ```
 
-```text
-midominio.com. IN MX 10 mail.midominio.com.
-```
+!!! tip "Ejemplo"
+    - Dos servidores de correo, con prioridad (el número **más bajo** se prueba primero).
+    - Cada servidor necesita su registro A, y el MX nunca debe apuntar a un CNAME ni a una IP:
 
-**Ejemplo típico**
+    ```text
+    midominio.com.        3600   IN   MX   10 mail.midominio.com.
+    midominio.com.        3600   IN   MX   20 mail2.midominio.com.
+    mail.midominio.com.   3600   IN   A    192.0.2.25
+    mail2.midominio.com.  3600   IN   A    192.0.2.26
+    ```
 
-Dos servidores de correo, con prioridad (el número **más bajo** se prueba primero). Cada servidor necesita su registro A, y el MX nunca debe apuntar a un CNAME ni a una IP:
-
-```text
-midominio.com.        3600   IN   MX   10 mail.midominio.com.
-midominio.com.        3600   IN   MX   20 mail2.midominio.com.
-mail.midominio.com.   3600   IN   A    192.0.2.25
-mail2.midominio.com.  3600   IN   A    192.0.2.26
-```
-
-El correo para `usuario@midominio.com` se entrega primero a `mail`; si no está disponible, a `mail2`.
+    -El correo para `usuario@midominio.com` se entrega primero a `mail`; si no está disponible, a `mail2`.
 
 ### 10.4.8 Registro TXT
 
