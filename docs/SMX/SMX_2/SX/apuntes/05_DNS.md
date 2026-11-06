@@ -765,7 +765,7 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
 | Uso en empresas          | Posible                      | Muy habitual                         |
 | Accesible desde Internet | Generalmente sí              | Normalmente no                       |
 
-## 9 - Evolución del protocolo DNS y seguridad
+## 9 - Evolución del protocolo DNS y tipos de ataques de seguridad
 
 - El protocolo DNS ha evolucionado para adaptarse a las necesidades cada vez mayores de las redes y, especialmente, para solucionar algunos de sus problemas de seguridad.
 
@@ -931,7 +931,7 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
             mail              IN    A       192.0.2.20
             ```
 
-1. La **sintaxis de los archivos de zona** establece cómo deben escribirse estos registros y directivas para que el servidor DNS pueda interpretarlos correctamente.
+<!-- 1. La **sintaxis de los archivos de zona** establece cómo deben escribirse estos registros y directivas para que el servidor DNS pueda interpretarlos correctamente.
 
     !!! example "Ejemplo"
         - Cuando un usuario introduce en su navegador una dirección como:
@@ -946,7 +946,63 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
 
         - El equipo del usuario normalmente realiza la consulta a un **servidor DNS recursivo** o *resolver*.
         
-        - Este servidor puede disponer de la respuesta en su **caché**. Si no la tiene, puede realizar consultas a otros servidores DNS hasta encontrar la información necesaria.
+        - Este servidor puede disponer de la respuesta en su **caché**. Si no la tiene, puede realizar consultas a otros servidores DNS hasta encontrar la información necesaria. -->
+
+1. Un registro DNS (*Resource Record*) en un fichero de zona tiene cinco campos, separados por espacios o tabuladores:
+
+       ```text
+       nombre   [TTL]   clase   tipo   datos
+       ```
+
+| Campo | Significado | Ejemplo |
+|---|---|---|
+| **Nombre** | Nombre de dominio al que se refiere el registro | `www.midominio.com.` |
+| **TTL** | Segundos que la respuesta puede guardarse en caché (opcional) | `3600` |
+| **Clase** | Familia de red del registro; casi siempre `IN` | `IN` |
+| **Tipo** | Qué información guarda el registro | `A`, `AAAA`, `CNAME`, `MX`, `NS`, `TXT`... |
+| **Datos** | Valor del registro; su formato depende del tipo | `192.0.2.15` |
+
+Un ejemplo completo:
+
+```text
+www.midominio.com.   3600   IN   A   192.0.2.15
+```
+
+Se lee así: "el nombre `www.midominio.com.` tiene, durante 3600 segundos, una dirección IPv4 que es `192.0.2.15`".
+
+**Detalles de sintaxis**
+
+- **El punto final** indica un nombre absoluto (FQDN). Si lo olvidas, el servidor añade el nombre de la zona al final y el nombre resultante será incorrecto.
+- **`@`** representa el nombre de la zona. En la zona `midominio.com.`, `@` equivale a `midominio.com.`
+- **Un nombre relativo** como `www` se completa automáticamente con el dominio de la zona: `www` pasa a ser `www.midominio.com.`
+- **Los campos opcionales** (TTL y nombre) pueden omitirse. Si falta el TTL se usa el valor por defecto de la zona (`$TTL`), y si falta el nombre se reutiliza el del registro anterior.
+- **Los comentarios** empiezan por `;` y llegan hasta el final de la línea.
+
+Los datos cambian según el tipo. Por ejemplo, un `MX` lleva prioridad y servidor, y un `CNAME` lleva otro nombre:
+
+```text
+@      IN   MX      10 correo.midominio.com.
+ftp    IN   CNAME   www.midominio.com.
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 1. En una resolución DNS pueden intervenir diferentes tipos de servidores, entre ellos:
 
