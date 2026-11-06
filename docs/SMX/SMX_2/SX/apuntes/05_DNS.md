@@ -475,13 +475,15 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
 
 - Un dominio puede tener diferentes subdominios que permiten organizar diferentes servicios, departamentos o recursos dentro de una misma estructura de nombres.
 
+      Por ejemplo el dominio `gva.es` puede tener multitud de subdominios:
+
       ```text
       edu.gva.es
       san.gva.es
       just.gva.es
       ```
 
-    A su vez, `edu.gva.es` podría tener otros niveles:
+      A su vez, el subdominio `edu.gva.es` puede tener varios niveles:
 
       ```text
       www.edu.gva.es
@@ -489,7 +491,7 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
       correo.edu.gva.es
       ```
 
-![Descripción de la imagen](./img_5/img_5_156.png){.margintop10 .marginbottom10}
+    ![Descripción de la imagen](./img_5/img_5_157.png){.margintop10 .marginbottom10 .marco}
 
 ### 7.5 FQDN
 
