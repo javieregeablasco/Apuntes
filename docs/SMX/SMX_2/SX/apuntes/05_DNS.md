@@ -1086,12 +1086,12 @@ Cuando una búsqueda de DNS comienza con una dirección IP, encuentra el nombre 
 - **Redundancia:** es posible configurar múltiples registros A para un mismo dominio, lo que proporciona respaldo y redundancia en caso de fallos.
 - **Seguridad:** se utiliza también en listas negras basadas en DNS (DNSBL) para bloquear correos provenientes de fuentes de spam conocidas.
 
-!!! tip "Sintaxis típica"
+!!! tip "Sintaxis"
     ```text
     midominio.com. IN A 192.0.2.15
     ```
 
-!!! tip "Sintaxis típico"
+!!! tip "Ejemplos"
     - El dominio y su `www` apuntan al mismo servidor web:
     ```text
     midominio.com.       3600   IN   A   192.0.2.15
@@ -1099,7 +1099,6 @@ Cuando una búsqueda de DNS comienza con una dirección IP, encuentra el nombre 
     ```
 
     - Con dos registros A para el mismo nombre, el DNS reparte las consultas entre ambas IP (balanceo y redundancia):
-
     ```text
     www.midominio.com.   3600   IN   A   192.0.2.15
     www.midominio.com.   3600   IN   A   192.0.2.16
