@@ -1002,11 +1002,6 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
             - El TTL **no indica cada cuánto tiempo se actualiza el registro en el servidor DNS autoritativo**.
             - Indica cuánto tiempo otros servidores pueden conservar ese registro en su caché.
 
-#### 10.4.5 Registros CAA
-
-- Los registros de autorización de autoridad de certificación, o registros CAA, permiten a los propietarios de dominios especificar qué **autoridades de certificación (CA)** pueden emitir certificados para su dominio.
-
-- Una CA es una organización que valida la identidad de los sitios web y los conecta a claves criptográficas mediante la emisión de certificados digitales.
 
 #### 10.4.6 Registro NS (Nameserver)
 
@@ -1125,7 +1120,7 @@ Cuando una búsqueda de DNS comienza con una dirección IP, encuentra el nombre 
     - Estos registros son útiles para administrar dominios a gran escala y para administrar cambios de nombres de dominio, al garantizar que los subdominios estén vinculados correctamente.
 
 !!! tip "Ejemplo"
-    -Una empresa cambia su nombre de `domain.com` a `example.com` y quiere que todos los subdominios antiguos sigan funcionando:
+    - Una empresa cambia su nombre de `domain.com` a `example.com` y quiere que todos los subdominios antiguos sigan funcionando:
 
     ```text
     domain.com.   3600   IN   DNAME   example.com.
@@ -1138,35 +1133,34 @@ Cuando una búsqueda de DNS comienza con una dirección IP, encuentra el nombre 
     | `a.b.domain.com` | `a.b.example.com` |
 
 !!! warning "Importante"
-    El DNAME afecta solo a los **subdominios**, no al propio `domain.com`. Si también queremos redirigir el nombre raíz, hay que configurarlo aparte (por ejemplo, con un registro A).
+    - El DNAME afecta solo a los **subdominios**, no al propio `domain.com`.
+    - Si también queremos redirigir el nombre raíz, hay que configurarlo aparte (por ejemplo, con un registro A).
 
 ### 10.4.5 Registros CAA
 
 - Los registros de autorización de autoridad de certificación, o registros CAA, permiten a los propietarios de dominios especificar qué autoridades de certificación (CA) pueden emitir certificados para su dominio.
 - Una CA es una organización que valida la identidad de los sitios web y los conecta a claves criptográficas mediante la emisión de certificados digitales.
 
-**Sintaxis típica**
+!!! tip "Sintaxis"
+    ```text
+    nombre   IN   CAA   flag   etiqueta   "valor"
+    ```
 
-```text
-nombre   IN   CAA   flag   etiqueta   "valor"
-```
+!!! tip "Ejemplo"
+    - Solo Let's Encrypt puede emitir certificados para el dominio, no se permiten certificados *wildcard* (`*.midominio.com`) y se avisa por correo ante cualquier intento no autorizado:
 
-**Ejemplo típico**
+    ```text
+    midominio.com.   3600   IN   CAA   0 issue "letsencrypt.org"
+    midominio.com.   3600   IN   CAA   0 issuewild ";"
+    midominio.com.   3600   IN   CAA   0 iodef "mailto:seguridad@midominio.com"
+    ```
 
-Solo Let's Encrypt puede emitir certificados para el dominio, no se permiten certificados *wildcard* (`*.midominio.com`) y se avisa por correo ante cualquier intento no autorizado:
-
-```text
-midominio.com.   3600   IN   CAA   0 issue "letsencrypt.org"
-midominio.com.   3600   IN   CAA   0 issuewild ";"
-midominio.com.   3600   IN   CAA   0 iodef "mailto:seguridad@midominio.com"
-```
-
-| Elemento | Significado |
-|---|---|
-| `0` | Flag (normalmente `0`) |
-| `issue` | Qué CA puede emitir certificados normales |
-| `issuewild` | Qué CA puede emitir certificados *wildcard* (`";"` = ninguna) |
-| `iodef` | Dónde notificar intentos de emisión no autorizados |
+    | Elemento | Significado |
+    |---|---|
+    | `0` | Flag (normalmente `0`) |
+    | `issue` | Qué CA puede emitir certificados normales |
+    | `issuewild` | Qué CA puede emitir certificados *wildcard* (`";"` = ninguna) |
+    | `iodef` | Dónde notificar intentos de emisión no autorizados |
 
 ### 10.4.6 Registro NS (Nameserver)
 
