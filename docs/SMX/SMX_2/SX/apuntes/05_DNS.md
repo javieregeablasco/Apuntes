@@ -1002,12 +1002,6 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
             - El TTL **no indica cada cuánto tiempo se actualiza el registro en el servidor DNS autoritativo**.
             - Indica cuánto tiempo otros servidores pueden conservar ese registro en su caché.
 
-
-
-#### 10.4.10 Registros SOA
-
-Los registros de inicio de autoridad, o registros SOA, almacenan información administrativa importante sobre un dominio. Esta información puede incluir la dirección de correo electrónico del administrador del dominio, información sobre las actualizaciones del dominio y cuándo un servidor debe actualizar su información.
-
 #### 10.4.11 Registros PTR
 
 Los registros de puntero, o registros PTR, funcionan en la dirección opuesta a los registros A. Se utilizan para **conectar una dirección IP con un nombre de dominio, en lugar de un nombre de dominio con una dirección IP**.
@@ -1241,12 +1235,11 @@ Cuando una búsqueda de DNS comienza con una dirección IP, encuentra el nombre 
 - Los registros de inicio de autoridad, o registros SOA, almacenan información administrativa importante sobre un dominio. Esta información puede incluir la dirección de correo electrónico del administrador del dominio, información sobre las actualizaciones del dominio y cuándo un servidor debe actualizar su información.
 - Hay **un único SOA por zona** y es siempre el primer registro del fichero de zona.
 
-**Sintaxis típica**
-
-```text
-nombre   IN   SOA   servidor-primario   correo-admin   (
+!!! tip "Sintaxis típica"
+    ```text
+    nombre   IN   SOA   servidor-primario   correo-admin   (
                     serie  refresh  retry  expire  minimum )
-```
+    ```
 
 **Ejemplo típico**
 
