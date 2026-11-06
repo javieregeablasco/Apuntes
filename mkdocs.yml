@@ -61,7 +61,7 @@ plugins:
   - search
   - tags
   - blog
-  - glightbox
+  # - glightbox
   
 
 markdown_extensions:
