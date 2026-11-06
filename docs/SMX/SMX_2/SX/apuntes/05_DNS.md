@@ -1002,8 +1002,6 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
             - El TTL **no indica cada cuánto tiempo se actualiza el registro en el servidor DNS autoritativo**.
             - Indica cuánto tiempo otros servidores pueden conservar ese registro en su caché.
 
-!!! tip "Sintaxis típica"
-    midominio.com. IN A 192.0.2.15.
 
 #### 10.4.2 Registro AAAA (Quad A)
 
@@ -1093,21 +1091,19 @@ Cuando una búsqueda de DNS comienza con una dirección IP, encuentra el nombre 
     midominio.com. IN A 192.0.2.15
     ```
 
-**Ejemplo típico**
+!!! tip "Sintaxis típico"
+    - El dominio y su `www` apuntan al mismo servidor web:
+    ```text
+    midominio.com.       3600   IN   A   192.0.2.15
+    www.midominio.com.   3600   IN   A   192.0.2.15
+    ```
 
-El dominio y su `www` apuntan al mismo servidor web:
+    - Con dos registros A para el mismo nombre, el DNS reparte las consultas entre ambas IP (balanceo y redundancia):
 
-```text
-midominio.com.       3600   IN   A   192.0.2.15
-www.midominio.com.   3600   IN   A   192.0.2.15
-```
-
-Con dos registros A para el mismo nombre, el DNS reparte las consultas entre ambas IP (balanceo y redundancia):
-
-```text
-www.midominio.com.   3600   IN   A   192.0.2.15
-www.midominio.com.   3600   IN   A   192.0.2.16
-```
+    ```text
+    www.midominio.com.   3600   IN   A   192.0.2.15
+    www.midominio.com.   3600   IN   A   192.0.2.16
+    ```
 
 ### 10.4.2 Registro AAAA (Quad A)
 
