@@ -969,7 +969,7 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
             - **Los campos opcionales** (TTL y nombre) pueden omitirse. Si falta el TTL se usa el valor por defecto de la zona (`$TTL`), y si falta el nombre se reutiliza el del registro anterior.
             - **Los comentarios** empiezan por `;` y llegan hasta el final de la línea.
 
-    !!! note "-El campo de datos es el único que no tiene formato fijo: depende del tipo de registro.<br>- Cada tipo guarda una información distinta, y por eso necesita datos distintos.
+    !!! note "-El campo de datos es el único que no tiene formato fijo: depende del tipo de registro.<br>- Cada tipo guarda una información distinta, y por eso necesita datos distintoSs."
         - Por ejemplo, un registro A sola lleva una IP, un `MX` lleva prioridad y servidor, y un `CNAME` lleva otro nombre:
 
         ```text
@@ -977,7 +977,6 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
         @      IN   MX      10 correo.midominio.com.
         ftp    IN   CNAME   www.midominio.com.
         ```
-
 
 ### 10.2 TTL (Time To Live)
 
