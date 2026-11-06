@@ -31,16 +31,8 @@ schedule: 233h - 7h/w
 !!! warning "Nota:"
     Los criterios de evaluación en negrita será evaluados durante la FCT.
 
-En esta unidad **NO se entregan PDFs sueltos por cada apartado**. Deberás crear desde el primer día un **único documento en Word** estructurado por apartados (del `Apartado 6` al `Apartado 15`), ir insertando en él las **27 evidencias numeradas (`Evidencia 1` a `Evidencia 27`)** conforme avances en las prácticas y, al finalizar la unidad, exportarlo a un **único fichero PDF** para subirlo a Aules:
->
-> | Actividad en Aules | Criterios evaluados | Descripción y contenido | Entrega en Aules |
-> |---|:---:|---|---|
-> | **1. Cuestionario Teórico** | `RA3-CEa` | Comprensión teórica de protocolos de transferencia (FTP, FTPS, SFTP, SSH) y modos Activo/Pasivo (Apartados 1 a 5). | **Cuestionario online en Aules (Sin subir archivo)** |
-> | **2. Memoria Práctica Completa de la Unidad** | `RA3-CEb..h` | Documento único con todos los apartados prácticos (**Bloque Windows Server**, **Bloque Ubuntu Server** y **Bloque Interoperabilidad + Cierre AWS**) incluyendo las **Evidencias 1 a 27**. | **1 único archivo PDF:** `RA3-FTP-SSH-NombreApellidos.pdf` |
->
-> **Guía de apartados que debe tener tu documento Word y qué evidencias incluye cada uno:**
->
-> | Apartado en tu Word | Bloque | Criterios | Evidencias obligatorias del apartado |
+
+
 > |---|:---:|:---:|---|
 > | **Apartado 6:** Instalación de IIS FTP y OpenSSH en Windows Server | Windows Server | `RA3-CEb,c,d` | **Evidencias 1 a 7** (Instancia EC2, Security Group, RDP, usuario `alumne_redes`, modo pasivo IIS, sitio `FTP-AULA` y Firewall) |
 > | **Apartado 7:** Transferencia con FileZilla hacia Windows Server | Windows Server | `RA3-CEe` | **Evidencia 8** (Conexión pasiva en FileZilla y subida de `Prova_ftp.txt`) |
