@@ -1139,7 +1139,7 @@ Cuando una búsqueda de DNS comienza con una dirección IP, encuentra el nombre 
 ### 10.4.5 Registros CAA
 
 - Los registros de autorización de autoridad de certificación, o registros CAA, permiten a los propietarios de dominios especificar qué autoridades de certificación (CA) pueden emitir certificados para su dominio.
-- Una CA es una organización que valida la identidad de los sitios web y los conecta a claves criptográficas mediante la emisión de certificados digitales.
+- Una **CA** es una organización que valida la identidad de los sitios web y los conecta a claves criptográficas mediante la emisión de certificados digitales.
 
 !!! tip "Sintaxis"
     ```text
@@ -1147,7 +1147,7 @@ Cuando una búsqueda de DNS comienza con una dirección IP, encuentra el nombre 
     ```
 
 !!! tip "Ejemplo"
-    - Solo Let's Encrypt puede emitir certificados para el dominio, no se permiten certificados *wildcard* (`*.midominio.com`) y se avisa por correo ante cualquier intento no autorizado:
+    - **Solo** *Let's Encrypt* puede emitir certificados para el dominio, no se permiten certificados *wildcard* (`*.midominio.com`) y se avisa por correo ante cualquier intento no autorizado:
 
     ```text
     midominio.com.   3600   IN   CAA   0 issue "letsencrypt.org"
