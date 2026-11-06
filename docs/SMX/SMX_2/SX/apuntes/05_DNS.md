@@ -1265,8 +1265,9 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
     15.2.0.192.in-addr.arpa. IN PTR www.midominio.com.
     ```
 
-!!! tip "Ejemplo típico"
-    - Los PTR se guardan en una zona especial de **resolución inversa**: la IP se escribe **al revés** y se le añade `.in-addr.arpa.`
+!!! tip "Ejemplo"
+    - Los PTR se guardan en una zona especial de **resolución inversa**.
+    - La IP se escribe **al revés** y se le añade `.in-addr.arpa.`
 
     ```text
     IP:       192.0.2.15
@@ -1277,11 +1278,10 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
     15.2.0.192.in-addr.arpa.   3600   IN   PTR   mail.midominio.com.
     ```
 
-Así, al consultar la IP `192.0.2.15`, el DNS responde `mail.midominio.com`. Para que un servidor de correo sea considerado legítimo, el PTR de su IP debería coincidir con el nombre del registro A correspondiente.
+    - Al consultar la IP `192.0.2.15`, el DNS responde `mail.midominio.com`. Para que un servidor de correo sea considerado legítimo, el PTR de su IP debería coincidir con el nombre del registro A correspondiente.
 
 !!! note "Nota"
     Los PTR los configura quien administra el bloque de direcciones IP (normalmente el proveedor de Internet o de hosting), no el propietario del dominio. Para IPv6 la zona de resolución inversa es `ip6.arpa.`
-
 
 ## 11 - Herramientas de diagnóstico técnico de registros DNS
 
