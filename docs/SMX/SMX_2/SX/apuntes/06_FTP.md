@@ -73,7 +73,7 @@ schedule: 233h - 7h/w
       - Permanece **abierta de forma continua** durante toda la sesión del usuario.
       - Por este canal circulan exclusivamente órdenes cortas en texto ASCII (como `USER`, `PASS`, `LIST`, `RETR`, `QUIT`) emitidas por el cliente y las correspondientes respuestas numéricas de estado de 3 dígitos generadas por el servidor.
       - Por este canal **nunca viaja el contenido de los archivos** ni los listados de directorios.
-
+<!--
 * **Canal de datos (Puertos variables TCP / Puerto 20 en modo activo):**  
   * Es una conexión efímera que se abre **bajo demanda** únicamente cuando el cliente solicita una acción que implica intercambio de información volumétrica: transferir un fichero (subida con `STOR` o descarga con `RETR`) o solicitar el listado de archivos de una carpeta (`LIST` o `NLST`).
   * Una vez finalizada la transmisión del archivo o entregado el listado, el canal de datos **se cierra inmediatamente**. Si el usuario desea descargar otro fichero a continuación, se negociará y abrirá una nueva conexión de datos independiente.
