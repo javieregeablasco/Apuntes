@@ -1002,29 +1002,6 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
             - El TTL **no indica cada cuánto tiempo se actualiza el registro en el servidor DNS autoritativo**.
             - Indica cuánto tiempo otros servidores pueden conservar ese registro en su caché.
 
-#### 10.4.3 Registro CNAME (Canonical Name)
-
-- Los registros de nombres canónicos, o registros CNAME, dirigen un dominio de alias a un dominio canónico.
-- Los registros CNAME se usan a menudo para asignar un nombre de dominio con un alias al dominio principal que lleva el registro A o AAAA.
-
-!!! example "Ejemplo"
-
-    - En lugar de crear dos registros A para `www.example.com` y `product.example.com`, puede vincular `product.example.com` a un **registro CNAME** que luego se **vincula a un registro A** para `example.com`.
-    - El valor es que si la dirección IP cambia para el dominio raíz, solo se tendrá que actualizar el registro A y el CNAME se actualizará en consecuencia.
-    - Restricciones de configuración:
-        1. No se puede ubicar un registro CNAME en el dominio de raíz.
-        1. Los registros de servidores de correo (MX) y servidores de nombres (NS) nunca deben estar dirigidos a un CNAME.
-        1. Aunque técnicamente es posible apuntar un CNAME a otro CNAME, esta práctica no se recomienda porque resulta ineficaz y ralentiza la velocidad de carga.
-
-#### 10.4.4 Registro DNAME
-
-- Los registros de nombres de delegación, o registros DNAME, se utilizan para redirigir varios subdominios con un registro y apuntarlos a otro dominio.
-
-!!! example "Ejemplo"
-
-    - Un registro DNAME que vincule `domain.com` a `example.com` vinculará `product.domain.com`, `trial.domain.com`, y `blog.domain.com` a `example.com`. 
-    - Estos registros son útiles para administrar dominios a gran escala y para administrar cambios de nombres de dominio al garantizar que los subdominios estén vinculados correctamente.
-
 #### 10.4.5 Registros CAA
 
 - Los registros de autorización de autoridad de certificación, o registros CAA, permiten a los propietarios de dominios especificar qué **autoridades de certificación (CA)** pueden emitir certificados para su dominio.
@@ -1143,24 +1120,22 @@ Cuando una búsqueda de DNS comienza con una dirección IP, encuentra el nombre 
 - Los registros de nombres de delegación, o registros DNAME, se utilizan para redirigir **todo un árbol de subdominios** con un solo registro, apuntándolo a otro dominio.
 - Mientras que un CNAME redirige **un único nombre**, un DNAME redirige **todos los nombres que cuelgan de él**, conservando la parte de la izquierda.
 
-**Ejemplo**
+!!! tip "Sintaxis"
+    - Un registro DNAME que vincule `domain.com` a `example.com` hará que `product.domain.com`, `trial.domain.com` y `blog.domain.com` se resuelvan como `product.example.com`, `trial.example.com` y `blog.example.com`.
+    - Estos registros son útiles para administrar dominios a gran escala y para administrar cambios de nombres de dominio, al garantizar que los subdominios estén vinculados correctamente.
 
-- Un registro DNAME que vincule `domain.com` a `example.com` hará que `product.domain.com`, `trial.domain.com` y `blog.domain.com` se resuelvan como `product.example.com`, `trial.example.com` y `blog.example.com`.
-- Estos registros son útiles para administrar dominios a gran escala y para administrar cambios de nombres de dominio, al garantizar que los subdominios estén vinculados correctamente.
+!!! tip "Ejemplo"
+    -Una empresa cambia su nombre de `domain.com` a `example.com` y quiere que todos los subdominios antiguos sigan funcionando:
 
-**Ejemplo típico**
+    ```text
+    domain.com.   3600   IN   DNAME   example.com.
+    ```
 
-Una empresa cambia su nombre de `domain.com` a `example.com` y quiere que todos los subdominios antiguos sigan funcionando:
-
-```text
-domain.com.   3600   IN   DNAME   example.com.
-```
-
-| Nombre consultado | Se resuelve como |
-|---|---|
-| `blog.domain.com` | `blog.example.com` |
-| `product.domain.com` | `product.example.com` |
-| `a.b.domain.com` | `a.b.example.com` |
+    | Nombre consultado | Se resuelve como |
+    |---|---|
+    | `blog.domain.com` | `blog.example.com` |
+    | `product.domain.com` | `product.example.com` |
+    | `a.b.domain.com` | `a.b.example.com` |
 
 !!! warning "Importante"
     El DNAME afecta solo a los **subdominios**, no al propio `domain.com`. Si también queremos redirigir el nombre raíz, hay que configurarlo aparte (por ejemplo, con un registro A).
