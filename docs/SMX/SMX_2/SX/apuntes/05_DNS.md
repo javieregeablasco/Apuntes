@@ -433,7 +433,7 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
       .edu
       ```
 
-- Existen diferentes tipos de TLD. Por ejemplo:
+- Existen diferentes tipos de TLDs, por ejemplo:
 
     1. **gTLD (*generic Top-Level Domain*)**: `.com`, `.org`, `.net`, etc.
     1. **ccTLD (*country code Top-Level Domain*)**: `.es`, `.fr`, `.it`, `.de`, etc.
@@ -449,7 +449,7 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
 
 ### 7.3 Dominio
 
-- A la izquierda del TLD encontramos otros niveles de la jerarquía.
+- A la izquierda del TLD encontramos otros niveles de la jerarquía de dominios.
 
 - En el caso de:
 
@@ -463,13 +463,16 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
 ### 7.4 Subdominios
 
 - Un **subdominio** es un dominio que se encuentra por debajo de otro dominio dentro de la jerarquía DNS.
-![Descripción de la imagen](./img_5/img_5_156.png){.margintop10}
 
 - En el caso de:
 
       ```text
-      gva.es
+      www.edu.gva.es
       ```
+
+    **Un subdominio del dominio `gva.es` sería `edu.gva.es`.
+    ![Descripción de la imagen](./img_5/img_5_156.png){.margintop10}
+
 
     podría tener diferentes subdominios:
 
@@ -1154,7 +1157,6 @@ Para verificar y solucionar problemas con las zonas DNS, los administradores de 
 
     - Redactar el comando para consultar la IP de uno de los servidores.
         ![Descripción de la imagen](./img_5/img_5_33-1.png){ .margintop10 .marginbottom10}
-
 
 ## 14 - Tarea RA2-CEbc-3 - Resolución manual de un dominio
 
