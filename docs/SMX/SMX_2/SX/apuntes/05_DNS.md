@@ -470,11 +470,10 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
       www.edu.gva.es
       ```
 
-    **Un subdominio del dominio `gva.es` sería `edu.gva.es`.
+    **Un subdominio** del dominio `gva.es` sería `edu.gva.es`.
     ![Descripción de la imagen](./img_5/img_5_156.png){.margintop10}
 
-
-    podría tener diferentes subdominios:
+- Un dominio puede tener diferentes subdominios:
 
       ```text
       edu.gva.es
