@@ -10,7 +10,7 @@ keywords: SMX, SMR, SX, SR
 schedule: 233h - 7h/w
 ---
 
-![Descripción de la imagen](./img_5/img_5_1.jpg){ .img2 .marginbottom40}
+![Descripción de la imagen](./img_6/img_6_1.png){ .img2 .marginbottom40}
 
 **Resultados de aprendizaje y criterios de evaluacion que se evaluarán en esta unidad.**  
 
@@ -20,7 +20,7 @@ schedule: 233h - 7h/w
 
 |**Criterios de evaluación de la unidad didáctica:**|
 ||
-|**a)** Se han reconocido las características y modos de funcionamiento del servicio de transferencia de ficheros.|
+|**a) Se han reconocido las características y modos de funcionamiento del servicio de transferencia de ficheros.**|
 |**b)** Se ha instalado y configurado un servidor de transferencia de ficheros.|
 |**c)** Se han creado usuarios y grupos para el acceso al servicio.|
 |**d)** Se han configurado permisos de acceso, carpetas públicas y aislamiento de usuarios.|
@@ -28,9 +28,6 @@ schedule: 233h - 7h/w
 |**f)** Se ha asegurado el servicio mediante el cifrado de datos, autenticación y credenciales (FTPS / SSL / TLS / SFTP / SCP).|
 |**g)** Se han registrado y analizado los eventos y logs del servicio de transferencia de ficheros.|
 |**h)** Se han aplicado medidas de seguridad y buenas prácticas en la parada del laboratorio.|
-
-
-
 
 !!! warning "Nota:"
     Los criterios de evaluación en negrita será evaluados durante la FCT.
