@@ -952,10 +952,10 @@ En muchos casos puede resultar necesario añadir volúmenes EBS adicionales a un
 
 !!! task "Tarea RA3-CEc (continuación): Montar un servidor web y un agente mysql"
     **1. Instancia pública**  
-    Instalar un servidor web Apache, que será accesible desde cualquier equipo externo a la VPC por el puerto 80, utilizando tanto su nombre DNS como su dirección IP pública.
+    Instalar un servidor web Apache, que será accesible desde cualquier equipo externo a la VPC por **el puerto 80**, utilizando tanto su nombre DNS como su dirección IP pública.
 
     **2. Instancia privada**  
-    Instala un servicio de MySQL. 
+    Instalar un servicio de BBDD MySQL. 
 
     **3. Conexión a la BBDD**  
     Conectarse a la instancia de la subred pública y realizar una prueba de conexión **al servidor de base de datos**. Para esa conexión, se utilizará un cliente mysql.
