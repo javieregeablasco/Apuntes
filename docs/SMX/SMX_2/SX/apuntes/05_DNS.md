@@ -931,6 +931,15 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
             mail              IN    A       192.0.2.20
             ```
 
+1. En una resolución DNS pueden intervenir diferentes tipos de servidores, entre ellos:
+
+    - **Servidores DNS recursivos:** reciben las consultas de los clientes y se encargan de obtener la respuesta.
+    - **Servidores DNS raíz:** indican qué servidores son responsables de los diferentes dominios de nivel superior (*Top-Level Domains* o  TLD), como `.com`, `.org` o `.es`.
+    - **Servidores DNS de TLD:** indican cuáles son los servidores autoritativos responsables de un dominio concreto.
+    - **Servidores DNS autoritativos:** contienen la información oficial de una zona DNS y proporcionan los registros correspondientes.
+
+### 10.2 Sintaxis de un registro DNS
+
 1. **Un registro DNS** (*Resource Record*) en un fichero de zona tiene **cinco campos**, separados por espacios o **tabuladores**:
 
        ```text
@@ -969,12 +978,6 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
         ftp    IN   CNAME   www.midominio.com.
         ```
 
-1. En una resolución DNS pueden intervenir diferentes tipos de servidores, entre ellos:
-
-    - **Servidores DNS recursivos:** reciben las consultas de los clientes y se encargan de obtener la respuesta.
-    - **Servidores DNS raíz:** indican qué servidores son responsables de los diferentes dominios de nivel superior (*Top-Level Domains* o  TLD), como `.com`, `.org` o `.es`.
-    - **Servidores DNS de TLD:** indican cuáles son los servidores autoritativos responsables de un dominio concreto.
-    - **Servidores DNS autoritativos:** contienen la información oficial de una zona DNS y proporcionan los registros correspondientes.
 
 ### 10.2 TTL (Time To Live)
 
