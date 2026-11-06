@@ -491,7 +491,7 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
       correo.edu.gva.es
       ```
 
-    ![Descripción de la imagen](./img_5/img_5_157.png){.margintop10 .marginbottom10 .marco}
+    ![Descripción de la imagen](./img_5/img_5_157.png){.margintop10  .marco}
 
 ### 7.5 FQDN
 
