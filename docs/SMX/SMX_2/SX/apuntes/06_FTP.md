@@ -1992,3 +1992,6 @@ https://sri.codeandcoke.com/doku.php?id=sri:t3
 
 https://acastan.gitbook.io/servicios/ficheros
 
+https://despliegue.codeandcoke.com/apuntes:servicios_transferencia
+
+https://marcosruiz.github.io/posts/servicio-vsfptd/
