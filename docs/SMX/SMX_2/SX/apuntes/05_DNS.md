@@ -1238,7 +1238,11 @@ Cuando una búsqueda de DNS comienza con una dirección IP, encuentra el nombre 
 !!! tip "Sintaxis"
     ```text
     nombre   IN   SOA   servidor-primario   correo-admin   (
-                    serie  refresh  retry  expire  minimum )
+                    serie
+                    refresh
+                    retry
+                    expire
+                    minimum )
     ```
 
 !!! tip "Ejemplo"
