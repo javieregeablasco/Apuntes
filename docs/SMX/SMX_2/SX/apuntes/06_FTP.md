@@ -20,14 +20,13 @@ schedule: 233h - 7h/w
 
 |**Criterios de evaluación de la unidad didáctica:**|
 ||
-|**a) Se han reconocido las características y modos de funcionamiento del servicio de transferencia de ficheros.**|
-|**b)** Se ha instalado y configurado un servidor de transferencia de ficheros.|
-|**c)** Se han creado usuarios y grupos para el acceso al servicio.|
-|**d)** Se han configurado permisos de acceso, carpetas públicas y aislamiento de usuarios.|
-|**e)** Se ha verificado el funcionamiento del servicio mediante clientes gráficos y en línea de comandos.|
-|**f)** Se ha asegurado el servicio mediante el cifrado de datos, autenticación y credenciales (FTPS / SSL / TLS / SFTP / SCP).|
-|**g)** Se han registrado y analizado los eventos y logs del servicio de transferencia de ficheros.|
-|**h)** Se han aplicado medidas de seguridad y buenas prácticas en la parada del laboratorio.|
+|**a) Se ha establecido la utilidad y modo de operación del servicio de transferencia de ficheros.**|
+|**b)** Se ha instalado un servicio de transferencia de ficheros. |
+|**c)** Se han creado usuarios y grupos para acceso remoto al servidor.|
+|**d)** Se ha configurado el acceso anónimo.|
+|**e)** Se han establecido límites en los distintos modos de acceso.|
+|**f)** Se ha comprobado el acceso al servidor, tanto en modo activo como en modo pasivo.|
+|**g)** Se han realizado pruebas con clientes en línea de comandos y en modo gráfico.|
 
 !!! warning "Nota:"
     Los criterios de evaluación en negrita será evaluados durante la FCT.
