@@ -981,7 +981,7 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
         ftp    IN   CNAME   www.midominio.com.
         ```
 
-### 10.2 TTL (Time To Live)
+### 10.3 TTL (Time To Live)
 
 - Los registros DNS incluyen un valor denominado **TTL (Time To Live)**.
 
@@ -1002,9 +1002,9 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
             - El TTL **no indica cada cuánto tiempo se actualiza el registro en el servidor DNS autoritativo**.
             - Indica cuánto tiempo otros servidores pueden conservar ese registro en su caché.
 
-### 10.3 Tipos de Registros DNS
+### 10.4 Tipos de Registros DNS
 
-#### 10.3.1 Registro A (Address)
+#### 10.4.1 Registro A (Address)
 
 - Los registros de direcciones, o registros A, son los registros DNS más utilizados. Crean una conexión directa entre **una dirección IPv4** y un nombre de dominio.
 - Permiten que un navegador web cargue un sitio utilizando un nombre de dominio legible, evitando que el usuario tenga que recordar complejas direcciones IP numéricas.
@@ -1014,7 +1014,7 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
 !!! tip "Sintaxis típica"
     midominio.com. IN A 192.0.2.15.
 
-#### 10.3.2 Registro AAAA (Quad A)
+#### 10.4.2 Registro AAAA (Quad A)
 
 - Funciona de manera similar al registro A, pero conecta nombres de dominio **con direcciones IPv6**.
 - Aunque menos común que IPv4, su adopción global va en aumento para resolver el problema del agotamiento de las direcciones IPv4 tradicionales.
@@ -1022,7 +1022,7 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
 !!! tip "Sintaxis típica"
     midominio.net. IN AAAA 2001:0db8:85a3:0000:0000:8a2e:0370:1234
 
-#### 10.3.3 Registro CNAME (Canonical Name)
+#### 10.4.3 Registro CNAME (Canonical Name)
 
 - Los registros de nombres canónicos, o registros CNAME, dirigen un dominio de alias a un dominio canónico.
 - Los registros CNAME se usan a menudo para asignar un nombre de dominio con un alias al dominio principal que lleva el registro A o AAAA.
@@ -1036,7 +1036,7 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
         1. Los registros de servidores de correo (MX) y servidores de nombres (NS) nunca deben estar dirigidos a un CNAME.
         1. Aunque técnicamente es posible apuntar un CNAME a otro CNAME, esta práctica no se recomienda porque resulta ineficaz y ralentiza la velocidad de carga.
 
-#### 10.3.4 Registro DNAME
+#### 10.4.4 Registro DNAME
 
 - Los registros de nombres de delegación, o registros DNAME, se utilizan para redirigir varios subdominios con un registro y apuntarlos a otro dominio.
 
@@ -1045,13 +1045,13 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
     - Un registro DNAME que vincule `domain.com` a `example.com` vinculará `product.domain.com`, `trial.domain.com`, y `blog.domain.com` a `example.com`. 
     - Estos registros son útiles para administrar dominios a gran escala y para administrar cambios de nombres de dominio al garantizar que los subdominios estén vinculados correctamente.
 
-#### 10.3.5 Registros CAA
+#### 10.4.5 Registros CAA
 
 - Los registros de autorización de autoridad de certificación, o registros CAA, permiten a los propietarios de dominios especificar qué **autoridades de certificación (CA)** pueden emitir certificados para su dominio.
 
 - Una CA es una organización que valida la identidad de los sitios web y los conecta a claves criptográficas mediante la emisión de certificados digitales.
 
-#### 10.3.6 Registro NS (Nameserver)
+#### 10.4.6 Registro NS (Nameserver)
 
 - Especifica qué servidor de nombres o servidor DNS en particular actúa como la autoridad autoritativa para un dominio o subdominio.
 
@@ -1059,7 +1059,7 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
     - El registro NS indica qué servidor **alberga físicamente los archivos de zona del dominio**.
     - Sin un registro NS debidamente configurado, es imposible cargar o acceder a un sitio web.
 
-#### 10.3.7 Registro MX (Mail Exchange)
+#### 10.4.7 Registro MX (Mail Exchange)
 
 - Los registros MX son indispensables para la recepción de correos electrónicos bajo el nombre de dominio.
 
@@ -1068,21 +1068,21 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
 !!! example "Sintaxis típica"
     midominio.com. IN MX 10 mail.midominio.com.
 
-#### 10.3.8 Registro TXT
+#### 10.4.8 Registro TXT
 
 - Permite que un administrador pueda almacenar notas de texto en el registro. Estos registros se suelen utilizar para la seguridad del correo electrónico.
 
-#### 10.3.9 Registros CERT
+#### 10.4.9 Registros CERT
 
 - Los certificados, o registros CERT, almacenan certificados que verifican la autenticidad de todas las partes involucradas.  
 
 - Este tipo de registro es particularmente valioso cuando se protege y encripta información confidencial.
 
-#### 10.3.10 Registros SOA
+#### 10.4.10 Registros SOA
 
 Los registros de inicio de autoridad, o registros SOA, almacenan información administrativa importante sobre un dominio. Esta información puede incluir la dirección de correo electrónico del administrador del dominio, información sobre las actualizaciones del dominio y cuándo un servidor debe actualizar su información.
 
-#### 10.3.11 Registros PTR
+#### 10.4.11 Registros PTR
 
 Los registros de puntero, o registros PTR, funcionan en la dirección opuesta a los registros A. Se utilizan para **conectar una dirección IP con un nombre de dominio, en lugar de un nombre de dominio con una dirección IP**.
 
