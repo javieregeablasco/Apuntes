@@ -1986,3 +1986,9 @@ Una vez completadas con éxito todas las pruebas técnicas en **Windows Server**
 >
 >
 
+
+
+https://sri.codeandcoke.com/doku.php?id=sri:t3
+
+https://acastan.gitbook.io/servicios/ficheros
+
