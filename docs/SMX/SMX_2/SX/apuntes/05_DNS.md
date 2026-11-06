@@ -1155,9 +1155,9 @@ Para verificar y solucionar problemas con las zonas DNS, los administradores de 
     - Redactar el comando para consultar la IP de uno de los servidores.
         ![Descripción de la imagen](./img_5/img_5_33-1.png){ .margintop10 .marginbottom10}
 
-<!--
+
 ## 14 - Tarea RA2-CEbc-3 - Resolución manual de un dominio
--->
+
 ---
 
 ## 14 - Tarea RA2-CEde-1 - Instalación y configuración de un servidor DNS con Windows Server 2025
