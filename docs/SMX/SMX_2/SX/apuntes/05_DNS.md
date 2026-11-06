@@ -972,7 +972,7 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
             - **Los campos opcionales** (TTL y nombre) pueden omitirse. Si falta el TTL se usa el valor por defecto de la zona (`$TTL`), y si falta el nombre se reutiliza el del registro anterior.
             - **Los comentarios** empiezan por `;` y llegan hasta el final de la línea.
 
-    !!! note "- El campo de datos es el único que no tiene formato fijo: depende del tipo de registro.<br>- Cada tipo guarda una información distinta, y por eso necesita datos distintoSs."
+    !!! note "- El campo de datos es el único que no tiene formato fijo: depende del tipo de registro.<br>- Cada tipo guarda una información distinta, y por eso necesita datos distintos."
         - Por ejemplo, un registro A sola lleva una IP, un `MX` lleva prioridad y servidor, y un `CNAME` lleva otro nombre:
 
         ```text
@@ -1001,15 +1001,6 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
         !!! warning "Importante" 
             - El TTL **no indica cada cuánto tiempo se actualiza el registro en el servidor DNS autoritativo**.
             - Indica cuánto tiempo otros servidores pueden conservar ese registro en su caché.
-
-### 10.4 Tipos de Registros DNS
-
-#### 10.4.1 Registro A (Address)
-
-- Los registros de direcciones, o registros A, son los registros DNS más utilizados. Crean una conexión directa entre **una dirección IPv4** y un nombre de dominio.
-- Permiten que un navegador web cargue un sitio utilizando un nombre de dominio legible, evitando que el usuario tenga que recordar complejas direcciones IP numéricas.
-- **Redundancia**: Es posible configurar múltiples registros A para un mismo dominio, lo que proporciona respaldo y redundancia en caso de fallos.
-- **Seguridad**: Se utiliza también en listas negras basadas en DNS (DNSBL) para bloquear correos provenientes de fuentes de spam conocidas.
 
 !!! tip "Sintaxis típica"
     midominio.com. IN A 192.0.2.15.
@@ -1087,6 +1078,303 @@ Los registros de inicio de autoridad, o registros SOA, almacenan información ad
 Los registros de puntero, o registros PTR, funcionan en la dirección opuesta a los registros A. Se utilizan para **conectar una dirección IP con un nombre de dominio, en lugar de un nombre de dominio con una dirección IP**.
 
 Cuando una búsqueda de DNS comienza con una dirección IP, encuentra el nombre de host correspondiente. Estos registros se utilizan para detectar spam comprobando si las direcciones IP y las direcciones de correo electrónico asociadas son utilizadas por servidores de correo electrónico legítimos. El host del servidor debe configurar los registros PTR.
+
+## 10.4 Tipos de Registros DNS
+
+### 10.4.1 Registro A (Address)
+
+- Los registros de direcciones, o registros A, son los registros DNS más utilizados. Crean una conexión directa entre una dirección **IPv4** y un nombre de dominio.
+- Permiten que un navegador web cargue un sitio utilizando un nombre de dominio legible, evitando que el usuario tenga que recordar complejas direcciones IP numéricas.
+- **Redundancia:** es posible configurar múltiples registros A para un mismo dominio, lo que proporciona respaldo y redundancia en caso de fallos.
+- **Seguridad:** se utiliza también en listas negras basadas en DNS (DNSBL) para bloquear correos provenientes de fuentes de spam conocidas.
+
+!!! tip "Sintaxis típica"
+    ```text
+    midominio.com. IN A 192.0.2.15
+    ```
+
+**Ejemplo típico**
+
+El dominio y su `www` apuntan al mismo servidor web:
+
+```text
+midominio.com.       3600   IN   A   192.0.2.15
+www.midominio.com.   3600   IN   A   192.0.2.15
+```
+
+Con dos registros A para el mismo nombre, el DNS reparte las consultas entre ambas IP (balanceo y redundancia):
+
+```text
+www.midominio.com.   3600   IN   A   192.0.2.15
+www.midominio.com.   3600   IN   A   192.0.2.16
+```
+
+### 10.4.2 Registro AAAA (Quad A)
+
+- Funciona de manera similar al registro A, pero conecta nombres de dominio con direcciones **IPv6**.
+- Aunque menos común que IPv4, su adopción global va en aumento para resolver el problema del agotamiento de las direcciones IPv4 tradicionales.
+
+**Sintaxis típica**
+
+```text
+midominio.net. IN AAAA 2001:0db8:85a3:0000:0000:8a2e:0370:1234
+```
+
+**Ejemplo típico**
+
+Lo habitual es publicar a la vez el registro A y el AAAA del mismo nombre (*doble pila*), de modo que cada cliente use la versión de IP que soporte. Las direcciones IPv6 pueden abreviarse (`::` sustituye a un grupo de ceros consecutivos):
+
+```text
+www.midominio.net.   3600   IN   A      192.0.2.15
+www.midominio.net.   3600   IN   AAAA   2001:db8:85a3::8a2e:370:1234
+```
+
+### 10.4.3 Registro CNAME (Canonical Name)
+
+- Los registros de nombres canónicos, o registros CNAME, dirigen un dominio de alias a un dominio canónico.
+- Los registros CNAME se usan a menudo para asignar un nombre de dominio con un alias al dominio principal que lleva el registro A o AAAA.
+
+**Ejemplo**
+
+- En lugar de crear dos registros A para `www.example.com` y `product.example.com`, se puede vincular `product.example.com` a un registro CNAME que luego se vincula a un registro A para `example.com`.
+- El valor es que si la dirección IP cambia para el dominio raíz, solo se tendrá que actualizar el registro A y el CNAME se actualizará en consecuencia.
+
+**Ejemplo típico**
+
+```text
+example.com.           3600   IN   A       192.0.2.15
+www.example.com.       3600   IN   CNAME   example.com.
+product.example.com.   3600   IN   CNAME   example.com.
+```
+
+Si la IP de `example.com` cambia, basta con modificar el registro A: `www` y `product` seguirán funcionando.
+
+**Restricciones de configuración**
+
+- No se puede ubicar un registro CNAME en el dominio de raíz (`@`).
+- Un nombre que tenga un CNAME **no puede tener ningún otro registro** (ni A, ni MX, ni TXT...).
+- Los registros de servidores de correo (MX) y servidores de nombres (NS) nunca deben estar dirigidos a un CNAME.
+- Aunque técnicamente es posible apuntar un CNAME a otro CNAME, esta práctica no se recomienda porque resulta ineficaz y ralentiza la velocidad de carga.
+
+### 10.4.4 Registro DNAME
+
+- Los registros de nombres de delegación, o registros DNAME, se utilizan para redirigir **todo un árbol de subdominios** con un solo registro, apuntándolo a otro dominio.
+- Mientras que un CNAME redirige **un único nombre**, un DNAME redirige **todos los nombres que cuelgan de él**, conservando la parte de la izquierda.
+
+**Ejemplo**
+
+- Un registro DNAME que vincule `domain.com` a `example.com` hará que `product.domain.com`, `trial.domain.com` y `blog.domain.com` se resuelvan como `product.example.com`, `trial.example.com` y `blog.example.com`.
+- Estos registros son útiles para administrar dominios a gran escala y para administrar cambios de nombres de dominio, al garantizar que los subdominios estén vinculados correctamente.
+
+**Ejemplo típico**
+
+Una empresa cambia su nombre de `domain.com` a `example.com` y quiere que todos los subdominios antiguos sigan funcionando:
+
+```text
+domain.com.   3600   IN   DNAME   example.com.
+```
+
+| Nombre consultado | Se resuelve como |
+|---|---|
+| `blog.domain.com` | `blog.example.com` |
+| `product.domain.com` | `product.example.com` |
+| `a.b.domain.com` | `a.b.example.com` |
+
+!!! warning "Importante"
+    El DNAME afecta solo a los **subdominios**, no al propio `domain.com`. Si también queremos redirigir el nombre raíz, hay que configurarlo aparte (por ejemplo, con un registro A).
+
+### 10.4.5 Registros CAA
+
+- Los registros de autorización de autoridad de certificación, o registros CAA, permiten a los propietarios de dominios especificar qué autoridades de certificación (CA) pueden emitir certificados para su dominio.
+- Una CA es una organización que valida la identidad de los sitios web y los conecta a claves criptográficas mediante la emisión de certificados digitales.
+
+**Sintaxis típica**
+
+```text
+nombre   IN   CAA   flag   etiqueta   "valor"
+```
+
+**Ejemplo típico**
+
+Solo Let's Encrypt puede emitir certificados para el dominio, no se permiten certificados *wildcard* (`*.midominio.com`) y se avisa por correo ante cualquier intento no autorizado:
+
+```text
+midominio.com.   3600   IN   CAA   0 issue "letsencrypt.org"
+midominio.com.   3600   IN   CAA   0 issuewild ";"
+midominio.com.   3600   IN   CAA   0 iodef "mailto:seguridad@midominio.com"
+```
+
+| Elemento | Significado |
+|---|---|
+| `0` | Flag (normalmente `0`) |
+| `issue` | Qué CA puede emitir certificados normales |
+| `issuewild` | Qué CA puede emitir certificados *wildcard* (`";"` = ninguna) |
+| `iodef` | Dónde notificar intentos de emisión no autorizados |
+
+### 10.4.6 Registro NS (Nameserver)
+
+- Especifica qué servidor de nombres o servidor DNS en particular actúa como la autoridad para un dominio o subdominio.
+
+!!! warning "Importante"
+    - El registro NS indica qué servidores DNS son **autoritativos** para la zona, es decir, los que contienen y responden con sus registros.
+    - Sin un registro NS debidamente configurado, es imposible que los clientes resuelvan los nombres del dominio y, por tanto, acceder a su sitio web.
+
+**Sintaxis típica**
+
+```text
+midominio.com. IN NS ns1.midominio.com.
+```
+
+**Ejemplo típico**
+
+Un dominio suele tener, al menos, dos servidores de nombres por redundancia. Como los nombres de los NS están dentro del propio dominio, necesitan además su registro A (llamado *glue*):
+
+```text
+midominio.com.       86400   IN   NS   ns1.midominio.com.
+midominio.com.       86400   IN   NS   ns2.midominio.com.
+ns1.midominio.com.   86400   IN   A    192.0.2.53
+ns2.midominio.com.   86400   IN   A    192.0.2.54
+```
+
+### 10.4.7 Registro MX (Mail Exchange)
+
+- Los registros MX son indispensables para la recepción de correos electrónicos bajo el nombre de dominio.
+- Indica cuáles son los servidores de correo autorizados para recibir los mensajes mediante el protocolo SMTP.
+
+**Sintaxis típica**
+
+```text
+midominio.com. IN MX 10 mail.midominio.com.
+```
+
+**Ejemplo típico**
+
+Dos servidores de correo, con prioridad (el número **más bajo** se prueba primero). Cada servidor necesita su registro A, y el MX nunca debe apuntar a un CNAME ni a una IP:
+
+```text
+midominio.com.        3600   IN   MX   10 mail.midominio.com.
+midominio.com.        3600   IN   MX   20 mail2.midominio.com.
+mail.midominio.com.   3600   IN   A    192.0.2.25
+mail2.midominio.com.  3600   IN   A    192.0.2.26
+```
+
+El correo para `usuario@midominio.com` se entrega primero a `mail`; si no está disponible, a `mail2`.
+
+### 10.4.8 Registro TXT
+
+- Permite que un administrador pueda almacenar notas de texto en el registro. Estos registros se suelen utilizar para la seguridad del correo electrónico.
+
+**Sintaxis típica**
+
+```text
+midominio.com. IN TXT "texto"
+```
+
+**Ejemplo típico**
+
+Los usos más comunes son las políticas de seguridad del correo: **SPF**, **DKIM** y **DMARC**.
+
+```text
+midominio.com.                         IN   TXT   "v=spf1 mx ip4:192.0.2.25 -all"
+selector1._domainkey.midominio.com.    IN   TXT   "v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4..."
+_dmarc.midominio.com.                  IN   TXT   "v=DMARC1; p=quarantine; rua=mailto:dmarc@midominio.com"
+```
+
+| Registro | Para qué sirve |
+|---|---|
+| **SPF** | Indica qué servidores pueden enviar correo en nombre del dominio (aquí: los `MX` y la IP `192.0.2.25`; el resto se rechaza con `-all`) |
+| **DKIM** | Publica la clave pública con la que se verifica la firma de los correos |
+| **DMARC** | Indica qué hacer con los correos que fallan SPF o DKIM (`quarantine` = enviar a spam) y dónde recibir informes |
+
+También se usan para verificar la propiedad de un dominio ante servicios externos, con un valor que el servicio te proporciona, por ejemplo `"google-site-verification=abc123..."`.
+
+### 10.4.9 Registros CERT
+
+- Los certificados, o registros CERT, almacenan certificados que verifican la autenticidad de todas las partes involucradas.
+- Este tipo de registro es particularmente valioso cuando se protege y encripta información confidencial.
+
+**Sintaxis típica**
+
+```text
+nombre   IN   CERT   tipo   key-tag   algoritmo   certificado-en-base64
+```
+
+**Ejemplo típico**
+
+Publicar la clave pública PGP de un usuario para que otros puedan descargarla desde el DNS (el contenido en base64 se acorta aquí):
+
+```text
+usuario.midominio.com.   3600   IN   CERT   PGP 0 0 mQENBF2xYzABCAC3...
+```
+
+| Campo | Significado |
+|---|---|
+| `PGP` | Tipo de certificado (también existen `PKIX`, `SPKI`...) |
+| `0` | *Key tag* (`0` si no se usa) |
+| `0` | Algoritmo (`0` si no se usa) |
+| `mQENBF2...` | Certificado o clave, codificado en base64 |
+
+!!! info "Nota"
+    Es un registro poco frecuente en la práctica; hoy se utilizan más otros mecanismos como CAA o DANE (`TLSA`).
+
+### 10.4.10 Registros SOA
+
+- Los registros de inicio de autoridad, o registros SOA, almacenan información administrativa importante sobre un dominio. Esta información puede incluir la dirección de correo electrónico del administrador del dominio, información sobre las actualizaciones del dominio y cuándo un servidor debe actualizar su información.
+- Hay **un único SOA por zona** y es siempre el primer registro del fichero de zona.
+
+**Sintaxis típica**
+
+```text
+nombre   IN   SOA   servidor-primario   correo-admin   (
+                    serie  refresh  retry  expire  minimum )
+```
+
+**Ejemplo típico**
+
+```text
+midominio.com.   IN   SOA   ns1.midominio.com.   admin.midominio.com. (
+                      2026110601   ; serie (número de versión de la zona)
+                      3600         ; refresh: cada cuánto consulta el secundario si hay cambios
+                      900          ; retry: reintento si el refresh falla
+                      604800       ; expire: tiempo máximo que el secundario sirve datos sin poder actualizar
+                      86400 )      ; minimum: TTL para respuestas negativas
+```
+
+- `ns1.midominio.com.` es el servidor DNS primario de la zona.
+- `admin.midominio.com.` es el correo del administrador: el primer punto representa la `@`, es decir, `admin@midominio.com`.
+- La **serie** debe aumentar cada vez que se modifica la zona; es habitual usar el formato `AAAAMMDDNN` (año, mes, día y número de cambio del día).
+
+### 10.4.11 Registros PTR
+
+- Los registros de puntero, o registros PTR, funcionan en la dirección opuesta a los registros A. Se utilizan para conectar una dirección IP con un nombre de dominio, en lugar de un nombre de dominio con una dirección IP.
+- Cuando una búsqueda de DNS comienza con una dirección IP, encuentra el nombre de host correspondiente.
+- Estos registros se utilizan para detectar spam comprobando si las direcciones IP y las direcciones de correo electrónico asociadas son utilizadas por servidores de correo electrónico legítimos.
+- El host del servidor debe configurar los registros PTR.
+
+**Sintaxis típica**
+
+```text
+15.2.0.192.in-addr.arpa. IN PTR www.midominio.com.
+```
+
+**Ejemplo típico**
+
+Los PTR se guardan en una zona especial de **resolución inversa**: la IP se escribe **al revés** y se le añade `.in-addr.arpa.`
+
+```text
+IP:       192.0.2.15
+Inversa:  15.2.0.192.in-addr.arpa.
+```
+
+```text
+15.2.0.192.in-addr.arpa.   3600   IN   PTR   mail.midominio.com.
+```
+
+Así, al consultar la IP `192.0.2.15`, el DNS responde `mail.midominio.com`. Para que un servidor de correo sea considerado legítimo, el PTR de su IP debería coincidir con el nombre del registro A correspondiente.
+
+!!! note "Nota"
+    Los PTR los configura quien administra el bloque de direcciones IP (normalmente el proveedor de Internet o de hosting), no el propietario del dominio. Para IPv6 la zona de resolución inversa es `ip6.arpa.`
+
 
 ## 11 - Herramientas de diagnóstico técnico de registros DNS
 
