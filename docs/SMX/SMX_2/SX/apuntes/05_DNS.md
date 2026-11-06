@@ -471,9 +471,9 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
       ```
 
     **Un subdominio** del dominio `gva.es` sería `edu.gva.es`.
-    ![Descripción de la imagen](./img_5/img_5_156.png){.margintop10}
+    ![Descripción de la imagen](./img_5/img_5_156.png){.margintop10 .marginbottom10}
 
-- Un dominio puede tener diferentes subdominios:
+- Un dominio puede tener diferentes subdominios que permiten organizar diferentes servicios, departamentos o recursos dentro de una misma estructura de nombres.
 
       ```text
       edu.gva.es
@@ -481,7 +481,7 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
       just.gva.es
       ```
 
-    Y, a su vez, `edu.gva.es` podría tener otros niveles:
+    A su vez, `edu.gva.es` podría tener otros niveles:
 
       ```text
       www.edu.gva.es
@@ -489,7 +489,7 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
       correo.edu.gva.es
       ```
 
-- Los subdominios permiten organizar diferentes servicios, departamentos o recursos dentro de una misma estructura de nombres.
+![Descripción de la imagen](./img_5/img_5_156.png){.margintop10 .marginbottom10}
 
 ### 7.5 FQDN
 
@@ -497,7 +497,6 @@ En una búsqueda de DNS se pueden producir **tres tipos de consultas**.
 
 - En nuestro caso tendríamos el siguiente FQDN `www.edu.gva.es.` o `www.edu.gva.es`:
 ![Descripción de la imagen](./img_5/img_5_11.png){.margintop10}
-
 
 !!! tip "Importante"
     Los nombres DNS se interpretan **de derecha a izquierda**.
