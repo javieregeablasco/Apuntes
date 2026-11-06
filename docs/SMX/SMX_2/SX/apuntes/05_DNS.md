@@ -1207,13 +1207,13 @@ Cuando una búsqueda de DNS comienza con una dirección IP, encuentra el nombre 
     _dmarc.midominio.com.                  IN   TXT   "v=DMARC1; p=quarantine; rua=mailto:dmarc@midominio.com"
     ```
 
-| Registro | Para qué sirve |
-|---|---|
-| **SPF** | Indica qué servidores pueden enviar correo en nombre del dominio (aquí: los `MX` y la IP `192.0.2.25`; el resto se rechaza con `-all`) |
-| **DKIM** | Publica la clave pública con la que se verifica la firma de los correos |
-| **DMARC** | Indica qué hacer con los correos que fallan SPF o DKIM (`quarantine` = enviar a spam) y dónde recibir informes |
+    | Registro | Para qué sirve |
+    |---|---|
+    | **SPF** | Indica qué servidores pueden enviar correo en nombre del dominio (aquí: los `MX` y la IP `192.0.2.25`; el resto se rechaza con `-all`) |
+    | **DKIM** | Publica la clave pública con la que se verifica la firma de los correos |
+    | **DMARC** | Indica qué hacer con los correos que fallan SPF o DKIM (`quarantine` = enviar a spam) y dónde recibir informes |
 
-También se usan para verificar la propiedad de un dominio ante servicios externos, con un valor que el servicio te proporciona, por ejemplo `"google-site-verification=abc123..."`.
+    También se usan para verificar la propiedad de un dominio ante servicios externos, con un valor que el servicio te proporciona, por ejemplo `"google-site-verification=abc123..."`.
 
 ### 10.4.9 Registros CERT
 
