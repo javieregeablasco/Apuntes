@@ -1175,12 +1175,12 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
 
 - Permite que un administrador pueda almacenar notas de texto en el registro. Estos registros se suelen utilizar para la seguridad del correo electrónico.
 
-!!! tip "Sintaxis típica"
+!!! tip "Sintaxis"
     ```text
     midominio.com. IN TXT "texto"
     ```
 
-!!! tip "Ejemplo típico"
+!!! tip "Ejemplo"
     - Los usos más comunes son las políticas de seguridad del correo: **SPF**, **DKIM** y **DMARC**.
 
     ```text
