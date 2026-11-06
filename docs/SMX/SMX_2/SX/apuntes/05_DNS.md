@@ -1004,12 +1004,6 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
 
 
 
-#### 10.4.9 Registros CERT
-
-- Los certificados, o registros CERT, almacenan certificados que verifican la autenticidad de todas las partes involucradas.  
-
-- Este tipo de registro es particularmente valioso cuando se protege y encripta información confidencial.
-
 #### 10.4.10 Registros SOA
 
 Los registros de inicio de autoridad, o registros SOA, almacenan información administrativa importante sobre un dominio. Esta información puede incluir la dirección de correo electrónico del administrador del dominio, información sobre las actualizaciones del dominio y cuándo un servidor debe actualizar su información.
@@ -1213,33 +1207,31 @@ Cuando una búsqueda de DNS comienza con una dirección IP, encuentra el nombre 
     | **DKIM** | Publica la clave pública con la que se verifica la firma de los correos |
     | **DMARC** | Indica qué hacer con los correos que fallan SPF o DKIM (`quarantine` = enviar a spam) y dónde recibir informes |
 
-    También se usan para verificar la propiedad de un dominio ante servicios externos, con un valor que el servicio te proporciona, por ejemplo `"google-site-verification=abc123..."`.
+    - También se usan para verificar la propiedad de un dominio ante servicios externos, con un valor que el servicio te proporciona, por ejemplo `"google-site-verification=abc123..."`.
 
 ### 10.4.9 Registros CERT
 
 - Los certificados, o registros CERT, almacenan certificados que verifican la autenticidad de todas las partes involucradas.
 - Este tipo de registro es particularmente valioso cuando se protege y encripta información confidencial.
 
-**Sintaxis típica**
+!!! tip "Sintaxis"
+    ```text
+    nombre   IN   CERT   tipo   key-tag   algoritmo   certificado-en-base64
+    ```
 
-```text
-nombre   IN   CERT   tipo   key-tag   algoritmo   certificado-en-base64
-```
+!!! tip "Ejemplo"
+    - Publicar la clave pública PGP de un usuario para que otros puedan descargarla desde el DNS (el contenido en base64 se acorta aquí):
 
-**Ejemplo típico**
+    ```text
+    usuario.midominio.com.   3600   IN   CERT   PGP 0 0 mQENBF2xYzABCAC3...
+    ```
 
-Publicar la clave pública PGP de un usuario para que otros puedan descargarla desde el DNS (el contenido en base64 se acorta aquí):
-
-```text
-usuario.midominio.com.   3600   IN   CERT   PGP 0 0 mQENBF2xYzABCAC3...
-```
-
-| Campo | Significado |
-|---|---|
-| `PGP` | Tipo de certificado (también existen `PKIX`, `SPKI`...) |
-| `0` | *Key tag* (`0` si no se usa) |
-| `0` | Algoritmo (`0` si no se usa) |
-| `mQENBF2...` | Certificado o clave, codificado en base64 |
+    | Campo | Significado |
+    |---|---|
+    | `PGP` | Tipo de certificado (también existen `PKIX`, `SPKI`...) |
+    | `0` | *Key tag* (`0` si no se usa) |
+    | `0` | Algoritmo (`0` si no se usa) |
+    | `mQENBF2...` | Certificado o clave, codificado en base64 |
 
 !!! info "Nota"
     Es un registro poco frecuente en la práctica; hoy se utilizan más otros mecanismos como CAA o DANE (`TLSA`).
