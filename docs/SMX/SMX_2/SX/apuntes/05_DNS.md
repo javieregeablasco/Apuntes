@@ -1238,11 +1238,11 @@ Cuando una búsqueda de DNS comienza con una dirección IP, encuentra el nombre 
 !!! tip "Sintaxis"
     ```text
     nombre   IN   SOA   servidor-primario   correo-admin   (
-                    serie
-                    refresh
-                    retry
-                    expire
-                    minimum )
+                  serie
+                  refresh
+                  retry
+                  expire
+                  minimum )
     ```
 
 !!! tip "Ejemplo"
@@ -1255,9 +1255,9 @@ Cuando una búsqueda de DNS comienza con una dirección IP, encuentra el nombre 
                           86400 )      ; minimum: TTL para respuestas negativas
     ```
 
-- `ns1.midominio.com.` es el servidor DNS primario de la zona.
-- `admin.midominio.com.` es el correo del administrador: el primer punto representa la `@`, es decir, `admin@midominio.com`.
-- La **serie** debe aumentar cada vez que se modifica la zona; es habitual usar el formato `AAAAMMDDNN` (año, mes, día y número de cambio del día).
+    - `ns1.midominio.com.` es el servidor DNS primario de la zona.
+    - `admin.midominio.com.` es el correo del administrador: el primer punto representa la `@`, es decir, `admin@midominio.com`.
+    - La **serie** debe aumentar cada vez que se modifica la zona; es habitual usar el formato `AAAAMMDDNN` (año, mes, día y número de cambio del día).
 
 ### 10.4.11 Registros PTR
 
