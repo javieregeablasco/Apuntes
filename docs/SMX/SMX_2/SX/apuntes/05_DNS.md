@@ -1002,9 +1002,7 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
             - El TTL **no indica cada cuánto tiempo se actualiza el registro en el servidor DNS autoritativo**.
             - Indica cuánto tiempo otros servidores pueden conservar ese registro en su caché.
 
-#### 10.4.8 Registro TXT
 
-- Permite que un administrador pueda almacenar notas de texto en el registro. Estos registros se suelen utilizar para la seguridad del correo electrónico.
 
 #### 10.4.9 Registros CERT
 
@@ -1189,27 +1187,25 @@ Cuando una búsqueda de DNS comienza con una dirección IP, encuentra el nombre 
     mail2.midominio.com.  3600   IN   A    192.0.2.26
     ```
 
-    -El correo para `usuario@midominio.com` se entrega primero a `mail`; si no está disponible, a `mail2`.
+    - El correo para `usuario@midominio.com` se entrega primero a `mail`; si no está disponible, a `mail2`.
 
 ### 10.4.8 Registro TXT
 
 - Permite que un administrador pueda almacenar notas de texto en el registro. Estos registros se suelen utilizar para la seguridad del correo electrónico.
 
-**Sintaxis típica**
+!!! tip "Sintaxis típica"
+    ```text
+    midominio.com. IN TXT "texto"
+    ```
 
-```text
-midominio.com. IN TXT "texto"
-```
+!!! tip "Ejemplo típico"
+    - Los usos más comunes son las políticas de seguridad del correo: **SPF**, **DKIM** y **DMARC**.
 
-**Ejemplo típico**
-
-Los usos más comunes son las políticas de seguridad del correo: **SPF**, **DKIM** y **DMARC**.
-
-```text
-midominio.com.                         IN   TXT   "v=spf1 mx ip4:192.0.2.25 -all"
-selector1._domainkey.midominio.com.    IN   TXT   "v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4..."
-_dmarc.midominio.com.                  IN   TXT   "v=DMARC1; p=quarantine; rua=mailto:dmarc@midominio.com"
-```
+    ```text
+    midominio.com.                         IN   TXT   "v=spf1 mx ip4:192.0.2.25 -all"
+    selector1._domainkey.midominio.com.    IN   TXT   "v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4..."
+    _dmarc.midominio.com.                  IN   TXT   "v=DMARC1; p=quarantine; rua=mailto:dmarc@midominio.com"
+    ```
 
 | Registro | Para qué sirve |
 |---|---|
