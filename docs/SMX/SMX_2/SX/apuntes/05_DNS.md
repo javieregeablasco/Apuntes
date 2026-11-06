@@ -958,20 +958,20 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
     ||||
     | **Nombre** | Nombre de dominio al que se refiere el registro | `www.midominio.com.` |
     | **TTL** | Segundos que la respuesta puede guardarse en caché (opcional) | `3600` |
-    | **Clase** | Familia de red del registro; casi siempre `IN` | `IN` |
+    | **Clase** | Familia de red del registro; casi siempre `IN` (internet) | `IN` |
     | **Tipo** | Qué información guarda el registro | `A`, `AAAA`, `CNAME`, `MX`, `NS`, `TXT`... |
     | **Datos** | Valor del registro; su formato depende del tipo | `192.0.2.15` |
 
-    !!! example "Ejemplo"
+    !!! example "Explicación del ejemplo anterior"
         ```text
         www.midominio.com.   3600   IN   A   192.0.2.15
         ```
 
-        lectura del registro DNS: "el nombre `www.midominio.com.` tiene, durante 3600 segundos, una dirección IPv4 que es `192.0.2.15`".
+        Lectura del registro DNS: "el nombre `www.midominio.com.` tiene, durante 3600 segundos, una dirección IPv4 que es `192.0.2.15`".
 
         !!! tip "Detalles de sintaxis"
 
-            - **El punto final** indica un nombre absoluto (FQDN). Si lo olvidas, el servidor añade el nombre de la zona al final y el nombre resultante será incorrecto.
+            - **El punto final** indica un nombre absoluto (FQDN). Si lo olvidamos, el servidor añadirá el nombre de la zona al final y el nombre resultante será incorrecto.
             - **`@`** representa el nombre de la zona. En la zona `midominio.com.`, `@` equivale a `midominio.com.`
             - **Un nombre relativo** como `www` se completa automáticamente con el dominio de la zona: `www` pasa a ser `www.midominio.com.`
             - **Los campos opcionales** (TTL y nombre) pueden omitirse. Si falta el TTL se usa el valor por defecto de la zona (`$TTL`), y si falta el nombre se reutiliza el del registro anterior.
