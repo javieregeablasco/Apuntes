@@ -948,19 +948,19 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
         
         - Este servidor puede disponer de la respuesta en su **caché**. Si no la tiene, puede realizar consultas a otros servidores DNS hasta encontrar la información necesaria. -->
 
-1. Un registro DNS (*Resource Record*) en un fichero de zona tiene cinco campos, separados por espacios o tabuladores:
+1. **Un registro DNS** (*Resource Record*) en un fichero de zona tiene **cinco campos**, separados por espacios o **tabuladores**:
 
        ```text
        nombre   [TTL]   clase   tipo   datos
        ```
 
-| Campo | Significado | Ejemplo |
-|---|---|---|
-| **Nombre** | Nombre de dominio al que se refiere el registro | `www.midominio.com.` |
-| **TTL** | Segundos que la respuesta puede guardarse en caché (opcional) | `3600` |
-| **Clase** | Familia de red del registro; casi siempre `IN` | `IN` |
-| **Tipo** | Qué información guarda el registro | `A`, `AAAA`, `CNAME`, `MX`, `NS`, `TXT`... |
-| **Datos** | Valor del registro; su formato depende del tipo | `192.0.2.15` |
+    | Campo | Significado | Ejemplo |
+    |---|---|---|
+    | **Nombre** | Nombre de dominio al que se refiere el registro | `www.midominio.com.` |
+    | **TTL** | Segundos que la respuesta puede guardarse en caché (opcional) | `3600` |
+    | **Clase** | Familia de red del registro; casi siempre `IN` | `IN` |
+    | **Tipo** | Qué información guarda el registro | `A`, `AAAA`, `CNAME`, `MX`, `NS`, `TXT`... |
+    | **Datos** | Valor del registro; su formato depende del tipo | `192.0.2.15` |
 
 Un ejemplo completo:
 
