@@ -1,25 +1,41 @@
-# Servicios de transferencia de ficheros
+---
+ciclo: CFGM - Técnico en Sistemas Microinformáticos y Redes
+title: Servicios en red
+module number: 0227
+lesson: UD. 6.0 - Servicio de transferencia de archivos
+author: Javier Egea Blasco  
+layout: default  
+year: 26-27  
+keywords: SMX, SMR, SX, SR
+schedule: 233h - 7h/w
+---
 
-> 📝 **Resultados de aprendizaje y criterios de evaluacion que se evaluarán en esta unidad.**
->
-> **Resultado de aprendizaje de la unidad didáctica:**
->
-> * **RA3. Gestiona servicios de transferencia de ficheros describiendo sus características e instalando los servidores y clientes correspondientes.**
->
-> **Criterios de evaluación de la unidad didáctica (RA3):**
->
-> * **RA3-CEa)** Se han reconocido las características y modos de funcionamiento del servicio de transferencia de ficheros.
-> * **RA3-CEb)** Se ha instalado y configurado un servidor de transferencia de ficheros.
-> * **RA3-CEc)** Se han creado usuarios y grupos para el acceso al servicio.
-> * **RA3-CEd)** Se han configurado permisos de acceso, carpetas públicas y aislamiento de usuarios.
-> * **RA3-CEe)** Se ha verificado el funcionamiento del servicio mediante clientes gráficos y en línea de comandos.
-> * **RA3-CEf)** Se ha asegurado el servicio mediante el cifrado de datos, autenticación y credenciales (FTPS / SSL / TLS / SFTP / SCP).
-> * **RA3-CEg)** Se han registrado y analizado los eventos y logs del servicio de transferencia de ficheros.
-> * **RA3-CEh)** Se han aplicado medidas de seguridad y buenas prácticas en la parada del laboratorio.
->
-> **Sistema de evaluación y entregas en Aules (1 Cuestionario + 1 Único Documento PDF):**
->
-> En esta unidad **NO se entregan PDFs sueltos por cada apartado**. Deberás crear desde el primer día un **único documento en Word** estructurado por apartados (del `Apartado 6` al `Apartado 15`), ir insertando en él las **27 evidencias numeradas (`Evidencia 1` a `Evidencia 27`)** conforme avances en las prácticas y, al finalizar la unidad, exportarlo a un **único fichero PDF** para subirlo a Aules:
+![Descripción de la imagen](./img_5/img_5_1.jpg){ .img2 .marginbottom40}
+
+**Resultados de aprendizaje y criterios de evaluacion que se evaluarán en esta unidad.**  
+
+| **Resultados de aprendizaje de la unidad didáctica:**|
+||
+| **RA3. Gestiona servicios de transferencia de ficheros describiendo sus características e instalando los servidores y clientes correspondientes.**|
+
+|**Criterios de evaluación de la unidad didáctica:**|
+||
+|**a)** Se han reconocido las características y modos de funcionamiento del servicio de transferencia de ficheros.|
+|**b)** Se ha instalado y configurado un servidor de transferencia de ficheros.|
+|**c)** Se han creado usuarios y grupos para el acceso al servicio.|
+|**d)** Se han configurado permisos de acceso, carpetas públicas y aislamiento de usuarios.|
+|**e)** Se ha verificado el funcionamiento del servicio mediante clientes gráficos y en línea de comandos.|
+|**f)** Se ha asegurado el servicio mediante el cifrado de datos, autenticación y credenciales (FTPS / SSL / TLS / SFTP / SCP).|
+|**g)** Se han registrado y analizado los eventos y logs del servicio de transferencia de ficheros.|
+|**h)** Se han aplicado medidas de seguridad y buenas prácticas en la parada del laboratorio.|
+
+
+
+
+!!! warning "Nota:"
+    Los criterios de evaluación en negrita será evaluados durante la FCT.
+
+En esta unidad **NO se entregan PDFs sueltos por cada apartado**. Deberás crear desde el primer día un **único documento en Word** estructurado por apartados (del `Apartado 6` al `Apartado 15`), ir insertando en él las **27 evidencias numeradas (`Evidencia 1` a `Evidencia 27`)** conforme avances en las prácticas y, al finalizar la unidad, exportarlo a un **único fichero PDF** para subirlo a Aules:
 >
 > | Actividad en Aules | Criterios evaluados | Descripción y contenido | Entrega en Aules |
 > |---|:---:|---|---|
@@ -1995,3 +2011,5 @@ https://acastan.gitbook.io/servicios/ficheros
 https://despliegue.codeandcoke.com/apuntes:servicios_transferencia
 
 https://marcosruiz.github.io/posts/servicio-vsfptd/
+
+https://docs.google.com/presentation/d/16LLGSFIHKK79dWvvZw0lVgjssmxKZAD3wJG7qlZxbcw/edit?slide=id.g1142a802_1_0#slide=id.g1142a802_1_0
