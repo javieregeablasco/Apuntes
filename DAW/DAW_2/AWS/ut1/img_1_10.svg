@@ -1,0 +1,245 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 800">
+  <defs>
+    <linearGradient id="awsGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF9900;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF6600;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="azureGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0078D4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#005A9E;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="gcpGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4285F4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0F9D58;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="oracleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#C74634;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#A03B2A;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Fondo -->
+  <rect width="1000" height="800" fill="#f8fafc"/>
+  
+  <!-- Título -->
+  <text x="500" y="50" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#1e293b" text-anchor="middle">
+    Comparativa de Proveedores Cloud 2026
+  </text>
+  
+  <text x="500" y="85" font-family="Arial, sans-serif" font-size="18" fill="#64748b" text-anchor="middle">
+    Cuota de mercado y características principales
+  </text>
+  
+  <!-- AWS Card -->
+  <g transform="translate(50, 130)" filter="url(#shadow)">
+    <rect width="200" height="280" rx="10" fill="white" stroke="#e2e8f0" stroke-width="2"/>
+    
+    <!-- Header -->
+    <rect width="200" height="60" rx="10" fill="url(#awsGradient)"/>
+    <text x="100" y="35" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle">AWS</text>
+    <text x="100" y="50" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle" opacity="0.9">Amazon Web Services</text>
+    
+    <!-- Market Share -->
+    <circle cx="100" cy="120" r="35" fill="#FF9900" opacity="0.2"/>
+    <text x="100" y="115" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#FF6600" text-anchor="middle">32%</text>
+    <text x="100" y="135" font-family="Arial, sans-serif" font-size="12" fill="#64748b" text-anchor="middle">Cuota de mercado</text>
+    
+    <!-- Features -->
+    <g transform="translate(20, 160)">
+      <circle cx="0" cy="0" r="4" fill="#10b981"/>
+      <text x="15" y="4" font-family="Arial, sans-serif" font-size="13" fill="#334155">200+ servicios</text>
+    </g>
+    <g transform="translate(20, 185)">
+      <circle cx="0" cy="0" r="4" fill="#10b981"/>
+      <text x="15" y="4" font-family="Arial, sans-serif" font-size="13" fill="#334155">33 regiones globales</text>
+    </g>
+    <g transform="translate(20, 210)">
+      <circle cx="0" cy="0" r="4" fill="#10b981"/>
+      <text x="15" y="4" font-family="Arial, sans-serif" font-size="13" fill="#334155">Mayor ecosistema</text>
+    </g>
+    <g transform="translate(20, 235)">
+      <circle cx="0" cy="0" r="4" fill="#10b981"/>
+      <text x="15" y="4" font-family="Arial, sans-serif" font-size="13" fill="#334155">Líder en innovación</text>
+    </g>
+    
+    <!-- Icon -->
+    <rect x="75" y="255" width="50" height="15" rx="7.5" fill="#FF9900"/>
+    <text x="100" y="266" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white" text-anchor="middle">LÍDER</text>
+  </g>
+  
+  <!-- Azure Card -->
+  <g transform="translate(280, 130)" filter="url(#shadow)">
+    <rect width="200" height="280" rx="10" fill="white" stroke="#e2e8f0" stroke-width="2"/>
+    
+    <rect width="200" height="60" rx="10" fill="url(#azureGradient)"/>
+    <text x="100" y="35" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle">Azure</text>
+    <text x="100" y="50" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle" opacity="0.9">Microsoft Azure</text>
+    
+    <circle cx="100" cy="120" r="35" fill="#0078D4" opacity="0.2"/>
+    <text x="100" y="115" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#005A9E" text-anchor="middle">23%</text>
+    <text x="100" y="135" font-family="Arial, sans-serif" font-size="12" fill="#64748b" text-anchor="middle">Cuota de mercado</text>
+    
+    <g transform="translate(20, 160)">
+      <circle cx="0" cy="0" r="4" fill="#3b82f6"/>
+      <text x="15" y="4" font-family="Arial, sans-serif" font-size="13" fill="#334155">Integración Microsoft</text>
+    </g>
+    <g transform="translate(20, 185)">
+      <circle cx="0" cy="0" r="4" fill="#3b82f6"/>
+      <text x="15" y="4" font-family="Arial, sans-serif" font-size="13" fill="#334155">Enfoque enterprise</text>
+    </g>
+    <g transform="translate(20, 210)">
+      <circle cx="0" cy="0" r="4" fill="#3b82f6"/>
+      <text x="15" y="4" font-family="Arial, sans-serif" font-size="13" fill="#334155">Azure AI con OpenAI</text>
+    </g>
+    <g transform="translate(20, 235)">
+      <circle cx="0" cy="0" r="4" fill="#3b82f6"/>
+      <text x="15" y="4" font-family="Arial, sans-serif" font-size="13" fill="#334155">Hybrid cloud fuerte</text>
+    </g>
+    
+    <rect x="65" y="255" width="70" height="15" rx="7.5" fill="#0078D4"/>
+    <text x="100" y="266" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white" text-anchor="middle">ENTERPRISE</text>
+  </g>
+  
+  <!-- GCP Card -->
+  <g transform="translate(510, 130)" filter="url(#shadow)">
+    <rect width="200" height="280" rx="10" fill="white" stroke="#e2e8f0" stroke-width="2"/>
+    
+    <rect width="200" height="60" rx="10" fill="url(#gcpGradient)"/>
+    <text x="100" y="35" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle">GCP</text>
+    <text x="100" y="50" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle" opacity="0.9">Google Cloud Platform</text>
+    
+    <circle cx="100" cy="120" r="35" fill="#4285F4" opacity="0.2"/>
+    <text x="100" y="115" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#1967D2" text-anchor="middle">11%</text>
+    <text x="100" y="135" font-family="Arial, sans-serif" font-size="12" fill="#64748b" text-anchor="middle">Cuota de mercado</text>
+    
+    <g transform="translate(20, 160)">
+      <circle cx="0" cy="0" r="4" fill="#0F9D58"/>
+      <text x="15" y="4" font-family="Arial, sans-serif" font-size="13" fill="#334155">Líder en BigQuery</text>
+    </g>
+    <g transform="translate(20, 185)">
+      <circle cx="0" cy="0" r="4" fill="#0F9D58"/>
+      <text x="15" y="4" font-family="Arial, sans-serif" font-size="13" fill="#334155">Kubernetes nativo</text>
+    </g>
+    <g transform="translate(20, 210)">
+      <circle cx="0" cy="0" r="4" fill="#0F9D58"/>
+      <text x="15" y="4" font-family="Arial, sans-serif" font-size="13" fill="#334155">Red global superior</text>
+    </g>
+    <g transform="translate(20, 235)">
+      <circle cx="0" cy="0" r="4" fill="#0F9D58"/>
+      <text x="15" y="4" font-family="Arial, sans-serif" font-size="13" fill="#334155">IA/ML avanzado</text>
+    </g>
+    
+    <rect x="65" y="255" width="70" height="15" rx="7.5" fill="#4285F4"/>
+    <text x="100" y="266" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white" text-anchor="middle">DATA &amp; AI</text>
+  </g>
+  
+  <!-- Oracle Card -->
+  <g transform="translate(740, 130)" filter="url(#shadow)">
+    <rect width="200" height="280" rx="10" fill="white" stroke="#e2e8f0" stroke-width="2"/>
+    
+    <rect width="200" height="60" rx="10" fill="url(#oracleGradient)"/>
+    <text x="100" y="35" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle">OCI</text>
+    <text x="100" y="50" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle" opacity="0.9">Oracle Cloud Infrastructure</text>
+    
+    <circle cx="100" cy="120" r="35" fill="#C74634" opacity="0.2"/>
+    <text x="100" y="115" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#A03B2A" text-anchor="middle">6%</text>
+    <text x="100" y="135" font-family="Arial, sans-serif" font-size="12" fill="#64748b" text-anchor="middle">Cuota de mercado</text>
+    
+    <g transform="translate(20, 160)">
+      <circle cx="0" cy="0" r="4" fill="#f59e0b"/>
+      <text x="15" y="4" font-family="Arial, sans-serif" font-size="13" fill="#334155">Oracle DB líder</text>
+    </g>
+    <g transform="translate(20, 185)">
+      <circle cx="0" cy="0" r="4" fill="#f59e0b"/>
+      <text x="15" y="4" font-family="Arial, sans-serif" font-size="13" fill="#334155">Precios competitivos</text>
+    </g>
+    <g transform="translate(20, 210)">
+      <circle cx="0" cy="0" r="4" fill="#f59e0b"/>
+      <text x="15" y="4" font-family="Arial, sans-serif" font-size="13" fill="#334155">Autonomous DB</text>
+    </g>
+    <g transform="translate(20, 235)">
+      <circle cx="0" cy="0" r="4" fill="#f59e0b"/>
+      <text x="15" y="4" font-family="Arial, sans-serif" font-size="13" fill="#334155">Enterprise migración</text>
+    </g>
+    
+    <rect x="65" y="255" width="70" height="15" rx="7.5" fill="#C74634"/>
+    <text x="100" y="266" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white" text-anchor="middle">DATABASE</text>
+  </g>
+  
+  <!-- Gráfico de barras comparativo -->
+  <g transform="translate(50, 460)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#1e293b">
+      Comparativa de Capacidades
+    </text>
+    
+    <!-- Leyenda -->
+    <g transform="translate(0, 20)">
+      <rect x="0" y="0" width="15" height="15" fill="#FF9900"/>
+      <text x="22" y="12" font-family="Arial, sans-serif" font-size="13" fill="#64748b">AWS</text>
+      
+      <rect x="80" y="0" width="15" height="15" fill="#0078D4"/>
+      <text x="102" y="12" font-family="Arial, sans-serif" font-size="13" fill="#64748b">Azure</text>
+      
+      <rect x="160" y="0" width="15" height="15" fill="#4285F4"/>
+      <text x="182" y="12" font-family="Arial, sans-serif" font-size="13" fill="#64748b">GCP</text>
+      
+      <rect x="240" y="0" width="15" height="15" fill="#C74634"/>
+      <text x="262" y="12" font-family="Arial, sans-serif" font-size="13" fill="#64748b">Oracle</text>
+    </g>
+    
+    <!-- Categorías y barras -->
+    <!-- Servicios -->
+    <g transform="translate(0, 60)">
+      <text x="0" y="0" font-family="Arial, sans-serif" font-size="14" fill="#334155">Servicios</text>
+      <rect x="150" y="-12" width="320" height="20" rx="3" fill="#FF9900" opacity="0.8"/>
+      <rect x="150" y="-12" width="280" height="20" rx="3" fill="#0078D4" opacity="0.8"/>
+      <rect x="150" y="-12" width="240" height="20" rx="3" fill="#4285F4" opacity="0.8"/>
+      <rect x="150" y="-12" width="200" height="20" rx="3" fill="#C74634" opacity="0.8"/>
+    </g>
+    
+    <!-- Regiones -->
+    <g transform="translate(0, 100)">
+      <text x="0" y="0" font-family="Arial, sans-serif" font-size="14" fill="#334155">Regiones</text>
+      <rect x="150" y="-12" width="300" height="20" rx="3" fill="#FF9900" opacity="0.8"/>
+      <rect x="150" y="-12" width="280" height="20" rx="3" fill="#0078D4" opacity="0.8"/>
+      <rect x="150" y="-12" width="260" height="20" rx="3" fill="#4285F4" opacity="0.8"/>
+      <rect x="150" y="-12" width="220" height="20" rx="3" fill="#C74634" opacity="0.8"/>
+    </g>
+    
+    <!-- IA/ML -->
+    <g transform="translate(0, 140)">
+      <text x="0" y="0" font-family="Arial, sans-serif" font-size="14" fill="#334155">IA/ML</text>
+      <rect x="150" y="-12" width="290" height="20" rx="3" fill="#FF9900" opacity="0.8"/>
+      <rect x="150" y="-12" width="310" height="20" rx="3" fill="#0078D4" opacity="0.8"/>
+      <rect x="150" y="-12" width="320" height="20" rx="3" fill="#4285F4" opacity="0.8"/>
+      <rect x="150" y="-12" width="240" height="20" rx="3" fill="#C74634" opacity="0.8"/>
+    </g>
+    
+    <!-- Precios -->
+    <g transform="translate(0, 180)">
+      <text x="0" y="0" font-family="Arial, sans-serif" font-size="14" fill="#334155">Precio</text>
+      <rect x="150" y="-12" width="260" height="20" rx="3" fill="#FF9900" opacity="0.8"/>
+      <rect x="150" y="-12" width="270" height="20" rx="3" fill="#0078D4" opacity="0.8"/>
+      <rect x="150" y="-12" width="280" height="20" rx="3" fill="#4285F4" opacity="0.8"/>
+      <rect x="150" y="-12" width="320" height="20" rx="3" fill="#C74634" opacity="0.8"/>
+      <text x="630" y="0" font-family="Arial, sans-serif" font-size="11" fill="#10b981">↑ Mejor</text>
+    </g>
+    
+    <!-- Soporte -->
+    <g transform="translate(0, 220)">
+      <text x="0" y="0" font-family="Arial, sans-serif" font-size="14" fill="#334155">Soporte</text>
+      <rect x="150" y="-12" width="310" height="20" rx="3" fill="#FF9900" opacity="0.8"/>
+      <rect x="150" y="-12" width="300" height="20" rx="3" fill="#0078D4" opacity="0.8"/>
+      <rect x="150" y="-12" width="270" height="20" rx="3" fill="#4285F4" opacity="0.8"/>
+      <rect x="150" y="-12" width="280" height="20" rx="3" fill="#C74634" opacity="0.8"/>
+    </g>
+  </g>
+  
+  <!-- Footer -->
+  <text x="500" y="760" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8" text-anchor="middle">
+    Datos actualizados 2026 | Fuente: Gartner, IDC, Flexera | DATAPRIX.COM
+  </text>
+</svg>

@@ -1,0 +1,5 @@
+flask
+mistralai
+python-dotenv
+markdown
+
