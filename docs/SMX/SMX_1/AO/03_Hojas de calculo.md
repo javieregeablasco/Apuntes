@@ -254,10 +254,10 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
             ![Descripción de la imagen](./03_hojas_de_calculo/img/calc13.png){ .trescinco }  
     
         !!! abstract "Series personalizadas"
-            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc14.png){ .cuatrozero }<br>  
+            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc14.png){ .seiszero }
 
         !!! success "Resultado esperado"
-            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc10.png){ .leftoriginal }<br>  
+            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc10.png){ .cien }  
 
     !!! tip "Ejercicio parte 3"  
             - Inmobilizar la **columna adecuada** y actuar sobre la barra de desplazamiento para obtener el siguiente resultado.  
