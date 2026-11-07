@@ -43,6 +43,13 @@ Tipos (iconos disponibles).
 !!! example "example"
 !!! quote "quote"
 
+## Admonition anidados
+
+!!! note "note"
+    !!! tip "tip"
+        !!! abstract "abstract"
+        !!! success "success"
+
 !!! info inline end "info inline end"
 
     Lorem ipsum dolor sit amet, consectetur
