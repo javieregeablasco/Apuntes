@@ -94,7 +94,6 @@ Sirve para para gestionar, manipular y analizar la información de las hojas de 
 
 ![Descripción de la imagen](./03_hojas_de_calculo/img/calc5.png){ .m_ver }
 
-
 ### 1.9 Menú: Herramientas
 
 Es el menú de la mayoría de herramientas de validación de un documento: En ese menú se encuentran las funciones de ortografía, autocorrección, macros, configuración de idioma, complementos, etc.
@@ -153,7 +152,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
     !!! tip "2 - Configuración de los estilos" 
         
         !!! abstract "Estilo ^^Predeterminado^^"
-            Tipo de letra: Arial 12 normal, alineación izquierda.   
+            - Tipo de letra: Arial 12 normal, alineación izquierda.   
     
         !!! abstract "Estilo ^^Valores^^"  
             - Tipo de letra: Arial 12 normal #5b277d, centrado horizontalmente.  
@@ -203,8 +202,8 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
         - Insertar una fila en la posición 1 y una columna en la posición A.  
         - Redimensionar la columna A al gusto.       
         
-        El resultado final deberá ser similar al de la imagen.       
-        ![Descripción de la imagen](./03_hojas_de_calculo/img/calc7.png){ .sietecinco .margintop10 }
+        !!! success "Resultado esperado"
+            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc7.png){ .sietecinco .margintop10 }
 
     !!! tip "6 - Hoja nueva"
         - Dentro del mismo documento crear una hoja nueva.  
