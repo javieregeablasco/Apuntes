@@ -231,37 +231,32 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
 
 ### HASTA AQUI
 
-### **Tarea RA3-CEb-2 - Elaboración básica de hojas de cálculo**
-!!! exercice "Tarea RA3-CEb-2 - Trabajando con series"
-    **Ejercicio parte 1**  
-    Realizar un diseño similar al del ejemplo. 
-    Teneis **libertad total** en cuanto a anchos, altos, bordes, colores y ancho del bordes columnas así como tamaño color tipo de letra y fondo de celdas.
+### Tarea RA3-CEb-2 - Elaboración básica de hojas de cálculo
 
-    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc18.png){ .original }<br>
+!!! note "Tarea RA3-CEb-2 - Trabajando con series"
+    !!! tip "Ejercicio parte 1"  
+        - Realizar un diseño similar al del ejemplo.
+        - Teneis **libertad total** en cuanto a anchos, altos, bordes, colores y ancho del bordes columnas así como tamaño color tipo de letra y fondo de celdas.
+        ![Descripción de la imagen](./03_hojas_de_calculo/img/calc18.png){ .original }
+
+    !!! tip "Ejercicio parte 2"  
+        - Insertar series para obtener **el mismo resultado** que a continuación.  
+        - **Se dará la explicación en clase de como hacer series**.  
     
-    **Ejercicio parte 2**  
-    Insertar series para obtener **el mismo resultado** que a continuación.  
-    **Se dará la explicación en clase de como hacer series**. <br>  
+        !!! abstract "Series aritméticas"
+            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc11.png){ .lefttrescero }<br>
     
-    <u>**Series aritméticas**</u>  
-
-    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc11.png){ .lefttrescero }<br>
+        !!! abstract "Series geométricas"
+            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc12.png){ .leftdoscero }<br>  
     
-    <u>**Series geométricas**</u>  
-
-    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc12.png){ .leftdoscero }<br>  
+        !!! abstract "Series de fechas"
+            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc13.png){ .leftdoscero }<br>  
     
-    <u>**Fechas**</u>  
+        !!! abstract "Series personalizadas"
+            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc14.png){ .leftcuatrocero }<br>  
 
-    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc13.png){ .leftdoscero }<br>  
-    
-    <u>**Personalizadas**</u>  
-
-    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc14.png){ .leftcuatrocero }<br>  
-
-    <u>**Resultado final**</u>
-
-    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc10.png){ .leftoriginal }<br>  
+        !!! success "Resultado final"
+            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc10.png){ .leftoriginal }<br>  
 
     <u>**Trabajo adicional**</u>  
     &emsp;Inmobilizar la **columna adecuada** y actuar sobre la barra de desplazamiento para obtener el siguiente resultado.  
