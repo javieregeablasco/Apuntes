@@ -251,7 +251,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
             ![Descripción de la imagen](./03_hojas_de_calculo/img/calc12.png){ .cincozero }  
     
         !!! abstract "Series de fechas"
-            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc13.png){ .trescinco }  
+            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc13.png){ .doscinco }  
     
         !!! abstract "Series personalizadas"
             ![Descripción de la imagen](./03_hojas_de_calculo/img/calc14.png){ .leftcuatrocero }<br>  
