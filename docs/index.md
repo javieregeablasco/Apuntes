@@ -45,6 +45,8 @@ Tipos (iconos disponibles).
 
 ## Admonition anidados
 
+Utilizar en tareas.
+
 !!! note "note"
     !!! tip "tip"
         !!! abstract "abstract"
