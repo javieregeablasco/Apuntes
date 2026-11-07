@@ -218,14 +218,16 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
         - Para evitar que los datos se repitan, poner la formula `=ALEATORIO.ENTRE(-10;35)` como valor de las **celdas de las temperaturas**.  
         ![Descripción de la imagen](./03_hojas_de_calculo/img/calc17.png){ .cien .margintop10 }
 
-        !!! sucess "Resultado esperado"
+        !!! success "Resultado esperado"
             ![Descripción de la imagen](./03_hojas_de_calculo/img/calc8.png){ .cien .margintop10 }
 
     !!! warning "Entrega de la tarea"
-        - Guardar el documento como RA3-CEb-1-NombreApellidos y subirlo a la tarea correspondiente de Aules.
-        - El archivo deberá estar en **formato ods, nativo de LibreOffice para hojas de cálculo**. No se admitirá ningún otro tipo de formato.
-        - A partir de momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
-        - Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.    
+        1. Guardar vuestra tarea como **RA3-CEb-1-NombreApellidosAlumno**.
+        1. Subir vuestra tarea a la tarea correspondiente de aules.  
+        1. Los archivos a subir deberán ser de tipo OpenDocument Spreasheet (.ods) (formato predeterminado de LibreOffice Calc).  
+        1. **No se aceptará ningún otro formato de archivo**.
+        1. A partir del momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
+        1. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.      
 
 ### HASTA AQUI
 
