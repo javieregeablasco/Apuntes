@@ -248,13 +248,13 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
             ![Descripción de la imagen](./03_hojas_de_calculo/img/calc11.png){ .cincozero }
     
         !!! abstract "Series geométricas"
-            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc12.png){ .cincozero }  
+            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc12.png){ .treszero }  
     
         !!! abstract "Series de fechas"
-            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc13.png){ .doscinco }  
+            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc13.png){ .trescinco }  
     
         !!! abstract "Series personalizadas"
-            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc14.png){ .leftcuatrocero }<br>  
+            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc14.png){ .cuatrozero }<br>  
 
         !!! success "Resultado esperado"
             ![Descripción de la imagen](./03_hojas_de_calculo/img/calc10.png){ .leftoriginal }<br>  
