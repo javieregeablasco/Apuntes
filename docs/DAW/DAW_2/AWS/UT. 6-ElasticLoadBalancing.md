@@ -2,22 +2,20 @@
 cicle: CFGS - Desarrollo de aplicaciones web
 title: "Introducción a la nube pública"
 module number: 
-lesson: UD. 6 - Equilibrador de carga de red  
-author: Javier Egea Blasco  
+lesson: UD. 6 - Interconexión, balanceo y escalado de infraestruturas  
+author: Javier Egea Blasco
 year: 25-26  
 keywords: DAW, Optativa, AWS
 layout: default  
 schedule: 96h - 3h/s 
 ---
 
-# **UT. 6 - Interconexión, balanceo y escalado de infraestructuras**
 ![Descripción de la imagen](../AWS/ut6/elb.png){ .trescinco }
-<br>
 
 **Resultados de aprendizaje y criterios de evaluacion que se evaluarán en esta unidad.**  
 
 | **Resultados de aprendizaje de la unidad didáctica:** |
-|-|
+||
 | **RA. 3:** Diseña y configura redes virtuales y servicios de cómputo en la nube, aplicando buenas prácticas de seguridad, estrategias de balanceo de carga, escalado automático y aprovechando tecnologías serverless, contenedores y máquinas virtuales según casos de uso específicos.|
 
 |**Criterios de evaluación de la unidad didáctica:**|

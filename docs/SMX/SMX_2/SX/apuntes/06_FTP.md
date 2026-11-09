@@ -57,6 +57,7 @@ schedule: 233h - 7h/w
 ### 1.3 Casos de uso corporativos en la administración de sistemas
 
 A pesar del auge de protocolos web (HTTP/HTTPS) y APIs REST, los servicios de transferencia de ficheros basados en FTP, FTPS y SFTP siguen siendo pilares en las infraestructuras de IT:
+
 1. **Despliegue y mantenimiento de portales web:** Carga de contenidos HTML, scripts PHP, hojas de estilo CSS y elementos multimedia en servidores web de alojamiento (*hosting* compartido o dedicado).
 1. **Gestión de dispositivos de red y telecomunicaciones:** Actualización masiva de firmwares e imágenes de sistemas operativos (Cisco IOS, JunOS), y volcado de configuraciones en *switches*, *routers* y cortafuegos.
 1. **Copias de seguridad remotas (*backups*):** Automatización nocturna del envío de volcados de bases de datos (SQL) y ficheros de archivo comprimidos hacia servidores de almacenamiento remoto (*off-site*).
@@ -66,34 +67,26 @@ A pesar del auge de protocolos web (HTTP/HTTPS) y APIs REST, los servicios de tr
 
 ### 2.1 La doble conexión TCP: Canal de control vs Canal de datos
 
-- La gran particularidad de FTP frente a casi todos los demás protocolos de red (HTTP, SSH o SMTP) radica en que **no utiliza una única conexión para todo**, sino que desacopla la comunicación en **dos conexiones TCP independientes con ciclos de vida y propósitos completamente distintos**:
+La gran particularidad de FTP frente a casi todos los demás protocolos de red (HTTP, SSH o SMTP) radica en que **no utiliza una única conexión para todo**, sino que desacopla la comunicación en **dos conexiones TCP independientes con ciclos de vida y propósitos completamente distintos**:
 
-   1. **Canal de control (Puerto 21 TCP por defecto):**  
-      - Es la conexión principal (*out-of-band signaling*). Se establece al inicio de la sesión entre el cliente y el puerto de escucha 21 TCP del servidor.
-      - Permanece **abierta de forma continua** durante toda la sesión del usuario.
-      - Por este canal circulan exclusivamente órdenes cortas en texto ASCII (como `USER`, `PASS`, `LIST`, `RETR`, `QUIT`) emitidas por el cliente y las correspondientes respuestas numéricas de estado de 3 dígitos generadas por el servidor.
-      - Por este canal **nunca viaja el contenido de los archivos** ni los listados de directorios.
+![img](./img_6/img-6-2.jpeg){.cien}
+
+!!! info "Canal de control (Puerto 21 TCP por defecto)"
+    - Es la conexión principal (*out-of-band signaling*). Se establece al inicio de la sesión entre el cliente y el puerto de escucha 21 TCP del servidor.
+    - Permanece **abierta de forma continua** durante toda la sesión del usuario.
+    - Por este canal circulan exclusivamente órdenes cortas en texto ASCII (como `USER`, `PASS`, `LIST`, `RETR`, `QUIT`) emitidas por el cliente y las correspondientes respuestas numéricas de estado de 3 dígitos generadas por el servidor.
+    - Por este canal **nunca viaja el contenido de los archivos** ni los listados de directorios.
+
+!!! info "Canal de datos (Puertos variables TCP / Puerto 20 en modo activo)"
+    - Es una conexión efímera que se abre **bajo demanda** únicamente cuando el cliente solicita una acción que implica intercambio de información volumétrica: transferir un fichero (subida con `STOR` o descarga con `RETR`) o solicitar el listado de archivos de una carpeta (`LIST` o `NLST`).
+     - Una vez finalizada la transmisión del archivo o entregado el listado, el canal de datos **se cierra inmediatamente**. Si el usuario desea descargar otro fichero a continuación, se negociará y abrirá una nueva conexión de datos independiente.
+
+!!! question "💡 ¿Por qué FTP desacopló el control de los datos?"
+    Este diseño permite al cliente enviar órdenes de interrupción (como el comando `ABOR` para abortar una descarga) a través del canal de control mientras un archivo enorme se está descargando por el canal de datos, sin tener que esperar a que termine de llegar la totalidad del flujo de bytes.
+
+# HASTA AQUI
+
 <!--
-* **Canal de datos (Puertos variables TCP / Puerto 20 en modo activo):**  
-  * Es una conexión efímera que se abre **bajo demanda** únicamente cuando el cliente solicita una acción que implica intercambio de información volumétrica: transferir un fichero (subida con `STOR` o descarga con `RETR`) o solicitar el listado de archivos de una carpeta (`LIST` o `NLST`).
-  * Una vez finalizada la transmisión del archivo o entregado el listado, el canal de datos **se cierra inmediatamente**. Si el usuario desea descargar otro fichero a continuación, se negociará y abrirá una nueva conexión de datos independiente.
-
-```text
-  ┌──────────────┐                                       ┌──────────────┐
-  │              │ ─── Canal de Control (Puerto 21 TCP) ──>│              │
-  │  Cliente FTP │ <── Códigos de Estado y Señalización ── │ Servidor FTP │
-  │              │                                       │   (Daemon)   │
-  │              │ <══ Canal de Datos (Puertos Efímeros) ═>│              │
-  └──────────────┘     (Transferencia de Archivos/Listados)  └──────────────┘
-```
-
-> 💡 **¿Por qué FTP desacopló el control de los datos?**
->
-> Este diseño permite al cliente enviar órdenes de interrupción (como el comando `ABOR` para abortar una descarga) a través del canal de control mientras un archivo enorme se está descargando por el canal de datos, sin tener que esperar a que termine de llegar la totalidad del flujo de bytes.
->
-
----
-
 ### 2.2 Tipos de datos y modos de representación: ASCII vs Binario
 El RFC 959 contempla distintos modos de interpretar la información transmitida a través del canal de datos, siendo crucial seleccionar el tipo adecuado para evitar la corrupción irreversible de los ficheros:
 
