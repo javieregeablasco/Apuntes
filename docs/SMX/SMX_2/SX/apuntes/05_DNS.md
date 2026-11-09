@@ -1493,12 +1493,12 @@ Para la instalación del rol AD DS en un servidor Windows Server 2025 en AWS, se
 
 !!! abstract ":eight: - Comprobación de pre-requisitos"
     - Continuamos por las ventanas de `Paths` (donde se define la ubicación de la base de datos de AD, los logs y el volumen SYSVOL) y `Review Options` (resumen de toda la configuración elegida).  
-    - En `Prerequisites Check` apuntaremos las advertencias para gestionarlas más adelante (entre ellas, es habitual que aparezca un aviso relacionado con la configuración de IP estática del servidor).
+    - En `Prerequisites Check` apuntaremos las advertencias para gestionarlas más adelante (entre ellas, es habitual que aparezca un aviso relacionado con la configuración de IP estática del servidor).  
     ==Realizar captura de pantalla==  
     ![Descripción de la imagen](./img_5/img_5_52.png){ .margintop10 .marginbottom10 .marco}
 
 !!! abstract ":nine: - Nuevo inicio de sesión bajo AD DS"
-    - Una vez reiniciada la máquina, veremos que aunque parezca que no ha ocurrido nada, ahora iniciamos sesión como **DOMINIO\Administrador** (cuenta de dominio) en lugar de como administrador local del servidor.
+    - Una vez reiniciada la máquina, veremos que aunque parezca que no ha ocurrido nada, ahora iniciamos sesión como **DOMINIO\Administrador** (cuenta de dominio) en lugar de como administrador local del servidor.  
     ==Realizar captura de pantalla==  
     - Podemos comprobarlo, por ejemplo, ejecutando `whoami` en una consola.
     ![Descripción de la imagen](./img_5/img_5_53.png){ .margintop10 .marginbottom10 .marco}
@@ -1551,6 +1551,7 @@ Para la instalación del rol AD DS en un servidor Windows Server 2025 en AWS, se
     ![Descripción de la imagen](./img_5/img_5_57.png){ .margintop10 .marginbottom10 .marco}
 
 # HASTA AQUI
+
 <!--
 - A efectos didácticos cambiaremos la dirección del DNS preferido a la dirección IPv4 privada de nuestra máquina (en el ejemplo, `172.31.39.99`). De esta forma podremos identificar claramente cuál es la dirección del servidor DNS que utilizarán los equipos de nuestra red.
     ![Descripción de la imagen](./img_5/img_5_58.png){.leftsietecinco .margintop10 .marginbottom10 .marco}
