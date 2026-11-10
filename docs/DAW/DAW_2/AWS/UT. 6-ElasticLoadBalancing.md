@@ -68,7 +68,7 @@ En un primer momento crearemos:
 Una vez creada la infraestructura (VPC + subred + EC2 + IGW) iniciaremos las interconección desde la región us-east-1 (N. Virginia).
 
 - Desde el menú VPC buscamos **Interconexiones**.
-  ![img](../AWS/ut6/peering3.png){ .lefttrescero .marco .margin2020 }
+  ![img](../AWS/ut6/peering3.png){ .lefttrescero .marco }
 
 - En este caso, crearemos la conexión desde la región **us-east-1 / Norte de Virginia**.
   ![img](../AWS/ut6/peering4.png){ .sietecinco .marco .margin2020 }
@@ -122,7 +122,6 @@ Una vez creada la infraestructura (VPC + subred + EC2 + IGW) iniciaremos las int
 
 - ping de EC2 Oregon hacia Norte de Virginia  
   ![img](../AWS/ut6/peering19.png){ .leftcincocero .margin2020   }
-
 
 ### **1.3 - Transit Gateway**  
 Un AWS Transit Gateway (TGW) es un servicio de red de Amazon Web Services diseñado para interconectar de forma centralizada múltiples VPC, conexiones VPN, Direct Connect y redes on-premise dentro de **una misma región**. Actúa como **un router regional** de alto rendimiento, simplificando arquitecturas complejas y reduciendo la necesidad de crear múltiples VPC Peering.
