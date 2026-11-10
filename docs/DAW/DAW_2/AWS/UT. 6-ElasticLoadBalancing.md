@@ -25,7 +25,7 @@ schedule: 96h - 3h/s
 
 ## 1 - Interconexiones de redes, peer connection (peering) y transit gateway
 
-### 1.1 - Introducción
+### 1.1 Introducción
 
 - En los entornos de computación en la nube, resulta habitual la necesidad de conectar distintas nubes privadas virtuales (VPC) entre sí o con redes locales.
 - AWS ofrece varios mecanismos para lograr esta interconexión, entre los cuales destacan **VPC Peering y Transit Gateway**.
@@ -49,78 +49,80 @@ schedule: 96h - 3h/s
     |- El coste es un factor determinante.|- Se desea centralizar la administración de la red.|
     |- No se requiere una topología compleja ni interconexión transitiva.|- Se priorizan la escalabilidad y la flexibilidad en la arquitectura.|
 
-### 1.2 - Peer connection
+### 1.2 Peer connection
 
-- Para familiarizarnos con el peering en AWS, usaremos el siguiente escenario:
+Para familiarizarnos con el peering en AWS, usaremos el siguiente escenario:
 
 ![img](../AWS/ut6/peering2.png){ .cien }
 
-#### **1.2.1 - Crear los elementos básicos**
+#### 1.2.1 Crear los elementos básicos
+
 En un primer momento crearemos:
 
 1. Las 2 VPC (us-east-1 (N. Virginia) y us.east-2 (Oregon)). 
 1. Las subredes (públicas) y sus respectivas tablas de enrutamiento.
 1. Las instancias EC2 y sus grupos de seguridad para posibilitar pings y conexiones SSH.
 
-#### **1.2.2 - Realizar el peering entre VPC's**
+#### 1.2.2 Realizar el peering entre VPC's
+
 Una vez creada la infraestructura (VPC + subred + EC2 + IGW) iniciaremos las interconección desde la región us-east-1 (N. Virginia).
 
-- Desde el menú VPC buscamos **Interconexiones**. 
-  ![](../AWS/ut6/peering3.png){ .lefttrescero .marco .margin2020 } <br>
+- Desde el menú VPC buscamos **Interconexiones**.
+  ![img](../AWS/ut6/peering3.png){ .lefttrescero .marco .margin2020 }
 
-
-- En este caso, crearemos la conexión desde la región **us-east-1 / Norte de Virginia**. 
-  ![](../AWS/ut6/peering4.png){ .sietecinco .marco .margin2020 } <br>
-
+- En este caso, crearemos la conexión desde la región **us-east-1 / Norte de Virginia**.
+  ![img](../AWS/ut6/peering4.png){ .sietecinco .marco .margin2020 }
 
 - Para completar **la solicitud de conexión** necesitaremos la id de la VPC de la región **us-west-2 / Oregón**
-  ![](../AWS/ut6/peering6.png){ .sietecinco .marco .margin2020 } <br>
-
+  ![img](../AWS/ut6/peering6.png){ .sietecinco .marco .margin2020 }
 
 - Petición de conexión creada, pendiente de aceptación.  
-  ![](../AWS/ut6/peering5.png){ .sietecinco .marco .margin2020 } <br>
+  ![img](../AWS/ut6/peering5.png){ .sietecinco .marco .margin2020 }
 
-
-- Hasta que la otra VPC no acepte la conexión, el estado de la misma será "pendiente". 
-  ![](../AWS/ut6/peering7.png){ .sietecinco .marco .margin2020 } <br>
+- Hasta que la otra VPC no acepte la conexión, el estado de la misma será "pendiente".
+  ![img](../AWS/ut6/peering7.png){ .sietecinco .marco .margin2020 }
   
+- En la otra región aceptamos (o rechazamos la petición).
+  ![img](../AWS/ut6/peering8.png){ .sietecinco .marco .margin2020 }
+  ![img](../AWS/ut6/peering9.png){ .cincozero .marco .margin2020 }
 
-- En la otra región aceptamos (o rechazamos la petición). 
-  ![](../AWS/ut6/peering8.png){ .sietecinco .marco .margin2020 }
-  ![](../AWS/ut6/peering9.png){ .cincozero .marco .margin2020 } <br>
+- En la otra región aceptamos (o rechazamos la petición).
 
-- En la otra región aceptamos (o rechazamos la petición). 
+#### 1.2.3 Configuración de la interconexión
 
-#### **1.2.3 - Configuración de la interconexión**
 - Para evitar problemas con la resolución de nombres en el servicio de interconexión, en Interconexiones → DNS, habilitaremos la opción de resolver el dns.
-  ![](../AWS/ut6/peering11.png){ .original .marco .margin2020 } 
-  ![](../AWS/ut6/peering12.png){ .original .marco .margin2020 } <br>
+  ![img](../AWS/ut6/peering11.png){ .original .marco .margin2020 }
+  ![img](../AWS/ut6/peering12.png){ .original .marco .margin2020 }
 
-- Si no deja hacerlo, iremos a la VPC receptora y comprobaremos la configuración de DNS. 
-  ![](../AWS/ut6/peering13.png){ .sietecinco .marco .margin2020 } <br>
- 
-#### **1.2.4 - Configuración de la tablas de enrutamiento**
+- Si no deja hacerlo, iremos a la VPC receptora y comprobaremos la configuración de DNS.
+  ![img](../AWS/ut6/peering13.png){ .sietecinco .marco .margin2020 }
+
+#### 1.2.4 Configuración de la tablas de enrutamiento
+
 - De la misma manera que para una puerta de enlace de internet (IGW) añadiremos una ruta a las IP's de las VPC's, tanto en la VPC Norte de Virginia como en la VPC Oregón (acordaros de asociar explícitamente la subred a la tabla de enrutamiento).
-<br><br>
+
 - **VPC Oregón**
-  ![](../AWS/ut6/peering14.png){ .cien .marco .margin2020 } <br>
+  ![img](../AWS/ut6/peering14.png){ .cien .marco .margin2020 }
 
 - **VPC Norte de Virginia**
-  ![](../AWS/ut6/peering15.png){ .cien .marco .margin2020 } <br>
+  ![img](../AWS/ut6/peering15.png){ .cien .marco .margin2020 }
 
-#### **1.2.5 - Configuración de los grupos de seguridad de las instancias**
+#### 1.2.5 Configuración de los grupos de seguridad de las instancias
+
 - **EC2 Oregón**
-  ![](../AWS/ut6/peering16.png){ .cien .marco .margin2020 } <br>
+  ![img](../AWS/ut6/peering16.png){ .cien .marco .margin2020 }
 
 - **EC2 Norte de Virginia**
-  ![](../AWS/ut6/peering17.png){ .cien .marco .margin2020 } <br>
+  ![img](../AWS/ut6/peering17.png){ .cien .marco .margin2020 }
 
-#### **1.2.6 - Pruebas de conexión**
+#### 1.2.6 - Pruebas de conexión
+
 - ping de EC2 Norte de Virginia hacia Oregon  
-  ![](../AWS/ut6/peering18.png){ .leftcincocero .margin2020   } <br>
+  ![img](../AWS/ut6/peering18.png){ .leftcincocero .margin2020   }
 
 - ping de EC2 Oregon hacia Norte de Virginia  
-  ![](../AWS/ut6/peering19.png){ .leftcincocero .margin2020   } <br>
+  ![img](../AWS/ut6/peering19.png){ .leftcincocero .margin2020   }
+
 
 ### **1.3 - Transit Gateway**  
 Un AWS Transit Gateway (TGW) es un servicio de red de Amazon Web Services diseñado para interconectar de forma centralizada múltiples VPC, conexiones VPN, Direct Connect y redes on-premise dentro de **una misma región**. Actúa como **un router regional** de alto rendimiento, simplificando arquitecturas complejas y reduciendo la necesidad de crear múltiples VPC Peering.
