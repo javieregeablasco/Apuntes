@@ -1550,7 +1550,7 @@ Para la instalación del rol AD DS en un servidor Windows Server 2025 en AWS, se
 - Para un controlador de dominio es importante que esta dirección sea fija, ya que será utilizada por los clientes para localizar los servicios de Active Directory y DNS.
 
 - Si abrimos la configuración del adaptador de red veremos que el servidor DNS puede estar configurado para utilizar el propio servidor como servidor DNS. En nuestro caso, la dirección `127.0.0.1` corresponde al *localhost* (la propia máquina), por lo que el servidor puede realizar consultas DNS contra sí mismo.
-    ![Descripción de la imagen](./img_5/img_5_57.png){.leftsietecinco .margintop10 .marginbottom10 .marco}
+    ![Descripción de la imagen](./img_5/img_5_57.png){.leftseiscero .margintop10 .marginbottom10 .marco}
 
 - A efectos didácticos cambiaremos la dirección del DNS preferido a la dirección IPv4 privada de nuestra máquina (en el ejemplo, `172.31.39.99`). De esta forma podremos identificar claramente cuál es la dirección del servidor DNS que utilizarán los equipos de nuestra red.
     ![Descripción de la imagen](./img_5/img_5_58.png){.leftsietecinco .margintop10 .marginbottom10 .marco}
