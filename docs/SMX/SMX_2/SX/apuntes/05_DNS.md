@@ -1685,14 +1685,15 @@ En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.
       ```
 
     ==Realizar captura de pantalla==  
-    ![Descripción de la imagen](./img_5/img_5_73.png){ .marginbottom10 .leftsietecinco}
+    ![Descripción de la imagen](./img_5/img_5_73.png){ .marginbottom10 .leftsietecinco .margintop10}
 
 #### 16.5.3 Añadir registro de tipo A al DNS
 
 - Para añadir de forma manual un registro A y un registro PTR para el equipo Servidor-NAS, abriremos la consola de administración del servidor DNS y crearemos un nuevo registro A en la zona directa del dominio.
 - En el ejemplo, añadiremos un registro A para el equipo Servidor-NAS con la dirección IP `172.31.38.70` (la IP privada de la instancia EC2 que hemos lanzado previamente).
 ![Descripción de la imagen](./img_5/img_5_74.png){ .margintop10 .marginbottom10   .marco}
-![Descripción de la imagen](./img_5/img_5_75.png){ .margintop10 .marginbottom10 .cincozero}
+==Realizar captura de pantalla==  
+![Descripción de la imagen](./img_5/img_5_75.png){ .margintop10 .marginbottom10 .leftcincozero}
 - Una vez creado el registro A, se creará automáticamente un registro PTR correspondiente en la zona inversa del dominio. En este caso fallerá la creación del registro PTR, ya que no existe una zona inversa para la subred de nuestra VPC. Por ello, el registro PTR no se creará automáticamente y tendremos que crearlo de forma manual.
 - Repetiremos el lookup para comprobar que ahora el servidor DNS puede resolver correctamente el nombre del equipo Servidor-NAS.
 ![Descripción de la imagen](./img_5/img_5_76.png){ .margintop10 .marginbottom10 .sietecinco }
