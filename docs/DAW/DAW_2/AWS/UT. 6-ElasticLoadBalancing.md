@@ -71,20 +71,20 @@ Una vez creada la infraestructura (VPC + subred + EC2 + IGW) iniciaremos las int
   ![img](../AWS/ut6/peering3.png){ .lefttrescero .marco .margintop10 .marginbottom20}
 
 - En este caso, crearemos la conexión desde la región **us-east-1 / Norte de Virginia**.
-  ![img](../AWS/ut6/peering4.png){ .sietecinco .marco .margintop10 .marginbottom20}
+  ![img](../AWS/ut6/peering4.png){ .cien .marco .margintop10 .marginbottom20}
 
 - Para completar **la solicitud de conexión** necesitaremos la id de la VPC de la región **us-west-2 / Oregón**
-  ![img](../AWS/ut6/peering6.png){ .sietecinco .marco .margintop10 .marginbottom20
+  ![img](../AWS/ut6/peering6.png){ .cien .marco .margintop10 .marginbottom20}
 
 - Petición de conexión creada, pendiente de aceptación.  
-  ![img](../AWS/ut6/peering5.png){ .sietecinco .marco .margintop10 .marginbottom20 }
+  ![img](../AWS/ut6/peering5.png){ .cien .marco .margintop10 .marginbottom20 }
 
 - Hasta que la otra VPC no acepte la conexión, el estado de la misma será "pendiente".
-  ![img](../AWS/ut6/peering7.png){ .sietecinco .marco .margintop10 .marginbottom20 }
+  ![img](../AWS/ut6/peering7.png){ .cien  .marco .margintop10 .marginbottom20 }
   
 - En la otra región aceptamos (o rechazamos la petición).
-  ![img](../AWS/ut6/peering8.png){ .sietecinco .marco .margintop10 .marginbottom20 }
-  ![img](../AWS/ut6/peering9.png){ .cincozero .marco .margintop10 .marginbottom20 }
+  ![img](../AWS/ut6/peering8.png){ .cien .marco .margintop10 .marginbottom20 }
+  ![img](../AWS/ut6/peering9.png){ .sietecinco .marco .margintop10 .marginbottom20 }
 
 - En la otra región aceptamos (o rechazamos la petición).
 
