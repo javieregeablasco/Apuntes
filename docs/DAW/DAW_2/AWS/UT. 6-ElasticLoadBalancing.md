@@ -31,7 +31,7 @@ schedule: 96h - 3h/s
 - AWS ofrece varios mecanismos para lograr esta interconexión, entre los cuales destacan **VPC Peering y Transit Gateway**.
 - Ambos servicios cumplen el mismo propósito general (permitir la comunicación entre redes), pero lo hacen a través de enfoques distintos, lo que determina su conveniencia según el tamaño y la complejidad de la infraestructura.
 
-!!! note "VPC Peering
+!!! note "VPC Peering"
     - Establece una **conexión directa punto a punto** entre dos VPC, permitiendo que los recursos de ambas se comuniquen mediante direcciones IP privadas.
     - Este método es especialmente útil en entornos pequeños o cuando se requiere una integración sencilla entre dos VPC.  
 
@@ -44,10 +44,10 @@ schedule: 96h - 3h/s
 
     |¿Cuándo utilizar VPC Peering?|**¿Cuándo utilizar VPC Peering?**|
     |-|-|
-    |- Se requiere comunicación directa entre dos VPC.|Se gestiona una red extensa y compleja con múltiples VPC.|
-    |- La topología de red es pequeña y sencilla.|Es necesario conectar redes locales y otros servicios de AWS.|
-    |- El coste es un factor determinante.|Se desea centralizar la administración de la red.|
-    ||Se priorizan la escalabilidad y la flexibilidad en la arquitectura.|
+    |- Se requiere comunicación directa entre dos VPC.|- Se gestiona una red extensa y compleja con múltiples VPC.|
+    |- La topología de red es pequeña y sencilla.|- Es necesario conectar redes locales y otros servicios de AWS.|
+    |- El coste es un factor determinante.|- Se desea centralizar la administración de la red.|
+    |- No se requiere una topología compleja ni interconexión transitiva.|- Se priorizan la escalabilidad y la flexibilidad en la arquitectura.|
 
 ### **1.2 - Peer connection**
 Para familiarizarnos con el peering en AWS, usaremos el siguiente escenario:
