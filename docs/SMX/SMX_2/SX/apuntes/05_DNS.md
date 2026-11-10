@@ -1659,14 +1659,14 @@ Un resultado sin errores relevantes indica que el controlador de dominio funcion
 - Todos los equipos que agragaremos al dominio deben tener como servidor DNS preferido la dirección IP del controlador de dominio. De esta forma, los equipos podrán localizar los servicios de Active Directory y autenticarse correctamente en el dominio.
 - Esos equipos serán agregados automáticamente a la zona DNS del dominio, y se crearán los registros correspondientes en la zona directa e inversa.
 - No obstante, si queremos agregar un equipo al dominio sin que se cree automáticamente el registro en la zona DNS, podemos crear de forma manual un registro A y un registro PTR para ese equipo.
-- Para simular esta situación, en nuestra práctica, lanzaremos una instancia EC2 adicional que actuará como cliente del dominio (p.e. Servidor-NAS). Esta instancia tendrá un sistema operativo ubuntu 26.04.1 LTS y se concreará en **la misma VPC y subred que el controlador de dominio**.
+- Para simular esta situación, en nuestra práctica, lanzaremos una instancia EC2 adicional que actuará como cliente del dominio (p.e. Servidor-NAS). Esta instancia tendrá un sistema operativo ubuntu 26.04.1 LTS y se creará en **la misma VPC y subred que el controlador de dominio**.
 
 #### 16.5.1 Lanzar instancia EC2
 
 En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.  
 
 - Captura del apartado de configuración de red dónde veremos en qué subred se encuentra nuestro servidor DNS.
-![Descripción de la imagen](./img_5/img_5_70.png){ .margintop10 .marginbottom10 .marco}
+![Descripción de la imagen](./img_5/img_5_70.png){ .margintop10 .marginbottom10 .marco .leftsietecinco}
 - Captura del apartado de configuración de red dónde elegimos la subred a la hora de lanzar la instancia.
 ![Descripción de la imagen](./img_5/img_5_71.png){ .margintop10 .marginbottom10 .marco}
 - Resumen de la configuración de la instancia (acordarse de seleccionar el par de clave `vockey` para el inicio de sesión y de seleccionar la misma subred que el controlador de dominio).  
