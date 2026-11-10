@@ -49,10 +49,11 @@ schedule: 96h - 3h/s
     |- El coste es un factor determinante.|- Se desea centralizar la administración de la red.|
     |- No se requiere una topología compleja ni interconexión transitiva.|- Se priorizan la escalabilidad y la flexibilidad en la arquitectura.|
 
-### **1.2 - Peer connection**
-Para familiarizarnos con el peering en AWS, usaremos el siguiente escenario:
+### 1.2 - Peer connection
 
-![](../AWS/ut6/peering2.png){ .seiscinco }
+- Para familiarizarnos con el peering en AWS, usaremos el siguiente escenario:
+
+![img](../AWS/ut6/peering2.png){ .cien }
 
 #### **1.2.1 - Crear los elementos básicos**
 En un primer momento crearemos:
