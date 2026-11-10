@@ -1586,7 +1586,7 @@ Un resultado correcto en estas pruebas nos permitirá comprobar que nuestro serv
 ### 16.3 Configuración del AD DS
 
 - Si abrimos `Active Directory Users and Computers` veremos las cuentas integradas que se han creado al instalar Active Directory.  
-Entre ellas se encuentran `Administrator` y `Guest`.
+- Entre ellas se encuentran `Administrator` y `Guest`.
      ![Descripción de la imagen](./img_5/img_5_64.png){ .margintop10 .marginbottom10}
 
 - Una buena práctica consiste en crear una cuenta administrativa individual para cada administrador y utilizarla para realizar las tareas administrativas del dominio. De esta forma, las acciones realizadas sobre Active Directory pueden asociarse a una identidad concreta, facilitando la trazabilidad y la auditoría.
@@ -1603,8 +1603,6 @@ Entre ellas se encuentran `Administrator` y `Guest`.
     !!! warning "Importante"
         La nueva cuenta debe utilizar una contraseña diferente y robusta. Nunca debemos reutilizar la contraseña de una cuenta administrativa en otra cuenta.
 
-# HASTA AQUI
-<!--
 - Comprobaremos el estado de nuestro controlador de dominio mediante `dcdiag`. Esta herramienta realiza diferentes pruebas sobre los servicios y componentes de Active Directory.
 Un resultado sin errores relevantes indica que el controlador de dominio funciona correctamente.
     ![Descripción de la imagen](./img_5/img_5_67.png){ .margintop10 .marginbottom10}
@@ -1630,6 +1628,8 @@ Un resultado sin errores relevantes indica que el controlador de dominio funcion
 
 1. Cuando el servidor DNS está integrado con Active Directory Domain Services (AD DS), también podemos crear una zona integrada en Active Directory. En este caso, la información de la zona se almacena en Active Directory y puede replicarse automáticamente entre los controladores de dominio.
 
+# HASTA AQUI
+<!--
 #### 16.4.2 Reverse Lookup zones
 
 1. Las zonas de resolución inversa (Reverse Lookup Zones) permiten realizar el proceso contrario a una zona de resolución directa: obtener un nombre DNS a partir de una dirección IP.
