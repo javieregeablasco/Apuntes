@@ -1695,7 +1695,7 @@ En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.
 ==Realizar captura de pantalla==  
 ![Descripción de la imagen](./img_5/img_5_75.png){ .margintop10 .marginbottom10 .leftcincozero}
 - Una vez creado el registro A, se creará automáticamente un registro PTR correspondiente en la zona inversa del dominio. En este caso fallerá la creación del registro PTR, ya que no existe una zona inversa para la subred de nuestra VPC. Por ello, el registro PTR no se creará automáticamente y tendremos que crearlo de forma manual.
-- Repetiremos el lookup para comprobar que ahora el servidor DNS puede resolver correctamente el nombre del equipo Servidor-NAS.
+- Repetiremos el lookup para comprobar que ahora el servidor DNS puede resolver correctamente el nombre del equipo Servidor-NAS.  
 ==Realizar captura de pantalla==  
 ![Descripción de la imagen](./img_5/img_5_76.png){ .margintop10 .marginbottom10 .leftcincocero }
 
