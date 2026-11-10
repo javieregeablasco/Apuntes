@@ -108,10 +108,10 @@ Una vez creada la infraestructura (VPC + subred + EC2 + IGW) iniciaremos las int
 #### 1.2.5 Configuración de los grupos de seguridad de las instancias
 
 - **EC2 Oregón**
-  ![img](../AWS/ut6/peering16.png){ .cien .marco .margin2020 }
+  ![img](../AWS/ut6/peering16.png){ .cien .marco .margintop10 .marginbottom20 }
 
 - **EC2 Norte de Virginia**
-  ![img](../AWS/ut6/peering17.png){ .cien .marco .margin2020 }
+  ![img](../AWS/ut6/peering17.png){ .cien .marco .margintop10 .marginbottom20 }
 
 #### 1.2.6 - Pruebas de conexión
 
