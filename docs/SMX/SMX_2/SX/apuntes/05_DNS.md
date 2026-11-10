@@ -1609,7 +1609,10 @@ Un resultado sin errores relevantes indica que el controlador de dominio funcion
 
 - También podemos realizar una comprobación específica del servicio DNS mediante `dcdiag /test:dns`  
 ==Realizar captura de pantalla==  
-    ![Descripción de la imagen](./img_5/img_5_68.png){ .margintop10 .marginbottom10}
+!!! question "==Responder a la siguiente pregunta=="
+    Explicar las advertencias devuetan después de ejecutar el comando `dcdiag /test:dns`.
+
+   ![Descripción de la imagen](./img_5/img_5_68.png){ .margintop10 .marginbottom10}
 
 ### 16.4 Opciones disponibles en la consola DNS de Windows Server 2025
 
