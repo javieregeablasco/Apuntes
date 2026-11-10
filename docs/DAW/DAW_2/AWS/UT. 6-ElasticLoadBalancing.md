@@ -116,7 +116,7 @@ Una vez creada la infraestructura (VPC + subred + EC2 + IGW) iniciaremos las int
 #### 1.2.6 - Pruebas de conexión
 
 - ping de EC2 Norte de Virginia hacia Oregon  
-  ![img](../AWS/ut6/peering18.png){ .leftsietecinco  }
+  ![img](../AWS/ut6/peering18.png){ .leftsietecinco .margintop10 .marginbottom20  }
 
 - ping de EC2 Oregon hacia Norte de Virginia  
   ![img](../AWS/ut6/peering19.png){ .leftsietecinco .margintop10 .marginbottom20   }
