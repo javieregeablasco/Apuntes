@@ -23,25 +23,31 @@ schedule: 96h - 3h/s
 |**d)** Se ha realizado la selección de servicios de computación adecuados según casos de uso.|
 |**e)** Se ha llevado a cabo la configuración y gestión de balanceo de carga y escalado automático.|
 
+## 1 - Interconexiones de redes, peer connection (peering) y transit gateway
 
-## **1 - Interconexiones de redes, peer connection (peering) y transit gateway**
-### **1.1 - Introducción**
-En los entornos de computación en la nube, resulta habitual la necesidad de conectar distintas nubes privadas virtuales (VPC) entre sí o con redes locales. AWS ofrece varios mecanismos para lograr esta interconexión, entre los cuales destacan **VPC Peering y Transit Gateway**.
-Ambos servicios cumplen el mismo propósito general (permitir la comunicación entre redes), pero lo hacen a través de enfoques distintos, lo que determina su conveniencia según el tamaño y la complejidad de la infraestructura.
+### 1.1 - Introducción
 
-- **VPC Peering**: Establece una **conexión directa punto a punto** entre dos VPC, permitiendo que los recursos de ambas se comuniquen mediante direcciones IP privadas. Este método es especialmente útil en entornos pequeños o cuando se requiere una integración sencilla entre dos VPC.  
+- En los entornos de computación en la nube, resulta habitual la necesidad de conectar distintas nubes privadas virtuales (VPC) entre sí o con redes locales.
+- AWS ofrece varios mecanismos para lograr esta interconexión, entre los cuales destacan **VPC Peering y Transit Gateway**.
+- Ambos servicios cumplen el mismo propósito general (permitir la comunicación entre redes), pero lo hacen a través de enfoques distintos, lo que determina su conveniencia según el tamaño y la complejidad de la infraestructura.
 
-- **Transit Gateway**: Actúa como un concentrador central (hub) que interconecta varias VPC y redes locales (on-premises) a través de un único punto de enlace. Esta arquitectura simplifica enormemente la gestión de redes complejas, ya que permite establecer una topología de tipo hub-and-spoke, donde todas las conexiones pasan por el mismo punto central.
-Gracias a ello, Transit Gateway ofrece mayor escalabilidad, flexibilidad y control administrativo, siendo la opción más adecuada para organizaciones que gestionan múltiples entornos en AWS.
+!!! note "VPC Peering
+    - Establece una **conexión directa punto a punto** entre dos VPC, permitiendo que los recursos de ambas se comuniquen mediante direcciones IP privadas.
+    - Este método es especialmente útil en entornos pequeños o cuando se requiere una integración sencilla entre dos VPC.  
 
-**Resumen**
+!!! note "Transit Gateway"
+    - Actúa como un concentrador central (hub) que interconecta varias VPC y redes locales (on-premises) a través de un único punto de enlace.
+    -  Esta arquitectura simplifica enormemente la gestión de redes complejas, ya que permite establecer una topología de tipo hub-and-spoke, donde todas las conexiones pasan por el mismo punto central.
+    - Gracias a ello, Transit Gateway ofrece mayor escalabilidad, flexibilidad y control administrativo, siendo la opción más adecuada para organizaciones que gestionan múltiples entornos en AWS.
 
-|¿Cuándo utilizar VPC Peering?|**¿Cuándo utilizar VPC Peering?**|
-|-|-|
-|- Se requiere comunicación directa entre dos VPC.|Se gestiona una red extensa y compleja con múltiples VPC.|
-|- La topología de red es pequeña y sencilla.|Es necesario conectar redes locales y otros servicios de AWS.|
-|- El coste es un factor determinante.|Se desea centralizar la administración de la red.|
-||Se priorizan la escalabilidad y la flexibilidad en la arquitectura.|
+!!! success "Resumen"
+
+    |¿Cuándo utilizar VPC Peering?|**¿Cuándo utilizar VPC Peering?**|
+    |-|-|
+    |- Se requiere comunicación directa entre dos VPC.|Se gestiona una red extensa y compleja con múltiples VPC.|
+    |- La topología de red es pequeña y sencilla.|Es necesario conectar redes locales y otros servicios de AWS.|
+    |- El coste es un factor determinante.|Se desea centralizar la administración de la red.|
+    ||Se priorizan la escalabilidad y la flexibilidad en la arquitectura.|
 
 ### **1.2 - Peer connection**
 Para familiarizarnos con el peering en AWS, usaremos el siguiente escenario:
