@@ -1553,7 +1553,7 @@ Para la instalación del rol AD DS en un servidor Windows Server 2025 en AWS, se
     ![Descripción de la imagen](./img_5/img_5_57.png){.leftseiscero .margintop10 .marginbottom10 .marco}
 
 - A efectos didácticos cambiaremos la dirección del DNS preferido a la dirección IPv4 privada de nuestra máquina (en el ejemplo, `172.31.39.99`). De esta forma podremos identificar claramente cuál es la dirección del servidor DNS que utilizarán los equipos de nuestra red.  
-==Realizar captura de pantalla==
+==Realizar captura de pantalla==  
     ![Descripción de la imagen](./img_5/img_5_58.png){.leftsietecinco .margintop10 .marginbottom10 .marco}
 
 ### 16.2 Configuración del DNS
@@ -1565,7 +1565,7 @@ Para la instalación del rol AD DS en un servidor Windows Server 2025 en AWS, se
 - Es importante distinguir esta dirección IPv6 de `::1`, que es la dirección de *loopback* de IPv6 y equivale conceptualmente a `127.0.0.1` en IPv4.
 
 - Si ejecutamos el comando `ipconfig /all` veremos la configuración de red de nuestra interfaz. En nuestro caso, el servidor utiliza como DNS la dirección IPv4 `172.31.39.99` y la dirección IPv6 `::1`.  
-==Realizar captura de pantalla==
+==Realizar captura de pantalla==  
     ![Descripción de la imagen](./img_5/img_5_60.png){ .margintop10 .marginbottom10}
 
 - En `Forwarders` podemos configurar otros servidores DNS a los que nuestro servidor enviará las consultas que no pueda resolver utilizando sus propias zonas o la información almacenada en caché.  
@@ -1575,7 +1575,7 @@ Para la instalación del rol AD DS en un servidor Windows Server 2025 en AWS, se
 
     **Google DNS:** `8.8.8.8`  
     **Cloudflare DNS:** `1.1.1.1`  
-    ==Realizar captura de pantalla==
+    ==Realizar captura de pantalla==  
     ![Descripción de la imagen](./img_5/img_5_61.png){ .margintop10 .marginbottom10}
 
 - En la pestaña `Monitoring` podremos realizar diferentes pruebas para comprobar el funcionamiento del servidor DNS. También podremos comprobar la resolución recursiva de nombres externos.  
