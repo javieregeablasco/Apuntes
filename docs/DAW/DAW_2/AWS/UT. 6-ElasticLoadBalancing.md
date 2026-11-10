@@ -100,10 +100,10 @@ Una vez creada la infraestructura (VPC + subred + EC2 + IGW) iniciaremos las int
 - De la misma manera que para una puerta de enlace de internet (IGW) añadiremos una ruta a las IP's de las VPC's, tanto en la VPC Norte de Virginia como en la VPC Oregón (acordaros de asociar explícitamente la subred a la tabla de enrutamiento).
 
 - **VPC Oregón**
-  ![img](../AWS/ut6/peering14.png){ .cien .marco .margin2020 }
+  ![img](../AWS/ut6/peering14.png){ .cien .marco .margintop10 .marginbottom20 }
 
 - **VPC Norte de Virginia**
-  ![img](../AWS/ut6/peering15.png){ .cien .marco .margin2020 }
+  ![img](../AWS/ut6/peering15.png){ .cien .marco .margintop10 .marginbottom20 }
 
 #### 1.2.5 Configuración de los grupos de seguridad de las instancias
 
