@@ -10,7 +10,7 @@ layout: default
 schedule: 96h - 3h/s 
 ---
 
-![Descripción de la imagen](../AWS/ut6/img-6-1.png){ .trescinco }
+![Descripción de la imagen](../AWS/ut6/img-6-1.png){ .sietecinco }
 
 **Resultados de aprendizaje y criterios de evaluacion que se evaluarán en esta unidad.**  
 
