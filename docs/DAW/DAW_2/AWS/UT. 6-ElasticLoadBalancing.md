@@ -93,7 +93,7 @@ Una vez creada la infraestructura (VPC + subred + EC2 + IGW) iniciaremos las int
   ![img](../AWS/ut6/peering12.png){ .cien .marco .margintop10 .marginbottom20 }
 
 - Si no deja hacerlo, iremos a la VPC receptora y comprobaremos la configuración de DNS.
-  ![img](../AWS/ut6/peering13.png){ .sietecinco .marco .margin2020 }
+  ![img](../AWS/ut6/peering13.png){ .sietecinco .marco .margintop10 .marginbottom20 }
 
 #### 1.2.4 Configuración de la tablas de enrutamiento
 
