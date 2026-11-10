@@ -1580,7 +1580,7 @@ Para la instalación del rol AD DS en un servidor Windows Server 2025 en AWS, se
 
 - En la pestaña `Monitoring` podremos realizar diferentes pruebas para comprobar el funcionamiento del servidor DNS. También podremos comprobar la resolución recursiva de nombres externos.  
 Un resultado correcto en estas pruebas nos permitirá comprobar que nuestro servidor DNS puede resolver tanto los nombres pertenecientes a sus propias zonas como nombres externos mediante el mecanismo de resolución configurado.  
-==Realizar captura de pantalla==
+==Realizar captura de pantalla==  
     ![Descripción de la imagen](./img_5/img_5_63.png){ .margintop10 .marginbottom10}
 
 ### 16.3 Configuración del AD DS
