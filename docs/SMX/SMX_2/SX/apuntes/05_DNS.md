@@ -1684,7 +1684,7 @@ En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.
       nslookup Servidor-NAS
       ```
 
-==Realizar captura de pantalla==  
+    ==Realizar captura de pantalla==  
     ![Descripción de la imagen](./img_5/img_5_73.png){ .marginbottom10 .leftsietecinco}
 
 #### 16.5.3 Añadir registro de tipo A al DNS
