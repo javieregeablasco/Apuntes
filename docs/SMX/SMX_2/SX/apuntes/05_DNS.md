@@ -1791,11 +1791,10 @@ En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.
 - Como veremos, gran parte de las advertencias **están relacionadas con IPv6** que no están configuradas en nuestro entorno.
 - **En un entorno real, los errores deberán solucionarse** ya que afectarán al rendimiento y la capacidad de resolución de nombres de nuestro servidor DNS.
 
-!!! task "Comentar brevemente los errores encontrados así como sus posibles soluciones."
+!!! question "==Comentar brevemente los errores encontrados así como sus posibles soluciones=="
 
-# HASTA AQUI
-<!--
 ## 17 - Tarea RA2-CEabcde - Configuración de un segundo Controlador de Dominio y DNS
+<!--
 
 1. En entornos de producción, disponer de un único servidor representa un punto único de fallo (Single Point of Failure).
 
