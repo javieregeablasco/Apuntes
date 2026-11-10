@@ -1711,9 +1711,9 @@ En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.
 - Creamos la zona inversa correspondiente a la subred de nuestra VPC.  
 ==Realizar captura de pantalla==
 ![Descripción de la imagen](./img_5/img_5_77.png){ .margintop10 .marginbottom20 .leftsietecinco}
-==Realizar captura de pantalla==
-- Creamos el registro PTR correspondiente al registro A del equipo Servidor-NAS. En este caso se le dará un nombre diferente al del registro A, ya que el nombre del equipo Servidor-NAS ya está registrado en la zona directa. En este caso, se le dará el nombre `MiServidorNAS`.
-![Descripción de la imagen](./img_5/img_5_79.png){ .margintop10 .marginbottom10 .sietecinco}
+- Creamos el registro PTR correspondiente al registro A del equipo Servidor-NAS. En este caso se le dará un nombre diferente al del registro A, ya que el nombre del equipo Servidor-NAS ya está registrado en la zona directa. En este caso, se le dará el nombre `MiServidorNAS`.  
+==Realizar captura de pantalla==  
+![Descripción de la imagen](./img_5/img_5_79.png){ .margintop10 .marginbottom10 .leftsietecinco}
 - Repetiremos el lookup para comprobar que ahora el servidor DNS puede resolver correctamente el nombre desde la IP.
 ![Descripción de la imagen](./img_5/img_5_80.png){ .margintop10 .marginbottom10 .seiszero}
 
