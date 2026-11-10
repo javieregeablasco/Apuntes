@@ -1632,8 +1632,6 @@ Un resultado sin errores relevantes indica que el controlador de dominio funcion
 
 1. Cuando el servidor DNS está integrado con Active Directory Domain Services (AD DS), también podemos crear una zona integrada en Active Directory. En este caso, la información de la zona se almacena en Active Directory y puede replicarse automáticamente entre los controladores de dominio.
 
-# HASTA AQUI
-<!--
 #### 16.4.2 Reverse Lookup zones
 
 1. Las zonas de resolución inversa (Reverse Lookup Zones) permiten realizar el proceso contrario a una zona de resolución directa: obtener un nombre DNS a partir de una dirección IP.
@@ -1663,6 +1661,8 @@ Un resultado sin errores relevantes indica que el controlador de dominio funcion
 - No obstante, si queremos agregar un equipo al dominio sin que se cree automáticamente el registro en la zona DNS, podemos crear de forma manual un registro A y un registro PTR para ese equipo.
 - Para simular esta situación, en nuestra práctica, lanzaremos una instancia EC2 adicional que actuará como cliente del dominio (p.e. Servidor-NAS). Esta instancia tendrá un sistema operativo ubuntu 22.04 y se conectará a **la misma VPC y subred que el controlador de dominio**.
 
+# HASTA AQUI
+<!--
 #### 16.5.1 Lanzar instancia EC2
 
 En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.  
