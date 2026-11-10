@@ -1671,9 +1671,9 @@ En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.
 - Captura del apartado de configuración de red dónde elegimos la subred a la hora de lanzar la instancia.
 ![Descripción de la imagen](./img_5/img_5_71.png){ .margintop10 .marginbottom20 .marco .leftsietecinco}
 - Resumen de la configuración de la instancia (acordarse de seleccionar el par de clave `vockey` para el inicio de sesión y de seleccionar la misma subred que el controlador de dominio).  
-![Descripción de la imagen](./img_5/img_5_69.png){ .margintop10 .marginbottom10}
+![Descripción de la imagen](./img_5/img_5_69.png){ .margintop10 .marginbottom10 .leftsietecinco}
 - Esperaremos a que la instancia esté disponible. A partir de entonces, sí lo deseamos, nos podremos conectar via `SSH` a la instancia.
-![Descripción de la imagen](./img_5/img_5_72.png){ .margintop10 .marginbottom10 }
+![Descripción de la imagen](./img_5/img_5_72.png){ .margintop10 .marginbottom10 .leftsietecinco}
 
 #### 16.5.2 Comprobación de resolución DNS antes de añadir el equipo al dominio
 
@@ -1683,7 +1683,9 @@ En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.
       ```bash
       nslookup Servidor-NAS
       ```
-    ![Descripción de la imagen](./img_5/img_5_73.png){ .marginbottom10 .sietecinco}
+
+==Realizar captura de pantalla==  
+    ![Descripción de la imagen](./img_5/img_5_73.png){ .marginbottom10 .leftsietecinco}
 
 #### 16.5.3 Añadir registro de tipo A al DNS
 
