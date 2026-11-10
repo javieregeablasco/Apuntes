@@ -86,13 +86,11 @@ Una vez creada la infraestructura (VPC + subred + EC2 + IGW) iniciaremos las int
   ![img](../AWS/ut6/peering8.png){ .cien .marco .margintop10 .marginbottom20 }
   ![img](../AWS/ut6/peering9.png){ .sietecinco .marco .margintop10 .marginbottom20 }
 
-- En la otra región aceptamos (o rechazamos la petición).
-
 #### 1.2.3 Configuración de la interconexión
 
 - Para evitar problemas con la resolución de nombres en el servicio de interconexión, en Interconexiones → DNS, habilitaremos la opción de resolver el dns.
-  ![img](../AWS/ut6/peering11.png){ .original .marco .margin2020 }
-  ![img](../AWS/ut6/peering12.png){ .original .marco .margin2020 }
+  ![img](../AWS/ut6/peering11.png){ .cien .marco .margintop10 .marginbottom20  }
+  ![img](../AWS/ut6/peering12.png){ .cien .marco .margintop10 .marginbottom20 }
 
 - Si no deja hacerlo, iremos a la VPC receptora y comprobaremos la configuración de DNS.
   ![img](../AWS/ut6/peering13.png){ .sietecinco .marco .margin2020 }
