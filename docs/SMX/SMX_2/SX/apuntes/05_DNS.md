@@ -1718,6 +1718,10 @@ En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.
 ==Realizar captura de pantalla==  
 ![Descripción de la imagen](./img_5/img_5_80.png){ .margintop10 .marginbottom10 .leftseiscero}
 
+!!! question "==Responder a la siguiente pregunta=="
+    ¿Qué es un registro PTR?
+    ¿Cómo se escribe el FQDN de una registro PTR?
+
 ### 16.7 Aging y Scavenging
 
 1. En un servidor DNS pueden existir registros que dejan de ser válidos porque los equipos cambian de dirección IP, se desconectan de la red o dejan de existir.
@@ -1728,7 +1732,7 @@ En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.
     - **Scavenging (limpieza):** permite eliminar automáticamente los registros que han sido considerados antiguos.
 
 !!! example "Ejemplo"
-    - Si un equipo obtiene mediante DHCP la dirección:
+    Si un equipo obtiene mediante DHCP la dirección:
 
     ```text
     PC01 → 192.168.1.25
@@ -1760,7 +1764,7 @@ En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.
     - **Aging determina cuándo un registro puede considerarse antiguo y Scavenging permite eliminarlo automáticamente.**
     - Son mecanismos especialmente útiles en redes donde las direcciones IP cambian con frecuencia, como ocurre cuando se utiliza DHCP.
 
-### 16.7.1 Determinación del lease del sercidor DHCP
+### 16.7.1 Determinación del lease del servidor DHCP
 
 1. Como ya hemos comentado, en rol DHCP es asumido por AWS y no es posible modificarlo. Solo es posible añadir **conjuntos de opciones** que solo afectan  a:
 
@@ -1771,6 +1775,7 @@ En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.
         ```bash
         ipconfig /all
         ```
+    ==Realizar captura de pantalla==  
     ![Descripción de la imagen](./img_5/img_5_82.png){ .marginbottom10 }
 
 1. Activamos la opción de **Aging y scavenging** y no aseguramos de que el lease es inferior a la suma de **Aging + scavenging**.
