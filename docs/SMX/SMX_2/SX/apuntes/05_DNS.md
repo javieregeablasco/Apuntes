@@ -1780,10 +1780,8 @@ En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.
 
 1. Activamos la opción de **Aging y scavenging** y no aseguramos de que el lease es inferior a la suma de **Aging + scavenging**.
 
+    ==Realizar captura de pantalla==  
     ![Descripción de la imagen](./img_5/img_5_83.png){ .marginbottom10 .marco }
-
-# HASTA AQUI
-<!--
 
 ### 16.8 Best practices analyzer (BPA)
 
@@ -1795,6 +1793,8 @@ En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.
 
 !!! task "Comentar brevemente los errores encontrados así como sus posibles soluciones."
 
+# HASTA AQUI
+<!--
 ## 17 - Tarea RA2-CEabcde - Configuración de un segundo Controlador de Dominio y DNS
 
 1. En entornos de producción, disponer de un único servidor representa un punto único de fallo (Single Point of Failure).
