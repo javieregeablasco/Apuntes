@@ -1558,12 +1558,14 @@ Para la instalación del rol AD DS en un servidor Windows Server 2025 en AWS, se
 
 ### 16.2 Configuración del DNS
 
-- Si abrimos las propiedades del servidor DNS veremos que en `Interfaces` aparece la dirección IPv4 de nuestro servidor y, si IPv6 está habilitado, también puede aparecer una dirección IPv6. Windows puede asignar automáticamente a la interfaz una dirección IPv6 de tipo *link-local* (`fe80::/10`).  
+- Si abrimos las propiedades del servidor DNS veremos que en `Interfaces` aparece la dirección IPv4 de nuestro servidor.
+- Si IPv6 está habilitado, también puede aparecer una dirección IPv6. Windows puede asignar automáticamente a la interfaz una dirección IPv6 de tipo *link-local* (`fe80::/10`).  
     ![Descripción de la imagen](./img_5/img_5_59.png){ .margintop10 .marginbottom10}
 
-- Es importante distinguir esta dirección de `::1`, que es la dirección de *loopback* de IPv6 y equivale conceptualmente a `127.0.0.1` en IPv4.
+- Es importante distinguir esta dirección IPv6 de `::1`, que es la dirección de *loopback* de IPv6 y equivale conceptualmente a `127.0.0.1` en IPv4.
 
-- Si ejecutamos el comando `ipconfig /all` veremos la configuración de red de nuestra interfaz. En nuestro caso, el servidor utiliza como DNS la dirección IPv4 `172.31.39.99` y la dirección IPv6 `::1`.
+- Si ejecutamos el comando `ipconfig /all` veremos la configuración de red de nuestra interfaz. En nuestro caso, el servidor utiliza como DNS la dirección IPv4 `172.31.39.99` y la dirección IPv6 `::1`.  
+==Realizar captura de pantalla==
     ![Descripción de la imagen](./img_5/img_5_60.png){ .margintop10 .marginbottom10}
 
 - En `Forwarders` podemos configurar otros servidores DNS a los que nuestro servidor enviará las consultas que no pueda resolver utilizando sus propias zonas o la información almacenada en caché.  
