@@ -1545,14 +1545,12 @@ Para la instalación del rol AD DS en un servidor Windows Server 2025 en AWS, se
 
 ### 16.1 Configuración del adaptador de red
 
-- Como ya hemos comentado, en AWS la instancia dispone de una dirección IPv4 privada asociada a su interfaz de red (ENI). Para un controlador de dominio es importante que esta dirección sea estable, ya que será utilizada por los clientes para localizar los servicios de Active Directory y DNS.
+- Como ya hemos comentado, en AWS, la instancia dispone de una dirección IPv4 privada fija asociada a su interfaz de red (ENI / Elastic Network / Interface). Para un controlador de dominio es importante que esta dirección sea estable, ya que será utilizada por los clientes para localizar los servicios de Active Directory y DNS.
 
 - Si abrimos la configuración del adaptador de red veremos que el servidor DNS puede estar configurado para utilizar el propio servidor como servidor DNS. En nuestro caso, la dirección `127.0.0.1` corresponde al *localhost* (la propia máquina), por lo que el servidor puede realizar consultas DNS contra sí mismo.
     ![Descripción de la imagen](./img_5/img_5_57.png){ .margintop10 .marginbottom10 .marco}
 
-# HASTA AQUI
 
-<!--
 - A efectos didácticos cambiaremos la dirección del DNS preferido a la dirección IPv4 privada de nuestra máquina (en el ejemplo, `172.31.39.99`). De esta forma podremos identificar claramente cuál es la dirección del servidor DNS que utilizarán los equipos de nuestra red.
     ![Descripción de la imagen](./img_5/img_5_58.png){.leftsietecinco .margintop10 .marginbottom10 .marco}
 
@@ -1599,6 +1597,8 @@ Entre ellas se encuentran `Administrator` y `Guest`.
     !!! warning "Importante"
         La nueva cuenta debe utilizar una contraseña diferente y robusta. Nunca debemos reutilizar la contraseña de una cuenta administrativa en otra cuenta.
 
+# HASTA AQUI
+<!--
 - Comprobaremos el estado de nuestro controlador de dominio mediante `dcdiag`. Esta herramienta realiza diferentes pruebas sobre los servicios y componentes de Active Directory.
 Un resultado sin errores relevantes indica que el controlador de dominio funciona correctamente.
     ![Descripción de la imagen](./img_5/img_5_67.png){ .margintop10 .marginbottom10}
