@@ -3113,3 +3113,7 @@ https://serviciosgm.readthedocs.io/es/latest/windows/dns/index.html
 
 - **Reservas** por MAC: `Add-DhcpServerV4Reservation`.
 - **Exclusiones** dentro del ámbito: `Add-DhcpServerV4ExclusionRange`. -->
+
+
+<!-- https://chatgpt.com/c/6af3462a-d3e0-83ed-9413-c36fe449fc6a -->
+
