@@ -1793,8 +1793,12 @@ En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.
 
 !!! question "==Comentar brevemente los errores encontrados así como sus posibles soluciones=="
 
-## 17 - Tarea RA2-CEabcde - Configuración de un segundo Controlador de Dominio y DNS
+# HASTA AQUI
+
 <!--
+
+## 17 - Tarea RA2-CEabcde - Configuración de un segundo Controlador de Dominio y DNS
+
 
 1. En entornos de producción, disponer de un único servidor representa un punto único de fallo (Single Point of Failure).
 
@@ -1944,8 +1948,6 @@ Para ello, accederemos a las propiedades de los servidores DNS de nuestras máqu
 1. Reenvío de consultas DNS no resueltas hacia Internet.
 
 Al finalizar la práctica tendremos una arquitectura similar a:
-
-<!-- https://www.youtube.com/watch?v=1s0vjLv9roQ 
 
 ```text
                             INTERNET
