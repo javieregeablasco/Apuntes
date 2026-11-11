@@ -681,7 +681,7 @@ Para ello ejecutaremos `wf.msc` y comprobaremos si tenemos restricciones sobre e
 - Primero comprobaremos que la MV está conectada a la red. Si no lo está levantaremos el servicio.  
 ==Realizar captura de pantalla==  
 ![Descripción de la imagen](./img_4/img_4_87.png){ .margintop10 .marginbottom10}
-- Si la MV estaba conectada, devolveremos la IP asignada.
+- Si la MV estaba conectada, devolveremos la IP asignada.  
 ![Descripción de la imagen](./img_4/img_4_88.png){ .margintop10 .marginbottom10}
 - Forzamos la negociación de una nueva IP con el servidor DHCP.  
 ==Realizar captura de pantalla==  
