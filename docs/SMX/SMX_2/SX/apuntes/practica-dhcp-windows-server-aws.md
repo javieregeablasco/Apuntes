@@ -41,3 +41,6 @@ Si todo ha ido bien habremos añadido las instancias al dominio.
 Para completar el proceso, debermos reiniciar la instancia.
 ![img](./img_5/img_5_177.png){.margintop10 .marginbottom20 .sietecinco}
 
+Si vamos a la instancia controladora del dominio `ad.servidordns.es` podremos como la instancia ha sido incorporada al dominio.
+![img](./img_5/img_5_172.png){.margintop10 .marginbottom20 .sietecinco}
+
