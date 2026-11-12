@@ -21,7 +21,9 @@ Lanzar 2 instancias con las siguiente condiciones.
 
 ## Añadir las instancias al dominio `ad.practicadns.es`
 
-Accedemos al workgroup de las instancias.
+!!! tip "Estos pasos se deberna repetir en las 2 instancias"
+
+Accedemos al workgroup de la instancia.
 ![img](./img_5/img_5_164.png){.margintop10 .marginbottom20 .sietecinco}
 
 Seleccionamos cambiar el dominio o grupo de trabajo.
@@ -35,3 +37,7 @@ Introducimos la contraseña para `Administrator`.
 
 Si todo ha ido bien habremos añadido las instancias al dominio.
 ![img](./img_5/img_5_170.png){.margintop10 .marginbottom20 .sietecinco}
+
+Para completar el proceso, debermos reiniciar la instancia.
+![img](./img_5/img_5_177.png){.margintop10 .marginbottom20 .sietecinco}
+
