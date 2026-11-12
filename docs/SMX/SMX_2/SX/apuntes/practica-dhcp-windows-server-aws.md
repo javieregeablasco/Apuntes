@@ -13,3 +13,4 @@ Lanzar 2 instancias con las siguiente condiciones.
 
 Cambiar nombre de las instancias a `alumnos` y `profesor`
 
+![img](./img_5/img_5_176.png){.margintop10 .marginbottom20 .sietecinco}
