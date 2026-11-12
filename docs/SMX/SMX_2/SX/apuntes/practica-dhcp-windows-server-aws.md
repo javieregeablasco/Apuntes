@@ -11,6 +11,27 @@ Lanzar 2 instancias con las siguiente condiciones.
     - **Reglas de entrada**: Permitir todo el tráfico.
     - **Reglas de salida**: Permitir todo el tráfico.
 
-Cambiar nombre de las instancias a `alumnos` y `profesor`
+## Cambiar nombre de las instancias a `alumnos` y `profesor`
 
 ![img](./img_5/img_5_176.png){.margintop10 .marginbottom20 .sietecinco}
+
+## Configurar las instancias para que tengan IP fija y tengan como servidor DNS preferido al DNS del dominio ad.practicadns.es
+
+![img](./img_5/img_5_162.png){.margintop10 .marginbottom20 .sietecinco}
+
+## Añadir las instancias al dominio `ad.practicadns.es`
+
+Accedemos al workgroup de las instancias.
+![img](./img_5/img_5_164.png){.margintop10 .marginbottom20 .sietecinco}
+
+Seleccionamos cambiar el dominio o grupo de trabajo.
+![img](./img_5/img_5_165.png){.margintop10 .marginbottom20 .sietecinco}
+
+Indicamos el dominio al que queremos incorporar la instancia.
+![img](./img_5/img_5_166.png){.margintop10 .marginbottom20 .sietecinco}
+
+Introducimos la contraseña para `Administrator`.
+![img](./img_5/img_5_167.png){.margintop10 .marginbottom20 .sietecinco}
+
+Si todo ha ido bien habremos añadido las instancias al dominio.
+![img](./img_5/img_5_170.png){.margintop10 .marginbottom20 .sietecinco}
