@@ -1002,9 +1002,9 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
             - El TTL **no indica cada cuánto tiempo se actualiza el registro en el servidor DNS autoritativo**.
             - Indica cuánto tiempo otros servidores pueden conservar ese registro en su caché.
 
-## 10.4 Tipos de Registros DNS
+### 10.4 Tipos de Registros DNS
 
-### 10.4.1 Registro A (Address)
+#### 10.4.1 Registro A (Address)
 
 - Los registros de direcciones, o registros A, son los registros DNS más utilizados. Crean una conexión directa entre una dirección **IPv4** y un nombre de dominio.
 - Permiten que un navegador web cargue un sitio utilizando un nombre de dominio legible, evitando que el usuario tenga que recordar complejas direcciones IP numéricas.
@@ -1029,7 +1029,7 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
     www.midominio.com.   3600   IN   A   192.0.2.16
     ```
 
-### 10.4.2 Registro AAAA (Quad A)
+#### 10.4.2 Registro AAAA (Quad A)
 
 - Funciona de manera similar al registro A, pero conecta nombres de dominio con direcciones **IPv6**.
 - Aunque menos común que IPv4, su adopción global va en aumento para resolver el problema del agotamiento de las direcciones IPv4 tradicionales.
@@ -1048,7 +1048,7 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
     www.midominio.net.   3600   IN   AAAA   2001:db8:85a3::8a2e:370:1234
     ```
 
-### 10.4.3 Registro CNAME (Canonical Name)
+#### 10.4.3 Registro CNAME (Canonical Name)
 
 - Los registros de nombres canónicos, o registros CNAME, dirigen un dominio de alias a un dominio canónico.
 - Los registros CNAME se usan a menudo para asignar un nombre de dominio con un alias al dominio principal que lleva el registro A o AAAA.
@@ -1072,7 +1072,7 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
     - Los registros de servidores de correo (MX) y servidores de nombres (NS) nunca deben estar dirigidos a un CNAME.
     - Aunque técnicamente es posible apuntar un CNAME a otro CNAME, esta práctica no se recomienda porque resulta ineficaz y ralentiza la velocidad de carga.
 
-### 10.4.4 Registro DNAME
+#### 10.4.4 Registro DNAME
 
 - Los registros de nombres de delegación, o registros DNAME, se utilizan para redirigir **todo un árbol de subdominios** con un solo registro, apuntándolo a otro dominio.
 - Mientras que un CNAME redirige **un único nombre**, un DNAME redirige **todos los nombres que cuelgan de él**, conservando la parte de la izquierda.
@@ -1098,7 +1098,7 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
     - El DNAME afecta solo a los **subdominios**, no al propio `domain.com`.
     - Si también queremos redirigir el nombre raíz, hay que configurarlo aparte (por ejemplo, con un registro A).
 
-### 10.4.5 Registros CAA
+#### 10.4.5 Registros CAA
 
 - Los registros de autorización de autoridad de certificación, o registros CAA, permiten a los propietarios de dominios especificar qué autoridades de certificación (CA) pueden emitir certificados para su dominio.
 - Una **CA** es una organización que valida la identidad de los sitios web y los conecta a claves criptográficas mediante la emisión de certificados digitales.
@@ -1124,7 +1124,7 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
     | `issuewild` | Qué CA puede emitir certificados *wildcard* (`";"` = ninguna) |
     | `iodef` | Dónde notificar intentos de emisión no autorizados |
 
-### 10.4.6 Registro NS (Nameserver)
+#### 10.4.6 Registro NS (Nameserver)
 
 - Especifica qué servidor de nombres o servidor DNS en particular actúa como la autoridad para un dominio o subdominio.
 
@@ -1148,7 +1148,7 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
     ns2.midominio.com.   86400   IN   A    192.0.2.54
     ```
 
-### 10.4.7 Registro MX (Mail Exchange)
+#### 10.4.7 Registro MX (Mail Exchange)
 
 - Los registros MX son indispensables para la recepción de correos electrónicos bajo el nombre de dominio.
 - Indica cuáles son los servidores de correo autorizados para recibir los mensajes mediante el protocolo SMTP.
@@ -1171,7 +1171,7 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
 
     - El correo para `usuario@midominio.com` se entrega primero a `mail`; si no está disponible, a `mail2`.
 
-### 10.4.8 Registro TXT
+#### 10.4.8 Registro TXT
 
 - Permite que un administrador pueda almacenar notas de texto en el registro. Estos registros se suelen utilizar para la seguridad del correo electrónico.
 
@@ -1197,7 +1197,7 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
 
     - También se usan para verificar la propiedad de un dominio ante servicios externos, con un valor que el servicio te proporciona, por ejemplo `"google-site-verification=abc123..."`.
 
-### 10.4.9 Registros CERT
+#### 10.4.9 Registros CERT
 
 - Los certificados, o registros CERT, almacenan certificados que verifican la autenticidad de todas las partes involucradas.
 - Este tipo de registro es particularmente valioso cuando se protege y encripta información confidencial.
@@ -1224,7 +1224,7 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
 !!! info "Nota"
     Es un registro poco frecuente en la práctica; hoy se utilizan más otros mecanismos como CAA o DANE (`TLSA`).
 
-### 10.4.10 Registros SOA
+#### 10.4.10 Registros SOA
 
 - Los registros de inicio de autoridad, o registros SOA, almacenan información administrativa importante sobre un dominio. Esta información puede incluir la dirección de correo electrónico del administrador del dominio, información sobre las actualizaciones del dominio y cuándo un servidor debe actualizar su información.
 - Hay **un único SOA por zona** y es siempre el primer registro del fichero de zona.
@@ -1253,7 +1253,7 @@ En una red local, los equipos suelen obtener automáticamente la dirección del 
     - `admin.midominio.com.` es el correo del administrador: el primer punto representa la `@`, es decir, `admin@midominio.com`.
     - La **serie** debe aumentar cada vez que se modifica la zona; es habitual usar el formato `AAAAMMDDNN` (año, mes, día y número de cambio del día).
 
-### 10.4.11 Registros PTR
+#### 10.4.11 Registros PTR
 
 - Los registros de puntero, o registros PTR, funcionan en la dirección opuesta a los registros A. Se utilizan para conectar una dirección IP con un nombre de dominio, en lugar de un nombre de dominio con una dirección IP.
 - Cuando una búsqueda de DNS comienza con una dirección IP, encuentra el nombre de host correspondiente.
@@ -1541,9 +1541,9 @@ Para la instalación del rol AD DS en un servidor Windows Server 2025 en AWS, se
     - Abrir la consola "Usuarios y equipos de Active Directory" para confirmar que el dominio se ha creado correctamente.  
     ==Realizar captura de pantalla==  
 
-## 16 - Tarea RA2-CEf - Configuración del servidor DNS
+## 15 - Tarea RA2-CEf - Configuración del servidor DNS
 
-### 16.1 Configuración del adaptador de red
+### 15.1 Configuración del adaptador de red
 
 - Como ya hemos comentado, en AWS, la instancia dispone de una dirección IPv4 privada fija asociada a su interfaz de red (ENI / Elastic Network / Interface).
 
@@ -1556,7 +1556,7 @@ Para la instalación del rol AD DS en un servidor Windows Server 2025 en AWS, se
 ==Realizar captura de pantalla==  
     ![Descripción de la imagen](./img_5/img_5_58.png){.leftsietecinco .margintop10 .marginbottom10 .marco}
 
-### 16.2 Configuración del DNS
+### 15.2 Configuración del DNS
 
 - Si abrimos las propiedades del servidor DNS veremos que en `Interfaces` aparece la dirección IPv4 de nuestro servidor.
 - Si IPv6 está habilitado, también puede aparecer una dirección IPv6. Windows puede asignar automáticamente a la interfaz una dirección IPv6 de tipo *link-local* (`fe80::/10`).  
@@ -1583,7 +1583,7 @@ Un resultado correcto en estas pruebas nos permitirá comprobar que nuestro serv
 ==Realizar captura de pantalla==  
     ![Descripción de la imagen](./img_5/img_5_63.png){ .margintop10 .marginbottom10}
 
-### 16.3 Configuración del AD DS
+### 15.3 Configuración del AD DS
 
 - Si abrimos `Active Directory Users and Computers` veremos las cuentas integradas que se han creado al instalar Active Directory.  
 - Entre ellas se encuentran `Administrator` y `Guest`.
@@ -1614,11 +1614,11 @@ Un resultado sin errores relevantes indica que el controlador de dominio funcion
     !!! question "==Responder a la siguiente pregunta=="
         Explicar las advertencias devuetan después de ejecutar el comando `dcdiag /test:dns`.
 
-### 16.4 Opciones disponibles en la consola DNS de Windows Server 2025
+### 15.4 Opciones disponibles en la consola DNS de Windows Server 2025
 
 ![Descripción de la imagen](./img_5/img_5_81.png){.marco .sietecinco .margintop10 .marginbottom10}
 
-#### 16.4.1 Forward Lookup zones
+#### 15.4.1 Forward Lookup zones
 
 1. Las zonas de resolución directa (Forward Lookup Zones) contienen la información necesaria para realizar la resolución de nombres de dominio a direcciones IP.
 
@@ -1632,13 +1632,13 @@ Un resultado sin errores relevantes indica que el controlador de dominio funcion
 
 1. Cuando el servidor DNS está integrado con Active Directory Domain Services (AD DS), también podemos crear una zona integrada en Active Directory. En este caso, la información de la zona se almacena en Active Directory y puede replicarse automáticamente entre los controladores de dominio.
 
-#### 16.4.2 Reverse Lookup zones
+#### 15.4.2 Reverse Lookup zones
 
 1. Las zonas de resolución inversa (Reverse Lookup Zones) permiten realizar el proceso contrario a una zona de resolución directa: obtener un nombre DNS a partir de una dirección IP.
 
 1. Para la resolución inversa se utilizan principalmente registros PTR (Pointer).
 
-#### 16.4.3 Trust Points
+#### 15.4.3 Trust Points
 
 1. Los Trust Points o puntos de confianza están relacionados con la seguridad del servicio DNS mediante DNSSEC (Domain Name System Security Extensions) .
 
@@ -1648,20 +1648,20 @@ Un resultado sin errores relevantes indica que el controlador de dominio funcion
 
 1. Los Trust Points son especialmente importantes cuando el servidor DNS actúa como servidor validador DNSSEC, ya que permiten establecer el punto de partida de la cadena de confianza utilizada durante la validación.
 
-#### 16.4.4 Conditional Fowarders
+#### 15.4.4 Conditional Fowarders
 
 1. Los Conditional Forwarders o reenviadores condicionales permiten indicar al servidor DNS que, para determinadas zonas DNS, debe enviar las consultas a unos servidores DNS concretos.
 
 1. Son especialmente útiles cuando existen diferentes dominios o redes DNS que necesitan comunicarse entre sí.
 
-### 16.5 Agregar de forma manual dispositivos al dominio
+### 15.5 Agregar de forma manual dispositivos al dominio
 
 - Todos los equipos que agragaremos al dominio deben tener como servidor DNS preferido la dirección IP del controlador de dominio. De esta forma, los equipos podrán localizar los servicios de Active Directory y autenticarse correctamente en el dominio.
 - Esos equipos serán agregados automáticamente a la zona DNS del dominio, y se crearán los registros correspondientes en la zona directa e inversa.
 - No obstante, si queremos agregar un equipo al dominio sin que se cree automáticamente el registro en la zona DNS, podemos crear de forma manual un registro A y un registro PTR para ese equipo.
 - Para simular esta situación, en nuestra práctica, lanzaremos una instancia EC2 adicional que actuará como cliente del dominio (p.e. Servidor-NAS). Esta instancia tendrá un sistema operativo ubuntu 26.04.1 LTS y se creará en **la misma VPC y subred que el controlador de dominio**.
 
-#### 16.5.1 Lanzar instancia EC2
+#### 15.5.1 Lanzar instancia EC2
 
 En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.  
 
@@ -1675,7 +1675,7 @@ En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.
 - Esperaremos a que la instancia esté disponible. A partir de entonces, sí lo deseamos, nos podremos conectar via `SSH` a la instancia.
 ![Descripción de la imagen](./img_5/img_5_72.png){ .margintop10 .marginbottom10 .leftsietecinco}
 
-#### 16.5.2 Comprobación de resolución DNS antes de añadir el equipo al dominio
+#### 15.5.2 Comprobación de resolución DNS antes de añadir el equipo al dominio
 
 - Antes de agregar la dirección IP del nuevo equipo al DNS del dominio, comprobaremos que el servidor DNS no puede resolver el nombre del equipo.
 - Para ello, desde el propio servidor DNS, abriremos una consola y ejecutaremos el comando:
@@ -1687,7 +1687,7 @@ En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.
     ==Realizar captura de pantalla==  
     ![Descripción de la imagen](./img_5/img_5_73.png){ .marginbottom10 .leftsietecinco .margintop10}
 
-#### 16.5.3 Añadir registro de tipo A al DNS
+#### 15.5.3 Añadir registro de tipo A al DNS
 
 - Para añadir de forma manual un registro A y un registro PTR para el equipo Servidor-NAS, abriremos la consola de administración del servidor DNS y crearemos un nuevo registro A en la zona directa del dominio.
 - En el ejemplo, añadiremos un registro A para el equipo Servidor-NAS con la dirección IP `172.31.38.70` (la IP privada de la instancia EC2 que hemos lanzado previamente).
@@ -1703,7 +1703,7 @@ En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.
     ¿Qué es un registro de tipo A?
     ¿Qué es un registro de tipo AAAA?
 
-### 16.6 Zona inversa
+### 15.6 Zona inversa
 
 - Como hemos visto al añadir un registro A para el equipo Servidor-NAS, no se ha creado automáticamente un registro PTR al no existir  ninguna zona inversa. Si hacemos un lookup de la IP del equipo Servidor-NAS, el servidor DNS no puede resolver la dirección IP a un nombre de dominio.  
 ==Realizar captura de pantalla==
@@ -1722,7 +1722,7 @@ En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.
     ¿Qué es un registro PTR?
     ¿Cómo se escribe el FQDN de una registro PTR?
 
-### 16.7 Aging y Scavenging
+### 15.7 Aging y Scavenging
 
 1. En un servidor DNS pueden existir registros que dejan de ser válidos porque los equipos cambian de dirección IP, se desconectan de la red o dejan de existir.
 
@@ -1764,7 +1764,7 @@ En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.
     - **Aging determina cuándo un registro puede considerarse antiguo y Scavenging permite eliminarlo automáticamente.**
     - Son mecanismos especialmente útiles en redes donde las direcciones IP cambian con frecuencia, como ocurre cuando se utiliza DHCP.
 
-### 16.7.1 Determinación del lease del servidor DHCP
+### 15.7.1 Determinación del lease del servidor DHCP
 
 1. Como ya hemos comentado, en rol DHCP es asumido por AWS y no es posible modificarlo. Solo es posible añadir **conjuntos de opciones** que solo afectan  a:
 
@@ -1783,7 +1783,7 @@ En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.
     ==Realizar captura de pantalla==  
     ![Descripción de la imagen](./img_5/img_5_83.png){ .marginbottom10 .marco }
 
-### 16.8 Best practices analyzer (BPA)
+### 15.8 Best practices analyzer (BPA)
 
 - Lanzamos el BPA y esperamos hasta obtener los resultados.
     ![Descripción de la imagen](./img_5/img_5_84.png){.margintop10 .marginbottom10 .marco }
@@ -1797,7 +1797,7 @@ En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.
 
 <!--
 
-## 17 - Tarea RA2-CEabcde - Configuración de un segundo Controlador de Dominio y DNS
+## 16 - Tarea RA2-CEabcde - Configuración de un segundo Controlador de Dominio y DNS
 
 
 1. En entornos de producción, disponer de un único servidor representa un punto único de fallo (Single Point of Failure).
