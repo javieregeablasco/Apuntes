@@ -86,3 +86,5 @@ Indicar la dirección IP del servidor que contiene la zona primaria.
 ###########################################
 ver la configuracion de los dns secundarios
 ###########################################
+
+https://www.youtube.com/watch?v=frPyRpW4rA8
