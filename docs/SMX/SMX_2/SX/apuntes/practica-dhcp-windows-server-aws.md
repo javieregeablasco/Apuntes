@@ -88,3 +88,5 @@ ver la configuracion de los dns secundarios
 ###########################################
 
 https://www.youtube.com/watch?v=frPyRpW4rA8
+
+https://www.youtube.com/watch?v=FCwQVKmPqgs
