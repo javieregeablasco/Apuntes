@@ -21,7 +21,7 @@ Lanzar 2 instancias con las siguiente condiciones.
 
 ## Añadir las instancias al dominio `ad.practicadns.es`
 
-!!! tip "Estos pasos se deberna repetir en las 2 instancias"
+!!! tip "Estos pasos se deberá repetir en las 2 instancias"
 
 Accedemos al workgroup de la instancia.
 ![img](./img_5/img_5_164.png){.margintop10 .marginbottom20 .sietecinco}
@@ -43,4 +43,13 @@ Para completar el proceso, debermos reiniciar la instancia.
 
 Si vamos a la instancia controladora del dominio `ad.servidordns.es` podremos como la instancia ha sido incorporada al dominio.
 ![img](./img_5/img_5_172.png){.margintop10 .marginbottom20 .sietecinco}
+
+En la propia instancia, tambien podremos su pertenencia al dominio ´as.practicadns.es´.
+![img](./img_5/img_5_178.png){.margintop10 .marginbottom20 .sietecinco}
+
+## Añadir el rol AD DS a las instancias
+
+!!! tip "Estos pasos se deberá repetir en las 2 instancias"
+
+Después de añadir el rol AD DS a la instancia, promocionaremos la instancia a controladora de dominio.
 
