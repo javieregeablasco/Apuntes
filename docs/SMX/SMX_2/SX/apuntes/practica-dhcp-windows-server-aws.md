@@ -58,4 +58,13 @@ En la propia instancia, tambien podremos su pertenencia al dominio ´as.practica
 ![img](./img_5/img_5_160.png){.margintop10 .marginbottom20 .sietecinco}
 - Introducimos una contraseña de recuperación ante catástrofes.
 ![img](./img_5/img_5_180.png){.margintop10 .marginbottom20 .sietecinco}
+- Esperaremos a que se cargue el NetBIOS domain name.
+![img](./img_5/img_5_181.png){.margintop10 .marginbottom20 .sietecinco}
+- Comprobaremos que no existan impedimientos graves para terminar la promoción de la instancia a controladora de dominio.
+![img](./img_5/img_5_182.png){.margintop10 .marginbottom20 .sietecinco}
+
+
+alumnos
+principal
+B)GfBWuQP$k?(3J9hgSXMFE%C50.-56f
 
