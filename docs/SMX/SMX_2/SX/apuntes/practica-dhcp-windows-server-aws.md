@@ -90,3 +90,6 @@ ver la configuracion de los dns secundarios
 https://www.youtube.com/watch?v=frPyRpW4rA8
 
 https://www.youtube.com/watch?v=FCwQVKmPqgs
+
+
+https://www.youtube.com/watch?v=parhWhC-iVE&list=PLZ6WzpdSeBGTW2vTnhTvdlgi-NFxixmdM&index=4
