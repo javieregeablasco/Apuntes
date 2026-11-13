@@ -1,0 +1,74 @@
+#!/bin/bash
+
+# Registrar toda la salida del script
+exec > >(tee -a /var/log/user-data.log) 2>&1
+
+set -euxo pipefail
+
+echo "======================================"
+echo " INICIANDO INSTALACION DEL SERVIDOR WEB"
+echo "======================================"
+
+# Actualizar repositorios
+apt-get update
+
+# Instalar actualizaciones
+sudo apt-get upgrade -y
+
+# Instalar Apache
+DEBIAN_FRONTEND=noninteractive apt-get install -y apache2
+
+# Activar Apache
+systemctl enable apache2
+systemctl start apache2
+
+# Crear página web
+cat > /var/www/html/index.html <<'EOF'
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servidor Web AWS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #edf2f7;
+            text-align: center;
+            padding: 80px 20px;
+        }
+        .contenedor {
+            background: white;
+            max-width: 650px;
+            margin: auto;
+            padding: 40px;
+            border-radius: 12px;
+        }
+        h1 { color: #e47911; }
+        h2 { color: #203acf; }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <h1>¡Servidor web funcionando!</h1>
+        <p>Instancia EC2 de AWS.</p>
+        <p>Ubuntu Server + Apache2</p>
+        <h2>Creado por Javier Egea Blasco</h2>
+    </div>
+</body>
+</html>
+EOF
+
+# Permisos
+chown -R www-data:www-data /var/www/html
+chmod -R 755 /var/www/html
+
+# Reiniciar Apache
+systemctl restart apache2
+
+# Comprobación
+systemctl is-active apache2
+
+echo "======================================"
+echo " INSTALACION FINALIZADA CORRECTAMENTE"
+echo "======================================"
