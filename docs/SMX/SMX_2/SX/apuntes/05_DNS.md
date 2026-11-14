@@ -1877,8 +1877,10 @@ Pulsamos `Change` e introducimos el dominio definido en la primera máquina.
 ![Descripción de la imagen](./img_5/img_5_108.png){.margintop10 .marginbottom10 .marco }
 - Añadiremos el AD DS al dominio actual.
 ![Descripción de la imagen](./img_5/img_5_109.png){.margintop10 .marginbottom10 .marco }
-- Introducimos las credenciales de la copia de administrador.
+- Introducimos las credenciales de administrador.
 ![Descripción de la imagen](./img_5/img_5_110.png){.margintop10 .marginbottom10 .marco }
+- Seleccionamos el dominio donde va a convivir este controlador de dominio.
+![Descripción de la imagen](./img_5/img_5_189.png){.margintop10 .marginbottom10 .marco }
 - Introducimos una contraseña para el modo restauración.
 ![Descripción de la imagen](./img_5/img_5_111.png){.margintop10 .marginbottom10 .marco }
 - Vamos pasando todas las ventanas dejando las opciones por defecto.
