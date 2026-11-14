@@ -32,8 +32,6 @@ schedule: 233h - 7h/w
 !!! warning "Nota:"
     Los criterios de evaluación en negrita será evaluados durante la FCT.
 
-<!-- > **Importante:** el DNS no es el encargado de conectar un dispositivo a una red Wi-Fi. En una conexión Wi-Fi intervienen tecnologías y protocolos como **IEEE 802.11** y, habitualmente, **DHCP** para obtener la configuración de red. El DNS puede utilizarse posteriormente para resolver los nombres de los servicios a los que queremos acceder. -->
-
 ## 1 - Introducción
 
 !!! question "¿Qué es el DNS?"
@@ -1437,8 +1435,6 @@ Para verificar y solucionar problemas con las zonas DNS, los administradores de 
 
 Para la instalación del rol AD DS en un servidor Windows Server 2025 en AWS, seguiremos los siguientes pasos:
 
-<!-- 1. Lanzar una nueva instancia de Windows Server 2025 en AWS. En este caso definiremos en qué subred de la VPC se encuentra la instancia EC2, ya que esto puede afectar a la conectividad y al rendimiento de la red.   -->
-
 !!! abstract ":one: - Lanzar una nueva instancia de Windows Server 2025 en AWS"
     - En este caso definiremos en qué subred de la VPC se encuentra la instancia EC2, ya que esto puede afectar a la conectividad y al rendimiento de la red
     - Resumen de la configuración de la instancia (acordarse de seleccionar el par de clave `vockey` para el inicio de sesión y seleccionar `50GiB` de capacidad para el volumen de la instancia).  
@@ -1793,37 +1789,38 @@ En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.
 
 !!! question "==Comentar brevemente los errores encontrados así como sus posibles soluciones=="
 
-## 16 - Tarea RA2-CEabcde - Configuración de un segundo Controlador de Dominio y DNS
+## 16 - Tarea RA2-CEg-1 - Configuración de un segundo Controlador de Dominio y DNS
 
-1. En entornos de producción, disponer de un único servidor representa un punto único de fallo (Single Point of Failure).
+- En entornos de producción, disponer de un único servidor representa un punto único de fallo (Single Point of Failure).
 
-1. Desplegar un segundo controlador de dominio con DNS y AD DS responde a cuatro razones esenciales:
+- Desplegar un segundo controlador de dominio con DNS y AD DS responde a cuatro razones esenciales:
 
-    - Alta disponibilidad y tolerancia a fallos: Si el servidor principal cae, falla el hardware o se reinicia por mantenimiento, el segundo servidor asume la autenticación de usuarios y la resolución DNS sin interrupciones en la red.
+    1. **Alta disponibilidad y tolerancia a fallos:** Si el servidor principal cae, falla el hardware o se reinicia por mantenimiento, el segundo servidor asume la autenticación de usuarios y la resolución DNS sin interrupciones en la red.
 
-    - Balanceo de carga: Distribuye el tráfico de peticiones de inicio de sesión, directivas de grupo (GPO) y consultas DNS entre ambos equipos para no saturar el servidor principal.
+    1. **Balanceo de carga:** Distribuye el tráfico de peticiones de inicio de sesión, directivas de grupo (GPO) y consultas DNS entre ambos equipos para no saturar el servidor principal.
 
-    - Replicación automática: Al integrar DNS dentro de Active Directory (arquitectura multi-master), cualquier cambio en usuarios, equipos o registros de red se sincroniza automáticamente en ambos servidores.
+    1. **Replicación automática:** Al integrar DNS dentro de Active Directory (arquitectura multi-master), cualquier cambio en usuarios, equipos o registros de red se sincroniza automáticamente en ambos servidores.
 
-    - Recuperación ante desastres: Evita la pérdida total de la base de datos de la empresa si el servidor primario queda inservible.
+    1. **Recuperación ante desastres:** Evita la pérdida total de la base de datos de la empresa si el servidor primario queda inservible.
 
-1. En esta práctica haremos lo siguiente:
-    - Lanzaremos una segunda instancia de Windows Server 2025 (y le asignaremos una IP estática).
-    - Uniremos la segunda instancia al dominio existente.
-    - Instalaremos el rol de AD DS y promocionaremos el servidor a Controlador de Dominio adicional (incluyendo el rol de servidor DNS de forma integrada).
-    - Reconfiguraremos los DNS en ambas interfaces de red para que se apunten de forma cruzada (el DC1 apuntará al DC2 como preferido y a sí mismo como alternativo, y viceversa) para garantizar redundancia.
+- En esta práctica haremos lo siguiente:
+    1. Lanzaremos una segunda instancia de Windows Server 2025 (y le asignaremos una IP estática).
+    1. Instalaremos el rol de AD DS y promocionaremos el servidor a Controlador de Dominio adicional (incluyendo el rol de servidor DNS de forma integrada).
+    1. Uniremos la máquina al dominio `ad.practicadns` durante el proceso de promoción del servidor a controlador de dominio.
+    1. Reconfiguraremos los DNS en ambas interfaces de red para que se apunten de forma cruzada (el DC1 apuntará al DC2 como preferido y a sí mismo como alternativo, y viceversa) para garantizar redundancia.
 
 ### 17.1 Lanzar una segunda instancia de Windows Server 2025
 
-- Lanzaremos una instancia nueva de Windows Server 2025 con estás características.
+- Lanzaremos una instancia nueva de Windows Server 2025 con las siguientes características.  
 ![Descripción de la imagen](./img_5/img_5_90.png){.margintop10 .marginbottom10 .marco }
 
-- Antes de definir totalemente la nueva instancia, comprobaremos la subred de la primera instancia de Windows Server.  
-**Nota:** Para las prácticas estamos usando la VPC y las subredes del laboratory. Cada subred (6 en total) concide con una zona de disponibilidad lo que hace fácil su identificación.
-![Descripción de la imagen](./img_5/img_5_91.png){.margintop10 .marginbottom10 .marco }
+!!! warning "Antes de definir totalemente la nueva instancia, comprobaremos la subred de la primera instancia de Windows Server"  
+    - Para las prácticas estamos usando la VPC y las subredes del laboratory.
+    - Cada subred (6 en total) concide con una zona de disponibilidad lo que hace fácil su identificación.
+    ![Descripción de la imagen](./img_5/img_5_91.png){.margintop10 .marginbottom10 .marco }
 
-- Al lanzar la nueva instancia, nos aseguraremos de que la subred (zona de disponibilidad) coincide con la de la primera instancia.
-![Descripción de la imagen](./img_5/img_5_92.png){.margintop10 .marginbottom10 .marco }
+    - Al lanzar la nueva instancia, nos aseguraremos de que la subred (zona de disponibilidad) coincide con la de la primera instancia es decir, la subred con `CIDR: 173.31.32.0/20` y `az6`.
+    ![Descripción de la imagen](./img_5/img_5_92.png){.margintop10 .marginbottom10 .marco }
 
 - Nos esperaremos hasta que las 2 instancias (ServidorDNS-1 y ServidorDNS-2) estén disponibles.
 ![Descripción de la imagen](./img_5/img_5_93.png){.margintop10 .marginbottom10 .marco }
@@ -1834,9 +1831,10 @@ En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.
 
 - Las **reglas de entrada** controlan el tráfico entrante a la instancia y las **reglas de salida** controlan el tráfico saliente desde la instancia.
 
-- Modificaremos las reglas de los grupos de seguridad para permitir el tráfico en los puertos de Active Directory (como TCP/UDP 53, 88, 389, 445 y 636).  
-**Aunque no sea una buena práctica de seguridad informática**, abriremos todos los puertos para evitar problemas con nuestras máquinas.  
+- En un entorno real, deberíamos modificar las reglas de los grupos de seguridad para permitir el tráfico en los puertos de Active Directory (como TCP/UDP 53, 88, 389, 445 y 636) pero, y **aunque no sea una buena práctica de seguridad informática**, abriremos todos los puertos para evitar problemas con nuestras máquinas.  
 ![Descripción de la imagen](./img_5/img_5_97.png){.margintop10 .marginbottom10 .marco }
+
+# HASTA AQUI
 
 ### 17.3 Agregar la segunda instancia al dominio
 
@@ -1923,7 +1921,7 @@ Para ello, accederemos a las propiedades de los servidores DNS de nuestras máqu
 1. Instalar GNOME para poder utilizar un navegador de internet.
 1. Configurar la IP de la instancia y el DNS preferido apuntando a la IP de la primera instancia de Windows Server.
 1. Abrir un navegador y comprobar que podemos navegar por internet y que la resolución de nombres funciona correctamente.
-
+<!--
 ## 16 - Tarea RA2-CEde-2 - Instalación y configuración de un servidor DNS con BIND9 en Ubuntu Server 26.04 LTS
 
 ### 16.1 Objetivos
