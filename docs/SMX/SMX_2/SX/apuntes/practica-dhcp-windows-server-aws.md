@@ -87,9 +87,7 @@ Indicar la dirección IP del servidor que contiene la zona primaria.
 ver la configuracion de los dns secundarios
 ###########################################
 
-https://www.youtube.com/watch?v=frPyRpW4rA8
-
-https://www.youtube.com/watch?v=FCwQVKmPqgs
-
-
-https://www.youtube.com/watch?v=parhWhC-iVE&list=PLZ6WzpdSeBGTW2vTnhTvdlgi-NFxixmdM&index=4
+Servidor-DNS - Servidor-DNS.ad.practicadns.es - 172.31.33.127
+Servidor-DNS-2 - Servidor-DNS-2.ad.practicadns.es -  172.31.43.244
+ADDS-Alumnos - alumnos.ad.practicadns.es -  172-31.47.142
+ADDS-profesores - profesores.ad.practicadns.es -  172-31.33.153
