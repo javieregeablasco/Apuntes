@@ -1900,12 +1900,11 @@ Pulsamos `Change` e introducimos el dominio definido en la primera máquina.
 - Después de reiniciar la máquina veremos que tenemos las 2 máquinas como controladoras de dominio.
 ![Descripción de la imagen](./img_5/img_5_113.png){.margintop10 .marginbottom10 .marco }
 
-### 17.4 Rol DNS en la segunda instancia
+### 16.4 Rol DNS en la segunda instancia
 
 - Comprobaremos que el ROL DNS se ha creado en la segunda instancia y que los registros (host) de tipo A han sido añadidos a la zona de resolución directa.
 ![Descripción de la imagen](./img_5/img_5_114.png){.margintop10 .marginbottom10 .marco }
 
-# HASTA AQUI
 ### 17.5 Configuración de los DNS en las instancias
 
 Comprobaremos que las interfaces de red en cada instancia cumplen las reglas de la siguiente tabla.
@@ -1916,11 +1915,12 @@ Comprobaremos que las interfaces de red en cada instancia cumplen las reglas de 
 |Instancia 2|IP instancia 1|IP instancia 2|
 
 - Configuración instancia 1
-![Descripción de la imagen](./img_5/img_5_116.png){.margintop10 .marginbottom20 .marco .leftcincocero}
+![Descripción de la imagen](./img_5/img_5_195.png){.margintop10 .marginbottom20 .marco .leftcincocero}
 
 - Configuración instancia 2
-![Descripción de la imagen](./img_5/img_5_115.png){.margintop10 .marginbottom20 .marco .leftcincocero}
+![Descripción de la imagen](./img_5/img_5_196.png){.margintop10 .marginbottom20 .marco .leftcincocero}
 
+# HASTA AQUI
 ### 17.6 Configuración de los reenviadores (fowarders)
 
 !!! question "¿Qué son los reenviadores?<br>¿Cuál es su función?"
