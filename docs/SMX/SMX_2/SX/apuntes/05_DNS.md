@@ -2075,7 +2075,7 @@ Para ello, accederemos a las propiedades de los servidores DNS de nuestras máqu
 ### 17.2 Cambiar nombre de las instancias
 
 Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
-![img](./img_5/img_5_176.png){.margintop10 .marginbottom20 .sietecinco}
+![img](./img_5/img_5_176.png){.margintop10 .marginbottom20 .seiscinco}
 
 ### 17.3 Configurar las interfaces de red de las instancias
 
