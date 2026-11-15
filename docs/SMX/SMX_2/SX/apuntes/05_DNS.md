@@ -1961,13 +1961,32 @@ Comprobaremos que las interfaces de red en cada instancia cumplen las reglas de 
 
 ### 16.7 Configuración de los reenviadores (fowarders)
 
-!!! question "¿Qué son los reenviadores?<br>¿Cuál es su función?"
+!!! question "¿Qué son los reenviadores?<br>¿Qué función desempeñan?"
 
 - También comprobaremos que los reenviadores están configurados correctamente.  
 Para ello, accederemos a las propiedades de los servidores DNS de nuestras máquinas.
 ![Descripción de la imagen](./img_5/img_5_117.png){.margintop10 .marginbottom10 }
 
-### 16.8 Entrega de la tarea
+### 16.8 Descubriendo las herramientas de gestión de AD DS
+
+#### 16.8.1 Active Directory Sites and Services
+
+- **Active Directory Sites and Services** es la consola administrativa que permite gestionar la topología física de la red para optimizar cómo se comunican los usuarios y servidores dentro de un dominio o bosque.
+
+- Mientras que Usuarios y equipos de Active Directory gestiona la estructura lógica (departamentos, usuarios, grupos), Sitios y servicios mapea esa estructura a la infraestructura física real (oficinas, subredes IP y conexiones WAN).
+
+- Sus funciones principales son:
+    1. Controlar y optimizar el tráfico de replicación:
+    1. Enrutar el tráfico de autenticación (inicio de sesión):
+    1. Gestionar la topología de red (Sitios, Subredes y Vínculos):
+        - Sitios (Sites): Representan ubicaciones físicas con buena conectividad interna.
+        - Subredes (Subnets): Rangos de direcciones IP (ej. 192.168.10.0/24) que se asocian a un sitio específico para que AD sepa en qué ubicación física está cada equipo.
+        - Vínculos a sitios (Site Links): Representan las conexiones WAN entre ubicaciones. Permiten asignarles un coste (para priorizar rutas principales frente a enlaces de respaldo) y una programación de disponibilidad.
+    1. Designar Servidores Cabeza de Puente (Bridgehead) y Catálogo Global:
+
+![Descripción de la imagen](./img_5/img_5_117.png){.margintop10 .marginbottom10 }
+
+### 16.9 Entrega de la tarea
 
 !!! warning "Entrega de la tarea"
 
