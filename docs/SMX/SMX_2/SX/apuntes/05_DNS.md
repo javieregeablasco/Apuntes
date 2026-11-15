@@ -1817,6 +1817,17 @@ En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.
 
 !!! question "==Comentar brevemente los errores encontrados así como sus posibles soluciones=="
 
+### 15.8 Entrega de la tarea
+
+!!! warning "Entrega de la tarea"
+
+    - Subir vuestra tarea guardando el archivo como RA2-CEf a la tarea correspondiente de aules.
+    - La estrutura de vuestra tarea deberá seguir las [**Normas para la Presentación de Trabajos Escritos**](./0_RedaccionTareas.md). 
+    - Realizar las capturas de pantalla mínimas exigidas en los apuntes.
+    - Comentar las capturas de pantalla explicando el trabajo realizado para llegar a ese punto y el resultado obtenido.
+    - A partir del momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
+    - Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
+
 ## 16 - Tarea RA2-CEg-1 - Configuración de un segundo Controlador de Dominio y DNS
 
 - En entornos de producción, disponer de un único servidor representa un punto único de fallo (Single Point of Failure).
