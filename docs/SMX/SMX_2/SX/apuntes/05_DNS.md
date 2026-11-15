@@ -2041,8 +2041,8 @@ Para ello, accederemos a las propiedades de los servidores DNS de nuestras máqu
 
 ### 17.1 Lanzar las instancias
 
-!!! warning "Condiciones de lanzamiento de las instancias `alumnos` y `profesor`""
-    Lanzar 2 instancias con las siguiente condiciones.
+!!! warning "Condiciones de lanzamiento de las instancias"
+    Lanzar **2 instancias** con las siguientes condiciones.
 
     1. AMI: **Windows Server 2025 Base**.
     1. Tipo de instancia: `m7i.large` o `t3.large`.
