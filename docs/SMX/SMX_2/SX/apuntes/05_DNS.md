@@ -1836,7 +1836,7 @@ En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.
 
 ### 16.3 Configuración previa de la instancia
 
-- Nos conectamos a la instancia 2 (ServidorDNS-2) y cambiamos el nombre de la máquina a Servidor-DNS-2.  
+- Nos conectamos a la instancia 2 (ServidorDNS-2) y cambiamos el nombre de la máquina a **Servidor-DNS-2**.  
 ![Descripción de la imagen](./img_5/img_5_94.png){.margintop10 .marginbottom10  }
 
 - Configuraremos la interfaz de red de la instancia de la siguiente manera:
@@ -1845,9 +1845,8 @@ En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.
     1. **Default gateway**: Comprobar con `ipconfig /all` la IP de vuestra puerta de enlace.
     1. **Preferred DNS server**: `<IP privada de la otra instancia>`.
     1. **Alternate DNS server**: `<IP privada de nuestra instancia>`.
-    1. Al final obtendréis un resultado similar al de la imagen.  
+    1. Al final obtendremos un resultado similar al de la imagen.  
     ![Descripción de la imagen](./img_5/img_5_195.png){.margintop10 .marginbottom10  }
-
 
 <!-- - Agregamos la instancia al dominio definido en nuestra primera máquina (ServidorDNS).  
 Para ello vamos a `System` → `About` → `Domain or workgroup`.  
@@ -1856,7 +1855,7 @@ Pulsamos `Change` e introducimos el dominio definido en la primera máquina.
 ![Descripción de la imagen](./img_5/img_5_95.png){.margintop10 .marginbottom10 }
 !!! warning "Si da error, solucionar el problema leyendo los `details` del error" -->
 
-- Necesitaremos introducir las credenciales de administrador del dominio al que queremos agregar la máquina.
+<!-- - Necesitaremos introducir las credenciales de administrador del dominio al que queremos agregar la máquina.
 ![Descripción de la imagen](./img_5/img_5_99.png){.margintop10 .marginbottom10 .marco }
 
 - Si todo ha ido bien, recibiremos una aviso de bienvenida.
@@ -1866,14 +1865,13 @@ Pulsamos `Change` e introducimos el dominio definido en la primera máquina.
 ![Descripción de la imagen](./img_5/img_5_101.png){.margintop10 .marginbottom10 .marco }
 
 - Si vamos a `AD DS` → `Active Directory Users and Computers` veremos la máquina que acabamos de agregar se encuentra en `Computers`.
-![Descripción de la imagen](./img_5/img_5_102.png){.margintop10 .marginbottom10 .marco }
+![Descripción de la imagen](./img_5/img_5_102.png){.margintop10 .marginbottom10 .marco } -->
 
-- Si vamos a `DNS` → `DNS Manager` → `Forward Lookup Zones` podremos comprobar que se ha generado en el DNS un registro `Host` de tipo `A` para la segunda instancia.
-![Descripción de la imagen](./img_5/img_5_103.png){.margintop10 .marginbottom10 .marco }
+<!-- - Si vamos a `DNS` → `DNS Manager` → `Forward Lookup Zones` podremos comprobar que se ha generado en el DNS un registro `Host` de tipo `A` para la segunda instancia.
+![Descripción de la imagen](./img_5/img_5_103.png){.margintop10 .marginbottom10 .marco } -->
 
-# HASTA AQUI
 
-### 17.3 Promocionar la segunda instancia a controladora de dominio
+### 16.3 Promocionar la segunda instancia a controladora de dominio
 
 - Agregaremos un nuevo ROL a nuestra máquina y la seleccionaremos dentro del grupo de servidores.
 ![Descripción de la imagen](./img_5/img_5_104.png){.margintop10 .marginbottom10 .marco }
@@ -1901,6 +1899,8 @@ Pulsamos `Change` e introducimos el dominio definido en la primera máquina.
 ![Descripción de la imagen](./img_5/img_5_112.png){.margintop10 .marginbottom10 .marco }
 - Después de reiniciar la máquina veremos que tenemos las 2 máquinas como controladoras de dominio.
 ![Descripción de la imagen](./img_5/img_5_113.png){.margintop10 .marginbottom10 .marco }
+
+# HASTA AQUI
 
 ### 17.4 Crear el rol DNS en la segunda instancia
 
