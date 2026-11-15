@@ -1870,8 +1870,7 @@ Pulsamos `Change` e introducimos el dominio definido en la primera máquina.
 <!-- - Si vamos a `DNS` → `DNS Manager` → `Forward Lookup Zones` podremos comprobar que se ha generado en el DNS un registro `Host` de tipo `A` para la segunda instancia.
 ![Descripción de la imagen](./img_5/img_5_103.png){.margintop10 .marginbottom10 .marco } -->
 
-
-### 16.3 Promocionar la segunda instancia a controladora de dominio
+### 16.4 Agregar rol AD DS + DNS a nuestra máquina
 
 - Agregaremos un nuevo ROL a nuestra máquina y la seleccionaremos dentro del grupo de servidores.
 ![Descripción de la imagen](./img_5/img_5_104.png){.margintop10 .marginbottom10 .marco }
@@ -1883,17 +1882,18 @@ Pulsamos `Change` e introducimos el dominio definido en la primera máquina.
 ![Descripción de la imagen](./img_5/img_5_107.png){.margintop10 .marginbottom10 .marco }
 - Una vez finalizada la instalación, deberemos promocionar la máquina a controladora de dominio.
 ![Descripción de la imagen](./img_5/img_5_108.png){.margintop10 .marginbottom10 .marco }
-- Añadiremos el AD DS al dominio actual.
+- Añadiremos el AD DS al dominio actual para crear redundancia entre controladores de dominio.
 ![Descripción de la imagen](./img_5/img_5_109.png){.margintop10 .marginbottom10 .marco }
-- Introducimos las credenciales de administrador.
+- Introducimos las credenciales de adminisdrador. Pueden ser las de ´Administrator´ o las de otro usuario con permisos de administrador.
 ![Descripción de la imagen](./img_5/img_5_110.png){.margintop10 .marginbottom10 .marco }
 - Seleccionamos el dominio donde va a convivir este controlador de dominio.
 ![Descripción de la imagen](./img_5/img_5_189.png){.margintop10 .marginbottom10 .marco }
 - Introducimos una contraseña para el modo de restauración ante desastres.
 ![Descripción de la imagen](./img_5/img_5_111.png){.margintop10 .marginbottom10 .marco }
 - Vamos pasando todas las ventanas dejando las opciones por defecto.
-- En `Additional options` seleccionamos `Replicate from: <Nombre del dominio padre>`.  
-![Descripción de la imagen](./img_5/img_5_190.png){.margintop10 .marginbottom10 .marco }
+- En `Additional options` seleccionamos `Replicate from: <Nombre del dominio padre>`.
+![Descripción de la imagen](./img_5/img_5_190.png){.margintop10 .marginbottom10 .marco }  
+**Nota:** Al solo existir otro controlador de dominio, también podemos dejar la opción por defecto.  
 ![Descripción de la imagen](./img_5/img_5_190_1.png){.margintop10 .marginbottom10 .marco }
 - En la ventana final nos aseguramos que todos los prerequisitos se cumplen correctamente.  
 ![Descripción de la imagen](./img_5/img_5_112.png){.margintop10 .marginbottom10 .marco }
