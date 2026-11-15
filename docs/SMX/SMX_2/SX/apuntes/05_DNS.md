@@ -1939,12 +1939,12 @@ Pulsamos `Change` e introducimos el dominio definido en la primera máquina.
 - Después de reiniciar la máquina veremos que tenemos las 2 máquinas como controladoras de dominio.
 ![Descripción de la imagen](./img_5/img_5_113.png){.margintop10 .marginbottom10 .marco }
 
-### 16.4 Rol DNS en la segunda instancia
+### 16.5 Rol DNS en la segunda instancia
 
 - Comprobaremos que el ROL DNS se ha creado en la segunda instancia y que los registros (host) de tipo A han sido añadidos a la zona de resolución directa.
 ![Descripción de la imagen](./img_5/img_5_114.png){.margintop10 .marginbottom10 .marco }
 
-### 16.5 Configuración de los DNS en las instancias
+### 16.6 Configuración de los DNS en las instancias
 
 Comprobaremos que las interfaces de red en cada instancia cumplen las reglas de la siguiente tabla.
 
@@ -1959,7 +1959,7 @@ Comprobaremos que las interfaces de red en cada instancia cumplen las reglas de 
 - Configuración instancia 2 (Servidor-DNS-2)
 ![Descripción de la imagen](./img_5/img_5_195.png){.margintop10 .marginbottom20  .leftseiscero}
 
-### 16.6 Configuración de los reenviadores (fowarders)
+### 16.7 Configuración de los reenviadores (fowarders)
 
 !!! question "¿Qué son los reenviadores?<br>¿Cuál es su función?"
 
@@ -1967,7 +1967,7 @@ Comprobaremos que las interfaces de red en cada instancia cumplen las reglas de 
 Para ello, accederemos a las propiedades de los servidores DNS de nuestras máquinas.
 ![Descripción de la imagen](./img_5/img_5_117.png){.margintop10 .marginbottom10 }
 
-### 16.7 Entrega de la tarea
+### 16.8 Entrega de la tarea
 
 !!! warning "Entrega de la tarea"
 
@@ -1978,8 +1978,21 @@ Para ello, accederemos a las propiedades de los servidores DNS de nuestras máqu
     - A partir del momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
     - Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
 
+## 17 - Tarea RA2-CEg-2 - Creación de 2 subdominios
+
+### 17.XX Entrega de la tarea
+
+!!! warning "Entrega de la tarea"
+
+    - Subir vuestra tarea guardando el archivo como RA2-CEg-2 a la tarea correspondiente de aules.
+    - La estrutura de vuestra tarea deberá seguir las [**Normas para la Presentación de Trabajos Escritos**](./0_RedaccionTareas.md). 
+    - Realizar las capturas de pantalla mínimas exigidas en los apuntes.
+    - Comentar las capturas de pantalla explicando el trabajo realizado para llegar a ese punto y el resultado obtenido.
+    - A partir del momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
+    - Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
+
+
 # HASTA AQUI
-### 17.7 Comprobación de la resolución de nombres
 
 1. Lanzar una instancia de Ubuntu server 26.04.
 1. Instalar GNOME para poder utilizar un navegador de internet.
