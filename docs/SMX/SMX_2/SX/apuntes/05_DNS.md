@@ -1817,7 +1817,7 @@ En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.
 
 !!! question "==Comentar brevemente los errores encontrados así como sus posibles soluciones=="
 
-### 15.8 Entrega de la tarea
+### 15.9 Entrega de la tarea
 
 !!! warning "Entrega de la tarea"
 
@@ -1944,7 +1944,7 @@ Pulsamos `Change` e introducimos el dominio definido en la primera máquina.
 - Comprobaremos que el ROL DNS se ha creado en la segunda instancia y que los registros (host) de tipo A han sido añadidos a la zona de resolución directa.
 ![Descripción de la imagen](./img_5/img_5_114.png){.margintop10 .marginbottom10 .marco }
 
-### 17.5 Configuración de los DNS en las instancias
+### 16.5 Configuración de los DNS en las instancias
 
 Comprobaremos que las interfaces de red en cada instancia cumplen las reglas de la siguiente tabla.
 
@@ -1966,6 +1966,17 @@ Comprobaremos que las interfaces de red en cada instancia cumplen las reglas de 
 - También comprobaremos que los reenviadores están configurados correctamente.  
 Para ello, accederemos a las propiedades de los servidores DNS de nuestras máquinas.
 ![Descripción de la imagen](./img_5/img_5_117.png){.margintop10 .marginbottom10 }
+
+### 16.7 Entrega de la tarea
+
+!!! warning "Entrega de la tarea"
+
+    - Subir vuestra tarea guardando el archivo como RA2-CEg-1 a la tarea correspondiente de aules.
+    - La estrutura de vuestra tarea deberá seguir las [**Normas para la Presentación de Trabajos Escritos**](./0_RedaccionTareas.md). 
+    - Realizar las capturas de pantalla mínimas exigidas en los apuntes.
+    - Comentar las capturas de pantalla explicando el trabajo realizado para llegar a ese punto y el resultado obtenido.
+    - A partir del momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
+    - Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
 
 # HASTA AQUI
 ### 17.7 Comprobación de la resolución de nombres
