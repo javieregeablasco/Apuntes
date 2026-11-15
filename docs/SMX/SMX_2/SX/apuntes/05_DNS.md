@@ -1983,7 +1983,6 @@ Para ello, accederemos a las propiedades de los servidores DNS de nuestras máqu
 !!! tip "ForestDnsZones (Zonas integradas en el bosque)"
     - **Ámbito de replicación:** Todos los Controladores de Dominio de todo el bosque de Active Directory (es decir, abarca todos los dominios que forman parte de la estructura global).
     - **Qué almacena:** Zonas DNS y registros que necesitan estar disponibles y sincronizados en todo el bosque.
-    - **Uso típico:** El ejemplo más claro y común son los registros de referencias de localizadores globales o escenarios avanzados como dominios con confianza de bosque o particiones de directorio de aplicación compartidas entre distintos dominios.
     ![Descripción de la imagen](./img_5/img_5_194.png){.margintop10 .marginbottom10 .marco}
 
 ### 16.9 Descubriendo las herramientas de gestión de AD DS
