@@ -1804,14 +1804,14 @@ En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.
     1. **Recuperación ante desastres:** Evita la pérdida total de la base de datos de la empresa si el servidor primario queda inservible.
 
 - En esta práctica haremos lo siguiente:
-    1. Lanzaremos una segunda instancia de Windows Server 2025 (y le asignaremos una IP estática).
-    1. Instalaremos el rol de AD DS y promocionaremos el servidor a Controlador de Dominio adicional (incluyendo el rol de servidor DNS de forma integrada).
-    1. Uniremos la máquina al dominio `ad.practicadns` durante el proceso de promoción del servidor a controlador de dominio.
-    1. Reconfiguraremos los DNS en ambas interfaces de red para que se apunten de forma cruzada (el DC1 apuntará al DC2 como preferido y a sí mismo como alternativo, y viceversa) para garantizar redundancia.
+    1. Lanzaremos una segunda instancia de Windows Server 2025 (y le asignaremos una IP estática + configuración IGW y servidores DNS).
+    1. Instalaremos el rol de AD DS y promocionaremos el servidor a Controlador de Dominio (incluyendo el rol de servidor DNS de forma integrada).
+    1. Durante la promoción a controlador de dominio, eligiremos unir la máquina al dominio `ad.practicadns`.
+    1. Reconfiguraremos los DNS y ambas interfaces de red para que se apunten de forma cruzada (el DC1 apuntará al DC2 como preferido y a sí mismo como alternativo, y viceversa) para garantizar redundancia.
 
-### 17.1 Lanzar una segunda instancia de Windows Server 2025
+### 16.1 Lanzar una segunda instancia de Windows Server 2025
 
-- Lanzaremos una instancia nueva de Windows Server 2025 con las siguientes características.  
+- Lanzaremos una instancia nueva de Windows Server 2025 con las siguientes características. En este caso eligiremos una instancia de tipo t3.medium, al ser más económica (no ofrece virtualización).
 ![Descripción de la imagen](./img_5/img_5_90.png){.margintop10 .marginbottom10 .marco }
 
 !!! warning "Antes de definir totalemente la nueva instancia, comprobaremos la subred de la primera instancia de Windows Server"  
@@ -1825,13 +1825,13 @@ En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.
 - Nos esperaremos hasta que las 2 instancias (ServidorDNS-1 y ServidorDNS-2) estén disponibles.
 ![Descripción de la imagen](./img_5/img_5_93.png){.margintop10 .marginbottom10 .marco }
 
-### 17.2 Modificar los grupos de seguridad de las instancias
+### 16.2 Modificar los grupos de seguridad de las instancias
 
 - Un grupo de seguridad funciona como un firewall virtual para las instancias de EC2 para controlar el tráfico entrante y saliente.
 
 - Las **reglas de entrada** controlan el tráfico entrante a la instancia y las **reglas de salida** controlan el tráfico saliente desde la instancia.
 
-- En un entorno real, deberíamos modificar las reglas de los grupos de seguridad para permitir el tráfico en los puertos de Active Directory (como TCP/UDP 53, 88, 389, 445 y 636) pero, y **aunque no sea una buena práctica de seguridad informática**, abriremos todos los puertos para evitar problemas con nuestras máquinas.  
+- En un entorno real, deberíamos modificar las reglas de los grupos de seguridad para permitir el tráfico en los puertos de Active Directory (como TCP/UDP 53, 88, 389, 445 y 636) pero, y **aunque no sea una buena práctica de seguridad informática**, abriremos todos los puertos para evitar problemas de conectividad entre nuestras máquinas.  
 ![Descripción de la imagen](./img_5/img_5_97.png){.margintop10 .marginbottom10 .marco }
 
 # HASTA AQUI
@@ -1881,9 +1881,12 @@ Pulsamos `Change` e introducimos el dominio definido en la primera máquina.
 ![Descripción de la imagen](./img_5/img_5_110.png){.margintop10 .marginbottom10 .marco }
 - Seleccionamos el dominio donde va a convivir este controlador de dominio.
 ![Descripción de la imagen](./img_5/img_5_189.png){.margintop10 .marginbottom10 .marco }
-- Introducimos una contraseña para el modo restauración.
+- Introducimos una contraseña para el modo de restauración ante desastres.
 ![Descripción de la imagen](./img_5/img_5_111.png){.margintop10 .marginbottom10 .marco }
 - Vamos pasando todas las ventanas dejando las opciones por defecto.
+- En `Additional options` seleccionamos `Replicate from: <Nombre del dominio padre>`.  
+![Descripción de la imagen](./img_5/img_5_190.png){.margintop10 .marginbottom10 .marco }
+![Descripción de la imagen](./img_5/img_5_190_1.png){.margintop10 .marginbottom10 .marco }
 - En la ventana final nos aseguramos que todos los prerequisitos se cumplen correctamente.  
 ![Descripción de la imagen](./img_5/img_5_112.png){.margintop10 .marginbottom10 .marco }
 - Después de reiniciar la máquina veremos que tenemos las 2 máquinas como controladoras de dominio.
