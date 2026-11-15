@@ -2083,12 +2083,12 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
 - Solo tenemos un DC por subdominio, así que no hay `partner redundante` dentro de cada subdominio.
 - La configuración recomendada es:
 
-    1. ADDS-Alumnos (172.31.XX.XX)
-        - DNS preferido: 172.31.XX.XX (él mismo)
-        - DNS alternativo: 172.31.XX.XX (Servidor-DNS, dominio padre)
-    1. ADDS-Profesores (172.31.XX.XX)
-        - DNS preferido: 172.31.XX.XX (él mismo)
-        - DNS alternativo: 172.31.XX.XX (Servidor-DNS, dominio padre)
+    1. ADDS-Alumnos (172.31.`XX`.`XX`)
+        - DNS preferido: 172.31.`XX`.`XX` (él mismo)
+        - DNS alternativo: 172.31.`XX`.`XX` (Servidor-DNS, dominio padre)
+    1. ADDS-Profesores (172.31.`XX`.`XX`)
+        - DNS preferido: 172.31.`XX`.`XX` (él mismo)
+        - DNS alternativo: 172.31.`XX`.`XX` (Servidor-DNS, dominio padre)
 
 !!! tip "Resultado esperado (instancia ADDS-alumnos)"
     ![img](./img_5/img_5_162.png){.margintop10 .marginbottom20 .cincozero}
