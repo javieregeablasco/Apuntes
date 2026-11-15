@@ -1378,6 +1378,16 @@ Para verificar y solucionar problemas con las zonas DNS, los administradores de 
     - ¿Qué ocurre si escribimos la IP en el navegador? ¿Se abre la web de aules.edu.gva.es?
     ![Descripción de la imagen](./img_5/img_5_30.png){ .margintop10 .marginbottom10}
 
+### 12.6 Entrega de la tarea
+
+!!! warning "Entrega de la tarea"
+
+    - Subir vuestra tarea guardando el archivo como RA2-CEb-1 a la tarea correspondiente de aules.
+    - La estrutura de vuestra tarea deberá seguir las [**Normas para la Presentación de Trabajos Escritos**](./0_RedaccionTareas.md). 
+    - Realizar las capturas de pantalla mínimas exigidas en los apuntes.
+    - Comentar las capturas de pantalla explicando el trabajo realizado para llegar a ese punto y el resultado obtenido.
+    - A partir de momento de apertura de la tarea, dispondréis de **20 minutos** para subir vuestros trabajos.
+    - Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
 ---
 
 ## 13 - Tarea RA2-CEb-2 - Resolución manual de un dominio
@@ -1920,8 +1930,7 @@ Comprobaremos que las interfaces de red en cada instancia cumplen las reglas de 
 - Configuración instancia 2 (Servidor-DNS-2)
 ![Descripción de la imagen](./img_5/img_5_195.png){.margintop10 .marginbottom20  .leftseiscero}
 
-# HASTA AQUI
-### 17.6 Configuración de los reenviadores (fowarders)
+### 16.6 Configuración de los reenviadores (fowarders)
 
 !!! question "¿Qué son los reenviadores?<br>¿Cuál es su función?"
 
@@ -1929,6 +1938,7 @@ Comprobaremos que las interfaces de red en cada instancia cumplen las reglas de 
 Para ello, accederemos a las propiedades de los servidores DNS de nuestras máquinas.
 ![Descripción de la imagen](./img_5/img_5_117.png){.margintop10 .marginbottom10 }
 
+# HASTA AQUI
 ### 17.7 Comprobación de la resolución de nombres
 
 1. Lanzar una instancia de Ubuntu server 26.04.
