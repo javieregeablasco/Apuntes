@@ -1834,19 +1834,21 @@ En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.
 - En un entorno real, deberíamos modificar las reglas de los grupos de seguridad para permitir el tráfico en los puertos de Active Directory (como TCP/UDP 53, 88, 389, 445 y 636) pero, y **aunque no sea una buena práctica de seguridad informática**, abriremos todos los puertos para evitar problemas de conectividad entre nuestras máquinas.  
 ![Descripción de la imagen](./img_5/img_5_97.png){.margintop10 .marginbottom10 .marco }
 
-# HASTA AQUI
-
-### 17.3 Agregar la segunda instancia al dominio
+### 16.3 Configuración previa de la instancia
 
 - Nos conectamos a la instancia 2 (ServidorDNS-2) y cambiamos el nombre de la máquina a Servidor-DNS-2.  
 ![Descripción de la imagen](./img_5/img_5_94.png){.margintop10 .marginbottom10  }
 
-- Agregamos la instancia al dominio definido en nuestra primera máquina (ServidorDNS).  
+- Configuraremos la interfaz de red de la instancia de la siguiente manera.
+![Descripción de la imagen](./img_5/img_5_195.png){.margintop10 .marginbottom10  }
+
+
+<!-- - Agregamos la instancia al dominio definido en nuestra primera máquina (ServidorDNS).  
 Para ello vamos a `System` → `About` → `Domain or workgroup`.  
 En la imagen vemos que la máquina tiene `WORKGROUP` como dominio por defecto.  
 Pulsamos `Change` e introducimos el dominio definido en la primera máquina.
 ![Descripción de la imagen](./img_5/img_5_95.png){.margintop10 .marginbottom10 }
-!!! warning "Si da error, solucionar el problema leyendo los `details` del error"
+!!! warning "Si da error, solucionar el problema leyendo los `details` del error" -->
 
 - Necesitaremos introducir las credenciales de administrador del dominio al que queremos agregar la máquina.
 ![Descripción de la imagen](./img_5/img_5_99.png){.margintop10 .marginbottom10 .marco }
@@ -1862,6 +1864,8 @@ Pulsamos `Change` e introducimos el dominio definido en la primera máquina.
 
 - Si vamos a `DNS` → `DNS Manager` → `Forward Lookup Zones` podremos comprobar que se ha generado en el DNS un registro `Host` de tipo `A` para la segunda instancia.
 ![Descripción de la imagen](./img_5/img_5_103.png){.margintop10 .marginbottom10 .marco }
+
+# HASTA AQUI
 
 ### 17.3 Promocionar la segunda instancia a controladora de dominio
 
