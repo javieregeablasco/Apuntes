@@ -1972,12 +1972,26 @@ Para ello, accederemos a las propiedades de los servidores DNS de nuestras máqu
 ![Descripción de la imagen](./img_5/img_5_193.png){.margintop10 .marginbottom10 }
 ![Descripción de la imagen](./img_5/img_5_194.png){.margintop10 .marginbottom10 }
 
-### 16.8 Descubriendo las herramientas de gestión de AD DS
+### 16.9 Descubriendo las herramientas de gestión de AD DS
 
-#### 16.8.1 Active Directory Administrative Center
+#### 16.9.1 Active Directory Administrative Center
 
+- **Active Directory Administrative Center (ADAC)** es la consola gráfica moderna de gestión de Active Directory, introducida para sustituir y ampliar las capacidades de la clásica consola Usuarios y equipos de Active Directory (ADUC).
 
-#### 16.8.2 Active Directory Sites and Services
+- A diferencia de las consolas MMC tradicionales, **ADAC está construida directamente sobre PowerShell** (ejecuta comandos del módulo ActiveDirectory en segundo plano para cada acción visual) y ofrece una interfaz orientada a tareas con funciones avanzadas que no existen en la herramienta clásica.
+
+- Sus funciones y características principales son:
+
+    1. Gestión diaria de objetos con interfaz moderna:
+    1. Visor del historial de PowerShell (Windows PowerShell History Viewer):
+    1. Papelera de reciclaje de Active Directory (AD Recycle Bin):
+    1. Directivas de contraseñas detalladas (Fine-Grained Password Policies - FGPP):
+    1. Control de acceso dinámico (Dynamic Access Control - DAC):
+    1. Gestión multidominio en una sola ventana:
+
+![Descripción de la imagen](./img_5/img_5_197.png){.margintop10 .marginbottom10 .cien .marco}
+
+#### 16.9.2 Active Directory Sites and Services
 
 - **Active Directory Sites and Services** es la consola administrativa que permite gestionar la topología física de la red para optimizar cómo se comunican los usuarios y servidores dentro de un dominio o bosque.
 
