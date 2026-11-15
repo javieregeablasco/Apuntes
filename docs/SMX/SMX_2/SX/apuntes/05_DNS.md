@@ -2077,8 +2077,9 @@ Para ello, accederemos a las propiedades de los servidores DNS de nuestras máqu
 Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
 ![img](./img_5/img_5_176.png){.margintop10 .marginbottom20 .sietecinco}
 
-### 17.3 Configurar las instancias para que tengan IP fija y tengan como servidor DNS preferido al DNS del dominio ad.practicadns.es
+### 17.3 Configurar las interfaces de red de las instancias
 
+- Como ya hemos visto, los controladores de dominio se deben configurar para tener una IP fija y tener como servidor DNS secundariod al DNS del dominio ad.practicadns.es
 - Solo tenemos un DC por subdominio, así que no hay `partner redundante` dentro de cada subdominio.
 - La configuración recomendada es:
 
@@ -2089,7 +2090,7 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
         - DNS preferido: 172.31.XX.XX (él mismo)
         - DNS alternativo: 172.31.XX.XX (Servidor-DNS, dominio padre)
 
-!!! TIP "Resultado esperado (instancia ADDS-alumnos)"
+!!! tip "Resultado esperado (instancia ADDS-alumnos)"
     ![img](./img_5/img_5_162.png){.margintop10 .marginbottom20 .sietecinco}
 
 
