@@ -2091,10 +2091,7 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
         - DNS alternativo: 172.31.XX.XX (Servidor-DNS, dominio padre)
 
 !!! tip "Resultado esperado (instancia ADDS-alumnos)"
-    ![img](./img_5/img_5_162.png){.margintop10 .marginbottom20 .sietecinco}
-
-
-
+    ![img](./img_5/img_5_162.png){.margintop10 .marginbottom20 .cincozero}
 
 ### 17.XX Entrega de la tarea
 
