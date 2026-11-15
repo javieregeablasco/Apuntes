@@ -1953,11 +1953,11 @@ Comprobaremos que las interfaces de red en cada instancia cumplen las reglas de 
 |Instancia 1|IP instancia 2|IP instancia 1|
 |Instancia 2|IP instancia 1|IP instancia 2|
 
-- Configuración instancia 1 (Servidor-DNS)
-![Descripción de la imagen](./img_5/img_5_196.png){.margintop10 .marginbottom20  .leftseiscero}
+!!! tip "Configuración instancia 1 (Servidor-DNS)"
+    ![Descripción de la imagen](./img_5/img_5_196.png){.margintop10 .marginbottom20  .seiszero}
 
-- Configuración instancia 2 (Servidor-DNS-2)
-![Descripción de la imagen](./img_5/img_5_195.png){.margintop10 .marginbottom20  .leftseiscero}
+!!! tip "Configuración instancia 2 (Servidor-DNS-2)"
+    ![Descripción de la imagen](./img_5/img_5_195.png){.margintop10 .marginbottom20  .seiszero}
 
 ### 16.7 Configuración de los reenviadores (fowarders)
 
