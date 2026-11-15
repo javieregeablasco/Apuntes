@@ -88,10 +88,12 @@ ver la configuracion de los dns secundarios
 ###########################################
 
 Servidor-DNS - Servidor-DNS.ad.practicadns.es - 172.31.33.127
-Servidor-DNS-2 - Servidor-DNS-2.ad.practicadns.es -  172.31.43.244
+Servidor-DNS-2 - Servidor-DNS-2.ad.practicadns.es -  172.31.40.94
 ADDS-Alumnos - alumnos.ad.practicadns.es -  172-31.47.142
 ADDS-profesores - profesores.ad.practicadns.es -  172-31.33.153
 
 Subred: 172.31.32.0/20
 Netmask: 255.255.240.0
 IGW 172.31.32.1
+
+configuracion de las interfaces de red en Servidor-DNS-2 primer DNS → Servidor-DNS
