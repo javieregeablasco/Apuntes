@@ -1975,12 +1975,9 @@ Para ello, accederemos a las propiedades de los servidores DNS de nuestras máqu
 
 - La razón por la que aparecen estas dos carpetas separadas es que dividen las zonas DNS según su ámbito de replicación (hasta dónde se propagan los cambios a través del bosque de Active Directory).
 
-- **DomainDnsZones** (Zonas integradas en el dominio)
-
-    **Ámbito de replicación:** Todos los Controladores de Dominio (DC) que pertenecen a un dominio específico (ad.practicadns.es).
-
-    **Qué almacena:** Contiene zonas DNS cuya información de registro debe replicarse únicamente entre los DC de ese mismo dominio. Los controladores de dominio de otros dominios del bosque (si fuera un bosque multidominio) no reciben esta información.
-
+!!! tip "DomainDnsZones (Zonas integradas en el dominio)"
+    - **Ámbito de replicación:** Todos los Controladores de Dominio (DC) que pertenecen a un dominio específico (ad.practicadns.es).
+    - **Qué almacena:** Contiene zonas DNS cuya información de registro debe replicarse únicamente entre los DC de ese mismo dominio. Los controladores de dominio de otros dominios del bosque (si fuera un bosque multidominio) no reciben esta información.
     ![Descripción de la imagen](./img_5/img_5_193.png){.margintop10 .marginbottom10 .marco }
 
 - En la carpeta `Forward Lookup Zones → ForestDnsZones` de la consola DNS de cada máquina,
