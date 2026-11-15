@@ -1,23 +1,6 @@
 
-# Condiciones de lanzamiento de las instancias `alumnos` y `profesor`
 
-Lanzar 2 instancias con las siguiente condiciones.
 
-1. AMI: **Windows Server 2025 Base**.
-1. Tipo de instancia: `m7i.xlarge` o `t3.large`.
-1. Almacenamiento: 30GB.
-1. Zona de despliegue  **Configuración de red** → pulsar el botón de **editar** y en **subred** buscar la subred **172.32.31.0/20**.
-1. Configurar **grupo de seguridad** de la instancia. 
-    - **Reglas de entrada**: Permitir todo el tráfico.
-    - **Reglas de salida**: Permitir todo el tráfico.
-
-## Cambiar nombre de las instancias a `alumnos` y `profesor`
-
-![img](./img_5/img_5_176.png){.margintop10 .marginbottom20 .sietecinco}
-
-## Configurar las instancias para que tengan IP fija y tengan como servidor DNS preferido al DNS del dominio ad.practicadns.es
-
-![img](./img_5/img_5_162.png){.margintop10 .marginbottom20 .sietecinco}
 
 ## Añadir las instancias al dominio `ad.practicadns.es`
 
@@ -87,7 +70,7 @@ Indicar la dirección IP del servidor que contiene la zona primaria.
 ver la configuracion de los dns secundarios
 ###########################################
 
-Servidor-DNS - Servidor-DNS.ad.practicadns.es - 172.31.33.127
+Servidor-DNS -. Servidor-DNS.ad.practicadns.es - 172.31.33.127
 Servidor-DNS-2 - Servidor-DNS-2.ad.practicadns.es -  172.31.40.94
 ADDS-Alumnos - alumnos.ad.practicadns.es -  172-31.47.142
 ADDS-profesores - profesores.ad.practicadns.es -  172-31.33.153
@@ -97,3 +80,6 @@ Netmask: 255.255.240.0
 IGW 172.31.32.1
 
 configuracion de las interfaces de red en Servidor-DNS-2 primer DNS → Servidor-DNS
+
+
+https://claude.ai/chat/575d97b4-fa10-4773-b6f5-12bc3577330d

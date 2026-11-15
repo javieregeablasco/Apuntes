@@ -1993,8 +1993,9 @@ Para ello, accederemos a las propiedades de los servidores DNS de nuestras máqu
         - **Reglas de entrada**: Permitir todo el tráfico.
         - **Reglas de salida**: Permitir todo el tráfico.
 
-### 17.2 Cambiar nombre de las instancias a `ADDS- alumnos` y `profesor`
+### 17.2 Cambiar nombre de las instancias 
 
+a `ADDS- alumnos` y `profesor`
 ![img](./img_5/img_5_176.png){.margintop10 .marginbottom20 .sietecinco}
 
 ## Configurar las instancias para que tengan IP fija y tengan como servidor DNS preferido al DNS del dominio ad.practicadns.es
