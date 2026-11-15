@@ -1984,8 +1984,7 @@ Para ello, accederemos a las propiedades de los servidores DNS de nuestras máqu
         - Vínculos a sitios (Site Links): Representan las conexiones WAN entre ubicaciones. Permiten asignarles un coste (para priorizar rutas principales frente a enlaces de respaldo) y una programación de disponibilidad.
     1. Designar Servidores Cabeza de Puente (Bridgehead) y Catálogo Global:
 
-
-![Descripción de la imagen](./img_5/img_5_191.png){.margintop10 .marginbottom10 .cien}
+![Descripción de la imagen](./img_5/img_5_191.png){.margintop10 .marginbottom10 .cien .marco}
 
 ### 16.9 Entrega de la tarea
 
