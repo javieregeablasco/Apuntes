@@ -1900,13 +1900,12 @@ Pulsamos `Change` e introducimos el dominio definido en la primera máquina.
 - Después de reiniciar la máquina veremos que tenemos las 2 máquinas como controladoras de dominio.
 ![Descripción de la imagen](./img_5/img_5_113.png){.margintop10 .marginbottom10 .marco }
 
-# HASTA AQUI
+### 17.4 Rol DNS en la segunda instancia
 
-### 17.4 Crear el rol DNS en la segunda instancia
-
-- Comprobaremos que el ROL DNS ya se ha creado en la segunda instancia.
+- Comprobaremos que el ROL DNS se ha creado en la segunda instancia y que los registros (host) de tipo A han sido añadidos a la zona de resolución directa.
 ![Descripción de la imagen](./img_5/img_5_114.png){.margintop10 .marginbottom10 .marco }
 
+# HASTA AQUI
 ### 17.5 Configuración de los DNS en las instancias
 
 Comprobaremos que las interfaces de red en cada instancia cumplen las reglas de la siguiente tabla.
