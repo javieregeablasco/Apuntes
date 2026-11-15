@@ -1839,8 +1839,14 @@ En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.
 - Nos conectamos a la instancia 2 (ServidorDNS-2) y cambiamos el nombre de la máquina a Servidor-DNS-2.  
 ![Descripción de la imagen](./img_5/img_5_94.png){.margintop10 .marginbottom10  }
 
-- Configuraremos la interfaz de red de la instancia de la siguiente manera.
-![Descripción de la imagen](./img_5/img_5_195.png){.margintop10 .marginbottom10  }
+- Configuraremos la interfaz de red de la instancia de la siguiente manera:
+    1. **IP Address**: `<IP privada de nuestra instancia>`  
+    1. **Subnet mask**: Comprobar con `ipconfig /all` vuestra máscara de red.
+    1. **Default gateway**: Comprobar con `ipconfig /all` la IP de vuestra puerta de enlace.
+    1. **Preferred DNS server**: `<IP privada de la otra instancia>`.
+    1. **Alternate DNS server**: `<IP privada de nuestra instancia>`.
+    1. Al final obtendréis un resultado similar al de la imagen.  
+    ![Descripción de la imagen](./img_5/img_5_195.png){.margintop10 .marginbottom10  }
 
 
 <!-- - Agregamos la instancia al dominio definido en nuestra primera máquina (ServidorDNS).  
