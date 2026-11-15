@@ -2032,7 +2032,32 @@ Para ello, accederemos a las propiedades de los servidores DNS de nuestras máqu
     - A partir del momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
     - Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
 
-## 17 - Tarea RA2-CEg-2 - Creación de 2 subdominios `alumnos` y `profesores`
+## 17 - Tarea RA2-CEg-2 - Creación de subdominios
+
+- En esta tarea se crearan dos subdominios dentro del dominio principal: `alumnos` y `profesores`
+- El resultado final será el siguiente:
+
+```text
+                            INTERNET
+                                │
+                                │
+                      ┌─────────▼─────────┐
+                      │ Internet Gateway │
+                      └─────────┬─────────┘
+                                │
+                    Subred: 172.31.32.0/20
+                                │
+                                dominio: ad.practicadns.es 
+                                Servidor-DNS + Servidor-DNS-2
+                ┌────────────────┴───────────────---------------------─┐
+                │                                                      │
+        Subdominio alumnos: alumnos.ad.practicadns.es              Subdominio profesores profesores.ad.practicadns.es
+        Servidor: ADDS-alumnos                                      Servidor: ADDS-profesor
+
+
+
+
+
 
 ### 17.1 Lanzar las instancias
 
