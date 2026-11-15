@@ -1967,9 +1967,17 @@ Comprobaremos que las interfaces de red en cada instancia cumplen las reglas de 
 Para ello, accederemos a las propiedades de los servidores DNS de nuestras máquinas.
 ![Descripción de la imagen](./img_5/img_5_117.png){.margintop10 .marginbottom10 }
 
+### 16.8 Servidores DNS
+
+![Descripción de la imagen](./img_5/img_5_193.png){.margintop10 .marginbottom10 }
+![Descripción de la imagen](./img_5/img_5_194.png){.margintop10 .marginbottom10 }
+
 ### 16.8 Descubriendo las herramientas de gestión de AD DS
 
-#### 16.8.1 Active Directory Sites and Services
+#### 16.8.1 Active Directory Administrative Center
+
+
+#### 16.8.2 Active Directory Sites and Services
 
 - **Active Directory Sites and Services** es la consola administrativa que permite gestionar la topología física de la red para optimizar cómo se comunican los usuarios y servidores dentro de un dominio o bosque.
 
