@@ -1969,7 +1969,21 @@ Para ello, accederemos a las propiedades de los servidores DNS de nuestras máqu
 
 ### 16.8 Servidores DNS
 
-![Descripción de la imagen](./img_5/img_5_193.png){.margintop10 .marginbottom10 }
+- Finalmente comprobaremos que los servidores DNS de nuestras máquinas están configurados y funcionan correctamente.
+
+- En el **Administrador de DNS** (dnsmgmt.msc), las carpetas **DomainDnsZones** y **ForestDnsZones** corresponden a los contenedores donde se almacenan las zonas de DNS integradas en Active Directory (Active Directory-integrated zones).
+
+- La razón por la que aparecen estas dos carpetas separadas es que dividen las zonas DNS según su ámbito de replicación (hasta dónde se propagan los cambios a través del bosque de Active Directory).
+
+- **DomainDnsZones** (Zonas integradas en el dominio)
+
+    Ámbito de replicación: Todos los Controladores de Dominio (DC) que pertenecen a un dominio específico (ad.practicadns.es).
+
+    Qué almacena: Contiene zonas DNS cuya información de registro debe replicarse únicamente entre los DC de ese mismo dominio. Los controladores de dominio de otros dominios del bosque (si fuera un bosque multidominio) no reciben esta información.
+
+![Descripción de la imagen](./img_5/img_5_193.png){.margintop10 .marginbottom10 .marco }
+
+- En la carpeta `Forward Lookup Zones → ForestDnsZones` de la consola DNS de cada máquina, 
 ![Descripción de la imagen](./img_5/img_5_194.png){.margintop10 .marginbottom10 }
 
 ### 16.9 Descubriendo las herramientas de gestión de AD DS
@@ -1982,12 +1996,12 @@ Para ello, accederemos a las propiedades de los servidores DNS de nuestras máqu
 
 - Sus funciones y características principales son:
 
-    1. Gestión diaria de objetos con interfaz moderna:
-    1. Visor del historial de PowerShell (Windows PowerShell History Viewer):
-    1. Papelera de reciclaje de Active Directory (AD Recycle Bin):
-    1. Directivas de contraseñas detalladas (Fine-Grained Password Policies - FGPP):
-    1. Control de acceso dinámico (Dynamic Access Control - DAC):
-    1. Gestión multidominio en una sola ventana:
+    1. Gestión diaria de objetos con interfaz moderna.
+    1. Visor del historial de PowerShell (Windows PowerShell History Viewer).
+    1. Papelera de reciclaje de Active Directory (AD Recycle Bin).
+    1. Directivas de contraseñas detalladas (Fine-Grained Password Policies - FGPP).
+    1. Control de acceso dinámico (Dynamic Access Control - DAC).
+    1. Gestión multidominio en una sola ventana.
 
 ![Descripción de la imagen](./img_5/img_5_197.png){.margintop10 .marginbottom10 .cien .marco}
 
@@ -1998,13 +2012,13 @@ Para ello, accederemos a las propiedades de los servidores DNS de nuestras máqu
 - Mientras que Usuarios y equipos de Active Directory gestiona la estructura lógica (departamentos, usuarios, grupos), Sitios y servicios mapea esa estructura a la infraestructura física real (oficinas, subredes IP y conexiones WAN).
 
 - Sus funciones principales son:
-    1. Controlar y optimizar el tráfico de replicación:
-    1. Enrutar el tráfico de autenticación (inicio de sesión):
-    1. Gestionar la topología de red (Sitios, Subredes y Vínculos):
+    1. Controlar y optimizar el tráfico de replicación.
+    1. Enrutar el tráfico de autenticación (inicio de sesión).
+    1. Gestionar la topología de red (Sitios, Subredes y Vínculos).
         - Sitios (Sites): Representan ubicaciones físicas con buena conectividad interna.
         - Subredes (Subnets): Rangos de direcciones IP (ej. 192.168.10.0/24) que se asocian a un sitio específico para que AD sepa en qué ubicación física está cada equipo.
         - Vínculos a sitios (Site Links): Representan las conexiones WAN entre ubicaciones. Permiten asignarles un coste (para priorizar rutas principales frente a enlaces de respaldo) y una programación de disponibilidad.
-    1. Designar Servidores Cabeza de Puente (Bridgehead) y Catálogo Global:
+    1. Designar Servidores Cabeza de Puente (Bridgehead) y Catálogo Global.
 
 ![Descripción de la imagen](./img_5/img_5_191.png){.margintop10 .marginbottom10 .cien .marco}
 
