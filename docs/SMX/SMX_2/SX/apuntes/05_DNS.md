@@ -2021,7 +2021,7 @@ Para ello, accederemos a las propiedades de los servidores DNS de nuestras máqu
 
 ![Descripción de la imagen](./img_5/img_5_191.png){.margintop10 .marginbottom10 .cien .marco}
 
-### 16.9 Entrega de la tarea
+### 16.10 Entrega de la tarea
 
 !!! warning "Entrega de la tarea"
 
@@ -2037,27 +2037,7 @@ Para ello, accederemos a las propiedades de los servidores DNS de nuestras máqu
 - En esta tarea se crearan dos subdominios dentro del dominio principal: `alumnos` y `profesores`
 - El resultado final será el siguiente:
 
-```text
-                            INTERNET
-                                │
-                                │
-                      ┌─────────▼─────────┐
-                      │ Internet Gateway │
-                      └─────────┬─────────┘
-                                │
-                    Subred: 172.31.32.0/20
-                                │
-                                dominio: ad.practicadns.es 
-                                Servidor-DNS + Servidor-DNS-2
-                ┌────────────────┴───────────────---------------------─┐
-                │                                                      │
-        Subdominio alumnos: alumnos.ad.practicadns.es              Subdominio profesores profesores.ad.practicadns.es
-        Servidor: ADDS-alumnos                                      Servidor: ADDS-profesor
-```
-
-
-
-
+    ![Descripción de la imagen](./img_5/img_5_198.png){.margintop10 .marginbottom10 .cien .marco}
 
 ### 17.1 Lanzar las instancias
 
