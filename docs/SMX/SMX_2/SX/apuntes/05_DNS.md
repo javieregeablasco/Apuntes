@@ -1922,9 +1922,9 @@ Pulsamos `Change` e introducimos el dominio definido en la primera máquina.
 - Confirmamos la operación. A diferencia de la primera máquina, aquí, no nos pide crear un servidor DNS al detectar que ya existe uno en el dominio (como veremos más adelante, el rol DNS se instalará automaticamente al promocionar la segunda instancia a controladora de dominio).
 ![Descripción de la imagen](./img_5/img_5_107.png){.margintop10 .marginbottom10 .marco }
 - Una vez finalizada la instalación, deberemos promocionar la máquina a controladora de dominio.
-==Realizar captura de pantalla==  
 ![Descripción de la imagen](./img_5/img_5_108.png){.margintop10 .marginbottom10 .marco }
 - Añadiremos el AD DS al dominio actual para crear redundancia entre controladores de dominio.
+==Realizar captura de pantalla==  
 ![Descripción de la imagen](./img_5/img_5_109.png){.margintop10 .marginbottom10 .marco }
 - Introducimos las credenciales de adminisdrador. Pueden ser las de ´Administrator´ o las de otro usuario con permisos de administrador.
 ![Descripción de la imagen](./img_5/img_5_110.png){.margintop10 .marginbottom10 .marco }
