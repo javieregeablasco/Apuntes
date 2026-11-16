@@ -168,17 +168,18 @@ Una vez creada la infraestructura (VPC + subred + EC2 + IGW) iniciaremos las int
 
 !!! question "Propargarse a otra instancia y comprobar si esa instancia tiene conexión a internet"
     ¿Qué soluciones podriamos aplicar para que las instancias de la VPC-2 y VPC-3 tengan conexión a internet?
- 
+
 ### 1.4 Tarea RA3-CEd
 
 - Montar el siguiente escenario:
-  ![img](../AWS/ut6/RA3-CEd.png){ .sietecinco }<br>
+  ![img](../AWS/ut6/RA3-CEd.png){ .cien .margintop10 .marginbottom20 }
 
-- Se trabajará en 2 regiones distintas (us-east-1 / N-Virginia y us-west-2 / Oregón). 
-- En cada región estarán ubicadas dos VPCs con sus correspondientes subredes interconectadas por un Transit Gateway. 
-- Para interconectar las regiones usaremos un peer connection pero no desde **Interconexiones** sino desde **Conexiones de gateway de tránsito**. 
+- Se trabajará en 2 regiones distintas (us-east-1 / N-Virginia y us-west-2 / Oregón).
 
-    ![](../AWS/ut6/TGW11.png){ .marco .leftdoscero }<br>
+- En cada región estarán ubicadas dos VPCs con sus correspondientes subredes interconectadas por un Transit Gateway.
+
+- Para interconectar las regiones usaremos un peer connection pero no desde **Interconexiones** sino desde **Conexiones de gateway de tránsito**.
+  ![img](../AWS/ut6/TGW11.png){ .marco .leftdoscero }
 
 - Rellenaremos los campos con los datos de nuestros **transit gateways**.
 
