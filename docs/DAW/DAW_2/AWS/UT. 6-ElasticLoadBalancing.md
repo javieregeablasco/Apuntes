@@ -242,8 +242,8 @@ Una vez creada la infraestructura (VPC + subred + EC2 + IGW) iniciaremos las int
         - HelloWorld
         - HelloParadise
         - Ambas instancias:
-          - Se encuentran en zonas de disponibilidad distintas (una en a y otra en c).
-          - Disponen de IP pública para permitir el acceso externo.
+            - Se encuentran en zonas de disponibilidad distintas (una en a y otra en c).
+            - Disponen de IP pública para permitir el acceso externo.
 
 # HASTA AQUI
 #### **2.2.2 - Instancias EC2**
