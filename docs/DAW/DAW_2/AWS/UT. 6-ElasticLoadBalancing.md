@@ -137,8 +137,8 @@ Para familiarizarnos con el Transit gateway de AWS, usaremos el siguiente escena
 
 Una vez implementada la arquitectura de red, pasaremos a crear y configurar el Transit gateway.
 
-![](../AWS/ut6/TGW2.png){ .marco .ochocinco }<br>
-![](../AWS/ut6/TGW3.png){ .marco .ochocinco }<br>  
+![img](../AWS/ut6/TGW2.png){ .marco .cien }
+![img](../AWS/ut6/TGW3.png){ .marco .cien }
 Nos esperamos  a que su estado pase de **pending** a **available**.
 
 ![](../AWS/ut6/TGW4.png){ .marco .ochocinco }<br>  
