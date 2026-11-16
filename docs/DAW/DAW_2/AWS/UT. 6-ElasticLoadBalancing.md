@@ -195,17 +195,19 @@ Una vez creada la infraestructura (VPC + subred + EC2 + IGW) iniciaremos las int
         - Conectarse a la instancia 1 y realizar capturas de pings al resto de instancias (1 captura + 3 pings). 
         - Realizar capturas de la propagación y pings con éxito a todas las instancias del escenario (3 capturas de 3 pings cada una).
 
+## 2 - Equilibrado y escalado de infraestructuras
+
+### 2.1 - Introducción
+
+- En entornos de computación en la nube, el equilibrio de carga y el escalado automático son dos componentes esenciales para garantizar la disponibilidad, el rendimiento y la eficiencia de las aplicaciones y servicios. .
+
+    1. **Elastic Load Balancing (ELB)**: Distribuye automáticamente el tráfico entrante entre múltiples instancias de Amazon EC2, contenedores y direcciones IP en una o más zonas de disponibilidad. Esto asegura que ninguna instancia se sobrecargue y que las aplicaciones permanezcan disponibles incluso si una o más instancias fallan.
+
+    1. **Auto Scaling**: Permite ajustar automáticamente la capacidad de las instancias EC2 en función de las condiciones definidas por el usuario. Esto significa que se pueden añadir o eliminar instancias según la demanda del tráfico, lo que ayuda a mantener el rendimiento óptimo y a controlar los costos operativos.
+
+- La combinación de ambos permite crear arquitecturas altamente disponibles, resilientes, rentables y tolerantes a fallos, asegurando que la infraestructura responda adecuadamente a fluctuaciones del tráfico sin intervención manual.
+
 # HASTA AQUI
-## **2 - Equilibrado y escalado de infraestructuras**
-### **2.1 - Introducción**
-En entornos de computación en la nube, el equilibrio de carga y el escalado automático son dos componentes esenciales para garantizar la disponibilidad, el rendimiento y la eficiencia de las aplicaciones y servicios. .
-
-- **Elastic Load Balancing (ELB)**: Distribuye automáticamente el tráfico entrante entre múltiples instancias de Amazon EC2, contenedores y direcciones IP en una o más zonas de disponibilidad. Esto asegura que ninguna instancia se sobrecargue y que las aplicaciones permanezcan disponibles incluso si una o más instancias fallan.
-
-- **Auto Scaling**: Permite ajustar automáticamente la capacidad de las instancias EC2 en función de las condiciones definidas por el usuario. Esto significa que se pueden añadir o eliminar instancias según la demanda del tráfico, lo que ayuda a mantener el rendimiento óptimo y a controlar los costos operativos.
-
-La combinación de ambos permite crear arquitecturas altamente disponibles, resilientes, rentables y tolerantes a fallos, asegurando que la infraestructura responda adecuadamente a fluctuaciones del tráfico sin intervención manual.
-
 ### **2.2 - Elastic Load Balancing (ELB)**
 Elastic Load Balancing (ELB) es un servicio de AWS que distribuye automáticamente el tráfico entrante entre múltiples instancias de Amazon EC2, contenedores y direcciones IP en una o más zonas de disponibilidad. ELB ayuda a mejorar la disponibilidad y la tolerancia a fallos de las aplicaciones al garantizar que el tráfico se dirija solo a las instancias saludables. 
 
