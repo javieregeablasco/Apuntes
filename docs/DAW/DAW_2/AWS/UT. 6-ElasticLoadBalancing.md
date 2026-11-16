@@ -207,19 +207,22 @@ Una vez creada la infraestructura (VPC + subred + EC2 + IGW) iniciaremos las int
 
 - La combinación de ambos permite crear arquitecturas altamente disponibles, resilientes, rentables y tolerantes a fallos, asegurando que la infraestructura responda adecuadamente a fluctuaciones del tráfico sin intervención manual.
 
-# HASTA AQUI
-### **2.2 - Elastic Load Balancing (ELB)**
-Elastic Load Balancing (ELB) es un servicio de AWS que distribuye automáticamente el tráfico entrante entre múltiples instancias de Amazon EC2, contenedores y direcciones IP en una o más zonas de disponibilidad. ELB ayuda a mejorar la disponibilidad y la tolerancia a fallos de las aplicaciones al garantizar que el tráfico se dirija solo a las instancias saludables. 
+### 2.2 - Elastic Load Balancing (ELB)
 
-Dentro de ELB existen cuatro tipos de balanceadores, cada uno orientado a distintos casos de uso:
+- Elastic Load Balancing (ELB) es un servicio de AWS que distribuye automáticamente el tráfico entrante entre múltiples instancias de Amazon EC2, contenedores y direcciones IP en una o más zonas de disponibilidad.
+
+- ELB ayuda a mejorar la disponibilidad y la tolerancia a fallos de las aplicaciones al garantizar que el tráfico se dirija solo a las instancias saludables.
+
+- Dentro de ELB existen cuatro tipos de balanceadores, cada uno orientado a distintos casos de uso:
 
 | Tipo de balanceador                 | Capa OSI | Casos de uso principales                                                               |
-| - | - | - |
+| | | |
 | **Application Load Balancer (ALB)** | Capa 7   | Aplicaciones web HTTP/HTTPS, microservicios, routing basado en URLs o cabeceras        |
 | **Network Load Balancer (NLB)**     | Capa 4   | Tráfico TCP/UDP de alto rendimiento, baja latencia, millones de conexiones por segundo |
 | **Gateway Load Balancer (GWLB)**    | Capa 3   | Integración con firewalls, IDS/IPS y appliances de red                                 |
 | **Classic Load Balancer (CLB)**     | Capa 4/7 | Versión heredada; solo recomendado para aplicaciones antiguas                          |
 
+# HASTA AQUI
 #### **2.2.1 - Escenario propuesto**
 ![](../AWS/ut6/elb0.png){ .cincozero }<br>
 
