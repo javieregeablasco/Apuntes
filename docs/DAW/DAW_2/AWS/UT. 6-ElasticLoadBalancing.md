@@ -162,7 +162,7 @@ Una vez creada la infraestructura (VPC + subred + EC2 + IGW) iniciaremos las int
 #### 1.3.5 Pruebas de conexión
 
 - No conectamos a la instancia 1 (por consola o por SSH) y vemos al hacer ping, que hay comunicacion entre instancias a pesar de encontrarse en VPC's distintas (dentro de una misma región).
-  ![img](../AWS/ut6/TGW10.png){ .cincozero }
+  ![img](../AWS/ut6/TGW10.png){ .sietecinco .margintop10 .marginbottom20  }
 
 #### **1.3.6 - Pruebas adicionales**
 !!! exercise "Propargarse a otra instancia y comprobar si esa instancia tiene conexión a internet"
