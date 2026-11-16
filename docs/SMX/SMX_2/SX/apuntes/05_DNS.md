@@ -1923,10 +1923,10 @@ Pulsamos `Change` e introducimos el dominio definido en la primera máquina.
 ![Descripción de la imagen](./img_5/img_5_107.png){.margintop10 .marginbottom10 .marco }
 - Una vez finalizada la instalación, deberemos promocionar la máquina a controladora de dominio.
 ![Descripción de la imagen](./img_5/img_5_108.png){.margintop10 .marginbottom10 .marco }
-- Añadiremos el AD DS al dominio actual para crear redundancia entre controladores de dominio.
-==Realizar captura de pantalla==  
+- Añadiremos el AD DS al dominio actual para crear redundancia entre controladores de dominio.  
 ![Descripción de la imagen](./img_5/img_5_109.png){.margintop10 .marginbottom10 .marco }
-- Introducimos las credenciales de adminisdrador. Pueden ser las de ´Administrator´ o las de otro usuario con permisos de administrador.
+- Introducimos las credenciales de adminisdrador. Pueden ser las de ´Administrator´ o las de otro usuario con permisos de administrador.  
+==Realizar captura de pantalla==  
 ![Descripción de la imagen](./img_5/img_5_110.png){.margintop10 .marginbottom10 .marco }
 - Seleccionamos el dominio donde va a convivir este controlador de dominio.
 ![Descripción de la imagen](./img_5/img_5_189.png){.margintop10 .marginbottom10 .marco }
