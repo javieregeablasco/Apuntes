@@ -123,15 +123,18 @@ Una vez creada la infraestructura (VPC + subred + EC2 + IGW) iniciaremos las int
 
 # HASTA AQUI
 
-### **1.3 - Transit Gateway**  
+### 
+1.3 Transit Gateway
 Un AWS Transit Gateway (TGW) es un servicio de red de Amazon Web Services diseñado para interconectar de forma centralizada múltiples VPC, conexiones VPN, Direct Connect y redes on-premise dentro de **una misma región**. Actúa como **un router regional** de alto rendimiento, simplificando arquitecturas complejas y reduciendo la necesidad de crear múltiples VPC Peering.
 
-#### **1.3.1 - Escenario**
+#### 1.3.1 Escenario
+
 Para familiarizarnos con el Transit gateway de AWS, usaremos el siguiente escenario:
 
-![](../AWS/ut6/TGW1.png){ .cincozero }
+![img](../AWS/ut6/TGW1.png){ .sietecinco }
 
-#### **1.3.2 - Creación del transit gateway**
+#### 1.3.2 Creación del transit gateway
+
 Una vez implementada la arquitectura de red, pasaremos a crear y configurar el Transit gateway.
 
 ![](../AWS/ut6/TGW2.png){ .marco .ochocinco }<br>
