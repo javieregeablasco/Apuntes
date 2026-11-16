@@ -1851,6 +1851,7 @@ En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.
 ### 16.1 Lanzar una segunda instancia de Windows Server 2025
 
 - Lanzaremos una instancia nueva de Windows Server 2025 con las siguientes características. En este caso eligiremos una instancia de tipo t3.medium, al ser más económica (no ofrece virtualización).
+==Realizar captura de pantalla==  
 ![Descripción de la imagen](./img_5/img_5_90.png){.margintop10 .marginbottom10 .marco }
 
 !!! warning "Antes de definir totalemente la nueva instancia, comprobaremos la subred de la primera instancia de Windows Server"  
@@ -2083,9 +2084,6 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
     - Comentar las capturas de pantalla explicando el trabajo realizado para llegar a ese punto y el resultado obtenido.
     - A partir del momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
     - Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
-
-
-# HASTA AQUI
 
 1. Lanzar una instancia de Ubuntu server 26.04.
 1. Instalar GNOME para poder utilizar un navegador de internet.
