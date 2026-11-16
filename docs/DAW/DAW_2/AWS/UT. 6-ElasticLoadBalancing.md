@@ -151,16 +151,15 @@ Una vez creada la infraestructura (VPC + subred + EC2 + IGW) iniciaremos las int
 - Resultado final con las 3 conexiones creadas.  
   ![img](../AWS/ut6/TGW7.png){ .marco .cien .margintop10 .marginbottom20  }
 
+#### 1.3.4 - Modificar las tablas de enrutamiento de las VPC's
+
+- Podemos ver que AWS ha creado una tabla de enrutamiento para el TGW pero, no es aquí donde configuraremos las nuevas rutas sino en la tabla de enrutamiento de cada VPC.
+  ![img](../AWS/ut6/TGW8.png){ .marco .cien .margintop10 .marginbottom20 }
+
+- Tabla de enrutamiento de la VPC-1 (no es necesario ser tan restrictivo con las rutas ya que la propia conexión del TGW se ha creado para una VPC y una subred concreta).
+  ![img](../AWS/ut6/TGW9.png){ .marco .cien }
+
 # HASTA AQUI
-#### **1.3.4 - Modificar las tablas de enrutamiento de las VPC's**
-Podemos ver que AWS ha creado una tabla de enrutamiento para el TGW pero, no es aquí donde configuraremos las nuevas rutas sino en la tabla de enrutamiento de cada VPC.
-
-![img](../AWS/ut6/TGW8.png){ .marco .ochocinco }<br>
-
-Tabla de enrutamiento de la VPC-1 (no es necesario ser tan restrictivo con las rutas ya que la propia conexión del TGW se ha creado para una VPC y una subred concreta).
-
-![](../AWS/ut6/TGW9.png){ .marco .ochocinco }<br>
-
 #### **1.3.5 - Pruebas de conexión**
 No conectamos a la instancia 1 (por consola o por SSH) y vemos al hacer ping, que hay comunicacion entre instancias a pesar de encontrarse en VPC's distintas (dentro de una misma región).
 
