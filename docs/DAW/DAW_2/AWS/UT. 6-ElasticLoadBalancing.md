@@ -140,22 +140,22 @@ Una vez creada la infraestructura (VPC + subred + EC2 + IGW) iniciaremos las int
 - Nos esperaremos a que su estado pase de **pending** a **available**.
   ![img](../AWS/ut6/TGW4.png){ .marco .cien .margintop10  }
 
+#### 1.3.3 Conexiones del transit gateway
+
+- Como tenemos 3 VPC's necesitaremos crear 3 conexiones.
+  ![img](../AWS/ut6/TGW5.png){ .marco .cien .margintop10 .marginbottom20  }
+
+- Repetiremos este paso para las otras 2 VPC's.  
+  ![img](../AWS/ut6/TGW6.png){ .marco .cien .margintop10 .marginbottom20  }
+
+- Resultado final con las 3 conexiones creadas.  
+  ![img](../AWS/ut6/TGW7.png){ .marco .cien .margintop10 .marginbottom20  }
+
 # HASTA AQUI
-#### **1.3.3 - Conexiones del transit gateway**
-Como tenemos 3 VPC's necesitaremos crear 3 conexiones.
-
-![](../AWS/ut6/TGW5.png){ .marco .ochocinco }<br>
-Repetiremos este paso para las otras 2 VPC's.  
-
-![](../AWS/ut6/TGW6.png){ .marco .sietecinco }<br>
-Resultado final con las 3 conexiones creadas.  
-
-![](../AWS/ut6/TGW7.png){ .marco .sietecinco }<br>
-
 #### **1.3.4 - Modificar las tablas de enrutamiento de las VPC's**
 Podemos ver que AWS ha creado una tabla de enrutamiento para el TGW pero, no es aquí donde configuraremos las nuevas rutas sino en la tabla de enrutamiento de cada VPC.
 
-![](../AWS/ut6/TGW8.png){ .marco .ochocinco }<br>
+![img](../AWS/ut6/TGW8.png){ .marco .ochocinco }<br>
 
 Tabla de enrutamiento de la VPC-1 (no es necesario ser tan restrictivo con las rutas ya que la propia conexión del TGW se ha creado para una VPC y una subred concreta).
 
