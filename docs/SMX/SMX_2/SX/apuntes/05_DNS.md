@@ -1967,10 +1967,13 @@ Comprobaremos que las interfaces de red en cada instancia cumplen las reglas de 
 
 ### 16.7 Configuración de los reenviadores (fowarders)
 
-!!! question "¿Qué son los reenviadores?<br>¿Qué función desempeñan?"
+!!! question "==Responder a la pregunta=="
+    - ¿Qué son los reenviadores?
+    - ¿Qué función desempeñan?
 
 - También comprobaremos que los reenviadores están configurados correctamente.  
 Para ello, accederemos a las propiedades de los servidores DNS de nuestras máquinas.
+==Realizar captura de pantalla==  
 ![Descripción de la imagen](./img_5/img_5_117.png){.margintop10 .marginbottom10 }
 
 ### 16.8 Servidores DNS
