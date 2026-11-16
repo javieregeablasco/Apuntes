@@ -84,7 +84,7 @@ Una vez creada la infraestructura (VPC + subred + EC2 + IGW) iniciaremos las int
   
 - En la otra región aceptamos (o rechazamos la petición).
   ![img](../AWS/ut6/peering8.png){ .cien .marco .margintop10 .marginbottom20 }
-  ![img](../AWS/ut6/peering9.png){ .sietecinco .marco .margintop10 .marginbottom20 }
+  ![img](../AWS/ut6/peering9.png){ .leftsietecinco .marco .margintop10 .marginbottom20 }
 
 #### 1.2.3 Configuración de la interconexión
 
@@ -169,11 +169,10 @@ Una vez creada la infraestructura (VPC + subred + EC2 + IGW) iniciaremos las int
 !!! question "Propargarse a otra instancia y comprobar si esa instancia tiene conexión a internet"
     ¿Qué soluciones podriamos aplicar para que las instancias de la VPC-2 y VPC-3 tengan conexión a internet?
  
-# HASTA AQUI
-### **1.4 - Tarea RA3-CEd**
-Monta el siguiente escenario:
+### 1.4 Tarea RA3-CEd
 
-![](../AWS/ut6/RA3-CEd.png){ .sietecinco }<br>
+- Montar el siguiente escenario:
+  ![img](../AWS/ut6/RA3-CEd.png){ .sietecinco }<br>
 
 - Se trabajará en 2 regiones distintas (us-east-1 / N-Virginia y us-west-2 / Oregón). 
 - En cada región estarán ubicadas dos VPCs con sus correspondientes subredes interconectadas por un Transit Gateway. 
@@ -189,6 +188,7 @@ Monta el siguiente escenario:
 - Realizar capturas de la propagación y pings con éxito a todas las instancias del escenario (3 capturas de 3 pings cada una).
 
 
+# HASTA AQUI
 ## **2 - Equilibrado y escalado de infraestructuras**
 ### **2.1 - Introducción**
 En entornos de computación en la nube, el equilibrio de carga y el escalado automático son dos componentes esenciales para garantizar la disponibilidad, el rendimiento y la eficiencia de las aplicaciones y servicios. .
