@@ -226,27 +226,28 @@ Una vez creada la infraestructura (VPC + subred + EC2 + IGW) iniciaremos las int
 
 ![img](../AWS/ut6/elb0.png){ .sietezero }
 
-Antes de implementar el balanceador de carga, implementaremos la infraestructura base. Para ello contamos con los siguientes elementos:
+- Antes de implementar el balanceador de carga, implementaremos la infraestructura base.
+- Para ello contamos con los siguientes elementos:
 
-1. VPC denominada VPC-ELB
-    - Rango de direcciones (CIDR): 172.31.0.0/16
+    1. VPC denominada VPC-ELB
+        - Rango de direcciones (CIDR): 172.31.0.0/16
 
-1. Subred pública en la zona de disponibilidad “a”
-    - Nombre: SubRed-ELB-AZ-a
-    - Rango de direcciones (CIDR): 172.31.1.0/24
-1. Subred pública en la zona de disponibilidad “c”
-    - Nombre: SubRed-ELB-AZ-c
-    - Rango de direcciones (CIDR): 172.31.2.0/24
-1. Instancias EC2 disponibles para el balanceo
-    - HelloWorld
-    - HelloParadise
-    - Ambas instancias:
-        - Se encuentran en zonas de disponibilidad distintas (una en a y otra en c)
-        - Disponen de IP pública para permitir el acceso externo 
+    1. Subred pública en la zona de disponibilidad “a”.
+        - Nombre: SubRed-ELB-AZ-a.
+        - Rango de direcciones (CIDR): 172.31.1.0/24
+    1. Subred pública en la zona de disponibilidad “c”.
+        - Nombre: SubRed-ELB-AZ-c.
+        - Rango de direcciones (CIDR): 172.31.2.0/24.
+    1. Instancias EC2 disponibles para el balanceo.
+        - HelloWorld
+        - HelloParadise
+        - Ambas instancias:
+          - Se encuentran en zonas de disponibilidad distintas (una en a y otra en c).
+          - Disponen de IP pública para permitir el acceso externo.
 
 # HASTA AQUI
 #### **2.2.2 - Instancias EC2**
-A diferencia de las otras prácticas donde solo lanzabamos las instancias sin hacer nada con ellas, en esta instalaremos un servidor web y un archivo indiex.html para comprobar el correcto funcionamiento del equilibrador de carga.
+A diferencia de las otras prácticas donde solo lanzabamos las instancias sin hacer nada con ellas, en esta instalaremos un servidor web y un archivo index.html para comprobar el correcto funcionamiento del equilibrador de carga.
 
 !!! tip "Paso 1 - Detalles avanzados" 
 Durante el lanzado de la instancia EC2 buscar el apartado **Detalles avanzados**.
