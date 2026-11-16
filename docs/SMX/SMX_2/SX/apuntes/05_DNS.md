@@ -1986,12 +1986,14 @@ Para ello, accederemos a las propiedades de los servidores DNS de nuestras máqu
 
 !!! tip "DomainDnsZones (Zonas integradas en el dominio)"
     - **Ámbito de replicación:** Todos los Controladores de Dominio (DC) que pertenecen a un dominio específico (ad.practicadns.es).
-    - **Qué almacena:** Contiene zonas DNS cuya información de registro debe replicarse únicamente entre los DC de ese mismo dominio. Los controladores de dominio de otros dominios del bosque (si fuera un bosque multidominio) no reciben esta información.
+    - **Qué almacena:** Contiene zonas DNS cuya información de registro debe replicarse únicamente entre los DC de ese mismo dominio. Los controladores de dominio de otros dominios del bosque (si fuera un bosque multidominio) no reciben esta información.  
+    ==Realizar captura de pantalla==  
     ![Descripción de la imagen](./img_5/img_5_193.png){.margintop10 .marginbottom10 .marco }
 
 !!! tip "ForestDnsZones (Zonas integradas en el bosque)"
     - **Ámbito de replicación:** Todos los Controladores de Dominio de todo el bosque de Active Directory (es decir, abarca todos los dominios que forman parte de la estructura global).
-    - **Qué almacena:** Zonas DNS y registros que necesitan estar disponibles y sincronizados en todo el bosque.
+    - **Qué almacena:** Zonas DNS y registros que necesitan estar disponibles y sincronizados en todo el bosque.  
+    ==Realizar captura de pantalla==  
     ![Descripción de la imagen](./img_5/img_5_194.png){.margintop10 .marginbottom10 .marco}
 
 ### 16.9 Descubriendo las herramientas de gestión de AD DS
