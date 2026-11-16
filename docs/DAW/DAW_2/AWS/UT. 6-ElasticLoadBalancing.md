@@ -184,9 +184,16 @@ Una vez creada la infraestructura (VPC + subred + EC2 + IGW) iniciaremos las int
 - Rellenaremos los campos con los datos de nuestros **transit gateways**.
   ![img](../AWS/ut6/TGW12.png){ .marco .cien .margintop10 .marginbottom20  }
 
-- Conectarse a la instancia 1 y realizar capturas de pings al resto de instancias (1 captura + 3 pings). 
-- Realizar capturas de la propagación y pings con éxito a todas las instancias del escenario (3 capturas de 3 pings cada una).
+!!! warning "Entrega de la tarea"
+    - **Realizar capturas de pantalla de los momentos clave de la realización de la tarea**.
+    - Comentar las captura de pantalla explicando el trabajo realizado para llegar a ese punto y el resultado obtenido.
+    - Guardar el documento con RA3-CEc-NombreApellidos y subirlo a la tarea correspondiente de Aules.
+    - A partir de momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
+    - Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
 
+    !!! note "Capturas de pantalla mínimas a adjuntar"
+        - Conectarse a la instancia 1 y realizar capturas de pings al resto de instancias (1 captura + 3 pings). 
+        - Realizar capturas de la propagación y pings con éxito a todas las instancias del escenario (3 capturas de 3 pings cada una).
 
 # HASTA AQUI
 ## **2 - Equilibrado y escalado de infraestructuras**
