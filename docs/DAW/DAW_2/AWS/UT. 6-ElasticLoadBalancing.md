@@ -134,8 +134,8 @@ Una vez creada la infraestructura (VPC + subred + EC2 + IGW) iniciaremos las int
 #### 1.3.2 Creación del transit gateway
 
 - Una vez implementada la arquitectura de red, pasaremos a crear y configurar el Transit gateway.  
-  ![img](../AWS/ut6/TGW2.png){ .marco .cien .marginbottom20 }
-  ![img](../AWS/ut6/TGW3.png){ .marco .cien .margintop10 .marginbottom20 }
+  ![img](../AWS/ut6/TGW2.png){ .marco .cien .margintop10 .marginbottom20 }
+  ![img](../AWS/ut6/TGW3.png){ .marco .cien  .marginbottom20 }
 
 - Nos esperamos  a que su estado pase de **pending** a **available**.
 
