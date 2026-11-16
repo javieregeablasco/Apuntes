@@ -137,9 +137,8 @@ Una vez creada la infraestructura (VPC + subred + EC2 + IGW) iniciaremos las int
   ![img](../AWS/ut6/TGW2.png){ .marco .cien .margintop10 .marginbottom20 }
   ![img](../AWS/ut6/TGW3.png){ .marco .cien  .marginbottom20 }
 
-- Nos esperamos  a que su estado pase de **pending** a **available**.
-
-![img](../AWS/ut6/TGW4.png){ .marco .ochocinco }
+- Nos esperaremos a que su estado pase de **pending** a **available**.
+  ![img](../AWS/ut6/TGW4.png){ .marco .cien .margintop10  }
 
 # HASTA AQUI
 #### **1.3.3 - Conexiones del transit gateway**
