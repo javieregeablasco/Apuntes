@@ -1851,7 +1851,6 @@ En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.
 ### 16.1 Lanzar una segunda instancia de Windows Server 2025
 
 - Lanzaremos una instancia nueva de Windows Server 2025 con las siguientes características. En este caso eligiremos una instancia de tipo t3.medium, al ser más económica (no ofrece virtualización).
-==Realizar captura de pantalla==  
 ![Descripción de la imagen](./img_5/img_5_90.png){.margintop10 .marginbottom10 .marco }
 
 !!! warning "Antes de definir totalemente la nueva instancia, comprobaremos la subred de la primera instancia de Windows Server"  
@@ -1877,6 +1876,7 @@ En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.
 ### 16.3 Configuración previa de la instancia
 
 - Nos conectamos a la instancia 2 (ServidorDNS-2) y cambiamos el nombre de la máquina a **Servidor-DNS-2**.  
+==Realizar captura de pantalla==  
 ![Descripción de la imagen](./img_5/img_5_94.png){.margintop10 .marginbottom10  }
 
 - Configuraremos la interfaz de red de la instancia de la siguiente manera:
@@ -1886,6 +1886,7 @@ En la consola de AWS, lanzaremos una nueva instancia EC2 con Ubuntu 22.04.
     1. **Preferred DNS server**: `<IP privada de la otra instancia>`.
     1. **Alternate DNS server**: `<IP privada de nuestra instancia>`.
     1. Al final obtendremos un resultado similar al de la imagen.  
+    ==Realizar captura de pantalla==  
     ![Descripción de la imagen](./img_5/img_5_195.png){.margintop10 .marginbottom10  }
 
 <!-- - Agregamos la instancia al dominio definido en nuestra primera máquina (ServidorDNS).  
