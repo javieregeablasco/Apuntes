@@ -164,9 +164,10 @@ Una vez creada la infraestructura (VPC + subred + EC2 + IGW) iniciaremos las int
 - No conectamos a la instancia 1 (por consola o por SSH) y vemos al hacer ping, que hay comunicacion entre instancias a pesar de encontrarse en VPC's distintas (dentro de una misma región).
   ![img](../AWS/ut6/TGW10.png){ .sietecinco .margintop10 .marginbottom20  }
 
-#### **1.3.6 - Pruebas adicionales**
+#### 1.3.6 Pruebas adicionales
+
 !!! exercise "Propargarse a otra instancia y comprobar si esa instancia tiene conexión a internet"
-    ¿Qué soluciones podemos aplicar para que las instancias de la VPC-2 y VPC-3 tengan conexión a internet?
+    ¿Qué soluciones podriamos aplicar para que las instancias de la VPC-2 y VPC-3 tengan conexión a internet?
  
 # HASTA AQUI
 ### **1.4 - Tarea RA3-CEd**
