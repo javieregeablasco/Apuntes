@@ -222,9 +222,9 @@ Una vez creada la infraestructura (VPC + subred + EC2 + IGW) iniciaremos las int
 | **Gateway Load Balancer (GWLB)**    | Capa 3   | Integración con firewalls, IDS/IPS y appliances de red                                 |
 | **Classic Load Balancer (CLB)**     | Capa 4/7 | Versión heredada; solo recomendado para aplicaciones antiguas                          |
 
-# HASTA AQUI
-#### **2.2.1 - Escenario propuesto**
-![](../AWS/ut6/elb0.png){ .cincozero }<br>
+#### 2.2.1 Escenario propuesto
+
+![img](../AWS/ut6/elb0.png){ .sietezero }
 
 Antes de implementar el balanceador de carga, implementaremos la infraestructura base. Para ello contamos con los siguientes elementos:
 
@@ -244,6 +244,7 @@ Antes de implementar el balanceador de carga, implementaremos la infraestructura
         - Se encuentran en zonas de disponibilidad distintas (una en a y otra en c)
         - Disponen de IP pública para permitir el acceso externo 
 
+# HASTA AQUI
 #### **2.2.2 - Instancias EC2**
 A diferencia de las otras prácticas donde solo lanzabamos las instancias sin hacer nada con ellas, en esta instalaremos un servidor web y un archivo indiex.html para comprobar el correcto funcionamiento del equilibrador de carga.
 
