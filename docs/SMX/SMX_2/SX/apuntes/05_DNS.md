@@ -2124,7 +2124,105 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
     - A partir del momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
     - Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
 
-## 18 - 
+## 18 - Tarea RA2-CEh - Comprobar el comportamiento DNS de las 3 zonas
+
+- En esta tarea realizaremos comprobaciones básicas de DNS en un bosque con dominios hijo
+
+- Si todo ha ido bien, el resultado final será como el siguiente
+![img](./img_5/img_5_206.png){.margintop10 .marginbottom20 .cien}
+
+!!! warning "Deberás cambiar la IPs de los comandos por las que correspondan en tu laboratorio"
+
+- Cada dominio tiene su propia zona DNS. La zona padre sabe dónde están las zonas hijas porque tiene una delegación (un registro NS que dice “para alumnos, pregunta a ADDS-Alumnos”).
+
+- Las pruebas se harán con **ipconfig** y **nslookup**. 
+
+### 18.2 Prueba 1 ¿Qué DNS estoy usando?
+
+-Usaremos el conmando
+
+    ```bash
+    ipconfig /all
+    ```
+
+Busca la línea **Servidores DNS**. En un servidor del dominio profesores, debe aparecer una IP de un servidor DNS del propio dominio.
+
+Si el DNS es 8.8.8.8 o el router, el equipo no encontrará el dominio.
+
+Prueba 2: ¿Hay conexión con los servidores?
+ping 172.31.33.127
+ping 172.31.40.94
+ping 172.31.47.142
+ping 172.31.33.153
+
+Si responden, la red funciona. Si no responden, el problema es de red (cable, IP, firewall) y no de DNS. Que no responda a ping puede ser el firewall, así que esta prueba no es concluyente por sí sola.
+
+Prueba 3: ¿Resuelve el nombre de cada servidor?
+nslookup servidor-dns.ad.practicadns.es
+nslookup adds-alumnos.alumnos.ad.practicadns.es
+nslookup adds-profesores.profesores.ad.practicadns.es
+
+Cada comando debe devolver la IP del servidor. Si sale Non-existent domain, ese DNS no sabe resolver esa zona.
+
+Prueba 4: ¿Se resuelven las tres zonas desde un mismo servidor?
+
+Ejecuta las tres consultas preguntando a un solo servidor, por ejemplo ADDS-Profesores:
+
+nslookup adds-profesores.profesores.ad.practicadns.es 172.31.33.153
+nslookup adds-alumnos.alumnos.ad.practicadns.es 172.31.33.153
+nslookup servidor-dns.ad.practicadns.es 172.31.33.153
+
+Todas deben dar respuesta. Esta prueba es la más importante: demuestra que un servidor de profesores es capaz de encontrar la zona hermana (alumnos) y la zona padre.
+
+Qué mirar en la respuesta:
+
+Si pone “Respuesta no autoritativa”, el servidor no es el dueño de esa zona y ha obtenido la respuesta preguntando a otro o de su memoria (caché).
+Si no pone nada, el servidor es el autoritativo de esa zona.
+
+Así se ve qué servidor es el dueño de cada zona.
+
+Prueba 5: ¿Quién es el servidor DNS de cada zona? (delegaciones)
+nslookup -type=NS ad.practicadns.es
+nslookup -type=NS alumnos.ad.practicadns.es
+nslookup -type=NS profesores.ad.practicadns.es
+
+Debes ver qué servidor o servidores gestionan cada zona:
+
+Zona	Servidor(es) esperado(s)
+ad.practicadns.es	servidor-dns y servidor-dns-2
+alumnos.ad.practicadns.es	ADDS-Alumnos
+profesores.ad.practicadns.es	ADDS-Profesores
+Prueba 6: ¿Están los registros que usa Active Directory?
+
+Un controlador de dominio publica en el DNS unos registros especiales (SRV) para que los equipos lo encuentren. Si faltan, nadie puede unirse al dominio.
+
+nslookup -type=SRV _ldap._tcp.dc._msdcs.profesores.ad.practicadns.es
+nslookup -type=SRV _kerberos._tcp.profesores.ad.practicadns.es
+
+Deben aparecer el nombre del controlador de dominio y su puerto (389 para LDAP, 88 para Kerberos). Repite con alumnos y con ad.
+
+Prueba 7: Si algo falla, limpia la caché y repite
+ipconfig /flushdns
+
+El equipo guarda respuestas antiguas durante un tiempo. Si acabas de cambiar algo y la prueba sigue dando el resultado viejo, vacía la caché y vuelve a probar.
+
+Resumen para el alumno
+Prueba	Pregunta que responde	Si falla, mira...
+1. ipconfig /all	¿Qué DNS uso?	La configuración de red
+2. ping	¿Llego al servidor?	Cables, IP, firewall
+3. nslookup de nombres	¿Resuelve nombres?	Que el servicio DNS esté activo
+4. Consultas a un solo servidor	¿Conoce las 3 zonas?	Delegaciones y reenviadores
+5. -type=NS	¿Quién gestiona cada zona?	Las delegaciones
+6. -type=SRV	¿Se pueden encontrar los controladores?	Que el servicio Netlogon registre los SRV
+7. ipconfig /flushdns	¿Es un dato antiguo?	La caché
+
+
+
+<!-- 
+### 18.1 Objetivos
+
+- En esta práctica añadiremos un cliente Ubuntu Server 26.04 al dominio `alumnos.ad.practicadns.es` y comprobaremos que puede autenticarse correctamente. -->
+
 <!--
 ## 16 - Tarea RA2-CEde-2 - Instalación y configuración de un servidor DNS con BIND9 en Ubuntu Server 26.04 LTS
 
