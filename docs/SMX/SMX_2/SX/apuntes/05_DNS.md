@@ -2083,7 +2083,7 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
         - DNS alternativo: 172.31.`XX`.`XX` (Servidor-DNS, dominio padre)
 
 !!! tip "Resultado esperado (instancia ADDS-alumnos)"
-    ==Realizar captura de pantalla para ADDS-alumnos y ADDS-profesor==
+    ==Realizar captura de pantalla para ADDS-alumnos y ADDS-profesor==  
     ![img](./img_5/img_5_162.png){.margintop10 .marginbottom20 .cincozero}
 
 ### 17.4 Roles AD DS + DNS a las instancias
@@ -2094,13 +2094,14 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
 ![img](./img_5/img_5_179.png){.margintop10 .marginbottom20 .sietecinco}
 
 - Luego promocionaremos la instancia a controladora de dominio **añadiendo el dominio de la instancia al bosque existente**.  
-==Realizar captura de pantalla para ADDS-alumnos y ADDS-profesor==
+==Realizar captura de pantalla para ADDS-alumnos y ADDS-profesor==  
 ![img](./img_5/img_5_160.png){.margintop10 .marginbottom20 .sietecinco}
 - Introducimos una contraseña de recuperación ante catástrofes.
 ![img](./img_5/img_5_180.png){.margintop10 .marginbottom20 .sietecinco}
 - Esperaremos a que se cargue el NetBIOS domain name.
 ![img](./img_5/img_5_181.png){.margintop10 .marginbottom20 .sietecinco}
-- Comprobaremos que no existan impedimientos graves para terminar la promoción de la instancia a controladora de dominio.
+- Comprobaremos que no existan impedimientos graves para terminar la promoción de la instancia a controladora de dominio.  
+==Realizar captura de pantalla para ADDS-alumnos y ADDS-profesor==  
 ![img](./img_5/img_5_182.png){.margintop10 .marginbottom20 .sietecinco}
 
 ### 17.XX Entrega de la tarea
