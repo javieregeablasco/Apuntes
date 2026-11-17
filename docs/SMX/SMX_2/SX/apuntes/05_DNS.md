@@ -2103,8 +2103,14 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
 - Comprobaremos que no existan impedimientos graves para terminar la promoción de la instancia a controladora de dominio.  
 ==Realizar captura de pantalla para ADDS-alumnos y ADDS-profesor==  
 ![img](./img_5/img_5_182.png){.margintop10 .marginbottom20 .sietecinco}
+- Una vez finalizada la promoción, comprobaremos que las 2 instancias se han añadido correctamente al dominio `ad.practicadns.es` y que los roles de AD DS y DNS se han instalado correctamente.  
+Estado del servicio AD DS en la instancia Servidor-DNS.
+==Realizar captura de pantalla desde Servidor-DNS==
+![img](./img_5/img_5_199.png){.margintop10 .marginbottom20 .sietecinco}
+Estado del servicio DNS en la instancia Servidor-DNS.
+![img](./img_5/img_5_199_1.png){.margintop10 .marginbottom20 .sietecinco}
 
-### 17.XX Entrega de la tarea
+### 17.5 Entrega de la tarea
 
 !!! warning "Entrega de la tarea"
 
