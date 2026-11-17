@@ -2137,8 +2137,6 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
 
 - Cada dominio tiene su propia zona DNS. La zona padre sabe dónde están las zonas hijas porque tiene una delegación (un registro NS que dice “para alumnos, pregunta a ADDS-Alumnos”).
 
-- Las pruebas se harán con **ipconfig** y **nslookup**.
-
 ### 18.2 Prueba 1 ¿Qué DNS estoy usando?
 
 - Para determinar qué DNS estamos usando, utilizaremos el comando
@@ -2147,21 +2145,26 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
       ipconfig /all
       ```
 
-Busca la línea **DNS Servers**. En un servidor del dominio profesores, debe aparecer una IP de un servidor DNS del propio dominio.
+- Buscar la línea **DNS Servers**. En un servidor del dominio profesores, debe aparecer una IP de un servidor DNS del propio dominio.
+![img](./img_5/img_5_207.png){.margintop10 .marginbottom20 .cien}
 
-Si el DNS es 8.8.8.8 o el router, el equipo no encontrará el dominio.
+!!! warning "Repetir este comando una vez por cada dominio"
 
+### 18.3 Prueba 2: ¿Hay conexión con los servidores?
 
+- Desde cuaqluier instancia realizar un ping al resto de servidores:
 
-<!--
-Prueba 2: ¿Hay conexión con los servidores?
-ping 172.31.33.127
-ping 172.31.40.94
-ping 172.31.47.142
-ping 172.31.33.153
+      
+      ```bash
+      ping 172.31.33.127
+      ping 172.31.40.94
+      ping 172.31.47.142
+      ping 172.31.33.153
+      ```
 
 Si responden, la red funciona. Si no responden, el problema es de red (cable, IP, firewall) y no de DNS. Que no responda a ping puede ser el firewall, así que esta prueba no es concluyente por sí sola.
 
+<!--
 Prueba 3: ¿Resuelve el nombre de cada servidor?
 nslookup servidor-dns.ad.practicadns.es
 nslookup adds-alumnos.alumnos.ad.practicadns.es
