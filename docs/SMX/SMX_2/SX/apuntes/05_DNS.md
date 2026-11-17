@@ -2124,6 +2124,8 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
     - A partir del momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
     - Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
 
+# HASTA AQUI
+
 ## 18 - Tarea RA2-CEh - Comprobar el comportamiento DNS de las 3 zonas
 
 - En esta tarea realizaremos comprobaciones básicas de DNS en un bosque con dominios hijo
@@ -2135,20 +2137,23 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
 
 - Cada dominio tiene su propia zona DNS. La zona padre sabe dónde están las zonas hijas porque tiene una delegación (un registro NS que dice “para alumnos, pregunta a ADDS-Alumnos”).
 
-- Las pruebas se harán con **ipconfig** y **nslookup**. 
+- Las pruebas se harán con **ipconfig** y **nslookup**.
 
 ### 18.2 Prueba 1 ¿Qué DNS estoy usando?
 
--Usaremos el conmando
+- Para determinar qué DNS estamos usando, utilizaremos el comando
 
-    ```bash
-    ipconfig /all
-    ```
+      ```bash
+      ipconfig /all
+      ```
 
-Busca la línea **Servidores DNS**. En un servidor del dominio profesores, debe aparecer una IP de un servidor DNS del propio dominio.
+Busca la línea **DNS Servers**. En un servidor del dominio profesores, debe aparecer una IP de un servidor DNS del propio dominio.
 
 Si el DNS es 8.8.8.8 o el router, el equipo no encontrará el dominio.
 
+
+
+<!--
 Prueba 2: ¿Hay conexión con los servidores?
 ping 172.31.33.127
 ping 172.31.40.94
@@ -2216,7 +2221,7 @@ Prueba	Pregunta que responde	Si falla, mira...
 6. -type=SRV	¿Se pueden encontrar los controladores?	Que el servicio Netlogon registre los SRV
 7. ipconfig /flushdns	¿Es un dato antiguo?	La caché
 
-
+-->
 
 <!-- 
 ### 18.1 Objetivos
