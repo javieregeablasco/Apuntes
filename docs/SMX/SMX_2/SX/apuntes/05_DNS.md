@@ -2093,7 +2093,8 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
 - Añadiremos los roles a nuestras instancias.
 ![img](./img_5/img_5_179.png){.margintop10 .marginbottom20 .sietecinco}
 
-- Luego promocionaremos la instancia a controladora de dominio **añadiendo el dominio de la instancia al bosque existente**.
+- Luego promocionaremos la instancia a controladora de dominio **añadiendo el dominio de la instancia al bosque existente**.  
+==Realizar captura de pantalla para ADDS-alumnos y ADDS-profesor==
 ![img](./img_5/img_5_160.png){.margintop10 .marginbottom20 .sietecinco}
 - Introducimos una contraseña de recuperación ante catástrofes.
 ![img](./img_5/img_5_180.png){.margintop10 .marginbottom20 .sietecinco}
