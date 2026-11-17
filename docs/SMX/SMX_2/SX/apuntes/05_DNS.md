@@ -2164,14 +2164,17 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
     ==Realizar captura de pantalla==
     ![img](./img_5/img_5_208.png){.margintop10 .marginbottom20 .sietezero}
 
+---
+
 - Desde Servidor-DNS-2 realizar un ping al resto de servidores:
 
       ```bash
       ping 172.31.47.142
       ping 172.31.33.153
       ```
-
     ==Realizar captura de pantalla==
+
+---
 
 - Desde ADDS-Alumnos (o ADDS-Profesores) realizar un ping al resto de servidores:
 
