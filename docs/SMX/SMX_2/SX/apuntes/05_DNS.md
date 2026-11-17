@@ -2065,7 +2065,8 @@ Para ello, accederemos a las propiedades de los servidores DNS de nuestras máqu
 
 ### 17.2 Cambiar nombre de las instancias
 
-Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
+Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`  
+==Realizar captura de pantalla==
 ![img](./img_5/img_5_176.png){.margintop10 .marginbottom20 .seiscinco}
 
 ### 17.3 Configurar las interfaces de red de las instancias
@@ -2082,6 +2083,7 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
         - DNS alternativo: 172.31.`XX`.`XX` (Servidor-DNS, dominio padre)
 
 !!! tip "Resultado esperado (instancia ADDS-alumnos)"
+    ==Realizar captura de pantalla para ADDS-alumnos y ADDS-profesor==
     ![img](./img_5/img_5_162.png){.margintop10 .marginbottom20 .cincozero}
 
 ### 17.4 Roles AD DS + DNS a las instancias
