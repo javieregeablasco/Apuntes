@@ -2104,10 +2104,10 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
 ==Realizar captura de pantalla para ADDS-alumnos y ADDS-profesor==  
 ![img](./img_5/img_5_182.png){.margintop10 .marginbottom20 .sietecinco}
 - Una vez finalizada la promoción, comprobaremos que las 2 instancias se han añadido correctamente al dominio `ad.practicadns.es` y que los roles de AD DS y DNS se han instalado correctamente.  
-Estado del servicio AD DS en la instancia Servidor-DNS.
-==Realizar captura de pantalla desde Servidor-DNS==
+Estado del servicio AD DS en la instancia Servidor-DNS.  
+==Realizar captura de pantalla desde Servidor-DNS==  
 ![img](./img_5/img_5_199.png){.margintop10 .marginbottom20 .sietecinco}
-Estado del servicio DNS en la instancia Servidor-DNS.
+Estado del servicio DNS en la instancia Servidor-DNS.  
 ![img](./img_5/img_5_199_1.png){.margintop10 .marginbottom20 .sietecinco}
 
 ### 17.5 Entrega de la tarea
@@ -2121,10 +2121,7 @@ Estado del servicio DNS en la instancia Servidor-DNS.
     - A partir del momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
     - Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
 
-1. Lanzar una instancia de Ubuntu server 26.04.
-1. Instalar GNOME para poder utilizar un navegador de internet.
-1. Configurar la IP de la instancia y el DNS preferido apuntando a la IP de la primera instancia de Windows Server.
-1. Abrir un navegador y comprobar que podemos navegar por internet y que la resolución de nombres funciona correctamente.
+## 18 - 
 <!--
 ## 16 - Tarea RA2-CEde-2 - Instalación y configuración de un servidor DNS con BIND9 en Ubuntu Server 26.04 LTS
 
