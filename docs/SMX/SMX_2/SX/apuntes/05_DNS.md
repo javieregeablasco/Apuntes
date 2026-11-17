@@ -2162,7 +2162,7 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
       ```
 
     ==Realizar captura de pantalla==
-    ![img](./img_5/img_5_208.png){.margintop10 .marginbottom20 .cien}
+    ![img](./img_5/img_5_208.png){.margintop10 .marginbottom20 .sietezero}
 
 - Desde Servidor-DNS-2 realizar un ping al resto de servidores:
 
