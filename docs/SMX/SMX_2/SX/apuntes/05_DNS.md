@@ -2149,20 +2149,37 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
 ![img](./img_5/img_5_207.png){.margintop10 .marginbottom20 .cien}
 
 !!! warning "Repetir este comando una vez por cada dominio"
+    ==Realizar captura de pantalla de los 3 ´ipconfig /all´==
 
 ### 18.3 Prueba 2: ¿Hay conexión con los servidores?
 
-- Desde cuaqluier instancia realizar un ping al resto de servidores:
+- Desde Servidor-DNS realizar un ping al resto de servidores:
 
-      
       ```bash
-      ping 172.31.33.127
       ping 172.31.40.94
       ping 172.31.47.142
       ping 172.31.33.153
       ```
 
-Si responden, la red funciona. Si no responden, el problema es de red (cable, IP, firewall) y no de DNS. Que no responda a ping puede ser el firewall, así que esta prueba no es concluyente por sí sola.
+    ==Realizar captura de pantalla==
+    ![img](./img_5/img_5_208.png){.margintop10 .marginbottom20 .cien}
+
+- Desde Servidor-DNS-2 realizar un ping al resto de servidores:
+
+      ```bash
+      ping 172.31.47.142
+      ping 172.31.33.153
+      ```
+
+    ==Realizar captura de pantalla==
+
+- Desde ADDS-Alumnos (o ADDS-Profesores) realizar un ping al resto de servidores:
+
+      ```bash
+      ping 172.31.33.153
+      ```
+
+    ==Realizar captura de pantalla==
 
 <!--
 Prueba 3: ¿Resuelve el nombre de cada servidor?
