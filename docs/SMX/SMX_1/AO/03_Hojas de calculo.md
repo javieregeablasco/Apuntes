@@ -272,30 +272,31 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
         1. A partir del momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
         1. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas. 
 
-### HASTA AQUI
+### Tarea RA3-CEc-1 - Datos, columnas y referencias de celdas
 
-### **Tarea RA3-CEc-1 - Datos, columnas y referencias de celdas**
 !!! exercice "Tarea RA3-CEc-1 - Trabajando con formatos celdas"
     !!! tip "1. Descargar el archivo"
-     Descargar y abrir el archivo 'RA3-CEc-1' pinchando en el enlace siguiente: [Descargar archivo](./03_hojas_de_calculo/tareas/RA3-CEc-1%20alumno.ods)  
-    
+        - Descargar y abrir el archivo 'RA3-CEc-1' pinchando en el enlace siguiente: [Descargar archivo](./03_hojas_de_calculo/tareas/RA3-CEc-1%20alumno.ods)  
+
     !!! tip "2. Realizar un diseño similar al del ejemplo"  
-    Teneis **libertad total** en cuanto a anchos, altos, bordes, colores y ancho del bordes columnas así como tamaño color tipo de letra y fondo de celdas.  
+        - Teneis **libertad total** en cuanto a anchos, altos, bordes, colores y ancho del bordes columnas así como tamaño color tipo de letra y fondo de celdas.  
 
-    **Nota importante:** Cosas a tener en cuenta para realizar el diseño.  
-    &emsp; Fila 1: Datos centrados tanto verticalmente como horizontalmente.  
-    &emsp;&emsp;&emsp;&emsp; Bordes personalizados.    
-    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc19.png){ .leftsietecinco .marginseiszero }<br>   
+        !!! warning "Cosas a tener en cuenta para realizar el diseño"
+            - Fila 1: 
+                - Datos centrados tanto verticalmente como horizontalmente.  
+                - Bordes personalizados.    
+                ![Descripción de la imagen](./03_hojas_de_calculo/img/calc19.png){ .leftsietecinco .marginseiszero }<br>   
 
-    &emsp; Filas datos: Sangrías (o márgenes) a la izquierda o a la derecha.
-    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc20.png){ .leftsietecinco .marginseiszero }<br>   
+                - Filas datos: 
+                    - Sangrías (o márgenes) a la izquierda o a la derecha.
+                    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc20.png){ .leftsietecinco .marginseiszero }<br>   
 
-    &emsp; Formato de datos: Fechas, moneda, hora...
-    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc22.png){ .leftsietecinco .marginseiszero }<br>   
+                    - Formato de datos: Fechas, moneda, hora...
+                    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc22.png){ .leftsietecinco .marginseiszero }<br>   
 
 
-    &emsp; Resultado final.
-    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc21.png){ .leftsietecinco .marginseiszero }<br>   
+                - Resultado final.  
+                ![Descripción de la imagen](./03_hojas_de_calculo/img/calc21.png){ .leftsietecinco .marginseiszero }<br>   
     !!! tip "3. Insertar una columna de segundo apellido"  
     Insertar una columna de segundo apellido para que quede de la siguiente manera (ojo con la cabecera de la columna).
     ![Descripción de la imagen](./03_hojas_de_calculo/img/calc23.png){ .leftcuatrocero .marginseiszero }<br>   
@@ -352,6 +353,16 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
 
     !!! tip "9. Aspecto final de la práctica""
     ![Descripción de la imagen](./03_hojas_de_calculo/img/calc29.png){ .leftoriginal }<br>   
+
+
+    !!! warning "Entrega de la tarea"
+        1. Guardar vuestra tarea como **RA3-CEc-1-NombreApellidosAlumno**.
+        1. Subir vuestra tarea a la tarea correspondiente de aules.  
+        1. Los archivos a subir deberán ser de tipo OpenDocument Spreasheet (.ods) (formato predeterminado de LibreOffice Calc).  
+        1. **No se aceptará ningún otro formato de archivo**.
+        1. A partir del momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
+        1. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas. 
+### HASTA AQUI
 
 ### **Tarea RA3-CEc-2 - Formúlas básicas, referencias de celdas, relativas, absolutas y mixtas**
 !!! exercice "Tarea RA3-CEc-2 - Trabajando con celdas"
