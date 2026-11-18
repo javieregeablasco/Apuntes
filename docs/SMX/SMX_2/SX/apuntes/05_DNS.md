@@ -2327,11 +2327,11 @@ ping 172.31.33.153
 
 **c) Desde ADDS-Alumnos**, haz ping a ADDS-Profesores:
 
+==REALIZAR CAPTURA DE PANTALLA==  
 ```bash
 ping 172.31.33.153
 ```
 
-==REALIZAR CAPTURA DE PANTALLA==  
 
 ### 18.4 ¿Resuelve el nombre de cada servidor?
 
