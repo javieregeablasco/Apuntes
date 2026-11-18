@@ -289,13 +289,13 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
 
             - **Filas datos:** 
                 - Sangrías (o márgenes) a la izquierda o a la derecha.  
-                    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc20.png){ .leftsietecinco  }    
+                    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc20.png){ .leftsietecinco .margintop10 .marginbottom20}    
 
                 - Formato de datos: Fechas, moneda, hora...  
-                    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc22.png){ .leftsietecinco  }  
+                    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc22.png){ .leftsietecinco .margintop10 .marginbottom20 }  
 
             - **Resultado final.**  
-            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc21.png){ .cien  }  
+            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc21.png){ .cien .margintop10 .marginbottom20 }  
    
    
     !!! tip "3. Insertar una columna de segundo apellido"  
