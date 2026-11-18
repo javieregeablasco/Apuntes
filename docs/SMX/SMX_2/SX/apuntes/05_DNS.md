@@ -2433,12 +2433,10 @@ Antes de entregar la tarea, verifica que tienéis **todas** estas capturas:
 | 18.7 | 3 | 2 consultas SRV por dominio |
 | **Total** | **14** | |
 
+### 19 Añadir un cliente Ubuntu Server 26.04 al dominio y ver la registros DNS
 
-# HASTA AQUI
-<!-- 
-### 18.1 Objetivos
-
-- En esta práctica añadiremos un cliente Ubuntu Server 26.04 al dominio `alumnos.ad.practicadns.es` y comprobaremos que puede autenticarse correctamente. -->
+- En esta práctica añadiremos un cliente Ubuntu Server 26.04 al dominio `alumnos.ad.practicadns.es` y comprobaremos que puede autenticarse correctamente.
+- También comprobaremos que el cliente ha creado un registro en la zona DNS del dominio `alumnos.ad.practicadns.es` y que ese registro es visible desde el resto de controladores de dominio del bosque.
 
 <!--
 ## 16 - Tarea RA2-CEde-2 - Instalación y configuración de un servidor DNS con BIND9 en Ubuntu Server 26.04 LTS
