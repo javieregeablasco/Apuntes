@@ -2337,8 +2337,8 @@ ping 172.31.33.153
 **Objetivo:** comprobar que cada servidor sabe traducir **nombres a IPs**.
 
 1. Entrar en **Servidor-DNS**, **ADDS-Alumnos** y **ADDS-Profesores** (uno por dominio).
-2. En cada uno ejecutar estos tres comandos:
-
+2. En cada uno ejecutar estos tres comandos:  
+==REALIZAR CAPTURA DE PANTALLA==  
     ```bash
     nslookup servidor-dns.ad.practicadns.es
     nslookup adds-alumnos.alumnos.ad.practicadns.es
@@ -2348,7 +2348,7 @@ ping 172.31.33.153
 3. Cada comando debe devolver la **IP del servidor** por el que preguntas.
 
 !!! failure "Si sale `Non-existent domain`"
-    Significa que el DNS que estás usando **no sabe resolver esa zona**. Anota qué comando ha fallado y en qué servidor, y revisa la delegación y los reenviadores (se explican más abajo).
+    Significa que el DNS que estáis usando **no sabe resolver esa zona**. Anota qué comando ha fallado y en qué servidor, y revisa la delegación y los reenviadores.
 
 ==📸 CAPTURA: una captura por servidor (3 en total) con los 3 comandos y sus respuestas.==
 
