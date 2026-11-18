@@ -2124,7 +2124,8 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
     - A partir del momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
     - Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
 
-# HASTA AQUI
+<!--
+# ####REPE####
 
 ## 18 - Tarea RA2-CEh - Comprobar el comportamiento DNS de las 3 zonas
 
@@ -2137,7 +2138,7 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
 
 - Cada dominio tiene su propia zona DNS. La zona padre sabe dónde están las zonas hijas porque tiene una delegación (un registro NS que dice “para alumnos, pregunta a ADDS-Alumnos”).
 
-### 18.2 Prueba 1 ¿Qué DNS estoy usando?
+### 18.2 ¿Qué DNS estoy usando?
 
 - Para determinar qué DNS estamos usando, utilizaremos el comando
 
@@ -2151,7 +2152,7 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
 !!! warning "Repetir este comando una vez por cada dominio"
     ==Realizar captura de pantalla de los 3 ´ipconfig /all´==
 
-### 18.3 Prueba 2: ¿Hay conexión con los servidores?
+### 18.3 ¿Hay conexión con los servidores?
 
 - Desde Servidor-DNS realizar un ping al resto de servidores:
 
@@ -2181,71 +2182,266 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
       ```bash
       ping 172.31.33.153
       ```
+      ```
 
     ==Realizar captura de pantalla==
 
-<!--
-Prueba 3: ¿Resuelve el nombre de cada servidor?
-nslookup servidor-dns.ad.practicadns.es
-nslookup adds-alumnos.alumnos.ad.practicadns.es
-nslookup adds-profesores.profesores.ad.practicadns.es
+### 18.3 ¿Resuelve el nombre de cada servidor?
 
-Cada comando debe devolver la IP del servidor. Si sale Non-existent domain, ese DNS no sabe resolver esa zona.
+- En cada servidor, ejecutar los siguientes comandos:
 
-Prueba 4: ¿Se resuelven las tres zonas desde un mismo servidor?
+      ```bash
+      nslookup servidor-dns.ad.practicadns.es
+      nslookup adds-alumnos.alumnos.ad.practicadns.es
+      nslookup adds-profesores.profesores.ad.practicadns.es
+      ```
 
-Ejecuta las tres consultas preguntando a un solo servidor, por ejemplo ADDS-Profesores:
+- Cada comando debe devolver la IP del servidor. Si sale Non-existent domain, ese DNS no sabe resolver esa zona.
 
-nslookup adds-profesores.profesores.ad.practicadns.es 172.31.33.153
-nslookup adds-alumnos.alumnos.ad.practicadns.es 172.31.33.153
-nslookup servidor-dns.ad.practicadns.es 172.31.33.153
+### 18.4 ¿Se resuelven las tres zonas desde un mismo servidor?
 
-Todas deben dar respuesta. Esta prueba es la más importante: demuestra que un servidor de profesores es capaz de encontrar la zona hermana (alumnos) y la zona padre.
+- Ejecutar las tres consultas preguntando a un solo servidor, por ejemplo ADDS-Profesores:
 
-Qué mirar en la respuesta:
+      ```bash
+      nslookup adds-profesores.profesores.ad.practicadns.es 172.31.33.153
+      nslookup adds-alumnos.alumnos.ad.practicadns.es 172.31.33.153
+      nslookup servidor-dns.ad.practicadns.es 172.31.33.153
+      ```
 
-Si pone “Respuesta no autoritativa”, el servidor no es el dueño de esa zona y ha obtenido la respuesta preguntando a otro o de su memoria (caché).
-Si no pone nada, el servidor es el autoritativo de esa zona.
+- Todas deben dar respuesta. Esta prueba es la más importante: demuestra que un servidor de profesores es capaz de encontrar la zona hermana (alumnos) y la zona padre.
 
-Así se ve qué servidor es el dueño de cada zona.
+!!! tip "Qué mirar en la respuesta"
+    - Si pone “Respuesta no autoritativa”, el servidor no es el dueño de esa zona y ha obtenido la respuesta preguntando a otro o de su memoria (caché).
+    - Si no pone nada, el servidor es el autoritativo de esa zona.
+    - Así se ve qué servidor es el dueño de cada zona.
 
-Prueba 5: ¿Quién es el servidor DNS de cada zona? (delegaciones)
-nslookup -type=NS ad.practicadns.es
-nslookup -type=NS alumnos.ad.practicadns.es
-nslookup -type=NS profesores.ad.practicadns.es
+### 18.5 ¿Quién es el servidor DNS de cada zona? (delegaciones)
 
-Debes ver qué servidor o servidores gestionan cada zona:
+- Ejecutar los siguientes comandos:
 
-Zona	Servidor(es) esperado(s)
-ad.practicadns.es	servidor-dns y servidor-dns-2
-alumnos.ad.practicadns.es	ADDS-Alumnos
-profesores.ad.practicadns.es	ADDS-Profesores
-Prueba 6: ¿Están los registros que usa Active Directory?
+      ```bash
+      ```bash
+      nslookup -type=NS ad.practicadns.es
+      nslookup -type=NS alumnos.ad.practicadns.es
+      nslookup -type=NS profesores.ad.practicadns.es
+      ```   
 
-Un controlador de dominio publica en el DNS unos registros especiales (SRV) para que los equipos lo encuentren. Si faltan, nadie puede unirse al dominio.
+- Deberemos ver qué servidor o servidores gestionan cada zona:
+| Zona | Servidor(es) esperado(s) |
+|------|---------------------------|
+| ad.practicadns.es | servidor-dns y servidor-dns-2 |
+| alumnos.ad.practicadns.es | ADDS-Alumnos |
+| profesores.ad.practicadns.es | ADDS-Profesores |
+| Prueba 6: ¿Están los registros que usa Active Directory? |
 
-nslookup -type=SRV _ldap._tcp.dc._msdcs.profesores.ad.practicadns.es
-nslookup -type=SRV _kerberos._tcp.profesores.ad.practicadns.es
+### 18.6 ¿Quién controla el dominio?
 
-Deben aparecer el nombre del controlador de dominio y su puerto (389 para LDAP, 88 para Kerberos). Repite con alumnos y con ad.
+- Un controlador de dominio publica en el DNS unos registros especiales (SRV) para que los equipos lo encuentren. Si faltan, nadie puede unirse al dominio. Ejecutar los siguientes comandos
 
-Prueba 7: Si algo falla, limpia la caché y repite
-ipconfig /flushdns
+      ```bash
+      nslookup -type=SRV _ldap._tcp.dc._msdcs.profesores.ad.practicadns.es
+      nslookup -type=SRV _kerberos._tcp.profesores.ad.practicadns.es
+      ```
 
-El equipo guarda respuestas antiguas durante un tiempo. Si acabas de cambiar algo y la prueba sigue dando el resultado viejo, vacía la caché y vuelve a probar.
+- Deben aparecer el nombre del controlador de dominio y su puerto (389 para LDAP, 88 para Kerberos). 
+- Repitir con **alumnos** y con **ad**.
 
-Resumen para el alumno
-Prueba	Pregunta que responde	Si falla, mira...
-1. ipconfig /all	¿Qué DNS uso?	La configuración de red
-2. ping	¿Llego al servidor?	Cables, IP, firewall
-3. nslookup de nombres	¿Resuelve nombres?	Que el servicio DNS esté activo
-4. Consultas a un solo servidor	¿Conoce las 3 zonas?	Delegaciones y reenviadores
-5. -type=NS	¿Quién gestiona cada zona?	Las delegaciones
-6. -type=SRV	¿Se pueden encontrar los controladores?	Que el servicio Netlogon registre los SRV
-7. ipconfig /flushdns	¿Es un dato antiguo?	La caché
-
+# ####REPE####
 -->
 
+## 18 - Tarea RA2-CEh - Comprobar el comportamiento DNS de las 3 zonas
+
+- En esta tarea realizarás **comprobaciones básicas de DNS** en un bosque de Active Directory con dominios hijo.
+- Cada dominio tiene su propia zona DNS. La zona padre sabe dónde están las zonas hijas porque tiene una **delegación** (un registro NS que dice: "para `alumnos`, pregunta a ADDS-Alumnos").
+- Si todo ha ido bien, el resultado final será como el siguiente:
+
+![img](./img_5/img_5_206.png){.margintop10 .marginbottom20 .cien}
+
+!!! warning "Cambia las IPs de los comandos por las de tu laboratorio"
+    Las IPs que aparecen en esta tarea son las del laboratorio de ejemplo. Antes de ejecutar cada comando, sustitúyelas por las IPs reales de tus servidores.
+
+### 18.1 Antes de empezar
+
+- Ten a mano esta tabla con **los 4 servidores** de tu laboratorio:
+
+| Servidor | Zona / Dominio | IP (ejemplo) |
+|----------|----------------|--------------|
+| Servidor-DNS | `ad.practicadns.es` | 172.31.33.127 |
+| Servidor-DNS-2 | `ad.practicadns.es` (redundante con Servidor-DNS) | 172.31.40.94 |
+| ADDS-Alumnos | `alumnos.ad.practicadns.es` | 172.31.47.142 |
+| ADDS-Profesores | `profesores.ad.practicadns.es` | 172.31.33.153 |
+
+- Abre un **símbolo del sistema** (`cmd`) o PowerShell en cada servidor donde tengas que ejecutar comandos.
+- Haz las capturas de pantalla **completas** (que se vea el comando y su resultado). Las capturas que debes entregar están marcadas con ==📸 CAPTURA== y al final tienes una lista de comprobación.
+
+### 18.2 ¿Qué DNS estoy usando?
+
+**Objetivo:** comprobar que cada servidor está configurado para usar un DNS de su propio dominio.
+
+1. Entra en un servidor de **cada** dominio: `ad` (Servidor-DNS), `alumnos` (ADDS-Alumnos) y `profesores` (ADDS-Profesores).
+2. En cada uno ejecuta:
+
+    ```bash
+    ipconfig /all
+    ```
+
+3. Busca la línea **DNS Servers** (en Windows en español: **Servidores DNS**). Debe aparecer la IP de un servidor DNS del **propio dominio** (por ejemplo, en un servidor de `profesores` debe aparecer la IP de ADDS-Profesores).
+
+![img](./img_5/img_5_207.png){.margintop10 .marginbottom20 .cien}
+
+!!! warning "Repite el comando una vez por cada dominio"
+    ==📸 CAPTURA: 3 capturas de `ipconfig /all`, una de cada dominio (ad, alumnos y profesores). En cada una debe verse la línea de Servidores DNS.==
+
+### 18.3 ¿Hay conexión con los servidores?
+
+**Objetivo:** comprobar que los 4 servidores se ven entre sí por la red.
+
+!!! info "Cómo interpretar un ping"
+    - Resultado correcto: `Respuesta desde 172.31.x.x: bytes=32 ...` y `Perdidos = 0`.
+    - Resultado incorrecto: `Tiempo de espera agotado` o `Host de destino inaccesible`. En ese caso revisa los grupos de seguridad de AWS y el firewall de Windows (debe permitir ICMP).
+
+**a) Desde Servidor-DNS**, haz ping al resto de servidores:
+
+```bash
+ping 172.31.40.94
+ping 172.31.47.142
+ping 172.31.33.153
+```
+
+==📸 CAPTURA: los 3 ping en la misma imagen, desde Servidor-DNS.==
+
+![img](./img_5/img_5_208.png){.margintop10 .marginbottom20 .sietezero}
+
+---
+
+**b) Desde Servidor-DNS-2**, haz ping al resto de servidores:
+
+```bash
+ping 172.31.33.127
+ping 172.31.47.142
+ping 172.31.33.153
+```
+
+==📸 CAPTURA: los 3 ping en la misma imagen, desde Servidor-DNS-2.==
+
+---
+
+**c) Desde ADDS-Alumnos**, haz ping a ADDS-Profesores:
+
+```bash
+ping 172.31.33.153
+```
+
+==📸 CAPTURA: el ping desde ADDS-Alumnos.==
+
+!!! tip "Alternativa"
+    Si lo prefieres, puedes hacer esta comprobación a la inversa: desde ADDS-Profesores hacia ADDS-Alumnos (`ping 172.31.47.142`). Indica en la captura desde qué servidor la has hecho.
+
+### 18.4 ¿Resuelve el nombre de cada servidor?
+
+**Objetivo:** comprobar que cada servidor sabe traducir **nombres a IPs**.
+
+1. Entra en **Servidor-DNS**, **ADDS-Alumnos** y **ADDS-Profesores** (uno por dominio).
+2. En cada uno ejecuta estos tres comandos:
+
+    ```bash
+    nslookup servidor-dns.ad.practicadns.es
+    nslookup adds-alumnos.alumnos.ad.practicadns.es
+    nslookup adds-profesores.profesores.ad.practicadns.es
+    ```
+
+3. Cada comando debe devolver la **IP del servidor** por el que preguntas.
+
+!!! failure "Si sale `Non-existent domain`"
+    Significa que el DNS que estás usando **no sabe resolver esa zona**. Anota qué comando ha fallado y en qué servidor, y revisa la delegación y los reenviadores (se explican más abajo).
+
+==📸 CAPTURA: una captura por servidor (3 en total) con los 3 comandos y sus respuestas.==
+
+### 18.5 ¿Se resuelven las tres zonas desde un mismo servidor?
+
+**Objetivo:** demostrar que un servidor de un dominio es capaz de encontrar la zona **hermana** (alumnos) y la zona **padre** (ad).
+
+1. Entra en **ADDS-Profesores**.
+2. Ejecuta las tres consultas indicando **a qué servidor preguntar** (el último parámetro es la IP de ADDS-Profesores):
+
+    ```bash
+    nslookup adds-profesores.profesores.ad.practicadns.es 172.31.33.153
+    nslookup adds-alumnos.alumnos.ad.practicadns.es 172.31.33.153
+    nslookup servidor-dns.ad.practicadns.es 172.31.33.153
+    ```
+
+3. **Las tres deben dar respuesta.** Esta es la prueba más importante de la tarea.
+
+!!! tip "Qué mirar en la respuesta"
+    - Si aparece **"Respuesta no autoritativa"**, el servidor **no es el dueño** de esa zona: ha obtenido la respuesta preguntando a otro servidor o de su memoria (caché).
+    - Si **no** aparece ese mensaje, el servidor es el **autoritativo** de esa zona.
+    - Así sabrás qué servidor es el dueño de cada zona. Esperamos que ADDS-Profesores sea autoritativo para `profesores` y no autoritativo para `alumnos` y `ad`.
+
+==📸 CAPTURA: los 3 comandos y sus respuestas en una sola imagen.==
+
+### 18.6 ¿Quién es el servidor DNS de cada zona? (delegaciones)
+
+**Objetivo:** ver qué servidor o servidores gestionan cada zona.
+
+1. En **ADDS-Profesores** ejecuta:
+
+    ```bash
+    nslookup -type=NS ad.practicadns.es
+    nslookup -type=NS alumnos.ad.practicadns.es
+    nslookup -type=NS profesores.ad.practicadns.es
+    ```
+
+2. En cada respuesta busca las líneas `nameserver = ...`. Deben coincidir con esta tabla:
+
+| Zona | Servidor(es) esperado(s) |
+|------|---------------------------|
+| `ad.practicadns.es` | Servidor-DNS y Servidor-DNS-2 |
+| `alumnos.ad.practicadns.es` | ADDS-Alumnos |
+| `profesores.ad.practicadns.es` | ADDS-Profesores |
+
+==📸 CAPTURA: los 3 comandos y sus respuestas.==
+
+### 18.7 ¿Están los registros que usa Active Directory?
+
+**Objetivo:** comprobar que cada controlador de dominio publica en el DNS sus **registros SRV**. Son los registros que usan los equipos para encontrar el controlador de dominio. Si faltan, nadie puede unirse al dominio.
+
+1. Ejecuta los siguientes comandos para el dominio **profesores**:
+
+    ```bash
+    nslookup -type=SRV _ldap._tcp.dc._msdcs.profesores.ad.practicadns.es
+    nslookup -type=SRV _kerberos._tcp.profesores.ad.practicadns.es
+    ```
+
+2. **Repite los dos comandos** cambiando `profesores.ad.practicadns.es` por `alumnos.ad.practicadns.es` y después por `ad.practicadns.es`. En total son **6 comandos**.
+
+3. En cada respuesta deben aparecer:
+    - El **puerto**: `389` para LDAP y `88` para Kerberos.
+    - El **nombre del controlador de dominio** (`svr hostname`) del dominio consultado.
+
+| Dominio | Controlador esperado | Puerto LDAP | Puerto Kerberos |
+|---------|----------------------|-------------|-----------------|
+| `ad.practicadns.es` | Servidor-DNS (y/o Servidor-DNS-2 si también es controlador) | 389 | 88 |
+| `alumnos.ad.practicadns.es` | ADDS-Alumnos | 389 | 88 |
+| `profesores.ad.practicadns.es` | ADDS-Profesores | 389 | 88 |
+
+==📸 CAPTURA: una captura por dominio (3 en total) con sus dos comandos y respuestas.==
+
+### Lista de comprobación de capturas
+
+Antes de entregar, verifica que tienes **todas** estas capturas:
+
+| Apartado | Capturas | Qué debe verse |
+|----------|----------|----------------|
+| 18.2 | 3 | `ipconfig /all` de cada dominio, con los Servidores DNS |
+| 18.3 | 3 | Ping desde Servidor-DNS, Servidor-DNS-2 y ADDS-Alumnos |
+| 18.4 | 3 | 3 `nslookup` en cada uno de los 3 servidores |
+| 18.5 | 1 | 3 `nslookup` preguntando a ADDS-Profesores |
+| 18.6 | 1 | 3 consultas `-type=NS` |
+| 18.7 | 3 | 2 consultas SRV por dominio |
+| **Total** | **14** | |
+
+
+# HASTA AQUI
 <!-- 
 ### 18.1 Objetivos
 
