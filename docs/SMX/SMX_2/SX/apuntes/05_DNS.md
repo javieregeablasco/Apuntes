@@ -2297,8 +2297,8 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
 **Objetivo:** comprobar que los 4 servidores se ven entre sí por la red.
 
 !!! info "Cómo interpretar un ping"
-    - Resultado correcto: `Respuesta desde 172.31.x.x: bytes=32 ...` y `Perdidos = 0`.
-    - Resultado incorrecto: `Tiempo de espera agotado` o `Host de destino inaccesible`. En ese caso deberéis solucionar el problema.
+    - **Resultado correcto:** `Respuesta desde 172.31.x.x: bytes=32 ...` y `Perdidos = 0`.
+    - **Resultado incorrecto:** `Tiempo de espera agotado` o `Host de destino inaccesible`. En ese caso deberéis solucionar el problema.
 
 **a) Desde Servidor-DNS**, hacer ping al resto de servidores:
 
@@ -2308,7 +2308,7 @@ ping 172.31.47.142
 ping 172.31.33.153
 ```
 
-==📸 CAPTURA: los 3 ping en la misma imagen, desde Servidor-DNS.==
+==REALIZAR CAPTURA DE PANTALLA==
 
 ![img](./img_5/img_5_208.png){.margintop10 .marginbottom20 .sietezero}
 
