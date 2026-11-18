@@ -2333,11 +2333,11 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
 
 ### 18.4 ¿Resuelve el nombre de cada servidor?
 
-**Objetivo:** comprobar que cada servidor sabe traducir **nombres a IPs**.
+!!! info "Objetivo: comprobar que cada servidor sabe traducir nombres a IPs"
 
 1. Entrar en **Servidor-DNS**, **ADDS-Alumnos** y **ADDS-Profesores** (uno por dominio).
 2. En cada uno ejecutar estos tres comandos:  
-==REALIZAR CAPTURA DE PANTALLA (1 para cada servidor / 3 en total)==  
+==REALIZAR CAPTURA DE PANTALLA (1 para cada servidor/dominio, 3 en total)==  
     ```bash
     nslookup servidor-dns.ad.practicadns.es
     nslookup adds-alumnos.alumnos.ad.practicadns.es
@@ -2355,7 +2355,7 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
 **Objetivo:** demostrar que un servidor de un dominio es capaz de encontrar la zona **hermana** (alumnos) y la zona **padre** (ad).
 
 1. Entrar en **ADDS-Profesores**.
-2. Ejecutar las tres consultas indicando **a qué servidor preguntar** (el último parámetro es la IP de ADDS-Profesores):  
+1. Ejecutar las tres consultas indicando **a qué servidor preguntar** (el último parámetro es la IP de ADDS-Profesores):  
 ==REALIZAR CAPTURA DE PANTALLA==  
 
     ```bash
@@ -2364,12 +2364,12 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
     nslookup servidor-dns.ad.practicadns.es 172.31.33.153
     ```
 
-3. **Las tres deben dar respuesta.** Esta es la prueba más importante de la tarea.
+1. **Las tres deben dar respuesta.**
 
-!!! tip "Qué mirar en la respuesta"
-    - Si aparece **"Respuesta no autoritativa"**, el servidor **no es el dueño** de esa zona: ha obtenido la respuesta preguntando a otro servidor o de su memoria (caché).
-    - Si **no** aparece ese mensaje, el servidor es el **autoritativo** de esa zona.
-    - Así sabremos qué servidor es el dueño de cada zona. Esperamos que ADDS-Profesores sea autoritativo para `profesores` y no autoritativo para `alumnos` y `ad`.
+    !!! tip "Qué mirar en la respuesta"
+        - Si aparece **"Respuesta no autoritativa"**, el servidor **no es el dueño** de esa zona: ha obtenido la respuesta preguntando a otro servidor o de su memoria (caché).
+        - Si **no** aparece ese mensaje, el servidor es el **autoritativo** de esa zona.
+        - Así sabremos qué servidor es el dueño de cada zona. Esperamos que ADDS-Profesores sea autoritativo para `profesores` y no autoritativo para `alumnos` y `ad`.
 
 ### 18.6 ¿Quién es el servidor DNS de cada zona? (delegaciones)
 
