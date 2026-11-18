@@ -2357,6 +2357,7 @@ ping 172.31.33.153
 1. Entrar en **ADDS-Profesores**.
 2. Ejecutar las tres consultas indicando **a qué servidor preguntar** (el último parámetro es la IP de ADDS-Profesores):  
 ==REALIZAR CAPTURA DE PANTALLA==  
+
     ```bash
     nslookup adds-profesores.profesores.ad.practicadns.es 172.31.33.153
     nslookup adds-alumnos.alumnos.ad.practicadns.es 172.31.33.153
@@ -2377,6 +2378,7 @@ ping 172.31.33.153
 1. En **ADDS-Profesores** ejecutar:  
 
 ==REALIZAR CAPTURA DE PANTALLA==  
+
     ```bash
     nslookup -type=NS ad.practicadns.es
     nslookup -type=NS alumnos.ad.practicadns.es
@@ -2414,9 +2416,9 @@ ping 172.31.33.153
     | `alumnos.ad.practicadns.es` | ADDS-Alumnos | 389 | 88 |
     | `profesores.ad.practicadns.es` | ADDS-Profesores | 389 | 88 |
 
-### Lista de comprobación de capturas
+### 18.8 Lista de comprobación de capturas
 
-Antes de entregar, verifica que tienes **todas** estas capturas:
+Antes de entregar la tarea, verifica que tienéis **todas** estas capturas:
 
 | Apartado | Capturas | Qué debe verse |
 |----------|----------||
