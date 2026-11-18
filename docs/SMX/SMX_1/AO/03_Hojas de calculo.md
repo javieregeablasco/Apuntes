@@ -300,7 +300,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
    
     !!! tip "3. Insertar una columna de segundo apellido"  
         - Insertar una columna de segundo apellido para que quede de la siguiente manera (ojo con la cabecera de la columna).
-        ![Descripción de la imagen](./03_hojas_de_calculo/img/calc23.png){ .leftcuatrocero  }
+        ![Descripción de la imagen](./03_hojas_de_calculo/img/calc23.png){ .leftcincocero  .margintop10 .marginbottom20  }
         - Apellidos a añadir:  
             1. García  
             1. Fernández  
