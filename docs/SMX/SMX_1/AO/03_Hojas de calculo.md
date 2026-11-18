@@ -299,19 +299,19 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
    
    
     !!! tip "3. Insertar una columna de segundo apellido"  
-    Insertar una columna de segundo apellido para que quede de la siguiente manera (ojo con la cabecera de la columna).
-    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc23.png){ .leftcuatrocero .marginseiszero }<br>   
-    &emsp;&emsp;&emsp;&emsp;Apellidos a añadir:  
-    &emsp;&emsp;&emsp;&emsp;&emsp;García  
-    &emsp;&emsp;&emsp;&emsp;&emsp;Fernández  
-    &emsp;&emsp;&emsp;&emsp;&emsp;González  
-    &emsp;&emsp;&emsp;&emsp;&emsp;Rodríguez  
-    &emsp;&emsp;&emsp;&emsp;&emsp;López  
-    &emsp;&emsp;&emsp;&emsp;&emsp;Martínez  
-    &emsp;&emsp;&emsp;&emsp;&emsp;Sánchez  
-    &emsp;&emsp;&emsp;&emsp;&emsp;Pérez  
-    &emsp;&emsp;&emsp;&emsp;&emsp;Gómez  
-    &emsp;&emsp;&emsp;&emsp;&emsp;Martín  <br>
+        - Insertar una columna de segundo apellido para que quede de la siguiente manera (ojo con la cabecera de la columna).
+        ![Descripción de la imagen](./03_hojas_de_calculo/img/calc23.png){ .leftcuatrocero  }
+        - Apellidos a añadir:  
+            1. García  
+            1. Fernández  
+            1. González  
+            1. Rodríguez  
+            1. López  
+            1. Martínez  
+            1. Sánchez  
+            1. Pérez  
+            1. Gómez  
+            1. Martín  
     
     !!! tip "4. Insertar una columna Salario actual"
     Insertar una columna **Salario actual** con los datos que aparecen en la imagen.  
