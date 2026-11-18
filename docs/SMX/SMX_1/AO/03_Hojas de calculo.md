@@ -314,26 +314,26 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
             1. Martín  
     
     !!! tip "4. Insertar una columna Salario actual"
-    Insertar una columna **Salario actual** con los datos que aparecen en la imagen.  
-    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc25.png){ .leftcuatrocero .marginseiszero }<br>   
+        - Insertar una columna **Salario actual** con los datos que aparecen en la imagen.  
+        ![Descripción de la imagen](./03_hojas_de_calculo/img/calc25.png){ .leftseiscero .margintop10 .marginbottom20 }   
 
-    &emsp;&emsp;&emsp;&emsp;Datos a introducir:  
-    &emsp;&emsp;&emsp;&emsp;&emsp;2269  
-    &emsp;&emsp;&emsp;&emsp;&emsp;2500  
-    &emsp;&emsp;&emsp;&emsp;&emsp;2159  
-    &emsp;&emsp;&emsp;&emsp;&emsp;2800  
-    &emsp;&emsp;&emsp;&emsp;&emsp;1750  
-    &emsp;&emsp;&emsp;&emsp;&emsp;1898  
-    &emsp;&emsp;&emsp;&emsp;&emsp;2215  
-    &emsp;&emsp;&emsp;&emsp;&emsp;2352  
-    &emsp;&emsp;&emsp;&emsp;&emsp;2075  
-    &emsp;&emsp;&emsp;&emsp;&emsp;2624  
+        - Datos a introducir:  
+            1. 2269  
+            1. 2500  
+            1. 2159  
+            1. 2800  
+            1. 1750  
+            1. 1898  
+            1. 2215  
+            1. 2352  
+            1. 2075  
+            1. 2624  
     
 
     !!! tip "5. Insertar la columna "Diferencia actual-inicial""
-    Insertar la columna **Diferencia actual-inicial** que será la diferencia entre las 2 columnas anteriores.   
-    Os dejo la fórmula para calcular esa diferencia.
-    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc26.png){ .leftcuatrocero .marginseiszero }<br>   
+        - Insertar la columna **Diferencia actual-inicial** que será la diferencia entre las 2 columnas anteriores.   
+        - Os dejo la fórmula para calcular esa diferencia.
+        ![Descripción de la imagen](./03_hojas_de_calculo/img/calc26.png){ .leftcuatrocero .marginseiszero }<br>   
 
     !!! tip "6. Aplicar un formato condicional a la columna "Diferencia actual-inicial""
     Para diferencias superiores a 200 se aplicará el estilo Alerta (o cualquier otro, incluso podreís crear uno).  
