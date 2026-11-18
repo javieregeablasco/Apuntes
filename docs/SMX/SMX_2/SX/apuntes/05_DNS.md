@@ -2308,8 +2308,7 @@ ping 172.31.47.142
 ping 172.31.33.153
 ```
 
-==REALIZAR CAPTURA DE PANTALLA==
-
+==REALIZAR CAPTURA DE PANTALLA==  
 ![img](./img_5/img_5_208.png){.margintop10 .marginbottom20 .leftsietecero}
 
 ---
