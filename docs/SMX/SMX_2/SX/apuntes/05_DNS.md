@@ -2320,7 +2320,7 @@ ping 172.31.47.142
 ping 172.31.33.153
 ```
 
-==📸 CAPTURA: los 3 ping en la misma imagen, desde Servidor-DNS-2.==
+==REALIZAR CAPTURA DE PANTALLA==  
 
 ---
 
@@ -2332,15 +2332,12 @@ ping 172.31.33.153
 
 ==REALIZAR CAPTURA DE PANTALLA==  
 
-!!! tip "Alternativa"
-    Si lo prefieres, puedes hacer esta comprobación a la inversa: desde ADDS-Profesores hacia ADDS-Alumnos (`ping 172.31.47.142`). Indica en la captura desde qué servidor la has hecho.
-
 ### 18.4 ¿Resuelve el nombre de cada servidor?
 
 **Objetivo:** comprobar que cada servidor sabe traducir **nombres a IPs**.
 
-1. Entra en **Servidor-DNS**, **ADDS-Alumnos** y **ADDS-Profesores** (uno por dominio).
-2. En cada uno ejecuta estos tres comandos:
+1. Entrar en **Servidor-DNS**, **ADDS-Alumnos** y **ADDS-Profesores** (uno por dominio).
+2. En cada uno ejecutar estos tres comandos:
 
     ```bash
     nslookup servidor-dns.ad.practicadns.es
