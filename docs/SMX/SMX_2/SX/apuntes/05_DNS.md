@@ -2376,14 +2376,14 @@ ping 172.31.33.153
 
 1. En **ADDS-Profesores** ejecutar:  
 
-==REALIZAR CAPTURA DE PANTALLA (3 en total)==  
+==REALIZAR CAPTURA DE PANTALLA==  
     ```bash
     nslookup -type=NS ad.practicadns.es
     nslookup -type=NS alumnos.ad.practicadns.es
     nslookup -type=NS profesores.ad.practicadns.es
     ```
 
-2. En cada respuesta buscar las líneas `nameserver = ...`. Deben coincidir con esta tabla:
+1. En cada respuesta buscar las líneas `nameserver = ...`. Deben coincidir con esta tabla:
 
 | Zona | Servidor(es) esperado(s) |
 |------||
@@ -2391,20 +2391,18 @@ ping 172.31.33.153
 | `alumnos.ad.practicadns.es` | ADDS-Alumnos |
 | `profesores.ad.practicadns.es` | ADDS-Profesores |
 
-==📸 CAPTURA: los 3 comandos y sus respuestas.==
-
 ### 18.7 ¿Están los registros que usa Active Directory?
 
-**Objetivo:** comprobar que cada controlador de dominio publica en el DNS sus **registros SRV**. Son los registros que usan los equipos para encontrar el controlador de dominio. Si faltan, nadie puede unirse al dominio.
+**Objetivo:** comprobar que cada controlador de dominio publica en el DNS sus **registros SRV**. Son los registros que usan los equipos para encontrar el controlador de dominio. Si faltan, nadie podrá unirse al dominio.
 
-1. Ejecuta los siguientes comandos para el dominio **profesores**:
-
+1. Ejecutar los siguientes comandos para el dominio **profesores**:
+==REALIZAR CAPTURA DE PANTALLA (3 en total)== 
     ```bash
     nslookup -type=SRV _ldap._tcp.dc._msdcs.profesores.ad.practicadns.es
     nslookup -type=SRV _kerberos._tcp.profesores.ad.practicadns.es
     ```
 
-2. **Repite los dos comandos** cambiando `profesores.ad.practicadns.es` por `alumnos.ad.practicadns.es` y después por `ad.practicadns.es`. En total son **6 comandos**.
+2. **Repetir los dos comandos** cambiando `profesores.ad.practicadns.es` por `alumnos.ad.practicadns.es` y después por `ad.practicadns.es`. En total son **6 comandos**.
 
 3. En cada respuesta deben aparecer:
     - El **puerto**: `389` para LDAP y `88` para Kerberos.
@@ -2415,8 +2413,6 @@ ping 172.31.33.153
 | `ad.practicadns.es` | Servidor-DNS (y/o Servidor-DNS-2 si también es controlador) | 389 | 88 |
 | `alumnos.ad.practicadns.es` | ADDS-Alumnos | 389 | 88 |
 | `profesores.ad.practicadns.es` | ADDS-Profesores | 389 | 88 |
-
-==📸 CAPTURA: una captura por dominio (3 en total) con sus dos comandos y respuestas.==
 
 ### Lista de comprobación de capturas
 
