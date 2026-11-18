@@ -2297,7 +2297,7 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
 
 !!! info "Objetivo: comprobar que los 4 servidores se ven entre sí por la red"
 
-!!! info "Cómo interpretar un ping"
+!!! tip "Cómo interpretar un ping"
     - **Resultado correcto:** `Respuesta desde 172.31.x.x: bytes=32 ...` y `Perdidos = 0`.
     - **Resultado incorrecto:** `Tiempo de espera agotado` o `Host de destino inaccesible`. En ese caso deberéis solucionar el problema.
 
