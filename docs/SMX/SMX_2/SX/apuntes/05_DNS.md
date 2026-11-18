@@ -2373,10 +2373,9 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
 
 ### 18.6 ¿Quién es el servidor DNS de cada zona? (delegaciones)
 
-!!! tip"Objetivo: Ver qué servidor o servidores gestionan cada zona"
+!!! tip "Objetivo: Ver qué servidor o servidores gestionan cada zona"
 
 1. En **ADDS-Profesores** ejecutar:  
-
 ==REALIZAR CAPTURA DE PANTALLA==  
 
     ```bash
@@ -2387,11 +2386,11 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
 
 1. En cada respuesta buscar las líneas `nameserver = ...`. Deben coincidir con esta tabla:
 
-| Zona | Servidor(es) esperado(s) |
-|------||
-| `ad.practicadns.es` | Servidor-DNS y Servidor-DNS-2 |
-| `alumnos.ad.practicadns.es` | ADDS-Alumnos |
-| `profesores.ad.practicadns.es` | ADDS-Profesores |
+    | Zona | Servidor(es) esperado(s) |
+    |------||
+    | `ad.practicadns.es` | Servidor-DNS y Servidor-DNS-2 |
+    | `alumnos.ad.practicadns.es` | ADDS-Alumnos |
+    | `profesores.ad.practicadns.es` | ADDS-Profesores |
 
 ### 18.7 ¿Están los registros que usa Active Directory?
 
