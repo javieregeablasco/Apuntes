@@ -2266,27 +2266,27 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
 - Realizar una tabla con **los 4 servidores** de vuestra práctica:
 
 | Servidor | Zona / Dominio | IP (ejemplo) |
-|----------|----------------|--------------|
+|----------|----------------||
 | Servidor-DNS | `ad.practicadns.es` | 172.31.33.127 |
 | Servidor-DNS-2 | `ad.practicadns.es` (redundante con Servidor-DNS) | 172.31.40.94 |
 | ADDS-Alumnos | `alumnos.ad.practicadns.es` | 172.31.47.142 |
 | ADDS-Profesores | `profesores.ad.practicadns.es` | 172.31.33.153 |
 
-- Abre un **símbolo del sistema** (`cmd`) o PowerShell en cada servidor donde tengas que ejecutar comandos.
-- Haz las capturas de pantalla **completas** (que se vea el comando y su resultado). Las capturas que debes entregar están marcadas con ==📸 CAPTURA== y al final tienes una lista de comprobación.
+- Todos los comandos se ejecutarán con un **símbolo del sistema** (`cmd`) o PowerShell.
+- Hacer las capturas de pantalla **completas** (que se vea el comando y su resultado). Las capturas están marcadas con ==REALIZAR CAPTURA DE PANTALLA==. Al final de la tarea hay una lista de comprobación.
 
 ### 18.2 ¿Qué DNS estoy usando?
 
 **Objetivo:** comprobar que cada servidor está configurado para usar un DNS de su propio dominio.
 
 1. Entra en un servidor de **cada** dominio: `ad` (Servidor-DNS), `alumnos` (ADDS-Alumnos) y `profesores` (ADDS-Profesores).
-2. En cada uno ejecuta:
+1. En cada uno ejecutar:
 
     ```bash
     ipconfig /all
     ```
 
-3. Busca la línea **DNS Servers** (en Windows en español: **Servidores DNS**). Debe aparecer la IP de un servidor DNS del **propio dominio** (por ejemplo, en un servidor de `profesores` debe aparecer la IP de ADDS-Profesores).
+1. Busca la línea **DNS Servers** (en Windows en español: **Servidores DNS**). Debe aparecer la IP de un servidor DNS del **propio dominio** (por ejemplo, en un servidor de `profesores` debe aparecer la IP de ADDS-Profesores).
 
 ![img](./img_5/img_5_207.png){.margintop10 .marginbottom20 .cien}
 
