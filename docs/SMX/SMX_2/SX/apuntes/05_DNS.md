@@ -2330,7 +2330,7 @@ ping 172.31.33.153
 ping 172.31.33.153
 ```
 
-==📸 CAPTURA: el ping desde ADDS-Alumnos.==
+==REALIZAR CAPTURA DE PANTALLA==  
 
 !!! tip "Alternativa"
     Si lo prefieres, puedes hacer esta comprobación a la inversa: desde ADDS-Profesores hacia ADDS-Alumnos (`ping 172.31.47.142`). Indica en la captura desde qué servidor la has hecho.
