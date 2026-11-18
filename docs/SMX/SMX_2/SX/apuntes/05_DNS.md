@@ -2368,26 +2368,25 @@ ping 172.31.33.153
 !!! tip "Qué mirar en la respuesta"
     - Si aparece **"Respuesta no autoritativa"**, el servidor **no es el dueño** de esa zona: ha obtenido la respuesta preguntando a otro servidor o de su memoria (caché).
     - Si **no** aparece ese mensaje, el servidor es el **autoritativo** de esa zona.
-    - Así sabrmos qué servidor es el dueño de cada zona. Esperamos que ADDS-Profesores sea autoritativo para `profesores` y no autoritativo para `alumnos` y `ad`.
-
-
+    - Así sabremos qué servidor es el dueño de cada zona. Esperamos que ADDS-Profesores sea autoritativo para `profesores` y no autoritativo para `alumnos` y `ad`.
 
 ### 18.6 ¿Quién es el servidor DNS de cada zona? (delegaciones)
 
-**Objetivo:** ver qué servidor o servidores gestionan cada zona.
+**Objetivo:** Ver qué servidor o servidores gestionan cada zona.
 
-1. En **ADDS-Profesores** ejecuta:
+1. En **ADDS-Profesores** ejecutar:  
 
+==REALIZAR CAPTURA DE PANTALLA (3 en total)==  
     ```bash
     nslookup -type=NS ad.practicadns.es
     nslookup -type=NS alumnos.ad.practicadns.es
     nslookup -type=NS profesores.ad.practicadns.es
     ```
 
-2. En cada respuesta busca las líneas `nameserver = ...`. Deben coincidir con esta tabla:
+2. En cada respuesta buscar las líneas `nameserver = ...`. Deben coincidir con esta tabla:
 
 | Zona | Servidor(es) esperado(s) |
-|------|---------------------------|
+|------||
 | `ad.practicadns.es` | Servidor-DNS y Servidor-DNS-2 |
 | `alumnos.ad.practicadns.es` | ADDS-Alumnos |
 | `profesores.ad.practicadns.es` | ADDS-Profesores |
