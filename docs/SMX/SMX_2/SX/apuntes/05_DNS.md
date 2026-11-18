@@ -2302,11 +2302,11 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
 
 **a) Desde Servidor-DNS**, hacer ping al resto de servidores:
 
-```bash
-ping 172.31.40.94
-ping 172.31.47.142
-ping 172.31.33.153
-```
+    ```bash
+    ping 172.31.40.94
+    ping 172.31.47.142
+    ping 172.31.33.153
+    ```
 
 ==REALIZAR CAPTURA DE PANTALLA==
 
@@ -2314,10 +2314,9 @@ ping 172.31.33.153
 
 ---
 
-**b) Desde Servidor-DNS-2**, haz ping al resto de servidores:
+**b) Desde Servidor-DNS-2**, hacer ping al resto de servidores:
 
 ```bash
-ping 172.31.33.127
 ping 172.31.47.142
 ping 172.31.33.153
 ```
