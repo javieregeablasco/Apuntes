@@ -2290,8 +2290,8 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
 ==REALIZAR CAPTURA DE PANTALLA==
 ![img](./img_5/img_5_207.png){.margintop10 .marginbottom20 .cien}
 
-!!! warning "Repetir el comando en cada dominio"
-    : 3 capturas de `ipconfig /all`, una de cada dominio (ad, alumnos y profesores).
+    !!! warning "Repetir el comando en cada dominio"
+        3 capturas de `ipconfig /all`, una de cada dominio (ad, alumnos y profesores).
 
 ### 18.3 ¿Hay conexión con los servidores?
 
