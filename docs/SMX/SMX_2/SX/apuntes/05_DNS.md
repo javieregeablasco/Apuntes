@@ -2286,11 +2286,11 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
     ipconfig /all
     ```
 
-1. Buscar la línea **DNS Servers**. Debe aparecer la IP de un servidor DNS del **propio dominio** (por ejemplo, en un servidor de `profesores` debe aparecer la IP de ADDS-Profesores).
+1. Buscar la línea **DNS Servers**. Debe aparecer la IP de un servidor DNS del **propio dominio** (por ejemplo, en un servidor de `profesores` debe aparecer la IP de ADDS-Profesores).  
 ![img](./img_5/img_5_207.png){.margintop10 .marginbottom20 .cien}
 
-!!! warning "Repite el comando una vez por cada dominio"
-    ==📸 CAPTURA: 3 capturas de `ipconfig /all`, una de cada dominio (ad, alumnos y profesores). En cada una debe verse la línea de Servidores DNS.==
+!!! warning "Repetir el comando en cada dominio"
+    ==REALIZAR CAPTURA DE PANTALLA==: 3 capturas de `ipconfig /all`, una de cada dominio (ad, alumnos y profesores).
 
 ### 18.3 ¿Hay conexión con los servidores?
 
@@ -2298,9 +2298,9 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
 
 !!! info "Cómo interpretar un ping"
     - Resultado correcto: `Respuesta desde 172.31.x.x: bytes=32 ...` y `Perdidos = 0`.
-    - Resultado incorrecto: `Tiempo de espera agotado` o `Host de destino inaccesible`. En ese caso revisa los grupos de seguridad de AWS y el firewall de Windows (debe permitir ICMP).
+    - Resultado incorrecto: `Tiempo de espera agotado` o `Host de destino inaccesible`. En ese caso deberéis solucionar el problema.
 
-**a) Desde Servidor-DNS**, haz ping al resto de servidores:
+**a) Desde Servidor-DNS**, hacer ping al resto de servidores:
 
 ```bash
 ping 172.31.40.94
