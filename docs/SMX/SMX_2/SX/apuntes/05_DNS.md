@@ -2338,27 +2338,25 @@ ping 172.31.33.153
 
 1. Entrar en **Servidor-DNS**, **ADDS-Alumnos** y **ADDS-Profesores** (uno por dominio).
 2. En cada uno ejecutar estos tres comandos:  
-==REALIZAR 3 CAPTURAS DE PANTALLA==  
+==REALIZAR CAPTURA DE PANTALLA (3 en total)==  
     ```bash
     nslookup servidor-dns.ad.practicadns.es
     nslookup adds-alumnos.alumnos.ad.practicadns.es
     nslookup adds-profesores.profesores.ad.practicadns.es
     ```
 
-3. Cada comando debe devolver la **IP del servidor** por el que preguntas.
+3. Cada comando debe devolver la **IP del servidor** por el que preguntamos.
 
 !!! failure "Si sale `Non-existent domain`"
     Significa que el DNS que estáis usando **no sabe resolver esa zona**. Anota qué comando ha fallado y en qué servidor, y revisa la delegación y los reenviadores.
-
-==📸 CAPTURA: una captura por servidor (3 en total) con los 3 comandos y sus respuestas.==
 
 ### 18.5 ¿Se resuelven las tres zonas desde un mismo servidor?
 
 **Objetivo:** demostrar que un servidor de un dominio es capaz de encontrar la zona **hermana** (alumnos) y la zona **padre** (ad).
 
-1. Entra en **ADDS-Profesores**.
-2. Ejecuta las tres consultas indicando **a qué servidor preguntar** (el último parámetro es la IP de ADDS-Profesores):
-
+1. Entrar en **ADDS-Profesores**.
+2. Ejecutar las tres consultas indicando **a qué servidor preguntar** (el último parámetro es la IP de ADDS-Profesores):  
+==REALIZAR CAPTURA DE PANTALLA==  
     ```bash
     nslookup adds-profesores.profesores.ad.practicadns.es 172.31.33.153
     nslookup adds-alumnos.alumnos.ad.practicadns.es 172.31.33.153
@@ -2370,9 +2368,9 @@ ping 172.31.33.153
 !!! tip "Qué mirar en la respuesta"
     - Si aparece **"Respuesta no autoritativa"**, el servidor **no es el dueño** de esa zona: ha obtenido la respuesta preguntando a otro servidor o de su memoria (caché).
     - Si **no** aparece ese mensaje, el servidor es el **autoritativo** de esa zona.
-    - Así sabrás qué servidor es el dueño de cada zona. Esperamos que ADDS-Profesores sea autoritativo para `profesores` y no autoritativo para `alumnos` y `ad`.
+    - Así sabrmos qué servidor es el dueño de cada zona. Esperamos que ADDS-Profesores sea autoritativo para `profesores` y no autoritativo para `alumnos` y `ad`.
 
-==📸 CAPTURA: los 3 comandos y sus respuestas en una sola imagen.==
+
 
 ### 18.6 ¿Quién es el servidor DNS de cada zona? (delegaciones)
 
