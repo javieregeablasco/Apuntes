@@ -2322,7 +2322,6 @@ ping 172.31.47.142
 ping 172.31.33.153
 ```
 
-
 ---
 
 **c) Desde ADDS-Alumnos**, haz ping a ADDS-Profesores:
@@ -2331,7 +2330,6 @@ ping 172.31.33.153
 ```bash
 ping 172.31.33.153
 ```
-
 
 ### 18.4 ¿Resuelve el nombre de cada servidor?
 
@@ -2348,8 +2346,9 @@ ping 172.31.33.153
 
 3. Cada comando debe devolver la **IP del servidor** por el que preguntamos.
 
-!!! failure "Si sale `Non-existent domain`"
-    Significa que el DNS que estáis usando **no sabe resolver esa zona**. Anota qué comando ha fallado y en qué servidor, y revisa la delegación y los reenviadores.
+    !!! failure "Si sale `Non-existent domain`"
+        - Significa que el DNS que estáis usando **no sabe resolver esa zona**.
+        - Anotar qué comando ha fallado y en qué servidor, y revisar la delegación y los reenviadores.
 
 ### 18.5 ¿Se resuelven las tres zonas desde un mismo servidor?
 
