@@ -2301,7 +2301,7 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
     - **Resultado correcto:** `Respuesta desde 172.31.x.x: bytes=32 ...` y `Perdidos = 0`.
     - **Resultado incorrecto:** `Tiempo de espera agotado` o `Host de destino inaccesible`. En ese caso deberéis solucionar el problema.
 
-!!! abstract "a) Desde Servidor-DNS**, hacer ping al resto de servidores"
+!!! note "a) Desde Servidor-DNS**, hacer ping al resto de servidores"
 
     ==REALIZAR CAPTURA DE PANTALLA==  
     ```bash
