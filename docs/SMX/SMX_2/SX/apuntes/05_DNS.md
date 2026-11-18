@@ -2396,23 +2396,23 @@ ping 172.31.33.153
 **Objetivo:** comprobar que cada controlador de dominio publica en el DNS sus **registros SRV**. Son los registros que usan los equipos para encontrar el controlador de dominio. Si faltan, nadie podrá unirse al dominio.
 
 1. Ejecutar los siguientes comandos para el dominio **profesores**:
-==REALIZAR CAPTURA DE PANTALLA (3 en total)== 
     ```bash
     nslookup -type=SRV _ldap._tcp.dc._msdcs.profesores.ad.practicadns.es
     nslookup -type=SRV _kerberos._tcp.profesores.ad.practicadns.es
     ```
 
 2. **Repetir los dos comandos** cambiando `profesores.ad.practicadns.es` por `alumnos.ad.practicadns.es` y después por `ad.practicadns.es`. En total son **6 comandos**.
+==REALIZAR CAPTURA DE PANTALLA (3 en total)==  
 
 3. En cada respuesta deben aparecer:
     - El **puerto**: `389` para LDAP y `88` para Kerberos.
     - El **nombre del controlador de dominio** (`svr hostname`) del dominio consultado.
 
-| Dominio | Controlador esperado | Puerto LDAP | Puerto Kerberos |
-|---------|----------------------|-------------|-----------------|
-| `ad.practicadns.es` | Servidor-DNS (y/o Servidor-DNS-2 si también es controlador) | 389 | 88 |
-| `alumnos.ad.practicadns.es` | ADDS-Alumnos | 389 | 88 |
-| `profesores.ad.practicadns.es` | ADDS-Profesores | 389 | 88 |
+    | Dominio | Controlador esperado | Puerto LDAP | Puerto Kerberos |
+    |---------|----------------------|-------------||
+    | `ad.practicadns.es` | Servidor-DNS (y/o Servidor-DNS-2 si también es controlador) | 389 | 88 |
+    | `alumnos.ad.practicadns.es` | ADDS-Alumnos | 389 | 88 |
+    | `profesores.ad.practicadns.es` | ADDS-Profesores | 389 | 88 |
 
 ### Lista de comprobación de capturas
 
