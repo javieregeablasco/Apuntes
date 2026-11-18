@@ -285,7 +285,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
             - **Fila 1:**  
                 - Datos centrados tanto verticalmente como horizontalmente.  
                 - Bordes personalizados.    
-                ![Descripción de la imagen](./03_hojas_de_calculo/img/calc19.png){ .leftsietecinco  }    
+                ![Descripción de la imagen](./03_hojas_de_calculo/img/calc19.png){ .leftsietecinco .margintop10 .marginbottom20 }    
 
             - **Filas datos:** 
                 - Sangrías (o márgenes) a la izquierda o a la derecha.  
