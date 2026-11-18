@@ -2280,17 +2280,18 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
 **Objetivo:** comprobar que cada servidor está configurado para usar un DNS de su propio dominio.
 
 1. Entrar en un servidor de **cada** dominio: `ad` (Servidor-DNS), `alumnos` (ADDS-Alumnos) y `profesores` (ADDS-Profesores).
-1. En cada uno ejecutar:
+1. En cada uno de ellos, ejecutar:
 
     ```bash
     ipconfig /all
     ```
 
 1. Buscar la línea **DNS Servers**. Debe aparecer la IP de un servidor DNS del **propio dominio** (por ejemplo, en un servidor de `profesores` debe aparecer la IP de ADDS-Profesores).  
+==REALIZAR CAPTURA DE PANTALLA==
 ![img](./img_5/img_5_207.png){.margintop10 .marginbottom20 .cien}
 
 !!! warning "Repetir el comando en cada dominio"
-    ==REALIZAR CAPTURA DE PANTALLA==: 3 capturas de `ipconfig /all`, una de cada dominio (ad, alumnos y profesores).
+    : 3 capturas de `ipconfig /all`, una de cada dominio (ad, alumnos y profesores).
 
 ### 18.3 ¿Hay conexión con los servidores?
 
