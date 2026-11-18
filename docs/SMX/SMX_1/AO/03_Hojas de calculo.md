@@ -282,21 +282,20 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
         - Teneis **libertad total** en cuanto a anchos, altos, bordes, colores y ancho del bordes columnas así como tamaño color tipo de letra y fondo de celdas.  
 
         !!! warning "Cosas a tener en cuenta para realizar el diseño"
-            - Fila 1:  
+            - **Fila 1:**  
                 - Datos centrados tanto verticalmente como horizontalmente.  
                 - Bordes personalizados.    
                 ![Descripción de la imagen](./03_hojas_de_calculo/img/calc19.png){ .leftsietecinco .marginseiszero }    
 
-            - Filas datos: 
+            - **Filas datos:** 
                 - Sangrías (o márgenes) a la izquierda o a la derecha.  
                     ![Descripción de la imagen](./03_hojas_de_calculo/img/calc20.png){ .leftsietecinco .marginseiszero }    
 
                 - Formato de datos: Fechas, moneda, hora...  
                     ![Descripción de la imagen](./03_hojas_de_calculo/img/calc22.png){ .leftsietecinco .marginseiszero }  
 
-
-            - Resultado final.  
-            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc21.png){ .leftsietecinco .marginseiszero }  
+            - **Resultado final.**  
+            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc21.png){ .cien .marginseiszero }  
    
    
     !!! tip "3. Insertar una columna de segundo apellido"  
