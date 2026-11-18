@@ -2373,7 +2373,7 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
 
 ### 18.6 ¿Quién es el servidor DNS de cada zona? (delegaciones)
 
-**Objetivo:** Ver qué servidor o servidores gestionan cada zona.
+!!! tip"Objetivo: Ver qué servidor o servidores gestionan cada zona"
 
 1. En **ADDS-Profesores** ejecutar:  
 
