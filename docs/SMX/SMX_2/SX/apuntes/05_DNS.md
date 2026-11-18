@@ -2404,8 +2404,10 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
     nslookup -type=SRV _kerberos._tcp.profesores.ad.practicadns.es
     ```
 
-2. **Repetir los dos comandos** cambiando `profesores.ad.practicadns.es` por `alumnos.ad.practicadns.es` y después por `ad.practicadns.es`. En total son **6 comandos**.
-==REALIZAR CAPTURA DE PANTALLA (3 en total)==  
+2. **Repetir los dos comandos**:
+    - Cambiando `profesores.ad.practicadns.es` por `alumnos.ad.practicadns.es`
+    - Después por `ad.practicadns.es`.
+    - En total son **6 comandos**.
 
 3. En cada respuesta deben aparecer:
     - El **puerto**: `389` para LDAP y `88` para Kerberos.
