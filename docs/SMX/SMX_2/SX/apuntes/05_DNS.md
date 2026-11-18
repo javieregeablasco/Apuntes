@@ -2338,7 +2338,7 @@ ping 172.31.33.153
 
 1. Entrar en **Servidor-DNS**, **ADDS-Alumnos** y **ADDS-Profesores** (uno por dominio).
 2. En cada uno ejecutar estos tres comandos:  
-==REALIZAR CAPTURA DE PANTALLA==  
+==REALIZAR 3 CAPTURAS DE PANTALLA==  
     ```bash
     nslookup servidor-dns.ad.practicadns.es
     nslookup adds-alumnos.alumnos.ad.practicadns.es
