@@ -2301,16 +2301,16 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
     - **Resultado correcto:** `Respuesta desde 172.31.x.x: bytes=32 ...` y `Perdidos = 0`.
     - **Resultado incorrecto:** `Tiempo de espera agotado` o `Host de destino inaccesible`. En ese caso deberéis solucionar el problema.
 
-**a) Desde Servidor-DNS**, hacer ping al resto de servidores:
+!!! abstract "a) Desde Servidor-DNS**, hacer ping al resto de servidores"
 
-==REALIZAR CAPTURA DE PANTALLA==  
-```bash
-ping 172.31.40.94
-ping 172.31.47.142
-ping 172.31.33.153
-```
+    ==REALIZAR CAPTURA DE PANTALLA==  
+    ```bash
+    ping 172.31.40.94
+    ping 172.31.47.142
+    ping 172.31.33.153
+    ```
 
-![img](./img_5/img_5_208.png){.margintop10 .marginbottom20 .leftsietecero}
+    ![img](./img_5/img_5_208.png){.margintop10 .marginbottom20 .leftsietecero}
 
 ---
 
