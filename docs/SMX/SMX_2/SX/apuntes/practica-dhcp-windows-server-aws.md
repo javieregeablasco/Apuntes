@@ -30,21 +30,7 @@
 - En la propia instancia, tambien podremos su pertenencia al dominio ´as.practicadns.es´.
 ![img](./img_5/img_5_178.png){.margintop10 .marginbottom20 .sietecinco}
 
-## Roles AD DS + DNS a las instancias
 
-!!! tip "Estos pasos se deberán repetir en las 2 instancias"
-
-- Añadiremos los roles a nuestras instancias.
-![img](./img_5/img_5_179.png){.margintop10 .marginbottom20 .sietecinco}
-
-- Luego promocionaremos la instancia a controladora de dominio **añadiendo el dominio de la instancia al bosque existente**.
-![img](./img_5/img_5_160.png){.margintop10 .marginbottom20 .sietecinco}
-- Introducimos una contraseña de recuperación ante catástrofes.
-![img](./img_5/img_5_180.png){.margintop10 .marginbottom20 .sietecinco}
-- Esperaremos a que se cargue el NetBIOS domain name.
-![img](./img_5/img_5_181.png){.margintop10 .marginbottom20 .sietecinco}
-- Comprobaremos que no existan impedimientos graves para terminar la promoción de la instancia a controladora de dominio.
-![img](./img_5/img_5_182.png){.margintop10 .marginbottom20 .sietecinco}
 
 
 alumnos

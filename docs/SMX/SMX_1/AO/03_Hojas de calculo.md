@@ -344,13 +344,13 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
 
     !!! tip "7. Insertar una columna "Horas trabajadas diarias""
         - Insertar una columna **Horas trabajadas diarias** cuyos valores seran la diferencia entre las columnas **Hora salida** y **Hora entrada**.  
-        - ![Descripción de la imagen](./03_hojas_de_calculo/img/calc24.png){ .leftcuatrocero .margintop10 .marginbottom20 }   
+        ![Descripción de la imagen](./03_hojas_de_calculo/img/calc24.png){ .leftcuatrocero .margintop10 .marginbottom20 }   
 
     !!! tip "8. Aplicar un formato condicional a la columna "Horas trabajadas diarias""
         - Para valores superiores a 8 horas 200 se aplicará el estilo Bueno (o cualquier otro, incluso podreís crear uno).  
         - Para valores iguales a 8 horas se aplicará el estilo Neutro (...).  
         - Para valores inferiores a 8 horas se aplicará el estilo Alerta (...).    
-        ![Descripción de la imagen](./03_hojas_de_calculo/img/calc28.png){ .lefttrescero .margintop10 .marginbottom20 }<br>   
+        ![Descripción de la imagen](./03_hojas_de_calculo/img/calc28.png){ .leftcincocero .margintop10 .marginbottom20 }<br>   
 
     !!! tip "9. Aspecto final de la práctica""
     ![Descripción de la imagen](./03_hojas_de_calculo/img/calc29.png){ .leftoriginal }<br>   
@@ -363,6 +363,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
         1. **No se aceptará ningún otro formato de archivo**.
         1. A partir del momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
         1. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas. 
+        
 ### HASTA AQUI
 
 ### **Tarea RA3-CEc-2 - Formúlas básicas, referencias de celdas, relativas, absolutas y mixtas**
