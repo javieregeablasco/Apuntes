@@ -2265,12 +2265,12 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
 
 - Realizar una tabla con **los 4 servidores** de vuestra práctica:
 
-| Servidor | Zona / Dominio | IP (ejemplo) |
-|----------|----------------||
-| Servidor-DNS | `ad.practicadns.es` | 172.31.33.127 |
-| Servidor-DNS-2 | `ad.practicadns.es` (redundante con Servidor-DNS) | 172.31.40.94 |
-| ADDS-Alumnos | `alumnos.ad.practicadns.es` | 172.31.47.142 |
-| ADDS-Profesores | `profesores.ad.practicadns.es` | 172.31.33.153 |
+    | Servidor | Zona / Dominio | IP (ejemplo) |
+    |----------|----------------||
+    | Servidor-DNS | `ad.practicadns.es` | 172.31.33.127 |
+    | Servidor-DNS-2 | `ad.practicadns.es` (redundante con Servidor-DNS) | 172.31.40.94 |
+    | ADDS-Alumnos | `alumnos.ad.practicadns.es` | 172.31.47.142 |
+    | ADDS-Profesores | `profesores.ad.practicadns.es` | 172.31.33.153 |
 
 - Todos los comandos se ejecutarán con un **símbolo del sistema** (`cmd`) o PowerShell.
 - Hacer las capturas de pantalla **completas** (que se vea el comando y su resultado). Las capturas están marcadas con ==REALIZAR CAPTURA DE PANTALLA==. Al final de la tarea hay una lista de comprobación.
@@ -2295,7 +2295,7 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
 
 ### 18.3 ¿Hay conexión con los servidores?
 
-**Objetivo:** comprobar que los 4 servidores se ven entre sí por la red.
+!!! info "Objetivo: comprobar que los 4 servidores se ven entre sí por la red"
 
 !!! info "Cómo interpretar un ping"
     - **Resultado correcto:** `Respuesta desde 172.31.x.x: bytes=32 ...` y `Perdidos = 0`.
@@ -2337,7 +2337,7 @@ ping 172.31.33.153
 
 1. Entrar en **Servidor-DNS**, **ADDS-Alumnos** y **ADDS-Profesores** (uno por dominio).
 2. En cada uno ejecutar estos tres comandos:  
-==REALIZAR CAPTURA DE PANTALLA (3 en total)==  
+==REALIZAR CAPTURA DE PANTALLA (1 para cada servidor / 3 en total)==  
     ```bash
     nslookup servidor-dns.ad.practicadns.es
     nslookup adds-alumnos.alumnos.ad.practicadns.es
