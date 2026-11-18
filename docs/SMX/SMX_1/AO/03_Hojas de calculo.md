@@ -285,18 +285,18 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
             - Fila 1:  
                 - Datos centrados tanto verticalmente como horizontalmente.  
                 - Bordes personalizados.    
-                ![Descripción de la imagen](./03_hojas_de_calculo/img/calc19.png){ .leftsietecinco .marginseiszero }<br>   
+                ![Descripción de la imagen](./03_hojas_de_calculo/img/calc19.png){ .leftsietecinco .marginseiszero }    
 
             - Filas datos: 
                 - Sangrías (o márgenes) a la izquierda o a la derecha.  
-                    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc20.png){ .leftsietecinco .marginseiszero }<br>   
+                    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc20.png){ .leftsietecinco .marginseiszero }    
 
                 - Formato de datos: Fechas, moneda, hora...  
-                    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc22.png){ .leftsietecinco .marginseiszero }<br>   
+                    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc22.png){ .leftsietecinco .marginseiszero }  
 
 
             - Resultado final.  
-            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc21.png){ .leftsietecinco .marginseiszero }<br>   
+            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc21.png){ .leftsietecinco .marginseiszero }  
    
    
     !!! tip "3. Insertar una columna de segundo apellido"  
