@@ -2251,18 +2251,19 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
 
 ## 18 - Tarea RA2-CEh - Comprobar el comportamiento DNS de las 3 zonas
 
-- En esta tarea realizarás **comprobaciones básicas de DNS** en un bosque de Active Directory con dominios hijo.
+- En esta tarea realizaremos **comprobaciones básicas del funcionamiento del servicio DNS** en un bosque de Active Directory con dominios hijo.
 - Cada dominio tiene su propia zona DNS. La zona padre sabe dónde están las zonas hijas porque tiene una **delegación** (un registro NS que dice: "para `alumnos`, pregunta a ADDS-Alumnos").
 - Si todo ha ido bien, el resultado final será como el siguiente:
 
 ![img](./img_5/img_5_206.png){.margintop10 .marginbottom20 .cien}
 
-!!! warning "Cambia las IPs de los comandos por las de tu laboratorio"
-    Las IPs que aparecen en esta tarea son las del laboratorio de ejemplo. Antes de ejecutar cada comando, sustitúyelas por las IPs reales de tus servidores.
+!!! warning "Cambiar las IPs de los comandos por las de vuestro laboratorio"
+    - Las IPs que aparecen en esta tarea son las del laboratorio de ejemplo.
+    - Antes de ejecutar cada comando, deberíes sustituirlas por las IPs reales de vuestros servidores.
 
 ### 18.1 Antes de empezar
 
-- Ten a mano esta tabla con **los 4 servidores** de tu laboratorio:
+- Realizar una tabla con **los 4 servidores** de vuestra práctica:
 
 | Servidor | Zona / Dominio | IP (ejemplo) |
 |----------|----------------|--------------|
