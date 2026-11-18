@@ -2438,13 +2438,11 @@ Antes de entregar la tarea, verifica que tienéis **todas** estas capturas:
 - En esta práctica añadiremos un cliente Ubuntu Server 26.04 al dominio `alumnos.ad.practicadns.es` y comprobaremos que puede autenticarse correctamente.
 - También comprobaremos que el cliente ha creado un registro en la zona DNS del dominio `alumnos.ad.practicadns.es` y que ese registro es visible desde el resto de controladores de dominio del bosque.
 
-![img](../../../../assets/wip.jpg)
+![img](../../../../assets/wip.jpg){.ochocinco}
 
+## 20 - Tarea RA2-CEde-2 - Instalación y configuración de un servidor DNS con BIND9 en Ubuntu Server 26.04 LTS
 
-<!--
-## 16 - Tarea RA2-CEde-2 - Instalación y configuración de un servidor DNS con BIND9 en Ubuntu Server 26.04 LTS
-
-### 16.1 Objetivos
+### 20.1 Objetivos
 
 - En esta práctica crearemos una pequeña red dentro de **Amazon Web Services (AWS)** formada por tres instancias EC2.
 
@@ -2460,6 +2458,7 @@ Antes de entregar la tarea, verifica que tienéis **todas** estas capturas:
 1. Resolución DNS desde los clientes.
 1. Reenvío de consultas DNS no resueltas hacia Internet.
 
+<!--
 Al finalizar la práctica tendremos una arquitectura similar a:
 
 ```text
