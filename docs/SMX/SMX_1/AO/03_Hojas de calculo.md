@@ -333,7 +333,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
     !!! tip "5. Insertar la columna "Diferencia actual-inicial""
         - Insertar la columna **Diferencia actual-inicial** que será la diferencia entre las 2 columnas anteriores.   
         - Os dejo la fórmula para calcular esa diferencia.
-        ![Descripción de la imagen](./03_hojas_de_calculo/img/calc26.png){ .leftcuatrocero .marginseiszero }<br>   
+        ![Descripción de la imagen](./03_hojas_de_calculo/img/calc26.png){ .leftseiscero  }
 
     !!! tip "6. Aplicar un formato condicional a la columna "Diferencia actual-inicial""
     Para diferencias superiores a 200 se aplicará el estilo Alerta (o cualquier otro, incluso podreís crear uno).  
