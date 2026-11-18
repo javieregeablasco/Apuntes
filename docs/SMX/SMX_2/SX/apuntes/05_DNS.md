@@ -2397,6 +2397,8 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
 !!! tip "Objetivo: comprobar que cada controlador de dominio publica en el DNS sus **registros SRV**.<br><br>Son los registros que usan los equipos para encontrar el controlador de dominio. Si faltan, nadie podrá unirse al dominio."
 
 1. Ejecutar los siguientes comandos para el dominio **profesores**:
+==REALIZAR CAPTURA DE PANTALLA (3 en total)==  
+
     ```bash
     nslookup -type=SRV _ldap._tcp.dc._msdcs.profesores.ad.practicadns.es
     nslookup -type=SRV _kerberos._tcp.profesores.ad.practicadns.es
