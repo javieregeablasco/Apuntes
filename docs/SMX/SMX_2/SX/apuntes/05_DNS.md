@@ -2419,7 +2419,7 @@ ping 172.31.33.153
 Antes de entregar, verifica que tienes **todas** estas capturas:
 
 | Apartado | Capturas | Qué debe verse |
-|----------|----------|----------------|
+|----------|----------||
 | 18.2 | 3 | `ipconfig /all` de cada dominio, con los Servidores DNS |
 | 18.3 | 3 | Ping desde Servidor-DNS, Servidor-DNS-2 y ADDS-Alumnos |
 | 18.4 | 3 | 3 `nslookup` en cada uno de los 3 servidores |
