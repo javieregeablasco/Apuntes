@@ -2279,15 +2279,14 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
 
 **Objetivo:** comprobar que cada servidor está configurado para usar un DNS de su propio dominio.
 
-1. Entra en un servidor de **cada** dominio: `ad` (Servidor-DNS), `alumnos` (ADDS-Alumnos) y `profesores` (ADDS-Profesores).
+1. Entrar en un servidor de **cada** dominio: `ad` (Servidor-DNS), `alumnos` (ADDS-Alumnos) y `profesores` (ADDS-Profesores).
 1. En cada uno ejecutar:
 
     ```bash
     ipconfig /all
     ```
 
-1. Busca la línea **DNS Servers** (en Windows en español: **Servidores DNS**). Debe aparecer la IP de un servidor DNS del **propio dominio** (por ejemplo, en un servidor de `profesores` debe aparecer la IP de ADDS-Profesores).
-
+1. Buscar la línea **DNS Servers**. Debe aparecer la IP de un servidor DNS del **propio dominio** (por ejemplo, en un servidor de `profesores` debe aparecer la IP de ADDS-Profesores).
 ![img](./img_5/img_5_207.png){.margintop10 .marginbottom20 .cien}
 
 !!! warning "Repite el comando una vez por cada dominio"
