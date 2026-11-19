@@ -306,3 +306,5 @@ La sostenibilidad requiere una conducta ética y coherente en todas las facetas 
     - Realizar un documento que os sirva para exponer la actividad al otro grupo.
 
 ## 10 - Mapa mental de la unidad didáctica
+
+![imagen](./img_6/img-6-2.png){ width="100%" }
