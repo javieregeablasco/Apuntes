@@ -2755,7 +2755,7 @@ zone "31.172.in-addr.arpa" {
 !!! tip "Zona inversa"
     - Para la red 172.31.0.0/16 la zona inversa se llama `31.172.in-addr.arpa`.
     - Se escriben al revés solo los dos primeros octetos, porque el /16 fija esos dos.
-<!--
+
 ### 16.9 Crear el archivo de zona directa
 
 - Para solucionar el error detectado anteriormente, crearemos un archivo de zona.  
@@ -2764,30 +2764,30 @@ zone "31.172.in-addr.arpa" {
 # Realizamos una copia de seguridad del archivo original (si existe)
 sudo cp /etc/bind/db.local /etc/bind/db.practicadns.es
 # Editamos o creamos el archivo 
-sudo nano /etc/bind/db.practicadns.test
+sudo nano /etc/bind/db.practicadns.es
 ```
 
 - Luego pegaremos la siguiente configuración.
 
 ```text
 $TTL    604800
-@       IN      SOA     ns1.practicadns.test. admin.practicadns.test. (
+@       IN      SOA     ns1.practicadns.es. admin.practicadns.es. (
                         2026092301      ; Serial
                         604800          ; Refresh
                         86400           ; Retry
                         2419200         ; Expire
                         604800 )        ; Negative Cache TTL
 ;
-@       IN      NS      ns1.practicadns.test.
-ns1     IN      A       172.31.81.127
+@       IN      NS      ns1.practicadns.es.
+ns1     IN      A       172.31.81.184
 www     IN      A       172.31.81.127
 ```
 
 !!! tip "Explicación de la configuración"
     - **ns1** significa **name server 1** (servidor de nombres 1). Es el nombre del host que actúa como servidor DNS de la zona. Por convención se llama ns1, y un segundo servidor se llamaría ns2, pero se le puede poner cualquier nombre (dns, servidor, etc.).
-    - En el SOA (ns1.practicadns.test.): indica cuál es el servidor primario de la zona, es decir, el que tiene la copia original de los datos.
-    - En el registro NS (@ IN NS ns1.practicadns.test.): declara que ns1.practicadns.test. es un servidor autoritativo para la zona practicadns.test (un registro NS apunta siempre a un nombre, no a una IP).
-    - En el registro A (ns1 IN A 172.31.81.127): traduce ese nombre a una IP. Es lo que permite encontrar el servidor. Sin este registro, el NS apuntaría a un nombre que nadie sabe resolver y la zona no cargaría.
+    - En el SOA (ns1.practicadns.es.): indica cuál es el servidor primario de la zona, es decir, el que tiene la copia original de los datos.
+    - En el registro NS (@ IN NS ns1.practicadns.es.): declara que ns1.practicadns.es. es un servidor autoritativo para la zona practicadns.es (un registro NS apunta siempre a un nombre, no a una IP).
+    - En el registro A (ns1 IN A 172.31.81.184): traduce ese nombre a una IP. Es lo que permite encontrar el servidor. Sin este registro, el NS apuntaría a un nombre que nadie sabe resolver y la zona no cargaría.
     - En el registro A (www IN A 172.31.81.127): traduce un hipotetico servidor web.
 
 1. Validamos y reiniciamos.
@@ -2796,7 +2796,7 @@ www     IN      A       172.31.81.127
 # Comprueba la configuración de BIND (named.conf)
 sudo named-checkconf
 # Comprueba que el archivo de zona es correcto
-sudo named-checkzone practicadns.test /etc/bind/db.practicadns.test
+sudo named-checkzone practicadns.es /etc/bind/db.practicadns.es
 # Reiniciamos el servicio
 sudo systemctl restart bind9
 ```
@@ -2807,12 +2807,13 @@ sudo systemctl restart bind9
 1. Hacemos una prueba de resolución.
 
 ```bash
-dig @172.31.81.127 www.practicadns.test
+dig @172.31.81.184 www.practicadns.es
 ```
 
 ==Realizar captura de pantalla==
 ![Descripción de la imagen](./img_5/img_5_143.png){ .marginbottom10 }
 
+<!--
 ### 16.10 Crear el archivo de zona inversa
 
 1. También crearemos el archivo de zona inversa (siempre realizar una copia de seguridad si el archivo existe).
@@ -2851,7 +2852,7 @@ sudo systemctl restart bind9
 1. Probamos la resolución inversa
 
 ```bash
-dig @172.31.81.127 -x 172.31.81.127
+dig @172.31.81.184 -x 172.31.81.184
 ```
 
 ==Realizar captura de pantalla==
