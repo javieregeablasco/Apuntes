@@ -271,10 +271,10 @@ El segundo criterio de evaluación requiere que se analice las consecuencias de 
 
 La falta de alineación con la Agenda 2030 expone a los profesionales y empresas a vulnerabilidades críticas:
 
-- **Riesgos regulatorios y legales**: Exposición a sanciones económicas o inhabilitación administrativa por incumplimiento de normativas ambientales estrictas (Directiva CSRD, Ley de Cambio Climático, normativa de envases y residuos).
-- **Riesgos reputacionales y de mercado**: Pérdida de clientes y deterioro de la imagen de marca por malas prácticas o por incurrir en *greenwashing*. Pérdida de competitividad frente a empresas certificadas.
-- **Riesgos operacionales y de cadena de suministro**: Interrupción de la actividad productiva por fenómenos climáticos extremos, escasez de agua o encarecimiento severo de materias primas no renovables.
-- **Riesgos financieros y de acceso a capital**: Penalización bancaria, dificultades de crédito y exclusión de fondos de inversión que aplican filtros exigentes de criterios ESG (Environmental, Social, Governance).
+1. **Riesgos regulatorios y legales**: Exposición a sanciones económicas o inhabilitación administrativa por incumplimiento de normativas ambientales estrictas (Directiva CSRD, Ley de Cambio Climático, normativa de envases y residuos).
+1. **Riesgos reputacionales y de mercado**: Pérdida de clientes y deterioro de la imagen de marca por malas prácticas o por incurrir en *greenwashing*. Pérdida de competitividad frente a empresas certificadas.
+1. **Riesgos operacionales y de cadena de suministro**: Interrupción de la actividad productiva por fenómenos climáticos extremos, escasez de agua o encarecimiento severo de materias primas no renovables.
+1. **Riesgos financieros y de acceso a capital**: Penalización bancaria, dificultades de crédito y exclusión de fondos de inversión que aplican filtros exigentes de criterios ESG (Environmental, Social, Governance).
 
 ### 7.2 Los cinco vectores de oportunidad e innovación
 
@@ -290,8 +290,8 @@ Integrar los ODS en el desempeño laboral no es un coste, sino una palanca de cr
 
 La sostenibilidad requiere una conducta ética y coherente en todas las facetas de la persona. El alumnado debe ser capaz de interrelacionar las acciones de su vida privada con su responsabilidad en el centro de trabajo:
 
-- **En la vida personal**: Practicar la regla de las 3R (Reducir, Reutilizar, Reciclar), optar por la movilidad activa o el transporte público, promover el consumo responsable de proximidad, aplicar la eficiencia en el hogar y ejercer una ciudadanía activa e informada.
-- **En la praxis profesional**: Proponer mejoras sostenibles en el puesto de trabajo, garantizar la ergonomía y seguridad propia y de los compañeros, gestionar correctamente los residuos profesionales, respetar la equidad y diversidad en el equipo y actuar con transparencia ética.
+1. **En la vida personal**: Practicar la regla de las 3R (Reducir, Reutilizar, Reciclar), optar por la movilidad activa o el transporte público, promover el consumo responsable de proximidad, aplicar la eficiencia en el hogar y ejercer una ciudadanía activa e informada.
+1. **En la praxis profesional**: Proponer mejoras sostenibles en el puesto de trabajo, garantizar la ergonomía y seguridad propia y de los compañeros, gestionar correctamente los residuos profesionales, respetar la equidad y diversidad en el equipo y actuar con transparencia ética.
 
 ## 9 - Foro de discusión
 
