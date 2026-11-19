@@ -2779,8 +2779,8 @@ $TTL    604800
                         604800 )        ; Negative Cache TTL
 ;
 @       IN      NS      ns1.practicadns.es.
-ns1     IN      A       172.31.81.184
-www     IN      A       172.31.81.127
+ns1     IN      A       172.31.81.184 ; Dirección IP del servidor DNS
+www     IN      A       172.31.81.127 ; Dirección IP del servidor web (si existe)
 ```
 
 !!! tip "Explicación de la configuración"
