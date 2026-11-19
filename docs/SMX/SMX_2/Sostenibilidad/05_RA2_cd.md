@@ -156,7 +156,7 @@ Los sectores de transporte, energía e industria representan conjuntamente el 63
 Los empleos "marrones" se concentran a menudo en sectores maduros con trabajadores de cualificación media-baja24. Si la velocidad de descarbonización supera la capacidad real de recualificación profesional (reskilling) mediante Políticas Activas de Empleo (PAE), se genera despoblación y desprotección territorial
 -->
 
-!!! question "Protección y salud laboral frente al cambio climático ¿Deben imponerse limitaciones normativas a la jornada de trabajo durante episodios extremos de calor?""
+!!! question "Protección y salud laboral frente al cambio climático ¿Deben imponerse limitaciones normativas a la jornada de trabajo durante episodios extremos de calor?"
     - A favor de la regulación estatal estricta.
     - A favor de la flexibilidad negociada por empresas y sindicatos.
 
