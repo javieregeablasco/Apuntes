@@ -2444,22 +2444,20 @@ Antes de entregar la tarea, verifica que tienéis **todas** estas capturas:
 
 ### 20.1 Objetivos
 
-- En esta práctica crearemos una pequeña red dentro de **Amazon Web Services (AWS)** formada por tres instancias EC2.
+- En esta práctica crearemos una pequeña red dentro de una VPC de **Amazon Web Services (AWS)** compuesta por **3 instancias EC2** con Ubuntu Server 26.04 LTS.
 
 - Una de las instancias actuará como **servidor DNS** utilizando **BIND9** y las otras dos actuarán como clientes.
 
-- Aparte de las VPC, subredes, puertas de enlace, grupos de seguridad y tablas de enrutamiento que son las que vienen por defecto en AWS, configuraremos:
+- En la instancia que actuará como servidor DNS, realizaremos las siguientes configuraciones:
 
-1. Tres instancias EC2 con Ubuntu Server 26.04 LTS. En una de ellas, haremos lo siguiente:
-1. Un servidor DNS BIND9.
-1. Una zona DNS directa.
-1. Dos zonas DNS inversas.
-1. Registros A, CNAME, NS, SOA y PTR.
-1. Resolución DNS desde los clientes.
-1. Reenvío de consultas DNS no resueltas hacia Internet.
+    1. Un servidor DNS BIND9.
+    1. Una zona DNS directa.
+    1. Dos zonas DNS inversas.
+    1. Registros A, CNAME, NS, SOA y PTR.
+    1. Resolución DNS desde los clientes.
+    1. Reenvío de consultas DNS no resueltas hacia Internet.
 
-<!--
-Al finalizar la práctica tendremos una arquitectura similar a:
+- Al finalizar la práctica tendremos un escenario similar al siguiente:
 
 ```text
                             INTERNET
@@ -2487,50 +2485,22 @@ Al finalizar la práctica tendremos una arquitectura similar a:
 Utilizaremos el dominio:
 
 ```text
-smr.test
+ad.practicadns.es
 ```
 
 Por tanto:
 
 ```text
-dns.smr.test       → 10.0.1.10
-cliente1.smr.test  → 10.0.2.10
-cliente2.smr.test  → 10.0.2.20
+dns.ad.practicadns.es       → 10.0.1.10
+cliente1.ad.practicadns.es  → 10.0.2.10
+cliente2.ad.practicadns.es  → 10.0.2.20
 ```
-
-!!! note "¿Por qué utilizamos smr.test?"
-
-```
-Para una práctica es preferible utilizar un dominio reservado para pruebas como `.test`.
-
-No utilizaremos `.local`, ya que este sufijo tiene un significado especial relacionado con **mDNS (Multicast DNS)** y puede provocar resultados inesperados en algunos sistemas operativos.
-```
-
----
-
-!!! warning "UDP y TCP"
-
-```
-DNS utiliza principalmente **UDP 53**, pero también puede utilizar **TCP 53**.
-
-Por tanto, debemos permitir ambos protocolos.
-```
-
-No es necesario permitir DNS desde:
-
-```text
-0.0.0.0/0
-```
-
-Nuestro servidor DNS será exclusivamente para los equipos de nuestra red privada.
-
----
 
 ### 16.2 Lanzar instancias
 
 #### 16.2.1 Instancia Servidor-DNS
 
-Lanzaremos una instancia que hará de servidor DNS con las siguiente características.
+Lanzaremos una instancia que hará de servidor DNS con las siguientes características.
 
 - Sistema operativo Ubuntu Server 26.04 LTS.
 ![Descripción de la imagen](./img_5/img_5_120.png){.margintop10 .marginbottom10 .marco }
@@ -2563,6 +2533,7 @@ Lanzaremos una instancia que hará de servidor DNS con las siguiente caracterís
 ==Realizar captura de pantalla==
 ![Descripción de la imagen](./img_5/img_5_126.png){.margintop10 .marginbottom10 .marco }
 
+<!-- https://youtu.be/1s0vjLv9roQ?si=SC7USjcIb8JZKKRu&t=143 
 ### 16.3 Visualizar las reglas de la tabla de enrutamiento
 
 Para ver/modificar la tabla de enrutamiento de la red que estamos utilizando haremos lo siguiente:
