@@ -137,7 +137,7 @@ aspecto económico a corto plazo.
     !!! tip "Descripción y Metas"
         - Su objetivo es garantizar la disponibilidad y gestión sostenible del agua y el saneamiento para todos.
         - Más del 40% de la población mundial sufre escasez de agua, y en 2022, 2,200 millones de personas carecían de servicios de agua potable segura.
-    !!! tip "Estrategias de Actuación"
+    !!! abstract "Estrategias de Actuación"
         - Todas las empresas pueden calcular su huella de agua para reducir su consumo.
         - Se deben reducir los vertidos de contaminantes e instalar sistemas de riego inteligentes.
         - La empresa Aquara se dedica a la gestión del ciclo integral del agua, reforzando la economía circular.
@@ -145,7 +145,7 @@ aspecto económico a corto plazo.
 !!! note "ODS 7: Energía Asequible y no Contaminante"
     !!! tip "Descripción y Metas"
         - Se enfoca en garantizar el acceso a una energía asequible, segura, sostenible y moderna para todos, promoviendo el cambio hacia fuentes más limpias y renovables.
-    !!! tip "Estrategias de Actuación"
+    !!! abstract "Estrategias de Actuación"
         - Las empresas deben realizar un análisis profundo de sus procesos productivos para impulsar políticas relacionadas con energías emergentes.
         - Pueden medir su huella de carbono y buscar alternativas más limpias, especialmente en el sector del transporte. Naturgy contribuye a este ODS con su compromiso con la innovación sostenible.
 
@@ -153,7 +153,7 @@ aspecto económico a corto plazo.
     !!! tip "Descripción y Metas"
         - Promueve el crecimiento económico sostenido, inclusivo y sostenible, el empleo pleno y productivo, y el trabajo decente para todos.
         - Busca dar acceso a trabajos dignos a personas de colectivos vulnerables.
-    !!! tip "Estrategias de Actuación"
+    !!! abstract "Estrategias de Actuación"
         - Se vincula con el ODS 4, ya que es necesario formar a los trabajadores para adaptarse a entornos laborales cambiantes y con alta capacidad de resiliencia.
         - Las empresas pueden usar herramientas como la gamificación para fomentar la interacción y objetivos compartidos.
 
@@ -161,7 +161,7 @@ aspecto económico a corto plazo.
     !!! tip "Descripción y Metas"
         - Pretende construir infraestructuras resilientes, promover la industrialización inclusiva y sostenible y fomentar la innovación.
         - A pesar de los avances, más de 4,000 millones de personas aún no tienen acceso a internet.
-    !!! tip "Estrategias de Actuación:
+    !!! abstract "Estrategias de Actuación"
         - Las empresas deben poner en marcha procesos de innovación e investigación, independientemente de su tamaño.
         - La digitalización y la movilidad son vertientes clave.
         - La empresa EDP, por ejemplo, planea invertir 2,000 millones de euros en proyectos de innovación y digitalización hasta 2025.
@@ -170,14 +170,14 @@ aspecto económico a corto plazo.
     !!! tip "Descripción y Metas"
         - Su foco es reducir la desigualdad en y entre los países.
         - Se estima que el 10% más rico de la población mundial obtiene el 40% de la renta total, mientras que el 10% más pobre solo genera el 5%.
-    !!! tip "Estrategias de Actuación"
+    !!! abstract "Estrategias de Actuación"
         - Las empresas pueden invertir en mercados de países emergentes, ofrecer igualdad de oportunidades laborales y salariales, y promover la igualdad a través del acceso a la tecnología.
 
 !!! note "ODS 11: Ciudades y Comunidades Sostenibles"
     !!! tip "Descripción y Metas"
         - Busca que las ciudades y los asentamientos humanos sean inclusivos, seguros, resilientes y sostenibles.
         - Se proyecta que más de dos tercios de la población mundial vivirá en áreas urbanas para 2050.
-    !!! tip "Estrategias de Actuación"
+    !!! abstract "Estrategias de Actuación"
         - Aunque los sectores públicos lideran las actuaciones, las empresas pueden aportar soluciones. Deben procurar que sus edificios sean sostenibles y pueden desarrollar planes de movilidad para sus empleados.
         - Bankinter financia proyectos de hidrógeno y ofrece una "Hipoteca Casa Eficiente".
 
@@ -186,7 +186,7 @@ aspecto económico a corto plazo.
         - Su fin es garantizar modalidades de consumo y producción sostenibles.
         - Implica reducir a la mitad el desperdicio de alimentos para 2030 y cambiar la forma en que gestionamos los recursos y los residuos.
         - El uso de la economía circular es clave.
-    !!! tip "Estrategias de Actuación"
+    !!! abstract "Estrategias de Actuación"
         - Realizar una planificación y gestión eficiente de residuos.
         - Introducir el concepto de economía circular para preservar los recursos.
         - Un ejemplo de acción es sustituir las bombillas por otras de bajo consumo, logrando un ahorro energético de entre el 50% y el 80%.
@@ -195,7 +195,7 @@ aspecto económico a corto plazo.
     !!! tip "Descripción y Metas"
         - Llama a adoptar medidas urgentes para combatir el cambio climático y sus efectos.
         - Su enfoque principal, definido por el Acuerdo de París (COP21), es reducir las emisiones de gases de efecto invernadero y limitar el aumento de la temperatura global a 1.5°C.
-    !!! tip "Estrategias de Actuación"
+    !!! abstract "Estrategias de Actuación"
         - Las empresas deben modificar sus estrategias productivas y comerciales.
         - Es necesario desarrollar una política de información clara sobre los riesgos del cambio climático e invertir en innovación y tecnología para reducir emisiones.
         - Grupo Freixenet reduce la contaminación de aguas residuales mejorando sus procesos de depuración.
@@ -204,21 +204,21 @@ aspecto económico a corto plazo.
     !!! tip "Descripción y Metas"
         - Busca conservar y utilizar sosteniblemente los océanos, los mares y los recursos marinos.
         - Más de 3,000 millones de personas dependen de la biodiversidad marina. La contaminación por plásticos es una amenaza principal.
-    !!! tip "Estrategias de Actuación"
+    !!! abstract "Estrategias de Actuación"
         - Tomar medidas para reducir la producción y el consumo de plásticos en envases y materiales.
         - Apostar por las 3R (reducir, reutilizar y reciclar) para disminuir costes y aumentar la eficiencia, fomentando la economía circular.
 
 !!! note "ODS 15: Vida de Ecosistemas Terrestres"
     !!! tip "Descripción y Metas"
         - Su objetivo es gestionar sosteniblemente los bosques, luchar contra la desertificación, detener e invertir la degradación de las tierras y detener la pérdida de biodiversidad.
-    !!! tip "Estrategias de Actuación"
+    !!! abstract "Estrategias de Actuación"
         - Utilizar etiquetados o sellos de producción sostenible para certificar que las materias primas provienen de fuentes sostenibles.
         - Fomentar prácticas de reciclaje adecuadas para reducir vertidos. La empresa Solunion realiza voluntariados de limpieza y reforestación.
 
 !!! note "ODS 16: Paz, Justicia e Instituciones Sólidas"
     !!! tip "Descripción y Metas"
         - Promueve sociedades pacíficas e inclusivas para el desarrollo sostenible, facilita el acceso a la justicia para todos y crea instituciones eficaces, responsables e inclusivas a todos los niveles.
-    !!! tip "Estrategias de Actuación"
+    !!! abstract "Estrategias de Actuación"
         - Las empresas son responsables de sus cadenas de suministro y valor, y pueden elevar los estándares exigidos a sus proveedores.
         - Pueden implementar planes y códigos éticos y compartir información para aumentar la transparencia y el prestigio social.
 
@@ -226,7 +226,7 @@ aspecto económico a corto plazo.
     !!! tip "Descripción y Metas"
         - Busca fortalecer los medios de implementación y revitalizar la Alianza Mundial para el Desarrollo Sostenible.
         - Requiere la colaboración a escala mundial entre el sector público, el privado y la sociedad civil.
-    !!! tip "Estrategias de Actuación"
+    !!! abstract "Estrategias de Actuación"
         - La cooperación es más efectiva que la competencia.
         - Las empresas deben impulsar alianzas público-privadas y con comunidades locales.
         - El grupo farmacéutico Menarini, firmante del Pacto Mundial, es un ejemplo de compromiso con este ODS.
