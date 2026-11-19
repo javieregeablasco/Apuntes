@@ -2902,6 +2902,8 @@ resolvectl status
 <!--
 #### 16.11.2 Añadir clientes
 
+https://youtu.be/1s0vjLv9roQ?si=2l9qT07fEuGt3J0a&t=848
+
 ![Descripción de la imagen](./img_5/img_5_152.png){ .marginbottom20 .marco .margintop10}
 ![Descripción de la imagen](./img_5/img_5_153.png){ .marginbottom20 .marco .margintop10}
 ![Descripción de la imagen](./img_5/img_5_154.png){ .marginbottom20 .marco .margintop10}
