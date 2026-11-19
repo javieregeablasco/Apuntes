@@ -45,7 +45,7 @@ La aplicación efectiva de la sostenibilidad en la actividad diaria exige una se
 1. **Sistema de indicadores de desempeño (KPIs sostenibles)**: Herramientas de medición que permiten cuantificar el impacto, tales como la huella de carbono, el consumo hídrico, la tasa de valorización de residuos, la brecha salarial de género o el índice de siniestralidad laboral.
 1. **Herramientas de evaluación y diagnóstico**: Empleo de matrices de materialidad, evaluaciones de riesgos y planes de acción específicos.
 
-## 3 - El Fundamento de la Sostenibilidad Empresarial
+## 3 - El Fundamento de la sostenibilidad empresarial
 
 - Para ser social y económicamente sostenibles, las organizaciones deben integrar criterios ambientales, sociales y de gobernanza en todas sus actividades.
 - Existe una correlación directa entre la sostenibilidad y la rentabilidad económica, donde las empresas que impulsan estos planes obtienen mejores resultados que sus competidores a medio y largo plazo, proyectando una imagen positiva hacia los consumidores y la sociedad.
@@ -59,9 +59,9 @@ La aplicación efectiva de la sostenibilidad en la actividad diaria exige una se
 - Este enfoque genera sinergias positivas que impulsan la actividad empresarial.
 
 - Para su implementación, se recomienda un trabajo constante en todos los departamentos y la creación de un comité de sostenibilidad que supervise las siguientes tareas:
-    1. Análisis y propuestas: Identificar los aspectos empresariales a mejorar y proponer soluciones.
-    1. Ejecución de acciones: Implementar las mejoras propuestas.
-    1. Auditorías periódicas: Analizar, detectar y proponer variaciones en las mejoras de forma continua.
+    1. **Análisis y propuestas**: Identificar los aspectos empresariales a mejorar y proponer soluciones.
+    1. **Ejecución de acciones**: Implementar las mejoras propuestas.
+    1. **Auditorías periódicas**: Analizar, detectar y proponer variaciones en las mejoras de forma continua.
 
 - Ejemplos como Henkel, una empresa líder en sostenibilidad con su lema "Crecimiento con propósito", demuestran la viabilidad de este modelo.
 
@@ -69,27 +69,27 @@ La aplicación efectiva de la sostenibilidad en la actividad diaria exige una se
 
 - El desarrollo de un plan de cultura de sostenibilidad ofrece múltiples ventajas para las empresas, priorizando los factores ambientales, sociales y de gobernanza sobre el mero
 aspecto económico a corto plazo.
-    1. Aumento de clientes: Atrae a consumidores potenciales concienciados con los productos y servicios de empresas sostenibles.
-    1. Reducción de costes: La implementación de políticas ecológicas, como el uso de energías renovables, disminuye los costes empresariales.
-    1. Mejora de la imagen de marca: Aumenta el valor y el prestigio de la empresa, no solo para clientes sino para toda la sociedad.
+    1. **Aumento de clientes**: Atrae a consumidores potenciales concienciados con los productos y servicios de empresas sostenibles.
+    1. **Reducción de costes**: La implementación de políticas ecológicas, como el uso de energías renovables, disminuye los costes empresariales.
+    1. **Mejora de la imagen de marca**: Aumenta el valor y el prestigio de la empresa, no solo para clientes sino para toda la sociedad.
 
 ### 3.3 Pilares de la Implementación
 
 - La creación de una cultura de sostenibilidad sólida se apoya en tres acciones fundamentales:
-    1. Creación de un ambiente favorable: El empresario debe promover un entorno de trabajo saludable y un sentimiento de pertenencia al grupo.
-    1. Capacitación de los empleados: La empresa debe proporcionar la información necesaria para que los empleados realicen sus tareas de forma sostenible.
-    1. Campañas de concienciación: Los trabajadores deben conocer las acciones que pueden realizar para contribuir al aumento de la sostenibilidad empresarial.
+    1. **Creación de un ambiente favorable**: El empresario debe promover un entorno de trabajo saludable y un sentimiento de pertenencia al grupo.
+    1. **Capacitación de los empleados**: La empresa debe proporcionar la información necesaria para que los empleados realicen sus tareas de forma sostenible.
+    1. **Campañas de concienciación**: Los trabajadores deben conocer las acciones que pueden realizar para contribuir al aumento de la sostenibilidad empresarial.
 
 ## 4 - Oportunidades y beneficios de la adopción de los ODS
 
 - Los ODS, acordados por gobiernos a nivel mundial, requieren la colaboración activa de empresas y profesionales para su éxito. Al adoptar las metas de los ODS, las organizaciones obtienen beneficios significativos a medio y largo plazo:
-    1. Identificar oportunidades de negocio: Los ODS canalizan inversiones públicas y privadas hacia metas específicas, abriendo mercados emergentes.
-    1. Aumentar la sostenibilidad empresarial: Refuerzan los incentivos económicos para que las organizaciones modifiquen sus procesos y procedimientos.
-    1. Fortalecer las relaciones con el entorno: Las empresas y profesionales alineados con los ODS mejoran su relación con clientes, empleados y la comunidad.
-    1. Estabilizar mercados y sociedades: Invertir en ODS es apostar por sistemas financieros transparentes e instituciones sin corrupción.
-    1. Buscar un propósito común: Los ODS proporcionan un marco común para abordar los retos sociales más urgentes a nivel global y local.
+    1. **Identificar oportunidades de negocio**: Los ODS canalizan inversiones públicas y privadas hacia metas específicas, abriendo mercados emergentes.
+    1. **Aumentar la sostenibilidad empresarial**: Refuerzan los incentivos económicos para que las organizaciones modifiquen sus procesos y procedimientos.
+    1. **Fortalecer las relaciones con el entorno**: Las empresas y profesionales alineados con los ODS mejoran su relación con clientes, empleados y la comunidad.
+    1. **Estabilizar mercados y sociedades**: Invertir en ODS es apostar por sistemas financieros transparentes e instituciones sin corrupción.
+    1. **Buscar un propósito común**: Los ODS proporcionan un marco común para abordar los retos sociales más urgentes a nivel global y local.
 
-## 5 - Análisis detallado de los 17 objetivos de desarrollo sostenible dentro del marco empresarial
+## 5 - Análisis de los 17 objetivos de desarrollo sostenible dentro del marco empresarial
 
 !!! note "ODS 1: Fin de la Pobreza"
     !!! tip "Descripción y Metas"
