@@ -242,28 +242,26 @@ Para fundamentar la selección de ODS, se debe aplicar el siguiente procedimient
 
 1. **Mapeo de la actividad profesional y cadena de valor**: Desglosar los procesos del puesto de trabajo (entradas de recursos, operaciones diarias, salidas de productos/servicios y generación de efluentes o residuos).
 
-1. **Evaluación Dual de Impactos**:
+1. **Evaluación dual de impactos**:
     - *Impacto Negativo (Huella a mitigar)*: Identificar en qué ODS la actividad genera un perjuicio directo o indirecto (ej. alto consumo energético, emisiones, uso de sustancias tóxicas, precariedad laboral).
     - *Impacto Positivo (Contribución o valor añadido)*: Identificar en qué ODS la actividad profesional puede aportar soluciones innovadoras o mejoras sociales y ambientales.
 
-1. **Construcción de la Matriz de Relevancia (Materialidad)**: Priorizar entre 3 y 5 ODS en los que la capacidad de influencia de la profesión sea crítica.
+1. **Construcción de la matriz de relevancia (materialidad)**: Priorizar entre 3 y 5 ODS en los que la capacidad de influencia de la profesión sea crítica.
 
-1. **Justificación Técnica Argumentada**: Redactar una memoria explicativa apoyada en datos y ejemplos reales que sustente la elección de los ODS seleccionados.
+1. **Justificación técnica argumentada**: Redactar una memoria explicativa apoyada en datos y ejemplos reales que sustente la elección de los ODS seleccionados.
 
-### 6.2 Guía Sectorial de ODS Prioritarios
+### 6.2 Guía sectorial de ODS prioritarios
 
 A continuación, se detalla la vinculación de ODS prioritarios según diversas familias y sectores profesionales:
 
 | Sector / Familia Profesional            | ODS Prioritarios Relevantes         | Justificación del Impacto Operativo                                                                                                                                  |
 | --------------------------------------- | ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Automoción y Transporte**             | ODS 7, ODS 11, ODS 12, ODS 13       | Electrificación de flota, reducción de emisiones contaminantes, movilidad urbana sostenible y ecodiseño de componentes reutilizables.                                |
-| **Edificación y Construcción**          | ODS 6, ODS 7, ODS 9, ODS 11, ODS 12 | Eficiencia energética en envolventes, uso de materiales sostenibles, gestión de RCDs (residuos de construcción y demolición) y construcción de ciudades resilientes. |
-| **Industria y Fabricación Mecánica**    | ODS 8, ODS 9, ODS 12, ODS 13        | Automatización eficiente, seguridad y salud laboral, economía circular en la gestión de chatarra/taladrinas y descarbonización industrial.                           |
-| **Servicios, Comercio y Sanidad**       | ODS 3, ODS 4, ODS 5, ODS 8, ODS 10  | Garantía de salud y seguridad, igualdad de oportunidades, prevención del acoso, condiciones de trabajo decentes y accesibilidad universal.                           |
-| **Tecnologías de la Información (TIC)** | ODS 8, ODS 9, ODS 12                | Eficiencia energética de datacenters, gestión adecuada de RAEE (residuos de aparatos eléctricos y electrónicos), teletrabajo y ciberseguridad.                       |
-| **Agroalimentario y Medio Natural**     | ODS 2, ODS 6, ODS 12, ODS 15        | Uso eficiente de agua de riego, agricultura de precisión, reducción del desperdicio alimentario y conservación de la biodiversidad del suelo.                        |
-
----
+| **Automoción y transporte**             | ODS 7, ODS 11, ODS 12, ODS 13       | Electrificación de flota, reducción de emisiones contaminantes, movilidad urbana sostenible y ecodiseño de componentes reutilizables.                                |
+| **Edificación y construcción**          | ODS 6, ODS 7, ODS 9, ODS 11, ODS 12 | Eficiencia energética en envolventes, uso de materiales sostenibles, gestión de RCDs (residuos de construcción y demolición) y construcción de ciudades resilientes. |
+| **Industria y fabricación mecánica**    | ODS 8, ODS 9, ODS 12, ODS 13        | Automatización eficiente, seguridad y salud laboral, economía circular en la gestión de chatarra/taladrinas y descarbonización industrial.                           |
+| **Servicios, comercio y sanidad**       | ODS 3, ODS 4, ODS 5, ODS 8, ODS 10  | Garantía de salud y seguridad, igualdad de oportunidades, prevención del acoso, condiciones de trabajo decentes y accesibilidad universal.                           |
+| **Tecnologías de la información (TIC)** | ODS 8, ODS 9, ODS 12                | Eficiencia energética de datacenters, gestión adecuada de RAEE (residuos de aparatos eléctricos y electrónicos), teletrabajo y ciberseguridad.                       |
+| **Agroalimentario y medio natural**     | ODS 2, ODS 6, ODS 12, ODS 15        | Uso eficiente de agua de riego, agricultura de precisión, reducción del desperdicio alimentario y conservación de la biodiversidad del suelo.                        |
 
 ## 7 - Criterio Evaluativo 2: Matriz Analítica de Riesgos y Oportunidades de los ODS
 
