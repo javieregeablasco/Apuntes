@@ -2467,18 +2467,18 @@ Antes de entregar la tarea, verifica que tienéis **todas** estas capturas:
                       │ Internet Gateway │
                       └─────────┬─────────┘
                                 │
-                    VPC: 10.0.0.0/16
+                    VPC: 172.31.0.0/16
                                 │
                ┌────────────────┴────────────────┐
                │                                 │
      Subred servidores                    Subred clientes
-      10.0.1.0/24                          10.0.2.0/24
+      172.31.80.0/20                          172.31.16.0/24
                │                                 │
        ┌───────▼────────┐             ┌──────────┴──────────┐
-       │   DNS-SERVER   │             │                     │
+       │   DNS-Server   │             │                     │
        │ Ubuntu Server  │      ┌──────▼──────┐       ┌──────▼──────┐
        │     BIND9      │      │  CLIENTE-1  │       │  CLIENTE-2  │
-       │   10.0.1.10    │      │ 10.0.2.10   │       │ 10.0.2.20   │
+       │   172.31.80.10 │      │ 172.31.16.20│       │ 172.31.16.30│
        └────────────────┘      └─────────────┘       └─────────────┘
 ```
 
@@ -2491,9 +2491,9 @@ ad.practicadns.es
 Por tanto:
 
 ```text
-dns.ad.practicadns.es       → 10.0.1.10
-cliente1.ad.practicadns.es  → 10.0.2.10
-cliente2.ad.practicadns.es  → 10.0.2.20
+dns.ad.practicadns.es       → 172.31.80.10
+cliente1.ad.practicadns.es  → 172.31.16.20
+cliente2.ad.practicadns.es  → 172.31.16.30
 ```
 
 ### 16.2 Lanzar instancias
