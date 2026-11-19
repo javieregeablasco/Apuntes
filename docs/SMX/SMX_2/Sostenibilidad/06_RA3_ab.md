@@ -12,6 +12,8 @@ schedule: 1h/w
 
 ![Descripción de la imagen](./img_6/img-6-1.png){ .sietecinco .marginbottom20}
   
+---
+
 **Resultados de aprendizaje y criterios de evaluacion que se evaluarán en esta unidad.**  
 
 | **Resultados de aprendizaje de la unidad didáctica:**|
@@ -291,7 +293,7 @@ Integrar los ODS en el desempeño laboral no es un coste, sino una palanca de cr
 
 ---
 
-## 8 -Coherencia y Sinergia entre el Ámbito Personal y la Praxis Profesional
+## 8 - Coherencia y Sinergia entre el Ámbito Personal y la Praxis Profesional
 
 La sostenibilidad requiere una conducta ética y coherente en todas las facetas de la persona. El alumnado debe ser capaz de interrelacionar las acciones de su vida privada con su responsabilidad en el centro de trabajo:
 
