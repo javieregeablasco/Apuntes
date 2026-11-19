@@ -2780,15 +2780,22 @@ $TTL    604800
 ;
 @       IN      NS      ns1.practicadns.es.
 ns1     IN      A       172.31.81.184 ; Dirección IP del servidor DNS
-www     IN      A       172.31.81.127 ; Dirección IP del servidor web (si existe)
+server  IN      A       172.31.81.127 ; Dirección IP del servidor web (si existe)
+www     IN      CNAME   server.practicadns.es. ; Apunta al server (si existe)
 ```
 
 !!! tip "Explicación de la configuración"
     - **ns1** significa **name server 1** (servidor de nombres 1). Es el nombre del host que actúa como servidor DNS de la zona. Por convención se llama ns1, y un segundo servidor se llamaría ns2, pero se le puede poner cualquier nombre (dns, servidor, etc.).
-    - En el SOA (ns1.practicadns.es.): indica cuál es el servidor primario de la zona, es decir, el que tiene la copia original de los datos.
-    - En el registro NS (@ IN NS ns1.practicadns.es.): declara que ns1.practicadns.es. es un servidor autoritativo para la zona practicadns.es (un registro NS apunta siempre a un nombre, no a una IP).
-    - En el registro A (ns1 IN A 172.31.81.184): traduce ese nombre a una IP. Es lo que permite encontrar el servidor. Sin este registro, el NS apuntaría a un nombre que nadie sabe resolver y la zona no cargaría.
-    - En el registro A (www IN A 172.31.81.127): traduce un hipotetico servidor web.
+    - **En el SOA** (`@ IN SOA ns1.practicadns.es. admin.practicadns.es.`):
+        - El primer nombre (`ns1.practicadns.es.`) indica cuál es el servidor primario de la zona, es decir, el que tiene la copia original de los datos.
+        - El segundo (`admin.practicadns.es.`) es el correo del responsable de la zona, escrito con un punto en lugar de la `@` (equivale a `admin@practicadns.es`).
+        - Los números entre paréntesis son: **Serial** (versión de la zona, formato AAAAMMDDNN, que hay que incrementar en cada cambio para que los secundarios detecten la modificación), **Refresh** (cada cuánto consulta el secundario si hay cambios), **Retry** (cuánto espera para reintentar si falla), **Expire** (cuánto tiempo sigue respondiendo el secundario si pierde contacto con el primario) y **Negative Cache TTL** (cuánto tiempo se cachean las respuestas negativas, es decir, "este nombre no existe").
+    - **En el registro NS** (`@ IN NS ns1.practicadns.es.`): declara que `ns1.practicadns.es.` es un servidor autoritativo para la zona `practicadns.es` (un registro NS apunta siempre a un nombre, no a una IP).
+    - **En el registro A de ns1** (`ns1 IN A 172.31.81.184`): traduce ese nombre a una IP. Es lo que permite encontrar el servidor. Sin este registro, el NS apuntaría a un nombre que nadie sabe resolver y la zona no cargaría.
+    - **En el registro A de server** (`server IN A 172.31.81.127`): traduce el nombre del servidor web a su IP.
+    - **En el registro CNAME de www** (`www IN CNAME server.practicadns.es.`): crea un alias. `www` no tiene IP propia, sino que apunta al nombre `server.practicadns.es.`, y se resuelve a la IP de ese equipo. Así, si cambia la IP del servidor, solo hay que modificar un registro.
+    - **El punto final** en los nombres completos (`ns1.practicadns.es.`) es obligatorio: indica que el nombre es absoluto. Sin él, BIND le añadiría el nombre de la zona al final (`ns1.practicadns.es.practicadns.es.`).
+    - **Zona inversa** (`31.172.in-addr.arpa`): hace el camino contrario, de IP a nombre. Se escriben al revés los dos primeros octetos de la red (172.31 → 31.172) y los registros PTR usan los dos últimos octetos también invertidos. Por ejemplo, `172.31.81.184` se escribe `184.81 IN PTR ns1.practicadns.es.`
 
 1. Validamos y reiniciamos.
 
@@ -2813,7 +2820,6 @@ dig @172.31.81.184 www.practicadns.es
 ==Realizar captura de pantalla==
 ![Descripción de la imagen](./img_5/img_5_143.png){ .marginbottom10 }
 
-<!--
 ### 16.10 Crear el archivo de zona inversa
 
 1. También crearemos el archivo de zona inversa (siempre realizar una copia de seguridad si el archivo existe).
@@ -2866,6 +2872,7 @@ dig @172.31.81.184 -x 172.31.81.184
 
 ![Descripción de la imagen](./img_5/img_5_146.png){ .marginbottom10 }
 
+<!--
 ### 16.11 Añadir los clientes a los registros del DNS
 
 #### 16.11.1 Asociar el DHCP Options Set de la VPC
