@@ -35,8 +35,6 @@ Para comprender su aplicación práctica, es imprescindible integrar las tres di
 1. **Dimensión Social**: Orientada a la equidad, la erradicación de las desigualdades, el respeto a los derechos humanos y laborales, la salud y seguridad ocupacional, la diversidad, la inclusión y el bienestar de la comunidad.
 1. **Dimensión Económica**: Centrada en la viabilidad financiera a largo plazo, la prosperidad compartida, la ecoinnovación en los modelos de negocio y la transparencia operativa.
 
----
-
 ## 2 - Elementos clave para la integración de criterios de sostenibilidad
 
 La aplicación efectiva de la sostenibilidad en la actividad diaria exige una serie de elementos habilitadores que el alumnado debe conocer e identificar:
@@ -46,8 +44,6 @@ La aplicación efectiva de la sostenibilidad en la actividad diaria exige una se
 1. **Cultura de sostenibilidad y ética profesional**: Adopción de valores de responsabilidad social corporativa (RSC), gobernanza transparente y prevención de malas prácticas como el *greenwashing* (lavado verde).
 1. **Sistema de indicadores de desempeño (KPIs sostenibles)**: Herramientas de medición que permiten cuantificar el impacto, tales como la huella de carbono, el consumo hídrico, la tasa de valorización de residuos, la brecha salarial de género o el índice de siniestralidad laboral.
 1. **Herramientas de evaluación y diagnóstico**: Empleo de matrices de materialidad, evaluaciones de riesgos y planes de acción específicos.
-
----
 
 ## 3 - El Fundamento de la Sostenibilidad Empresarial
 
@@ -99,7 +95,7 @@ aspecto económico a corto plazo.
     !!! tip "Descripción y Metas"
         - Su objetivo es erradicar todas las formas de pobreza para 2030, un desafío que afecta a unos 800 millones de personas.
         - Se relaciona directamente con los ingresos, la protección social y el acceso a recursos.
-    !!! tip "Estrategias de Actuación"
+    !!! abstract "Estrategias de Actuación"
         - Las empresas pueden adaptar sus modelos de negocio para cooperar con entornos locales.
         - Los profesionales pueden participar en proyectos de acción social y voluntariado.
         - Un ejemplo es la colaboración entre **Administraciones y empresas** para evitar cortes de suministro energético a familias vulnerables.
@@ -109,12 +105,13 @@ aspecto económico a corto plazo.
         - Busca acabar con el hambre y la malnutrición en todas sus formas para 2030, promoviendo una agricultura sostenible y productiva.
         - Actualmente, 795 millones de personas sufren desnutrición crónica. En 2022, 45 millones de niños menores de cinco años padecían desnutrición aguda.
 
-    !!! tip "Estrategias de Actuación"
+    !!! abstract "Estrategias de Actuación"
         - Mejorar la trazabilidad en la cadena de valor para asegurar un aprovisionamiento sostenible. Ofrecer microcréditos para inversiones en agricultura sostenible. Las empresas pueden donar excedentes alimentarios, como lo hace Iberdrola, que desde 2012 ha reunido más de 20,400 kilos de alimentos.
+
 !!! note "ODS 3: Salud y Bienestar"
     !!! tip "Descripción y Metas"
         - Persigue garantizar una vida saludable y promover el bienestar para todas las edades. Está íntimamente ligado a los ODS 1 y 2, ya que la pobreza y la desnutrición son causas directas de problemas de salud.
-    !!! tip "Estrategias de Actuación"
+    !!! abstract "Estrategias de Actuación"
         - Las empresas pueden innovar en prácticas de sostenibilidad para garantizar vidas sanas y seguras. Deben propiciar entornos laborales seguros y apostar por la investigación. - El grupo Quirónsalud, por ejemplo, promueve hábitos de alimentación saludable en sus centros.
 
 !!! note "ODS 4: Educación de Calidad"
@@ -123,7 +120,7 @@ aspecto económico a corto plazo.
           y de calidad. Considerado por la ONU como el hilo conductor para la
           consecución del resto de ODS, es clave para la movilidad socioeconómica y para
           salir de la pobreza.
-    !!! tip "Estrategias de Actuación"
+    !!! abstract "Estrategias de Actuación"
         - La educación es un eje vertebrador del aumento de la productividad.
         - Las empresas pueden apostar por la digitalización y la formación de calidad, y los profesionales deben comprometerse con la formación continua para ser más eficientes.
 
@@ -131,7 +128,7 @@ aspecto económico a corto plazo.
     !!! tip "Descripción y Metas"
         - Busca lograr la igualdad entre los géneros y empoderar a todas las mujeres y niñas.
         - Las metas persiguen eliminar toda forma de discriminación y violencia, y valorar el trabajo doméstico no remunerado.
-    !!! tip "Estrategias de Actuación"
+    !!! abstract "Estrategias de Actuación"
         - Implementar políticas de paternidad igualitarias y programas de conciliación.
         - Reducir la brecha salarial para aumentar la motivación y las posibilidades de ascenso de las mujeres.
         - Organismos como el Instituto de las Mujeres en España desarrollan observatorios para vigilar la igualdad.
