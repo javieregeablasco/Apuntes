@@ -2475,11 +2475,11 @@ Antes de entregar la tarea, verifica que tienéis **todas** estas capturas:
       172.31.80.0/20                          172.31.16.0/24
                │                                 │
        ┌───────▼────────┐             ┌──────────┴──────────┐
-       │   DNS-Server   │             │                     │
-       │ Ubuntu Server  │      ┌──────▼──────┐       ┌──────▼──────┐
-       │     BIND9      │      │  CLIENTE-1  │       │  CLIENTE-2  │
-       │   172.31.80.10 │      │ 172.31.16.20│       │ 172.31.16.30│
-       └────────────────┘      └─────────────┘       └─────────────┘
+       │   Servidor-DNS│             │                     │
+       │ Ubuntu Server  │      ┌──────▼──────┐       ┌──────▼────-──┐
+       │     BIND9      │      │  Cliente-1  │       │  Cliente-2   │
+       │ 172.31.81.184  │      │ 172.31.16.24│       │ 172.31.18.139│
+       └────────────────┘      └─────────────┘       └───────────-──┘
 ```
 
 Utilizaremos el dominio:
@@ -2491,9 +2491,9 @@ ad.practicadns.es
 Por tanto:
 
 ```text
-dns.ad.practicadns.es       → 172.31.80.10
-cliente1.ad.practicadns.es  → 172.31.16.20
-cliente2.ad.practicadns.es  → 172.31.16.30
+dns.ad.practicadns.es       → 172.31.81.184
+cliente1.ad.practicadns.es  → 172.31.16.24
+cliente2.ad.practicadns.es  → 172.31.18.139
 ```
 
 ### 16.2 Lanzar instancias
