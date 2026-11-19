@@ -2738,16 +2738,16 @@ sudo cp /etc/bind/named.conf.local /etc/bind/named.conf.local.bak
 
 ```text
 // Zona directa
-zone "practicadns.test" {
-        type master;
-        file "/etc/bind/db.practicadns.test";
+zone "practicadns.es" {
+        type master; // Este servidor es el maestro de la zona
+        file "/etc/bind/db.practicadns.es"; // Archivo de la zona directa
         allow-update { none; };
 };
 
 // Zona inversa (172.31.0.0/16)
 zone "31.172.in-addr.arpa" {
-        type master;
-        file "/etc/bind/db.172.31";
+        type master; // Este servidor es el maestro de la zona inversa
+        file "/etc/bind/db.172.31"; // Archivo de la zona inversa
         allow-update { none; };
 };
 ```
@@ -2755,14 +2755,14 @@ zone "31.172.in-addr.arpa" {
 !!! tip "Zona inversa"
     - Para la red 172.31.0.0/16 la zona inversa se llama `31.172.in-addr.arpa`.
     - Se escriben al revés solo los dos primeros octetos, porque el /16 fija esos dos.
-
+<!--
 ### 16.9 Crear el archivo de zona directa
 
 - Para solucionar el error detectado anteriormente, crearemos un archivo de zona.  
 
 ```bash
 # Realizamos una copia de seguridad del archivo original (si existe)
-sudo cp /etc/bind/db.local /etc/bind/db.practicadns.test
+sudo cp /etc/bind/db.local /etc/bind/db.practicadns.es
 # Editamos o creamos el archivo 
 sudo nano /etc/bind/db.practicadns.test
 ```
