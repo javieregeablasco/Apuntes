@@ -2737,7 +2737,7 @@ sudo cp /etc/bind/named.conf.local /etc/bind/named.conf.local.bak
 1. Editamos `named.conf.local` y añadimos.
 
 ```text
-// Zona directa
+// Zona directa (172.31.0.0/16)
 zone "practicadns.es" {
         type master; // Este servidor es el maestro de la zona
         file "/etc/bind/db.practicadns.es"; // Archivo de la zona directa
