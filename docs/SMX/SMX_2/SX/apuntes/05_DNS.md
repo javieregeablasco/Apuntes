@@ -2475,7 +2475,7 @@ Antes de entregar la tarea, verifica que tienéis **todas** estas capturas:
       172.31.80.0/20                          172.31.16.0/24
                │                                 │
        ┌───────▼────────┐             ┌──────────┴──────────┐
-       │   Servidor-DNS│             │                     │
+       │   Servidor-DNS│              │                     │
        │ Ubuntu Server  │      ┌──────▼──────┐       ┌──────▼────-──┐
        │     BIND9      │      │  Cliente-1  │       │  Cliente-2   │
        │ 172.31.81.184  │      │ 172.31.16.24│       │ 172.31.18.139│
@@ -2526,14 +2526,13 @@ Lanzaremos una instancia que hará de servidor DNS con las siguientes caracterí
 
     |Máquina|Dirección privada|Función|
     ||:-:||
-    | Servidor-DNS |       `172.31.XX.XX` | Servidor BIND9 |
-    | Cliente-1  |       `172.31.XX.XX` | Cliente DNS    |
-    | Cliente-2  |       `172.31.XX.XX` | Cliente DNS    |
+    | Servidor-DNS |       `172.31.81.184` | Servidor BIND9 |
+    | Cliente-1  |       `172.31.16.24` | Cliente DNS    |
+    | Cliente-2  |       `172.31.18.139` | Cliente DNS    |
 
 ==Realizar captura de pantalla==
 ![Descripción de la imagen](./img_5/img_5_126.png){.margintop10 .marginbottom10 .marco }
 
-<!-- https://youtu.be/1s0vjLv9roQ?si=SC7USjcIb8JZKKRu&t=143 
 ### 16.3 Visualizar las reglas de la tabla de enrutamiento
 
 Para ver/modificar la tabla de enrutamiento de la red que estamos utilizando haremos lo siguiente:
@@ -2584,10 +2583,11 @@ Para ello usaremos el siguiente comando:
 
 !!! question "¿Por qué las instancias pueden comunicarse si están en subredes diferentes?"
 
+<!-- https://youtu.be/1s0vjLv9roQ?si=SC7USjcIb8JZKKRu&t=143 
 ### 16.6 Instalar GNOME
 
 Para instala GNOME, seguir los pasos propuestos en el tema **Protocolo DHCP**.
-
+-->
 ### 16.6 Instalar BIND9
 
 - Vamos a proceder a la instalación de BIND9 en la instancia `Servidor-DNS`.  
@@ -2602,7 +2602,7 @@ Para instala GNOME, seguir los pasos propuestos en el tema **Protocolo DHCP**.
       ```bash
       sudo apt update && sudo apt upgrade -y
       ```
-- Como nos sugiere el log, reiniciaremos la instancia.  
+- Si lo indica el log, reiniciaremos la instancia.  
 ==Realizar captura de pantalla==  
 ![Descripción de la imagen](./img_5/img_5_136.png){ .marginbottom10 .margintop10 }
 
@@ -2611,6 +2611,12 @@ Para instala GNOME, seguir los pasos propuestos en el tema **Protocolo DHCP**.
 ```bash
 sudo apt install bind9 bind9-utils bind9-doc bind9-dnsutils -y
 ```
+
+!!! info "Explicación del comando"
+    - **bind9** es el servidor DNS.
+    - **bind9-utils** contiene utilidades de línea de comandos para administrar BIND9.
+    - **bind9-doc** proporciona documentación.
+    - **bind9-dnsutils** incluye herramientas adicionales para la resolución de nombres.
 
 - Comprobaremos el servicio con cualquiera de estos 2 comandos:
 
