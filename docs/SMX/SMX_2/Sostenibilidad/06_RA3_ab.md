@@ -231,7 +231,7 @@ aspecto económico a corto plazo.
         - Las empresas deben impulsar alianzas público-privadas y con comunidades locales.
         - El grupo farmacéutico Menarini, firmante del Pacto Mundial, es un ejemplo de compromiso con este ODS.
 
-## 6 - Metodología de identificación de ODS relevantes por sector profesional
+## 6 - Criterio Evaluativo 1: Metodología de identificación de ODS relevantes por sector profesional
 
 - Uno de los errores más frecuentes en la gestión ambiental es la aplicación superficial o genérica de todos los ODS por igual.
 - Para evaluar correctamente este criterio, se debe saber seleccionar los ODS **materiales o prioritarios** para su puesto de trabajo o sector productivo específico.
@@ -278,7 +278,7 @@ La falta de alineación con la Agenda 2030 expone a los profesionales y empresas
 - **Riesgos Operacionales y de Cadena de Suministro**: Interrupción de la actividad productiva por fenómenos climáticos extremos, escasez de agua o encarecimiento severo de materias primas no renovables.
 - **Riesgos Financieros y de Acceso a Capital**: Penalización bancaria, dificultades de crédito y exclusión de fondos de inversión que aplican filtros exigentes de criterios ESG (Environmental, Social, Governance).
 
-### 7.2 Los Cinco Vectores de Oportunidad e Innovación
+### 7.2 Los cinco vectores de oportunidad e innovación
 
 Integrar los ODS en el desempeño laboral no es un coste, sino una palanca de creación de valor:
 
@@ -288,9 +288,7 @@ Integrar los ODS en el desempeño laboral no es un coste, sino una palanca de cr
 1. **Acceso Preferente a Licitaciones Públicas y Financiación**: Ventaja competitiva sustancial en concursos públicos que incorporan cláusulas sociales y medioambientales, así como acceso a subvenciones europeas (Next Generation).
 1. **Resiliencia y Reputación de Marca**: Consolidación del posicionamiento en el mercado como referente de ética, fiabilidad y sostenibilidad a largo plazo.
 
----
-
-## 8 - Coherencia y Sinergia entre el Ámbito Personal y la Praxis Profesional
+## 8 - Coherencia y sinergia entre el ámbito personal y la praxis profesional
 
 La sostenibilidad requiere una conducta ética y coherente en todas las facetas de la persona. El alumnado debe ser capaz de interrelacionar las acciones de su vida privada con su responsabilidad en el centro de trabajo:
 
