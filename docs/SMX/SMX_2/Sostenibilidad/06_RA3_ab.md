@@ -271,27 +271,27 @@ El segundo criterio de evaluación requiere que se analice las consecuencias de 
 
 La falta de alineación con la Agenda 2030 expone a los profesionales y empresas a vulnerabilidades críticas:
 
-- **Riesgos Regulatorios y Legales**: Exposición a sanciones económicas o inhabilitación administrativa por incumplimiento de normativas ambientales estrictas (Directiva CSRD, Ley de Cambio Climático, normativa de envases y residuos).
-- **Riesgos Reputacionales y de Mercado**: Pérdida de clientes y deterioro de la imagen de marca por malas prácticas o por incurrir en *greenwashing*. Pérdida de competitividad frente a empresas certificadas.
-- **Riesgos Operacionales y de Cadena de Suministro**: Interrupción de la actividad productiva por fenómenos climáticos extremos, escasez de agua o encarecimiento severo de materias primas no renovables.
-- **Riesgos Financieros y de Acceso a Capital**: Penalización bancaria, dificultades de crédito y exclusión de fondos de inversión que aplican filtros exigentes de criterios ESG (Environmental, Social, Governance).
+- **Riesgos regulatorios y legales**: Exposición a sanciones económicas o inhabilitación administrativa por incumplimiento de normativas ambientales estrictas (Directiva CSRD, Ley de Cambio Climático, normativa de envases y residuos).
+- **Riesgos reputacionales y de mercado**: Pérdida de clientes y deterioro de la imagen de marca por malas prácticas o por incurrir en *greenwashing*. Pérdida de competitividad frente a empresas certificadas.
+- **Riesgos operacionales y de cadena de suministro**: Interrupción de la actividad productiva por fenómenos climáticos extremos, escasez de agua o encarecimiento severo de materias primas no renovables.
+- **Riesgos financieros y de acceso a capital**: Penalización bancaria, dificultades de crédito y exclusión de fondos de inversión que aplican filtros exigentes de criterios ESG (Environmental, Social, Governance).
 
 ### 7.2 Los cinco vectores de oportunidad e innovación
 
 Integrar los ODS en el desempeño laboral no es un coste, sino una palanca de creación de valor:
 
-1. **Ecoinnovación y Nuevos Nichos de Mercado**: Desarrollo de productos y servicios verdes que satisfacen las demandas de consumidores concienciados y mercados emergentes.
-1. **Eficiencia Operativa y Ahorro Directo de Costes**: Reducción de la factura energética y de agua mediante medidas de eficiencia, optimización de procesos y minimización del desperdicio.
-1. **Atracción y Retención del Talento**: Clima laboral motivador que incrementa el sentimiento de pertenencia, atrayendo a profesionales jóvenes que buscan organizaciones con propósito ético.
-1. **Acceso Preferente a Licitaciones Públicas y Financiación**: Ventaja competitiva sustancial en concursos públicos que incorporan cláusulas sociales y medioambientales, así como acceso a subvenciones europeas (Next Generation).
-1. **Resiliencia y Reputación de Marca**: Consolidación del posicionamiento en el mercado como referente de ética, fiabilidad y sostenibilidad a largo plazo.
+1. **Ecoinnovación y nuevos nichos de mercado**: Desarrollo de productos y servicios verdes que satisfacen las demandas de consumidores concienciados y mercados emergentes.
+1. **Eficiencia operativa y ahorro directo de costes**: Reducción de la factura energética y de agua mediante medidas de eficiencia, optimización de procesos y minimización del desperdicio.
+1. **Atracción y retención del talento**: Clima laboral motivador que incrementa el sentimiento de pertenencia, atrayendo a profesionales jóvenes que buscan organizaciones con propósito ético.
+1. **Acceso preferente a licitaciones públicas y financiación**: Ventaja competitiva sustancial en concursos públicos que incorporan cláusulas sociales y medioambientales, así como acceso a subvenciones europeas (Next Generation).
+1. **Resiliencia y reputación de marca**: Consolidación del posicionamiento en el mercado como referente de ética, fiabilidad y sostenibilidad a largo plazo.
 
 ## 8 - Coherencia y sinergia entre el ámbito personal y la praxis profesional
 
 La sostenibilidad requiere una conducta ética y coherente en todas las facetas de la persona. El alumnado debe ser capaz de interrelacionar las acciones de su vida privada con su responsabilidad en el centro de trabajo:
 
-- **En la Vida Personal**: Practicar la regla de las 3R (Reducir, Reutilizar, Reciclar), optar por la movilidad activa o el transporte público, promover el consumo responsable de proximidad, aplicar la eficiencia en el hogar y ejercer una ciudadanía activa e informada.
-- **En la Praxis Profesional**: Proponer mejoras sostenibles en el puesto de trabajo, garantizar la ergonomía y seguridad propia y de los compañeros, gestionar correctamente los residuos profesionales, respetar la equidad y diversidad en el equipo y actuar con transparencia ética.
+- **En la vida personal**: Practicar la regla de las 3R (Reducir, Reutilizar, Reciclar), optar por la movilidad activa o el transporte público, promover el consumo responsable de proximidad, aplicar la eficiencia en el hogar y ejercer una ciudadanía activa e informada.
+- **En la praxis profesional**: Proponer mejoras sostenibles en el puesto de trabajo, garantizar la ergonomía y seguridad propia y de los compañeros, gestionar correctamente los residuos profesionales, respetar la equidad y diversidad en el equipo y actuar con transparencia ética.
 
 ## 9 - Foro de discusión
 
