@@ -149,6 +149,8 @@ nav:
     - RA2:
       - Retos ambientales y sociales: SMX/SMX_2/Sostenibilidad/04_RA2_ab.md
       - Impacto ambiental y social: SMX/SMX_2/Sostenibilidad/05_RA2_cd.md
+    - RA3:
+      - Criterios de sostenibilidad en las TIC: SMX/SMX_2/Sostenibilidad/06_RA3_ab.md
 
 extra: 
     generator: false #eliminar el made with""
