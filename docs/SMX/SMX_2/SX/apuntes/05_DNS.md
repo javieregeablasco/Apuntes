@@ -2496,9 +2496,9 @@ cliente1.practicadns.es  → 172.31.16.24
 cliente2.practicadns.es  → 172.31.18.139
 ```
 
-### 16.2 Lanzar instancias
+### 20.2 Lanzar instancias
 
-#### 16.2.1 Instancia Servidor-DNS
+#### 20.2.1 Instancia Servidor-DNS
 
 Lanzaremos una instancia que hará de servidor DNS con las siguientes características.
 
@@ -2509,7 +2509,7 @@ Lanzaremos una instancia que hará de servidor DNS con las siguientes caracterí
 - Almacenamiento.
 ![Descripción de la imagen](./img_5/img_5_122.png){.margintop10 .marginbottom10 .marco }
 
-#### 16.2.2 Instancias Clientes
+#### 20.2.2 Instancias Clientes
 
 - Sistema operativo Ubuntu Server 26.04 LTS.
 ![Descripción de la imagen](./img_5/img_5_123.png){.margintop10 .marginbottom10 .marco }
@@ -2520,7 +2520,7 @@ Lanzaremos una instancia que hará de servidor DNS con las siguientes caracterí
 - Almacenamiento.
 ![Descripción de la imagen](./img_5/img_5_125.png){.margintop10 .marginbottom10 .marco }
 
-#### 16.2.3 Resumen de instancias
+#### 20.2.3 Resumen de instancias
 
 - Después de lanzar las 3 instancias (servidor DNS + 2 clientes) tendremos:
 
@@ -2533,7 +2533,7 @@ Lanzaremos una instancia que hará de servidor DNS con las siguientes caracterí
 ==Realizar captura de pantalla==
 ![Descripción de la imagen](./img_5/img_5_126.png){.margintop10 .marginbottom10 .marco }
 
-### 16.3 Visualizar las reglas de la tabla de enrutamiento
+### 20.3 Visualizar las reglas de la tabla de enrutamiento
 
 Para ver/modificar la tabla de enrutamiento de la red que estamos utilizando haremos lo siguiente:
 
@@ -2547,7 +2547,7 @@ Para ver/modificar la tabla de enrutamiento de la red que estamos utilizando har
 - Después de seleccionar el recurso asociado a la tabla de enrutamiento podremos ver/editar las reglas de enrutamiento.
 ![Descripción de la imagen](./img_5/img_5_130.png){.margintop10 .marginbottom10 .marco }
 
-### 16.4 Modificación de los grupos de seguridad para permitir plena comunicación entre instancias
+### 20.4 Modificación de los grupos de seguridad para permitir plena comunicación entre instancias
 
 !!! tip "¿Qué es un grupo de seguridad?"
     - Un Grupo de Seguridad (Security Group) en AWS es un firewall virtual con estado (stateful) que controla el tráfico de entrada (ingress) y salida (egress) a nivel de la interfaz de red (ENI) de una instancia o recurso (como una máquina virtual EC2 o una base de datos RDS).
@@ -2563,7 +2563,7 @@ Para ver/modificar la tabla de enrutamiento de la red que estamos utilizando har
 - Repetiremos esta operación en los grupos de seguridad de las 2 instancias restantes.  
 ==Realizar captura de pantalla==
 
-### 16.5 Comprobar la conectividad a las instancias
+### 20.5 Comprobar la conectividad a las instancias
 
 - Nos conectaremos mediante SSH a las máquinas Cliente-1 y Cliente-2.
 
@@ -2588,7 +2588,7 @@ Para ello usaremos el siguiente comando:
 
 Para instala GNOME, seguir los pasos propuestos en el tema **Protocolo DHCP**.
 -->
-### 16.6 Instalar BIND9
+### 20.6 Instalar BIND9
 
 - Vamos a proceder a la instalación de BIND9 en la instancia `Servidor-DNS`.  
 
@@ -2640,7 +2640,7 @@ sudo ss -lntup | grep :53
 ==Realizar captura de pantalla==  
 ![Descripción de la imagen](./img_5/img_5_138.png){ .marginbottom10 .margintop10 }
 
-### 16.7 Configuración mínima de BIND9
+### 20.7 Configuración mínima de BIND9
 
 - Antes de nada accederemos al archivo `/etc/bind/named.conf.options` y realizaremos una copia de seguridad del mismo.  
 
@@ -2726,7 +2726,7 @@ sudo systemctl status bind9
 !!! question "Explicar los errores (si los hay)"
 ==Explicar la causa de esos errores.==
 
-### 16.8 Declarar la zona directa y la zona inversa
+### 20.8 Declarar la zona directa y la zona inversa
 
 1. Haremos una copia de seguridad del archivo de configuración (en entorno de pruebas) `named.conf.local`.
 
@@ -2756,7 +2756,7 @@ zone "31.172.in-addr.arpa" {
     - Para la red 172.31.0.0/16 la zona inversa se llama `31.172.in-addr.arpa`.
     - Se escriben al revés solo los dos primeros octetos, porque el /16 fija esos dos.
 
-### 16.9 Crear el archivo de zona directa
+### 20.9 Crear el archivo de zona directa
 
 - Para solucionar el error detectado anteriormente, crearemos un archivo de zona.  
 
@@ -2820,7 +2820,7 @@ dig @172.31.81.184 www.practicadns.es
 ==Realizar captura de pantalla==
 ![Descripción de la imagen](./img_5/img_5_143.png){ .marginbottom10 }
 
-### 16.10 Crear el archivo de zona inversa
+### 20.10 Crear el archivo de zona inversa
 
 1. También crearemos el archivo de zona inversa (siempre realizar una copia de seguridad si el archivo existe).
 
@@ -2832,16 +2832,16 @@ sudo nano /etc/bind/db.172.31
 
 ```text
 $TTL    604800
-@       IN      SOA     ns1.practicadns.test. admin.practicadns.test. (
+@       IN      SOA     ns1.practicadns.es. admin.practicadns.es. (
                         2026092301      ; Serial
                         604800          ; Refresh
                         86400           ; Retry
                         2419200         ; Expire
                         604800 )        ; Negative Cache TTL
 ;
-@       IN      NS      ns1.practicadns.test.
-127.81  IN      PTR     ns1.practicadns.test.
-127.81  IN      PTR     www.practicadns.test.
+@       IN      NS      ns1.practicadns.es.
+184.81  IN      PTR     ns1.practicadns.es.     ; 172.31.81.184 -> servidor DNS
+127.81  IN      PTR     server.practicadns.es.  ; 172.31.81.127 -> servidor web
 ```
 
 1. Validamos y reiniciamos
@@ -2872,10 +2872,9 @@ dig @172.31.81.184 -x 172.31.81.184
 
 ![Descripción de la imagen](./img_5/img_5_146.png){ .marginbottom10 }
 
-<!--
-### 16.11 Añadir los clientes a los registros del DNS
+### 20.11 Añadir los clientes a los registros del DNS
 
-#### 16.11.1 Asociar el DHCP Options Set de la VPC
+#### 20.11.1 Asociar el DHCP Options Set de la VPC
 
 - Ahora mismo todas las instancias (DNS, Cliente-1 y Cliente-2) de nuestra VPC reciben el DNS predeterminado de AWS.
 
@@ -2896,10 +2895,11 @@ resolvectl status
 ![Descripción de la imagen](./img_5/img_5_149.png){ .marginbottom20 .marco .margintop10}
 ![Descripción de la imagen](./img_5/img_5_150.png){ .marginbottom20 .marco .margintop10}
 
-- Después de reiniciar, veremos nuestro servidor DNS como el predefinido para todas las instancias de la VPC.  
+- Después de reiniciar las instancias `Cliente-1` y `Cliente-2`, veremos nuestro servidor DNS como el predefinido para todas las instancias de la VPC.  
 ==Realizar captura de pantalla==
 ![Descripción de la imagen](./img_5/img_5_151.png){ .marginbottom20 .margintop10}
 
+<!--
 #### 16.11.2 Añadir clientes
 
 ![Descripción de la imagen](./img_5/img_5_152.png){ .marginbottom20 .marco .margintop10}
