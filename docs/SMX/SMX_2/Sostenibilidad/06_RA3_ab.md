@@ -11,7 +11,7 @@ schedule: 1h/w
 ---
 
 ![Descripción de la imagen](./img_6/img-6-1.png){ .sietecinco .marginbottom20}
-  
+
 ---
 
 **Resultados de aprendizaje y criterios de evaluacion que se evaluarán en esta unidad.**  
@@ -303,6 +303,6 @@ La sostenibilidad requiere una conducta ética y coherente en todas las facetas 
     1. En los apuntes del tema tienes ejemplos de cómo las empresas trabajan cada ODS. Selecciona el ejemplo que más os atraiga y exponer las ideas principales al resto de la clase.
 
 !!! note "Presentación / debate"
-    - Realizar un documento que os sirva para exponer la actividad al otro grupo."
+    - Realizar un documento que os sirva para exponer la actividad al otro grupo.
 
 ## 10 - Mapa mental de la unidad didáctica
