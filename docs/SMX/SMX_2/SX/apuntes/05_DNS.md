@@ -2485,15 +2485,15 @@ Antes de entregar la tarea, verifica que tienéis **todas** estas capturas:
 Utilizaremos el dominio:
 
 ```text
-ad.practicadns.es
+practicadns.es
 ```
 
 Por tanto:
 
 ```text
-dns.ad.practicadns.es       → 172.31.81.184
-cliente1.ad.practicadns.es  → 172.31.16.24
-cliente2.ad.practicadns.es  → 172.31.18.139
+dns.practicadns.es       → 172.31.81.184
+cliente1.practicadns.es  → 172.31.16.24
+cliente2.practicadns.es  → 172.31.18.139
 ```
 
 ### 16.2 Lanzar instancias
@@ -2651,6 +2651,7 @@ sudo cp /etc/bind/named.conf.options /etc/bind/named.conf.options.bak
 - Luego, editaremos `named.conf.options` para completar la configuración del servidor DNS.
 
 ```bash
+cd /etc/bind
 sudo nano named.conf.options
 ```
 
@@ -2678,7 +2679,7 @@ options {
         // IPs donde escucha BIND9
         listen-on {
                 127.0.0.1;
-                172.31.81.127;
+                172.31.0.0/16;
         };
 
         // No atender peticiones IPv6
