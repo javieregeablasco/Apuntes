@@ -1087,7 +1087,7 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
 
 ### Tarea - RA2-CEe
 
-!!! task "Tarea a entregar en RA2-CEf"
+!!! task "Tarea a entregar en RA2-CEe"
     **Descargar y descomprimir el archivo 'Tarea RA2-CEf pinchando en el enlace siguiente:** [Descargar archivo](./archivos/RA2-CEf/RA2-CEf.rar)
 
     !!! exercise "**Ejercicio 1**<br>Grabar una macro que inserte automáticamente un encabezado con el siguiente texto:"
@@ -1111,7 +1111,7 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
             ![img](./img_ut2/RA2-CEf/img4.png){.ochocinco }
 
     !!! warning "Condiciones para la entrega de la tarea"
-        1. Subir vuestra tarea guardando el archivo como **RA2-CEf-NombreApellidosAlumno** a la tarea correspondiente de aules.  
+        1. Subir vuestra tarea guardando el archivo como **RA2-CEe-NombreApellidosAlumno** a la tarea correspondiente de aules.  
         1. Los archivos a subir deberán ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
         1. **No se aceptará ningún otro formato de archivo**.
         1. A partir del momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
