@@ -112,7 +112,8 @@ aspecto económico a corto plazo.
     !!! tip "Descripción y Metas"
         - Persigue garantizar una vida saludable y promover el bienestar para todas las edades. Está íntimamente ligado a los ODS 1 y 2, ya que la pobreza y la desnutrición son causas directas de problemas de salud.
     !!! abstract "Estrategias de Actuación"
-        - Las empresas pueden innovar en prácticas de sostenibilidad para garantizar vidas sanas y seguras. Deben propiciar entornos laborales seguros y apostar por la investigación. - El grupo Quirónsalud, por ejemplo, promueve hábitos de alimentación saludable en sus centros.
+        - Las empresas pueden innovar en prácticas de sostenibilidad para garantizar vidas sanas y seguras. Deben propiciar entornos laborales seguros y apostar por la investigación. 
+        - El grupo Quirónsalud, por ejemplo, promueve hábitos de alimentación saludable en sus centros.
 
 !!! note "ODS 4: Educación de Calidad"
     !!! tip "Descripción y Metas"
@@ -164,7 +165,7 @@ aspecto económico a corto plazo.
     !!! abstract "Estrategias de Actuación"
         - Las empresas deben poner en marcha procesos de innovación e investigación, independientemente de su tamaño.
         - La digitalización y la movilidad son vertientes clave.
-        - La empresa EDP, por ejemplo, planea invertir 2,000 millones de euros en proyectos de innovación y digitalización hasta 2025.
+        - La empresa EDP, por ejemplo, planea invertir 2000 millones de euros en proyectos de innovación y digitalización hasta 2025.
 
 !!! note "ODS 10: Reducción de las Desigualdades"
     !!! tip "Descripción y Metas"
