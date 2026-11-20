@@ -1017,7 +1017,7 @@ Para comprobar que los conocimientos han sido asimilados correctamente.
 
 - Si nos conectamos por escritorio remoto, también podremos ver que el asistente (gráfico) de virtualización (virt-manager) está instalado.
 ![Descripción de la imagen](./img_4/img_4_121.png){ .margintop10 . marginbottom20}
-- Escritorio de Virt-Manager  
+- Escritorio de Virt-Manager:  
 ![Descripción de la imagen](./img_4/img_4_123.png){ .margintop10}
 
 ### 6.12 Crear la red aislada y el switch virtual sin acceso al exterior
