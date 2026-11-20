@@ -25,6 +25,10 @@ schedule: 224h - 7h/w
     |**c)** Se han utilizado aplicaciones y periféricos para introducir textos e imágenes. |
     |**d)** Se han importado y exportado documentos creados con otras aplicaciones y en otros formatos.|
     |**e)** Se han creado y utilizado macros en la realización de documentos.|
+    |**f) Se han elebaorado manuales específicos.**|
+
+!!! warning "Nota:"
+    Los criterios de evaluación en negrita será evaluados durante la FCT.
 
 ## 1 - Interfaz de trabajo en Writer
 
