@@ -907,11 +907,11 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
 
 ## 2.7 - Paginación, tablas, encabezado, pie de página e imágenes
 
-### Tarea - RA2-CEd
+### Tarea - RA2-CEd-1
 
 !!! task "Tarea a entregar en RA2-CEd-1"
 
-    !!! exercise ":one: - Descargar y descomprimir el archivo 'Tarea RA2-CEd' pinchando en el enlace siguiente:<br>[Descargar archivo](./archivos/RA2-CEd/RA2-CEd.rar)"
+    !!! exercise ":one: - Descargar y descomprimir el archivo 'Tarea RA2-CEd-1' pinchando en el enlace siguiente:<br>[Descargar archivo](./archivos/RA2-CEd/RA2-CEd-1.rar)"
 
     !!! exercise ":two: - Estilos de página."
         !!! tip ":two::regional_indicator_a: - Ir a **Estilos de página** → **Primera página** → **Editar estilo** → Configurar con los siguientes datos."
@@ -1057,7 +1057,7 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
 ### Tarea - RA2-CEd-2
 
 !!! warning "Condiciones para la entrega de la tarea"
-    1. Exportar la tarea RA2-CEd a formato pdf.
+    1. Exportar la tarea RA2-CEd-1 a formato pdf.
     1. Subir vuestra tarea guardando el archivo como **RA2-CEd-2-NombreApellidosAlumno** a la tarea correspondiente de aules.  
     1. Los archivos a subir deberán ser de tipo PDF (.pdf).  
     1. **No se aceptará ningún otro formato de archivo**.
