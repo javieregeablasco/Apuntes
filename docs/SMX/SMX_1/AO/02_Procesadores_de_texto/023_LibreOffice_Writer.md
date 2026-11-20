@@ -909,7 +909,7 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
 
 ### Tarea - RA2-CEd
 
-!!! task "Tarea a entregar en RA2-CEd"
+!!! task "Tarea a entregar en RA2-CEd-1"
 
     !!! exercise ":one: - Descargar y descomprimir el archivo 'Tarea RA2-CEd' pinchando en el enlace siguiente:<br>[Descargar archivo](./archivos/RA2-CEd/RA2-CEd.rar)"
 
@@ -1046,7 +1046,7 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
             **Escribir el texto del pie de página** y además **insertar un campo con la página actual y el recuento de páginas**.  
 
     !!! warning "Condiciones para la entrega de la tarea"
-        1. Subir vuestra tarea guardando el archivo como **RA2-CEd-NombreApellidosAlumno** a la tarea correspondiente de aules.  
+        1. Subir vuestra tarea guardando el archivo como **RA2-CEd-1-NombreApellidosAlumno** a la tarea correspondiente de aules.  
         1. Los archivos a subir deberán ser de tipo text open document (.odt) (formato predeterminado de LibreOffice Writer).  
         1. **No se aceptará ningún otro formato de archivo**.
         1. A partir del momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
@@ -1054,11 +1054,11 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
 
 ## 2.8 - Exportar a otros formatos
 
-### Tarea - RA2-CEe
+### Tarea - RA2-CEd-2
 
 !!! warning "Condiciones para la entrega de la tarea"
     1. Exportar la tarea RA2-CEd a formato pdf.
-    1. Subir vuestra tarea guardando el archivo como **RA2-CEe-NombreApellidosAlumno** a la tarea correspondiente de aules.  
+    1. Subir vuestra tarea guardando el archivo como **RA2-CEd-2-NombreApellidosAlumno** a la tarea correspondiente de aules.  
     1. Los archivos a subir deberán ser de tipo PDF (.pdf).  
     1. **No se aceptará ningún otro formato de archivo**.
     1. A partir del momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
@@ -1085,7 +1085,7 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
 - Para habilitar las grabaciones de macros iremos a **Herramientas → Opciones → Avanzadas** y activaremos la grabación de macros.
     ![img](./img_ut2/RA2-CEf/img3.png){.cien .margintop10}
 
-### Tarea - RA2-CEf
+### Tarea - RA2-CEe
 
 !!! task "Tarea a entregar en RA2-CEf"
     **Descargar y descomprimir el archivo 'Tarea RA2-CEf pinchando en el enlace siguiente:** [Descargar archivo](./archivos/RA2-CEf/RA2-CEf.rar)
