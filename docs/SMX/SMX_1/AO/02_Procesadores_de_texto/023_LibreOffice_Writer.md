@@ -1088,7 +1088,7 @@ En este apartado aprenderemos a definir plantillas sobre los estilos creados ant
 ### Tarea - RA2-CEe
 
 !!! task "Tarea a entregar en RA2-CEe"
-    **Descargar y descomprimir el archivo 'Tarea RA2-CEf pinchando en el enlace siguiente:** [Descargar archivo](./archivos/RA2-CEf/RA2-CEe.rar)
+    **Descargar y descomprimir el archivo 'Tarea RA2-CEe pinchando en el enlace siguiente:** [Descargar archivo](./archivos/RA2-CEf/RA2-CEe.rar)
 
     !!! exercise "**Ejercicio 1**<br>Grabar una macro que inserte automáticamente un encabezado con el siguiente texto:"
         **1.** Documento escrito por el alumno: Insertar campo → Autor → Nombre completo. (Arial, 16, negrita, gris, centrado).  
