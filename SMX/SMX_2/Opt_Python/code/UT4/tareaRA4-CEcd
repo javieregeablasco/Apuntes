@@ -1,0 +1,45 @@
+class Conversor:
+    @staticmethod
+    def segundos_a_hms(segundos):
+        """Convierte una cantidad de segundos en formato HH:MM:SS"""
+        horas = segundos // 3600
+        minutos = (segundos % 3600) // 60
+        segundos_restantes = segundos % 60
+        return f"{horas:02}:{minutos:02}:{segundos_restantes:02}"
+
+    @classmethod
+    def desde_hms(cls, horas, minutos, segundos):
+        """Convierte HH, MM, SS a segundos"""
+        total_segundos = horas * 3600 + minutos * 60 + segundos
+        return total_segundos
+
+    def ejecutar_conversion(self):
+        """Pide al usuario el tipo de conversión y la ejecuta usando match"""
+        print("\n=== Conversor de tiempo ===")
+        print("1. Convertir de segundos a HH:MM:SS")
+        print("2. Convertir de HH:MM:SS a segundos")
+
+        opcion = input("Elige una opción (1-2): ")
+
+        match opcion:
+            case "1":
+                try:
+                    segundos = int(input("Introduce los segundos: "))
+                    resultado = Conversor.segundos_a_hms(segundos)
+                    print(f"{segundos} segundos equivalen a {resultado}.")
+                except ValueError:
+                    print("❌ Error: introduce un número entero de segundos.")
+            case "2":
+                try:
+                    h, m, s = map(int, input("Introduce la hora en formato HH MM SS (separados por espacios): ").split())
+                    resultado = Conversor.desde_hms(h, m, s)
+                    print(f"{h:02}:{m:02}:{s:02} equivale a {resultado} segundos.")
+                except ValueError:
+                    print("❌ Error: formato incorrecto. Usa tres números separados por espacios.")
+            case _:
+                print("❌ Opción no válida.")
+
+
+# --- Ejecución directa de una conversión ---
+conversor = Conversor()
+conversor.ejecutar_conversion()
