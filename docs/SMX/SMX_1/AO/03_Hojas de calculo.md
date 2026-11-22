@@ -371,9 +371,9 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
 
         - Todas las celdas de una hoja de cálculo tienen referencias (coordenadas).
         - Por convención, las columnas se identifican por **letras** y las filas por **números**.  
-        ![Descripción de la imagen](./03_hojas_de_calculo/img/calc30.png){ .lefdoscinco }<br>   
+        ![Descripción de la imagen](./03_hojas_de_calculo/img/calc30.png){ .leftrescinco .margintop10 .marginbottom20 }   
 
-        **Un rango de celdas** es un conjunto de celdas adyacentes.
+        - **Un rango de celdas** es un conjunto de celdas adyacentes.
         Para hacer referencia a un rango de celdas, introduciremos la referencia de la celda en la **esquina superior izquierda**, seguida de dos puntos (:) y, a continuación, la referencia a la celda en la esquina inferior derecha del rango.  
 
     !!! tip "Ejemplo de rangos."  
