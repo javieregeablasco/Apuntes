@@ -387,7 +387,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
         - Descargar y abrir el archivo 'RA3-CEc-2' pinchando en el enlace siguiente: [Descargar archivo](./03_hojas_de_calculo/tareas/RA3-CEc-2%20nombreapellidos.ods)  
 
     !!! tip "Tarea parte 2. Aplicar fórmulas básicas a las celdas"
-        - En la hoja 1 encontrareís unas tablas con valores.
+        - **En la hoja 1** encontrareís unas tablas con valores.
         !!! abstract "Trabajo a realizar" 
             1. **Conjunto de la hoja de cálculo:** 
                 - Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. 
