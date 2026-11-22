@@ -404,13 +404,12 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
                 1. Si cambia la posición de la celda que contiene la fórmula, se cambia la referencia. 
                 1. Si se copia la fórmula en filas o columnas, la referencia se ajusta automáticamente.  
             - **Nota:** De forma predeterminada todos los editores de hojas de cálculo utilizan referencias relativas.
-            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc34.png){ .leftcincocero }   
+            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc34.png){ .leftcincocero .margintop10}   
 
-    !!! exercice "Tarea parte 3. Aplicar una fórmula usando referencias relativas."  
-        Ir a la hoja 2 del documento RA3-CEc-2   
-
-        1. Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. **Tenéis libertad total en este apartado**.   
-        1. Completar la tabla de multiplicar por 5.
+        !!! success "Tarea parte 3. Aplicar una fórmula usando referencias relativas."  
+            1. Ir a la hoja 2 del documento RA3-CEc-2 
+            1. Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. **Tenéis libertad total en este apartado**.   
+            1. Completar la tabla de multiplicar por 5.
 
     !!! tip "Un poco de teoría sobre referencias relativas, absolutas y mixtas."
         !!! info "Referencias absolutas"
