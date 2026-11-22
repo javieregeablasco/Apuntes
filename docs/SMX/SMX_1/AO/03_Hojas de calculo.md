@@ -407,7 +407,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
             ![Descripción de la imagen](./03_hojas_de_calculo/img/calc34.png){ .leftcincocero .margintop10}   
 
         !!! abstract "Tarea parte 3. Aplicar una fórmula usando referencias relativas."  
-            1. Ir a la hoja 2 del documento RA3-CEc-2 
+            1. Ir a la hoja 2 del documento RA3-CEc-2. 
             1. Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. **Tenéis libertad total en este apartado**.   
             1. Completar la tabla de multiplicar por 5.
 
@@ -419,7 +419,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
             ![Descripción de la imagen](./03_hojas_de_calculo/img/calc35.png){ .leftcincocero .margintop10}   
 
             !!! abstract "Tarea parte 4. Aplicar una fórmula usando referencias absolutas."
-                1. Ir a la hoja 3 del documento RA3-CEc-2
+                1. Ir a la hoja 3 del documento RA3-CEc-2.
                 1. Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. **Tenéis libertad total en este apartado**.   
                 1. Completar la columna **Préstamo en Euros** usando referencias absolutas.
 
@@ -436,12 +436,12 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
                 - Igualmente fijamos la columna C, de forma que al arrastrar la fórmula se mantiene fija la columna.
 
             !!! abstract "Tarea parte 5. Aplicar una fórmula usando referencias mixtas."
-                1. Ir a la hoja 4 del documento RA3-CEc-2  
+                1. Ir a la hoja 4 del documento RA3-CEc-2.  
                 1. Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. **Tenéis libertad total en este apartado**.   
                 1. Completar la tabla **Tabla de multiplicar** usando referencias mixtas.
 
     !!! tip "Tarea parte 6"
-        1. **Ir a la hoja 5 del documento RA3-CEc-2**  
+        1. **Ir a la hoja 5 del documento RA3-CEc-2**.  
         1. Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. **Tenéis libertad total en este apartado**.   
         1. Para este ejercicio se deberá hacer uso de referencias relativas, absolutas o mixtas.    
         1. Añadir una columna, llamada **Total de ventas** y utilizar una fórmula básica para calcular el total por producto.
@@ -453,7 +453,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
             ![Descripción de la imagen](./03_hojas_de_calculo/img/calc37.png){ .cien  }   
 
     !!! tip "Tarea parte 7"
-        1. **Ir a la hoja 7 del documento RA3-CEc-2**
+        1. **Ir a la hoja 7 del documento RA3-CEc-2**.
         1. Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. **Tenéis libertad total en este apartado**.
         1. Para este ejercicio se deberá hacer uso de referencias relativas, absolutas o mixtas.    
         1. Aplicar las formulas necesarias para realizar los siguientes calculos:
@@ -461,19 +461,19 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
             - Calcular el porcentaje de los resultados obtenidos sobre el  número de los votantes.
     
     !!! tip "Tarea parte 8"
-        1. **Ir a la hoja 8 del documento RA3-CEc-2**
+        1. **Ir a la hoja 8 del documento RA3-CEc-2**.
         1. Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. **Tenéis libertad total en este apartado**.
         1. Para este ejercicio se deberá hacer uso de referencias relativas, absolutas o mixtas.    
         1. Aplicar las formulas necesarias para realizar una tabla de calcular básica.
 
     !!! tip "Tarea parte 9"
-        1. **Ir a la hoja 9 del documento RA3-CEc-2**
+        1. **Ir a la hoja 9 del documento RA3-CEc-2**.
         1. Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. **Tenéis libertad total en este apartado**.
         1. Para este ejercicio se deberá hacer uso de referencias relativas, absolutas o mixtas.    
         1. Aplicar las formulas necesarias para realizar los cálculos necesarios para completar la tabla.
 
     !!! tip "Tarea parte 10"
-        1. **Ir a la hoja 10 del documento RA3-CEc-2**  
+        1. **Ir a la hoja 10 del documento RA3-CEc-2**.  
         1. Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. **Tenéis libertad total en este apartado**.
         1. Para este ejercicio se deberá hacer uso de referencias relativas, absolutas o mixtas.    
         1. Aplicar las formulas necesarias para realizar los cálculos necesarios para completar la tabla.
