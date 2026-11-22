@@ -376,7 +376,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
         - **Un rango de celdas** es un conjunto de celdas adyacentes.
         - Para hacer referencia a un rango de celdas, introduciremos la referencia de la celda en la **esquina superior izquierda**, seguida de dos puntos (:) y, a continuación, la referencia a la celda en la esquina inferior derecha del rango.  
         !!! abstract "Ejemplo de rangos."  
-            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc31.png){ .leftdoscinco }   
+            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc31.png){ .lefttrescinco }   
             ![Descripción de la imagen](./03_hojas_de_calculo/img/calc32.png){ .leftdoscinco }   
             ![Descripción de la imagen](./03_hojas_de_calculo/img/calc33.png){ .leftdoscinco }   
 
