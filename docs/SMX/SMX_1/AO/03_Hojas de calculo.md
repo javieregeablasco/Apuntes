@@ -377,10 +377,10 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
         - Para hacer referencia a un rango de celdas, introduciremos la referencia de la celda en la **esquina superior izquierda**, seguida de dos puntos (:) y, a continuación, la referencia a la celda en la esquina inferior derecha del rango.  
         !!! abstract "Ejemplo de rangos."  
             - Rango **C2:C4** 
-            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc31.png){ .leftcincocero .margintop10 .marginbottom10}   
+            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc31.png){ .leftcincocero .margintop10 .marginbottom20}   
             - Rango **A3:C3** 
-            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc32.png){ .leftcincocero .margintop10 .marginbottom10}   
-            - Rango **C2:C4** 
+            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc32.png){ .leftcincocero .margintop10 .marginbottom20}   
+            - Rango **B2:D5** 
             ![Descripción de la imagen](./03_hojas_de_calculo/img/calc33.png){ .leftcincocero .margintop10 }   
 
     !!! exercice "Tarea parte 1. Descargar el archivo"
