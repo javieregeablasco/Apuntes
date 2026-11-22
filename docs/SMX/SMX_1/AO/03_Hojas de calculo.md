@@ -376,10 +376,12 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
         - **Un rango de celdas** es un conjunto de celdas adyacentes.
         - Para hacer referencia a un rango de celdas, introduciremos la referencia de la celda en la **esquina superior izquierda**, seguida de dos puntos (:) y, a continuación, la referencia a la celda en la esquina inferior derecha del rango.  
         !!! abstract "Ejemplo de rangos."  
-            - Rango **C2C4** 
-            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc31.png){ .leftcincocero }   
-            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc32.png){ .leftdoscinco }   
-            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc33.png){ .leftdoscinco }   
+            - Rango **C2:C4** 
+            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc31.png){ .leftcincocero .margintop10 }   
+            - Rango **A3:C3** 
+            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc32.png){ .leftcincocero .margintop10}   
+            - Rango **C2:C4** 
+            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc33.png){ .leftdoscinco .margintop10}   
 
     !!! exercice "Tarea parte 1. Descargar el archivo"
     Descargar y abrir el archivo 'RA3-CEc-2' pinchando en el enlace siguiente: [Descargar archivo](./03_hojas_de_calculo/tareas/RA3-CEc-2%20nombreapellidos.ods)  
