@@ -406,17 +406,16 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
             - **Nota:** De forma predeterminada todos los editores de hojas de cálculo utilizan referencias relativas.
             ![Descripción de la imagen](./03_hojas_de_calculo/img/calc34.png){ .leftcincocero .margintop10}   
 
-        !!! success "Tarea parte 3. Aplicar una fórmula usando referencias relativas."  
+        !!! abstract "Tarea parte 3. Aplicar una fórmula usando referencias relativas."  
             1. Ir a la hoja 2 del documento RA3-CEc-2 
             1. Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. **Tenéis libertad total en este apartado**.   
             1. Completar la tabla de multiplicar por 5.
 
     !!! tip "Un poco de teoría sobre referencias relativas, absolutas y mixtas."
-        !!! info "Referencias absolutas"
-        Una referencia absoluta hace referencia a una **celda en una ubicación específica**. Se caracteriza por incluir el carácter $.  
-        Si cambia la posición de la celda que contiene la fórmula, la referencia absoluta **permanecerá invariable**. A diferencia de las referencias relativas, si se copia / pega la fórmula en filas o columnas, la referencia absoluta no se ajustará.
-
-        ![Descripción de la imagen](./03_hojas_de_calculo/img/calc35.png){ .lefttrescero }<br>   
+        !!! abstract "Referencias absolutas"
+            - Una referencia absoluta hace referencia a una **celda en una ubicación específica**. Se caracteriza por incluir el carácter $.  
+            - Si cambia la posición de la celda que contiene la fórmula, la referencia absoluta **permanecerá invariable**. A diferencia de las referencias relativas, si se copia / pega la fórmula en filas o columnas, la referencia absoluta no se ajustará.
+            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc35.png){ .leftcincocero .margintop10}   
 
     !!! exercise "Tarea parte 4. Aplicar una fórmula usando referencias absolutas."
         Ir a la hoja 3 del documento RA3-CEc-2
