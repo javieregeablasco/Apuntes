@@ -398,7 +398,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
             1. Celdas **Suma primas** y **Suma Sueldos + primas**: Justo debajo de esas celdas poner el resultado de la suma de los valores de la columna **Prima** y de la columna **Sueldos + primas**.
 
     !!! tip "Un poco de teoría sobre referencias relativas, absolutas y mixtas."
-        !!! abstract "Referencias relativas"
+        !!! info "Referencias relativas"
             - Las referencias relativas se basan en la posición relativa de la celda que contiene la fórmula y de la celda a la que hace referencia.
             - Si se copia una fórmula en filas o columnas, la referencia se ajusta automáticamente es decir:  
                 1. Si cambia la posición de la celda que contiene la fórmula, se cambia la referencia. 
@@ -412,29 +412,28 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
             1. Completar la tabla de multiplicar por 5.
 
     !!! tip "Un poco de teoría sobre referencias relativas, absolutas y mixtas."
-        !!! abstract "Referencias absolutas"
-            - Una referencia absoluta hace referencia a una **celda en una ubicación específica**. Se caracteriza por incluir el carácter $.  
+        !!! info "Referencias absolutas"
+            - Una referencia absoluta hace referencia a una **celda en una ubicación específica**.
+            - Se caracteriza por incluir el carácter $.  
             - Si cambia la posición de la celda que contiene la fórmula, la referencia absoluta **permanecerá invariable**. A diferencia de las referencias relativas, si se copia / pega la fórmula en filas o columnas, la referencia absoluta no se ajustará.
             ![Descripción de la imagen](./03_hojas_de_calculo/img/calc35.png){ .leftcincocero .margintop10}   
 
-    !!! exercise "Tarea parte 4. Aplicar una fórmula usando referencias absolutas."
-        Ir a la hoja 3 del documento RA3-CEc-2
-
-        1. Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. **Tenéis libertad total en este apartado**.   
-        1. Completar la columna **Préstamo en Euros** usando referencias absolutas.
+        !!! abstract "Tarea parte 4. Aplicar una fórmula usando referencias absolutas."
+            1. Ir a la hoja 3 del documento RA3-CEc-2
+            1. Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. **Tenéis libertad total en este apartado**.   
+            1. Completar la columna **Préstamo en Euros** usando referencias absolutas.
 
     !!! tip "Un poco de teoría sobre referencias relativas, absolutas y mixtas."
         !!! info "Referencias mixtas"
-        Una referencia mixta se compone de **una columna (fila) absoluta y una fila (columna) relativa**.   
-        Una referencia de **columna absoluta** adopta la forma **$A1, $B1, etc** y una referencia de fila absoluta la forma **A$1, B$1, etc**.  
-        Si cambia la posición de la celda que contiene la fórmula, se cambia la referencia relativa y la referencia absoluta permanece invariable. Si se copia y pega la fórmula en filas o columnas, la referencia relativa se ajusta automáticamente y la referencia absoluta no se ajusta.
-        <br>
-
-        **Ejemplo**
-        ![Descripción de la imagen](./03_hojas_de_calculo/img/calc36.png){ .leftcuatrocero }<br>   
-        En la celda D7 introducimos la fórmula = `$C7*D$4`.  
-        Al incluir el símbolo de $ delante del 4 **fijamos la fila** pero no la columna.  
-        Igualmente fijamos la columna C, de forma que al arrastrar la fórmula se mantiene fija la columna.
+            - Una referencia mixta se compone de **una columna (fila) absoluta y una fila (columna) relativa**.   
+            - Una referencia de **columna absoluta** adopta la forma **$A1, $B1, etc** y una referencia de fila absoluta la forma **A$1, B$1, etc**.  
+            - Si cambia la posición de la celda que contiene la fórmula, se cambia la referencia relativa y la referencia absoluta permanece invariable. Si se copia y pega la fórmula en filas o columnas, la referencia relativa se ajusta automáticamente y la referencia absoluta no se ajusta.
+        
+        !!! info "Ejemplo"
+            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc36.png){ .leftseiscero }
+            - En la celda D7 introducimos la fórmula = `$C7*D$4`.  
+            - Al incluir el símbolo de $ delante del 4 **fijamos la fila** pero no la columna.  
+            - Igualmente fijamos la columna C, de forma que al arrastrar la fórmula se mantiene fija la columna.
 
     !!! exercise "Tarea parte 5. Aplicar una fórmula usando referencias mixtas."
         Ir a la hoja 4 del documento RA3-CEc-2  
