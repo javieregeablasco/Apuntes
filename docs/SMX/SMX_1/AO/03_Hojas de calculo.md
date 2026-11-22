@@ -424,12 +424,12 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
                 1. Completar la columna **Préstamo en Euros** usando referencias absolutas.
 
 
-        !!! note "Referencias mixtas"
+        !!! info "Referencias mixtas"
             - Una referencia mixta se compone de **una columna (fila) absoluta y una fila (columna) relativa**.   
             - Una referencia de **columna absoluta** adopta la forma **$A1, $B1, etc** y una referencia de fila absoluta la forma **A$1, B$1, etc**.  
             - Si cambia la posición de la celda que contiene la fórmula, se cambia la referencia relativa y la referencia absoluta permanece invariable. Si se copia y pega la fórmula en filas o columnas, la referencia relativa se ajusta automáticamente y la referencia absoluta no se ajusta.
         
-            !!! info "Ejemplo"
+            !!! abstract "Ejemplo"
                 ![Descripción de la imagen](./03_hojas_de_calculo/img/calc36.png){ .leftseiscero }
                 - En la celda D7 introducimos la fórmula = `$C7*D$4`.  
                 - Al incluir el símbolo de $ delante del 4 **fijamos la fila** pero no la columna.  
@@ -440,9 +440,8 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
                 1. Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. **Tenéis libertad total en este apartado**.   
                 1. Completar la tabla **Tabla de multiplicar** usando referencias mixtas.
 
-    !!! exercise "Tarea parte 6."
-        Ir a la hoja 5 del documento RA3-CEc-2  
-
+    !!! tip "Tarea parte 6."
+        1. Ir a la hoja 5 del documento RA3-CEc-2  
         1. Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. **Tenéis libertad total en este apartado**.   
         1. Para este ejercicio se deberá hacer uso de referencias relativas, absolutas o mixtas.    
         1. Añadir una columna, llamada **Total de ventas** y utilizar una fórmula básica para calcular el total por producto.
@@ -450,9 +449,8 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
         1. A la tabla de la hoja 5, añadir 4 columnas C10, C15, C20 y C25.
         1. Rellenar los valores de la celdas de las columnas C10, C15, C20 y C25 **aplicando los porcentajes de la hoja 6**. 
 
-        Aspecto final sin aplicar estilos:
-
-        ![Descripción de la imagen](./03_hojas_de_calculo/img/calc37.png){ .leftsietecero }<br>   
+        !!! abstract "Aspecto final sin aplicar estilos:"
+            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc37.png){ .cien  }   
 
     !!! exercise "Tarea parte 7."
         Ir a la hoja 7 del documento RA3-CEc-2  
