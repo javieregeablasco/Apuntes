@@ -393,20 +393,18 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
                 - Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. 
                 - **Tenéis libertad total en este apartado**.       
             1. Columna **Prima**: Asignar a mano la prima del empleado haciendo uso de la tabla. (Esta operación se puede automatizar, como lo veremos en otra tarea).      
-            1. Columna **Sueldo + prima**: Calcular el resultado de la suma de las columnas **Prima** y **Sueldo**.
+            1. Columna **Sueldo + Prima**: Calcular el resultado de la suma de las columnas **Prima** y **Sueldo**.
             1. Columna **Porcentaje sobre el sueldo**: Calcular el porcentaje que representa la prima sobre el sueldo (sin prima) para cada empleado.
             1. Celdas **Suma primas** y **Suma Sueldos + primas**: Justo debajo de esas celdas poner el resultado de la suma de los valores de la columna **Prima** y de la columna **Sueldos + primas**.
 
     !!! tip "Un poco de teoría sobre referencias relativas, absolutas y mixtas."
-        !!! info "Referencias relativas"
-        Las referencias relativas se basan en la posición relativa de la celda que contiene la fórmula y de la celda a la que hace referencia. Si se copia una fórmula en filas o columnas, la referencia se ajusta automáticamente es decir:  
-
-        - Si cambia la posición de la celda que contiene la fórmula, se cambia la referencia. 
-        - Si se copia la fórmula en filas o columnas, la referencia se ajusta automáticamente.  
-
-        **Nota:** De forma predeterminada todos los editores de hojas de cálculo utilizan referencias relativas.
-
-        ![Descripción de la imagen](./03_hojas_de_calculo/img/calc34.png){ .leftdoscinco }<br>   
+        !!! abstract "Referencias relativas"
+            - Las referencias relativas se basan en la posición relativa de la celda que contiene la fórmula y de la celda a la que hace referencia.
+            - Si se copia una fórmula en filas o columnas, la referencia se ajusta automáticamente es decir:  
+                1. Si cambia la posición de la celda que contiene la fórmula, se cambia la referencia. 
+                1. Si se copia la fórmula en filas o columnas, la referencia se ajusta automáticamente.  
+            - **Nota:** De forma predeterminada todos los editores de hojas de cálculo utilizan referencias relativas.
+            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc34.png){ .leftcincocero }   
 
     !!! exercice "Tarea parte 3. Aplicar una fórmula usando referencias relativas."  
         Ir a la hoja 2 del documento RA3-CEc-2   
