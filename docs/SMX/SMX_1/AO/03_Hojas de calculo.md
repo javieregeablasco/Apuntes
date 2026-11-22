@@ -363,18 +363,18 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
         1. **No se aceptará ningún otro formato de archivo**.
         1. A partir del momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
         1. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas. 
-        
-### HASTA AQUI
+     
+### Tarea RA3-CEc-2 - Formúlas básicas, referencias de celdas, relativas, absolutas y mixtas
 
-### **Tarea RA3-CEc-2 - Formúlas básicas, referencias de celdas, relativas, absolutas y mixtas**
 !!! exercice "Tarea RA3-CEc-2 - Trabajando con celdas"
     !!! tip "Un poco de teoría sobre referencias y rangos de celdas."
 
-    Todas las celdas de una hoja de cálculo tienen referencias (coordenadas). Por convención, las columnas se identifican por **letras** y las filas por **números**.  
-    ![Descripción de la imagen](./03_hojas_de_calculo/img/calc30.png){ .lefdoscinco }<br>   
+        - Todas las celdas de una hoja de cálculo tienen referencias (coordenadas).
+        - Por convención, las columnas se identifican por **letras** y las filas por **números**.  
+        ![Descripción de la imagen](./03_hojas_de_calculo/img/calc30.png){ .lefdoscinco }<br>   
 
-    **Un rango de celdas** es un conjunto de celdas adyacentes.
-    Para hacer referencia a un rango de celdas, introduciremos la referencia de la celda en la **esquina superior izquierda**, seguida de dos puntos (:) y, a continuación, la referencia a la celda en la esquina inferior derecha del rango.  
+        **Un rango de celdas** es un conjunto de celdas adyacentes.
+        Para hacer referencia a un rango de celdas, introduciremos la referencia de la celda en la **esquina superior izquierda**, seguida de dos puntos (:) y, a continuación, la referencia a la celda en la esquina inferior derecha del rango.  
 
     !!! tip "Ejemplo de rangos."  
     ![Descripción de la imagen](./03_hojas_de_calculo/img/calc31.png){ .leftdoscinco }<br>   
@@ -488,6 +488,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
         1. Para este ejercicio se deberá hacer uso de referencias relativas, absolutas o mixtas.    
         1. Aplicar las formulas necesarias para realizar los cálculos necesarios para completar la tabla.
 
+### HASTA AQUI
 ### **Tarea RA3-CEc-3 - Formúlas y funciones**
 Las fórmulas son uno de los elementos fundamentales de cualquier hoja de cálculo.  
 Permiten automatizar cálculos, analizar datos y obtener resultados dinámicos a partir de la información introducida en las celdas. 
