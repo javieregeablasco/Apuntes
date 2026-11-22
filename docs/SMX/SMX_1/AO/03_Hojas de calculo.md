@@ -424,7 +424,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
                 1. Completar la columna **Préstamo en Euros** usando referencias absolutas.
 
 
-        !!! info "Referencias mixtas"
+        !!! note "Referencias mixtas"
             - Una referencia mixta se compone de **una columna (fila) absoluta y una fila (columna) relativa**.   
             - Una referencia de **columna absoluta** adopta la forma **$A1, $B1, etc** y una referencia de fila absoluta la forma **A$1, B$1, etc**.  
             - Si cambia la posición de la celda que contiene la fórmula, se cambia la referencia relativa y la referencia absoluta permanece invariable. Si se copia y pega la fórmula en filas o columnas, la referencia relativa se ajusta automáticamente y la referencia absoluta no se ajusta.
@@ -435,10 +435,10 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
                 - Al incluir el símbolo de $ delante del 4 **fijamos la fila** pero no la columna.  
                 - Igualmente fijamos la columna C, de forma que al arrastrar la fórmula se mantiene fija la columna.
 
-        !!! abstract "Tarea parte 5. Aplicar una fórmula usando referencias mixtas."
-            1. Ir a la hoja 4 del documento RA3-CEc-2  
-            1. Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. **Tenéis libertad total en este apartado**.   
-            1. Completar la tabla **Tabla de multiplicar** usando referencias mixtas.
+            !!! abstract "Tarea parte 5. Aplicar una fórmula usando referencias mixtas."
+                1. Ir a la hoja 4 del documento RA3-CEc-2  
+                1. Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. **Tenéis libertad total en este apartado**.   
+                1. Completar la tabla **Tabla de multiplicar** usando referencias mixtas.
 
     !!! exercise "Tarea parte 6."
         Ir a la hoja 5 del documento RA3-CEc-2  
