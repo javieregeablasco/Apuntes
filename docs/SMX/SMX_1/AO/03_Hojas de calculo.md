@@ -441,7 +441,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
                 1. Completar la tabla **Tabla de multiplicar** usando referencias mixtas.
 
     !!! tip "Tarea parte 6."
-        1. Ir a la hoja 5 del documento RA3-CEc-2  
+        1. **Ir a la hoja 5 del documento RA3-CEc-2**  
         1. Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. **Tenéis libertad total en este apartado**.   
         1. Para este ejercicio se deberá hacer uso de referencias relativas, absolutas o mixtas.    
         1. Añadir una columna, llamada **Total de ventas** y utilizar una fórmula básica para calcular el total por producto.
@@ -452,9 +452,8 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
         !!! abstract "Aspecto final sin aplicar estilos:"
             ![Descripción de la imagen](./03_hojas_de_calculo/img/calc37.png){ .cien  }   
 
-    !!! exercise "Tarea parte 7."
-        Ir a la hoja 7 del documento RA3-CEc-2  
-
+    !!! tip "Tarea parte 7."
+        1. **Ir a la hoja 7 del documento RA3-CEc-2**
         1. Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. **Tenéis libertad total en este apartado**.
         1. Para este ejercicio se deberá hacer uso de referencias relativas, absolutas o mixtas.    
         1. Aplicar las formulas necesarias para realizar los siguientes calculos:
