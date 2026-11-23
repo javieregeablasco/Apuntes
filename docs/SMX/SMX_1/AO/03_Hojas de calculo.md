@@ -430,7 +430,8 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
             - Si cambia la posición de la celda que contiene la fórmula, se cambia la referencia relativa y la referencia absoluta permanece invariable. Si se copia y pega la fórmula en filas o columnas, la referencia relativa se ajusta automáticamente y la referencia absoluta no se ajusta.
         
             !!! abstract "Ejemplo"
-                ![Descripción de la imagen](./03_hojas_de_calculo/img/calc36.png){ .leftseiscero }
+                ![Descripción de la imagen](./03_hojas_de_calculo/img/calc36.png){ .leftochocero .marginbottom20 }
+                
                 - En la celda D7 introducimos la fórmula = `$C7*D$4`.  
                 - Al incluir el símbolo de $ delante del 4 **fijamos la fila** pero no la columna.  
                 - Igualmente fijamos la columna C, de forma que al arrastrar la fórmula se mantiene fija la columna.
@@ -562,8 +563,7 @@ En este ejercicio desarrollaremos un calificador de notas aplicado a la nueva le
 - Para el cálculo de **la nota de cada RA** se aplicará **una ponderación entre CE's**.
 
 !!! exercice "Tarea RA3-CEc-4 - Trabajando con fórmulas y funciones avanzadas"
-    En este ejercicio, haremos una calificador similar al que se usa para evaluar los alumnos en los ciclos formativos de formacion profesional. Para ello haremos uso de todo lo aprendido hasta ahora y empezaremos a usar **el asistente para funciones LibreOffice Calc para elaborar fórmulas avanzadas**.   
-
+    En este ejercicio, haremos una calificador similar al que se usa para evaluar los alumnos en los ciclos formativos de formacion profesional. Para ello haremos uso de todo lo aprendido hasta ahora y empezaremos a usar **el asistente para funciones LibreOffice Calc para elaborar fórmulas avanzadas**.
 
     **Condiciones para la evaluación del alumnado**  
 
