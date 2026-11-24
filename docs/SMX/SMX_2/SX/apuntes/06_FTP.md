@@ -195,7 +195,7 @@ Las órdenes que viajan por el canal de control son palabras mnemotécnicas de 3
         │ ❌ (El router con NAT descarta el paquete SYN)             │
 ``` -->
 
-!!! question ":one: ¿Qué comando FTP ilustra la imagen anterior?<br>¿Dué comando se usaría para enviar datos en vez de recirbirlos?"
+!!! question ":one: ¿Qué comando FTP ilustra la imagen anterior?<br>:two: ¿Qué comando se usaría para enviar datos en vez de recirbirlos?"
 
 !!! warning "⚠️ Limitaciones del modo activo"
 
