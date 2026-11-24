@@ -125,12 +125,13 @@ Las órdenes que viajan por el canal de control son palabras mnemotécnicas de 3
 
 ### 2.4 Taxonomía y estructura de los códigos de respuesta del servidor
 
-Cada vez que el cliente emite una orden por el canal de control, el servidor responde obligatoriamente con un **código numérico de tres dígitos** acompañado de un texto descriptivo legible para humanos.
+- Cada vez que el cliente emite una orden por el canal de control, el servidor responde obligatoriamente con un **código numérico de tres dígitos** acompañado de un texto descriptivo legible para humanos.
 
-La taxonomía del primer dígito categoriza de manera unívoca la respuesta:
+- La taxonomía del primer dígito categoriza de manera unívoca la respuesta:
 
 ![img](./img_6/img-6-4.jpeg){.cien}
-```text
+
+<!-- ```text
  ┌─── 1xx: Respuesta preliminar positiva (acción iniciada, espere confirmación)
  │
  ├─── 2xx: Respuesta de finalización positiva / Éxito (orden completada satisfactoriamente)
@@ -140,7 +141,7 @@ La taxonomía del primer dígito categoriza de manera unívoca la respuesta:
  ├─── 4xx: Fallo negativo transitorio / temporal (error temporal, puede reintentarse)
  │
  └─── 5xx: Fallo negativo permanente (error fatal de sintaxis, autenticación o permisos)
-```
+``` -->
 
 | Código | Significado canónico del RFC 959 | Contexto habitual en el laboratorio y producción |
 |:---:|---|---|
