@@ -539,7 +539,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
                 - **Pista**: **Asistente para funciones** → categoría **matemáticas** → **redondear**...
             1. **Columna D**: Buscar la fórmula que devuelva verdadero o falso si comparamos los valores de las columnas **Series** y **Redondear**.
             1. **Columna E**: Generar unas fechas aleatorias.
-                - **Pista:** LibreOffice Calc almacena las fechas como cifras. La parte entera se corresponde a la fecha y la parte decimal a la hora.   
+                - **Pista:** LibreOffice Calc almacena las fechas como cifras. La parte entera se corresponde a la fecha y la parte decimal a la hora (es decir, la fracción de 24h.).   
                     - La fecha 30/12/1899 se almacena como el número 0.  
                     - La fecha 01/01/1900 se almacena como el número 2.  
                     - La fecha 6/11/25 se almacena como el número 45963.
