@@ -541,7 +541,9 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
                 - La fecha 01/01/1900 se almacena como el número 2.  
                 - ...  
                 - La fecha 6/11/25 se almacena como el número 45963.
-                - El valor 45950,2569 retorna   
+                - El valor 45950,2563 retorna 20/10/2025 06:09:04 aunque solo se muestre la fecha el la celda (formato de celda).
+                ![Descripción de la imagen](./03_hojas_de_calculo/img/img-3-1.png){ .leftoriginal .margintop10} 
+
         1. **Columna F, G y H**: Introducir unos nombres y apellidos a mano y concaternarlos insertando un espacio o cualquier otro carácter entre nombre y appelidos.  
         <br>
         **Aspecto final de la hoja** (sin aplicar estilos).
