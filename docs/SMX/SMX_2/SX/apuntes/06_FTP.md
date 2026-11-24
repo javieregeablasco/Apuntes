@@ -227,30 +227,12 @@ Para solventar el bloqueo originado por los cortafuegos de los clientes, se intr
 
 ## 3 - Seguridad en los protocolos de transferencia y acceso remoto
 
-### 3.1 Vulnerabilidades del protocolo FTP tradicional (texto claro y sniffing)
+### 3.1 Vulnerabilidades del protocolo FTP tradicional
 
 - El protocolo FTP original fue concebido a principios de los años 80 bajo un paradigma de confianza mutua dentro de redes académicas cerradas.
 - Como consecuencia, **carece por completo de mecanismos criptográficos nativos**:  
     1. **Exposición total de credenciales:** Las órdenes `USER` y `PASS` viajan en texto plano por el canal de control. Cualquier analizador de protocolos conectado a la red local o en puntos intermedios de enrutamiento puede interceptar las contraseñas sin esfuerzo (*sniffing*  + `Wireshark`).
     1. **Intercepción y manipulación de datos:** Los archivos transferidos carecen de firmas de integridad o cifrado confidencial, permitiendo a un atacante en posición de intermediario (*Man-in-the-Middle*) leer el contenido o inyectar código malicioso en descargas de ejecutables.
-
-### 3.2 FTPS: FTP sobre TLS/SSL (Modo Explícito y Modo Implícito)
-
-- Para mitigar las carencias de seguridad de FTP sin romper la compatibilidad con su modelo de comandos, se estandarizó **FTPS (RFC 4217)**, que incorpora la capa criptográfica **TLS/SSL** mediante certificados digitales X.509:
-
-#### 3.2.1 FTPS Explícito (FTPES)
-
-1. El cliente se conecta inicialmente al puerto convencional **21 TCP** en texto claro.
-1. Inmediatamente después del banner de bienvenida, el cliente envía la orden `AUTH TLS` solicitando elevar la seguridad de la conexión.
-1. Si el servidor acepta, se realiza el *handshake* criptográfico TLS, se presenta y valida el certificado digital (mostrando su huella digital SHA-256) y a partir de ese instante todo el canal de control queda blindado bajo cifrado simétrico robusto (AES-256).
-1. Para proteger también la transferencia de ficheros y listados, el cliente emite las directivas `PBSZ 0` (*Protection Buffer Size*) y `PROT P` (*Data Channel Protection Level: Private*).
-1. Si el servidor rechaza o no soporta TLS, la conexión puede abortarse por política de seguridad.
-
-#### 3.2.2 FTPS Implícito (Legacy / Obsoleto)
-
-1. El cliente se conecta a un puerto TCP dedicado diferente (típicamente el **puerto 990 TCP** para control y **989 TCP** para datos).
-1. La capa TLS se negocia de forma inmediata y obligatoria nada más establecer la conexión física, antes de intercambiar cualquier comando FTP.
-1. **Estado actual:** El IETF lo considera obsoleto en favor del modo explícito, debido a que consume puertos adicionales y carece de la flexibilidad de negociación de capacidades que ofrece el puerto 21.
 
 ### 3.2 FTPS: FTP sobre TLS
 
