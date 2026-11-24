@@ -58,13 +58,11 @@ schedule: 233h - 7h/w
 
 ### 1.3 Modelo cliente-servidor y arquitectura de servicios
 
-![img](./img_6/img-6-5.png){.seiszero .margintop10 marginbottom20}
+![img](./img_6/img-6-5.jpeg){.seiszero .margintop10 marginbottom20}
 
 - FTP sigue el paradigma **cliente-servidor**:  
   - El **servidor FTP** es un proceso que permanece a la escucha de peticiones en el puerto TCP 21, esperando que los clientes se conecten y soliciten transferencias de ficheros o listados de directorios.
   - El **cliente FTP** es un programa que se ejecuta en la máquina del usuario final, capaz de establecer la conexión con el servidor, enviar órdenes y recibir datos.
-
-
 
 ### 1.3 Casos de uso corporativos en la administración de sistemas
 
@@ -77,7 +75,7 @@ A pesar del auge de protocolos web (HTTP/HTTPS) y APIs REST, los servicios de tr
 
 ## 2 - Arquitectura interna y funcionamiento del protocolo FTP (RFC 959)
 
-### 2.1 La doble conexión TCP: Canal de control vs Canal de datos
+### 2.1 La doble conexión del servicio FTP: Canal de control y Canal de datos
 
 La gran particularidad de FTP frente a casi todos los demás protocolos de red (HTTP, SSH o SMTP) radica en que **no utiliza una única conexión para todo**, sino que desacopla la comunicación en **dos conexiones TCP independientes con ciclos de vida y propósitos completamente distintos**:
 
