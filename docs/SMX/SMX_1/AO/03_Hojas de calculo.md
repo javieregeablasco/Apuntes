@@ -507,7 +507,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
             1. Fila **Total producto** → Rellenar las celdas con la fórmula que saca el valor máximo de las celdas **Producto ##** y **Total vendedor** .
             1. Fila **Total producto** → Rellenar las celdas con la fórmula que saca el valor mínimo de las celdas **Producto ##** y **Total vendedor**.
             1. Columna **Proporción del total** → Rellenar las celdas con la fórmula que permita sacar la división entre el **total por cada vendedor** y el valor de la celda **Total producto**.
-            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc38.png){ .leftdoscero }   
+            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc38.png){ .leftcuatrocero .margintop10 }   
 
         **Aspecto final de la hoja** (debéis aplicar vuestros estilos).
 
