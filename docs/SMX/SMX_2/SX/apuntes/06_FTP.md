@@ -56,6 +56,16 @@ schedule: 233h - 7h/w
     1. **Entrega secuencial y ordenada:** Garantiza que los segmentos fragmentados en la red se reensamblen en el destino en el orden exacto.
     1. **Control de flujo y congestión:** Regula la velocidad de transmisión adaptándose a la capacidad del receptor y a las condiciones de congestión de los enlaces de red.
 
+### 1.3 Modelo cliente-servidor y arquitectura de servicios
+
+![img](./img_6/img-6-5.png){.seiszero .margintop10 marginbottom20}
+
+- FTP sigue el paradigma **cliente-servidor**:  
+  - El **servidor FTP** es un proceso que permanece a la escucha de peticiones en el puerto TCP 21, esperando que los clientes se conecten y soliciten transferencias de ficheros o listados de directorios.
+  - El **cliente FTP** es un programa que se ejecuta en la máquina del usuario final, capaz de establecer la conexión con el servidor, enviar órdenes y recibir datos.
+
+
+
 ### 1.3 Casos de uso corporativos en la administración de sistemas
 
 A pesar del auge de protocolos web (HTTP/HTTPS) y APIs REST, los servicios de transferencia de ficheros basados en FTP, FTPS y SFTP siguen siendo pilares en las infraestructuras de IT:
@@ -144,7 +154,7 @@ Las órdenes que viajan por el canal de control son palabras mnemotécnicas de 3
 ``` -->
 
 | Código | Significado canónico del RFC 959 | Contexto habitual en el laboratorio y producción |
-|:---:|---|---|
+|:-:|---||
 | `150` | *File status okay; about to open data connection.* | Notificación previa al inicio del flujo de datos en operaciones `LIST`, `RETR` o `STOR`. |
 | `200` | *Command okay.* | La orden solicitada (por ejemplo, `TYPE I` o `PORT`) se ha procesado con éxito. |
 | `220` | *Service ready for new user.* | Mensaje de bienvenida (*banner*) enviado por el servidor nada más abrir el canal de control en el puerto 21. |
@@ -158,13 +168,9 @@ Las órdenes que viajan por el canal de control son palabras mnemotécnicas de 3
 | `530` | *Not logged in.* | Credenciales erróneas (usuario/contraseña incorrectos) o acceso anónimo denegado por directiva. |
 | `550` | *Requested action not taken. File unavailable or access denied.* | **El código de error más frecuente:** El usuario intenta leer, escribir o borrar un fichero sobre el que no tiene permisos NTFS/Linux, o la ruta indicada no existe. |
 
-<!--
----
-# HASTA AQUI
----
-
 ### 2.5 Modos de transferencia: Modo Activo (PORT) vs Modo Pasivo (PASV)
-La diferencia fundamental entre ambos modos radica en **quién toma la iniciativa para abrir la conexión TCP del canal de datos**:
+
+- La diferencia fundamental entre ambos modos radica en **quién toma la iniciativa para abrir la conexión TCP del canal de datos**:
 
 #### A) Modo Activo (Standard / `PORT`)
 1. El cliente inicia una conexión saliente desde un puerto efímero local (ej. TCP 51500) hacia el puerto 21 TCP del servidor (Canal de Control).
@@ -215,6 +221,11 @@ Para solventar el bloqueo originado por los cortafuegos de los clientes, se intr
         │<── TCP SYN-ACK: Conexión de datos establecida ✔️ ──────────│
 ```
 
+---
+
+<!--
+---
+# HASTA AQUI
 ---
 
 ### 2.6 Problemática del Modo Pasivo en entornos NAT y Cloud (AWS EC2)
