@@ -545,11 +545,10 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
                     - El valor 45950,2563 retorna 20/10/2025 06:09:04 aunque solo se muestre la fecha el la celda (formato de celda).
                     ![Descripción de la imagen](./03_hojas_de_calculo/img/img-3-1.png){ .leftsietecinco .margintop10 .marginbottom20 .marco} 
 
-        1. **Columna F, G y H**: Introducir unos nombres y apellidos a mano y concaternarlos insertando un espacio o cualquier otro carácter entre nombre y appelidos.  
+            1. **Columna F, G y H**: Introducir unos nombres y apellidos a mano y concaternarlos insertando un espacio o cualquier otro carácter entre nombre y appelidos.  
 
-        !!! success "Aspecto final de la hoja** (sin aplicar estilos)"
-
-            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc39.png){ .leftsietecero }   
+        !!! success "Aspecto final de la hoja (sin aplicar estilos)"
+            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc39.png){ .leftoriginal .margintop10 }   
 
     !!! warning "Entrega de la tarea"
         Subir la tarea a AULES en el apartado correspondiente.  
