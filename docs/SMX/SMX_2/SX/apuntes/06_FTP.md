@@ -173,13 +173,14 @@ Las órdenes que viajan por el canal de control son palabras mnemotécnicas de 3
 
 #### 2.5.1 Modo Activo
 
+![img](./img_6/img-6-6.png){.cien .marco}
+
 1. El cliente abre la conexión de control desde un puerto local (1035) hacia el puerto 21 del servidor.
 1. Antes de transferir, el cliente abre el puerto 1036 en escucha y se lo comunica al servidor con PORT 192,168,1,50,4,12 (puerto = 4 × 256 + 12 = 1036).
 1. El servidor confirma el comando con un ACK por el canal de control (21 → 1035).
 1. El servidor inicia la conexión de datos desde su puerto 20 hacia la IP del cliente y el puerto 1036, y envía los datos.
 1. El cliente confirma la recepción con un ACK (1036 → 20).
 
-![img](./img_6/img-6-6.png){.cien .marco}
 
 <!-- ```text
   [ Cliente FTP (192.168.1.50) ]                      [ Servidor FTP (203.0.113.10) ]
@@ -195,9 +196,9 @@ Las órdenes que viajan por el canal de control son palabras mnemotécnicas de 3
         │ ❌ (El router con NAT descarta el paquete SYN)             │
 ``` -->
 
-!!! question ":one: ¿Qué comando FTP ilustra la imagen anterior?<br>:two: ¿Qué comando se usaría para enviar datos en vez de recirbirlos?"
+!!! question ":one: ¿Qué comando FTP de envío de datos ilustra la imagen anterior?<br>:two: ¿Qué comando se usaría para enviar datos en vez de recirbirlos?"
 
-!!! warning "⚠️ Limitaciones del modo activo"
+!!! warning "Limitaciones del modo activo"
 
     - Los clientes domésticos y corporativos suelen estar detrás de **un router con NAT/PAT y un cortafuegos con inspección de estado**.
     - El **comando PORT** incluye la IP privada del cliente, que no es alcanzable desde Internet**.
@@ -209,23 +210,14 @@ Las órdenes que viajan por el canal de control son palabras mnemotécnicas de 3
 
 Para solventar el bloqueo originado por los cortafuegos de los clientes, se introdujo el modo pasivo:
 
-1. El cliente establece la conexión de control hacia el puerto 21 del servidor.
-1. Al requerir datos, el cliente envía la orden `PASV`.
-1. El servidor reserva un puerto efímero libre en su propio sistema operativo (ej. TCP 50020) y le responde al cliente con el código `227 Entering Passive Mode (h1,h2,h3,h4,p1,p2)`.
-1. **Es el cliente quien inicia la conexión TCP saliente hacia el puerto pasivo del servidor:** Como el cliente es el emisor de ambas conexiones (puerto 21 y puerto 50020), los cortafuegos locales y routers NAT permiten la salida de tráfico sin inconvenientes, admitiendo los paquetes de respuesta en estado *ESTABLISHED / RELATED*.
+![img](./img_6/img-6-7.png){.cien .marco}
 
-```text
-  [ Cliente FTP (192.168.1.50) ]                      [ Servidor FTP (203.0.113.10) ]
-        │                                                           │
-        │── TCP SYN: Dst Port 21 (Canal de Control) ───────────────>│
-        │<── 220 Service Ready (Control establecido) ───────────────│
-        │                                                           │
-        │── PASV ──────────────────────────────────────────────────>│
-        │<── 227 Entering Passive Mode (203,0,113,10,195,100) ──────│ (Puerto: 195*256+100 = 50020)
-        │                                                           │
-        │── TCP SYN: Dst Port 50020 (Canal de Datos Iniciado) ─────>│ (¡Conexión Saliente!)
-        │<── TCP SYN-ACK: Conexión de datos establecida ✔️ ──────────│
-```
+1. El cliente abre la conexión de control desde un puerto local (1035) hacia el puerto 21 del servidor.
+1. Al necesitar datos, el cliente envía la orden PASV.
+1. El servidor reserva un puerto efímero libre (ej. TCP 50020) y responde por el canal de control con 227 Entering Passive Mode (203,0,113,10,195,100). El puerto es 195 × 256 + 100 = 50020.
+1. El cliente inicia la conexión de datos desde otro puerto local (1036) hacia el puerto 50020 del servidor. El servidor responde con SYN-ACK y el cliente cierra el handshake con ACK.
+1. Como el cliente inicia ambas conexiones (1035 → 21 y 1036 → 50020), los cortafuegos locales y los routers NAT admiten los paquetes de respuesta en estado ESTABLISHED / RELATED.
+
 
 ---
 
