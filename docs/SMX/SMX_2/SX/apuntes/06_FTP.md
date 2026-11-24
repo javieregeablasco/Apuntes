@@ -195,21 +195,24 @@ Las órdenes que viajan por el canal de control son palabras mnemotécnicas de 3
         │ ❌ (El router con NAT descarta el paquete SYN)             │
 ``` -->
 
-!!! question "⚠️ ¿Por qué el modo activo falla sistemáticamente a través de Internet?"
+!!! question ":one: ¿Qué comando FTP ilustra la imagen anterior?<br>¿Dué comando se usaría para enviar datos en vez de recirbirlos?"
 
-- En las redes actuales, prácticamente todos los clientes domésticos o corporativos están situados detrás de un router con **NAT/PAT** (*Network Address Translation*) y de cortafuegos con inspección de estado (*Stateful Firewalls*).  
-- Cuando el servidor remoto intenta enviar un paquete TCP `SYN` hacia el puerto efímero del cliente, el cortafuegos del router cliente **descarta el paquete inmediatamente**, puesto que no existe ninguna conexión saliente previa registrada en su tabla de estados para ese puerto.
-- Salvo que el router disponga de un módulo ALG (*Application Layer Gateway*) activo que inspeccione el tráfico no cifrado de FTP para mapear dinámicamente el puerto, la conexión de datos colapsará.
+!!! warning "⚠️ Limitaciones del modo activo"
 
+    - Los clientes domésticos y corporativos suelen estar detrás de **un router con NAT/PAT y un cortafuegos con inspección de estado**.
+    - El **comando PORT** incluye la IP privada del cliente, que no es alcanzable desde Internet**.
+    - **Cuando el servidor envía el SYN desde su puerto 20** hacia el puerto del cliente, **el cortafuegos lo trata como tráfico entrante no solicitado y lo descarta** (normalmente en silencio). La conexión de control no sirve de referencia, porque es otra conexión.
+    - **Solo funciona si el router tiene un ALG de FTP activo que reescriba la IP y el puerto en PORT y abra el puerto dinámicamente**. Con FTPS el ALG no puede inspeccionar el tráfico, así que la conexión de datos falla igualmente.
+    - Por eso en Internet se usa casi siempre **el modo pasivo**, donde es el cliente quien inicia ambas conexiones.
 
----
+#### 2.5.2 Modo Pasivo
 
-#### B) Modo Pasivo (`PASV`)
 Para solventar el bloqueo originado por los cortafuegos de los clientes, se introdujo el modo pasivo:
+
 1. El cliente establece la conexión de control hacia el puerto 21 del servidor.
-2. Al requerir datos, el cliente envía la orden `PASV`.
-3. El servidor reserva un puerto efímero libre en su propio sistema operativo (ej. TCP 50020) y le responde al cliente con el código `227 Entering Passive Mode (h1,h2,h3,h4,p1,p2)`.
-4. **Es el cliente quien inicia la conexión TCP saliente hacia el puerto pasivo del servidor:** Como el cliente es el emisor de ambas conexiones (puerto 21 y puerto 50020), los cortafuegos locales y routers NAT permiten la salida de tráfico sin inconvenientes, admitiendo los paquetes de respuesta en estado *ESTABLISHED / RELATED*.
+1. Al requerir datos, el cliente envía la orden `PASV`.
+1. El servidor reserva un puerto efímero libre en su propio sistema operativo (ej. TCP 50020) y le responde al cliente con el código `227 Entering Passive Mode (h1,h2,h3,h4,p1,p2)`.
+1. **Es el cliente quien inicia la conexión TCP saliente hacia el puerto pasivo del servidor:** Como el cliente es el emisor de ambas conexiones (puerto 21 y puerto 50020), los cortafuegos locales y routers NAT permiten la salida de tráfico sin inconvenientes, admitiendo los paquetes de respuesta en estado *ESTABLISHED / RELATED*.
 
 ```text
   [ Cliente FTP (192.168.1.50) ]                      [ Servidor FTP (203.0.113.10) ]
