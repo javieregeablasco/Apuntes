@@ -58,7 +58,7 @@ schedule: 233h - 7h/w
 
 ### 1.3 Modelo cliente-servidor y arquitectura de servicios
 
-![img](./img_6/img-6-5.jpeg){.seiszero .margintop10 marginbottom20}
+![img](./img_6/img-6-5.jpeg){.sietecinco .margintop10 marginbottom20 .marco}
 
 - FTP sigue el paradigma **cliente-servidor**:  
   - El **servidor FTP** es un proceso que permanece a la escucha de peticiones en el puerto TCP 21, esperando que los clientes se conecten y soliciten transferencias de ficheros o listados de directorios.
