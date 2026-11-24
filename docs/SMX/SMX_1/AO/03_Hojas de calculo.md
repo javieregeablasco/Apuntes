@@ -529,26 +529,27 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
             ![Descripción de la imagen](./03_hojas_de_calculo/img/calc41.png){ .leftoriginal .margintop10} 
 
     !!! tip "Tarea parte 4. Aplicar fórmulas a las celdas"
-        1. Conjunto de la hoja de cálculo: Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. **Tenéis libertad total en este apartado**.
-        1. Dentro del mismo documento, crear una hoja nueva (Hoja3).
-        1. **Columna A**: Crear una serie de rango 0 → 2 con incrementos de 0.1.
-        1. **Columna B**: Buscar la fórmula que permita insertar **un número aleatorio entre 0 y 2**. Pista: **Asistente para funciones** → categoría **matemáticas** → **aleatorio**... 
-        1. **Columna C**: Buscar la fórmula que permita redondear los valores de la columna 2 a 3 decimales. Pista: **Asistente para funciones** → categoría **matemáticas** → **redondear**...
-        1. **Columna D**: Buscar la fórmula que devuelva verdadero o falso si comparamos los valores de las columnas **Series** y **Redondear**.
-        1. **Columna E**: Generar unas fechas aleatorias.
-            - **Pista:** LibreOffice Calc almacena las fechas como cifras. La parte entera se corresponde a la fecha y la parte decimal a la hora.   
-                - La fecha 30/12/1899 se almacena como el número 0.  
-                - La fecha 01/01/1900 se almacena como el número 2.  
-                - ...  
-                - La fecha 6/11/25 se almacena como el número 45963.
-                - El valor 45950,2563 retorna 20/10/2025 06:09:04 aunque solo se muestre la fecha el la celda (formato de celda).
-                ![Descripción de la imagen](./03_hojas_de_calculo/img/img-3-1.png){ .leftsietecinco .margintop10 .marginbottom20 .marco} 
+        !!! abstract "Trabajos a realizar" 
+            1. Conjunto de la hoja de cálculo: Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. **Tenéis libertad total en este apartado**.
+            1. Dentro del mismo documento, crear una hoja nueva (Hoja3).
+            1. **Columna A**: Crear una serie de rango 0 → 2 con incrementos de 0.1.
+            1. **Columna B**: Buscar la fórmula que permita insertar **un número aleatorio entre 0 y 2**. Pista: **Asistente para funciones** → categoría **matemáticas** → **aleatorio**... 
+            1. **Columna C**: Buscar la fórmula que permita redondear los valores de la columna 2 a 3 decimales. Pista: **Asistente para funciones** → categoría **matemáticas** → **redondear**...
+            1. **Columna D**: Buscar la fórmula que devuelva verdadero o falso si comparamos los valores de las columnas **Series** y **Redondear**.
+            1. **Columna E**: Generar unas fechas aleatorias.
+               - **Pista:** LibreOffice Calc almacena las fechas como cifras. La parte entera se corresponde a la fecha y la parte decimal a la hora.   
+                    - La fecha 30/12/1899 se almacena como el número 0.  
+                    - La fecha 01/01/1900 se almacena como el número 2.  
+                    - La fecha 6/11/25 se almacena como el número 45963.
+                    - ...  
+                    - El valor 45950,2563 retorna 20/10/2025 06:09:04 aunque solo se muestre la fecha el la celda (formato de celda).
+                    ![Descripción de la imagen](./03_hojas_de_calculo/img/img-3-1.png){ .leftsietecinco .margintop10 .marginbottom20 .marco} 
 
         1. **Columna F, G y H**: Introducir unos nombres y apellidos a mano y concaternarlos insertando un espacio o cualquier otro carácter entre nombre y appelidos.  
-        <br>
-        **Aspecto final de la hoja** (sin aplicar estilos).
 
-            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc39.png){ .leftsietecero }<br>   
+        !!! success "Aspecto final de la hoja** (sin aplicar estilos)"
+
+            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc39.png){ .leftsietecero }   
 
     !!! warning "Entrega de la tarea"
         Subir la tarea a AULES en el apartado correspondiente.  
