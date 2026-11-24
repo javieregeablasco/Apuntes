@@ -129,6 +129,7 @@ Cada vez que el cliente emite una orden por el canal de control, el servidor res
 
 La taxonomía del primer dígito categoriza de manera unívoca la respuesta:
 
+![img](./img_6/img-6-4.jpeg){.cien}
 ```text
  ┌─── 1xx: Respuesta preliminar positiva (acción iniciada, espere confirmación)
  │
