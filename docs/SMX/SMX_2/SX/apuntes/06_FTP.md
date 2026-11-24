@@ -196,7 +196,7 @@ Para solventar el bloqueo originado por los cortafuegos de los clientes, se intr
 - El modo pasivo evita que el cliente tenga que aceptar conexiones entrantes, pero traslada el problema al servidor: si el servidor está detrás de un NAT o en la nube (por ejemplo, AWS), hay que configurarlo para que el cliente pueda alcanzar el puerto de datos.
 
 - Caso sin configurar, donde la conexión de datos falla.
-    ![img](./img_6/img-6-8.png){.cien .marco .marginbottom20}
+    ![img](./img_6/img-6-8.png){.cien .marco .marginbottom20 .margintop10}
 
 - Puntos a configurar:  
 
@@ -223,7 +223,7 @@ Para solventar el bloqueo originado por los cortafuegos de los clientes, se intr
         !!! note "Los Security Groups son stateful, así que no hace falta una regla de salida para las respuestas."
 
 - Escenario con pasv_address configurado con la IP públicac. El Internet Gateway reenvía el tráfico hacia la IP privada del servidor.
-    ![img](./img_6/img-6-9.png){.cien .marco .marginbottom20}
+    ![img](./img_6/img-6-9.png){.cien .marco .marginbottom20 .margintop10}
 
 ## 3 - Seguridad en los protocolos de transferencia y acceso remoto
 
@@ -252,6 +252,49 @@ Para solventar el bloqueo originado por los cortafuegos de los clientes, se intr
 1. La capa TLS se negocia de forma inmediata y obligatoria nada más establecer la conexión física, antes de intercambiar cualquier comando FTP.
 1. **Estado actual:** El IETF lo considera obsoleto en favor del modo explícito, debido a que consume puertos adicionales y carece de la flexibilidad de negociación de capacidades que ofrece el puerto 21.
 
+### 3.2 FTPS: FTP sobre TLS
+
+- FTPS añade cifrado TLS al protocolo FTP sin cambiar su modelo de comandos.
+- La RFC 4217 define su funcionamiento, basado en la extensión de seguridad de la RFC 2228.
+- El servidor se identifica con un certificado digital X.509.
+
+#### 3.2.1 FTPS explícito (FTPES)
+
+1. El cliente se conecta al puerto 21 TCP en texto claro y recibe el banner de bienvenida.
+1. El cliente envía AUTH TLS para pedir que se cifre la conexión. Si el servidor acepta, responde 234.
+1. Ambos realizan el handshake TLS. El servidor presenta su certificado y el cliente lo valida. Desde ese momento, el canal de control va cifrado con el algoritmo negociado.
+1. El cliente envía USER y PASS ya por el canal cifrado.
+1. Para cifrar también los datos, el cliente envía PBSZ 0 y PROT P (nivel Private). Sin PROT P, los datos viajan en claro.
+1. Si el servidor no admite TLS (por ejemplo, responde 534), es el cliente quien decide si continúa sin cifrar o aborta.
+
+#### 3.2.2 FTPS implícito (en desuso)
+
+1. El cliente se conecta a un puerto dedicado: 990 TCP para control (y 989 TCP como puerto de origen de datos en modo activo).
+1. El handshake TLS se realiza nada más abrir la conexión, antes de cualquier comando FTP. No existe AUTH TLS.
+1. Estado actual: no está estandarizado y se considera obsoleto. Requiere puertos adicionales y no permite negociar capacidades como el explícito. Aun así, sigue presente en sistemas heredados.
+
+!!! warning "Una consecuencia práctica que enlaza con el modo activo y pasivo:"
+    - Como el canal de control va cifrado, los ALG de los routers no pueden leer PORT ni 227.
+    - Por eso en FTPS conviene usar **el modo pasivo con un rango de puertos fijo y la IP externa configurada**.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
 ### 3.3 SFTP: SSH File Transfer Protocol (El estándar seguro monocanal)
 Existe una confusión conceptual muy extendida entre alumnos y técnicos noveles: **SFTP NO es FTP con cifrado**.
 
