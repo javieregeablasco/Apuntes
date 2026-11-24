@@ -173,7 +173,7 @@ Las órdenes que viajan por el canal de control son palabras mnemotécnicas de 3
 
 #### 2.5.1 Modo Activo
 
-![img](./img_6/img-6-6.png){.cien .marco}
+![img](./img_6/img-6-6.png){.cien .marco .marginbottom20}
 
 1. El cliente abre la conexión de control desde un puerto local (1035) hacia el puerto 21 del servidor.
 1. Antes de transferir, el cliente abre el puerto 1036 en escucha y se lo comunica al servidor con PORT 192,168,1,50,4,12 (puerto = 4 × 256 + 12 = 1036).
@@ -210,7 +210,7 @@ Las órdenes que viajan por el canal de control son palabras mnemotécnicas de 3
 
 Para solventar el bloqueo originado por los cortafuegos de los clientes, se introdujo el modo pasivo:
 
-![img](./img_6/img-6-7.png){.cien .marco}
+![img](./img_6/img-6-7.png){.cien .marco .marginbottom20}
 
 1. El cliente abre la conexión de control desde un puerto local (1035) hacia el puerto 21 del servidor.
 1. Al necesitar datos, el cliente envía la orden PASV.
