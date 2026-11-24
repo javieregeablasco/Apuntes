@@ -195,13 +195,13 @@ Para solventar el bloqueo originado por los cortafuegos de los clientes, se intr
 
 - El modo pasivo evita que el cliente tenga que aceptar conexiones entrantes, pero traslada el problema al servidor: si el servidor está detrás de un NAT o en la nube (por ejemplo, AWS), hay que configurarlo para que el cliente pueda alcanzar el puerto de datos.
 
-- Hay cuatro puntos a configurar:
+- Hay cuatro puntos a configurar:  
+!!! tip ":one: El servidor desconoce su IP pública"
 
-      !!! tip ":one: El servidor desconoce su IP pública".
-         - En AWS EC2, la máquina virtual solo ve su IP privada (ej. 172.31.25.100).
-         - La IP pública la gestiona el Internet Gateway de Amazon, que hace la traducción.
-         - Sin configuración adicional, el servidor responde a PASV con su IP privada: 227 Entering Passive Mode (172,31,25,100,195,100).
-         - El cliente intenta conectarse a esa IP, que no es enrutable desde Internet, y la conexión termina por timeout.
+   - En AWS EC2, la máquina virtual solo ve su IP privada (ej. 172.31.25.100).
+   - La IP pública la gestiona el Internet Gateway de Amazon, que hace la traducción.
+   - Sin configuración adicional, el servidor responde a PASV con su IP privada: 227 Entering Passive Mode (172,31,25,100,195,100).
+   - El cliente intenta conectarse a esa IP, que no es enrutable desde Internet, y la conexión termina por timeout.
 
    !!! tip ":two: Hay que indicar la IP pública en el servidor."
       - El administrador debe configurar la IP pública para que se envíe en la respuesta 227:
