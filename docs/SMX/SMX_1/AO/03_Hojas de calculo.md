@@ -553,9 +553,12 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
             ![Descripción de la imagen](./03_hojas_de_calculo/img/calc39.png){ .leftoriginal .margintop10 }   
 
     !!! warning "Entrega de la tarea"
-        Subir la tarea a AULES en el apartado correspondiente.  
-        El archivo a subir deberá ser de tipo **.ods** (formato nativo de LibreOffice Calc).  
-        **No se aceptará ningún otro formato de archivo**.  
+        1. Guardar vuestra tarea como **RA3-CEc-3-NombreApellidosAlumno**.
+        1. Subir vuestra tarea a la tarea correspondiente de aules.  
+        1. Los archivos a subir deberán ser de tipo OpenDocument Spreasheet (.ods) (formato predeterminado de LibreOffice Calc).  
+        1. **No se aceptará ningún otro formato de archivo**.
+        1. A partir del momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
+        1. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.         
 
 ### HASTA AQUI
 
