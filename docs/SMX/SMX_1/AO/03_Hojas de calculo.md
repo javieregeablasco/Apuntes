@@ -487,27 +487,27 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
         1. A partir del momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
         1. Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas. 
 
-### HASTA AQUI
+### Tarea RA3-CEc-3 - Formúlas y funciones
 
-### **Tarea RA3-CEc-3 - Formúlas y funciones**
-Las fórmulas son uno de los elementos fundamentales de cualquier hoja de cálculo.  
-Permiten automatizar cálculos, analizar datos y obtener resultados dinámicos a partir de la información introducida en las celdas. 
-!!! exercice "Tarea RA3-CEc-3 - Trabajando con fórmulas y funciones"
-    !!! exercice "Tarea parte 1. Descargar el archivo"
-        Descargar y abrir el archivo 'RA3-CEc-3' pinchando en el enlace siguiente: [Descargar archivo](./03_hojas_de_calculo/tareas/RA3-CEc-3%20nombreapellidos.ods)  
+- Las fórmulas son uno de los elementos fundamentales de cualquier hoja de cálculo.  
 
-    !!! exercice "Tarea parte 2. Aplicar fórmulas a las celdas"
-        En la hoja 1 encontrareís unas tablas con valores.
+- Permiten automatizar cálculos, analizar datos y obtener resultados dinámicos a partir de la información introducida en las celdas. 
 
-        Trabajos a realizar: 
+!!! note "Tarea RA3-CEc-3 - Trabajando con fórmulas y funciones"
+    !!! tip "Tarea parte 1. Descargar el archivo"
+        - Descargar y abrir el archivo 'RA3-CEc-3' pinchando en el enlace siguiente: [Descargar archivo](./03_hojas_de_calculo/tareas/RA3-CEc-3%20nombreapellidos.ods)  
 
-        1. Conjunto de la hoja de cálculo: Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. **Tenéis libertad total en este apartado**.
-        1. Fila **Total producto** → Rellenar las celdas con la fórmula que suma el total de las celdas **Producto ##** y **Total vendedor**.
-        1. Fila **Promedio venta** → Rellenar las celdas con la fórmula que cálcula la media de las celdas **Producto ##** y **Total vendedor**.
-        1. Fila **Total producto** → Rellenar las celdas con la fórmula que saca el valor máximo de las celdas **Producto ##** y **Total vendedor** .
-        1. Fila **Total producto** → Rellenar las celdas con la fórmula que saca el valor mínimo de las celdas **Producto ##** y **Total vendedor**.
-        1. Columna **Proporción del total** → Rellenar las celdas con la fórmula que permita sacar la división entre el **total por cada vendedor** y el valor de la celda **Total producto**.
-        ![Descripción de la imagen](./03_hojas_de_calculo/img/calc38.png){ .leftdoscero }<br>   
+    !!! tip "Tarea parte 2. Aplicar fórmulas a las celdas"
+        - En la hoja 1 encontrareís unas tablas con valores.
+
+        !!! abstract "Trabajos a realizar" 
+            1. Conjunto de la hoja de cálculo: Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. **Tenéis libertad total en este apartado**.
+            1. Fila **Total producto** → Rellenar las celdas con la fórmula que suma el total de las celdas **Producto ##** y **Total vendedor**.
+            1. Fila **Promedio venta** → Rellenar las celdas con la fórmula que cálcula la media de las celdas **Producto ##** y **Total vendedor**.
+            1. Fila **Total producto** → Rellenar las celdas con la fórmula que saca el valor máximo de las celdas **Producto ##** y **Total vendedor** .
+            1. Fila **Total producto** → Rellenar las celdas con la fórmula que saca el valor mínimo de las celdas **Producto ##** y **Total vendedor**.
+            1. Columna **Proporción del total** → Rellenar las celdas con la fórmula que permita sacar la división entre el **total por cada vendedor** y el valor de la celda **Total producto**.
+            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc38.png){ .leftdoscero }   
 
         **Aspecto final de la hoja** (debéis aplicar vuestros estilos).
 
@@ -552,6 +552,8 @@ Permiten automatizar cálculos, analizar datos y obtener resultados dinámicos a
         Subir la tarea a AULES en el apartado correspondiente.  
         El archivo a subir deberá ser de tipo **.ods** (formato nativo de LibreOffice Calc).  
         **No se aceptará ningún otro formato de archivo**.  
+
+### HASTA AQUI
 
 ### **Tarea RA3-CEc-4 - Formúlas y funciones avanzadas**
 En este ejercicio desarrollaremos un calificador de notas aplicado a la nueva ley de FP, es decir:  
