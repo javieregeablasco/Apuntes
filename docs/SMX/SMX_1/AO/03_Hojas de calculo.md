@@ -533,11 +533,12 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
             1. Conjunto de la hoja de cálculo: Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. **Tenéis libertad total en este apartado**.
             1. Dentro del mismo documento, crear una hoja nueva (**Hoja3**).
             1. **Columna A**: Crear una serie de rango 0 → 2 con incrementos de 0.1.
-            1. **Columna B**: Buscar la fórmula que permita insertar **un número aleatorio entre 0 y 2**. Pista: **Asistente para funciones** → categoría **matemáticas** → **aleatorio**... 
+            1. **Columna B**: Buscar la fórmula que permita insertar **un número aleatorio entre 0 y 2**.   
+                - Pista: **Asistente para funciones** → categoría **matemáticas** → **aleatorio**... 
             1. **Columna C**: Buscar la fórmula que permita redondear los valores de la columna 2 a 3 decimales. Pista: **Asistente para funciones** → categoría **matemáticas** → **redondear**...
             1. **Columna D**: Buscar la fórmula que devuelva verdadero o falso si comparamos los valores de las columnas **Series** y **Redondear**.
             1. **Columna E**: Generar unas fechas aleatorias.
-               - **Pista:** LibreOffice Calc almacena las fechas como cifras. La parte entera se corresponde a la fecha y la parte decimal a la hora.   
+                - **Pista:** LibreOffice Calc almacena las fechas como cifras. La parte entera se corresponde a la fecha y la parte decimal a la hora.   
                     - La fecha 30/12/1899 se almacena como el número 0.  
                     - La fecha 01/01/1900 se almacena como el número 2.  
                     - La fecha 6/11/25 se almacena como el número 45963.
