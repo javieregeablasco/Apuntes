@@ -99,26 +99,26 @@ El RFC 959 contempla distintos modos de interpretar la información transmitida 
 
 Las órdenes que viajan por el canal de control son palabras mnemotécnicas de 3 o 4 caracteres en texto plano ASCII seguidas de parámetros y delimitadas por el terminador `CRLF` (`\r\n`):
 
-* **Autenticación e inicio de sesión:**
-  * `USER <nombre>`: Envía el identificador del usuario que desea iniciar sesión.
-  * `PASS <contraseña>`: Envía la contraseña de dicho usuario.
-  * `QUIT`: Cierra la conexión de control y finaliza la sesión en el servidor.
-* **Navegación e inspección del sistema de ficheros:**
-  * `PWD` (*Print Working Directory*): Muestra la ruta del directorio de trabajo actual en el servidor.
-  * `CWD <ruta>` (*Change Working Directory*): Cambia al directorio especificado (equivalente a `cd`).
-  * `CDUP` (*Change to Parent Directory*): Sube un nivel en el árbol jerárquico de directorios (equivalente a `cd ..`).
-  * `MKD <directorio>` (*Make Directory*): Crea una nueva carpeta en la ruta remota.
-  * `RMD <directorio>` (*Remove Directory*): Elimina la carpeta remota indicada.
-* **Operaciones de transferencia y gestión de ficheros:**
-  * `LIST`: Solicita el listado detallado de ficheros y directorios (permisos, tamaño, fecha de modificación, similar a `ls -la`). Se entrega a través del canal de datos.
-  * `NLST` (*Name List*): Solicita una lista simple con únicamente los nombres de los ficheros.
-  * `RETR <fichero>` (*Retrieve*): Descarga el archivo solicitado desde el servidor hacia el cliente.
-  * `STOR <fichero>` (*Store*): Sube y almacena un archivo desde el cliente en el servidor.
-  * `DELE <fichero>` (*Delete*): Elimina el fichero especificado del servidor.
-* **Negociación del canal de datos:**
-  * `PORT <h1,h2,h3,h4,p1,p2>`: Indica al servidor la dirección IP y el puerto TCP en el que el cliente espera la conexión de datos (Modo Activo).
-  * `PASV`: Solicita al servidor que abra un puerto pasivo y espere la conexión del cliente (Modo Pasivo).
-  * `TYPE <A|I>`: Establece el tipo de representación de los datos (`A` para ASCII, `I` para binario/imagen).
+1. **Autenticación e inicio de sesión:**
+   - `USER <nombre>`: Envía el identificador del usuario que desea iniciar sesión.
+   - `PASS <contraseña>`: Envía la contraseña de dicho usuario.
+   - `QUIT`: Cierra la conexión de control y finaliza la sesión en el servidor.
+1. **Navegación e inspección del sistema de ficheros:**
+   - `PWD` (*Print Working Directory*): Muestra la ruta del directorio de trabajo actual en el servidor.
+   - `CWD <ruta>` (*Change Working Directory*): Cambia al directorio especificado (equivalente a `cd`).
+   - `CDUP` (*Change to Parent Directory*): Sube un nivel en el árbol jerárquico de directorios (equivalente a `cd ..`).
+   - `MKD <directorio>` (*Make Directory*): Crea una nueva carpeta en la ruta remota.
+   - `RMD <directorio>` (*Remove Directory*): Elimina la carpeta remota indicada.
+1. **Operaciones de transferencia y gestión de ficheros:**
+   - `LIST`: Solicita el listado detallado de ficheros y directorios (permisos, tamaño, fecha de modificación, similar a `ls -la`). Se entrega a través del canal de datos.
+   - `NLST` (*Name List*): Solicita una lista simple con únicamente los nombres de los ficheros.
+   - `RETR <fichero>` (*Retrieve*): Descarga el archivo solicitado desde el servidor hacia el cliente.
+   - `STOR <fichero>` (*Store*): Sube y almacena un archivo desde el cliente en el servidor.
+   - `DELE <fichero>` (*Delete*): Elimina el fichero especificado del servidor.
+1. **Negociación del canal de datos:**
+   - `PORT <h1,h2,h3,h4,p1,p2>`: Indica al servidor la dirección IP y el puerto TCP en el que el cliente espera la conexión de datos (Modo Activo).
+   - `PASV`: Solicita al servidor que abra un puerto pasivo y espere la conexión del cliente (Modo Pasivo).
+   - `TYPE <A|I>`: Establece el tipo de representación de los datos (`A` para ASCII, `I` para binario/imagen).
 
 ---
 <!--
