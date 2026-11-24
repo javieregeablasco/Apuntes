@@ -123,12 +123,9 @@ Las órdenes que viajan por el canal de control son palabras mnemotécnicas de 3
     - `PASV`: Solicita al servidor que abra un puerto pasivo y espere la conexión del cliente (Modo Pasivo).
     - `TYPE <A|I>`: Establece el tipo de representación de los datos (`A` para ASCII, `I` para binario/imagen).
 
-<!--
----
-# HASTA AQUI
-
 ### 2.4 Taxonomía y estructura de los códigos de respuesta del servidor
-Cada vez que el cliente emite una orden por el canal de control, el servidor responde obligatoriamente con un **código numérico de tres dígitos** acompañado de un texto descriptivo legible para humanos. 
+
+Cada vez que el cliente emite una orden por el canal de control, el servidor responde obligatoriamente con un **código numérico de tres dígitos** acompañado de un texto descriptivo legible para humanos.
 
 La taxonomía del primer dígito categoriza de manera unívoca la respuesta:
 
@@ -159,9 +156,12 @@ La taxonomía del primer dígito categoriza de manera unívoca la respuesta:
 | `530` | *Not logged in.* | Credenciales erróneas (usuario/contraseña incorrectos) o acceso anónimo denegado por directiva. |
 | `550` | *Requested action not taken. File unavailable or access denied.* | **El código de error más frecuente:** El usuario intenta leer, escribir o borrar un fichero sobre el que no tiene permisos NTFS/Linux, o la ruta indicada no existe. |
 
+<!--
+---
+# HASTA AQUI
 ---
 
-### 2.5 Modos de transferencia en profundidad: Modo Activo (PORT) vs Modo Pasivo (PASV)
+### 2.5 Modos de transferencia: Modo Activo (PORT) vs Modo Pasivo (PASV)
 La diferencia fundamental entre ambos modos radica en **quién toma la iniciativa para abrir la conexión TCP del canal de datos**:
 
 #### A) Modo Activo (Standard / `PORT`)
