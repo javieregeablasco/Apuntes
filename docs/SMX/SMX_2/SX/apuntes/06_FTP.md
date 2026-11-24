@@ -218,22 +218,41 @@ Para solventar el bloqueo originado por los cortafuegos de los clientes, se intr
 1. El cliente inicia la conexión de datos desde otro puerto local (1036) hacia el puerto 50020 del servidor. El servidor responde con SYN-ACK y el cliente cierra el handshake con ACK.
 1. Como el cliente inicia ambas conexiones (1035 → 21 y 1036 → 50020), los cortafuegos locales y los routers NAT admiten los paquetes de respuesta en estado ESTABLISHED / RELATED.
 
+### 2.6 Problemática del Modo Pasivo en entornos NAT y Cloud (AWS EC2)
+
+- El modo pasivo evita que el cliente tenga que aceptar conexiones entrantes, pero traslada el problema al servidor: si el servidor está detrás de un NAT o en la nube (por ejemplo, AWS), hay que configurarlo para que el cliente pueda alcanzar el puerto de datos.
+
+- Hay cuatro puntos a configurar:
+
+   !!! tip ":one: El servidor desconoce su IP pública".
+      - En AWS EC2, la máquina virtual solo ve su IP privada (ej. 172.31.25.100).
+      - La IP pública la gestiona el Internet Gateway de Amazon, que hace la traducción.
+      - Sin configuración adicional, el servidor responde a PASV con su IP privada: 227 Entering Passive Mode (172,31,25,100,195,100).
+      - El cliente intenta conectarse a esa IP, que no es enrutable desde Internet, y la conexión termina por timeout.
+
+   !!! tip ":two: Hay que indicar la IP pública en el servidor."
+      - El administrador debe configurar la IP pública para que se envíe en la respuesta 227:
+      - En vsftpd: parámetro pasv_address.
+      - En IIS (Windows): campo Firewall External IP Address.
+      - En AWS conviene usar una Elastic IP, porque la IP pública normal cambia al detener y volver a iniciar la instancia.
+
+   !!! tip ":three: Hay que limitar el rango de puertos pasivos."
+      - Por defecto, el servidor puede elegir cualquier puerto efímero del sistema (unos 16.000 en Windows, más de 28.000 en Linux).
+      - Abrir un rango tan grande en el cortafuegos es inviable e inseguro. Se debe fijar un rango reducido, por ejemplo del 50000 al 50100, y dimensionarlo según las transferencias simultáneas esperadas (cada transferencia usa un puerto).
+   
+   !!! tip ":four: Hay que abrir los puertos en todos los cortafuegos."
+      Deben permitirse las conexiones entrantes en:
+      1. El Security Group de AWS (Inbound Rules): puerto 21 (control) y el rango pasivo (50000-50100).
+      1. El cortafuegos del sistema operativo (Windows Firewall o iptables/ufw): los mismos puertos.
+      !!! note "Los Security Groups son stateful, así que no hace falta una regla de salida para las respuestas."
+
+
+
 
 ---
-
 <!--
 ---
 # HASTA AQUI
----
-
-### 2.6 Problemática del Modo Pasivo en entornos NAT y Cloud (AWS EC2)
-Aunque el modo pasivo traslada la carga de admitir conexiones entrantes del cliente al servidor, **plantea un desafío de configuración crítico cuando el servidor FTP se encuentra detrás de un NAT o en nubes públicas como Amazon Web Services (AWS)**:
-
-1. **El problema de la IP privada interna:** En AWS EC2, la interfaz de red de la máquina virtual únicamente conoce su dirección IP privada interna (ej. `172.31.25.100`), mientras que la dirección IP pública de Internet la gestiona una pasarela perimetral de Amazon (*Internet Gateway*). Si no se configura adecuadamente, el servidor responderá a la orden `PASV` con su dirección privada: `227 Entering Passive Mode (172,31,25,100,...)`. Cuando el cliente intente conectarse desde su casa a dicha IP no enrutable en Internet, la conexión expirará por *timeout*.
-2. **Definición obligatoria de la IP Externa:** El administrador debe indicar explícitamente en el software servidor (campo *Firewall External IP Address* en Windows IIS o parámetro `pasv_address` en `vsftpd`) cuál es la dirección IP pública asignada a la instancia.
-3. **Acotación del rango de puertos pasivos:** Por defecto, un sistema operativo puede asignar puertos efímeros en un rango de más de 16.000 puertos (49152 a 65535). Resulta inviable y peligroso abrir miles de puertos en el cortafuegos. El administrador debe **delimitar un rango estricto de puertos pasivos** (por ejemplo, del `50000` al `50100`).
-4. **Apertura perimetral en Security Groups y Firewall:** Dicho rango específico de puertos TCP debe quedar expresamente autorizado en las reglas de entrada (*Inbound Rules*) del **Security Group de AWS** y en el firewall interno de Windows/Linux.
-
 ---
 
 ## 3 - Seguridad, criptografía y comparativa de protocolos de transferencia y acceso remoto
