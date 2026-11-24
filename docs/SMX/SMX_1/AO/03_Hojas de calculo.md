@@ -531,7 +531,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
     !!! tip "Tarea parte 4. Aplicar fórmulas a las celdas"
         !!! abstract "Trabajos a realizar" 
             1. Conjunto de la hoja de cálculo: Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. **Tenéis libertad total en este apartado**.
-            1. Dentro del mismo documento, crear una hoja nueva (Hoja3).
+            1. Dentro del mismo documento, crear una hoja nueva (**Hoja3**).
             1. **Columna A**: Crear una serie de rango 0 → 2 con incrementos de 0.1.
             1. **Columna B**: Buscar la fórmula que permita insertar **un número aleatorio entre 0 y 2**. Pista: **Asistente para funciones** → categoría **matemáticas** → **aleatorio**... 
             1. **Columna C**: Buscar la fórmula que permita redondear los valores de la columna 2 a 3 decimales. Pista: **Asistente para funciones** → categoría **matemáticas** → **redondear**...
