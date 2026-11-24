@@ -535,12 +535,13 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
         1. **Columna B**: Buscar la fórmula que permita insertar **un número aleatorio entre 0 y 2**. Pista: **Asistente para funciones** → categoría **matemáticas** → **aleatorio**... 
         1. **Columna C**: Buscar la fórmula que permita redondear los valores de la columna 2 a 3 decimales. Pista: **Asistente para funciones** → categoría **matemáticas** → **redondear**...
         1. **Columna D**: Buscar la fórmula que devuelva verdadero o falso si comparamos los valores de las columnas **Series** y **Redondear**.
-        1. **Columna E**: Generar unas fechas aleatorias.  
-        &emsp;**Pista:** Internamente, las fechas se almacenan como cifras. La parte entera se corresponde a la fecha y la parte decimal a la hora.   
-        &emsp;&emsp;&emsp;La fecha 30/12/1899 se almacena como el número 0.  
-        &emsp;&emsp;&emsp;La fecha 01/01/1900 se almacena como el número 2.  
-        &emsp;&emsp;&emsp;...  
-        &emsp;&emsp;&emsp;La fecha 6/11/25 se almacena como el número 45963.  
+        1. **Columna E**: Generar unas fechas aleatorias.
+            - **Pista:** LibreOffice Calc almacena las fechas como cifras. La parte entera se corresponde a la fecha y la parte decimal a la hora.   
+                - La fecha 30/12/1899 se almacena como el número 0.  
+                - La fecha 01/01/1900 se almacena como el número 2.  
+                - ...  
+                - La fecha 6/11/25 se almacena como el número 45963.
+                - El valor 45950,2569 retorna   
         1. **Columna F, G y H**: Introducir unos nombres y apellidos a mano y concaternarlos insertando un espacio o cualquier otro carácter entre nombre y appelidos.  
         <br>
         **Aspecto final de la hoja** (sin aplicar estilos).
