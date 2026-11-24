@@ -173,15 +173,15 @@ Las órdenes que viajan por el canal de control son palabras mnemotécnicas de 3
 
 #### 2.5.1 Modo Activo
 
-1. **El cliente inicia** una conexión saliente desde un puerto efímero local (ej. TCP 51500) hacia el puerto 21 TCP del servidor (Canal de Control).
-2. Cuando el cliente necesita transferir un archivo, abre un segundo puerto local a la escucha (ej. TCP 51501) y le comunica al servidor su propia IP y puerto mediante la orden `PORT`:  
-   `Puerto de datos = (p1 × 256) + p2`  
-   *(Ejemplo: `PORT 192,168,1,50,201,45` indica que el puerto a la escucha es `(201 × 256) + 45 = 51501`).*
-3. **El servidor inicia una conexión TCP entrante hacia el cliente:** El servidor abre un socket local en su puerto 20 TCP y envía un paquete `SYN` directo hacia la IP del cliente y su puerto 51501.
+1. El cliente abre la conexión de control desde un puerto local (1035) hacia el puerto 21 del servidor.
+1. Antes de transferir, el cliente abre el puerto 1036 en escucha y se lo comunica al servidor con PORT 192,168,1,50,4,12 (puerto = 4 × 256 + 12 = 1036).
+1. El servidor confirma el comando con un ACK por el canal de control (21 → 1035).
+1. El servidor inicia la conexión de datos desde su puerto 20 hacia la IP del cliente y el puerto 1036, y envía los datos.
+1. El cliente confirma la recepción con un ACK (1036 → 20).
 
-![img](./img_6/img-6-6.png){.cien}
+![img](./img_6/img-6-6.png){.cien .marco}
 
-```text
+<!-- ```text
   [ Cliente FTP (192.168.1.50) ]                      [ Servidor FTP (203.0.113.10) ]
         │                                                           │
         │── TCP SYN: Dst Port 21 (Canal de Control) ───────────────>│
@@ -193,13 +193,14 @@ Las órdenes que viajan por el canal de control son palabras mnemotécnicas de 3
         │    [PROBLEMA CON NAT / FIREWALL DOMÉSTICO]                │
         │<── TCP SYN: Src Port 20 -> Dst Port 51501 ────────────────│ (¡Conexión Entrante!)
         │ ❌ (El router con NAT descarta el paquete SYN)             │
-```
+``` -->
 
-> ⚠️ **¿Por qué el modo activo falla sistemáticamente a través de Internet?**
->
-> En las redes actuales, prácticamente todos los clientes domésticos o corporativos están situados detrás de un router con **NAT/PAT** (*Network Address Translation*) y de cortafuegos con inspección de estado (*Stateful Firewalls*).  
-> Cuando el servidor remoto intenta enviar un paquete TCP `SYN` hacia el puerto efímero del cliente, el cortafuegos del router cliente **descarta el paquete inmediatamente**, puesto que no existe ninguna conexión saliente previa registrada en su tabla de estados para ese puerto. Salvo que el router disponga de un módulo ALG (*Application Layer Gateway*) activo que inspeccione el tráfico no cifrado de FTP para mapear dinámicamente el puerto, la conexión de datos colapsará.
->
+!!! question "⚠️ ¿Por qué el modo activo falla sistemáticamente a través de Internet?"
+
+- En las redes actuales, prácticamente todos los clientes domésticos o corporativos están situados detrás de un router con **NAT/PAT** (*Network Address Translation*) y de cortafuegos con inspección de estado (*Stateful Firewalls*).  
+- Cuando el servidor remoto intenta enviar un paquete TCP `SYN` hacia el puerto efímero del cliente, el cortafuegos del router cliente **descarta el paquete inmediatamente**, puesto que no existe ninguna conexión saliente previa registrada en su tabla de estados para ese puerto.
+- Salvo que el router disponga de un módulo ALG (*Application Layer Gateway*) activo que inspeccione el tráfico no cifrado de FTP para mapear dinámicamente el puerto, la conexión de datos colapsará.
+
 
 ---
 
