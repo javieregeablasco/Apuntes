@@ -542,7 +542,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
                 - ...  
                 - La fecha 6/11/25 se almacena como el número 45963.
                 - El valor 45950,2563 retorna 20/10/2025 06:09:04 aunque solo se muestre la fecha el la celda (formato de celda).
-                ![Descripción de la imagen](./03_hojas_de_calculo/img/img-3-1.png){ .leftseiscero .margintop10} 
+                ![Descripción de la imagen](./03_hojas_de_calculo/img/img-3-1.png){ .leftsietecinco .margintop10 .marginbottom20 .marco} 
 
         1. **Columna F, G y H**: Introducir unos nombres y apellidos a mano y concaternarlos insertando un espacio o cualquier otro carácter entre nombre y appelidos.  
         <br>
