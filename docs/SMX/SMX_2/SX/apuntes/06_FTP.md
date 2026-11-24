@@ -198,27 +198,26 @@ Para solventar el bloqueo originado por los cortafuegos de los clientes, se intr
 - Hay cuatro puntos a configurar:  
 
     !!! tip ":one: El servidor desconoce su IP pública."
-      
-      - En AWS EC2, la máquina virtual solo ve su IP privada (ej. 172.31.25.100).
-      - La IP pública la gestiona el Internet Gateway de Amazon, que hace la traducción.
-      - Sin configuración adicional, el servidor responde a PASV con su IP privada: 227 Entering Passive Mode (172,31,25,100,195,100).
-      - El cliente intenta conectarse a esa IP, que no es enrutable desde Internet, y la conexión termina por timeout.
+       - En AWS EC2, la máquina virtual solo ve su IP privada (ej. 172.31.25.100).
+       - La IP pública la gestiona el Internet Gateway de Amazon, que hace la traducción.
+       - Sin configuración adicional, el servidor responde a PASV con su IP privada: 227 Entering Passive Mode (172,31,25,100,195,100).
+       - El cliente intenta conectarse a esa IP, que no es enrutable desde Internet, y la conexión termina por timeout.
 
    !!! tip ":two: Hay que indicar la IP pública en el servidor."
-      - El administrador debe configurar la IP pública para que se envíe en la respuesta 227:
-      - En vsftpd: parámetro pasv_address.
-      - En IIS (Windows): campo Firewall External IP Address.
-      - En AWS conviene usar una Elastic IP, porque la IP pública normal cambia al detener y volver a iniciar la instancia.
+       - El administrador debe configurar la IP pública para que se envíe en la respuesta 227:
+       - En vsftpd: parámetro pasv_address.
+       - En IIS (Windows): campo Firewall External IP Address.
+       - En AWS conviene usar una Elastic IP, porque la IP pública normal cambia al detener y volver a iniciar la instancia.
 
    !!! tip ":three: Hay que limitar el rango de puertos pasivos."
-      - Por defecto, el servidor puede elegir cualquier puerto efímero del sistema (unos 16.000 en Windows, más de 28.000 en Linux).
-      - Abrir un rango tan grande en el cortafuegos es inviable e inseguro. Se debe fijar un rango reducido, por ejemplo del 50000 al 50100, y dimensionarlo según las transferencias simultáneas esperadas (cada transferencia usa un puerto).
+       - Por defecto, el servidor puede elegir cualquier puerto efímero del sistema (unos 16.000 en Windows, más de 28.000 en Linux).
+       - Abrir un rango tan grande en el cortafuegos es inviable e inseguro. Se debe fijar un rango reducido, por ejemplo del 50000 al 50100, y dimensionarlo según las transferencias simultáneas esperadas (cada transferencia usa un puerto).
 
    !!! tip ":four: Hay que abrir los puertos en todos los cortafuegos."
-      Deben permitirse las conexiones entrantes en:
-      1. El Security Group de AWS (Inbound Rules): puerto 21 (control) y el rango pasivo (50000-50100).
-      1. El cortafuegos del sistema operativo (Windows Firewall o iptables/ufw): los mismos puertos.
-      !!! note "Los Security Groups son stateful, así que no hace falta una regla de salida para las respuestas."
+       Deben permitirse las conexiones entrantes en:
+        1. El Security Group de AWS (Inbound Rules): puerto 21 (control) y el rango pasivo (50000-50100).
+        1. El cortafuegos del sistema operativo (Windows Firewall o iptables/ufw): los mismos puertos.
+       !!! note "Los Security Groups son stateful, así que no hace falta una regla de salida para las respuestas."
 
 
 
