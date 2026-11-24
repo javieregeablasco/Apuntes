@@ -528,7 +528,7 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
         !!! success "Aspecto final de la hoja (deberéis aplicar vuestros estilos)"
             ![Descripción de la imagen](./03_hojas_de_calculo/img/calc41.png){ .leftoriginal .margintop10} 
 
-    !!! exercice "Tarea parte 4. Aplicar fórmulas a las celdas"
+    !!! tip "Tarea parte 4. Aplicar fórmulas a las celdas"
         1. Conjunto de la hoja de cálculo: Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. **Tenéis libertad total en este apartado**.
         1. Dentro del mismo documento, crear una hoja nueva (Hoja3).
         1. **Columna A**: Crear una serie de rango 0 → 2 con incrementos de 0.1.
