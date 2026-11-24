@@ -197,7 +197,7 @@ Para solventar el bloqueo originado por los cortafuegos de los clientes, se intr
 
 - Hay cuatro puntos a configurar:  
 
-      !!! tip ":one: El servidor desconoce su IP pública."
+    !!! tip ":one: El servidor desconoce su IP pública."
       
       - En AWS EC2, la máquina virtual solo ve su IP privada (ej. 172.31.25.100).
       - La IP pública la gestiona el Internet Gateway de Amazon, que hace la traducción.
