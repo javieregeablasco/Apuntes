@@ -47,6 +47,8 @@ schedule: 233h - 7h/w
 
 ### 1.2 FTP y modelo TCP/IP
 
+![img](./img_6/img-6-3.png){.cien .margintop10 marginbottom20}
+
 - FTP se sitúa en la **Capa de Aplicación** (capa 4 de TCP/IP).
 - Para el transporte de la información, se apoya de forma estricta en el protocolo **TCP (Transmission Control Protocol)** en la capa de transporte.
 - La elección de TCP (frente a protocolos no orientados a conexión como UDP) es indispensable por tres factores determinantes:
