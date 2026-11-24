@@ -195,64 +195,62 @@ Para solventar el bloqueo originado por los cortafuegos de los clientes, se intr
 
 - El modo pasivo evita que el cliente tenga que aceptar conexiones entrantes, pero traslada el problema al servidor: si el servidor está detrás de un NAT o en la nube (por ejemplo, AWS), hay que configurarlo para que el cliente pueda alcanzar el puerto de datos.
 
-- Hay cuatro puntos a configurar:  
+- Caso sin configurar, donde la conexión de datos falla.
+    ![img](./img_6/img-6-8.png){.cien .marco .marginbottom20}
 
-    !!! tip ":one: El servidor desconoce su IP pública."
+- Puntos a configurar:  
+
+    !!! tip ":one: - El servidor desconoce su IP pública."
         - En AWS EC2, la máquina virtual solo ve su IP privada (ej. 172.31.25.100).
         - La IP pública la gestiona el Internet Gateway de Amazon, que hace la traducción.
         - Sin configuración adicional, el servidor responde a PASV con su IP privada: 227 Entering Passive Mode (172,31,25,100,195,100).
         - El cliente intenta conectarse a esa IP, que no es enrutable desde Internet, y la conexión termina por timeout.
 
-    !!! tip ":two: Hay que indicar la IP pública en el servidor."
+    !!! tip ":two: - Hay que indicar la IP pública en el servidor."
         - El administrador debe configurar la IP pública para que se envíe en la respuesta 227:
         - En vsftpd: parámetro pasv_address.
         - En IIS (Windows): campo Firewall External IP Address.
         - En AWS conviene usar una Elastic IP, porque la IP pública normal cambia al detener y volver a iniciar la instancia.
   
-    !!! tip ":three: Hay que limitar el rango de puertos pasivos."
+    !!! tip ":three: - Hay que limitar el rango de puertos pasivos."
         - Por defecto, el servidor puede elegir cualquier puerto efímero del sistema (unos 16.000 en Windows, más de 28.000 en Linux).
         - Abrir un rango tan grande en el cortafuegos es inviable e inseguro. Se debe fijar un rango reducido, por ejemplo del 50000 al 50100, y dimensionarlo según las transferencias simultáneas esperadas (cada transferencia usa un puerto).
   
-    !!! tip ":four: Hay que abrir los puertos en todos los cortafuegos."
+    !!! tip ":four: - Hay que abrir los puertos en todos los cortafuegos."
         Deben permitirse las conexiones entrantes en:
          1. El Security Group de AWS (Inbound Rules): puerto 21 (control) y el rango pasivo (50000-50100).
          1. El cortafuegos del sistema operativo (Windows Firewall o iptables/ufw): los mismos puertos.
         !!! note "Los Security Groups son stateful, así que no hace falta una regla de salida para las respuestas."
 
+- Escenario con pasv_address configurado con la IP públicac. El Internet Gateway reenvía el tráfico hacia la IP privada del servidor.
+    ![img](./img_6/img-6-9.png){.cien .marco .marginbottom20}
 
+## 3 - Seguridad en los protocolos de transferencia y acceso remoto
 
+### 3.1 Vulnerabilidades del protocolo FTP tradicional (texto claro y sniffing)
 
----
-<!--
----
-# HASTA AQUI
----
+- El protocolo FTP original fue concebido a principios de los años 80 bajo un paradigma de confianza mutua dentro de redes académicas cerradas.
+- Como consecuencia, **carece por completo de mecanismos criptográficos nativos**:  
+    1. **Exposición total de credenciales:** Las órdenes `USER` y `PASS` viajan en texto plano por el canal de control. Cualquier analizador de protocolos conectado a la red local o en puntos intermedios de enrutamiento puede interceptar las contraseñas sin esfuerzo (*sniffing*  + `Wireshark`).
+    1. **Intercepción y manipulación de datos:** Los archivos transferidos carecen de firmas de integridad o cifrado confidencial, permitiendo a un atacante en posición de intermediario (*Man-in-the-Middle*) leer el contenido o inyectar código malicioso en descargas de ejecutables.
 
-## 3 - Seguridad, criptografía y comparativa de protocolos de transferencia y acceso remoto
+### 3.2 FTPS: FTP sobre TLS/SSL (Modo Explícito y Modo Implícito)
 
-### 3.1 Vulnerabilidades del protocolo FTP tradicional (Tráfico en texto claro y sniffing)
-El protocolo FTP original fue concebido a principios de los años 80 bajo un paradigma de confianza mutua dentro de redes académicas cerradas. Como consecuencia, **carece por completo de mecanismos criptográficos nativos**:
-* **Exposición total de credenciales:** Las órdenes `USER` y `PASS` viajan en texto plano por el canal de control. Cualquier analizador de protocolos conectado a la red local o en puntos intermedios de enrutamiento puede interceptar las contraseñas sin esfuerzo mediante técnicas de *sniffing* con herramientas como **Wireshark**.
-* **Intercepción y manipulación de datos:** Los archivos transferidos carecen de firmas de integridad o cifrado confidencial, permitiendo a un atacante en posición de intermediario (*Man-in-the-Middle*) leer el contenido o inyectar código malicioso (*payloads*) en descargas de ejecutables.
+- Para mitigar las carencias de seguridad de FTP sin romper la compatibilidad con su modelo de comandos, se estandarizó **FTPS (RFC 4217)**, que incorpora la capa criptográfica **TLS/SSL** mediante certificados digitales X.509:
 
----
+#### 3.2.1 FTPS Explícito (FTPES)
 
-### 3.2 FTPS: FTP sobre TLS/SSL (Modo Explícito vs Modo Implícito)
-Para mitigar las carencias de seguridad de FTP sin romper la compatibilidad con su modelo de comandos, se estandarizó **FTPS (RFC 4217)**, que incorpora la capa criptográfica **TLS/SSL** mediante certificados digitales X.509:
+1. El cliente se conecta inicialmente al puerto convencional **21 TCP** en texto claro.
+1. Inmediatamente después del banner de bienvenida, el cliente envía la orden `AUTH TLS` solicitando elevar la seguridad de la conexión.
+1. Si el servidor acepta, se realiza el *handshake* criptográfico TLS, se presenta y valida el certificado digital (mostrando su huella digital SHA-256) y a partir de ese instante todo el canal de control queda blindado bajo cifrado simétrico robusto (AES-256).
+1. Para proteger también la transferencia de ficheros y listados, el cliente emite las directivas `PBSZ 0` (*Protection Buffer Size*) y `PROT P` (*Data Channel Protection Level: Private*).
+1. Si el servidor rechaza o no soporta TLS, la conexión puede abortarse por política de seguridad.
 
-#### A) FTPS Explícito (FTPES - Estándar recomendado)
-* El cliente se conecta inicialmente al puerto convencional **21 TCP** en texto claro.
-* Inmediatamente después del banner de bienvenida, el cliente envía la orden `AUTH TLS` solicitando elevar la seguridad de la conexión.
-* Si el servidor acepta, se realiza el *handshake* criptográfico TLS, se presenta y valida el certificado digital (mostrando su huella digital SHA-256) y a partir de ese instante todo el canal de control queda blindado bajo cifrado simétrico robusto (AES-256).
-* Para proteger también la transferencia de ficheros y listados, el cliente emite las directivas `PBSZ 0` (*Protection Buffer Size*) y `PROT P` (*Data Channel Protection Level: Private*).
-* Si el servidor rechaza o no soporta TLS, la conexión puede abortarse obligatoriamente por política de seguridad.
+#### 3.2.2 FTPS Implícito (Legacy / Obsoleto)
 
-#### B) FTPS Implícito (Legacy / Obsoleto)
-* El cliente se conecta a un puerto TCP dedicado diferente (típicamente el **puerto 990 TCP** para control y **989 TCP** para datos).
-* La capa TLS se negocia de forma inmediata y obligatoria nada más establecer la conexión física, antes de intercambiar cualquier comando FTP.
-* **Estado actual:** El IETF lo considera obsoleto en favor del modo explícito, debido a que consume puertos adicionales y carece de la flexibilidad de negociación de capacidades que ofrece el puerto 21.
-
----
+1. El cliente se conecta a un puerto TCP dedicado diferente (típicamente el **puerto 990 TCP** para control y **989 TCP** para datos).
+1. La capa TLS se negocia de forma inmediata y obligatoria nada más establecer la conexión física, antes de intercambiar cualquier comando FTP.
+1. **Estado actual:** El IETF lo considera obsoleto en favor del modo explícito, debido a que consume puertos adicionales y carece de la flexibilidad de negociación de capacidades que ofrece el puerto 21.
 
 ### 3.3 SFTP: SSH File Transfer Protocol (El estándar seguro monocanal)
 Existe una confusión conceptual muy extendida entre alumnos y técnicos noveles: **SFTP NO es FTP con cifrado**.
@@ -284,6 +282,10 @@ Existe una confusión conceptual muy extendida entre alumnos y técnicos noveles
 | **Mecanismo de autenticación** | Usuario / Contraseña en texto plano | Usuario / Contraseña + Certificado X.509 | Usuario / Contraseña + Certificado X.509 | Contraseña o **Claves asimétricas (RSA/Ed25519)** | Contraseña o **Claves asimétricas (RSA/Ed25519)** |
 | **Interoperabilidad interactiva** | Sí (cliente gráfico y consola) | Sí (cliente gráfico y consola) | Sí (compatibilidad reducida) | Sí (FileZilla, consola interactiva `sftp`) | No (comando directo de copia puntual) |
 
+---
+<!--
+---
+# HASTA AQUI
 ---
 
 ### 3.6 Ecosistema de software: Servidores y Clientes (Windows y Linux)
