@@ -140,18 +140,6 @@ Las órdenes que viajan por el canal de control son palabras mnemotécnicas de 3
 
 ![img](./img_6/img-6-4.jpeg){.cien}
 
-<!-- ```text
- ┌─── 1xx: Respuesta preliminar positiva (acción iniciada, espere confirmación)
- │
- ├─── 2xx: Respuesta de finalización positiva / Éxito (orden completada satisfactoriamente)
- │
- ├─── 3xx: Respuesta intermedia positiva (orden aceptada, requiere más información del cliente)
- │
- ├─── 4xx: Fallo negativo transitorio / temporal (error temporal, puede reintentarse)
- │
- └─── 5xx: Fallo negativo permanente (error fatal de sintaxis, autenticación o permisos)
-``` -->
-
 | Código | Significado canónico del RFC 959 | Contexto habitual en el laboratorio y producción |
 |:-:|---||
 | `150` | *File status okay; about to open data connection.* | Notificación previa al inicio del flujo de datos en operaciones `LIST`, `RETR` o `STOR`. |
@@ -181,21 +169,6 @@ Las órdenes que viajan por el canal de control son palabras mnemotécnicas de 3
 1. El servidor inicia la conexión de datos desde su puerto 20 hacia la IP del cliente y el puerto 1036, y envía los datos.
 1. El cliente confirma la recepción con un ACK (1036 → 20).
 
-
-<!-- ```text
-  [ Cliente FTP (192.168.1.50) ]                      [ Servidor FTP (203.0.113.10) ]
-        │                                                           │
-        │── TCP SYN: Dst Port 21 (Canal de Control) ───────────────>│
-        │<── 220 Service Ready (Control establecido) ───────────────│
-        │                                                           │
-        │── PORT 192,168,1,50,201,45 (Escucho en 51501) ───────────>│
-        │<── 200 Command okay ──────────────────────────────────────│
-        │                                                           │
-        │    [PROBLEMA CON NAT / FIREWALL DOMÉSTICO]                │
-        │<── TCP SYN: Src Port 20 -> Dst Port 51501 ────────────────│ (¡Conexión Entrante!)
-        │ ❌ (El router con NAT descarta el paquete SYN)             │
-``` -->
-
 !!! question ":one: ¿Qué comando FTP de envío de datos ilustra la imagen anterior?<br>:two: ¿Qué comando se usaría para enviar datos en vez de recirbirlos?"
 
 !!! warning "Limitaciones del modo activo"
@@ -224,7 +197,7 @@ Para solventar el bloqueo originado por los cortafuegos de los clientes, se intr
 
 - Hay cuatro puntos a configurar:
 
-   !!! tip ":one: El servidor desconoce su IP pública".
+  !!! tip ":one: El servidor desconoce su IP pública".
       - En AWS EC2, la máquina virtual solo ve su IP privada (ej. 172.31.25.100).
       - La IP pública la gestiona el Internet Gateway de Amazon, que hace la traducción.
       - Sin configuración adicional, el servidor responde a PASV con su IP privada: 227 Entering Passive Mode (172,31,25,100,195,100).
@@ -239,7 +212,7 @@ Para solventar el bloqueo originado por los cortafuegos de los clientes, se intr
    !!! tip ":three: Hay que limitar el rango de puertos pasivos."
       - Por defecto, el servidor puede elegir cualquier puerto efímero del sistema (unos 16.000 en Windows, más de 28.000 en Linux).
       - Abrir un rango tan grande en el cortafuegos es inviable e inseguro. Se debe fijar un rango reducido, por ejemplo del 50000 al 50100, y dimensionarlo según las transferencias simultáneas esperadas (cada transferencia usa un puerto).
-   
+
    !!! tip ":four: Hay que abrir los puertos en todos los cortafuegos."
       Deben permitirse las conexiones entrantes en:
       1. El Security Group de AWS (Inbound Rules): puerto 21 (control) y el rango pasivo (50000-50100).
