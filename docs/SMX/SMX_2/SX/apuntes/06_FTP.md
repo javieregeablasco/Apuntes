@@ -132,7 +132,7 @@ Las órdenes que viajan por el canal de control son palabras mnemotécnicas de 3
     - `PASV`: Solicita al servidor que abra un puerto pasivo y espere la conexión del cliente (Modo Pasivo).
     - `TYPE <A|I>`: Establece el tipo de representación de los datos (`A` para ASCII, `I` para binario/imagen).
 
-### 2.4 Taxonomía y estructura de los códigos de respuesta del servidor
+### 2.4 Códigos de respuesta del servidor
 
 - Cada vez que el cliente emite una orden por el canal de control, el servidor responde obligatoriamente con un **código numérico de tres dígitos** acompañado de un texto descriptivo legible para humanos.
 
@@ -171,12 +171,15 @@ Las órdenes que viajan por el canal de control son palabras mnemotécnicas de 3
 
 - La diferencia fundamental entre ambos modos radica en **quién toma la iniciativa para abrir la conexión TCP del canal de datos**:
 
-#### A) Modo Activo (Standard / `PORT`)
-1. El cliente inicia una conexión saliente desde un puerto efímero local (ej. TCP 51500) hacia el puerto 21 TCP del servidor (Canal de Control).
+#### 2.5.1 Modo Activo
+
+1. **El cliente inicia** una conexión saliente desde un puerto efímero local (ej. TCP 51500) hacia el puerto 21 TCP del servidor (Canal de Control).
 2. Cuando el cliente necesita transferir un archivo, abre un segundo puerto local a la escucha (ej. TCP 51501) y le comunica al servidor su propia IP y puerto mediante la orden `PORT`:  
    `Puerto de datos = (p1 × 256) + p2`  
    *(Ejemplo: `PORT 192,168,1,50,201,45` indica que el puerto a la escucha es `(201 × 256) + 45 = 51501`).*
 3. **El servidor inicia una conexión TCP entrante hacia el cliente:** El servidor abre un socket local en su puerto 20 TCP y envía un paquete `SYN` directo hacia la IP del cliente y su puerto 51501.
+
+![img](./img_6/img-6-6.png){.cien}
 
 ```text
   [ Cliente FTP (192.168.1.50) ]                      [ Servidor FTP (203.0.113.10) ]
