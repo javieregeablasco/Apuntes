@@ -509,24 +509,24 @@ Reúne todas las opciones para obtener asistencia, acceder a la documentación o
             1. Columna **Proporción del total** → Rellenar las celdas con la fórmula que permita sacar la división entre el **total por cada vendedor** y el valor de la celda **Total producto**.
             ![Descripción de la imagen](./03_hojas_de_calculo/img/calc38.png){ .leftcuatrocero .margintop10 }   
 
-        !!! success "Aspecto final de la hoja** (debéis aplicar vuestros estilos)"
+        !!! success "Aspecto final de la hoja (deberéis aplicar vuestros estilos)"
             ![Descripción de la imagen](./03_hojas_de_calculo/img/calc40.png){ .leftoriginal .margintop10 }
 
 
-    !!! exercice "Tarea parte 3. Aplicar fórmulas a las celdas"
-        En la hoja 2 encontrareís unas tablas con valores.
+    !!! tip "Tarea parte 3. Aplicar fórmulas a las celdas"
+        - En la hoja 2 encontrareís unas tablas con valores.
 
-        1. Conjunto de la hoja de cálculo: Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. **Tenéis libertad total en este apartado**.
-        1. Campos "Hoja, documento y fecha": En la celda contigua insertar el campo **nombre de la hoja**, **nombre del documento** y **fecha**.
-        1. Usar la fórmula necesaria para rellenar la columna **Total precio sin IVA**.
-        1. Rellenar a mano la columna **Porcentaje IVA** consultando la columna **Código IVA** y la tabla **Porcentaje IVA**.
-        1. Calcular la columna **Monto IVA** usando los datos de las columnas **Total precio sin IVA** y **Porcentaje IVA**   
-        1. Calcular la columna **Total precio con IVA** usando los datos de las columnas **Total precio sin IVA** y **Monto IVA**.
-        1. Usar las fórmulas necesarias para rellenar la tabla **Total factura sin IVA**.
+        !!! abstract "Trabajos a realizar" 
+            1. Conjunto de la hoja de cálculo: Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. **Tenéis libertad total en este apartado**.
+            1. Campos "Hoja, documento y fecha": En la celda contigua insertar el campo **nombre de la hoja**, **nombre del documento** y **fecha**.
+            1. Usar la fórmula necesaria para rellenar la columna **Total precio sin IVA**.
+            1. Rellenar a mano la columna **Porcentaje IVA** consultando la columna **Código IVA** y la tabla **Porcentaje IVA**.
+            1. Calcular la columna **Monto IVA** usando los datos de las columnas **Total precio sin IVA** y **Porcentaje IVA**   
+            1. Calcular la columna **Total precio con IVA** usando los datos de las columnas **Total precio sin IVA** y **Monto IVA**.
+            1. Usar las fórmulas necesarias para rellenar la tabla **Total factura sin IVA**.
 
-        **Aspecto final de la hoja** (debéis aplicar vuestros estilos).
-
-        ![Descripción de la imagen](./03_hojas_de_calculo/img/calc41.png){ .leftsietecero } <br>   
+        !!! success "Aspecto final de la hoja (deberéis aplicar vuestros estilos)"
+            ![Descripción de la imagen](./03_hojas_de_calculo/img/calc41.png){ .leftoriginal .margintop10} 
 
     !!! exercice "Tarea parte 4. Aplicar fórmulas a las celdas"
         1. Conjunto de la hoja de cálculo: Dar formatos, anchos altos de columnas, colores, fondos, bordes a las tablas para que el documento sea legible. **Tenéis libertad total en este apartado**.
