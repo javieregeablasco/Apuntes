@@ -465,6 +465,18 @@ Así pues, verificaremos si Windows Server está configurado para aceptar conexi
 
 !!! tip "Como podemos ver, la imagen de Windows Server usada en AWS acepta por defecto las conexiones RDP. De no ser así no podriamos habernos conectado a la instancia en una práctica anterior."
 
+### 8.4 Entrega de la tarea
+
+!!! warning "Entrega de la tarea"
+
+    - Subir vuestra tarea guardando el archivo como RA6-CEf-1 a la tarea correspondiente de aules.
+    - La estrutura de vuestra tarea deberá seguir las [**Normas para la Presentación de Trabajos Escritos**](./0_RedaccionTareas.md). 
+    - Realizar las capturas de pantalla mínimas exigidas en los apuntes.
+    - Comentar las capturas de pantalla explicando el trabajo realizado para llegar a ese punto y el resultado obtenido.
+    - A partir del momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
+    - Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
+
+
 ## 9 - Administración remota segura con SSH (Secure Shell)
 
 ![Descripción de la imagen](./img_3/img_3_83.png){ .cincozero .margintop10 .marginbottom10  }
