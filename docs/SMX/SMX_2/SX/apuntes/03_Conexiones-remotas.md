@@ -622,7 +622,7 @@ Vamos a ver lo que ocurre cuando escribimos `ssh usuario@direccion_ip_o_dominio`
     1. Esto protege contra ataques de intermediario (man-in-the-middle). Si un atacante intercepta la conexión y presenta su propio servidor, la huella no coincidirá.
         - **Consejo:** en la primera conexión, verificar la huella por un canal alternativo (proveedor de hosting, etc.).
 
-!!! abstract "Fase 5: Autenticación del usuario.<br>     En esta fase demostraremos quienes somos.<br>     SSH admite varios métodos"  
+!!! abstract "Fase 5: Autenticación del usuario.<br>     En esta fase demostraremos quienes somos.<br>     SSH admite varios métodos:"  
     !!! tip "Método 1: Autenticación por contraseña"
         ```bash
         ssh `user@server.com`  

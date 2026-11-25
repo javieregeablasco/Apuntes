@@ -2,7 +2,7 @@
 ciclo: CFGM - Técnico en Sistemas Microinformáticos y Redes
 title: Servicios en red
 module number: 0227
-lesson: UD. 0.00 - REdacción tareas  
+lesson: UD. 0.00 - Redacción tareas  
 author: Javier Egea Blasco  
 layout: default  
 year: 26-27  
