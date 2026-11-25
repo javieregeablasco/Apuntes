@@ -468,8 +468,8 @@ Así pues, verificaremos si Windows Server está configurado para aceptar conexi
 ### 8.4 Entrega de la tarea
 
 !!! warning "Entrega de la tarea"
-    - Subir vuestra tarea guardando el archivo como RA6-CEf-1 a la tarea correspondiente de aules.
-    - La estrutura de vuestra tarea deberá seguir las [**Normas para la Presentación de Trabajos Escritos**](./0_RedaccionTareas.md). 
+    - Subir vuestra tarea guardando el archivo como RA6-CEf-1-NombreApellidos a la tarea correspondiente de aules.
+    - La estrutura de vuestra tarea deberá seguir las [**Normas para la Presentación de Trabajos Escritos**](./0_RedaccionTareas.md).
     - Realizar las capturas de pantalla mínimas exigidas en los apuntes.
     - Comentar las capturas de pantalla explicando el trabajo realizado para llegar a ese punto y el resultado obtenido.
     - A partir del momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
@@ -627,7 +627,6 @@ Vamos a ver lo que ocurre cuando escribimos `ssh usuario@direccion_ip_o_dominio`
         (luego se solicita la contraseña)
         ```
         Aunque simple, no se recomienda por varias razones:  
-
         - Las contraseñas pueden ser atacadas por fuerza bruta
         - Son vulnerables a keyloggers
         - Se debe escribir cada vez (sin automatización)
@@ -734,6 +733,16 @@ Para ello, usaremos la siguiente sintaxis.
 - Si nos conectamos por consola de AWS a la instancia cliente, podremos comprobar que el archivo se ha enviado correctamente.
 ![Descripción de la imagen](./img_3/img_3_73.png){ .margintop10 .marginbottom10  }
 
+#### 9.5.4 Entrega de la tarea
+
+!!! warning "Entrega de la tarea"
+    - Subir vuestra tarea guardando el archivo como RA6-CEf-2-NombreApellidos a la tarea correspondiente de aules.
+    - La estrutura de vuestra tarea deberá seguir las [**Normas para la Presentación de Trabajos Escritos**](./0_RedaccionTareas.md).
+    - Realizar las capturas de pantalla mínimas exigidas en los apuntes.
+    - Comentar las capturas de pantalla explicando el trabajo realizado para llegar a ese punto y el resultado obtenido.
+    - A partir del momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
+    - Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
+
 ### 9.6 Tarea RA6-CEf-3 - Conexión SSH entre instancias Linux
 
 !!! warning "Obligatorio seguir las normas para la presentación de trabajos escritos."
@@ -764,7 +773,7 @@ Para ello, usaremos la siguiente sintaxis.
 
     ![Descripción de la imagen](./img_3/img_3_75.png){  .marginbottom10  }
 
-#### 9.4.2 Primera conexión SSH entre máquinas Linux
+#### 9.6.2 Primera conexión SSH entre máquinas Linux
 
 - Usaremos la sintáxis vista anteriormente pero, le añadiremos el archivo de claves:
 
@@ -772,7 +781,7 @@ Para ello, usaremos la siguiente sintaxis.
     ssh -i archivo.pem usuario@direccion_ip_o_dominio
     ```
 
-    Es probable que no salte un error al tener permisos de lectura del archivo demasiado permisivos.
+    Es probable que no salte un error al tener permisos de lectura del archivo demasiado permisivos.  
     ![Descripción de la imagen](./img_3/img_3_76.png){  .marginbottom10 .margintop10 }
 
 - Cambiamos los permisos a solo lectura por el propietario con:
@@ -805,6 +814,16 @@ Para ello, usaremos la siguiente sintaxis.
 ==Realizar captura de pantalla==
 
     ![Descripción de la imagen](./img_3/img_3_78.png){  .marginbottom10  }
+
+#### 9.6.3 Entrega de la tarea
+
+!!! warning "Entrega de la tarea"
+    - Subir vuestra tarea guardando el archivo como RA6-CEf-3-NombreApellidos a la tarea correspondiente de aules.
+    - La estrutura de vuestra tarea deberá seguir las [**Normas para la Presentación de Trabajos Escritos**](./0_RedaccionTareas.md).
+    - Realizar las capturas de pantalla mínimas exigidas en los apuntes.
+    - Comentar las capturas de pantalla explicando el trabajo realizado para llegar a ese punto y el resultado obtenido.
+    - A partir del momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
+    - Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
 
 <!-- ## 10 - Seguirá
 

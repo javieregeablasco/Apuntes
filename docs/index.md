@@ -85,4 +85,5 @@ flowchart TD
 [mermaid](https://mermaid.js.org)
 
 [emojis](https://www.markdowntools.io/emoji-cheat-sheet)
+[emojis list](https://emojibase.dev/shortcodes/?)
 [markdown tools](https://www.markdowntools.io/)
