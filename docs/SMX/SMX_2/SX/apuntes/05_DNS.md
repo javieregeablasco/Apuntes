@@ -1940,7 +1940,7 @@ Pulsamos `Change` e introducimos el dominio definido en la primera máquina.
 - En la ventana final nos aseguramos que todos los prerequisitos se cumplen correctamente.  
 ==Realizar captura de pantalla==  
 ![Descripción de la imagen](./img_5/img_5_112.png){.margintop10 .marginbottom10 .marco }
-- Después de reiniciar la máquina veremos que tenemos las 2 máquinas como controladoras del mismo dominio.
+- Después de reiniciar la máquina veremos que tenemos las 2 máquinas como controladoras del mismo dominio.  
 ==Realizar captura de pantalla==  
 ![Descripción de la imagen](./img_5/img_5_113.png){.margintop10 .marginbottom10 .marco }
 
