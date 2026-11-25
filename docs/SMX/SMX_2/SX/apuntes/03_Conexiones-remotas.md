@@ -567,7 +567,7 @@ En la siguiente imagen se muestran, de forma simplificada, las principales etapa
 
 - Una vez autenticado el usuario, se establece una sesión SSH y el cliente puede solicitar un shell remoto, ejecutar comandos o utilizar otros servicios proporcionados por SSH.  
 
-### 9.4 Funcionamineto de SSH
+### 9.4 Funcionamiento de SSH
 
 Vamos a ver lo que ocurre cuando escribimos `ssh usuario@direccion_ip_o_dominio` y pulsamos Enter.
 
@@ -577,13 +577,13 @@ Vamos a ver lo que ocurre cuando escribimos `ssh usuario@direccion_ip_o_dominio`
         1. Cliente → Servidor: SYN
         1. Servidor → Cliente: SYN-ACK
         1. Cliente → Servidor: ACK
-    !!! success "Un vez que la conexión esta establecida, comienza el protocolo SSH.""
+    !!! success "Un vez que la conexión esta establecida, comienza el protocolo SSH."
 
 !!! abstract "Fase 2: Intercambio de versión del protocolo"
     !!! info "Ambos lados anuncian su versión de SSH:"
         1. **Cliente:**  SSH-2.0-OpenSSH_8.9
         1. **Servidor:** SSH-2.0-OpenSSH_8.4
-    !!! success "Acuerdan usar SSH-2.<br>Si alguno solo soporta SSH-1, los clientes modernos se negarán a conectar (y deben hacerlo)."
+    !!! success ":heavy_minus_sign: Acuerdan usar SSH-2.<br>:heavy_minus_sign: Si alguno solo soporta SSH-1, los clientes modernos se negarán a conectar (y deben hacerlo)."
 
 !!! abstract "Fase 3: Intercambio de claves"  
     1. Aquí empieza la criptografía.  
