@@ -497,9 +497,11 @@ Así pues, verificaremos si Windows Server está configurado para aceptar conexi
     - **Servidor:** Equipo o servidor remoto que escucha peticiones de conexión (normalmente en el puerto TCP 22).
 
 1. El comando básico en la terminal se compone de:  
+
     ```bash
     ssh usuario@direccion_ip_o_dominio
     ```
+
     - **ssh:** Indica al sistema que inicie una sesión cifrada Secure Shell.
     - **usuario:** Cuenta a la que deseamos acceder (p.e. root).
     - **direccion_ip_o_dominio:** Dirección del servidor al que nos conectamos (p.e. 192.168.1.1 o servidor.com).
@@ -630,19 +632,15 @@ Vamos a ver lo que ocurre cuando escribimos `ssh usuario@direccion_ip_o_dominio`
         - Las contraseñas pueden ser atacadas por fuerza bruta
         - Son vulnerables a keyloggers
         - Se debe escribir cada vez (sin automatización)
-
     !!! tip "Método 2: Autenticación por clave pública (preferido)"
         Se utiliza criptografía asimétrica, es decir, un par de claves:
-
         | Clave | Ubicación | Propósito |
         ||||
         | Clave privada | Nuestro ordenador (`~/.ssh/id_ed25519`) | Nunca sale de tu máquina. Demuestra nuestra identidad. |
         | Clave pública | Servidor (`~/.ssh/authorized_keys`) | Se puede compartir libremente. Verifica las firmas hechas con la clave privada. |
-        
         La clave privada nunca sale de nuestra máquina. El servidor solo ve una prueba de que disponemos de ella.
-    
     !!! tip "Método 3: Autenticación basada en certificados"  
-        - Se usa en entornos empresariales. 
+        - Se usa en entornos empresariales.
         - Una Autoridad de Certificación (CA) firma las claves de los usuarios, y los servidores confían en la CA en lugar de en claves individuales.
 
 !!! tip "Fase 6: Sesión cifrada"
