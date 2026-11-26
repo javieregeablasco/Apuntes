@@ -328,8 +328,8 @@ A diferencia de las otras prácticas donde solo lanzabamos las instancias sin ha
 !!! tip "2. Grupos de seguridad"
     - Creamos un grupo de seguridad para el balanceador de carga y definimos una regla que permita el tráfico HTTP (80) desde cualquier origen.
     ![img](../AWS/ut6/elb6.png){ .cien .marco .margintop10  .marginbottom20}
-    ![img](../AWS/ut6/elb7.png){ .cien .marco  .margintop10 .marginbottom20}
-    ![img](../AWS/ut6/elb8.png){ .cien .marco  .margintop10}
+    ![img](../AWS/ut6/elb7.png){ .cien .marco   .marginbottom20}
+    ![img](../AWS/ut6/elb8.png){ .cien .marco  }
 
 !!! tip "3. Agentes de escucha y direccionamiento"
     - En este apartado configuraremos los puertos sobre los cuales el equilibrador de carga aceptará las conexiones entrantes y determinará a qué instancias se redirigirán las consultas.
@@ -340,11 +340,11 @@ A diferencia de las otras prácticas donde solo lanzabamos las instancias sin ha
         ![img](../AWS/ut6/elb10.png){ .cien .marco }
 
     - Crear grupo de destino.  
-    ![img](../AWS/ut6/elb11.png){ .cien .marco .margintop20 }
-    ![img](../AWS/ut6/elb12.png){ .cien .marco }
+    ![img](../AWS/ut6/elb11.png){ .cien .marco .margintop10  .marginbottom20}
+    ![img](../AWS/ut6/elb12.png){ .cien .marco .marginbottom20}
 
     - Revisamos los datos y creamos el grupo de destino
-    ![img](../AWS/ut6/elb13.png){ .cien .marco .margintop20 }
+    ![img](../AWS/ut6/elb13.png){ .cien .marco .margintop10 }
 
 - Finalizamos la creación del equilibrador de carga
 ![](../AWS/ut6/elb14.png){ .cien .marco .margintop20 }<br>
