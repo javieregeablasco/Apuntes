@@ -2230,7 +2230,7 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
 
 ### 18.5 ¿Se resuelven las tres zonas desde un mismo servidor?
 
-!!! info "Objetivo:DSemostrar que un servidor de un dominio es capaz de encontrar la zona **hermana** (alumnos) y la zona **padre** (ad).""
+!!! info "Objetivo: Demostrar que un servidor de un dominio es capaz de encontrar la zona **hermana** (alumnos) y la zona **padre** (ad).""
 
 1. Entrar en **ADDS-Profesores**.
 1. Ejecutar las tres consultas indicando **a qué servidor preguntar** (el último parámetro es la IP de ADDS-Profesores):  
@@ -2286,7 +2286,7 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
 2. **Repetir los dos comandos**:
     - Cambiando `profesores.ad.practicadns.es` por `alumnos.ad.practicadns.es`
     - Después por `ad.practicadns.es`.
-    - En total son **6 comandos**.
+    - En total son **6 comandos y 3 capturas**.
 
 3. En cada respuesta deben aparecer:
     - El **puerto**: `389` para LDAP y `88` para Kerberos.
@@ -2300,7 +2300,7 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
 
 ### 18.8 Lista de comprobación de capturas
 
-Antes de entregar la tarea, verifica que tienéis **todas** estas capturas:
+Antes de entregar la tarea, verificar que tenéis **todas** estas capturas:
 
 | Apartado | Capturas | Qué debe verse |
 |----------|----------||
