@@ -1,5 +1,3 @@
-
-
 ### 4.3 Instalación de los servicios
 
 <!-- NUEVO: criterio de evaluación b) -->
