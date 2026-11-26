@@ -447,6 +447,8 @@ Hasta ahora hemos visto cómo el servidor identifica al usuario. Pero el **clien
 
 #### 4.3.1 Tarea-CEb-1 - Servidor FTP de IIS (Windows Server)
 
+# HASTA AQUI
+
 ## 5 - Gestión de usuarios, aislamiento, bastionado y auditoría
 
 ### 5.1 Tipologías de usuarios en un servidor de ficheros (Anónimos, Locales y Virtuales)
