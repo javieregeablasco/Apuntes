@@ -2179,7 +2179,7 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
     - **Resultado correcto:** `Respuesta desde 172.31.x.x: bytes=32 ...` y `Perdidos = 0`.
     - **Resultado incorrecto:** `Tiempo de espera agotado` o `Host de destino inaccesible`. En ese caso deberéis solucionar el problema.
 
-!!! note ":a: a) Desde Servidor-DNS, hacer ping al resto de servidores"
+!!! note ":one: Desde Servidor-DNS, hacer ping al resto de servidores"
 
     ==REALIZAR CAPTURA DE PANTALLA==  
     ```bash
@@ -2192,7 +2192,7 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
 
 ---
 
-!!! note ":b: b) Desde Servidor-DNS-2, hacer ping al resto de servidores"
+!!! note ":two: Desde Servidor-DNS-2, hacer ping al resto de servidores"
 
     ==REALIZAR CAPTURA DE PANTALLA==  
     ```bash
@@ -2202,7 +2202,7 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
 
 ---
 
-!!! note ":c: c) Desde ADDS-Alumnos**, haz ping a ADDS-Profesores"
+!!! note ":three: Desde ADDS-Alumnos**, haz ping a ADDS-Profesores"
 
     ==REALIZAR CAPTURA DE PANTALLA==  
     ```bash
