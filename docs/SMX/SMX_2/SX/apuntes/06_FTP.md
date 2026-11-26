@@ -443,7 +443,9 @@ Hasta ahora hemos visto cómo el servidor identifica al usuario. Pero el **clien
 - **PuTTY y PuTTYgen:** Suite de utilidades de conectividad para entornos Windows. Permite el acceso a la consola SSH remota de servidores y, mediante la herramienta **PuTTYgen**, la generación, conversión y gestión de parejas de claves criptográficas en formato propietario `.ppk` (*PuTTY Private Key*).
 - **Clientes integrados de consola (CLI):** Utilidades nativas en terminales de Linux y PowerShell en Windows, como `ftp`, `sftp`, `scp`, `ssh` y `curl`. Otros clientes de consola muy completos son `lftp` (Linux) y `curl`.
 
-### 4.3 Tarea RA3-CEb-1 - Instalación de los servicios en Windows
+### 4.3 Instalación de los servicios en Windows
+
+#### 4.3.1 Tarea-CEb-1 - Servidor FTP de IIS (Windows Server)
 
 ## 5 - Gestión de usuarios, aislamiento, bastionado y auditoría
 
