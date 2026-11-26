@@ -249,70 +249,67 @@ Una vez creada la infraestructura (VPC + subred + EC2 + IGW) iniciaremos las int
 
 - A diferencia de las otras prácticas donde solo lanzabamos las instancias sin hacer nada con ellas, en esta instalaremos un servidor web y un archivo index.html para comprobar el correcto funcionamiento del equilibrador de carga.
 
-!!! tip "Paso 1 - Detalles avanzados" 
-Durante el lanzado de la instancia EC2 buscar el apartado **Detalles avanzados**.
+!!! note "Paso 1 - Detalles avanzados"
+    - Durante el lanzado de la instancia EC2 buscar el apartado **Detalles avanzados**.
+    ![img](../AWS/ut6/elb1.png){ .ochocinco .marco }
 
-![](../AWS/ut6/elb1.png){ .ochocinco .marco }<br>
+!!! note "Paso 2 - Datos de usuario"
+    - Al final del apartado **Detalles avanzados** encontraremos el campo **Datos de usuario**.
+    ![img](../AWS/ut6/elb2.png){ .cien .marco }
 
-!!! tip "Paso 2 - Datos de usuario"
+    - Dentro del campo **Datos de usuario** pondremos un script que se ejecutará al lanzar la instancia.
+    - Adaptar el script para cada instancia, cambiando **Instancia 1** por **Instancia 2** y **Hola mundo** por **Hola paraíso**.  
+    ```bash
+    #!/bin/bash
+    yum update -y
+    yum install httpd -y
+    systemctl enable --now httpd
 
-![](../AWS/ut6/elb2.png){ .ochocinco .marco }<br>
+    sudo tee /var/www/html/index.html > /dev/null <<EOF
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+    <meta charset="UTF-8">
+    <title>Instancia 1</title>
+    <style>
+    body {
+        font-family: Arial;
+        background: #283048;
+        background: linear-gradient(135deg,#283048,#859398);
+        color: white;
+        text-align: center;
+        padding-top: 80px;
+    }
+    .card {
+        background: rgba(255,255,255,0.12);
+        border-radius: 16px;
+        padding: 30px;
+        display: inline-block;
+    }
+    </style>
+    </head>
+    <body>
+    <div class="card">
+        <h1>¡Hola mundo!</h1>
+        <p>Instancia 1</p>
+        <p>Hora: <b id="hora"></b></p>
+    </div>
 
-Dentro del campo **Datos de usuario** pondremos un script que se ejecutará al lanzar la instancia.
+    <script>
+    const ahora = new Date();
+    const hora = String(ahora.getHours()).padStart(2,'0') + ':' +
+                 String(ahora.getMinutes()).padStart(2,'0') + ':' +
+                 String(ahora.getSeconds()).padStart(2,'0');
 
-Adaptar el script para cada instancia, cambiando **Instancia 1** por **Instancia 2** y **Hola mundo** por **Hola paraíso**. 
-```bash
-#!/bin/bash
-yum update -y
-yum install httpd -y
-systemctl enable --now httpd
+    document.getElementById("hora").innerHTML = "<b>" + hora + "</b>";
+    </script>
 
-sudo tee /var/www/html/index.html > /dev/null <<EOF
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<title>Instancia 1</title>
-<style>
-body {
-    font-family: Arial;
-    background: #283048;
-    background: linear-gradient(135deg,#283048,#859398);
-    color: white;
-    text-align: center;
-    padding-top: 80px;
-}
-.card {
-    background: rgba(255,255,255,0.12);
-    border-radius: 16px;
-    padding: 30px;
-    display: inline-block;
-}
-</style>
-</head>
-<body>
-<div class="card">
-    <h1>¡Hola mundo!</h1>
-    <p>Instancia 1</p>
-    <p>Hora: <b id="hora"></b></p>
-</div>
+    </body>
+    </html>
+    EOF
+    ```
 
-<script>
-const ahora = new Date();
-const hora = String(ahora.getHours()).padStart(2,'0') + ':' +
-             String(ahora.getMinutes()).padStart(2,'0') + ':' +
-             String(ahora.getSeconds()).padStart(2,'0');
-
-document.getElementById("hora").innerHTML = "<b>" + hora + "</b>";
-</script>
-
-</body>
-</html>
-EOF
-```
-<br>
-
-#### **2.2.3 - Creación del balanceador de carga**
+#### 2.2.3 Creación del balanceador de carga
 
 !!! tip "1. Desde EC2 accedemos a **Balanceadores de carga**"
 ![](../AWS/ut6/elb3.png){ .ochocinco .marco .margintop20 }<br>
