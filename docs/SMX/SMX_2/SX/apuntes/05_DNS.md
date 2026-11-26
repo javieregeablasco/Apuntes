@@ -2230,7 +2230,7 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
 
 ### 18.5 ¿Se resuelven las tres zonas desde un mismo servidor?
 
-**Objetivo:** demostrar que un servidor de un dominio es capaz de encontrar la zona **hermana** (alumnos) y la zona **padre** (ad).
+!!! info "Objetivo:DSemostrar que un servidor de un dominio es capaz de encontrar la zona **hermana** (alumnos) y la zona **padre** (ad).""
 
 1. Entrar en **ADDS-Profesores**.
 1. Ejecutar las tres consultas indicando **a qué servidor preguntar** (el último parámetro es la IP de ADDS-Profesores):  
@@ -2247,7 +2247,8 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
     !!! tip "Qué mirar en la respuesta"
         - Si aparece **"Respuesta no autoritativa"**, el servidor **no es el dueño** de esa zona: ha obtenido la respuesta preguntando a otro servidor o de su memoria (caché).
         - Si **no** aparece ese mensaje, el servidor es el **autoritativo** de esa zona.
-        - Así sabremos qué servidor es el dueño de cada zona. Esperamos que ADDS-Profesores sea autoritativo para `profesores` y no autoritativo para `alumnos` y `ad`.
+        - Así sabremos qué servidor es el dueño de cada zona.
+        - Esperamos que ADDS-Profesores sea autoritativo para `profesores` y no autoritativo para `alumnos` y `ad`.
 
 ### 18.6 ¿Quién es el servidor DNS de cada zona? (delegaciones)
 
@@ -2272,7 +2273,7 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
 
 ### 18.7 ¿Están los registros que usa Active Directory?
 
-!!! tip "Objetivo: comprobar que cada controlador de dominio publica en el DNS sus **registros SRV**.<br><br>Son los registros que usan los equipos para encontrar el controlador de dominio. Si faltan, nadie podrá unirse al dominio."
+!!! tip "Objetivo: comprobar que cada controlador de dominio publica en el DNS sus **registros SRV**.<br><br>**Los registros SRV** son los registros que usan los equipos para encontrar el controlador de dominio. Si faltan, nadie podrá unirse al dominio."
 
 1. Ejecutar los siguientes comandos para el dominio **profesores**:
 ==REALIZAR CAPTURA DE PANTALLA (3 en total)==  
