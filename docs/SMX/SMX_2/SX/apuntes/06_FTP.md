@@ -496,7 +496,7 @@ Antes de configurar los servicios en la máquina, debemos configurar el **Securi
 ### 6.4 Instalación del rol Servidor FTP (IIS) y Servidor OpenSSH
 
 1. En el **Server Manager**, pulsar en el enlace central **Add roles and features**.
-![Acceso a Agregar roles y características desde Server Manager](./img_6/11_server_manager_add_roles.png)
+![Acceso a Agregar roles y características desde Server Manager](./img_6/11_server_manager_add_roles.png){.marco .margintop10 .marginbottom20}
 
 1. Avanzar por las pantallas preliminares (**Before You Begin**, **Installation Type** y **Server Selection**) manteniendo los valores por defecto pulsando **Next**.
 1. En la pantalla **Server Roles**:
@@ -504,19 +504,12 @@ Antes de configurar los servicios en la máquina, debemos configurar el **Securi
 1. Avanzar por **Features** y **Web Server Role (IIS)** hasta llegar a la pantalla **Role Services**:
    - Desplegar la categoría **FTP Server** y marcar las casillas **FTP Service** y **FTP Extensibility**.
    - Verificar que en **Management Tools** queda marcada la **IIS Management Console**.
-
 ==REALIZAR CAPTURA DE PANTALLA==  
-![Selección de los servicios de rol FTP Server en IIS](./img_6/12_iis_ftp_role_services.png)
-
-5. En la pantalla **Confirmation**, revisar los elementos y pulsar el botón **Install**.
-6. Una vez completado el proceso, la barra de progreso mostrará el mensaje **Installation succeeded** y se activará el botón **Close**.
-
-![Instalación completada con éxito de IIS y FTP Server](./img6/13_instalacion_completada_iis_ftp.png)
-*Figura 12: Barra de instalación completada con éxito para el Servidor Web (IIS) y el Servicio FTP.*
-
-7. Pulsar en el botón **Close** para cerrar el asistente.
-
----
+![Selección de los servicios de rol FTP Server en IIS](./img_6/12_iis_ftp_role_services.png){.margintop10 .marginbottom20}
+1. En la pantalla **Confirmation**, revisar los elementos y pulsar el botón **Install**.
+1. Una vez completado el proceso, la barra de progreso mostrará el mensaje **Installation succeeded** y se activará el botón **Close**.  
+==REALIZAR CAPTURA DE PANTALLA==  
+![Instalación completada con éxito de IIS y FTP Server](./img_6/13_instalacion_completada_iis_ftp.png)
 
 ### 6.3.1 Comprobación y activación del Servidor OpenSSH (Método Gráfico)
 
