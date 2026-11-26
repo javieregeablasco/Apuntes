@@ -443,11 +443,172 @@ Hasta ahora hemos visto cómo el servidor identifica al usuario. Pero el **clien
 - **PuTTY y PuTTYgen:** Suite de utilidades de conectividad para entornos Windows. Permite el acceso a la consola SSH remota de servidores y, mediante la herramienta **PuTTYgen**, la generación, conversión y gestión de parejas de claves criptográficas en formato propietario `.ppk` (*PuTTY Private Key*).
 - **Clientes integrados de consola (CLI):** Utilidades nativas en terminales de Linux y PowerShell en Windows, como `ftp`, `sftp`, `scp`, `ssh` y `curl`. Otros clientes de consola muy completos son `lftp` (Linux) y `curl`.
 
-### 4.3 Instalación de los servicios en Windows
+### 4.3 Instalación de los servicios en Windows y Linux
 
-#### 4.3.1 Tarea-CEb-1 - Servidor FTP de IIS (Windows Server)
+#### 4.3.1 Tarea-CEb-1 - Servidor FTP de IIS (Windows Server) y OpenSSH
 
-# HASTA AQUI
+!!! warning "Obligatorio seguir las normas para la presentación de trabajos escritos."
+
+- En esta tarea se abordará la puesta en marcha de dos servicios de transferencia de ficheros sobre un servidor Windows, con enfoques y niveles de seguridad distintos.
+- Por un lado, se instalará y configurará el **servicio FTP de Microsoft IIS**, que permite publicar un sitio FTP con control de usuarios, permisos de acceso, aislamiento de directorios y cifrado opcional mediante FTPS (TLS/SSL con certificado X.509).
+- Por otro lado, se desplegará **OpenSSH Server**, que ofrece SFTP a través de un único puerto (TCP 22) y admite autenticación por contraseña o por claves asimétricas.
+
+##### 4.3.1.1 Lanzamiento de la instancia EC2 de Windows Server 2025 en AWS
+
+- En la consola de **EC2** lanzar una instancia con los siguientes parámetros:
+
+    ==REALIZAR CAPTURA DE PANTALLA==  
+
+    | Parámetro de configuración | Valor requerido |
+    |||
+    | **Nombre** | `Servidor_FTPSSH` |
+    | **Imagen de aplicaciones** | `Microsoft Windows Server 2025 Base` (64 bits x86) |
+    | **Tipo de instancia** | **`t3.large`** (Recomendado — 2 vCPU, 8 GiB RAM |
+    | **Par de claves** | `vockey` (par de claves RSA `.pem` proporcionado por AWS Academy) |
+    | **Configuración de red** | VPC predeterminada (**172.31.0.0/16**) |
+    | **Configuración de red** | Subred (**172.31.32.0/20**) |
+    | **Configuración de red** | Asignar IP pública automáticamente (**Habilitar**) |
+    | **Firewall (grupos de seguridad)** | Crear grupo de seguridad / Nombre: SG-WindowsServer-FTP |
+    | **Configurar almacenamiento** | `30 GiB` gp3 (SSD de uso general) |
+
+##### 4.3.1.2 Preparación de la instancia en AWS y apertura de puertos
+
+Antes de configurar los servicios en la máquina, debemos configurar el **Security Group** de AWS para que autorice las conexiones RDP, SSH y los puertos requeridos por FTP.
+
+1. Acceder a la consola de AWS → **EC2** → Seleccionar nuestra instancia → en la tabla resumen buscar **Seguridad** y hacer clic en **Grupos de seguridad**.
+
+1. En la sección **Reglas de entrada** → pulsar en el botón **Editar reglas de entrada** → **Agregar regla**:  
+![Pulsar el botón Agregar regla en Reglas de entrada](./img_6/04_boton_agregar_regla.png){.marco .leftcincocero .margintop10 .marginbottom20}
+
+1. Añadir las 5 reglas requeridas:
+    1. **RDP:** Puerto `3389` TCP (para administrar gráficamente la máquina).
+    1. **SSH:** Puerto `22` TCP (para el servidor OpenSSH).
+    1. **FTP Control:** Puerto `21` TCP.
+    1. **FTP Pasivo (Windows):** Rango de puertos `50000-50100` TCP.
+    1. **FTP Pasivo (Ubuntu):** Rango de puertos `40000-40100` TCP.
+
+    ==REALIZAR CAPTURA DE PANTALLA==  
+    ![Tabla de reglas de entrada del Security Group completada](./img_6/06_tabla_reglas_entrada.png){.marco .margintop10}
+
+##### 4.3.1.3 Conexión RDP a la instancia de Windows Server
+
+- Para administrar gráficamente nuestra instancia nos conectaremos a través del protocolo **RDP (Remote Desktop Protocol)** utilizando el cliente nativo de Windows (*Conexión a Escritorio remoto* / `mstsc`).
+- Como las máquinas desplegadas en AWS EC2 se crean con una contraseña aleatoria y cifrada, debemos descifrarla primero utilizando la clave privada `.pem`.
+
+!!! warning "Atención al inicio de sesión en ordenadores con dominio del instituto (SICE / Dominio corporativo)"
+    - Si realizamos la práctica desde un equipo del aula que está integrado en un dominio corporativo o educativo, Windows asumirá por defecto que el usuario pertenece al dominio del centro (ej. `CENTRO\Administrator`). Esto provocará un fallo de credenciales erróneas.
+    !!! success "Solución"
+        - Pulsar en **Más opciones** → **Usar otra cuenta** → escribir como **Nombre de usuario**: `.\Administrator`
+
+##### 4.3.1.4 Instalación del rol Servidor FTP (IIS)
+
+1. En **Server Manager**, pulsar en el enlace central **Add roles and features**.
+![Acceso a Agregar roles y características desde Server Manager](./img_6/11_server_manager_add_roles.png){.marco .margintop10 .marginbottom20}
+
+1. Avanzar por las pantallas preliminares (**Before You Begin**, **Installation Type** y **Server Selection**) manteniendo los valores por defecto pulsando **Next**.
+1. En la pantalla **Server Roles**:
+   - Marcar la casilla **Web Server (IIS)** (si aparece la ventana emergente solicitando características requeridas, confirmar haciendo clic en **Add Features**).
+1. Avanzar por **Features** y **Web Server Role (IIS)** hasta llegar a la pantalla **Role Services**:
+   - Desplegar la categoría **FTP Server** y marcar las casillas **FTP Service** y **FTP Extensibility**.
+   - Verificar que en **Management Tools** queda marcada la **IIS Management Console**.  
+   ==REALIZAR CAPTURA DE PANTALLA==  
+    ![Selección de los servicios de rol FTP Server en IIS](./img_6/12_iis_ftp_role_services.png){.marco .margintop10 .marginbottom20}
+1. En la pantalla **Confirmation**, revisar los elementos y pulsar el botón **Install**.
+1. Una vez completado el proceso, la barra de progreso mostrará el mensaje **Installation succeeded** y se activará el botón **Close**.  
+==REALIZAR CAPTURA DE PANTALLA==  
+![Instalación completada con éxito de IIS y FTP Server](./img_6/13_instalacion_completada_iis_ftp.png){.marco .margintop10 .marginbottom20}
+
+##### 4.3.1.5 Instalación del rol Servidor FTP (IIS) por CLI
+
+1. Abrir una consola de `PowerShell` como **administrador**.
+1. Para instalar el rol FTP (IIS) ejecutaremos los siguientes comandos:  
+   ```powershell
+   Install-WindowsFeature Web-Server, Web-Ftp-Server, Web-Mgmt-Console
+   ```
+<!-- 1. Crear el sitio en el Administrador de IIS (`inetmgr`): *Sitios → Agregar sitio FTP...* y definir el nombre, la ruta física (`C:\inetpub\ftproot`), el enlace (IP y puerto 21), el certificado SSL, la autenticación y la autorización.
+1. Abrir el puerto de control y el rango pasivo en el Firewall de Windows:  
+   ```powershell
+   New-NetFirewallRule -DisplayName "FTP control 21" -Direction Inbound -Protocol TCP -LocalPort 21 -Action Allow
+   New-NetFirewallRule -DisplayName "FTP pasivo 50000-50100" -Direction Inbound -Protocol TCP -LocalPort 50000-50100 -Action Allow
+   ```
+1. Fijar el rango de puertos pasivos y la IP externa en *Compatibilidad con firewall FTP* (a nivel de servidor y de sitio) y reiniciar el servicio:
+   ```powershell
+   ```
+   Restart-Service ftpsvc -->
+
+##### 4.3.1.6 Instalación y activación del Servidor OpenSSH
+
+En las imágenes oficiales de Windows Server proporcionadas por Amazon Web Services (AWS EC2), la característica de **OpenSSH Server** ya viene preinstalada en el sistema como característica opcional (**Optional feature**), por lo que únicamente es necesario verificar su presencia e iniciar su servicio.
+
+!!! tip "Comprobación gráfica mediante Configuración:"
+    1. Pulsar el botón **Inicio** de Windows → hacer clic en **Settings**.
+    1. Ir a **System** → **Optional features**.
+    1. En la sección **Added features** (Características añadidas), escribir `ssh` en el filtro de búsqueda.
+    1. Comprobar que **OpenSSH Server** figura ya como instalado
+    1. Pulsar **Close** para cerrar la ventana.  
+    ==REALIZAR CAPTURA DE PANTALLA==
+    ![Comprobación de OpenSSH Server preinstalado en Optional features](./img_6/14_openssh_server_optional_features.png){.marco .leftcincocero .margintop10 .marginbottom20 }
+
+!!! tip "Inicio y arranque del servicio OpenSSH (Consola gráfica de Servicios):"
+    1. Pulsar `Windows + R`, escribir `services.msc` y pulsar Enter (o desde **Server Manager** -> menú superior **Tools** -> **Services**).
+    1. Localizar en la lista el servicio **OpenSSH SSH Server**.
+    1. Hacer clic derecho sobre él → ir a **Properties**.
+        1. Cambiar el **Tipo de inicio** (**Startup type**) a **Automático** (**Automatic**).
+        1. Pulsar en el botón **Iniciar** (**Start**).
+        1. Pulsar **OK**.  
+    ==REALIZAR CAPTURA DE PANTALLA==
+    ![Servicio OpenSSH SSH Server en ejecución y en inicio automático](./img_6/15_servicio_openssh_running.png){.marco .cien .margintop10 .marginbottom20}
+
+!!! abstract "Alternativa por PowerShell"
+    - Abrir una consola de **PowerShell como Administrador** y ejecutar:  
+    ```powershell
+    Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
+    Start-Service sshd
+    Set-Service -Name sshd -StartupType Automatic
+    ```
+
+#### 4.3.2 Tarea-CEb-2 - VSFTP en Ubuntu Server
+
+##### 4.3.2.1 Lanzamiento de la instancia EC2 de Ubuntu Server 26.04 en AWS
+
+
+- En la consola de **EC2** lanzar una instancia con los siguientes parámetros:
+
+    ==REALIZAR CAPTURA DE PANTALLA==  
+
+    | Parámetro de configuración | Valor requerido |
+    |||
+    | **Nombre** | `Servidor_FTPSSH_Linux` |
+# inicio instalar vsftp
+    | **Imagen de aplicaciones** | `Microsoft Windows Server 2025 Base` (64 bits x86) |
+    | **Tipo de instancia** | **`t3.large`** (Recomendado — 2 vCPU, 8 GiB RAM |
+    | **Par de claves** | `vockey` (par de claves RSA `.pem` proporcionado por AWS Academy) |
+    | **Configuración de red** | VPC predeterminada (**172.31.0.0/16**) |
+    | **Configuración de red** | Subred (**172.31.32.0/20**) |
+    | **Configuración de red** | Asignar IP pública automáticamente (**Habilitar**) |
+    | **Firewall (grupos de seguridad)** | Crear grupo de seguridad / Nombre: SG-WindowsServer-FTP |
+    | **Configurar almacenamiento** | `30 GiB` gp3 (SSD de uso general) |
+
+##### 4.3.1.2 Preparación de la instancia en AWS y apertura de puertos
+
+Antes de configurar los servicios en la máquina, debemos configurar el **Security Group** de AWS para que autorice las conexiones RDP, SSH y los puertos requeridos por FTP.
+
+1. Acceder a la consola de AWS → **EC2** → Seleccionar nuestra instancia → en la tabla resumen buscar **Seguridad** y hacer clic en **Grupos de seguridad**.
+
+1. En la sección **Reglas de entrada** → pulsar en el botón **Editar reglas de entrada** → **Agregar regla**:  
+![Pulsar el botón Agregar regla en Reglas de entrada](./img_6/04_boton_agregar_regla.png){.marco .leftcincocero .margintop10 .marginbottom20}
+
+1. Añadir las 5 reglas requeridas:
+    1. **RDP:** Puerto `3389` TCP (para administrar gráficamente la máquina).
+    1. **SSH:** Puerto `22` TCP (para el servidor OpenSSH).
+    1. **FTP Control:** Puerto `21` TCP.
+    1. **FTP Pasivo (Windows):** Rango de puertos `50000-50100` TCP.
+    1. **FTP Pasivo (Ubuntu):** Rango de puertos `40000-40100` TCP.
+
+    ==REALIZAR CAPTURA DE PANTALLA==  
+    ![Tabla de reglas de entrada del Security Group completada](./img_6/06_tabla_reglas_entrada.png){.marco .margintop10}
+
+# fin instalar vsftp
 
 ## 5 - Gestión de usuarios, aislamiento, bastionado y auditoría
 
@@ -585,116 +746,13 @@ Al operar infraestructuras en entornos de nube pública (**AWS Academy / AWS Lea
 1. **Defensa en profundidad en cortafuegos:** Limitar la apertura de puertos pasivos en los grupos de seguridad estrictamente al rango acotado necesario para las transferencias del aula.
 1. **Control y optimización de costes en AWS:** Las instancias virtuales EC2 consumen saldo del laboratorio mientras permanecen en estado `Running`. Al finalizar la sesión lectiva o el trabajo en casa, es **obligatorio detener las instancias (`Stop instance`)** desde la consola web de AWS. Detener la instancia congela el consumo de cómputo preservando íntegros los datos del disco SSD (EBS).
 
-## 6 - Tarea RA3-CEb-1 - Instalación y configuración de IIS FTP y OpenSSH
 
-!!! warning "Obligatorio seguir las normas para la presentación de trabajos escritos."
-
-- En esta tarea se abordará la puesta en marcha de dos servicios de transferencia de ficheros sobre un servidor Windows, con enfoques y niveles de seguridad distintos.
-- Por un lado, se instalará y configurará el **servicio FTP de Microsoft IIS**, que permite publicar un sitio FTP con control de usuarios, permisos de acceso, aislamiento de directorios y cifrado opcional mediante FTPS (TLS/SSL con certificado X.509).
-- Por otro lado, se desplegará **OpenSSH Server**, que ofrece SFTP a través de un único puerto (TCP 22) y admite autenticación por contraseña o por claves asimétricas.
-
-### 6.1 Lanzamiento de la instancia EC2 de Windows Server 2025 en AWS
-
-- En la consola de **EC2** lanzar una instancia con los siguientes parámetros:
-
-==REALIZAR CAPTURA DE PANTALLA==  
-
-| Parámetro de configuración | Valor requerido |
-|||
-| **Nombre** | `Servidor_FTPSSH` |
-| **Imagen de aplicaciones** | `Microsoft Windows Server 2025 Base` (64 bits x86) |
-| **Tipo de instancia** | **`t3.large`** (Recomendado — 2 vCPU, 8 GiB RAM |
-| **Par de claves** | `vockey` (par de claves RSA `.pem` proporcionado por AWS Academy) |
-| **Configuración de red** | VPC predeterminada (**172.31.0.0/16**) |
-| **Configuración de red** | Subred (**172.31.32.0/20**) |
-| **Configuración de red** | Asignar IP pública automáticamente (**Habilitar**) |
-| **Firewall (grupos de seguridad)** | Crear grupo de seguridad / Nombre: SG-WindowsServer-FTP |
-| **Configurar almacenamiento** | `30 GiB` gp3 (SSD de uso general) |
-
-### 6.2 Preparación de la instancia en AWS y apertura de puertos
-
-Antes de configurar los servicios en la máquina, debemos configurar el **Security Group** de AWS para que autorice las conexiones RDP, SSH y los puertos requeridos por FTP.
-
-1. Acceder a la consola de AWS → **EC2** → Seleccionar nuestra instancia → en la tabla resumen buscar **Seguridad** y hacer clic en **Grupos de seguridad**.
-
-1. En la sección **Reglas de entrada** → pulsar en el botón **Editar reglas de entrada** → **Agregar regla**:  
-![Pulsar el botón Agregar regla en Reglas de entrada](./img_6/04_boton_agregar_regla.png){.marco .leftcincocero .margintop10 .marginbottom20}
-
-1. Añadir las 5 reglas requeridas:
-    1. **RDP:** Puerto `3389` TCP (para administrar gráficamente la máquina).
-    1. **SSH:** Puerto `22` TCP (para el servidor OpenSSH).
-    1. **FTP Control:** Puerto `21` TCP.
-    1. **FTP Pasivo (Windows):** Rango de puertos `50000-50100` TCP.
-    1. **FTP Pasivo (Ubuntu):** Rango de puertos `40000-40100` TCP.
-
-    ==REALIZAR CAPTURA DE PANTALLA==  
-    ![Tabla de reglas de entrada del Security Group completada](./img_6/06_tabla_reglas_entrada.png){.marco .margintop10}
-
-### 6.3 Conexión RDP a la instancia de Windows Server
-
-- Para administrar gráficamente nuestra instancia nos conectaremos a través del protocolo **RDP (Remote Desktop Protocol)** utilizando el cliente nativo de Windows (*Conexión a Escritorio remoto* / `mstsc`).
-- Como las máquinas desplegadas en AWS EC2 se crean con una contraseña aleatoria y cifrada, debemos descifrarla primero utilizando la clave privada `.pem`.
-
-!!! warning "Atención al inicio de sesión en ordenadores con dominio del instituto (SICE / Dominio corporativo)"
-    - Si realizamos la práctica desde un equipo del aula que está integrado en un dominio corporativo o educativo, Windows asumirá por defecto que el usuario pertenece al dominio del centro (ej. `CENTRO\Administrator`). Esto provocará un fallo de credenciales erróneas.
-    !!! success "Solución"
-        - Pulsar en **Más opciones** → **Usar otra cuenta** → escribir como **Nombre de usuario**: `.\Administrator`
-
-### 6.4 Instalación del rol Servidor FTP (IIS) y Servidor OpenSSH
-
-1. En el **Server Manager**, pulsar en el enlace central **Add roles and features**.
-![Acceso a Agregar roles y características desde Server Manager](./img_6/11_server_manager_add_roles.png){.marco .margintop10 .marginbottom20}
-
-1. Avanzar por las pantallas preliminares (**Before You Begin**, **Installation Type** y **Server Selection**) manteniendo los valores por defecto pulsando **Next**.
-1. En la pantalla **Server Roles**:
-   - Marcar la casilla **Web Server (IIS)** (si aparece la ventana emergente solicitando características requeridas, confirmar haciendo clic en **Add Features**).
-1. Avanzar por **Features** y **Web Server Role (IIS)** hasta llegar a la pantalla **Role Services**:
-   - Desplegar la categoría **FTP Server** y marcar las casillas **FTP Service** y **FTP Extensibility**.
-   - Verificar que en **Management Tools** queda marcada la **IIS Management Console**.
-==REALIZAR CAPTURA DE PANTALLA==  
-![Selección de los servicios de rol FTP Server en IIS](./img_6/12_iis_ftp_role_services.png){.margintop10 .marginbottom20}
-1. En la pantalla **Confirmation**, revisar los elementos y pulsar el botón **Install**.
-1. Una vez completado el proceso, la barra de progreso mostrará el mensaje **Installation succeeded** y se activará el botón **Close**.  
-==REALIZAR CAPTURA DE PANTALLA==  
-![Instalación completada con éxito de IIS y FTP Server](./img_6/13_instalacion_completada_iis_ftp.png)
 
 # HASTA AQUI
 
-### 6.3.1 Comprobación y activación del Servidor OpenSSH (Método Gráfico)
 
-En las imágenes oficiales de Windows Server proporcionadas por Amazon Web Services (AWS EC2), la característica de **OpenSSH Server** ya viene preinstalada en el sistema como característica opcional (**Optional feature**), por lo que únicamente es necesario verificar su presencia e iniciar su servicio.
 
-**Comprobación gráfica mediante Configuración:**
-1. Pulsar en el botón **Inicio** de Windows -> hacer clic en el icono de **Configuración** (**Settings** - icono de rueda dentada).
-2. Entrar en la sección **System** -> **Optional features** (o buscar `optional` en el buscador superior).
-3. En la sección **Added features** (Características añadidas), escribir `ssh` en el filtro de búsqueda.
-4. Comprobar que **OpenSSH Server** figura ya como instalado (no pulsar el botón **Remove**; pulsar en **Close** para cerrar la ventana).
-
-![Comprobación de OpenSSH Server preinstalado en Optional features](./img6/14_openssh_server_optional_features.png)
-*Figura 13: Comprobación de la característica OpenSSH Server ya preinstalada en la imagen EC2 de AWS.*
-
-**Inicio y arranque del servicio OpenSSH (Consola gráfica de Servicios):**
-1. Pulsar `Windows + R`, escribir `services.msc` y pulsar Enter (o desde **Server Manager** -> menú superior **Tools** -> **Services**).
-2. Localizar en la lista el servicio **OpenSSH SSH Server**.
-3. Hacer clic derecho sobre él -> **Propiedades** (**Properties**):
-   * Cambiar el **Tipo de inicio** (**Startup type**) a **Automático** (**Automatic**).
-   * Pulsar en el botón **Iniciar** (**Start**).
-   * Pulsar **OK**.
-
-![Servicio OpenSSH SSH Server en ejecución y en inicio automático](./img6/15_servicio_openssh_running.png)
-*Figura 14: Consola gráfica de Servicios mostrando OpenSSH SSH Server en estado En ejecución (Running) y con tipo de inicio Automático.*
-
-> 💡 **Alternativa rápida por PowerShell para administradores de sistemas**
->
-> Si prefieres instalar y activar OpenSSH por línea de comandos, abre una consola de **PowerShell como Administrador** y ejecuta:
-> ```powershell
-> Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
-> Start-Service sshd
-> Set-Service -Name sshd -StartupType Automatic
-> ```
->
-
----
+# USUARIOS LOCALES
 
 ### 6.4 Creación de usuarios locales para el servicio
 

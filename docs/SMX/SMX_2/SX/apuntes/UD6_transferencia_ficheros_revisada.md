@@ -2,22 +2,7 @@
 
 <!-- NUEVO: criterio de evaluación b) -->
 
-#### 4.3.1 Servidor FTP de IIS (Windows Server)
 
-1. Instalar el rol desde *Administrador del servidor → Agregar roles y características → Servidor web (IIS) → Servidor FTP*. Desde PowerShell (como administrador):
-    ```powershell
-    Install-WindowsFeature Web-Server, Web-Ftp-Server, Web-Mgmt-Console
-    ```
-1. Crear el sitio en el Administrador de IIS (`inetmgr`): *Sitios → Agregar sitio FTP...* y definir el nombre, la ruta física (`C:\inetpub\ftproot`), el enlace (IP y puerto 21), el certificado SSL, la autenticación y la autorización.
-1. Abrir el puerto de control y el rango pasivo en el Firewall de Windows:
-    ```powershell
-    New-NetFirewallRule -DisplayName "FTP control 21" -Direction Inbound -Protocol TCP -LocalPort 21 -Action Allow
-    New-NetFirewallRule -DisplayName "FTP pasivo 50000-50100" -Direction Inbound -Protocol TCP -LocalPort 50000-50100 -Action Allow
-    ```
-1. Fijar el rango de puertos pasivos y la IP externa en *Compatibilidad con firewall FTP* (a nivel de servidor y de sitio) y reiniciar el servicio:
-    ```powershell
-    Restart-Service ftpsvc
-    ```
 
 #### 4.3.2 vsftpd (Linux, Debian/Ubuntu)
 
