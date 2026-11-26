@@ -3170,129 +3170,129 @@ servidorweb.smr.test.  IN  A  10.0.2.10
 -->
 ### 20.XX - Comandos de diagnóstico
 
-- A continuación se enumeran una serie de comandos particularme útiles durante el desarrollo de la práctica.
+A continuación se enumeran una serie de comandos particularme útiles durante el desarrollo de la práctica.
 
-!!! tip "Comprobar el estado de BIND:"
-    ```bash
-    sudo systemctl status named
-    ```
+1. Comprobar el estado de BIND:
+```bash
+sudo systemctl status named
+```
 
-Reiniciar BIND:
+1. Reiniciar BIND:
 
 ```bash
 sudo systemctl restart named
 ```
 
-Recargar la configuración:
+1. Recargar la configuración:
 
 ```bash
 sudo systemctl reload named
 ```
 
-Comprobar la sintaxis general:
+1. Comprobar la sintaxis general:
 
 ```bash
 sudo named-checkconf
 ```
 
-Comprobar la zona directa:
+1. Comprobar la zona directa:
 
 ```bash
-sudo named-checkzone smr.test /etc/bind/db.smr.test
+sudo named-checkzone practicadns.es /etc/bind/db.practicadns.es
 ```
 
-Comprobar la zona inversa:
+1. Comprobar la zona inversa:
 
 ```bash
-sudo named-checkzone 2.0.10.in-addr.arpa /etc/bind/db.10.0.2
+sudo named-checkzone 31.172.in-addr.arpa /etc/bind/db.172.31
 ```
 
-Consultar los logs:
+1. Consultar los logs:
 
 ```bash
 sudo journalctl -u named -n 50 --no-pager
 ```
 
-Comprobar puertos:
+1. Comprobar puertos:
 
 ```bash
 sudo ss -lntup | grep :53
 ```
 
-Consultar un registro A:
+1. Consultar un registro A:
 
 ```bash
-dig cliente1.smr.test
+dig Cliente-1.practicadns.es
 ```
 
-Consultar únicamente el resultado:
+1. Consultar únicamente el resultado:
 
 ```bash
-dig +short cliente1.smr.test
+dig +short Cliente-1.practicadns.es
 ```
 
-Resultado:
+1. Resultado:
 
 ```text
-10.0.2.10
+172.31.16.24
 ```
 
-Consultar un registro específico:
+1. Consultar un registro específico:
 
 ```bash
-dig A cliente1.smr.test
+dig A Cliente-1.practicadns.es
 ```
 
-Consultar el registro NS:
+1. Consultar el registro NS:
 
 ```bash
-dig NS smr.test
+dig NS practicadns.es
 ```
 
-Consultar el registro SOA:
+1. Consultar el registro SOA:
 
 ```bash
-dig SOA smr.test
+dig SOA practicadns.es
 ```
 
-Consultar un CNAME:
+1. Consultar un CNAME:
 
 ```bash
-dig CNAME www.smr.test
+dig CNAME www.practicadns.es
 ```
 
-Realizar resolución inversa:
+1. Realizar resolución inversa:
 
 ```bash
-dig -x 10.0.2.10
+dig -x 172.31.16.24
 ```
 
-Utilizar un DNS concreto:
+1. Utilizar un DNS concreto:
 
 ```bash
-dig @10.0.1.10 cliente1.smr.test
+dig @172.31.16.24 Cliente-1.practicadns.es
 ```
 
-Utilizar `nslookup`:
+1. Utilizar `nslookup`:
 
 ```bash
-nslookup cliente1.smr.test
+nslookup Cliente-1.practicadns.es
 ```
 
-Comprobar los DNS configurados en Ubuntu:
+1. Comprobar los DNS configurados en Ubuntu:
 
 ```bash
 resolvectl status
 ```
 
-Capturar tráfico DNS:
+1. Capturar tráfico DNS:
 
 ```bash
 sudo tcpdump -i any port 53 -nn
 ```
 
 ---
-
+<!--
 # 41 - Resultado de la práctica
 
 Al finalizar tendremos configurada la siguiente infraestructura:
