@@ -391,12 +391,27 @@ A diferencia de las otras prácticas donde solo lanzabamos las instancias sin ha
     ![img](../AWS/ut6/elb18.png){ .ochozero .margintop10 .marginbottom20 }
     ![img](../AWS/ut6/elb19.png){ .ochozero }
 
-
 ### **2.3 - Tarea RA3-CEe**
-!!! exercise "Tarea RA3-CEe"
-    Realizar capturas de cada instancia entrando por el ELB.  
-    Adjuntar las capturas a un documento, comentando cada captura.  
-    Subir el documento a AULES en la tarea correspondiente.  
+
+#### 2.3.1 Trabajos a realizar
+
+- Recrear el escenario anterior.
+- Realizar capturas de cada instancia entrando por el ELB.  
+- Adjuntar las capturas a un documento, comentando cada captura.  
+
+#### 2.3.2 Entrega de la tarea
+
+!!! warning "Entrega de la tarea"
+    - **Realizar capturas de pantalla de los momentos clave de la realización de la tarea**.
+    - Comentar las captura de pantalla explicando el trabajo realizado para llegar a ese punto y el resultado obtenido.
+    - Guardar el documento con RA3-CEe-NombreApellidos y subirlo a la tarea correspondiente de Aules.
+    - A partir de momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
+    - Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
+
+    !!! note "Capturas de pantalla mínimas a adjuntar"
+        - Conectarse a la instancia 1 y realizar capturas de pings al resto de instancias (1 captura + 3 pings). 
+        - Realizar capturas de la propagación y pings con éxito a todas las instancias del escenario (3 capturas de 3 pings cada una).
+
 
 ### **2.4 - Auto Scaling** 
 Auto Scaling permite adaptar la capacidad de cómputo de la infraestructura a la demanda real del sistema.  
@@ -553,15 +568,8 @@ Este apartado no tiene que ver directamente con el ASG pero es importante saber 
 
 ![](./ut6/ASG/ASG-29.png){ .sietecinco .marco }<br>
 
+## Enlaces de interés
 
-## 3 - Route 53
-<!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/AWS/Arqui%20y%20despliegues%20en%20AWS/Tema%205/Tema%205.%20Route%2053%20Zona%20privada.pdf -->
-<!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/AWS/Arqui%20y%20despliegues%20en%20AWS/Tema%205/route53.pdf -->
-<!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/AWS/Arqui%20y%20despliegues%20en%20AWS/Tema%205/Tema%205.%20Weighted.pdf -->
-<!-- file:///C:/Users/titan/Documents/Javier128/Eclipse/AWS/Arqui%20y%20despliegues%20en%20AWS/Tema%205/Tema%205.%20Policy%20Weight.pdf -->
-
-
-## **Enlaces de interés**
 Documentación de [AWS](https://docs.aws.amazon.com)  
 [Elastic Load Balancing](https://docs.aws.amazon.com/es_es/elasticloadbalancing/latest/userguide/what-is-load-balancing.html)  
 [Atributos del Elastic Load Balancing](https://docs.aws.amazon.com/es_es/elasticloadbalancing/latest/application/edit-load-balancer-attributes.html)  
