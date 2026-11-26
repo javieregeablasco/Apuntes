@@ -247,15 +247,15 @@ Una vez creada la infraestructura (VPC + subred + EC2 + IGW) iniciaremos las int
 
 #### 2.2.2 Instancias EC2
 
-- A diferencia de las otras prácticas donde solo lanzabamos las instancias sin hacer nada con ellas, en esta instalaremos un servidor web y un archivo index.html para comprobar el correcto funcionamiento del equilibrador de carga.
+A diferencia de las otras prácticas donde solo lanzabamos las instancias sin hacer nada con ellas, en esta instalaremos un servidor web y un archivo index.html para comprobar el correcto funcionamiento del equilibrador de carga.
 
 !!! note "Paso 1 - Detalles avanzados"
     - Durante el lanzado de la instancia EC2 buscar el apartado **Detalles avanzados**.
-    ![img](../AWS/ut6/elb1.png){ .ochocinco .marco }
+    ![img](../AWS/ut6/elb1.png){ .ochocinco .marco .margintop10}
 
 !!! note "Paso 2 - Datos de usuario"
     - Al final del apartado **Detalles avanzados** encontraremos el campo **Datos de usuario**.
-    ![img](../AWS/ut6/elb2.png){ .cien .marco }
+    ![img](../AWS/ut6/elb2.png){ .cien .marco .margintop10 .marginbottom20}
 
     - Dentro del campo **Datos de usuario** pondremos un script que se ejecutará al lanzar la instancia.
     - Adaptar el script para cada instancia, cambiando **Instancia 1** por **Instancia 2** y **Hola mundo** por **Hola paraíso**.  
@@ -311,15 +311,13 @@ Una vez creada la infraestructura (VPC + subred + EC2 + IGW) iniciaremos las int
 
 #### 2.2.3 Creación del balanceador de carga
 
-!!! tip "1. Desde EC2 accedemos a **Balanceadores de carga**"
-![](../AWS/ut6/elb3.png){ .ochocinco .marco .margintop20 }<br>
-**Configuramos los parámetros principales:**
-
-- Nombre LB-Instancias
-- Expuesto a internet
-- IP tipo: IPv4
-
-    ![](../AWS/ut6/elb4.png){ .ochocinco .marco .margintop20 }<br>
+!!! tip "1. Desde EC2 accedemos a `Balanceadores de carga`"
+    ![img](../AWS/ut6/elb3.png){ .cien .marco .margintop10 .marginbottom20 }
+    - **Configuramos los parámetros principales:**
+      1. Nombre LB-Instancias
+      1. Expuesto a internet
+      1. IP tipo: IPv4
+      ![img](../AWS/ut6/elb4.png){ .ochocinco .marco .margintop10 }
 
 **Mapeo de red.**
 
