@@ -383,7 +383,7 @@ A diferencia de las otras prácticas donde solo lanzabamos las instancias sin ha
     - A diferencia de las instancias, el acceso al equilibrador de carga solo se puede realizar a través de su DNS.  
     !!! note "Nota"  
         - Las instancias tienen IP pública, así pues, es posible acceder a ellas por su IP pública.
-        - Ese acceso se realiza directamente a la instancia y no a través del balanceador decarga (opción **Nombre de DNS").
+        - Ese acceso se realiza directamente a la instancia y no a través del balanceador decarga (opción **Nombre de DNS**).
         ![img](../AWS/ut6/elb17.png){ .cien .marco .margintop10 }
 
 !!! tip "Prueba de equilibrado"
@@ -391,7 +391,7 @@ A diferencia de las otras prácticas donde solo lanzabamos las instancias sin ha
     ![img](../AWS/ut6/elb18.png){ .ochozero .margintop10 .marginbottom20 }
     ![img](../AWS/ut6/elb19.png){ .ochozero }
 
-### **2.3 - Tarea RA3-CEe**
+### 2.3 Tarea RA3-CEe
 
 #### 2.3.1 Trabajos a realizar
 
@@ -412,6 +412,7 @@ A diferencia de las otras prácticas donde solo lanzabamos las instancias sin ha
         - Conectarse a la instancia 1 y realizar capturas de pings al resto de instancias (1 captura + 3 pings). 
         - Realizar capturas de la propagación y pings con éxito a todas las instancias del escenario (3 capturas de 3 pings cada una).
 
+# HASTA AQUI
 
 ### **2.4 - Auto Scaling** 
 Auto Scaling permite adaptar la capacidad de cómputo de la infraestructura a la demanda real del sistema.  
