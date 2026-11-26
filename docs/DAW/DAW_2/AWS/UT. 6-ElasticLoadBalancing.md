@@ -313,18 +313,17 @@ A diferencia de las otras prácticas donde solo lanzabamos las instancias sin ha
 
 !!! tip "1. Desde EC2 accedemos a `Balanceadores de carga`"
     ![img](../AWS/ut6/elb3.png){ .cien .marco .margintop10 .marginbottom20 }
+
     - **Configuramos los parámetros principales:**
-      1. Nombre LB-Instancias
-      1. Expuesto a internet
-      1. IP tipo: IPv4
-      ![img](../AWS/ut6/elb4.png){ .ochocinco .marco .margintop10 }
+        1. Nombre LB-Instancias
+        1. Expuesto a internet
+        1. IP tipo: IPv4
+      ![img](../AWS/ut6/elb4.png){ .cien .marco .margintop10 }
 
-**Mapeo de red.**
-
-- VPC: VPC-ELB
-- Seleccionamos SubRed-ELB-AZ-a y SubRed-ELB-AZ-c
-
-    ![](../AWS/ut6/elb5.png){ .ochocinco .marco }<br>
+    - **Mapeo de red.**
+        1. VPC: VPC-ELB
+        1. Seleccionamos SubRed-ELB-AZ-a y SubRed-ELB-AZ-c  
+      ![img](../AWS/ut6/elb5.png){ .cien .marco }
 
 !!! tip "2. Grupos de seguridad"
 Creamos un grupo de seguridad para el balanceador de carga , asociamos un SG que permita HTTP (80) desde cualquier origen.
