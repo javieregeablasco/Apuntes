@@ -2124,131 +2124,6 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
     - A partir del momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
     - Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
 
-<!--
-# ####REPE####
-
-## 18 - Tarea RA2-CEh - Comprobar el comportamiento DNS de las 3 zonas
-
-- En esta tarea realizaremos comprobaciones básicas de DNS en un bosque con dominios hijo
-
-- Si todo ha ido bien, el resultado final será como el siguiente
-![img](./img_5/img_5_206.png){.margintop10 .marginbottom20 .cien}
-
-!!! warning "Deberás cambiar la IPs de los comandos por las que correspondan en tu laboratorio"
-
-- Cada dominio tiene su propia zona DNS. La zona padre sabe dónde están las zonas hijas porque tiene una delegación (un registro NS que dice “para alumnos, pregunta a ADDS-Alumnos”).
-
-### 18.2 ¿Qué DNS estoy usando?
-
-- Para determinar qué DNS estamos usando, utilizaremos el comando
-
-      ```bash
-      ipconfig /all
-      ```
-
-- Buscar la línea **DNS Servers**. En un servidor del dominio profesores, debe aparecer una IP de un servidor DNS del propio dominio.
-![img](./img_5/img_5_207.png){.margintop10 .marginbottom20 .cien}
-
-!!! warning "Repetir este comando una vez por cada dominio"
-    ==Realizar captura de pantalla de los 3 ´ipconfig /all´==
-
-### 18.3 ¿Hay conexión con los servidores?
-
-- Desde Servidor-DNS realizar un ping al resto de servidores:
-
-      ```bash
-      ping 172.31.40.94
-      ping 172.31.47.142
-      ping 172.31.33.153
-      ```
-
-    ==Realizar captura de pantalla==
-    ![img](./img_5/img_5_208.png){.margintop10 .marginbottom20 .sietezero}
-
----
-
-- Desde Servidor-DNS-2 realizar un ping al resto de servidores:
-
-      ```bash
-      ping 172.31.47.142
-      ping 172.31.33.153
-      ```
-    ==Realizar captura de pantalla==
-
----
-
-- Desde ADDS-Alumnos (o ADDS-Profesores) realizar un ping al resto de servidores:
-
-      ```bash
-      ping 172.31.33.153
-      ```
-      ```
-
-    ==Realizar captura de pantalla==
-
-### 18.3 ¿Resuelve el nombre de cada servidor?
-
-- En cada servidor, ejecutar los siguientes comandos:
-
-      ```bash
-      nslookup servidor-dns.ad.practicadns.es
-      nslookup adds-alumnos.alumnos.ad.practicadns.es
-      nslookup adds-profesores.profesores.ad.practicadns.es
-      ```
-
-- Cada comando debe devolver la IP del servidor. Si sale Non-existent domain, ese DNS no sabe resolver esa zona.
-
-### 18.4 ¿Se resuelven las tres zonas desde un mismo servidor?
-
-- Ejecutar las tres consultas preguntando a un solo servidor, por ejemplo ADDS-Profesores:
-
-      ```bash
-      nslookup adds-profesores.profesores.ad.practicadns.es 172.31.33.153
-      nslookup adds-alumnos.alumnos.ad.practicadns.es 172.31.33.153
-      nslookup servidor-dns.ad.practicadns.es 172.31.33.153
-      ```
-
-- Todas deben dar respuesta. Esta prueba es la más importante: demuestra que un servidor de profesores es capaz de encontrar la zona hermana (alumnos) y la zona padre.
-
-!!! tip "Qué mirar en la respuesta"
-    - Si pone “Respuesta no autoritativa”, el servidor no es el dueño de esa zona y ha obtenido la respuesta preguntando a otro o de su memoria (caché).
-    - Si no pone nada, el servidor es el autoritativo de esa zona.
-    - Así se ve qué servidor es el dueño de cada zona.
-
-### 18.5 ¿Quién es el servidor DNS de cada zona? (delegaciones)
-
-- Ejecutar los siguientes comandos:
-
-      ```bash
-      ```bash
-      nslookup -type=NS ad.practicadns.es
-      nslookup -type=NS alumnos.ad.practicadns.es
-      nslookup -type=NS profesores.ad.practicadns.es
-      ```   
-
-- Deberemos ver qué servidor o servidores gestionan cada zona:
-| Zona | Servidor(es) esperado(s) |
-|------|---------------------------|
-| ad.practicadns.es | servidor-dns y servidor-dns-2 |
-| alumnos.ad.practicadns.es | ADDS-Alumnos |
-| profesores.ad.practicadns.es | ADDS-Profesores |
-| Prueba 6: ¿Están los registros que usa Active Directory? |
-
-### 18.6 ¿Quién controla el dominio?
-
-- Un controlador de dominio publica en el DNS unos registros especiales (SRV) para que los equipos lo encuentren. Si faltan, nadie puede unirse al dominio. Ejecutar los siguientes comandos
-
-      ```bash
-      nslookup -type=SRV _ldap._tcp.dc._msdcs.profesores.ad.practicadns.es
-      nslookup -type=SRV _kerberos._tcp.profesores.ad.practicadns.es
-      ```
-
-- Deben aparecer el nombre del controlador de dominio y su puerto (389 para LDAP, 88 para Kerberos). 
-- Repitir con **alumnos** y con **ad**.
-
-# ####REPE####
--->
-
 ## 18 - Tarea RA2-CEh - Comprobar el comportamiento DNS de las 3 zonas
 
 - En esta tarea realizaremos **comprobaciones básicas del funcionamiento del servicio DNS** en un bosque de Active Directory con dominios hijo.
@@ -2273,7 +2148,9 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
     | ADDS-Profesores | `profesores.ad.practicadns.es` | 172.31.33.153 |
 
 - Todos los comandos se ejecutarán con un **símbolo del sistema** (`cmd`) o PowerShell.
-- Hacer las capturas de pantalla **completas** (que se vea el comando y su resultado). Las capturas están marcadas con ==REALIZAR CAPTURA DE PANTALLA==. Al final de la tarea hay una lista de comprobación.
+- Hacer las capturas de pantalla **completas** (que se vea el comando y su resultado).
+- Las capturas están marcadas con ==REALIZAR CAPTURA DE PANTALLA==.
+- Al final de la tarea hay una lista de comprobación.
 
 ### 18.2 ¿Qué DNS estoy usando?
 
@@ -2291,7 +2168,8 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
 ![img](./img_5/img_5_207.png){.margintop10 .marginbottom20 .cien}
 
     !!! warning "Repetir el comando en cada dominio"
-        3 capturas de `ipconfig /all`, una de cada dominio (ad, alumnos y profesores).
+        - 3 capturas de `ipconfig /all`
+        - Una de cada dominio (ad, alumnos y profesores).
 
 ### 18.3 ¿Hay conexión con los servidores?
 
@@ -2301,7 +2179,7 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
     - **Resultado correcto:** `Respuesta desde 172.31.x.x: bytes=32 ...` y `Perdidos = 0`.
     - **Resultado incorrecto:** `Tiempo de espera agotado` o `Host de destino inaccesible`. En ese caso deberéis solucionar el problema.
 
-!!! note "a) Desde Servidor-DNS, hacer ping al resto de servidores"
+!!! note ":a: a) Desde Servidor-DNS, hacer ping al resto de servidores"
 
     ==REALIZAR CAPTURA DE PANTALLA==  
     ```bash
@@ -2314,7 +2192,7 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
 
 ---
 
-!!! note "b) Desde Servidor-DNS-2, hacer ping al resto de servidores"
+!!! note ":b: b) Desde Servidor-DNS-2, hacer ping al resto de servidores"
 
     ==REALIZAR CAPTURA DE PANTALLA==  
     ```bash
@@ -2324,7 +2202,7 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
 
 ---
 
-!!! note "c) Desde ADDS-Alumnos**, haz ping a ADDS-Profesores"
+!!! note ":c: c) Desde ADDS-Alumnos**, haz ping a ADDS-Profesores"
 
     ==REALIZAR CAPTURA DE PANTALLA==  
     ```bash
