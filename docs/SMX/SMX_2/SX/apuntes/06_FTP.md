@@ -471,7 +471,7 @@ Antes de configurar los servicios en la máquina, debemos configurar el **Securi
 1. Acceder a la consola de AWS → **EC2** → Seleccionar nuestra instancia → en la tabla resumen buscar **Seguridad** y hacer clic en **Grupos de seguridad**.
 
 1. En la sección **Reglas de entrada** → pulsar en el botón **Editar reglas de entrada** → **Agregar regla**:  
-![Pulsar el botón Agregar regla en Reglas de entrada](./img_6/04_boton_agregar_regla.png){.marco .leftcincocero}
+![Pulsar el botón Agregar regla en Reglas de entrada](./img_6/04_boton_agregar_regla.png){.marco .leftcincocero .margintop10 .marginbottom20}
 
 1. Añadir las 5 reglas requeridas:
     1. **RDP:** Puerto `3389` TCP (para administrar gráficamente la máquina).
@@ -480,8 +480,8 @@ Antes de configurar los servicios en la máquina, debemos configurar el **Securi
     1. **FTP Pasivo (Windows):** Rango de puertos `50000-50100` TCP.
     1. **FTP Pasivo (Ubuntu):** Rango de puertos `40000-40100` TCP.
 
-==REALIZAR CAPTURA DE PANTALLA==  
-![Tabla de reglas de entrada del Security Group completada](./img_6/06_tabla_reglas_entrada.png){.marco}
+    ==REALIZAR CAPTURA DE PANTALLA==  
+    ![Tabla de reglas de entrada del Security Group completada](./img_6/06_tabla_reglas_entrada.png){.marco}
 
 ### 6.3 Conexión RDP a la instancia de Windows Server
 
