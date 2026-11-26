@@ -511,6 +511,8 @@ Antes de configurar los servicios en la máquina, debemos configurar el **Securi
 ==REALIZAR CAPTURA DE PANTALLA==  
 ![Instalación completada con éxito de IIS y FTP Server](./img_6/13_instalacion_completada_iis_ftp.png)
 
+# HASTA AQUI
+
 ### 6.3.1 Comprobación y activación del Servidor OpenSSH (Método Gráfico)
 
 En las imágenes oficiales de Windows Server proporcionadas por Amazon Web Services (AWS EC2), la característica de **OpenSSH Server** ya viene preinstalada en el sistema como característica opcional (**Optional feature**), por lo que únicamente es necesario verificar su presencia e iniciar su servicio.
@@ -743,18 +745,3 @@ Por defecto, Windows Server concede únicamente permisos de **lectura** al grupo
 *Figura 31: Reinicio del servicio Microsoft FTP Service desde la consola gráfica de Servicios.*
 
 > 📷 **Evidencia 7 (insertar en tu documento Word) — Realizar captura de pantalla** de la regla `FTP Pasivo Datos (50000-50100)` creada en el Firewall de Windows y del servicio `Microsoft FTP Service` en ejecución.
-
-> ℹ️ **Qué debes añadir a tu documento Word al terminar el Apartado 6**
->
-> En el **Apartado 6** de tu documento Word de la unidad, asegúrate de haber insertado y explicado brevemente las **Evidencias 1 a 7**:
->
-> * **Evidencia 1:** Instancia `Servidor_FTPSSH` en estado `Running` en AWS EC2.
-> * **Evidencia 2:** Tabla de reglas de entrada del Security Group `grup-servidors-ftp-ssh` (puertos `21`, `22`, `3389`, `50000-50100` y `40000-40100`).
-> * **Evidencia 3:** Escritorio de Windows Server conectado por RDP mostrando **Server Manager**.
-> * **Evidencia 4:** Propiedades del usuario `alumne_redes` (**Member Of**: `Administrators`, `Remote Desktop Users`, `Users`).
-> * **Evidencia 5:** Configuración de `FTP Firewall Support` en IIS con el rango `50000-50100` y la IP pública de AWS.
-> * **Evidencia 6:** Sitio `FTP-AULA` creado y en estado `Started` en IIS Manager.
-> * **Evidencia 7:** Regla `FTP Pasivo Datos (50000-50100)` en el Firewall de Windows y servicio `Microsoft FTP Service` en ejecución.
->
-
----
