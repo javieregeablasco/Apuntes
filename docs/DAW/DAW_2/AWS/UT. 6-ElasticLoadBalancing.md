@@ -352,15 +352,14 @@ A diferencia de las otras prácticas donde solo lanzabamos las instancias sin ha
 
 #### 2.2.4 Editar los atributos del equilibrador de carga
 
-- Una vez creado el equilibrador de carga, revisaremos y ajustaremos sus atributos para optimizar su funcionamiento.
-- Estos atributos determinarán el comportamiento del equilibrador de carga y la forma en que gestiona las peticiones de los usuarios.
-
 ![img](../AWS/ut6/elb16.png){ .cien .marco .margintop10 .marginbottom20 }
 
+- Una vez creado el equilibrador de carga, revisaremos y ajustaremos sus atributos para optimizar su funcionamiento.
+- Estos atributos determinarán el comportamiento del equilibrador de carga y la forma en que gestiona las peticiones de los usuarios.
 - Dentro de este apartado se pueden ajustar, entre otros, los siguientes parámetros:
-
-    1. **Tiempo de inactividad de conexión**  
-    El tiempo de espera de la conexión inactiva es el período de tiempo que una conexión de cliente o de destino existente puede permanecer inactiva, sin que se envíen ni reciban datos, antes de que el equilibrador de carga cierre la conexión.
+    
+    !!! note "Tiempo de inactividad de conexión"
+        El tiempo de espera de la conexión inactiva es el período de tiempo que una conexión de cliente o de destino existente puede permanecer inactiva, sin que se envíen ni reciban datos, antes de que el equilibrador de carga cierre la conexión.
 
     1. **Duración del valor keepalive del cliente HTTP**  
     La duración del valor keepalive del cliente HTTP es el tiempo máximo durante el que un Equilibrador de carga de aplicación mantiene una conexión HTTP persistente con un cliente. Una vez transcurrido el tiempo del valor keepalive del cliente HTTP configurado, el Equilibrador de carga de aplicación acepta una solicitud más y, a continuación, devuelve una respuesta que cierra la conexión sin problemas.
