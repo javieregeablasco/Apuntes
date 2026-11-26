@@ -318,18 +318,18 @@ A diferencia de las otras prácticas donde solo lanzabamos las instancias sin ha
         1. Nombre LB-Instancias
         1. Expuesto a internet
         1. IP tipo: IPv4
-      ![img](../AWS/ut6/elb4.png){ .cien .marco .margintop10 }
+      ![img](../AWS/ut6/elb4.png){ .cien .marco .margintop10 .marginbottom20 }
 
     - **Mapeo de red.**
         1. VPC: VPC-ELB
         1. Seleccionamos SubRed-ELB-AZ-a y SubRed-ELB-AZ-c  
-      ![img](../AWS/ut6/elb5.png){ .cien .marco }
+      ![img](../AWS/ut6/elb5.png){ .cien .marco .marginbottom20 .margintop10 }
 
 !!! tip "2. Grupos de seguridad"
-Creamos un grupo de seguridad para el balanceador de carga , asociamos un SG que permita HTTP (80) desde cualquier origen.
-  ![](../AWS/ut6/elb6.png){ .ochocinco .marco .margintop20 }<br>
-  ![](../AWS/ut6/elb7.png){ .ochocinco .marco  }<br>
-  ![](../AWS/ut6/elb8.png){ .ochocinco .marco  }<br>
+    - Creamos un grupo de seguridad para el balanceador de carga y definimos una regla que permita el tráfico HTTP (80) desde cualquier origen.
+    ![img](../AWS/ut6/elb6.png){ .ochocinco .marco .margintop20 }
+    ![img](../AWS/ut6/elb7.png){ .ochocinco .marco  }
+    ![img](../AWS/ut6/elb8.png){ .ochocinco .marco  }
 
 !!! tip "3. Agentes de escucha y direccionamiento"
 En este apartado configuraremos los puertos sobre los cuales el equilibrador de carga aceptará las conexiones entrantes y determinará a qué instancias se redirigirán.
