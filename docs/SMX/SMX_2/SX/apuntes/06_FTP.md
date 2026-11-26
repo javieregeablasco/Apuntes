@@ -440,97 +440,38 @@ Al operar infraestructuras en entornos de nube pública (**AWS Academy / AWS Lea
 
 ## 6 - Tarea RA3-CEb-1 - Instalación y configuración de IIS FTP y OpenSSH
 
-<a id="aviso-cambio-ip"></a>
-> 💡 **Regla de oro de AWS Academy: ¿Trabajas en días diferentes? Gestión del cambio de IP pública**
->
-> En los laboratorios de AWS Academy Learner Lab, las máquinas virtuales utilizan **direcciones IPv4 públicas dinámicas**. Esto significa que **cada vez que detengas tu instancia (`Stop instance`) al terminar la clase y la vuelvas a iniciar (`Start instance`) en un día posterior, AWS le asignará una nueva dirección IP pública**.
->
-> **¿Qué debes revisar obligatoriamente si retomas la práctica en un día diferente?**
-> 1. **Conexión inicial (RDP / SSH / PuTTY):** Deberás conectarte siempre a la **nueva IP pública** que muestre la consola de AWS EC2 (la IP del día anterior dejará de responder).
-> 2. **Modo Pasivo en Windows Server (IIS):** El servidor IIS envía al cliente la IP externa configurada en `FTP Firewall Support`. Si la IP ha cambiado y no la actualizas en IIS, FileZilla se conectará al puerto 21 pero **fallará al listar los archivos con un error de tiempo de espera (*timeout*)**. 👉 Puedes actualizarla rápidamente siguiendo el [Apartado 6.5: Soporte de Firewall de FTP](#actualizar-ip-windows).
-> 3. **Modo Pasivo en Ubuntu Server (`vsftpd`):** El demonio `vsftpd` tiene configurada la IP en el fichero `/etc/vsftpd.conf` (`pasv_address`). Si la IP ha cambiado, FileZilla se quedará congelado en `150 Here comes the directory listing...`. 👉 Puedes actualizarla siguiendo el [Apartado 12.3: Configuración de modo pasivo en vsftpd](#actualizar-ip-ubuntu).
-> 4. **Pruebas inter-servidores (Apartado 14):** Los comandos `curl`, `ssh` y `scp` deberán apuntar a las nuevas IPs actuales de cada servidor. 👉 Consulta los detalles en el [Apartado 14](#apartado-14).
->
+!!! warning "Obligatorio seguir las normas para la presentación de trabajos escritos."
 
-> ⚠️ **Obligatorio seguir las normas para la presentación de trabajos escritos.**
->
-> Todas las evidencias deberán incluir capturas de pantalla completas donde se aprecie claramente el nombre del equipo, usuario y la fecha/hora.
->
+- En esta tarea se abordará la puesta en marcha de dos servicios de transferencia de ficheros sobre un servidor Windows, con enfoques y niveles de seguridad distintos.
+- Por un lado, se instalará y configurará el **servicio FTP de Microsoft IIS**, que permite publicar un sitio FTP con control de usuarios, permisos de acceso, aislamiento de directorios y cifrado opcional mediante FTPS (TLS/SSL con certificado X.509).
+- Por otro lado, se desplegará **OpenSSH Server**, que ofrece SFTP a través de un único puerto (TCP 22) y admite autenticación por contraseña o por claves asimétricas.
 
----
+### 6.1 Lanzamiento de la instancia EC2 de Windows Server 2025 en AWS
 
-### 6.0 Lanzamiento de la instancia EC2 de Windows Server 2022 en AWS
+- En la consola de **EC2** lanzar una instancia con los siguientes parámetros:
 
-1. Iniciar el laboratorio de **AWS Academy Learner Lab** pulsando **Start Lab** y, cuando el indicador superior pase a verde, hacer clic en **AWS** para abrir la consola de administración.
-2. En la consola de **EC2** -> **Instances** -> pulsar en el botón naranja **Launch instances** (**Lanzar instancias**) y configurar la máquina con los siguientes parámetros técnicos:
-
+==REALIZAR CAPTURA DE PANTALLA==  
 | Parámetro de configuración | Valor requerido |
-|---|---|
+|---||
 | **Name (Nombre)** | `Servidor_FTPSSH` |
-| **Application and OS Images (AMI)** | `Microsoft Windows Server 2022 Base` (64 bits x86) |
-| **Instance type (Tipo de instancia)** | **`t3.small`** (Recomendado — 2 vCPU, 2 GiB RAM, **Apto para la capa gratuita**) o **`t3.medium`** (2 vCPU, 4 GiB RAM) |
+| **Application and OS Images (AMI)** | `Microsoft Windows Server 2025 Base` (64 bits x86) |
+| **Instance type (Tipo de instancia)** | **`t3.large`** (Recomendado — 2 vCPU, 8 GiB RAM |
 | **Key pair (login)** | `vockey` (par de claves RSA `.pem` proporcionado por AWS Academy) |
 | **Network settings** | Asignar IP pública automáticamente (**Auto-assign public IP: Enable**) |
 | **Configure storage** | `30 GiB` gp3 (SSD de uso general) |
 
-> 💡 **Elección del tipo de instancia en Windows Server: t3.small vs t3.medium y la Capa Gratuita**
->
-> En el desplegable de **Instance type**, AWS muestra varias opciones de la familia moderna `t3` (con procesadores más rápidos y 2 vCPU):
->
-> * **Opción recomendada con Capa Gratuita: `t3.small`**
->   * Cuenta con **2 vCPU y 2 GiB de memoria RAM**.
->   * Viene identificada explícitamente con la etiqueta **«Apto para la capa gratuita»** (*Free tier eligible*).
->   * Cumple los requisitos oficiales de Windows Server 2022 y permite a los alumnos trabajar con total tranquilidad al ver el distintivo de capa gratuita.
-> * **Opción de máximo rendimiento: `t3.medium`**
->   * Cuenta con **2 vCPU y 4 GiB de memoria RAM**.
->   * Aunque no lleva la etiqueta de capa gratuita, en AWS Academy su coste es de apenas **0,06 $ / hora**, lo que se descuenta del saldo educativo promocional de 50$ (sin coste real en tarjeta). Ofrece una fluidez gráfica excelente al abrir simultáneamente Server Manager, IIS y PowerShell.
->
-> > ⚠️ **¡Evitar t3.nano y t3.micro en Windows Server!**
-> > Aunque `t3.micro` también figure como apta para la capa gratuita, solo dispone de **1 GiB de RAM**. Windows Server 2022 con interfaz gráfica colapsará por falta de memoria RAM: tardará una eternidad en arrancar, el Administrador del Servidor fallará y la sesión RDP se congelará.
->
-
-![Opciones de tipo de instancia t3 en AWS EC2 mostrando t3.small y t3.micro como aptas para la capa gratuita](./07_Transferencia_Ficheros_FTP_SSH/imagenes/00c_selector_tipo_instancia_t3_capa_gratuita.png)
-*Figura 0b: Desplegable de tipos de instancia en AWS EC2, mostrando t3.small (2 vCPU, 2 GiB) con la etiqueta Apto para la capa gratuita.*
-
-3. **Descarga de la clave privada (`.pem`) desde AWS Academy Learner Lab:**
-   * En la parte superior de la ventana del laboratorio de AWS Academy (la barra superior de Vocareum donde figuran los botones *Start Lab*, *End Lab* y el saldo), haz clic en el botón **AWS Details**.
-   * En el panel emergente lateral derecho que se despliega (**Cloud Access**), busca la sección **SSH key:**.
-   * Haz clic sobre el botón **Download PEM**.
-   * Se descargará en tu equipo el archivo **`labsuser.pem`** (correspondiente al par de claves `vockey` asignado en el laboratorio).
-   * 📁 **Guarda este archivo en una ubicación segura y conocida de tu ordenador** (por ejemplo, en la carpeta de la práctica o en `Descargas`). Esta clave privada RSA es **imprescindible** tanto para descifrar la contraseña del usuario `Administrator` de Windows Server como para autenticarte mediante SSH/SFTP más adelante.
-
-![Ubicación del botón AWS Details y descarga de la clave labsuser.pem en AWS Academy](./07_Transferencia_Ficheros_FTP_SSH/imagenes/00b_aws_details_download_pem.png)
-*Figura 0: Panel Cloud Access abierto tras pulsar en AWS Details en la barra superior de AWS Academy, mostrando el botón Download PEM para obtener el archivo labsuser.pem.*
-
-```text title="Ubicación del archivo labsuser.pem en AWS Academy"
-+----------------------------------------------------------------------------------------------------+
-|  [Start Lab]   [End Lab]   [AWS] (círculo verde)   [AWS Details]   [$0.00 / $100.00]   [Readme]    |
-+----------------------------------------------------------------------------------------------------+
-                                                           |
-                                      +--------------------+---------------------+
-                                      | Panel AWS Details (Cloud Access):        |
-                                      | AWS CLI: [Show]                          |
-                                      | SSH key: [Download PEM]  <-- ¡PULSAR!    |
-                                      |          [Download PPK]                  |
-                                      +------------------------------------------+
-```
-
-> 📷 **Evidencia 1 (insertar en tu documento Word) — Realizar captura de pantalla** del resumen de creación de la instancia `Servidor_FTPSSH` en AWS EC2 mostrando su estado `Running`, el tipo de instancia y su dirección IPv4 pública.
-
----
-
-### 6.1 Preparación de la instancia en AWS y apertura de puertos
+### 6.2 Preparación de la instancia en AWS y apertura de puertos
 
 Antes de configurar los servicios en la máquina, debemos garantizar que el **Security Group** de AWS autorice las conexiones RDP, SSH y los puertos requeridos por FTP.
 
 1. Acceder a la consola de AWS -> **EC2** -> en el menú lateral izquierdo desplegar **Network & Security** y hacer clic en **Security Groups** (o **Grupos de seguridad**).
 
-![Acceso a Security Groups en el menú lateral de EC2](./07_Transferencia_Ficheros_FTP_SSH/imagenes/01_menu_security_groups.png)
+![Acceso a Security Groups en el menú lateral de EC2](./img6/01_menu_security_groups.png)
 *Figura 1: Acceso a Security Groups en la sección Network & Security de EC2.*
 
 2. En el panel superior, hacer clic en el botón naranja **Create security group** (**Crear grupo de seguridad**).
 
-![Botón Crear grupo de seguridad en el panel de EC2](./07_Transferencia_Ficheros_FTP_SSH/imagenes/02_boton_crear_sg.png)
+![Botón Crear grupo de seguridad en el panel de EC2](./img6/02_boton_crear_sg.png)
 *Figura 2: Creación de un nuevo grupo de seguridad desde el panel de EC2.*
 
 3. Indicar los detalles básicos del grupo (**Basic details**):
@@ -543,13 +484,13 @@ Antes de configurar los servicios en la máquina, debemos garantizar que el **Se
 > En Amazon Web Services, el nombre de un grupo de seguridad **no puede comenzar por el prefijo `sg-`**, ya que AWS lo reserva internamente para los identificadores únicos del sistema (ej: `sg-0123456789abcdef`). Por ello nombramos el grupo como **`grup-servidors-ftp-ssh`** o **`servidores-ftp-ssh`**.
 >
 
-![Detalles básicos del Security Group](./07_Transferencia_Ficheros_FTP_SSH/imagenes/03_detalles_basicos_sg.png)
+![Detalles básicos del Security Group](./img6/03_detalles_basicos_sg.png)
 *Figura 3: Configuración del nombre, descripción y VPC del nuevo grupo de seguridad.*
 
 
 4. En la sección **Inbound rules** (**Reglas de entrada**), pulsar en el botón **Add rule** (**Agregar regla**):
 
-![Pulsar el botón Agregar regla en Reglas de entrada](./07_Transferencia_Ficheros_FTP_SSH/imagenes/04_boton_agregar_regla.png)
+![Pulsar el botón Agregar regla en Reglas de entrada](./img6/04_boton_agregar_regla.png)
 *Figura 4: Ubicación del botón Add rule para definir las aperturas de puertos.*
 
 Añadir las 5 reglas requeridas:
@@ -561,15 +502,15 @@ Añadir las 5 reglas requeridas:
 
 > 📷 **Evidencia 2 (insertar en tu documento Word) — Realizar captura de pantalla** de la tabla de reglas de entrada del Security Group donde se vean los puertos 21, 22, 3389, 50000-50100 y 40000-40100.
 
-![Tabla de reglas de entrada del Security Group completada](./07_Transferencia_Ficheros_FTP_SSH/imagenes/06_tabla_reglas_entrada.png)
+![Tabla de reglas de entrada del Security Group completada](./img_6/06_tabla_reglas_entrada.png)
 *Figura 5: Definición completa de las 5 reglas de entrada (RDP, SSH, FTP 21 y rangos pasivos).*
 
 5. Bajar hasta el final de la página y pulsar el botón naranja **Create security group**:
 
-![Pulsar el botón Crear grupo de seguridad](./07_Transferencia_Ficheros_FTP_SSH/imagenes/07_boton_final_crear_sg.png)
+![Pulsar el botón Crear grupo de seguridad](./img6/07_boton_final_crear_sg.png)
 6. Una vez creado, se mostrará el panel resumen del grupo de seguridad con sus 5 reglas activas:
 
-![Panel resumen del grupo de seguridad con las 5 reglas activas](./07_Transferencia_Ficheros_FTP_SSH/imagenes/08_resumen_grupo_creado.png)
+![Panel resumen del grupo de seguridad con las 5 reglas activas](./img6/08_resumen_grupo_creado.png)
 *Figura 7: Resumen del grupo de seguridad grup-servidors-ftp-ssh con sus 5 reglas de entrada operativas.*
 
 7. **Asignación del grupo a la instancia Windows Server:**
@@ -577,12 +518,12 @@ Añadir las 5 reglas requeridas:
    * Marcar la casilla de `Servidor_FTPSSH`.
    * En el menú superior, pulsar en **Actions** -> **Security** -> **Change security groups**.
 
-![Acceso a Cambiar grupos de seguridad desde el menú Acciones](./07_Transferencia_Ficheros_FTP_SSH/imagenes/09_cambiar_grupos_seguridad.png)
+![Acceso a Cambiar grupos de seguridad desde el menú Acciones](./img6/09_cambiar_grupos_seguridad.png)
 *Figura 8: Opción Change security groups en el menú Actions de la instancia.*
 
    * Seleccionar `grup-servidors-ftp-ssh`, eliminar el grupo anterior (`launch-wizard-1`) y hacer clic en el botón naranja **Save** (**Guardar**).
 
-![Ventana Cambiar grupos de seguridad asociando el nuevo grupo](./07_Transferencia_Ficheros_FTP_SSH/imagenes/10_ventana_cambiar_grupos.png)
+![Ventana Cambiar grupos de seguridad asociando el nuevo grupo](./img6/10_ventana_cambiar_grupos.png)
 *Figura 9: Ventana de asociación del grupo grup-servidors-ftp-ssh y eliminación del grupo anterior.*
 
 > 💡 **¿Por qué eliminamos launch-wizard-1? ¿Seguirá funcionando el RDP?**
@@ -610,7 +551,7 @@ Para administrar gráficamente Windows Server 2022 nos conectaremos a través de
    * **Nombre de usuario:** `Administrator`.
    * **Contraseña:** Enlace para obtener la clave descifrada.
 
-![Pestaña RDP en Conectarse a la instancia mostrando DNS público, usuario Administrator y enlace para obtener contraseña](./07_Transferencia_Ficheros_FTP_SSH/imagenes/10b_ec2_rdp_client_tab.png)
+![Pestaña RDP en Conectarse a la instancia mostrando DNS público, usuario Administrator y enlace para obtener contraseña](./img6/10b_ec2_rdp_client_tab.png)
 *Figura 9b: Pestaña RDP (protocolo de escritorio remoto) en la consola de AWS EC2 para conectar con Windows Server.*
 
 5. En el campo **Contraseña** (**Password**), haz clic en el enlace azul **Obtener la contraseña de Windows** (**Get password**).
@@ -620,7 +561,7 @@ Para administrar gráficamente Windows Server 2022 nos conectaremos a través de
    * Verás cómo el cuadro de texto inferior se rellena automáticamente con el texto de tu clave RSA privada (`-----BEGIN RSA PRIVATE KEY----- ...`) y se muestra la etiqueta con el nombre del archivo cargado.
    * Haz clic en el botón naranja inferior **Descifrar contraseña** (**Decrypt password**).
 
-![Carga del archivo labsuser.pem y botón Descifrar contraseña en AWS EC2](./07_Transferencia_Ficheros_FTP_SSH/imagenes/10c_ec2_upload_pem_decrypt.png)
+![Carga del archivo labsuser.pem y botón Descifrar contraseña en AWS EC2](./img6/10c_ec2_upload_pem_decrypt.png)
 *Figura 9c: Carga del archivo labsuser.pem en el asistente de AWS EC2 y botón naranja Descifrar contraseña.*
 
 7. La consola abrirá una ventana emergente mostrando los datos finales de acceso:
@@ -628,7 +569,7 @@ Para administrar gráficamente Windows Server 2022 nos conectaremos a través de
    * **Contraseña:** La contraseña alfanumérica descifrada (con caracteres especiales).
 8. 📋 **Copia la contraseña descifrada** pulsando en el icono del portapapeles y pulsa en el botón naranja **Aceptar**. Guárdala temporalmente en un bloc de notas o mantenla en el portapapeles.
 
-![Ventana emergente con el usuario Administrator y la contraseña descifrada lista para copiar](./07_Transferencia_Ficheros_FTP_SSH/imagenes/10d_ec2_password_decrypted.png)
+![Ventana emergente con el usuario Administrator y la contraseña descifrada lista para copiar](./img6/10d_ec2_password_decrypted.png)
 *Figura 9d: Ventana emergente en AWS con la contraseña de Administrator descifrada y lista para copiar con el icono del portapapeles.*
 
 #### Paso 3: Conexión mediante Escritorio Remoto (RDP)
@@ -640,7 +581,7 @@ Dispones de dos métodos equivalentes para iniciar la sesión gráfica:
   3. Al abrirlo, Windows mostrará una ventana de advertencia de seguridad (*Precaución: conexión remota desconocida*).
   4. Verifica que la opción **Portapapeles** está marcada (para poder pegar contraseñas y textos entre tu equipo y el servidor) y haz clic en el botón **Conectar**.
 
-![Ventana de advertencia de seguridad de Conexión a Escritorio remoto de Windows](./07_Transferencia_Ficheros_FTP_SSH/imagenes/10e_rdp_seguridad_conectar.png)
+![Ventana de advertencia de seguridad de Conexión a Escritorio remoto de Windows](./img6/10e_rdp_seguridad_conectar.png)
 *Figura 9e: Advertencia de conexión remota desconocida en Windows, permitiendo el uso del Portapapeles antes de pulsar Conectar.*
 
 * **Método B (Manual mediante mstsc):**
@@ -675,7 +616,7 @@ Dispones de dos métodos equivalentes para iniciar la sesión gráfica:
 
 1. En el **Administrador del Servidor** (**Server Manager**), pulsar en el enlace central **Add roles and features** (o en el menú superior **Manage** -> **Add Roles and Features**).
 
-![Acceso a Agregar roles y características desde Server Manager](./07_Transferencia_Ficheros_FTP_SSH/imagenes/11_server_manager_add_roles.png)
+![Acceso a Agregar roles y características desde Server Manager](./img6/11_server_manager_add_roles.png)
 *Figura 10: Acceso al asistente para agregar roles y características desde el Administrador del Servidor (Server Manager).*
 
 2. Avanzar por las pantallas preliminares (**Before You Begin**, **Installation Type** y **Server Selection**) manteniendo los valores por defecto pulsando **Next**.
@@ -685,13 +626,13 @@ Dispones de dos métodos equivalentes para iniciar la sesión gráfica:
    * Desplegar la categoría **FTP Server** y marcar las casillas **FTP Service** y **FTP Extensibility**.
    * Verificar que en **Management Tools** queda marcada la **IIS Management Console**.
 
-![Selección de los servicios de rol FTP Server en IIS](./07_Transferencia_Ficheros_FTP_SSH/imagenes/12_iis_ftp_role_services.png)
+![Selección de los servicios de rol FTP Server en IIS](./img6/12_iis_ftp_role_services.png)
 *Figura 11: Selección de los servicios de rol FTP Service y FTP Extensibility en el asistente de instalación.*
 
 5. En la pantalla **Confirmation**, revisar los elementos y pulsar el botón **Install**.
 6. Una vez completado el proceso, la barra de progreso mostrará el mensaje **Installation succeeded** y se activará el botón **Close**.
 
-![Instalación completada con éxito de IIS y FTP Server](./07_Transferencia_Ficheros_FTP_SSH/imagenes/13_instalacion_completada_iis_ftp.png)
+![Instalación completada con éxito de IIS y FTP Server](./img6/13_instalacion_completada_iis_ftp.png)
 *Figura 12: Barra de instalación completada con éxito para el Servidor Web (IIS) y el Servicio FTP.*
 
 7. Pulsar en el botón **Close** para cerrar el asistente.
@@ -708,7 +649,7 @@ En las imágenes oficiales de Windows Server proporcionadas por Amazon Web Servi
 3. En la sección **Added features** (Características añadidas), escribir `ssh` en el filtro de búsqueda.
 4. Comprobar que **OpenSSH Server** figura ya como instalado (no pulsar el botón **Remove**; pulsar en **Close** para cerrar la ventana).
 
-![Comprobación de OpenSSH Server preinstalado en Optional features](./07_Transferencia_Ficheros_FTP_SSH/imagenes/14_openssh_server_optional_features.png)
+![Comprobación de OpenSSH Server preinstalado en Optional features](./img6/14_openssh_server_optional_features.png)
 *Figura 13: Comprobación de la característica OpenSSH Server ya preinstalada en la imagen EC2 de AWS.*
 
 **Inicio y arranque del servicio OpenSSH (Consola gráfica de Servicios):**
@@ -719,7 +660,7 @@ En las imágenes oficiales de Windows Server proporcionadas por Amazon Web Servi
    * Pulsar en el botón **Iniciar** (**Start**).
    * Pulsar **OK**.
 
-![Servicio OpenSSH SSH Server en ejecución y en inicio automático](./07_Transferencia_Ficheros_FTP_SSH/imagenes/15_servicio_openssh_running.png)
+![Servicio OpenSSH SSH Server en ejecución y en inicio automático](./img6/15_servicio_openssh_running.png)
 *Figura 14: Consola gráfica de Servicios mostrando OpenSSH SSH Server en estado En ejecución (Running) y con tipo de inicio Automático.*
 
 > 💡 **Alternativa rápida por PowerShell para administradores de sistemas**
@@ -747,7 +688,7 @@ En las imágenes oficiales de Windows Server proporcionadas por Amazon Web Servi
    * Marcar **User cannot change password** y **Password never expires**.
    * Pulsar en **Create** y luego en **Close**.
 
-![Creación del usuario local alumne_redes](./07_Transferencia_Ficheros_FTP_SSH/imagenes/16_crear_usuario_alumne_redes.png)
+![Creación del usuario local alumne_redes](./img6/16_crear_usuario_alumne_redes.png)
 *Figura 15: Ventana de creación del usuario local alumne_redes con las directivas de contraseña configuradas.*
 
 4. Hacer doble clic sobre el usuario `alumne_redes` en la lista -> pestaña **Member Of**:
@@ -755,10 +696,10 @@ En las imágenes oficiales de Windows Server proporcionadas por Amazon Web Servi
    * Pulsar de nuevo en **Add...** -> escribir `Administrators` -> pulsar en **Check Names** y **OK** (imprescindible en las instancias Windows Server de AWS para que el servidor **OpenSSH** autorice el inicio de sesión por SSH y SFTP en el puerto `22`).
    * Comprobar que el usuario pertenece a los tres grupos (`Administrators`, `Remote Desktop Users` y `Users`), y pulsar en **Apply** y **OK**.
 
-![Adición del usuario al grupo Remote Desktop Users](./07_Transferencia_Ficheros_FTP_SSH/imagenes/17_agregar_grupo_remote_desktop.png)
+![Adición del usuario al grupo Remote Desktop Users](./img6/17_agregar_grupo_remote_desktop.png)
 *Figura 16: Selección y comprobación del grupo Remote Desktop Users para el usuario alumne_redes.*
 
-![Pertenencia de alumne_redes a los grupos Administrators, Remote Desktop Users y Users](./07_Transferencia_Ficheros_FTP_SSH/imagenes/17b_alumne_redes_member_of.png)
+![Pertenencia de alumne_redes a los grupos Administrators, Remote Desktop Users y Users](./img6/17b_alumne_redes_member_of.png)
 *Figura 16b: Pestaña Member Of mostrando al usuario alumne_redes dentro de Administrators, Remote Desktop Users y Users.*
 
 > 📷 **Evidencia 4 (insertar en tu documento Word) — Realizar captura de pantalla** de la ventana de propiedades (**Properties** -> **Member Of**) del usuario `alumne_redes` mostrando su pertenencia a los grupos `Administrators`, `Remote Desktop Users` y `Users`.
@@ -781,12 +722,12 @@ En las imágenes oficiales de Windows Server proporcionadas por Amazon Web Servi
 2. En el panel izquierdo (**Connections**), hacer clic sobre el nombre del servidor (nodo raíz).
 3. En el panel central, localizar la sección **FTP** y hacer doble clic sobre el icono **FTP Firewall Support**:
 
-![Acceso a FTP Firewall Support en IIS Manager](./07_Transferencia_Ficheros_FTP_SSH/imagenes/18_iis_icono_ftp_firewall.png)
+![Acceso a FTP Firewall Support en IIS Manager](./img6/18_iis_icono_ftp_firewall.png)
 *Figura 17: Selección del nodo raíz del servidor y acceso a FTP Firewall Support en el Administrador de IIS.*
 
 4. Para obtener la dirección IPv4 pública de la máquina virtual, volver a la pestaña del navegador con la consola de **AWS EC2** -> **Instancias** -> seleccionar `Servidor_FTPSSH` y, en la pestaña inferior **Detalles** (**Details**), copiar la **Dirección IPv4 pública** (pulsando sobre el icono de los dos cuadraditos azules situado a la izquierda de la IP):
 
-![Copia de la Dirección IPv4 pública en la consola de AWS EC2](./07_Transferencia_Ficheros_FTP_SSH/imagenes/18b_aws_ip_publica.png)
+![Copia de la Dirección IPv4 pública en la consola de AWS EC2](./img6/18b_aws_ip_publica.png)
 *Figura 18: Localización y copia de la Dirección IPv4 pública de la instancia en la consola de AWS EC2.*
 
 5. De vuelta en la ventana **FTP Firewall Support** de IIS, configurar los parámetros del canal de datos pasivo:
@@ -794,12 +735,12 @@ En las imágenes oficiales de Windows Server proporcionadas por Amazon Web Servi
    * **External IP Address of Firewall:** Pegar la **Dirección IPv4 pública actual** de vuestra instancia en AWS (en nuestro ejemplo, `52.90.151.179`).
    * En el panel lateral derecho (**Actions**), hacer clic en **Apply**.
 
-![Configuración del rango pasivo y la IP pública en FTP Firewall Support](./07_Transferencia_Ficheros_FTP_SSH/imagenes/19_iis_ftp_firewall_support.png)
+![Configuración del rango pasivo y la IP pública en FTP Firewall Support](./img6/19_iis_ftp_firewall_support.png)
 *Figura 19: Configuración del rango de puertos pasivos (50000-50100) y la dirección IPv4 pública externa de AWS.*
 
 6. Al pulsar en **Apply**, aparecerá una ventana informativa recordando que es necesario abrir también dicho rango de puertos en el cortafuegos del sistema (lo cual realizaremos en el apartado 6.7). Pulsar en **OK**.
 
-![Mensaje informativo de FTP Firewall Support](./07_Transferencia_Ficheros_FTP_SSH/imagenes/19b_aviso_ftp_firewall_support.png)
+![Mensaje informativo de FTP Firewall Support](./img6/19b_aviso_ftp_firewall_support.png)
 *Figura 19b: Aviso informativo recordando configurar la regla de puertos en el Firewall de Windows.*
 
 > ⚠️ **¡No olvides poner la IPv4 Pública de AWS!**
@@ -815,21 +756,21 @@ En las imágenes oficiales de Windows Server proporcionadas por Amazon Web Servi
 
 1. En el panel izquierdo de IIS (**Connections**), desplegar el servidor, hacer clic derecho sobre la carpeta **Sites** y seleccionar **Add FTP Site...**:
 
-![Acceso a Add FTP Site desde la carpeta Sites de IIS](./07_Transferencia_Ficheros_FTP_SSH/imagenes/20_iis_menu_add_ftp_site.png)
+![Acceso a Add FTP Site desde la carpeta Sites de IIS](./img6/20_iis_menu_add_ftp_site.png)
 *Figura 20: Menú contextual sobre la carpeta Sites para añadir un nuevo sitio FTP.*
 
 2. **Site Information:**
    * **FTP site name:** `FTP-AULA`
    * **Physical path:** `C:\inetpub\ftproot` -> Pulsar **Next**.
 
-![Configuración del nombre del sitio FTP y ruta física](./07_Transferencia_Ficheros_FTP_SSH/imagenes/21_iis_ftp_site_info.png)
+![Configuración del nombre del sitio FTP y ruta física](./img6/21_iis_ftp_site_info.png)
 *Figura 21: Definición del nombre del sitio (FTP-AULA) y su directorio raíz físico (C:\inetpub\ftproot).*
 
 3. **Binding and SSL Settings:**
    * **IP Address:** **All Unassigned** | **Port:** `21`.
    * **SSL:** Marcar **No SSL** -> Pulsar **Next**.
 
-![Configuración de enlace IP, puerto 21 y modo sin SSL](./07_Transferencia_Ficheros_FTP_SSH/imagenes/22_iis_ftp_binding_ssl.png)
+![Configuración de enlace IP, puerto 21 y modo sin SSL](./img6/22_iis_ftp_binding_ssl.png)
 *Figura 22: Configuración del puerto de control 21 TCP y desactivación inicial de SSL.*
 
 4. **Authentication and Authorization Information:**
@@ -837,12 +778,12 @@ En las imágenes oficiales de Windows Server proporcionadas por Amazon Web Servi
    * **Authorization:** Seleccionar **Specified users** y escribir debajo `alumne_redes`.
    * **Permissions:** Marcar **Read** y **Write** -> Pulsar **Finish**.
 
-![Configuración de autenticación básica y permisos para alumne_redes](./07_Transferencia_Ficheros_FTP_SSH/imagenes/23_iis_ftp_auth_permissions.png)
+![Configuración de autenticación básica y permisos para alumne_redes](./img6/23_iis_ftp_auth_permissions.png)
 *Figura 23: Habilitación de autenticación básica y permisos de lectura y escritura para el usuario alumne_redes.*
 
 5. Una vez finalizado el asistente, comprobar que el sitio `FTP-AULA` aparece en la lista de **Sites** en estado **Started (ftp)** escuchando por el puerto `21`:
 
-![Sitio FTP-AULA creado e iniciado en IIS Manager](./07_Transferencia_Ficheros_FTP_SSH/imagenes/24_iis_sitio_ftp_creado.png)
+![Sitio FTP-AULA creado e iniciado en IIS Manager](./img6/24_iis_sitio_ftp_creado.png)
 *Figura 24: Sitio FTP-AULA activo y en estado iniciado (Started) en el Administrador de IIS.*
 
 > 📷 **Evidencia 6 (insertar en tu documento Word) — Realizar captura de pantalla** de IIS Manager mostrando el sitio `FTP-AULA` creado y en estado iniciado (**Started**).
@@ -855,22 +796,22 @@ Por defecto, Windows Server concede únicamente permisos de **lectura** al grupo
 
 1. Abrir el **Explorador de archivos** de Windows, navegar hasta `C:\inetpub`, hacer **clic derecho** sobre la carpeta **`ftproot`** y seleccionar **Properties** (**Propiedades**):
 
-![Menú contextual sobre la carpeta ftproot seleccionando Properties](./07_Transferencia_Ficheros_FTP_SSH/imagenes/24b_ftproot_menu_properties.png)
+![Menú contextual sobre la carpeta ftproot seleccionando Properties](./img6/24b_ftproot_menu_properties.png)
 *Figura 24b: Acceso a las propiedades de la carpeta física C:\inetpub\ftproot desde el Explorador de archivos.*
 
 2. En la ventana **ftproot Properties**, abrir la pestaña superior **Security** (**Seguridad**) y pulsar en el botón **Edit...** (**Editar...**):
 
-![Pestaña Security de ftproot Properties y botón Edit](./07_Transferencia_Ficheros_FTP_SSH/imagenes/24c_ftproot_security_edit.png)
+![Pestaña Security de ftproot Properties y botón Edit](./img6/24c_ftproot_security_edit.png)
 *Figura 24c: Pestaña Security de las propiedades de ftproot y acceso a la edición de permisos NTFS.*
 
 3. En la ventana de permisos, hacer clic en el botón **Add...**, escribir `alumne_redes`, pulsar en **Check Names** para resolver el nombre local completo y hacer clic en **OK**:
 
-![Selección y comprobación del usuario alumne_redes en permisos NTFS](./07_Transferencia_Ficheros_FTP_SSH/imagenes/24d_ftproot_add_user.png)
+![Selección y comprobación del usuario alumne_redes en permisos NTFS](./img6/24d_ftproot_add_user.png)
 *Figura 24d: Adición del usuario local alumne_redes a la lista de control de acceso (ACL) de la carpeta.*
 
 4. Con el usuario **Alumne Redes (`alumne_redes`)** seleccionado en la lista superior, marcar la casilla **Modify** (**Modificar**) en la columna **Allow** (lo cual activará automáticamente también el permiso **Write**). Finalmente, pulsar en **Apply** y en **OK**:
 
-![Asignación del permiso Modify para alumne_redes sobre ftproot](./07_Transferencia_Ficheros_FTP_SSH/imagenes/24e_ftproot_permissions_modify.png)
+![Asignación del permiso Modify para alumne_redes sobre ftproot](./img6/24e_ftproot_permissions_modify.png)
 *Figura 24e: Concesión del permiso NTFS Modify (lectura, escritura y modificación) al usuario alumne_redes sobre C:\inetpub\ftproot.*
 
 > 💡 **Permisos válidos tanto para FTP (puerto 21) como para SFTP/SSH (puerto 22)**
@@ -884,23 +825,23 @@ Por defecto, Windows Server concede únicamente permisos de **lectura** al grupo
 
 1. En el **Administrador del Servidor** (**Server Manager**), desplegar el menú superior **Tools** y seleccionar **Windows Defender Firewall with Advanced Security** (o pulsar `Windows + R` y ejecutar `wf.msc`):
 
-![Acceso a Windows Defender Firewall desde el menú Tools](./07_Transferencia_Ficheros_FTP_SSH/imagenes/25_server_manager_tools_firewall.png)
+![Acceso a Windows Defender Firewall desde el menú Tools](./img6/25_server_manager_tools_firewall.png)
 *Figura 25: Apertura de Windows Defender Firewall with Advanced Security desde el menú Tools de Server Manager.*
 
 2. En el árbol izquierdo, seleccionar **Inbound Rules** (**Reglas de entrada**) y en la columna derecha (**Actions**) hacer clic en **New Rule...**:
 
-![Selección de Inbound Rules y botón New Rule](./07_Transferencia_Ficheros_FTP_SSH/imagenes/26_firewall_inbound_new_rule.png)
+![Selección de Inbound Rules y botón New Rule](./img6/26_firewall_inbound_new_rule.png)
 *Figura 26: Selección de Inbound Rules y creación de una nueva regla de entrada.*
 
 3. Configurar los pasos del asistente **New Inbound Rule Wizard**:
    * **Rule Type:** Marcar **Port** y pulsar **Next**.
 
-![Selección del tipo de regla Port](./07_Transferencia_Ficheros_FTP_SSH/imagenes/27_firewall_rule_type_port.png)
+![Selección del tipo de regla Port](./img6/27_firewall_rule_type_port.png)
 *Figura 27: Selección de regla basada en puerto (Port).*
 
    * **Protocol and Ports:** Marcar **TCP**, seleccionar **Specific local ports** e introducir el rango `50000-50100` (o escribir directamente `22, 50000-50100` para dejar abierto a la vez el puerto `22` de **OpenSSH Server / SFTP** en el Firewall de Windows). Pulsar **Next**.
 
-![Configuración del protocolo TCP y rango de puertos pasivos 50000-50100](./07_Transferencia_Ficheros_FTP_SSH/imagenes/28_firewall_protocol_ports.png)
+![Configuración del protocolo TCP y rango de puertos pasivos 50000-50100](./img6/28_firewall_protocol_ports.png)
 *Figura 28: Apertura del rango de puertos TCP 50000-50100 para el canal de datos pasivo.*
 
 > 💡 **Añadir el puerto 22 (SSH/SFTP) a la regla del Firewall de Windows**
@@ -908,25 +849,25 @@ Por defecto, Windows Server concede únicamente permisos de **lectura** al grupo
 > En las imágenes de Windows Server de AWS, aunque **OpenSSH Server** viene preinstalado, el Firewall de Windows Defender trae cerrado el puerto `22` TCP. Si ya habías creado la regla solo con `50000-50100`, puedes hacer **doble clic** sobre la regla creada (`FTP Pasivo Datos (50000-50100)`), ir a la pestaña **Protocols and Ports**, cambiar **Local port** a **`22, 50000-50100`** y pulsar **Apply** y **OK**:
 >
 
-![Inclusión del puerto 22 junto al rango pasivo 50000-50100 en las propiedades de la regla](./07_Transferencia_Ficheros_FTP_SSH/imagenes/28b_firewall_puerto_22_y_pasivo.png)
+![Inclusión del puerto 22 junto al rango pasivo 50000-50100 en las propiedades de la regla](./img6/28b_firewall_puerto_22_y_pasivo.png)
 *Figura 28b: Pestaña Protocols and Ports permitiendo simultáneamente el puerto 22 (SSH/SFTP) y el rango 50000-50100 (FTP Pasivo).*
 
    * **Action:** Marcar **Allow the connection** y pulsar **Next**.
 
-![Configuración de la acción Allow the connection](./07_Transferencia_Ficheros_FTP_SSH/imagenes/29_firewall_action_allow.png)
+![Configuración de la acción Allow the connection](./img6/29_firewall_action_allow.png)
 *Figura 29: Autorización de las conexiones entrantes (Allow the connection).*
 
    * **Profile:** Mantener marcados los tres perfiles (**Domain**, **Private** y **Public**) y pulsar **Next**.
    * **Name:** Escribir `FTP Pasivo Datos (50000-50100)` y pulsar **Finish**.
 
-![Asignación del nombre a la regla del Firewall](./07_Transferencia_Ficheros_FTP_SSH/imagenes/30_firewall_rule_name.png)
+![Asignación del nombre a la regla del Firewall](./img6/30_firewall_rule_name.png)
 *Figura 30: Nombre descriptivo de la regla para identificar los puertos pasivos de FTP.*
 
 4. **Reiniciar el servicio FTP** para aplicar todos los cambios:
    * Abrir la consola gráfica de **Services** (`services.msc` o desde **Server Manager** -> **Tools** -> **Services**).
    * Localizar **Microsoft FTP Service**, hacer clic derecho sobre él y pulsar en **Restart**.
 
-![Reinicio gráfico del servicio Microsoft FTP Service](./07_Transferencia_Ficheros_FTP_SSH/imagenes/31_reiniciar_servicio_ftp.png)
+![Reinicio gráfico del servicio Microsoft FTP Service](./img6/31_reiniciar_servicio_ftp.png)
 *Figura 31: Reinicio del servicio Microsoft FTP Service desde la consola gráfica de Servicios.*
 
 > 📷 **Evidencia 7 (insertar en tu documento Word) — Realizar captura de pantalla** de la regla `FTP Pasivo Datos (50000-50100)` creada en el Firewall de Windows y del servicio `Microsoft FTP Service` en ejecución.
