@@ -39,32 +39,38 @@ schedule: 233h - 7h/w
 ### 1.1 Evolución histórica: Del RFC 114 al RFC 959
 
 - El protocolo **FTP (File Transfer Protocol)** nació formalmente el 16 de abril de 1971 con la publicación del **RFC 114** por Abhay Bhushan en el MIT, operando sobre las primeras redes de conmutación de paquetes de ARPANET y la pila NCP (*Network Control Program*).
-- Con la transición definitiva a la arquitectura de Internet basada en TCP/IP en 1980, el protocolo se rediseñó en el **RFC 765** y finalmente se consolidó en octubre de 1985 con la publicación del **RFC 959**, que continúa siendo el estándar fundacional vigente hoy en día.
+- En 1980 el protocolo se rediseñó en el **RFC 765** para funcionar sobre TCP/IP. ARPANET abandonó definitivamente NCP y adoptó TCP/IP el **1 de enero de 1983**, y en octubre de 1985 se consolidó FTP con la publicación del **RFC 959**, que continúa siendo el estándar fundacional vigente hoy en día.
 - A lo largo de las décadas, FTP ha evolucionado mediante diversas ampliaciones (*RFC extensions*), destacando:
    1. **RFC 2228 (FTP Security Extensions):** Introduce mecanismos de autenticación y cifrado mediante comandos como `AUTH TLS`.
    1. **RFC 2428 (FTP Extensions for IPv6 and NATs):** Define los comandos `EPRT` (*Extended Port*) y `EPSV` (*Extended Passive*) para dar soporte al direccionamiento IPv6 y facilitar la interoperabilidad con pasarelas NAT complejas.
    1. **RFC 3659 (Extensions to FTP):** Añade comandos modernos como `MLST` y `MLSD` para obtener listados de ficheros con metadatos estandarizados e información horaria en UTC.
+   1. **RFC 4217 (Securing FTP with TLS):** Define el funcionamiento de FTPS explícito sobre la base de la RFC 2228.
 
 ### 1.2 FTP y modelo TCP/IP
 
-![img](./img_6/img-6-3.png){.sietecinco .margintop10 marginbottom20 .marco}
+![Posición de FTP en las capas del modelo TCP/IP](./img_6/img-6-3.png){.sietecinco .margintop10 .marginbottom20 .marco}
 
-- FTP se sitúa en la **Capa de Aplicación** (capa 4 de TCP/IP).
+- FTP se sitúa en la **Capa de Aplicación** (capa 4 de TCP/IP, que equivale a las capas 5, 6 y 7 del modelo OSI: sesión, presentación y aplicación).
 - Para el transporte de la información, se apoya de forma estricta en el protocolo **TCP (Transmission Control Protocol)** en la capa de transporte.
 - La elección de TCP (frente a protocolos no orientados a conexión como UDP) es indispensable por tres factores determinantes:  
     1. **Fiabilidad absoluta:** Cada paquete de datos debe ser confirmado mediante ACKs para asegurar que ni un solo byte del fichero transferido se pierda o llegue corrupto.
     1. **Entrega secuencial y ordenada:** Garantiza que los segmentos fragmentados en la red se reensamblen en el destino en el orden exacto.
     1. **Control de flujo y congestión:** Regula la velocidad de transmisión adaptándose a la capacidad del receptor y a las condiciones de congestión de los enlaces de red.
 
+!!! info "Contraejemplo: TFTP (Trivial FTP, RFC 1350)"
+    - Existe una versión simplificada llamada **TFTP** que utiliza **UDP (puerto 69)**, no tiene autenticación, ni listado de directorios, ni cifrado, y implementa su propia confirmación por bloques.
+    - Se usa en redes locales para el **arranque por red (PXE)** y para cargar firmwares y configuraciones en equipos de red (routers, switches, teléfonos IP).
+    - Nunca debe exponerse a Internet.
+
 ### 1.3 Modelo cliente-servidor y arquitectura de servicios
 
-![img](./img_6/img-6-5.jpeg){.sietecinco .margintop10 marginbottom20 .marco}
+![Esquema cliente-servidor de FTP](./img_6/img-6-5.jpeg){.sietecinco .margintop10 .marginbottom20 .marco}
 
 - FTP sigue el paradigma **cliente-servidor**:  
   - El **servidor FTP** es un proceso que permanece a la escucha de peticiones en el puerto TCP 21, esperando que los clientes se conecten y soliciten transferencias de ficheros o listados de directorios.
   - El **cliente FTP** es un programa que se ejecuta en la máquina del usuario final, capaz de establecer la conexión con el servidor, enviar órdenes y recibir datos.
 
-### 1.3 Casos de uso corporativos en la administración de sistemas
+### 1.4 Casos de uso corporativos en la administración de sistemas
 
 A pesar del auge de protocolos web (HTTP/HTTPS) y APIs REST, los servicios de transferencia de ficheros basados en FTP, FTPS y SFTP siguen siendo pilares en las infraestructuras de IT:
 
@@ -73,26 +79,17 @@ A pesar del auge de protocolos web (HTTP/HTTPS) y APIs REST, los servicios de tr
 1. **Copias de seguridad remotas (*backups*):** Automatización nocturna del envío de volcados de bases de datos (SQL) y ficheros de archivo comprimidos hacia servidores de almacenamiento remoto (*off-site*).
 1. **Intercambio B2B (*Business-to-Business*):** Intercambio automático de albaranes, facturas electrónicas (EDI) y ficheros de transacciones bancarias entre sistemas centrales de diferentes organizaciones.
 
-## 2 - Protocolo FTP (RFC 959)
+### 1.5 Alternativas a FTP para mover ficheros
 
-### 2.1 Canal de control y Canal de datos
+FTP no es la única forma de compartir ficheros. Conviene saber cuándo usar cada tecnología:
 
-La gran particularidad de FTP frente a casi todos los demás protocolos de red (HTTP, SSH o SMTP) radica en que **no utiliza una única conexión para todo**, sino que desacopla la comunicación en **dos conexiones TCP independientes con ciclos de vida y propósitos completamente distintos**:
-
-![img](./img_6/img-6-2.jpeg){.cien}
-
-!!! info "Canal de control (Puerto 21 TCP por defecto)"
-    - Es la conexión principal (*out-of-band signaling*). Se establece al inicio de la sesión entre el cliente y el puerto de escucha 21 TCP del servidor.
-    - Permanece **abierta de forma continua** durante toda la sesión del usuario.
-    - Por este canal circulan exclusivamente órdenes cortas en texto ASCII (como `USER`, `PASS`, `LIST`, `RETR`, `QUIT`) emitidas por el cliente y las correspondientes respuestas numéricas de estado de 3 dígitos generadas por el servidor.
-    - Por este canal **nunca viaja el contenido de los archivos** ni los listados de directorios.
-
-!!! info "Canal de datos (Puertos variables TCP / Puerto 20 en modo activo)"
-    - Es una conexión efímera que se abre **bajo demanda** únicamente cuando el cliente solicita una acción que implica intercambio de información volumétrica: transferir un fichero (subida con `STOR` o descarga con `RETR`) o solicitar el listado de archivos de una carpeta (`LIST` o `NLST`).
-     - Una vez finalizada la transmisión del archivo o entregado el listado, el canal de datos **se cierra inmediatamente**. Si el usuario desea descargar otro fichero a continuación, se negociará y abrirá una nueva conexión de datos independiente.
-
-!!! question "💡 ¿Por qué FTP desacopló el control de los datos?"
-    - Este diseño permite al cliente enviar órdenes de interrupción (como el comando `ABOR` para abortar una descarga) a través del canal de control mientras un archivo enorme se está descargando por el canal de datos, sin tener que esperar a que termine de llegar la totalidad del flujo de bytes.
+| Tecnología | Puerto(s) | Uso típico | Observaciones |
+|---|:---:|---||
+| **TFTP** | UDP 69 | Arranque PXE, firmwares y configuraciones de equipos de red | Sin autenticación ni cifrado. Solo en redes locales de confianza |
+| **SMB / CIFS** | TCP 445 | Carpetas compartidas en redes Windows (y Samba en Linux) | Pensado para la red local, no para Internet. Se estudia en la unidad de recursos compartidos |
+| **rsync (sobre SSH)** | TCP 22 | Copias de seguridad y sincronización incremental | Solo transfiere las diferencias entre ficheros. Alternativa moderna a `scp` |
+| **WebDAV** | TCP 80 / 443 | Edición de ficheros remotos sobre HTTP(S) | Atraviesa fácilmente los cortafuegos al usar el puerto 443 |
+| **HTTP(S)** | TCP 80 / 443 | Descarga pública de ficheros | Solo descarga de forma habitual. Es lo más sencillo para repositorios públicos |
 
 ### 2.2 Tipos de datos: ASCII vs Binario
 
@@ -103,6 +100,42 @@ La gran particularidad de FTP frente a casi todos los demás protocolos de red (
 |---|:---:|---|---||
 | **Modo ASCII / Texto** | `TYPE A` | - Convierte automáticamente los caracteres de salto de línea entre sistemas operativos emisores y receptores.<br>- En Windows las líneas terminan en `CR+LF` (`\r\n`, bytes `0x0D 0x0A`), mientras que en Linux/UNIX terminan únicamente en `LF` (`\n`, byte `0x0A`). | Ficheros de texto plano (`.txt`, `.html`, `.css`, `.csv`, `.php`). | **Muy alto:** Si se transfiere un ejecutable, imagen o zip en modo ASCII, el servidor alterará los bytes `0x0D` y `0x0A`, destruyendo por completo la estructura del archivo. |
 | **Modo Binario / Imagen** | `TYPE I` | Transmite el archivo byte a byte de forma idéntica, sin interpretar ni modificar ningún carácter ni secuencia de escape. | Ejecutables (`.exe`), imágenes (`.png`, `.jpg`), comprimidos (`.zip`, `.tar.gz`), bases de datos, PDFs. | **Nulo:** Conserva la integridad matemática del fichero íntegra. Es el modo por defecto en clientes modernos como FileZilla. |
+
+## 2 - Protocolo FTP (RFC 959)
+
+### 2.1 Canal de control y Canal de datos
+
+La gran particularidad de FTP frente a casi todos los demás protocolos de red (HTTP, SSH o SMTP) radica en que **no utiliza una única conexión para todo**, sino que desacopla la comunicación en **dos conexiones TCP independientes con ciclos de vida y propósitos completamente distintos**:
+
+![Canal de control (puerto 21) y canal de datos entre cliente y servidor FTP](./img_6/img-6-2.jpeg){.cien}
+
+!!! info "Canal de control (Puerto 21 TCP por defecto)"
+    - Es la conexión principal (*out-of-band signaling*). Se establece al inicio de la sesión entre el cliente y el puerto de escucha 21 TCP del servidor.
+    - Permanece **abierta de forma continua** durante toda la sesión del usuario.
+    - Por este canal circulan exclusivamente órdenes cortas en texto ASCII (como `USER`, `PASS`, `LIST`, `RETR`, `QUIT`) emitidas por el cliente y las correspondientes respuestas numéricas de estado de 3 dígitos generadas por el servidor.
+    - Por este canal **nunca viaja el contenido de los archivos** ni los listados de directorios.
+
+!!! info "Canal de datos (Puertos variables TCP / Puerto 20 en modo activo)"
+    - Es una conexión efímera que se abre **bajo demanda** únicamente cuando el cliente solicita una acción que implica intercambio de información volumétrica: transferir un fichero (subida con `STOR` o descarga con `RETR`) o solicitar el listado de archivos de una carpeta (`LIST` o `NLST`).
+    - Una vez finalizada la transmisión del archivo o entregado el listado, el canal de datos **se cierra inmediatamente**. Si el usuario desea descargar otro fichero a continuación, se negociará y abrirá una nueva conexión de datos independiente.
+
+!!! question "💡 ¿Por qué FTP desacopló el control de los datos?"
+    - Este diseño permite al cliente enviar órdenes de interrupción (como el comando `ABOR` para abortar una descarga) a través del canal de control mientras un archivo enorme se está descargando por el canal de datos, sin tener que esperar a que termine de llegar la totalidad del flujo de bytes.
+
+### 2.2 Tipos de datos: ASCII vs Binario
+
+- El RFC 959 contempla distintos modos de interpretar la información transmitida a través del canal de datos.
+- Su correcta elección permitirá evitar la corrupción irreversible de los ficheros transferidos, especialmente cuando se trabaja con sistemas operativos heterogéneos (Windows, Linux, macOS):
+
+| Modo de Transferencia | Comando FTP | Comportamiento del protocolo | Tipos de ficheros compatibles | Riesgo de corrupción |
+|---|:---:|---|---||
+| **Modo ASCII / Texto** | `TYPE A` | - Convierte automáticamente los caracteres de salto de línea entre sistemas operativos emisores y receptores.<br>- En Windows las líneas terminan en `CR+LF` (`\r\n`, bytes `0x0D 0x0A`), mientras que en Linux/UNIX terminan únicamente en `LF` (`\n`, byte `0x0A`). | Ficheros de texto plano (`.txt`, `.html`, `.css`, `.csv`, `.php`). | **Muy alto:** Si se transfiere un ejecutable, imagen o zip en modo ASCII, el servidor alterará los bytes `0x0D` y `0x0A`, destruyendo por completo la estructura del archivo. |
+| **Modo Binario / Imagen** | `TYPE I` | Transmite el archivo byte a byte de forma idéntica, sin interpretar ni modificar ningún carácter ni secuencia de escape. | Ejecutables (`.exe`), imágenes (`.png`, `.jpg`), comprimidos (`.zip`, `.tar.gz`), bases de datos, PDFs. | **Nulo:** Conserva la integridad matemática del fichero íntegra. |
+
+!!! warning "¿Qué modo se usa por defecto?"
+    - Según el RFC 959, el tipo por defecto de una sesión FTP es **ASCII** (`TYPE A`). Por eso, con el cliente de consola `ftp`, conviene escribir `binary` antes de transferir ficheros que no sean de texto.
+    - **FileZilla** usa por defecto el modo **Auto**: transfiere en ASCII los ficheros cuya extensión está en su lista de tipos de texto y en binario el resto. Se puede forzar en *Editar → Configuración → Transferencias → Tipos de archivo*.
+    - **SFTP no tiene este problema**: transfiere siempre los bytes tal cual, sin conversión de saltos de línea.
 
 ### 2.3 Repertorio de comandos estándar de FTP (RFC 959)
 
@@ -126,11 +159,43 @@ Las órdenes que viajan por el canal de control son palabras mnemotécnicas de 3
     - `RETR <fichero>` (*Retrieve*): Descarga el archivo solicitado desde el servidor hacia el cliente.
     - `STOR <fichero>` (*Store*): Sube y almacena un archivo desde el cliente en el servidor.
     - `DELE <fichero>` (*Delete*): Elimina el fichero especificado del servidor.
+    - `RNFR <origen>` / `RNTO <destino>` (*Rename From / Rename To*): Renombran un fichero. Se envían siempre en pareja.
+    - `REST <posición>` (*Restart*): Indica el byte desde el que se reanuda una transferencia interrumpida.
+    - `ABOR` (*Abort*): Aborta la transferencia en curso. Se envía por el canal de control.
 
 !!! tip "Negociación del canal de datos:"
     - `PORT <h1,h2,h3,h4,p1,p2>`: Indica al servidor la dirección IP y el puerto TCP en el que el cliente espera la conexión de datos (Modo Activo).
     - `PASV`: Solicita al servidor que abra un puerto pasivo y espere la conexión del cliente (Modo Pasivo).
+    - `EPRT` / `EPSV`: Versiones extendidas de `PORT` y `PASV` (RFC 2428) con soporte de IPv6. Se explican en el apartado 2.5.3.
     - `TYPE <A|I>`: Establece el tipo de representación de los datos (`A` para ASCII, `I` para binario/imagen).
+
+<!-- NUEVO: comandos de seguridad y utilidades que el texto menciona pero no listaba -->
+!!! tip "Seguridad e información del servidor:"
+    - `AUTH TLS`: El cliente solicita cifrar el canal de control con TLS (RFC 2228 y 4217).
+    - `PBSZ 0`: Fija el tamaño de búfer de protección. En TLS siempre vale 0.
+    - `PROT <P|C>`: Fija el nivel de protección del canal de datos: `P` (*Private*, cifrado) o `C` (*Clear*, sin cifrar).
+    - `SYST`: El servidor indica su sistema operativo (por ejemplo, `215 Windows_NT`).
+    - `FEAT`: El servidor lista las extensiones que admite (`AUTH TLS`, `EPSV`, `MLST`, `UTF8`...).
+    - `SIZE <fichero>` y `MDTM <fichero>`: Tamaño y fecha de modificación de un fichero.
+    - `NOOP`: No hace nada. Sirve para mantener viva la conexión de control.
+
+!!! note "No confundir los comandos del protocolo con los comandos del cliente"
+    Los comandos anteriores son los que **viajan por la red**. Los clientes de consola (`ftp`, `lftp`) tienen sus propios comandos más amigables, que internamente se traducen a los del protocolo:
+
+    | Escribes en el cliente `ftp` | El cliente envía al servidor |
+    |---|---|
+    | `open servidor` + usuario y contraseña | `USER` y `PASS` |
+    | `ls` / `dir` | `PASV` (o `PORT`) + `LIST` |
+    | `cd carpeta` | `CWD carpeta` |
+    | `pwd` | `PWD` |
+    | `get fichero` | `PASV` (o `PORT`) + `RETR fichero` |
+    | `put fichero` | `PASV` (o `PORT`) + `STOR fichero` |
+    | `delete fichero` | `DELE fichero` |
+    | `mkdir carpeta` | `MKD carpeta` |
+    | `binary` / `ascii` | `TYPE I` / `TYPE A` |
+    | `bye` / `quit` | `QUIT` |
+
+    Para ver estos comandos en pantalla se puede activar el modo depuración (`debug` en `ftp`, o el panel de mensajes de FileZilla).
 
 ### 2.4 Códigos de respuesta del servidor
 
@@ -138,21 +203,40 @@ Las órdenes que viajan por el canal de control son palabras mnemotécnicas de 3
 
 - La taxonomía del primer dígito categoriza de manera unívoca la respuesta:
 
-![img](./img_6/img-6-4.jpeg){.cien}
+![Clasificación de los códigos de respuesta FTP según su primer dígito](./img_6/img-6-4.jpeg){.cien}
+
+| Primer dígito | Tipo de respuesta | Significado |
+|:-:|---||
+| `1xx` | Positiva preliminar | La orden se ha aceptado y se está iniciando la acción. Hay que esperar otra respuesta |
+| `2xx` | Positiva de finalización | La acción se ha completado con éxito |
+| `3xx` | Positiva intermedia | La orden se ha aceptado, pero el servidor necesita más información (por ejemplo, la contraseña) |
+| `4xx` | Negativa transitoria | La acción no se ha realizado, pero el error puede ser temporal. Se puede reintentar |
+| `5xx` | Negativa permanente | La acción no se ha realizado y repetirla igual no servirá. Hay que cambiar algo |
+
+El segundo dígito indica la categoría: `x0x` sintaxis, `x1x` información, `x2x` conexiones, `x3x` autenticación y `x5x` sistema de ficheros.
 
 | Código | Significado canónico del RFC 959 | Contexto habitual en el laboratorio y producción |
-|:-:|---||
+|:-:|---|---|
+| `125` | *Data connection already open; transfer starting.* | Variante de `150` cuando el canal de datos ya estaba abierto. |
 | `150` | *File status okay; about to open data connection.* | Notificación previa al inicio del flujo de datos en operaciones `LIST`, `RETR` o `STOR`. |
 | `200` | *Command okay.* | La orden solicitada (por ejemplo, `TYPE I` o `PORT`) se ha procesado con éxito. |
 | `220` | *Service ready for new user.* | Mensaje de bienvenida (*banner*) enviado por el servidor nada más abrir el canal de control en el puerto 21. |
+| `221` | *Service closing control connection.* | Respuesta a `QUIT`. La sesión se cierra correctamente. |
 | `226` | *Closing data connection. Requested file action successful.* | La transferencia del archivo o el listado del directorio ha finalizado completamente sin errores. |
 | `227` | *Entering Passive Mode (h1,h2,h3,h4,p1,p2).* | Respuesta a la orden `PASV`, proporcionando la IP y puerto efímero del servidor para la conexión de datos. |
+| `229` | *Entering Extended Passive Mode (\|\|\|puerto\|).* | Respuesta a `EPSV`: solo incluye el puerto, no la IP. |
 | `230` | *User logged in, proceed.* | Autenticación correcta de las credenciales introducidas. El usuario entra a su directorio raíz. |
+| `234` | *AUTH command OK; starting TLS handshake.* | El servidor acepta `AUTH TLS` y comienza el cifrado (FTPS explícito). |
+| `250` | *Requested file action okay, completed.* | Respuesta correcta a `CWD`, `DELE`, `RMD`, `RNTO`... |
+| `257` | *"PATHNAME" created.* | Respuesta a `PWD` y a `MKD`: indica la ruta. |
 | `331` | *User name okay, need password.* | Respuesta al comando `USER`; el nombre de cuenta es reconocido y el servidor aguarda el comando `PASS`. |
 | `421` | *Service not available, closing control connection.* | El servidor está saturado de conexiones o se ha superado el tiempo máximo de inactividad (*timeout*). |
 | `425` | *Can't open data connection.* | Fallo de negociación de red al intentar abrir el canal de datos (típico cuando un firewall bloquea los puertos). |
+| `426` | *Connection closed; transfer aborted.* | La conexión de datos se cortó a mitad de transferencia (red inestable, `ABOR` o timeout). |
+| `450` | *Requested file action not taken. File unavailable (busy).* | Fichero ocupado o bloqueado temporalmente. Se puede reintentar. |
 | `500` | *Syntax error, command unrecognized.* | La orden enviada por el cliente no existe o contiene parámetros sintácticamente inválidos. |
 | `530` | *Not logged in.* | Credenciales erróneas (usuario/contraseña incorrectos) o acceso anónimo denegado por directiva. |
+| `534` | *Request denied for policy reasons.* | El servidor exige TLS y el cliente intenta conectar sin cifrar, o no admite TLS. |
 | `550` | *Requested action not taken. File unavailable or access denied.* | **El código de error más frecuente:** El usuario intenta leer, escribir o borrar un fichero sobre el que no tiene permisos NTFS/Linux, o la ruta indicada no existe. |
 
 ### 2.5 Modos de transferencia: Modo Activo (PORT) vs Modo Pasivo (PASV)
