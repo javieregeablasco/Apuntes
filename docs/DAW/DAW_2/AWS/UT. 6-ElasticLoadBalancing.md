@@ -335,9 +335,9 @@ A diferencia de las otras prácticas donde solo lanzabamos las instancias sin ha
     - En este apartado configuraremos los puertos sobre los cuales el equilibrador de carga aceptará las conexiones entrantes y determinará a qué instancias se redirigirán las consultas.
         1. Protocolo: HTTP / 80
         1. Acción predeterminada: Reenviar el tráfico al grupo de destino (conjunto de instancias que recibirán las peticiones).  
-        1. Si todavía no disponemos de ningún grupo de destino creado, seleccionamos la opción “Agregar grupo de destino” y luego **Cree un grupo de destino** y lo configuramos antes de continuar.  
-        ![img](../AWS/ut6/elb9.png){ .cien .marco .margintop10 }
-        ![img](../AWS/ut6/elb10.png){ .cien .marco }
+        1. Si todavía no disponemos de ningún grupo de destino creado, seleccionamos la opción **Agregar grupo de destino** y luego **Cree un grupo de destino** y lo configuramos antes de continuar.  
+        ![img](../AWS/ut6/elb9.png){ .cien .marco .margintop10 .marginbottom20 }
+        ![img](../AWS/ut6/elb10.png){ .cien .marco .marginbottom20}
 
     - Crear grupo de destino.  
     ![img](../AWS/ut6/elb11.png){ .cien .marco .margintop10  .marginbottom20}
@@ -346,9 +346,9 @@ A diferencia de las otras prácticas donde solo lanzabamos las instancias sin ha
     - Revisamos los datos y creamos el grupo de destino
     ![img](../AWS/ut6/elb13.png){ .cien .marco .margintop10 }
 
-- Finalizamos la creación del equilibrador de carga
-![](../AWS/ut6/elb14.png){ .cien .marco .margintop20 }<br>
-    ![](../AWS/ut6/elb15.png){ .cien .marco  }<br>
+    - Finalizamos la creación del equilibrador de carga
+    ![img](../AWS/ut6/elb14.png){ .cien .marco .margintop10 .marginbottom20 }
+    ![img](../AWS/ut6/elb15.png){ .cien .marco  }
 
 #### **2.2.4 - Editar los atributos del equilibrador de carga**
 Una vez creado el equilibrador de carga, revisaremos y ajustaremos sus atributos para optimizar su funcionamiento. Estos atributos determinan el comportamiento del equilibrador de carga y la forma en que gestiona las peticiones de los usuarios.
