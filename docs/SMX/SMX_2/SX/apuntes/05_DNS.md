@@ -2273,9 +2273,9 @@ Renombrar las instancias a `ADDS-alumnos` y `ADDS-profesor`
 
 ### 18.7 ¿Están los registros que usa Active Directory?
 
-!!! tip "Objetivo: comprobar que cada controlador de dominio publica en el DNS sus **registros SRV**.<br><br>**Los registros SRV** son los registros que usan los equipos para encontrar el controlador de dominio. Si faltan, nadie podrá unirse al dominio."
+!!! tip "Objetivo: comprobar que cada controlador de dominio publica en el DNS sus **registros SRV**.<br><br>:black_small_square: **Los registros SRV** son los registros que usan los equipos para encontrar el controlador de dominio.<br>:black_small_square: Si faltan, nadie podrá unirse al dominio."
 
-1. Ejecutar los siguientes comandos para el dominio **profesores**:
+1. Ejecutar los siguientes comandos para el dominio **profesores**:  
 ==REALIZAR CAPTURA DE PANTALLA (3 en total)==  
 
     ```bash
