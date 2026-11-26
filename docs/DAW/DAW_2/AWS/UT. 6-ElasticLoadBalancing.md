@@ -197,7 +197,7 @@ Una vez creada la infraestructura (VPC + subred + EC2 + IGW) iniciaremos las int
 
 ## 2 - Equilibrado y escalado de infraestructuras
 
-### 2.1 - Introducción
+### 2.1 Introducción
 
 - En entornos de computación en la nube, el equilibrio de carga y el escalado automático son dos componentes esenciales para garantizar la disponibilidad, el rendimiento y la eficiencia de las aplicaciones y servicios. .
 
@@ -207,7 +207,7 @@ Una vez creada la infraestructura (VPC + subred + EC2 + IGW) iniciaremos las int
 
 - La combinación de ambos permite crear arquitecturas altamente disponibles, resilientes, rentables y tolerantes a fallos, asegurando que la infraestructura responda adecuadamente a fluctuaciones del tráfico sin intervención manual.
 
-### 2.2 - Elastic Load Balancing (ELB)
+### 2.2 Elastic Load Balancing (ELB)
 
 - Elastic Load Balancing (ELB) es un servicio de AWS que distribuye automáticamente el tráfico entrante entre múltiples instancias de Amazon EC2, contenedores y direcciones IP en una o más zonas de disponibilidad.
 
@@ -245,9 +245,9 @@ Una vez creada la infraestructura (VPC + subred + EC2 + IGW) iniciaremos las int
             - Se encuentran en zonas de disponibilidad distintas (una en a y otra en c).
             - Disponen de IP pública para permitir el acceso externo.
 
-# HASTA AQUI
-#### **2.2.2 - Instancias EC2**
-A diferencia de las otras prácticas donde solo lanzabamos las instancias sin hacer nada con ellas, en esta instalaremos un servidor web y un archivo index.html para comprobar el correcto funcionamiento del equilibrador de carga.
+#### 2.2.2 Instancias EC2
+
+- A diferencia de las otras prácticas donde solo lanzabamos las instancias sin hacer nada con ellas, en esta instalaremos un servidor web y un archivo index.html para comprobar el correcto funcionamiento del equilibrador de carga.
 
 !!! tip "Paso 1 - Detalles avanzados" 
 Durante el lanzado de la instancia EC2 buscar el apartado **Detalles avanzados**.
