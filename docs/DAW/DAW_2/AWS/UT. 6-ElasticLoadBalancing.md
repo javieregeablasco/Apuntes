@@ -344,33 +344,35 @@ A diferencia de las otras prácticas donde solo lanzabamos las instancias sin ha
     ![img](../AWS/ut6/elb12.png){ .cien .marco .marginbottom20}
 
     - Revisamos los datos y creamos el grupo de destino
-    ![img](../AWS/ut6/elb13.png){ .cien .marco .margintop10 }
+    ![img](../AWS/ut6/elb13.png){ .cien .marco .margintop10 .marginbottom20}
 
     - Finalizamos la creación del equilibrador de carga
     ![img](../AWS/ut6/elb14.png){ .cien .marco .margintop10 .marginbottom20 }
     ![img](../AWS/ut6/elb15.png){ .cien .marco  }
 
-#### **2.2.4 - Editar los atributos del equilibrador de carga**
-Una vez creado el equilibrador de carga, revisaremos y ajustaremos sus atributos para optimizar su funcionamiento. Estos atributos determinan el comportamiento del equilibrador de carga y la forma en que gestiona las peticiones de los usuarios.
+#### 2.2.4 Editar los atributos del equilibrador de carga
 
-![](../AWS/ut6/elb16.png){ .cien .marco  }<br>
+- Una vez creado el equilibrador de carga, revisaremos y ajustaremos sus atributos para optimizar su funcionamiento.
+- Estos atributos determinarán el comportamiento del equilibrador de carga y la forma en que gestiona las peticiones de los usuarios.
 
-Dentro de este apartado se pueden ajustar, entre otros, los siguientes parámetros:
+![img](../AWS/ut6/elb16.png){ .cien .marco .margintop10 .marginbottom20 }
 
-- **Tiempo de inactividad de conexión**  
-El tiempo de espera de la conexión inactiva es el período de tiempo que una conexión de cliente o de destino existente puede permanecer inactiva, sin que se envíen ni reciban datos, antes de que el equilibrador de carga cierre la conexión.
+- Dentro de este apartado se pueden ajustar, entre otros, los siguientes parámetros:
 
-- **Duración del valor keepalive del cliente HTTP**  
-La duración del valor keepalive del cliente HTTP es el tiempo máximo durante el que un Equilibrador de carga de aplicación mantiene una conexión HTTP persistente con un cliente. Una vez transcurrido el tiempo del valor keepalive del cliente HTTP configurado, el Equilibrador de carga de aplicación acepta una solicitud más y, a continuación, devuelve una respuesta que cierra la conexión sin problemas.
+    1. **Tiempo de inactividad de conexión**  
+    El tiempo de espera de la conexión inactiva es el período de tiempo que una conexión de cliente o de destino existente puede permanecer inactiva, sin que se envíen ni reciban datos, antes de que el equilibrador de carga cierre la conexión.
 
-- **Protección contra eliminación**  
-Para evitar que el equilibrador de carga se elimine por error, puede habilitar la protección contra eliminación. De forma predeterminada, la protección contra eliminación del equilibrador de carga está deshabilitada.
+    1. **Duración del valor keepalive del cliente HTTP**  
+    La duración del valor keepalive del cliente HTTP es el tiempo máximo durante el que un Equilibrador de carga de aplicación mantiene una conexión HTTP persistente con un cliente. Una vez transcurrido el tiempo del valor keepalive del cliente HTTP configurado, el Equilibrador de carga de aplicación acepta una solicitud más y, a continuación, devuelve una respuesta que cierra la conexión sin problemas.
 
-- **Modo de mitigación de desincronización**  
-El modo de mitigación de desincronización protege a la aplicación de problemas causados por desincronización HTTP. El equilibrador de carga clasifica cada solicitud en función de su nivel de amenaza, permite solicitudes seguras y, además, mitiga el riesgo según lo especificado en el modo de mitigación que determine.
+    1. **Protección contra eliminación**  
+    Para evitar que el equilibrador de carga se elimine por error, puede habilitar la protección contra eliminación. De forma predeterminada, la protección contra eliminación del equilibrador de carga está deshabilitada.
 
-- **Conservación del encabezado del host**  
-Cuando habilita el atributo Conservar encabezado de host, el Equilibrador de carga de aplicación conserva el encabezado Host de la solicitud HTTP y la envía a los destinos sin ninguna modificación. Si el Equilibrador de carga de aplicación recibe varios encabezados Host, los conserva todos. Las reglas de oyente se aplican solo al primer encabezado Host recibido.
+    1. **Modo de mitigación de desincronización**  
+    El modo de mitigación de desincronización protege a la aplicación de problemas causados por desincronización HTTP. El equilibrador de carga clasifica cada solicitud en función de su nivel de amenaza, permite solicitudes seguras y, además, mitiga el riesgo según lo especificado en el modo de mitigación que determine.
+
+    1. **Conservación del encabezado del host**  
+    Cuando habilita el atributo Conservar encabezado de host, el Equilibrador de carga de aplicación conserva el encabezado Host de la solicitud HTTP y la envía a los destinos sin ninguna modificación. Si el Equilibrador de carga de aplicación recibe varios encabezados Host, los conserva todos. Las reglas de oyente se aplican solo al primer encabezado Host recibido.
 
 #### **2.2.5 - Comprobación del funcionamiento del equilibrador de carga**
 !!! tip "Acceso al equilibrador de carga"
