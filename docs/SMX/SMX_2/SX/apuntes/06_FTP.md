@@ -258,3 +258,35 @@ Para solventar el bloqueo originado por los cortafuegos de los clientes, se intr
 !!! warning "Una consecuencia práctica que enlaza con el modo activo y pasivo:"
     - Como el canal de control va cifrado, los ALG de los routers no pueden leer PORT ni 227.
     - Por eso en FTPS conviene usar **el modo pasivo con un rango de puertos fijo y la IP externa configurada**.
+
+### 3.3 SFTP: SSH File Transfer Protocol (El estándar seguro monocanal)
+
+Existe una confusión conceptual muy extendida: **SFTP NO es FTP con cifrado**.
+
+- **SFTP (SSH File Transfer Protocol)** es un protocolo totalmente independiente diseñado desde cero por el grupo de trabajo de la IETF como un **subsistema de extensión de SSH-2 (Secure Shell)**.
+- **Arquitectura de conexión única (Monocanal):** A diferencia de la doble conexión de FTP, SFTP canaliza absolutamente todo (autenticación, navegación, listados, transferencias y control de flujo) a través de **un único puerto TCP: el puerto 22**.
+- **Beneficios operativos determinantes:**
+  1. **Cero problemas con NAT y cortafuegos:** Basta con permitir el puerto 22 TCP en los grupos de seguridad y reglas de red. No requiere rangos de puertos efímeros ni configuraciones de IP pública pasiva.
+  1. **Cifrado extremo a extremo nativo:** Todo el canal viaja protegido por los algoritmos de intercambio de claves Diffie-Hellman y cifrados simétricos de alta seguridad (ChaCha20, AES-GCM).
+  1. **Autenticación avanzada:** Se integra de forma nativa con los mecanismos de autenticación de SSH, permitiendo el acceso tanto por contraseñas como mediante **parejas de claves asimétricas pública/privada** sin intervención de contraseñas.
+
+---
+
+### 3.4 SCP: Secure Copy Protocol
+
+* Es una utilidad de transferencia punto a punto no interactiva basada en el protocolo `rcp` (*Remote Copy*) de los sistemas BSD, operando igualmente sobre el túnel seguro de **SSH (puerto 22 TCP)**.
+* **Diferencia con SFTP:** SCP está orientado a la copia directa de archivos mediante una orden puntual de línea de comandos (ej. `scp archivo.txt usuario@servidor:/ruta/`), optimizando la velocidad de transferencia al no mantener una sesión interactiva de gestión del sistema de ficheros. SFTP, por contra, es un protocolo de sistema de archivos distribuido completo que permite reanudar descargas, pausar transferencias, consultar cuotas, listar directorios y modificar atributos de ficheros.
+
+---
+
+### 3.5 Cuadro comparativo exhaustivo entre protocolos
+
+| Criterio técnico | FTP clásico (RFC 959) | FTPS Explícito (FTPES) | FTPS Implícito (Legacy) | SFTP (SSH File Transfer) | SCP (Secure Copy) |
+|---|:---:|:---:|:---:|:---:|:---:|
+| **Protocolo base** | FTP | FTP + TLS/SSL | FTP + TLS/SSL | SSH-2 (Subsistema) | SSH-2 (Túnel RPC) |
+| **Cifrado de datos y credenciales** | ❌ No (Texto claro) | ✔️ Sí (TLS 1.2 / 1.3) | ✔️ Sí (TLS 1.2 / 1.3) | ✔️ Sí (Cifrado SSH) | ✔️ Sí (Cifrado SSH) |
+| **Puertos de red utilizados** | TCP 21 (control) + TCP 20/dinámicos (datos) | TCP 21 (control) + Puertos pasivos (datos) | TCP 990 (control) + TCP 989/dinámicos | **Únicamente TCP 22** | **Únicamente TCP 22** |
+| **Número de conexiones TCP** | 2 independientes | 2 independientes | 2 independientes | **1 única multiplexada** | **1 única conexión** |
+| **Complejidad en NAT / Firewalls** | Muy alta (bloqueo en modo activo) | Alta (requiere abrir rango pasivo e IP pública) | Alta (requiere abrir puertos específicos) | **Mínima (solo requiere abrir el puerto 22)** | **Mínima (solo requiere abrir el puerto 22)** |
+| **Mecanismo de autenticación** | Usuario / Contraseña en texto plano | Usuario / Contraseña + Certificado X.509 | Usuario / Contraseña + Certificado X.509 | Contraseña o **Claves asimétricas (RSA/Ed25519)** | Contraseña o **Claves asimétricas (RSA/Ed25519)** |
+| **Interoperabilidad interactiva** | Sí (cliente gráfico y consola) | Sí (cliente gráfico y consola) | Sí (compatibilidad reducida) | Sí (FileZilla, consola interactiva `sftp`) | No (comando directo de copia puntual) |
