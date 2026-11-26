@@ -1,5 +1,5 @@
-<!--
 ### 3.3 SFTP: SSH File Transfer Protocol (El estándar seguro monocanal)
+
 Existe una confusión conceptual muy extendida entre alumnos y técnicos noveles: **SFTP NO es FTP con cifrado**.
 
 * **SFTP (SSH File Transfer Protocol)** es un protocolo totalmente independiente diseñado desde cero por el grupo de trabajo de la IETF como un **subsistema de extensión de SSH-2 (Secure Shell)**.
@@ -12,6 +12,7 @@ Existe una confusión conceptual muy extendida entre alumnos y técnicos noveles
 ---
 
 ### 3.4 SCP: Secure Copy Protocol
+
 * Es una utilidad de transferencia punto a punto no interactiva basada en el protocolo `rcp` (*Remote Copy*) de los sistemas BSD, operando igualmente sobre el túnel seguro de **SSH (puerto 22 TCP)**.
 * **Diferencia con SFTP:** SCP está orientado a la copia directa de archivos mediante una orden puntual de línea de comandos (ej. `scp archivo.txt usuario@servidor:/ruta/`), optimizando la velocidad de transferencia al no mantener una sesión interactiva de gestión del sistema de ficheros. SFTP, por contra, es un protocolo de sistema de archivos distribuido completo que permite reanudar descargas, pausar transferencias, consultar cuotas, listar directorios y modificar atributos de ficheros.
 
@@ -1726,8 +1727,6 @@ Una vez completadas con éxito todas las pruebas técnicas en **Windows Server**
 > * **Entrega:** Subir el archivo en formato PDF a la tarea de entrega única de la unidad en **Aules** antes de la fecha límite.
 >
 >
-
-
 
 https://sri.codeandcoke.com/doku.php?id=sri:t3
 
