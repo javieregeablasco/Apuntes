@@ -481,7 +481,7 @@ Antes de configurar los servicios en la máquina, debemos configurar el **Securi
     1. **FTP Pasivo (Ubuntu):** Rango de puertos `40000-40100` TCP.
 
     ==REALIZAR CAPTURA DE PANTALLA==  
-    ![Tabla de reglas de entrada del Security Group completada](./img_6/06_tabla_reglas_entrada.png){.marco}
+    ![Tabla de reglas de entrada del Security Group completada](./img_6/06_tabla_reglas_entrada.png){.marco .margintop10}
 
 ### 6.3 Conexión RDP a la instancia de Windows Server
 
