@@ -1,32 +1,3 @@
-
----
-<!--
----
-# HASTA AQUI
----
-
-
-
-## 5 - Tarea RA3-CEa - Métodos y protocolos de transferencia de ficheros
-
-> 📌 **Trabajo a realizar.**
->
-> Para esta evaluación, deberéis responder a las preguntas de comprensión teórica sobre protocolos de red, la diferencia entre canal de control y canal de datos, los modos activo y pasivo, y la comparativa de seguridad entre FTP, FTPS y SFTP.
->
-> El cuestionario se responderá directamente en la plataforma **Aules** dentro de la actividad **RA3-CEa - Cuestionario teórico de protocolos de transferencia**.
->
-
-> ℹ️ **Realización del cuestionario en Aules**
->
-> Esta tarea **no requiere entregar ningún archivo ni captura**.
->
-> * **Tipo de actividad:** Cuestionario en línea en **Aules**.
-> * **Calificación:** Se registrará automáticamente en la plataforma al finalizar y enviar el cuestionario.
-> * **Contenido evaluado:** Conceptos teóricos de los apartados 1, 2, 3 y 4 de esta unidad.
->
-
----
-
 ## 6 - [Windows Server] Instalación y configuración de IIS FTP y OpenSSH en AWS (RA3-CEb,c,d)
 
 <a id="aviso-cambio-ip"></a>
