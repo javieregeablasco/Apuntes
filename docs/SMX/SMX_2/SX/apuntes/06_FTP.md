@@ -335,7 +335,7 @@ Para solventar el bloqueo originado por los cortafuegos de los clientes, se intr
 
 ### 3.1 Vulnerabilidades del protocolo FTP tradicional
 
-- El protocolo FTP original fue concebido a principios de los años 80 bajo un paradigma de confianza mutua dentro de redes académicas cerradas.
+- El protocolo FTP original fue concebido en los años 70 y fijado en su forma actual en 1985, bajo un paradigma de confianza mutua dentro de redes académicas cerradas.
 - Como consecuencia, **carece por completo de mecanismos criptográficos nativos**:  
     1. **Exposición total de credenciales:** Las órdenes `USER` y `PASS` viajan en texto plano por el canal de control. Cualquier analizador de protocolos conectado a la red local o en puntos intermedios de enrutamiento puede interceptar las contraseñas sin esfuerzo (*sniffing*  + `Wireshark`).
     1. **Intercepción y manipulación de datos:** Los archivos transferidos carecen de firmas de integridad o cifrado confidencial, permitiendo a un atacante en posición de intermediario (*Man-in-the-Middle*) leer el contenido o inyectar código malicioso en descargas de ejecutables.
@@ -359,7 +359,7 @@ Para solventar el bloqueo originado por los cortafuegos de los clientes, se intr
 
 1. El cliente se conecta a un puerto dedicado: 990 TCP para control (y 989 TCP como puerto de origen de datos en modo activo).
 1. El handshake TLS se realiza nada más abrir la conexión, antes de cualquier comando FTP. No existe AUTH TLS.
-1. Estado actual: no está estandarizado y se considera obsoleto. Requiere puertos adicionales y no permite negociar capacidades como el explícito. Aun así, sigue presente en sistemas heredados.
+1. Estado actual: no está estandarizado y se considera obsoleto. Requiere puertos adicionales y no permite negociar capacidades como el explícito. Aun así, sigue presente en sistemas heredados (IIS y vsftpd todavía lo admiten).
 
 !!! warning "Una consecuencia práctica que enlaza con el modo activo y pasivo:"
     - Como el canal de control va cifrado, los ALG de los routers no pueden leer PORT ni 227.
@@ -367,9 +367,9 @@ Para solventar el bloqueo originado por los cortafuegos de los clientes, se intr
 
 ### 3.3 SFTP: SSH File Transfer Protocol (El estándar seguro monocanal)
 
-Existe una confusión conceptual muy extendida: **SFTP NO es FTP con cifrado**.
+Existe una confusión conceptual muy extendida: **SFTP NO es FTP con cifrado**. Tampoco es FTP "tunelizado" dentro de SSH ni *Simple FTP*.
 
-- **SFTP (SSH File Transfer Protocol)** es un protocolo totalmente independiente diseñado desde cero por el grupo de trabajo de la IETF como un **subsistema de extensión de SSH-2 (Secure Shell)**.
+- **SFTP (SSH File Transfer Protocol)** es un protocolo totalmente independiente, diseñado desde cero por el grupo de trabajo `secsh` de la IETF como un **subsistema de SSH-2 (Secure Shell)**. Es un protocolo de **acceso remoto a ficheros**: permite transferir, pero también listar, renombrar, borrar, cambiar permisos y reanudar transferencias. Nunca se publicó como RFC definitivo (quedó como borrador, *draft*), pero la versión 3 está implementada de forma universal.
 - **Arquitectura de conexión única (Monocanal):** A diferencia de la doble conexión de FTP, SFTP canaliza absolutamente todo (autenticación, navegación, listados, transferencias y control de flujo) a través de **un único puerto TCP: el puerto 22**.
 - **Beneficios operativos determinantes:**
     1. **Cero problemas con NAT y cortafuegos:** Basta con permitir el puerto 22 TCP en los grupos de seguridad y reglas de red. No requiere rangos de puertos efímeros ni configuraciones de IP pública pasiva.
