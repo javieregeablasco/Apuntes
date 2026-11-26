@@ -472,141 +472,42 @@ Antes de configurar los servicios en la máquina, debemos configurar el **Securi
 
 1. En la sección **Reglas de entrada** → pulsar en el botón **Editar reglas de entrada** → **Agregar regla**:
 
-![Pulsar el botón Agregar regla en Reglas de entrada](./img_6/04_boton_agregar_regla.png)
+![Pulsar el botón Agregar regla en Reglas de entrada](./img_6/04_boton_agregar_regla.png){.marco .leftcincozero}
 
 1. Añadir las 5 reglas requeridas:
-   1. **RDP:** Puerto `3389` TCP (para administrar gráficamente la máquina).
-   1. **SSH:** Puerto `22` TCP (para el servidor OpenSSH).
-   1. **FTP Control:** Puerto `21` TCP.
-   1. **FTP Pasivo (Windows):** Rango de puertos `50000-50100` TCP.
-   1. **FTP Pasivo (Ubuntu):** Rango de puertos `40000-40100` TCP.
+    1. **RDP:** Puerto `3389` TCP (para administrar gráficamente la máquina).
+    1. **SSH:** Puerto `22` TCP (para el servidor OpenSSH).
+    1. **FTP Control:** Puerto `21` TCP.
+    1. **FTP Pasivo (Windows):** Rango de puertos `50000-50100` TCP.
+    1. **FTP Pasivo (Ubuntu):** Rango de puertos `40000-40100` TCP.
 
 ==REALIZAR CAPTURA DE PANTALLA==  
 ![Tabla de reglas de entrada del Security Group completada](./img_6/06_tabla_reglas_entrada.png)
 
-5. Bajar hasta el final de la página y pulsar el botón naranja **Create security group**:
+### 6.3 Conexión RDP a la instancia de Windows Server
 
-![Pulsar el botón Crear grupo de seguridad](./img6/07_boton_final_crear_sg.png)
-6. Una vez creado, se mostrará el panel resumen del grupo de seguridad con sus 5 reglas activas:
+- Para administrar gráficamente nuestra instancia nos conectaremos a través del protocolo **RDP (Remote Desktop Protocol)** utilizando el cliente nativo de Windows (*Conexión a Escritorio remoto* / `mstsc`).
+- Como las máquinas desplegadas en AWS EC2 se crean con una contraseña aleatoria y cifrada, debemos descifrarla primero utilizando la clave privada `.pem`.
 
-![Panel resumen del grupo de seguridad con las 5 reglas activas](./img6/08_resumen_grupo_creado.png)
-*Figura 7: Resumen del grupo de seguridad grup-servidors-ftp-ssh con sus 5 reglas de entrada operativas.*
+!!! warning "Atención al inicio de sesión en ordenadores con dominio del instituto (SICE / Dominio corporativo)"
+    - Si realizamos la práctica desde un equipo del aula que está integrado en un dominio corporativo o educativo, Windows asumirá por defecto que el usuario pertenece al dominio del centro (ej. `CENTRO\Administrator`). Esto provocará un fallo de credenciales erróneas.
+    !!! success "Solución"
+        - Pulsar en **Más opciones** → **Usar otra cuenta** → escribir como **Nombre de usuario**: `.\Administrator`
 
-7. **Asignación del grupo a la instancia Windows Server:**
-   * En el menú lateral izquierdo, hacer clic en **Instances** (**Instancias**).
-   * Marcar la casilla de `Servidor_FTPSSH`.
-   * En el menú superior, pulsar en **Actions** -> **Security** -> **Change security groups**.
+### 6.4 Instalación del rol Servidor FTP (IIS) y Servidor OpenSSH
 
-![Acceso a Cambiar grupos de seguridad desde el menú Acciones](./img6/09_cambiar_grupos_seguridad.png)
-*Figura 8: Opción Change security groups en el menú Actions de la instancia.*
+1. En el **Server Manager**, pulsar en el enlace central **Add roles and features**.
+![Acceso a Agregar roles y características desde Server Manager](./img_6/11_server_manager_add_roles.png)
 
-   * Seleccionar `grup-servidors-ftp-ssh`, eliminar el grupo anterior (`launch-wizard-1`) y hacer clic en el botón naranja **Save** (**Guardar**).
+1. Avanzar por las pantallas preliminares (**Before You Begin**, **Installation Type** y **Server Selection**) manteniendo los valores por defecto pulsando **Next**.
+1. En la pantalla **Server Roles**:
+   - Marcar la casilla **Web Server (IIS)** (si aparece la ventana emergente solicitando características requeridas, confirmar haciendo clic en **Add Features**).
+1. Avanzar por **Features** y **Web Server Role (IIS)** hasta llegar a la pantalla **Role Services**:
+   - Desplegar la categoría **FTP Server** y marcar las casillas **FTP Service** y **FTP Extensibility**.
+   - Verificar que en **Management Tools** queda marcada la **IIS Management Console**.
 
-![Ventana Cambiar grupos de seguridad asociando el nuevo grupo](./img6/10_ventana_cambiar_grupos.png)
-*Figura 9: Ventana de asociación del grupo grup-servidors-ftp-ssh y eliminación del grupo anterior.*
-
-> 💡 **¿Por qué eliminamos launch-wizard-1? ¿Seguirá funcionando el RDP?**
->
-> Al desasociar el grupo `launch-wizard-1` y dejar únicamente `grup-servidors-ftp-ssh`, garantizamos que toda la seguridad se centraliza en un único grupo ordenado y limpio. **No perderás el acceso por RDP**, ya que en el nuevo grupo hemos añadido explícitamente la regla de entrada para el puerto TCP `3389` (RDP).
->
-
----
-
-### 6.2 Conexión RDP a la instancia de Windows Server
-
-Para administrar gráficamente Windows Server 2022 nos conectaremos a través del protocolo **RDP (Remote Desktop Protocol)** utilizando el cliente nativo de Windows (*Conexión a Escritorio remoto* / `mstsc`). Como las máquinas desplegadas en AWS EC2 se crean con una contraseña aleatoria y cifrada, debemos descifrarla primero utilizando la clave privada `.pem`.
-
-#### Paso 1: Verificación de estado y tiempo de espera de inicialización
-1. En la consola de AWS -> **EC2** -> **Instances** (**Instancias**), comprueba que tu máquina `Servidor_FTPSSH` se encuentra en estado **`Running`** (**En ejecución**).
-2. Observa la columna **Status check**. Para conectarte con total garantía, lo óptimo es que muestre **`2/2 checks passed`** (**2/2 comprobaciones superadas**).
-3. ⏳ **Tiempo de inicialización de Windows (3 a 4 minutos):** Tras el arranque inicial de una máquina Windows Server en AWS, el servicio interno *EC2Launch* necesita entre 3 y 4 minutos para generar la contraseña local del usuario `Administrator` y cifrarla con la clave pública del laboratorio. Si pulsas en descifrar inmediatamente, la consola te mostrará una advertencia: *"Password is not available yet. Please wait at least 4 minutes after launching an instance."* Si esto ocurre, espera un par de minutos y refresca la ventana de la consola.
-
-#### Paso 2: Descifrado de la contraseña de Administrator en AWS
-1. Selecciona la instancia `Servidor_FTPSSH` marcando su casilla de verificación.
-2. En la barra superior de acciones, haz clic en el botón **Connect** (**Conectar**).
-3. Haz clic en la pestaña **RDP client** (**Cliente RDP** o **RDP (protocolo de escritorio remoto)**).
-4. Observa los datos de conexión asignados por AWS:
-   * **DNS público / IP pública:** Dirección remota a la que nos conectaremos.
-   * **Nombre de usuario:** `Administrator`.
-   * **Contraseña:** Enlace para obtener la clave descifrada.
-
-![Pestaña RDP en Conectarse a la instancia mostrando DNS público, usuario Administrator y enlace para obtener contraseña](./img6/10b_ec2_rdp_client_tab.png)
-*Figura 9b: Pestaña RDP (protocolo de escritorio remoto) en la consola de AWS EC2 para conectar con Windows Server.*
-
-5. En el campo **Contraseña** (**Password**), haz clic en el enlace azul **Obtener la contraseña de Windows** (**Get password**).
-6. En la pantalla emergente **Obtener la contraseña de Windows**:
-   * Haz clic en el botón **Cargar archivo de clave privada** (**Upload private key file**).
-   * En el explorador de archivos de tu ordenador, localiza y selecciona el archivo **`labsuser.pem`** (o `vockey.pem`) que descargaste en el apartado 6.0 desde el botón *AWS Details*.
-   * Verás cómo el cuadro de texto inferior se rellena automáticamente con el texto de tu clave RSA privada (`-----BEGIN RSA PRIVATE KEY----- ...`) y se muestra la etiqueta con el nombre del archivo cargado.
-   * Haz clic en el botón naranja inferior **Descifrar contraseña** (**Decrypt password**).
-
-![Carga del archivo labsuser.pem y botón Descifrar contraseña en AWS EC2](./img6/10c_ec2_upload_pem_decrypt.png)
-*Figura 9c: Carga del archivo labsuser.pem en el asistente de AWS EC2 y botón naranja Descifrar contraseña.*
-
-7. La consola abrirá una ventana emergente mostrando los datos finales de acceso:
-   * **Nombre de usuario:** `Administrator`.
-   * **Contraseña:** La contraseña alfanumérica descifrada (con caracteres especiales).
-8. 📋 **Copia la contraseña descifrada** pulsando en el icono del portapapeles y pulsa en el botón naranja **Aceptar**. Guárdala temporalmente en un bloc de notas o mantenla en el portapapeles.
-
-![Ventana emergente con el usuario Administrator y la contraseña descifrada lista para copiar](./img6/10d_ec2_password_decrypted.png)
-*Figura 9d: Ventana emergente en AWS con la contraseña de Administrator descifrada y lista para copiar con el icono del portapapeles.*
-
-#### Paso 3: Conexión mediante Escritorio Remoto (RDP)
-Dispones de dos métodos equivalentes para iniciar la sesión gráfica:
-
-* **Método A (Automático mediante archivo .rdp):**
-  1. En esa misma pestaña de RDP de AWS, haz clic en el botón **Descargar archivo de acceso directo a RDP** (**Download remote desktop file**).
-  2. Guarda el archivo `.rdp` en tu equipo y haz doble clic sobre él.
-  3. Al abrirlo, Windows mostrará una ventana de advertencia de seguridad (*Precaución: conexión remota desconocida*).
-  4. Verifica que la opción **Portapapeles** está marcada (para poder pegar contraseñas y textos entre tu equipo y el servidor) y haz clic en el botón **Conectar**.
-
-![Ventana de advertencia de seguridad de Conexión a Escritorio remoto de Windows](./img6/10e_rdp_seguridad_conectar.png)
-*Figura 9e: Advertencia de conexión remota desconocida en Windows, permitiendo el uso del Portapapeles antes de pulsar Conectar.*
-
-* **Método B (Manual mediante mstsc):**
-  1. En tu ordenador del aula, pulsa el atajo de teclado `Windows + R`.
-  2. Escribe `mstsc` y pulsa `Enter` para abrir la herramienta nativa *Conexión a Escritorio remoto*.
-  3. En la casilla **Equipo:**, escribe o pega la **Dirección IPv4 pública** (o el DNS público) de tu instancia `Servidor_FTPSSH` (la encontrarás en el panel de EC2).
-  4. Haz clic en **Conectar**.
-
-#### Paso 4: Autenticación e inicio de sesión
-1. Cuando Windows solicite las credenciales de acceso:
-   * **Usuario:** `Administrator`
-   * **Contraseña:** Pega la contraseña que acabas de descifrar en AWS.
-
-> ⚠️ **Atención al inicio de sesión en ordenadores con dominio del instituto (SICE / Dominio corporativo)**
->
-> Si realizas la práctica desde un equipo del aula que está integrado en un dominio corporativo o educativo, Windows asumirá por defecto que el usuario pertenece al dominio del centro (ej. `CENTRO\Administrator`). Esto provocará un fallo de credenciales erróneas.
->
-> **Solución:** Pulsa en **Más opciones** (**More choices**) -> **Usar otra cuenta** (**Use a different account**) y escribe obligatoriamente:
-> `.\Administrator`
->
-> *(El punto y la barra `.\` fuerzan a que la autenticación se valide localmente en la máquina virtual de Windows Server en AWS, ignorando el dominio local).*
->
-
-2. Si aparece una advertencia de seguridad indicando que no se puede comprobar la identidad del certificado SSL/TLS de la máquina remota (*"No se puede comprobar la identidad del equipo remoto..."*), marca la casilla **"No volver a preguntarme sobre conexiones a este equipo"** y pulsa en **Sí** (**Yes**).
-3. Se abrirá la sesión remota en pantalla completa. Tras unos segundos preparando el entorno, se mostrará el escritorio de Windows Server 2022 y se ejecutará automáticamente el panel central **Server Manager** (**Administrador del Servidor**).
-
-> 📷 **Evidencia 3 (insertar en tu documento Word) — Realizar captura de pantalla** del escritorio de Windows Server recién conectado mostrando el Administrador del Servidor (**Server Manager**).
-
----
-
-### 6.3 Instalación del rol Servidor FTP (IIS) y Servidor OpenSSH
-
-1. En el **Administrador del Servidor** (**Server Manager**), pulsar en el enlace central **Add roles and features** (o en el menú superior **Manage** -> **Add Roles and Features**).
-
-![Acceso a Agregar roles y características desde Server Manager](./img6/11_server_manager_add_roles.png)
-*Figura 10: Acceso al asistente para agregar roles y características desde el Administrador del Servidor (Server Manager).*
-
-2. Avanzar por las pantallas preliminares (**Before You Begin**, **Installation Type** y **Server Selection**) manteniendo los valores por defecto pulsando **Next**.
-3. En la pantalla **Server Roles**:
-   * Marcar la casilla **Web Server (IIS)** (si aparece la ventana emergente solicitando características requeridas, confirmar haciendo clic en **Add Features**).
-4. Avanzar por **Features** y **Web Server Role (IIS)** hasta llegar a la pantalla **Role Services**:
-   * Desplegar la categoría **FTP Server** y marcar las casillas **FTP Service** y **FTP Extensibility**.
-   * Verificar que en **Management Tools** queda marcada la **IIS Management Console**.
-
-![Selección de los servicios de rol FTP Server en IIS](./img6/12_iis_ftp_role_services.png)
-*Figura 11: Selección de los servicios de rol FTP Service y FTP Extensibility en el asistente de instalación.*
+==REALIZAR CAPTURA DE PANTALLA==  
+![Selección de los servicios de rol FTP Server en IIS](./img_6/12_iis_ftp_role_services.png)
 
 5. En la pantalla **Confirmation**, revisar los elementos y pulsar el botón **Install**.
 6. Una vez completado el proceso, la barra de progreso mostrará el mensaje **Installation succeeded** y se activará el botón **Close**.
