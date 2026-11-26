@@ -451,8 +451,9 @@ Al operar infraestructuras en entornos de nube pública (**AWS Academy / AWS Lea
 - En la consola de **EC2** lanzar una instancia con los siguientes parámetros:
 
 ==REALIZAR CAPTURA DE PANTALLA==  
+
 | Parámetro de configuración | Valor requerido |
-|---||
+|||
 | **Name (Nombre)** | `Servidor_FTPSSH` |
 | **Application and OS Images (AMI)** | `Microsoft Windows Server 2025 Base` (64 bits x86) |
 | **Instance type (Tipo de instancia)** | **`t3.large`** (Recomendado — 2 vCPU, 8 GiB RAM |
