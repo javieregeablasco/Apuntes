@@ -2589,7 +2589,7 @@ sudo named-checkconf
 ```
 
 ==Realizar captura de pantalla==  
-==Explicar los errores (si los hay).==
+==Explicar los errores (si los hay).==  
 ==Explicar la solución que habeís aportado para resolver los errores.==
 
 ![Descripción de la imagen](./img_5/img_5_139.png){ .marginbottom10 }
@@ -2746,7 +2746,7 @@ dig @172.31.81.184 -x 172.31.81.184
 1. Comprobamos el estado del servicio DNS
 
 ==Realizar captura de pantalla==  
-==Explicar los errores (si los hay).==
+==Explicar los errores (si los hay).==  
 ==Explicar la causa de esos errores.==
 
 ![Descripción de la imagen](./img_5/img_5_146.png){ .marginbottom10 }
@@ -3167,16 +3167,15 @@ Resultado esperado:
 ```text
 servidorweb.smr.test.  IN  A  10.0.2.10
 ```
+-->
+### 20.XX - Comandos de diagnóstico
 
-# 38 - Comandos de diagnóstico
+- A continuación se enumeran una serie de comandos particularme útiles durante el desarrollo de la práctica.
 
-Durante la práctica serán especialmente útiles los siguientes comandos.
-
-Comprobar el estado de BIND:
-
-```bash
-sudo systemctl status named
-```
+!!! tip "Comprobar el estado de BIND:"
+    ```bash
+    sudo systemctl status named
+    ```
 
 Reiniciar BIND:
 
