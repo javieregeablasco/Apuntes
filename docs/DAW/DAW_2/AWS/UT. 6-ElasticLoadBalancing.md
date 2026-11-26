@@ -357,29 +357,34 @@ A diferencia de las otras prácticas donde solo lanzabamos las instancias sin ha
 - Una vez creado el equilibrador de carga, revisaremos y ajustaremos sus atributos para optimizar su funcionamiento.
 - Estos atributos determinarán el comportamiento del equilibrador de carga y la forma en que gestiona las peticiones de los usuarios.
 - Dentro de este apartado se pueden ajustar, entre otros, los siguientes parámetros:
-    
+  
     !!! note "Tiempo de inactividad de conexión"
-        El tiempo de espera de la conexión inactiva es el período de tiempo que una conexión de cliente o de destino existente puede permanecer inactiva, sin que se envíen ni reciban datos, antes de que el equilibrador de carga cierre la conexión.
+        - **El tiempo de espera de la conexión inactiva** es el período de tiempo que una conexión de cliente o de destino existente puede permanecer inactiva, sin que se envíen ni reciban datos, antes de que el equilibrador de carga cierre la conexión.
 
-    1. **Duración del valor keepalive del cliente HTTP**  
-    La duración del valor keepalive del cliente HTTP es el tiempo máximo durante el que un Equilibrador de carga de aplicación mantiene una conexión HTTP persistente con un cliente. Una vez transcurrido el tiempo del valor keepalive del cliente HTTP configurado, el Equilibrador de carga de aplicación acepta una solicitud más y, a continuación, devuelve una respuesta que cierra la conexión sin problemas.
+    !!! note "Duración del valor keepalive del cliente HTTP"
+        - **La duración del valor keepalive del cliente HTTP** es el tiempo máximo durante el que un Equilibrador de carga de aplicación mantiene una conexión HTTP persistente con un cliente.
+        - Una vez transcurrido el tiempo del valor keepalive del cliente HTTP configurado, el Equilibrador de carga de aplicación acepta una solicitud más y, a continuación, devuelve una respuesta que cierra la conexión sin problemas.
 
-    1. **Protección contra eliminación**  
-    Para evitar que el equilibrador de carga se elimine por error, puede habilitar la protección contra eliminación. De forma predeterminada, la protección contra eliminación del equilibrador de carga está deshabilitada.
+    !!! note "Protección contra eliminación"
+        - Para evitar que el equilibrador de carga se elimine por error, puede habilitar la protección contra eliminación.
+        - De forma predeterminada, la protección contra eliminación del equilibrador de carga está deshabilitada.
 
-    1. **Modo de mitigación de desincronización**  
-    El modo de mitigación de desincronización protege a la aplicación de problemas causados por desincronización HTTP. El equilibrador de carga clasifica cada solicitud en función de su nivel de amenaza, permite solicitudes seguras y, además, mitiga el riesgo según lo especificado en el modo de mitigación que determine.
+    !!! note "Modo de mitigación de desincronización"
+        - **El modo de mitigación de desincronización** protege a la aplicación de problemas causados por desincronización HTTP.
+        - El equilibrador de carga clasifica cada solicitud en función de su nivel de amenaza, permite solicitudes seguras y, además, mitiga el riesgo según lo especificado en el modo de mitigación que determine.
 
-    1. **Conservación del encabezado del host**  
-    Cuando habilita el atributo Conservar encabezado de host, el Equilibrador de carga de aplicación conserva el encabezado Host de la solicitud HTTP y la envía a los destinos sin ninguna modificación. Si el Equilibrador de carga de aplicación recibe varios encabezados Host, los conserva todos. Las reglas de oyente se aplican solo al primer encabezado Host recibido.
+    !!! tip "Conservación del encabezado del host"  
+        - Cuando habilita el atributo **Conservar encabezado de host**, el Equilibrador de carga de aplicación conserva el encabezado Host de la solicitud HTTP y la envía a los destinos sin ninguna modificación.
+        - Si el Equilibrador de carga de aplicación recibe varios encabezados Host, los conserva todos. Las reglas de oyente se aplican solo al primer encabezado Host recibido.
 
-#### **2.2.5 - Comprobación del funcionamiento del equilibrador de carga**
+#### 2.2.5 Comprobación del funcionamiento del equilibrador de carga
+
 !!! tip "Acceso al equilibrador de carga"
-A diferencia de las instancias, el acceso al equilibrador de carga solo se puede realizar a través de su DNS.  
-**Nota:**  
-Aunque las instancias tienen IP pública, también es posible acceder a ellas tanto por IP como por DNS, pero este acceso se realiza directamente a la instancia, no a través del balanceador.
-
-![](../AWS/ut6/elb17.png){ .cien .marco  }<br>
+    - A diferencia de las instancias, el acceso al equilibrador de carga solo se puede realizar a través de su DNS.  
+    !!! note "Nota"  
+        - Las instancias tienen IP pública, así pues, es posible acceder a ellas por su IP pública.
+        - Ese acceso se realiza directamente a la instancia y no a través del balanceador decarga (opción **Nombre de DNS").
+        ![img](../AWS/ut6/elb17.png){ .cien .marco .margintop10 }
 
 Si actualizamos repetidamente el navegador para acceder al recurso, observaremos que, en función del balanceo y de la latencia, la respuesta irá alternando entre una instancia y la otra. 
 
