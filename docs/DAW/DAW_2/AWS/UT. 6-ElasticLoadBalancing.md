@@ -327,22 +327,21 @@ A diferencia de las otras prácticas donde solo lanzabamos las instancias sin ha
 
 !!! tip "2. Grupos de seguridad"
     - Creamos un grupo de seguridad para el balanceador de carga y definimos una regla que permita el tráfico HTTP (80) desde cualquier origen.
-    ![img](../AWS/ut6/elb6.png){ .ochocinco .marco .margintop20 }
-    ![img](../AWS/ut6/elb7.png){ .ochocinco .marco  }
-    ![img](../AWS/ut6/elb8.png){ .ochocinco .marco  }
+    ![img](../AWS/ut6/elb6.png){ .cien .marco .margintop20 }
+    ![img](../AWS/ut6/elb7.png){ .cien .marco  }
+    ![img](../AWS/ut6/elb8.png){ .cien .marco  }
 
 !!! tip "3. Agentes de escucha y direccionamiento"
-En este apartado configuraremos los puertos sobre los cuales el equilibrador de carga aceptará las conexiones entrantes y determinará a qué instancias se redirigirán.
+    - En este apartado configuraremos los puertos sobre los cuales el equilibrador de carga aceptará las conexiones entrantes y determinará a qué instancias se redirigirán las consultas.
+        1. Protocolo: HTTP / 80
+        1. Acción predeterminada: Reenviar el tráfico al grupo de destino (conjunto de instancias que recibirán las peticiones).  
+        1. Si todavía no disponemos de ningún grupo de destino creado, seleccionamos la opción “Agregar grupo de destino” y luego **Cree un grupo de destino** y lo configuramos antes de continuar.  
+        ![img](../AWS/ut6/elb9.png){ .cien .marco .margintop20 }
+        ![img](../AWS/ut6/elb10.png){ .cien .marco }
 
-- Protocolo: HTTP / 80
-- Acción predeterminada: Reenviar el tráfico al grupo de destino (conjunto de instancias que recibirán las peticiones).  
-Si todavía no disponemos de ningún grupo de destino creado, seleccionamos la opción “Agregar grupo de destino” y luego **Cree un grupo de destino** y lo configuramos antes de continuar.
-    ![](../AWS/ut6/elb9.png){ .cien .marco .margintop20 }<br>
-    ![](../AWS/ut6/elb10.png){ .cien .marco }<br>
-
-- Crear grupo de destino
-    ![](../AWS/ut6/elb11.png){ .cien .marco .margintop20 }<br>
-    ![](../AWS/ut6/elb12.png){ .cien .marco }<br>
+    - Crear grupo de destino.  
+    ![img](../AWS/ut6/elb11.png){ .cien .marco .margintop20 }
+    ![img](../AWS/ut6/elb12.png){ .cien .marco }
 
 - Revisamos los datos y creamos el grupo de destino
     ![](../AWS/ut6/elb13.png){ .cien .marco .margintop20 }<br>
