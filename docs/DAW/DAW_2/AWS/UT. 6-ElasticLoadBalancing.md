@@ -373,7 +373,7 @@ A diferencia de las otras prácticas donde solo lanzabamos las instancias sin ha
         - **El modo de mitigación de desincronización** protege a la aplicación de problemas causados por desincronización HTTP.
         - El equilibrador de carga clasifica cada solicitud en función de su nivel de amenaza, permite solicitudes seguras y, además, mitiga el riesgo según lo especificado en el modo de mitigación que determine.
 
-    !!! tip "Conservación del encabezado del host"  
+    !!! note "Conservación del encabezado del host"  
         - Cuando habilita el atributo **Conservar encabezado de host**, el Equilibrador de carga de aplicación conserva el encabezado Host de la solicitud HTTP y la envía a los destinos sin ninguna modificación.
         - Si el Equilibrador de carga de aplicación recibe varios encabezados Host, los conserva todos. Las reglas de oyente se aplican solo al primer encabezado Host recibido.
 
@@ -396,8 +396,6 @@ A diferencia de las otras prácticas donde solo lanzabamos las instancias sin ha
 #### 2.3.1 Trabajos a realizar
 
 - Recrear el escenario anterior.
-- Realizar capturas de cada instancia entrando por el ELB.  
-- Adjuntar las capturas a un documento, comentando cada captura.  
 
 #### 2.3.2 Entrega de la tarea
 
@@ -409,8 +407,9 @@ A diferencia de las otras prácticas donde solo lanzabamos las instancias sin ha
     - Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
 
     !!! note "Capturas de pantalla mínimas a adjuntar"
-        - Conectarse a la instancia 1 y realizar capturas de pings al resto de instancias (1 captura + 3 pings). 
-        - Realizar capturas de la propagación y pings con éxito a todas las instancias del escenario (3 capturas de 3 pings cada una).
+        - Estado del balanceador de carga.        
+        - Realizar capturas de cada instancia entrando por su IP.  
+        - Realizar capturas de cada instancia entrando por el ELB.
 
 # HASTA AQUI
 
