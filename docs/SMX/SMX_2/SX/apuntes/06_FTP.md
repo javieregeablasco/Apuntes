@@ -245,7 +245,7 @@ El segundo dígito indica la categoría: `x0x` sintaxis, `x1x` información, `x2
 
 #### 2.5.1 Modo Activo
 
-![img](./img_6/img-6-6.png){.cien .marco .marginbottom20}
+![Diagrama de una transferencia FTP en modo activo](./img_6/img-6-6.png){.cien .marco .marginbottom20}
 
 1. El cliente abre la conexión de control desde un puerto local (1035) hacia el puerto 21 del servidor.
 1. Antes de transferir, el cliente abre el puerto 1036 en escucha y se lo comunica al servidor con PORT 192,168,1,50,4,12 (puerto = 4 × 256 + 12 = 1036).
@@ -253,12 +253,17 @@ El segundo dígito indica la categoría: `x0x` sintaxis, `x1x` información, `x2
 1. El servidor inicia la conexión de datos desde su puerto 20 hacia la IP del cliente y el puerto 1036, y envía los datos.
 1. El cliente confirma la recepción con un ACK (1036 → 20).
 
-!!! question ":one: ¿Qué comando FTP de envío de datos ilustra la imagen anterior?<br>:two: ¿Qué comando se usaría para enviar datos en vez de recirbirlos?"
+!!! question "Actividad"
+    :one: ¿Qué comando FTP de envío de datos ilustra la imagen anterior?  
+    :two: ¿Qué comando se usaría para enviar datos en vez de recibirlos?
+
+??? success "Solución"
+    1. En la imagen es el **servidor quien envía los datos al cliente**, es decir, una descarga con **`RETR`** (el mismo mecanismo se aplica a `LIST`, porque el listado también viaja por el canal de datos).
+    1. Para **enviar** un fichero desde el cliente al servidor se usaría **`STOR`**. En ese caso es el cliente quien envía los datos por el canal de datos, pero la conexión se sigue abriendo igual: desde el puerto 20 del servidor hacia el cliente.
 
 !!! warning "Limitaciones del modo activo"
-
     - Los clientes domésticos y corporativos suelen estar detrás de **un router con NAT/PAT y un cortafuegos con inspección de estado**.
-    - El **comando PORT** incluye la IP privada del cliente, que no es alcanzable desde Internet**.
+    - El **comando PORT** incluye la IP privada del cliente, que no es alcanzable desde Internet.
     - **Cuando el servidor envía el SYN desde su puerto 20** hacia el puerto del cliente, **el cortafuegos lo trata como tráfico entrante no solicitado y lo descarta** (normalmente en silencio). La conexión de control no sirve de referencia, porque es otra conexión.
     - **Solo funciona si el router tiene un ALG de FTP activo que reescriba la IP y el puerto en PORT y abra el puerto dinámicamente**. Con FTPS el ALG no puede inspeccionar el tráfico, así que la conexión de datos falla igualmente.
     - Por eso en Internet se usa casi siempre **el modo pasivo**, donde es el cliente quien inicia ambas conexiones.
@@ -267,7 +272,7 @@ El segundo dígito indica la categoría: `x0x` sintaxis, `x1x` información, `x2
 
 Para solventar el bloqueo originado por los cortafuegos de los clientes, se introdujo el modo pasivo:
 
-![img](./img_6/img-6-7.png){.cien .marco .marginbottom20}
+![Diagrama de una transferencia FTP en modo pasivo](./img_6/img-6-7.png){.cien .marco .marginbottom20}
 
 1. El cliente abre la conexión de control desde un puerto local (1035) hacia el puerto 21 del servidor.
 1. Al necesitar datos, el cliente envía la orden PASV.
@@ -275,12 +280,19 @@ Para solventar el bloqueo originado por los cortafuegos de los clientes, se intr
 1. El cliente inicia la conexión de datos desde otro puerto local (1036) hacia el puerto 50020 del servidor. El servidor responde con SYN-ACK y el cliente cierra el handshake con ACK.
 1. Como el cliente inicia ambas conexiones (1035 → 21 y 1036 → 50020), los cortafuegos locales y los routers NAT admiten los paquetes de respuesta en estado ESTABLISHED / RELATED.
 
+#### 2.5.3 Modos extendidos: EPRT y EPSV
+
+- El RFC 2428 definió `EPRT` y `EPSV` para soportar IPv6, porque `PORT` y `PASV` solo pueden transportar direcciones IPv4 de 32 bits.
+- Con **`EPSV`** el servidor responde únicamente con el puerto: `229 Entering Extended Passive Mode (|||50020|)`. **No envía su IP**, y el cliente usa la misma dirección con la que abrió el canal de control.
+- Esto **atenúa el problema de la IP privada** del apartado 2.6: aunque el servidor no conozca su IP pública, el cliente conectará a la dirección correcta. Sigue siendo necesario limitar y abrir el rango de puertos pasivos.
+- Los clientes modernos (FileZilla, `curl`, `lftp`) prueban `EPSV` primero y recurren a `PASV` si el servidor no lo admite.
+
 ### 2.6 Problemática del Modo Pasivo en entornos NAT y Cloud (AWS)
 
 - El modo pasivo evita que el cliente tenga que aceptar conexiones entrantes, pero traslada el problema al servidor: si el servidor está detrás de un NAT o en la nube (por ejemplo, AWS), hay que configurarlo para que el cliente pueda alcanzar el puerto de datos.
 
 - Caso sin configurar, donde la conexión de datos falla.
-    ![img](./img_6/img-6-8.png){.cien .marco .marginbottom20 .margintop10}
+    ![Fallo del modo pasivo cuando el servidor anuncia su IP privada](./img_6/img-6-8.png){.cien .marco .marginbottom20 .margintop10}
 
 - Puntos a configurar:  
 
@@ -292,13 +304,15 @@ Para solventar el bloqueo originado por los cortafuegos de los clientes, se intr
 
     !!! tip ":two: - Hay que indicar la IP pública en el servidor."
         - El administrador debe configurar la IP pública para que se envíe en la respuesta 227:
-        - En vsftpd: parámetro pasv_address.
-        - En IIS (Windows): campo Firewall External IP Address.
-        - En AWS conviene usar una Elastic IP, porque la IP pública normal cambia al detener y volver a iniciar la instancia.
+        - En vsftpd: parámetro `pasv_address`.
+        - En IIS (Windows): campo *External IP Address of Firewall* (en la característica *Compatibilidad con firewall FTP* del sitio).
+        - En AWS conviene usar una **Elastic IP**, porque la IP pública normal **cambia al detener y volver a iniciar la instancia**. Como en las prácticas se detienen las instancias al terminar (apartado 5.8), sin Elastic IP habría que reconfigurar la IP pública del servidor FTP en cada sesión.
   
     !!! tip ":three: - Hay que limitar el rango de puertos pasivos."
         - Por defecto, el servidor puede elegir cualquier puerto efímero del sistema (unos 16.000 en Windows, más de 28.000 en Linux).
         - Abrir un rango tan grande en el cortafuegos es inviable e inseguro. Se debe fijar un rango reducido, por ejemplo del 50000 al 50100, y dimensionarlo según las transferencias simultáneas esperadas (cada transferencia usa un puerto).
+        - En vsftpd: parámetros `pasv_min_port` y `pasv_max_port`.
+        - En IIS: *Data Channel Port Range* en *Compatibilidad con firewall FTP* del nodo del servidor.
   
     !!! tip ":four: - Hay que abrir los puertos en todos los cortafuegos."
         Deben permitirse las conexiones entrantes en:
@@ -306,8 +320,16 @@ Para solventar el bloqueo originado por los cortafuegos de los clientes, se intr
          1. El cortafuegos del sistema operativo (Windows Firewall o iptables/ufw): los mismos puertos.
         !!! note "Los Security Groups son stateful, así que no hace falta una regla de salida para las respuestas."
 
-- Escenario con pasv_address configurado con la IP públicac. El Internet Gateway reenvía el tráfico hacia la IP privada del servidor.
-    ![img](./img_6/img-6-9.png){.cien .marco .marginbottom20 .margintop10}
+- Escenario con `pasv_address` configurado con la IP pública. El Internet Gateway reenvía el tráfico hacia la IP privada del servidor.
+    ![Modo pasivo funcionando con la IP pública configurada en el servidor](./img_6/img-6-9.png){.cien .marco .marginbottom20 .margintop10}
+
+!!! example "Resumen de la configuración pasiva en vsftpd"
+    ```ini
+    pasv_enable=YES
+    pasv_min_port=50000
+    pasv_max_port=50100
+    pasv_address=203.0.113.10
+    ```
 
 ## 3 - Seguridad en los protocolos de transferencia y acceso remoto
 
