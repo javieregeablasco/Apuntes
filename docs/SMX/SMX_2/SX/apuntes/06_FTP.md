@@ -454,57 +454,35 @@ Al operar infraestructuras en entornos de nube pública (**AWS Academy / AWS Lea
 
 | Parámetro de configuración | Valor requerido |
 |||
-| **Name (Nombre)** | `Servidor_FTPSSH` |
-| **Application and OS Images (AMI)** | `Microsoft Windows Server 2025 Base` (64 bits x86) |
-| **Instance type (Tipo de instancia)** | **`t3.large`** (Recomendado — 2 vCPU, 8 GiB RAM |
-| **Key pair (login)** | `vockey` (par de claves RSA `.pem` proporcionado por AWS Academy) |
-| **Network settings** | Asignar IP pública automáticamente (**Auto-assign public IP: Enable**) |
-| **Configure storage** | `30 GiB` gp3 (SSD de uso general) |
+| **Nombre** | `Servidor_FTPSSH` |
+| **Imagen de aplicaciones** | `Microsoft Windows Server 2025 Base` (64 bits x86) |
+| **Tipo de instancia** | **`t3.large`** (Recomendado — 2 vCPU, 8 GiB RAM |
+| **Par de claves** | `vockey` (par de claves RSA `.pem` proporcionado por AWS Academy) |
+| **Configuración de red** | VPC predeterminada (**172.31.0.0/16**) |
+| **Configuración de red** | Subred (**172.31.32.0/20**) |
+| **Configuración de red** | Asignar IP pública automáticamente (**Habilitar**) |
+| **Firewall (grupos de seguridad)** | Crear grupo de seguridad / Nombre: SG-WindowsServer-FTP |
+| **Configurar almacenamiento** | `30 GiB` gp3 (SSD de uso general) |
 
 ### 6.2 Preparación de la instancia en AWS y apertura de puertos
 
-Antes de configurar los servicios en la máquina, debemos garantizar que el **Security Group** de AWS autorice las conexiones RDP, SSH y los puertos requeridos por FTP.
+Antes de configurar los servicios en la máquina, debemos configurar el **Security Group** de AWS para que autorice las conexiones RDP, SSH y los puertos requeridos por FTP.
 
-1. Acceder a la consola de AWS -> **EC2** -> en el menú lateral izquierdo desplegar **Network & Security** y hacer clic en **Security Groups** (o **Grupos de seguridad**).
+1. Acceder a la consola de AWS → **EC2** → Seleccionar nuestra instancia → en la tabla resumen buscar **Seguridad** y hacer clic en **Grupos de seguridad**.
 
-![Acceso a Security Groups en el menú lateral de EC2](./img6/01_menu_security_groups.png)
-*Figura 1: Acceso a Security Groups en la sección Network & Security de EC2.*
+1. En la sección **Reglas de entrada** → pulsar en el botón **Editar reglas de entrada** → **Agregar regla**:
 
-2. En el panel superior, hacer clic en el botón naranja **Create security group** (**Crear grupo de seguridad**).
+![Pulsar el botón Agregar regla en Reglas de entrada](./img_6/04_boton_agregar_regla.png)
 
-![Botón Crear grupo de seguridad en el panel de EC2](./img6/02_boton_crear_sg.png)
-*Figura 2: Creación de un nuevo grupo de seguridad desde el panel de EC2.*
+1. Añadir las 5 reglas requeridas:
+   1. **RDP:** Puerto `3389` TCP (para administrar gráficamente la máquina).
+   1. **SSH:** Puerto `22` TCP (para el servidor OpenSSH).
+   1. **FTP Control:** Puerto `21` TCP.
+   1. **FTP Pasivo (Windows):** Rango de puertos `50000-50100` TCP.
+   1. **FTP Pasivo (Ubuntu):** Rango de puertos `40000-40100` TCP.
 
-3. Indicar los detalles básicos del grupo (**Basic details**):
-   * **Security group name:** `grup-servidors-ftp-ssh`
-   * **Description:** `Regles per a RDP, SSH i FTP amb ports passius`
-   * **VPC:** La VPC asignada por defecto en el laboratorio.
-
-> 💡 **Regla de nomenclatura en AWS**
->
-> En Amazon Web Services, el nombre de un grupo de seguridad **no puede comenzar por el prefijo `sg-`**, ya que AWS lo reserva internamente para los identificadores únicos del sistema (ej: `sg-0123456789abcdef`). Por ello nombramos el grupo como **`grup-servidors-ftp-ssh`** o **`servidores-ftp-ssh`**.
->
-
-![Detalles básicos del Security Group](./img6/03_detalles_basicos_sg.png)
-*Figura 3: Configuración del nombre, descripción y VPC del nuevo grupo de seguridad.*
-
-
-4. En la sección **Inbound rules** (**Reglas de entrada**), pulsar en el botón **Add rule** (**Agregar regla**):
-
-![Pulsar el botón Agregar regla en Reglas de entrada](./img6/04_boton_agregar_regla.png)
-*Figura 4: Ubicación del botón Add rule para definir las aperturas de puertos.*
-
-Añadir las 5 reglas requeridas:
-   * **RDP:** Puerto `3389` TCP (para administrar gráficamente la máquina).
-   * **SSH:** Puerto `22` TCP (para el servidor OpenSSH).
-   * **FTP Control:** Puerto `21` TCP.
-   * **FTP Pasivo (Windows):** Rango de puertos `50000-50100` TCP.
-   * **FTP Pasivo (Ubuntu):** Rango de puertos `40000-40100` TCP.
-
-> 📷 **Evidencia 2 (insertar en tu documento Word) — Realizar captura de pantalla** de la tabla de reglas de entrada del Security Group donde se vean los puertos 21, 22, 3389, 50000-50100 y 40000-40100.
-
+==REALIZAR CAPTURA DE PANTALLA==  
 ![Tabla de reglas de entrada del Security Group completada](./img_6/06_tabla_reglas_entrada.png)
-*Figura 5: Definición completa de las 5 reglas de entrada (RDP, SSH, FTP 21 y rangos pasivos).*
 
 5. Bajar hasta el final de la página y pulsar el botón naranja **Create security group**:
 
