@@ -346,28 +346,32 @@ Un aspecto clave en la administración de un servicio de transferencia de ficher
     - `C:\inetpub\ftproot\LocalUser\<nombre_de_usuario>`: Cada usuario local autenticado es confinado automáticamente a su carpeta homónima. Desde su cliente FTP, esa carpeta aparecerá como la raíz `/`, sin permitirle ver ni acceder a las carpetas de otros compañeros ni al resto del disco duro.
     - `C:\inetpub\ftproot\LocalUser\Public`: Carpeta compartida a la que son dirigidos los usuarios anónimos o no aislados.
 
----
-
 ### 4.3 Administración remota segura con SSH y bastionado (Hardening)
-La administración de servidores en entornos modernos exige canales cifrados y robustos frente a accesos no autorizados. El protocolo **SSH (Secure Shell)** sobre el **puerto 22 TCP** reemplazó a protocolos vulnerables antiguos como Telnet y Rlogin.
 
-#### A) Autenticación por parejas de claves asimétricas
+- La administración de servidores en entornos modernos exige canales cifrados y robustos frente a accesos no autorizados.
+- El protocolo **SSH (Secure Shell)** sobre el **puerto 22 TCP** reemplazó a protocolos vulnerables antiguos como Telnet y Rlogin.
+
+#### 4.3.1 Autenticación por parejas de claves asimétricas
+
 La autenticación tradicional por usuario y contraseña es susceptible a ataques de fuerza bruta mediante diccionarios automatizados. La mejor práctica de seguridad consiste en emplear **criptografía de clave pública**:
 
-* **Clave Privada (*Private Key*):**  
-  * Permanece **exclusivamente en el dispositivo cliente** del administrador.
-  * Debe protegerse mediante una frase de paso (*passphrase*) que la cifra en disco.
-  * **Bajo ninguna circunstancia debe enviarse por la red ni entregarse a terceros**.
-* **Clave Pública (*Public Key*):**  
-  * Puede distribuirse libremente sin comprometer la seguridad.
-  * Se almacena en el servidor remoto en el fichero:
-    * En Linux: `~/.ssh/authorized_keys` del usuario correspondiente.
-    * En Windows Server: `C:\ProgramData\ssh\administrators_authorized_keys` (para miembros del grupo Administradores) o `C:\Users\<usuario>\.ssh\authorized_keys`.
-* **Algoritmos recomendados:**
-  * **RSA:** Mínimo de 2048 o 4096 bits.
-  * **Ed25519:** Algoritmo moderno basado en curvas elípticas (EdDSA), con claves mucho más compactas, mayor velocidad de cálculo y resistencia criptográfica superior frente a ataques.
+1. **Clave Privada (*Private Key*):**  
+    - Permanece **exclusivamente en el dispositivo cliente** del administrador.
+    - Debe protegerse mediante una frase de paso (*passphrase*) que la cifra en disco.
+    - **Bajo ninguna circunstancia debe enviarse por la red ni entregarse a terceros**.
 
-#### B) Bastionado (*Hardening*) del servicio OpenSSH
+1. **Clave Pública (*Public Key*):**  
+    - Puede distribuirse libremente sin comprometer la seguridad.
+    - Se almacena en el servidor remoto en el fichero:
+    - En Linux: `~/.ssh/authorized_keys` del usuario correspondiente.
+    - En Windows Server: `C:\ProgramData\ssh\administrators_authorized_keys` (para miembros del grupo Administradores) o `C:\Users\<usuario>\.ssh\authorized_keys`.
+
+1. **Algoritmos recomendados:**
+    - **RSA:** Mínimo de 2048 o 4096 bits.
+    - **Ed25519:** Algoritmo moderno basado en curvas elípticas (EdDSA), con claves mucho más compactas, mayor velocidad de cálculo y resistencia criptográfica superior frente a ataques.
+
+#### 4.3.2 Bastionado (*Hardening*) del servicio OpenSSH
+
 Para proteger un servidor expuesto a Internet en la nube frente a intrusiones automatizadas, se aplican las siguientes directivas en su fichero de configuración (`/etc/ssh/sshd_config` o `C:\ProgramData\ssh\sshd_config`):
 
 1. **Desactivación de autenticación por contraseña (`PasswordAuthentication no`):**  
@@ -379,12 +383,12 @@ Para proteger un servidor expuesto a Internet en la nube frente a intrusiones au
 4. **Cierre de sesiones inactivas (`ClientAliveInterval 300`):**  
    Envía paquetes nulos para desconectar automáticamente a usuarios que olviden cerrar su terminal tras 5 minutos de inactividad.
 
----
-
 ### 4.4 Auditoría, análisis forense y monitorización de registros (Logs y Wireshark)
+
 La observabilidad y el registro de eventos son requisitos indispensables para garantizar la trazabilidad de accesos, detectar intrusiones y cumplir con normativas de ciberseguridad como el **Esquema Nacional de Seguridad (ENS)** y el **RGPD**:
 
-#### A) Registros en formato W3C en Microsoft IIS
+#### 4.4.1 Registros en formato W3C en Microsoft IIS
+
 El servicio FTP de IIS almacena sus accesos en ficheros de texto estructurados conforme al estándar **W3C Extended Log Format** (ubicados por defecto en `C:\inetpub\logs\LogFiles\FTPSVC1\`):
 
 ```text
