@@ -386,10 +386,10 @@ A diferencia de las otras prácticas donde solo lanzabamos las instancias sin ha
         - Ese acceso se realiza directamente a la instancia y no a través del balanceador decarga (opción **Nombre de DNS").
         ![img](../AWS/ut6/elb17.png){ .cien .marco .margintop10 }
 
-Si actualizamos repetidamente el navegador para acceder al recurso, observaremos que, en función del balanceo y de la latencia, la respuesta irá alternando entre una instancia y la otra. 
-
-![](../AWS/ut6/elb18.png){ .cincozero }<br>
-![](../AWS/ut6/elb19.png){ .cincozero }<br>
+!!! tip "Prueba de equilibrado"
+    - Si actualizamos repetidamente el navegador para acceder al recurso, observaremos que, en función del balanceo y de la latencia, la respuesta irá alternando entre una instancia y la otra.
+    ![img](../AWS/ut6/elb18.png){ .ochozero .margintop10 .marginbottom20 }
+    ![img](../AWS/ut6/elb19.png){ .ochozero }
 
 
 ### **2.3 - Tarea RA3-CEe**
