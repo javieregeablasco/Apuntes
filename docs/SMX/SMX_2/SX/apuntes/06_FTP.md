@@ -641,7 +641,7 @@ Antes de configurar los servicios en la máquina, debemos configurar el **Securi
             - `enable`: El servicio arrancará automáticamente cada vez que se inicie el sistema.
             - `--now`: Lo arranca ya mismo, sin esperar a reiniciar.
         1. `sudo systemctl status vsftpd` → Muestra el estado del servicio → Si todo va bien → active (running) en verde.
-        1. `sudo ufw allow 21/tcp`→ Abre el puerto 21 en el firewall UFW. Es el puerto de control de FTP. 
+        1. `sudo ufw allow 21/tcp`→ Abre el puerto 21 en el firewall UFW. Es el puerto de control de FTP.
         1. `sudo ufw allow 50000:50100/tcp` → Abre un rango de puertos (50000 a 50100) para el modo pasivo de FTP. **Este rango debe coincidir con lo que configures en `/etc/vsftpd.conf`**:
             ```bash
             pasv_enable=YES
@@ -649,14 +649,15 @@ Antes de configurar los servicios en la máquina, debemos configurar el **Securi
             pasv_max_port=50100
             ```
 
-- Si todo ha ido bien veremos al final del log el `status del servicio`:
+- Si todo ha ido bien veremos al final del log el `status del servicio`:  
     ==Realizar captura de pantalla==  
-    ![img](./img_6/img-6-13.png){ .leftsietecero .margintop10 .marginbottom20}
+    ![img](./img_6/img-6-13.png){ .cien .margintop10 .marginbottom20}
 
-
+- Configuración mínima de `VSFTPD`
     !!! warning "Importante:"
         1. Después de cada cambio en `/etc/vsftpd.conf` hay que reiniciar el servicio con `sudo systemctl restart vsftpd`.
-        1. Una configuración mínima de partida sería:
+
+    !!! tip "Editar el archivo `/etc/vsftpd.conf` e introducir la siguiente configuración"
             ```ini
             # Acceso
             listen=YES
@@ -664,6 +665,7 @@ Antes de configurar los servicios en la máquina, debemos configurar el **Securi
             local_enable=YES
             write_enable=YES
             local_umask=022
+            # listen_ipv6 # se debe comentar este parámetro
 
             # Enjaulado
             chroot_local_user=YES
@@ -672,7 +674,7 @@ Antes de configurar los servicios en la máquina, debemos configurar el **Securi
             pasv_enable=YES
             pasv_min_port=50000
             pasv_max_port=50100
-            # pasv_address=<IP pública>   (necesaria en AWS)
+            pasv_address=<IP pública> <34.201.130.98> 
 
             # Registro
             xferlog_enable=YES
