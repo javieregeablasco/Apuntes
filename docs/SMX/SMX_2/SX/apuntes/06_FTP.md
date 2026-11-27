@@ -445,7 +445,7 @@ Hasta ahora hemos visto cómo el servidor identifica al usuario. Pero el **clien
 
 ### 4.3 Instalación de los servicios en Windows y Linux
 
-#### 4.3.1 Tarea-CEb-1 - Servidor FTP de IIS (Windows Server) y OpenSSH
+#### 4.3.1 Tarea-RA3-CEb-1 - Servidor FTP de IIS (Windows Server) y OpenSSH
 
 !!! warning "Obligatorio seguir las normas para la presentación de trabajos escritos."
 
@@ -579,7 +579,18 @@ Antes de configurar los servicios en la máquina, debemos configurar el **Securi
     Set-Service -Name sshd -StartupType Automatic
     ```
 
-#### 4.3.2 Tarea-CEb-2 - Instalar VSFTP en Ubuntu Server 26.04 LTS
+##### 4.3.1.7 Entrega de la tarea
+
+!!! warning "Entrega de la tarea"
+
+    - Subir vuestra tarea guardando el archivo como RA3-CEb-1 a la tarea correspondiente de aules.
+    - La estrutura de vuestra tarea deberá seguir las [**Normas para la Presentación de Trabajos Escritos**](./0_RedaccionTareas.md). 
+    - Realizar las capturas de pantalla mínimas exigidas en los apuntes.
+    - Comentar las capturas de pantalla explicando el trabajo realizado para llegar a ese punto y el resultado obtenido.
+    - A partir del momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
+    - Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
+
+#### 4.3.2 Tarea-RA3-CEb-2 - Instalar VSFTP en Ubuntu Server 26.04 LTS
 
 ##### 4.3.2.1 Lanzar una instancia EC2 con Ubuntu Server 26.04 en AWS
 
@@ -602,28 +613,14 @@ Antes de configurar los servicios en la máquina, debemos configurar el **Securi
 - Resultado esperado.
     ![img](./img_6/img-6-11.png){.marco .leftsietecero .margintop10 .marginbottom20}
 
-# inicio instalar vsftp
+##### 4.3.2.2 Preparación de la instancia en AWS y apertura de puertos
 
-##### 4.3.1.2 Preparación de la instancia en AWS y apertura de puertos
-
-Antes de configurar los servicios en la máquina, debemos configurar el **Security Group** de AWS para que autorice las conexiones RDP, SSH y los puertos requeridos por FTP.
-
-1. Acceder a la consola de AWS → **EC2** → Seleccionar nuestra instancia → en la tabla resumen buscar **Seguridad** y hacer clic en **Grupos de seguridad**.
-
-1. En la sección **Reglas de entrada** → pulsar en el botón **Editar reglas de entrada** → **Agregar regla**:  
-![Pulsar el botón Agregar regla en Reglas de entrada](./img_6/04_boton_agregar_regla.png){.marco .leftcincocero .margintop10 .marginbottom20}
-
-1. Añadir las 5 reglas requeridas:
-    1. **RDP:** Puerto `3389` TCP (para administrar gráficamente la máquina).
-    1. **SSH:** Puerto `22` TCP (para el servidor OpenSSH).
-    1. **FTP Control:** Puerto `21` TCP.
-    1. **FTP Pasivo (Windows):** Rango de puertos `50000-50100` TCP.
-    1. **FTP Pasivo (Ubuntu):** Rango de puertos `40000-40100` TCP.
+- Al igual que en la tarea anterior , debemos configurar el **Security Group** de AWS para que autorice las conexiones RDP, SSH y los puertos requeridos por FTP.
+- En este caso no será necesario realizar ninguna operación al utilizar el mismo grupo de seguridad `SG-WindowsServer-FTP` que la instancia `Servidor_FTPSSH`, que ya hemos configurado previamente.
 
     ==REALIZAR CAPTURA DE PANTALLA==  
-    ![Tabla de reglas de entrada del Security Group completada](./img_6/06_tabla_reglas_entrada.png){.marco .margintop10}
+    ![img](./img_6/img-6-12.png){.marco .leftsietecero .margintop10 .marginbottom20}
 
-# fin instalar vsftp
 
 ## 5 - Gestión de usuarios, aislamiento, bastionado y auditoría
 
