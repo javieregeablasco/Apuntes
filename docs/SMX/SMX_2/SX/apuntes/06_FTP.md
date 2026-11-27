@@ -457,7 +457,7 @@ Hasta ahora hemos visto cómo el servidor identifica al usuario. Pero el **clien
 
 - En la consola de **EC2** lanzar una instancia con los siguientes parámetros:
 
-    ==REALIZAR CAPTURA DE PANTALLA==  
+    ==Realizar captura de pantalla==  
 
     | Parámetro de configuración | Valor requerido |
     |||
@@ -487,7 +487,7 @@ Antes de configurar los servicios en la máquina, debemos configurar el **Securi
     1. **FTP Pasivo (Windows):** Rango de puertos `50000-50100` TCP.
     1. **FTP Pasivo (Ubuntu):** Rango de puertos `40000-40100` TCP.
 
-    ==REALIZAR CAPTURA DE PANTALLA==  
+    ==Realizar captura de pantalla==  
     ![Tabla de reglas de entrada del Security Group completada](./img_6/06_tabla_reglas_entrada.png){.marco .margintop10}
 
 ##### 4.3.1.3 Conexión RDP a la instancia de Windows Server
@@ -511,11 +511,11 @@ Antes de configurar los servicios en la máquina, debemos configurar el **Securi
 1. Avanzar por **Features** y **Web Server Role (IIS)** hasta llegar a la pantalla **Role Services**:
    - Desplegar la categoría **FTP Server** y marcar las casillas **FTP Service** y **FTP Extensibility**.
    - Verificar que en **Management Tools** queda marcada la **IIS Management Console**.  
-   ==REALIZAR CAPTURA DE PANTALLA==  
+   ==Realizar captura de pantalla==  
     ![Selección de los servicios de rol FTP Server en IIS](./img_6/12_iis_ftp_role_services.png){.marco .margintop10 .marginbottom20}
 1. En la pantalla **Confirmation**, revisar los elementos y pulsar el botón **Install**.
 1. Una vez completado el proceso, la barra de progreso mostrará el mensaje **Installation succeeded** y se activará el botón **Close**.  
-==REALIZAR CAPTURA DE PANTALLA==  
+==Realizar captura de pantalla==  
 ![Instalación completada con éxito de IIS y FTP Server](./img_6/13_instalacion_completada_iis_ftp.png){.marco .margintop10 .marginbottom20}
 
 ##### 4.3.1.5 Instalación del rol Servidor FTP (IIS) por CLI
@@ -533,7 +533,7 @@ Antes de configurar los servicios en la máquina, debemos configurar el **Securi
     ```powershell
     Get-WindowsFeature Web-Ftp*
     ```
-    ==REALIZAR CAPTURA DE PANTALLA==  
+    ==Realizar captura de pantalla==  
     ![Instalación completada con éxito de IIS y FTP Server](./img_6/img-6-10.png){.margintop10 .marginbottom20}
 
 
@@ -558,7 +558,7 @@ Antes de configurar los servicios en la máquina, debemos configurar el **Securi
     1. En la sección **Added features** (Características añadidas), escribir `ssh` en el filtro de búsqueda.
     1. Comprobar que **OpenSSH Server** figura ya como instalado (la casilla de selección solo sirve si deseamos desinstalar el servicio).
     1. Pulsar **Close** para cerrar la ventana.  
-    ==REALIZAR CAPTURA DE PANTALLA==
+    ==Realizar captura de pantalla==
     ![Comprobación de OpenSSH Server preinstalado en Optional features](./img_6/14_openssh_server_optional_features.png){.marco .leftcincocero .margintop10 .marginbottom20 }
 
 !!! tip "Inicio y arranque del servicio OpenSSH (Consola gráfica de Servicios):"
@@ -568,7 +568,7 @@ Antes de configurar los servicios en la máquina, debemos configurar el **Securi
         1. Cambiar el **Tipo de inicio** (**Startup type**) a **Automático** (**Automatic**).
         1. Pulsar en el botón **Iniciar** (**Start**).
         1. Pulsar **OK**.  
-    ==REALIZAR CAPTURA DE PANTALLA==
+    ==Realizar captura de pantalla==
     ![Servicio OpenSSH SSH Server en ejecución y en inicio automático](./img_6/15_servicio_openssh_running.png){.marco .cien .margintop10 .marginbottom20}
 
 !!! abstract "Alternativa por PowerShell"
@@ -596,11 +596,11 @@ Antes de configurar los servicios en la máquina, debemos configurar el **Securi
 
 - En la consola de **EC2** lanzar una instancia con los siguientes parámetros:
 
-    ==REALIZAR CAPTURA DE PANTALLA==  
+    ==Realizar captura de pantalla==  
 
     | Parámetro de configuración | Valor requerido |
     |||
-    | **Nombre** | `Servidor_VSFTP` |
+    | **Nombre** | `Servidor_VSFTPD` |
     | **Imagen de aplicaciones** | `Ubuntu Server 26.04 LTS` |
     | **Tipo de instancia** | **`t3.large`** (Recomendado — 2 vCPU, 8 GiB RAM |
     | **Par de claves** | `vockey` (par de claves RSA `.pem` proporcionado por AWS Academy) |
@@ -618,10 +618,89 @@ Antes de configurar los servicios en la máquina, debemos configurar el **Securi
 - Al igual que en la tarea anterior , debemos configurar el **Security Group** de AWS para que autorice las conexiones RDP, SSH y los puertos requeridos por FTP.
 - En este caso no será necesario realizar ninguna operación al utilizar el mismo grupo de seguridad `SG-WindowsServer-FTP` que la instancia `Servidor_FTPSSH`, que ya hemos configurado previamente.
 
-    ==REALIZAR CAPTURA DE PANTALLA==  
+    ==Realizar captura de pantalla==  
     ![img](./img_6/img-6-12.png){.marco .leftsietecero .margintop10 .marginbottom20}
 
-##### 4.3.2.3 Preparación de la instancia en AWS y apertura de puertos
+##### 4.3.2.3 Instalación del servicio VSFTPD (Linux, Debian/Ubuntu)
+
+- Para instalar el servicio ejecutaremos los siguientes comandos
+
+    ```bash
+    sudo apt update
+    sudo apt upgrade -y
+    sudo apt install vsftpd
+    sudo systemctl enable --now vsftpd
+    sudo systemctl status vsftpd
+    sudo ufw allow 21/tcp
+    sudo ufw allow 50000:50100/tcp
+    ```
+
+    !!! tip "Explicación de los comandos"
+        1. `sudo apt install vsftpd`→ Instala vsftpd (Very Secure FTP Daemon).
+        1. `sudo systemctl enable --now vsftpd` → Hace dos cosas a la vez:
+            - `enable`: El servicio arrancará automáticamente cada vez que se inicie el sistema.
+            - `--now`: Lo arranca ya mismo, sin esperar a reiniciar.
+        1. `sudo systemctl status vsftpd` → Muestra el estado del servicio → Si todo va bien → active (running) en verde.
+        1. `sudo ufw allow 21/tcp`→ Abre el puerto 21 en el firewall UFW. Es el puerto de control de FTP. 
+        1. `sudo ufw allow 50000:50100/tcp` → Abre un rango de puertos (50000 a 50100) para el modo pasivo de FTP. **Este rango debe coincidir con lo que configures en /etc/vsftpd.conf**:
+            ```bash
+            pasv_enable=YES
+            pasv_min_port=50000
+            pasv_max_port=50100
+            ```
+
+Importante: instalar vsftpd no basta. Por defecto no permite escritura ni usuarios locales; tendrás que editar /etc/vsftpd.conf (por ejemplo write_enable=YES, local_enable=YES) y reiniciar con sudo systemctl restart vsftpd.
+
+
+
+Después de cada cambio en `/etc/vsftpd.conf` hay que reiniciar el servicio con `sudo systemctl restart vsftpd`. Una configuración mínima de partida:
+
+```ini
+# Acceso
+listen=YES
+anonymous_enable=NO
+local_enable=YES
+write_enable=YES
+local_umask=022
+
+# Enjaulado
+chroot_local_user=YES
+
+# Modo pasivo
+pasv_enable=YES
+pasv_min_port=50000
+pasv_max_port=50100
+# pasv_address=<IP pública>   (necesaria en AWS)
+
+# Registro
+xferlog_enable=YES
+vsftpd_log_file=/var/log/vsftpd.log
+```
+
+Para activar **FTPS explícito** hay que generar un certificado y añadir estas directivas:
+
+```bash
+sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+  -keyout /etc/ssl/private/vsftpd.key -out /etc/ssl/certs/vsftpd.pem
+```
+
+```ini
+ssl_enable=YES
+rsa_cert_file=/etc/ssl/certs/vsftpd.pem
+rsa_private_key_file=/etc/ssl/private/vsftpd.key
+force_local_logins_ssl=YES
+force_local_data_ssl=YES
+ssl_tlsv1_2=YES
+ssl_tlsv1=NO
+ssl_sslv2=NO
+ssl_sslv3=NO
+```
+
+!!! tip "Error típico con FileZilla"
+    Si FileZilla muestra `522 SSL connection failed; session reuse required`, añade `require_ssl_reuse=NO` y reinicia vsftpd.
+
+
+##### 4.3.2.4 Entrega de la tarea
 
 !!! warning "Entrega de la tarea"
 
@@ -631,6 +710,9 @@ Antes de configurar los servicios en la máquina, debemos configurar el **Securi
     - Comentar las capturas de pantalla explicando el trabajo realizado para llegar a ese punto y el resultado obtenido.
     - A partir del momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
     - Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
+
+
+
 
 ## 5 - Gestión de usuarios, aislamiento, bastionado y auditoría
 
