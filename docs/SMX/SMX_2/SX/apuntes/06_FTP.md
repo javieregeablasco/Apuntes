@@ -453,7 +453,7 @@ Hasta ahora hemos visto cómo el servidor identifica al usuario. Pero el **clien
 - Por un lado, se instalará y configurará el **servicio FTP de Microsoft IIS**, que permite publicar un sitio FTP con control de usuarios, permisos de acceso, aislamiento de directorios y cifrado opcional mediante FTPS (TLS/SSL con certificado X.509).
 - Por otro lado, se desplegará **OpenSSH Server**, que ofrece SFTP a través de un único puerto (TCP 22) y admite autenticación por contraseña o por claves asimétricas.
 
-##### 4.3.1.1 Lanzamiento de la instancia EC2 de Windows Server 2025 en AWS
+##### 4.3.1.1 Lanzar una instancia EC2 con Windows Server 2025 en AWS
 
 - En la consola de **EC2** lanzar una instancia con los siguientes parámetros:
 
@@ -550,13 +550,13 @@ Antes de configurar los servicios en la máquina, debemos configurar el **Securi
 
 ##### 4.3.1.6 Instalación y activación del Servidor OpenSSH
 
-En las imágenes oficiales de Windows Server proporcionadas por Amazon Web Services (AWS EC2), la característica de **OpenSSH Server** ya viene preinstalada en el sistema como característica opcional (**Optional feature**), por lo que únicamente es necesario verificar su presencia e iniciar su servicio.
+- En las imágenes oficiales de Windows Server proporcionadas por Amazon Web Services (AWS EC2), la característica de **OpenSSH Server** ya viene preinstalada en el sistema como característica opcional (**Optional feature**), por lo que únicamente es necesario verificar su presencia e iniciar su servicio.
 
 !!! tip "Comprobación gráfica mediante Configuración:"
     1. Pulsar el botón **Inicio** de Windows → hacer clic en **Settings**.
     1. Ir a **System** → **Optional features**.
     1. En la sección **Added features** (Características añadidas), escribir `ssh` en el filtro de búsqueda.
-    1. Comprobar que **OpenSSH Server** figura ya como instalado
+    1. Comprobar que **OpenSSH Server** figura ya como instalado (la casilla de selección solo sirve si deseamos desinstalar el servicio).
     1. Pulsar **Close** para cerrar la ventana.  
     ==REALIZAR CAPTURA DE PANTALLA==
     ![Comprobación de OpenSSH Server preinstalado en Optional features](./img_6/14_openssh_server_optional_features.png){.marco .leftcincocero .margintop10 .marginbottom20 }
@@ -579,10 +579,9 @@ En las imágenes oficiales de Windows Server proporcionadas por Amazon Web Servi
     Set-Service -Name sshd -StartupType Automatic
     ```
 
-#### 4.3.2 Tarea-CEb-2 - VSFTP en Ubuntu Server
+#### 4.3.2 Tarea-CEb-2 - Instalar VSFTP en Ubuntu Server 26.04 LTS
 
-##### 4.3.2.1 Lanzamiento de la instancia EC2 de Ubuntu Server 26.04 en AWS
-
+##### 4.3.2.1 Lanzar una instancia EC2 con Ubuntu Server 26.04 en AWS
 
 - En la consola de **EC2** lanzar una instancia con los siguientes parámetros:
 
@@ -590,16 +589,17 @@ En las imágenes oficiales de Windows Server proporcionadas por Amazon Web Servi
 
     | Parámetro de configuración | Valor requerido |
     |||
-    | **Nombre** | `Servidor_FTPSSH_Linux` |
-# inicio instalar vsftp
-    | **Imagen de aplicaciones** | `Microsoft Windows Server 2025 Base` (64 bits x86) |
+    | **Nombre** | `Servidor_VSFTP` |
+    | **Imagen de aplicaciones** | `Ubuntu Server 26.04 LTS` |
     | **Tipo de instancia** | **`t3.large`** (Recomendado — 2 vCPU, 8 GiB RAM |
     | **Par de claves** | `vockey` (par de claves RSA `.pem` proporcionado por AWS Academy) |
     | **Configuración de red** | VPC predeterminada (**172.31.0.0/16**) |
     | **Configuración de red** | Subred (**172.31.32.0/20**) |
     | **Configuración de red** | Asignar IP pública automáticamente (**Habilitar**) |
-    | **Firewall (grupos de seguridad)** | Crear grupo de seguridad / Nombre: SG-WindowsServer-FTP |
-    | **Configurar almacenamiento** | `30 GiB` gp3 (SSD de uso general) |
+    | **Firewall (grupos de seguridad)** | **Seleccionar un grupo de seguridad existente → SG-WindowsServer-FTP** |
+    | **Configurar almacenamiento** | `20 GiB` gp3 (SSD de uso general) | 
+
+# inicio instalar vsftp
 
 ##### 4.3.1.2 Preparación de la instancia en AWS y apertura de puertos
 
