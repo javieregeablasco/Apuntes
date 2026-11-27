@@ -621,6 +621,16 @@ Antes de configurar los servicios en la máquina, debemos configurar el **Securi
     ==REALIZAR CAPTURA DE PANTALLA==  
     ![img](./img_6/img-6-12.png){.marco .leftsietecero .margintop10 .marginbottom20}
 
+##### 4.3.2.3 Preparación de la instancia en AWS y apertura de puertos
+
+!!! warning "Entrega de la tarea"
+
+    - Subir vuestra tarea guardando el archivo como RA3-CEb-2 a la tarea correspondiente de aules.
+    - La estrutura de vuestra tarea deberá seguir las [**Normas para la Presentación de Trabajos Escritos**](./0_RedaccionTareas.md). 
+    - Realizar las capturas de pantalla mínimas exigidas en los apuntes.
+    - Comentar las capturas de pantalla explicando el trabajo realizado para llegar a ese punto y el resultado obtenido.
+    - A partir del momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
+    - Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
 
 ## 5 - Gestión de usuarios, aislamiento, bastionado y auditoría
 
