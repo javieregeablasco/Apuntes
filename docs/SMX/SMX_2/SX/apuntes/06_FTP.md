@@ -737,9 +737,9 @@ Antes de configurar los servicios en la máquina, debemos configurar el **Securi
 !!! note "Nombre del servicio"
     En Debian y Ubuntu el servicio se llama `ssh`. En Red Hat y derivadas se llama `sshd`.
 
-- Como podemos ver en el log de la instalación `SFTP (OpenSSH)` funciona sin instalar nada más, porque va incluido como subsistema (`Subsystem sftp ...` en `sshd_config`).
+- Como podemos ver en el log de la instalación, `SFTP (OpenSSH)` funciona, sin instalar nada, porque va incluido como subsistema (`Subsystem sftp ...` en `sshd_config`). Solamente hemos tenido que habilitarlo.
 
-#### 4.3.4 Entrega de la tarea
+##### 4.3.2.5 Entrega de la tarea
 
 !!! warning "Entrega de la tarea"
 
