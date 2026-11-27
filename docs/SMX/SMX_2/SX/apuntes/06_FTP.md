@@ -649,11 +649,11 @@ Antes de configurar los servicios en la máquina, debemos configurar el **Securi
             pasv_max_port=50100
             ```
 
-2. Si todo ha ido bien veremos al final del log el `status del servicio`:  
+1. Si todo ha ido bien veremos al final del log el `status del servicio`:  
     ==Realizar captura de pantalla==  
     ![img](./img_6/img-6-13.png){ .cien .margintop10 .marginbottom20}
 
-3. Configuración mínima de `VSFTPD`  
+1. Configuración mínima de `VSFTPD`  
 
     !!! warning "Importante:"
         Después de cada cambio en `/etc/vsftpd.conf` hay que reiniciar el servicio con `sudo systemctl restart vsftpd`.
@@ -679,7 +679,7 @@ Antes de configurar los servicios en la máquina, debemos configurar el **Securi
         vsftpd_log_file=/var/log/vsftpd.log
         ```
 
-4. Activar **FTPS explícito**
+1. Activar **FTPS explícito**
     - Para activar **FTPS explícito** debemos generar **un certificado** y añadir estas directivas al archivo `/etc/vsftpd.conf`:
 
     - Generar un certificado.
@@ -690,18 +690,19 @@ Antes de configurar los servicios en la máquina, debemos configurar el **Securi
 
         ![img](./img_6/img-6-14.png){ .cien .margintop10 .marginbottom20}
 
-    - Añadir las siguientes directivas al archivo `/etc/vsftpd.conf`.
+    - Añadir / modificar las siguientes directivas del archivo `/etc/vsftpd.conf`.
     ```ini
     ssl_enable=YES
     rsa_cert_file=/etc/ssl/certs/vsftpd.pem
     rsa_private_key_file=/etc/ssl/private/vsftpd.key
     force_local_logins_ssl=YES
     force_local_data_ssl=YES
-    ssl_tlsv1_2=YES
     ssl_tlsv1=NO
     ssl_sslv2=NO
     ssl_sslv3=NO
+    require_ssl_reuse=NO
     ```
+
 
 !!! tip "Error típico con FileZilla"
     Si FileZilla muestra `522 SSL connection failed; session reuse required`, añade `require_ssl_reuse=NO` y reinicia vsftpd.
