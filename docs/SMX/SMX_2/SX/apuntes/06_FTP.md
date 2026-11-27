@@ -653,33 +653,31 @@ Antes de configurar los servicios en la máquina, debemos configurar el **Securi
     ==Realizar captura de pantalla==  
     ![img](./img_6/img-6-13.png){ .cien .margintop10 .marginbottom20}
 
-- Configuración mínima de `VSFTPD`
-  !!! warning "Importante:"
-      1. Después de cada cambio en `/etc/vsftpd.conf` hay que reiniciar el servicio con `sudo systemctl restart vsftpd`.
+- Configuración mínima de `VSFTPD`  
 
-    !!! tip "Editar el archivo `/etc/vsftpd.conf` e introducir la siguiente configuración"
-            ```ini
-            # Acceso
-            listen=YES
-            anonymous_enable=NO
-            local_enable=YES
-            write_enable=YES
-            local_umask=022
-            # listen_ipv6 # se debe comentar este parámetro
+    !!! warning "Importante:"
+        Después de cada cambio en `/etc/vsftpd.conf` hay que reiniciar el servicio con `sudo systemctl restart vsftpd`.
 
-            # Enjaulado
-            chroot_local_user=YES
-
-            # Modo pasivo
-            pasv_enable=YES
-            pasv_min_port=50000
-            pasv_max_port=50100
-            pasv_address=<IP pública> <34.201.130.98> 
-
-            # Registro
-            xferlog_enable=YES
-            vsftpd_log_file=/var/log/vsftpd.log
-            ```
+  !!! tip "Editar el archivo `/etc/vsftpd.conf` e introducir la siguiente configuración"
+      ```ini
+      # Acceso
+      listen=YES
+      anonymous_enable=NO
+      local_enable=YES
+      write_enable=YES
+      local_umask=022
+      # listen_ipv6 # se debe comentar este parámetro
+      # Enjaulado
+      chroot_local_user=YES
+      # Modo pasivo
+      pasv_enable=YES
+      pasv_min_port=50000
+      pasv_max_port=50100
+      pasv_address=<IP pública> <34.201.130.98> 
+      # Registro
+      xferlog_enable=YES
+      vsftpd_log_file=/var/log/vsftpd.log
+      ```
 
 - Activar **FTPS explícito** hay que generar un certificado y añadir estas directivas:
 
