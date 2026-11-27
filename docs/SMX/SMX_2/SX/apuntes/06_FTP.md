@@ -720,7 +720,7 @@ Antes de configurar los servicios en la máquina, debemos configurar el **Securi
     ```bash
     sudo journalctl -xeu vsftpd --no-pager | tail -20
     ```
-        ![img](./img_6/img-6-16.png){ .cien .margintop10 .marginbottom20}
+        ![img](./img_6/img-6-16.png){ .cien .marginbottom20}
 
 ##### 4.3.2.4 Instalación del servicio VSFTPD (Linux, Debian/Ubuntu)
 
