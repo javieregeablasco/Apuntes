@@ -590,7 +590,7 @@ Antes de configurar los servicios en la máquina, debemos configurar el **Securi
     - A partir del momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
     - Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
 
-#### 4.3.2 Tarea-RA3-CEb-2 - Instalar VSFTP en Ubuntu Server 26.04 LTS
+#### 4.3.2 Tarea-RA3-CEb-2 - Instalar VSFTP y OpenSSH en Ubuntu Server 26.04 LTS
 
 ##### 4.3.2.1 Lanzar una instancia EC2 con Ubuntu Server 26.04 en AWS
 
@@ -722,9 +722,7 @@ Antes de configurar los servicios en la máquina, debemos configurar el **Securi
     ```
         ![img](./img_6/img-6-16.png){ .cien .marginbottom20}
 
-##### 4.3.2.4 Instalación del servicio VSFTPD (Linux, Debian/Ubuntu)
-
-#### 4.3.3 OpenSSH Server
+##### 4.3.2.4 Instalación de OpenSSH Server
 
 - Para instalar OpenSSH ejecutaremos los siguientes comandos:
     ```bash
