@@ -4,62 +4,7 @@
 
 
 
-#### 4.3.2 vsftpd (Linux, Debian/Ubuntu)
 
-```bash
-sudo apt update
-sudo apt install vsftpd
-sudo systemctl enable --now vsftpd
-sudo systemctl status vsftpd
-sudo ufw allow 21/tcp
-sudo ufw allow 50000:50100/tcp
-```
-
-Después de cada cambio en `/etc/vsftpd.conf` hay que reiniciar el servicio con `sudo systemctl restart vsftpd`. Una configuración mínima de partida:
-
-```ini
-# Acceso
-listen=YES
-anonymous_enable=NO
-local_enable=YES
-write_enable=YES
-local_umask=022
-
-# Enjaulado
-chroot_local_user=YES
-
-# Modo pasivo
-pasv_enable=YES
-pasv_min_port=50000
-pasv_max_port=50100
-# pasv_address=<IP pública>   (necesaria en AWS)
-
-# Registro
-xferlog_enable=YES
-vsftpd_log_file=/var/log/vsftpd.log
-```
-
-Para activar **FTPS explícito** hay que generar un certificado y añadir estas directivas:
-
-```bash
-sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
-  -keyout /etc/ssl/private/vsftpd.key -out /etc/ssl/certs/vsftpd.pem
-```
-
-```ini
-ssl_enable=YES
-rsa_cert_file=/etc/ssl/certs/vsftpd.pem
-rsa_private_key_file=/etc/ssl/private/vsftpd.key
-force_local_logins_ssl=YES
-force_local_data_ssl=YES
-ssl_tlsv1_2=YES
-ssl_tlsv1=NO
-ssl_sslv2=NO
-ssl_sslv3=NO
-```
-
-!!! tip "Error típico con FileZilla"
-    Si FileZilla muestra `522 SSL connection failed; session reuse required`, añade `require_ssl_reuse=NO` y reinicia vsftpd.
 
 #### 4.3.3 OpenSSH Server
 
@@ -74,18 +19,6 @@ Get-NetFirewallRule -Name *ssh*
 
 La instalación crea automáticamente la regla de firewall `OpenSSH-Server-In-TCP` para el puerto 22. Se comprueba con la última orden.
 
-**En Linux (Debian/Ubuntu):**
-
-```bash
-sudo apt install openssh-server
-sudo systemctl enable --now ssh
-sudo ufw allow 22/tcp
-```
-
-!!! note "Nombre del servicio"
-    En Debian y Ubuntu el servicio se llama `ssh`. En Red Hat y derivadas se llama `sshd`.
-
-En ambos casos, SFTP funciona sin instalar nada más, porque va incluido como subsistema (`Subsystem sftp ...` en `sshd_config`).
 
 ### 4.4 Uso práctico de los clientes
 

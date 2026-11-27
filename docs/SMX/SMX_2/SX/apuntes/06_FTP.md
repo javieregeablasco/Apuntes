@@ -797,6 +797,8 @@ Con esto también tendrás SFTP en Windows Server por el puerto 22, igual que en
     - A partir del momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
     - Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
 
+# HASTA AQUI
+
 ## 5 - Gestión de usuarios, aislamiento, bastionado y auditoría
 
 ### 5.1 Tipologías de usuarios en un servidor de ficheros (Anónimos, Locales y Virtuales)
@@ -932,11 +934,6 @@ Al operar infraestructuras en entornos de nube pública (**AWS Academy / AWS Lea
 1. **Principio de mínimo privilegio:** Desactivar el acceso directo de cuentas con privilegios de superusuario (`Administrator` o `root`) al servicio FTP.
 1. **Defensa en profundidad en cortafuegos:** Limitar la apertura de puertos pasivos en los grupos de seguridad estrictamente al rango acotado necesario para las transferencias del aula.
 1. **Control y optimización de costes en AWS:** Las instancias virtuales EC2 consumen saldo del laboratorio mientras permanecen en estado `Running`. Al finalizar la sesión lectiva o el trabajo en casa, es **obligatorio detener las instancias (`Stop instance`)** desde la consola web de AWS. Detener la instancia congela el consumo de cómputo preservando íntegros los datos del disco SSD (EBS).
-
-
-
-# HASTA AQUI
-
 
 
 # USUARIOS LOCALES
