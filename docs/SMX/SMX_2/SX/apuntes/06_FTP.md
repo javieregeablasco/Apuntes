@@ -579,14 +579,17 @@ Antes de configurar los servicios en la máquina, debemos configurar el **Securi
     Set-Service -Name sshd -StartupType Automatic
     ```
 
-- Comprobar la regla del firewall de Windows:
+- Normalmente la habilitación de OpenSSH crea una regla en el firewall de windows. Podemos verificar si esa regla existe con:
+    ```powershell
+    Get-NetFirewallRule -Name *ssh*
+    ```
+    ==Realizar captura de pantalla==
+    ![img](./img_6/15_servicio_openssh_running.png){.marco .cien .margintop10 .marginbottom20}
 
 <!--
 
-Normalmente la instalación crea una regla, pero verifícalo:
 
-powershell
-Get-NetFirewallRule -Name *ssh*
+
 
 Si no aparece OpenSSH-Server-In-TCP, créala:
 
