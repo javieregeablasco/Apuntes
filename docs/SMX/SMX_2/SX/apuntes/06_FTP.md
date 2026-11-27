@@ -526,17 +526,12 @@ Antes de configurar los servicios en la máquina, debemos configurar el **Securi
    ```powershell
    Install-WindowsFeature -Name Web-Server, Web-Ftp-Server, Web-Ftp-Service, Web-Ftp-Ext, Web-Mgmt-Console
    ```
-
-##### 4.3.1.6 Comprobar por CLI que el rol Servidor FTP (IIS) está instalado
-
-- Para comprobar que los servicios se han instalado correctamente, ejecutaremos el siguiente comando.
-
-    ```powershell
-    Install-WindowsFeature -Name Web-Server, Web-Ftp-Server, Web-Ftp-Service, Web-Ftp-Ext, Web-Mgmt-Console
-    ```
-
-==REALIZAR CAPTURA DE PANTALLA==
-![Instalación completada con éxito de IIS y FTP Server](./img_6/img-6-10.png){.margintop10 .marginbottom20}
+1. Para comprobar que los servicios se han instalado correctamente, ejecutaremos el siguiente comando.
+   ```powershell
+   Install-WindowsFeature -Name Web-Server, Web-Ftp-Server, Web-Ftp-Service, Web-Ftp-Ext, Web-Mgmt-Console
+   ```
+   ==REALIZAR CAPTURA DE PANTALLA==
+   ![Instalación completada con éxito de IIS y FTP Server](./img_6/img-6-10.png){.margintop10 .marginbottom20}
 
 
 <!-- 1. Crear el sitio en el Administrador de IIS (`inetmgr`): *Sitios → Agregar sitio FTP...* y definir el nombre, la ruta física (`C:\inetpub\ftproot`), el enlace (IP y puerto 21), el certificado SSL, la autenticación y la autorización.
