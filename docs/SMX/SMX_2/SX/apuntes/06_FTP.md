@@ -688,7 +688,7 @@ Antes de configurar los servicios en la máquina, debemos configurar el **Securi
     -keyout /etc/ssl/private/vsftpd.key -out /etc/ssl/certs/vsftpd.pem
     ```
 
-    ![img](./img_6/img-6-14.png){ .cien .margintop10 .marginbottom20}
+        ![img](./img_6/img-6-14.png){ .cien .margintop10 .marginbottom20}
 
 ```ini
 ssl_enable=YES
