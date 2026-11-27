@@ -623,7 +623,7 @@ Antes de configurar los servicios en la máquina, debemos configurar el **Securi
 
 ##### 4.3.2.3 Instalación del servicio VSFTPD (Linux, Debian/Ubuntu)
 
-- Para instalar el servicio ejecutaremos los siguientes comandos
+1. Para instalar el servicio ejecutaremos los siguientes comandos
 
     ```bash
     sudo apt update
@@ -649,11 +649,11 @@ Antes de configurar los servicios en la máquina, debemos configurar el **Securi
             pasv_max_port=50100
             ```
 
-- Si todo ha ido bien veremos al final del log el `status del servicio`:  
+2. Si todo ha ido bien veremos al final del log el `status del servicio`:  
     ==Realizar captura de pantalla==  
     ![img](./img_6/img-6-13.png){ .cien .margintop10 .marginbottom20}
 
-- Configuración mínima de `VSFTPD`  
+3. Configuración mínima de `VSFTPD`  
 
     !!! warning "Importante:"
         Después de cada cambio en `/etc/vsftpd.conf` hay que reiniciar el servicio con `sudo systemctl restart vsftpd`.
@@ -673,18 +673,22 @@ Antes de configurar los servicios en la máquina, debemos configurar el **Securi
         pasv_enable=YES
         pasv_min_port=50000
         pasv_max_port=50100
-        pasv_address=<IP pública> <34.201.130.98> 
+        pasv_address=<IP pública> 34.201.130.98
         # Registro
         xferlog_enable=YES
         vsftpd_log_file=/var/log/vsftpd.log
         ```
 
-- Activar **FTPS explícito** hay que generar un certificado y añadir estas directivas:
+4. Activar **FTPS explícito**
+    - Para activar **FTPS explícito** debemos generar **un certificado** y añadir estas directivas al archivo `/etc/vsftpd.conf`:
 
-```bash
-sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
-  -keyout /etc/ssl/private/vsftpd.key -out /etc/ssl/certs/vsftpd.pem
-```
+    - Generar un certificado.
+    ```bash
+    sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+    -keyout /etc/ssl/private/vsftpd.key -out /etc/ssl/certs/vsftpd.pem
+    ```
+
+    ![img](./img_6/img-6-14.png){ .cien .margintop10 .marginbottom20}
 
 ```ini
 ssl_enable=YES
