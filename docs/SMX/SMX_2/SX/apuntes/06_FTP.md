@@ -717,6 +717,12 @@ Antes de configurar los servicios en la máquina, debemos configurar el **Securi
     !!! tip "Error típico con FileZilla"
         Si FileZilla muestra `522 SSL connection failed; session reuse required`, añade `require_ssl_reuse=NO` y reinicia vsftpd.
 
+    - Si hay errores visualizaremos el `log` con:
+    ```bash
+    sudo journalctl -xeu vsftpd --no-pager | tail -20
+    ```
+        ![img](./img_6/img-6-16.png){ .cien .margintop10 .marginbottom20}
+
 ##### 4.3.2.4 Entrega de la tarea
 
 !!! warning "Entrega de la tarea"
