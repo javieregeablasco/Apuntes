@@ -642,40 +642,37 @@ Antes de configurar los servicios en la máquina, debemos configurar el **Securi
             - `--now`: Lo arranca ya mismo, sin esperar a reiniciar.
         1. `sudo systemctl status vsftpd` → Muestra el estado del servicio → Si todo va bien → active (running) en verde.
         1. `sudo ufw allow 21/tcp`→ Abre el puerto 21 en el firewall UFW. Es el puerto de control de FTP. 
-        1. `sudo ufw allow 50000:50100/tcp` → Abre un rango de puertos (50000 a 50100) para el modo pasivo de FTP. **Este rango debe coincidir con lo que configures en /etc/vsftpd.conf**:
+        1. `sudo ufw allow 50000:50100/tcp` → Abre un rango de puertos (50000 a 50100) para el modo pasivo de FTP. **Este rango debe coincidir con lo que configures en `/etc/vsftpd.conf`**:
             ```bash
             pasv_enable=YES
             pasv_min_port=50000
             pasv_max_port=50100
             ```
 
-Importante: instalar vsftpd no basta. Por defecto no permite escritura ni usuarios locales; tendrás que editar /etc/vsftpd.conf (por ejemplo write_enable=YES, local_enable=YES) y reiniciar con sudo systemctl restart vsftpd.
+    !!! warning "Importante:"
+        1. Después de cada cambio en `/etc/vsftpd.conf` hay que reiniciar el servicio con `sudo systemctl restart vsftpd`.
+        1. Una configuración mínima de partida sería:
+            ```ini
+            # Acceso
+            listen=YES
+            anonymous_enable=NO
+            local_enable=YES
+            write_enable=YES
+            local_umask=022
 
+            # Enjaulado
+            chroot_local_user=YES
 
+            # Modo pasivo
+            pasv_enable=YES
+            pasv_min_port=50000
+            pasv_max_port=50100
+            # pasv_address=<IP pública>   (necesaria en AWS)
 
-Después de cada cambio en `/etc/vsftpd.conf` hay que reiniciar el servicio con `sudo systemctl restart vsftpd`. Una configuración mínima de partida:
-
-```ini
-# Acceso
-listen=YES
-anonymous_enable=NO
-local_enable=YES
-write_enable=YES
-local_umask=022
-
-# Enjaulado
-chroot_local_user=YES
-
-# Modo pasivo
-pasv_enable=YES
-pasv_min_port=50000
-pasv_max_port=50100
-# pasv_address=<IP pública>   (necesaria en AWS)
-
-# Registro
-xferlog_enable=YES
-vsftpd_log_file=/var/log/vsftpd.log
-```
+            # Registro
+            xferlog_enable=YES
+            vsftpd_log_file=/var/log/vsftpd.log
+            ```
 
 Para activar **FTPS explícito** hay que generar un certificado y añadir estas directivas:
 
