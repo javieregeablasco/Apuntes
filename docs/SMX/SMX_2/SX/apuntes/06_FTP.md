@@ -597,7 +597,9 @@ Antes de configurar los servicios en la máquina, debemos configurar el **Securi
     | **Configuración de red** | Subred (**172.31.32.0/20**) |
     | **Configuración de red** | Asignar IP pública automáticamente (**Habilitar**) |
     | **Firewall (grupos de seguridad)** | **Seleccionar un grupo de seguridad existente → SG-WindowsServer-FTP** |
-    | **Configurar almacenamiento** | `20 GiB` gp3 (SSD de uso general) | 
+    | **Configurar almacenamiento** | `20 GiB` gp3 (SSD de uso general) |
+
+    ![Pulsar el botón Agregar regla en Reglas de entrada](./img_6/img-6-11.png){.marco .leftcincocero .margintop10 .marginbottom20}
 
 # inicio instalar vsftp
 
