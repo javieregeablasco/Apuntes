@@ -599,7 +599,8 @@ Antes de configurar los servicios en la máquina, debemos configurar el **Securi
     | **Firewall (grupos de seguridad)** | **Seleccionar un grupo de seguridad existente → SG-WindowsServer-FTP** |
     | **Configurar almacenamiento** | `20 GiB` gp3 (SSD de uso general) |
 
-    ![Pulsar el botón Agregar regla en Reglas de entrada](./img_6/img-6-11.png){.marco .leftcincocero .margintop10 .marginbottom20}
+- Resultado esperado.
+    ![img](./img_6/img-6-11.png){.marco .leftsietecero .margintop10 .marginbottom20}
 
 # inicio instalar vsftp
 
