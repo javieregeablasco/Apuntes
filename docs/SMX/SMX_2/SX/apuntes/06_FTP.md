@@ -723,7 +723,23 @@ Antes de configurar los servicios en la máquina, debemos configurar el **Securi
     ```
         ![img](./img_6/img-6-16.png){ .cien .margintop10 .marginbottom20}
 
-##### 4.3.2.4 Entrega de la tarea
+##### 4.3.2.4 Instalación del servicio VSFTPD (Linux, Debian/Ubuntu)
+
+#### 4.3.3 OpenSSH Server
+
+- Para instalar OpenSSH ejecutaremos los siguientes comandos
+    ```bash
+    sudo apt install openssh-server
+    sudo systemctl enable --now ssh
+    sudo ufw allow 22/tcp
+    ```
+
+!!! note "Nombre del servicio"
+    En Debian y Ubuntu el servicio se llama `ssh`. En Red Hat y derivadas se llama `sshd`.
+
+En ambos casos, SFTP funciona sin instalar nada más, porque va incluido como subsistema (`Subsystem sftp ...` en `sshd_config`).
+
+##### 4.3.2.5 Entrega de la tarea
 
 !!! warning "Entrega de la tarea"
 
@@ -733,9 +749,6 @@ Antes de configurar los servicios en la máquina, debemos configurar el **Securi
     - Comentar las capturas de pantalla explicando el trabajo realizado para llegar a ese punto y el resultado obtenido.
     - A partir del momento de apertura de la tarea, dispondréis de **2 semanas** para subir vuestros trabajos.
     - Pasado ese tiempo la tarea se cerrará y ya no será posible subir vuestras respuestas.
-
-
-
 
 ## 5 - Gestión de usuarios, aislamiento, bastionado y auditoría
 
