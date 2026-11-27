@@ -703,9 +703,17 @@ Antes de configurar los servicios en la máquina, debemos configurar el **Securi
     require_ssl_reuse=NO
     ```
 
+1. Reiniciar el servicio y comprobar su estado.
+    - Reinciaremos y comprobaremos el servicio con:
+    ```bash
+    sudo systemctl restart vsftpd
+    sudo systemctl status vsftpd
+    ```
+    ==Realizar captura de pantalla==
+        ![img](./img_6/img-6-15.png){ .cien .margintop10 .marginbottom20}
 
-!!! tip "Error típico con FileZilla"
-    Si FileZilla muestra `522 SSL connection failed; session reuse required`, añade `require_ssl_reuse=NO` y reinicia vsftpd.
+    !!! tip "Error típico con FileZilla"
+        Si FileZilla muestra `522 SSL connection failed; session reuse required`, añade `require_ssl_reuse=NO` y reinicia vsftpd.
 
 
 ##### 4.3.2.4 Entrega de la tarea
