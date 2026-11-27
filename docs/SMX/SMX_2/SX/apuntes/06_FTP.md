@@ -531,9 +531,9 @@ Antes de configurar los servicios en la máquina, debemos configurar el **Securi
 
 - Para comprobar que los servicios se han instalado correctamente, ejecutaremos el siguiente comando.
 
-   ```powershell
-   Install-WindowsFeature -Name Web-Server, Web-Ftp-Server, Web-Ftp-Service, Web-Ftp-Ext, Web-Mgmt-Console
-   ```
+    ```powershell
+    Install-WindowsFeature -Name Web-Server, Web-Ftp-Server, Web-Ftp-Service, Web-Ftp-Ext, Web-Mgmt-Console
+    ```
 
 ==REALIZAR CAPTURA DE PANTALLA==
 ![Instalación completada con éxito de IIS y FTP Server](./img_6/img-6-10.png){.margintop10 .marginbottom20}
