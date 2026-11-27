@@ -522,7 +522,8 @@ Antes de configurar los servicios en la máquina, debemos configurar el **Securi
 
 1. Como método alternativo a la interfaz gráfica, podremos usar una línea de comandos.
 1. Abrir una consola de `PowerShell` como **administrador**.
-1. Para instalar el rol FTP (IIS) ejecutaremos los siguientes comandos:  
+1. Para instalar el rol FTP (IIS) ejecutaremos los siguientes comandos:
+!!! warning "No ejecutar los comandos si ya habeís instalado los roles"
    ```powershell
    Install-WindowsFeature -Name Web-Server, Web-Ftp-Server, Web-Ftp-Service, Web-Ftp-Ext, Web-Mgmt-Console
    ```
@@ -530,7 +531,7 @@ Antes de configurar los servicios en la máquina, debemos configurar el **Securi
    ```powershell
    Install-WindowsFeature -Name Web-Server, Web-Ftp-Server, Web-Ftp-Service, Web-Ftp-Ext, Web-Mgmt-Console
    ```
-   ==REALIZAR CAPTURA DE PANTALLA==
+   ==REALIZAR CAPTURA DE PANTALLA==  
    ![Instalación completada con éxito de IIS y FTP Server](./img_6/img-6-10.png){.margintop10 .marginbottom20}
 
 
