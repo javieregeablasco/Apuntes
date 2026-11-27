@@ -586,19 +586,17 @@ Antes de configurar los servicios en la máquina, debemos configurar el **Securi
     ==Realizar captura de pantalla==
     ![img](./img_6/img-6-18.png15_servicio_openssh_running.png){.marco .cien .margintop10 .marginbottom20}
 
+- Si no aparece la regla, la crearemos con: 
+    ```powershell
+    New-NetFirewallRule -Name sshd -DisplayName "OpenSSH Server (sshd)" -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 22
+    ```
+
 <!--
 
 
 
 
 Si no aparece OpenSSH-Server-In-TCP, créala:
-
-powershell
-New-NetFirewallRule -Name sshd -DisplayName "OpenSSH Server (sshd)" -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 22
-
-3. Abrir el puerto 22 en el Security Group de AWS
-
-Regla de entrada TCP 22. Si puedes, limítala a tu IP en lugar de 0.0.0.0/0.
 
 4. Probar la conexión desde otro equipo:
 

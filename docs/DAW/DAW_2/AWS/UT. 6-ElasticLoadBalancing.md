@@ -184,6 +184,16 @@ Una vez creada la infraestructura (VPC + subred + EC2 + IGW) iniciaremos las int
 - Rellenaremos los campos con los datos de nuestros **transit gateways**.
   ![img](../AWS/ut6/TGW12.png){ .marco .cien .margintop10 .marginbottom20  }
 
+- Para que el tráfico entre regiones sea funcional deberemos crear **rutas estáticas** en la tabla de enrutamiento del **gateway de tránsito**.
+  ![img](../AWS/ut6/TGW13.png){ .marco .cien .margintop10 .marginbottom20  }
+
+- Introducimos tantas rutas como VPCs queremos interconectar. Repetiremos la configuración en ambas regiones.
+  ![img](../AWS/ut6/TGW14.png){ .marco .cien .margintop10 .marginbottom20  }
+
+- Como es habitual, también tendremos que configurar las rutas en las tablas de enrutamiento de las VPCs.
+  ![img](../AWS/ut6/TGW15.png){ .marco .cien .margintop10 .marginbottom20  }
+
+
 !!! warning "Entrega de la tarea"
     - **Realizar capturas de pantalla de los momentos clave de la realización de la tarea**.
     - Comentar las captura de pantalla explicando el trabajo realizado para llegar a ese punto y el resultado obtenido.
