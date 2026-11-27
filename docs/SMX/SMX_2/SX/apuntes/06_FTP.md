@@ -579,6 +579,53 @@ Antes de configurar los servicios en la máquina, debemos configurar el **Securi
     Set-Service -Name sshd -StartupType Automatic
     ```
 
+- Comprobar la regla del firewall de Windows:
+
+<!--
+
+Normalmente la instalación crea una regla, pero verifícalo:
+
+powershell
+Get-NetFirewallRule -Name *ssh*
+
+Si no aparece OpenSSH-Server-In-TCP, créala:
+
+powershell
+New-NetFirewallRule -Name sshd -DisplayName "OpenSSH Server (sshd)" -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 22
+
+3. Abrir el puerto 22 en el Security Group de AWS
+
+Regla de entrada TCP 22. Si puedes, limítala a tu IP en lugar de 0.0.0.0/0.
+
+4. Probar la conexión desde otro equipo:
+
+bash
+ssh Administrator@IP_DEL_SERVIDOR
+
+5. Opcional: usar PowerShell como shell por defecto (si no, entras en cmd):
+
+powershell
+New-ItemProperty -Path "HKLM:\SOFTWARE\OpenSSH" -Name DefaultShell -Value "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" -PropertyType String -Force
+
+6. Opcional pero recomendable: autenticación con clave pública
+
+Para usuarios que son administradores, la clave pública va en un archivo especial, no en el .ssh del usuario:
+
+powershell
+# Pega tu clave pública en este archivo
+notepad C:\ProgramData\ssh\administrators_authorized_keys
+
+# Ajusta los permisos (obligatorio, si no SSH ignora el archivo)
+icacls.exe "C:\ProgramData\ssh\administrators_authorized_keys" /inheritance:r /grant "Administrators:F" /grant "SYSTEM:F"
+
+Para usuarios normales, usa C:\Users\usuario\.ssh\authorized_keys.
+
+Una vez que la clave funcione, puedes desactivar la contraseña editando C:\ProgramData\ssh\sshd_config (PasswordAuthentication no) y reiniciando con Restart-Service sshd. Haz esto solo después de confirmar que entras con clave, para no quedarte fuera.
+
+Con esto también tendrás SFTP en Windows Server por el puerto 22, igual que en Linux.
+-->
+
+
 ##### 4.3.1.7 Entrega de la tarea
 
 !!! warning "Entrega de la tarea"
