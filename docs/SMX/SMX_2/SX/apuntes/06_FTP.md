@@ -584,7 +584,7 @@ Antes de configurar los servicios en la máquina, debemos configurar el **Securi
     Get-NetFirewallRule -Name *ssh*
     ```
     ==Realizar captura de pantalla==
-    ![img](./img_6/15_servicio_openssh_running.png){.marco .cien .margintop10 .marginbottom20}
+    ![img](./img_6/img-6-18.png15_servicio_openssh_running.png){.marco .cien .margintop10 .marginbottom20}
 
 <!--
 
