@@ -649,6 +649,11 @@ Antes de configurar los servicios en la máquina, debemos configurar el **Securi
             pasv_max_port=50100
             ```
 
+- Si todo ha ido bien veremos al final del log el `status del servicio`:
+    ==Realizar captura de pantalla==  
+    ![img](./img_6/img-6-13.png){ .leftsietecero .margintop10 .marginbottom20}
+
+
     !!! warning "Importante:"
         1. Después de cada cambio en `/etc/vsftpd.conf` hay que reiniciar el servicio con `sudo systemctl restart vsftpd`.
         1. Una configuración mínima de partida sería:
