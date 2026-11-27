@@ -710,9 +710,8 @@ Antes de configurar los servicios en la máquina, debemos configurar el **Securi
     sudo systemctl restart vsftpd
     sudo systemctl status vsftpd
     ```
-
-    ==Realizar captura de pantalla==
-        ![img](./img_6/img-6-15.png){ .cien .margintop10 .marginbottom20}
+        ==Realizar captura de pantalla==
+            ![img](./img_6/img-6-15.png){ .cien .margintop10 .marginbottom20}
 
     !!! tip "Error típico con FileZilla"
         Si FileZilla muestra `522 SSL connection failed; session reuse required`, añade `require_ssl_reuse=NO` y reinicia vsftpd.
