@@ -654,8 +654,8 @@ Antes de configurar los servicios en la máquina, debemos configurar el **Securi
     ![img](./img_6/img-6-13.png){ .cien .margintop10 .marginbottom20}
 
 - Configuración mínima de `VSFTPD`
-    !!! warning "Importante:"
-        1. Después de cada cambio en `/etc/vsftpd.conf` hay que reiniciar el servicio con `sudo systemctl restart vsftpd`.
+  !!! warning "Importante:"
+      1. Después de cada cambio en `/etc/vsftpd.conf` hay que reiniciar el servicio con `sudo systemctl restart vsftpd`.
 
     !!! tip "Editar el archivo `/etc/vsftpd.conf` e introducir la siguiente configuración"
             ```ini
@@ -681,7 +681,7 @@ Antes de configurar los servicios en la máquina, debemos configurar el **Securi
             vsftpd_log_file=/var/log/vsftpd.log
             ```
 
-Para activar **FTPS explícito** hay que generar un certificado y añadir estas directivas:
+- Activar **FTPS explícito** hay que generar un certificado y añadir estas directivas:
 
 ```bash
 sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
