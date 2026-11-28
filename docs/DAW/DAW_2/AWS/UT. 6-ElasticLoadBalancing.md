@@ -193,7 +193,6 @@ Una vez creada la infraestructura (VPC + subred + EC2 + IGW) iniciaremos las int
 - Como es habitual, también tendremos que configurar las rutas en las tablas de enrutamiento de las VPCs.
   ![img](../AWS/ut6/TGW15.png){ .marco .cien .margintop10 .marginbottom20  }
 
-
 !!! warning "Entrega de la tarea"
     - **Realizar capturas de pantalla de los momentos clave de la realización de la tarea**.
     - Comentar las captura de pantalla explicando el trabajo realizado para llegar a ese punto y el resultado obtenido.
