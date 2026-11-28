@@ -334,7 +334,7 @@ A diferencia de las otras prácticas donde solo lanzabamos las instancias sin ha
 
     - **Mapeo de red.**
         1. VPC: VPC-ELB
-        1. Seleccionamos SubRed-ELB-AZ-a y SubRed-ELB-AZ-c  
+        1. Seleccionamos SubRed-ELB-AZ-a y SubRed-ELB-AZ-c es decir, las subredes donde se encuentran nuestras instancias.  
       ![img](../AWS/ut6/elb5.png){ .cien .marco .margintop10 }
 
 !!! tip "2. Grupos de seguridad"
