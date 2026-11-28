@@ -322,6 +322,9 @@ A diferencia de las otras prácticas donde solo lanzabamos las instancias sin ha
 
 !!! tip "1. Desde EC2 accedemos a `Balanceadores de carga`"
     ![img](../AWS/ut6/elb3.png){ .cien .marco .margintop10 .marginbottom20 }
+  
+    - Seleccionamos **Balanceador de carga de aplicaciones**  
+    ![img](../AWS/ut6/elb20.png){ .cien .marco .margintop10 .marginbottom20 }
 
     - **Configuramos los parámetros principales:**
         1. Nombre LB-Instancias
